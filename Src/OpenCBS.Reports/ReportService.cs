@@ -84,13 +84,15 @@ namespace OpenCBS.Reports
             string dirStandard = Path.Combine(dir, "Standard");
             string dirInternal = Path.Combine(dir, "Internal");
             string dirConsolidated = Path.Combine(dir, "Consolidated");
-            
+            string dirMain = GetReportsDir();
+
             if (!Directory.Exists(dirConsolidated))
                 Directory.CreateDirectory(dirConsolidated);
 
             LoadFromDir(dirStandard, Flag.Standard);
             LoadFromDir(dirInternal, Flag.Internal);
             LoadFromDir(dirConsolidated, Flag.Consolidated);
+            LoadFromDir(dirMain,Flag.Main);
         }
 
         public ReportList GetReports(string tag, OReportSortOrder sortOrder)
@@ -129,6 +131,19 @@ namespace OpenCBS.Reports
                         result.Add(tag);
 
             return result.ToArray();
+        }
+
+        public ReportList GetReportsByFlag(Flag param)
+        {
+            ReportList re = new ReportList();
+            foreach (Report report in Reports)
+            {
+                if (report.HasFlag(param))
+                {
+                    re.Add(report);
+                }
+            }
+            return re;
         }
 
         public ReportList GetInternalReports(AttachmentPoint point, Visibility visibility)
