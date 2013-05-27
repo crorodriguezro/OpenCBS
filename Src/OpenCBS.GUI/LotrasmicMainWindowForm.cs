@@ -1178,7 +1178,6 @@ namespace OpenCBS.GUI
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     show = true;
-                    reportsToolStripMenuItem.Enabled = false;
                 }
                 if (show)
                 {
