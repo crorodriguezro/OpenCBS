@@ -66,7 +66,8 @@ namespace OpenCBS.GUI
         private bool _showTellerFormOnClose = true;
         private bool _triggerAlertsUpdate;
         private DashboardForm pFCF; // it`s pointer for have access to FastChoiceForm component 
-      
+        private LoadingReport ld;
+
         public LotrasmicMainWindowForm()
         {
             InitializeComponent();
@@ -1178,6 +1179,8 @@ namespace OpenCBS.GUI
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     show = true;
+                    ld = new LoadingReport();
+                    ld.Show();
                 }
                 if (show)
                 {
@@ -1212,10 +1215,12 @@ namespace OpenCBS.GUI
 
             try
             {
+                ld.Close();
                 report.OpenCount++;
                 report.SaveOpenCount();
                 ReportViewerForm frm = new ReportViewerForm(report);
                 frm.Show();
+                
             }
             catch (Exception ex)
             {
