@@ -663,6 +663,17 @@
     <Compile Include="MultiLanguageForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Report Browser\LoadingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report Browser\LoadingReport.Designer.cs">
+      <DependentUpon>LoadingReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report Browser\ReportBrowserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -897,11 +908,6 @@
     </Compile>
     <Compile Include="Clients\ClientForm.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Search\SearchClientForm.cs">
       <SubType>Form</SubType>
@@ -2303,6 +2309,9 @@
     <EmbeddedResource Include="Products\FrmAvalaibleLoanProducts.ru-RU.resx">
       <DependentUpon>FrmAvalaibleLoanProducts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report Browser\LoadingReport.resx">
+      <DependentUpon>LoadingReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report Browser\RepaymentCollectionSheetForm.es-ES.resx">
       <DependentUpon>RepaymentCollectionSheetForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -3154,6 +3163,7 @@
     <None Include="Resources\book.png" />
     <None Include="Resources\add.png" />
     <None Include="Resources\bullet_arrow_down.png" />
+    <None Include="Template\Reports\loading2.gif" />
     <Content Include="Resources\crystalreport.jpg" />
     <None Include="Resources\financial_information_bouton files_16x16.png" />
     <None Include="Resources\database_gear.png" />
@@ -3730,7 +3740,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>if $(ConfigurationName) == Debug $(SolutionDir)buildinfo.exe $(SolutionDir)SolutionInfo.Template.cs $(SolutionDir)SolutionInfo.cs 0 0</PreBuildEvent>
+    <PreBuildEvent>if $(ConfigurationName) == Debug "$(SolutionDir)buildinfo.exe" "$(SolutionDir)SolutionInfo.Template.cs" "$(SolutionDir)SolutionInfo.cs" 0 0</PreBuildEvent>
     <PostBuildEvent>if not exist  "$(TargetDir)Update" md  "$(TargetDir)Update"
 if not exist  "$(TargetDir)Reports" md  "$(TargetDir)Reports"
 if not exist  "$(TargetDir)Reports\Consolidated" md  "$(TargetDir)Reports\Consolidated"
