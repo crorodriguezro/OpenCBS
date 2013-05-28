@@ -143,7 +143,7 @@ namespace OpenCBS.GUI
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.mView = new System.Windows.Forms.ToolStripMenuItem();
             this.miAuditTrail = new System.Windows.Forms.ToolStripMenuItem();
-            this.miReports = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.toolBarLblVersion = new System.Windows.Forms.ToolStripLabel();
             this.mainStatusBar = new System.Windows.Forms.StatusStrip();
@@ -622,7 +622,8 @@ namespace OpenCBS.GUI
             this.mView,
             this.mnuDatamanagement,
             this.mnuWindow,
-            this.mnuHelp});
+            this.mnuHelp,
+            this.reportsToolStripMenuItem});
             resources.ApplyResources(this.mainMenu, "mainMenu");
             this.mainMenu.MdiWindowListItem = this.mnuWindow;
             this.mainMenu.Name = "mainMenu";
@@ -630,8 +631,7 @@ namespace OpenCBS.GUI
             // mView
             // 
             this.mView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miAuditTrail,
-            this.miReports});
+            this.miAuditTrail});
             this.mView.Name = "mView";
             resources.ApplyResources(this.mView, "mView");
             // 
@@ -641,11 +641,10 @@ namespace OpenCBS.GUI
             resources.ApplyResources(this.miAuditTrail, "miAuditTrail");
             this.miAuditTrail.Click += new System.EventHandler(this.eventsToolStripMenuItem_Click);
             // 
-            // miReports
+            // reportsToolStripMenuItem
             // 
-            this.miReports.Name = "miReports";
-            resources.ApplyResources(this.miReports, "miReports");
-            this.miReports.Click += new System.EventHandler(this.miReports_Click);
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            resources.ApplyResources(this.reportsToolStripMenuItem, "reportsToolStripMenuItem");
             // 
             // timer
             // 
@@ -993,7 +992,6 @@ namespace OpenCBS.GUI
         private OpenFileDialog openCustomizableFileDialog;
         private BindingSource alertBindingSource;
         private ToolStripMenuItem menuItemCollateralProducts;
-        private ToolStripMenuItem miReports;
         private ToolStripMenuItem trialBalanceToolStripMenuItem;
         private BrightIdeasSoftware.ObjectListView olvAlerts;
         private BrightIdeasSoftware.OLVColumn colAlerts_ContractCode;
@@ -1027,6 +1025,7 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem fiscalYearToolStripMenuItem;
         private ToolStripMenuItem tellersToolStripMenuItem;
         private ToolStripMenuItem aboutMenuItem;
+        private ToolStripMenuItem reportsToolStripMenuItem;
 
 
     }

@@ -48,6 +48,7 @@ using OpenCBS.GUI.Tools;
 using OpenCBS.GUI.Contracts;
 using OpenCBS.GUI.UserControl;
 using OpenCBS.Reports;
+using OpenCBS.Reports.Forms;
 using OpenCBS.Services;
 using OpenCBS.Shared;
 using OpenCBS.MultiLanguageRessources;
@@ -65,13 +66,15 @@ namespace OpenCBS.GUI
         private bool _showTellerFormOnClose = true;
         private bool _triggerAlertsUpdate;
         private DashboardForm pFCF; // it`s pointer for have access to FastChoiceForm component 
-      
+        private LoadingReport ld;
+
         public LotrasmicMainWindowForm()
         {
             InitializeComponent();
             _menuItems = new List<MenuObject>();
             _menuItems = Services.GetMenuItemServices().GetMenuList(OSecurityObjectTypes.MenuItem);
             LoadReports();
+            LoadReprotsToolStrip();
             InitializeTracer();
             DisplayWinFormDetails();
         }
@@ -877,6 +880,29 @@ namespace OpenCBS.GUI
             }
         }
 
+        private void LoadReprotsToolStrip()
+        {
+            ToolStripMenuItem i;
+            List<Report> re = new List<Report>(ReportService.GetInstance().GetReportsByFlag(Flag.Main));
+            foreach (Report report in re)
+            {
+                i = new ToolStripMenuItem(report.Title);
+                i.Tag = report.Name;
+                i.Click += new System.EventHandler(this.activeLoansToolStripMenuItem_Click);
+                reportsToolStripMenuItem.DropDownItems.Add(i);
+            }
+            i = new ToolStripMenuItem("Standart");
+            reportsToolStripMenuItem.DropDownItems.Add(i);
+            re = new List<Report>(ReportService.GetInstance().GetReportsByFlag(Flag.Standard));
+            foreach (Report report in re)
+            {
+                ToolStripMenuItem jItem = new ToolStripMenuItem(report.Title);
+                jItem.Tag = report.Name;
+                jItem.Click += new System.EventHandler(this.activeLoansToolStripMenuItem_Click);
+                i.DropDownItems.Add(jItem);
+            }
+        }
+
         private void LogUser()
         {
             ServicesProvider.GetInstance().GetEventProcessorServices().LogUser(OUserEvents.UserLogInEvent,
@@ -957,6 +983,7 @@ namespace OpenCBS.GUI
 
         private void LoadExtensions(object sender, DoWorkEventArgs e)
         {
+            
             foreach (IExtension ext in Extension.Instance.Extensions)
             {
                 AddExtensionToMenu(ext);
@@ -1138,6 +1165,85 @@ namespace OpenCBS.GUI
         {
             TellersForm frm = new TellersForm() {MdiParent = this};
             frm.Show();
+        }
+
+        private void activeLoansToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string str = (sender as ToolStripMenuItem).Tag.ToString();
+                Report re = ReportService.GetInstance().GetReportByName(str);
+                ReportParamsForm frm = new ReportParamsForm(re.Params, re.Title);
+
+                bool show = false;
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    show = true;
+                    ld = new LoadingReport();
+                    ld.Show();
+                }
+                if (show)
+                {
+                    BackgroundWorker bw = new BackgroundWorker()
+                        {
+                            WorkerReportsProgress = true,
+                            WorkerSupportsCancellation = true,
+                        };
+                    bw.DoWork += bw_DoWork;
+                    bw.RunWorkerCompleted += bw_RunWorkerCompleted;
+                    bw.RunWorkerAsync(re);
+                    //reportsToolStripMenuItem.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+            
+        }
+
+        void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                return;
+            }
+            if (e.Cancelled) return;
+
+            Report report = e.Result as Report;
+            Debug.Assert(report != null, "Report is null");
+
+            try
+            {
+                ld.Close();
+                report.OpenCount++;
+                report.SaveOpenCount();
+                ReportViewerForm frm = new ReportViewerForm(report);
+                frm.Show();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+
+        void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker bw = sender as BackgroundWorker;
+            Report report = e.Argument as Report;
+            Debug.Assert(report != null, "Report is null");
+            ReportService.GetInstance().LoadReport(report);
+
+            if (bw != null)
+                bw.ReportProgress(100);
+            e.Result = report;
+            
+        }
+
+        internal class ReportWorker : BackgroundWorker
+        {
+            public Report Report { get; set; }
         }
     }
 }

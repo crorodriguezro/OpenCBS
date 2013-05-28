@@ -98,13 +98,14 @@ namespace OpenCBS.Reports
         None = 0,
         Standard = 1,
         Internal = 2,
-        Consolidated = 4
+        Consolidated = 4,
+        Main
     }
 
     [Serializable]
     public class Report
     {
-        private readonly string _fileName;
+        public readonly string _fileName;
         private string _title;
         private string _description;
         private bool _isLoaded;
@@ -218,7 +219,7 @@ namespace OpenCBS.Reports
             }
             LoadOpenCount();
             _isLoaded = true;
-        }        
+        }
 
         private Stream GetMetaStream()
         {
