@@ -132,17 +132,13 @@ namespace OpenCBS.Reports
             return result.ToArray();
         }
 
-        public ReportList GetReportsByTag(string param, bool exist)
+        public ReportList GetReportsByTag(string _tag, bool exist)
         {
             ReportList re = new ReportList();
             foreach (Report report in Reports)
             {
-                bool tagExist = report.Tags.Contains(param);
-                if (tagExist && exist)
-                {
-                    re.Add(report);
-                }
-                else if (!tagExist && !exist)
+                bool tagExist = report.Tags.Contains(_tag);
+                if (tagExist == exist)
                 {
                     re.Add(report);
                 }

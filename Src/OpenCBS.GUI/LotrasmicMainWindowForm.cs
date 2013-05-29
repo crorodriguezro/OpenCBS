@@ -456,12 +456,6 @@ namespace OpenCBS.GUI
             InitializeDomainOfApplicationForm();
         }
 
-        private void InitReportBrowser()
-        {
-            ReportBrowserForm frm = new ReportBrowserForm {MdiParent = this};
-            frm.Show();
-        }
-
         private void menuItemExportTransaction_Click(object sender, EventArgs e)
         {
             Form exportTransactions = new ExportBookingsForm { MdiParent = this };
@@ -883,21 +877,27 @@ namespace OpenCBS.GUI
         private void LoadReprotsToolStrip()
         {
             ToolStripMenuItem i;
+            IComparer<Report> comparer = new ReportAbcComparer();
             List<Report> re = new List<Report>(ReportService.GetInstance().GetReportsByTag("Main",true));
+            re.Sort(comparer);
             foreach (Report report in re)
             {
                 i = new ToolStripMenuItem(report.Title) {Tag = report.Name};
                 i.Click += new System.EventHandler(this.activeLoansToolStripMenuItem_Click);
                 reportsToolStripMenuItem.DropDownItems.Add(i);
             }
+
             i = reportsToolStripMenuItem.DropDownItems[0] as ToolStripMenuItem;
+            reportsToolStripMenuItem.DropDownItems.RemoveAt(0);
             re = new List<Report>(ReportService.GetInstance().GetReportsByTag("Main",false));
+            re.Sort(comparer);
             foreach (Report report in re)
             {
                 ToolStripMenuItem jItem = new ToolStripMenuItem(report.Title) {Tag = report.Name};
                 jItem.Click += new System.EventHandler(this.activeLoansToolStripMenuItem_Click);
                 i.DropDownItems.Add(jItem);
             }
+            reportsToolStripMenuItem.DropDownItems.Add(i);
         }
 
         private void LogUser()
@@ -1072,11 +1072,6 @@ namespace OpenCBS.GUI
         private void menuItemCollateralProducts_Click(object sender, EventArgs e)
         {
             InitializeCollateralProductsForm();
-        }
-
-        private void miReports_Click(object sender, EventArgs e)
-        {
-            InitReportBrowser();
         }
 
         private void trialBalanceToolStripMenuItem_Click(object sender, EventArgs e)

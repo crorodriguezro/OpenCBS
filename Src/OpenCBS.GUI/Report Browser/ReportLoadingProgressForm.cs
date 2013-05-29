@@ -23,11 +23,6 @@ namespace OpenCBS.GUI.Report_Browser
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progressBar1.PerformStep();
-            if(progressBar1.Value >= progressBar1.Maximum)
-            {
-                progressBar1.Value = progressBar1.Minimum;
-            }
             label1.Text = (DateTime.Now - _dt).Seconds.ToString() + " s.";
         }
 
