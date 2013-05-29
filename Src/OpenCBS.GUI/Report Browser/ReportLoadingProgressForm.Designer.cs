@@ -36,13 +36,12 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(164, 40);
+            this.label1.Location = new System.Drawing.Point(191, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 17);
             this.label1.TabIndex = 1;
@@ -50,9 +49,12 @@
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(12, 12);
+            this.progressBar1.MarqueeAnimationSpeed = 90;
             this.progressBar1.Minimum = 1;
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(368, 23);
+            this.progressBar1.Step = 1;
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 2;
             this.progressBar1.Value = 1;
             // 
@@ -65,7 +67,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ReportLoadingProgressForm";
-            this.Opacity = 0.66D;
+            this.Opacity = 0.98D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loading Report...";
             this.TopMost = true;

@@ -677,12 +677,6 @@
     <Compile Include="Report Browser\ReportLoadingProgressForm.Designer.cs">
       <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report Browser\ReportBrowserForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Report Browser\ReportBrowserForm.Designer.cs">
-      <DependentUpon>ReportBrowserForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Search\CFSearchClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2560,15 +2554,6 @@
       <DependentUpon>RepaymentCollectionSheetForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report Browser\ReportBrowserForm.fr.resx">
-      <DependentUpon>ReportBrowserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report Browser\ReportBrowserForm.resx">
-      <DependentUpon>ReportBrowserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report Browser\ReportBrowserForm.ru-RU.resx">
-      <DependentUpon>ReportBrowserForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Search\SearchClientForm.es-ES.resx">
       <DependentUpon>SearchClientForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -3796,7 +3781,7 @@ xcopy "$(ProjectDir)..\..\Lib\*.dll" "C:\OpenCbsLibs" /s /y</PostBuildEvent>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties GreenPepperConfigSutName="" GreenPepperConfigProjectName="" GreenPepperConfigRepositories="" GreenPepperConfigRunnerArgs="" GreenPepperCustomSud="" GreenPepperCustomSudArgs="" GreenPepperConfigRunnerProgram="" />
+      <UserProperties GreenPepperConfigRunnerProgram="" GreenPepperCustomSudArgs="" GreenPepperCustomSud="" GreenPepperConfigRunnerArgs="" GreenPepperConfigRepositories="" GreenPepperConfigProjectName="" GreenPepperConfigSutName="" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
