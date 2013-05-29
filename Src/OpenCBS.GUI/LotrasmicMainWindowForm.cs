@@ -1163,79 +1163,46 @@ namespace OpenCBS.GUI
         {
             try
             {
-                string str = (sender as ToolStripMenuItem).Tag.ToString();
-                Report re = ReportService.GetInstance().GetReportByName(str);
-                ReportParamsForm frm = new ReportParamsForm(re.Params, re.Title);
+                var reportName = (sender as ToolStripMenuItem).Tag.ToString();
+                var report = ReportService.GetInstance().GetReportByName(reportName);
+                var reportParamsForm = new ReportParamsForm(report.Params, report.Title);
 
-                bool show = false;
-                if (frm.ShowDialog() == DialogResult.OK)
+                if (reportParamsForm.ShowDialog() != DialogResult.OK) return;
+
+                var progressForm = new ReportLoadingProgressForm();
+                progressForm.Show();
+
+                var bw = new BackgroundWorker
                 {
-                    show = true;
-                    _reportLdProgressForm = new ReportLoadingProgressForm();
-                    _reportLdProgressForm.Show();
-                }
-                if (show)
+                    WorkerReportsProgress = true,
+                    WorkerSupportsCancellation = true,
+                };
+                bw.DoWork += (obj, args) =>
                 {
-                    BackgroundWorker bw = new BackgroundWorker()
-                        {
-                            WorkerReportsProgress = true,
-                            WorkerSupportsCancellation = true,
-                        };
-                    bw.DoWork += bw_DoWork;
-                    bw.RunWorkerCompleted += bw_RunWorkerCompleted;
-                    bw.RunWorkerAsync(re);
-                    //reportsToolStripMenuItem.Enabled = true;
-                }
+                    ReportService.GetInstance().LoadReport(report);
+                    bw.ReportProgress(100);
+                };
+                bw.RunWorkerCompleted += (obj, args) =>
+                {
+                    progressForm.Close();
+                    if (args.Error != null)
+                    {
+                        Fail(args.Error.Message);
+                        return;
+                    }
+                    if (args.Cancelled) return;
+
+                    report.OpenCount++;
+                    report.SaveOpenCount();
+                    var reportViewer = new ReportViewerForm(report);
+                    reportViewer.Show();
+                };
+                bw.RunWorkerAsync(report);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                Fail(ex.Message);
             }
-            
-        }
-
-        void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (e.Error != null)
-            {
-                return;
-            }
-            if (e.Cancelled) return;
-
-            Report report = e.Result as Report;
-            Debug.Assert(report != null, "Report is null");
-
-            try
-            {
-                _reportLdProgressForm.Close();
-                report.OpenCount++;
-                report.SaveOpenCount();
-                ReportViewerForm frm = new ReportViewerForm(report);
-                frm.Show();
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error");
-            }
-        }
-
-        void bw_DoWork(object sender, DoWorkEventArgs e)
-        {
-            BackgroundWorker bw = sender as BackgroundWorker;
-            Report report = e.Argument as Report;
-            Debug.Assert(report != null, "Report is null");
-            ReportService.GetInstance().LoadReport(report);
-
-            if (bw != null)
-                bw.ReportProgress(100);
-            e.Result = report;
-            
-        }
-
-        internal class ReportWorker : BackgroundWorker
-        {
-            public Report Report { get; set; }
         }
     }
 }
