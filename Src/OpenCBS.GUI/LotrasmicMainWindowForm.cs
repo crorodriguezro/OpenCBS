@@ -66,7 +66,7 @@ namespace OpenCBS.GUI
         private bool _showTellerFormOnClose = true;
         private bool _triggerAlertsUpdate;
         private DashboardForm pFCF; // it`s pointer for have access to FastChoiceForm component 
-        private LoadingReport ld;
+        private ReportLoadingProgressForm _reportLdProgressForm;
 
         public LotrasmicMainWindowForm()
         {
@@ -883,21 +883,18 @@ namespace OpenCBS.GUI
         private void LoadReprotsToolStrip()
         {
             ToolStripMenuItem i;
-            List<Report> re = new List<Report>(ReportService.GetInstance().GetReportsByFlag(Flag.Main));
+            List<Report> re = new List<Report>(ReportService.GetInstance().GetReportsByTag("Main",true));
             foreach (Report report in re)
             {
-                i = new ToolStripMenuItem(report.Title);
-                i.Tag = report.Name;
+                i = new ToolStripMenuItem(report.Title) {Tag = report.Name};
                 i.Click += new System.EventHandler(this.activeLoansToolStripMenuItem_Click);
                 reportsToolStripMenuItem.DropDownItems.Add(i);
             }
-            i = new ToolStripMenuItem("Standart");
-            reportsToolStripMenuItem.DropDownItems.Add(i);
-            re = new List<Report>(ReportService.GetInstance().GetReportsByFlag(Flag.Standard));
+            i = reportsToolStripMenuItem.DropDownItems[0] as ToolStripMenuItem;
+            re = new List<Report>(ReportService.GetInstance().GetReportsByTag("Main",false));
             foreach (Report report in re)
             {
-                ToolStripMenuItem jItem = new ToolStripMenuItem(report.Title);
-                jItem.Tag = report.Name;
+                ToolStripMenuItem jItem = new ToolStripMenuItem(report.Title) {Tag = report.Name};
                 jItem.Click += new System.EventHandler(this.activeLoansToolStripMenuItem_Click);
                 i.DropDownItems.Add(jItem);
             }
@@ -1179,8 +1176,8 @@ namespace OpenCBS.GUI
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     show = true;
-                    ld = new LoadingReport();
-                    ld.Show();
+                    _reportLdProgressForm = new ReportLoadingProgressForm();
+                    _reportLdProgressForm.Show();
                 }
                 if (show)
                 {
@@ -1215,7 +1212,7 @@ namespace OpenCBS.GUI
 
             try
             {
-                ld.Close();
+                _reportLdProgressForm.Close();
                 report.OpenCount++;
                 report.SaveOpenCount();
                 ReportViewerForm frm = new ReportViewerForm(report);

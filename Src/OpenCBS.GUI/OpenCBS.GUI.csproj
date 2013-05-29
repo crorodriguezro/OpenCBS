@@ -668,11 +668,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Report Browser\LoadingReport.cs">
+    <Compile Include="Report Browser\ReportLoadingProgressForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report Browser\LoadingReport.Designer.cs">
-      <DependentUpon>LoadingReport.cs</DependentUpon>
+    <Compile Include="Report Browser\ReportLoadingProgressForm.Designer.cs">
+      <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Report Browser\ReportBrowserForm.cs">
       <SubType>Form</SubType>
@@ -2248,6 +2248,12 @@
     <EmbeddedResource Include="Login\FrmLogin.pt.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LotrasmicMainWindowForm.fr-FR.resx">
+      <DependentUpon>LotrasmicMainWindowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LotrasmicMainWindowForm.pt-PT.resx">
+      <DependentUpon>LotrasmicMainWindowForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LotrasmicMainWindowForm.pt.resx">
       <DependentUpon>LotrasmicMainWindowForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -2309,8 +2315,8 @@
     <EmbeddedResource Include="Products\FrmAvalaibleLoanProducts.ru-RU.resx">
       <DependentUpon>FrmAvalaibleLoanProducts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report Browser\LoadingReport.resx">
-      <DependentUpon>LoadingReport.cs</DependentUpon>
+    <EmbeddedResource Include="Report Browser\ReportLoadingProgressForm.resx">
+      <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report Browser\RepaymentCollectionSheetForm.es-ES.resx">
       <DependentUpon>RepaymentCollectionSheetForm.cs</DependentUpon>

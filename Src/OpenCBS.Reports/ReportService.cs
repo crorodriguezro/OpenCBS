@@ -92,7 +92,6 @@ namespace OpenCBS.Reports
             LoadFromDir(dirStandard, Flag.Standard);
             LoadFromDir(dirInternal, Flag.Internal);
             LoadFromDir(dirConsolidated, Flag.Consolidated);
-            LoadFromDir(dirMain,Flag.Main);
         }
 
         public ReportList GetReports(string tag, OReportSortOrder sortOrder)
@@ -133,12 +132,17 @@ namespace OpenCBS.Reports
             return result.ToArray();
         }
 
-        public ReportList GetReportsByFlag(Flag param)
+        public ReportList GetReportsByTag(string param, bool exist)
         {
             ReportList re = new ReportList();
             foreach (Report report in Reports)
             {
-                if (report.HasFlag(param))
+                bool tagExist = report.Tags.Contains(param);
+                if (tagExist && exist)
+                {
+                    re.Add(report);
+                }
+                else if (!tagExist && !exist)
                 {
                     re.Add(report);
                 }
