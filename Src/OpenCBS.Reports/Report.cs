@@ -193,16 +193,6 @@ namespace OpenCBS.Reports
 
 
             List<string> tags = new List<string> {Resource.TagAll, Resource.TagStar};
-            /*Active loans
-            Accrued interest
-            Client information
-            Closed contracts
-            Collection sheet
-            Delinquent loans
-            Disbursements
-            OLB and LLP per loan
-            PAR Analysis
-            Repayments*/
             XmlNode tagsNode = _lang == "en-US"
                                       ? root.SelectSingleNode("tags")
                                       : root.SelectSingleNode(string.Format("localized[@lang='{0}']/tags", _lang));

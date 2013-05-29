@@ -2309,6 +2309,18 @@
     <EmbeddedResource Include="Products\FrmAvalaibleLoanProducts.ru-RU.resx">
       <DependentUpon>FrmAvalaibleLoanProducts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report Browser\ReportLoadingProgressForm.es-ES.resx">
+      <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Browser\ReportLoadingProgressForm.fr.resx">
+      <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Browser\ReportLoadingProgressForm.pt-PT.resx">
+      <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Browser\ReportLoadingProgressForm.pt.resx">
+      <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report Browser\ReportLoadingProgressForm.resx">
       <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -2551,6 +2563,9 @@
     <EmbeddedResource Include="Report Browser\RepaymentCollectionSheetForm.ru-RU.resx">
       <DependentUpon>RepaymentCollectionSheetForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Browser\ReportLoadingProgressForm.ru-RU.resx">
+      <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Search\SearchClientForm.es-ES.resx">
       <DependentUpon>SearchClientForm.cs</DependentUpon>
@@ -3770,7 +3785,7 @@ xcopy "$(TargetDir)OpenCBS.*.dll" "C:\OpenCbsLibs" /s /y</PostBuildEvent>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties GreenPepperConfigSutName="" GreenPepperConfigProjectName="" GreenPepperConfigRepositories="" GreenPepperConfigRunnerArgs="" GreenPepperCustomSud="" GreenPepperCustomSudArgs="" GreenPepperConfigRunnerProgram="" />
+      <UserProperties GreenPepperConfigRunnerProgram="" GreenPepperCustomSudArgs="" GreenPepperCustomSud="" GreenPepperConfigRunnerArgs="" GreenPepperConfigRepositories="" GreenPepperConfigProjectName="" GreenPepperConfigSutName="" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
