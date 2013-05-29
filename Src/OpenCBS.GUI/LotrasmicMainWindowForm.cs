@@ -878,7 +878,7 @@ namespace OpenCBS.GUI
         {
             ToolStripMenuItem i;
             IComparer<Report> comparer = new ReportAbcComparer();
-            List<Report> re = new List<Report>(ReportService.GetInstance().GetReportsByTag("Main",true));
+            List<Report> re = new List<Report>(ReportService.GetInstance().GetReportsByTag("Main",true,Flag.Standard));
             re.Sort(comparer);
             foreach (Report report in re)
             {
@@ -889,7 +889,7 @@ namespace OpenCBS.GUI
 
             i = reportsToolStripMenuItem.DropDownItems[0] as ToolStripMenuItem;
             reportsToolStripMenuItem.DropDownItems.RemoveAt(0);
-            re = new List<Report>(ReportService.GetInstance().GetReportsByTag("Main",false));
+            re = new List<Report>(ReportService.GetInstance().GetReportsByTag("Main", false, Flag.Standard));
             re.Sort(comparer);
             foreach (Report report in re)
             {
