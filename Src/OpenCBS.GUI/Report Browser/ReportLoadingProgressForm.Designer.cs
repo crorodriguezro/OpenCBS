@@ -1,6 +1,6 @@
 ﻿namespace OpenCBS.GUI.Report_Browser
 {
-    partial class LoadingReport
+    partial class ReportLoadingProgressForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // timer1
             // 
+            this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label1
@@ -47,35 +47,32 @@
             this.label1.Size = new System.Drawing.Size(0, 17);
             this.label1.TabIndex = 1;
             // 
-            // pictureBox1
+            // progressBar1
             // 
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Image = global::OpenCBS.GUI.Properties.Resources.loading2;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(88, 17);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 20);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.progressBar1.Location = new System.Drawing.Point(12, 12);
+            this.progressBar1.Minimum = 1;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(368, 23);
+            this.progressBar1.TabIndex = 2;
+            this.progressBar1.Value = 1;
             // 
-            // LoadingReport
+            // ReportLoadingProgressForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 65);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "LoadingReport";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "ReportLoadingProgressForm";
             this.Opacity = 0.66D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LoadingReport";
+            this.Text = "Loading Report...";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.LoadingReport_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoadingReport_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoadingReport_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LoadingReport_MouseUp);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -83,8 +80,8 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

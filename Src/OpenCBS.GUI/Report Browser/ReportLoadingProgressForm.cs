@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace OpenCBS.GUI.Report_Browser
 {
-    public partial class LoadingReport : Form
+    public partial class ReportLoadingProgressForm : Form
     {
         private DateTime _dt;
         private int gx, gy;
-        private bool move = false; 
+        private bool move; 
 
-        public LoadingReport()
+        public ReportLoadingProgressForm()
         {
             InitializeComponent();
         }
@@ -24,13 +19,15 @@ namespace OpenCBS.GUI.Report_Browser
         {
             _dt = DateTime.Now;
             timer1.Enabled = true;
-            Color cl = this.BackColor;
-            pictureBox1.BackColor = cl;
-            label1.BackColor = cl;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            progressBar1.PerformStep();
+            if(progressBar1.Value >= progressBar1.Maximum)
+            {
+                progressBar1.Value = progressBar1.Minimum;
+            }
             label1.Text = (DateTime.Now - _dt).Seconds.ToString() + " s.";
         }
 
