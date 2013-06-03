@@ -382,40 +382,36 @@ namespace OpenCBS.GUI
             // activeLoansLink
             // 
             this.activeLoansLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.activeLoansLink, "activeLoansLink");
             this.activeLoansLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
+            resources.ApplyResources(this.activeLoansLink, "activeLoansLink");
             this.activeLoansLink.Name = "activeLoansLink";
-            this.activeLoansLink.TabStop = true;
             this.activeLoansLink.Tag = "Active_Loans.zip";
             this.activeLoansLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnReportsClick);
             // 
             // parAnalysisLink
             // 
             this.parAnalysisLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.parAnalysisLink, "parAnalysisLink");
             this.parAnalysisLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
+            resources.ApplyResources(this.parAnalysisLink, "parAnalysisLink");
             this.parAnalysisLink.Name = "parAnalysisLink";
-            this.parAnalysisLink.TabStop = true;
             this.parAnalysisLink.Tag = "PAR_Analysis.zip";
             this.parAnalysisLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnReportsClick);
             // 
             // delinquentLoansLink
             // 
             this.delinquentLoansLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.delinquentLoansLink, "delinquentLoansLink");
             this.delinquentLoansLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
+            resources.ApplyResources(this.delinquentLoansLink, "delinquentLoansLink");
             this.delinquentLoansLink.Name = "delinquentLoansLink";
-            this.delinquentLoansLink.TabStop = true;
             this.delinquentLoansLink.Tag = "Delinquent_Loans.zip";
             this.delinquentLoansLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnReportsClick);
             // 
             // disbursementsLink
             // 
             this.disbursementsLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.disbursementsLink, "disbursementsLink");
             this.disbursementsLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
+            resources.ApplyResources(this.disbursementsLink, "disbursementsLink");
             this.disbursementsLink.Name = "disbursementsLink";
-            this.disbursementsLink.TabStop = true;
             this.disbursementsLink.Tag = "Disbursments.zip";
             this.disbursementsLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnReportsClick);
             // 

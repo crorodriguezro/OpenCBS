@@ -3170,7 +3170,6 @@
     <None Include="Resources\book.png" />
     <None Include="Resources\add.png" />
     <None Include="Resources\bullet_arrow_down.png" />
-    <None Include="Template\Reports\loading2.gif" />
     <Content Include="Resources\crystalreport.jpg" />
     <None Include="Resources\financial_information_bouton files_16x16.png" />
     <None Include="Resources\database_gear.png" />
@@ -3211,36 +3210,6 @@
     <Content Include="Template\cover.js" />
     <Content Include="Template\package.png" />
     <Content Include="Template\package_delete.png" />
-    <Content Include="Template\Reports\loading.gif">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Template\Reports\page.fr.tpl.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Template\Reports\page.ru.tpl.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Template\Reports\page.tpl.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Template\Reports\pageForDownload.tpl.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Template\Reports\report.tpl.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Template\Reports\star_off.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Template\Reports\star_on.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Template\Reports\style.css">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Template\Reports\tag.tpl.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="UserControl\CollapsibleSplitter.bmp" />
     <EmbeddedResource Include="UserControl\AddressUserControl.es-ES.resx">
       <DependentUpon>AddressUserControl.cs</DependentUpon>
@@ -3786,7 +3755,7 @@ xcopy "$(TargetDir)OpenCBS.*.pdb" "C:\OpenCbsLibs" /s /y</PostBuildEvent>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties GreenPepperConfigSutName="" GreenPepperConfigProjectName="" GreenPepperConfigRepositories="" GreenPepperConfigRunnerArgs="" GreenPepperCustomSud="" GreenPepperCustomSudArgs="" GreenPepperConfigRunnerProgram="" />
+      <UserProperties GreenPepperConfigRunnerProgram="" GreenPepperCustomSudArgs="" GreenPepperCustomSud="" GreenPepperConfigRunnerArgs="" GreenPepperConfigRepositories="" GreenPepperConfigProjectName="" GreenPepperConfigSutName="" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
