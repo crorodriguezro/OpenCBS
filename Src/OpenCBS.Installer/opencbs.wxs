@@ -4,7 +4,7 @@
 
   <?define PreviousVersion="13.5.0" ?>
   <?define ProductVersion="13.6.0.0" ?>
-  <?define ProductVersionReduced="13.5" ?>
+  <?define ProductVersionReduced="13.6" ?>
   <?define UpgradeCode="be584361-0c04-42c9-8ea8-457cdea8b89e"?>
   <?define ProductCode="ef70be13-bfcf-488a-9a7d-8ef8b69a76ae"?>
 
