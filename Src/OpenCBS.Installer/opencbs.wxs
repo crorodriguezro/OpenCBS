@@ -92,20 +92,6 @@
               </RegistryKey>
             </Component>
             <Directory Id="DIR_TEMPLATE" Name="Template">
-              <Directory Id="TemplateReport" Name="Reports">
-                <Component Id="TemplateReport" Guid="A983FDBB-6C60-5B96-3436-A85638338092">
-                  <File Id="page.tpl.html" Source="SourceDir\Template\Reports\page.tpl.html" />
-                  <File Id="page.ru.tpl.html" Source="SourceDir\Template\Reports\page.ru.tpl.html" />
-                  <File Id="page.fr.tpl.html" Source="SourceDir\Template\Reports\page.fr.tpl.html" />
-                  <File Id="pageForDownload.tpl.html" Source="SourceDir\Template\Reports\pageForDownload.tpl.html" />
-                  <File Id="report.tpl.html" Source="SourceDir\Template\Reports\report.tpl.html" />
-				  <File Id="tag.tpl.html" Source="SourceDir\Template\Reports\tag.tpl.html" />
-                  <File Id="style.css" Source="SourceDir\Template\Reports\style.css" />
-                  <File Id="loading.gif" Source="SourceDir\Template\Reports\loading.gif" />
-                  <File Id="star_on.png" Source="SourceDir\Template\Reports\star_on.png" />
-                  <File Id="star_off.png" Source="SourceDir\Template\Reports\star_off.png" />
-                </Component>
-              </Directory>
               <Component Id="template" Guid="A983FDBB-6C60-5B96-3436-A85638338091">
                 <File Id="package_delete.png" Source="SourceDir\Template\package_delete.png" />
                 <File Id="cover.js" Source="SourceDir\Template\cover.js" />

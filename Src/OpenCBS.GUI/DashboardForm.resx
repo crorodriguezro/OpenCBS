@@ -1137,38 +1137,89 @@
   <data name="&gt;&gt;auditTrailLabel.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="reportsLink.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="reportsLink.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="reportsLink.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="activeLoansLink.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 330</value>
   </data>
-  <data name="reportsLink.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 0, 3, 3</value>
+  <data name="activeLoansLink.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 23</value>
   </data>
-  <data name="reportsLink.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 16</value>
-  </data>
-  <data name="reportsLink.TabIndex" type="System.Int32, mscorlib">
+  <data name="activeLoansLink.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
-  <data name="reportsLink.Text" xml:space="preserve">
-    <value>Reports</value>
+  <data name="&gt;&gt;activeLoansLink.Name" xml:space="preserve">
+    <value>activeLoansLink</value>
   </data>
-  <data name="&gt;&gt;reportsLink.Name" xml:space="preserve">
-    <value>reportsLink</value>
-  </data>
-  <data name="&gt;&gt;reportsLink.Type" xml:space="preserve">
+  <data name="&gt;&gt;activeLoansLink.Type" xml:space="preserve">
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;reportsLink.Parent" xml:space="preserve">
+  <data name="&gt;&gt;activeLoansLink.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
   </data>
-  <data name="&gt;&gt;reportsLink.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;activeLoansLink.ZOrder" xml:space="preserve">
     <value>15</value>
+  </data>
+  <data name="parAnalysisLink.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 353</value>
+  </data>
+  <data name="parAnalysisLink.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 23</value>
+  </data>
+  <data name="parAnalysisLink.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;parAnalysisLink.Name" xml:space="preserve">
+    <value>parAnalysisLink</value>
+  </data>
+  <data name="&gt;&gt;parAnalysisLink.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;parAnalysisLink.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;parAnalysisLink.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="delinquentLoansLink.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 376</value>
+  </data>
+  <data name="delinquentLoansLink.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 23</value>
+  </data>
+  <data name="delinquentLoansLink.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;delinquentLoansLink.Name" xml:space="preserve">
+    <value>delinquentLoansLink</value>
+  </data>
+  <data name="&gt;&gt;delinquentLoansLink.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;delinquentLoansLink.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;delinquentLoansLink.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="disbursementsLink.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 399</value>
+  </data>
+  <data name="disbursementsLink.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 23</value>
+  </data>
+  <data name="disbursementsLink.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;disbursementsLink.Name" xml:space="preserve">
+    <value>disbursementsLink</value>
+  </data>
+  <data name="&gt;&gt;disbursementsLink.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;disbursementsLink.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;disbursementsLink.ZOrder" xml:space="preserve">
+    <value>18</value>
   </data>
   <data name="flowLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1288,6 +1339,6 @@
     <value>DashboardForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=13.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=13.6.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
