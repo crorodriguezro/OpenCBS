@@ -356,12 +356,10 @@
       <ComponentRef Id="backup" />
       <ComponentRef Id="temp" />
       <ComponentRef Id="template" />
-      <ComponentRef Id="TemplateReport" />
       <ComponentRef Id="ProductComponent" />
       <ComponentRef Id="OpenCBS.GUI" />
       <ComponentRef Id="Registry" />
       <ComponentRef Id="dir_desktop" />
-      <!--<ComponentRef Id="BuildLabel.txt" />-->
       <ComponentRef Id="ApplicationShortcut" />
       <ComponentRef Id="extensions" />      
     </Feature>
