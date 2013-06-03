@@ -38,8 +38,8 @@ namespace OpenCBS.Reports.Forms
             // 
             // pnlButtons
             // 
-            this.pnlButtons.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.pnlButtons, "pnlButtons");
+            this.pnlButtons.BackColor = System.Drawing.Color.Transparent;
             this.pnlButtons.Controls.Add(this.btnOK);
             this.pnlButtons.Controls.Add(this.btnCancel);
             this.pnlButtons.Name = "pnlButtons";
@@ -47,18 +47,14 @@ namespace OpenCBS.Reports.Forms
             // btnOK
             // 
             resources.ApplyResources(this.btnOK, "btnOK");
-            this.btnOK.BackColor = System.Drawing.Color.Gainsboro;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.btnOK.Name = "btnOK";
             this.btnOK.UseVisualStyleBackColor = false;
             // 
             // btnCancel
             // 
             resources.ApplyResources(this.btnCancel, "btnCancel");
-            this.btnCancel.BackColor = System.Drawing.Color.Gainsboro;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
