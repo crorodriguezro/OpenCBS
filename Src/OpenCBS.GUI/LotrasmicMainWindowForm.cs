@@ -22,9 +22,11 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Composition;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Windows.Forms;
@@ -60,6 +62,9 @@ namespace OpenCBS.GUI
 {
     public partial class LotrasmicMainWindowForm : SweetBaseForm
     {
+        [ImportMany(typeof(IMenu), RequiredCreationPolicy = CreationPolicy.Shared)]
+        public List<IMenu> ExtensionMenuItems { get; set; }
+
         private delegate void LoadAlertsDelegate(List<Alert_v2> alerts);
         private delegate void AttachExtensionDelegate(IExtension extension);
         private List<MenuObject> _menuItems;
@@ -67,6 +72,7 @@ namespace OpenCBS.GUI
         private bool _triggerAlertsUpdate;
         private DashboardForm pFCF; // it`s pointer for have access to FastChoiceForm component 
         private ReportLoadingProgressForm _reportLdProgressForm;
+        private readonly IExtensionActivator _extensionActivator;
 
         public LotrasmicMainWindowForm()
         {
@@ -77,6 +83,8 @@ namespace OpenCBS.GUI
             LoadReprotsToolStrip();
             InitializeTracer();
             DisplayWinFormDetails();
+            _extensionActivator = new ExtensionActivator();
+            _extensionActivator.Execute(this);
         }
 
         private void InitializeTracer()
@@ -861,12 +869,16 @@ namespace OpenCBS.GUI
             if (InitializeTellerManagement())
             {
                 LogUser();
-                _LoadExtensions();                
                 panelLeft.Visible = UserSettings.GetLoadAlerts();
                 panelLeft.Width = UserSettings.GetAlertsWidth();
                 if (panelLeft.Visible) ReloadAlerts();
                 panelLeft.VisibleChanged += OnAlertsVisibleChanged;
                 panelLeft.SizeChanged += OnAlertsSizeChanged;
+
+                InitializeMainMenu();
+                _InitializeUserRights();
+                DisplayFastChoiceForm();
+
             }
             else
             {
@@ -911,15 +923,6 @@ namespace OpenCBS.GUI
            bwReportLoader_DoWork(null, null);
         }
 
-        private void _LoadExtensions()
-        {
-            BackgroundWorker bwExtensionLoader = new BackgroundWorker();
-            bwExtensionLoader.DoWork += LoadExtensions;
-            bwExtensionLoader.RunWorkerCompleted += OnExtensionsLoaded;
-            Trace.WriteLine("Started analyzing extensions");
-            bwExtensionLoader.RunWorkerAsync();
-        }
-
         private void OnExtensionsLoaded(object sender, RunWorkerCompletedEventArgs e)
         {
             if (e.Error != null)
@@ -931,60 +934,46 @@ namespace OpenCBS.GUI
             DisplayFastChoiceForm();
         }
 
-        private void AddExtensionToMenu(IExtension extension)
+        private void InitializeMainMenu()
         {
-            if (null == extension) return;
 
-            try
+            //try
+            //{
+            //    if (InvokeRequired)
+            //    {
+            //        Invoke(new AttachExtensionDelegate(InitializeMainMenu), new object[] {extension});
+            //        return;
+            //    }
+
+            //    IMenu menu = extension.QueryInterface(typeof(IMenu)) as IMenu;
+            //    if (null == menu) return;
+
+            foreach (var extensionItem in ExtensionMenuItems)
             {
-                if (InvokeRequired)
-                {
-                    Invoke(new AttachExtensionDelegate(AddExtensionToMenu), new object[] {extension});
-                    return;
-                }
+                var anchor = mainMenu.Items.Find(extensionItem.InsertAfter, true).FirstOrDefault();
+                if (anchor == null) continue;
 
-                IMenu menu = extension.QueryInterface(typeof(IMenu)) as IMenu;
-                if (null == menu) return;
+                var owner = (ToolStripMenuItem) anchor.OwnerItem;
 
-                foreach (ExtensionMenuItem extensionItem in menu.GetItems())
-                {
-                    var items = mainMenu.Items.Find(extensionItem.InsertAfter, true);
-                    if (0 == items.Length) return;
+                var newMenuItem = new ToolStripMenuItem(extensionItem.Text);
+                var temp = extensionItem;
+                newMenuItem.Click += (obj, args) => temp.Execute();
 
-                    ToolStripMenuItem item = (ToolStripMenuItem)items[0];
-                    ToolStripMenuItem ownerItem = (ToolStripMenuItem)item.OwnerItem;
-  
-                    if (null == ownerItem)
-                    {
-                        int index = mainMenu.Items.IndexOf(item);
-                        mainMenu.Items.Insert(index + 1, extensionItem.MenuItem);
-                    }
-                    else
-                    {
-                        int index = ownerItem.DropDownItems.IndexOf(item);
-                        ownerItem.DropDownItems.Insert(index + 1, extensionItem.MenuItem);
-                    }
-                }
+                var items = owner == null ? mainMenu.Items : owner.DropDownItems;
+                var index = items.IndexOf(anchor);
+                items.Insert(index + 1, newMenuItem);
             }
-            catch(Exception ex)
-            {
-                new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
-            }
+            //}
+            //catch(Exception ex)
+            //{
+            //    new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
+            //}
         }
 
         private static void bwReportLoader_DoWork(object sender, DoWorkEventArgs e)
         {
             ReportService rs = ReportService.GetInstance();
             rs.LoadReports();
-        }
-
-        private void LoadExtensions(object sender, DoWorkEventArgs e)
-        {
-            
-            foreach (IExtension ext in Extension.Instance.Extensions)
-            {
-                AddExtensionToMenu(ext);
-            }
         }
 
         private void standardToolStripMenuItem_Click(object sender, EventArgs e)
