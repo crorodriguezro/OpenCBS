@@ -19,14 +19,10 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
-using System.Windows.Forms;
 using System.Diagnostics;
+using System.Windows.Forms;
 using OpenCBS.CoreDomain.Clients;
-using OpenCBS.CoreDomain.Products;
-using OpenCBS.Enums;
 using OpenCBS.Extensions;
-using OpenCBS.MultiLanguageRessources;
-using OpenCBS.Services;
 
 namespace OpenCBS.GUI.UserControl
 {
@@ -37,6 +33,11 @@ namespace OpenCBS.GUI.UserControl
 
         protected readonly IExtensionActivator ExtensionActivator;
         
+        public ClientControl()
+        {
+            InitializeComponent();
+        }
+
         public ClientControl(IExtensionActivator extensionActivator)
         {
             ExtensionActivator = extensionActivator;
@@ -47,14 +48,6 @@ namespace OpenCBS.GUI.UserControl
         {
             Debug.Assert(Tabs != null, "TabControl is null");
             Debug.Assert(Client != null, "Client is null");
-
-            PicturesServices ps = ServicesProvider.GetInstance().GetPicturesServices();
-            if (!ps.IsEnabled()) return;
-
-            
-        
-           
         }
-
    }
 }
