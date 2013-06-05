@@ -41,6 +41,7 @@ namespace OpenCBS.GUI.UserControl
         public ClientControl(IExtensionActivator extensionActivator)
         {
             ExtensionActivator = extensionActivator;
+            if (ExtensionActivator != null) ExtensionActivator.Execute(this);
             InitializeComponent();
         }
 

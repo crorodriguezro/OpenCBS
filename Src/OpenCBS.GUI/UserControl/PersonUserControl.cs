@@ -21,22 +21,22 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Clients;
-using OpenCBS.Extensions;
+using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
+using OpenCBS.Extensions;
 using OpenCBS.GUI.Clients;
+using OpenCBS.GUI.Tools;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
 using OpenCBS.Services.Events;
 using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
-using OpenCBS.GUI.Tools;
-using OpenCBS.CoreDomain.Contracts.Savings;
 
 namespace OpenCBS.GUI.UserControl
 {
@@ -44,15 +44,14 @@ namespace OpenCBS.GUI.UserControl
 	{
 		private Person _tempPerson;
         private bool _personSaved;
-        private readonly List<IPerson> _extensionPersons = new List<IPerson>();
-      
+
+        [ImportMany(typeof(IPerson), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<IPerson> Extensions { get; set; }
 
 	    private CustomizableFieldsControl _advancedFieldsControl;
 
         public event EventHandler AddSelectedSaving;
         public event EventHandler ViewSelectedSaving;
-
-        private readonly int ERRORVALUE = -1;
 
 	    private Form _mdiParent;
 
@@ -420,11 +419,14 @@ namespace OpenCBS.GUI.UserControl
 
                 if (_advancedFieldsControl != null)
                     _advancedFieldsControl.Check();
-                
+
                 string result = ServicesProvider
                     .GetInstance()
                     .GetClientServices()
-                    .SavePerson(ref _tempPerson, (tx, id) => _extensionPersons.ForEach(p => p.Save(_tempPerson, tx)));
+                    .SavePerson(ref _tempPerson, (tx, id) =>
+                    {
+                        foreach (var extension in Extensions) extension.Save(_tempPerson, tx);
+                    });
 
                 if (_tempPerson.Id > 0 && _advancedFieldsControl != null)
                     _advancedFieldsControl.Save(_tempPerson.Id);
@@ -533,11 +535,11 @@ namespace OpenCBS.GUI.UserControl
 
         private void LoadExtensions()
         {
-            foreach (IPerson p in Extension.Instance.Extensions.Select(e => e.QueryInterface(typeof(IPerson))).OfType<IPerson>())
+            if (Extensions == null) return;
+            foreach (var extension in Extensions)
             {
-                _extensionPersons.Add(p);
-                TabPage[] pages = p.GetTabPages(_tempPerson);
-                if (null == pages) continue;
+                var pages = extension.GetTabPages(_tempPerson);
+                if (pages == null) continue;
                 tabControlEconomicInfo.TabPages.AddRange(pages);
             }
         }
