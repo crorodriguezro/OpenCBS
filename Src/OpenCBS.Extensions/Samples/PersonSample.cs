@@ -23,7 +23,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain.Clients;
 
-namespace OpenCBS.Extensions.TestExtensions
+namespace OpenCBS.Extensions.Samples
 {
     [PartCreationPolicy(CreationPolicy.NonShared)]
     [Export(typeof(IPerson))]

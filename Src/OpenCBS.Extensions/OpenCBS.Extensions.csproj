@@ -75,6 +75,7 @@
     <Compile Include="SafeDirectoryCatalog.cs" />
     <Compile Include="Samples\MenuSample.cs" />
     <Compile Include="Samples\PersonSample.cs" />
+    <Compile Include="Samples\SolidarityGroupSample.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenCBS.CoreDomain\OpenCBS.CoreDomain.csproj">
