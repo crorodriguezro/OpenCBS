@@ -18,26 +18,32 @@
 // Contact: contact@opencbs.com
 
 using System.ComponentModel.Composition;
-using System.Data.SqlClient;
-using System.Globalization;
 using System.Windows.Forms;
-using OpenCBS.CoreDomain.Clients;
 
 namespace OpenCBS.Extensions.TestExtensions
 {
-    [PartCreationPolicy(CreationPolicy.NonShared)]
-    [Export(typeof(IPerson))]
-    public class TestPerson : IPerson
+    /// <summary>
+    /// This class is only for testing the main menu extensibility.
+    /// It is handy to have it in the same solution to play with MEF.
+    /// 
+    /// To enable this menu item make sure the two attributes below are uncommented.
+    /// If, on the other hand, you want to disable it, comment out the attributes.
+    /// </summary>
+    [PartCreationPolicy(CreationPolicy.Shared)]
+    [Export(typeof(IMenu))]
+    public class MenuSample : IMenu
     {
-        public TabPage[] GetTabPages(Person person)
+        public MenuSample()
         {
-            var tabPage = new TabPage("TEST PERSON");
-            return new[] { tabPage };
+            Item = new ToolStripMenuItem { Text = "TEST "};
+            Item.Click += (sender, args) => MessageBox.Show("Hello, this is a test message");
         }
 
-        public void Save(Person person, SqlTransaction tx)
+        public string InsertAfter
         {
-            MessageBox.Show(GetHashCode().ToString(CultureInfo.InvariantCulture));
+            get { return "mnuClients"; }
         }
+
+        public ToolStripMenuItem Item { get; private set; }
     }
 }

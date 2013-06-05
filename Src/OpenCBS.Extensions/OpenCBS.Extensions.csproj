@@ -73,8 +73,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ITechnicalSettings.cs" />
     <Compile Include="SafeDirectoryCatalog.cs" />
-    <Compile Include="TestExtensions\TestMenu.cs" />
-    <Compile Include="TestExtensions\TestPerson.cs" />
+    <Compile Include="Samples\MenuSample.cs" />
+    <Compile Include="Samples\PersonSample.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenCBS.CoreDomain\OpenCBS.CoreDomain.csproj">
