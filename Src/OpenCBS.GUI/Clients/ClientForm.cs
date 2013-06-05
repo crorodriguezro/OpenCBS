@@ -22,42 +22,40 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Drawing;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts;
+using OpenCBS.CoreDomain.Contracts.Collaterals;
 using OpenCBS.CoreDomain.Contracts.Guarantees;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
+using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.CoreDomain.EconomicActivities;
 using OpenCBS.CoreDomain.Events;
 using OpenCBS.CoreDomain.Events.Loan;
-using OpenCBS.Extensions;
+using OpenCBS.CoreDomain.Events.Saving;
 using OpenCBS.CoreDomain.FundingLines;
+using OpenCBS.CoreDomain.Online;
 using OpenCBS.CoreDomain.Products;
+using OpenCBS.CoreDomain.Products.Collaterals;
 using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.ExceptionsHandler.Exceptions.SavingExceptions;
+using OpenCBS.Extensions;
 using OpenCBS.GUI.Contracts;
 using OpenCBS.GUI.Tools;
 using OpenCBS.GUI.UserControl;
 using OpenCBS.MultiLanguageRessources;
+using OpenCBS.Reports;
 using OpenCBS.Services;
 using OpenCBS.Shared;
-using OpenCBS.CoreDomain.Contracts.Savings;
-using OpenCBS.CoreDomain.Events.Saving;
-using OpenCBS.CoreDomain.Online;
-using BrightIdeasSoftware;
-using System.Drawing.Drawing2D;
-using OpenCBS.CoreDomain.Products.Collaterals;
-using OpenCBS.CoreDomain.Contracts.Collaterals;
 using OpenCBS.Shared.Settings;
 using Group = OpenCBS.CoreDomain.Clients.Group;
-using OpenCBS.Reports;
 
 namespace OpenCBS.GUI.Clients
 {
@@ -110,11 +108,14 @@ namespace OpenCBS.GUI.Clients
 
         private List<ILoan> _loanDetailsExtensions = new List<ILoan>();
         private List<ISavings> _savingsExtensions = new List<ISavings>();
+
+        private readonly IExtensionActivator _extensionActivator;
         #endregion
 
         #region *** Constructors ***
-        public ClientForm(OClientTypes pClientType, Form pMdiParent, bool pCloseFormAfterSave)
+        public ClientForm(OClientTypes pClientType, Form pMdiParent, bool pCloseFormAfterSave, IExtensionActivator extensionActivator)
         {
+            _extensionActivator = extensionActivator;
             _listGuarantors = new List<Guarantor>();
             _collaterals = new List<ContractCollateral>();
             _loanShares = new List<LoanShare>();
@@ -159,8 +160,9 @@ namespace OpenCBS.GUI.Clients
             return new KeyValuePair<OContractStatus, string>(status, statusText);
         }
 
-        public ClientForm(Person pPerson, Form pMdiParent)
+        public ClientForm(Person pPerson, Form pMdiParent, IExtensionActivator extensionActivator)
         {
+            _extensionActivator = extensionActivator;
             _mdiParent = pMdiParent;
             _person = pPerson;
             _client = pPerson;
@@ -176,8 +178,9 @@ namespace OpenCBS.GUI.Clients
             InitializeTitle(string.Format("{0} {1}", pPerson.FirstName, pPerson.LastName));            
         }
 
-        public ClientForm(Corporate pCorporate, Form pMdiParent)
+        public ClientForm(Corporate pCorporate, Form pMdiParent, IExtensionActivator extensionActivator)
         {
+            _extensionActivator = extensionActivator;
             _mdiParent = pMdiParent;
             _corporate = pCorporate;
             _client = pCorporate;
@@ -193,8 +196,9 @@ namespace OpenCBS.GUI.Clients
             InitializeTitle(_corporate.Name);            
         }
 
-        public ClientForm(Group pGroup, Form pMdiParent)
+        public ClientForm(Group pGroup, Form pMdiParent, IExtensionActivator extensionActivator)
         {
+            _extensionActivator = extensionActivator;
             _mdiParent = pMdiParent;
             _group = pGroup;
             _client = pGroup;
@@ -210,8 +214,9 @@ namespace OpenCBS.GUI.Clients
             InitializeTitle(_group.Name);            
         }
 
-        public ClientForm(IClient pClient, int pContractId, Form pMdiParent)
+        public ClientForm(IClient pClient, int pContractId, Form pMdiParent, IExtensionActivator extensionActivator)
         {
+            _extensionActivator = extensionActivator;
             _mdiParent = pMdiParent;
             _listGuarantors = new List<Guarantor>();
             _collaterals = new List<ContractCollateral>();
@@ -234,8 +239,9 @@ namespace OpenCBS.GUI.Clients
             LoadLoanDetailsExtensions();
         }
 
-        public ClientForm(IClient pClient, int pContractId, Form pMdiParent, string selectedTab)
+        public ClientForm(IClient pClient, int pContractId, Form pMdiParent, string selectedTab, IExtensionActivator extensionActivator)
         {
+            _extensionActivator = extensionActivator;
             _mdiParent = pMdiParent;
             _listGuarantors = new List<Guarantor>();
             _collaterals = new List<ContractCollateral>();
@@ -519,13 +525,13 @@ namespace OpenCBS.GUI.Clients
             
             if (pClientType == OClientTypes.Person)
             {
-                _personUserControl = new PersonUserControl(_person, pMdiParent)
-                                         {
-                                             Dock = DockStyle.Fill,
-                                             Enabled = true,
-                                             Name = "personUserControl",
-                                             Visible = true
-                                         };
+                _personUserControl = new PersonUserControl(_person, pMdiParent, _extensionActivator)
+                {
+                    Dock = DockStyle.Fill,
+                    Enabled = true,
+                    Name = "personUserControl",
+                    Visible = true
+                };
 
                 _personUserControl.ButtonCancelClick += personUserControl_ButtonCancelClick;
                 _personUserControl.ButtonSaveClick += personUserControl_ButtonSaveClick;
@@ -546,13 +552,13 @@ namespace OpenCBS.GUI.Clients
             }
             else if (pClientType == OClientTypes.Group)
             {
-                _groupUserControl = new GroupUserControl(_group, pMdiParent)
-                                        {
-                                            Dock = DockStyle.Fill,
-                                            Enabled = true,
-                                            Name = "groupUserControl",
-                                            Visible = true
-                                        };
+                _groupUserControl = new GroupUserControl(_group, pMdiParent, _extensionActivator)
+                {
+                    Dock = DockStyle.Fill,
+                    Enabled = true,
+                    Name = "groupUserControl",
+                    Visible = true
+                };
                 _groupUserControl.ButtonCancelClick += GroupUserControl_ButtonCancelClick;
                 _groupUserControl.ButtonSaveClick += GroupUserControl_ButtonSaveClick;
                 _groupUserControl.ButtonBadClientClick += GroupUserControl_ButtonBadClientClick;
@@ -574,13 +580,13 @@ namespace OpenCBS.GUI.Clients
             }
             else
             {
-                _corporateUserControl = new CorporateUserControl(_corporate, pMdiParent)
-                                          {
-                                              Dock = DockStyle.Fill,
-                                              Enabled = true,
-                                              Name = "corporateUserControl",
-                                              Visible = true
-                                          };
+                _corporateUserControl = new CorporateUserControl(_corporate, pMdiParent, _extensionActivator)
+                {
+                    Dock = DockStyle.Fill,
+                    Enabled = true,
+                    Name = "corporateUserControl",
+                    Visible = true
+                };
 
                 _corporateUserControl.ViewProject += DisplayUserControl_ViewProject;
                 _corporateUserControl.ButtonCancel += CorporateUserControl_ButtonCancel;
@@ -4447,7 +4453,7 @@ namespace OpenCBS.GUI.Clients
 
         private void SelectAGuarantors()
         {
-            var addGuarantor = new AddGuarantorForm(MdiParent, _credit.Product.Currency);
+            var addGuarantor = new AddGuarantorForm(MdiParent, _credit.Product.Currency, _extensionActivator);
             addGuarantor.ShowDialog();
 
             if (!ServicesProvider.GetInstance().GetClientServices().GuarantorIsNull(addGuarantor.Guarantor))
@@ -4654,7 +4660,7 @@ namespace OpenCBS.GUI.Clients
             {
                 try
                 {
-                    AddGuarantorForm modifyGuarantor = new AddGuarantorForm((Guarantor)listViewGuarantors.SelectedItems[0].Tag, MdiParent, false, _credit.Product.Currency);
+                    AddGuarantorForm modifyGuarantor = new AddGuarantorForm((Guarantor)listViewGuarantors.SelectedItems[0].Tag, MdiParent, false, _credit.Product.Currency, _extensionActivator);
                     modifyGuarantor.ShowDialog();
                     if (!ServicesProvider.GetInstance().GetClientServices().GuarantorIsNull(modifyGuarantor.Guarantor))
                         DisplayGuarantors(_listGuarantors, _credit.Amount);
@@ -5414,7 +5420,7 @@ namespace OpenCBS.GUI.Clients
                         SelectCollateralProductByPropertyId(contractCollateral.PropertyValues[0].Property.Id);
                     CollateralProduct product = ServicesProvider.GetInstance().GetCollateralProductServices().SelectCollateralProduct(collateralProduct.Id);
 
-                    ContractCollateralForm collateralForm = new ContractCollateralForm(product, contractCollateral, false);
+                    ContractCollateralForm collateralForm = new ContractCollateralForm(product, contractCollateral, false, _extensionActivator);
                     collateralForm.ShowDialog();
 
                     if (collateralForm.ContractCollateral != null)
@@ -6353,7 +6359,7 @@ namespace OpenCBS.GUI.Clients
             var productId = (int)((ToolStripMenuItem)sender).Tag;
             CollateralProduct product = ServicesProvider.GetInstance().GetCollateralProductServices().SelectCollateralProduct(productId);
 
-            ContractCollateralForm collateralForm = new ContractCollateralForm(product);
+            ContractCollateralForm collateralForm = new ContractCollateralForm(product, _extensionActivator);
             collateralForm.ShowDialog();
 
             if (collateralForm.ContractCollateral != null && collateralForm.ContractCollateral.PropertyValues != null)
@@ -6689,7 +6695,7 @@ namespace OpenCBS.GUI.Clients
                         SelectCollateralProductByPropertyId(contractCollateral.PropertyValues[0].Property.Id);
                     CollateralProduct product = ServicesProvider.GetInstance().GetCollateralProductServices().SelectCollateralProduct(collateralProduct.Id);
 
-                    ContractCollateralForm collateralForm = new ContractCollateralForm(product, contractCollateral, true);
+                    ContractCollateralForm collateralForm = new ContractCollateralForm(product, contractCollateral, true, _extensionActivator);
                     collateralForm.ShowDialog();
                 }
                 catch (NullReferenceException)
@@ -6705,7 +6711,7 @@ namespace OpenCBS.GUI.Clients
             {
                 try
                 {
-                    AddGuarantorForm modifyGuarantor = new AddGuarantorForm((Guarantor)listViewGuarantors.SelectedItems[0].Tag, MdiParent, true, _credit.Product.Currency);
+                    AddGuarantorForm modifyGuarantor = new AddGuarantorForm((Guarantor)listViewGuarantors.SelectedItems[0].Tag, MdiParent, true, _credit.Product.Currency, _extensionActivator);
                     modifyGuarantor.ShowDialog();
                 }
                 catch (NullReferenceException)

@@ -126,49 +126,9 @@ namespace OpenCBS.GUI.UserControl
                 cbBranch.SelectedIndex = 0;
         }
 
-        public CorporateUserControl()
-        {
-            InitializeComponent();
-            InitializeUserControlsAddress();
-            _corporate = new Corporate();
-        }
-
         private readonly FundingLine _fundingLine;
-        public CorporateUserControl(FundingLine pFundingLine)
-        {
-            _fundingLine = pFundingLine;
-            InitializeComponent();
-            InitializeUserControlsAddress();
-            _corporate = new Corporate();
-        }
 
-        public CorporateUserControl(Project pProject)
-        {
-            InitializeComponent();
-            InitializeUserControlsAddress();
-            _corporate = new Corporate();
-        }
-
-        public CorporateUserControl(Corporate pCorporate, FundingLine pFundingLine)
-        {
-            InitializeComponent();
-            _corporate = pCorporate;
-            _fundingLine = pFundingLine;
-            InitializeUserControlsAddress();
-            InitializeCorporate();
-            InitializeCustomizableFields(_corporate.Id);
-        }
-
-        public CorporateUserControl(Form pMdiParent)
-        {
-            _mdifrom = pMdiParent;
-            InitializeComponent();
-            _corporate = new Corporate();
-            _fundingLine = null;
-            InitializeUserControlsAddress();
-        }
-
-        public CorporateUserControl(Corporate corporate, Form pMdiParent)
+        public CorporateUserControl(Corporate corporate, Form pMdiParent, IExtensionActivator extensionActivator) : base(extensionActivator)
         {
             _mdifrom = pMdiParent;
            _corporate = corporate;
@@ -450,7 +410,7 @@ namespace OpenCBS.GUI.UserControl
 
         private void BtnAddContactClick(object sender, EventArgs e)
         {
-            var personForm = new ClientForm(OClientTypes.Person, _mdifrom, true);
+            var personForm = new ClientForm(OClientTypes.Person, _mdifrom, true, ExtensionActivator);
             personForm.ShowDialog();
             Contact contact = new Contact {Tiers = personForm.Person};
             if (contact.Tiers != null)

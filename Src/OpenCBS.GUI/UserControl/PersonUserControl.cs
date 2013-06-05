@@ -72,20 +72,7 @@ namespace OpenCBS.GUI.UserControl
             tabControlEconomicInfo.TabPages.Remove(tabPageSavings);
         }
 
-	    public PersonUserControl(Form pMdiParent)
-		{
-		    _mdiParent = pMdiParent;
-			Initialization();
-            DisplayProjects(_tempPerson.Projects);
-            DisplaySavings(_tempPerson.Savings);
-            tabControlEconomicInfo.TabPages.Remove(tabPage1FollowUp);
-            InitializeAdvancedCustomizableFields(null);
-	        textBoxIdentificationData.ReadOnly = ServicesProvider.GetInstance().GetGeneralSettings().IsAutomaticID;
-            if (ServicesProvider.GetInstance().GetGeneralSettings().IsAutomaticID)
-	            textBoxIdentificationData.BackColor = Color.WhiteSmoke;
-        }
-
-        public PersonUserControl(Person person, Form pMdiParent)
+        public PersonUserControl(Person person, Form pMdiParent, IExtensionActivator extensionActivator) : base(extensionActivator)
         {
             _mdiParent = pMdiParent;
             Initialization();
@@ -623,12 +610,12 @@ namespace OpenCBS.GUI.UserControl
             client = ServicesProvider.GetInstance().GetClientServices().FindTiers(client.Id, client.Type);
             if (client is Group)
             {
-                ClientForm form = new ClientForm((Group)client, _mdiParent);
+                ClientForm form = new ClientForm((Group)client, _mdiParent, ExtensionActivator);
                 form.ShowDialog();
             }
             else if (client is Village)
             {
-                NonSolidaryGroupForm form = new NonSolidaryGroupForm((Village)client);
+                NonSolidaryGroupForm form = new NonSolidaryGroupForm((Village)client, ExtensionActivator);
                 form.ShowDialog();
             }
         }

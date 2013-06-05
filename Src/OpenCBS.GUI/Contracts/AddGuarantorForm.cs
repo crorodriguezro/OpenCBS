@@ -26,6 +26,7 @@ using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
+using OpenCBS.Extensions;
 using OpenCBS.GUI.Accounting;
 using OpenCBS.GUI.Clients;
 using OpenCBS.Services;
@@ -55,8 +56,11 @@ namespace OpenCBS.GUI
         private const Container components = null;
         private Currency code;
 
-        public AddGuarantorForm(Form pMdiParent, Currency tcode)
+        private readonly IExtensionActivator _extensionActivator;
+
+        public AddGuarantorForm(Form pMdiParent, Currency tcode, IExtensionActivator extensionActivator)
         {
+            _extensionActivator = extensionActivator;
             _mdiParent = pMdiParent;
             _guarantor = new Guarantor();
             _guarantor.Amount = 0;
@@ -64,8 +68,9 @@ namespace OpenCBS.GUI
             Initialization();
         }
 
-        public AddGuarantorForm(Guarantor guarantor, Form pMdiParent, bool isView, Currency tcode)
+        public AddGuarantorForm(Guarantor guarantor, Form pMdiParent, bool isView, Currency tcode, IExtensionActivator extensionActivator)
         {
+            _extensionActivator = extensionActivator;
             _mdiParent = pMdiParent;
             _guarantor = guarantor;
             code = tcode;
@@ -250,7 +255,7 @@ namespace OpenCBS.GUI
 
         private void AddAGuarantor()
         {
-            var personForm = new ClientForm(OClientTypes.Person, _mdiParent, true);
+            var personForm = new ClientForm(OClientTypes.Person, _mdiParent, true, _extensionActivator);
             personForm.ShowDialog();
             _guarantor.Tiers = personForm.Person;
 

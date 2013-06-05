@@ -24,6 +24,7 @@ using System.Diagnostics;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Products;
 using OpenCBS.Enums;
+using OpenCBS.Extensions;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
 
@@ -33,9 +34,12 @@ namespace OpenCBS.GUI.UserControl
     {
         protected TabControl Tabs { get; set; }
         protected IClient Client { get; set; }
+
+        protected readonly IExtensionActivator ExtensionActivator;
         
-        public ClientControl()
+        public ClientControl(IExtensionActivator extensionActivator)
         {
+            ExtensionActivator = extensionActivator;
             InitializeComponent();
         }
 
