@@ -33,19 +33,17 @@ namespace OpenCBS.Extensions.TestExtensions
     [Export(typeof(IMenu))]
     public class TestMenu : IMenu
     {
+        public TestMenu()
+        {
+            Item = new ToolStripMenuItem { Text = "TEST "};
+            Item.Click += (sender, args) => MessageBox.Show("Hello, this is a test message");
+        }
+
         public string InsertAfter
         {
             get { return "mnuClients"; }
         }
 
-        public string Text
-        {
-            get { return "TEST"; }
-        }
-
-        public void Execute()
-        {
-            MessageBox.Show("Hello, this is a test message.");
-        }
+        public ToolStripMenuItem Item { get; private set; }
     }
 }

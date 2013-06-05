@@ -19,12 +19,13 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
+using System.Windows.Forms;
+
 namespace OpenCBS.Extensions
 {
     public interface IMenu
     {
         string InsertAfter { get; }
-        string Text { get; }
-        void Execute();
+        ToolStripMenuItem Item { get; }
     }
 }

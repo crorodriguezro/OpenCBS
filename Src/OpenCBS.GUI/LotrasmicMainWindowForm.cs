@@ -936,18 +936,6 @@ namespace OpenCBS.GUI
 
         private void InitializeMainMenu()
         {
-
-            //try
-            //{
-            //    if (InvokeRequired)
-            //    {
-            //        Invoke(new AttachExtensionDelegate(InitializeMainMenu), new object[] {extension});
-            //        return;
-            //    }
-
-            //    IMenu menu = extension.QueryInterface(typeof(IMenu)) as IMenu;
-            //    if (null == menu) return;
-
             foreach (var extensionItem in ExtensionMenuItems)
             {
                 var anchor = mainMenu.Items.Find(extensionItem.InsertAfter, true).FirstOrDefault();
@@ -955,19 +943,12 @@ namespace OpenCBS.GUI
 
                 var owner = (ToolStripMenuItem) anchor.OwnerItem;
 
-                var newMenuItem = new ToolStripMenuItem(extensionItem.Text);
                 var temp = extensionItem;
-                newMenuItem.Click += (obj, args) => temp.Execute();
 
                 var items = owner == null ? mainMenu.Items : owner.DropDownItems;
                 var index = items.IndexOf(anchor);
-                items.Insert(index + 1, newMenuItem);
+                items.Insert(index + 1, temp.Item);
             }
-            //}
-            //catch(Exception ex)
-            //{
-            //    new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
-            //}
         }
 
         private static void bwReportLoader_DoWork(object sender, DoWorkEventArgs e)
