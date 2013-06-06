@@ -60,9 +60,7 @@
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="ExtensionActivator.cs" />
-    <Compile Include="Extensions.cs" />
     <Compile Include="ICorporate.cs" />
-    <Compile Include="IExtension.cs" />
     <Compile Include="IExtensionActivator.cs" />
     <Compile Include="ILoan.cs" />
     <Compile Include="IMenu.cs" />
@@ -71,8 +69,6 @@
     <Compile Include="ISavings.cs" />
     <Compile Include="ISolidarityGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ITechnicalSettings.cs" />
-    <Compile Include="SafeDirectoryCatalog.cs" />
     <Compile Include="Samples\SavingsSample.cs" />
     <Compile Include="Samples\LoanSample.cs" />
     <Compile Include="Samples\NonSolidarityGroupSample.cs" />

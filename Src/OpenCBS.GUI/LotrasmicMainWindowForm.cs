@@ -66,12 +66,9 @@ namespace OpenCBS.GUI
         public List<IMenu> ExtensionMenuItems { get; set; }
 
         private delegate void LoadAlertsDelegate(List<Alert_v2> alerts);
-        private delegate void AttachExtensionDelegate(IExtension extension);
         private List<MenuObject> _menuItems;
         private bool _showTellerFormOnClose = true;
         private bool _triggerAlertsUpdate;
-        private DashboardForm pFCF; // it`s pointer for have access to FastChoiceForm component 
-        private ReportLoadingProgressForm _reportLdProgressForm;
         private readonly IExtensionActivator _extensionActivator;
 
         public LotrasmicMainWindowForm()
@@ -188,11 +185,7 @@ namespace OpenCBS.GUI
                 MenuObject foundMO = GetMenuObject(tsmiMenu.Name);
                 bool isAllowed = foundMO == null || pRole.IsMenuAllowed(foundMO);
                 tsmiMenu.Enabled = isAllowed;
-
-                if (!(tsmiMenu.Tag is IExtension))
-                {
-                    tsmiMenu.Tag = foundMO;
-                }
+                tsmiMenu.Tag = foundMO;
 
                 InitializeMenuChildren(tsmiMenu, pRole);
             }
@@ -229,7 +222,6 @@ namespace OpenCBS.GUI
         {
             DashboardForm fastChoiceForm = new DashboardForm(_extensionActivator) { MdiParent = this };
             fastChoiceForm.Show();
-            pFCF = fastChoiceForm;
 
             foreach (Object tsmi in MainMenuStrip.Items)
             {

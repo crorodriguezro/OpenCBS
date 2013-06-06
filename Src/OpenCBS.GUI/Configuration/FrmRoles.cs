@@ -227,10 +227,7 @@ namespace OpenCBS.GUI.Configuration
         private TreeNode AddMenuItemFromMenu(ToolStripMenuItem pMenuItem, out MenuObject menuObject)
         {
             TreeNode lastChildNode = new TreeNode(pMenuItem.Text);
-            object menuTag = pMenuItem.Tag;
-            menuObject = GetMenuObject(
-                menuTag is IExtension ? (menuTag as IExtension).Guid.ToString() : pMenuItem.Name
-                );
+            menuObject = GetMenuObject(pMenuItem.Name);
             lastChildNode.Tag = menuObject;
             return lastChildNode;
         }
