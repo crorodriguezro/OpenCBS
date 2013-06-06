@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -56,7 +57,8 @@ namespace OpenCBS.GUI.UserControl
         public event EventHandler AddSelectedSaving;
         public event EventHandler ViewSelectedSaving;
 
-        private readonly List<ICorporate> _extensionCorporates = new List<ICorporate>();
+        [ImportMany(typeof(ICorporate), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<ICorporate> Extensions { get; set; }
 
         private CustomizableFieldsControl _customziableFieldsControl;
 
@@ -226,7 +228,10 @@ namespace OpenCBS.GUI.UserControl
                     _corporate.Id = ServicesProvider
                         .GetInstance()
                         .GetClientServices()
-                        .SaveCorporate(_corporate, _fundingLine, tx => _extensionCorporates.ForEach(c => c.Save(_corporate, tx)));
+                        .SaveCorporate(_corporate, _fundingLine, tx =>
+                        {
+                            foreach (var extension in Extensions) extension.Save(_corporate, tx);
+                        });
                     buttonSave.Text = MultiLanguageStrings.GetString(Ressource.CorporateUserControl, "buttonUpdate.Text");
                     es.LogClientSaveUpdateEvent(_corporate, true);
                 }
@@ -235,7 +240,7 @@ namespace OpenCBS.GUI.UserControl
                     ServicesProvider.
                         GetInstance()
                         .GetClientServices()
-                        .SaveCorporate(Corporate, null, tx => _extensionCorporates.ForEach(c => c.Save(Corporate, tx)));
+                        .SaveCorporate(Corporate, null, tx => Extensions.ForEach(c => c.Save(Corporate, tx)));
                     es.LogClientSaveUpdateEvent(_corporate, false);
                 }
 
@@ -303,18 +308,14 @@ namespace OpenCBS.GUI.UserControl
             Client = _corporate;
             InitDocuments();
             LoadExtensions();
-            //if (!ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
-            //    ButtonAddProjectClick(buttonViewProject, null);
-
         }
 
         private void LoadExtensions()
         {
-            foreach (ICorporate c in Extension.Instance.Extensions.Select(e => e.QueryInterface(typeof(ICorporate))).OfType<ICorporate>())
+            foreach (var extension in Extensions)
             {
-                _extensionCorporates.Add(c);
-                TabPage[] pages = c.GetTabPages(_corporate);
-                if (null == pages) continue;
+                var pages = extension.GetTabPages(_corporate);
+                if (pages == null) continue;
                 tabControlCorporate.TabPages.AddRange(pages);
             }
         }
