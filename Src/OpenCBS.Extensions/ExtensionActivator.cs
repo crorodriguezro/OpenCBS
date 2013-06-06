@@ -20,6 +20,7 @@
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Reflection;
+using OpenCBS.CoreDomain;
 
 namespace OpenCBS.Extensions
 {
@@ -30,7 +31,8 @@ namespace OpenCBS.Extensions
         public ExtensionActivator()
         {
             var catalog = new AggregateCatalog(
-                    new AssemblyCatalog(Assembly.GetExecutingAssembly())
+                    new AssemblyCatalog(Assembly.GetExecutingAssembly()),
+                    new AssemblyCatalog(Assembly.GetAssembly(typeof(DatabaseConnection)))
                 );
             _container = new CompositionContainer(catalog);
         }

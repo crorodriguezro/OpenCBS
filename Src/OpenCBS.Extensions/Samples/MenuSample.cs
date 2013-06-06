@@ -17,7 +17,9 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
+using System;
 using System.ComponentModel.Composition;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace OpenCBS.Extensions.Samples
@@ -36,7 +38,15 @@ namespace OpenCBS.Extensions.Samples
         public MenuSample()
         {
             Item = new ToolStripMenuItem { Text = "TEST "};
-            Item.Click += (sender, args) => MessageBox.Show("Hello, this is a test message");
+            Item.Click += (sender, args) =>
+            {
+                if (GetConnection != null)
+                {
+                    var connection = GetConnection();
+                    MessageBox.Show(connection.ConnectionString);
+                }
+                //MessageBox.Show("Hello, this is a test message")
+            };
         }
 
         public string InsertAfter
@@ -45,5 +55,8 @@ namespace OpenCBS.Extensions.Samples
         }
 
         public ToolStripMenuItem Item { get; private set; }
+
+        [Import("GetConnection")]
+        public Func<SqlConnection> GetConnection { get; set; }
     }
 }
