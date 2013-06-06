@@ -25,11 +25,11 @@ using System.Windows.Forms;
 namespace OpenCBS.Extensions.Samples
 {
     /// <summary>
-    /// This class is only for testing the main menu extensibility.
-    /// It is handy to have it in the same solution to play with MEF.
+    /// This class is a sample implementation of the IMenu interface
+    /// to give you and idea on how you can extend the main menu.
     /// 
-    /// To enable this menu item make sure the two attributes below are uncommented.
-    /// If, on the other hand, you want to disable it, comment out the attributes.
+    /// To enable this extension right click the OpenCBS.Extensions project,
+    /// go to the Build tab and add SAMPLE_EXTENSIONS to Conditional compilation symbols.
     /// </summary>
     [PartCreationPolicy(CreationPolicy.Shared)]
     [Export(typeof(IMenu))]

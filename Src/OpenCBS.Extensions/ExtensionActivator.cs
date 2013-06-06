@@ -38,8 +38,15 @@ namespace OpenCBS.Extensions
                     new AssemblyCatalog(Assembly.GetAssembly(typeof(DatabaseConnection)))
                 );
 
-            if (Directory.Exists(extensionsFolder))
+            if (Directory.Exists(extensionsFolder)) 
                 catalog.Catalogs.Add(new DirectoryCatalog(extensionsFolder));
+
+#if SAMPLE_EXTENSIONS
+            var samples = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) ?? string.Empty;
+            samples = Path.Combine(samples, "OpenCBS.Extensions.Samples.dll");
+            if (File.Exists(samples)) 
+                catalog.Catalogs.Add(new AssemblyCatalog(samples));
+#endif
             
             _container = new CompositionContainer(catalog);
         }

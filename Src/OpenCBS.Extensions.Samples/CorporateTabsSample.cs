@@ -24,6 +24,13 @@ using OpenCBS.CoreDomain.Clients;
 
 namespace OpenCBS.Extensions.Samples
 {
+    /// <summary>
+    /// This class is a sample implementation of the ICorporateTabs interface
+    /// to give you and idea on how you can extend the Corporate client control tabs.
+    /// 
+    /// To enable this extension right click the OpenCBS.Extensions project,
+    /// go to the Build tab and add SAMPLE_EXTENSIONS to Conditional compilation symbols.
+    /// </summary>
     [PartCreationPolicy(CreationPolicy.NonShared)]
     [Export(typeof(ICorporateTabs))]
     public class CorporateTabsSample : ICorporateTabs

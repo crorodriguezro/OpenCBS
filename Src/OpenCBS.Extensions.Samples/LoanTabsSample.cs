@@ -24,6 +24,13 @@ using OpenCBS.CoreDomain.Contracts.Loans;
 
 namespace OpenCBS.Extensions.Samples
 {
+    /// <summary>
+    /// This class is a sample implementation of the ILoanTabs interface
+    /// to give you and idea on how you can extend Loan Details and Loan Repayments tabs.
+    /// 
+    /// To enable this extension right click the OpenCBS.Extensions project,
+    /// go to the Build tab and add SAMPLE_EXTENSIONS to Conditional compilation symbols.
+    /// </summary>
     [PartCreationPolicy(CreationPolicy.NonShared)]
     [Export(typeof(ILoanTabs))]
     public class LoanTabsSample : ILoanTabs
