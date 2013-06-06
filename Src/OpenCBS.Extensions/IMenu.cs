@@ -26,6 +26,6 @@ namespace OpenCBS.Extensions
     public interface IMenu
     {
         string InsertAfter { get; }
-        ToolStripMenuItem Item { get; }
+        ToolStripMenuItem GetItem();
     }
 }

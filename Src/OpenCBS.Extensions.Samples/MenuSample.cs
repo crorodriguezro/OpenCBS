@@ -35,10 +35,15 @@ namespace OpenCBS.Extensions.Samples
     [Export(typeof(IMenu))]
     public class MenuSample : IMenu
     {
-        public MenuSample()
+        public string InsertAfter
         {
-            Item = new ToolStripMenuItem { Text = "TEST "};
-            Item.Click += (sender, args) =>
+            get { return "mnuClients"; }
+        }
+
+        public ToolStripMenuItem GetItem()
+        {
+            var result = new ToolStripMenuItem { Text = "TEST " };
+            result.Click += (sender, args) =>
             {
                 if (GetConnection != null)
                 {
@@ -47,14 +52,8 @@ namespace OpenCBS.Extensions.Samples
                 }
                 //MessageBox.Show("Hello, this is a test message")
             };
+            return result;
         }
-
-        public string InsertAfter
-        {
-            get { return "mnuClients"; }
-        }
-
-        public ToolStripMenuItem Item { get; private set; }
 
         [Import("GetConnection")]
         public Func<SqlConnection> GetConnection { get; set; }

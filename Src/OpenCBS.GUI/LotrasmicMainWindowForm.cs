@@ -944,7 +944,7 @@ namespace OpenCBS.GUI
 
                 var items = owner == null ? mainMenu.Items : owner.DropDownItems;
                 var index = items.IndexOf(anchor);
-                items.Insert(index + 1, temp.Item);
+                items.Insert(index + 1, temp.GetItem());
             }
         }
 
