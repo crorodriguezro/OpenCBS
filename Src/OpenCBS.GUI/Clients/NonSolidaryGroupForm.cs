@@ -61,6 +61,8 @@ namespace OpenCBS.GUI.Clients
         public NonSolidaryGroupForm(IExtensionActivator extensionActivator)
         {
             _extensionActivator = extensionActivator;
+            if (_extensionActivator != null) _extensionActivator.Execute(this);
+
             InitializeComponent();
             _village = new Village {CreationDate = TimeProvider.Now};
             InitializeControls();
@@ -71,6 +73,8 @@ namespace OpenCBS.GUI.Clients
         public NonSolidaryGroupForm(Village village, IExtensionActivator extensionActivator)
         {
             _extensionActivator = extensionActivator;
+            if (_extensionActivator != null) _extensionActivator.Execute(this);
+
             _village = village;
 
             foreach (VillageMember member in _village.Members)
