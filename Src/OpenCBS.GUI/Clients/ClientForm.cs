@@ -109,7 +109,9 @@ namespace OpenCBS.GUI.Clients
 
         [ImportMany(typeof(ILoan), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<ILoan> LoanExtensions { get; set; }
-        private List<ISavings> _savingsExtensions = new List<ISavings>();
+
+        [ImportMany(typeof(ISavings), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<ISavings> SavingsExtensions { get; set; }
 
         private readonly IExtensionActivator _extensionActivator;
         #endregion
@@ -5375,7 +5377,10 @@ namespace OpenCBS.GUI.Clients
                 _customizableSavingsFieldsControl.Check();
 
                 _saving.SavingsOfficer = (User)cmbSavingsOfficer.SelectedItem;
-                _saving.Id = SavingServices.SaveContract(_saving, _client, (tx, id) => _savingsExtensions.ForEach(s => s.Save(_saving, tx)));
+                _saving.Id = SavingServices.SaveContract(_saving, _client, (tx, id) =>
+                {
+                    foreach (var extension in SavingsExtensions) extension.Save(_saving, tx);
+                });
                 _saving = SavingServices.GetSaving(_saving.Id);
 
                 if (_saving.Id > 0)
@@ -6966,14 +6971,14 @@ namespace OpenCBS.GUI.Clients
                 var pages = extension.GetTabPages(_credit);
                 if (pages != null)
                 {
-                    foreach (var page in pages) page.Tag = true; // extension mark
+                    foreach (var page in pages) page.Tag = true; // mark as extension
                     tclLoanDetails.TabPages.AddRange(pages);
                 }
 
                 pages = extension.GetRepaymentTabPages(_credit);
                 if (pages != null)
                 {
-                    foreach (var page in pages) page.Tag = true; // extension mark
+                    foreach (var page in pages) page.Tag = true; // mark as extension
                     tabControlRepayments.TabPages.AddRange(pages);
                 }
             }
@@ -6981,12 +6986,21 @@ namespace OpenCBS.GUI.Clients
 
         private void LoadSavingsExtensions()
         {
-            _savingsExtensions.Clear();
-            foreach (ISavings s in Extension.Instance.Extensions.Select(e => e.QueryInterface(typeof(ISavings))).OfType<ISavings>())
+            // Remove existing extension tab pages
+            for (var i = tabControlSavingsDetails.TabPages.Count - 1; i >= 0; i--)
             {
-                _savingsExtensions.Add(s);
-                TabPage[] pages = s.GetTabPages(_saving);
+                var page = tabControlSavingsDetails.TabPages[i];
+                if (page.Tag is bool && (bool) page.Tag)
+                {
+                    tabControlSavingsDetails.TabPages.Remove(page);
+                }
+            }
+
+            foreach (var extension in SavingsExtensions)
+            {
+                var pages = extension.GetTabPages(_saving);
                 if (null == pages) continue;
+                foreach (var page in pages) page.Tag = true; // mark as extension
                 tabControlSavingsDetails.TabPages.AddRange(pages);
             }
         }
