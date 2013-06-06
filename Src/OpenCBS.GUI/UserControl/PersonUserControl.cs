@@ -535,7 +535,6 @@ namespace OpenCBS.GUI.UserControl
 
         private void LoadExtensions()
         {
-            if (Extensions == null) return;
             foreach (var extension in Extensions)
             {
                 var pages = extension.GetTabPages(_tempPerson);
