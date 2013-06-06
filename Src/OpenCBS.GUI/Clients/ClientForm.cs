@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
@@ -106,16 +107,23 @@ namespace OpenCBS.GUI.Clients
         private DateTime _oldFirstInstalmentDate;
         private bool _changeDisDateBool;
 
-        private List<ILoan> _loanDetailsExtensions = new List<ILoan>();
+        [ImportMany(typeof(ILoan), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<ILoan> LoanExtensions { get; set; }
         private List<ISavings> _savingsExtensions = new List<ISavings>();
 
         private readonly IExtensionActivator _extensionActivator;
         #endregion
 
         #region *** Constructors ***
-        public ClientForm(OClientTypes pClientType, Form pMdiParent, bool pCloseFormAfterSave, IExtensionActivator extensionActivator)
+
+        private ClientForm(IExtensionActivator extensionActivator)
         {
             _extensionActivator = extensionActivator;
+            if (_extensionActivator != null) extensionActivator.Execute(this);
+        }
+
+        public ClientForm(OClientTypes pClientType, Form pMdiParent, bool pCloseFormAfterSave, IExtensionActivator extensionActivator) : this(extensionActivator)
+        {
             _listGuarantors = new List<Guarantor>();
             _collaterals = new List<ContractCollateral>();
             _loanShares = new List<LoanShare>();
@@ -160,9 +168,8 @@ namespace OpenCBS.GUI.Clients
             return new KeyValuePair<OContractStatus, string>(status, statusText);
         }
 
-        public ClientForm(Person pPerson, Form pMdiParent, IExtensionActivator extensionActivator)
+        public ClientForm(Person pPerson, Form pMdiParent, IExtensionActivator extensionActivator) : this(extensionActivator)
         {
-            _extensionActivator = extensionActivator;
             _mdiParent = pMdiParent;
             _person = pPerson;
             _client = pPerson;
@@ -178,9 +185,8 @@ namespace OpenCBS.GUI.Clients
             InitializeTitle(string.Format("{0} {1}", pPerson.FirstName, pPerson.LastName));            
         }
 
-        public ClientForm(Corporate pCorporate, Form pMdiParent, IExtensionActivator extensionActivator)
+        public ClientForm(Corporate pCorporate, Form pMdiParent, IExtensionActivator extensionActivator) : this(extensionActivator)
         {
-            _extensionActivator = extensionActivator;
             _mdiParent = pMdiParent;
             _corporate = pCorporate;
             _client = pCorporate;
@@ -196,9 +202,8 @@ namespace OpenCBS.GUI.Clients
             InitializeTitle(_corporate.Name);            
         }
 
-        public ClientForm(Group pGroup, Form pMdiParent, IExtensionActivator extensionActivator)
+        public ClientForm(Group pGroup, Form pMdiParent, IExtensionActivator extensionActivator) : this(extensionActivator)
         {
-            _extensionActivator = extensionActivator;
             _mdiParent = pMdiParent;
             _group = pGroup;
             _client = pGroup;
@@ -214,9 +219,8 @@ namespace OpenCBS.GUI.Clients
             InitializeTitle(_group.Name);            
         }
 
-        public ClientForm(IClient pClient, int pContractId, Form pMdiParent, IExtensionActivator extensionActivator)
+        public ClientForm(IClient pClient, int pContractId, Form pMdiParent, IExtensionActivator extensionActivator) : this(extensionActivator)
         {
-            _extensionActivator = extensionActivator;
             _mdiParent = pMdiParent;
             _listGuarantors = new List<Guarantor>();
             _collaterals = new List<ContractCollateral>();
@@ -239,9 +243,8 @@ namespace OpenCBS.GUI.Clients
             LoadLoanDetailsExtensions();
         }
 
-        public ClientForm(IClient pClient, int pContractId, Form pMdiParent, string selectedTab, IExtensionActivator extensionActivator)
+        public ClientForm(IClient pClient, int pContractId, Form pMdiParent, string selectedTab, IExtensionActivator extensionActivator) : this(extensionActivator)
         {
-            _extensionActivator = extensionActivator;
             _mdiParent = pMdiParent;
             _listGuarantors = new List<Guarantor>();
             _collaterals = new List<ContractCollateral>();
@@ -3824,7 +3827,7 @@ namespace OpenCBS.GUI.Clients
                     credit.ClientType = _oClientType;
                     ServicesProvider.GetInstance().GetContractServices().SaveLoan(ref credit, _project.Id, ref client, (tx, id) =>
                     {
-                       _loanDetailsExtensions.ForEach(e => e.Save(credit, tx));
+                        foreach (var extension in LoanExtensions) extension.Save(credit, tx);
                     });
                     _credit = credit;
 
@@ -3861,7 +3864,7 @@ namespace OpenCBS.GUI.Clients
 
                     ServicesProvider.GetInstance().GetContractServices().SaveLoan(ref credit, _project.Id, ref client, (tx, id) =>
                     {
-                        _loanDetailsExtensions.ForEach(e => e.Save(credit, tx));
+                        LoanExtensions.ForEach(e => e.Save(credit, tx));
                     });
 
                     if (_customizableLoanFieldsControl != null)
@@ -6937,17 +6940,15 @@ namespace OpenCBS.GUI.Clients
 
         private void LoadLoanDetailsExtensions()
         {
-            _loanDetailsExtensions.Clear();
-            foreach (ILoan l in Extension.Instance.Extensions.Select(e => e.QueryInterface(typeof(ILoan))).OfType<ILoan>())
+            foreach (var extension in LoanExtensions)
             {
-                _loanDetailsExtensions.Add(l);
-                TabPage[] pages = l.GetTabPages(_credit);
+                var pages = extension.GetTabPages(_credit);
                 if (pages != null)
                 {
                     tclLoanDetails.TabPages.AddRange(pages);
                 }
 
-                pages = l.GetRepaymentTabPages(_credit);
+                pages = extension.GetRepaymentTabPages(_credit);
                 if (pages != null)
                 {
                     tabControlRepayments.TabPages.AddRange(pages);
