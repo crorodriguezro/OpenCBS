@@ -1,6 +1,4 @@
-﻿// Octopus MFS is an integrated suite for managing a Micro Finance Institution: 
-// clients, contracts, accounting, reporting and risk
-// Copyright © 2006,2007 OCTO Technology & OXUS Development Network
+﻿// Copyright © 2013 Open Octopus Ltd.
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
@@ -19,15 +17,25 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
+using System.ComponentModel.Composition;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain.Clients;
 
-namespace OpenCBS.Extensions
+namespace OpenCBS.Extensions.Samples
 {
-    public interface ICorporate
+    [PartCreationPolicy(CreationPolicy.NonShared)]
+    [Export(typeof(ICorporateTabs))]
+    public class CorporateTabsSample : ICorporateTabs
     {
-        TabPage[] GetTabPages(Corporate corporate);
-        void Save(Corporate corporate, SqlTransaction tx);
+        public TabPage[] GetTabPages(Corporate corporate)
+        {
+            var page = new TabPage("TEST CORPORATE");
+            return new[] { page };
+        }
+
+        public void Save(Corporate corporate, SqlTransaction tx)
+        {
+        }
     }
 }

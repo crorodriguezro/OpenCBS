@@ -20,21 +20,27 @@
 using System.ComponentModel.Composition;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using OpenCBS.CoreDomain.Clients;
+using OpenCBS.CoreDomain.Contracts.Loans;
 
 namespace OpenCBS.Extensions.Samples
 {
     [PartCreationPolicy(CreationPolicy.NonShared)]
-    [Export(typeof(ISolidarityGroup))]
-    public class SolidarityGroupSample : ISolidarityGroup
+    [Export(typeof(ILoanTabs))]
+    public class LoanTabsSample : ILoanTabs
     {
-        public TabPage[] GetTabPages(Group solidarityGroup)
+        public TabPage[] GetTabPages(Loan loan)
         {
-            var tabPage = new TabPage("TEST SOLIDARITY GROUP");
+            var tabPage = new TabPage("TEST LOAN DETAILS");
             return new[] { tabPage };
         }
 
-        public void Save(Group solidarityGroup, SqlTransaction tx)
+        public TabPage[] GetRepaymentTabPages(Loan loan)
+        {
+            var tabPage = new TabPage("TEST LOAN REPAYMENTS");
+            return new[] { tabPage };
+        }
+
+        public void Save(Loan loan, SqlTransaction tx)
         {
         }
     }

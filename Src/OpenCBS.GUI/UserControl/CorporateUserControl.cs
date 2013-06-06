@@ -57,8 +57,8 @@ namespace OpenCBS.GUI.UserControl
         public event EventHandler AddSelectedSaving;
         public event EventHandler ViewSelectedSaving;
 
-        [ImportMany(typeof(ICorporate), RequiredCreationPolicy = CreationPolicy.NonShared)]
-        public List<ICorporate> Extensions { get; set; }
+        [ImportMany(typeof(ICorporateTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<ICorporateTabs> Extensions { get; set; }
 
         private CustomizableFieldsControl _customziableFieldsControl;
 

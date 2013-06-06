@@ -26,8 +26,8 @@ using OpenCBS.CoreDomain.Clients;
 namespace OpenCBS.Extensions.Samples
 {
     [PartCreationPolicy(CreationPolicy.NonShared)]
-    [Export(typeof(IPerson))]
-    public class PersonSample : IPerson
+    [Export(typeof(IPersonTabs))]
+    public class PersonTabsSample : IPersonTabs
     {
         public TabPage[] GetTabPages(Person person)
         {

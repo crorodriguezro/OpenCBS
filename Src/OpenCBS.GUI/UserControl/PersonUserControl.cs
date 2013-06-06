@@ -45,8 +45,8 @@ namespace OpenCBS.GUI.UserControl
 		private Person _tempPerson;
         private bool _personSaved;
 
-        [ImportMany(typeof(IPerson), RequiredCreationPolicy = CreationPolicy.NonShared)]
-        public List<IPerson> Extensions { get; set; }
+        [ImportMany(typeof(IPersonTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<IPersonTabs> Extensions { get; set; }
 
 	    private CustomizableFieldsControl _advancedFieldsControl;
 

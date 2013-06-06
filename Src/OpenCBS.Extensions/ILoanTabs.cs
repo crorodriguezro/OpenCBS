@@ -21,13 +21,14 @@
 
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using OpenCBS.CoreDomain.Contracts.Savings;
+using OpenCBS.CoreDomain.Contracts.Loans;
 
 namespace OpenCBS.Extensions
 {
-    public interface ISavings
+    public interface ILoanTabs
     {
-        TabPage[] GetTabPages(ISavingsContract savings);
-        void Save(ISavingsContract savings, SqlTransaction tx);
+        TabPage[] GetTabPages(Loan loan);
+        TabPage[] GetRepaymentTabPages(Loan loan);
+        void Save(Loan loan, SqlTransaction tx);
     }
 }

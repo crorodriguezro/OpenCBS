@@ -20,21 +20,21 @@
 using System.ComponentModel.Composition;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using OpenCBS.CoreDomain.Clients;
+using OpenCBS.CoreDomain.Contracts.Savings;
 
 namespace OpenCBS.Extensions.Samples
 {
     [PartCreationPolicy(CreationPolicy.NonShared)]
-    [Export(typeof(INonSolidarityGroup))]
-    public class NonSolidarityGroupSample : INonSolidarityGroup
+    [Export(typeof(ISavingsTabs))]
+    public class SavingsTabsSample : ISavingsTabs
     {
-        public TabPage[] GetTabPages(Village nonSolidarityGroup)
+        public TabPage[] GetTabPages(ISavingsContract savings)
         {
-            var tabPage = new TabPage("TEST NON SOLIDARITY GROUP");
+            var tabPage = new TabPage("TEST SAVINGS");
             return new[] { tabPage };
         }
 
-        public void Save(Village nonSolidarityGroup, SqlTransaction tx)
+        public void Save(ISavingsContract savings, SqlTransaction tx)
         {
         }
     }

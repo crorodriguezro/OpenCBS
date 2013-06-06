@@ -60,22 +60,22 @@
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="ExtensionActivator.cs" />
-    <Compile Include="ICorporate.cs" />
+    <Compile Include="ICorporateTabs.cs" />
     <Compile Include="IExtensionActivator.cs" />
-    <Compile Include="ILoan.cs" />
+    <Compile Include="ILoanTabs.cs" />
     <Compile Include="IMenu.cs" />
-    <Compile Include="INonSolidarityGroup.cs" />
-    <Compile Include="IPerson.cs" />
-    <Compile Include="ISavings.cs" />
-    <Compile Include="ISolidarityGroup.cs" />
+    <Compile Include="INonSolidarityGroupTabs.cs" />
+    <Compile Include="IPersonTabs.cs" />
+    <Compile Include="ISavingsTabs.cs" />
+    <Compile Include="ISolidarityGroupTabs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Samples\SavingsSample.cs" />
-    <Compile Include="Samples\LoanSample.cs" />
-    <Compile Include="Samples\NonSolidarityGroupSample.cs" />
-    <Compile Include="Samples\CorporateSample.cs" />
+    <Compile Include="Samples\SavingsTabsSample.cs" />
+    <Compile Include="Samples\LoanTabsSample.cs" />
+    <Compile Include="Samples\NonSolidarityGroupTabsSample.cs" />
+    <Compile Include="Samples\CorporateTabsSample.cs" />
     <Compile Include="Samples\MenuSample.cs" />
-    <Compile Include="Samples\PersonSample.cs" />
-    <Compile Include="Samples\SolidarityGroupSample.cs" />
+    <Compile Include="Samples\PersonTabsSample.cs" />
+    <Compile Include="Samples\SolidarityGroupTabsSample.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenCBS.CoreDomain\OpenCBS.CoreDomain.csproj">

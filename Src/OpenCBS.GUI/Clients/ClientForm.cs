@@ -107,11 +107,11 @@ namespace OpenCBS.GUI.Clients
         private DateTime _oldFirstInstalmentDate;
         private bool _changeDisDateBool;
 
-        [ImportMany(typeof(ILoan), RequiredCreationPolicy = CreationPolicy.NonShared)]
-        public List<ILoan> LoanExtensions { get; set; }
+        [ImportMany(typeof(ILoanTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<ILoanTabs> LoanExtensions { get; set; }
 
-        [ImportMany(typeof(ISavings), RequiredCreationPolicy = CreationPolicy.NonShared)]
-        public List<ISavings> SavingsExtensions { get; set; }
+        [ImportMany(typeof(ISavingsTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<ISavingsTabs> SavingsExtensions { get; set; }
 
         private readonly IExtensionActivator _extensionActivator;
         #endregion

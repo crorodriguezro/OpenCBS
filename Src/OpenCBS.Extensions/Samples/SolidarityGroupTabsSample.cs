@@ -25,16 +25,16 @@ using OpenCBS.CoreDomain.Clients;
 namespace OpenCBS.Extensions.Samples
 {
     [PartCreationPolicy(CreationPolicy.NonShared)]
-    [Export(typeof(ICorporate))]
-    public class CorporateSample : ICorporate
+    [Export(typeof(ISolidarityGroupTabs))]
+    public class SolidarityGroupTabsSample : ISolidarityGroupTabs
     {
-        public TabPage[] GetTabPages(Corporate corporate)
+        public TabPage[] GetTabPages(Group solidarityGroup)
         {
-            var page = new TabPage("TEST CORPORATE");
-            return new[] { page };
+            var tabPage = new TabPage("TEST SOLIDARITY GROUP");
+            return new[] { tabPage };
         }
 
-        public void Save(Corporate corporate, SqlTransaction tx)
+        public void Save(Group solidarityGroup, SqlTransaction tx)
         {
         }
     }

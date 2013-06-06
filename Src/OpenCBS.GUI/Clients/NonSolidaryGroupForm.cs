@@ -55,8 +55,8 @@ namespace OpenCBS.GUI.Clients
         private bool membersSaved = true;
         private readonly IExtensionActivator _extensionActivator;
 
-        [ImportMany(typeof(INonSolidarityGroup), RequiredCreationPolicy = CreationPolicy.NonShared)]
-        public List<INonSolidarityGroup> Extensions { get; set; }
+        [ImportMany(typeof(INonSolidarityGroupTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<INonSolidarityGroupTabs> Extensions { get; set; }
 
         public NonSolidaryGroupForm(IExtensionActivator extensionActivator)
         {

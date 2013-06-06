@@ -25,7 +25,7 @@ using OpenCBS.CoreDomain.Clients;
 
 namespace OpenCBS.Extensions
 {
-    public interface ISolidarityGroup
+    public interface ISolidarityGroupTabs
     {
         TabPage[] GetTabPages(Group group);
         void Save(Group group, SqlTransaction tx);

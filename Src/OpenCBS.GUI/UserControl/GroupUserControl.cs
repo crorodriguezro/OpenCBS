@@ -141,8 +141,8 @@ namespace OpenCBS.GUI.UserControl
         public event EventHandler AddSelectedSaving;
         public event EventHandler ViewSelectedSaving;
 
-        [ImportMany(typeof(ISolidarityGroup), RequiredCreationPolicy = CreationPolicy.NonShared)]
-        public List<ISolidarityGroup> Extensions { get; set; }
+        [ImportMany(typeof(ISolidarityGroupTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<ISolidarityGroupTabs> Extensions { get; set; }
 
         #region Code g�n�r?par le Concepteur de composants
 
