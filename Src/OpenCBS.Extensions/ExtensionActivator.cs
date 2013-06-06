@@ -19,6 +19,7 @@
 
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using System.IO;
 using System.Reflection;
 using OpenCBS.CoreDomain;
 
@@ -30,10 +31,16 @@ namespace OpenCBS.Extensions
 
         public ExtensionActivator()
         {
+            var extensionsFolder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) ?? string.Empty;
+            extensionsFolder = Path.Combine(extensionsFolder, "Extensions");
             var catalog = new AggregateCatalog(
                     new AssemblyCatalog(Assembly.GetExecutingAssembly()),
                     new AssemblyCatalog(Assembly.GetAssembly(typeof(DatabaseConnection)))
                 );
+
+            if (Directory.Exists(extensionsFolder))
+                catalog.Catalogs.Add(new DirectoryCatalog(extensionsFolder));
+            
             _container = new CompositionContainer(catalog);
         }
 
