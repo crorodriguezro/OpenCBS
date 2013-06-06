@@ -40,8 +40,10 @@ namespace OpenCBS.Extensions.Samples
             get { return "mnuClients"; }
         }
 
-        public ToolStripMenuItem GetItem()
+        public ToolStripMenuItem GetItem(IExtensionActivator extensionActivator)
         {
+            if (extensionActivator != null) extensionActivator.Execute(this);
+
             var result = new ToolStripMenuItem { Text = "TEST " };
             result.Click += (sender, args) =>
             {
