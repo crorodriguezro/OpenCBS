@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -52,8 +53,10 @@ namespace OpenCBS.GUI.Clients
         private CustomizableFieldsControl _customizableFieldsControl;
         private String _title = null;
         private bool membersSaved = true;
-        private readonly List<INonSolidarityGroup> _extensionGroups = new List<INonSolidarityGroup>();
         private readonly IExtensionActivator _extensionActivator;
+
+        [ImportMany(typeof(INonSolidarityGroup), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<INonSolidarityGroup> Extensions { get; set; }
 
         public NonSolidaryGroupForm(IExtensionActivator extensionActivator)
         {
@@ -137,7 +140,10 @@ namespace OpenCBS.GUI.Clients
                 _village.Id = ServicesProvider
                     .GetInstance()
                     .GetClientServices()
-                    .SaveNonSolidarityGroup(_village, (tx, id) => _extensionGroups.ForEach(g => g.Save(_village, tx)));
+                    .SaveNonSolidarityGroup(_village, (tx, id) =>
+                    {
+                        foreach (var extension in Extensions) extension.Save(_village, tx);
+                    });
 
                 if (_village.Id > 0)
                     _customizableFieldsControl.Save(_village.Id);
@@ -934,18 +940,12 @@ namespace OpenCBS.GUI.Clients
 
         private void LoadExtensions()
         {
-            foreach (INonSolidarityGroup g in Extension.Instance.Extensions.Select(e => e.QueryInterface(typeof(INonSolidarityGroup))).OfType<INonSolidarityGroup>())
+            foreach (var extension in Extensions)
             {
-                _extensionGroups.Add(g);
-                TabPage[] pages = g.GetTabPages(_village);
+                var pages = extension.GetTabPages(_village);
                 if (null == pages) continue;
                 tabVillage.TabPages.AddRange(pages);
             }
-        }
-
-        private void tbName_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
