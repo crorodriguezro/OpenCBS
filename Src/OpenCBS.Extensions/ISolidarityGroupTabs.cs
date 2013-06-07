@@ -19,15 +19,15 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
-using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using OpenCBS.CoreDomain.Clients;
 
 namespace OpenCBS.Extensions
 {
-    public interface ICorporate
+    public interface ISolidarityGroupTabs
     {
-        TabPage[] GetTabPages(Corporate corporate);
-        void Save(Corporate corporate, SqlTransaction tx);
+        TabPage[] GetTabPages(Group group);
+        void Save(Group group, SqlTransaction tx);
     }
 }

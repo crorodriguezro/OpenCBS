@@ -22,9 +22,11 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Composition;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Windows.Forms;
@@ -60,13 +62,14 @@ namespace OpenCBS.GUI
 {
     public partial class LotrasmicMainWindowForm : SweetBaseForm
     {
+        [ImportMany(typeof(IMenu), RequiredCreationPolicy = CreationPolicy.Shared)]
+        public List<IMenu> ExtensionMenuItems { get; set; }
+
         private delegate void LoadAlertsDelegate(List<Alert_v2> alerts);
-        private delegate void AttachExtensionDelegate(IExtension extension);
         private List<MenuObject> _menuItems;
         private bool _showTellerFormOnClose = true;
         private bool _triggerAlertsUpdate;
-        private DashboardForm pFCF; // it`s pointer for have access to FastChoiceForm component 
-        private ReportLoadingProgressForm _reportLdProgressForm;
+        private readonly IExtensionActivator _extensionActivator;
 
         public LotrasmicMainWindowForm()
         {
@@ -77,6 +80,8 @@ namespace OpenCBS.GUI
             LoadReprotsToolStrip();
             InitializeTracer();
             DisplayWinFormDetails();
+            _extensionActivator = new ExtensionActivator();
+            _extensionActivator.Execute(this);
         }
 
         private void InitializeTracer()
@@ -87,7 +92,7 @@ namespace OpenCBS.GUI
         }
 
         private void DisplayWinFormDetails()
-        {           
+        {
             _DisplayDetails();
             InitializeContractCurrencies();
             InitAlerts();
@@ -118,12 +123,12 @@ namespace OpenCBS.GUI
                             else if (frm.OpenAmountNegativeDifferenceEvent != null)
                                 ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
                                     frm.OpenAmountNegativeDifferenceEvent);
-                            
+
                         }
 
                         return true;
                     }
-                        return false;
+                    return false;
                 }
             }
             return true;
@@ -140,7 +145,7 @@ namespace OpenCBS.GUI
             toolStripStatusLblDB.Text = !TechnicalSettings.UseOnlineMode ?
                 String.Format(" {0}", TechnicalSettings.DatabaseName) :
                 "Online";
-             
+
             //mainStatusBarLblUserName.ForeColor = Color.Red;
 
             toolBarLblVersion.Text = String.Format("OpenCBS {0}", TechnicalSettings.SoftwareVersion);
@@ -172,20 +177,16 @@ namespace OpenCBS.GUI
             }
             foreach (Object tsmi in pMenuItem.DropDownItems)
             {
-                if (! (tsmi is ToolStripMenuItem))
+                if (!(tsmi is ToolStripMenuItem))
                     continue;
 
                 ToolStripMenuItem tsmiMenu = (ToolStripMenuItem)tsmi;
-                
+
                 MenuObject foundMO = GetMenuObject(tsmiMenu.Name);
                 bool isAllowed = foundMO == null || pRole.IsMenuAllowed(foundMO);
                 tsmiMenu.Enabled = isAllowed;
+                tsmiMenu.Tag = foundMO;
 
-                if (!(tsmiMenu.Tag is IExtension))
-                {
-                    tsmiMenu.Tag = foundMO;
-                }
-                
                 InitializeMenuChildren(tsmiMenu, pRole);
             }
         }
@@ -219,10 +220,9 @@ namespace OpenCBS.GUI
 
         private void DisplayFastChoiceForm()
         {
-            DashboardForm fastChoiceForm = new DashboardForm {MdiParent = this};
+            DashboardForm fastChoiceForm = new DashboardForm(_extensionActivator) { MdiParent = this };
             fastChoiceForm.Show();
-            pFCF = fastChoiceForm;
-                       
+
             foreach (Object tsmi in MainMenuStrip.Items)
             {
                 if (!(tsmi is ToolStripMenuItem))
@@ -235,18 +235,18 @@ namespace OpenCBS.GUI
 
         public void InitializePersonForm()
         {
-            ClientForm personForm = new ClientForm(OClientTypes.Person, this, false) {MdiParent = this};
+            ClientForm personForm = new ClientForm(OClientTypes.Person, this, false, _extensionActivator) { MdiParent = this };
             personForm.Show();
         }
 
         public void InitializeCorporateForm()
         {
-            ClientForm corporateForm = new ClientForm(OClientTypes.Corporate,this,false) {MdiParent = this};
+            ClientForm corporateForm = new ClientForm(OClientTypes.Corporate, this, false, _extensionActivator) { MdiParent = this };
             corporateForm.Show();
         }
         public void InitializeCorporateForm(Corporate corporate, Project project)
         {
-            ClientForm corporateForm = new ClientForm(corporate, this) {MdiParent = this};
+            ClientForm corporateForm = new ClientForm(corporate, this, _extensionActivator) { MdiParent = this };
             if (project != null)
                 corporateForm.DisplayUserControl_ViewProject(project, null);
 
@@ -255,11 +255,14 @@ namespace OpenCBS.GUI
 
         public void InitializePersonForm(Person person, Project project)
         {
-            ClientForm personForm = new ClientForm(person, this)
-                                        {
-                                            MdiParent = this,
-                                            Text = string.Format("{0} [{1}]", MultiLanguageStrings.GetString(Ressource.ClientForm, "Person.Text"), person.Name)
-                                        };
+            ClientForm personForm = new ClientForm(person, this, _extensionActivator)
+            {
+                MdiParent = this,
+                Text = string.Format(
+                       "{0} [{1}]", 
+                       MultiLanguageStrings.GetString(Ressource.ClientForm, "Person.Text"),
+                       person.Name)
+            };
             if (project != null)
                 personForm.DisplayUserControl_ViewProject(project, null);
             personForm.Show();
@@ -267,32 +270,34 @@ namespace OpenCBS.GUI
 
         public void InitializeGroupForm()
         {
-            ClientForm personForm = new ClientForm(OClientTypes.Group, this, false) {MdiParent = this};
+            ClientForm personForm = new ClientForm(OClientTypes.Group, this, false, _extensionActivator) { MdiParent = this };
             personForm.Show();
         }
 
         public void InitializeVillageForm()
         {
-            NonSolidaryGroupForm frm = new NonSolidaryGroupForm() {MdiParent = this};
+            NonSolidaryGroupForm frm = new NonSolidaryGroupForm(_extensionActivator) { MdiParent = this };
             frm.Show();
         }
 
         public void InitializeVillageForm(Village village)
         {
-            NonSolidaryGroupForm frm = new NonSolidaryGroupForm(village) {MdiParent = this};
+            NonSolidaryGroupForm frm = new NonSolidaryGroupForm(village, _extensionActivator) { MdiParent = this };
             frm.Show();
         }
 
         public void InitializeGroupForm(Group group, Project project)
         {
-            ClientForm personForm = new ClientForm(group, this)
-                                        {
-                                            MdiParent = this,
-                                            Text = string.Format("{0} [{1}]", MultiLanguageStrings.GetString(Ressource.ClientForm, "Group.Text"), group.Name)
-                                        };
+            ClientForm personForm = new ClientForm(group, this, _extensionActivator)
+            {
+                MdiParent = this,
+                Text =
+                    string.Format("{0} [{1}]", MultiLanguageStrings.GetString(Ressource.ClientForm, "Group.Text"),
+                                  group.Name)
+            };
             if (project != null)
-                    personForm.DisplayUserControl_ViewProject(project, null);
-                personForm.Show();
+                personForm.DisplayUserControl_ViewProject(project, null);
+            personForm.Show();
         }
 
         public void InitializeSearchClientForm()
@@ -326,13 +331,13 @@ namespace OpenCBS.GUI
              * loaded here because in LoanManager class SavingsManager trigers problems.
              * Ruslan Kazakov
              */
-            
+
             if (pClient.Projects != null)
                 foreach (Project project in pClient.Projects)
                     if (project.Credits != null)
                         foreach (Loan loan in project.Credits)
                             loan.CompulsorySavings = ServicesProvider.GetInstance().GetSavingServices().GetSavingForLoan(loan.Id, true);
-            ClientForm personForm = new ClientForm(pClient, pContractId, this) {MdiParent = this};
+            ClientForm personForm = new ClientForm(pClient, pContractId, this, _extensionActivator) { MdiParent = this };
             personForm.Show();
         }
 
@@ -342,11 +347,11 @@ namespace OpenCBS.GUI
             {
                 case OClientTypes.Person:
                     {
-                        var personForm = new ClientForm((Person)client, this)
+                        var personForm = new ClientForm((Person)client, this, _extensionActivator)
                         {
                             MdiParent = this,
                             Text = string.Format("{0} [{1}]", MultiLanguageStrings.GetString(
-                            Ressource.ClientForm, "Person.Text"), 
+                            Ressource.ClientForm, "Person.Text"),
                             ((Person)client).Name)
                         };
                         personForm.DisplaySaving(savingId, client);
@@ -355,7 +360,7 @@ namespace OpenCBS.GUI
                     }
                 case OClientTypes.Group:
                     {
-                        var personForm = new ClientForm((Group)client, this)
+                        var personForm = new ClientForm((Group)client, this, _extensionActivator)
                         {
                             MdiParent = this,
                             Text = string.Format("{0} [{1}]", MultiLanguageStrings.GetString(Ressource.ClientForm, "Group.Text"), ((Group)client).Name)
@@ -366,13 +371,13 @@ namespace OpenCBS.GUI
                     }
                 case OClientTypes.Village:
                     {
-                        var frm = new NonSolidaryGroupForm((Village)client) { MdiParent = this };
+                        var frm = new NonSolidaryGroupForm((Village)client, _extensionActivator) { MdiParent = this };
                         frm.Show();
                         break;
                     }
                 case OClientTypes.Corporate:
                     {
-                        var corporateForm = new ClientForm((Corporate)client, this) { MdiParent = this };
+                        var corporateForm = new ClientForm((Corporate)client, this, _extensionActivator) { MdiParent = this };
                         corporateForm.DisplaySaving(savingId, client);
                         corporateForm.Show();
                         break;
@@ -459,7 +464,7 @@ namespace OpenCBS.GUI
         private void menuItemExportTransaction_Click(object sender, EventArgs e)
         {
             Form exportTransactions = new ExportBookingsForm { MdiParent = this };
-            
+
             exportTransactions.Show();
         }
         private void menuItemExchangeRate_Click(object sender, System.EventArgs e)
@@ -475,7 +480,7 @@ namespace OpenCBS.GUI
 
         private void menuItemAddUser_Click(object sender, System.EventArgs e)
         {
-            UserForm userForm = new UserForm {MdiParent = this};
+            UserForm userForm = new UserForm { MdiParent = this };
             userForm.Show();
         }
 
@@ -547,13 +552,13 @@ namespace OpenCBS.GUI
 
         private void _InitializeStandardBookings()
         {
-            StandardBooking standardBooking = new StandardBooking {MdiParent = this};
+            StandardBooking standardBooking = new StandardBooking { MdiParent = this };
             standardBooking.Show();
         }
 
         private void toolStripMenuItemAccountView_Click(object sender, EventArgs e)
         {
-            AccountView accountView = new AccountView {MdiParent = this};
+            AccountView accountView = new AccountView { MdiParent = this };
             accountView.Show();
         }
 
@@ -565,7 +570,7 @@ namespace OpenCBS.GUI
 
         private void toolStripMenuItemFundingLines_Click(object sender, EventArgs e)
         {
-            Form frm = new FrmFundingLine {MdiParent = this};
+            Form frm = new FrmFundingLine { MdiParent = this };
             frm.Show();
         }
 
@@ -665,7 +670,7 @@ namespace OpenCBS.GUI
         {
             colAlerts_Status.AspectToStringConverter = delegate(object value)
             {
-                OContractStatus status = (OContractStatus) value;
+                OContractStatus status = (OContractStatus)value;
                 string key = string.Format("Status{0}", status);
                 return GetString(key);
             };
@@ -678,13 +683,13 @@ namespace OpenCBS.GUI
 
             colAlerts_Amount.AspectToStringConverter = delegate(object value)
             {
-                OCurrency amount = (OCurrency) value;
+                OCurrency amount = (OCurrency)value;
                 return amount.GetFormatedValue(true);
             };
 
             colAlerts_ContractCode.ImageGetter = delegate(object value)
             {
-                Alert_v2 alert = (Alert_v2) value;
+                Alert_v2 alert = (Alert_v2)value;
                 return alert.ImageIndex;
             };
 
@@ -746,7 +751,7 @@ namespace OpenCBS.GUI
         {
             if (InvokeRequired)
             {
-                Invoke(new LoadAlertsDelegate(LoadAlerts), new object[] {alerts});
+                Invoke(new LoadAlertsDelegate(LoadAlerts), new object[] { alerts });
                 return;
             }
 
@@ -776,7 +781,7 @@ namespace OpenCBS.GUI
 
         private void OnFormatAlertRow(object sender, FormatRowEventArgs e)
         {
-            Alert_v2 alert = (Alert_v2) e.Model;
+            Alert_v2 alert = (Alert_v2)e.Model;
             e.Item.BackColor = alert.BackColor;
         }
 
@@ -789,7 +794,7 @@ namespace OpenCBS.GUI
         {
             if (null == olvAlerts.SelectedObject) return;
 
-            Alert_v2 alert = (Alert_v2) olvAlerts.SelectedObject;
+            Alert_v2 alert = (Alert_v2)olvAlerts.SelectedObject;
 
             IClient client;
             switch (alert.Kind)
@@ -861,12 +866,16 @@ namespace OpenCBS.GUI
             if (InitializeTellerManagement())
             {
                 LogUser();
-                _LoadExtensions();                
                 panelLeft.Visible = UserSettings.GetLoadAlerts();
                 panelLeft.Width = UserSettings.GetAlertsWidth();
                 if (panelLeft.Visible) ReloadAlerts();
                 panelLeft.VisibleChanged += OnAlertsVisibleChanged;
                 panelLeft.SizeChanged += OnAlertsSizeChanged;
+
+                InitializeMainMenu();
+                _InitializeUserRights();
+                DisplayFastChoiceForm();
+
             }
             else
             {
@@ -878,11 +887,11 @@ namespace OpenCBS.GUI
         {
             ToolStripMenuItem i;
             IComparer<Report> comparer = new ReportAbcComparer();
-            List<Report> re = new List<Report>(ReportService.GetInstance().GetReportsByTag("Main",true,Flag.Standard));
+            List<Report> re = new List<Report>(ReportService.GetInstance().GetReportsByTag("Main", true, Flag.Standard));
             re.Sort(comparer);
             foreach (Report report in re)
             {
-                i = new ToolStripMenuItem(report.Title) {Tag = report.Name};
+                i = new ToolStripMenuItem(report.Title) { Tag = report.Name };
                 i.Click += new System.EventHandler(this.activeLoansToolStripMenuItem_Click);
                 reportsToolStripMenuItem.DropDownItems.Add(i);
             }
@@ -893,7 +902,7 @@ namespace OpenCBS.GUI
             re.Sort(comparer);
             foreach (Report report in re)
             {
-                ToolStripMenuItem jItem = new ToolStripMenuItem(report.Title) {Tag = report.Name};
+                ToolStripMenuItem jItem = new ToolStripMenuItem(report.Title) { Tag = report.Name };
                 jItem.Click += new System.EventHandler(this.activeLoansToolStripMenuItem_Click);
                 i.DropDownItems.Add(jItem);
             }
@@ -908,16 +917,7 @@ namespace OpenCBS.GUI
 
         private static void LoadReports()
         {
-           bwReportLoader_DoWork(null, null);
-        }
-
-        private void _LoadExtensions()
-        {
-            BackgroundWorker bwExtensionLoader = new BackgroundWorker();
-            bwExtensionLoader.DoWork += LoadExtensions;
-            bwExtensionLoader.RunWorkerCompleted += OnExtensionsLoaded;
-            Trace.WriteLine("Started analyzing extensions");
-            bwExtensionLoader.RunWorkerAsync();
+            bwReportLoader_DoWork(null, null);
         }
 
         private void OnExtensionsLoaded(object sender, RunWorkerCompletedEventArgs e)
@@ -931,44 +931,20 @@ namespace OpenCBS.GUI
             DisplayFastChoiceForm();
         }
 
-        private void AddExtensionToMenu(IExtension extension)
+        private void InitializeMainMenu()
         {
-            if (null == extension) return;
-
-            try
+            foreach (var extensionItem in ExtensionMenuItems)
             {
-                if (InvokeRequired)
-                {
-                    Invoke(new AttachExtensionDelegate(AddExtensionToMenu), new object[] {extension});
-                    return;
-                }
+                var anchor = mainMenu.Items.Find(extensionItem.InsertAfter, true).FirstOrDefault();
+                if (anchor == null) continue;
 
-                IMenu menu = extension.QueryInterface(typeof(IMenu)) as IMenu;
-                if (null == menu) return;
+                var owner = (ToolStripMenuItem)anchor.OwnerItem;
 
-                foreach (ExtensionMenuItem extensionItem in menu.GetItems())
-                {
-                    var items = mainMenu.Items.Find(extensionItem.InsertAfter, true);
-                    if (0 == items.Length) return;
+                var temp = extensionItem;
 
-                    ToolStripMenuItem item = (ToolStripMenuItem)items[0];
-                    ToolStripMenuItem ownerItem = (ToolStripMenuItem)item.OwnerItem;
-  
-                    if (null == ownerItem)
-                    {
-                        int index = mainMenu.Items.IndexOf(item);
-                        mainMenu.Items.Insert(index + 1, extensionItem.MenuItem);
-                    }
-                    else
-                    {
-                        int index = ownerItem.DropDownItems.IndexOf(item);
-                        ownerItem.DropDownItems.Insert(index + 1, extensionItem.MenuItem);
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
+                var items = owner == null ? mainMenu.Items : owner.DropDownItems;
+                var index = items.IndexOf(anchor);
+                items.Insert(index + 1, temp.GetItem(_extensionActivator));
             }
         }
 
@@ -976,15 +952,6 @@ namespace OpenCBS.GUI
         {
             ReportService rs = ReportService.GetInstance();
             rs.LoadReports();
-        }
-
-        private void LoadExtensions(object sender, DoWorkEventArgs e)
-        {
-            
-            foreach (IExtension ext in Extension.Instance.Extensions)
-            {
-                AddExtensionToMenu(ext);
-            }
         }
 
         private void standardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1042,8 +1009,8 @@ namespace OpenCBS.GUI
                     {
                         e.Cancel = false;
 
-                        if (Teller.CurrentTeller != null && Teller.CurrentTeller.Id != 0) 
-                            if (!CloseTeller()) 
+                        if (Teller.CurrentTeller != null && Teller.CurrentTeller.Id != 0)
+                            if (!CloseTeller())
                                 e.Cancel = true;
                     }
                 }
@@ -1051,10 +1018,10 @@ namespace OpenCBS.GUI
             UserSettings.SetAlertState(olvAlerts.SaveState());
             try
             {
-                ServicesProvider.GetInstance().GetEventProcessorServices().LogUser(OUserEvents.UserLogOutEvent, 
+                ServicesProvider.GetInstance().GetEventProcessorServices().LogUser(OUserEvents.UserLogOutEvent,
                     OUserEvents.UserLogoutDescription, User.CurrentUser.Id);
             }
-            catch {}
+            catch { }
         }
 
         private void accountingRulesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1097,7 +1064,7 @@ namespace OpenCBS.GUI
 
         private void branchesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BranchesForm frm = new BranchesForm {MdiParent = this};
+            BranchesForm frm = new BranchesForm { MdiParent = this };
             frm.Show();
         }
 
@@ -1118,8 +1085,8 @@ namespace OpenCBS.GUI
                     string desc = Teller.CurrentTeller.Name + " closed";
                     Teller.CurrentTeller = null;
                     ServicesProvider.GetInstance().GetEventProcessorServices().LogUser(
-                                                                        OUserEvents.UserCloseTellerEvent, 
-                                                                        desc, 
+                                                                        OUserEvents.UserCloseTellerEvent,
+                                                                        desc,
                                                                         User.CurrentUser.Id);
                     ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(frm.CloseOfDayAmountEvent);
                     if (frm.CloseAmountNegativeDifferenceEvent != null)
@@ -1131,7 +1098,7 @@ namespace OpenCBS.GUI
                     return true;
                 }
             }
-            
+
             return false;
         }
 
@@ -1155,7 +1122,7 @@ namespace OpenCBS.GUI
 
         private void tellersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TellersForm frm = new TellersForm() {MdiParent = this};
+            TellersForm frm = new TellersForm() { MdiParent = this };
             frm.Show();
         }
 

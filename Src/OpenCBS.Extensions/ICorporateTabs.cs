@@ -19,13 +19,15 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
+using System.Data.SqlClient;
+using System.Windows.Forms;
+using OpenCBS.CoreDomain.Clients;
+
 namespace OpenCBS.Extensions
 {
-    public interface ITechnicalSettings
+    public interface ICorporateTabs
     {
-        string ServerName { get; set; }
-        string Username { get; set; }
-        string Password { get; set; }
-        string DatabaseName { get; set; }
+        TabPage[] GetTabPages(Corporate corporate);
+        void Save(Corporate corporate, SqlTransaction tx);
     }
 }

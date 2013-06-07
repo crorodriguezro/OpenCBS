@@ -19,15 +19,16 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using OpenCBS.CoreDomain.Clients;
+using System.Windows.Forms;
+using OpenCBS.CoreDomain.Contracts.Loans;
 
 namespace OpenCBS.Extensions
 {
-    public interface ISolidarityGroup
+    public interface ILoanTabs
     {
-        TabPage[] GetTabPages(Group group);
-        void Save(Group group, SqlTransaction tx);
+        TabPage[] GetTabPages(Loan loan);
+        TabPage[] GetRepaymentTabPages(Loan loan);
+        void Save(Loan loan, SqlTransaction tx);
     }
 }

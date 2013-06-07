@@ -25,7 +25,7 @@ using OpenCBS.CoreDomain.Contracts.Savings;
 
 namespace OpenCBS.Extensions
 {
-    public interface ISavings
+    public interface ISavingsTabs
     {
         TabPage[] GetTabPages(ISavingsContract savings);
         void Save(ISavingsContract savings, SqlTransaction tx);

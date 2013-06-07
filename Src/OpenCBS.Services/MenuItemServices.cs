@@ -40,14 +40,7 @@ namespace OpenCBS.Services
 
         public List<MenuObject> GetMenuList(params OSecurityObjectTypes[] securityObjectTypes)
         {
-            List<MenuObject> list = _menuItemManager.GetMenuList(securityObjectTypes);
-
-            foreach (IExtension extension in Extension.Instance.Extensions.Where(extension => extension.QueryInterface(typeof(IMenu)) != null 
-                                                                                 && list.Find(item => item.Name == extension.GetMeta("Name")) == null))
-            {
-                list.Add(_menuItemManager.AddNewMenu(extension.GetMeta("Name")));
-            }
-            return list;
+            return _menuItemManager.GetMenuList(securityObjectTypes);
         }
 
         public MenuObject AddNewMenu(string name)
