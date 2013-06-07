@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OpenCBS.CoreDomain">
-      <HintPath>C:\OpenCbsLibs\OpenCBS.CoreDomain.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition">
       <HintPath>..\..\Lib\System.ComponentModel.Composition.dll</HintPath>
@@ -56,6 +53,10 @@
     <Compile Include="SolidarityGroupTabsSample.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OpenCBS.CoreDomain\OpenCBS.CoreDomain.csproj">
+      <Project>{d539c388-3848-4a3e-ab87-42b8e329755a}</Project>
+      <Name>OpenCBS.CoreDomain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenCBS.Extensions\OpenCBS.Extensions.csproj">
       <Project>{d63e15b6-24df-4c27-8593-eface31fa52a}</Project>
       <Name>OpenCBS.Extensions</Name>
