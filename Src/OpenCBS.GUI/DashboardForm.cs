@@ -25,6 +25,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using OpenCBS.CoreDomain.Dashboard;
 using OpenCBS.Enums;
+using OpenCBS.Extensions;
 using OpenCBS.GUI.AuditTrail;
 using OpenCBS.GUI.Clients;
 using OpenCBS.GUI.Configuration;
@@ -45,8 +46,11 @@ namespace OpenCBS.GUI
         private Chart _disbursementsChart;
         private Chart _olbTrendChart;
 
-        public DashboardForm()
+        private IExtensionActivator _extensionActivator;
+
+        public DashboardForm(IExtensionActivator extensionActivator)
         {
+            _extensionActivator = extensionActivator;
             InitializeComponent();
         }
 
@@ -267,7 +271,7 @@ namespace OpenCBS.GUI
         private void OpenClientForm(OClientTypes clientType)
         {
             var parent = Application.OpenForms[0];
-            var form = new ClientForm(clientType, parent, false) { MdiParent = parent };
+            var form = new ClientForm(clientType, parent, false, _extensionActivator) { MdiParent = parent };
             form.Show();
         }
 
@@ -283,7 +287,7 @@ namespace OpenCBS.GUI
 
         private void OnNewNonSolidairtyGroupLinkLabelLinkClick(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var form = new NonSolidaryGroupForm { MdiParent = Application.OpenForms[0] };
+            var form = new NonSolidaryGroupForm(_extensionActivator) { MdiParent = Application.OpenForms[0] };
             form.Show();
         }
 

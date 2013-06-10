@@ -25,7 +25,7 @@ using OpenCBS.CoreDomain.Clients;
 
 namespace OpenCBS.Extensions
 {
-    public interface INonSolidarityGroup
+    public interface INonSolidarityGroupTabs
     {
         TabPage[] GetTabPages(Village village);
         void Save(Village village, SqlTransaction tx);

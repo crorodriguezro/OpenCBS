@@ -180,6 +180,10 @@
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
+    <Reference Include="System.ComponentModel.Composition, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\System.ComponentModel.Composition.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -225,6 +229,10 @@
     <ProjectReference Include="..\OpenCBS.ExceptionsHandler\OpenCBS.ExceptionsHandler.csproj">
       <Project>{98B26AD8-D160-462B-B70F-982D8701154A}</Project>
       <Name>OpenCBS.ExceptionsHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCBS.Extensions.Samples\OpenCBS.Extensions.Samples.csproj">
+      <Project>{1f60c682-0dd0-481d-905f-b94cb9a60cc5}</Project>
+      <Name>OpenCBS.Extensions.Samples</Name>
     </ProjectReference>
     <ProjectReference Include="..\OpenCBS.Extensions\OpenCBS.Extensions.csproj">
       <Project>{D63E15B6-24DF-4C27-8593-EFACE31FA52A}</Project>

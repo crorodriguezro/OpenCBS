@@ -21,6 +21,7 @@
 
 using System.Data.SqlClient;
 using OpenCBS.Shared.Settings;
+using System.ComponentModel.Composition;
 
 namespace OpenCBS.CoreDomain
 {
@@ -28,6 +29,7 @@ namespace OpenCBS.CoreDomain
     {
         public static bool IsProductionDatabase = true;
 
+        [Export("GetConnection")]
         public static SqlConnection GetConnection()
         {
             SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder();

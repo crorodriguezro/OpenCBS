@@ -23,8 +23,6 @@ using System;
 using System.Data.SqlClient;
 using OpenCBS.CoreDomain;
 using OpenCBS.DatabaseConnection;
-using OpenCBS.Shared.Settings;
-
 
 namespace OpenCBS.Manager
 {

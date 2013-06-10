@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -52,10 +53,16 @@ namespace OpenCBS.GUI.Clients
         private CustomizableFieldsControl _customizableFieldsControl;
         private String _title = null;
         private bool membersSaved = true;
-        private readonly List<INonSolidarityGroup> _extensionGroups = new List<INonSolidarityGroup>();
+        private readonly IExtensionActivator _extensionActivator;
 
-        public NonSolidaryGroupForm()
+        [ImportMany(typeof(INonSolidarityGroupTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<INonSolidarityGroupTabs> Extensions { get; set; }
+
+        public NonSolidaryGroupForm(IExtensionActivator extensionActivator)
         {
+            _extensionActivator = extensionActivator;
+            if (_extensionActivator != null) _extensionActivator.Execute(this);
+
             InitializeComponent();
             _village = new Village {CreationDate = TimeProvider.Now};
             InitializeControls();
@@ -63,8 +70,11 @@ namespace OpenCBS.GUI.Clients
             InitializeTitle();
         }
 
-        public NonSolidaryGroupForm(Village village)
+        public NonSolidaryGroupForm(Village village, IExtensionActivator extensionActivator)
         {
+            _extensionActivator = extensionActivator;
+            if (_extensionActivator != null) _extensionActivator.Execute(this);
+
             _village = village;
 
             foreach (VillageMember member in _village.Members)
@@ -134,7 +144,10 @@ namespace OpenCBS.GUI.Clients
                 _village.Id = ServicesProvider
                     .GetInstance()
                     .GetClientServices()
-                    .SaveNonSolidarityGroup(_village, (tx, id) => _extensionGroups.ForEach(g => g.Save(_village, tx)));
+                    .SaveNonSolidarityGroup(_village, (tx, id) =>
+                    {
+                        foreach (var extension in Extensions) extension.Save(_village, tx);
+                    });
 
                 if (_village.Id > 0)
                     _customizableFieldsControl.Save(_village.Id);
@@ -586,7 +599,7 @@ namespace OpenCBS.GUI.Clients
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ClientForm frm = new ClientForm(OClientTypes.Person, MdiParent, true);
+            ClientForm frm = new ClientForm(OClientTypes.Person, MdiParent, true, _extensionActivator);
             if (frm.ShowDialog() != DialogResult.OK) return;
             try
             {
@@ -623,11 +636,11 @@ namespace OpenCBS.GUI.Clients
                             if (project.Credits != null)
                                 foreach (Loan loan in project.Credits)
                                     loan.CompulsorySavings = ServicesProvider.GetInstance().GetSavingServices().GetSavingForLoan(loan.Id, true);
-                    frm = new ClientForm(client, member.ActiveLoans[0].Id, MdiParent, "tabPageDetails");
+                    frm = new ClientForm(client, member.ActiveLoans[0].Id, MdiParent, "tabPageDetails", _extensionActivator);
                 }
                 else
                 {
-                    frm = new ClientForm((Person) member.Tiers, MdiParent);
+                    frm = new ClientForm((Person) member.Tiers, MdiParent, _extensionActivator);
                 }
                 frm.ShowDialog();
             }
@@ -744,7 +757,7 @@ namespace OpenCBS.GUI.Clients
                 IClient member = (IClient)listViewSavings.SelectedItems[0].Group.Tag;
                 if (member != null)
                 {
-                    ClientForm personForm = new ClientForm((Person)member, MdiParent);
+                    ClientForm personForm = new ClientForm((Person)member, MdiParent, _extensionActivator);
                     personForm.DisplaySaving(((ISavingsContract)listViewSavings.SelectedItems[0].Tag).Id, member);
                     personForm.ShowDialog();
                     DisplaySavings();
@@ -799,16 +812,16 @@ namespace OpenCBS.GUI.Clients
                                 if (project.Credits != null)
                                     foreach (Loan loan in project.Credits)
                                         loan.CompulsorySavings = ServicesProvider.GetInstance().GetSavingServices().GetSavingForLoan(loan.Id, true);
-                        frm = new ClientForm(client, member.ActiveLoans[0].Id, MdiParent, "tabPageLoansDetails");
+                        frm = new ClientForm(client, member.ActiveLoans[0].Id, MdiParent, "tabPageLoansDetails", _extensionActivator);
                     }
                     else
                     {
-                        frm = new ClientForm((Person)member.Tiers, MdiParent);
+                        frm = new ClientForm((Person)member.Tiers, MdiParent, _extensionActivator);
                     }
                 }
                 else
                 {
-                    frm = new ClientForm((Person)member.Tiers, MdiParent);
+                    frm = new ClientForm((Person)member.Tiers, MdiParent, _extensionActivator);
                 }
                 frm.ShowDialog();
                 
@@ -931,18 +944,12 @@ namespace OpenCBS.GUI.Clients
 
         private void LoadExtensions()
         {
-            foreach (INonSolidarityGroup g in Extension.Instance.Extensions.Select(e => e.QueryInterface(typeof(INonSolidarityGroup))).OfType<INonSolidarityGroup>())
+            foreach (var extension in Extensions)
             {
-                _extensionGroups.Add(g);
-                TabPage[] pages = g.GetTabPages(_village);
+                var pages = extension.GetTabPages(_village);
                 if (null == pages) continue;
                 tabVillage.TabPages.AddRange(pages);
             }
-        }
-
-        private void tbName_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

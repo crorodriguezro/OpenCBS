@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Composition;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -89,7 +90,7 @@ namespace OpenCBS.GUI.UserControl
         private ColumnHeader columnHeader4;
         private ColumnHeader columnHeader5;
         private ColumnHeader columnHeader6;
-        private AddressUserControl addressUserControlSecondaryAddress;        
+        private AddressUserControl addressUserControlSecondaryAddress;
         private bool _cancelClicked;
         private OCurrency loanAmount;
         private System.Windows.Forms.Button buttonDeleteMembers;
@@ -139,9 +140,9 @@ namespace OpenCBS.GUI.UserControl
         private PrintButton btnPrint;
         public event EventHandler AddSelectedSaving;
         public event EventHandler ViewSelectedSaving;
-        
-        
-        private readonly List<ISolidarityGroup> _extensionGroups = new List<ISolidarityGroup>();
+
+        [ImportMany(typeof(ISolidarityGroupTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<ISolidarityGroupTabs> Extensions { get; set; }
 
         #region Code g�n�r?par le Concepteur de composants
 
@@ -822,18 +823,8 @@ namespace OpenCBS.GUI.UserControl
             tabControlGroupInfo.TabPages.Remove(tabPageSaving);
         }
 
-        public GroupUserControl(Form pMdiParent)
-        {
-            _mdiParent = pMdiParent;
-            InitializeComponent();
-            group = new Group();
-            group.Leader = null;
-            Initialization();
-            dateTimePickerDateOfEstablishment.Value = TimeProvider.Today;
-            DisplayProjects(group.Projects);
-        }
-
-        public GroupUserControl(Group group, Form pMdiParent)
+        public GroupUserControl(Group group, Form pMdiParent, IExtensionActivator extensionActivator)
+            : base(extensionActivator)
         {
             _mdiParent = pMdiParent;
             InitializeComponent();
@@ -904,18 +895,18 @@ namespace OpenCBS.GUI.UserControl
             if (group.Id != 0)
             {
                 textBoxName.Text = group.Name;
-                textBoxGroupLoanCycle.Text = group.LoanCycle.ToString();              
+                textBoxGroupLoanCycle.Text = group.LoanCycle.ToString();
 
                 dateTimePickerDateOfEstablishment.Value = group.EstablishmentDate.HasValue
                                                               ? group.EstablishmentDate.Value
                                                               : TimeProvider.Today;
                 if (group.MeetingDay.HasValue)
                 {
-                    cmbWeekDay.SelectedIndex = (int) group.MeetingDay;
+                    cmbWeekDay.SelectedIndex = (int)group.MeetingDay;
                     cbMeetingDay.Checked = true;
                 }
 
-                DisplayMembers();                
+                DisplayMembers();
 
                 buttonSave.Text = MultiLanguageStrings.GetString(Ressource.Common, "updateButton.Text");
 
@@ -983,7 +974,7 @@ namespace OpenCBS.GUI.UserControl
             get
             {
                 if (listViewHistoryMembers.SelectedItems.Count != 0)
-                    return (Person) listViewHistoryMembers.SelectedItems[0].Tag;
+                    return (Person)listViewHistoryMembers.SelectedItems[0].Tag;
                 return null;
             }
         }
@@ -1052,11 +1043,11 @@ namespace OpenCBS.GUI.UserControl
                             ServicesProvider.GetInstance().GetContractServices().DeleteLoanShareAmountWhereNotDisbursed(group.Id);
                             if (group.Id != 0)
                                 buttonSave_Click(this, null);
-                    
+
                         }
                         catch (Exception ex)
                         {
-                            new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog(); 
+                            new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
                         }
 
                     }
@@ -1068,7 +1059,7 @@ namespace OpenCBS.GUI.UserControl
                 MessageBox.Show(message, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        
+
         private bool GroupHasActiveContracts()
         {
             bool IsModified = true;
@@ -1115,7 +1106,7 @@ namespace OpenCBS.GUI.UserControl
                             {
                                 group.AddMember(pers);
                                 DisplayMembers();
-                                if (group.Id!=0)
+                                if (group.Id != 0)
                                     ServicesProvider.GetInstance().GetContractServices().DeleteLoanShareAmountWhereNotDisbursed(group.Id);
                                 if (MembersChanged != null) MembersChanged(this, null);
                                 if (group.Id != 0)
@@ -1142,7 +1133,7 @@ namespace OpenCBS.GUI.UserControl
             {
                 if (GroupHasActiveContracts())
                 {
-                    ClientForm personForm = new ClientForm(OClientTypes.Person, _mdiParent, true);
+                    ClientForm personForm = new ClientForm(OClientTypes.Person, _mdiParent, true, ExtensionActivator);
                     if (DialogResult.OK == personForm.ShowDialog())
                     {
                         try
@@ -1206,7 +1197,7 @@ namespace OpenCBS.GUI.UserControl
             group.SecondaryEmail = addressUserControlSecondaryAddress.Email;
             group.SecondaryZipCode = addressUserControlSecondaryAddress.ZipCode;
             group.MeetingDay = cbMeetingDay.Checked ? (DayOfWeek?)GetDayOfWeek() : null;
-            group.Branch = (Branch) cbBranch.SelectedItem;
+            group.Branch = (Branch)cbBranch.SelectedItem;
         }
 
         private DayOfWeek GetDayOfWeek()
@@ -1244,22 +1235,25 @@ namespace OpenCBS.GUI.UserControl
                 if (group.Name != null)
                     group.Name = group.Name.Trim();
                 _customizableFieldsControl.Check();
-                
+
                 string result = ServicesProvider
                     .GetInstance()
                     .GetClientServices()
-                    .SaveSolidarityGroup(ref group, (tx, id) => _extensionGroups.ForEach(g => g.Save(group, tx)));
+                    .SaveSolidarityGroup(ref group, (tx, id) =>
+                    {
+                        foreach (var extension in Extensions) extension.Save(group, tx);
+                    });
 
-                if(group.Id > 0)
+                if (group.Id > 0)
                     _customizableFieldsControl.Save(group.Id);
 
                 EventProcessorServices es = ServicesProvider.GetInstance().GetEventProcessorServices();
 
                 es.LogClientSaveUpdateEvent(group, save);
-                
+
                 ResetImagesStatuses();
                 groupSaved = true;
-                if(result != string.Empty) MessageBox.Show(result, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (result != string.Empty) MessageBox.Show(result, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 buttonSave.Text = MultiLanguageStrings.GetString(Ressource.Common, "updateButton.Text");
 
                 InitializeCustomizableFields(group.Id);
@@ -1285,14 +1279,14 @@ namespace OpenCBS.GUI.UserControl
         #endregion
 
         #region Display Members,Groups,Contracts,ChangeLeader,ViewPerson
-        
+
         private void DisplayHistoryPersons(IEnumerable<Member> personList)
         {
             listViewHistoryMembers.Items.Clear();
             foreach (Member member in personList)
             {
-                Person person = (Person) member.Tiers;
-                ListViewItem listViewItem = new ListViewItem(person.Name) {Tag = member};
+                Person person = (Person)member.Tiers;
+                ListViewItem listViewItem = new ListViewItem(person.Name) { Tag = member };
                 listViewItem.SubItems.Add(person.IdentificationData);
 
                 if (!person.DateOfBirth.HasValue)
@@ -1318,7 +1312,7 @@ namespace OpenCBS.GUI.UserControl
             if (group.GetNumberOfMembers != 0)
             {
                 OCurrency amount = ServicesProvider.GetInstance().GetClientServices().CalculateLoanShareAmount(group.GetNumberOfMembers, loanAmount);
-                
+
                 foreach (Member entry in group.Members)
                 {
                     entry.LoanShareAmount = amount;
@@ -1332,8 +1326,8 @@ namespace OpenCBS.GUI.UserControl
 
             foreach (Member entry in Group.Members)
             {
-                Person person = (Person) entry.Tiers;
-                ListViewItem listViewItem = new ListViewItem(person.Name) {Tag = entry};
+                Person person = (Person)entry.Tiers;
+                ListViewItem listViewItem = new ListViewItem(person.Name) { Tag = entry };
                 listViewItem.SubItems.Add(person.IdentificationData);
 
                 if (!person.DateOfBirth.HasValue)
@@ -1356,7 +1350,7 @@ namespace OpenCBS.GUI.UserControl
                 {
                     if (person.Id == group.Leader.Tiers.Id)
                     {
-                        listViewItem.BackColor = Color.FromArgb(0,88,56);
+                        listViewItem.BackColor = Color.FromArgb(0, 88, 56);
                         listViewItem.ForeColor = Color.White;
                     }
                     else
@@ -1368,10 +1362,10 @@ namespace OpenCBS.GUI.UserControl
 
         private void ViewPerson(Member pMember, bool leader)
         {
-            var personForm = new ClientForm((Person) pMember.Tiers, _mdiParent);
+            var personForm = new ClientForm((Person)pMember.Tiers, _mdiParent, ExtensionActivator);
             personForm.ShowDialog();
 
-            if(leader && personForm.DialogResult == DialogResult.OK)
+            if (leader && personForm.DialogResult == DialogResult.OK)
                 group.Leader.Tiers = personForm.Person;
 
             group.IsBadClient();
@@ -1445,9 +1439,9 @@ namespace OpenCBS.GUI.UserControl
 
         private void listViewOtherMembres_DoubleClick(object sender, EventArgs e)
         {
-            var pers = (Member) listViewOtherMembres.SelectedItems[0].Tag;
-            ViewPerson(pers, group.IsLeader(pers));         
-            
+            var pers = (Member)listViewOtherMembres.SelectedItems[0].Tag;
+            ViewPerson(pers, group.IsLeader(pers));
+
             if (ButtonBadClientClick != null)
                 ButtonBadClientClick(this, e);
         }
@@ -1479,8 +1473,8 @@ namespace OpenCBS.GUI.UserControl
             Client = group;
             InitDocuments();
 
-            groupBoxFirstAddress.Size = new Size(tabPageBusinessAddress.Width/2, tabPageBusinessAddress.Height);
-            
+            groupBoxFirstAddress.Size = new Size(tabPageBusinessAddress.Width / 2, tabPageBusinessAddress.Height);
+
             if (!ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
                 ButtonAddProjectClick(buttonViewProject, null);
 
@@ -1489,11 +1483,10 @@ namespace OpenCBS.GUI.UserControl
 
         private void LoadExtensions()
         {
-            foreach (ISolidarityGroup g in Extension.Instance.Extensions.Select(e => e.QueryInterface(typeof(ISolidarityGroup))).OfType<ISolidarityGroup>())
+            foreach (var extension in Extensions)
             {
-                _extensionGroups.Add(g);
-                TabPage[] pages = g.GetTabPages(group);
-                if (null == pages) continue;
+                var pages = extension.GetTabPages(group);
+                if (pages == null) continue;
                 tabControlGroupInfo.TabPages.AddRange(pages);
             }
         }
@@ -1566,7 +1559,7 @@ namespace OpenCBS.GUI.UserControl
                 listViewProjects.Items.Clear();
                 foreach (Project project in pProject)
                 {
-                    ListViewItem item = new ListViewItem(project.Id.ToString()) {Tag = project};
+                    ListViewItem item = new ListViewItem(project.Id.ToString()) { Tag = project };
                     item.SubItems.Add(project.Name);
                     item.SubItems.Add(project.Code);
                     item.SubItems.Add(project.Credits.Count.ToString());
@@ -1636,7 +1629,7 @@ namespace OpenCBS.GUI.UserControl
             int photoSubId = 0;
             if (sender is PictureBox)
             {
-                if (((PictureBox)sender).Name=="pictureBox2")
+                if (((PictureBox)sender).Name == "pictureBox2")
                     photoSubId = 1;
             }
             else if (sender is LinkLabel)

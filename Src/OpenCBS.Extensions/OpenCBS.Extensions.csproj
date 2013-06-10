@@ -23,7 +23,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -48,6 +48,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq">
@@ -58,18 +59,16 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="Extensions.cs" />
-    <Compile Include="ICorporate.cs" />
-    <Compile Include="IExtension.cs" />
-    <Compile Include="ILoan.cs" />
+    <Compile Include="ExtensionActivator.cs" />
+    <Compile Include="ICorporateTabs.cs" />
+    <Compile Include="IExtensionActivator.cs" />
+    <Compile Include="ILoanTabs.cs" />
     <Compile Include="IMenu.cs" />
-    <Compile Include="INonSolidarityGroup.cs" />
-    <Compile Include="IPerson.cs" />
-    <Compile Include="ISavings.cs" />
-    <Compile Include="ISolidarityGroup.cs" />
+    <Compile Include="INonSolidarityGroupTabs.cs" />
+    <Compile Include="IPersonTabs.cs" />
+    <Compile Include="ISavingsTabs.cs" />
+    <Compile Include="ISolidarityGroupTabs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ITechnicalSettings.cs" />
-    <Compile Include="SafeDirectoryCatalog.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenCBS.CoreDomain\OpenCBS.CoreDomain.csproj">
@@ -91,7 +90,7 @@
   -->
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties GreenPepperConfigSutName="" GreenPepperConfigProjectName="" GreenPepperConfigRepositories="" GreenPepperConfigRunnerProgram="" GreenPepperCustomSudArgs="" GreenPepperCustomSud="" GreenPepperConfigRunnerArgs="" />
+      <UserProperties GreenPepperConfigRunnerArgs="" GreenPepperCustomSud="" GreenPepperCustomSudArgs="" GreenPepperConfigRunnerProgram="" GreenPepperConfigRepositories="" GreenPepperConfigProjectName="" GreenPepperConfigSutName="" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
