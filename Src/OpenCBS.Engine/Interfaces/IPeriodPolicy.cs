@@ -7,6 +7,6 @@ namespace OpenCBS.Engine.Interfaces
         DateTime GetNextDate(DateTime date);
         DateTime GetPreviousDate(DateTime date);
         int GetNumberOfDays(DateTime date);
-        int GetNumberOfPeriodsInYear(DateTime date, IYearPolicy yearPolicy);
+        double GetNumberOfPeriodsInYear(DateTime date, IYearPolicy yearPolicy);
     }
 }

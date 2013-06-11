@@ -12,10 +12,10 @@ namespace OpenCBS.Engine.InstallmentCalculationPolicy
         {
             var number = configuration.NumberOfInstallments - configuration.GracePeriod;
             var numberOfPeriods = configuration.PeriodPolicy.GetNumberOfPeriodsInYear(installment.EndDate, configuration.YearPolicy);
-            var interestRate = configuration.InterestRate / 100 / numberOfPeriods;
+            var interestRate = (double)configuration.InterestRate / 100 / numberOfPeriods;
 
-            var numerator = (double)(interestRate * configuration.Amount);
-            var denominator = 1 - 1 / Math.Pow(1 + (double)interestRate, number);
+            var numerator = interestRate * (double)configuration.Amount;
+            var denominator = 1 - 1 / Math.Pow(1 + interestRate, number);
             var total = configuration.RoundingPolicy.Round((decimal)(numerator / denominator));
 
             installment.Interest = CalculateInterest(installment, configuration, installment.Olb);

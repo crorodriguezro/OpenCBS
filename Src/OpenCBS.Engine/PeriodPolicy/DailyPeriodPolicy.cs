@@ -23,7 +23,7 @@ namespace OpenCBS.Engine.PeriodPolicy
             return 1;
         }
 
-        public int GetNumberOfPeriodsInYear(DateTime date, IYearPolicy yearPolicy)
+        public double GetNumberOfPeriodsInYear(DateTime date, IYearPolicy yearPolicy)
         {
             return yearPolicy.GetNumberOfDays(date);
         }
