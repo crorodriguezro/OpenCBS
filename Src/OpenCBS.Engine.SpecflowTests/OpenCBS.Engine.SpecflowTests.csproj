@@ -49,37 +49,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ANNUITY.feature.cs">
+    <Compile Include="Annuity\AnnuitySample.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ANNUITY.feature</DependentUpon>
+      <DependentUpon>AnnuitySample.feature</DependentUpon>
     </Compile>
-    <Compile Include="FIXED_PRINCIPAL.feature.cs">
+    <Compile Include="FixedPrincipal\FixedPrincipal.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FIXED_PRINCIPAL.feature</DependentUpon>
+      <DependentUpon>FixedPrincipal.feature</DependentUpon>
     </Compile>
-    <Compile Include="FLAT.feature.cs">
+    <Compile Include="Flat\FlatSample.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FLAT.feature</DependentUpon>
+      <DependentUpon>FlatSample.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScheduleSteps.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ANNUITY.feature">
+    <None Include="Annuity\AnnuitySample.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ANNUITY.feature.cs</LastGenOutput>
+      <LastGenOutput>AnnuitySample.feature.cs</LastGenOutput>
     </None>
     <None Include="App.config" />
-    <None Include="FIXED_PRINCIPAL.feature">
+    <None Include="FixedPrincipal\FixedPrincipal.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>FIXED_PRINCIPAL.feature.cs</LastGenOutput>
+      <LastGenOutput>FixedPrincipal.feature.cs</LastGenOutput>
     </None>
-    <None Include="FLAT.feature">
+    <None Include="Flat\FlatSample.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>FLAT.feature.cs</LastGenOutput>
+      <LastGenOutput>FlatSample.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

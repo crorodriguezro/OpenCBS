@@ -1,6 +1,6 @@
-﻿Feature: ANNUITY
+﻿Feature: AnnuitySample
 
-Scenario: ANNUITY
+Scenario: AnnuitySample
     Given this configuration
         | Name               | Value            |
         | Type               | Annuity          |

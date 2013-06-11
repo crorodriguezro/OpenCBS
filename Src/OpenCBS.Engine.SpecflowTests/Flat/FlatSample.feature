@@ -1,6 +1,6 @@
-﻿Feature: FLAT
+﻿Feature: FlatSample
 
-Scenario: Flat schedule
+Scenario: FlatSample
     Given this configuration
         | Name                 | Value            |
         | Type                 | Flat             |

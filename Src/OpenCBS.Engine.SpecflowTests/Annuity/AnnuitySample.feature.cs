@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace OpenCBS.Specflow.Test
+namespace OpenCBS.Specflow.Test.Annuity
 {
     using TechTalk.SpecFlow;
     
@@ -19,20 +19,20 @@ namespace OpenCBS.Specflow.Test
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("FIXED_PRINCIPAL")]
-    public partial class FIXED_PRINCIPALFeature
+    [NUnit.Framework.DescriptionAttribute("AnnuitySample")]
+    public partial class AnnuitySampleFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "FIXED_PRINCIPAL.feature"
+#line 1 "AnnuitySample.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "FIXED_PRINCIPAL", "", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "AnnuitySample", "", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,10 +65,10 @@ namespace OpenCBS.Specflow.Test
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("FIXED_PRINCIPAL")]
-        public virtual void FIXED_PRINCIPAL()
+        [NUnit.Framework.DescriptionAttribute("AnnuitySample")]
+        public virtual void AnnuitySample()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("FIXED_PRINCIPAL", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("AnnuitySample", ((string[])(null)));
 #line 3
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -77,7 +77,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table1.AddRow(new string[] {
                         "Type",
-                        "Fixed principal"});
+                        "Annuity"});
             table1.AddRow(new string[] {
                         "Payments",
                         "Monthly (30 day)"});
@@ -86,31 +86,31 @@ this.ScenarioSetup(scenarioInfo);
                         "360"});
             table1.AddRow(new string[] {
                         "Rounding",
-                        "Whole"});
+                        "Two decimal"});
             table1.AddRow(new string[] {
                         "Adjustment",
                         "Last installment"});
             table1.AddRow(new string[] {
                         "Date shift",
-                        "Forward"});
+                        "Backward"});
             table1.AddRow(new string[] {
                         "Installments",
-                        "6"});
+                        "4"});
             table1.AddRow(new string[] {
                         "Grace period",
                         "0"});
             table1.AddRow(new string[] {
                         "Amount",
-                        "5000"});
+                        "10000"});
             table1.AddRow(new string[] {
                         "Interest rate",
-                        "20"});
+                        "9,96"});
             table1.AddRow(new string[] {
                         "Start on",
-                        "01.01.2013"});
+                        "11.05.2010"});
             table1.AddRow(new string[] {
                         "First repayment on",
-                        "01.02.2013"});
+                        "11.06.2010"});
 #line 4
     testRunner.Given("this configuration", ((string)(null)), table1, "Given ");
 #line 18
@@ -126,52 +126,36 @@ this.ScenarioSetup(scenarioInfo);
                         "Olb"});
             table2.AddRow(new string[] {
                         "1",
-                        "01.01.2013",
-                        "01.02.2013",
-                        "01.02.2013",
-                        "833",
-                        "83",
-                        "5000"});
+                        "11.05.2010",
+                        "11.06.2010",
+                        "11.06.2010",
+                        "2469,09",
+                        "83,00",
+                        "10000,00"});
             table2.AddRow(new string[] {
                         "2",
-                        "01.02.2013",
-                        "01.03.2013",
-                        "01.03.2013",
-                        "833",
-                        "69",
-                        "4167"});
+                        "11.06.2010",
+                        "11.07.2010",
+                        "09.07.2010",
+                        "2489,58",
+                        "62,51",
+                        "7530,91"});
             table2.AddRow(new string[] {
                         "3",
-                        "01.03.2013",
-                        "01.04.2013",
-                        "01.04.2013",
-                        "833",
-                        "56",
-                        "3334"});
+                        "11.07.2010",
+                        "11.08.2010",
+                        "11.08.2010",
+                        "2510,25",
+                        "41,84",
+                        "5041,33"});
             table2.AddRow(new string[] {
                         "4",
-                        "01.04.2013",
-                        "01.05.2013",
-                        "01.05.2013",
-                        "833",
-                        "42",
-                        "2501"});
-            table2.AddRow(new string[] {
-                        "5",
-                        "01.05.2013",
-                        "01.06.2013",
-                        "03.06.2013",
-                        "833",
-                        "28",
-                        "1668"});
-            table2.AddRow(new string[] {
-                        "6",
-                        "01.06.2013",
-                        "01.07.2013",
-                        "01.07.2013",
-                        "835",
-                        "14",
-                        "835"});
+                        "11.08.2010",
+                        "11.09.2010",
+                        "10.09.2010",
+                        "2531,08",
+                        "21,01",
+                        "2531,08"});
 #line 19
     testRunner.Then("the schedule is", ((string)(null)), table2, "Then ");
 #line hidden
