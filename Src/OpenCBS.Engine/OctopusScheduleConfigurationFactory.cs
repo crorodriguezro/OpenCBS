@@ -49,11 +49,19 @@ namespace OpenCBS.Engine
 
         public OctopusScheduleConfigurationFactory Finish()
         {
-            _scheduleConfiguration.CalculationPolicy = GetPolicy<IInstallmentCalculationPolicy>(GetCalculationPolicyKey(_loan));
-            _scheduleConfiguration.PeriodPolicy = GetPeriodPolicy(_loan);
+            _scheduleConfiguration.CalculationPolicy = GetPolicy<IInstallmentCalculationPolicy>(GetCalculationPolicyKey());
+            _scheduleConfiguration.PeriodPolicy = GetPeriodPolicy();
             _scheduleConfiguration.YearPolicy = GetPolicy<IYearPolicy>("360");
-            _scheduleConfiguration.RoundingPolicy = GetRoundingPolicy(_loan);
+            _scheduleConfiguration.RoundingPolicy = GetRoundingPolicy();
             _scheduleConfiguration.DateShiftPolicy = GetDateShiftPolicy();
+            _scheduleConfiguration.AdjustmentPolicy = GetAdjustmentPolicy();
+
+            _scheduleConfiguration.Amount = _loan.Amount.Value;
+            _scheduleConfiguration.NumberOfInstallments = _loan.NbOfInstallments;
+            _scheduleConfiguration.GracePeriod = _loan.GracePeriod.HasValue ? _loan.GracePeriod.Value : 0;
+            _scheduleConfiguration.InterestRate = _loan.InterestRate * 12 * 100;
+            _scheduleConfiguration.StartDate = _loan.StartDate;
+            _scheduleConfiguration.PreferredFirstInstallmentDate = _loan.FirstInstallmentDate;
             return this;
         }
 
@@ -82,7 +90,7 @@ namespace OpenCBS.Engine
             _container.SatisfyImportsOnce(this);
         }
 
-        private string GetCalculationPolicyKey(Loan loan)
+        private string GetCalculationPolicyKey()
         {
             var map = new Dictionary<OLoanTypes, string>
             {
@@ -90,24 +98,24 @@ namespace OpenCBS.Engine
                 { OLoanTypes.DecliningFixedInstallments, "Annuity" },
                 { OLoanTypes.DecliningFixedPrincipal, "Fixed principal" },
             };
-            return map.ContainsKey(loan.Product.LoanType) ? map[loan.Product.LoanType] : string.Empty;
+            return map.ContainsKey(_loan.Product.LoanType) ? map[_loan.Product.LoanType] : string.Empty;
         }
 
-        private IPeriodPolicy GetPeriodPolicy(Loan loan)
+        private IPeriodPolicy GetPeriodPolicy()
         {
-            if (loan.InstallmentType.NbOfMonths == 1 && loan.InstallmentType.NbOfDays == 0)
+            if (_loan.InstallmentType.NbOfMonths == 1 && _loan.InstallmentType.NbOfDays == 0)
                 return GetPolicy<IPeriodPolicy>("Monthly (30 day)");
-            if (loan.InstallmentType.NbOfMonths == 0 && loan.InstallmentType.NbOfDays == 1)
+            if (_loan.InstallmentType.NbOfMonths == 0 && _loan.InstallmentType.NbOfDays == 1)
                 return GetPolicy<IPeriodPolicy>("Daily");
-            
-            var policy = (CustomPeriodPolicy) GetPolicy<IPeriodPolicy>("Custom");
-            policy.SetNumberOfDays(loan.InstallmentType.NbOfDays);
+
+            var policy = (CustomPeriodPolicy)GetPolicy<IPeriodPolicy>("Custom");
+            policy.SetNumberOfDays(_loan.InstallmentType.NbOfDays);
             return policy;
         }
 
-        private IRoundingPolicy GetRoundingPolicy(Loan loan)
+        private IRoundingPolicy GetRoundingPolicy()
         {
-            var key = loan.Product.Currency.UseCents ? "Two decimal" : "Whole";
+            var key = _loan.Product.Currency.UseCents ? "Two decimal" : "Whole";
             return GetPolicy<IRoundingPolicy>(key);
         }
 
@@ -123,6 +131,22 @@ namespace OpenCBS.Engine
                 key = _settings.IsIncrementalDuringDayOff ? "Forward" : "Backward";
             }
             return GetPolicy<IDateShiftPolicy>(key);
+        }
+
+        private IAdjustmentPolicy GetAdjustmentPolicy()
+        {
+            string key = string.Empty;
+            switch (_loan.Product.RoundingType)
+            {
+                case ORoundingType.Begin:
+                    key = "First installment";
+                    break;
+
+                case ORoundingType.End:
+                    key = "Last installment";
+                    break;
+            }
+            return GetPolicy<IAdjustmentPolicy>(key);
         }
 
         private T GetPolicy<T>(string key) where T : IPolicy
