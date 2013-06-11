@@ -18,6 +18,8 @@ namespace OpenCBS.Engine
     {
         private IScheduleConfiguration _scheduleConfiguration;
         private readonly CompositionContainer _container;
+        private ApplicationSettings _settings;
+        private Loan _loan;
 
         [ImportMany(typeof(IPolicy))]
         private Lazy<IPolicy, IPolicyAttribute>[] Policies { get; set; }
@@ -45,8 +47,20 @@ namespace OpenCBS.Engine
             return this;
         }
 
+        public OctopusScheduleConfigurationFactory Finish()
+        {
+            _scheduleConfiguration.CalculationPolicy = GetPolicy<IInstallmentCalculationPolicy>(GetCalculationPolicyKey(_loan));
+            _scheduleConfiguration.PeriodPolicy = GetPeriodPolicy(_loan);
+            _scheduleConfiguration.YearPolicy = GetPolicy<IYearPolicy>("360");
+            _scheduleConfiguration.RoundingPolicy = GetRoundingPolicy(_loan);
+            _scheduleConfiguration.DateShiftPolicy = GetDateShiftPolicy();
+            return this;
+        }
+
+
         public OctopusScheduleConfigurationFactory WithSettings(ApplicationSettings settings)
         {
+            _settings = settings;
             return this;
         }
 
@@ -54,10 +68,7 @@ namespace OpenCBS.Engine
         {
             if (loan == null) throw new ArgumentException("Loan cannot be null.");
             if (loan.Product == null) throw new ArgumentException("Loan product cannot be null.");
-            _scheduleConfiguration.CalculationPolicy = GetPolicy<IInstallmentCalculationPolicy>(GetCalculationPolicyKey(loan));
-            _scheduleConfiguration.PeriodPolicy = GetPeriodPolicy(loan);
-            _scheduleConfiguration.YearPolicy = GetPolicy<IYearPolicy>("360");
-            _scheduleConfiguration.RoundingPolicy = GetRoundingPolicy(loan);
+            _loan = loan;
             return this;
         }
 
@@ -98,6 +109,20 @@ namespace OpenCBS.Engine
         {
             var key = loan.Product.Currency.UseCents ? "Two decimal" : "Whole";
             return GetPolicy<IRoundingPolicy>(key);
+        }
+
+        private IDateShiftPolicy GetDateShiftPolicy()
+        {
+            string key = string.Empty;
+            if (_settings.DoNotSkipNonWorkingDays)
+            {
+                key = "No";
+            }
+            else
+            {
+                key = _settings.IsIncrementalDuringDayOff ? "Forward" : "Backward";
+            }
+            return GetPolicy<IDateShiftPolicy>(key);
         }
 
         private T GetPolicy<T>(string key) where T : IPolicy

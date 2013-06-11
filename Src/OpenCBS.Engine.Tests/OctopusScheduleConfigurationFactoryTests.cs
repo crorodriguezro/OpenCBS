@@ -4,12 +4,14 @@ using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.CoreDomain.Products;
+using OpenCBS.Engine.DatePolicy;
 using OpenCBS.Engine.InstallmentCalculationPolicy;
 using OpenCBS.Engine.PeriodPolicy;
 using OpenCBS.Engine.RoundingPolicy;
 using OpenCBS.Engine.YearPolicy;
 using OpenCBS.Enums;
 using OpenCBS.Shared;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.Engine.Test
 {
@@ -18,6 +20,15 @@ namespace OpenCBS.Engine.Test
     {
         private OctopusScheduleConfigurationFactory _factory;
         private Loan _loan;
+        private ApplicationSettings _settings;
+
+        [TestFixtureSetUp]
+        public void TestFixtureSetup()
+        {
+            _settings = ApplicationSettings.GetInstance(string.Empty);
+            _settings.AddParameter("DONOT_SKIP_WEEKENDS_IN_INSTALLMENTS_DATE", false);
+            _settings.AddParameter("INCREMENTAL_DURING_DAYOFFS", false);
+        }
 
         [SetUp]
         public void SetUp()
@@ -38,7 +49,7 @@ namespace OpenCBS.Engine.Test
         [ExpectedException(typeof (ArgumentException), ExpectedMessage = "Loan cannot be null.")]
         public void GetConfiguration_NoLoan_ThrowsException()
         {
-            _factory.Init().WithLoan(null);
+            _factory.Init().WithSettings(_settings).WithLoan(null);
         }
 
         [Test]
@@ -46,37 +57,37 @@ namespace OpenCBS.Engine.Test
         public void GetConfiguration_NoLoanProduct_ThrowsException()
         {
             _loan.Product = null;
-            _factory.Init().WithLoan(_loan);
+            _factory.Init().WithSettings(_settings).WithLoan(_loan).Finish();
         }
 
         [Test]
         public void GetConfiguration_LoanType_CalculationPolicyIsProperlySet()
         {
-            var configuration = _factory.Init().WithLoan(_loan).GetConfiguration();
+            var configuration = _factory.Init().WithSettings(_settings).WithLoan(_loan).Finish().GetConfiguration();
             Assert.That(configuration.CalculationPolicy, Is.InstanceOf<FlatInstallmentCalculationPolicy>());
 
             _loan.Product.LoanType = OLoanTypes.DecliningFixedInstallments;
-            configuration = _factory.Init().WithLoan(_loan).GetConfiguration();
+            configuration = _factory.Init().WithSettings(_settings).WithLoan(_loan).Finish().GetConfiguration();
             Assert.That(configuration.CalculationPolicy, Is.InstanceOf<AnnuityInstallmentCalculationPolicy>());
 
             _loan.Product.LoanType = OLoanTypes.DecliningFixedPrincipal;
-            configuration = _factory.Init().WithLoan(_loan).GetConfiguration();
+            configuration = _factory.Init().WithSettings(_settings).WithLoan(_loan).Finish().GetConfiguration();
             Assert.That(configuration.CalculationPolicy, Is.InstanceOf<FixedPrincipalInstallmentCalculationPolicy>());
         }
 
         [Test]
         public void GetConfiguration_Period_PeriodPolicyIsProperlySet()
         {
-            var configuration = _factory.Init().WithLoan(_loan).GetConfiguration();
+            var configuration = _factory.Init().WithSettings(_settings).WithLoan(_loan).Finish().GetConfiguration();
             Assert.That(configuration.PeriodPolicy, Is.InstanceOf<Monthly30DayPeriodPolicy>());
 
             _loan.InstallmentType.NbOfMonths = 0;
             _loan.InstallmentType.NbOfDays = 1;
-            configuration = _factory.Init().WithLoan(_loan).GetConfiguration();
+            configuration = _factory.Init().WithSettings(_settings).WithLoan(_loan).Finish().GetConfiguration();
             Assert.That(configuration.PeriodPolicy, Is.InstanceOf<DailyPeriodPolicy>());
 
             _loan.InstallmentType.NbOfDays = 7;
-            configuration = _factory.Init().WithLoan(_loan).GetConfiguration();
+            configuration = _factory.Init().WithSettings(_settings).WithLoan(_loan).Finish().GetConfiguration();
             Assert.That(configuration.PeriodPolicy, Is.InstanceOf<CustomPeriodPolicy>());
             Assert.That(configuration.PeriodPolicy.GetNumberOfDays(DateTime.Today), Is.EqualTo(7));
         }
@@ -84,7 +95,7 @@ namespace OpenCBS.Engine.Test
         [Test]
         public void GetConfiguration_YearPolicyIsAlways360DayYear()
         {
-            var configuration = _factory.Init().WithLoan(_loan).GetConfiguration();
+            var configuration = _factory.Init().WithSettings(_settings).WithLoan(_loan).Finish().GetConfiguration();
             Assert.That(configuration.YearPolicy, Is.InstanceOf<ThreeHundredSixtyDayYearPolicy>());
         }
 
@@ -92,11 +103,28 @@ namespace OpenCBS.Engine.Test
         public void GetConfiguration_RoundingPolicy_RoundingPolicyIsProperlySet()
         {
             _loan.Product.Currency.UseCents = true;
-            var configuration = _factory.Init().WithLoan(_loan).GetConfiguration();
+            var configuration = _factory.Init().WithSettings(_settings).WithLoan(_loan).Finish().GetConfiguration();
             Assert.That(configuration.RoundingPolicy, Is.InstanceOf<TwoDecimalRoundingPolicy>());
             _loan.Product.Currency.UseCents = false;
-            configuration = _factory.Init().WithLoan(_loan).GetConfiguration();
+            configuration = _factory.Init().WithSettings(_settings).WithLoan(_loan).Finish().GetConfiguration();
             Assert.That(configuration.RoundingPolicy, Is.InstanceOf<IntegerRoundingPolicy>());
+        }
+
+        [Test]
+        public void GetConfiguration_DateShiftPolicy_DateShiftPolicyIsProperlySet()
+        {
+            _settings.UpdateParameter("DONOT_SKIP_WEEKENDS_IN_INSTALLMENTS_DATE", false);
+            _settings.UpdateParameter("INCREMENTAL_DURING_DAYOFFS", true);
+            var configuration = _factory.Init().WithSettings(_settings).WithLoan(_loan).Finish().GetConfiguration();
+            Assert.That(configuration.DateShiftPolicy, Is.InstanceOf<ForwardDateShiftPolicy>());
+
+            _settings.UpdateParameter("INCREMENTAL_DURING_DAYOFFS", false);
+            configuration = _factory.Init().WithSettings(_settings).WithLoan(_loan).Finish().GetConfiguration();
+            Assert.That(configuration.DateShiftPolicy, Is.InstanceOf<BackwardDateShiftPolicy>());
+
+            _settings.UpdateParameter("DONOT_SKIP_WEEKENDS_IN_INSTALLMENTS_DATE", true);
+            configuration = _factory.Init().WithSettings(_settings).WithLoan(_loan).Finish().GetConfiguration();
+            Assert.That(configuration.DateShiftPolicy, Is.InstanceOf<NoDateShiftPolicy>());
         }
     }
 }
