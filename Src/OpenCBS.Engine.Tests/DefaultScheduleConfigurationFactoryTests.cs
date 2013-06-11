@@ -10,7 +10,7 @@ using OpenCBS.Engine.YearPolicy;
 namespace OpenCBS.Engine.Test
 {
     [TestFixture]
-    public class DefaultConfigurationFactoryTests
+    public class DefaultScheduleConfigurationFactoryTests
     {
         private DefaultScheduleConfigurationFactory _factory;
 

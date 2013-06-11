@@ -66,6 +66,7 @@
     <Compile Include="Interfaces\IPolicyAttribute.cs" />
     <Compile Include="Interfaces\IRoundingPolicy.cs" />
     <Compile Include="Interfaces\IScheduleConfigurationFactory.cs" />
+    <Compile Include="OctopusScheduleConfigurationFactory.cs" />
     <Compile Include="PeriodPolicy\DailyPeriodPolicy.cs" />
     <Compile Include="Installment.cs" />
     <Compile Include="Interfaces\IPeriodPolicy.cs" />
@@ -89,6 +90,14 @@
     <ProjectReference Include="..\OpenCBS.CoreDomain\OpenCBS.CoreDomain.csproj">
       <Project>{d539c388-3848-4a3e-ab87-42b8e329755a}</Project>
       <Name>OpenCBS.CoreDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCBS.Enums\OpenCBS.Enums.csproj">
+      <Project>{8afc1e87-3856-4f05-8280-5360d33c200b}</Project>
+      <Name>OpenCBS.Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCBS.Shared\OpenCBS.Shared.csproj">
+      <Project>{b3288e21-e5a9-4620-bef3-afb0b207655c}</Project>
+      <Name>OpenCBS.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
