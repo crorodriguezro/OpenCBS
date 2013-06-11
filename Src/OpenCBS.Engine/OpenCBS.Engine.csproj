@@ -66,6 +66,7 @@
     <Compile Include="Interfaces\IPolicyAttribute.cs" />
     <Compile Include="Interfaces\IRoundingPolicy.cs" />
     <Compile Include="Interfaces\IScheduleConfigurationFactory.cs" />
+    <Compile Include="Interfaces\ITrancheBuilder.cs" />
     <Compile Include="OctopusScheduleConfigurationFactory.cs" />
     <Compile Include="PeriodPolicy\CustomPeriodPolicy.cs" />
     <Compile Include="PeriodPolicy\DailyPeriodPolicy.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="RoundingPolicy\TwoDecimalRoundingPolicy.cs" />
     <Compile Include="ScheduleBuilder.cs" />
     <Compile Include="ScheduleConfiguration.cs" />
+    <Compile Include="TrancheBuilder.cs" />
     <Compile Include="YearPolicy\ActualNumberOfDayYearPolicy.cs" />
     <Compile Include="YearPolicy\ThreeHundredSixtyDayYearPolicy.cs" />
     <Compile Include="YearPolicy\ThreeHundredSixtyFiveDayYearPolicy.cs" />
