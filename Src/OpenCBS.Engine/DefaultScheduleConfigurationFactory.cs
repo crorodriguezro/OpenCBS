@@ -9,45 +9,40 @@ using OpenCBS.Engine.Interfaces;
 
 namespace OpenCBS.Engine
 {
-    public class ConfigurationFactory
+    public class DefaultScheduleConfigurationFactory : IScheduleConfigurationFactory
     {
-        private ScheduleConfiguration _scheduleConfiguration;
+        private IScheduleConfiguration _scheduleConfiguration;
         private string _key;
         private readonly CultureInfo _cultureInfo;
 
-        private readonly static CompositionContainer Container;
-
+        private readonly CompositionContainer _container;
 
         [ImportMany(typeof(IPolicy))]
         private Lazy<IPolicy, IPolicyAttribute>[] Policies { get; set; }
 
-        public ConfigurationFactory Init()
+        public DefaultScheduleConfigurationFactory Init()
         {
             Compose();
             _scheduleConfiguration = new ScheduleConfiguration();
             return this;
         }
 
-        public ConfigurationFactory()
+        public DefaultScheduleConfigurationFactory()
         {
             _cultureInfo = new CultureInfo("ru-RU");
-        }
-
-        static ConfigurationFactory()
-        {
             var catalog = new AssemblyCatalog(Assembly.GetExecutingAssembly());
-            Container = new CompositionContainer(catalog);
+            _container = new CompositionContainer(catalog);
             var weekendPolicy = new WeekendPolicy();
             weekendPolicy.AddWeekend(DayOfWeek.Saturday);
             weekendPolicy.AddWeekend(DayOfWeek.Sunday);
             var holidayPolicy = new HolidayPolicy();
             var nonWorkingDayPolicy = new NonWorkingDayPolicy(weekendPolicy, holidayPolicy);
-            Container.ComposeExportedValue<INonWorkingDayPolicy>(nonWorkingDayPolicy);
+            _container.ComposeExportedValue<INonWorkingDayPolicy>(nonWorkingDayPolicy);
         }
 
         private void Compose()
         {
-            Container.SatisfyImportsOnce(this);
+            _container.SatisfyImportsOnce(this);
         }
 
         private T GetPolicy<T>() where T : IPolicy
@@ -58,91 +53,91 @@ namespace OpenCBS.Engine
                        select policy.Value).FirstOrDefault();
         }
 
-        public ConfigurationFactory With(string key)
+        public DefaultScheduleConfigurationFactory With(string key)
         {
             _key = key;
             return this;
         }
 
-        public ConfigurationFactory CalculationPolicy()
+        public DefaultScheduleConfigurationFactory CalculationPolicy()
         {
             _scheduleConfiguration.CalculationPolicy = GetPolicy<IInstallmentCalculationPolicy>();
             if (_scheduleConfiguration.CalculationPolicy == null) throw new ArgumentException("Invalid calculation policy.");
             return this;
         }
 
-        public ConfigurationFactory PeriodPolicy()
+        public DefaultScheduleConfigurationFactory PeriodPolicy()
         {
             _scheduleConfiguration.PeriodPolicy = GetPolicy<IPeriodPolicy>();
             if (_scheduleConfiguration.PeriodPolicy == null) throw new ArgumentException("Invalid period policy.");
             return this;
         }
 
-        public ConfigurationFactory YearPolicy()
+        public DefaultScheduleConfigurationFactory YearPolicy()
         {
             _scheduleConfiguration.YearPolicy = GetPolicy<IYearPolicy>();
             if (_scheduleConfiguration.YearPolicy == null) throw new ArgumentException("Invalid year policy.");
             return this;
         }
 
-        public ConfigurationFactory RoundingPolicy()
+        public DefaultScheduleConfigurationFactory RoundingPolicy()
         {
             _scheduleConfiguration.RoundingPolicy = GetPolicy<IRoundingPolicy>();
             if (_scheduleConfiguration.RoundingPolicy == null) throw new ArgumentException("Invalid rounding policy.");
             return this;
         }
 
-        public ConfigurationFactory AdjustmentPolicy()
+        public DefaultScheduleConfigurationFactory AdjustmentPolicy()
         {
             _scheduleConfiguration.AdjustmentPolicy = GetPolicy<IAdjustmentPolicy>();
             if (_scheduleConfiguration.AdjustmentPolicy == null) throw new ArgumentException("Invalid adjustment policy.");
             return this;
         }
 
-        public ConfigurationFactory DateShiftPolicy()
+        public DefaultScheduleConfigurationFactory DateShiftPolicy()
         {
             _scheduleConfiguration.DateShiftPolicy = GetPolicy<IDateShiftPolicy>();
             if (_scheduleConfiguration.DateShiftPolicy == null) throw new ArgumentException("Invalid date shift policy.");
             return this;
         }
 
-        public ConfigurationFactory Installments()
+        public DefaultScheduleConfigurationFactory Installments()
         {
             _scheduleConfiguration.NumberOfInstallments = int.Parse(_key);
             return this;
         }
 
-        public ConfigurationFactory GracePeriod()
+        public DefaultScheduleConfigurationFactory GracePeriod()
         {
             _scheduleConfiguration.GracePeriod = int.Parse(_key);
             return this;
         }
 
-        public ConfigurationFactory Amount()
+        public DefaultScheduleConfigurationFactory Amount()
         {
             _scheduleConfiguration.Amount = decimal.Parse(_key, _cultureInfo);
             return this;
         }
 
-        public ConfigurationFactory InterestRate()
+        public DefaultScheduleConfigurationFactory InterestRate()
         {
             _scheduleConfiguration.InterestRate = decimal.Parse(_key, _cultureInfo);
             return this;
         }
 
-        public ConfigurationFactory StartDate()
+        public DefaultScheduleConfigurationFactory StartDate()
         {
             _scheduleConfiguration.StartDate = DateTime.Parse(_key, _cultureInfo, DateTimeStyles.AssumeLocal);
             return this;
         }
 
-        public ConfigurationFactory FirstRepaymentDate()
+        public DefaultScheduleConfigurationFactory FirstRepaymentDate()
         {
             _scheduleConfiguration.PreferredFirstInstallmentDate = DateTime.Parse(_key, _cultureInfo, DateTimeStyles.AssumeLocal);
             return this;
         }
 
-        public ScheduleConfiguration GetConfiguration()
+        public IScheduleConfiguration GetConfiguration()
         {
             return _scheduleConfiguration;
         }

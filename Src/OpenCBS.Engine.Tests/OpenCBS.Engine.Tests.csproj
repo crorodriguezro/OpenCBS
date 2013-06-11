@@ -47,7 +47,7 @@
   <ItemGroup>
     <Compile Include="AdjustmentPolicy.cs" />
     <Compile Include="BuildEngine.cs" />
-    <Compile Include="ConfigurationFactoryTests.cs" />
+    <Compile Include="DefaultConfigurationFactoryTests.cs" />
     <Compile Include="DatePolicy\BackwardDateShiftPolicyTests.cs" />
     <Compile Include="DatePolicy\ForwardDateShiftPolicyTests.cs" />
     <Compile Include="DatePolicy\NoDateShiftPolicyTests.cs" />

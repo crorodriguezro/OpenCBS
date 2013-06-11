@@ -46,7 +46,7 @@
     <Compile Include="AdjustmentPolicy\BaseAdjustmentPolicy.cs" />
     <Compile Include="AdjustmentPolicy\FirstInstallmentAdjustmentPolicy.cs" />
     <Compile Include="AdjustmentPolicy\LastInstallmentAdjustmentPolicy.cs" />
-    <Compile Include="ConfigurationFactory.cs" />
+    <Compile Include="DefaultScheduleConfigurationFactory.cs" />
     <Compile Include="DatePolicy\BackwardDateShiftPolicy.cs" />
     <Compile Include="DatePolicy\ForwardDateShiftPolicy.cs" />
     <Compile Include="DatePolicy\HolidayPolicy.cs" />
@@ -64,6 +64,7 @@
     <Compile Include="Interfaces\IPolicy.cs" />
     <Compile Include="Interfaces\IPolicyAttribute.cs" />
     <Compile Include="Interfaces\IRoundingPolicy.cs" />
+    <Compile Include="Interfaces\IScheduleConfigurationFactory.cs" />
     <Compile Include="PeriodPolicy\DailyPeriodPolicy.cs" />
     <Compile Include="Installment.cs" />
     <Compile Include="Interfaces\IPeriodPolicy.cs" />

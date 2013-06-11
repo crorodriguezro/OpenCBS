@@ -58,13 +58,13 @@ namespace OpenCBS.Specflow.Test
     [Binding]
     public class ScheduleSteps
     {
-        private ScheduleConfiguration _configuration;
+        private IScheduleConfiguration _configuration;
         private List<IInstallment> _schedule;
 
         [Given(@"this configuration")]
         public void GivenThisConfiguration(Table table)
         {
-            var factory = new ConfigurationFactory();
+            var factory = new DefaultScheduleConfigurationFactory();
             _configuration = factory
                 .Init()
                 .With(table.Get<string>("Type")).CalculationPolicy()
