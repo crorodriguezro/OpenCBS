@@ -56,6 +56,7 @@
     <Compile Include="DatePolicyTests\HolidayPolicyTests.cs" />
     <Compile Include="DatePolicyTests\WeekendPolicyTests.cs" />
     <Compile Include="OctopusScheduleConfigurationFactoryTests.cs" />
+    <Compile Include="PeriodPolicyTests\CustomPeriodPolicyTests.cs" />
     <Compile Include="PeriodPolicyTests\DailyPeriodPolicyTests.cs" />
     <Compile Include="PeriodPolicyTests\Monthly30DayPeriodPolicyTests.cs" />
     <Compile Include="PeriodPolicyTests\MonthlyPeriodPolicyTests.cs" />
