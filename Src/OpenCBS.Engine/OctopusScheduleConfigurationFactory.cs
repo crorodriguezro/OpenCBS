@@ -7,6 +7,7 @@ using System.Reflection;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.Engine.DatePolicy;
 using OpenCBS.Engine.Interfaces;
+using OpenCBS.Engine.PeriodPolicy;
 using OpenCBS.Enums;
 using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
@@ -54,6 +55,9 @@ namespace OpenCBS.Engine
             if (loan == null) throw new ArgumentException("Loan cannot be null.");
             if (loan.Product == null) throw new ArgumentException("Loan product cannot be null.");
             _scheduleConfiguration.CalculationPolicy = GetPolicy<IInstallmentCalculationPolicy>(GetCalculationPolicyKey(loan));
+            _scheduleConfiguration.PeriodPolicy = GetPeriodPolicy(loan);
+            _scheduleConfiguration.YearPolicy = GetPolicy<IYearPolicy>("360");
+            _scheduleConfiguration.RoundingPolicy = GetRoundingPolicy(loan);
             return this;
         }
 
@@ -76,6 +80,24 @@ namespace OpenCBS.Engine
                 { OLoanTypes.DecliningFixedPrincipal, "Fixed principal" },
             };
             return map.ContainsKey(loan.Product.LoanType) ? map[loan.Product.LoanType] : string.Empty;
+        }
+
+        private IPeriodPolicy GetPeriodPolicy(Loan loan)
+        {
+            if (loan.InstallmentType.NbOfMonths == 1 && loan.InstallmentType.NbOfDays == 0)
+                return GetPolicy<IPeriodPolicy>("Monthly (30 day)");
+            if (loan.InstallmentType.NbOfMonths == 0 && loan.InstallmentType.NbOfDays == 1)
+                return GetPolicy<IPeriodPolicy>("Daily");
+            
+            var policy = (CustomPeriodPolicy) GetPolicy<IPeriodPolicy>("Custom");
+            policy.SetNumberOfDays(loan.InstallmentType.NbOfDays);
+            return policy;
+        }
+
+        private IRoundingPolicy GetRoundingPolicy(Loan loan)
+        {
+            var key = loan.Product.Currency.UseCents ? "Two decimal" : "Whole";
+            return GetPolicy<IRoundingPolicy>(key);
         }
 
         private T GetPolicy<T>(string key) where T : IPolicy

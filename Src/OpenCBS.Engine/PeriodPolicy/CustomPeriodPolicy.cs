@@ -1,11 +1,19 @@
 ﻿using System;
+using System.ComponentModel.Composition;
 using OpenCBS.Engine.Interfaces;
 
 namespace OpenCBS.Engine.PeriodPolicy
 {
+    [Export(typeof(IPolicy))]
+    [PolicyAttribute(Implementation = "Custom")]
     public class CustomPeriodPolicy : IPeriodPolicy
     {
-        private readonly int _numberOfDays;
+        private int _numberOfDays;
+
+        public CustomPeriodPolicy()
+        {
+            _numberOfDays = 0;
+        }
 
         public CustomPeriodPolicy(int numberOfDays)
         {
@@ -25,6 +33,11 @@ namespace OpenCBS.Engine.PeriodPolicy
         public int GetNumberOfDays(DateTime date)
         {
             return _numberOfDays;
+        }
+
+        public void SetNumberOfDays(int numberOfDays)
+        {
+            _numberOfDays = numberOfDays;
         }
 
         public double GetNumberOfPeriodsInYear(DateTime date, IYearPolicy yearPolicy)
