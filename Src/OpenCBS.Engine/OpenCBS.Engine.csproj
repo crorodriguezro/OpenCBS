@@ -58,6 +58,7 @@
     <Compile Include="InstallmentCalculationPolicy\FixedPrincipalInstallmentCalculationPolicy.cs" />
     <Compile Include="InstallmentCalculationPolicy\FlatInstallmentCalculationPolicy.cs" />
     <Compile Include="Interfaces\IAdjustmentPolicy.cs" />
+    <Compile Include="Interfaces\IBaseScheduleConfiguration.cs" />
     <Compile Include="Interfaces\IDateShiftPolicy.cs" />
     <Compile Include="Interfaces\IInstallmentCalculationPolicy.cs" />
     <Compile Include="Interfaces\INonWorkingDayPolicy.cs" />
