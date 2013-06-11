@@ -84,7 +84,12 @@
     <Compile Include="YearPolicy\ThreeHundredSixtyDayYearPolicy.cs" />
     <Compile Include="YearPolicy\ThreeHundredSixtyFiveDayYearPolicy.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\OpenCBS.CoreDomain\OpenCBS.CoreDomain.csproj">
+      <Project>{d539c388-3848-4a3e-ab87-42b8e329755a}</Project>
+      <Name>OpenCBS.CoreDomain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

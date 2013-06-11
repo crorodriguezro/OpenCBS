@@ -85,8 +85,8 @@ namespace OpenCBS.Specflow.Test
         [When(@"I create a schedule")]
         public void WhenICreateASchedule()
         {
-            var scheduleBuilder = new ScheduleBuilder(_configuration);
-            _schedule = scheduleBuilder.BuildSchedule();
+            var scheduleBuilder = new ScheduleBuilder();
+            _schedule = scheduleBuilder.BuildSchedule(_configuration);
         }
         
         [Then(@"the schedule is")]

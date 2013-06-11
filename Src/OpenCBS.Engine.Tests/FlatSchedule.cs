@@ -34,27 +34,27 @@ namespace OpenCBS.Engine.Test
                 AdjustmentPolicy = new LastInstallmentAdjustmentPolicy(),
                 DateShiftPolicy = new NoDateShiftPolicy(),
             };
-            _builder = new ScheduleBuilder(_configuration);
+            _builder = new ScheduleBuilder();
         }
 
         [Test]
         public void FlatSchedule_SumOfPrincipal_IsEqualToAmount()
         {
-            Assert.That(_builder.BuildSchedule().Sum(i => i.Principal), Is.EqualTo(_configuration.Amount));
+            Assert.That(_builder.BuildSchedule(_configuration).Sum(i => i.Principal), Is.EqualTo(_configuration.Amount));
         }
 
         [Test]
         public void FlatSchedule_SumOfUnevenPrincipal_IsEqualToAmount()
         {
             _configuration.NumberOfInstallments = 7;
-            Assert.That(_builder.BuildSchedule().Sum(i => i.Principal), Is.EqualTo(_configuration.Amount));
+            Assert.That(_builder.BuildSchedule(_configuration).Sum(i => i.Principal), Is.EqualTo(_configuration.Amount));
         }
 
         [Test]
         public void FlatSchedule_SumOfInterest_IsEqualToAmountByInterestRateByPeriod()
         {
             // 5000 * 24% * 30/360 * 5 = 700
-            Assert.That(_builder.BuildSchedule().Sum(i => i.Interest), Is.EqualTo(500));
+            Assert.That(_builder.BuildSchedule(_configuration).Sum(i => i.Interest), Is.EqualTo(500));
         }
     }
 }

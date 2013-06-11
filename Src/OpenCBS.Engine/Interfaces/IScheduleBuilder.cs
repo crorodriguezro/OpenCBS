@@ -4,6 +4,6 @@ namespace OpenCBS.Engine.Interfaces
 {
     public interface IScheduleBuilder
     {
-        List<IInstallment> BuildSchedule();
+        List<IInstallment> BuildSchedule(IScheduleConfiguration configuration);
     }
 }

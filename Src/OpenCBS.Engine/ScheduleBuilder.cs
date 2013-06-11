@@ -6,103 +6,96 @@ namespace OpenCBS.Engine
 {
     public class ScheduleBuilder : IScheduleBuilder
     {
-        private readonly IScheduleConfiguration _configuration;
-
-        public ScheduleBuilder(IScheduleConfiguration configuration)
+        public List<IInstallment> BuildSchedule(IScheduleConfiguration configuration)
         {
-            _configuration = configuration;
-        }
+            if (configuration.PeriodPolicy == null) throw new ArgumentException("Period policy cannot be null.");
+            if (configuration.YearPolicy == null) throw new ArgumentException("Year policy cannot be null.");
+            if (configuration.RoundingPolicy == null) throw new ArgumentException("Rounding policy cannot be null.");
+            if (configuration.CalculationPolicy == null) throw new ArgumentException("Installment calculation policy cannot be null.");
+            if (configuration.AdjustmentPolicy == null) throw new ArgumentException("Adjustment policy cannot be null.");
+            if (configuration.DateShiftPolicy == null) throw new ArgumentException("Date shift policy cannot be null.");
+            if (configuration.GracePeriod >= configuration.NumberOfInstallments) throw new ArgumentException("Grace period should be less than the number of installments.");
 
-        public List<IInstallment> BuildSchedule()
-        {
-            if (_configuration.PeriodPolicy == null) throw new ArgumentException("Period policy cannot be null.");
-            if (_configuration.YearPolicy == null) throw new ArgumentException("Year policy cannot be null.");
-            if (_configuration.RoundingPolicy == null) throw new ArgumentException("Rounding policy cannot be null.");
-            if (_configuration.CalculationPolicy == null) throw new ArgumentException("Installment calculation policy cannot be null.");
-            if (_configuration.AdjustmentPolicy == null) throw new ArgumentException("Adjustment policy cannot be null.");
-            if (_configuration.DateShiftPolicy == null) throw new ArgumentException("Date shift policy cannot be null.");
-            if (_configuration.GracePeriod >= _configuration.NumberOfInstallments) throw new ArgumentException("Grace period should be less than the number of installments.");
-
-            var installment = BuildFirst();
+            var installment = BuildFirst(configuration);
             var result = new List<IInstallment> { installment };
 
-            while ((installment = BuildNext(installment)) != null)
+            while ((installment = BuildNext(installment, configuration)) != null)
             {
                 result.Add(installment);
             }
 
-            _configuration.AdjustmentPolicy.Adjust(result, _configuration);
+            configuration.AdjustmentPolicy.Adjust(result, configuration);
 
             // CalculationPolicy interest during grace period
-            for (var i = 0; i < _configuration.GracePeriod; i++)
+            for (var i = 0; i < configuration.GracePeriod; i++)
             {
-                result[i].Interest = CalculateInterest(result[i]);
+                result[i].Interest = CalculateInterest(result[i], configuration);
             }
 
             // Caluclate interest of the first installment if the maturity
             // is less than or greater than a period (week, month, etc.)
             var firstInstallment = result[0];
-            var periodEndDate = _configuration.PeriodPolicy.GetNextDate(firstInstallment.StartDate);
+            var periodEndDate = configuration.PeriodPolicy.GetNextDate(firstInstallment.StartDate);
             var actualEndDate = firstInstallment.EndDate;
             if (periodEndDate != actualEndDate)
             {
                 var difference = (actualEndDate - periodEndDate).Days;
-                var daysInYear = _configuration.YearPolicy.GetNumberOfDays(firstInstallment.EndDate);
-                var interest = firstInstallment.Olb * _configuration.InterestRate * difference / daysInYear;
-                firstInstallment.Interest += _configuration.RoundingPolicy.Round(interest);
+                var daysInYear = configuration.YearPolicy.GetNumberOfDays(firstInstallment.EndDate);
+                var interest = firstInstallment.Olb * configuration.InterestRate * difference / daysInYear;
+                firstInstallment.Interest += configuration.RoundingPolicy.Round(interest);
             }
 
             // Initialize RepaymentDate's
             foreach (var i in result)
             {
-                i.RepaymentDate = _configuration.DateShiftPolicy.ShiftDate(i.EndDate);
+                i.RepaymentDate = configuration.DateShiftPolicy.ShiftDate(i.EndDate);
             }
 
             return result;
         }
 
-        private IInstallment BuildFirst()
+        private IInstallment BuildFirst(IScheduleConfiguration configuration)
         {
             var installment = new Installment
             {
                 Number = 1,
-                StartDate = _configuration.StartDate,
-                EndDate = _configuration.PreferredFirstInstallmentDate,
-                Olb = _configuration.Amount,
+                StartDate = configuration.StartDate,
+                EndDate = configuration.PreferredFirstInstallmentDate,
+                Olb = configuration.Amount,
             };
-            if (_configuration.GracePeriod == 0)
+            if (configuration.GracePeriod == 0)
             {
-                _configuration.CalculationPolicy.Calculate(installment, _configuration);
+                configuration.CalculationPolicy.Calculate(installment, configuration);
             }
 
             return installment;
         }
 
-        private IInstallment BuildNext(IInstallment previous)
+        private IInstallment BuildNext(IInstallment previous, IScheduleConfiguration configuration)
         {
             if (previous == null) throw new ArgumentException("Previous installment cannot be null.");
 
-            if (previous.Number == _configuration.NumberOfInstallments) return null;
+            if (previous.Number == configuration.NumberOfInstallments) return null;
             var installment = new Installment
             {
                 Number = previous.Number + 1,
                 StartDate = previous.EndDate,
-                EndDate = _configuration.PeriodPolicy.GetNextDate(previous.EndDate),
+                EndDate = configuration.PeriodPolicy.GetNextDate(previous.EndDate),
                 Olb = previous.Olb - previous.Principal,
             };
-            if (_configuration.GracePeriod < installment.Number)
+            if (configuration.GracePeriod < installment.Number)
             {
-                _configuration.CalculationPolicy.Calculate(installment, _configuration);
+                configuration.CalculationPolicy.Calculate(installment, configuration);
             }
             return installment;
         }
 
-        private decimal CalculateInterest(IInstallment installment)
+        private decimal CalculateInterest(IInstallment installment, IScheduleConfiguration configuration)
         {
-            var daysInPeriod = _configuration.PeriodPolicy.GetNumberOfDays(installment.EndDate);
-            var daysInYear = _configuration.YearPolicy.GetNumberOfDays(installment.EndDate);
-            var interest = installment.Olb * _configuration.InterestRate / 100 * daysInPeriod / daysInYear;
-            return _configuration.RoundingPolicy.Round(interest);
+            var daysInPeriod = configuration.PeriodPolicy.GetNumberOfDays(installment.EndDate);
+            var daysInYear = configuration.YearPolicy.GetNumberOfDays(installment.EndDate);
+            var interest = installment.Olb * configuration.InterestRate / 100 * daysInPeriod / daysInYear;
+            return configuration.RoundingPolicy.Round(interest);
         }
     }
 }

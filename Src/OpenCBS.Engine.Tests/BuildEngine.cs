@@ -46,7 +46,7 @@ namespace OpenCBS.Engine.Test
                 AdjustmentPolicy = new LastInstallmentAdjustmentPolicy(),
                 DateShiftPolicy = new NoDateShiftPolicy(),
             };
-            _builder = new ScheduleBuilder(_configuration);
+            _builder = new ScheduleBuilder();
         }
 
         [Test]
@@ -54,7 +54,7 @@ namespace OpenCBS.Engine.Test
         public void BuildEngine_PeriodPolicyIsNull_ThrowsException()
         {
             _configuration.PeriodPolicy = null;
-            _builder.BuildSchedule();
+            _builder.BuildSchedule(_configuration);
         }
 
         [Test]
@@ -62,7 +62,7 @@ namespace OpenCBS.Engine.Test
         public void BuildEngine_YearPolicyIsNull_ThrowsException()
         {
             _configuration.YearPolicy = null;
-            _builder.BuildSchedule();
+            _builder.BuildSchedule(_configuration);
         }
 
         [Test]
@@ -70,7 +70,7 @@ namespace OpenCBS.Engine.Test
         public void BuildEngine_RoundingPolicyIsNull_ThrowsException()
         {
             _configuration.RoundingPolicy = null;
-            _builder.BuildSchedule();
+            _builder.BuildSchedule(_configuration);
         }
 
         [Test]
@@ -78,7 +78,7 @@ namespace OpenCBS.Engine.Test
         public void BuildEngine_InstallmentCalculationPolicyIsNull_ThrowsException()
         {
             _configuration.CalculationPolicy = null;
-            _builder.BuildSchedule();
+            _builder.BuildSchedule(_configuration);
         }
 
         [Test]
@@ -86,7 +86,7 @@ namespace OpenCBS.Engine.Test
         public void BuildEngine_AdjustmentPolicyIsNull_ThrowsException()
         {
             _configuration.AdjustmentPolicy = null;
-            _builder.BuildSchedule();
+            _builder.BuildSchedule(_configuration);
         }
 
         [Test]
@@ -95,13 +95,13 @@ namespace OpenCBS.Engine.Test
         public void BuildEngine_GracePeriodEqualsNumberOfInstallments_ThrowsException()
         {
             _configuration.GracePeriod = 5;
-            _builder.BuildSchedule();
+            _builder.BuildSchedule(_configuration);
         }
 
         [Test]
         public void BuildEngine_NumberOfInstallmentsMatches()
         {
-            var schedule = _builder.BuildSchedule();
+            var schedule = _builder.BuildSchedule(_configuration);
             Assert.That(schedule.Count, Is.EqualTo(5));
         }
 
@@ -109,42 +109,42 @@ namespace OpenCBS.Engine.Test
         public void BuildEngine_GracePeriod_NumberOfInstallmentsMatches()
         {
             _configuration.GracePeriod = 2;
-            var schedule = _builder.BuildSchedule();
+            var schedule = _builder.BuildSchedule(_configuration);
             Assert.That(schedule.Count, Is.EqualTo(5));
         }
 
         [Test]
         public void BuildEngine_FirstOlbIsEqualToAmount()
         {
-            var schedule = _builder.BuildSchedule();
+            var schedule = _builder.BuildSchedule(_configuration);
             Assert.That(schedule[0].Olb, Is.EqualTo(_configuration.Amount));
         }
 
         [Test]
         public void BuildEngine_FirstInstallmentStartDateIsEqualToScheduleStartDate()
         {
-            var schedule = _builder.BuildSchedule();
+            var schedule = _builder.BuildSchedule(_configuration);
             Assert.That(schedule[0].StartDate, Is.EqualTo(_configuration.StartDate));
         }
 
         [Test]
         public void BuildEngine_FirstInstallmentEndDateIsEqualToPreferredFirstInstallmentDate()
         {
-            var schedule = _builder.BuildSchedule();
+            var schedule = _builder.BuildSchedule(_configuration);
             Assert.That(schedule[0].EndDate, Is.EqualTo(_configuration.PreferredFirstInstallmentDate));
         }
 
         [Test]
         public void BuildEngine_FirstInstallmentNumberIsOne()
         {
-            var schedule = _builder.BuildSchedule();
+            var schedule = _builder.BuildSchedule(_configuration);
             Assert.That(schedule[0].Number, Is.EqualTo(1));
         }
 
         [Test]
         public void BuildEngine_InstallmentNumbersAreConsequtive()
         {
-            _builder.BuildSchedule().ForEachButFirst((previous, current) =>
+            _builder.BuildSchedule(_configuration).ForEachButFirst((previous, current) =>
             {
                 Assert.That(current.Number, Is.EqualTo(previous.Number + 1));
             });
@@ -153,7 +153,7 @@ namespace OpenCBS.Engine.Test
         [Test]
         public void BuildEngine_NextStartDateIsPreviousEndDate()
         {
-            _builder.BuildSchedule().ForEachButFirst((previous, current) =>
+            _builder.BuildSchedule(_configuration).ForEachButFirst((previous, current) =>
             {
                 Assert.That(current.StartDate, Is.EqualTo(previous.EndDate));
             });
@@ -162,7 +162,7 @@ namespace OpenCBS.Engine.Test
         [Test]
         public void BuildEngine_NextOlbIsPreviousOlbMinusPrincipal()
         {
-            _builder.BuildSchedule().ForEachButFirst((previous, current) =>
+            _builder.BuildSchedule(_configuration).ForEachButFirst((previous, current) =>
             {
                 Assert.That(current.Olb, Is.EqualTo(previous.Olb - current.Principal));
             });
@@ -172,7 +172,7 @@ namespace OpenCBS.Engine.Test
         public void BuildEngine_GracePeriod_OlbIsEqualToAmount()
         {
             _configuration.GracePeriod = 2;
-            var schedule = _builder.BuildSchedule();
+            var schedule = _builder.BuildSchedule(_configuration);
             Assert.That(schedule[0].Olb, Is.EqualTo(_configuration.Amount));
             Assert.That(schedule[1].Olb, Is.EqualTo(_configuration.Amount));
         }
@@ -181,7 +181,7 @@ namespace OpenCBS.Engine.Test
         public void BuildEngine_GracePeriod_PrincipalIsEqualToZero()
         {
             _configuration.GracePeriod = 2;
-            var schedule = _builder.BuildSchedule();
+            var schedule = _builder.BuildSchedule(_configuration);
             Assert.That(schedule[0].Principal, Is.EqualTo(0));
             Assert.That(schedule[1].Principal, Is.EqualTo(0));
         }
@@ -190,7 +190,7 @@ namespace OpenCBS.Engine.Test
         public void BuildEngine_GracePeriod_InterestIsGreaterThanZero()
         {
             _configuration.GracePeriod = 2;
-            var schedule = _builder.BuildSchedule();
+            var schedule = _builder.BuildSchedule(_configuration);
             Assert.That(schedule[0].Interest, Is.GreaterThan(0));
             Assert.That(schedule[0].Interest, Is.GreaterThan(0));
         }
