@@ -39,10 +39,6 @@ namespace OpenCBS.GUI
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem menuItemLocations;
         private ToolStripMenuItem toolStripMenuItemFundingLines;
-        private ToolStripMenuItem languagesToolStripMenuItem;
-        private ToolStripMenuItem frenchToolStripMenuItem;
-        private ToolStripMenuItem englishToolStripMenuItem;
-        private ToolStripMenuItem russianToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItemInstallmentTypes;
 
 
@@ -135,13 +131,6 @@ namespace OpenCBS.GUI
             this.currenciesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorConfig3 = new System.Windows.Forms.ToolStripSeparator();
             this.miContractCode = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.languagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.frenchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.russianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.spanishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.portugueseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -152,10 +141,17 @@ namespace OpenCBS.GUI
             this.menuItemDatabaseControlPanel = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemDatabaseMaintenance = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemApplicationDate = new System.Windows.Forms.ToolStripMenuItem();
+            this.languagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frenchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.russianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.spanishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.portugueseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditAndControlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemAddUser = new System.Windows.Forms.ToolStripMenuItem();
             this.miAuditTrail = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPackages = new System.Windows.Forms.ToolStripMenuItem();
             this.savingProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -584,9 +580,7 @@ namespace OpenCBS.GUI
             this.menuItemExchangeRate,
             this.currenciesToolStripMenuItem,
             this.toolStripSeparatorConfig3,
-            this.miContractCode,
-            this.changePasswordToolStripMenuItem,
-            this.languagesToolStripMenuItem});
+            this.miContractCode});
             this.mnuConfiguration.Name = "mnuConfiguration";
             // 
             // branchesToolStripMenuItem
@@ -665,63 +659,6 @@ namespace OpenCBS.GUI
             this.miContractCode.Name = "miContractCode";
             this.miContractCode.Click += new System.EventHandler(this.miContractCode_Click);
             // 
-            // changePasswordToolStripMenuItem
-            // 
-            resources.ApplyResources(this.changePasswordToolStripMenuItem, "changePasswordToolStripMenuItem");
-            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
-            // 
-            // languagesToolStripMenuItem
-            // 
-            resources.ApplyResources(this.languagesToolStripMenuItem, "languagesToolStripMenuItem");
-            this.languagesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.frenchToolStripMenuItem,
-            this.englishToolStripMenuItem,
-            this.russianToolStripMenuItem,
-            this.spanishToolStripMenuItem,
-            this.portugueseToolStripMenuItem});
-            this.languagesToolStripMenuItem.Name = "languagesToolStripMenuItem";
-            this.languagesToolStripMenuItem.DropDownOpening += new System.EventHandler(this.languagesToolStripMenuItem_DropDownOpening);
-            // 
-            // frenchToolStripMenuItem
-            // 
-            resources.ApplyResources(this.frenchToolStripMenuItem, "frenchToolStripMenuItem");
-            this.frenchToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.fr;
-            this.frenchToolStripMenuItem.Name = "frenchToolStripMenuItem";
-            this.frenchToolStripMenuItem.Tag = "fr";
-            this.frenchToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
-            // 
-            // englishToolStripMenuItem
-            // 
-            resources.ApplyResources(this.englishToolStripMenuItem, "englishToolStripMenuItem");
-            this.englishToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.gb;
-            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Tag = "en-US";
-            this.englishToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
-            // 
-            // russianToolStripMenuItem
-            // 
-            resources.ApplyResources(this.russianToolStripMenuItem, "russianToolStripMenuItem");
-            this.russianToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.ru;
-            this.russianToolStripMenuItem.Name = "russianToolStripMenuItem";
-            this.russianToolStripMenuItem.Tag = "ru-RU";
-            this.russianToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
-            // 
-            // spanishToolStripMenuItem
-            // 
-            resources.ApplyResources(this.spanishToolStripMenuItem, "spanishToolStripMenuItem");
-            this.spanishToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.es;
-            this.spanishToolStripMenuItem.Name = "spanishToolStripMenuItem";
-            this.spanishToolStripMenuItem.Tag = "es-ES";
-            this.spanishToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
-            // 
-            // portugueseToolStripMenuItem
-            // 
-            resources.ApplyResources(this.portugueseToolStripMenuItem, "portugueseToolStripMenuItem");
-            this.portugueseToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.pt;
-            this.portugueseToolStripMenuItem.Name = "portugueseToolStripMenuItem";
-            this.portugueseToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
-            // 
             // mnuWindow
             // 
             resources.ApplyResources(this.mnuWindow, "mnuWindow");
@@ -765,7 +702,8 @@ namespace OpenCBS.GUI
             this.menuItemAdvancedSettings,
             this.menuItemDatabaseControlPanel,
             this.menuItemDatabaseMaintenance,
-            this.menuItemApplicationDate});
+            this.menuItemApplicationDate,
+            this.languagesToolStripMenuItem});
             this.mnuSettings.Name = "mnuSettings";
             // 
             // menuItemSetting
@@ -801,13 +739,64 @@ namespace OpenCBS.GUI
             this.menuItemApplicationDate.Name = "menuItemApplicationDate";
             this.menuItemApplicationDate.Click += new System.EventHandler(this.OnChangeApplicationDateClick);
             // 
+            // languagesToolStripMenuItem
+            // 
+            resources.ApplyResources(this.languagesToolStripMenuItem, "languagesToolStripMenuItem");
+            this.languagesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.frenchToolStripMenuItem,
+            this.englishToolStripMenuItem,
+            this.russianToolStripMenuItem,
+            this.spanishToolStripMenuItem,
+            this.portugueseToolStripMenuItem});
+            this.languagesToolStripMenuItem.Name = "languagesToolStripMenuItem";
+            // 
+            // frenchToolStripMenuItem
+            // 
+            resources.ApplyResources(this.frenchToolStripMenuItem, "frenchToolStripMenuItem");
+            this.frenchToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.fr;
+            this.frenchToolStripMenuItem.Name = "frenchToolStripMenuItem";
+            this.frenchToolStripMenuItem.Tag = "fr";
+            this.frenchToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
+            // 
+            // englishToolStripMenuItem
+            // 
+            resources.ApplyResources(this.englishToolStripMenuItem, "englishToolStripMenuItem");
+            this.englishToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.gb;
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            this.englishToolStripMenuItem.Tag = "en-US";
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
+            // 
+            // russianToolStripMenuItem
+            // 
+            resources.ApplyResources(this.russianToolStripMenuItem, "russianToolStripMenuItem");
+            this.russianToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.ru;
+            this.russianToolStripMenuItem.Name = "russianToolStripMenuItem";
+            this.russianToolStripMenuItem.Tag = "ru-RU";
+            this.russianToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
+            // 
+            // spanishToolStripMenuItem
+            // 
+            resources.ApplyResources(this.spanishToolStripMenuItem, "spanishToolStripMenuItem");
+            this.spanishToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.es;
+            this.spanishToolStripMenuItem.Name = "spanishToolStripMenuItem";
+            this.spanishToolStripMenuItem.Tag = "es-ES";
+            this.spanishToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
+            // 
+            // portugueseToolStripMenuItem
+            // 
+            resources.ApplyResources(this.portugueseToolStripMenuItem, "portugueseToolStripMenuItem");
+            this.portugueseToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.pt;
+            this.portugueseToolStripMenuItem.Name = "portugueseToolStripMenuItem";
+            this.portugueseToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
+            // 
             // auditAndControlsToolStripMenuItem
             // 
             resources.ApplyResources(this.auditAndControlsToolStripMenuItem, "auditAndControlsToolStripMenuItem");
             this.auditAndControlsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rolesToolStripMenuItem,
             this.menuItemAddUser,
-            this.miAuditTrail});
+            this.miAuditTrail,
+            this.changePasswordToolStripMenuItem});
             this.auditAndControlsToolStripMenuItem.Name = "auditAndControlsToolStripMenuItem";
             // 
             // rolesToolStripMenuItem
@@ -828,6 +817,12 @@ namespace OpenCBS.GUI
             resources.ApplyResources(this.miAuditTrail, "miAuditTrail");
             this.miAuditTrail.Name = "miAuditTrail";
             this.miAuditTrail.Click += new System.EventHandler(this.eventsToolStripMenuItem_Click);
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            resources.ApplyResources(this.changePasswordToolStripMenuItem, "changePasswordToolStripMenuItem");
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // productsToolStripMenuItem
             // 
@@ -966,7 +961,6 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem newCorporateToolStripMenuItem;
         private ToolStripMenuItem mnuNewVillage;
         private ToolStripMenuItem miContractCode;
-        private ToolStripMenuItem spanishToolStripMenuItem;
         private System.ComponentModel.BackgroundWorker bwAlerts;
         private ToolStripMenuItem standardToolStripMenuItem;
         private ToolStripMenuItem currenciesToolStripMenuItem;
@@ -991,10 +985,8 @@ namespace OpenCBS.GUI
         private TextBox tbFilter;
         private CheckBox chkLateLoans;
         private TableLayoutPanel tabFilter;
-        private ToolStripMenuItem changePasswordToolStripMenuItem;
         private CheckBox chkPendingLoans;
         private ToolStripMenuItem manualEntriesToolStripMenuItem;
-        private ToolStripMenuItem portugueseToolStripMenuItem;
         private ToolStripMenuItem branchesToolStripMenuItem;
         private ToolStripStatusLabel toolStripStatusLblDB;
         private BrightIdeasSoftware.OLVColumn colAlerts_BranchName;
@@ -1028,6 +1020,13 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem mnuPackages;
         private ToolStripMenuItem savingProductsToolStripMenuItem;
         private ToolStripMenuItem menuItemCollateralProducts;
+        private ToolStripMenuItem languagesToolStripMenuItem;
+        private ToolStripMenuItem frenchToolStripMenuItem;
+        private ToolStripMenuItem englishToolStripMenuItem;
+        private ToolStripMenuItem russianToolStripMenuItem;
+        private ToolStripMenuItem spanishToolStripMenuItem;
+        private ToolStripMenuItem portugueseToolStripMenuItem;
+        private ToolStripMenuItem changePasswordToolStripMenuItem;
 
 
     }
