@@ -39,10 +39,9 @@ namespace OpenCBS.Engine
             var actualEndDate = firstInstallment.EndDate;
             if (periodEndDate != actualEndDate)
             {
-                var difference = (actualEndDate - periodEndDate).Days;
-                var daysInYear = configuration.YearPolicy.GetNumberOfDays(firstInstallment.EndDate);
-                var interest = firstInstallment.Olb * configuration.InterestRate / 100 * difference / daysInYear;
-                firstInstallment.Interest += configuration.RoundingPolicy.Round(interest);
+                var numerator = (decimal) (firstInstallment.EndDate - firstInstallment.StartDate).Days;
+                var denominator = configuration.PeriodPolicy.GetNumberOfDays(firstInstallment.EndDate);
+                firstInstallment.Interest = configuration.RoundingPolicy.Round(firstInstallment.Interest * numerator / denominator);
             }
 
             // Initialize RepaymentDate's
