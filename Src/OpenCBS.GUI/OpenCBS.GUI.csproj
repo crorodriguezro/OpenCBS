@@ -222,6 +222,10 @@
       <Project>{D539C388-3848-4A3E-AB87-42B8E329755A}</Project>
       <Name>OpenCBS.CoreDomain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OpenCBS.Engine\OpenCBS.Engine.csproj">
+      <Project>{b1595695-b53f-4d94-85e6-45a6f515c650}</Project>
+      <Name>OpenCBS.Engine</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenCBS.Enums\OpenCBS.Enums.csproj">
       <Project>{8AFC1E87-3856-4F05-8280-5360D33C200B}</Project>
       <Name>OpenCBS.Enums</Name>
@@ -3763,7 +3767,7 @@ xcopy "$(TargetDir)OpenCBS.*.pdb" "C:\OpenCbsLibs" /s /y</PostBuildEvent>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties GreenPepperConfigRunnerProgram="" GreenPepperCustomSudArgs="" GreenPepperCustomSud="" GreenPepperConfigRunnerArgs="" GreenPepperConfigRepositories="" GreenPepperConfigProjectName="" GreenPepperConfigSutName="" />
+      <UserProperties GreenPepperConfigSutName="" GreenPepperConfigProjectName="" GreenPepperConfigRepositories="" GreenPepperConfigRunnerArgs="" GreenPepperCustomSud="" GreenPepperCustomSudArgs="" GreenPepperConfigRunnerProgram="" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

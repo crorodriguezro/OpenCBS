@@ -29,5 +29,10 @@ namespace OpenCBS.Engine
         public decimal InterestRate { get; set; }
 
         public IDateShiftPolicy DateShiftPolicy { get; set; }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
     }
 }

@@ -1,8 +1,9 @@
 ﻿
+using System;
 
 namespace OpenCBS.Engine.Interfaces
 {
-    public interface IScheduleConfiguration : IBaseScheduleConfiguration
+    public interface IScheduleConfiguration : IBaseScheduleConfiguration, ICloneable
     {
         IPeriodPolicy PeriodPolicy { get; set; }
         IYearPolicy YearPolicy { get; set; }
