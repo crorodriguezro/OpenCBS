@@ -234,10 +234,6 @@
       <Project>{98B26AD8-D160-462B-B70F-982D8701154A}</Project>
       <Name>OpenCBS.ExceptionsHandler</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OpenCBS.Extensions.Samples\OpenCBS.Extensions.Samples.csproj">
-      <Project>{1f60c682-0dd0-481d-905f-b94cb9a60cc5}</Project>
-      <Name>OpenCBS.Extensions.Samples</Name>
-    </ProjectReference>
     <ProjectReference Include="..\OpenCBS.Extensions\OpenCBS.Extensions.csproj">
       <Project>{D63E15B6-24DF-4C27-8593-EFACE31FA52A}</Project>
       <Name>OpenCBS.Extensions</Name>
@@ -3728,7 +3724,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>if $(ConfigurationName) == Debug "$(SolutionDir)buildinfo.exe" "$(SolutionDir)SolutionInfo.Template.cs" "$(SolutionDir)SolutionInfo.cs" 0 0</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
     <PostBuildEvent>if not exist  "$(TargetDir)Update" md  "$(TargetDir)Update"
 if not exist  "$(TargetDir)Reports" md  "$(TargetDir)Reports"
 if not exist  "$(TargetDir)Reports\Consolidated" md  "$(TargetDir)Reports\Consolidated"
@@ -3765,9 +3762,4 @@ mkdir "C:\OpenCbsLibs"
 xcopy "$(TargetDir)OpenCBS.*.dll" "C:\OpenCbsLibs" /s /y
 xcopy "$(TargetDir)OpenCBS.*.pdb" "C:\OpenCbsLibs" /s /y</PostBuildEvent>
   </PropertyGroup>
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties GreenPepperConfigSutName="" GreenPepperConfigProjectName="" GreenPepperConfigRepositories="" GreenPepperConfigRunnerArgs="" GreenPepperCustomSud="" GreenPepperCustomSudArgs="" GreenPepperConfigRunnerProgram="" />
-    </VisualStudio>
-  </ProjectExtensions>
 </Project>

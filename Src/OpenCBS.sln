@@ -26,6 +26,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCBS.ExceptionsHandler", "OpenCBS.ExceptionsHandler\OpenCBS.ExceptionsHandler.csproj", "{98B26AD8-D160-462B-B70F-982D8701154A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCBS.GUI", "OpenCBS.GUI\OpenCBS.GUI.csproj", "{098C8842-6538-4B87-8851-BB1B1FA379FE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1F60C682-0DD0-481D-905F-B94CB9A60CC5} = {1F60C682-0DD0-481D-905F-B94CB9A60CC5}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCBS.GUI.Restarter", "OpenCBS.GUI.Restarter\OpenCBS.GUI.Restarter.csproj", "{90B5218E-10F0-4123-80E3-C4E65D6CF209}"
 EndProject

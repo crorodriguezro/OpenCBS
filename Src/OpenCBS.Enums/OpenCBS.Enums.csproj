@@ -110,9 +110,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties GreenPepperConfigRunnerProgram="" GreenPepperConfigRunnerArgs="" GreenPepperCustomSud="" GreenPepperCustomSudArgs="" GreenPepperConfigRepositories="" GreenPepperConfigProjectName="" GreenPepperConfigSutName="" />
-    </VisualStudio>
-  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>if $(ConfigurationName) == Debug "$(SolutionDir)buildinfo.exe" "$(SolutionDir)SolutionInfo.Template.cs" "$(SolutionDir)SolutionInfo.cs" 0 0</PreBuildEvent>
+  </PropertyGroup>
 </Project>
