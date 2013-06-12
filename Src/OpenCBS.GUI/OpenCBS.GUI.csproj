@@ -3758,9 +3758,4 @@ mkdir "C:\OpenCbsLibs"
 xcopy "$(TargetDir)OpenCBS.*.dll" "C:\OpenCbsLibs" /s /y
 xcopy "$(TargetDir)OpenCBS.*.pdb" "C:\OpenCbsLibs" /s /y</PostBuildEvent>
   </PropertyGroup>
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties GreenPepperConfigSutName="" GreenPepperConfigProjectName="" GreenPepperConfigRepositories="" GreenPepperConfigRunnerArgs="" GreenPepperCustomSud="" GreenPepperCustomSudArgs="" GreenPepperConfigRunnerProgram="" />
-    </VisualStudio>
-  </ProjectExtensions>
 </Project>
