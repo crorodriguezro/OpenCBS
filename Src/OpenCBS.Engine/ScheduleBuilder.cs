@@ -41,7 +41,7 @@ namespace OpenCBS.Engine
             {
                 var difference = (actualEndDate - periodEndDate).Days;
                 var daysInYear = configuration.YearPolicy.GetNumberOfDays(firstInstallment.EndDate);
-                var interest = firstInstallment.Olb * configuration.InterestRate * difference / daysInYear;
+                var interest = firstInstallment.Olb * configuration.InterestRate / 100 * difference / daysInYear;
                 firstInstallment.Interest += configuration.RoundingPolicy.Round(interest);
             }
 
