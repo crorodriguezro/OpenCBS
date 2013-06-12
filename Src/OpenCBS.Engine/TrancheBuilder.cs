@@ -7,6 +7,27 @@ namespace OpenCBS.Engine
 {
     public class TrancheBuilder : ITrancheBuilder
     {
+        private DateTime GetLastEndDate(IEnumerable<IInstallment> schedule, ITrancheConfiguration trancheConfiguration)
+        {
+            var installment = (from i in schedule
+                               where (i.PaidPrincipal > 0 || i.PaidInterest > 0)
+                                     && i.RepaymentDate <= trancheConfiguration.StartDate
+                               select i).LastOrDefault();
+            if (installment == null) return schedule.First().StartDate;
+            return installment.RepaymentDate;
+        }
+
+        private decimal GetExtraInterest(IEnumerable<IInstallment> schedule,
+                                         IScheduleConfiguration scheduleConfiguration,
+                                         ITrancheConfiguration trancheConfiguration)
+        {
+            var days = (trancheConfiguration.StartDate - GetLastEndDate(schedule, trancheConfiguration)).Days;
+            var daysInYear = scheduleConfiguration.YearPolicy.GetNumberOfDays(trancheConfiguration.StartDate);
+            var olb = schedule.Sum(i => i.Principal - i.PaidPrincipal);
+            var interest = olb * scheduleConfiguration.InterestRate / 100 * days / daysInYear;
+            return scheduleConfiguration.RoundingPolicy.Round(interest);
+        }
+
         public List<IInstallment> BuildTranche(IEnumerable<IInstallment> schedule, IScheduleBuilder scheduleBuilder, IScheduleConfiguration scheduleConfiguration, ITrancheConfiguration trancheConfiguration)
         {
             var rhc = (IScheduleConfiguration)scheduleConfiguration.Clone();
@@ -62,6 +83,7 @@ namespace OpenCBS.Engine
                 result.Add(installment);
             }
 
+            result[0].Interest += GetExtraInterest(schedule, scheduleConfiguration, trancheConfiguration);
             return result;
         }
     }
