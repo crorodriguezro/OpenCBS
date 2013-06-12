@@ -67,6 +67,7 @@
     <Compile Include="Interfaces\IRoundingPolicy.cs" />
     <Compile Include="Interfaces\IScheduleConfigurationFactory.cs" />
     <Compile Include="Interfaces\ITrancheBuilder.cs" />
+    <Compile Include="Interfaces\ITrancheConfiguration.cs" />
     <Compile Include="OctopusScheduleConfigurationFactory.cs" />
     <Compile Include="PeriodPolicy\CustomPeriodPolicy.cs" />
     <Compile Include="PeriodPolicy\DailyPeriodPolicy.cs" />

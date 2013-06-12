@@ -4,6 +4,6 @@ namespace OpenCBS.Engine.Interfaces
 {
     public interface ITrancheBuilder
     {
-        List<IInstallment> BuildTranche(IScheduleBuilder scheduleBuilder, IScheduleConfiguration oldConfiguration, IScheduleConfiguration newConfiguration);
+        List<IInstallment> BuildTranche(IEnumerable<IInstallment> schedule, IScheduleBuilder scheduleBuilder, IScheduleConfiguration scheduleConfiguration, ITrancheConfiguration trancheConfiguration);
     }
 }

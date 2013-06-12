@@ -18,5 +18,9 @@ namespace OpenCBS.Engine
         public decimal Interest { get; set; }
 
         public decimal Olb { get; set; }
+
+        public decimal PaidPrincipal { get; set; }
+
+        public decimal PaidInterest { get; set; }
     }
 }

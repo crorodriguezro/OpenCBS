@@ -11,5 +11,7 @@ namespace OpenCBS.Engine.Interfaces
         decimal Principal { get; set; }
         decimal Interest { get; set; }
         decimal Olb { get; set; }
+        decimal PaidPrincipal { get; set; }
+        decimal PaidInterest { get; set; }
     }
 }

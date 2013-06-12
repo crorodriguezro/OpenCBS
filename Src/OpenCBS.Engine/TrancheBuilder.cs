@@ -1,15 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using OpenCBS.Engine.Interfaces;
 
 namespace OpenCBS.Engine
 {
     public class TrancheBuilder : ITrancheBuilder
     {
-        public List<IInstallment> BuildTranche(IScheduleBuilder scheduleBuilder, IScheduleConfiguration leftHandConfiguration, IScheduleConfiguration rightHandConfiguration)
+        public List<IInstallment> BuildTranche(IEnumerable<IInstallment> schedule, IScheduleBuilder scheduleBuilder, IScheduleConfiguration scheduleConfiguration, ITrancheConfiguration trancheConfiguration)
         {
-            var lhs = scheduleBuilder.BuildSchedule(leftHandConfiguration);
-            var rhs = scheduleBuilder.BuildSchedule(rightHandConfiguration);
+            var lhc = (IScheduleConfiguration) scheduleConfiguration.Clone();
+            lhc.Amount = schedule.Sum(i => i.Principal - i.PaidPrincipal);
+            if (trancheConfiguration.ApplyNewInterestRateToOlb)
+            {
+                lhc.InterestRate = trancheConfiguration.InterestRate;
+            }
+
+            var rhc = (IScheduleConfiguration) scheduleConfiguration.Clone();
+            rhc.Amount = trancheConfiguration.Amount;
+            rhc.NumberOfInstallments = trancheConfiguration.NumberOfInstallments;
+            rhc.GracePeriod = trancheConfiguration.GracePeriod;
+            rhc.InterestRate = trancheConfiguration.InterestRate;
+            rhc.StartDate = trancheConfiguration.StartDate;
+            rhc.PreferredFirstInstallmentDate = trancheConfiguration.PreferredFirstInstallmentDate;
+
+
+            var lhs = scheduleBuilder.BuildSchedule(lhc);
+            var rhs = scheduleBuilder.BuildSchedule(rhc);
 
             var result = new List<IInstallment>();
             
