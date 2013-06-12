@@ -9,14 +9,7 @@ namespace OpenCBS.Engine
     {
         public List<IInstallment> BuildTranche(IEnumerable<IInstallment> schedule, IScheduleBuilder scheduleBuilder, IScheduleConfiguration scheduleConfiguration, ITrancheConfiguration trancheConfiguration)
         {
-            var lhc = (IScheduleConfiguration) scheduleConfiguration.Clone();
-            lhc.Amount = schedule.Sum(i => i.Principal - i.PaidPrincipal);
-            if (trancheConfiguration.ApplyNewInterestRateToOlb)
-            {
-                lhc.InterestRate = trancheConfiguration.InterestRate;
-            }
-
-            var rhc = (IScheduleConfiguration) scheduleConfiguration.Clone();
+            var rhc = (IScheduleConfiguration)scheduleConfiguration.Clone();
             rhc.Amount = trancheConfiguration.Amount;
             rhc.NumberOfInstallments = trancheConfiguration.NumberOfInstallments;
             rhc.GracePeriod = trancheConfiguration.GracePeriod;
@@ -24,12 +17,18 @@ namespace OpenCBS.Engine
             rhc.StartDate = trancheConfiguration.StartDate;
             rhc.PreferredFirstInstallmentDate = trancheConfiguration.PreferredFirstInstallmentDate;
 
+            var lhc = (IScheduleConfiguration)rhc.Clone();
+            lhc.Amount = schedule.Sum(i => i.Principal - i.PaidPrincipal);
+            if (!trancheConfiguration.ApplyNewInterestRateToOlb)
+            {
+                lhc.InterestRate = scheduleConfiguration.InterestRate;
+            }
 
             var lhs = scheduleBuilder.BuildSchedule(lhc);
             var rhs = scheduleBuilder.BuildSchedule(rhc);
 
             var result = new List<IInstallment>();
-            
+
             // Merge the two schedules
             var max = Math.Max(lhs.Count, rhs.Count);
             for (var i = 0; i < max; i++)

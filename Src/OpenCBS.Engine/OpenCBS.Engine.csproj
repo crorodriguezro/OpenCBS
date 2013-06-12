@@ -86,6 +86,7 @@
     <Compile Include="ScheduleBuilder.cs" />
     <Compile Include="ScheduleConfiguration.cs" />
     <Compile Include="TrancheBuilder.cs" />
+    <Compile Include="TrancheConfiguration.cs" />
     <Compile Include="YearPolicy\ActualNumberOfDayYearPolicy.cs" />
     <Compile Include="YearPolicy\ThreeHundredSixtyDayYearPolicy.cs" />
     <Compile Include="YearPolicy\ThreeHundredSixtyFiveDayYearPolicy.cs" />
