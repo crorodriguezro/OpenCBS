@@ -2587,6 +2587,9 @@
     <EmbeddedResource Include="ScheduleUserControl.fr.resx">
       <DependentUpon>ScheduleUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleUserControl.pt.resx">
+      <DependentUpon>ScheduleUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScheduleUserControl.resx">
       <DependentUpon>ScheduleUserControl.cs</DependentUpon>
     </EmbeddedResource>

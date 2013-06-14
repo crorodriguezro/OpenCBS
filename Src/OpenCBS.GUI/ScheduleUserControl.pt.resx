@@ -118,27 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="dateColumn.Text" xml:space="preserve">
-    <value>Fecha</value>
+    <value>Data</value>
   </data>
   <data name="interestColumn.Text" xml:space="preserve">
-    <value>Intereses previstos</value>
+    <value>Juros anticipados</value>
   </data>
   <data name="principalColumn.Text" xml:space="preserve">
-    <value>Capital previsto</value>
+    <value>Capital anticipado</value>
   </data>
   <data name="totalColumn.Text" xml:space="preserve">
-    <value>Total de la cuota</value>
+    <value>Total da prestação</value>
   </data>
   <data name="olbColumn.Text" xml:space="preserve">
-    <value>Saldo</value>
+    <value>SEP</value>
   </data>
   <data name="paidInterestColumn.Text" xml:space="preserve">
-    <value>Intereses pagos</value>
+    <value>Juros pagos</value>
   </data>
   <data name="paidPrincipalColumn.Text" xml:space="preserve">
     <value>Capital pago</value>
   </data>
   <data name="paymentDateColumn.Text" xml:space="preserve">
-    <value>Fecha del pago</value>
+    <value>Data paga</value>
   </data>
 </root>
