@@ -20,17 +20,11 @@
 // Contact: contact@opencbs.com
 
 using System;
-using System.ComponentModel;
-using System.Drawing;
-using System.Globalization;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Loans;
-using OpenCBS.CoreDomain.Contracts.Loans.Installments;
-using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.GUI.UserControl;
-using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
 using OpenCBS.Shared;
 
@@ -54,80 +48,86 @@ namespace OpenCBS.GUI.Contracts
         public AddTrancheForm(Loan contract, IClient pClient)
         {
             InitializeComponent();
+            Setup();
             _client = pClient;
-            this._contract = contract;
-            labelContractCode.Text = contract.Code;
-            labelMaturityUnity.Text = contract.InstallmentType.Name;
+            _contract = contract;
             _IR = Convert.ToDecimal(contract.InterestRate);
-            numericUpDownNewIR.Value = _IR * 100;
-            numericUpDownNewIR.Text = (_IR * 100).ToString();
+            interestRateNumericUpDown.Value = _IR * 100;
+            interestRateNumericUpDown.Text = (_IR * 100).ToString();
             if (contract.Product.InterestRate.HasValue) { /* checkBoxIRChanged.Enabled = false; */ }
             else
             {
-                numericUpDownNewIR.Minimum = Convert.ToDecimal(contract.Product.InterestRateMin * 100);
-                numericUpDownNewIR.Maximum = Convert.ToDecimal(contract.Product.InterestRateMax * 100);
+                interestRateNumericUpDown.Minimum = Convert.ToDecimal(contract.Product.InterestRateMin * 100);
+                interestRateNumericUpDown.Maximum = Convert.ToDecimal(contract.Product.InterestRateMax * 100);
             }
-            DisplayInstallmentsForRepaymentsStatus(this._contract);
             InitializeTrancheComponents();
-            CenterToScreen();
         }
 
         public void InitializeTrancheComponents()
         {
-            labelStartDate.Visible = true;
-            dateTimePickerStartDate.Visible = true;
-            cbApplynewInterestforOLB.Visible = true;
-            cbApplynewInterestforOLB.Enabled = true;
-            labelShiftDateDays.Text = @" + " + Contract.GetRemainAmount().GetFormatedValue(Contract.Product.Currency.UseCents);
-            buttonConfirm.Text = GetString("AddTranche.Text");
+            startDateLabel.Visible = true;
+            startDateTimePicker.Visible = true;
+            applyToOlbCheckbox.Visible = true;
+            applyToOlbCheckbox.Enabled = true;
+            //labelShiftDateDays.Text = @" + " + Contract.GetRemainAmount().GetFormatedValue(Contract.Product.Currency.UseCents);
             Text = GetString("AddTranche.Text");
-            cbApplynewInterestforOLB.Text = GetString("ApplynewInterestforOLB.Text");
-            labelShiftDate.Text = GetString("TranchePrincipal.Text");
+            applyToOlbCheckbox.Text = GetString("ApplynewInterestforOLB.Text");
 
-            dateTimePickerStartDate.Value = TimeProvider.Now;
+            startDateTimePicker.Value = TimeProvider.Now;
 
             if (Contract.Product.NbOfInstallments != null)
             {
-                numericUpDownMaturity.Maximum = (decimal)Contract.Product.NbOfInstallments;
-                numericUpDownMaturity.Minimum = (decimal)Contract.Product.NbOfInstallments;
+                installmentsNumericUpDown.Maximum = (decimal)Contract.Product.NbOfInstallments;
+                installmentsNumericUpDown.Minimum = (decimal)Contract.Product.NbOfInstallments;
             }
             else
             {
-                numericUpDownMaturity.Maximum = (decimal)Contract.Product.NbOfInstallmentsMax;
-                numericUpDownMaturity.Minimum = (decimal)Contract.Product.NbOfInstallmentsMin;
+                installmentsNumericUpDown.Maximum = (decimal)Contract.Product.NbOfInstallmentsMax;
+                installmentsNumericUpDown.Minimum = (decimal)Contract.Product.NbOfInstallmentsMin;
             }
         }
 
-        private void DisplayInstallmentsForRepaymentsStatus(Loan contractToDisplay)
+        private void LoadForm()
         {
-            listViewRepayments.Items.Clear();
-            foreach (Installment installment in contractToDisplay.InstallmentList)
-            {
-                ListViewItem listViewItem = new ListViewItem(installment.Number.ToString());
-                if (installment.IsRepaid)
-                {
-                    listViewItem.BackColor = Color.FromArgb(((Byte)(0)), ((Byte)(88)), ((Byte)(56)));
-                    listViewItem.ForeColor = Color.White;
-                }
-                listViewItem.Tag = installment;
-                listViewItem.SubItems.Add(installment.ExpectedDate.ToShortDateString());
-                listViewItem.SubItems.Add(installment.InterestsRepayment.GetFormatedValue(contractToDisplay.UseCents));
-                listViewItem.SubItems.Add(installment.CapitalRepayment.GetFormatedValue(contractToDisplay.UseCents));
-                listViewItem.SubItems.Add(installment.Amount.GetFormatedValue(contractToDisplay.UseCents));
+            RefreshSchedule(Contract);
+        }
 
-                if (ServicesProvider.GetInstance().GetGeneralSettings().IsOlbBeforeRepayment)
-                    listViewItem.SubItems.Add(installment.OLB.GetFormatedValue(contractToDisplay.UseCents));
-                else
-                    listViewItem.SubItems.Add(installment.OLBAfterRepayment.GetFormatedValue(contractToDisplay.UseCents));
+        private void Setup()
+        {
+            Load += (sender, args) => LoadForm();
+        }
 
-                listViewItem.SubItems.Add(installment.PaidInterests.GetFormatedValue(contractToDisplay.UseCents));
-                listViewItem.SubItems.Add(installment.PaidCapital.GetFormatedValue(contractToDisplay.UseCents));
-                if (installment.PaidDate.HasValue)
-                    listViewItem.SubItems.Add(installment.PaidDate.Value.ToShortDateString());
-                else
-                    listViewItem.SubItems.Add("-");
-                listViewRepayments.Items.Add(listViewItem);
-            }
+        private void RefreshSchedule(Loan loan)
+        {
+            scheduleUserControl.SetScheduleFor(loan);
+            //listViewRepayments.Items.Clear();
+            //foreach (Installment installment in contractToDisplay.InstallmentList)
+            //{
+            //    ListViewItem listViewItem = new ListViewItem(installment.Number.ToString());
+            //    if (installment.IsRepaid)
+            //    {
+            //        listViewItem.BackColor = Color.FromArgb(((Byte)(0)), ((Byte)(88)), ((Byte)(56)));
+            //        listViewItem.ForeColor = Color.White;
+            //    }
+            //    listViewItem.Tag = installment;
+            //    listViewItem.SubItems.Add(installment.ExpectedDate.ToShortDateString());
+            //    listViewItem.SubItems.Add(installment.InterestsRepayment.GetFormatedValue(contractToDisplay.UseCents));
+            //    listViewItem.SubItems.Add(installment.CapitalRepayment.GetFormatedValue(contractToDisplay.UseCents));
+            //    listViewItem.SubItems.Add(installment.Amount.GetFormatedValue(contractToDisplay.UseCents));
+
+            //    if (ServicesProvider.GetInstance().GetGeneralSettings().IsOlbBeforeRepayment)
+            //        listViewItem.SubItems.Add(installment.OLB.GetFormatedValue(contractToDisplay.UseCents));
+            //    else
+            //        listViewItem.SubItems.Add(installment.OLBAfterRepayment.GetFormatedValue(contractToDisplay.UseCents));
+
+            //    listViewItem.SubItems.Add(installment.PaidInterests.GetFormatedValue(contractToDisplay.UseCents));
+            //    listViewItem.SubItems.Add(installment.PaidCapital.GetFormatedValue(contractToDisplay.UseCents));
+            //    if (installment.PaidDate.HasValue)
+            //        listViewItem.SubItems.Add(installment.PaidDate.Value.ToShortDateString());
+            //    else
+            //        listViewItem.SubItems.Add("-");
+            //    listViewRepayments.Items.Add(listViewItem);
+            //}
         }
 
         public Loan Contract
@@ -137,7 +137,7 @@ namespace OpenCBS.GUI.Contracts
 
         private void _GetParameters()
         {
-            numberOfMaturity = Convert.ToInt32(numericUpDownMaturity.Value);
+            numberOfMaturity = Convert.ToInt32(installmentsNumericUpDown.Value);
 
             try
             {
@@ -148,12 +148,12 @@ namespace OpenCBS.GUI.Contracts
                 _dateOffsetOrAmount = 0;
             }
 
-            _interestRateChanged = cbApplynewInterestforOLB.Checked;
+            _interestRateChanged = applyToOlbCheckbox.Checked;
 
             _chargeInterestDuringShift = false;
             _chargeInterestDuringGracePeriod = false;
-            _IR = Convert.ToDecimal(numericUpDownNewIR.Value / 100);
-            _trancheDate = dateTimePickerStartDate.Value.Date;
+            _IR = Convert.ToDecimal(interestRateNumericUpDown.Value / 100);
+            _trancheDate = startDateTimePicker.Value.Date;
             _gracePeriod = 0;
         }
 
@@ -170,7 +170,7 @@ namespace OpenCBS.GUI.Contracts
                                                                                                      _dateOffsetOrAmount,
                                                                                                      _interestRateChanged,
                                                                                                      _IR);
-                DisplayInstallmentsForRepaymentsStatus(fakeContract);
+                RefreshSchedule(fakeContract);
             }
         }
 
@@ -187,7 +187,7 @@ namespace OpenCBS.GUI.Contracts
                                                                                                      _dateOffsetOrAmount,
                                                                                                      _interestRateChanged,
                                                                                                      _IR);
-                DisplayInstallmentsForRepaymentsStatus(fakeContract);
+                RefreshSchedule(fakeContract);
             }
         }
 
@@ -204,17 +204,17 @@ namespace OpenCBS.GUI.Contracts
                                                                                                      _dateOffsetOrAmount,
                                                                                                      _interestRateChanged,
                                                                                                      _IR);
-                DisplayInstallmentsForRepaymentsStatus(fakeContract);
+                RefreshSchedule(fakeContract);
             }
         }
 
         private void tbDateOffset_KeyDown(object sender, KeyEventArgs e)
         {
             Keys c = e.KeyCode;
-            
+
             if (c >= Keys.NumPad0 && c <= Keys.NumPad9) return;
             if (c >= Keys.D0 && c <= Keys.D9) return;
-            if (e.KeyValue==110 || e.KeyValue==188) return;
+            if (e.KeyValue == 110 || e.KeyValue == 188) return;
             if (e.Control && (c == Keys.X || c == Keys.C || c == Keys.V || c == Keys.Z)) return;
             if (c == Keys.Delete || c == Keys.Back) return;
             if (c == Keys.Left || c == Keys.Right || c == Keys.Up || c == Keys.Down) return;
@@ -241,7 +241,7 @@ namespace OpenCBS.GUI.Contracts
                                                                                      _dateOffsetOrAmount,
                                                                                      _interestRateChanged,
                                                                                      _IR);
-                DisplayInstallmentsForRepaymentsStatus(fakeContract);
+                RefreshSchedule(fakeContract);
             }
         }
 
@@ -258,7 +258,7 @@ namespace OpenCBS.GUI.Contracts
                                                                                                      _dateOffsetOrAmount,
                                                                                                      _interestRateChanged,
                                                                                                      _IR);
-                DisplayInstallmentsForRepaymentsStatus(fakeContract);
+                RefreshSchedule(fakeContract);
             }
         }
 
@@ -267,7 +267,7 @@ namespace OpenCBS.GUI.Contracts
             string messageConfirm = GetString("ConfirmTrancheContract.Text") + " " + _contract.Code;
             messageConfirm += "\n" + GetString("ChargeInterest.Text") + " " + (_interestRateChanged ? GetString("Yes.Text") : GetString("No.Text"));
             messageConfirm += "\n" + GetString("NewInstallment.Text") + " " + numberOfMaturity;
-            messageConfirm += "\n" + GetString("InterestRate.Text") + " " + _IR*100 + "%";
+            messageConfirm += "\n" + GetString("InterestRate.Text") + " " + _IR * 100 + "%";
 
             resultReschedulingForm = MessageBox.Show(messageConfirm, GetString("ConfirmTheTranche.Text"),
                                                      MessageBoxButtons.OKCancel,
@@ -296,10 +296,6 @@ namespace OpenCBS.GUI.Contracts
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void AddTrancheForm_Load(object sender, EventArgs e)
-        {
         }
     }
 }
