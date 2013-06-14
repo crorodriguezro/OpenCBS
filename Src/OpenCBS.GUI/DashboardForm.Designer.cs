@@ -258,6 +258,7 @@ namespace OpenCBS.GUI
             resources.ApplyResources(this.operateLabel, "operateLabel");
             this.operateLabel.ForeColor = System.Drawing.Color.White;
             this.operateLabel.Name = "operateLabel";
+            this.operateLabel.Tag = "123";
             // 
             // searchClientLabel
             // 
@@ -266,6 +267,7 @@ namespace OpenCBS.GUI
             this.searchClientLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.searchClientLabel.Name = "searchClientLabel";
             this.searchClientLabel.TabStop = true;
+            this.searchClientLabel.Tag = "mnuSearchClient";
             this.searchClientLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnSearchClientClick);
             // 
             // searchContractLabel
@@ -275,6 +277,7 @@ namespace OpenCBS.GUI
             this.searchContractLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.searchContractLabel.Name = "searchContractLabel";
             this.searchContractLabel.TabStop = true;
+            this.searchContractLabel.Tag = "mnuSearchContract";
             this.searchContractLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnSearchContractClick);
             // 
             // newIndividualClientLinkLabel
@@ -284,6 +287,7 @@ namespace OpenCBS.GUI
             this.newIndividualClientLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.newIndividualClientLinkLabel.Name = "newIndividualClientLinkLabel";
             this.newIndividualClientLinkLabel.TabStop = true;
+            this.newIndividualClientLinkLabel.Tag = "mnuNewPerson";
             this.newIndividualClientLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnNewIndividualClientLinkLabelClick);
             // 
             // newSolidarityGroupLinkLabel
@@ -293,6 +297,7 @@ namespace OpenCBS.GUI
             this.newSolidarityGroupLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.newSolidarityGroupLinkLabel.Name = "newSolidarityGroupLinkLabel";
             this.newSolidarityGroupLinkLabel.TabStop = true;
+            this.newSolidarityGroupLinkLabel.Tag = "mnuNewGroup";
             this.newSolidarityGroupLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnNewSolidarityGroupLinkLabelLinkClick);
             // 
             // newNonSolidairtyGroupLinkLabel
@@ -302,6 +307,7 @@ namespace OpenCBS.GUI
             this.newNonSolidairtyGroupLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.newNonSolidairtyGroupLinkLabel.Name = "newNonSolidairtyGroupLinkLabel";
             this.newNonSolidairtyGroupLinkLabel.TabStop = true;
+            this.newNonSolidairtyGroupLinkLabel.Tag = "mnuNewVillage";
             this.newNonSolidairtyGroupLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnNewNonSolidairtyGroupLinkLabelLinkClick);
             // 
             // newCorporateClientLinkLabel
@@ -311,6 +317,7 @@ namespace OpenCBS.GUI
             this.newCorporateClientLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.newCorporateClientLinkLabel.Name = "newCorporateClientLinkLabel";
             this.newCorporateClientLinkLabel.TabStop = true;
+            this.newCorporateClientLinkLabel.Tag = "newCorporateToolStripMenuItem";
             this.newCorporateClientLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnCorporateClientLinkLabelLinkClick);
             // 
             // configureLabel
@@ -326,6 +333,7 @@ namespace OpenCBS.GUI
             this.configureLoanProductsLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.configureLoanProductsLabel.Name = "configureLoanProductsLabel";
             this.configureLoanProductsLabel.TabStop = true;
+            this.configureLoanProductsLabel.Tag = "mnuPackages";
             this.configureLoanProductsLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnConfigureLoanProductsClick);
             // 
             // configureSavingsProductsLabel
@@ -335,6 +343,7 @@ namespace OpenCBS.GUI
             this.configureSavingsProductsLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.configureSavingsProductsLabel.Name = "configureSavingsProductsLabel";
             this.configureSavingsProductsLabel.TabStop = true;
+            this.configureSavingsProductsLabel.Tag = "savingProductsToolStripMenuItem";
             this.configureSavingsProductsLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnConfigureSavingsProductsClick);
             // 
             // configureCollateralProducts
@@ -344,6 +353,7 @@ namespace OpenCBS.GUI
             this.configureCollateralProducts.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.configureCollateralProducts.Name = "configureCollateralProducts";
             this.configureCollateralProducts.TabStop = true;
+            this.configureCollateralProducts.Tag = "menuItemCollateralProducts";
             this.configureCollateralProducts.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnConfigureCollateralProducts);
             // 
             // configureSettingsLabel
@@ -353,6 +363,7 @@ namespace OpenCBS.GUI
             this.configureSettingsLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.configureSettingsLabel.Name = "configureSettingsLabel";
             this.configureSettingsLabel.TabStop = true;
+            this.configureSettingsLabel.Tag = "menuItemSetting";
             this.configureSettingsLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnConfigureSettingsClick);
             // 
             // configurePermissionsLabel
@@ -362,6 +373,7 @@ namespace OpenCBS.GUI
             this.configurePermissionsLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.configurePermissionsLabel.Name = "configurePermissionsLabel";
             this.configurePermissionsLabel.TabStop = true;
+            this.configurePermissionsLabel.Tag = "rolesToolStripMenuItem";
             this.configurePermissionsLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnConfigurePermissionsClick);
             // 
             // controlLabel
@@ -377,6 +389,7 @@ namespace OpenCBS.GUI
             this.auditTrailLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.auditTrailLabel.Name = "auditTrailLabel";
             this.auditTrailLabel.TabStop = true;
+            this.auditTrailLabel.Tag = "miAuditTrail";
             this.auditTrailLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnAuditTrailClick);
             // 
             // activeLoansLink
