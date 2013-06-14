@@ -10,8 +10,7 @@ namespace OpenCBS.Engine
         private DateTime GetLastEndDate(IEnumerable<IInstallment> schedule, ITrancheConfiguration trancheConfiguration)
         {
             var installment = (from i in schedule
-                               where (i.PaidPrincipal > 0 || i.PaidInterest > 0)
-                                     && i.RepaymentDate <= trancheConfiguration.StartDate
+                               where i.RepaymentDate <= trancheConfiguration.StartDate
                                select i).LastOrDefault();
             if (installment == null) return schedule.First().StartDate;
             return installment.RepaymentDate;
