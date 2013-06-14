@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScheduleUserControl));
             this.scheduleObjectListView = new BrightIdeasSoftware.ObjectListView();
             this.numberColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.dateColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -43,6 +44,7 @@
             // 
             // scheduleObjectListView
             // 
+            resources.ApplyResources(this.scheduleObjectListView, "scheduleObjectListView");
             this.scheduleObjectListView.AllColumns.Add(this.numberColumn);
             this.scheduleObjectListView.AllColumns.Add(this.dateColumn);
             this.scheduleObjectListView.AllColumns.Add(this.interestColumn);
@@ -62,99 +64,77 @@
             this.paidInterestColumn,
             this.paidPrincipalColumn,
             this.paymentDateColumn});
-            this.scheduleObjectListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scheduleObjectListView.Font = new System.Drawing.Font("Arial", 8.25F);
             this.scheduleObjectListView.FullRowSelect = true;
             this.scheduleObjectListView.GridLines = true;
             this.scheduleObjectListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.scheduleObjectListView.HeaderWordWrap = true;
-            this.scheduleObjectListView.Location = new System.Drawing.Point(0, 0);
             this.scheduleObjectListView.MultiSelect = false;
             this.scheduleObjectListView.Name = "scheduleObjectListView";
+            this.scheduleObjectListView.OverlayText.Text = resources.GetString("resource.Text");
             this.scheduleObjectListView.ShowGroups = false;
-            this.scheduleObjectListView.Size = new System.Drawing.Size(1004, 368);
-            this.scheduleObjectListView.TabIndex = 0;
             this.scheduleObjectListView.UseCompatibleStateImageBehavior = false;
             this.scheduleObjectListView.View = System.Windows.Forms.View.Details;
             // 
             // numberColumn
             // 
             this.numberColumn.AspectName = "Number";
+            resources.ApplyResources(this.numberColumn, "numberColumn");
             this.numberColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numberColumn.Text = "#";
-            this.numberColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dateColumn
             // 
             this.dateColumn.AspectName = "ExpectedDate";
+            resources.ApplyResources(this.dateColumn, "dateColumn");
             this.dateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.dateColumn.Text = "Date";
-            this.dateColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.dateColumn.Width = 80;
             // 
             // interestColumn
             // 
             this.interestColumn.AspectName = "InterestsRepayment";
+            resources.ApplyResources(this.interestColumn, "interestColumn");
             this.interestColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.interestColumn.Text = "Interest";
-            this.interestColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.interestColumn.Width = 100;
             // 
             // principalColumn
             // 
             this.principalColumn.AspectName = "CapitalRepayment";
+            resources.ApplyResources(this.principalColumn, "principalColumn");
             this.principalColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.principalColumn.Text = "Principal";
-            this.principalColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.principalColumn.Width = 100;
             // 
             // totalColumn
             // 
             this.totalColumn.AspectName = "AmountHasToPayWithInterest";
+            resources.ApplyResources(this.totalColumn, "totalColumn");
             this.totalColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.totalColumn.Text = "Total";
-            this.totalColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.totalColumn.Width = 100;
             // 
             // olbColumn
             // 
             this.olbColumn.AspectName = "OLB";
+            resources.ApplyResources(this.olbColumn, "olbColumn");
             this.olbColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.olbColumn.Text = "OLB";
-            this.olbColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.olbColumn.Width = 100;
             // 
             // paidInterestColumn
             // 
             this.paidInterestColumn.AspectName = "PaidInterests";
+            resources.ApplyResources(this.paidInterestColumn, "paidInterestColumn");
             this.paidInterestColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.paidInterestColumn.Text = "Paid interest";
-            this.paidInterestColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.paidInterestColumn.Width = 100;
             // 
             // paidPrincipalColumn
             // 
             this.paidPrincipalColumn.AspectName = "PaidCapital";
+            resources.ApplyResources(this.paidPrincipalColumn, "paidPrincipalColumn");
             this.paidPrincipalColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.paidPrincipalColumn.Text = "Paid principal";
-            this.paidPrincipalColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.paidPrincipalColumn.Width = 100;
             // 
             // paymentDateColumn
             // 
             this.paymentDateColumn.AspectName = "PaidDate";
+            resources.ApplyResources(this.paymentDateColumn, "paymentDateColumn");
             this.paymentDateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.paymentDateColumn.Text = "Payment date";
-            this.paymentDateColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.paymentDateColumn.Width = 80;
             // 
             // ScheduleUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.scheduleObjectListView);
             this.Name = "ScheduleUserControl";
-            this.Size = new System.Drawing.Size(1004, 368);
             ((System.ComponentModel.ISupportInitialize)(this.scheduleObjectListView)).EndInit();
             this.ResumeLayout(false);
 

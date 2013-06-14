@@ -2584,6 +2584,9 @@
     <EmbeddedResource Include="ScheduleUserControl.resx">
       <DependentUpon>ScheduleUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleUserControl.ru-RU.resx">
+      <DependentUpon>ScheduleUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Search\SearchClientForm.es-ES.resx">
       <DependentUpon>SearchClientForm.cs</DependentUpon>
       <SubType>Designer</SubType>
