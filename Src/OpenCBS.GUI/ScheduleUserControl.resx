@@ -117,8 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;totalColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="paidInterestColumn.Width" type="System.Int32, mscorlib">
+    <value>100</value>
   </data>
   <data name="totalColumn.Text" xml:space="preserve">
     <value>Total</value>
@@ -143,12 +144,14 @@
   <data name="totalColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="paidPrincipalColumn.Width" type="System.Int32, mscorlib">
     <value>100</value>
   </data>
   <data name="olbColumn.Width" type="System.Int32, mscorlib">
     <value>100</value>
+  </data>
+  <data name="resource.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
   <data name="&gt;&gt;dateColumn.Name" xml:space="preserve">
     <value>dateColumn</value>
@@ -156,17 +159,14 @@
   <data name="principalColumn.Text" xml:space="preserve">
     <value>Principal</value>
   </data>
-  <data name="scheduleObjectListView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="paidInterestColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="&gt;&gt;paidInterestColumn.Name" xml:space="preserve">
     <value>paidInterestColumn</value>
   </data>
   <data name="&gt;&gt;principalColumn.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
-  </data>
-  <data name="paidInterestColumn.Width" type="System.Int32, mscorlib">
-    <value>100</value>
   </data>
   <data name="&gt;&gt;paymentDateColumn.Name" xml:space="preserve">
     <value>paymentDateColumn</value>
@@ -186,8 +186,8 @@
   <data name="dateColumn.Width" type="System.Int32, mscorlib">
     <value>80</value>
   </data>
-  <data name="interestColumn.Text" xml:space="preserve">
-    <value>Interest</value>
+  <data name="&gt;&gt;totalColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;paymentDateColumn.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
@@ -201,11 +201,11 @@
   <data name="&gt;&gt;numberColumn.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
-  <data name="&gt;&gt;interestColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  <data name="scheduleObjectListView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="&gt;&gt;olbColumn.Name" xml:space="preserve">
-    <value>olbColumn</value>
+  <data name="interestColumn.Text" xml:space="preserve">
+    <value>Interest</value>
   </data>
   <data name="paidPrincipalColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -237,8 +237,8 @@
   <data name="&gt;&gt;scheduleObjectListView.Name" xml:space="preserve">
     <value>scheduleObjectListView</value>
   </data>
-  <data name="paidInterestColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
+  <data name="scheduleObjectListView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="scheduleObjectListView.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -252,14 +252,11 @@
   <data name="&gt;&gt;olbColumn.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
-  <data name="scheduleObjectListView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="olbColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="totalColumn.Width" type="System.Int32, mscorlib">
     <value>100</value>
-  </data>
-  <data name="olbColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
   </data>
   <data name="paymentDateColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
@@ -267,14 +264,17 @@
   <data name="scheduleObjectListView.Size" type="System.Drawing.Size, System.Drawing">
     <value>1004, 368</value>
   </data>
+  <data name="&gt;&gt;interestColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
   <data name="&gt;&gt;interestColumn.Name" xml:space="preserve">
     <value>interestColumn</value>
   </data>
   <data name="interestColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="resource.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="&gt;&gt;olbColumn.Name" xml:space="preserve">
+    <value>olbColumn</value>
   </data>
   <data name="principalColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -296,5 +296,8 @@
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>es-ES</value>
   </metadata>
 </root>
