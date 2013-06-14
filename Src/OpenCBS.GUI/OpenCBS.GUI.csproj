@@ -2581,6 +2581,9 @@
     <EmbeddedResource Include="Report Browser\ReportLoadingProgressForm.ru-RU.resx">
       <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleUserControl.fr.resx">
+      <DependentUpon>ScheduleUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScheduleUserControl.resx">
       <DependentUpon>ScheduleUserControl.cs</DependentUpon>
     </EmbeddedResource>
