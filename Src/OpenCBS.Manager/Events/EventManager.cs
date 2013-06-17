@@ -151,6 +151,8 @@ namespace OpenCBS.Manager.Events
                         TrancheEvents.maturity AS tranche_maturity,
                         TrancheEvents.start_date AS tranche_start_date,
                         TrancheEvents.id AS tranche_id,
+                        TrancheEvents.grace_period AS tranche_grace_period,
+                        TrancheEvents.first_repayment_date AS tranche_first_repayment_date,
 
                         OverdueEvents.id AS ov_id,
                         OverdueEvents.olb AS ov_olb,
@@ -295,6 +297,8 @@ namespace OpenCBS.Manager.Events
                     TrancheEvents.maturity AS tranche_maturity,
                     TrancheEvents.start_date AS tranche_start_date,
                     TrancheEvents.id AS tranche_id,
+                    TrancheEvents.grace_period AS tranche_grace_period,
+                    TrancheEvents.first_repayment_date AS tranche_first_repayment_date,
 
                     OverdueEvents.id AS ov_id,
                     OverdueEvents.olb AS ov_olb,
@@ -1567,7 +1571,9 @@ namespace OpenCBS.Manager.Events
                 Amount = r.GetMoney("tranche_amount"),
                 InterestRate = r.GetMoney("tranche_interest_rate").Value,
                 Maturity = r.GetInt("tranche_maturity"),
-                StartDate = r.GetDateTime("tranche_start_date")
+                StartDate = r.GetDateTime("tranche_start_date"),
+                GracePeriod = r.GetInt("tranche_grace_period"),
+                FirstRepaymentDate = r.GetDateTime("tranche_first_repayment_date"),
             };
         }
 
