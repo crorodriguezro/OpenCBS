@@ -7004,5 +7004,13 @@ namespace OpenCBS.GUI.Clients
                 tabControlSavingsDetails.TabPages.AddRange(pages);
             }
         }
+
+        private void buttonSavingsOperations_Click(object sender, EventArgs e)
+        {
+            var point = buttonSavingsOperations.PointToScreen(this.buttonSavingsOperations.Location);
+            point.X -= 12;
+            point.Y -= 23;
+            menuBtnAddSavingOperation.Show(this, point);
+        }
     }
 }

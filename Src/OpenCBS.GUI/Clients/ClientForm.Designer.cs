@@ -498,11 +498,6 @@ namespace OpenCBS.GUI.Clients
             this.buttonReopenSaving = new System.Windows.Forms.Button();
             this.pnlSavingsButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonSavingsOperations = new System.Windows.Forms.Button();
-            this.menuBtnAddSavingOperation = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.savingDepositToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.savingWithdrawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.savingTransferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.specialOperationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btCancelLastSavingEvent = new System.Windows.Forms.Button();
             this.btnPrintSavings = new OpenCBS.GUI.UserControl.PrintButton();
             this.groupBoxSaving = new System.Windows.Forms.GroupBox();
@@ -528,6 +523,11 @@ namespace OpenCBS.GUI.Clients
             this.lbInterestRateMinMax = new System.Windows.Forms.Label();
             this.lbWithdrawFeesMinMax = new System.Windows.Forms.Label();
             this.tabPageContracts = new System.Windows.Forms.TabPage();
+            this.menuBtnAddSavingOperation = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.savingDepositToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.savingWithdrawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.savingTransferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.specialOperationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.olvColumnSACExportedBalance = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnLACExportedBalance = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.panel2 = new System.Windows.Forms.Panel();
@@ -657,7 +657,6 @@ namespace OpenCBS.GUI.Clients
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfPeriods)).BeginInit();
             this.flowLayoutPanel9.SuspendLayout();
             this.pnlSavingsButtons.SuspendLayout();
-            this.menuBtnAddSavingOperation.SuspendLayout();
             this.groupBoxSaving.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEntryFees)).BeginInit();
@@ -665,6 +664,7 @@ namespace OpenCBS.GUI.Clients
             ((System.ComponentModel.ISupportInitialize)(this.nudDownInterestRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWithdrawFees)).BeginInit();
             this.tabPageContracts.SuspendLayout();
+            this.menuBtnAddSavingOperation.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuPendingSavingEvents.SuspendLayout();
             this.SuspendLayout();
@@ -3424,47 +3424,10 @@ namespace OpenCBS.GUI.Clients
             // 
             // buttonSavingsOperations
             // 
-            this.buttonSavingsOperations.ContextMenuStrip = this.menuBtnAddSavingOperation;
+            this.buttonSavingsOperations.Image = global::OpenCBS.GUI.Properties.Resources.bullet_arrow_down;
             resources.ApplyResources(this.buttonSavingsOperations, "buttonSavingsOperations");
             this.buttonSavingsOperations.Name = "buttonSavingsOperations";
-            // 
-            // menuBtnAddSavingOperation
-            // 
-            this.menuBtnAddSavingOperation.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.savingDepositToolStripMenuItem,
-            this.savingWithdrawToolStripMenuItem,
-            this.savingTransferToolStripMenuItem,
-            this.specialOperationToolStripMenuItem});
-            this.menuBtnAddSavingOperation.Name = "contextMenuStrip1";
-            resources.ApplyResources(this.menuBtnAddSavingOperation, "menuBtnAddSavingOperation");
-            // 
-            // savingDepositToolStripMenuItem
-            // 
-            this.savingDepositToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
-            this.savingDepositToolStripMenuItem.Name = "savingDepositToolStripMenuItem";
-            resources.ApplyResources(this.savingDepositToolStripMenuItem, "savingDepositToolStripMenuItem");
-            this.savingDepositToolStripMenuItem.Click += new System.EventHandler(this.buttonSavingDeposit_Click);
-            // 
-            // savingWithdrawToolStripMenuItem
-            // 
-            this.savingWithdrawToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
-            this.savingWithdrawToolStripMenuItem.Name = "savingWithdrawToolStripMenuItem";
-            resources.ApplyResources(this.savingWithdrawToolStripMenuItem, "savingWithdrawToolStripMenuItem");
-            this.savingWithdrawToolStripMenuItem.Click += new System.EventHandler(this.buttonSavingWithDraw_Click);
-            // 
-            // savingTransferToolStripMenuItem
-            // 
-            this.savingTransferToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
-            this.savingTransferToolStripMenuItem.Name = "savingTransferToolStripMenuItem";
-            resources.ApplyResources(this.savingTransferToolStripMenuItem, "savingTransferToolStripMenuItem");
-            this.savingTransferToolStripMenuItem.Click += new System.EventHandler(this.savingTransferToolStripMenuItem_Click);
-            // 
-            // specialOperationToolStripMenuItem
-            // 
-            this.specialOperationToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
-            this.specialOperationToolStripMenuItem.Name = "specialOperationToolStripMenuItem";
-            resources.ApplyResources(this.specialOperationToolStripMenuItem, "specialOperationToolStripMenuItem");
-            this.specialOperationToolStripMenuItem.Click += new System.EventHandler(this.specialOperationToolStripMenuItem_Click);
+            this.buttonSavingsOperations.Click += new System.EventHandler(this.buttonSavingsOperations_Click);
             // 
             // btCancelLastSavingEvent
             // 
@@ -3475,6 +3438,7 @@ namespace OpenCBS.GUI.Clients
             // btnPrintSavings
             // 
             resources.ApplyResources(this.btnPrintSavings, "btnPrintSavings");
+            this.btnPrintSavings.Image = global::OpenCBS.GUI.Properties.Resources.bullet_arrow_down;
             this.btnPrintSavings.Name = "btnPrintSavings";
             this.btnPrintSavings.ReportInitializer = null;
             this.btnPrintSavings.UseVisualStyleBackColor = true;
@@ -3651,6 +3615,44 @@ namespace OpenCBS.GUI.Clients
             this.tabPageContracts.Controls.Add(this.splitContainerContracts);
             resources.ApplyResources(this.tabPageContracts, "tabPageContracts");
             this.tabPageContracts.Name = "tabPageContracts";
+            // 
+            // menuBtnAddSavingOperation
+            // 
+            this.menuBtnAddSavingOperation.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.savingDepositToolStripMenuItem,
+            this.savingWithdrawToolStripMenuItem,
+            this.savingTransferToolStripMenuItem,
+            this.specialOperationToolStripMenuItem});
+            this.menuBtnAddSavingOperation.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.menuBtnAddSavingOperation, "menuBtnAddSavingOperation");
+            // 
+            // savingDepositToolStripMenuItem
+            // 
+            this.savingDepositToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
+            this.savingDepositToolStripMenuItem.Name = "savingDepositToolStripMenuItem";
+            resources.ApplyResources(this.savingDepositToolStripMenuItem, "savingDepositToolStripMenuItem");
+            this.savingDepositToolStripMenuItem.Click += new System.EventHandler(this.buttonSavingDeposit_Click);
+            // 
+            // savingWithdrawToolStripMenuItem
+            // 
+            this.savingWithdrawToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
+            this.savingWithdrawToolStripMenuItem.Name = "savingWithdrawToolStripMenuItem";
+            resources.ApplyResources(this.savingWithdrawToolStripMenuItem, "savingWithdrawToolStripMenuItem");
+            this.savingWithdrawToolStripMenuItem.Click += new System.EventHandler(this.buttonSavingWithDraw_Click);
+            // 
+            // savingTransferToolStripMenuItem
+            // 
+            this.savingTransferToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
+            this.savingTransferToolStripMenuItem.Name = "savingTransferToolStripMenuItem";
+            resources.ApplyResources(this.savingTransferToolStripMenuItem, "savingTransferToolStripMenuItem");
+            this.savingTransferToolStripMenuItem.Click += new System.EventHandler(this.savingTransferToolStripMenuItem_Click);
+            // 
+            // specialOperationToolStripMenuItem
+            // 
+            this.specialOperationToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
+            this.specialOperationToolStripMenuItem.Name = "specialOperationToolStripMenuItem";
+            resources.ApplyResources(this.specialOperationToolStripMenuItem, "specialOperationToolStripMenuItem");
+            this.specialOperationToolStripMenuItem.Click += new System.EventHandler(this.specialOperationToolStripMenuItem_Click);
             // 
             // olvColumnSACExportedBalance
             // 
@@ -3951,7 +3953,6 @@ namespace OpenCBS.GUI.Clients
             this.flowLayoutPanel9.ResumeLayout(false);
             this.flowLayoutPanel9.PerformLayout();
             this.pnlSavingsButtons.ResumeLayout(false);
-            this.menuBtnAddSavingOperation.ResumeLayout(false);
             this.groupBoxSaving.ResumeLayout(false);
             this.groupBoxSaving.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -3961,6 +3962,7 @@ namespace OpenCBS.GUI.Clients
             ((System.ComponentModel.ISupportInitialize)(this.nudDownInterestRate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWithdrawFees)).EndInit();
             this.tabPageContracts.ResumeLayout(false);
+            this.menuBtnAddSavingOperation.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.menuPendingSavingEvents.ResumeLayout(false);
             this.ResumeLayout(false);
