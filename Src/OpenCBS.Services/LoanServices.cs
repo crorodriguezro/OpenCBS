@@ -1100,6 +1100,8 @@ namespace OpenCBS.Services
                         Date = trancheConfiguration.StartDate,
                         InterestRate = trancheConfiguration.InterestRate/100,
                         Number = copyOfLoan.GivenTranches.Count,
+                        FirstRepaymentDate = trancheConfiguration.PreferredFirstInstallmentDate,
+                        GracePeriod = trancheConfiguration.GracePeriod,
                         User = _user,
                     };
 

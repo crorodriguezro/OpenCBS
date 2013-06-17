@@ -59,5 +59,8 @@ namespace OpenCBS.CoreDomain.Events
         {
             return (TrancheEvent) MemberwiseClone();
         }
+
+        public DateTime FirstRepaymentDate { get; set; }
+        public int GracePeriod { get; set; }
     }
 }

@@ -526,13 +526,13 @@ namespace OpenCBS.Manager.Events
                     Currencies.is_pivot, 
                     Currencies.is_swapped, 
                     Currencies.code AS currency_code,
-                    c.package_id AS product_id
+                    command.package_id AS product_id
                     FROM ContractEvents 
                     INNER JOIN Users ON ContractEvents.user_id = Users.id
-                    INNER JOIN dbo.Credit c ON contract_id = c.id
-                    INNER JOIN dbo.Packages ON c.package_id = dbo.Packages.id
+                    INNER JOIN dbo.Credit command ON contract_id = command.id
+                    INNER JOIN dbo.Packages ON command.package_id = dbo.Packages.id
                     INNER JOIN Currencies ON Packages.currency_id = Currencies.id
-                    INNER JOIN Contracts con ON con.id = c.id
+                    INNER JOIN Contracts con ON con.id = command.id
                     INNER JOIN Projects pr ON pr.id = con.project_id
                     INNER JOIN Tiers t ON t.id = pr.tiers_id
                     
@@ -781,14 +781,14 @@ namespace OpenCBS.Manager.Events
             }
         }
 
-	    public int AddLoanEvent(LoanDisbursmentEvent evnt, int contractId, SqlTransaction sqlTransac)
+	    public int AddLoanEvent(LoanDisbursmentEvent evnt, int contractId, SqlTransaction transaction)
 		{
-            evnt.Id = AddLoanEventHead(evnt, contractId, sqlTransac);
+            evnt.Id = AddLoanEventHead(evnt, contractId, transaction);
 
 			const string q = @"INSERT INTO [LoanDisbursmentEvents]([id], [amount], [fees], [interest], [payment_method_id]) 
                                     VALUES(@id, @amount, @fees, @interest, @payment_method_id)";
 
-            using(OpenCbsCommand c = new OpenCbsCommand(q, sqlTransac.Connection, sqlTransac))
+            using(OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
             {
                 GetLoanDisbursmentEvent(evnt, c);
                 c.ExecuteNonQuery();
@@ -849,17 +849,17 @@ namespace OpenCBS.Manager.Events
             c.AddParam("@principal", pEvent.Principal.Value);
 	    }
 
-        public void AddLoanEvent(LoanCloseEvent evnt, int contractId, SqlTransaction sqlTransac)
+        public void AddLoanEvent(LoanCloseEvent evnt, int contractId, SqlTransaction transaction)
         {
-            evnt.Id = AddLoanEventHead(evnt, contractId, sqlTransac);
+            evnt.Id = AddLoanEventHead(evnt, contractId, transaction);
         }
 
-        public void AddLoanEvent(LoanValidationEvent evnt, int contractId, SqlTransaction sqlTransac)
+        public void AddLoanEvent(LoanValidationEvent evnt, int contractId, SqlTransaction transaction)
         {
-            evnt.Id=AddLoanEventHead(evnt, contractId, sqlTransac);
+            evnt.Id=AddLoanEventHead(evnt, contractId, transaction);
         }
 
-        public void AddLoanEvent(RepaymentEvent evnt, int contractId, SqlTransaction sqlTransac)
+        public void AddLoanEvent(RepaymentEvent evnt, int contractId, SqlTransaction transaction)
 		{
             const string q = @"INSERT INTO [RepaymentEvents]
                                        ([id],
@@ -887,25 +887,48 @@ namespace OpenCBS.Manager.Events
                                         @unpaid_penalties)
                                      ";
 
-            using (OpenCbsCommand c = new OpenCbsCommand(q, sqlTransac.Connection, sqlTransac))
+            using (OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
             {
                 SetLoanRepaymentEvent(evnt, c);
                 c.ExecuteNonQuery();
             }
 		}
 
-        public void AddLoanEvent(TrancheEvent trancheEvent, int contractId, SqlTransaction sqlTransac)
+        public void AddLoanEvent(TrancheEvent trancheEvent, int contractId, SqlTransaction transaction)
         {
-            trancheEvent.Id = AddLoanEventHead(trancheEvent, contractId, sqlTransac);
+            trancheEvent.Id = AddLoanEventHead(trancheEvent, contractId, transaction);
 
-            const string q = @"INSERT INTO [TrancheEvents]
-                                     ([id],[interest_rate],[amount],[maturity],[start_date], [applied_new_interest], [started_from_installment]) 
-                                     VALUES(@id, @interest_rate, @amount, @maturity, @start_date, @applied_new_interest, @started_from_installment)";
+            const string query = @"
+                INSERT INTO dbo.TrancheEvents
+                (
+                    [id],
+                    [interest_rate],
+                    [amount],
+                    [maturity],
+                    [start_date],
+                    [applied_new_interest],
+                    [started_from_installment],
+                    first_repayment_date,
+                    grace_period
+                )
+                VALUES
+                (
+                    @id, 
+                    @interest_rate, 
+                    @amount, 
+                    @maturity, 
+                    @start_date, 
+                    @applied_new_interest, 
+                    @started_from_installment,
+                    @first_repayment_date,
+                    @grace_period
+                )
+            ";
 
-            using (OpenCbsCommand c = new OpenCbsCommand(q, sqlTransac.Connection, sqlTransac))
+            using (var command = new OpenCbsCommand(query, transaction.Connection, transaction))
             {
-                SetLoanTrancheEvent(trancheEvent, c);
-                c.ExecuteNonQuery();
+                SetLoanTrancheEvent(trancheEvent, command);
+                command.ExecuteNonQuery();
             }
         }
 
@@ -927,24 +950,24 @@ namespace OpenCBS.Manager.Events
             }
         }
 
-	    public void AddLoanEvent(RescheduleLoanEvent rescheduleLoanEvent, int contractId, SqlTransaction sqlTransac)
+	    public void AddLoanEvent(RescheduleLoanEvent rescheduleLoanEvent, int contractId, SqlTransaction transaction)
 		{
-            rescheduleLoanEvent.Id = AddLoanEventHead(rescheduleLoanEvent, contractId, sqlTransac);
+            rescheduleLoanEvent.Id = AddLoanEventHead(rescheduleLoanEvent, contractId, transaction);
 
             const string q = @"INSERT INTO [ReschedulingOfALoanEvents]
                                     ([id], [amount], [nb_of_maturity], [date_offset], [interest], [grace_period], [charge_interest_during_shift], [charge_interest_during_grace_period]) 
                                     VALUES(@id, @amount, @maturity,@dateOffset, @interest, @gracePeriod, @chargeInterestDuringShift, @chargeInterestDuringGracePeriod)";
 
-            using(OpenCbsCommand c = new OpenCbsCommand(q, sqlTransac.Connection, sqlTransac))
+            using(OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
             {
                 SetLoanReschedulingEvent(rescheduleLoanEvent, c);
                 c.ExecuteNonQuery();
             }
 		}
 
-	    public void AddLoanEvent(ProvisionEvent provisionEvent, int contractId, SqlTransaction sqlTransac)
+	    public void AddLoanEvent(ProvisionEvent provisionEvent, int contractId, SqlTransaction transaction)
         {
-            provisionEvent.Id = AddLoanEventHead(provisionEvent, contractId, sqlTransac);
+            provisionEvent.Id = AddLoanEventHead(provisionEvent, contractId, transaction);
 
             const string q = @"INSERT INTO [ProvisionEvents](
                                        id,
@@ -953,7 +976,7 @@ namespace OpenCBS.Manager.Events
                                        overdue_days) 
                                      VALUES(@id, @amount, @rate, @overdue_days)";
 
-            using (OpenCbsCommand c = new OpenCbsCommand(q, sqlTransac.Connection, sqlTransac))
+            using (OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
             {
                 c.AddParam("@id", provisionEvent.Id);
                 c.AddParam("@amount", provisionEvent.Amount);
@@ -963,9 +986,9 @@ namespace OpenCBS.Manager.Events
             }
         }
 
-        public void AddLoanEvent(OverdueEvent overdueEvent, int contractId, SqlTransaction sqlTransac)
+        public void AddLoanEvent(OverdueEvent overdueEvent, int contractId, SqlTransaction transaction)
         {
-            overdueEvent.Id = AddLoanEventHead(overdueEvent, contractId, sqlTransac);
+            overdueEvent.Id = AddLoanEventHead(overdueEvent, contractId, transaction);
 
             const string q = @"INSERT INTO [OverdueEvents](
                                        [id], 
@@ -974,7 +997,7 @@ namespace OpenCBS.Manager.Events
                                        [overdue_principal]) 
                                      VALUES(@id, @olb, @overdue_days, @overdue_principal)";
 
-            using (OpenCbsCommand c = new OpenCbsCommand(q, sqlTransac.Connection, sqlTransac))
+            using (OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
             {
                 c.AddParam("@id", overdueEvent.Id);
                 c.AddParam("@olb", overdueEvent.OLB);
@@ -1002,9 +1025,9 @@ namespace OpenCBS.Manager.Events
             }
         }
 
-	    public void AddLoanEvent(WriteOffEvent writeOffEvent, int contractId, SqlTransaction sqlTransac)
+	    public void AddLoanEvent(WriteOffEvent writeOffEvent, int contractId, SqlTransaction transaction)
 		{
-            writeOffEvent.Id = AddLoanEventHead(writeOffEvent, contractId, sqlTransac);
+            writeOffEvent.Id = AddLoanEventHead(writeOffEvent, contractId, transaction);
 
             const string q = @"INSERT INTO [WriteOffEvents]
                                        ([id], 
@@ -1016,7 +1039,7 @@ namespace OpenCBS.Manager.Events
                                      VALUES(@id, @olb, @accruedInterests, @accruedPenalties, @pastDueDays, @overdue_principal)
                                     SELECT SCOPE_IDENTITY()";
 
-            using(OpenCbsCommand c = new OpenCbsCommand(q, sqlTransac.Connection, sqlTransac))
+            using(OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
             {
                 SetLoanWriteOffEvent(writeOffEvent, c);
                 c.ExecuteNonQuery();
@@ -1082,9 +1105,9 @@ namespace OpenCBS.Manager.Events
             }
         }
 
-	    public void AddLoanEvent(RegEvent pEvent, int contractId, SqlTransaction sqlTransac)
+	    public void AddLoanEvent(RegEvent pEvent, int contractId, SqlTransaction transaction)
 		{
-            AddLoanEventHead(pEvent, contractId, sqlTransac);
+            AddLoanEventHead(pEvent, contractId, transaction);
 		}
 
         public void AddTellerEvent(TellerEvent tellerEvent, SqlTransaction sqlTransaction)
@@ -1202,15 +1225,17 @@ namespace OpenCBS.Manager.Events
             c.AddParam("@overdue_principal", pEvent.OverduePrincipal);
         }
 
-        private static void SetLoanTrancheEvent(TrancheEvent pEvent, OpenCbsCommand c)
+        private static void SetLoanTrancheEvent(TrancheEvent trancheEvent, OpenCbsCommand command)
         {
-            c.AddParam("@id", pEvent.Id);
-            c.AddParam("@interest_rate", pEvent.InterestRate);
-            c.AddParam("@amount", pEvent.Amount);
-            c.AddParam("@maturity", pEvent.Maturity);
-            c.AddParam("@start_date", pEvent.StartDate);
-            c.AddParam("@applied_new_interest", pEvent.ApplyNewInterest);
-            c.AddParam("@started_from_installment", pEvent.StartedFromInstallment);
+            command.AddParam("@id", trancheEvent.Id);
+            command.AddParam("@interest_rate", trancheEvent.InterestRate);
+            command.AddParam("@amount", trancheEvent.Amount);
+            command.AddParam("@maturity", trancheEvent.Maturity);
+            command.AddParam("@start_date", trancheEvent.StartDate);
+            command.AddParam("@applied_new_interest", trancheEvent.ApplyNewInterest);
+            command.AddParam("@started_from_installment", trancheEvent.StartedFromInstallment);
+            command.AddParam("@first_repayment_date", trancheEvent.FirstRepaymentDate);
+            command.AddParam("@grace_period", trancheEvent.GracePeriod);
         }
 
         private static void SetLoanReschedulingEvent(RescheduleLoanEvent pEvent, OpenCbsCommand c)
