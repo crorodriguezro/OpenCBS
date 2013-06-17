@@ -922,23 +922,8 @@ namespace OpenCBS.Services
             return fakeContract;
         }
 
-        //public Loan FakeTranche(Loan pContract, DateTime pDate, int pNbOfMaturity, int pTrancheAmount, bool pApplyNewInterestOnOLB, decimal pNewInterestRate)
         public Loan SimulateTranche(Loan loan, ITrancheConfiguration trancheConfiguration)
         {
-            //Loan fakeContract = pContract.Copy();
-
-            //TrancheOptions to = new TrancheOptions
-            //{
-            //    TrancheDate = pDate,
-            //    CountOfNewInstallments = pNbOfMaturity,
-            //    TrancheAmount = pTrancheAmount,
-            //    InterestRate = pNewInterestRate,
-            //    ApplyNewInterestOnOLB = pApplyNewInterestOnOLB
-            //};
-
-            //fakeContract.CalculateTranche(to);
-            //return fakeContract;
-
             var copyOfLoan = loan.Copy();
             var scheduleConfiguration = _configurationFactory
                 .Init()
@@ -1096,63 +1081,65 @@ namespace OpenCBS.Services
             }
         }
 
-        public Loan AddTranche(Loan pContract, IClient pClient, DateTime pDate, int pNbOfMaturity, int pTrancheAmount, bool pApplyNewInterestOnOLB, decimal pNewInterestRate)
+        public Loan AddTranche(Loan loan, IClient client, ITrancheConfiguration trancheConfiguration)
         {
-            using (SqlConnection conn = _loanManager.GetConnection())
-            using (SqlTransaction sqlTransaction = conn.BeginTransaction())
+            using (var connection = _loanManager.GetConnection())
+            using (var transaction = connection.BeginTransaction())
             {
                 try
                 {
-                    CheckTranche(pDate, pContract, pTrancheAmount);
+                    CheckTranche(trancheConfiguration.StartDate, loan, trancheConfiguration.Amount);
 
-                    Loan copyOfLoan = pContract.Copy();
+                    var copyOfLoan = SimulateTranche(loan, trancheConfiguration);
+                    var trancheEvent = new TrancheEvent
+                    {
+                        Amount = trancheConfiguration.Amount,
+                        ApplyNewInterest = trancheConfiguration.ApplyNewInterestRateToOlb,
+                        Maturity = trancheConfiguration.NumberOfInstallments,
+                        StartDate = trancheConfiguration.StartDate,
+                        Date = trancheConfiguration.StartDate,
+                        InterestRate = trancheConfiguration.InterestRate/100,
+                        Number = copyOfLoan.GivenTranches.Count,
+                        User = _user,
+                    };
 
-                    TrancheOptions to = new TrancheOptions
-                                            {
-                                                TrancheDate = pDate,
-                                                CountOfNewInstallments = pNbOfMaturity,
-                                                TrancheAmount = pTrancheAmount,
-                                                InterestRate = pNewInterestRate,
-                                                ApplyNewInterestOnOLB = pApplyNewInterestOnOLB
-                                            };
-
-                    TrancheEvent trancheEvent = pContract.CalculateTranche(to);
                     trancheEvent.User = _user;
 
                     //insert into table TrancheEvent
-                    _ePs.FireEvent(trancheEvent, pContract, sqlTransaction);
+                    _ePs.FireEvent(trancheEvent, copyOfLoan, transaction);
 
-                    ArchiveInstallments(copyOfLoan, trancheEvent, sqlTransaction);
+                    ArchiveInstallments(copyOfLoan, trancheEvent, transaction);
 
                     //delete all the old installments of the table Installments
-                    _instalmentManager.DeleteInstallments(pContract.Id, sqlTransaction);
+                    _instalmentManager.DeleteInstallments(copyOfLoan.Id, transaction);
 
                     //insert all the new installments in the table Installments
-                    _instalmentManager.AddInstallments(pContract.InstallmentList, pContract.Id, sqlTransaction);
+                    _instalmentManager.AddInstallments(copyOfLoan.InstallmentList, copyOfLoan.Id, transaction);
 
                     //Activate the contract if it's closed because of new tranch
-                    if (pContract.Closed)
+                    if (copyOfLoan.Closed)
                     {
-                        pContract.ContractStatus = OContractStatus.Active;
-                        pContract.Closed = false;
-                        _loanManager.UpdateLoan(pContract, sqlTransaction);
+                        copyOfLoan.ContractStatus = OContractStatus.Active;
+                        copyOfLoan.Closed = false;
+                        _loanManager.UpdateLoan(copyOfLoan, transaction);
                     }
                     //in the feature might be combine UpdateLoan + UpdateLoanWithinTranche
-                    _loanManager.UpdateLoanWithinTranche(to.InterestRate, pContract.NbOfInstallments, pContract,
-                                                         sqlTransaction);
-                    pContract.Events.Add(trancheEvent);
-                    pContract.GivenTranches.Add(trancheEvent);
-                    sqlTransaction.Commit();
+                    _loanManager.UpdateLoanWithinTranche(
+                        trancheConfiguration.InterestRate / 100, 
+                        copyOfLoan.NbOfInstallments, 
+                        copyOfLoan,
+                        transaction);
+                    copyOfLoan.Events.Add(trancheEvent);
+                    copyOfLoan.GivenTranches.Add(trancheEvent);
+                    transaction.Commit();
 
-                    SetClientStatus(pContract, pClient);
-                    return pContract;
+                    SetClientStatus(copyOfLoan, client);
+                    return copyOfLoan;
                 }
-                catch (Exception ex)
+                catch
                 {
-                    if (sqlTransaction != null)
-                        sqlTransaction.Rollback();
-
-                    throw ex;
+                    transaction.Rollback();
+                    throw;
                 }
             }
         }
@@ -1165,18 +1152,18 @@ namespace OpenCBS.Services
             }
         }
 
-        private static void CheckTranche(DateTime pDate, Loan loan, int pTrancheAmount)
+        private static void CheckTranche(DateTime date, Loan loan, decimal amount)
         {
             if (loan.GetLastFullyRepaidInstallment() != null)
             {
-                if (pDate.Date < loan.GetLastFullyRepaidInstallment().PaidDate.Value.Date)
+                if (date.Date < loan.GetLastFullyRepaidInstallment().PaidDate.Value.Date)
                 {
                     throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.TrancheDate);
                 }
             }
             else
             {
-                if (loan.StartDate > pDate.Date)
+                if (loan.StartDate > date.Date)
                 {
                     throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.TrancheDate);
                 }
@@ -1184,20 +1171,20 @@ namespace OpenCBS.Services
 
             if (loan.AmountUnderLoc.HasValue)
             {
-                if (loan.Amount + pTrancheAmount > loan.AmountUnderLoc)
+                if (loan.Amount + amount > loan.AmountUnderLoc)
                 {
                     throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.TrancheAmount);
                 }
             }
             else
             {
-                if (pTrancheAmount > loan.Product.AmountUnderLoc)
+                if (amount > loan.Product.AmountUnderLoc)
                 {
                     throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.TrancheAmount);
                 }
             }
 
-            if (pTrancheAmount == 0)
+            if (amount == 0)
                 throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.TrancheAmount);
         }
 

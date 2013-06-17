@@ -471,6 +471,90 @@
   <data name="&gt;&gt;buttonsPanel.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="&gt;&gt;firstRepaymentDateTimePicker.Name" xml:space="preserve">
+    <value>firstRepaymentDateTimePicker</value>
+  </data>
+  <data name="&gt;&gt;firstRepaymentDateTimePicker.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;firstRepaymentDateTimePicker.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
+  </data>
+  <data name="&gt;&gt;firstRepaymentDateTimePicker.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;firstRepaymentOnLabel.Name" xml:space="preserve">
+    <value>firstRepaymentOnLabel</value>
+  </data>
+  <data name="&gt;&gt;firstRepaymentOnLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;firstRepaymentOnLabel.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
+  </data>
+  <data name="&gt;&gt;firstRepaymentOnLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;gracePeriodLabel.Name" xml:space="preserve">
+    <value>gracePeriodLabel</value>
+  </data>
+  <data name="&gt;&gt;gracePeriodLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gracePeriodLabel.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
+  </data>
+  <data name="&gt;&gt;gracePeriodLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;gracePeriodNumericUpDown.Name" xml:space="preserve">
+    <value>gracePeriodNumericUpDown</value>
+  </data>
+  <data name="&gt;&gt;gracePeriodNumericUpDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gracePeriodNumericUpDown.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
+  </data>
+  <data name="&gt;&gt;gracePeriodNumericUpDown.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;amountLabel.Name" xml:space="preserve">
+    <value>amountLabel</value>
+  </data>
+  <data name="&gt;&gt;amountLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;amountLabel.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
+  </data>
+  <data name="&gt;&gt;amountLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="trancheConfigurationPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="trancheConfigurationPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="trancheConfigurationPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>929, 100</value>
+  </data>
+  <data name="trancheConfigurationPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="&gt;&gt;trancheConfigurationPanel.Name" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
+  </data>
+  <data name="&gt;&gt;trancheConfigurationPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;trancheConfigurationPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;trancheConfigurationPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="firstRepaymentDateTimePicker.Location" type="System.Drawing.Point, System.Drawing">
     <value>802, 40</value>
   </data>
@@ -617,30 +701,6 @@
   </data>
   <data name="&gt;&gt;amountLabel.ZOrder" xml:space="preserve">
     <value>5</value>
-  </data>
-  <data name="trancheConfigurationPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="trancheConfigurationPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="trancheConfigurationPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>929, 100</value>
-  </data>
-  <data name="trancheConfigurationPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>31</value>
-  </data>
-  <data name="&gt;&gt;trancheConfigurationPanel.Name" xml:space="preserve">
-    <value>trancheConfigurationPanel</value>
-  </data>
-  <data name="&gt;&gt;trancheConfigurationPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;trancheConfigurationPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;trancheConfigurationPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="scheduleUserControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

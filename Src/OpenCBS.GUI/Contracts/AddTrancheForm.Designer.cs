@@ -71,7 +71,6 @@ namespace OpenCBS.GUI.Contracts
             resources.ApplyResources(this.okButton, "okButton");
             this.okButton.Name = "okButton";
             this.okButton.UseVisualStyleBackColor = false;
-            this.okButton.Click += new System.EventHandler(this.buttonConfirm_Click);
             // 
             // interestRateLabel
             // 

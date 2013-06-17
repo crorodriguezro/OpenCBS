@@ -33,14 +33,8 @@ namespace OpenCBS.GUI.Contracts
 {
     public partial class AddTrancheForm : SweetBaseForm
     {
-        private bool _interestRateChanged;
-        private int numberOfMaturity;
-        private decimal _IR;
-        private int _dateOffsetOrAmount;
-        private DateTime _trancheDate;
         private Loan _contract;
-        public DialogResult resultReschedulingForm;
-        private IClient _client;
+        private readonly IClient _client;
 
         public AddTrancheForm(Loan contract, IClient pClient)
         {
@@ -48,9 +42,7 @@ namespace OpenCBS.GUI.Contracts
             Setup();
             _client = pClient;
             _contract = contract;
-            _IR = Convert.ToDecimal(contract.InterestRate);
-            interestRateNumericUpDown.Value = _IR * 100;
-            interestRateNumericUpDown.Text = (_IR * 100).ToString();
+            interestRateNumericUpDown.Value = contract.InterestRate*100;
             if (contract.Product.InterestRate.HasValue) { /* checkBoxIRChanged.Enabled = false; */ }
             else
             {
@@ -93,6 +85,7 @@ namespace OpenCBS.GUI.Contracts
             startDateTimePicker.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
             firstRepaymentDateTimePicker.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
             applyToOlbCheckbox.CheckedChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
+            okButton.Click += (sender, args) => AddTranche();
         }
 
         private void RefreshSchedule(Loan loan)
@@ -151,34 +144,23 @@ namespace OpenCBS.GUI.Contracts
             if (0 == tb.Text.Length) tb.Text = @"0";
         }
 
-        private void buttonConfirm_Click(object sender, EventArgs e)
+        private void AddTranche()
         {
-            string messageConfirm = GetString("ConfirmTrancheContract.Text") + " " + _contract.Code;
-            messageConfirm += "\n" + GetString("ChargeInterest.Text") + " " + (_interestRateChanged ? GetString("Yes.Text") : GetString("No.Text"));
-            messageConfirm += "\n" + GetString("NewInstallment.Text") + " " + numberOfMaturity;
-            messageConfirm += "\n" + GetString("InterestRate.Text") + " " + _IR * 100 + "%";
+            if (!Confirm("Are you sure you want to add tranche?")) return;
 
-            resultReschedulingForm = MessageBox.Show(messageConfirm, GetString("ConfirmTheTranche.Text"),
-                                                     MessageBoxButtons.OKCancel,
-                                                     MessageBoxIcon.Question);
-
-            if (resultReschedulingForm == DialogResult.OK)
+            try
             {
-                try
-                {
-                    {
 
-                        _contract = ServicesProvider.GetInstance().GetContractServices().
-                            AddTranche(_contract, _client, _trancheDate, numberOfMaturity, _dateOffsetOrAmount,
-                                       _interestRateChanged, _IR);
-                        DialogResult = DialogResult.OK;
-                        Close();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
-                }
+                _contract = ServicesProvider
+                    .GetInstance()
+                    .GetContractServices()
+                    .AddTranche(_contract, _client, GetTrancheConfiguration());
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+            catch (Exception ex)
+            {
+                new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
             }
         }
     }
