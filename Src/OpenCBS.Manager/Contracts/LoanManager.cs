@@ -2233,7 +2233,9 @@ namespace OpenCBS.Manager.Contracts
                 InterestRate = r.GetDecimal("interest_rate"),
                 StartedFromInstallment = r.GetInt("started_from_installment"),
                 Deleted = r.GetBool("is_deleted"),
-                Id = r.GetInt("event_id")
+                Id = r.GetInt("event_id"),
+                GracePeriod = r.GetInt("grace_period"),
+                FirstRepaymentDate = r.GetDateTime("first_repayment_date"),
             };
         }
 
@@ -2258,6 +2260,8 @@ namespace OpenCBS.Manager.Contracts
                                         CONVERT(BIT, 0) AS ApplyNewInterest,
                                         0 AS started_from_installment,
                                         0 AS Number,
+                                        cred.grace_period,
+                                        con.preferred_first_installment_date first_repayment_date,
                                         ce.is_deleted,
                                         0 AS event_id
                                 FROM    Credit cred
@@ -2272,6 +2276,8 @@ namespace OpenCBS.Manager.Contracts
                                                              WHERE  contract_id = @id)
                                 GROUP BY con.id,
                                         con.start_date,
+                                        cred.grace_period,
+                                        con.preferred_first_installment_date,
                                         amount,
                                         interest_rate,
                                         ce.is_deleted
@@ -2284,6 +2290,8 @@ namespace OpenCBS.Manager.Contracts
                                         CONVERT(BIT, applied_new_interest) AS ApplyNewInterest,
                                         ISNULL(started_from_installment, 0),
                                         CONVERT(INT, ROW_NUMBER() OVER (ORDER BY start_date DESC)) + 1 AS Number,
+                                        grace_period,
+                                        first_repayment_date,
                                         ce.is_deleted,
                                         ce.id AS event_id
                                 FROM    TrancheEvents te

@@ -167,7 +167,6 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
         public OCurrency OLBAfterRepayment
         {
             get{return OLB - CapitalRepayment;}
-            set{_olbAfterRepayment = value;}
         }
 
         /// <summary>
