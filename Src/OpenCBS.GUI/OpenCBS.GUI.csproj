@@ -1724,6 +1724,9 @@
     <EmbeddedResource Include="Contracts\AddGuarantorForm.pt.resx">
       <DependentUpon>AddGuarantorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\AddTrancheForm.es-ES.resx">
+      <DependentUpon>AddTrancheForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Contracts\AddTrancheForm.fr.resx">
       <DependentUpon>AddTrancheForm.cs</DependentUpon>
     </EmbeddedResource>

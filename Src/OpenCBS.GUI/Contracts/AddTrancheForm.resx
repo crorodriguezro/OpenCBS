@@ -138,6 +138,9 @@
   <data name="okButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
+  <data name="firstRepaymentOnLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>643, 43</value>
+  </data>
   <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
     <value>buttonsPanel</value>
   </data>
@@ -155,6 +158,9 @@
   </data>
   <data name="cancelButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
+  </data>
+  <data name="&gt;&gt;applyToOlbCheckbox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="gracePeriodNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 22</value>
@@ -219,6 +225,9 @@
   <data name="&gt;&gt;interestRateNumericUpDown.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="applyToOlbCheckbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 20</value>
+  </data>
   <data name="firstRepaymentOnLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 16</value>
   </data>
@@ -233,6 +242,9 @@
   </data>
   <data name="&gt;&gt;newInstallmentsLabel.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="okButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="scheduleUserControl.Size" type="System.Drawing.Size, System.Drawing">
     <value>929, 287</value>
@@ -255,9 +267,6 @@
   <data name="&gt;&gt;gracePeriodNumericUpDown.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="installmentsNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 22</value>
-  </data>
   <data name="&gt;&gt;newInstallmentsLabel.Parent" xml:space="preserve">
     <value>trancheConfigurationPanel</value>
   </data>
@@ -273,11 +282,8 @@
   <data name="&gt;&gt;amountTextbox.Name" xml:space="preserve">
     <value>amountTextbox</value>
   </data>
-  <data name="&gt;&gt;newInstallmentsLabel.Name" xml:space="preserve">
-    <value>newInstallmentsLabel</value>
-  </data>
-  <data name="&gt;&gt;interestRateNumericUpDown.Name" xml:space="preserve">
-    <value>interestRateNumericUpDown</value>
+  <data name="&gt;&gt;firstRepaymentDateTimePicker.Name" xml:space="preserve">
+    <value>firstRepaymentDateTimePicker</value>
   </data>
   <data name="scheduleUserControl.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 100</value>
@@ -333,8 +339,8 @@
   <data name="applyToOlbCheckbox.Text" xml:space="preserve">
     <value>Apply to OLB</value>
   </data>
-  <data name="&gt;&gt;applyToOlbCheckbox.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;interestRateLabel.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
   </data>
   <data name="buttonsPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>929, 50</value>
@@ -408,17 +414,23 @@
   <data name="okButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 31</value>
   </data>
+  <data name="&gt;&gt;interestRateLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="startDateTimePicker.Location" type="System.Drawing.Point, System.Drawing">
     <value>802, 10</value>
   </data>
   <data name="&gt;&gt;startDateTimePicker.Type" xml:space="preserve">
     <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="firstRepaymentOnLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
   <data name="startDateLabel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
-  <data name="&gt;&gt;applyToOlbCheckbox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="startDateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 16</value>
   </data>
   <data name="okButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -492,9 +504,6 @@
   <data name="&gt;&gt;amountLabel.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="startDateLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 16</value>
-  </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>783, 11</value>
   </data>
@@ -540,11 +549,8 @@
   <data name="&gt;&gt;installmentsNumericUpDown.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="cancelButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9pt</value>
-  </data>
-  <data name="firstRepaymentOnLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>643, 43</value>
+  <data name="&gt;&gt;applyToOlbCheckbox.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="trancheConfigurationPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -579,8 +585,8 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 16</value>
   </data>
-  <data name="&gt;&gt;interestRateLabel.Parent" xml:space="preserve">
-    <value>trancheConfigurationPanel</value>
+  <data name="installmentsNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 22</value>
   </data>
   <data name="interestRateLabel.Text" xml:space="preserve">
     <value>Interest rate:</value>
@@ -590,12 +596,6 @@
   </data>
   <data name="firstRepaymentDateTimePicker.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
-  </data>
-  <data name="&gt;&gt;scheduleUserControl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;trancheConfigurationPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="amountLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>57, 16</value>
@@ -621,8 +621,8 @@
   <data name="newInstallmentsLabel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
-  <data name="applyToOlbCheckbox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 20</value>
+  <data name="&gt;&gt;newInstallmentsLabel.Name" xml:space="preserve">
+    <value>newInstallmentsLabel</value>
   </data>
   <data name="startDateLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -633,11 +633,8 @@
   <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
     <value>cancelButton</value>
   </data>
-  <data name="&gt;&gt;interestRateLabel.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="amountLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 13</value>
+  <data name="&gt;&gt;scheduleUserControl.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;amountTextbox.Parent" xml:space="preserve">
     <value>trancheConfigurationPanel</value>
@@ -654,14 +651,17 @@
   <data name="scheduleUserControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <data name="&gt;&gt;firstRepaymentOnLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="trancheConfigurationPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
   <data name="&gt;&gt;gracePeriodLabel.Name" xml:space="preserve">
     <value>gracePeriodLabel</value>
   </data>
-  <data name="firstRepaymentOnLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
+  <data name="cancelButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
   </data>
   <data name="&gt;&gt;trancheConfigurationPanel.Name" xml:space="preserve">
     <value>trancheConfigurationPanel</value>
@@ -672,14 +672,14 @@
   <data name="&gt;&gt;interestRateLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;firstRepaymentDateTimePicker.Name" xml:space="preserve">
-    <value>firstRepaymentDateTimePicker</value>
+  <data name="&gt;&gt;interestRateNumericUpDown.Name" xml:space="preserve">
+    <value>interestRateNumericUpDown</value>
   </data>
-  <data name="okButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+  <data name="amountLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 13</value>
   </data>
-  <data name="&gt;&gt;firstRepaymentOnLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;trancheConfigurationPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

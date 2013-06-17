@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Confirm" xml:space="preserve">
-    <value>Are you sure you want to add the tranche?</value>
+    <value>Do you confirm the operation?</value>
   </data>
 </root>

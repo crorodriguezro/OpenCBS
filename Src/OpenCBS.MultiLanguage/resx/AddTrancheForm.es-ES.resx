@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Confirm" xml:space="preserve">
-    <value>Confirmez-vous l'opération?</value>
+    <value>¿Confirma la operación?</value>
   </data>
 </root>

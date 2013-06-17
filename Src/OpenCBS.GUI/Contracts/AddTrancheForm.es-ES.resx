@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,7 +117,53 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Confirm" xml:space="preserve">
-    <value>Confirmez-vous l'opération?</value>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="applyToOlbCheckbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
+  </data>
+  <data name="applyToOlbCheckbox.Text" xml:space="preserve">
+    <value>Applicar a saldo</value>
+  </data>
+  <data name="interestRateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 16</value>
+  </data>
+  <data name="interestRateLabel.Text" xml:space="preserve">
+    <value>Tasa de interés:</value>
+  </data>
+  <data name="startDateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 16</value>
+  </data>
+  <data name="startDateLabel.Text" xml:space="preserve">
+    <value>Fecha de inicio:</value>
+  </data>
+  <data name="newInstallmentsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 16</value>
+  </data>
+  <data name="newInstallmentsLabel.Text" xml:space="preserve">
+    <value>Número de cuotas:</value>
+  </data>
+  <data name="firstRepaymentOnLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 16</value>
+  </data>
+  <data name="firstRepaymentOnLabel.Text" xml:space="preserve">
+    <value>Fecha de primera cuota:</value>
+  </data>
+  <data name="gracePeriodLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 16</value>
+  </data>
+  <data name="gracePeriodLabel.Text" xml:space="preserve">
+    <value>Periodo de gracia:</value>
+  </data>
+  <data name="amountLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 16</value>
+  </data>
+  <data name="amountLabel.Text" xml:space="preserve">
+    <value>Monto:</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Agregar tramo</value>
   </data>
 </root>
