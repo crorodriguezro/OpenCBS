@@ -117,39 +117,51 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="columnHeader3.Text" xml:space="preserve">
-    <value>Intérêt dû</value>
-  </data>
-  <data name="columnHeader4.Text" xml:space="preserve">
-    <value>Principal dû</value>
-  </data>
-  <data name="columnHeader5.Text" xml:space="preserve">
-    <value>Total dû</value>
-  </data>
-  <data name="columnHeader6.Text" xml:space="preserve">
-    <value>KRD</value>
-  </data>
-  <data name="columnHeader7.Text" xml:space="preserve">
-    <value>Interêt payé</value>
-  </data>
-  <data name="columnHeader8.Text" xml:space="preserve">
-    <value>Principal payé</value>
-  </data>
-  <data name="columnHeader9.Text" xml:space="preserve">
-    <value>Date de remboursement</value>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Annuler</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="labelStartDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>296, 71</value>
+  <data name="applyToOlbCheckbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 20</value>
   </data>
-  <data name="labelStartDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 16</value>
+  <data name="applyToOlbCheckbox.Text" xml:space="preserve">
+    <value>Appliquer à porflolio</value>
   </data>
-  <data name="labelStartDate.Text" xml:space="preserve">
-    <value>Date de démarrage:</value>
+  <data name="interestRateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 16</value>
   </data>
-  <data name="tbDateOffset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>146, 69</value>
+  <data name="interestRateLabel.Text" xml:space="preserve">
+    <value>Taux d'intérêt</value>
+  </data>
+  <data name="startDateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 16</value>
+  </data>
+  <data name="startDateLabel.Text" xml:space="preserve">
+    <value>Date début :</value>
+  </data>
+  <data name="newInstallmentsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 16</value>
+  </data>
+  <data name="newInstallmentsLabel.Text" xml:space="preserve">
+    <value>Nombre d'échéances :</value>
+  </data>
+  <data name="firstRepaymentOnLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 16</value>
+  </data>
+  <data name="firstRepaymentOnLabel.Text" xml:space="preserve">
+    <value>Premier remboursement :</value>
+  </data>
+  <data name="gracePeriodLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 16</value>
+  </data>
+  <data name="gracePeriodLabel.Text" xml:space="preserve">
+    <value>Période de grâce :</value>
+  </data>
+  <data name="amountLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 16</value>
+  </data>
+  <data name="amountLabel.Text" xml:space="preserve">
+    <value>Montant :</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Ajouter une tranche</value>

@@ -146,7 +146,7 @@ namespace OpenCBS.GUI.Contracts
 
         private void AddTranche()
         {
-            if (!Confirm("Are you sure you want to add tranche?")) return;
+            if (!Confirm("Confirm")) return;
 
             try
             {

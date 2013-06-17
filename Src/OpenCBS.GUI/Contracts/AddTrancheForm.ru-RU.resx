@@ -117,42 +117,54 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="columnHeader1.Text" xml:space="preserve">
-    <value>№</value>
-  </data>
-  <data name="columnHeader2.Text" xml:space="preserve">
-    <value>Дата</value>
-  </data>
-  <data name="columnHeader3.Text" xml:space="preserve">
-    <value>Погашение процента</value>
-  </data>
-  <data name="columnHeader4.Text" xml:space="preserve">
-    <value>Погашение основного долга</value>
-  </data>
-  <data name="columnHeader5.Text" xml:space="preserve">
-    <value>Всего взносов</value>
-  </data>
-  <data name="columnHeader6.Text" xml:space="preserve">
-    <value>Портфель займов</value>
-  </data>
-  <data name="columnHeader7.Text" xml:space="preserve">
-    <value>Оплаченный процент</value>
-  </data>
-  <data name="columnHeader8.Text" xml:space="preserve">
-    <value>Выплаченная основная сумма</value>
-  </data>
-  <data name="columnHeader9.Text" xml:space="preserve">
-    <value>Дата выплаты</value>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Отмена</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="labelStartDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>316, 71</value>
+  <data name="applyToOlbCheckbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 20</value>
   </data>
-  <data name="labelStartDate.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="applyToOlbCheckbox.Text" xml:space="preserve">
+    <value>Применить к портфелю</value>
+  </data>
+  <data name="okButton.Text" xml:space="preserve">
+    <value>ОК</value>
+  </data>
+  <data name="interestRateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 16</value>
+  </data>
+  <data name="interestRateLabel.Text" xml:space="preserve">
+    <value>Процентная ставка:</value>
+  </data>
+  <data name="startDateLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 16</value>
   </data>
-  <data name="labelStartDate.Text" xml:space="preserve">
+  <data name="startDateLabel.Text" xml:space="preserve">
     <value>Дата начала:</value>
+  </data>
+  <data name="newInstallmentsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 16</value>
+  </data>
+  <data name="newInstallmentsLabel.Text" xml:space="preserve">
+    <value>Кол-во погашений:</value>
+  </data>
+  <data name="firstRepaymentOnLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 16</value>
+  </data>
+  <data name="firstRepaymentOnLabel.Text" xml:space="preserve">
+    <value>Дата первого платежа:</value>
+  </data>
+  <data name="gracePeriodLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 16</value>
+  </data>
+  <data name="gracePeriodLabel.Text" xml:space="preserve">
+    <value>Льготный период:</value>
+  </data>
+  <data name="amountLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 16</value>
+  </data>
+  <data name="amountLabel.Text" xml:space="preserve">
+    <value>Сумма:</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Добавить транш</value>
