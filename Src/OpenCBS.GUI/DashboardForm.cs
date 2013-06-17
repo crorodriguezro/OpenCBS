@@ -18,11 +18,13 @@
 // Contact: contact@opencbs.com
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Dashboard;
 using OpenCBS.Enums;
 using OpenCBS.Extensions;
@@ -45,7 +47,6 @@ namespace OpenCBS.GUI
         private Chart _parChart;
         private Chart _disbursementsChart;
         private Chart _olbTrendChart;
-
         private IExtensionActivator _extensionActivator;
 
         public DashboardForm(IExtensionActivator extensionActivator)
@@ -81,8 +82,25 @@ namespace OpenCBS.GUI
                     listViewItem.Font = new Font(font.Name, font.Size, FontStyle.Bold);
                 }
             };
-
+            Authorize();
             RefreshDashboard();
+        }
+
+        private void Authorize()
+        {
+            List<MenuObject> _menuItems;
+            _menuItems = Services.GetMenuItemServices().GetMenuList(OSecurityObjectTypes.MenuItem);
+            var role = User.CurrentUser.UserRole;
+            foreach (Control label in flowLayoutPanel1.Controls)
+            {
+                if (label is LinkLabel)
+                {
+                    var menuObject = _menuItems.Find(item => item == label.Tag.ToString().Trim());
+
+                    if (menuObject != null)
+                        label.Enabled = role.IsMenuAllowed(menuObject);
+                }
+            }
         }
 
         private void RefreshPortfolioPieChart(Dashboard dashboard)
