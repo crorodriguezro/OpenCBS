@@ -35,7 +35,7 @@ namespace OpenCBS.GUI.Contracts
             this.interestRateLabel = new System.Windows.Forms.Label();
             this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.startDateLabel = new System.Windows.Forms.Label();
-            this.tbDateOffset = new System.Windows.Forms.TextBox();
+            this.amountTextbox = new System.Windows.Forms.TextBox();
             this.interestRateNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.installmentsNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.newInstallmentsLabel = new System.Windows.Forms.Label();
@@ -60,13 +60,11 @@ namespace OpenCBS.GUI.Contracts
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.UseVisualStyleBackColor = false;
-            this.cancelButton.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // applyToOlbCheckbox
             // 
             resources.ApplyResources(this.applyToOlbCheckbox, "applyToOlbCheckbox");
             this.applyToOlbCheckbox.Name = "applyToOlbCheckbox";
-            this.applyToOlbCheckbox.CheckedChanged += new System.EventHandler(this.cbApplynewInterestforOLB_CheckedChanged);
             // 
             // okButton
             // 
@@ -85,20 +83,18 @@ namespace OpenCBS.GUI.Contracts
             this.startDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.startDateTimePicker, "startDateTimePicker");
             this.startDateTimePicker.Name = "startDateTimePicker";
-            this.startDateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePickerStartDate_ValueChanged);
             // 
             // startDateLabel
             // 
             resources.ApplyResources(this.startDateLabel, "startDateLabel");
             this.startDateLabel.Name = "startDateLabel";
             // 
-            // tbDateOffset
+            // amountTextbox
             // 
-            resources.ApplyResources(this.tbDateOffset, "tbDateOffset");
-            this.tbDateOffset.Name = "tbDateOffset";
-            this.tbDateOffset.TextChanged += new System.EventHandler(this.tbDateOffset_TextChanged);
-            this.tbDateOffset.Enter += new System.EventHandler(this.tbDateOffset_Enter);
-            this.tbDateOffset.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbDateOffset_KeyDown);
+            resources.ApplyResources(this.amountTextbox, "amountTextbox");
+            this.amountTextbox.Name = "amountTextbox";
+            this.amountTextbox.Enter += new System.EventHandler(this.tbDateOffset_Enter);
+            this.amountTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbDateOffset_KeyDown);
             // 
             // interestRateNumericUpDown
             // 
@@ -110,13 +106,11 @@ namespace OpenCBS.GUI.Contracts
             131072});
             resources.ApplyResources(this.interestRateNumericUpDown, "interestRateNumericUpDown");
             this.interestRateNumericUpDown.Name = "interestRateNumericUpDown";
-            this.interestRateNumericUpDown.ValueChanged += new System.EventHandler(this.numericUpDownNewIR_ValueChanged);
             // 
             // installmentsNumericUpDown
             // 
             resources.ApplyResources(this.installmentsNumericUpDown, "installmentsNumericUpDown");
             this.installmentsNumericUpDown.Name = "installmentsNumericUpDown";
-            this.installmentsNumericUpDown.ValueChanged += new System.EventHandler(this.numericUpDownMaturity_ValueChanged);
             // 
             // newInstallmentsLabel
             // 
@@ -143,7 +137,7 @@ namespace OpenCBS.GUI.Contracts
             this.trancheConfigurationPanel.Controls.Add(this.startDateTimePicker);
             this.trancheConfigurationPanel.Controls.Add(this.installmentsNumericUpDown);
             this.trancheConfigurationPanel.Controls.Add(this.startDateLabel);
-            this.trancheConfigurationPanel.Controls.Add(this.tbDateOffset);
+            this.trancheConfigurationPanel.Controls.Add(this.amountTextbox);
             this.trancheConfigurationPanel.Controls.Add(this.interestRateNumericUpDown);
             resources.ApplyResources(this.trancheConfigurationPanel, "trancheConfigurationPanel");
             this.trancheConfigurationPanel.Name = "trancheConfigurationPanel";
@@ -207,7 +201,7 @@ namespace OpenCBS.GUI.Contracts
         private System.Windows.Forms.Label interestRateLabel;
         private System.Windows.Forms.DateTimePicker startDateTimePicker;
         private System.Windows.Forms.Label startDateLabel;
-        private System.Windows.Forms.TextBox tbDateOffset;
+        private System.Windows.Forms.TextBox amountTextbox;
         private System.Windows.Forms.NumericUpDown interestRateNumericUpDown;
         private System.Windows.Forms.NumericUpDown installmentsNumericUpDown;
         private System.Windows.Forms.Label newInstallmentsLabel;

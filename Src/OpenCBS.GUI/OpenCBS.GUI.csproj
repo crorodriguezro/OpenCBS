@@ -38,6 +38,8 @@
     <ExcludedPermissions>
     </ExcludedPermissions>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
     <PublishUrl>http://localhost/Octopus/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
@@ -146,6 +148,9 @@
     <OutputPath>bin\Test\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.1.1.0.118\lib\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=11.5.3300.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Lib\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
@@ -2962,6 +2967,7 @@
     <None Include="dumpObjects.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <Content Include="opencbs.ico" />
     <Content Include="Reports\Internal\Collection_Sheet.zip">
@@ -3783,4 +3789,5 @@ mkdir "C:\OpenCbsLibs"
 xcopy "$(TargetDir)OpenCBS.*.dll" "C:\OpenCbsLibs" /s /y
 xcopy "$(TargetDir)OpenCBS.*.pdb" "C:\OpenCbsLibs" /s /y</PostBuildEvent>
   </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
 </Project>

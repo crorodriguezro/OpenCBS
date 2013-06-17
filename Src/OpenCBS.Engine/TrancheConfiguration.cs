@@ -18,5 +18,10 @@ namespace OpenCBS.Engine
         public decimal Amount { get; set; }
 
         public decimal InterestRate { get; set; }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
     }
 }

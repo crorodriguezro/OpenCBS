@@ -1,7 +1,9 @@
 ﻿
+using System;
+
 namespace OpenCBS.Engine.Interfaces
 {
-    public interface ITrancheConfiguration : IBaseScheduleConfiguration
+    public interface ITrancheConfiguration : IBaseScheduleConfiguration, ICloneable
     {
         bool ApplyNewInterestRateToOlb { get; set; }
     }

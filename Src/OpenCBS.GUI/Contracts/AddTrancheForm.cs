@@ -23,26 +23,23 @@ using System;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Loans;
+using OpenCBS.Engine;
+using OpenCBS.Engine.Interfaces;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.GUI.UserControl;
 using OpenCBS.Services;
-using OpenCBS.Shared;
 
 namespace OpenCBS.GUI.Contracts
 {
     public partial class AddTrancheForm : SweetBaseForm
     {
         private bool _interestRateChanged;
-        private bool _chargeInterestDuringShift;
-        private bool _chargeInterestDuringGracePeriod;
         private int numberOfMaturity;
         private decimal _IR;
         private int _dateOffsetOrAmount;
         private DateTime _trancheDate;
         private Loan _contract;
         public DialogResult resultReschedulingForm;
-        private Loan LoanWithNewTranche;
-        private int _gracePeriod;
         private IClient _client;
 
         public AddTrancheForm(Loan contract, IClient pClient)
@@ -65,16 +62,10 @@ namespace OpenCBS.GUI.Contracts
 
         public void InitializeTrancheComponents()
         {
-            startDateLabel.Visible = true;
-            startDateTimePicker.Visible = true;
-            applyToOlbCheckbox.Visible = true;
-            applyToOlbCheckbox.Enabled = true;
-            //labelShiftDateDays.Text = @" + " + Contract.GetRemainAmount().GetFormatedValue(Contract.Product.Currency.UseCents);
-            Text = GetString("AddTranche.Text");
-            applyToOlbCheckbox.Text = GetString("ApplynewInterestforOLB.Text");
-
-            startDateTimePicker.Value = TimeProvider.Now;
-
+            firstRepaymentDateTimePicker.Value = DateTime
+                .Today
+                .AddMonths(_contract.InstallmentType.NbOfMonths)
+                .AddDays(_contract.InstallmentType.NbOfDays);
             if (Contract.Product.NbOfInstallments != null)
             {
                 installmentsNumericUpDown.Maximum = (decimal)Contract.Product.NbOfInstallments;
@@ -95,39 +86,29 @@ namespace OpenCBS.GUI.Contracts
         private void Setup()
         {
             Load += (sender, args) => LoadForm();
+            interestRateNumericUpDown.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
+            installmentsNumericUpDown.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
+            gracePeriodNumericUpDown.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
+            amountTextbox.TextChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
+            startDateTimePicker.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
+            firstRepaymentDateTimePicker.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
+            applyToOlbCheckbox.CheckedChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
         }
 
         private void RefreshSchedule(Loan loan)
         {
             scheduleUserControl.SetScheduleFor(loan);
-            //listViewRepayments.Items.Clear();
-            //foreach (Installment installment in contractToDisplay.InstallmentList)
-            //{
-            //    ListViewItem listViewItem = new ListViewItem(installment.Number.ToString());
-            //    if (installment.IsRepaid)
-            //    {
-            //        listViewItem.BackColor = Color.FromArgb(((Byte)(0)), ((Byte)(88)), ((Byte)(56)));
-            //        listViewItem.ForeColor = Color.White;
-            //    }
-            //    listViewItem.Tag = installment;
-            //    listViewItem.SubItems.Add(installment.ExpectedDate.ToShortDateString());
-            //    listViewItem.SubItems.Add(installment.InterestsRepayment.GetFormatedValue(contractToDisplay.UseCents));
-            //    listViewItem.SubItems.Add(installment.CapitalRepayment.GetFormatedValue(contractToDisplay.UseCents));
-            //    listViewItem.SubItems.Add(installment.Amount.GetFormatedValue(contractToDisplay.UseCents));
+        }
 
-            //    if (ServicesProvider.GetInstance().GetGeneralSettings().IsOlbBeforeRepayment)
-            //        listViewItem.SubItems.Add(installment.OLB.GetFormatedValue(contractToDisplay.UseCents));
-            //    else
-            //        listViewItem.SubItems.Add(installment.OLBAfterRepayment.GetFormatedValue(contractToDisplay.UseCents));
-
-            //    listViewItem.SubItems.Add(installment.PaidInterests.GetFormatedValue(contractToDisplay.UseCents));
-            //    listViewItem.SubItems.Add(installment.PaidCapital.GetFormatedValue(contractToDisplay.UseCents));
-            //    if (installment.PaidDate.HasValue)
-            //        listViewItem.SubItems.Add(installment.PaidDate.Value.ToShortDateString());
-            //    else
-            //        listViewItem.SubItems.Add("-");
-            //    listViewRepayments.Items.Add(listViewItem);
-            //}
+        private void RecalculateTrancheAndRefreshSchedule()
+        {
+            var trancheConfiguration = GetTrancheConfiguration();
+            if (trancheConfiguration.Amount == 0) return;
+            var loan = ServicesProvider
+                .GetInstance()
+                .GetContractServices()
+                .SimulateTranche(_contract, trancheConfiguration);
+            RefreshSchedule(loan);
         }
 
         public Loan Contract
@@ -135,77 +116,20 @@ namespace OpenCBS.GUI.Contracts
             get { return _contract; }
         }
 
-        private void _GetParameters()
+        private ITrancheConfiguration GetTrancheConfiguration()
         {
-            numberOfMaturity = Convert.ToInt32(installmentsNumericUpDown.Value);
-
-            try
+            decimal amount;
+            decimal.TryParse(amountTextbox.Text, out amount);
+            return new TrancheConfiguration
             {
-                _dateOffsetOrAmount = Int32.Parse(tbDateOffset.Text);
-            }
-            catch
-            {
-                _dateOffsetOrAmount = 0;
-            }
-
-            _interestRateChanged = applyToOlbCheckbox.Checked;
-
-            _chargeInterestDuringShift = false;
-            _chargeInterestDuringGracePeriod = false;
-            _IR = Convert.ToDecimal(interestRateNumericUpDown.Value / 100);
-            _trancheDate = startDateTimePicker.Value.Date;
-            _gracePeriod = 0;
-        }
-
-        private void numericUpDownNewIR_ValueChanged(object sender, EventArgs e)
-        {
-            _GetParameters();
-            if ((_dateOffsetOrAmount != 0) && (numberOfMaturity > 0))
-            {
-                LoanWithNewTranche = _contract;
-
-                Loan fakeContract = ServicesProvider.GetInstance().GetContractServices().FakeTranche(LoanWithNewTranche,
-                                                                                                     _trancheDate,
-                                                                                                     numberOfMaturity,
-                                                                                                     _dateOffsetOrAmount,
-                                                                                                     _interestRateChanged,
-                                                                                                     _IR);
-                RefreshSchedule(fakeContract);
-            }
-        }
-
-        private void numericUpDownMaturity_ValueChanged(object sender, EventArgs e)
-        {
-            _GetParameters();
-            if ((_dateOffsetOrAmount != 0) && (numberOfMaturity > 0))
-            {
-                LoanWithNewTranche = _contract;
-
-                Loan fakeContract = ServicesProvider.GetInstance().GetContractServices().FakeTranche(LoanWithNewTranche,
-                                                                                                     _trancheDate,
-                                                                                                     numberOfMaturity,
-                                                                                                     _dateOffsetOrAmount,
-                                                                                                     _interestRateChanged,
-                                                                                                     _IR);
-                RefreshSchedule(fakeContract);
-            }
-        }
-
-        private void tbDateOffset_TextChanged(object sender, EventArgs e)
-        {
-            _GetParameters();
-            if ((_dateOffsetOrAmount != 0) && (numberOfMaturity > 0))
-            {
-                LoanWithNewTranche = _contract;
-
-                Loan fakeContract = ServicesProvider.GetInstance().GetContractServices().FakeTranche(LoanWithNewTranche,
-                                                                                                     _trancheDate,
-                                                                                                     numberOfMaturity,
-                                                                                                     _dateOffsetOrAmount,
-                                                                                                     _interestRateChanged,
-                                                                                                     _IR);
-                RefreshSchedule(fakeContract);
-            }
+                Amount = amount,
+                ApplyNewInterestRateToOlb = applyToOlbCheckbox.Checked,
+                GracePeriod = (int)gracePeriodNumericUpDown.Value,
+                InterestRate = interestRateNumericUpDown.Value,
+                NumberOfInstallments = (int)installmentsNumericUpDown.Value,
+                PreferredFirstInstallmentDate = firstRepaymentDateTimePicker.Value,
+                StartDate = startDateTimePicker.Value,
+            };
         }
 
         private void tbDateOffset_KeyDown(object sender, KeyEventArgs e)
@@ -225,41 +149,6 @@ namespace OpenCBS.GUI.Contracts
         {
             TextBox tb = sender as TextBox;
             if (0 == tb.Text.Length) tb.Text = @"0";
-        }
-
-        private void dateTimePickerStartDate_ValueChanged(object sender, EventArgs e)
-        {
-            _GetParameters();
-            if ((_dateOffsetOrAmount != 0) && (numberOfMaturity > 0))
-            {
-                LoanWithNewTranche = _contract;
-
-                Loan fakeContract =
-                    ServicesProvider.GetInstance().GetContractServices().FakeTranche(LoanWithNewTranche,
-                                                                                     _trancheDate,
-                                                                                     numberOfMaturity,
-                                                                                     _dateOffsetOrAmount,
-                                                                                     _interestRateChanged,
-                                                                                     _IR);
-                RefreshSchedule(fakeContract);
-            }
-        }
-
-        private void cbApplynewInterestforOLB_CheckedChanged(object sender, EventArgs e)
-        {
-            _GetParameters();
-            if ((_dateOffsetOrAmount != 0) && (numberOfMaturity > 0))
-            {
-                LoanWithNewTranche = _contract;
-
-                Loan fakeContract = ServicesProvider.GetInstance().GetContractServices().FakeTranche(LoanWithNewTranche,
-                                                                                                     _trancheDate,
-                                                                                                     numberOfMaturity,
-                                                                                                     _dateOffsetOrAmount,
-                                                                                                     _interestRateChanged,
-                                                                                                     _IR);
-                RefreshSchedule(fakeContract);
-            }
         }
 
         private void buttonConfirm_Click(object sender, EventArgs e)
@@ -291,11 +180,6 @@ namespace OpenCBS.GUI.Contracts
                     new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
                 }
             }
-        }
-
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            Close();
         }
     }
 }

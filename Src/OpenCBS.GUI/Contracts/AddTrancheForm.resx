@@ -138,7 +138,7 @@
     <value>NoControl</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>830, 11</value>
+    <value>783, 11</value>
   </data>
   <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -220,7 +220,7 @@
     <value>NoControl</value>
   </data>
   <data name="okButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>692, 11</value>
+    <value>645, 11</value>
   </data>
   <data name="okButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -336,31 +336,31 @@
   <data name="&gt;&gt;startDateLabel.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="tbDateOffset.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="amountTextbox.Location" type="System.Drawing.Point, System.Drawing">
     <value>156, 10</value>
   </data>
-  <data name="tbDateOffset.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="amountTextbox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="tbDateOffset.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="amountTextbox.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 22</value>
   </data>
-  <data name="tbDateOffset.TabIndex" type="System.Int32, mscorlib">
+  <data name="amountTextbox.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="tbDateOffset.Text" xml:space="preserve">
+  <data name="amountTextbox.Text" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;tbDateOffset.Name" xml:space="preserve">
-    <value>tbDateOffset</value>
+  <data name="&gt;&gt;amountTextbox.Name" xml:space="preserve">
+    <value>amountTextbox</value>
   </data>
-  <data name="&gt;&gt;tbDateOffset.Type" xml:space="preserve">
+  <data name="&gt;&gt;amountTextbox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tbDateOffset.Parent" xml:space="preserve">
+  <data name="&gt;&gt;amountTextbox.Parent" xml:space="preserve">
     <value>trancheConfigurationPanel</value>
   </data>
-  <data name="&gt;&gt;tbDateOffset.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;amountTextbox.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
   <data name="interestRateNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
@@ -454,7 +454,7 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="buttonsPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>976, 50</value>
+    <value>929, 50</value>
   </data>
   <data name="buttonsPanel.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -625,7 +625,7 @@
     <value>0, 0</value>
   </data>
   <data name="trancheConfigurationPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>976, 100</value>
+    <value>929, 100</value>
   </data>
   <data name="trancheConfigurationPanel.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
@@ -652,7 +652,7 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="scheduleUserControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>976, 287</value>
+    <value>929, 287</value>
   </data>
   <data name="scheduleUserControl.TabIndex" type="System.Int32, mscorlib">
     <value>32</value>
@@ -676,7 +676,7 @@
     <value>7, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>976, 437</value>
+    <value>929, 437</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>

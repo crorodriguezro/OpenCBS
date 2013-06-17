@@ -40,6 +40,12 @@ namespace OpenCBS.Engine
             _container.ComposeExportedValue<INonWorkingDayPolicy>(nonWorkingDayPolicy);
         }
 
+        public OctopusScheduleConfigurationFactory(NonWorkingDateSingleton nonWorkingDate, ApplicationSettings settings)
+            : this(nonWorkingDate)
+        {
+            _settings = settings;
+        }
+
         public OctopusScheduleConfigurationFactory Init()
         {
             Compose();

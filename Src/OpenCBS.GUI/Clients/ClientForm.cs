@@ -5961,7 +5961,7 @@ namespace OpenCBS.GUI.Clients
         {
             try
             {
-                ServicesProvider.GetInstance().GetContractServices().ChekcLoanForTranche(_credit);
+                ServicesProvider.GetInstance().GetContractServices().CheckLoanForTranche(_credit);
 
                 var addTrancheForm = new AddTrancheForm(_credit, _client);
                 addTrancheForm.ShowDialog();
