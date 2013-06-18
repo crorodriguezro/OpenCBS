@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using AutoMapper;
 using OpenCBS.CoreDomain;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.GUI.Configuration;
@@ -76,6 +77,7 @@ namespace OpenCBS.GUI
                         Application.Exit();
                         break;
                     default:
+                        ConfigureAutoMapper();
                         Application.Run(new LotrasmicMainWindowForm());
                         break;
                 }
@@ -152,6 +154,40 @@ namespace OpenCBS.GUI
                     Environment.Exit(1);
                 }
             }
+        }
+
+        private static void ConfigureAutoMapper()
+        {
+            Mapper
+                .CreateMap<CoreDomain.Contracts.Loans.Installments.Installment, Engine.Interfaces.IInstallment>()
+                .ForMember(dest => dest.EndDate, opt => opt.MapFrom(src => src.ExpectedDate))
+                .ForMember(dest => dest.RepaymentDate, opt => opt.MapFrom(src => src.ExpectedDate))
+                .ForMember(dest => dest.Principal, opt => opt.MapFrom(src => src.CapitalRepayment.Value))
+                .ForMember(dest => dest.Interest, opt => opt.MapFrom(src => src.InterestsRepayment.Value))
+                .ForMember(dest => dest.PaidPrincipal, opt => opt.MapFrom(src => src.PaidCapital.Value))
+                .ForMember(dest => dest.PaidInterest, opt => opt.MapFrom(src => src.PaidInterests.Value))
+                .ForMember(dest => dest.Olb, opt => opt.MapFrom(src => src.OLB.Value));
+            Mapper
+                .CreateMap<Engine.Interfaces.IInstallment, CoreDomain.Contracts.Loans.Installments.Installment>()
+                .ForMember(dest => dest.ExpectedDate, opt => opt.MapFrom(src => src.RepaymentDate))
+                .ForMember(dest => dest.CapitalRepayment, opt => opt.MapFrom(src => (OCurrency)src.Principal))
+                .ForMember(dest => dest.InterestsRepayment, opt => opt.MapFrom(src => (OCurrency)src.Interest))
+                .ForMember(dest => dest.PaidCapital, opt => opt.MapFrom(src => (OCurrency)src.PaidPrincipal))
+                .ForMember(dest => dest.PaidInterests, opt => opt.MapFrom(src => (OCurrency)src.PaidInterest))
+                .ForMember(dest => dest.OLB, opt => opt.MapFrom(src => (OCurrency)src.Olb))
+                .ForMember(dest => dest.FeesUnpaid, opt => opt.UseValue((OCurrency)0))
+                .ForMember(dest => dest.NotPaidYet, opt => opt.UseValue(true))
+                .ForMember(dest => dest.Comment, opt => opt.UseValue(string.Empty))
+                .ForMember(dest => dest.IsPending, opt => opt.UseValue(false))
+                .ForMember(dest => dest.PaidFees, opt => opt.UseValue((OCurrency)0))
+                .ForMember(dest => dest.PaidCommissions, opt => opt.UseValue((OCurrency)0))
+                .ForMember(dest => dest.CommissionsUnpaid, opt => opt.UseValue((OCurrency)0))
+                .ForMember(dest => dest.PaidDate, opt => opt.UseValue(null))
+                .ForMember(dest => dest.Proportion, opt => opt.UseValue((OCurrency)0))
+                .ForMember(dest => dest.CalculatedPenalty, opt => opt.UseValue((OCurrency)0))
+                .ForMember(dest => dest.IsLastToRepay, opt => opt.UseValue(false));
+
+            Mapper.AssertConfigurationIsValid();
         }
     }
 }

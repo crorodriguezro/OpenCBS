@@ -117,108 +117,50 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="cbApplynewInterestforOLB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 19</value>
+  <data name="applyToOlbCheckbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
   </data>
-  <data name="lbNewInterest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 15</value>
+  <data name="applyToOlbCheckbox.Text" xml:space="preserve">
+    <value>Aplicar ao SEP:</value>
   </data>
-  <data name="labelStartDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 15</value>
+  <data name="interestRateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 16</value>
   </data>
-  <data name="labelShiftDateDays.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 15</value>
+  <data name="interestRateLabel.Text" xml:space="preserve">
+    <value>Taxa de juros:</value>
   </data>
-  <data name="labelShiftDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 15</value>
+  <data name="startDateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 16</value>
   </data>
-  <data name="labelMaturityUnity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 15</value>
+  <data name="startDateLabel.Text" xml:space="preserve">
+    <value>Data de início:</value>
   </data>
-  <data name="labelMaturity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 15</value>
+  <data name="newInstallmentsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 16</value>
   </data>
-  <data name="labelContractCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 15</value>
+  <data name="newInstallmentsLabel.Text" xml:space="preserve">
+    <value>Número de prestação:</value>
   </data>
-  <data name="labelTitleRescheduleContract.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 15</value>
+  <data name="firstRepaymentOnLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 16</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="firstRepaymentOnLabel.Text" xml:space="preserve">
+    <value>Primeiro reembolso:</value>
+  </data>
+  <data name="gracePeriodLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 16</value>
+  </data>
+  <data name="gracePeriodLabel.Text" xml:space="preserve">
+    <value>Período de carencia:</value>
+  </data>
+  <data name="amountLabel.Text" xml:space="preserve">
+    <value>Quantia:</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Adicionar prestação</value>
-  </data>
-  <data name="buttonCancel.Text" xml:space="preserve">
-    <value>Cancelar</value>
-  </data>
-  <data name="buttonConfirm.Text" xml:space="preserve">
-    <value>Adicionar prestação</value>
-  </data>
-  <data name="cbApplynewInterestforOLB.Text" xml:space="preserve">
-    <value>Aplicar novos juros sobre SEP</value>
-  </data>
-  <data name="columnHeader1.Text" xml:space="preserve">
-    <value>N°</value>
-  </data>
-  <data name="columnHeader2.Text" xml:space="preserve">
-    <value>Data</value>
-  </data>
-  <data name="columnHeader3.Text" xml:space="preserve">
-    <value>Reembolsoo de juros</value>
-  </data>
-  <data name="columnHeader4.Text" xml:space="preserve">
-    <value>Reembolso do capital</value>
-  </data>
-  <data name="columnHeader5.Text" xml:space="preserve">
-    <value>Prestação total</value>
-  </data>
-  <data name="columnHeader6.Text" xml:space="preserve">
-    <value>SEP</value>
-  </data>
-  <data name="columnHeader7.Text" xml:space="preserve">
-    <value>Juros pagos</value>
-  </data>
-  <data name="columnHeader8.Text" xml:space="preserve">
-    <value>Capital pago</value>
-  </data>
-  <data name="columnHeader9.Text" xml:space="preserve">
-    <value>Data paga</value>
-  </data>
-  <data name="groupBoxConfirm.Text" xml:space="preserve">
-    <value>Confirme</value>
-  </data>
-  <data name="groupBoxParameters.Text" xml:space="preserve">
-    <value>Parametros:</value>
-  </data>
-  <data name="labelContractCode.Text" xml:space="preserve">
-    <value>Código do contrato</value>
-  </data>
-  <data name="labelMaturity.Text" xml:space="preserve">
-    <value>Novas prestações:</value>
-  </data>
-  <data name="labelMaturityUnity.Text" xml:space="preserve">
-    <value>maturidade</value>
-  </data>
-  <data name="labelShiftDate.Text" xml:space="preserve">
-    <value>Data de troca:</value>
-  </data>
-  <data name="labelShiftDateDays.Text" xml:space="preserve">
-    <value>quantia</value>
-  </data>
-  <data name="labelStartDate.Text" xml:space="preserve">
-    <value>Data inicial:</value>
-  </data>
-  <data name="labelTitleRescheduleContract.Text" xml:space="preserve">
-    <value>Código do contrato: </value>
-  </data>
-  <data name="lbNewInterest.Text" xml:space="preserve">
-    <value>Nova taxa de juros:</value>
-  </data>
-  <data name="tbDateOffset.Text" xml:space="preserve">
-    <value>0</value>
   </data>
 </root>

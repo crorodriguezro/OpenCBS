@@ -27,6 +27,11 @@ GO
 UPDATE dbo.AllowedRoleMenus SET allowed=0 WHERE menu_item_id=3 AND role_id=2
 GO
 
+ALTER TABLE dbo.TrancheEvents
+ADD first_repayment_date DATE NOT NULL DEFAULT(GETDATE()),
+grace_period INT NOT NULL DEFAULT(0)
+GO
+
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v13.6.0.0'
 WHERE   [name] = 'VERSION'

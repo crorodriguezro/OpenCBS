@@ -38,6 +38,8 @@
     <ExcludedPermissions>
     </ExcludedPermissions>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
     <PublishUrl>http://localhost/Octopus/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
@@ -146,6 +148,9 @@
     <OutputPath>bin\Test\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.1.1.0.118\lib\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=11.5.3300.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Lib\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
@@ -221,6 +226,10 @@
     <ProjectReference Include="..\OpenCBS.CoreDomain\OpenCBS.CoreDomain.csproj">
       <Project>{D539C388-3848-4A3E-AB87-42B8E329755A}</Project>
       <Name>OpenCBS.CoreDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCBS.Engine\OpenCBS.Engine.csproj">
+      <Project>{b1595695-b53f-4d94-85e6-45a6f515c650}</Project>
+      <Name>OpenCBS.Engine</Name>
     </ProjectReference>
     <ProjectReference Include="..\OpenCBS.Enums\OpenCBS.Enums.csproj">
       <Project>{8AFC1E87-3856-4F05-8280-5360D33C200B}</Project>
@@ -677,6 +686,12 @@
     </Compile>
     <Compile Include="Report Browser\ReportLoadingProgressForm.Designer.cs">
       <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ScheduleUserControl.Designer.cs">
+      <DependentUpon>ScheduleUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Search\CFSearchClientForm.cs">
       <SubType>Form</SubType>
@@ -1709,6 +1724,9 @@
     <EmbeddedResource Include="Contracts\AddGuarantorForm.pt.resx">
       <DependentUpon>AddGuarantorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\AddTrancheForm.es-ES.resx">
+      <DependentUpon>AddTrancheForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Contracts\AddTrancheForm.fr.resx">
       <DependentUpon>AddTrancheForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -2571,6 +2589,21 @@
     <EmbeddedResource Include="Report Browser\ReportLoadingProgressForm.ru-RU.resx">
       <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleUserControl.es-ES.resx">
+      <DependentUpon>ScheduleUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleUserControl.fr.resx">
+      <DependentUpon>ScheduleUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleUserControl.pt.resx">
+      <DependentUpon>ScheduleUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleUserControl.resx">
+      <DependentUpon>ScheduleUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleUserControl.ru-RU.resx">
+      <DependentUpon>ScheduleUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Search\SearchClientForm.es-ES.resx">
       <DependentUpon>SearchClientForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -2937,6 +2970,7 @@
     <None Include="dumpObjects.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <Content Include="opencbs.ico" />
     <Content Include="Reports\Internal\Collection_Sheet.zip">
@@ -3758,4 +3792,5 @@ mkdir "C:\OpenCbsLibs"
 xcopy "$(TargetDir)OpenCBS.*.dll" "C:\OpenCbsLibs" /s /y
 xcopy "$(TargetDir)OpenCBS.*.pdb" "C:\OpenCbsLibs" /s /y</PostBuildEvent>
   </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
 </Project>

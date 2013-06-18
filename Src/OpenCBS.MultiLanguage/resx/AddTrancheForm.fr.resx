@@ -117,35 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddTranche.Text" xml:space="preserve">
-    <value>Ajouter une nouvelle tranche</value>
-  </data>
-  <data name="ApplynewInterestforOLB.Text" xml:space="preserve">
-    <value>Appliquer le nouveau taux d'intérêt pour le KRD</value>
-  </data>
-  <data name="ChargeInterest.Text" xml:space="preserve">
-    <value>Appliquer le nouveau taux d'intérêt pour le KRD:</value>
-  </data>
-  <data name="ConfirmTheTranche.Text" xml:space="preserve">
-    <value>Confirmer la tranche</value>
-  </data>
-  <data name="ConfirmTrancheContract.Text" xml:space="preserve">
-    <value>Veuillez confirmer que vous voulez ajouter cette tranche, contrat :</value>
-  </data>
-  <data name="InterestRate.Text" xml:space="preserve">
-    <value>Taux d'intérêt :</value>
-  </data>
-  <data name="NewInstallment.Text" xml:space="preserve">
-    <value>Nouvelles échéances :</value>
-  </data>
-  <data name="No.Text" xml:space="preserve">
-    <value>Non</value>
-  </data>
-  <data name="TranchePrincipal.Text" xml:space="preserve">
-    <value>Montant de la tranche</value>
-  </data>
-  <data name="Yes.Text" xml:space="preserve">
-    <value>Oui</value>
-    <comment>.</comment>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirmez-vous l'opération?</value>
   </data>
 </root>

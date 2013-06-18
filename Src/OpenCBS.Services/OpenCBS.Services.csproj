@@ -30,6 +30,8 @@
     <SignAssembly>false</SignAssembly>
     <OldToolsVersion>3.5</OldToolsVersion>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -110,6 +112,9 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.1.1.0.118\lib\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=11.5.3300.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Lib\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
@@ -148,6 +153,10 @@
     <ProjectReference Include="..\OpenCBS.CoreDomain\OpenCBS.CoreDomain.csproj">
       <Project>{D539C388-3848-4A3E-AB87-42B8E329755A}</Project>
       <Name>OpenCBS.CoreDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCBS.Engine\OpenCBS.Engine.csproj">
+      <Project>{b1595695-b53f-4d94-85e6-45a6f515c650}</Project>
+      <Name>OpenCBS.Engine</Name>
     </ProjectReference>
     <ProjectReference Include="..\OpenCBS.Enums\OpenCBS.Enums.csproj">
       <Project>{8AFC1E87-3856-4F05-8280-5360D33C200B}</Project>
@@ -247,6 +256,9 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
@@ -254,4 +266,5 @@
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
 </Project>

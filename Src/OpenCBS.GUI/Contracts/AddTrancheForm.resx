@@ -117,742 +117,583 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="columnHeader1.Text" xml:space="preserve">
-    <value>N°</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="columnHeader1.Width" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="columnHeader2.Text" xml:space="preserve">
-    <value>Date</value>
+  <data name="gracePeriodLabel.Text" xml:space="preserve">
+    <value>Grace period:</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="columnHeader2.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
+  <data name="amountTextbox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
-  <data name="columnHeader2.Width" type="System.Int32, mscorlib">
-    <value>96</value>
+  <data name="&gt;&gt;buttonsPanel.Name" xml:space="preserve">
+    <value>buttonsPanel</value>
   </data>
-  <data name="columnHeader3.Text" xml:space="preserve">
-    <value>Interest repayment</value>
-  </data>
-  <data name="columnHeader3.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="columnHeader3.Width" type="System.Int32, mscorlib">
-    <value>137</value>
-  </data>
-  <data name="columnHeader4.Text" xml:space="preserve">
-    <value>Principal repayment</value>
-  </data>
-  <data name="columnHeader4.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="columnHeader4.Width" type="System.Int32, mscorlib">
-    <value>149</value>
-  </data>
-  <data name="columnHeader5.Text" xml:space="preserve">
-    <value>Installment Total</value>
-  </data>
-  <data name="columnHeader5.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="columnHeader5.Width" type="System.Int32, mscorlib">
-    <value>148</value>
-  </data>
-  <data name="columnHeader6.Text" xml:space="preserve">
-    <value>OLB</value>
-  </data>
-  <data name="columnHeader6.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="columnHeader6.Width" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
-  <data name="columnHeader7.Text" xml:space="preserve">
-    <value>Paid interest</value>
-  </data>
-  <data name="columnHeader7.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="columnHeader7.Width" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
-  <data name="columnHeader8.Text" xml:space="preserve">
-    <value>Paid principal</value>
-  </data>
-  <data name="columnHeader8.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="columnHeader8.Width" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
-  <data name="columnHeader9.Text" xml:space="preserve">
-    <value>Paid date</value>
-  </data>
-  <data name="columnHeader9.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="columnHeader9.Width" type="System.Int32, mscorlib">
-    <value>118</value>
-  </data>
-  <data name="listViewRepayments.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="listViewRepayments.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="listViewRepayments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 109</value>
-  </data>
-  <data name="listViewRepayments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>996, 319</value>
-  </data>
-  <data name="listViewRepayments.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="&gt;&gt;listViewRepayments.Name" xml:space="preserve">
-    <value>listViewRepayments</value>
-  </data>
-  <data name="&gt;&gt;listViewRepayments.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;listViewRepayments.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;listViewRepayments.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="cbApplynewInterestforOLB.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="cbApplynewInterestforOLB.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="cbApplynewInterestforOLB.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="cbApplynewInterestforOLB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>500, 48</value>
-  </data>
-  <data name="cbApplynewInterestforOLB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 20</value>
-  </data>
-  <data name="cbApplynewInterestforOLB.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="cbApplynewInterestforOLB.Text" xml:space="preserve">
-    <value>Apply new interest for OLB</value>
-  </data>
-  <data name="&gt;&gt;cbApplynewInterestforOLB.Name" xml:space="preserve">
-    <value>cbApplynewInterestforOLB</value>
-  </data>
-  <data name="&gt;&gt;cbApplynewInterestforOLB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbApplynewInterestforOLB.Parent" xml:space="preserve">
-    <value>groupBoxParameters</value>
-  </data>
-  <data name="&gt;&gt;cbApplynewInterestforOLB.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lbNewInterest.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbNewInterest.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lbNewInterest.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbNewInterest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>312, 46</value>
-  </data>
-  <data name="lbNewInterest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 16</value>
-  </data>
-  <data name="lbNewInterest.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="lbNewInterest.Text" xml:space="preserve">
-    <value>New interest rate:</value>
-  </data>
-  <data name="&gt;&gt;lbNewInterest.Name" xml:space="preserve">
-    <value>lbNewInterest</value>
-  </data>
-  <data name="&gt;&gt;lbNewInterest.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbNewInterest.Parent" xml:space="preserve">
-    <value>groupBoxParameters</value>
-  </data>
-  <data name="&gt;&gt;lbNewInterest.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="dateTimePickerStartDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 71</value>
-  </data>
-  <data name="dateTimePickerStartDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="dateTimePickerStartDate.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerStartDate.Name" xml:space="preserve">
-    <value>dateTimePickerStartDate</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerStartDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerStartDate.Parent" xml:space="preserve">
-    <value>groupBoxParameters</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerStartDate.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="labelStartDate.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelStartDate.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="labelStartDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelStartDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>312, 71</value>
-  </data>
-  <data name="labelStartDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 16</value>
-  </data>
-  <data name="labelStartDate.TabIndex" type="System.Int32, mscorlib">
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gracePeriodLabel.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="labelStartDate.Text" xml:space="preserve">
-    <value>Start date:</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="okButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>645, 11</value>
   </data>
-  <data name="&gt;&gt;labelStartDate.Name" xml:space="preserve">
-    <value>labelStartDate</value>
+  <data name="okButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;labelStartDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="firstRepaymentOnLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>643, 43</value>
   </data>
-  <data name="&gt;&gt;labelStartDate.Parent" xml:space="preserve">
-    <value>groupBoxParameters</value>
+  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
+    <value>buttonsPanel</value>
   </data>
-  <data name="&gt;&gt;labelStartDate.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="labelShiftDateDays.AutoSize" type="System.Boolean, mscorlib">
+  <data name="applyToOlbCheckbox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="labelShiftDateDays.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
-  <data name="labelShiftDateDays.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="gracePeriodLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 72</value>
   </data>
-  <data name="labelShiftDateDays.Location" type="System.Drawing.Point, System.Drawing">
-    <value>191, 72</value>
+  <data name="cancelButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>System</value>
   </data>
-  <data name="labelShiftDateDays.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 16</value>
+  <data name="&gt;&gt;applyToOlbCheckbox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="labelShiftDateDays.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="gracePeriodNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 22</value>
   </data>
-  <data name="labelShiftDateDays.Text" xml:space="preserve">
-    <value>amount</value>
+  <data name="okButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
-  <data name="&gt;&gt;labelShiftDateDays.Name" xml:space="preserve">
-    <value>labelShiftDateDays</value>
+  <data name="&gt;&gt;scheduleUserControl.Type" xml:space="preserve">
+    <value>OpenCBS.GUI.ScheduleUserControl, OpenCBS.GUI, Version=13.6.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;labelShiftDateDays.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="interestRateLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
-  <data name="&gt;&gt;labelShiftDateDays.Parent" xml:space="preserve">
-    <value>groupBoxParameters</value>
-  </data>
-  <data name="&gt;&gt;labelShiftDateDays.ZOrder" xml:space="preserve">
+  <data name="interestRateNumericUpDown.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="tbDateOffset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 70</value>
-  </data>
-  <data name="tbDateOffset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 22</value>
-  </data>
-  <data name="tbDateOffset.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="tbDateOffset.Text" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tbDateOffset.Name" xml:space="preserve">
-    <value>tbDateOffset</value>
-  </data>
-  <data name="&gt;&gt;tbDateOffset.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbDateOffset.Parent" xml:space="preserve">
-    <value>groupBoxParameters</value>
-  </data>
-  <data name="&gt;&gt;tbDateOffset.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="labelShiftDate.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelShiftDate.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="labelShiftDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelShiftDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 71</value>
-  </data>
-  <data name="labelShiftDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 16</value>
-  </data>
-  <data name="labelShiftDate.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="labelShiftDate.Text" xml:space="preserve">
-    <value>Shift date:</value>
-  </data>
-  <data name="&gt;&gt;labelShiftDate.Name" xml:space="preserve">
-    <value>labelShiftDate</value>
-  </data>
-  <data name="&gt;&gt;labelShiftDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelShiftDate.Parent" xml:space="preserve">
-    <value>groupBoxParameters</value>
-  </data>
-  <data name="&gt;&gt;labelShiftDate.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="labelMaturityUnity.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelMaturityUnity.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="labelMaturityUnity.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelMaturityUnity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>191, 48</value>
-  </data>
-  <data name="labelMaturityUnity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 16</value>
-  </data>
-  <data name="labelMaturityUnity.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="labelMaturityUnity.Text" xml:space="preserve">
-    <value>maturity unity</value>
-  </data>
-  <data name="&gt;&gt;labelMaturityUnity.Name" xml:space="preserve">
-    <value>labelMaturityUnity</value>
-  </data>
-  <data name="&gt;&gt;labelMaturityUnity.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelMaturityUnity.Parent" xml:space="preserve">
-    <value>groupBoxParameters</value>
-  </data>
-  <data name="&gt;&gt;labelMaturityUnity.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="numericUpDownNewIR.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 47</value>
-  </data>
-  <data name="numericUpDownNewIR.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 22</value>
-  </data>
-  <data name="numericUpDownNewIR.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;numericUpDownNewIR.Name" xml:space="preserve">
-    <value>numericUpDownNewIR</value>
-  </data>
-  <data name="&gt;&gt;numericUpDownNewIR.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;numericUpDownNewIR.Parent" xml:space="preserve">
-    <value>groupBoxParameters</value>
-  </data>
-  <data name="&gt;&gt;numericUpDownNewIR.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="numericUpDownMaturity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 46</value>
-  </data>
-  <data name="numericUpDownMaturity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 22</value>
-  </data>
-  <data name="numericUpDownMaturity.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;numericUpDownMaturity.Name" xml:space="preserve">
-    <value>numericUpDownMaturity</value>
-  </data>
-  <data name="&gt;&gt;numericUpDownMaturity.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;numericUpDownMaturity.Parent" xml:space="preserve">
-    <value>groupBoxParameters</value>
-  </data>
-  <data name="&gt;&gt;numericUpDownMaturity.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="labelMaturity.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelMaturity.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="labelMaturity.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelMaturity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 46</value>
-  </data>
-  <data name="labelMaturity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 16</value>
-  </data>
-  <data name="labelMaturity.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="labelMaturity.Text" xml:space="preserve">
-    <value>New installments:</value>
-  </data>
-  <data name="&gt;&gt;labelMaturity.Name" xml:space="preserve">
-    <value>labelMaturity</value>
-  </data>
-  <data name="&gt;&gt;labelMaturity.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelMaturity.Parent" xml:space="preserve">
-    <value>groupBoxParameters</value>
-  </data>
-  <data name="&gt;&gt;labelMaturity.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="labelContractCode.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelContractCode.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="labelContractCode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelContractCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 19</value>
-  </data>
-  <data name="labelContractCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 16</value>
-  </data>
-  <data name="labelContractCode.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="labelContractCode.Text" xml:space="preserve">
-    <value>contract code                                                 </value>
-  </data>
-  <data name="&gt;&gt;labelContractCode.Name" xml:space="preserve">
-    <value>labelContractCode</value>
-  </data>
-  <data name="&gt;&gt;labelContractCode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelContractCode.Parent" xml:space="preserve">
-    <value>groupBoxParameters</value>
-  </data>
-  <data name="&gt;&gt;labelContractCode.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="labelTitleRescheduleContract.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelTitleRescheduleContract.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="labelTitleRescheduleContract.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelTitleRescheduleContract.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 19</value>
-  </data>
-  <data name="labelTitleRescheduleContract.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 16</value>
-  </data>
-  <data name="labelTitleRescheduleContract.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="labelTitleRescheduleContract.Text" xml:space="preserve">
-    <value>Contract code: </value>
-  </data>
-  <data name="&gt;&gt;labelTitleRescheduleContract.Name" xml:space="preserve">
-    <value>labelTitleRescheduleContract</value>
-  </data>
-  <data name="&gt;&gt;labelTitleRescheduleContract.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelTitleRescheduleContract.Parent" xml:space="preserve">
-    <value>groupBoxParameters</value>
-  </data>
-  <data name="&gt;&gt;labelTitleRescheduleContract.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="groupBoxParameters.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="groupBoxParameters.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="groupBoxParameters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="groupBoxParameters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>996, 100</value>
-  </data>
-  <data name="groupBoxParameters.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="groupBoxParameters.Text" xml:space="preserve">
-    <value>Parameters:</value>
-  </data>
-  <data name="&gt;&gt;groupBoxParameters.Name" xml:space="preserve">
-    <value>groupBoxParameters</value>
-  </data>
-  <data name="&gt;&gt;groupBoxParameters.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBoxParameters.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;groupBoxParameters.ZOrder" xml:space="preserve">
+  <data name="installmentsNumericUpDown.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="buttonCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonCancel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="buttonCancel.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Popup</value>
-  </data>
-  <data name="buttonCancel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9pt</value>
-  </data>
-  <data name="buttonCancel.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="buttonCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="okButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>874, 18</value>
-  </data>
-  <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 25</value>
-  </data>
-  <data name="buttonCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="buttonCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="&gt;&gt;buttonCancel.Name" xml:space="preserve">
-    <value>buttonCancel</value>
-  </data>
-  <data name="&gt;&gt;buttonCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonCancel.Parent" xml:space="preserve">
-    <value>groupBoxConfirm</value>
-  </data>
-  <data name="&gt;&gt;buttonCancel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="buttonConfirm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="cancelButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="buttonConfirm.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="&gt;&gt;startDateLabel.Name" xml:space="preserve">
+    <value>startDateLabel</value>
   </data>
-  <data name="buttonConfirm.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Popup</value>
+  <data name="applyToOlbCheckbox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
   </data>
-  <data name="buttonConfirm.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9pt</value>
+  <data name="interestRateLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
   </data>
-  <data name="buttonConfirm.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="trancheConfigurationPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>929, 100</value>
+  </data>
+  <data name="&gt;&gt;buttonsPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cancelButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="buttonConfirm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;gracePeriodNumericUpDown.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
   </data>
-  <data name="buttonConfirm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>718, 18</value>
+  <data name="&gt;&gt;firstRepaymentOnLabel.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
   </data>
-  <data name="buttonConfirm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 25</value>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
   </data>
-  <data name="buttonConfirm.TabIndex" type="System.Int32, mscorlib">
+  <data name="newInstallmentsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="okButton.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="buttonConfirm.Text" xml:space="preserve">
-    <value>Add tranche</value>
+  <data name="&gt;&gt;newInstallmentsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonConfirm.Name" xml:space="preserve">
-    <value>buttonConfirm</value>
+  <data name="&gt;&gt;interestRateNumericUpDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonConfirm.Type" xml:space="preserve">
+  <data name="applyToOlbCheckbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 20</value>
+  </data>
+  <data name="firstRepaymentOnLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 16</value>
+  </data>
+  <data name="interestRateNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>473, 10</value>
+  </data>
+  <data name="&gt;&gt;okButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonConfirm.Parent" xml:space="preserve">
-    <value>groupBoxConfirm</value>
+  <data name="&gt;&gt;startDateLabel.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
-  <data name="&gt;&gt;buttonConfirm.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;newInstallmentsLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
-  <data name="groupBoxConfirm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="okButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
-  <data name="groupBoxConfirm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 434</value>
+  <data name="scheduleUserControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>929, 287</value>
   </data>
-  <data name="groupBoxConfirm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>996, 52</value>
+  <data name="cancelButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
-  <data name="groupBoxConfirm.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
+  <data name="&gt;&gt;gracePeriodNumericUpDown.Name" xml:space="preserve">
+    <value>gracePeriodNumericUpDown</value>
   </data>
-  <data name="groupBoxConfirm.Text" xml:space="preserve">
-    <value>Confirm</value>
-  </data>
-  <data name="&gt;&gt;groupBoxConfirm.Name" xml:space="preserve">
-    <value>groupBoxConfirm</value>
-  </data>
-  <data name="&gt;&gt;groupBoxConfirm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBoxConfirm.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;groupBoxConfirm.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;scheduleUserControl.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="tableLayoutPanel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <data name="firstRepaymentDateTimePicker.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
-  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;amountTextbox.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
-  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="&gt;&gt;gracePeriodNumericUpDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;newInstallmentsLabel.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
+  </data>
+  <data name="okButton.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="&gt;&gt;startDateTimePicker.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
+  </data>
+  <data name="buttonsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 387</value>
+  </data>
+  <data name="&gt;&gt;amountTextbox.Name" xml:space="preserve">
+    <value>amountTextbox</value>
+  </data>
+  <data name="&gt;&gt;firstRepaymentDateTimePicker.Name" xml:space="preserve">
+    <value>firstRepaymentDateTimePicker</value>
+  </data>
+  <data name="scheduleUserControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 100</value>
+  </data>
+  <data name="&gt;&gt;firstRepaymentDateTimePicker.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="interestRateLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="applyToOlbCheckbox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="&gt;&gt;okButton.Name" xml:space="preserve">
+    <value>okButton</value>
+  </data>
+  <data name="firstRepaymentDateTimePicker.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 22</value>
+  </data>
+  <data name="startDateTimePicker.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 22</value>
+  </data>
+  <data name="buttonsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="&gt;&gt;installmentsNumericUpDown.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
+  </data>
+  <data name="amountLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gracePeriodNumericUpDown.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="&gt;&gt;interestRateLabel.Name" xml:space="preserve">
+    <value>interestRateLabel</value>
+  </data>
+  <data name="applyToOlbCheckbox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>318, 41</value>
+  </data>
+  <data name="&gt;&gt;gracePeriodNumericUpDown.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1002, 489</value>
+  <data name="firstRepaymentOnLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
   </data>
-  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
+  <data name="&gt;&gt;trancheConfigurationPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+  <data name="&gt;&gt;gracePeriodLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="applyToOlbCheckbox.Text" xml:space="preserve">
+    <value>Apply to OLB</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;interestRateLabel.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="buttonsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>929, 50</value>
   </data>
-  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="groupBoxConfirm" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="listViewRepayments" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="groupBoxParameters" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,106,Percent,100,Absolute,58" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1002, 489</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Add tranche</value>
-  </data>
-  <data name="&gt;&gt;columnHeader1.Name" xml:space="preserve">
-    <value>columnHeader1</value>
-  </data>
-  <data name="&gt;&gt;columnHeader1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;columnHeader2.Name" xml:space="preserve">
-    <value>columnHeader2</value>
-  </data>
-  <data name="&gt;&gt;columnHeader2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;columnHeader3.Name" xml:space="preserve">
-    <value>columnHeader3</value>
-  </data>
-  <data name="&gt;&gt;columnHeader3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;columnHeader4.Name" xml:space="preserve">
-    <value>columnHeader4</value>
-  </data>
-  <data name="&gt;&gt;columnHeader4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;columnHeader5.Name" xml:space="preserve">
-    <value>columnHeader5</value>
-  </data>
-  <data name="&gt;&gt;columnHeader5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;columnHeader6.Name" xml:space="preserve">
-    <value>columnHeader6</value>
-  </data>
-  <data name="&gt;&gt;columnHeader6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;columnHeader7.Name" xml:space="preserve">
-    <value>columnHeader7</value>
-  </data>
-  <data name="&gt;&gt;columnHeader7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;columnHeader8.Name" xml:space="preserve">
-    <value>columnHeader8</value>
-  </data>
-  <data name="&gt;&gt;columnHeader8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;columnHeader9.Name" xml:space="preserve">
-    <value>columnHeader9</value>
-  </data>
-  <data name="&gt;&gt;columnHeader9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="newInstallmentsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 16</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AddTrancheForm</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=1.1.1.28732, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;interestRateNumericUpDown.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
   </data>
+  <data name="interestRateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 16</value>
+  </data>
+  <data name="amountLabel.Text" xml:space="preserve">
+    <value>Amount:</value>
+  </data>
+  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="applyToOlbCheckbox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;interestRateNumericUpDown.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="gracePeriodLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 16</value>
+  </data>
+  <data name="&gt;&gt;firstRepaymentOnLabel.Name" xml:space="preserve">
+    <value>firstRepaymentOnLabel</value>
+  </data>
+  <data name="amountTextbox.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="okButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="applyToOlbCheckbox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="startDateTimePicker.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="amountTextbox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="newInstallmentsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 42</value>
+  </data>
+  <data name="scheduleUserControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="&gt;&gt;okButton.Parent" xml:space="preserve">
+    <value>buttonsPanel</value>
+  </data>
+  <data name="&gt;&gt;amountTextbox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;okButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="okButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 31</value>
+  </data>
+  <data name="&gt;&gt;interestRateLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="startDateTimePicker.Location" type="System.Drawing.Point, System.Drawing">
+    <value>802, 10</value>
+  </data>
+  <data name="&gt;&gt;startDateTimePicker.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="firstRepaymentOnLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="startDateLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="startDateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 16</value>
+  </data>
+  <data name="okButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>System</value>
+  </data>
+  <data name="firstRepaymentOnLabel.Text" xml:space="preserve">
+    <value>First repayment date:</value>
+  </data>
+  <data name="&gt;&gt;startDateLabel.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Add tranche</value>
+  </data>
+  <data name="cancelButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;applyToOlbCheckbox.Name" xml:space="preserve">
+    <value>applyToOlbCheckbox</value>
+  </data>
+  <data name="&gt;&gt;firstRepaymentOnLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="&gt;&gt;applyToOlbCheckbox.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
+  </data>
+  <data name="&gt;&gt;installmentsNumericUpDown.Name" xml:space="preserve">
+    <value>installmentsNumericUpDown</value>
+  </data>
+  <data name="gracePeriodLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="interestRateLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>315, 13</value>
+  </data>
+  <data name="amountTextbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 22</value>
+  </data>
+  <data name="scheduleUserControl.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="&gt;&gt;gracePeriodLabel.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
+  </data>
+  <data name="startDateLabel.Text" xml:space="preserve">
+    <value>Start date:</value>
+  </data>
+  <data name="startDateLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;startDateTimePicker.Name" xml:space="preserve">
+    <value>startDateTimePicker</value>
+  </data>
+  <data name="&gt;&gt;installmentsNumericUpDown.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="trancheConfigurationPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="&gt;&gt;firstRepaymentDateTimePicker.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
+  </data>
+  <data name="&gt;&gt;startDateLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;trancheConfigurationPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;amountLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>783, 11</value>
+  </data>
+  <data name="gracePeriodNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>156, 70</value>
+  </data>
+  <data name="okButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="startDateLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>643, 13</value>
+  </data>
+  <data name="gracePeriodNumericUpDown.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;firstRepaymentDateTimePicker.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;startDateTimePicker.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="amountLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="gracePeriodLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="interestRateNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 22</value>
+  </data>
+  <data name="buttonsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="&gt;&gt;buttonsPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=13.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="interestRateLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;installmentsNumericUpDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;applyToOlbCheckbox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="trancheConfigurationPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="installmentsNumericUpDown.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="firstRepaymentOnLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;amountLabel.Name" xml:space="preserve">
+    <value>amountLabel</value>
+  </data>
+  <data name="interestRateNumericUpDown.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="amountLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="&gt;&gt;buttonsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="startDateLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="amountTextbox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>156, 10</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 16</value>
+  </data>
+  <data name="installmentsNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 22</value>
+  </data>
+  <data name="interestRateLabel.Text" xml:space="preserve">
+    <value>Interest rate:</value>
+  </data>
+  <data name="newInstallmentsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="firstRepaymentDateTimePicker.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="amountLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 16</value>
+  </data>
+  <data name="newInstallmentsLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="startDateTimePicker.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;gracePeriodLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="firstRepaymentOnLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;scheduleUserControl.Name" xml:space="preserve">
+    <value>scheduleUserControl</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>929, 437</value>
+  </data>
+  <data name="newInstallmentsLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="&gt;&gt;newInstallmentsLabel.Name" xml:space="preserve">
+    <value>newInstallmentsLabel</value>
+  </data>
+  <data name="startDateLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="installmentsNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>156, 40</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
+    <value>cancelButton</value>
+  </data>
+  <data name="&gt;&gt;scheduleUserControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;amountTextbox.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
+  </data>
+  <data name="gracePeriodLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="firstRepaymentDateTimePicker.Location" type="System.Drawing.Point, System.Drawing">
+    <value>802, 40</value>
+  </data>
+  <data name="&gt;&gt;amountLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="scheduleUserControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;firstRepaymentOnLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="trancheConfigurationPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;gracePeriodLabel.Name" xml:space="preserve">
+    <value>gracePeriodLabel</value>
+  </data>
+  <data name="cancelButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="&gt;&gt;trancheConfigurationPanel.Name" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
+  </data>
+  <data name="&gt;&gt;amountLabel.Parent" xml:space="preserve">
+    <value>trancheConfigurationPanel</value>
+  </data>
+  <data name="&gt;&gt;interestRateLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;interestRateNumericUpDown.Name" xml:space="preserve">
+    <value>interestRateNumericUpDown</value>
+  </data>
+  <data name="amountLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 13</value>
+  </data>
+  <data name="&gt;&gt;trancheConfigurationPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="newInstallmentsLabel.Text" xml:space="preserve">
+    <value>Installments:</value>
+  </data>
+  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 31</value>
+  </data>
+  <data name="amountLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

@@ -117,35 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddTranche.Text" xml:space="preserve">
-    <value>Добавить транш</value>
-  </data>
-  <data name="ApplynewInterestforOLB.Text" xml:space="preserve">
-    <value>Применить новый процент</value>
-  </data>
-  <data name="ChargeInterest.Text" xml:space="preserve">
-    <value>Начислить проценты:</value>
-  </data>
-  <data name="ConfirmTheTranche.Text" xml:space="preserve">
-    <value>Подтвердите  транш</value>
-  </data>
-  <data name="ConfirmTrancheContract.Text" xml:space="preserve">
-    <value>Подтвердите, что вы хотите добавить транш, контракт:</value>
-  </data>
-  <data name="InterestRate.Text" xml:space="preserve">
-    <value>Процентная ставка:</value>
-  </data>
-  <data name="NewInstallment.Text" xml:space="preserve">
-    <value>Новая инсталяция:</value>
-  </data>
-  <data name="No.Text" xml:space="preserve">
-    <value>Нет</value>
-  </data>
-  <data name="TranchePrincipal.Text" xml:space="preserve">
-    <value>Сумма транша:</value>
-  </data>
-  <data name="Yes.Text" xml:space="preserve">
-    <value>Да</value>
-    <comment>.</comment>
+  <data name="Confirm" xml:space="preserve">
+    <value>Подтверждаете операцию?</value>
   </data>
 </root>
