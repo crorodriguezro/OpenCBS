@@ -79,7 +79,11 @@ namespace OpenCBS.GUI.Contracts
         {
             Load += (sender, args) => LoadForm();
             interestRateNumericUpDown.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
-            installmentsNumericUpDown.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
+            installmentsNumericUpDown.ValueChanged += (sender, args) =>
+            {
+                gracePeriodNumericUpDown.Maximum = installmentsNumericUpDown.Value - 1;
+                RecalculateTrancheAndRefreshSchedule();
+            };
             gracePeriodNumericUpDown.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
             amountTextbox.TextChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
             startDateTimePicker.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
