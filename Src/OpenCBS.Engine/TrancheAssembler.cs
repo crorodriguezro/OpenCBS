@@ -30,13 +30,13 @@ namespace OpenCBS.Engine
                 select installment;
 
             // ...and force close it (set expected equal to paid)
-            var olb = newSchedule.First().Olb;
+            var nextOlbDifference = 0m;
             foreach (var installment in newSchedule)
             {
-                installment.Olb = olb;
+                installment.Olb += nextOlbDifference;
+                nextOlbDifference += installment.Principal - installment.PaidPrincipal;
                 installment.Principal = installment.PaidPrincipal;
                 installment.Interest = installment.PaidInterest;
-                olb -= installment.PaidPrincipal;
             }
 
             // Adjust the new schedule's installment numbers
