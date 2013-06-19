@@ -1117,10 +1117,10 @@ namespace OpenCBS.Services
                     //insert into table TrancheEvent
                     _ePs.FireEvent(trancheEvent, copyOfLoan, transaction);
 
-                    ArchiveInstallments(copyOfLoan, trancheEvent, transaction);
+                    ArchiveInstallments(loan, trancheEvent, transaction);
 
                     //delete all the old installments of the table Installments
-                    _instalmentManager.DeleteInstallments(copyOfLoan.Id, transaction);
+                    _instalmentManager.DeleteInstallments(loan.Id, transaction);
 
                     //insert all the new installments in the table Installments
                     _instalmentManager.AddInstallments(copyOfLoan.InstallmentList, copyOfLoan.Id, transaction);
