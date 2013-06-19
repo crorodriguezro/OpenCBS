@@ -1474,11 +1474,6 @@ namespace OpenCBS.Services
                     contract.GivenTranches = _loanManager.SelectTranches(contract.Id, sqlTransaction);
                     contract.NbOfInstallments = contract.InstallmentList.Count;
 
-                    foreach (Installment installment in contract.InstallmentList)
-                    {
-                        installment.OLB = contract.CalculateExpectedOlb(installment.Number, true);
-                    }
-
                     if (evnt is LoanDisbursmentEvent)
                     {
                         contract.Disbursed = false;
