@@ -166,7 +166,8 @@ namespace OpenCBS.GUI
                 .ForMember(dest => dest.Interest, opt => opt.MapFrom(src => src.InterestsRepayment.Value))
                 .ForMember(dest => dest.PaidPrincipal, opt => opt.MapFrom(src => src.PaidCapital.Value))
                 .ForMember(dest => dest.PaidInterest, opt => opt.MapFrom(src => src.PaidInterests.Value))
-                .ForMember(dest => dest.Olb, opt => opt.MapFrom(src => src.OLB.Value));
+                .ForMember(dest => dest.Olb, opt => opt.MapFrom(src => src.OLB.Value))
+                .ForMember(dest => dest.LastPaymentDate, opt => opt.MapFrom(src => src.PaidDate));
             Mapper
                 .CreateMap<Engine.Interfaces.IInstallment, CoreDomain.Contracts.Loans.Installments.Installment>()
                 .ForMember(dest => dest.ExpectedDate, opt => opt.MapFrom(src => src.RepaymentDate))
@@ -182,7 +183,7 @@ namespace OpenCBS.GUI
                 .ForMember(dest => dest.PaidFees, opt => opt.UseValue((OCurrency)0))
                 .ForMember(dest => dest.PaidCommissions, opt => opt.UseValue((OCurrency)0))
                 .ForMember(dest => dest.CommissionsUnpaid, opt => opt.UseValue((OCurrency)0))
-                .ForMember(dest => dest.PaidDate, opt => opt.UseValue(null))
+                .ForMember(dest => dest.PaidDate, opt => opt.MapFrom(src => src.LastPaymentDate))
                 .ForMember(dest => dest.Proportion, opt => opt.UseValue((OCurrency)0))
                 .ForMember(dest => dest.CalculatedPenalty, opt => opt.UseValue((OCurrency)0))
                 .ForMember(dest => dest.IsLastToRepay, opt => opt.UseValue(false));

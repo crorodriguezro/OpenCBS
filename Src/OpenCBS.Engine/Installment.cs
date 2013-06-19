@@ -22,5 +22,12 @@ namespace OpenCBS.Engine
         public decimal PaidPrincipal { get; set; }
 
         public decimal PaidInterest { get; set; }
+
+        public DateTime? LastPaymentDate { get; set; }
+
+        public bool Repaid
+        {
+            get { return Principal == PaidPrincipal && Interest == PaidInterest; }
+        }
     }
 }

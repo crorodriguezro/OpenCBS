@@ -938,16 +938,16 @@ namespace OpenCBS.Services
             copyOfTrancheConfiguration.InterestRate *= (decimal)scheduleConfiguration.PeriodPolicy.GetNumberOfPeriodsInYear(
                 copyOfTrancheConfiguration.StartDate,
                 scheduleConfiguration.YearPolicy);
-            
+
             schedule = trancheAssembler.AssembleTranche(
                 schedule,
                 scheduleConfiguration,
                 copyOfTrancheConfiguration,
                 scheduleBuilder,
                 trancheBuilder);
-            
+
             var newSchedule = Mapper.Map<IEnumerable<IInstallment>, List<Installment>>(schedule);
-            
+
             foreach (var installment in newSchedule)
             {
                 var oldInstallment = copyOfLoan.InstallmentList.Find(i => i.Number == installment.Number);
@@ -959,9 +959,11 @@ namespace OpenCBS.Services
                 installment.FeesUnpaid = oldInstallment.FeesUnpaid;
                 installment.CommissionsUnpaid = oldInstallment.CommissionsUnpaid;
                 installment.IsPending = oldInstallment.IsPending;
+                //installment.PaidDate = oldInstallment.PaidDate;
             }
             copyOfLoan.InstallmentList = newSchedule;
             copyOfLoan.NbOfInstallments = newSchedule.Count();
+            copyOfLoan.Amount += trancheConfiguration.Amount;
             return copyOfLoan;
         }
 
@@ -1091,6 +1093,10 @@ namespace OpenCBS.Services
                     CheckTranche(trancheConfiguration.StartDate, loan, trancheConfiguration.Amount);
 
                     var copyOfLoan = SimulateTranche(loan, trancheConfiguration);
+                    var startInstallment =
+                        copyOfLoan.InstallmentList
+                        .FindAll(i => i.ExpectedDate <= trancheConfiguration.StartDate)
+                        .LastOrDefault();
                     var trancheEvent = new TrancheEvent
                     {
                         Amount = trancheConfiguration.Amount,
@@ -1098,10 +1104,11 @@ namespace OpenCBS.Services
                         Maturity = trancheConfiguration.NumberOfInstallments,
                         StartDate = trancheConfiguration.StartDate,
                         Date = trancheConfiguration.StartDate,
-                        InterestRate = trancheConfiguration.InterestRate/100,
+                        InterestRate = trancheConfiguration.InterestRate / 100,
                         Number = copyOfLoan.GivenTranches.Count,
                         FirstRepaymentDate = trancheConfiguration.PreferredFirstInstallmentDate,
                         GracePeriod = trancheConfiguration.GracePeriod,
+                        StartedFromInstallment = startInstallment == null ? 0 : startInstallment.Number,
                         User = _user,
                     };
 
@@ -1127,8 +1134,8 @@ namespace OpenCBS.Services
                     }
                     //in the feature might be combine UpdateLoan + UpdateLoanWithinTranche
                     _loanManager.UpdateLoanWithinTranche(
-                        trancheConfiguration.InterestRate / 100, 
-                        copyOfLoan.NbOfInstallments, 
+                        trancheConfiguration.InterestRate / 100,
+                        copyOfLoan.NbOfInstallments,
                         copyOfLoan,
                         transaction);
                     copyOfLoan.Events.Add(trancheEvent);

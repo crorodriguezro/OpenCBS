@@ -30,11 +30,15 @@ namespace OpenCBS.Engine
                 select installment;
 
             // ...and force close it (set expected equal to paid)
-            var nextOlbDifference = 0m;
+            var olbDifference = 0m;
             foreach (var installment in newSchedule)
             {
-                installment.Olb += nextOlbDifference;
-                nextOlbDifference += installment.Principal - installment.PaidPrincipal;
+                installment.Olb += olbDifference;
+                olbDifference += installment.Principal - installment.PaidPrincipal;
+                if (!(installment.Principal == installment.PaidPrincipal && installment.Interest == installment.PaidInterest))
+                {
+                    installment.LastPaymentDate = trancheConfiguration.StartDate;
+                }
                 installment.Principal = installment.PaidPrincipal;
                 installment.Interest = installment.PaidInterest;
             }

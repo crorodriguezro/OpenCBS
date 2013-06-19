@@ -13,5 +13,6 @@ namespace OpenCBS.Engine.Interfaces
         decimal Olb { get; set; }
         decimal PaidPrincipal { get; set; }
         decimal PaidInterest { get; set; }
+        DateTime? LastPaymentDate { get; set; }
     }
 }
