@@ -54,10 +54,6 @@ namespace OpenCBS.GUI.Contracts
 
         public void InitializeTrancheComponents()
         {
-            firstRepaymentDateTimePicker.Value = DateTime
-                .Today
-                .AddMonths(_contract.InstallmentType.NbOfMonths)
-                .AddDays(_contract.InstallmentType.NbOfDays);
             if (Contract.Product.NbOfInstallments != null)
             {
                 installmentsNumericUpDown.Maximum = (decimal)Contract.Product.NbOfInstallments;
@@ -86,7 +82,15 @@ namespace OpenCBS.GUI.Contracts
             };
             gracePeriodNumericUpDown.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
             amountTextbox.TextChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
-            startDateTimePicker.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
+            startDateTimePicker.ValueChanged += (sender, args) =>
+            {
+                firstRepaymentDateTimePicker.Value = startDateTimePicker
+                    .Value
+                    .Date
+                    .AddMonths(_contract.InstallmentType.NbOfMonths)
+                    .AddDays(_contract.InstallmentType.NbOfDays);
+                RecalculateTrancheAndRefreshSchedule();
+            };
             firstRepaymentDateTimePicker.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
             applyToOlbCheckbox.CheckedChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
             okButton.Click += (sender, args) => AddTranche();
