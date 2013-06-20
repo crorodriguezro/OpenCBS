@@ -129,10 +129,10 @@
     <value>NoControl</value>
   </data>
   <data name="startButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>278, 130</value>
+    <value>133, 225</value>
   </data>
   <data name="startButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 25</value>
+    <value>125, 37</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="startButton.TabIndex" type="System.Int32, mscorlib">
@@ -151,13 +151,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;startButton.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="usernameTextbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>126, 132</value>
+    <value>160, 157</value>
   </data>
   <data name="usernameTextbox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 20</value>
+    <value>171, 22</value>
   </data>
   <data name="usernameTextbox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -172,19 +172,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;usernameTextbox.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="passwordTextbox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="passwordTextbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>126, 160</value>
+    <value>160, 187</value>
   </data>
   <data name="passwordTextbox.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
     <value>*</value>
   </data>
   <data name="passwordTextbox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 20</value>
+    <value>171, 22</value>
   </data>
   <data name="passwordTextbox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -199,7 +199,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;passwordTextbox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="usernameLabel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -208,7 +208,7 @@
     <value>NoControl</value>
   </data>
   <data name="usernameLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 133</value>
+    <value>59, 159</value>
   </data>
   <data name="usernameLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>95, 19</value>
@@ -232,7 +232,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;usernameLabel.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="passwordLabel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -241,7 +241,7 @@
     <value>NoControl</value>
   </data>
   <data name="passwordLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 161</value>
+    <value>59, 189</value>
   </data>
   <data name="passwordLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>95, 16</value>
@@ -265,40 +265,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;passwordLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="exitButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>System</value>
-  </data>
-  <data name="exitButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="exitButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="exitButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>278, 160</value>
-  </data>
-  <data name="exitButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 22</value>
-  </data>
-  <data name="exitButton.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="exitButton.Text" xml:space="preserve">
-    <value>Exit</value>
-  </data>
-  <data name="&gt;&gt;exitButton.Name" xml:space="preserve">
-    <value>exitButton</value>
-  </data>
-  <data name="&gt;&gt;exitButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;exitButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;exitButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>6</value>
   </data>
   <data name="logoPicturebox.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
@@ -331,16 +298,73 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;logoPicturebox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="databaseCombobox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 125</value>
+  </data>
+  <data name="databaseCombobox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 24</value>
+  </data>
+  <data name="databaseCombobox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;databaseCombobox.Name" xml:space="preserve">
+    <value>databaseCombobox</value>
+  </data>
+  <data name="&gt;&gt;databaseCombobox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;databaseCombobox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;databaseCombobox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="databaseLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="databaseLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="databaseLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>59, 127</value>
+  </data>
+  <data name="databaseLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 19</value>
+  </data>
+  <data name="databaseLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="databaseLabel.Text" xml:space="preserve">
+    <value>Database:</value>
+  </data>
+  <data name="databaseLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;databaseLabel.Name" xml:space="preserve">
+    <value>databaseLabel</value>
+  </data>
+  <data name="&gt;&gt;databaseLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;databaseLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;databaseLabel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleBaseSize" type="System.Drawing.Size, System.Drawing">
-    <value>5, 13</value>
+    <value>6, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>390, 196</value>
+    <value>390, 274</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

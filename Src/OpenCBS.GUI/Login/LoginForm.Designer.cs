@@ -11,7 +11,6 @@ namespace OpenCBS.GUI.Login
         private TextBox passwordTextbox;
         private Label usernameLabel;
         private Label passwordLabel;
-        private System.Windows.Forms.Button exitButton;
         private PictureBox logoPicturebox;
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -46,8 +45,9 @@ namespace OpenCBS.GUI.Login
             this.passwordTextbox = new System.Windows.Forms.TextBox();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
-            this.exitButton = new System.Windows.Forms.Button();
             this.logoPicturebox = new System.Windows.Forms.PictureBox();
+            this.databaseCombobox = new System.Windows.Forms.ComboBox();
+            this.databaseLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoPicturebox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,14 +80,6 @@ namespace OpenCBS.GUI.Login
             resources.ApplyResources(this.passwordLabel, "passwordLabel");
             this.passwordLabel.Name = "passwordLabel";
             // 
-            // exitButton
-            // 
-            this.exitButton.BackColor = System.Drawing.SystemColors.Control;
-            this.exitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            resources.ApplyResources(this.exitButton, "exitButton");
-            this.exitButton.Name = "exitButton";
-            this.exitButton.UseVisualStyleBackColor = false;
-            // 
             // logoPicturebox
             // 
             this.logoPicturebox.BackColor = System.Drawing.Color.Transparent;
@@ -96,21 +88,33 @@ namespace OpenCBS.GUI.Login
             this.logoPicturebox.Name = "logoPicturebox";
             this.logoPicturebox.TabStop = false;
             // 
+            // databaseCombobox
+            // 
+            this.databaseCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.databaseCombobox.FormattingEnabled = true;
+            resources.ApplyResources(this.databaseCombobox, "databaseCombobox");
+            this.databaseCombobox.Name = "databaseCombobox";
+            // 
+            // databaseLabel
+            // 
+            this.databaseLabel.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.databaseLabel, "databaseLabel");
+            this.databaseLabel.Name = "databaseLabel";
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.startButton;
             resources.ApplyResources(this, "$this");
             this.BackColor = System.Drawing.Color.White;
-            this.CancelButton = this.exitButton;
-            this.ControlBox = false;
+            this.Controls.Add(this.databaseLabel);
+            this.Controls.Add(this.databaseCombobox);
             this.Controls.Add(this.logoPicturebox);
             this.Controls.Add(this.usernameTextbox);
-            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.passwordTextbox);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameLabel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LoginForm";
@@ -121,6 +125,9 @@ namespace OpenCBS.GUI.Login
 
         }
         #endregion
+
+        private ComboBox databaseCombobox;
+        private Label databaseLabel;
 
     }
 }

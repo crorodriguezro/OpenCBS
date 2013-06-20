@@ -19,10 +19,14 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain;
+using OpenCBS.CoreDomain.Database;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Login
 {
@@ -39,32 +43,83 @@ namespace OpenCBS.GUI.Login
             _password = password;
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape) Close();
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         private void Setup()
         {
             Load += (sender, args) => LoadForm();
             startButton.Click += (sender, args) => Start();
         }
 
+        private void Disable()
+        {
+            databaseCombobox.Enabled = usernameTextbox.Enabled = passwordTextbox.Enabled = startButton.Enabled = false;
+        }
+
+        private void Enable()
+        {
+            databaseCombobox.Enabled = usernameTextbox.Enabled = passwordTextbox.Enabled = startButton.Enabled = true;
+        }
+
+        private void InitDatabaseList()
+        {
+            var backgroundWorker = new BackgroundWorker();
+            var databases = new List<SqlDatabaseSettings>();
+            backgroundWorker.DoWork += (sender, args) =>
+            {
+                var databaseService = ServicesProvider.GetInstance().GetDatabaseServices();
+                databases = databaseService.GetOpenCbsDatabases();
+            };
+            backgroundWorker.RunWorkerCompleted += (sender, args) =>
+            {
+                if (args.Error != null)
+                {
+                    MessageBox.Show(args.Error.Message);
+                    return;
+                }
+                Enable();
+                var index = -1;
+                var i = 0;
+                foreach (var database in databases)
+                {
+                    databaseCombobox.Items.Add(database.Name);
+                    if (database.Name == TechnicalSettings.DatabaseName)
+                    {
+                        index = i;
+                    }
+                    i++;
+                }
+                databaseCombobox.SelectedIndex = index;
+                usernameTextbox.Focus();
+            };
+            Disable();
+            backgroundWorker.RunWorkerAsync();
+        }
+
         private void LoadForm()
         {
-            if (_userName != null)
-                usernameTextbox.Text = _userName;
+            if (_userName != null) usernameTextbox.Text = _userName;
+            if (_password != null) passwordTextbox.Text = _password;
 
-            if (_password != null)
-                passwordTextbox.Text = _password;
-
-            usernameTextbox.Focus();
+            InitDatabaseList();
         }
 
         private void Start()
         {
             if (!UserIsValid())
+            {
                 SetUser();
+                TechnicalSettings.DatabaseName = databaseCombobox.Text;
+            }
             else
                 MessageBox.Show(MultiLanguageStrings.GetString(
                     Ressource.PasswordForm,
                     "messageBoxUserPasswordBlank.Text"), "",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void SetUser()
