@@ -19,7 +19,6 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
-using System;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain;
 using OpenCBS.MultiLanguageRessources;
@@ -27,20 +26,27 @@ using OpenCBS.Services;
 
 namespace OpenCBS.GUI.Login
 {
-    public partial class FrmLogin : Form
+    public partial class LoginForm : Form
     {
         private readonly string _userName;
         private readonly string _password;
 
-        public FrmLogin(string pUserName, string pPassword)
+        public LoginForm(string userName, string password)
         {
             InitializeComponent();
-
-            _userName = pUserName;
-            _password = pPassword;
+            Setup();
+            _userName = userName;
+            _password = password;
         }
 
-        private void OnLoad(object sender, EventArgs e)
+        private void Setup()
+        {
+            Load += (sender, args) => LoadForm();
+            exitButton.Click += (sender, args) => Close();
+            startButton.Click += (sender, args) => Start();
+        }
+
+        private void LoadForm()
         {
             if (_userName != null)
                 textBoxUserName.Text = _userName;
@@ -51,14 +57,9 @@ namespace OpenCBS.GUI.Login
             textBoxUserName.Focus();
         }
 
-        private void OnExitButtonClick(object sender, EventArgs e)
+        private void Start()
         {
-            Close();
-        }
-
-        private void OnOkButtonClick(object sender, EventArgs e)
-        {
-            if (!(UserIsValid()))
+            if (!UserIsValid())
                 SetUser();
             else
                 MessageBox.Show(MultiLanguageStrings.GetString(
@@ -69,7 +70,7 @@ namespace OpenCBS.GUI.Login
 
         private void SetUser()
         {
-            User user = ServicesProvider.GetInstance().GetUserServices().Find(textBoxUserName.Text, textBoxPassword.Text);
+            var user = ServicesProvider.GetInstance().GetUserServices().Find(textBoxUserName.Text, textBoxPassword.Text);
 
             if (user == null)
             {
@@ -89,11 +90,6 @@ namespace OpenCBS.GUI.Login
         private bool UserIsValid()
         {
             return string.IsNullOrEmpty(textBoxUserName.Text) || string.IsNullOrEmpty(textBoxPassword.Text);
-        }
-
-        private void pictureBox_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

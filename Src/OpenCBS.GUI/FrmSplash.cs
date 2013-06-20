@@ -103,7 +103,7 @@ namespace OpenCBS.GUI
         
         private void _LoadLoginForm(bool pUseOnlineMode)
         {
-            FrmLogin login = new FrmLogin(_user, _password);
+            LoginForm login = new LoginForm(_user, _password);
             login.ShowDialog();
         }
 

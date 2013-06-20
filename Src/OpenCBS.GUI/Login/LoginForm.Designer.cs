@@ -4,14 +4,14 @@ using OpenCBS.GUI.UserControl;
 
 namespace OpenCBS.GUI.Login
 {
-    public partial class FrmLogin
+    public partial class LoginForm
     {
-        private System.Windows.Forms.Button buttonOK;
+        private System.Windows.Forms.Button startButton;
         private TextBox textBoxUserName;
         private TextBox textBoxPassword;
         private Label labelUserName;
         private Label labelPassword;
-        private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Button exitButton;
         private PictureBox pictureBox;
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -40,24 +40,23 @@ namespace OpenCBS.GUI.Login
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
-            this.buttonOK = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
+            this.startButton = new System.Windows.Forms.Button();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelUserName = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
-            this.buttonExit = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonOK
+            // startButton
             // 
-            this.buttonOK.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.buttonOK, "buttonOK");
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.UseVisualStyleBackColor = false;
-            this.buttonOK.Click += new System.EventHandler(this.OnOkButtonClick);
+            this.startButton.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.startButton, "startButton");
+            this.startButton.Name = "startButton";
+            this.startButton.UseVisualStyleBackColor = false;
             // 
             // textBoxUserName
             // 
@@ -81,14 +80,13 @@ namespace OpenCBS.GUI.Login
             resources.ApplyResources(this.labelPassword, "labelPassword");
             this.labelPassword.Name = "labelPassword";
             // 
-            // buttonExit
+            // exitButton
             // 
-            this.buttonExit.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            resources.ApplyResources(this.buttonExit, "buttonExit");
-            this.buttonExit.Name = "buttonExit";
-            this.buttonExit.UseVisualStyleBackColor = false;
-            this.buttonExit.Click += new System.EventHandler(this.OnExitButtonClick);
+            this.exitButton.BackColor = System.Drawing.SystemColors.Control;
+            this.exitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.exitButton, "exitButton");
+            this.exitButton.Name = "exitButton";
+            this.exitButton.UseVisualStyleBackColor = false;
             // 
             // pictureBox
             // 
@@ -97,20 +95,19 @@ namespace OpenCBS.GUI.Login
             resources.ApplyResources(this.pictureBox, "pictureBox");
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.TabStop = false;
-            this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // FrmLogin
             // 
-            this.AcceptButton = this.buttonOK;
+            this.AcceptButton = this.startButton;
             resources.ApplyResources(this, "$this");
             this.BackColor = System.Drawing.Color.White;
-            this.CancelButton = this.buttonExit;
+            this.CancelButton = this.exitButton;
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.textBoxUserName);
-            this.Controls.Add(this.buttonExit);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.textBoxPassword);
-            this.Controls.Add(this.buttonOK);
+            this.Controls.Add(this.startButton);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelUserName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -118,7 +115,6 @@ namespace OpenCBS.GUI.Login
             this.MinimizeBox = false;
             this.Name = "FrmLogin";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.OnLoad);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
