@@ -42,19 +42,18 @@ namespace OpenCBS.GUI.Login
         private void Setup()
         {
             Load += (sender, args) => LoadForm();
-            exitButton.Click += (sender, args) => Close();
             startButton.Click += (sender, args) => Start();
         }
 
         private void LoadForm()
         {
             if (_userName != null)
-                textBoxUserName.Text = _userName;
+                usernameTextbox.Text = _userName;
 
             if (_password != null)
-                textBoxPassword.Text = _password;
+                passwordTextbox.Text = _password;
 
-            textBoxUserName.Focus();
+            usernameTextbox.Focus();
         }
 
         private void Start()
@@ -70,15 +69,18 @@ namespace OpenCBS.GUI.Login
 
         private void SetUser()
         {
-            var user = ServicesProvider.GetInstance().GetUserServices().Find(textBoxUserName.Text, textBoxPassword.Text);
+            var user = ServicesProvider
+                .GetInstance()
+                .GetUserServices()
+                .Find(usernameTextbox.Text, passwordTextbox.Text);
 
             if (user == null)
             {
                 MessageBox.Show(MultiLanguageStrings.GetString(Ressource.PasswordForm, "messageBoxUserPasswordIncorrect.Text"), "",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                textBoxPassword.Focus();
-                textBoxPassword.SelectAll();
+                passwordTextbox.Focus();
+                passwordTextbox.SelectAll();
             }
             else
             {
@@ -89,7 +91,7 @@ namespace OpenCBS.GUI.Login
 
         private bool UserIsValid()
         {
-            return string.IsNullOrEmpty(textBoxUserName.Text) || string.IsNullOrEmpty(textBoxPassword.Text);
+            return string.IsNullOrEmpty(usernameTextbox.Text) || string.IsNullOrEmpty(passwordTextbox.Text);
         }
     }
 }

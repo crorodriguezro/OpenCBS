@@ -7,12 +7,12 @@ namespace OpenCBS.GUI.Login
     public partial class LoginForm
     {
         private System.Windows.Forms.Button startButton;
-        private TextBox textBoxUserName;
-        private TextBox textBoxPassword;
-        private Label labelUserName;
-        private Label labelPassword;
+        private TextBox usernameTextbox;
+        private TextBox passwordTextbox;
+        private Label usernameLabel;
+        private Label passwordLabel;
         private System.Windows.Forms.Button exitButton;
-        private PictureBox pictureBox;
+        private PictureBox logoPicturebox;
         /// <summary>
         /// Variable nécessaire au concepteur.
         /// </summary>
@@ -42,13 +42,13 @@ namespace OpenCBS.GUI.Login
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.startButton = new System.Windows.Forms.Button();
-            this.textBoxUserName = new System.Windows.Forms.TextBox();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.labelUserName = new System.Windows.Forms.Label();
-            this.labelPassword = new System.Windows.Forms.Label();
+            this.usernameTextbox = new System.Windows.Forms.TextBox();
+            this.passwordTextbox = new System.Windows.Forms.TextBox();
+            this.usernameLabel = new System.Windows.Forms.Label();
+            this.passwordLabel = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.logoPicturebox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPicturebox)).BeginInit();
             this.SuspendLayout();
             // 
             // startButton
@@ -58,27 +58,27 @@ namespace OpenCBS.GUI.Login
             this.startButton.Name = "startButton";
             this.startButton.UseVisualStyleBackColor = false;
             // 
-            // textBoxUserName
+            // usernameTextbox
             // 
-            resources.ApplyResources(this.textBoxUserName, "textBoxUserName");
-            this.textBoxUserName.Name = "textBoxUserName";
+            resources.ApplyResources(this.usernameTextbox, "usernameTextbox");
+            this.usernameTextbox.Name = "usernameTextbox";
             // 
-            // textBoxPassword
+            // passwordTextbox
             // 
-            resources.ApplyResources(this.textBoxPassword, "textBoxPassword");
-            this.textBoxPassword.Name = "textBoxPassword";
+            resources.ApplyResources(this.passwordTextbox, "passwordTextbox");
+            this.passwordTextbox.Name = "passwordTextbox";
             // 
-            // labelUserName
+            // usernameLabel
             // 
-            this.labelUserName.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.labelUserName, "labelUserName");
-            this.labelUserName.Name = "labelUserName";
+            this.usernameLabel.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.usernameLabel, "usernameLabel");
+            this.usernameLabel.Name = "usernameLabel";
             // 
-            // labelPassword
+            // passwordLabel
             // 
-            this.labelPassword.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.labelPassword, "labelPassword");
-            this.labelPassword.Name = "labelPassword";
+            this.passwordLabel.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.passwordLabel, "passwordLabel");
+            this.passwordLabel.Name = "passwordLabel";
             // 
             // exitButton
             // 
@@ -88,34 +88,34 @@ namespace OpenCBS.GUI.Login
             this.exitButton.Name = "exitButton";
             this.exitButton.UseVisualStyleBackColor = false;
             // 
-            // pictureBox
+            // logoPicturebox
             // 
-            this.pictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox.BackgroundImage = global::OpenCBS.GUI.Properties.Resources.LOGO;
-            resources.ApplyResources(this.pictureBox, "pictureBox");
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.TabStop = false;
+            this.logoPicturebox.BackColor = System.Drawing.Color.Transparent;
+            this.logoPicturebox.BackgroundImage = global::OpenCBS.GUI.Properties.Resources.LOGO;
+            resources.ApplyResources(this.logoPicturebox, "logoPicturebox");
+            this.logoPicturebox.Name = "logoPicturebox";
+            this.logoPicturebox.TabStop = false;
             // 
-            // FrmLogin
+            // LoginForm
             // 
             this.AcceptButton = this.startButton;
             resources.ApplyResources(this, "$this");
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.exitButton;
             this.ControlBox = false;
-            this.Controls.Add(this.pictureBox);
-            this.Controls.Add(this.textBoxUserName);
+            this.Controls.Add(this.logoPicturebox);
+            this.Controls.Add(this.usernameTextbox);
             this.Controls.Add(this.exitButton);
-            this.Controls.Add(this.textBoxPassword);
+            this.Controls.Add(this.passwordTextbox);
             this.Controls.Add(this.startButton);
-            this.Controls.Add(this.labelPassword);
-            this.Controls.Add(this.labelUserName);
+            this.Controls.Add(this.passwordLabel);
+            this.Controls.Add(this.usernameLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmLogin";
+            this.Name = "LoginForm";
             this.TopMost = true;
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPicturebox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
