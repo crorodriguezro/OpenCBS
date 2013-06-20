@@ -39,7 +39,7 @@ namespace OpenCBS.Engine
             var actualEndDate = firstInstallment.EndDate;
             if (periodEndDate != actualEndDate)
             {
-                var numerator = (decimal) (firstInstallment.EndDate - firstInstallment.StartDate).Days;
+                var numerator = (decimal) (firstInstallment.EndDate.Date - firstInstallment.StartDate.Date).Days;
                 var denominator = configuration.PeriodPolicy.GetNumberOfDays(firstInstallment.EndDate);
                 firstInstallment.Interest = configuration.RoundingPolicy.Round(firstInstallment.Interest * numerator / denominator);
             }
@@ -53,7 +53,7 @@ namespace OpenCBS.Engine
             return result;
         }
 
-        private IInstallment BuildFirst(IScheduleConfiguration configuration)
+        private static IInstallment BuildFirst(IScheduleConfiguration configuration)
         {
             var installment = new Installment
             {
@@ -70,7 +70,7 @@ namespace OpenCBS.Engine
             return installment;
         }
 
-        private IInstallment BuildNext(IInstallment previous, IScheduleConfiguration configuration)
+        private static IInstallment BuildNext(IInstallment previous, IScheduleConfiguration configuration)
         {
             if (previous == null) throw new ArgumentException("Previous installment cannot be null.");
 
@@ -89,7 +89,7 @@ namespace OpenCBS.Engine
             return installment;
         }
 
-        private decimal CalculateInterest(IInstallment installment, IScheduleConfiguration configuration)
+        private static decimal CalculateInterest(IInstallment installment, IScheduleConfiguration configuration)
         {
             var daysInPeriod = configuration.PeriodPolicy.GetNumberOfDays(installment.EndDate);
             var daysInYear = configuration.YearPolicy.GetNumberOfDays(installment.EndDate);

@@ -124,8 +124,8 @@ namespace OpenCBS.GUI.Contracts
                 GracePeriod = (int)gracePeriodNumericUpDown.Value,
                 InterestRate = interestRateNumericUpDown.Value,
                 NumberOfInstallments = (int)installmentsNumericUpDown.Value,
-                PreferredFirstInstallmentDate = firstRepaymentDateTimePicker.Value,
-                StartDate = startDateTimePicker.Value,
+                PreferredFirstInstallmentDate = firstRepaymentDateTimePicker.Value.Date,
+                StartDate = startDateTimePicker.Value.Date,
             };
         }
 
