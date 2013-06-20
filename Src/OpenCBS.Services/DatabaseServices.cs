@@ -352,6 +352,15 @@ namespace OpenCBS.Services
             }
         }
 
+        public List<SqlDatabaseSettings> GetOpenCbsDatabases()
+        {
+            using (var connection = ConnectionManager.GeneralSqlConnection)
+            {
+                connection.Open();
+                return DatabaseManager.GetOpenCbsDatabases(connection);
+            }
+        }
+
         public List<SqlDatabaseSettings> GetSQLDatabasesSettings(string pDatabaseServerName, string pDatabaseLoginName, string pDatabasePassword)
         {
             SqlConnection connection = ConnectionManager.GeneralSqlConnection;

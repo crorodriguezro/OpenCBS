@@ -21,6 +21,8 @@
 
 using System;
 using System.Data.SqlClient;
+using System.IO;
+using System.Reflection;
 using OpenCBS.CoreDomain;
 using OpenCBS.DatabaseConnection;
 
@@ -73,6 +75,17 @@ namespace OpenCBS.Manager
             string query = string.Format(deleteSql, tableName);
             using (OpenCbsCommand command = new OpenCbsCommand(query, transaction.Connection, transaction))
                 command.ExecuteNonQuery();
+        }
+
+        protected static string ReadQuery(string queryPath)
+        {
+            using (var stream = Assembly
+                .GetExecutingAssembly()
+                .GetManifestResourceStream("OpenCBS.Manager.SQL." + queryPath))
+            using (var reader = new StreamReader(stream))
+            {
+                return reader.ReadToEnd();
+            }
         }
     }
 }
