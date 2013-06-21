@@ -103,7 +103,7 @@ namespace OpenCBS.GUI
         
         private void _LoadLoginForm(bool pUseOnlineMode)
         {
-            FrmLogin login = new FrmLogin(_user, _password);
+            LoginForm login = new LoginForm(_user, _password);
             login.ShowDialog();
         }
 
@@ -315,7 +315,6 @@ namespace OpenCBS.GUI
         private void backgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             Hide();
-            ServicesProvider.GetInstance().GetApplicationSettingsServices().SetBuildNumber(TechnicalSettings.SoftwareBuild);
             _LoadLoginForm(TechnicalSettings.UseOnlineMode);
 
             if (User.CurrentUser.Id == 0)

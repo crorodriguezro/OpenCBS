@@ -111,16 +111,6 @@ namespace OpenCBS.Manager.Database
                 c.ExecuteNonQuery();
             }
         }
-        public void SetBuildNumber(string buildNum)
-        {
-            string query = "UPDATE [TechnicalParameters] SET [value]=@value WHERE [name]='BuildNumber'";
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(query, conn))
-            {
-                c.AddParam("@value", buildNum);
-                c.ExecuteNonQuery();
-            }
-        }
      
         public void AddParameter(DictionaryEntry entry)
         {

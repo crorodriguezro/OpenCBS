@@ -23,6 +23,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Security.Principal;
 using System.Text;
 using System.Xml.XPath;
 using OpenCBS.CoreDomain;
@@ -34,16 +35,16 @@ using OpenCBS.CoreDomain.Database;
 
 namespace OpenCBS.Manager.Database
 {
-    public class DatabaseManager
+    public class DatabaseManager : Manager
     {
         internal  string _database;
 
-        public DatabaseManager(User pUser)
+        public DatabaseManager(User pUser) : base(pUser)
         {
             Init();
         }
 
-        public DatabaseManager(string pTestDb)
+        public DatabaseManager(string pTestDb) : base(pTestDb)
         {
             Init();
         }
@@ -573,6 +574,29 @@ namespace OpenCBS.Manager.Database
 
             OpenCbsCommand cmd = new OpenCbsCommand {CommandText = q, Connection = conn};
             return Convert.ToBoolean(cmd.ExecuteScalar());
+        }
+     
+        public static List<SqlDatabaseSettings> GetOpenCbsDatabases(SqlConnection connection)
+        {
+            var result = new List<SqlDatabaseSettings>();
+            var query = ReadQuery("OpenCBSDatabases.sql");
+            query = string.Format(query, WindowsIdentity.GetCurrent().Name);
+            using (var command = new OpenCbsCommand(query, connection))
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    result.Add(new SqlDatabaseSettings
+                    {
+                        Name = reader.GetString("Name"),
+                        BranchCode = reader.GetString("BranchCode"),
+                        DataFileSize = reader.GetInt("DataFileSize"),
+                        LogFileSize = reader.GetInt("LogFileSize"),
+                        Version = reader.GetString("Version"),
+                    });
+                }
+            }
+            return result;
         }
     }
 }

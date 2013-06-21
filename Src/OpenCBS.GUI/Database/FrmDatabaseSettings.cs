@@ -516,9 +516,7 @@ namespace OpenCBS.GUI.Database
 
         private void backgroundWorkerDetectDatabases_DoWork(object sender, DoWorkEventArgs e)
         {
-            _sqlDatabases = DatabaseServices.GetSQLDatabasesSettings(
-                    TechnicalSettings.DatabaseServerName, TechnicalSettings.DatabaseLoginName,
-                    TechnicalSettings.DatabasePassword);
+            _sqlDatabases = DatabaseServices.GetOpenCbsDatabases();
         }
 
         private void bWDatabaseCreation_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

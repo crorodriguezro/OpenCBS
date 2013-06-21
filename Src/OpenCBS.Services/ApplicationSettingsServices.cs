@@ -119,10 +119,5 @@ namespace OpenCBS.Services
         {
             _dataParamManager.SetGuid(guid);
         }
-
-        public void SetBuildNumber(string buildnum)
-        {
-            _dataParamManager.SetBuildNumber(buildnum);
-        }
 	}
 }

@@ -667,11 +667,11 @@
     <Compile Include="Export\StringFieldPropertiesForm.Designer.cs">
       <DependentUpon>StringFieldPropertiesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\FrmLogin.cs">
+    <Compile Include="Login\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <Compile Include="Login\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MultiLanguageForm.cs">
       <SubType>Form</SubType>
@@ -2261,8 +2261,8 @@
     <EmbeddedResource Include="InputBox.pt.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\FrmLogin.pt.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Login\LoginForm.pt.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LotrasmicMainWindowForm.fr-FR.resx">
       <DependentUpon>LotrasmicMainWindowForm.cs</DependentUpon>
@@ -2355,20 +2355,20 @@
       <DependentUpon>RepaymentCollectionSheetForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\FrmLogin.es-ES.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Login\LoginForm.es-ES.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\FrmLogin.fr.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Login\LoginForm.fr.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Login\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\FrmLogin.ru-RU.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Login\LoginForm.ru-RU.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MFI\frmMFI.fr.resx">
