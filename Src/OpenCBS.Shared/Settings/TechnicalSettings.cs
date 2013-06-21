@@ -20,12 +20,10 @@
 // Contact: contact@opencbs.com
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Windows.Forms;
-using System.Collections.Generic;
 using Microsoft.Win32;
 
 namespace OpenCBS.Shared.Settings
@@ -183,49 +181,6 @@ namespace OpenCBS.Shared.Settings
             get { return 0; }
         }
 
-        public static string SoftwareVersionWithBuild
-        {
-            get
-            {
-                string build = SoftwareBuild;
-                if (string.IsNullOrEmpty(build)) return SoftwareVersion;
-                return string.Format("{0}.{1}", SoftwareVersion, build);
-            }
-        }
-
-        public static string SoftwareBuild
-        {
-            get { return GetRevisionNumberFromFile(); }
-        }
-
-        private static string GetRevisionNumberFromFile()
-        {
-            string revisionNumber;
-
-            try
-            {
-                TextReader textReader = new StreamReader(Application.StartupPath + "\\" + "BuildLabel.txt");
-                revisionNumber = textReader.ReadLine();
-                if (string.IsNullOrEmpty(revisionNumber))
-                    return string.Empty;
-            }
-            catch (FileNotFoundException)
-            {
-                return string.Empty;
-            }
-
-            try
-            {
-                Convert.ToInt32(revisionNumber);
-            }
-            catch (Exception)
-            {
-                return string.Empty;
-            }
-
-            return revisionNumber;
-        }
-
         public static bool CheckSettings()
         {
             var values = new[]
@@ -244,12 +199,16 @@ namespace OpenCBS.Shared.Settings
             return string.Format(RegistryPathTemplate, textVersion);
         }
 
+        private static RegistryKey OpenRegistryKey()
+        {
+            var path = GetRegistryPath();
+            return Registry.CurrentUser.OpenSubKey(path, true) ?? Registry.LocalMachine.OpenSubKey(path, true);
+        }
+
         private static void SetValue(string key, string value)
         {
             Settings[key] = value;
-
-            string path = GetRegistryPath();
-            using (RegistryKey reg = Registry.LocalMachine.OpenSubKey(path, true))
+            using (var reg = OpenRegistryKey())
             {
                 if (null == reg) return;
                 reg.SetValue(key, value);
@@ -263,8 +222,7 @@ namespace OpenCBS.Shared.Settings
                 return Settings[key];
             }
 
-            string path = GetRegistryPath();
-            using (RegistryKey reg = Registry.LocalMachine.OpenSubKey(path, true))
+            using (var reg = OpenRegistryKey())
             {
                 if (null == reg) return defaultValue;
                 string value = reg.GetValue(key, defaultValue).ToString();
