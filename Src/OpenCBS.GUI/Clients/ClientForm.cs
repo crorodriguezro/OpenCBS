@@ -534,6 +534,8 @@ namespace OpenCBS.GUI.Clients
             tabControlPerson.TabPages.Remove(tabPageSavingDetails);
             tabControlPerson.TabPages.Remove(tabPageContracts);
 
+            InitializeProjectAddress();
+            
             if (pClientType == OClientTypes.Person)
             {
                 _personUserControl = new PersonUserControl(_person, pMdiParent, _extensionActivator)
@@ -554,7 +556,7 @@ namespace OpenCBS.GUI.Clients
                 _personUserControl.AddSelectedSaving += PersonUserControl_SavingSelected;
                 _personUserControl.ViewSelectedSaving += PersonUserControl_ViewSelectedSaving;
                 tabPageDetails.Controls.Add(_personUserControl);
-
+                
                 if (!ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
                 {
                     _personUserControl.RemoveSavings();
@@ -582,11 +584,12 @@ namespace OpenCBS.GUI.Clients
                 _groupUserControl.MembersChanged += MembersChanged;
 
                 tabPageDetails.Controls.Add(_groupUserControl);
-
+                
                 if (!ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
                 {
                     _groupUserControl.RemoveSavings();
                     panelSavingsContracts.Controls.Add(_groupUserControl.PanelSavings);
+                    AddProject(null);
                 }
             }
             else
@@ -610,7 +613,7 @@ namespace OpenCBS.GUI.Clients
                     _corporateUserControl.CloseCorporate += CorporateUserControl_Closed;
 
                 tabPageDetails.Controls.Add(_corporateUserControl);
-
+                
                 if (!ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
                 {
                     _corporateUserControl.RemoveSavings();
@@ -619,7 +622,6 @@ namespace OpenCBS.GUI.Clients
                     tabControlPerson.SelectedTab = tabPageCorporate;
                 }
             }
-            InitializeProjectAddress();
         }
 
         private void InitializeCustomizableFields(OCustomizableFieldEntities entity, int? linkId, bool isActive)
