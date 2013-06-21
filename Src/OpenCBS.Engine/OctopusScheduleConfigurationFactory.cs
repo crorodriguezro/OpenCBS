@@ -127,7 +127,7 @@ namespace OpenCBS.Engine
 
         private IDateShiftPolicy GetDateShiftPolicy()
         {
-            string key = string.Empty;
+            string key;
             if (_settings.DoNotSkipNonWorkingDays)
             {
                 key = "No";
@@ -141,14 +141,14 @@ namespace OpenCBS.Engine
 
         private IAdjustmentPolicy GetAdjustmentPolicy()
         {
-            string key = string.Empty;
+            string key;
             switch (_loan.Product.RoundingType)
             {
                 case ORoundingType.Begin:
                     key = "First installment";
                     break;
 
-                case ORoundingType.End:
+                default:
                     key = "Last installment";
                     break;
             }
