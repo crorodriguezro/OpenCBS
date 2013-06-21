@@ -346,8 +346,8 @@ namespace OpenCBS.DatabaseConnection
 
         public static SqlConnection MasterConnection()
         {
-            string sqlConnection = String.Format(@"user id={0};password={1};data source={2};persist security info=False;initial catalog=MASTER;connection timeout=10",
-                TechnicalSettings.DatabaseLoginName, TechnicalSettings.DatabasePassword, TechnicalSettings.DatabaseServerName);
+            string sqlConnection = String.Format(@"user id={0};password={1};data source={2};persist security info=False;initial catalog=MASTER;connection timeout={3}",
+                TechnicalSettings.DatabaseLoginName, TechnicalSettings.DatabasePassword, TechnicalSettings.DatabaseServerName, TechnicalSettings.DatabaseTimeout);
             return new SqlConnection(sqlConnection);
         }
     }
