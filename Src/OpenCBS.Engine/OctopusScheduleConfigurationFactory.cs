@@ -65,7 +65,10 @@ namespace OpenCBS.Engine
             _scheduleConfiguration.Amount = _loan.Amount.Value;
             _scheduleConfiguration.NumberOfInstallments = _loan.NbOfInstallments;
             _scheduleConfiguration.GracePeriod = _loan.GracePeriod.HasValue ? _loan.GracePeriod.Value : 0;
-            _scheduleConfiguration.InterestRate = _loan.InterestRate * 12 * 100;
+            var numberOfPeriods = (decimal)_scheduleConfiguration
+                .PeriodPolicy
+                .GetNumberOfPeriodsInYear(_loan.StartDate, _scheduleConfiguration.YearPolicy);
+            _scheduleConfiguration.InterestRate = _loan.InterestRate * numberOfPeriods * 100;
             _scheduleConfiguration.StartDate = _loan.StartDate;
             _scheduleConfiguration.PreferredFirstInstallmentDate = _loan.FirstInstallmentDate;
             return this;
