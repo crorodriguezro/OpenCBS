@@ -29,8 +29,6 @@ using System.Xml;
 using Moletrator.SQLDocumentor;
 using OpenCBS.CoreDomain.Database;
 using OpenCBS.DatabaseConnection;
-using OpenCBS.ExceptionsHandler;
-using OpenCBS.Manager;
 using OpenCBS.Manager.Database;
 using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
@@ -357,7 +355,10 @@ namespace OpenCBS.Services
             using (var connection = ConnectionManager.GeneralSqlConnection)
             {
                 connection.Open();
-                return DatabaseManager.GetOpenCbsDatabases(connection);
+                var availableDatabases = TechnicalSettings.AvailableDatabases;
+                return DatabaseManager
+                    .GetOpenCbsDatabases(connection)
+                    .FindAll(database => availableDatabases.Count == 0 || availableDatabases.Contains(database.Name));
             }
         }
 
