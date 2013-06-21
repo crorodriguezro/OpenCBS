@@ -54,6 +54,8 @@ namespace OpenCBS.GUI.Contracts
 
         public void InitializeTrancheComponents()
         {
+            startDateTimePicker.Value = DateTime.Today;
+
             if (Contract.Product.NbOfInstallments != null)
             {
                 installmentsNumericUpDown.Maximum = (decimal)Contract.Product.NbOfInstallments;
