@@ -26,11 +26,13 @@ namespace OpenCBS.CoreDomain.Dashboard
     {
         public List<ActionStat> ActionStats { get; private set; }
         public List<PortfolioLine> PortfolioLines { get; private set; }
+        public List<PortfolioLineForTable> PortfolioLinesForTable { get; private set; }
 
         public Dashboard()
         {
             ActionStats = new List<ActionStat>();
             PortfolioLines = new List<PortfolioLine>();
+            PortfolioLinesForTable = new List<PortfolioLineForTable>();
         }
 
         public decimal Olb
