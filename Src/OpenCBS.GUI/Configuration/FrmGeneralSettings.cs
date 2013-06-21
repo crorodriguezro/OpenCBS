@@ -24,6 +24,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Globalization;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain.Online;
 using OpenCBS.Enums;
@@ -221,7 +222,8 @@ namespace OpenCBS.GUI.Configuration
                     listViewItem.Tag = provisioningRate;
                     listViewItem.SubItems.Add("rescheduled");
                     listViewItem.SubItems.Add("-");
-                    listViewItem.SubItems.Add((Math.Round(provisioningRate.Rate, 2) * 100).ToString());
+                    //listViewItem.SubItems.Add((Math.Round(provisioningRate.Rate, 2) * 100).ToString());
+                    listViewItem.SubItems.Add((provisioningRate.Rate * 100).ToString());
                     listViewItemRes = listViewItem;
                 }
                 else
@@ -229,7 +231,8 @@ namespace OpenCBS.GUI.Configuration
                     listViewItem.Tag = provisioningRate;
                     listViewItem.SubItems.Add(provisioningRate.NbOfDaysMin.ToString());
                     listViewItem.SubItems.Add(provisioningRate.NbOfDaysMax.ToString());
-                    listViewItem.SubItems.Add((Math.Round(provisioningRate.Rate, 2)*100).ToString());
+                    //listViewItem.SubItems.Add((Math.Round(provisioningRate.Rate, 2)*100).ToString());
+                    listViewItem.SubItems.Add((provisioningRate.Rate * 100).ToString());
                     listViewProvisioningRules.Items.Add(listViewItem);
                 }
             }
@@ -958,13 +961,22 @@ namespace OpenCBS.GUI.Configuration
 
         private void textBoxProvisioning_TextChanged(object sender, EventArgs e)
         {
-            pR.Rate = ServicesHelper.ConvertStringToDouble(textBoxProvisioning.Text, true);
+            try
+            {
+                pR.Rate = Convert.ToDouble(textBoxProvisioning.Text) / 100;
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Invalid format: " + ex.Message);
+            }
+
         }
 
         private void textBoxProvisioning_KeyPress(object sender, KeyPressEventArgs e)
         {
             const char Delete = (char) 8;
-            e.Handled = !Char.IsDigit(e.KeyChar) && e.KeyChar != Delete;
+            char decimalSeparator = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+            e.Handled = !Char.IsDigit(e.KeyChar) && e.KeyChar != Delete && e.KeyChar != decimalSeparator;
         }
 
         private void listViewProvisioningRules_Click(object sender, EventArgs e)
@@ -995,7 +1007,7 @@ namespace OpenCBS.GUI.Configuration
 
             if (pR.NbOfDaysMin == -1)
             {
-                textBoxProvisioning.Text = (Math.Round(pR.Rate, 2) * 100).ToString();
+                textBoxProvisioning.Text = (pR.Rate * 100).ToString();
                 textBoxNbOfDaysMin.Text = @"rest.";
                 textBoxNbOfDaysMax.Text = @"rest.";
             }
@@ -1003,7 +1015,7 @@ namespace OpenCBS.GUI.Configuration
             {
                 textBoxNbOfDaysMin.Text = pR.NbOfDaysMin.ToString();
                 textBoxNbOfDaysMax.Text = pR.NbOfDaysMax.ToString();
-                textBoxProvisioning.Text = (Math.Round(pR.Rate, 2) * 100).ToString();
+                textBoxProvisioning.Text = (pR.Rate * 100).ToString();
             }
         }
 
