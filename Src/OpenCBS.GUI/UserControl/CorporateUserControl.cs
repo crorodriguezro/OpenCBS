@@ -425,9 +425,8 @@ namespace OpenCBS.GUI.UserControl
             var member = ServicesProvider.GetInstance().GetClientServices().FindPersonById(contact.Tiers.Id);
             if (member != null)
             {
-                ClientForm frm;
-                frm = new ClientForm(member, _mdifrom, ExtensionActivator);
-                frm.ShowDialog();
+                var clientForm = new ClientForm(member, _mdifrom, ExtensionActivator);
+                clientForm.ShowDialog();
             }
         }
 

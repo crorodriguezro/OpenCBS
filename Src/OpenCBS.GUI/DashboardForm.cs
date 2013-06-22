@@ -70,7 +70,7 @@ namespace OpenCBS.GUI
             parAmountColumn.AspectToStringConverter = value =>
                 {
                     var amount = (decimal)value;
-                    return amount.ToString("N0",numberFormatInfo);
+                    return amount.ToString("N0", numberFormatInfo);
                 };
             parNameColumn.AspectToStringConverter = value =>
             {
