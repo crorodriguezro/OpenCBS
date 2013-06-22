@@ -233,7 +233,6 @@
     <Compile Include="Contracts\Savings\CalculateInterests\Posting\EndOfYear.cs" />
     <Compile Include="Contracts\Savings\ISavingsContract.cs" />
     <Compile Include="Contracts\Savings\SavingsContract.cs" />
-    <Compile Include="Contracts\Loans\Tranches\Tranche.cs" />
     <Compile Include="CreditScoring\Answer.cs" />
     <Compile Include="CreditScoring\EnumDescription.cs" />
     <Compile Include="CreditScoring\Question.cs" />

@@ -29,7 +29,6 @@ using OpenCBS.CoreDomain.Alerts;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts;
 using OpenCBS.CoreDomain.Contracts.Loans;
-using OpenCBS.CoreDomain.Contracts.Loans.Tranches;
 using OpenCBS.CoreDomain.Contracts.Rescheduling;
 using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.CoreDomain.EconomicActivities;

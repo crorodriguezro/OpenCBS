@@ -160,7 +160,6 @@
     <Compile Include="CoreDomain\Accounting\TestContractAccountingRule.cs" />
     <Compile Include="CoreDomain\Accounting\TestAccountingRuleCollection.cs" />
     <Compile Include="CoreDomain\Contracts\LoanRepayment\MaxRepayment\TestCalculateMaximumAmountToRepayWithCentsInAccrualMode.cs" />
-    <Compile Include="CoreDomain\Contracts\Loans\TestAddTranches.cs" />
     <Compile Include="CoreDomain\Contracts\Loans\TestOLBCalculation.cs" />
     <Compile Include="CoreDomain\Contracts\Loans\TestRescheduling.cs" />
     <Compile Include="CoreDomain\Contracts\Savings\CalculateInterests\Daily.cs" />

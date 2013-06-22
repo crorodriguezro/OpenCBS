@@ -22,27 +22,26 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Clients;
+using OpenCBS.CoreDomain.Contracts.Collaterals;
 using OpenCBS.CoreDomain.Contracts.Loans.CalculateInstallments;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment;
 using OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateInstallments;
-using OpenCBS.CoreDomain.Contracts.Loans.Tranches;
 using OpenCBS.CoreDomain.Contracts.Rescheduling;
+using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.CoreDomain.EconomicActivities;
 using OpenCBS.CoreDomain.Events;
 using OpenCBS.CoreDomain.Events.Loan;
 using OpenCBS.CoreDomain.Events.Saving;
 using OpenCBS.CoreDomain.FundingLines;
 using OpenCBS.CoreDomain.Products;
-using OpenCBS.Shared;
 using OpenCBS.Enums;
-using OpenCBS.CoreDomain.Accounting;
-using OpenCBS.Shared.Settings;
 using OpenCBS.ExceptionsHandler;
-using OpenCBS.CoreDomain.Contracts.Savings;
-using OpenCBS.CoreDomain.Contracts.Collaterals;
-using System.Linq;
+using OpenCBS.Shared;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.CoreDomain.Contracts.Loans
 {
@@ -2482,19 +2481,6 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
             _nbOfInstallments = _installmentList.Count;
             Events.Add(rSe);
             return rSe;
-        }
-
-        public TrancheEvent CalculateTranche(TrancheOptions pTo)
-        {
-            var tranche = new Tranche(this, _generalSettings);
-
-            return tranche.AddTranche(pTo);
-        }
-
-        public TrancheEvent AddTranche(TrancheEvent pTe)
-        {
-            GivenTranches.Add(pTe);
-            return pTe;
         }
 
         public Installment LastInstallment
