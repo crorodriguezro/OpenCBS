@@ -67,7 +67,11 @@ namespace OpenCBS.GUI
                 NumberGroupSeparator = " ",
                 NumberDecimalSeparator = ",",
             };
-
+            parAmountColumn.AspectToStringConverter = value =>
+                {
+                    var amount = (decimal)value;
+                    return amount.ToString("N0",numberFormatInfo);
+                };
             parNameColumn.AspectToStringConverter = value =>
             {
                 var name = (string) value;
@@ -75,8 +79,8 @@ namespace OpenCBS.GUI
             };
             parListView.RowFormatter = listViewItem =>
             {
-                var portfolioLineForTable = (PortfolioLineForTable)listViewItem.RowObject;
-                if (portfolioLineForTable.Name == "Total")
+                var portfolioLine = (PortfolioLine)listViewItem.RowObject;
+                if (portfolioLine.Name == "Total")
                 {
                     var font = listViewItem.Font;
                     listViewItem.Font = new Font(font.Name, font.Size, FontStyle.Bold);
@@ -316,7 +320,7 @@ namespace OpenCBS.GUI
 
         private void RefreshParTable(Dashboard dashboard)
         {
-            parListView.SetObjects(dashboard.PortfolioLinesForTable);
+            parListView.SetObjects(dashboard.PortfolioLines);
         }
 
         private void RefreshDashboard()
