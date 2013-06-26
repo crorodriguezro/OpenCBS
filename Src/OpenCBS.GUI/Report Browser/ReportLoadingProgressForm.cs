@@ -10,17 +10,25 @@ namespace OpenCBS.GUI.Report_Browser
         public ReportLoadingProgressForm()
         {
             InitializeComponent();
+            Setup();
         }
 
-        private void LoadingReport_Load(object sender, EventArgs e)
+        private void Setup()
+        {
+            Load += (sender, args) => LoadForm();
+            timer.Tick += (sender, args) => Tick();
+        }
+
+        private void LoadForm()
         {
             _startDate = DateTime.Now;
             timer.Enabled = true;
+            loaderControl.Start();
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void Tick()
         {
-            elapsedTimeLabel.Text = (DateTime.Now - _startDate).Seconds.ToString() + " s.";
+            elapsedTimeLabel.Text = (DateTime.Now - _startDate).Seconds + " s.";
         }
     }
 }

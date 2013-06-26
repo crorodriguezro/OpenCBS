@@ -41,7 +41,7 @@
             this.loaderPictureBox.InitialImage = null;
             this.loaderPictureBox.Location = new System.Drawing.Point(0, 0);
             this.loaderPictureBox.Name = "loaderPictureBox";
-            this.loaderPictureBox.Size = new System.Drawing.Size(222, 20);
+            this.loaderPictureBox.Size = new System.Drawing.Size(220, 18);
             this.loaderPictureBox.TabIndex = 0;
             this.loaderPictureBox.TabStop = false;
             // 
@@ -51,7 +51,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.loaderPictureBox);
             this.Name = "LoaderControl";
-            this.Size = new System.Drawing.Size(222, 20);
+            this.Size = new System.Drawing.Size(220, 18);
             ((System.ComponentModel.ISupportInitialize)(this.loaderPictureBox)).EndInit();
             this.ResumeLayout(false);
 
