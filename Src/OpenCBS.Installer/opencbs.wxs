@@ -52,6 +52,7 @@
               <File Id="CrystalDecisions.Shared.dll" Source="SourceDir\CrystalDecisions.Shared.dll" />
               <File Id="CrystalDecisions.Windows.Forms.dll" Source="SourceDir\CrystalDecisions.Windows.Forms.dll" />
 	      -->
+              <File Id="OpenCBS.Controls.dll" Source="SourceDir\OpenCBS.Controls.dll" />
               <File Id="OpenCBS.CoreDomain.dll" Source="SourceDir\OpenCBS.CoreDomain.dll" />
               <File Id="OpenCBS.Engine.dll" Source="SourceDir\OpenCBS.Engine.dll" />
               <File Id="OpenCBS.Extensions.dll" Source="SourceDir\OpenCBS.Extensions.dll" />
