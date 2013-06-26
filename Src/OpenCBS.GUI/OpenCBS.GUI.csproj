@@ -223,6 +223,10 @@
       <Name>ZedGraph</Name>
       <HintPath>..\..\Lib\ZedGraph.dll</HintPath>
     </Reference>
+    <ProjectReference Include="..\OpenCBS.Controls\OpenCBS.Controls.csproj">
+      <Project>{0DFCB871-734C-434D-AE9E-35C378B36F9E}</Project>
+      <Name>OpenCBS.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenCBS.CoreDomain\OpenCBS.CoreDomain.csproj">
       <Project>{D539C388-3848-4A3E-AB87-42B8E329755A}</Project>
       <Name>OpenCBS.CoreDomain</Name>

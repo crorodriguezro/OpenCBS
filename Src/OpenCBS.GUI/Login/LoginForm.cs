@@ -22,6 +22,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
+using OpenCBS.Controls;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Database;
 using OpenCBS.MultiLanguageRessources;
@@ -69,6 +70,7 @@ namespace OpenCBS.GUI.Login
         {
             var backgroundWorker = new BackgroundWorker();
             var databases = new List<SqlDatabaseSettings>();
+            var loaderControl = new LoaderControl();
             backgroundWorker.DoWork += (sender, args) =>
             {
                 var databaseService = ServicesProvider.GetInstance().GetDatabaseServices();
@@ -76,6 +78,7 @@ namespace OpenCBS.GUI.Login
             };
             backgroundWorker.RunWorkerCompleted += (sender, args) =>
             {
+                loaderControl.Stop();
                 if (args.Error != null)
                 {
                     MessageBox.Show(args.Error.Message);
@@ -96,6 +99,9 @@ namespace OpenCBS.GUI.Login
                 databaseCombobox.SelectedIndex = index;
                 usernameTextbox.Focus();
             };
+            Controls.Add(loaderControl);
+            loaderControl.AttachTo(databaseCombobox);
+            loaderControl.Start();
             Disable();
             backgroundWorker.RunWorkerAsync();
         }
