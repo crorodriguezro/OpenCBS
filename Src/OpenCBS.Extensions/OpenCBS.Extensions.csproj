@@ -60,8 +60,10 @@
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="ExtensionActivator.cs" />
+    <Compile Include="Host.cs" />
     <Compile Include="ICorporateTabs.cs" />
     <Compile Include="IExtensionActivator.cs" />
+    <Compile Include="IHost.cs" />
     <Compile Include="ILoanTabs.cs" />
     <Compile Include="IMenu.cs" />
     <Compile Include="INonSolidarityGroupTabs.cs" />
