@@ -464,13 +464,13 @@ namespace OpenCBS.Services
                 conn.Open();
                 string timestamp = TimeProvider.Today.ToString("ddMMyyyy");
                 string fileName = 
-                    _FindAvailableName(String.Format("Octopus-{0}-{1}-{2}-@-{3}.bak", version, dbName, 
+                    _FindAvailableName(String.Format("opencbs-{0}-{1}-{2}-@-{3}.bak", version, dbName, 
                     branchCode, timestamp));
                 BackupManager.Backup(fileName, backupPath, dbName, conn);
 
                 if (DatabaseManager.DatabaseExists(dbName + "_attachments", conn))
                 {
-                    string attachments = string.Format("Octopus-{0}-{1}-{2}-@-{3}-attachments.bak"
+                    string attachments = string.Format("opencbs-{0}-{1}-{2}-@-{3}-attachments.bak"
                         , version
                         , dbName
                         , branchCode
