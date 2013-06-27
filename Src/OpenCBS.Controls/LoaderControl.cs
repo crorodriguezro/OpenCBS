@@ -16,7 +16,7 @@ namespace OpenCBS.Controls
         {
             _attachTo = control;
             var y = _attachTo.Location.Y;
-            y += (_attachTo.Size.Height - Size.Height) / 2;
+            y += (_attachTo.Size.Height - 18) / 2;
             Location = new Point(_attachTo.Location.X, y);
             Size = new Size(_attachTo.Size.Width, 18);
         }
