@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmountTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="LoaderControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
