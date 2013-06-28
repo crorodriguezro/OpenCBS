@@ -265,8 +265,8 @@ namespace OpenCBS.GUI
 
         private void textBoxCity_TextChanged(object sender, System.EventArgs e)
         {
-            //_city = ServicesHelper.CheckTextBoxText(textBoxCity.Text);
-            
+            _city = ServicesHelper.CheckTextBoxText(textBoxCity.Text);
+            FindDisrictProvinceByCity();
         }
 
         private void textBoxComments_TextChanged(object sender, System.EventArgs e)
@@ -364,16 +364,20 @@ namespace OpenCBS.GUI
             }
         }
 
-        private void textBoxCity_Leave(object sender, EventArgs e)
+        private void FindDisrictProvinceByCity()
         {
             City selectedCity = textBoxCity.GetCity();
-            _city = selectedCity.Name;
             if (selectedCity != null)
             {
+                _city = selectedCity.Name;
                 _district = ServicesProvider.GetInstance().GetLocationServices().FindDistirctById(selectedCity.DistrictId);
                 _SelectDistrict();
                 _SelectProvince();
+                char delimeterChar = '(';
+                string[] words = _city.Split(delimeterChar);
+                textBoxCity.Text = _city = words[0].TrimEnd();
             }
         }
+        
     }
 }

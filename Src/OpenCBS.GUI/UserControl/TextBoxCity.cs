@@ -26,32 +26,36 @@ namespace OpenCBS.GUI.UserControl
         protected override void OnTextChanged(EventArgs e)
         {
             base.OnTextChanged(e);
-            _box.Items.Clear();
-            if (this.Text != "")
+            if (_box != null)
             {
-                var legalStrings = from item in _autoCompleteSource
-                                   where item.Name.ToUpper().StartsWith(this.Text.Trim().ToUpper())
-                                   select item.Name;
-                if (legalStrings.Count<string>() > 0)
+                _box.Items.Clear();
+                if (this.Text != "")
                 {
-                    foreach (string str in legalStrings)
+                    var legalStrings = from item in _autoCompleteSource
+                                       where item.Name.ToUpper().StartsWith(this.Text.Trim().ToUpper())
+                                       select item.Name;
+                    if (legalStrings.Count<string>() > 0)
                     {
-                        _box.Items.Add(str);
+                        foreach (string str in legalStrings)
+                        {
+                            _box.Items.Add(str);
+                        }
+                        UpdateDropDownSize();
+                        if (_dropDown != null)
+                            _dropDown.Show(this, new Point(0, this.Height));
                     }
-                    UpdateDropDownSize();
-                    _dropDown.Show(this, new Point(0, this.Height));
+                    else
+                    {
+                        _dropDown.Close();
+                    }
                 }
                 else
                 {
-                    _dropDown.Close();
+                    foreach (City item in _autoCompleteSource)
+                        _box.Items.Add(item.Name);
+                    UpdateDropDownSize();
+                    SortByName();
                 }
-            }
-            else
-            {
-                foreach (City item in _autoCompleteSource)
-                    _box.Items.Add(item.Name);
-                UpdateDropDownSize();
-                SortByName();
             }
         }
 
@@ -121,12 +125,20 @@ namespace OpenCBS.GUI.UserControl
 
         public City GetCity()
         {
-            var city = from item in _autoCompleteSource
-                       where item.Name == this.Text
-                       select item;
-            return (City)city;
+            City selectedCity = null;
+            if (_box!=null)
+                foreach (City city in _autoCompleteSource)
+                {
+                    if (city.Name != this.Text)
+                    {
+                        continue;
+                    }
+                    selectedCity = city;
+                    break;
+                }
+            return selectedCity;
         }
-
+        
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
@@ -144,7 +156,6 @@ namespace OpenCBS.GUI.UserControl
             _box.Click += (EventHandler)((sender, arg) =>
                 {
                     this.Text = _box.SelectedItem.ToString();
-                    //FindCityByName(_box.SelectedItem.ToString());
                     _dropDown.Close();
                 });
             _box.MouseMove += (MouseEventHandler)((sender, m) =>
