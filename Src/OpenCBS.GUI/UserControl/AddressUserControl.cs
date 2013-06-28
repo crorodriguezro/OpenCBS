@@ -174,7 +174,8 @@ namespace OpenCBS.GUI
             _zipCode = string.Empty;
             _homeType = string.Empty;
             _InitializeProvince();
-            _InitializeDistricts(); 
+            _InitializeDistricts();
+            _InitializeCity();
             _InitializeHomeType();
         }
 
@@ -199,6 +200,11 @@ namespace OpenCBS.GUI
             Province selectProvince = new Province{Name =MultiLanguageStrings.GetString(Ressource.AddressUserControl,"all.Text")};
             comboBoxProvince.Items.Add(selectProvince);
             comboBoxProvince.SelectedItem = selectProvince;
+        }
+
+        private void _InitializeCity()
+        {
+            textBoxCity.MyAutoCompleteSource = ServicesProvider.GetInstance().GetLocationServices().GetCities();
         }
 
         private void _InitializeDistricts()

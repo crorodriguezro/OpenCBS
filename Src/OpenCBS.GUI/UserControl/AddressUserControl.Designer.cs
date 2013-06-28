@@ -8,7 +8,7 @@ namespace OpenCBS.GUI
         private System.Windows.Forms.Label labelDistrict;
         private OpenCBS.GUI.UserControl.TextBoxLimit tbAddress;
         private System.Windows.Forms.Label labelComments;
-        private OpenCBS.GUI.UserControl.TextBoxLimit textBoxCity;
+        private OpenCBS.GUI.UserControl.TextBoxCity textBoxCity;
         private System.Windows.Forms.Label labelCity;
         private System.Windows.Forms.Label labelProvince;
 
@@ -51,7 +51,7 @@ namespace OpenCBS.GUI
             this.labelDistrict = new System.Windows.Forms.Label();
             this.tbAddress = new OpenCBS.GUI.UserControl.TextBoxLimit();
             this.labelComments = new System.Windows.Forms.Label();
-            this.textBoxCity = new OpenCBS.GUI.UserControl.TextBoxLimit();
+            this.textBoxCity = new OpenCBS.GUI.UserControl.TextBoxCity();
             this.labelCity = new System.Windows.Forms.Label();
             this.labelProvince = new System.Windows.Forms.Label();
             this.comboBoxProvince = new System.Windows.Forms.ComboBox();
