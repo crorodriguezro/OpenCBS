@@ -366,11 +366,11 @@ namespace OpenCBS.GUI
 
         private void textBoxCity_Leave(object sender, EventArgs e)
         {
-            City selecterCity = textBoxCity.GetCity();
-            _city = selecterCity.Name;
-            if (selecterCity != null)
+            City selectedCity = textBoxCity.GetCity();
+            _city = selectedCity.Name;
+            if (selectedCity != null)
             {
-                _district = ServicesProvider.GetInstance().GetLocationServices().FindDistirctById(selecterCity.DistrictId);
+                _district = ServicesProvider.GetInstance().GetLocationServices().FindDistirctById(selectedCity.DistrictId);
                 _SelectDistrict();
                 _SelectProvince();
             }
