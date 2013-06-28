@@ -142,7 +142,7 @@ namespace OpenCBS.GUI
             get { return labelPersonalPhone.Text; }
             set { labelPersonalPhone.Text = value; }
         }
-        
+
         private void _SetValue(District pDistrict, string pCity, 
             string pComments,string pHomePhone,string pPersonalPhone,string pZipCode, string pEmail,string pHomeType)
         {
@@ -151,7 +151,6 @@ namespace OpenCBS.GUI
                 comboBoxDistrict.Text = pDistrict.Name;
                 comboBoxProvince.Text = pDistrict.Province.Name;
             }
-            InitializeActionButton();
             textBoxCity.Text = pCity;
             tbAddress.Text = pComments;
             textBoxHomePhone.Text = pHomePhone;
@@ -240,17 +239,34 @@ namespace OpenCBS.GUI
             }
         }
 
+        private void _SelectDistrict()
+        {
+            if (_district == null || _district.Id == 0)
+            {
+                return;
+            }
+            foreach (District selectedDistrict in comboBoxDistrict.Items)
+            {
+                if (selectedDistrict.Name != _district.Name)
+                {
+                    continue;
+                }
+                comboBoxDistrict.SelectedItem = selectedDistrict;
+                break;
+            }
+        }
+
         private void comboBoxDistrict_SelectionChangeCommitted(object sender, System.EventArgs e)
         {
             _district = (District)comboBoxDistrict.SelectedItem;
             _SelectProvince();
             textBoxCity.Text = String.Empty;
-            InitializeActionButton();
         }
 
         private void textBoxCity_TextChanged(object sender, System.EventArgs e)
         {
-            _city = ServicesHelper.CheckTextBoxText(textBoxCity.Text);
+            //_city = ServicesHelper.CheckTextBoxText(textBoxCity.Text);
+            
         }
 
         private void textBoxComments_TextChanged(object sender, System.EventArgs e)
@@ -263,21 +279,6 @@ namespace OpenCBS.GUI
             _province = (Province)comboBoxProvince.SelectedItem;
             _InitializeDistricts();
             textBoxCity.Text = String.Empty;
-        }
-
-        private void InitializeActionButton()
-        {
-            if (ServicesProvider.GetInstance().GetGeneralSettings().IsCityAnOpenValue)
-            {
-                buttonSave.Visible = false;
-                textBoxCity.Enabled = true;
-            }
-            else
-            {
-                textBoxCity.Enabled = false;
-                if (_district != null)
-                    buttonSave.Visible = _district.Id != 0;
-            }
         }
 
         public void ResetAllComponents()
@@ -296,7 +297,7 @@ namespace OpenCBS.GUI
 
         private void buttonSave_Click(object sender, System.EventArgs e)
         {
-            CityForm city = new CityForm(_district.Id);
+            CityForm city = new CityForm(_province, _district);
             city.ShowDialog();
             textBoxCity.Text = city.City;
         }
@@ -360,6 +361,18 @@ namespace OpenCBS.GUI
                 labelPersonalPhone.Visible = value;
                 textBoxEMail.Visible = value;
                 labelEMail.Visible = value;
+            }
+        }
+
+        private void textBoxCity_Leave(object sender, EventArgs e)
+        {
+            City selecterCity = textBoxCity.GetCity();
+            _city = selecterCity.Name;
+            if (selecterCity != null)
+            {
+                _district = ServicesProvider.GetInstance().GetLocationServices().FindDistirctById(selecterCity.DistrictId);
+                _SelectDistrict();
+                _SelectProvince();
             }
         }
     }

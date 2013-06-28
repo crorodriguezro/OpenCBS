@@ -98,8 +98,9 @@ namespace OpenCBS.GUI
             // textBoxCity
             // 
             resources.ApplyResources(this.textBoxCity, "textBoxCity");
+            this.textBoxCity.MyAutoCompleteSource = null;
             this.textBoxCity.Name = "textBoxCity";
-            this.textBoxCity.TextChanged += new System.EventHandler(this.textBoxCity_TextChanged);
+            this.textBoxCity.Leave += new System.EventHandler(this.textBoxCity_Leave);
             // 
             // labelCity
             // 
@@ -123,7 +124,7 @@ namespace OpenCBS.GUI
             this.comboBoxProvince.SelectionChangeCommitted += new System.EventHandler(this.comboBoxProvince_SelectionChangeCommitted);
             // 
             // buttonSave
-            //
+            // 
             resources.ApplyResources(this.buttonSave, "buttonSave");
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);

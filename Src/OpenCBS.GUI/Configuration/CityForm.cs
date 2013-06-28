@@ -43,10 +43,10 @@ namespace OpenCBS.GUI
         /// </summary>
         private Container components = null;
 
-        public CityForm(int districtId)
+        public CityForm(Province province, District district)
         {
             InitializeComponent();
-            InitializeCities(districtId);
+            InitializeCities(province, district);
         }
 
         public string City
@@ -54,9 +54,21 @@ namespace OpenCBS.GUI
             get { return city; }
         }
 
-        private void InitializeCities(int districtId)
+        private void InitializeCities(Province province, District district)
         {
-            List<City> cities = ServicesProvider.GetInstance().GetLocationServices().FindCityByDistrictId(districtId);
+            var cities = new List<City>();
+            if (district != null)
+                cities = ServicesProvider.GetInstance()
+                                                    .GetLocationServices()
+                                                    .FindCityByDistrictId(district.Id);
+            else if (province != null)
+            {
+                var districts = ServicesProvider.GetInstance().GetLocationServices().FindDistrict(province);
+                foreach (District dist in districts)
+                    cities.AddRange(ServicesProvider.GetInstance().GetLocationServices().FindCityByDistrictId(dist.Id));
+            }
+            else
+                cities = ServicesProvider.GetInstance().GetLocationServices().GetCities();
             listViewCity.Items.Clear();
             foreach (City cityObject in cities)
             {

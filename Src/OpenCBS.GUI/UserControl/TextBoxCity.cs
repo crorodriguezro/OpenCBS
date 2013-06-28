@@ -87,18 +87,18 @@ namespace OpenCBS.GUI.UserControl
                                         .GetLocationServices()
                                         .FindDistirctById(_autoCompleteSource[i].DistrictId);
                     _autoCompleteSource[i].Name += " (" + dist.Name + ")";
-                    AddNumberForSameNames(i, i + 1);
+                    AddDistrictrForSameNames(i, i + 1);
                 }
             }
         }
 
-        private void AddNumberForSameNames(int i, int j)
+        private void AddDistrictrForSameNames(int i, int j)
         {
             District dist =
                 ServicesProvider.GetInstance().GetLocationServices().FindDistirctById(_autoCompleteSource[j].DistrictId);
             _autoCompleteSource[j].Name += " (" + dist.Name + ")";
             if (j + 1 < _autoCompleteSource.Count && _autoCompleteSource[i].Name == _autoCompleteSource[j + 1].Name)
-                AddNumberForSameNames(i, j + 1);
+                AddDistrictrForSameNames(i, j + 1);
         }
 
         public bool IsValueInSource
@@ -119,6 +119,14 @@ namespace OpenCBS.GUI.UserControl
             }
         }
 
+        public City GetCity()
+        {
+            var city = from item in _autoCompleteSource
+                       where item.Name == this.Text
+                       select item;
+            return (City)city;
+        }
+
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
@@ -134,7 +142,11 @@ namespace OpenCBS.GUI.UserControl
                 }
             });
             _box.Click += (EventHandler)((sender, arg) =>
-            { this.Text = _box.SelectedItem.ToString(); _dropDown.Close(); });
+                {
+                    this.Text = _box.SelectedItem.ToString();
+                    //FindCityByName(_box.SelectedItem.ToString());
+                    _dropDown.Close();
+                });
             _box.MouseMove += (MouseEventHandler)((sender, m) =>
             {
                 int index = _box.IndexFromPoint(m.Location);
