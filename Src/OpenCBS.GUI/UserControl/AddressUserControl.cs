@@ -266,7 +266,7 @@ namespace OpenCBS.GUI
         private void textBoxCity_TextChanged(object sender, System.EventArgs e)
         {
             _city = ServicesHelper.CheckTextBoxText(textBoxCity.Text);
-            FindDisrictProvinceByCity();
+            ChooseDisrictProvinceByCity();
         }
 
         private void textBoxComments_TextChanged(object sender, System.EventArgs e)
@@ -299,6 +299,7 @@ namespace OpenCBS.GUI
         {
             CityForm city = new CityForm(_province, _district);
             city.ShowDialog();
+            textBoxCity.dropDownEnabled = false;
             textBoxCity.Text = city.City;
         }
 
@@ -364,7 +365,7 @@ namespace OpenCBS.GUI
             }
         }
 
-        private void FindDisrictProvinceByCity()
+        private void ChooseDisrictProvinceByCity()
         {
             City selectedCity = textBoxCity.GetCity();
             if (selectedCity != null)

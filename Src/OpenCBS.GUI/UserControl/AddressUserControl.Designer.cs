@@ -8,7 +8,7 @@ namespace OpenCBS.GUI
         private System.Windows.Forms.Label labelDistrict;
         private OpenCBS.GUI.UserControl.TextBoxLimit tbAddress;
         private System.Windows.Forms.Label labelComments;
-        private OpenCBS.GUI.UserControl.TextBoxCity textBoxCity;
+        private OpenCBS.GUI.UserControl.CityTextBox textBoxCity;
         private System.Windows.Forms.Label labelCity;
         private System.Windows.Forms.Label labelProvince;
 
@@ -64,7 +64,7 @@ namespace OpenCBS.GUI
             this.textBoxEMail = new OpenCBS.GUI.UserControl.TextBoxLimit();
             this.textBoxPersonalPhone = new OpenCBS.GUI.UserControl.TextBoxLimit();
             this.textBoxHomePhone = new OpenCBS.GUI.UserControl.TextBoxLimit();
-            this.textBoxCity = new OpenCBS.GUI.UserControl.TextBoxCity();
+            this.textBoxCity = new OpenCBS.GUI.UserControl.CityTextBox();
             this.tbAddress = new OpenCBS.GUI.UserControl.TextBoxLimit();
             this.SuspendLayout();
             // 
