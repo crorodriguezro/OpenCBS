@@ -570,31 +570,6 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
         }
 
         /// <summary>
-        /// Generate a contract code based on the concatenation of :
-        /// - the branch code (for instance KH for Khatlon)
-        /// - the 2 last numbers of the year (ie. 06 for 2006)
-        /// - the 4 first letters of the package name
-        /// - the beneficiary loan cycle
-        /// - the contract id
-        /// </summary>
-        /// <returns></returns>
-        public string GenerateLoanCode(string pLoanCodePattern, string branchCode, string pDistrict,string pLoanCycle, string pProjectCycle, string pIdClient, string pClientLastName)
-        {
-            pLoanCodePattern = pLoanCodePattern.Replace("BC", branchCode);
-            pLoanCodePattern = pLoanCodePattern.Replace("DT", pDistrict.ToUpper());
-            pLoanCodePattern = pLoanCodePattern.Replace("YY", _startDate.Year.ToString().Substring(2, 2));
-            pLoanCodePattern = pLoanCodePattern.Replace("yyyy", _startDate.Year.ToString());
-            pLoanCodePattern = pLoanCodePattern.Replace("LO", LoanOfficer.Name.Substring(0, 2).ToUpper());
-            pLoanCodePattern = pLoanCodePattern.Replace("PC", Product.Code);
-            pLoanCodePattern = pLoanCodePattern.Replace("LC", pLoanCycle);
-            pLoanCodePattern = pLoanCodePattern.Replace("JC", pProjectCycle);
-            pLoanCodePattern = pLoanCodePattern.Replace("ID", pIdClient);
-            pClientLastName = pClientLastName.Trim().Replace(" ", "");
-            pLoanCodePattern = pLoanCodePattern.Replace("LN", pClientLastName.Substring(0, pClientLastName.Length > 5 ? 5 : pClientLastName.Length).ToUpper());
-            return pLoanCodePattern;
-        }
-
-        /// <summary>
         /// This method calculates total due interests at the creation of the contract
         /// </summary>
         /// <returns></returns>

@@ -82,6 +82,10 @@
       <Project>{8AFC1E87-3856-4F05-8280-5360D33C200B}</Project>
       <Name>OpenCBS.Enums</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OpenCBS.Shared\OpenCBS.Shared.csproj">
+      <Project>{b3288e21-e5a9-4620-bef3-afb0b207655c}</Project>
+      <Name>OpenCBS.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
