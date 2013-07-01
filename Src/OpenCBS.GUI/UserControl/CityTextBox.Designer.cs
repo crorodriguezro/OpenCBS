@@ -1,6 +1,6 @@
 ﻿namespace OpenCBS.GUI.UserControl
 {
-    partial class TextBoxCity
+    partial class CityTextBox
     {
         /// <summary> 
         /// Required designer variable.

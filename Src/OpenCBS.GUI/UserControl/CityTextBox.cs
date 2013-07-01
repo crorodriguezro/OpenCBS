@@ -11,16 +11,19 @@ using OpenCBS.Services;
 
 namespace OpenCBS.GUI.UserControl
 {
-    public partial class TextBoxCity : TextBox
+    public partial class CityTextBox : TextBox
     {
         private IList<City> _autoCompleteSource = null;
         private ToolStripDropDown _dropDown = null;
         private ListBox _box = null;
+        public bool dropDownEnabled = false;
 
         public IList<City> MyAutoCompleteSource
         {
             get { return _autoCompleteSource; }
-            set { _autoCompleteSource = value; }
+            set { _autoCompleteSource = value; 
+                if(_autoCompleteSource!=null)
+                    SortByName();}
         }
 
         protected override void OnTextChanged(EventArgs e)
@@ -28,9 +31,9 @@ namespace OpenCBS.GUI.UserControl
             base.OnTextChanged(e);
             if (_box != null)
             {
-                _box.Items.Clear();
                 if (this.Text != "")
                 {
+                    _box.Items.Clear();
                     var legalStrings = from item in _autoCompleteSource
                                        where item.Name.ToUpper().StartsWith(this.Text.Trim().ToUpper())
                                        select item.Name;
@@ -40,9 +43,11 @@ namespace OpenCBS.GUI.UserControl
                         {
                             _box.Items.Add(str);
                         }
-                        UpdateDropDownSize();
-                        if (_dropDown != null)
+                        if (_dropDown != null && dropDownEnabled)
+                        {
+                            UpdateDropDownSize();
                             _dropDown.Show(this, new Point(0, this.Height));
+                        }
                     }
                     else
                     {
@@ -50,12 +55,7 @@ namespace OpenCBS.GUI.UserControl
                     }
                 }
                 else
-                {
-                    foreach (City item in _autoCompleteSource)
-                        _box.Items.Add(item.Name);
-                    UpdateDropDownSize();
-                    SortByName();
-                }
+                    _dropDown.Close();
             }
         }
 
@@ -179,7 +179,7 @@ namespace OpenCBS.GUI.UserControl
         protected override void OnKeyDown(KeyEventArgs e)
         {
             _dropDown.AutoClose = true;
-            if (e.KeyCode == Keys.Down)
+            if (e.KeyCode == Keys.Down && dropDownEnabled)
             {
                 _box.SelectedIndex++;
                 _dropDown.Show(this, new Point(0, this.Height));
@@ -189,15 +189,18 @@ namespace OpenCBS.GUI.UserControl
                 this.Text = _box.SelectedItem.ToString();
                 _dropDown.Close();
             }
+            if (e.KeyCode == Keys.Escape)
+            {
+                _dropDown.Close();
+            }
             _dropDown.AutoClose = false;
             base.OnKeyDown(e);
         }
 
-        protected override void OnClick(EventArgs e)
+        protected override void OnEnter(EventArgs e)
         {
-            OnTextChanged(e);
-            _dropDown.Show(this, new Point(0, this.Height));
-            base.OnClick(e);
+            dropDownEnabled = true;
+            base.OnEnter(e);
         }
 
         protected override void OnLeave(EventArgs e)

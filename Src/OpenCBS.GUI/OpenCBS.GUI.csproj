@@ -1059,11 +1059,11 @@
     <Compile Include="UserControl\SweetOkCancelForm.Designer.cs">
       <DependentUpon>SweetOkCancelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\TextBoxCity.cs">
+    <Compile Include="UserControl\CityTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UserControl\TextBoxCity.Designer.cs">
-      <DependentUpon>TextBoxCity.cs</DependentUpon>
+    <Compile Include="UserControl\CityTextBox.Designer.cs">
+      <DependentUpon>CityTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl\TextBoxLimit.cs">
       <SubType>Component</SubType>
