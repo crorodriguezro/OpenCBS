@@ -24,6 +24,13 @@ using OpenCBS.CoreDomain.Contracts.Loans;
 
 namespace OpenCBS.Extensions.Samples
 {
+    /// <summary>
+    /// This class is a sample implementation of the IContractCodeGenerator interface
+    /// to give you and idea on how you can override the default contract code generation algorighm.
+    /// 
+    /// To enable this extension right click the OpenCBS.Extensions project,
+    /// go to the Build tab and add SAMPLE_EXTENSIONS to Conditional compilation symbols.
+    /// </summary>
     [Export(typeof(IContractCodeGenerator))]
     [ExportMetadata("Implementation", "Autoincremented")]
     [PartCreationPolicy(CreationPolicy.Shared)]
