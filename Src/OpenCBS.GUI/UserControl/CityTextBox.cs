@@ -47,6 +47,7 @@ namespace OpenCBS.GUI.UserControl
                         {
                             UpdateDropDownSize();
                             _dropDown.Show(this, new Point(0, this.Height));
+                            _dropDown.AutoClose = true;
                         }
                     }
                     else
@@ -69,9 +70,9 @@ namespace OpenCBS.GUI.UserControl
                     maxLen.Width = len.Width;
             }
             _box.Width = maxLen.Width;
-            if (_box.Items.Count < 16)
+            if (_box.Items.Count < 10)
                 _box.Height = _box.ItemHeight*(_box.Items.Count + 1);
-            else _box.Height = _box.ItemHeight*16;
+            else _box.Height = _box.ItemHeight*10;
             maxLen.Height = _box.Height;
             _dropDown.Size = maxLen;
         }
@@ -152,6 +153,9 @@ namespace OpenCBS.GUI.UserControl
                     this.Text = _box.SelectedItem.ToString();
                     _dropDown.Close();
                 }
+                _dropDown.AutoClose = true;
+                if (k.KeyCode == Keys.Escape)
+                    _dropDown.Close();
             });
             _box.Click += (EventHandler)((sender, arg) =>
                 {
@@ -179,10 +183,13 @@ namespace OpenCBS.GUI.UserControl
         protected override void OnKeyDown(KeyEventArgs e)
         {
             _dropDown.AutoClose = true;
-            if (e.KeyCode == Keys.Down && dropDownEnabled)
+            if (e.KeyCode == Keys.Down && dropDownEnabled && _box.Items.Count > 0)
             {
-                _box.SelectedIndex++;
                 _dropDown.Show(this, new Point(0, this.Height));
+                _box.Focus();
+                if (_box.SelectedIndex < _box.Items.Count - 1)
+                    _box.SelectedIndex++;
+                SendKeys.Send(Keys.Down.ToString());
             }
             if (e.KeyCode == Keys.Enter && _box.SelectedIndex > -1)
             {
