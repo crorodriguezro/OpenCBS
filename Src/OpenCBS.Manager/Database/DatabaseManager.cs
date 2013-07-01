@@ -355,6 +355,7 @@ namespace OpenCBS.Manager.Database
                 "Collaterals",
                 "GetTellerBalance",
                 "GetDashboard",
+                "GetXIRR",
             };
             return retval;
         }
