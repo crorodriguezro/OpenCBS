@@ -23,7 +23,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;SAMPLE_EXTENSIONS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -60,11 +60,9 @@
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="ContractCodeGenerator.cs" />
-    <Compile Include="ExtensionActivator.cs" />
     <Compile Include="Host.cs" />
     <Compile Include="IContractCodeGenerator.cs" />
     <Compile Include="ICorporateTabs.cs" />
-    <Compile Include="IExtensionActivator.cs" />
     <Compile Include="IHost.cs" />
     <Compile Include="ILoanTabs.cs" />
     <Compile Include="IMenu.cs" />
@@ -72,6 +70,7 @@
     <Compile Include="IPersonTabs.cs" />
     <Compile Include="ISavingsTabs.cs" />
     <Compile Include="ISolidarityGroupTabs.cs" />
+    <Compile Include="MefContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

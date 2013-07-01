@@ -25,11 +25,17 @@ using OpenCBS.CoreDomain;
 
 namespace OpenCBS.Extensions
 {
-    public class ExtensionActivator : IExtensionActivator
+    public class MefContainer
     {
         private readonly CompositionContainer _container;
+        private static MefContainer _instance;
 
-        public ExtensionActivator()
+        public static MefContainer Current
+        {
+            get { return _instance ?? (_instance = new MefContainer()); }
+        }
+
+        private MefContainer()
         {
             var extensionsFolder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) ?? string.Empty;
             extensionsFolder = Path.Combine(extensionsFolder, "Extensions");
@@ -38,7 +44,7 @@ namespace OpenCBS.Extensions
                     new AssemblyCatalog(Assembly.GetAssembly(typeof(DatabaseConnection)))
                 );
 
-            if (Directory.Exists(extensionsFolder)) 
+            if (Directory.Exists(extensionsFolder))
                 catalog.Catalogs.Add(new DirectoryCatalog(extensionsFolder));
 
 #if SAMPLE_EXTENSIONS
@@ -47,11 +53,11 @@ namespace OpenCBS.Extensions
             if (File.Exists(samples)) 
                 catalog.Catalogs.Add(new AssemblyCatalog(samples));
 #endif
-            
             _container = new CompositionContainer(catalog);
+            
         }
 
-        public void Execute(object host)
+        public void Bind(object host)
         {
             _container.SatisfyImportsOnce(host);
         }

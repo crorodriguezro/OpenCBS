@@ -31,17 +31,9 @@ namespace OpenCBS.GUI.UserControl
         protected TabControl Tabs { get; set; }
         protected IClient Client { get; set; }
 
-        protected readonly IExtensionActivator ExtensionActivator;
-        
         public ClientControl()
         {
-            InitializeComponent();
-        }
-
-        public ClientControl(IExtensionActivator extensionActivator)
-        {
-            ExtensionActivator = extensionActivator;
-            if (ExtensionActivator != null) ExtensionActivator.Execute(this);
+            MefContainer.Current.Bind(this);
             InitializeComponent();
         }
 

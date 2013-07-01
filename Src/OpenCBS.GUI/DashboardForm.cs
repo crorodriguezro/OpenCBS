@@ -22,12 +22,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Dashboard;
 using OpenCBS.Enums;
-using OpenCBS.Extensions;
 using OpenCBS.GUI.AuditTrail;
 using OpenCBS.GUI.Clients;
 using OpenCBS.GUI.Configuration;
@@ -37,7 +37,6 @@ using OpenCBS.GUI.UserControl;
 using OpenCBS.Reports;
 using OpenCBS.Reports.Forms;
 using OpenCBS.Services;
-using System.Linq;
 
 namespace OpenCBS.GUI
 {
@@ -47,11 +46,9 @@ namespace OpenCBS.GUI
         private Chart _parChart;
         private Chart _disbursementsChart;
         private Chart _olbTrendChart;
-        private IExtensionActivator _extensionActivator;
 
-        public DashboardForm(IExtensionActivator extensionActivator)
+        public DashboardForm()
         {
-            _extensionActivator = extensionActivator;
             InitializeComponent();
         }
 
@@ -293,7 +290,7 @@ namespace OpenCBS.GUI
         private void OpenClientForm(OClientTypes clientType)
         {
             var parent = Application.OpenForms[0];
-            var form = new ClientForm(clientType, parent, false, _extensionActivator) { MdiParent = parent };
+            var form = new ClientForm(clientType, parent, false) { MdiParent = parent };
             form.Show();
         }
 
@@ -309,7 +306,7 @@ namespace OpenCBS.GUI
 
         private void OnNewNonSolidairtyGroupLinkLabelLinkClick(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var form = new NonSolidaryGroupForm(_extensionActivator) { MdiParent = Application.OpenForms[0] };
+            var form = new NonSolidaryGroupForm { MdiParent = Application.OpenForms[0] };
             form.Show();
         }
 
