@@ -181,7 +181,13 @@ namespace OpenCBS.GUI.UserControl
             _dropDown.AutoClose = true;
             if (e.KeyCode == Keys.Down)
             {
+                _box.SelectedIndex++;
                 _dropDown.Show(this, new Point(0, this.Height));
+            }
+            if (e.KeyCode == Keys.Enter && _box.SelectedIndex > -1)
+            {
+                this.Text = _box.SelectedItem.ToString();
+                _dropDown.Close();
             }
             _dropDown.AutoClose = false;
             base.OnKeyDown(e);
