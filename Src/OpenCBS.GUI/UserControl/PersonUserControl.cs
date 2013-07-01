@@ -71,7 +71,7 @@ namespace OpenCBS.GUI.UserControl
             tabControlEconomicInfo.TabPages.Remove(tabPageSavings);
         }
 
-        public PersonUserControl(Person person, Form pMdiParent, IExtensionActivator extensionActivator) : base(extensionActivator)
+        public PersonUserControl(Person person, Form pMdiParent)
         {
             _mdiParent = pMdiParent;
             Initialization();
@@ -611,12 +611,12 @@ namespace OpenCBS.GUI.UserControl
             client = ServicesProvider.GetInstance().GetClientServices().FindTiers(client.Id, client.Type);
             if (client is Group)
             {
-                ClientForm form = new ClientForm((Group)client, _mdiParent, ExtensionActivator);
+                ClientForm form = new ClientForm((Group)client, _mdiParent);
                 form.ShowDialog();
             }
             else if (client is Village)
             {
-                NonSolidaryGroupForm form = new NonSolidaryGroupForm((Village)client, ExtensionActivator);
+                NonSolidaryGroupForm form = new NonSolidaryGroupForm((Village)client);
                 form.ShowDialog();
             }
         }

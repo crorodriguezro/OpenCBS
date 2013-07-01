@@ -27,7 +27,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Reflection;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
@@ -35,28 +34,26 @@ using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Alerts;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Loans;
-using OpenCBS.Extensions;
 using OpenCBS.Enums;
-using OpenCBS.ExceptionsHandler;
+using OpenCBS.Extensions;
 using OpenCBS.GUI.Accounting;
 using OpenCBS.GUI.AuditTrail;
 using OpenCBS.GUI.Clients;
 using OpenCBS.GUI.Configuration;
+using OpenCBS.GUI.Contracts;
 using OpenCBS.GUI.Database;
 using OpenCBS.GUI.Products;
 using OpenCBS.GUI.Projets;
 using OpenCBS.GUI.Report_Browser;
+using OpenCBS.GUI.TellerManagement;
 using OpenCBS.GUI.Tools;
-using OpenCBS.GUI.Contracts;
 using OpenCBS.GUI.UserControl;
+using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Reports;
 using OpenCBS.Reports.Forms;
 using OpenCBS.Services;
 using OpenCBS.Shared;
-using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Shared.Settings;
-using Re = System.Text.RegularExpressions;
-using OpenCBS.GUI.TellerManagement;
 
 namespace OpenCBS.GUI
 {
@@ -69,10 +66,10 @@ namespace OpenCBS.GUI
         private List<MenuObject> _menuItems;
         private bool _showTellerFormOnClose = true;
         private bool _triggerAlertsUpdate;
-        private readonly IExtensionActivator _extensionActivator;
 
         public LotrasmicMainWindowForm()
         {
+            MefContainer.Current.Bind(this);
             InitializeComponent();
             _menuItems = new List<MenuObject>();
             _menuItems = Services.GetMenuItemServices().GetMenuList(OSecurityObjectTypes.MenuItem);
@@ -80,8 +77,6 @@ namespace OpenCBS.GUI
             LoadReprotsToolStrip();
             InitializeTracer();
             DisplayWinFormDetails();
-            _extensionActivator = new ExtensionActivator();
-            _extensionActivator.Execute(this);
         }
 
         private void InitializeTracer()
@@ -220,7 +215,7 @@ namespace OpenCBS.GUI
 
         private void DisplayFastChoiceForm()
         {
-            DashboardForm fastChoiceForm = new DashboardForm(_extensionActivator) { MdiParent = this };
+            DashboardForm fastChoiceForm = new DashboardForm { MdiParent = this };
             fastChoiceForm.Show();
 
             foreach (Object tsmi in MainMenuStrip.Items)
@@ -235,18 +230,18 @@ namespace OpenCBS.GUI
 
         public void InitializePersonForm()
         {
-            ClientForm personForm = new ClientForm(OClientTypes.Person, this, false, _extensionActivator) { MdiParent = this };
+            ClientForm personForm = new ClientForm(OClientTypes.Person, this, false) { MdiParent = this };
             personForm.Show();
         }
 
         public void InitializeCorporateForm()
         {
-            ClientForm corporateForm = new ClientForm(OClientTypes.Corporate, this, false, _extensionActivator) { MdiParent = this };
+            ClientForm corporateForm = new ClientForm(OClientTypes.Corporate, this, false) { MdiParent = this };
             corporateForm.Show();
         }
         public void InitializeCorporateForm(Corporate corporate, Project project)
         {
-            ClientForm corporateForm = new ClientForm(corporate, this, _extensionActivator) { MdiParent = this };
+            ClientForm corporateForm = new ClientForm(corporate, this) { MdiParent = this };
             if (project != null)
                 corporateForm.DisplayUserControl_ViewProject(project, null);
 
@@ -255,7 +250,7 @@ namespace OpenCBS.GUI
 
         public void InitializePersonForm(Person person, Project project)
         {
-            ClientForm personForm = new ClientForm(person, this, _extensionActivator)
+            ClientForm personForm = new ClientForm(person, this)
             {
                 MdiParent = this,
                 Text = string.Format(
@@ -270,25 +265,25 @@ namespace OpenCBS.GUI
 
         public void InitializeGroupForm()
         {
-            ClientForm personForm = new ClientForm(OClientTypes.Group, this, false, _extensionActivator) { MdiParent = this };
+            ClientForm personForm = new ClientForm(OClientTypes.Group, this, false) { MdiParent = this };
             personForm.Show();
         }
 
         public void InitializeVillageForm()
         {
-            NonSolidaryGroupForm frm = new NonSolidaryGroupForm(_extensionActivator) { MdiParent = this };
+            NonSolidaryGroupForm frm = new NonSolidaryGroupForm { MdiParent = this };
             frm.Show();
         }
 
         public void InitializeVillageForm(Village village)
         {
-            NonSolidaryGroupForm frm = new NonSolidaryGroupForm(village, _extensionActivator) { MdiParent = this };
+            NonSolidaryGroupForm frm = new NonSolidaryGroupForm(village) { MdiParent = this };
             frm.Show();
         }
 
         public void InitializeGroupForm(Group group, Project project)
         {
-            ClientForm personForm = new ClientForm(group, this, _extensionActivator)
+            ClientForm personForm = new ClientForm(group, this)
             {
                 MdiParent = this,
                 Text =
@@ -337,7 +332,7 @@ namespace OpenCBS.GUI
                     if (project.Credits != null)
                         foreach (Loan loan in project.Credits)
                             loan.CompulsorySavings = ServicesProvider.GetInstance().GetSavingServices().GetSavingForLoan(loan.Id, true);
-            ClientForm personForm = new ClientForm(pClient, pContractId, this, _extensionActivator) { MdiParent = this };
+            ClientForm personForm = new ClientForm(pClient, pContractId, this) { MdiParent = this };
             personForm.Show();
         }
 
@@ -347,7 +342,7 @@ namespace OpenCBS.GUI
             {
                 case OClientTypes.Person:
                     {
-                        var personForm = new ClientForm((Person)client, this, _extensionActivator)
+                        var personForm = new ClientForm((Person)client, this)
                         {
                             MdiParent = this,
                             Text = string.Format("{0} [{1}]", MultiLanguageStrings.GetString(
@@ -360,7 +355,7 @@ namespace OpenCBS.GUI
                     }
                 case OClientTypes.Group:
                     {
-                        var personForm = new ClientForm((Group)client, this, _extensionActivator)
+                        var personForm = new ClientForm((Group)client, this)
                         {
                             MdiParent = this,
                             Text = string.Format("{0} [{1}]", MultiLanguageStrings.GetString(Ressource.ClientForm, "Group.Text"), ((Group)client).Name)
@@ -371,13 +366,13 @@ namespace OpenCBS.GUI
                     }
                 case OClientTypes.Village:
                     {
-                        var frm = new NonSolidaryGroupForm((Village)client, _extensionActivator) { MdiParent = this };
+                        var frm = new NonSolidaryGroupForm((Village)client) { MdiParent = this };
                         frm.Show();
                         break;
                     }
                 case OClientTypes.Corporate:
                     {
-                        var corporateForm = new ClientForm((Corporate)client, this, _extensionActivator) { MdiParent = this };
+                        var corporateForm = new ClientForm((Corporate)client, this) { MdiParent = this };
                         corporateForm.DisplaySaving(savingId, client);
                         corporateForm.Show();
                         break;
@@ -920,17 +915,6 @@ namespace OpenCBS.GUI
             bwReportLoader_DoWork(null, null);
         }
 
-        private void OnExtensionsLoaded(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (e.Error != null)
-            {
-                ExceptionStatus exceptionStatus = CustomExceptionHandler.ShowExceptionText(e.Error, "LoadExtensionError.Text");
-                new frmShowError(exceptionStatus).ShowDialog();
-            }
-            _InitializeUserRights();
-            DisplayFastChoiceForm();
-        }
-
         private void InitializeMainMenu()
         {
             foreach (var extensionItem in ExtensionMenuItems)
@@ -944,7 +928,7 @@ namespace OpenCBS.GUI
 
                 var items = owner == null ? mainMenu.Items : owner.DropDownItems;
                 var index = items.IndexOf(anchor);
-                items.Insert(index + 1, temp.GetItem(_extensionActivator));
+                items.Insert(index + 1, temp.GetItem());
             }
         }
 
