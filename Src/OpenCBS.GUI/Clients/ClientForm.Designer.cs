@@ -554,6 +554,7 @@ namespace OpenCBS.GUI.Clients
             this.menuPendingSavingEvents = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuItemConfirmPendingSavingEvent = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCancelPendingSavingEvent = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonManualSchedule = new System.Windows.Forms.Button();
             this.splitContainer10.Panel1.SuspendLayout();
             this.splitContainer10.Panel2.SuspendLayout();
             this.splitContainer10.SuspendLayout();
@@ -2481,6 +2482,7 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.flowLayoutPanel8, "flowLayoutPanel8");
             this.flowLayoutPanel8.Controls.Add(this.buttonLoanRepaymentRepay);
             this.flowLayoutPanel8.Controls.Add(this.buttonLoanReschedule);
+            this.flowLayoutPanel8.Controls.Add(this.buttonManualSchedule);
             this.flowLayoutPanel8.Controls.Add(this.buttonAddTranche);
             this.flowLayoutPanel8.Controls.Add(this.btnWriteOff);
             this.flowLayoutPanel8.Controls.Add(this.btnPrintLoanRepayment);
@@ -2676,7 +2678,6 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.lblLoanStatus, "lblLoanStatus");
             this.lblLoanStatus.Name = "lblLoanStatus";
-            this.lblLoanStatus.Click += new System.EventHandler(this.lblLoanStatus_Click);
             // 
             // tabPageLoanGuarantees
             // 
@@ -3799,6 +3800,11 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.menuItemCancelPendingSavingEvent, "menuItemCancelPendingSavingEvent");
             this.menuItemCancelPendingSavingEvent.Click += new System.EventHandler(this.menuItemCancelPendingSavingEvent_Click);
             // 
+            // buttonManualSchedule
+            // 
+            resources.ApplyResources(this.buttonManualSchedule, "buttonManualSchedule");
+            this.buttonManualSchedule.Name = "buttonManualSchedule";
+            // 
             // ClientForm
             // 
             resources.ApplyResources(this, "$this");
@@ -4399,5 +4405,6 @@ namespace OpenCBS.GUI.Clients
         private PrintButton btnPrintLoanEvents;
         private System.Windows.Forms.Button btnWaiveFee;
         private System.Windows.Forms.Button btnDeleteEvent;
+        private Button buttonManualSchedule;
     }
 }

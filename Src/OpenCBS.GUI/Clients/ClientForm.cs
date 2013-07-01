@@ -1837,6 +1837,7 @@ namespace OpenCBS.GUI.Clients
             DisplayLoanEvents(pCredit);
             buttonLoanReschedule.Enabled = !pCredit.Closed;
             IsRescheduleAllowed(pCredit);
+            buttonManualSchedule.Enabled = !pCredit.Closed;
             SetAddTrancheButton(pCredit);
             buttonLoanRepaymentRepay.Enabled = !pCredit.Closed;
             btnWriteOff.Enabled = !pCredit.Closed && !pCredit.WrittenOff;
@@ -6942,11 +6943,6 @@ namespace OpenCBS.GUI.Clients
             numCompulsoryAmountPercent.Enabled = (minimum != maximum) || isCsSelected;
             if (!isCsSelected)
                 numCompulsoryAmountPercent.Value = _product == null ? 0 : minimum;
-        }
-
-        private void lblLoanStatus_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void lvContracts_SelectedIndexChanged(object sender, EventArgs e)

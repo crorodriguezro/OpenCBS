@@ -510,6 +510,12 @@
     <Compile Include="Contracts\EditContractSchedule.Designer.cs">
       <DependentUpon>EditContractSchedule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contracts\EditContractSchedule1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contracts\EditContractSchedule1.Designer.cs">
+      <DependentUpon>EditContractSchedule1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Contracts\FastDepositForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1757,6 +1763,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contracts\EditContractSchedule.ru-RU.resx">
       <DependentUpon>EditContractSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\EditContractSchedule1.resx">
+      <DependentUpon>EditContractSchedule1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contracts\FastDepositForm.pt.resx">
       <DependentUpon>FastDepositForm.cs</DependentUpon>
