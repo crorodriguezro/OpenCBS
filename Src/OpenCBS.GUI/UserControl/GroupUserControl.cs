@@ -823,8 +823,7 @@ namespace OpenCBS.GUI.UserControl
             tabControlGroupInfo.TabPages.Remove(tabPageSaving);
         }
 
-        public GroupUserControl(Group group, Form pMdiParent, IExtensionActivator extensionActivator)
-            : base(extensionActivator)
+        public GroupUserControl(Group group, Form pMdiParent)
         {
             _mdiParent = pMdiParent;
             InitializeComponent();
@@ -1133,7 +1132,7 @@ namespace OpenCBS.GUI.UserControl
             {
                 if (GroupHasActiveContracts())
                 {
-                    ClientForm personForm = new ClientForm(OClientTypes.Person, _mdiParent, true, ExtensionActivator);
+                    ClientForm personForm = new ClientForm(OClientTypes.Person, _mdiParent, true);
                     if (DialogResult.OK == personForm.ShowDialog())
                     {
                         try
@@ -1362,7 +1361,7 @@ namespace OpenCBS.GUI.UserControl
 
         private void ViewPerson(Member pMember, bool leader)
         {
-            var personForm = new ClientForm((Person)pMember.Tiers, _mdiParent, ExtensionActivator);
+            var personForm = new ClientForm((Person)pMember.Tiers, _mdiParent);
             personForm.ShowDialog();
 
             if (leader && personForm.DialogResult == DialogResult.OK)

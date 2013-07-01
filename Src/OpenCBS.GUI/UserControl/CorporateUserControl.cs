@@ -130,7 +130,7 @@ namespace OpenCBS.GUI.UserControl
 
         private readonly FundingLine _fundingLine;
 
-        public CorporateUserControl(Corporate corporate, Form pMdiParent, IExtensionActivator extensionActivator) : base(extensionActivator)
+        public CorporateUserControl(Corporate corporate, Form pMdiParent)
         {
             _mdifrom = pMdiParent;
            _corporate = corporate;
@@ -411,7 +411,7 @@ namespace OpenCBS.GUI.UserControl
 
         private void BtnAddContactClick(object sender, EventArgs e)
         {
-            var personForm = new ClientForm(OClientTypes.Person, _mdifrom, true, ExtensionActivator);
+            var personForm = new ClientForm(OClientTypes.Person, _mdifrom, true);
             personForm.ShowDialog();
             Contact contact = new Contact {Tiers = personForm.Person};
             if (contact.Tiers != null)
@@ -425,7 +425,7 @@ namespace OpenCBS.GUI.UserControl
             var member = ServicesProvider.GetInstance().GetClientServices().FindPersonById(contact.Tiers.Id);
             if (member != null)
             {
-                var clientForm = new ClientForm(member, _mdifrom, ExtensionActivator);
+                var clientForm = new ClientForm(member, _mdifrom);
                 clientForm.ShowDialog();
             }
         }

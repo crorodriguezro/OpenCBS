@@ -53,16 +53,13 @@ namespace OpenCBS.GUI.Clients
         private CustomizableFieldsControl _customizableFieldsControl;
         private String _title = null;
         private bool membersSaved = true;
-        private readonly IExtensionActivator _extensionActivator;
 
         [ImportMany(typeof(INonSolidarityGroupTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<INonSolidarityGroupTabs> Extensions { get; set; }
 
-        public NonSolidaryGroupForm(IExtensionActivator extensionActivator)
+        public NonSolidaryGroupForm()
         {
-            _extensionActivator = extensionActivator;
-            if (_extensionActivator != null) _extensionActivator.Execute(this);
-
+            MefContainer.Current.Bind(this);
             InitializeComponent();
             _village = new Village {CreationDate = TimeProvider.Now};
             InitializeControls();
@@ -70,10 +67,9 @@ namespace OpenCBS.GUI.Clients
             InitializeTitle();
         }
 
-        public NonSolidaryGroupForm(Village village, IExtensionActivator extensionActivator)
+        public NonSolidaryGroupForm(Village village)
         {
-            _extensionActivator = extensionActivator;
-            if (_extensionActivator != null) _extensionActivator.Execute(this);
+            MefContainer.Current.Bind(this);
 
             _village = village;
 
@@ -599,7 +595,7 @@ namespace OpenCBS.GUI.Clients
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ClientForm frm = new ClientForm(OClientTypes.Person, MdiParent, true, _extensionActivator);
+            ClientForm frm = new ClientForm(OClientTypes.Person, MdiParent, true);
             if (frm.ShowDialog() != DialogResult.OK) return;
             try
             {
@@ -636,11 +632,11 @@ namespace OpenCBS.GUI.Clients
                             if (project.Credits != null)
                                 foreach (Loan loan in project.Credits)
                                     loan.CompulsorySavings = ServicesProvider.GetInstance().GetSavingServices().GetSavingForLoan(loan.Id, true);
-                    frm = new ClientForm(client, member.ActiveLoans[0].Id, MdiParent, "tabPageDetails", _extensionActivator);
+                    frm = new ClientForm(client, member.ActiveLoans[0].Id, MdiParent, "tabPageDetails");
                 }
                 else
                 {
-                    frm = new ClientForm((Person) member.Tiers, MdiParent, _extensionActivator);
+                    frm = new ClientForm((Person) member.Tiers, MdiParent);
                 }
                 frm.ShowDialog();
             }
@@ -757,7 +753,7 @@ namespace OpenCBS.GUI.Clients
                 IClient member = (IClient)listViewSavings.SelectedItems[0].Group.Tag;
                 if (member != null)
                 {
-                    ClientForm personForm = new ClientForm((Person)member, MdiParent, _extensionActivator);
+                    ClientForm personForm = new ClientForm((Person)member, MdiParent);
                     personForm.DisplaySaving(((ISavingsContract)listViewSavings.SelectedItems[0].Tag).Id, member);
                     personForm.ShowDialog();
                     DisplaySavings();
@@ -812,16 +808,16 @@ namespace OpenCBS.GUI.Clients
                                 if (project.Credits != null)
                                     foreach (Loan loan in project.Credits)
                                         loan.CompulsorySavings = ServicesProvider.GetInstance().GetSavingServices().GetSavingForLoan(loan.Id, true);
-                        frm = new ClientForm(client, member.ActiveLoans[0].Id, MdiParent, "tabPageLoansDetails", _extensionActivator);
+                        frm = new ClientForm(client, member.ActiveLoans[0].Id, MdiParent, "tabPageLoansDetails");
                     }
                     else
                     {
-                        frm = new ClientForm((Person)member.Tiers, MdiParent, _extensionActivator);
+                        frm = new ClientForm((Person)member.Tiers, MdiParent);
                     }
                 }
                 else
                 {
-                    frm = new ClientForm((Person)member.Tiers, MdiParent, _extensionActivator);
+                    frm = new ClientForm((Person)member.Tiers, MdiParent);
                 }
                 frm.ShowDialog();
                 

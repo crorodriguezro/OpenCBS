@@ -44,8 +44,6 @@ namespace OpenCBS.GUI.Contracts
         private readonly Form _mdiParent;
         private CollectionList collections;
 
-        private readonly IExtensionActivator _extensionActivator;
-
         public ContractCollateral ContractCollateral
         {
             get
@@ -54,9 +52,8 @@ namespace OpenCBS.GUI.Contracts
             }
         }
 
-        public ContractCollateralForm(CollateralProduct product, IExtensionActivator extensionActivator)
+        public ContractCollateralForm(CollateralProduct product)
         {
-            _extensionActivator = extensionActivator;
             this.product = product;
             contractCollateral = new ContractCollateral();
             myProperties = new CustomClass();
@@ -66,9 +63,8 @@ namespace OpenCBS.GUI.Contracts
             FillCollateralProperties();
         }
 
-        public ContractCollateralForm(CollateralProduct product, ContractCollateral contractCollateral, bool isView, IExtensionActivator extensionActivator)
+        public ContractCollateralForm(CollateralProduct product, ContractCollateral contractCollateral, bool isView)
         {
-            _extensionActivator = extensionActivator;
             this.product = product;
             this.contractCollateral = contractCollateral;
             myProperties = new CustomClass();
@@ -266,7 +262,7 @@ namespace OpenCBS.GUI.Contracts
 
         private Person AddOwner()
         {
-            var personForm = new ClientForm(OClientTypes.Person, this.MdiParent, true, _extensionActivator);
+            var personForm = new ClientForm(OClientTypes.Person, this.MdiParent, true);
             personForm.ShowDialog();
             //client = personForm.Person;
 

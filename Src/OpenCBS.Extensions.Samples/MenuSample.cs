@@ -35,15 +35,18 @@ namespace OpenCBS.Extensions.Samples
     [Export(typeof(IMenu))]
     public class MenuSample : IMenu
     {
+        public MenuSample()
+        {
+            MefContainer.Current.Bind(this);
+        }
+
         public string InsertAfter
         {
             get { return "mnuClients"; }
         }
 
-        public ToolStripMenuItem GetItem(IExtensionActivator extensionActivator)
+        public ToolStripMenuItem GetItem()
         {
-            if (extensionActivator != null) extensionActivator.Execute(this);
-
             var result = new ToolStripMenuItem { Text = "TEST " };
             result.Click += (sender, args) =>
             {
