@@ -21,10 +21,14 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using AutoMapper;
+using OpenCBS.CoreDomain;
+using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Alerts;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts;
@@ -32,27 +36,25 @@ using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.Contracts.Rescheduling;
 using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.CoreDomain.EconomicActivities;
+using OpenCBS.CoreDomain.Events;
 using OpenCBS.CoreDomain.Events.Loan;
 using OpenCBS.CoreDomain.Events.Saving;
 using OpenCBS.CoreDomain.FundingLines;
+using OpenCBS.CoreDomain.SearchResult;
 using OpenCBS.Engine;
 using OpenCBS.Engine.Interfaces;
 using OpenCBS.Enums;
+using OpenCBS.ExceptionsHandler;
 using OpenCBS.ExceptionsHandler.Exceptions.SavingExceptions;
+using OpenCBS.Extensions;
+using OpenCBS.Manager;
 using OpenCBS.Manager.Clients;
+using OpenCBS.Manager.Contracts;
 using OpenCBS.Manager.Events;
-using OpenCBS.Shared;
-using OpenCBS.CoreDomain;
-using OpenCBS.CoreDomain.Events;
-using OpenCBS.CoreDomain.SearchResult;
 using OpenCBS.Services.Accounting;
 using OpenCBS.Services.Events;
-using OpenCBS.Manager;
-using System.Data.SqlClient;
-using OpenCBS.ExceptionsHandler;
-using OpenCBS.CoreDomain.Accounting;
+using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
-using OpenCBS.Manager.Contracts;
 using Installment = OpenCBS.CoreDomain.Contracts.Loans.Installments.Installment;
 
 namespace OpenCBS.Services
@@ -77,6 +79,9 @@ namespace OpenCBS.Services
         private static List<Alert_v2> _alerts;
 
         private readonly OctopusScheduleConfigurationFactory _configurationFactory;
+
+        [ImportMany(typeof(IContractCodeGenerator))]
+        private Lazy<IContractCodeGenerator, IDictionary<string, string>>[] ContractCodeGenerators { get; set; }
 
         public LoanServices(User pUser)
             : base(pUser)
@@ -2344,6 +2349,28 @@ namespace OpenCBS.Services
         private void CheckOperationDate(DateTime date)
         {
             if (!IsDateWithinCurrentFiscalYear(date)) throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
+        }
+
+        private string GenerateContractCode(IClient client, Loan loan)
+        {
+            // Find non-default implementation
+            var generator = (
+                from gen in ContractCodeGenerators
+                where gen.Metadata.ContainsKey("Implementation") && gen.Metadata["Implementation"] != "Default"
+                select gen.Value).FirstOrDefault();
+            if (generator != null) return generator.GenerateContractCode(client, loan);
+
+            // Otherwise, find the default one
+            generator = (
+                from gen in ContractCodeGenerators
+                where
+                    gen.Metadata.ContainsKey("Implementation") &&
+                    gen.Metadata["Implementation"] == "Default"
+                select gen.Value
+            ).FirstOrDefault();
+            if (generator != null) return generator.GenerateContractCode(client, loan);
+
+            throw new ApplicationException("Cannot find contract code generator.");
         }
     }
 }

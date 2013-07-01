@@ -59,8 +59,10 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="ContractCodeGenerator.cs" />
     <Compile Include="ExtensionActivator.cs" />
     <Compile Include="Host.cs" />
+    <Compile Include="IContractCodeGenerator.cs" />
     <Compile Include="ICorporateTabs.cs" />
     <Compile Include="IExtensionActivator.cs" />
     <Compile Include="IHost.cs" />
