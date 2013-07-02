@@ -21,10 +21,13 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
+using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
 using AutoMapper;
+using OpenCBS.CoreDomain;
+using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Alerts;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts;
@@ -32,34 +35,29 @@ using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.Contracts.Rescheduling;
 using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.CoreDomain.EconomicActivities;
+using OpenCBS.CoreDomain.Events;
 using OpenCBS.CoreDomain.Events.Loan;
 using OpenCBS.CoreDomain.Events.Saving;
 using OpenCBS.CoreDomain.FundingLines;
+using OpenCBS.CoreDomain.SearchResult;
 using OpenCBS.Engine;
 using OpenCBS.Engine.Interfaces;
 using OpenCBS.Enums;
+using OpenCBS.ExceptionsHandler;
 using OpenCBS.ExceptionsHandler.Exceptions.SavingExceptions;
+using OpenCBS.Extensions;
+using OpenCBS.Manager;
 using OpenCBS.Manager.Clients;
+using OpenCBS.Manager.Contracts;
 using OpenCBS.Manager.Events;
-using OpenCBS.Shared;
-using OpenCBS.CoreDomain;
-using OpenCBS.CoreDomain.Events;
-using OpenCBS.CoreDomain.SearchResult;
 using OpenCBS.Services.Accounting;
 using OpenCBS.Services.Events;
-using OpenCBS.Manager;
-using System.Data.SqlClient;
-using OpenCBS.ExceptionsHandler;
-using OpenCBS.CoreDomain.Accounting;
+using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
-using OpenCBS.Manager.Contracts;
 using Installment = OpenCBS.CoreDomain.Contracts.Loans.Installments.Installment;
 
 namespace OpenCBS.Services
 {
-    /// <summary>
-    /// Description r�sum�e de ContractServices.
-    /// </summary>
     public class LoanServices : Services
     {
         private readonly FundingLineServices _fundingLineServices;
@@ -77,6 +75,9 @@ namespace OpenCBS.Services
         private static List<Alert_v2> _alerts;
 
         private readonly OctopusScheduleConfigurationFactory _configurationFactory;
+
+        [ImportMany(typeof(IContractCodeGenerator))]
+        private Lazy<IContractCodeGenerator, IDictionary<string, object>>[] ContractCodeGenerators { get; set; }
 
         public LoanServices(User pUser)
             : base(pUser)
@@ -96,6 +97,8 @@ namespace OpenCBS.Services
             var settings = ApplicationSettings.GetInstance(string.Empty);
             var nonWorkingDate = NonWorkingDateSingleton.GetInstance(string.Empty);
             _configurationFactory = new OctopusScheduleConfigurationFactory(nonWorkingDate, settings);
+
+            MefContainer.Current.Bind(this);
         }
 
         public LoanServices(InstallmentManager pInstalmentManager, ClientManager pClientManager, LoanManager pLoanManager)
@@ -104,6 +107,8 @@ namespace OpenCBS.Services
             _instalmentManager = pInstalmentManager;
             _clientManager = pClientManager;
             _loanManager = pLoanManager;
+
+            MefContainer.Current.Bind(this);
         }
 
         /// <summary>
@@ -1980,7 +1985,6 @@ namespace OpenCBS.Services
             IClient clonedClient = pClient.Copy();
             try
             {
-                var clientName = (pClient is Person) ? ((Person)pClient).LastName : pClient.Name;
                 string branchCode = pClient.Branch.Code;
                 if (String.IsNullOrEmpty(branchCode))
                     branchCode = _branchService.FindBranchCodeByClientId(pClient.Id, transaction);
@@ -1990,20 +1994,8 @@ namespace OpenCBS.Services
                 pLoan.CloseDate = (pLoan.InstallmentList[pLoan.InstallmentList.Count - 1]).ExpectedDate;
                 pLoan.BranchCode = branchCode;
 
-                if (string.IsNullOrEmpty(clonedLoan.Code))
-                {
-                    int len = 1 == pClient.District.Name.Length ? 1 : 2;
-                    pLoan.Code = pLoan.GenerateLoanCode(appSettings.ContractCodeTemplate
-                        , branchCode
-                        , pClient.District.Name.Substring(0, len)
-                        , (pClient.LoanCycle + 1).ToString(CultureInfo.InvariantCulture)
-                        , pClient.Projects.Count.ToString(CultureInfo.InvariantCulture)
-                        , pClient.Id.ToString(CultureInfo.InvariantCulture)
-                        , clientName);
-                }
-
                 pLoan.Id = AddLoanInDatabase(pLoan, pProjectId, pClient, transaction);
-                pLoan.Code = pLoan.Code + '/' + pLoan.Id;
+                pLoan.Code = GenerateContractCode(pClient, pLoan);
                 _loanManager.UpdateContractCode(pLoan.Id, pLoan.Code, transaction);
             }
             catch
@@ -2344,6 +2336,25 @@ namespace OpenCBS.Services
         private void CheckOperationDate(DateTime date)
         {
             if (!IsDateWithinCurrentFiscalYear(date)) throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
+        }
+
+        private string GenerateContractCode(IClient client, Loan loan)
+        {
+            // Find non-default implementation
+            var generator = (
+                from gen in ContractCodeGenerators
+                where gen.Metadata.ContainsKey("Implementation") && gen.Metadata["Implementation"].ToString() != "Default"
+                select gen.Value).FirstOrDefault();
+            if (generator != null) return generator.GenerateContractCode(client, loan);
+
+            // Otherwise, find the default one
+            generator = (
+                from gen in ContractCodeGenerators
+                where gen.Metadata.ContainsKey("Implementation") && gen.Metadata["Implementation"].ToString() == "Default"
+                select gen.Value).FirstOrDefault();
+            if (generator != null) return generator.GenerateContractCode(client, loan);
+
+            throw new ApplicationException("Cannot find contract code generator.");
         }
     }
 }

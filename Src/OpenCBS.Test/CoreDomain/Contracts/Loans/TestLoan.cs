@@ -632,19 +632,6 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Loans
         }
 
         [Test]
-        public void TestContractCode()
-        {
-            _myContract.BranchCode = "CH";
-            _myContract.LoanOfficer = new User {FirstName = "PA"};
-            _generalSettings.UpdateParameter(OGeneralSettings.CONTRACT_CODE_TEMPLATE, "BC/YY/PC-LC/ID");
-            Assert.AreEqual("CH/06/IL-1/123", _myContract.GenerateLoanCode("BC/YY/PC-LC/ID", "CH", "BISHKEK", "1", "1", "123", "NN"));
-            _generalSettings.UpdateParameter(OGeneralSettings.CONTRACT_CODE_TEMPLATE, "C/BC/DT/YY/LO/PC/LC/JC/ID");
-            Assert.AreEqual("C/CH/OSH/06/PA/IL/1/1/123", _myContract.GenerateLoanCode("C/BC/DT/YY/LO/PC/LC/JC/ID", "CH", "OSH", "1", "1", "123", "Name"));
-            _generalSettings.UpdateParameter(OGeneralSettings.CONTRACT_CODE_TEMPLATE, "PC/LN/LC/JC/ID");
-            Assert.AreEqual("IL/DELAR/1/1/123", _myContract.GenerateLoanCode("PC/LN/LC/JC/ID", "CH", "OSH", "1", "1", "123", "DE LA ROSA"));
-        }
-
-        [Test]
         public void GetFirstUnpaidInstallment()
         {
             _myContract.NonRepaymentPenalties = new NonRepaymentPenalties(0.001, 0, 0, 0);
