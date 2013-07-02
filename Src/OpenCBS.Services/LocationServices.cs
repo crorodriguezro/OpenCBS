@@ -177,6 +177,11 @@ namespace OpenCBS.Services
             return _locationsManager.SelectDistrictByName(name);
         }
 
+        public District FindDistirctById(int id)
+        {
+            return _locationsManager.SelectDistrictById(id);
+        }
+
         public District FindDistrictByCityName(string name)
         {
             return _locationsManager.SelectDistrictByCityName(name);
