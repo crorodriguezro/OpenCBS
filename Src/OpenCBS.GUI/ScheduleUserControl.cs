@@ -28,26 +28,27 @@ namespace OpenCBS.GUI
         private void Setup()
         {
             dateColumn.AspectToStringConverter =
-            paymentDateColumn.AspectToStringConverter = value =>
-            {
-                var date = (DateTime?)value;
-                return date.HasValue ? date.Value.ToString("dd.MM.yyyy") : string.Empty;
-            };
+                paymentDateColumn.AspectToStringConverter = value =>
+                    {
+                        var date = (DateTime?) value;
+                        return date.HasValue ? date.Value.ToString("dd.MM.yyyy") : string.Empty;
+                    };
             var numberFormatInfo = new NumberFormatInfo
-            {
-                NumberGroupSeparator = " ",
-                NumberDecimalSeparator = ",",
-            };
+                {
+                    NumberGroupSeparator = " ",
+                    NumberDecimalSeparator = ",",
+                };
             principalColumn.AspectToStringConverter =
-            interestColumn.AspectToStringConverter =
-            paidPrincipalColumn.AspectToStringConverter =
-            paidInterestColumn.AspectToStringConverter =
-            totalColumn.AspectToStringConverter =
-            olbColumn.AspectToStringConverter = value =>
-            {
-                var amount = (OCurrency)value;
-                return amount.Value.ToString(_amountFormatString, numberFormatInfo);
-            };
+                interestColumn.AspectToStringConverter =
+                paidPrincipalColumn.AspectToStringConverter =
+                paidInterestColumn.AspectToStringConverter =
+                totalColumn.AspectToStringConverter =
+                olbColumn.AspectToStringConverter = value =>
+                    {
+                        var amount = (OCurrency) value;
+                        return amount.Value.ToString(_amountFormatString, numberFormatInfo);
+                    };
+            scheduleObjectListView.CellEditActivation = ObjectListView.CellEditActivateMode.DoubleClick;
         }
 
         private static void FormatRow(OLVListItem item)

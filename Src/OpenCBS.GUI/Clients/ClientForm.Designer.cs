@@ -357,6 +357,7 @@ namespace OpenCBS.GUI.Clients
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonLoanRepaymentRepay = new System.Windows.Forms.Button();
             this.buttonLoanReschedule = new System.Windows.Forms.Button();
+            this.buttonManualSchedule = new System.Windows.Forms.Button();
             this.buttonAddTranche = new System.Windows.Forms.Button();
             this.btnWriteOff = new System.Windows.Forms.Button();
             this.btnPrintLoanRepayment = new OpenCBS.GUI.UserControl.PrintButton();
@@ -554,7 +555,6 @@ namespace OpenCBS.GUI.Clients
             this.menuPendingSavingEvents = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuItemConfirmPendingSavingEvent = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCancelPendingSavingEvent = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonManualSchedule = new System.Windows.Forms.Button();
             this.splitContainer10.Panel1.SuspendLayout();
             this.splitContainer10.Panel2.SuspendLayout();
             this.splitContainer10.SuspendLayout();
@@ -2500,6 +2500,12 @@ namespace OpenCBS.GUI.Clients
             this.buttonLoanReschedule.Name = "buttonLoanReschedule";
             this.buttonLoanReschedule.Click += new System.EventHandler(this.buttonLoanReschedule_Click);
             // 
+            // buttonManualSchedule
+            // 
+            resources.ApplyResources(this.buttonManualSchedule, "buttonManualSchedule");
+            this.buttonManualSchedule.Name = "buttonManualSchedule";
+            this.buttonManualSchedule.Click += new System.EventHandler(this.buttonManualSchedule_Click);
+            // 
             // buttonAddTranche
             // 
             resources.ApplyResources(this.buttonAddTranche, "buttonAddTranche");
@@ -3799,11 +3805,6 @@ namespace OpenCBS.GUI.Clients
             this.menuItemCancelPendingSavingEvent.Name = "menuItemCancelPendingSavingEvent";
             resources.ApplyResources(this.menuItemCancelPendingSavingEvent, "menuItemCancelPendingSavingEvent");
             this.menuItemCancelPendingSavingEvent.Click += new System.EventHandler(this.menuItemCancelPendingSavingEvent_Click);
-            // 
-            // buttonManualSchedule
-            // 
-            resources.ApplyResources(this.buttonManualSchedule, "buttonManualSchedule");
-            this.buttonManualSchedule.Name = "buttonManualSchedule";
             // 
             // ClientForm
             // 

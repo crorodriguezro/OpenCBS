@@ -7010,5 +7010,33 @@ namespace OpenCBS.GUI.Clients
             point.Y -= 23;
             menuBtnAddSavingOperation.Show(this, point);
         }
+
+        private void buttonManualSchedule_Click(object sender, EventArgs e)
+        {
+            if (null == _credit || 0 == _credit.InstallmentList.Count) return;
+            Loan loan = _credit.Copy();
+            EditContractSchedule1 editContractSchedule = new EditContractSchedule1(loan);
+
+            if (editContractSchedule.ShowDialog() == DialogResult.OK)
+            {
+            //    try
+            //    {
+            //        ServicesProvider.GetInstance().GetContractServices().CanUserEditRepaymentSchedule();
+            //        _credit.ScheduleChangedManually = true;
+
+            //        if (_credit.ContractStatus != 0)
+            //            ServicesProvider.GetInstance().GetContractServices().SaveSchedule(
+            //                editContractSchedule.Installments, _credit);
+
+            //        _credit.InstallmentList = editContractSchedule.Installments;
+
+            //        DisplayInstallments(ref _credit);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
+            //    }
+            }
+        }
     }
 }
