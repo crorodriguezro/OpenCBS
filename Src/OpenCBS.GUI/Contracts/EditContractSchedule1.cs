@@ -24,7 +24,7 @@ namespace OpenCBS.GUI.Contracts
             _loan = pLoan;
             InitializeSchedule();
         }
-        void InitializeSchedule()
+        private void InitializeSchedule()
         {
             olvSchedule.SetScheduleFor(_loan);
         }

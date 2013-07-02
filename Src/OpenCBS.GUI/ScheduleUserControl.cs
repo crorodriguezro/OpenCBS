@@ -17,11 +17,13 @@ namespace OpenCBS.GUI
             InitializeComponent();
             Load += (sender, args) => Setup();
             scheduleObjectListView.RowFormatter = FormatRow;
+            scheduleObjectListView.CellEditStarting += new CellEditEventHandler(this.HandleCellEditStarting);
         }
 
         public void SetScheduleFor(Loan loan)
         {
             _amountFormatString = loan.UseCents ? "N2" : "N0";
+            Setup();
             scheduleObjectListView.SetObjects(loan.InstallmentList);
         }
 
@@ -58,6 +60,13 @@ namespace OpenCBS.GUI
             if (installment.IsPending) item.BackColor = Color.Orange;
             if (installment.IsRepaid) item.BackColor = Color.FromArgb(61, 153, 57);
             if (installment.IsPending || installment.IsRepaid) item.ForeColor = Color.White;
+        }
+
+        private void HandleCellEditStarting(object sender, CellEditEventArgs e)
+        {
+            var installment = (Installment)e.RowObject;
+            if (installment.IsRepaid)
+                e.Cancel = true;
         }
     }
 }
