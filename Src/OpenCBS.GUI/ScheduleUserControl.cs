@@ -18,6 +18,7 @@ namespace OpenCBS.GUI
             Load += (sender, args) => Setup();
             scheduleObjectListView.RowFormatter = FormatRow;
             scheduleObjectListView.CellEditStarting += new CellEditEventHandler(this.HandleCellEditStarting);
+            scheduleObjectListView.CellEditFinishing+=new CellEditEventHandler(this.HandleCellEditFinishing);
         }
 
         public void SetScheduleFor(Loan loan)
@@ -67,6 +68,26 @@ namespace OpenCBS.GUI
             var installment = (Installment)e.RowObject;
             if (installment.IsRepaid)
                 e.Cancel = true;
+        }
+
+        private void HandleCellEditFinishing(object sender, CellEditEventArgs e)
+        {
+            if (e.Column == interestColumn)
+            {
+                var installment = (Installment)e.RowObject;
+                decimal amount;
+                if (decimal.TryParse(e.NewValue.ToString(), out amount))
+                    installment.InterestsRepayment = amount;
+                scheduleObjectListView.RefreshObject(e.RowObject);
+            }
+            if (e.Column == principalColumn)
+            {
+                var installment = (Installment)e.RowObject;
+                decimal amount;
+                if (decimal.TryParse(e.NewValue.ToString(), out amount))
+                    installment.CapitalRepayment = amount;
+                scheduleObjectListView.RefreshObject(e.RowObject);
+            }
         }
     }
 }

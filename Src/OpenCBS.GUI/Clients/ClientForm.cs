@@ -7014,28 +7014,29 @@ namespace OpenCBS.GUI.Clients
         private void buttonManualSchedule_Click(object sender, EventArgs e)
         {
             if (null == _credit || 0 == _credit.InstallmentList.Count) return;
-            Loan loan = _credit.Copy();
-            EditContractSchedule1 editContractSchedule = new EditContractSchedule1(loan);
+            EditContractSchedule1 editContractSchedule = new EditContractSchedule1(_credit);
 
             if (editContractSchedule.ShowDialog() == DialogResult.OK)
             {
-            //    try
-            //    {
-            //        ServicesProvider.GetInstance().GetContractServices().CanUserEditRepaymentSchedule();
-            //        _credit.ScheduleChangedManually = true;
+                try
+                {
+                    //ServicesProvider.GetInstance().GetContractServices().CanUserEditRepaymentSchedule();
+                    //_credit.ScheduleChangedManually = true;
 
-            //        if (_credit.ContractStatus != 0)
-            //            ServicesProvider.GetInstance().GetContractServices().SaveSchedule(
-            //                editContractSchedule.Installments, _credit);
+                    _credit = editContractSchedule.Loan;
+                    SaveContract();
+                    //if (_credit.ContractStatus != 0)
+                    //    ServicesProvider.GetInstance().GetContractServices().SaveSchedule(
+                    //        editContractSchedule.Installments, _credit);
 
-            //        _credit.InstallmentList = editContractSchedule.Installments;
+                    //_credit.InstallmentList = editContractSchedule.Installments;
 
-            //        DisplayInstallments(ref _credit);
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
-            //    }
+                    DisplayInstallments(ref _credit);
+                }
+                catch (Exception ex)
+                {
+                    new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
+                }
             }
         }
     }

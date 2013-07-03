@@ -28,5 +28,10 @@ namespace OpenCBS.GUI.Contracts
         {
             olvSchedule.SetScheduleFor(_loan);
         }
+        public Loan Loan
+        {
+            get { return _loan; }
+            set { _loan = value; }
+        }
     }
 }
