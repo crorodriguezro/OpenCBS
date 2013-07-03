@@ -26,6 +26,9 @@ namespace OpenCBS.GUI
             _amountFormatString = loan.UseCents ? "N2" : "N0";
             Setup();
             scheduleObjectListView.SetObjects(loan.InstallmentList);
+            Installment total = new Installment();
+            total.CapitalRepayment = loan.Amount;
+            scheduleObjectListView.AddObject(total);
         }
 
         private void Setup()
@@ -68,12 +71,25 @@ namespace OpenCBS.GUI
             if (e.Column == dateColumn)
             {
                 DateTime newDate = Convert.ToDateTime(e.NewValue);
-                DateTime prevousInstallmentDate;
-                DateTime.TryParse(
-                    scheduleObjectListView.GetItem(e.ListViewItem.Index - 1).GetSubItem(dateColumn.Index).ToString(),
-                    out prevousInstallmentDate);
-                if (newDate < prevousInstallmentDate)
-                    return false;
+                int index = e.ListViewItem.Index;
+                if (index > 0)
+                {
+                    DateTime previousInstallmentDate;
+                    var installment = (Installment)scheduleObjectListView.GetItem(index - 1).RowObject;
+                    DateTime.TryParse(installment.ExpectedDate.ToString(),
+                        out previousInstallmentDate);
+                    if (newDate < previousInstallmentDate)
+                        return false;
+                }
+                if (index < scheduleObjectListView.Items.Count - 1)
+                {
+                    DateTime nextInstallmentDate;
+                    var installment = (Installment)scheduleObjectListView.GetItem(index + 1).RowObject;
+                    DateTime.TryParse(installment.ExpectedDate.ToString(),
+                        out nextInstallmentDate);
+                    if (newDate > nextInstallmentDate)
+                        return false;
+                }
             }
             return true;
         }
