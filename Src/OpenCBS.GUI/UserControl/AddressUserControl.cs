@@ -219,6 +219,7 @@ namespace OpenCBS.GUI
                 comboBoxDistrict.Items.Add(dis);
             }
             comboBoxDistrict.SelectedItem = selectDistrict;
+            _district = null;
         }
 
         private void _SelectProvince()
