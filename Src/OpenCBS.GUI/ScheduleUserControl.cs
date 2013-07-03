@@ -63,6 +63,21 @@ namespace OpenCBS.GUI
             if (installment.IsPending || installment.IsRepaid) item.ForeColor = Color.White;
         }
 
+        private bool CheckValue(CellEditEventArgs e)
+        {
+            if (e.Column == dateColumn)
+            {
+                DateTime newDate = Convert.ToDateTime(e.NewValue);
+                DateTime prevousInstallmentDate;
+                DateTime.TryParse(
+                    scheduleObjectListView.GetItem(e.ListViewItem.Index - 1).GetSubItem(dateColumn.Index).ToString(),
+                    out prevousInstallmentDate);
+                if (newDate < prevousInstallmentDate)
+                    return false;
+            }
+            return true;
+        }
+
         private void HandleCellEditStarting(object sender, CellEditEventArgs e)
         {
             var installment = (Installment)e.RowObject;
@@ -72,6 +87,8 @@ namespace OpenCBS.GUI
 
         private void HandleCellEditFinishing(object sender, CellEditEventArgs e)
         {
+            if (!CheckValue(e))
+                e.Cancel = true;
             if (e.Column == interestColumn)
             {
                 var installment = (Installment)e.RowObject;

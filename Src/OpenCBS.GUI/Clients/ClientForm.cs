@@ -7024,14 +7024,9 @@ namespace OpenCBS.GUI.Clients
                     //_credit.ScheduleChangedManually = true;
 
                     _credit = editContractSchedule.Loan;
-                    SaveContract();
                     //if (_credit.ContractStatus != 0)
-                    //    ServicesProvider.GetInstance().GetContractServices().SaveSchedule(
-                    //        editContractSchedule.Installments, _credit);
-
-                    //_credit.InstallmentList = editContractSchedule.Installments;
-
-                    DisplayInstallments(ref _credit);
+                    SaveContract();
+                    DisplayListViewLoanRepayments(_credit);
                 }
                 catch (Exception ex)
                 {
