@@ -27,6 +27,7 @@ using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Alerts;
 using OpenCBS.CoreDomain.Clients;
+using OpenCBS.CoreDomain.Contracts;
 using OpenCBS.CoreDomain.Contracts.Collaterals;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
@@ -957,16 +958,13 @@ namespace OpenCBS.Manager.Contracts
             }
         }
 
-        public AlertStock SelectLoansByLoanOfficerWAct(int pLoanOfficerId, bool onlyAct)
+        public List<ReassignContractItem> SelectLoansByLoanOfficerWAct(int pLoanOfficerId, bool onlyAct)
         {
             string addLoanOfficer = "";
 
             if (pLoanOfficerId != 0)
                 addLoanOfficer = " AND (Credit.loanofficer_id = @loanOfficerId) ";
-            string sqlTextRepaymentAlert;
-            if (onlyAct)
-            {
-                sqlTextRepaymentAlert =
+            string sqlTextRepaymentAlert =
                  string.Format(@"SELECT Credit.id AS contract_id, 
                                   Credit.interest_rate, 
                                   Contracts.contract_code,
@@ -984,8 +982,10 @@ namespace OpenCBS.Manager.Contracts
                                     WHEN 7 THEN 'WrittenOff'
                                     ELSE '-'
                                   END AS loan_status,
-                                  InstallmentTypes.name AS installment_types,  
-                                  ISNULL(Groups.name, ISNULL(Persons.first_name + ' ' + Persons.last_name,Corporates.name)) AS client_name,
+                                  InstallmentTypes.name AS installment_types,
+                                  COALESCE(Groups.name, Persons.first_name, Corporates.name) AS first_name,
+                                  Persons.last_name AS last_name,  
+                                  --ISNULL(Groups.name, ISNULL(Persons.first_name + ' ' + Persons.last_name,Corporates.name)) AS client_name,
                                   Districts.name as district_name, Installments.capital_repayment + Installments.interest_repayment
                                   - Installments.paid_capital - Installments.paid_interest AS amount,
                                   Installments.expected_date AS effect_date, ISNULL(( SELECT SUM(principal) FROM contractEvents
@@ -1000,50 +1000,14 @@ namespace OpenCBS.Manager.Contracts
                                   LEFT OUTER JOIN Persons ON dbo.Tiers.id = Persons.id
                                   LEFT OUTER JOIN Groups ON dbo.Tiers.id = Groups.id
                                   LEFT OUTER JOIN Districts ON dbo.Tiers.district_id = Districts.id
-                                  WHERE ( Installments.capital_repayment + Installments.interest_repayment - Installments.paid_capital - Installments.paid_interest > 0.02 ) AND Contracts.status = 5 
-                                  {0}
-                                  ORDER BY contract_id, effect_date DESC", addLoanOfficer); 
-            }
-            else
-            {
-                sqlTextRepaymentAlert =
-                 string.Format(@"SELECT Credit.id AS contract_id, 
-                                  Credit.interest_rate, 
-                                  Contracts.contract_code,
-                                  Contracts.creation_date, 
-                                  Contracts.start_date, 
-                                  Contracts.align_disbursed_date, 
-                                  Contracts.close_date, 
-                                  CASE Contracts.status
-                                    WHEN 1 THEN 'Pending'
-                                    WHEN 2 THEN 'Validated'
-                                    WHEN 3 THEN 'Refused'
-                                    WHEN 4 THEN 'Abandoned'
-                                    WHEN 5 THEN 'Active'
-                                    WHEN 6 THEN 'Closed'
-                                    WHEN 7 THEN 'WrittenOff'
-                                    ELSE '-'
-                                  END AS loan_status,
-                                  InstallmentTypes.name AS installment_types,  
-                                  ISNULL(Groups.name, ISNULL(Persons.first_name + ' ' + Persons.last_name,Corporates.name)) AS client_name,
-                                  Districts.name as district_name, Installments.capital_repayment + Installments.interest_repayment
-                                  - Installments.paid_capital - Installments.paid_interest AS amount,
-                                  Installments.expected_date AS effect_date, ISNULL(( SELECT SUM(principal) FROM contractEvents
-                                  INNER JOIN repaymentEvents ON repaymentEvents.id = contractEvents.id WHERE is_deleted = 0
-                                  AND contract_id = Contracts.id ), 0) AS olb FROM Credit
-                                  INNER JOIN Contracts ON Contracts.id = Credit.id
-                                  INNER JOIN Installments ON Installments.contract_id = Credit.id
-                                  INNER JOIN InstallmentTypes ON dbo.Credit.installment_type = dbo.InstallmentTypes.id
-                                  INNER JOIN Projects ON Contracts.project_id = Projects.id
-                                  INNER JOIN Tiers ON Projects.tiers_id = Tiers.id
-                                  LEFT OUTER JOIN Corporates ON Tiers.id=Corporates.id
-                                  LEFT OUTER JOIN Persons ON dbo.Tiers.id = Persons.id
-                                  LEFT OUTER JOIN Groups ON dbo.Tiers.id = Groups.id
-                                  LEFT OUTER JOIN Districts ON dbo.Tiers.district_id = Districts.id
-                                  WHERE ( Installments.capital_repayment + Installments.interest_repayment - Installments.paid_capital - Installments.paid_interest > 0.02 )  
-                                  {0}
-                                  ORDER BY contract_id, effect_date DESC", addLoanOfficer); 
-            }
+                                  WHERE ( Installments.capital_repayment + Installments.interest_repayment - Installments.paid_capital - Installments.paid_interest > 0.02 ) 
+                                  {0}",addLoanOfficer);
+
+            if(onlyAct)
+                sqlTextRepaymentAlert = sqlTextRepaymentAlert +  " AND Contracts.status = 5";
+
+            sqlTextRepaymentAlert = sqlTextRepaymentAlert + " ORDER BY contract_id, effect_date DESC";           
+           
             
             using (SqlConnection conn = GetConnection())
             using (OpenCbsCommand cmdSelectRepayment = new OpenCbsCommand(sqlTextRepaymentAlert, conn))
@@ -1051,16 +1015,33 @@ namespace OpenCBS.Manager.Contracts
                 if (pLoanOfficerId != 0)
                     cmdSelectRepayment.AddParam("@loanOfficerId", pLoanOfficerId);
 
+                List<ReassignContractItem> reassignContractItemList = new List<ReassignContractItem>();
                 using (OpenCbsReader reader = cmdSelectRepayment.ExecuteReader())
                 {
-                    if (reader.Empty) return new AlertStock();
-
-                    AlertStock alertStock = new AlertStock();
+                    if (reader.Empty) return reassignContractItemList;
+                                        
                     while (reader.Read())
                     {
-                        alertStock.Add(GetAlert(reader, 'R'));
+                        ReassignContractItem item = new ReassignContractItem();
+                        item.EffectDate = reader.GetDateTime(OAlertSettings.EFFECT_DATE);
+                        item.LoanId = reader.GetInt(OAlertSettings.LOAN_ID);
+                        item.LoanCode = reader.GetString(OAlertSettings.LOAN_CODE);
+                        item.LoanStatus = reader.GetString(OAlertSettings.LOAN_STATUS);
+                        item.ClientFirstName = reader.GetString("first_name");
+                        item.ClientLastName = reader.GetString("last_name");
+                        item.Amount = reader.GetDecimal(OAlertSettings.AMOUNT);
+                        item.InterestRate = reader.GetDecimal(OAlertSettings.InterestRate);
+                        item.CreationDate = reader.GetDateTime(OAlertSettings.CREATION_DATE);
+                        item.StartDate = reader.GetDateTime(OAlertSettings.START_DATE);
+                        item.CloseDate = reader.GetDateTime(OAlertSettings.CLOSE_DATE);
+                        item.InstallmentTypes = reader.GetString(OAlertSettings.INSTALLMENT_TYPES);
+                        item.DistrictName = reader.GetString(OAlertSettings.DISTRICT_NAME);
+                        item.OLB = reader.GetDecimal(OAlertSettings.OLB);
+                        item.Type = 'R';
+
+                        reassignContractItemList.Add(item);
                     }
-                    return alertStock;
+                    return reassignContractItemList;
                 }
             }
         }

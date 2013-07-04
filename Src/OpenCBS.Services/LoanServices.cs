@@ -1348,10 +1348,10 @@ namespace OpenCBS.Services
             return alertStock.SortAlertsByLoanStatus();
         }
 
-        public List<Alert> FindContractsByOfficerWAct(int officerCode, bool onlyAct)
+        public List<ReassignContractItem> FindContractsByOfficerWAct(int officerCode, bool onlyAct)
         {
-            AlertStock alertStock = _loanManager.SelectLoansByLoanOfficerWAct(officerCode, onlyAct);
-            return alertStock.SortAlertsByLoanStatus();
+            return _loanManager.SelectLoansByLoanOfficerWAct(officerCode, onlyAct);
+            //return alertStock.SortAlertsByLoanStatus();
         }
 
         public void ReassignContract(int contractId, int officerToId, int officerFromId)

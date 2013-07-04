@@ -36,7 +36,7 @@ namespace OpenCBS.GUI.Contracts
             this.columnHeaderContract = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderClient = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderClientFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderClientDistrict = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderStartDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderCloseDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,12 +60,15 @@ namespace OpenCBS.GUI.Contracts
             this.lblCaption = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.pnlSearch = new System.Windows.Forms.Panel();
+            this.columnHeaderClientLastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.statusStripContacts.SuspendLayout();
             this.gbLoanOffficers.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.pnlSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -75,9 +78,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.pnlSearch);
             this.splitContainer1.Panel1.Controls.Add(this.listViewAlert);
-            this.splitContainer1.Panel1.Controls.Add(this.lblContractFilter);
-            this.splitContainer1.Panel1.Controls.Add(this.textBoxContractFilter);
             this.splitContainer1.Panel1.Controls.Add(this.statusStripContacts);
             // 
             // splitContainer1.Panel2
@@ -92,7 +94,8 @@ namespace OpenCBS.GUI.Contracts
             this.columnHeaderContract,
             this.columnHeaderDate,
             this.columnHeaderAmount,
-            this.columnHeaderClient,
+            this.columnHeaderClientFirstName,
+            this.columnHeaderClientLastName,
             this.columnHeaderClientDistrict,
             this.columnHeaderStartDate,
             this.columnHeaderCloseDate,
@@ -122,9 +125,9 @@ namespace OpenCBS.GUI.Contracts
             // 
             resources.ApplyResources(this.columnHeaderAmount, "columnHeaderAmount");
             // 
-            // columnHeaderClient
+            // columnHeaderClientFirstName
             // 
-            resources.ApplyResources(this.columnHeaderClient, "columnHeaderClient");
+            resources.ApplyResources(this.columnHeaderClientFirstName, "columnHeaderClientFirstName");
             // 
             // columnHeaderClientDistrict
             // 
@@ -262,6 +265,17 @@ namespace OpenCBS.GUI.Contracts
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.button1_Click);
             // 
+            // pnlSearch
+            // 
+            this.pnlSearch.Controls.Add(this.lblContractFilter);
+            this.pnlSearch.Controls.Add(this.textBoxContractFilter);
+            resources.ApplyResources(this.pnlSearch, "pnlSearch");
+            this.pnlSearch.Name = "pnlSearch";
+            // 
+            // columnHeaderClientLastName
+            // 
+            resources.ApplyResources(this.columnHeaderClientLastName, "columnHeaderClientLastName");
+            // 
             // ReassignContractsForm
             // 
             resources.ApplyResources(this, "$this");
@@ -278,6 +292,8 @@ namespace OpenCBS.GUI.Contracts
             this.gbLoanOffficers.ResumeLayout(false);
             this.gbLoanOffficers.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.pnlSearch.ResumeLayout(false);
+            this.pnlSearch.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -302,7 +318,7 @@ namespace OpenCBS.GUI.Contracts
         private System.Windows.Forms.ColumnHeader columnHeaderContract;
         private System.Windows.Forms.ColumnHeader columnHeaderDate;
         private System.Windows.Forms.ColumnHeader columnHeaderAmount;
-        private System.Windows.Forms.ColumnHeader columnHeaderClient;
+        private System.Windows.Forms.ColumnHeader columnHeaderClientFirstName;
         private System.Windows.Forms.ColumnHeader columnHeaderClientDistrict;
         private System.Windows.Forms.ColumnHeader columnHeaderStartDate;
         private System.Windows.Forms.ColumnHeader columnHeaderCloseDate;
@@ -313,6 +329,8 @@ namespace OpenCBS.GUI.Contracts
         private System.Windows.Forms.ColumnHeader columnHeaderContractId;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.CheckBox chkBox_only_active;
+        private System.Windows.Forms.Panel pnlSearch;
+        private System.Windows.Forms.ColumnHeader columnHeaderClientLastName;
 
     }
 }

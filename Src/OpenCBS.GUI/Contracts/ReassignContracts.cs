@@ -27,6 +27,7 @@ using System.Windows.Forms;
 using OpenCBS.Services;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.CoreDomain;
+using OpenCBS.CoreDomain.Contracts;
 using OpenCBS.Enums;
 
 namespace OpenCBS.GUI.Contracts
@@ -34,12 +35,12 @@ namespace OpenCBS.GUI.Contracts
     public partial class ReassignContractsForm : Form
     {
         private List<User> users;
-        private List<Alert> alertStock;
+        List<ReassignContractItem> reassignContractItemList;
         public ReassignContractsForm()
         {
             InitializeComponent();
             _InitializeLoanOfficer();
-            alertStock = InitializerContracts(0);
+            reassignContractItemList = InitializerContracts(0);
             cbLoanOfficerFrom.SelectedIndex = 0;
             cbLoanOfficerTo.SelectedIndex = 0;
         }
@@ -62,55 +63,43 @@ namespace OpenCBS.GUI.Contracts
             }
         }
 
-        private List<Alert> InitializerContracts(int officerId)
+        private List<ReassignContractItem> InitializerContracts(int officerId)
         {
             bool onlyActive = chkBox_only_active.Checked;
             listViewAlert.Items.Clear();
 
-            alertStock = ServicesProvider.GetInstance().GetContractServices().FindContractsByOfficerWAct(officerId, onlyActive);
+            reassignContractItemList = ServicesProvider.GetInstance().GetContractServices().FindContractsByOfficerWAct(officerId, onlyActive);
 
-            foreach (Alert alert in alertStock)
+            foreach (ReassignContractItem item in reassignContractItemList)
             {
-                listViewAlert.Items.Add(CreateListViewItem(alert));
+                listViewAlert.Items.Add(CreateListViewItem(item));
             }
 
             toolStripStatusLabelTotal.Text = String.Format("Total contracts: {0}", listViewAlert.Items.Count);
-            return alertStock;
+            return reassignContractItemList;
         }
 
-        private ListViewItem CreateListViewItem(Alert alert)
+        private ListViewItem CreateListViewItem(ReassignContractItem item)
         {
-            ListViewItem listViewItem = new ListViewItem(alert.LoanCode){
-                                                    Tag = alert.LoanId,
-                                                    ImageIndex = (alert.Type == 'D' ? 1 : 0)
+            ListViewItem listViewItem = new ListViewItem(item.LoanCode){
+                                                    Tag = item.LoanId,
+                                                    ImageIndex = (item.Type == 'D' ? 1 : 0)
                                                 };
             listViewAlert.CheckBoxes = true;
 
-            listViewItem.SubItems.Add(alert.EffectDate.ToShortDateString());
-            listViewItem.SubItems.Add(alert.Amount.GetFormatedValue(alert.UseCents));
-            listViewItem.SubItems.Add(alert.ClientName);
-            listViewItem.SubItems.Add(alert.DistrictName);
-            listViewItem.SubItems.Add(alert.StartDate.ToShortDateString());
-            listViewItem.SubItems.Add(alert.CloseDate.ToShortDateString());
-            listViewItem.SubItems.Add(alert.CreationDate.ToShortDateString());
-            listViewItem.SubItems.Add(alert.InstallmentTypes);
-            listViewItem.SubItems.Add(alert.InterestRate.ToString());
-            listViewItem.SubItems.Add(alert.OLB.GetFormatedValue(alert.UseCents));
-            listViewItem.SubItems.Add(alert.LoanId.ToString());
-            
-            if (alert.Color == OAlertColors.Color1)
-                listViewItem.BackColor = Color.FromArgb(226, 0, 26);
-            else if (alert.Color == OAlertColors.Color2)
-                listViewItem.BackColor = Color.FromArgb(255, 92, 92);
-            else if (alert.Color == OAlertColors.Color3)
-                listViewItem.BackColor = Color.FromArgb(255, 187, 120);
-            else if (alert.Color == OAlertColors.Color4)
-                listViewItem.BackColor = Color.FromArgb(147, 181, 167);
-            else if (alert.Color == OAlertColors.Color5)
-                listViewItem.BackColor = Color.FromArgb(188, 209, 199);
-            else if (alert.Color == OAlertColors.Color6)
-                listViewItem.BackColor = Color.FromArgb(217, 229, 223);
-            else listViewItem.BackColor = Color.White;
+            listViewItem.SubItems.Add(item.EffectDate.ToShortDateString());
+            listViewItem.SubItems.Add(item.Amount.ToString());
+            listViewItem.SubItems.Add(item.ClientFirstName);
+            listViewItem.SubItems.Add(item.ClientLastName);
+            listViewItem.SubItems.Add(item.DistrictName);
+            listViewItem.SubItems.Add(item.StartDate.ToShortDateString());
+            listViewItem.SubItems.Add(item.CloseDate.ToShortDateString());
+            listViewItem.SubItems.Add(item.CreationDate.ToShortDateString());
+            listViewItem.SubItems.Add(item.InstallmentTypes);
+            listViewItem.SubItems.Add(item.InterestRate.ToString());
+            listViewItem.SubItems.Add(item.OLB.ToString());
+            listViewItem.SubItems.Add(item.LoanId.ToString());
+
 
             return listViewItem;
         }
@@ -205,24 +194,31 @@ namespace OpenCBS.GUI.Contracts
             _FilterContracts(textBoxContractFilter.Text);
         }
 
-        private void _FilterContracts(String filter)
+       private void _FilterContracts(String filter)
        {
-          if (filter != null || !filter.Equals(""))
-          {
-             filter = filter.ToUpper();
-             
-             listViewAlert.Items.Clear();
+           if (filter != null || !filter.Equals(""))
+           {
+               filter = filter.ToUpper();
 
-             foreach (Alert alert in alertStock)
-             {
-                if (alert.DistrictName.ToUpper().Contains(filter) ||
-                    alert.ClientName.ToUpper().Contains(filter) ||
-                    alert.LoanCode.ToUpper().Contains(filter))
-                {
-                   listViewAlert.Items.Add(CreateListViewItem(alert));
-                }
-             }
-          }
+               listViewAlert.Items.Clear();
+
+               foreach (ReassignContractItem item in reassignContractItemList)
+               {
+                   if (item.ClientFirstName.ToUpper().Contains(filter) || 
+                       item.ClientLastName.ToUpper().Contains(filter))
+                   {
+                       listViewAlert.Items.Add(CreateListViewItem(item));
+                   }
+               }
+           }
+           else
+           {
+               foreach (ReassignContractItem item in reassignContractItemList)
+               {
+                   listViewAlert.Items.Add(CreateListViewItem(item));
+                   
+               }
+           }
           toolStripStatusLabelTotal.Text = String.Format("Total contracts: {0}", listViewAlert.Items.Count);
 
        }

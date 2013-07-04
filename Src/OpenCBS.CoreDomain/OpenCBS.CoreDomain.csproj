@@ -203,6 +203,7 @@
     </Compile>
     <Compile Include="ActionItemObject.cs" />
     <Compile Include="Contracts\FlatRoundingSchedule.cs" />
+    <Compile Include="Contracts\ReassignContractItem.cs" />
     <Compile Include="CustomFields\CollectionItem.cs" />
     <Compile Include="CustomFields\CustomFields.cs" />
     <Compile Include="CustomFields\Field.cs" />
