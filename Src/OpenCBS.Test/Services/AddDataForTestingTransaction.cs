@@ -196,8 +196,8 @@ namespace OpenCBS.Test.Services
             int projectId = int.Parse(insertProject.ExecuteScalar().ToString());
 
 
-            OpenCbsCommand insertContract = new OpenCbsCommand("INSERT INTO [Contracts]([contract_code], [branch_code], [creation_date], [start_date], [close_date], [closed], [project_id], [activity_id]) VALUES " +
-                "('KH/130','SU','10/10/2004','10/10/2005','10/10/2006',0," + projectId + ", 1) SELECT SCOPE_IDENTITY()", _connection);
+            OpenCbsCommand insertContract = new OpenCbsCommand("INSERT INTO [Contracts]([contract_code], [branch_code], [creation_date], [start_date], [close_date], [closed], [project_id], [activity_id],[preferred_first_installment_date]) VALUES " +
+                "('KH/130','SU','10/10/2004','10/10/2005','10/10/2006',0," + projectId + ", 1,'11/10/2005') SELECT SCOPE_IDENTITY()", _connection);
 			int contractId = int.Parse(insertContract.ExecuteScalar().ToString());
 
 			int packageId = AddGenericPackage();
