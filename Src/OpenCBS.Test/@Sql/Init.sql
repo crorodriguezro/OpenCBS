@@ -74,7 +74,7 @@ DELETE FROM [TermDepositProducts]
 DELETE FROM [SavingProducts]
 
 
-IF EXISTS(SELECT name FROM [octopus_test]..sysobjects WHERE name = N'ell' AND xtype='U')
+IF EXISTS(SELECT name FROM [opencbs_test]..sysobjects WHERE name = N'ell' AND xtype='U')
 DELETE FROM [ell]
 -------------------------------------------------------------------EXOTIC------------------------------------------------------------------ 
 SET IDENTITY_INSERT Exotics ON
