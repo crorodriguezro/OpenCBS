@@ -336,27 +336,27 @@ SET IDENTITY_INSERT Projects OFF
 
 ------------------------------------- CONTRACTS ----------------------------------------------------   
 SET IDENTITY_INSERT Contracts ON  
-INSERT INTO [Contracts] ([id],[contract_code],[branch_code],[creation_date],[start_date],[close_date],[closed],[project_id],[activity_id])
-VALUES(1,'441','branch1','2007-01-01','2008-01-02','2009-01-01',0,1,1)  
-INSERT INTO [Contracts] ([id],[contract_code],[branch_code],[creation_date],[start_date],[close_date],[closed],[project_id],[activity_id])
-VALUES(2,'442','branch2','2007-01-01','2008-01-02','2009-01-01',0,1,1)  
-INSERT INTO [Contracts] ([id],[contract_code],[branch_code],[creation_date],[start_date],[close_date],[closed],[project_id],[activity_id])
-VALUES(3,'443','branch3','2007-01-01','2008-01-02','2009-01-01',0,1,1)  
-INSERT INTO [Contracts] ([id],[contract_code],[branch_code],[creation_date],[start_date],[close_date],[closed],[project_id],[activity_id])
-VALUES(4,'444','branch4','2007-01-01','2008-01-02','2009-01-01',0,1,1)  
-INSERT INTO [Contracts] ([id],[contract_code],[branch_code],[creation_date],[start_date],[close_date],[closed],[project_id],[status], [nsg_id],[activity_id])
-VALUES(5,'445','branch5','2007-01-01','2012-01-02','2018-01-01',0,3,8,11,1)
+INSERT INTO [Contracts] ([id],[contract_code],[branch_code],[creation_date],[start_date],[preferred_first_installment_date],[close_date],[closed],[project_id],[activity_id])
+VALUES(1,'441','branch1','2007-01-01','2008-01-02','2008-02-01','2009-01-01',0,1,1)  
+INSERT INTO [Contracts] ([id],[contract_code],[branch_code],[creation_date],[start_date],[preferred_first_installment_date],[close_date],[closed],[project_id],[activity_id])
+VALUES(2,'442','branch2','2007-01-01','2008-01-02','2008-02-01','2009-01-01',0,1,1)  
+INSERT INTO [Contracts] ([id],[contract_code],[branch_code],[creation_date],[start_date],[preferred_first_installment_date],[close_date],[closed],[project_id],[activity_id])
+VALUES(3,'443','branch3','2007-01-01','2008-01-02','2008-02-01','2009-01-01',0,1,1)  
+INSERT INTO [Contracts] ([id],[contract_code],[branch_code],[creation_date],[start_date],[preferred_first_installment_date],[close_date],[closed],[project_id],[activity_id])
+VALUES(4,'444','branch4','2007-01-01','2008-01-02','2008-02-01','2009-01-01',0,1,1)  
+INSERT INTO [Contracts] ([id],[contract_code],[branch_code],[creation_date],[start_date],[preferred_first_installment_date],[close_date],[closed],[project_id],[status], [nsg_id],[activity_id])
+VALUES(5,'445','branch5','2007-01-01','2012-01-02','2012-02-01','2018-01-01',0,3,8,11,1)
 SET IDENTITY_INSERT Contracts OFF  
 
 ------------------------------------- CREDIT ----------------------------------------------------       
 INSERT INTO Credit(id,package_id,amount,interest_rate,installment_type,nb_of_installment,anticipated_total_repayment_penalties,
 disbursed,loanofficer_id,written_off,rescheduled,bad_loan,non_repayment_penalties_based_on_overdue_principal,
 non_repayment_penalties_based_on_initial_amount,non_repayment_penalties_based_on_olb,non_repayment_penalties_based_on_overdue_interest,
-fundingLine_id) VALUES(1,1,1000,10,1,3,100,0,1,10,0,0,0,40,40,40,1)
+fundingLine_id, grace_period) VALUES(1,1,1000,10,1,3,100,0,1,10,0,0,0,40,40,40,1,0)
 INSERT INTO Credit(id,package_id,amount,interest_rate,installment_type,nb_of_installment,anticipated_total_repayment_penalties,
 disbursed,loanofficer_id,written_off,rescheduled,bad_loan,non_repayment_penalties_based_on_overdue_principal,
 non_repayment_penalties_based_on_initial_amount,non_repayment_penalties_based_on_olb,non_repayment_penalties_based_on_overdue_interest,
-fundingLine_id) VALUES(5,1,1000,10,1,3,100,0,1,10,0,0,0,40,40,40,1)
+fundingLine_id,grace_period) VALUES(5,1,1000,10,1,3,100,0,1,10,0,0,0,40,40,40,1,0)
 
 SET IDENTITY_INSERT [ContractEvents] ON  
 INSERT INTO [ContractEvents]([id],[event_type],[contract_id],[event_date],[user_id],[is_deleted]) VALUES(1, 'LODE',1,'2009-1-1',1,0)
