@@ -221,7 +221,7 @@ namespace OpenCBS.Test.Manager
             Assert.AreEqual(pExpectedPerson.Type, pActualPerson.Type);
             
             if(!string.IsNullOrEmpty(pExpectedPerson.City))
-                Assert.AreEqual(pExpectedPerson.City.ToUpper(), pActualPerson.City);
+                Assert.AreEqual(pExpectedPerson.City, pActualPerson.City);
             
             Assert.AreEqual(pExpectedPerson.District.Name, pActualPerson.District.Name);
             Assert.AreEqual(pExpectedPerson.FirstName.ToLower(), pActualPerson.FirstName.ToLower());
@@ -248,7 +248,7 @@ namespace OpenCBS.Test.Manager
                 Assert.AreEqual(pExpectedPerson.SecondaryDistrict, pActualPerson.SecondaryDistrict);
             
             if (!string.IsNullOrEmpty(pExpectedPerson.SecondaryCity))
-                Assert.AreEqual(pExpectedPerson.SecondaryCity.ToUpper(), pActualPerson.SecondaryCity);
+                Assert.AreEqual(pExpectedPerson.SecondaryCity, pActualPerson.SecondaryCity);
             
             Assert.AreEqual(pExpectedPerson.SecondaryAddress,pActualPerson.SecondaryAddress);
             Assert.AreEqual(pExpectedPerson.DateOfBirth ,pActualPerson.DateOfBirth);
@@ -383,16 +383,6 @@ namespace OpenCBS.Test.Manager
         }
 
         [Test]
-        public void AddPerson_CityInUpperCase_ButSavedInLowerCase()
-        {
-            _person.City = "paris";
-            int id = _cltManagement.AddPerson(_person);
-
-            Person selectedPerson = _cltManagement.SelectPersonById(id);
-            Assert.AreEqual("PARIS", selectedPerson.City);
-        }
-
-        [Test]
         public void AddPerson_LastNameInUpperCase()
         {
             _person.LastName = "MANGIN";
@@ -481,7 +471,7 @@ namespace OpenCBS.Test.Manager
 			Assert.AreEqual(_person.Address,selectedPerson.Address);
 			Assert.AreEqual(_person.SecondaryDistrict.Name,selectedPerson.SecondaryDistrict.Name);
 			if(!string.IsNullOrEmpty(_person.SecondaryCity))
-                Assert.AreEqual(_person.SecondaryCity.ToUpper(),selectedPerson.SecondaryCity);
+                Assert.AreEqual(_person.SecondaryCity,selectedPerson.SecondaryCity);
 			Assert.AreEqual(_person.SecondaryAddress,selectedPerson.SecondaryAddress);
 			Assert.AreEqual(_person.DateOfBirth,selectedPerson.DateOfBirth);
 			Assert.AreEqual(_person.NbOfDependents,selectedPerson.NbOfDependents);
@@ -641,7 +631,7 @@ namespace OpenCBS.Test.Manager
 
             _AssertPerson(_person, selectedPerson);
             if(string.IsNullOrEmpty(_person.City))
-    			Assert.AreEqual(_person.City.ToUpper(),selectedPerson.City);
+    			Assert.AreEqual(_person.City,selectedPerson.City);
             Assert.AreEqual(@"c:\test.jpg", _person.Image);
             Assert.AreEqual(_person.District.Name, selectedPerson.District.Name);
             Assert.AreEqual("0", selectedPerson.HomePhone);
@@ -668,7 +658,7 @@ namespace OpenCBS.Test.Manager
 			Assert.AreEqual(_person.SecondaryDistrict.Name,selectedPerson.SecondaryDistrict.Name);
 			
             if(!string.IsNullOrEmpty(_person.SecondaryCity))
-                Assert.AreEqual(_person.SecondaryCity.ToUpper(),selectedPerson.SecondaryCity);
+                Assert.AreEqual(_person.SecondaryCity,selectedPerson.SecondaryCity);
 			
             Assert.AreEqual(_person.SecondaryAddress,selectedPerson.SecondaryAddress);
 			Assert.AreEqual(_person.DateOfBirth,selectedPerson.DateOfBirth);
@@ -700,7 +690,7 @@ namespace OpenCBS.Test.Manager
 			Assert.AreEqual(_group.Id,selectedGroup.Id);
 			Assert.AreEqual(OClientTypes.Group,selectedGroup.Type);
             if(!string.IsNullOrEmpty(_group.City))
-                Assert.AreEqual(_group.City.ToUpper(),selectedGroup.City);
+                Assert.AreEqual(_group.City,selectedGroup.City);
 			Assert.AreEqual(_group.District.Name,selectedGroup.District.Name);
 			Assert.AreEqual(_group.Name,selectedGroup.Name);
             Assert.AreEqual(1, selectedGroup.GetNumberOfMembers);
@@ -733,7 +723,7 @@ namespace OpenCBS.Test.Manager
 
 			Assert.AreEqual(OClientTypes.Group,selectedGroup.Type);
             if(!string.IsNullOrEmpty(_group.City))
-    			Assert.AreEqual(_group.City.ToUpper(),selectedGroup.City);
+    			Assert.AreEqual(_group.City,selectedGroup.City);
 			Assert.AreEqual(_group.District.Name,selectedGroup.District.Name);
 			Assert.AreEqual(_group.Name,selectedGroup.Name);
 			Assert.AreEqual(1,_group.GetNumberOfMembers);
@@ -782,7 +772,7 @@ namespace OpenCBS.Test.Manager
 			Assert.AreEqual(_group.Address,selectedGroup.Address);
 			Assert.AreEqual(_group.SecondaryDistrict.Name,selectedGroup.SecondaryDistrict.Name);
 			if(!string.IsNullOrEmpty(_group.SecondaryCity))
-                Assert.AreEqual(_group.SecondaryCity.ToUpper(),selectedGroup.SecondaryCity);
+                Assert.AreEqual(_group.SecondaryCity,selectedGroup.SecondaryCity);
 			Assert.AreEqual(_group.SecondaryAddress,selectedGroup.SecondaryAddress);
 			Assert.AreEqual(_group.EstablishmentDate,selectedGroup.EstablishmentDate);
 			Assert.AreEqual(_group.FollowUpComment,selectedGroup.FollowUpComment);
