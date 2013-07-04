@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using BrightIdeasSoftware;
@@ -11,7 +12,7 @@ namespace OpenCBS.GUI
     public partial class ScheduleUserControl : System.Windows.Forms.UserControl
     {
         private string _amountFormatString;
-
+        private Installment _total;
         public ScheduleUserControl()
         {
             InitializeComponent();
@@ -26,18 +27,35 @@ namespace OpenCBS.GUI
             _amountFormatString = loan.UseCents ? "N2" : "N0";
             Setup();
             scheduleObjectListView.SetObjects(loan.InstallmentList);
-            Installment total = new Installment();
-            total.CapitalRepayment = loan.Amount;
-            scheduleObjectListView.AddObject(total);
+            InitTotal();
+            scheduleObjectListView.AddObject(_total);
         }
 
+        private void InitTotal()
+        {
+            decimal totalInterest = 0, totalPrincipal = 0, totalPaidInterests = 0, totalPaidCapital = 0;
+            for (int i = 0; i < scheduleObjectListView.Items.Count; i++)
+            {
+                var installment = (Installment)scheduleObjectListView.GetItem(i).RowObject;
+                totalInterest += installment.InterestsRepayment.Value;
+                totalPrincipal += installment.CapitalRepayment.Value;
+                totalPaidCapital += installment.PaidCapital.Value;
+                totalPaidInterests += installment.PaidInterests.Value;
+            }
+            OCurrency hasntValue = new OCurrency();
+            DateTime date = new DateTime();
+            _total = new Installment(date, totalInterest, totalPrincipal, totalPaidCapital, totalPaidInterests, hasntValue,
+                                    null, -1);
+        }
         private void Setup()
         {
             dateColumn.AspectToStringConverter =
                 paymentDateColumn.AspectToStringConverter = value =>
                     {
                         var date = (DateTime?) value;
-                        return date.HasValue ? date.Value.ToString("dd.MM.yyyy") : string.Empty;
+                        return (date.HasValue && date != new DateTime())
+                                   ? date.Value.ToString("dd.MM.yyyy")
+                                   : string.Empty;
                     };
             var numberFormatInfo = new NumberFormatInfo
                 {
@@ -52,8 +70,17 @@ namespace OpenCBS.GUI
                 olbColumn.AspectToStringConverter = value =>
                     {
                         var amount = (OCurrency) value;
-                        return amount.Value.ToString(_amountFormatString, numberFormatInfo);
+                        return amount.HasValue
+                                   ? amount.Value.ToString(_amountFormatString, numberFormatInfo)
+                                   : string.Empty;
                     };
+            numberColumn.AspectToStringConverter = value =>
+                {
+                    int i = (int) value;
+                    if (i == -1)
+                        return "Total";
+                    return value.ToString();
+                };
             scheduleObjectListView.CellEditActivation = ObjectListView.CellEditActivateMode.DoubleClick;
         }
 
@@ -64,6 +91,7 @@ namespace OpenCBS.GUI
             if (installment.IsPending) item.BackColor = Color.Orange;
             if (installment.IsRepaid) item.BackColor = Color.FromArgb(61, 153, 57);
             if (installment.IsPending || installment.IsRepaid) item.ForeColor = Color.White;
+            if (installment.Number == -1) item.Font = new Font(item.Font,FontStyle.Bold);
         }
 
         private bool CheckValue(CellEditEventArgs e)
@@ -96,7 +124,12 @@ namespace OpenCBS.GUI
 
         private void HandleCellEditStarting(object sender, CellEditEventArgs e)
         {
-            var installment = (Installment)e.RowObject;
+            var installment = (Installment) e.RowObject;
+            if (!installment.PaidInterests.HasValue)
+            {
+                e.Cancel = true;
+                return;
+            }
             if (installment.IsRepaid)
                 e.Cancel = true;
         }
@@ -110,17 +143,25 @@ namespace OpenCBS.GUI
                 var installment = (Installment)e.RowObject;
                 decimal amount;
                 if (decimal.TryParse(e.NewValue.ToString(), out amount))
+                {
+                    _total.InterestsRepayment += amount - installment.InterestsRepayment;
                     installment.InterestsRepayment = amount;
-                scheduleObjectListView.RefreshObject(e.RowObject);
+                }
             }
             if (e.Column == principalColumn)
             {
                 var installment = (Installment)e.RowObject;
                 decimal amount;
                 if (decimal.TryParse(e.NewValue.ToString(), out amount))
+                {
+                    _total.CapitalRepayment += amount - installment.CapitalRepayment;
                     installment.CapitalRepayment = amount;
-                scheduleObjectListView.RefreshObject(e.RowObject);
+                }
             }
+            scheduleObjectListView.RefreshObject(e.RowObject);
+            scheduleObjectListView.RefreshObject(
+                scheduleObjectListView.GetItem(scheduleObjectListView.Items.Count - 1).RowObject);
+
         }
     }
 }
