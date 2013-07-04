@@ -116,10 +116,10 @@ namespace OpenCBS.GUI.Login
 
         private void Start()
         {
+            TechnicalSettings.DatabaseName = databaseCombobox.Text;
             if (!UserIsValid())
             {
                 SetUser();
-                TechnicalSettings.DatabaseName = databaseCombobox.Text;
             }
             else
                 MessageBox.Show(MultiLanguageStrings.GetString(
@@ -130,10 +130,9 @@ namespace OpenCBS.GUI.Login
 
         private void SetUser()
         {
-            var user = ServicesProvider
-                .GetInstance()
-                .GetUserServices()
-                .Find(usernameTextbox.Text, passwordTextbox.Text);
+            var userService = ServicesProvider.GetInstance().GetUserServices();
+            userService.ClearCache();
+            var user = userService.Find(usernameTextbox.Text, passwordTextbox.Text);
 
             if (user == null)
             {

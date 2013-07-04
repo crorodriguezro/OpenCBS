@@ -316,5 +316,10 @@ namespace OpenCBS.Services
         {
             return _userManager.GetDashboard();
         }
+
+        public void ClearCache()
+        {
+            _users = null;
+        }
     }
 }
