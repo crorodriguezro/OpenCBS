@@ -37,7 +37,7 @@ namespace OpenCBS.Extensions
 
         private MefContainer()
         {
-            var extensionsFolder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) ?? string.Empty;
+            var extensionsFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty;
             extensionsFolder = Path.Combine(extensionsFolder, "Extensions");
             var catalog = new AggregateCatalog(
                     new AssemblyCatalog(Assembly.GetExecutingAssembly()),
@@ -48,7 +48,7 @@ namespace OpenCBS.Extensions
                 catalog.Catalogs.Add(new DirectoryCatalog(extensionsFolder));
 
 #if SAMPLE_EXTENSIONS
-            var samples = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) ?? string.Empty;
+            var samples = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty;
             samples = Path.Combine(samples, "OpenCBS.Extensions.Samples.dll");
             if (File.Exists(samples)) 
                 catalog.Catalogs.Add(new AssemblyCatalog(samples));
