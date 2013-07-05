@@ -31,5 +31,7 @@ namespace OpenCBS.CoreDomain.Contracts
         public int StatusCode { get; set; }
 
         public decimal Olb { get; set; }
+
+        public decimal Amount { get; set; }
     }
 }

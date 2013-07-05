@@ -36,7 +36,7 @@ namespace OpenCBS.GUI.Contracts
         private List<User> users;
         private IEnumerable<ReassignContractItem> _contracts;
         private string _filter;
-        
+
         public ReassignContractsForm()
         {
             InitializeComponent();
@@ -59,6 +59,12 @@ namespace OpenCBS.GUI.Contracts
             LoadUsers();
             fromCombobox.SelectedIndex = 0;
             toCombobox.SelectedIndex = 0;
+            olbColumn.AspectToStringConverter =
+            amountColumn.AspectToStringConverter = value =>
+            {
+                var amount = (decimal)value;
+                return amount.ToString("N2");
+            };
         }
 
         private void LoadUsers()
@@ -116,40 +122,6 @@ namespace OpenCBS.GUI.Contracts
             //{
             //    item.Checked = checkBoxAll.Checked;
             //}
-        }
-
-        private void textBoxContractFilter_TextChanged(object sender, EventArgs e)
-        {
-            _FilterContracts(filterTextbox.Text);
-        }
-
-        private void _FilterContracts(String filter)
-        {
-            //if (filter != null || !filter.Equals(""))
-            //{
-            //    filter = filter.ToUpper();
-
-            //    listViewAlert.Items.Clear();
-
-            //    foreach (ReassignContractItem item in reassignContractItemList)
-            //    {
-            //        if (item.ClientFirstName.ToUpper().Contains(filter) ||
-            //            item.ClientLastName.ToUpper().Contains(filter))
-            //        {
-            //            //listViewAlert.Items.Add(CreateListViewItem(item));
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    foreach (ReassignContractItem item in reassignContractItemList)
-            //    {
-            //        //listViewAlert.Items.Add(CreateListViewItem(item));
-
-            //    }
-            //}
-            //toolStripStatusLabelTotal.Text = String.Format("Total contracts: {0}", listViewAlert.Items.Count);
-
         }
 
         private void chkBox_only_active_CheckedChanged(object sender, EventArgs e)

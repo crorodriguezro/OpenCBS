@@ -130,7 +130,7 @@
     <value>NoControl</value>
   </data>
   <data name="filterLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 183</value>
+    <value>20, 225</value>
   </data>
   <data name="filterLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 16</value>
@@ -154,10 +154,13 @@
     <value>2</value>
   </data>
   <data name="filterTextbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 202</value>
+    <value>19, 249</value>
+  </data>
+  <data name="filterTextbox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="filterTextbox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 20</value>
+    <value>263, 22</value>
   </data>
   <data name="filterTextbox.TabIndex" type="System.Int32, mscorlib">
     <value>58</value>
@@ -184,7 +187,10 @@
     <value>NoControl</value>
   </data>
   <data name="onlyActiveCheckbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 142</value>
+    <value>19, 175</value>
+  </data>
+  <data name="onlyActiveCheckbox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="onlyActiveCheckbox.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 20</value>
@@ -217,7 +223,10 @@
     <value>NoControl</value>
   </data>
   <data name="selectAllCheckbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 116</value>
+    <value>19, 143</value>
+  </data>
+  <data name="selectAllCheckbox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="selectAllCheckbox.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 20</value>
@@ -247,10 +256,13 @@
     <value>NoControl</value>
   </data>
   <data name="assignButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 255</value>
+    <value>19, 314</value>
+  </data>
+  <data name="assignButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="assignButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 27</value>
+    <value>141, 33</value>
   </data>
   <data name="assignButton.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
@@ -280,7 +292,7 @@
     <value>NoControl</value>
   </data>
   <data name="toLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 58</value>
+    <value>22, 71</value>
   </data>
   <data name="toLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 16</value>
@@ -313,7 +325,7 @@
     <value>NoControl</value>
   </data>
   <data name="fromLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 12</value>
+    <value>20, 15</value>
   </data>
   <data name="fromLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 16</value>
@@ -337,10 +349,13 @@
     <value>3</value>
   </data>
   <data name="toCombobox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 76</value>
+    <value>19, 94</value>
+  </data>
+  <data name="toCombobox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="toCombobox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 21</value>
+    <value>263, 24</value>
   </data>
   <data name="toCombobox.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -358,10 +373,13 @@
     <value>6</value>
   </data>
   <data name="fromCombobox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 30</value>
+    <value>19, 37</value>
+  </data>
+  <data name="fromCombobox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="fromCombobox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 21</value>
+    <value>263, 24</value>
   </data>
   <data name="fromCombobox.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
@@ -382,10 +400,13 @@
     <value>Right</value>
   </data>
   <data name="optionsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>681, 36</value>
+    <value>632, 36</value>
+  </data>
+  <data name="optionsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="optionsPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 463</value>
+    <value>303, 436</value>
   </data>
   <data name="optionsPanel.TabIndex" type="System.Int32, mscorlib">
     <value>60</value>
@@ -414,9 +435,6 @@
   <data name="clientLastNameColumn.Width" type="System.Int32, mscorlib">
     <value>150</value>
   </data>
-  <data name="clientFirstNameColumn.DisplayIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="clientFirstNameColumn.Text" xml:space="preserve">
     <value>First name</value>
   </data>
@@ -432,6 +450,15 @@
   <data name="contractStatusColumn.Width" type="System.Int32, mscorlib">
     <value>100</value>
   </data>
+  <data name="amountColumn.Text" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="amountColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="amountColumn.Width" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
   <data name="olbColumn.Text" xml:space="preserve">
     <value>OLB</value>
   </data>
@@ -444,11 +471,17 @@
   <data name="contractsObjectListView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <data name="contractsObjectListView.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 8.25pt</value>
+  </data>
   <data name="contractsObjectListView.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="contractsObjectListView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
   <data name="contractsObjectListView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>681, 463</value>
+    <value>632, 436</value>
   </data>
   <data name="contractsObjectListView.TabIndex" type="System.Int32, mscorlib">
     <value>61</value>
@@ -471,8 +504,11 @@
   <data name="listPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 36</value>
   </data>
+  <data name="listPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
   <data name="listPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>681, 463</value>
+    <value>632, 436</value>
   </data>
   <data name="listPanel.TabIndex" type="System.Int32, mscorlib">
     <value>61</value>
@@ -496,10 +532,16 @@
     <value>25</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>7, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>941, 499</value>
+    <value>935, 472</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 6, 3, 6</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Reassign contracts</value>
@@ -510,16 +552,16 @@
   <data name="&gt;&gt;contractCodeColumn.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
-  <data name="&gt;&gt;clientFirstNameColumn.Name" xml:space="preserve">
-    <value>clientFirstNameColumn</value>
-  </data>
-  <data name="&gt;&gt;clientFirstNameColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
-  </data>
   <data name="&gt;&gt;clientLastNameColumn.Name" xml:space="preserve">
     <value>clientLastNameColumn</value>
   </data>
   <data name="&gt;&gt;clientLastNameColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;clientFirstNameColumn.Name" xml:space="preserve">
+    <value>clientFirstNameColumn</value>
+  </data>
+  <data name="&gt;&gt;clientFirstNameColumn.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;contractStatusColumn.Name" xml:space="preserve">
@@ -532,6 +574,12 @@
     <value>olbColumn</value>
   </data>
   <data name="&gt;&gt;olbColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;amountColumn.Name" xml:space="preserve">
+    <value>amountColumn</value>
+  </data>
+  <data name="&gt;&gt;amountColumn.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

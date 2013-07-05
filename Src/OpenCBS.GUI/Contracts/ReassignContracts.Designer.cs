@@ -44,10 +44,11 @@ namespace OpenCBS.GUI.Contracts
             this.listPanel = new System.Windows.Forms.Panel();
             this.contractsObjectListView = new BrightIdeasSoftware.ObjectListView();
             this.contractCodeColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.clientFirstNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.clientLastNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clientFirstNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.contractStatusColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olbColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.amountColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.optionsPanel.SuspendLayout();
             this.listPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsObjectListView)).BeginInit();
@@ -62,7 +63,6 @@ namespace OpenCBS.GUI.Contracts
             // 
             resources.ApplyResources(this.filterTextbox, "filterTextbox");
             this.filterTextbox.Name = "filterTextbox";
-            this.filterTextbox.TextChanged += new System.EventHandler(this.textBoxContractFilter_TextChanged);
             // 
             // onlyActiveCheckbox
             // 
@@ -133,12 +133,14 @@ namespace OpenCBS.GUI.Contracts
             this.contractsObjectListView.AllColumns.Add(this.clientLastNameColumn);
             this.contractsObjectListView.AllColumns.Add(this.clientFirstNameColumn);
             this.contractsObjectListView.AllColumns.Add(this.contractStatusColumn);
+            this.contractsObjectListView.AllColumns.Add(this.amountColumn);
             this.contractsObjectListView.AllColumns.Add(this.olbColumn);
             this.contractsObjectListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.contractCodeColumn,
             this.clientLastNameColumn,
             this.clientFirstNameColumn,
             this.contractStatusColumn,
+            this.amountColumn,
             this.olbColumn});
             resources.ApplyResources(this.contractsObjectListView, "contractsObjectListView");
             this.contractsObjectListView.GridLines = true;
@@ -152,15 +154,15 @@ namespace OpenCBS.GUI.Contracts
             this.contractCodeColumn.AspectName = "ContractCode";
             resources.ApplyResources(this.contractCodeColumn, "contractCodeColumn");
             // 
-            // clientFirstNameColumn
-            // 
-            this.clientFirstNameColumn.AspectName = "ClientFirstName";
-            resources.ApplyResources(this.clientFirstNameColumn, "clientFirstNameColumn");
-            // 
             // clientLastNameColumn
             // 
             this.clientLastNameColumn.AspectName = "ClientLastName";
             resources.ApplyResources(this.clientLastNameColumn, "clientLastNameColumn");
+            // 
+            // clientFirstNameColumn
+            // 
+            this.clientFirstNameColumn.AspectName = "ClientFirstName";
+            resources.ApplyResources(this.clientFirstNameColumn, "clientFirstNameColumn");
             // 
             // contractStatusColumn
             // 
@@ -173,6 +175,12 @@ namespace OpenCBS.GUI.Contracts
             this.olbColumn.AspectName = "Olb";
             this.olbColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             resources.ApplyResources(this.olbColumn, "olbColumn");
+            // 
+            // amountColumn
+            // 
+            this.amountColumn.AspectName = "Amount";
+            this.amountColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            resources.ApplyResources(this.amountColumn, "amountColumn");
             // 
             // ReassignContractsForm
             // 
@@ -211,6 +219,7 @@ namespace OpenCBS.GUI.Contracts
         private BrightIdeasSoftware.OLVColumn clientLastNameColumn;
         private BrightIdeasSoftware.OLVColumn contractStatusColumn;
         private BrightIdeasSoftware.OLVColumn olbColumn;
+        private BrightIdeasSoftware.OLVColumn amountColumn;
 
     }
 }

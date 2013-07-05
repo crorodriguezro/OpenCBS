@@ -969,6 +969,7 @@ namespace OpenCBS.Manager.Contracts
                     c.contract_code ContractCode,
                     COALESCE(p.first_name, g.name, corp.name) ClientFirstName,
                     p.last_name ClientLastName,
+                    cr.amount Amount,
                     ISNULL(al.olb, 0) Olb,
                     c.status StatusCode
                 FROM dbo.Contracts c
