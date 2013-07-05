@@ -130,7 +130,7 @@
     <value>NoControl</value>
   </data>
   <data name="filterLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 225</value>
+    <value>20, 108</value>
   </data>
   <data name="filterLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 16</value>
@@ -154,7 +154,7 @@
     <value>2</value>
   </data>
   <data name="filterTextbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 249</value>
+    <value>19, 132</value>
   </data>
   <data name="filterTextbox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -177,42 +177,6 @@
   <data name="&gt;&gt;filterTextbox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="onlyActiveCheckbox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="onlyActiveCheckbox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="onlyActiveCheckbox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="onlyActiveCheckbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 175</value>
-  </data>
-  <data name="onlyActiveCheckbox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="onlyActiveCheckbox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 20</value>
-  </data>
-  <data name="onlyActiveCheckbox.TabIndex" type="System.Int32, mscorlib">
-    <value>35</value>
-  </data>
-  <data name="onlyActiveCheckbox.Text" xml:space="preserve">
-    <value>Only active</value>
-  </data>
-  <data name="&gt;&gt;onlyActiveCheckbox.Name" xml:space="preserve">
-    <value>onlyActiveCheckbox</value>
-  </data>
-  <data name="&gt;&gt;onlyActiveCheckbox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;onlyActiveCheckbox.Parent" xml:space="preserve">
-    <value>optionsPanel</value>
-  </data>
-  <data name="&gt;&gt;onlyActiveCheckbox.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="selectAllCheckbox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -223,7 +187,7 @@
     <value>NoControl</value>
   </data>
   <data name="selectAllCheckbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 143</value>
+    <value>19, 69</value>
   </data>
   <data name="selectAllCheckbox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -247,7 +211,7 @@
     <value>optionsPanel</value>
   </data>
   <data name="&gt;&gt;selectAllCheckbox.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="assignButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9pt</value>
@@ -256,7 +220,7 @@
     <value>NoControl</value>
   </data>
   <data name="assignButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 314</value>
+    <value>19, 270</value>
   </data>
   <data name="assignButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -280,7 +244,7 @@
     <value>optionsPanel</value>
   </data>
   <data name="&gt;&gt;assignButton.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="toLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -292,7 +256,7 @@
     <value>NoControl</value>
   </data>
   <data name="toLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 71</value>
+    <value>22, 212</value>
   </data>
   <data name="toLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 16</value>
@@ -313,7 +277,7 @@
     <value>optionsPanel</value>
   </data>
   <data name="&gt;&gt;toLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="fromLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -349,7 +313,7 @@
     <value>3</value>
   </data>
   <data name="toCombobox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 94</value>
+    <value>19, 235</value>
   </data>
   <data name="toCombobox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -370,7 +334,7 @@
     <value>optionsPanel</value>
   </data>
   <data name="&gt;&gt;toCombobox.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="fromCombobox.Location" type="System.Drawing.Point, System.Drawing">
     <value>19, 37</value>
@@ -441,6 +405,12 @@
   <data name="clientFirstNameColumn.Width" type="System.Int32, mscorlib">
     <value>150</value>
   </data>
+  <data name="clientFatherNameColumn.Text" xml:space="preserve">
+    <value>Father name</value>
+  </data>
+  <data name="clientFatherNameColumn.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
   <data name="contractStatusColumn.Text" xml:space="preserve">
     <value>Status</value>
   </data>
@@ -467,6 +437,24 @@
   </data>
   <data name="olbColumn.Width" type="System.Int32, mscorlib">
     <value>100</value>
+  </data>
+  <data name="startDateColumn.Text" xml:space="preserve">
+    <value>Start date</value>
+  </data>
+  <data name="startDateColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="startDateColumn.Width" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
+  <data name="closeDateColumn.Text" xml:space="preserve">
+    <value>Close date</value>
+  </data>
+  <data name="closeDateColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="closeDateColumn.Width" type="System.Int32, mscorlib">
+    <value>80</value>
   </data>
   <data name="contractsObjectListView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -564,10 +552,22 @@
   <data name="&gt;&gt;clientFirstNameColumn.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
+  <data name="&gt;&gt;clientFatherNameColumn.Name" xml:space="preserve">
+    <value>clientFatherNameColumn</value>
+  </data>
+  <data name="&gt;&gt;clientFatherNameColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
   <data name="&gt;&gt;contractStatusColumn.Name" xml:space="preserve">
     <value>contractStatusColumn</value>
   </data>
   <data name="&gt;&gt;contractStatusColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;amountColumn.Name" xml:space="preserve">
+    <value>amountColumn</value>
+  </data>
+  <data name="&gt;&gt;amountColumn.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;olbColumn.Name" xml:space="preserve">
@@ -576,10 +576,16 @@
   <data name="&gt;&gt;olbColumn.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
-  <data name="&gt;&gt;amountColumn.Name" xml:space="preserve">
-    <value>amountColumn</value>
+  <data name="&gt;&gt;startDateColumn.Name" xml:space="preserve">
+    <value>startDateColumn</value>
   </data>
-  <data name="&gt;&gt;amountColumn.Type" xml:space="preserve">
+  <data name="&gt;&gt;startDateColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;closeDateColumn.Name" xml:space="preserve">
+    <value>closeDateColumn</value>
+  </data>
+  <data name="&gt;&gt;closeDateColumn.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

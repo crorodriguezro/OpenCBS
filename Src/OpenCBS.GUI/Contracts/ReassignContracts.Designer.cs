@@ -33,7 +33,6 @@ namespace OpenCBS.GUI.Contracts
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReassignContractsForm));
             this.filterLabel = new System.Windows.Forms.Label();
             this.filterTextbox = new System.Windows.Forms.TextBox();
-            this.onlyActiveCheckbox = new System.Windows.Forms.CheckBox();
             this.selectAllCheckbox = new System.Windows.Forms.CheckBox();
             this.assignButton = new System.Windows.Forms.Button();
             this.toLabel = new System.Windows.Forms.Label();
@@ -46,9 +45,12 @@ namespace OpenCBS.GUI.Contracts
             this.contractCodeColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.clientLastNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.clientFirstNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clientFatherNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.contractStatusColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.olbColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.amountColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olbColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.startDateColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.closeDateColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.optionsPanel.SuspendLayout();
             this.listPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsObjectListView)).BeginInit();
@@ -63,12 +65,6 @@ namespace OpenCBS.GUI.Contracts
             // 
             resources.ApplyResources(this.filterTextbox, "filterTextbox");
             this.filterTextbox.Name = "filterTextbox";
-            // 
-            // onlyActiveCheckbox
-            // 
-            resources.ApplyResources(this.onlyActiveCheckbox, "onlyActiveCheckbox");
-            this.onlyActiveCheckbox.Name = "onlyActiveCheckbox";
-            this.onlyActiveCheckbox.CheckedChanged += new System.EventHandler(this.chkBox_only_active_CheckedChanged);
             // 
             // selectAllCheckbox
             // 
@@ -113,7 +109,6 @@ namespace OpenCBS.GUI.Contracts
             this.optionsPanel.Controls.Add(this.fromCombobox);
             this.optionsPanel.Controls.Add(this.filterLabel);
             this.optionsPanel.Controls.Add(this.fromLabel);
-            this.optionsPanel.Controls.Add(this.onlyActiveCheckbox);
             this.optionsPanel.Controls.Add(this.toLabel);
             this.optionsPanel.Controls.Add(this.toCombobox);
             this.optionsPanel.Controls.Add(this.selectAllCheckbox);
@@ -132,16 +127,22 @@ namespace OpenCBS.GUI.Contracts
             this.contractsObjectListView.AllColumns.Add(this.contractCodeColumn);
             this.contractsObjectListView.AllColumns.Add(this.clientLastNameColumn);
             this.contractsObjectListView.AllColumns.Add(this.clientFirstNameColumn);
+            this.contractsObjectListView.AllColumns.Add(this.clientFatherNameColumn);
             this.contractsObjectListView.AllColumns.Add(this.contractStatusColumn);
             this.contractsObjectListView.AllColumns.Add(this.amountColumn);
             this.contractsObjectListView.AllColumns.Add(this.olbColumn);
+            this.contractsObjectListView.AllColumns.Add(this.startDateColumn);
+            this.contractsObjectListView.AllColumns.Add(this.closeDateColumn);
             this.contractsObjectListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.contractCodeColumn,
             this.clientLastNameColumn,
             this.clientFirstNameColumn,
+            this.clientFatherNameColumn,
             this.contractStatusColumn,
             this.amountColumn,
-            this.olbColumn});
+            this.olbColumn,
+            this.startDateColumn,
+            this.closeDateColumn});
             resources.ApplyResources(this.contractsObjectListView, "contractsObjectListView");
             this.contractsObjectListView.GridLines = true;
             this.contractsObjectListView.Name = "contractsObjectListView";
@@ -164,11 +165,22 @@ namespace OpenCBS.GUI.Contracts
             this.clientFirstNameColumn.AspectName = "ClientFirstName";
             resources.ApplyResources(this.clientFirstNameColumn, "clientFirstNameColumn");
             // 
+            // clientFatherNameColumn
+            // 
+            this.clientFatherNameColumn.AspectName = "ClientFatherName";
+            resources.ApplyResources(this.clientFatherNameColumn, "clientFatherNameColumn");
+            // 
             // contractStatusColumn
             // 
             this.contractStatusColumn.AspectName = "StatusCode";
             this.contractStatusColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             resources.ApplyResources(this.contractStatusColumn, "contractStatusColumn");
+            // 
+            // amountColumn
+            // 
+            this.amountColumn.AspectName = "Amount";
+            this.amountColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            resources.ApplyResources(this.amountColumn, "amountColumn");
             // 
             // olbColumn
             // 
@@ -176,11 +188,17 @@ namespace OpenCBS.GUI.Contracts
             this.olbColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             resources.ApplyResources(this.olbColumn, "olbColumn");
             // 
-            // amountColumn
+            // startDateColumn
             // 
-            this.amountColumn.AspectName = "Amount";
-            this.amountColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            resources.ApplyResources(this.amountColumn, "amountColumn");
+            this.startDateColumn.AspectName = "StartDate";
+            this.startDateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            resources.ApplyResources(this.startDateColumn, "startDateColumn");
+            // 
+            // closeDateColumn
+            // 
+            this.closeDateColumn.AspectName = "CloseDate";
+            this.closeDateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            resources.ApplyResources(this.closeDateColumn, "closeDateColumn");
             // 
             // ReassignContractsForm
             // 
@@ -210,7 +228,6 @@ namespace OpenCBS.GUI.Contracts
         private System.Windows.Forms.CheckBox selectAllCheckbox;
         private System.Windows.Forms.Label filterLabel;
         private System.Windows.Forms.TextBox filterTextbox;
-        private System.Windows.Forms.CheckBox onlyActiveCheckbox;
         private System.Windows.Forms.Panel optionsPanel;
         private System.Windows.Forms.Panel listPanel;
         private BrightIdeasSoftware.ObjectListView contractsObjectListView;
@@ -220,6 +237,9 @@ namespace OpenCBS.GUI.Contracts
         private BrightIdeasSoftware.OLVColumn contractStatusColumn;
         private BrightIdeasSoftware.OLVColumn olbColumn;
         private BrightIdeasSoftware.OLVColumn amountColumn;
+        private BrightIdeasSoftware.OLVColumn clientFatherNameColumn;
+        private BrightIdeasSoftware.OLVColumn startDateColumn;
+        private BrightIdeasSoftware.OLVColumn closeDateColumn;
 
     }
 }

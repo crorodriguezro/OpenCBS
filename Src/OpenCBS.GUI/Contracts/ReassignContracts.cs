@@ -65,6 +65,12 @@ namespace OpenCBS.GUI.Contracts
                 var amount = (decimal)value;
                 return amount.ToString("N2");
             };
+            startDateColumn.AspectToStringConverter =
+            closeDateColumn.AspectToStringConverter = value =>
+            {
+                var date = (DateTime)value;
+                return date.ToShortDateString();
+            };
         }
 
         private void LoadUsers()
@@ -122,10 +128,6 @@ namespace OpenCBS.GUI.Contracts
             //{
             //    item.Checked = checkBoxAll.Checked;
             //}
-        }
-
-        private void chkBox_only_active_CheckedChanged(object sender, EventArgs e)
-        {
         }
 
         private void Disable()

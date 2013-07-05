@@ -969,9 +969,12 @@ namespace OpenCBS.Manager.Contracts
                     c.contract_code ContractCode,
                     COALESCE(p.first_name, g.name, corp.name) ClientFirstName,
                     p.last_name ClientLastName,
+                    p.father_name ClientFatherName,
                     cr.amount Amount,
                     ISNULL(al.olb, 0) Olb,
-                    c.status StatusCode
+                    c.status StatusCode,
+                    c.start_date StartDate,
+                    c.close_date CloseDate
                 FROM dbo.Contracts c
                 LEFT JOIN dbo.Credit cr ON cr.id = c.id
                 LEFT JOIN dbo.Projects j ON j.id = c.project_id

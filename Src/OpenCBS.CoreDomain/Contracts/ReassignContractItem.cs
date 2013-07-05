@@ -18,6 +18,8 @@
 // Contact: contact@opencbs.com
 
 
+using System;
+
 namespace OpenCBS.CoreDomain.Contracts
 {
     public class ReassignContractItem
@@ -28,10 +30,16 @@ namespace OpenCBS.CoreDomain.Contracts
 
         public string ClientLastName { get; set; }
 
+        public string ClientFatherName { get; set; }
+
         public int StatusCode { get; set; }
 
         public decimal Olb { get; set; }
 
         public decimal Amount { get; set; }
+
+        public DateTime StartDate { get; set; }
+
+        public DateTime CloseDate { get; set; }
     }
 }
