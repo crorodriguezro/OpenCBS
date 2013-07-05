@@ -442,7 +442,7 @@
     <EmbeddedResource Include="resx\PasswordForm.pt.resx" />
     <EmbeddedResource Include="resx\PasswordFormOnline.pt.resx" />
     <EmbeddedResource Include="resx\PersonUserControl.pt.resx" />
-    <EmbeddedResource Include="resx\ReassingContract.pt.resx" />
+    <EmbeddedResource Include="resx\ReassignContractsForm.pt.resx" />
     <EmbeddedResource Include="resx\SavingClosureForm.fr.resx" />
     <EmbeddedResource Include="resx\SavingClosureForm.pt.resx" />
     <EmbeddedResource Include="resx\SavingClosureForm.resx" />
@@ -542,7 +542,7 @@
     <EmbeddedResource Include="resx\VillageAddLoanForm.fr.resx" />
     <EmbeddedResource Include="resx\VillageAddLoanForm.pt.resx" />
     <EmbeddedResource Include="resx\VillageAddLoanForm.ru-Ru.resx" />
-    <EmbeddedResource Include="resx\ReassingContract.fr.resx" />
+    <EmbeddedResource Include="resx\ReassignContractsForm.fr.resx" />
     <EmbeddedResource Include="resx\ShowPictureForm.es-ES.resx" />
     <EmbeddedResource Include="resx\ShowPictureForm.fr.resx" />
     <EmbeddedResource Include="resx\ShowPictureForm.resx">
@@ -958,13 +958,13 @@
     <EmbeddedResource Include="resx\PersonUserControl.ru-RU.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\ReassingContract.es-ES.resx">
+    <EmbeddedResource Include="resx\ReassignContractsForm.es-ES.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\ReassingContract.resx">
+    <EmbeddedResource Include="resx\ReassignContractsForm.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\ReassingContract.ru-RU.resx">
+    <EmbeddedResource Include="resx\ReassignContractsForm.ru-RU.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\SearchClientForm.es-ES.resx">

@@ -75,13 +75,11 @@ namespace OpenCBS.GUI.Contracts
             // 
             resources.ApplyResources(this.selectAllCheckbox, "selectAllCheckbox");
             this.selectAllCheckbox.Name = "selectAllCheckbox";
-            this.selectAllCheckbox.CheckedChanged += new System.EventHandler(this.checkBoxAll_CheckedChanged);
             // 
             // assignButton
             // 
             resources.ApplyResources(this.assignButton, "assignButton");
             this.assignButton.Name = "assignButton";
-            this.assignButton.Click += new System.EventHandler(this.buttonAssing_Click);
             // 
             // toLabel
             // 
@@ -143,6 +141,8 @@ namespace OpenCBS.GUI.Contracts
             this.contractsObjectListView.AllColumns.Add(this.interestRateColumn);
             this.contractsObjectListView.AllColumns.Add(this.loanProductNameColumn);
             this.contractsObjectListView.AllColumns.Add(this.installmentTypeColumn);
+            this.contractsObjectListView.CheckBoxes = true;
+            this.contractsObjectListView.CheckedAspectName = "CanReassign";
             this.contractsObjectListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.clientLastNameColumn,
             this.clientFirstNameColumn,

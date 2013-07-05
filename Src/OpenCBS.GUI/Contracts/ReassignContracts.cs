@@ -50,6 +50,8 @@ namespace OpenCBS.GUI.Contracts
                 _filter = filterTextbox.Text;
                 ShowContracts();
             };
+            contractsObjectListView.ItemChecked += (sender, args) => UpdateTitle();
+            assignButton.Click += (sender, args) => Reassign();
         }
 
         private void LoadForm()
@@ -93,44 +95,45 @@ namespace OpenCBS.GUI.Contracts
             }
         }
 
-        private void buttonAssing_Click(object sender, EventArgs e)
+        private void Reassign()
         {
-            //bool isCheked = false;
-            //if ((cbLoanOfficerTo.Text.Length > 0) && (cbLoanOfficerFrom.Text.Length > 0))
-            //{
+            var from = fromCombobox.SelectedItem as User;
+            var to = toCombobox.SelectedItem as User;
+            if (from == null || to == null) return;
+            if (from.Id == to.Id) return;
 
-            //    foreach (ListViewItem item in listViewAlert.Items)
-            //    {
-            //        if (item.Checked)
-            //        {
-            //            isCheked = true;
-            //            ServicesProvider.GetInstance().GetContractServices().ReassignContract(Convert.ToInt32(item.Tag), GetLoanOfficerID(cbLoanOfficerTo.Text), GetLoanOfficerID(cbLoanOfficerFrom.Text));
+            var selectedContracts =
+                from contract in contractsObjectListView.Objects as IEnumerable<ReassignContractItem>
+                where contract.CanReassign
+                select contract;
+            if (!selectedContracts.Any()) return;
 
-            //        }
-            //    }
-            //    if (!isCheked)
-            //    {
-            //        MessageBox.Show(MultiLanguageStrings.GetString(Ressource.ReassingContract, "selectContract.Text"),
-            //                MultiLanguageStrings.GetString(Ressource.ReassingContract, "title.Text"), MessageBoxButtons.OK,
-            //                            MessageBoxIcon.Information);
-            //    }
-            //    InitializerContracts(GetLoanOfficerID(cbLoanOfficerFrom.Text));
-            //}
-            //else
-            //{
-            //    MessageBox.Show(MultiLanguageStrings.GetString(Ressource.ReassingContract, "dataerror.Text"),
-            //            MultiLanguageStrings.GetString(Ressource.ReassingContract, "title.Text"), MessageBoxButtons.OK,
-            //                        MessageBoxIcon.Information);
-            //}
+            if (!Confirm("Do you confirm the operation?")) return;
 
-        }
-
-        private void checkBoxAll_CheckedChanged(object sender, EventArgs e)
-        {
-            //foreach (ListViewItem item in listViewAlert.Items)
-            //{
-            //    item.Checked = checkBoxAll.Checked;
-            //}
+            var cursor = Cursor;
+            var backgroundWorkder = new BackgroundWorker();
+            backgroundWorkder.DoWork += (sender, args) =>
+            {
+                var loanService = ServicesProvider.GetInstance().GetContractServices();
+                foreach (var contract in selectedContracts)
+                {
+                    loanService.ReassignContract(contract.ContractId, to.Id, from.Id);
+                }
+            };
+            backgroundWorkder.RunWorkerCompleted += (sender, args) =>
+            {
+                Enable();
+                Cursor = cursor;
+                if (args.Error != null)
+                {
+                    Fail(args.Error.Message);
+                    return;
+                }
+                ReloadContracts();
+            };
+            Cursor = Cursors.WaitCursor;
+            Disable();
+            backgroundWorkder.RunWorkerAsync();
         }
 
         private void Disable()
@@ -148,6 +151,7 @@ namespace OpenCBS.GUI.Contracts
             if (string.IsNullOrEmpty(_filter))
             {
                 contractsObjectListView.SetObjects(_contracts);
+                UpdateTitle();
                 return;
             }
 
@@ -155,6 +159,7 @@ namespace OpenCBS.GUI.Contracts
                                     where contract.ClientLastName.ToLower().Contains(_filter.ToLower())
                                     select contract;
             contractsObjectListView.SetObjects(filteredContracts);
+            UpdateTitle();
         }
 
         private void ReloadContracts()
@@ -185,6 +190,21 @@ namespace OpenCBS.GUI.Contracts
             _contracts = new List<ReassignContractItem>();
             ShowContracts();
             backgroundWorker.RunWorkerAsync();
+        }
+
+        private void UpdateTitle()
+        {
+            var contracts = contractsObjectListView.Objects as IEnumerable<ReassignContractItem>;
+            if (contracts == null || !contracts.Any())
+            {
+                Text = "Reassign contracts";
+                return;
+            }
+            var number = contracts.Count();
+            var numberOfChecked = (from contract in contracts
+                                   where contract.CanReassign
+                                   select contract).Count();
+            Text = string.Format("Reassign contracts ({0} of {1})", numberOfChecked, number);
         }
     }
 }

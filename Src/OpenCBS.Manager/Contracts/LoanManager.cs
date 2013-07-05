@@ -963,7 +963,8 @@ namespace OpenCBS.Manager.Contracts
         public IEnumerable<ReassignContractItem> SelectLoansByLoanOfficerId(int id, bool onlyActive)
         {
             const string query = @"
-                SELECT 
+                SELECT
+                    c.id ContractId,
                     c.contract_code ContractCode,
                     COALESCE(p.first_name, g.name, corp.name) ClientFirstName,
                     p.last_name ClientLastName,

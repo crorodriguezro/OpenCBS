@@ -23,6 +23,8 @@ namespace OpenCBS.CoreDomain.Contracts
 {
     public class ReassignContractItem
     {
+        public int ContractId { get; set; }
+
         public string ContractCode { get; set; }
 
         public string ClientFirstName { get; set; }
@@ -50,5 +52,7 @@ namespace OpenCBS.CoreDomain.Contracts
         public string InstallmentType { get; set; }
 
         public decimal InterestRate { get; set; }
+
+        public bool CanReassign { get; set; }
     }
 }
