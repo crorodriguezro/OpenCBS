@@ -72,6 +72,7 @@
               <File Id="OpenCBS.Reports.dll" Source="SourceDir\OpenCBS.Reports.dll" />
               <File Id="log4net.dll" Source="SourceDir\log4net.dll" />
               <File Id="AutoMapper.dll" Source="SourceDir\AutoMapper.dll" />
+              <File Id="Dapper.dll" Source="SourceDir\Dapper.dll" />
               <File Id="setup.bat" Source="SourceDir\setup.bat" />
               <File Id="dump.bat" Source="SourceDir\dump.bat" />
               <File Id="dumpObjects.bat" Source="SourceDir\dumpObjects.bat" />
