@@ -68,7 +68,7 @@ namespace OpenCBS.GUI.Contracts
             bool onlyActive = chkBox_only_active.Checked;
             listViewAlert.Items.Clear();
 
-            reassignContractItemList = ServicesProvider.GetInstance().GetContractServices().FindContractsByOfficerWAct(officerId, onlyActive);
+            reassignContractItemList = ServicesProvider.GetInstance().GetContractServices().FindContractsByLoanOfficerId(officerId, onlyActive);
 
             foreach (ReassignContractItem item in reassignContractItemList)
             {
@@ -97,7 +97,7 @@ namespace OpenCBS.GUI.Contracts
             listViewItem.SubItems.Add(item.CreationDate.ToShortDateString());
             listViewItem.SubItems.Add(item.InstallmentTypes);
             listViewItem.SubItems.Add(item.InterestRate.ToString());
-            listViewItem.SubItems.Add(item.OLB.ToString());
+            listViewItem.SubItems.Add(item.Olb.ToString());
             listViewItem.SubItems.Add(item.LoanId.ToString());
 
 

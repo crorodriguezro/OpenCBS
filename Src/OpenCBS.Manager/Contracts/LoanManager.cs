@@ -958,7 +958,7 @@ namespace OpenCBS.Manager.Contracts
             }
         }
 
-        public List<ReassignContractItem> SelectLoansByLoanOfficerWAct(int pLoanOfficerId, bool onlyAct)
+        public List<ReassignContractItem> SelectLoansByLoanOfficerId(int pLoanOfficerId, bool onlyActive)
         {
             string addLoanOfficer = "";
 
@@ -1003,7 +1003,7 @@ namespace OpenCBS.Manager.Contracts
                                   WHERE ( Installments.capital_repayment + Installments.interest_repayment - Installments.paid_capital - Installments.paid_interest > 0.02 ) 
                                   {0}",addLoanOfficer);
 
-            if(onlyAct)
+            if(onlyActive)
                 sqlTextRepaymentAlert = sqlTextRepaymentAlert +  " AND Contracts.status = 5";
 
             sqlTextRepaymentAlert = sqlTextRepaymentAlert + " ORDER BY contract_id, effect_date DESC";           
@@ -1036,7 +1036,7 @@ namespace OpenCBS.Manager.Contracts
                         item.CloseDate = reader.GetDateTime(OAlertSettings.CLOSE_DATE);
                         item.InstallmentTypes = reader.GetString(OAlertSettings.INSTALLMENT_TYPES);
                         item.DistrictName = reader.GetString(OAlertSettings.DISTRICT_NAME);
-                        item.OLB = reader.GetDecimal(OAlertSettings.OLB);
+                        item.Olb = reader.GetDecimal(OAlertSettings.OLB);
                         item.Type = 'R';
 
                         reassignContractItemList.Add(item);
