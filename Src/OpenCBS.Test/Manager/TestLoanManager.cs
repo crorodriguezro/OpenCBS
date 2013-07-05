@@ -82,6 +82,7 @@ namespace OpenCBS.Test.Manager
                             BranchCode = "DU",
                             CreationDate = DateTime.Today.AddDays(-1),
                             StartDate = DateTime.Today,
+                            FirstInstallmentDate = DateTime.Today.AddDays(1),
                             AlignDisbursementDate = DateTime.Today,
                             CloseDate = DateTime.Today.AddDays(1),
                             Product = new LoanProduct {Id = 1, Currency = new Currency {Id = 1}},
@@ -136,61 +137,6 @@ namespace OpenCBS.Test.Manager
             _loan.Id = _loanManager.Add(_loan, 1);
             Assert.AreNotEqual(0, _loan.Id);
         }
-
-        /* Old tests for collaterals were disabled due to collaterals' logic was overwritten */
-
-        /*
-        [Test]
-        public void AddLoan_Person_MinimumValues_Collateral()
-        {
-            _loan.Collaterals = new List<Collateral> {new Collateral {Id = 2, Name = "Test"}};
-            _loan.Id = _loanManager.Add(_loan, 1, null);
-            Assert.AreNotEqual(0, _loan.Id);
-        }*/
-        /*
-        [Test]
-        public void SelectLoan_Person_MinimumValues_Collateral()
-        {
-            _loan.Collaterals = new List<Collateral> { new Collateral { Id = 1, Name = "Collateral", Amount = 199 } };
-            _loan.Id = _loanManager.Add(_loan, 2, null);
-            Assert.AreNotEqual(0, _loan.Id);
-
-            Loan selectedLoan = _loanManager.SelectLoan(_loan.Id, false, true, true);
-            _AssertLoanMinimumValues(_loan, selectedLoan);
-
-            Assert.AreEqual(1, selectedLoan.Collaterals.Count);
-            Assert.AreEqual("Collateral", selectedLoan.Collaterals[0].Name);
-            Assert.AreEqual(199, selectedLoan.Collaterals[0].Amount.Value);
-        }*/
-        /*
-        [Test]
-        public void AddLoan_Group_MinimumValues_Collateral()
-        {
-            _loan.ClientType = OClientTypes.Group;
-            _loan.LoanShares = new List<LoanShare> { new LoanShare { PersonId = 2, Amount = 1000 } };
-            _loan.Collaterals = new List<Collateral> {new Collateral {Id = 2, Name = "Test"}};
-
-            _loan.Id = _loanManager.Add(_loan, 1, null);
-            Assert.AreNotEqual(0, _loan.Id);
-        }*/
-        /*
-        [Test]
-        public void SelectLoan_Group_MinimumValues_Collateral()
-        {
-            _loan.ClientType = OClientTypes.Group;
-            _loan.LoanShares = new List<LoanShare> { new LoanShare { PersonId = 2, Amount = 1000 } };
-            _loan.Collaterals = new List<Collateral> { new Collateral { Id = 1, Name = "Collateral", Amount = 200 } };
-
-            _loan.Id = _loanManager.Add(_loan, 1, null);
-            Assert.AreNotEqual(0, _loan.Id);
-
-            Loan selectedLoan = _loanManager.SelectLoan(_loan.Id, false, true, true);
-            _AssertLoanMinimumValues(_loan, selectedLoan);
-
-            Assert.AreEqual(1, selectedLoan.Collaterals.Count);
-            Assert.AreEqual("Collateral", selectedLoan.Collaterals[0].Name);
-            Assert.AreEqual(200, selectedLoan.Collaterals[0].Amount.Value);
-        }*/
 
         [Test]
         public void AddLoan_Person_MinimumValues_Guarantor()
@@ -579,43 +525,6 @@ namespace OpenCBS.Test.Manager
 
             Loan updatedLoan = _loanManager.SelectLoan(_loan.Id, true, true, true);
             _AssertLoanMinimumValues(_loan, updatedLoan);
-        }
-
-        //[Test]
-        //public void Test_SelectDisbursedLoan()
-        //{
-        //    List<AccountTiers> accountsTiers = _loanManager.SelectDisbursedContracts(new DateTime(2010, 01, 01), new DateTime(2010, 02, 01));
-        //    Assert.AreEqual(0, accountsTiers.Count);
-        //    //Assert.AreEqual(5, accountsTiers[0].ContractId);
-        //    //Assert.AreEqual("EDE34/LALAU/1/1/2", accountsTiers[0].ContractCode);
-        //    //Assert.AreEqual(new DateTime(2010, 01, 01), accountsTiers[0].DisbursmentDate);
-        //    //Assert.AreEqual(1, accountsTiers[0].ClientId);
-        //    //Assert.AreEqual(OClientTypes.Group, accountsTiers[0].ClientType);
-        //    //Assert.AreEqual("Group Nicolas", accountsTiers[0].ClientName);
-        //    //Assert.AreEqual(1, accountsTiers[0].LoanOfficerId);
-        //    //Assert.AreEqual("ZOU ZOU", accountsTiers[0].LoanOfficerName);
-        //    //Assert.AreEqual(2, accountsTiers[0].CollectiveAccount.Id);
-        //    //Assert.AreEqual("10913", accountsTiers[0].CollectiveAccount.LocalNumber);
-        //    //Assert.AreEqual("Cash Credit", accountsTiers[0].CollectiveAccount.Label);
-        //}
-
-	    private static void _AssertAlert(Alert pActualAlert, char pType, int pLoanId, string pLoanCode, string pClientName, 
-            DateTime pEffectDate, OCurrency pAmount, DateTime pStartDate, DateTime pCloseDate, DateTime pCreationDate, string pInstallmentType,
-            decimal pInterestRate, OCurrency pOLB, string pDistrict)
-        {
-            Assert.AreEqual(pType, pActualAlert.Type);
-            Assert.AreEqual(pLoanId, pActualAlert.LoanId);
-            Assert.AreEqual(pLoanCode, pActualAlert.LoanCode);
-            Assert.AreEqual(pClientName, pActualAlert.ClientName);
-            Assert.AreEqual(pEffectDate, pActualAlert.EffectDate);
-            Assert.AreEqual(pAmount.Value, pActualAlert.Amount.Value);
-            Assert.AreEqual(pStartDate, pActualAlert.StartDate);
-            Assert.AreEqual(pCloseDate, pActualAlert.CloseDate);
-            Assert.AreEqual(pCreationDate, pActualAlert.CreationDate);
-            Assert.AreEqual(pInstallmentType, pActualAlert.InstallmentTypes);
-            Assert.AreEqual(pInterestRate, pActualAlert.InterestRate);
-            Assert.AreEqual(pOLB.Value, pActualAlert.OLB.Value);
-            Assert.AreEqual(pDistrict, pActualAlert.DistrictName);
         }
 
 	    private static void _AssertLoanMinimumValues(Loan pExpectedLoan, Loan pActualLoan)
