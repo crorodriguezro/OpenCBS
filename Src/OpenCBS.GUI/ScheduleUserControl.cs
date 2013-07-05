@@ -12,7 +12,7 @@ namespace OpenCBS.GUI
     public partial class ScheduleUserControl : System.Windows.Forms.UserControl
     {
         private string _amountFormatString;
-        private Installment _total;
+        public Installment total;
         public ScheduleUserControl()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace OpenCBS.GUI
             Setup();
             scheduleObjectListView.SetObjects(loan.InstallmentList);
             InitTotal();
-            scheduleObjectListView.AddObject(_total);
+            scheduleObjectListView.AddObject(total);
         }
 
         private void InitTotal()
@@ -44,7 +44,7 @@ namespace OpenCBS.GUI
             }
             OCurrency hasntValue = new OCurrency();
             DateTime date = new DateTime();
-            _total = new Installment(date, totalInterest, totalPrincipal, totalPaidCapital, totalPaidInterests, hasntValue,
+            total = new Installment(date, totalInterest, totalPrincipal, totalPaidCapital, totalPaidInterests, hasntValue,
                                     null, -1);
         }
         private void Setup()
@@ -144,7 +144,7 @@ namespace OpenCBS.GUI
                 decimal amount;
                 if (decimal.TryParse(e.NewValue.ToString(), out amount))
                 {
-                    _total.InterestsRepayment += amount - installment.InterestsRepayment;
+                    total.InterestsRepayment += amount - installment.InterestsRepayment;
                     installment.InterestsRepayment = amount;
                 }
             }
@@ -154,7 +154,7 @@ namespace OpenCBS.GUI
                 decimal amount;
                 if (decimal.TryParse(e.NewValue.ToString(), out amount))
                 {
-                    _total.CapitalRepayment += amount - installment.CapitalRepayment;
+                    total.CapitalRepayment += amount - installment.CapitalRepayment;
                     installment.CapitalRepayment = amount;
                 }
             }

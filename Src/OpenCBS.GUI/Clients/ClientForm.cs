@@ -7014,17 +7014,13 @@ namespace OpenCBS.GUI.Clients
         private void buttonManualSchedule_Click(object sender, EventArgs e)
         {
             if (null == _credit || 0 == _credit.InstallmentList.Count) return;
-            EditContractSchedule1 editContractSchedule = new EditContractSchedule1(_credit);
+            ManualScheduleForm manualScheduleForm = new ManualScheduleForm(_credit);
 
-            if (editContractSchedule.ShowDialog() == DialogResult.OK)
+            if (manualScheduleForm.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    //ServicesProvider.GetInstance().GetContractServices().CanUserEditRepaymentSchedule();
-                    //_credit.ScheduleChangedManually = true;
-
-                    _credit = editContractSchedule.Loan;
-                    //if (_credit.ContractStatus != 0)
+                    _credit = manualScheduleForm.Loan;
                     SaveContract();
                     DisplayListViewLoanRepayments(_credit);
                 }
