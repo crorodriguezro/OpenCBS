@@ -17,40 +17,19 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
-using System;
 
 namespace OpenCBS.CoreDomain.Contracts
 {
     public class ReassignContractItem
     {
-        public char Type { get; set; }
-
-        public int LoanId { get; set; }
-
-        public string LoanCode { get; set; }
-
-        public string LoanStatus { get; set; }
+        public string ContractCode { get; set; }
 
         public string ClientFirstName { get; set; }
 
         public string ClientLastName { get; set; }
 
-        public decimal Amount { get; set; }
+        public int StatusCode { get; set; }
 
         public decimal Olb { get; set; }
-
-        public decimal InterestRate { get; set; }
-
-        public DateTime CreationDate { get; set; }
-
-        public DateTime StartDate { get; set; }
-
-        public DateTime CloseDate { get; set; }
-
-        public string InstallmentTypes { get; set; }
-
-        public string DistrictName;
-
-        public DateTime EffectDate;
     }
 }

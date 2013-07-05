@@ -21,93 +21,60 @@
 
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Windows.Forms;
-using OpenCBS.Services;
-using OpenCBS.MultiLanguageRessources;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Contracts;
-using OpenCBS.Enums;
+using OpenCBS.GUI.UserControl;
+using OpenCBS.Services;
 
 namespace OpenCBS.GUI.Contracts
 {
-    public partial class ReassignContractsForm : Form
+    public partial class ReassignContractsForm : SweetForm
     {
         private List<User> users;
-        List<ReassignContractItem> reassignContractItemList;
+        IEnumerable<ReassignContractItem> reassignContractItemList;
         public ReassignContractsForm()
         {
             InitializeComponent();
-            _InitializeLoanOfficer();
+            LoadUsers();
             reassignContractItemList = InitializerContracts(0);
-            cbLoanOfficerFrom.SelectedIndex = 0;
-            cbLoanOfficerTo.SelectedIndex = 0;
+            fromCombobox.SelectedIndex = 0;
+            toCombobox.SelectedIndex = 0;
         }
 
 
-        private void _InitializeLoanOfficer()
+        private void LoadUsers()
         {
-            cbLoanOfficerFrom.Items.Clear();
+            fromCombobox.Items.Clear();
 
             users = ServicesProvider.GetInstance().GetUserServices().FindAll(false).OrderBy(item => item.FirstName).ThenBy(item => item.LastName).ToList();
-            
+
             foreach (User user in users)
             {
-                cbLoanOfficerFrom.Items.Add(user);
+                fromCombobox.Items.Add(user);
 
                 if (!user.IsDeleted && (user.UserRole.IsRoleForLoan || user.UserRole.IsRoleForSaving))
                 {
-                    cbLoanOfficerTo.Items.Add(user);
+                    toCombobox.Items.Add(user);
                 }
             }
         }
 
-        private List<ReassignContractItem> InitializerContracts(int officerId)
+        private IEnumerable<ReassignContractItem> InitializerContracts(int officerId)
         {
-            bool onlyActive = chkBox_only_active.Checked;
-            listViewAlert.Items.Clear();
+            //bool onlyActive = chkBox_only_active.Checked;
+            //listViewAlert.Items.Clear();
 
-            reassignContractItemList = ServicesProvider.GetInstance().GetContractServices().FindContractsByLoanOfficerId(officerId, onlyActive);
+            //reassignContractItemList = ServicesProvider.GetInstance().GetContractServices().FindContractsByLoanOfficerId(officerId, onlyActive);
 
-            foreach (ReassignContractItem item in reassignContractItemList)
-            {
-                listViewAlert.Items.Add(CreateListViewItem(item));
-            }
+            //foreach (ReassignContractItem item in reassignContractItemList)
+            //{
+            //    //listViewAlert.Items.Add(CreateListViewItem(item));
+            //}
 
-            toolStripStatusLabelTotal.Text = String.Format("Total contracts: {0}", listViewAlert.Items.Count);
-            return reassignContractItemList;
-        }
-
-        private ListViewItem CreateListViewItem(ReassignContractItem item)
-        {
-            ListViewItem listViewItem = new ListViewItem(item.LoanCode){
-                                                    Tag = item.LoanId,
-                                                    ImageIndex = (item.Type == 'D' ? 1 : 0)
-                                                };
-            listViewAlert.CheckBoxes = true;
-
-            listViewItem.SubItems.Add(item.EffectDate.ToShortDateString());
-            listViewItem.SubItems.Add(item.Amount.ToString());
-            listViewItem.SubItems.Add(item.ClientFirstName);
-            listViewItem.SubItems.Add(item.ClientLastName);
-            listViewItem.SubItems.Add(item.DistrictName);
-            listViewItem.SubItems.Add(item.StartDate.ToShortDateString());
-            listViewItem.SubItems.Add(item.CloseDate.ToShortDateString());
-            listViewItem.SubItems.Add(item.CreationDate.ToShortDateString());
-            listViewItem.SubItems.Add(item.InstallmentTypes);
-            listViewItem.SubItems.Add(item.InterestRate.ToString());
-            listViewItem.SubItems.Add(item.Olb.ToString());
-            listViewItem.SubItems.Add(item.LoanId.ToString());
-
-
-            return listViewItem;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
-            Dispose();
+            //toolStripStatusLabelTotal.Text = String.Format("Total contracts: {0}", listViewAlert.Items.Count);
+            //return reassignContractItemList;
+            return null;
         }
 
         private int GetLoanOfficerID(string loanOfficer)
@@ -127,105 +94,105 @@ namespace OpenCBS.GUI.Contracts
 
         private void cbLoanOfficerFrom_SelectedIndexChanged(object sender, EventArgs e)
         {
-            InitializerContracts(GetLoanOfficerID(cbLoanOfficerFrom.Text));
-            textBoxContractFilter.Text="";
-            checkBoxAll.Checked = false;
+            InitializerContracts(GetLoanOfficerID(fromCombobox.Text));
+            filterTextbox.Text = "";
+            selectAllCheckbox.Checked = false;
         }
 
         private void cbLoanOfficerTo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbLoanOfficerFrom.Text == cbLoanOfficerTo.Text)
+            if (fromCombobox.Text == toCombobox.Text)
             {
-                cbLoanOfficerTo.SelectedIndex = 0;
+                toCombobox.SelectedIndex = 0;
             }
-            checkBoxAll.Checked = false;
+            selectAllCheckbox.Checked = false;
         }
 
         private void buttonAssing_Click(object sender, EventArgs e)
         {
-            bool isCheked = false;
-            if ((cbLoanOfficerTo.Text.Length > 0) && (cbLoanOfficerFrom.Text.Length>0 ))
-            {
+            //bool isCheked = false;
+            //if ((cbLoanOfficerTo.Text.Length > 0) && (cbLoanOfficerFrom.Text.Length > 0))
+            //{
 
-                foreach (ListViewItem item in listViewAlert.Items)
-                {
-                    if (item.Checked)
-                    {
-                        isCheked = true;
-                        ServicesProvider.GetInstance().GetContractServices().ReassignContract(Convert.ToInt32(item.Tag), GetLoanOfficerID(cbLoanOfficerTo.Text), GetLoanOfficerID(cbLoanOfficerFrom.Text));
+            //    foreach (ListViewItem item in listViewAlert.Items)
+            //    {
+            //        if (item.Checked)
+            //        {
+            //            isCheked = true;
+            //            ServicesProvider.GetInstance().GetContractServices().ReassignContract(Convert.ToInt32(item.Tag), GetLoanOfficerID(cbLoanOfficerTo.Text), GetLoanOfficerID(cbLoanOfficerFrom.Text));
 
-                    }
-                }
-                if (!isCheked)
-                {
-                    MessageBox.Show(MultiLanguageStrings.GetString(Ressource.ReassingContract, "selectContract.Text"),
-                            MultiLanguageStrings.GetString(Ressource.ReassingContract, "title.Text"), MessageBoxButtons.OK,
-                                        MessageBoxIcon.Information);
-                }
-                InitializerContracts(GetLoanOfficerID(cbLoanOfficerFrom.Text));
-            }
-            else
-            {
-                MessageBox.Show(MultiLanguageStrings.GetString(Ressource.ReassingContract, "dataerror.Text"),
-                        MultiLanguageStrings.GetString(Ressource.ReassingContract, "title.Text"), MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
-            }
-            
+            //        }
+            //    }
+            //    if (!isCheked)
+            //    {
+            //        MessageBox.Show(MultiLanguageStrings.GetString(Ressource.ReassingContract, "selectContract.Text"),
+            //                MultiLanguageStrings.GetString(Ressource.ReassingContract, "title.Text"), MessageBoxButtons.OK,
+            //                            MessageBoxIcon.Information);
+            //    }
+            //    InitializerContracts(GetLoanOfficerID(cbLoanOfficerFrom.Text));
+            //}
+            //else
+            //{
+            //    MessageBox.Show(MultiLanguageStrings.GetString(Ressource.ReassingContract, "dataerror.Text"),
+            //            MultiLanguageStrings.GetString(Ressource.ReassingContract, "title.Text"), MessageBoxButtons.OK,
+            //                        MessageBoxIcon.Information);
+            //}
+
         }
 
         private void listViewAlert_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in listViewAlert.Items)
-            {
-                item.Checked = item.Selected;
-            }
+            //foreach (ListViewItem item in listViewAlert.Items)
+            //{
+            //    item.Checked = item.Selected;
+            //}
         }
 
         private void checkBoxAll_CheckedChanged(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in listViewAlert.Items)
-            {
-                item.Checked = checkBoxAll.Checked;
-            }
+            //foreach (ListViewItem item in listViewAlert.Items)
+            //{
+            //    item.Checked = checkBoxAll.Checked;
+            //}
         }
 
         private void textBoxContractFilter_TextChanged(object sender, EventArgs e)
         {
-            _FilterContracts(textBoxContractFilter.Text);
+            _FilterContracts(filterTextbox.Text);
         }
 
-       private void _FilterContracts(String filter)
-       {
-           if (filter != null || !filter.Equals(""))
-           {
-               filter = filter.ToUpper();
+        private void _FilterContracts(String filter)
+        {
+            //if (filter != null || !filter.Equals(""))
+            //{
+            //    filter = filter.ToUpper();
 
-               listViewAlert.Items.Clear();
+            //    listViewAlert.Items.Clear();
 
-               foreach (ReassignContractItem item in reassignContractItemList)
-               {
-                   if (item.ClientFirstName.ToUpper().Contains(filter) || 
-                       item.ClientLastName.ToUpper().Contains(filter))
-                   {
-                       listViewAlert.Items.Add(CreateListViewItem(item));
-                   }
-               }
-           }
-           else
-           {
-               foreach (ReassignContractItem item in reassignContractItemList)
-               {
-                   listViewAlert.Items.Add(CreateListViewItem(item));
-                   
-               }
-           }
-          toolStripStatusLabelTotal.Text = String.Format("Total contracts: {0}", listViewAlert.Items.Count);
+            //    foreach (ReassignContractItem item in reassignContractItemList)
+            //    {
+            //        if (item.ClientFirstName.ToUpper().Contains(filter) ||
+            //            item.ClientLastName.ToUpper().Contains(filter))
+            //        {
+            //            //listViewAlert.Items.Add(CreateListViewItem(item));
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    foreach (ReassignContractItem item in reassignContractItemList)
+            //    {
+            //        //listViewAlert.Items.Add(CreateListViewItem(item));
 
-       }
+            //    }
+            //}
+            //toolStripStatusLabelTotal.Text = String.Format("Total contracts: {0}", listViewAlert.Items.Count);
+
+        }
 
         private void chkBox_only_active_CheckedChanged(object sender, EventArgs e)
         {
-            InitializerContracts(GetLoanOfficerID(cbLoanOfficerFrom.Text));
+            InitializerContracts(GetLoanOfficerID(fromCombobox.Text));
         }
     }
 }

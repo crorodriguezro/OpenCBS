@@ -1348,7 +1348,7 @@ namespace OpenCBS.Services
             return alertStock.SortAlertsByLoanStatus();
         }
 
-        public List<ReassignContractItem> FindContractsByLoanOfficerId(int officerCode, bool onlyActive)
+        public IEnumerable<ReassignContractItem> FindContractsByLoanOfficerId(int officerCode, bool onlyActive)
         {
             return _loanManager.SelectLoansByLoanOfficerId(officerCode, onlyActive);
         }
