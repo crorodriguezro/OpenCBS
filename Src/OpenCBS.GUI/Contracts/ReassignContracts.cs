@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Contracts;
@@ -32,16 +33,25 @@ namespace OpenCBS.GUI.Contracts
     public partial class ReassignContractsForm : SweetForm
     {
         private List<User> users;
-        IEnumerable<ReassignContractItem> reassignContractItemList;
+        
         public ReassignContractsForm()
         {
             InitializeComponent();
-            LoadUsers();
-            reassignContractItemList = InitializerContracts(0);
-            fromCombobox.SelectedIndex = 0;
-            toCombobox.SelectedIndex = 0;
+            Setup();
         }
 
+        private void Setup()
+        {
+            Load += (sender, args) => LoadForm();
+        }
+
+        private void LoadForm()
+        {
+            LoadUsers();
+            fromCombobox.SelectedIndex = 0;
+            toCombobox.SelectedIndex = 0;
+            ReloadContracts();
+        }
 
         private void LoadUsers()
         {
@@ -58,54 +68,6 @@ namespace OpenCBS.GUI.Contracts
                     toCombobox.Items.Add(user);
                 }
             }
-        }
-
-        private IEnumerable<ReassignContractItem> InitializerContracts(int officerId)
-        {
-            //bool onlyActive = chkBox_only_active.Checked;
-            //listViewAlert.Items.Clear();
-
-            //reassignContractItemList = ServicesProvider.GetInstance().GetContractServices().FindContractsByLoanOfficerId(officerId, onlyActive);
-
-            //foreach (ReassignContractItem item in reassignContractItemList)
-            //{
-            //    //listViewAlert.Items.Add(CreateListViewItem(item));
-            //}
-
-            //toolStripStatusLabelTotal.Text = String.Format("Total contracts: {0}", listViewAlert.Items.Count);
-            //return reassignContractItemList;
-            return null;
-        }
-
-        private int GetLoanOfficerID(string loanOfficer)
-        {
-            List<User> myUser = users.FindAll(delegate(User officerId)
-            {
-                return officerId.Name == loanOfficer;
-            });
-
-            int Id = 0;
-            myUser.ForEach(delegate(User officerId)
-            {
-                Id = officerId.Id;
-            });
-            return Id;
-        }
-
-        private void cbLoanOfficerFrom_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            InitializerContracts(GetLoanOfficerID(fromCombobox.Text));
-            filterTextbox.Text = "";
-            selectAllCheckbox.Checked = false;
-        }
-
-        private void cbLoanOfficerTo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (fromCombobox.Text == toCombobox.Text)
-            {
-                toCombobox.SelectedIndex = 0;
-            }
-            selectAllCheckbox.Checked = false;
         }
 
         private void buttonAssing_Click(object sender, EventArgs e)
@@ -138,14 +100,6 @@ namespace OpenCBS.GUI.Contracts
             //                        MessageBoxIcon.Information);
             //}
 
-        }
-
-        private void listViewAlert_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //foreach (ListViewItem item in listViewAlert.Items)
-            //{
-            //    item.Checked = item.Selected;
-            //}
         }
 
         private void checkBoxAll_CheckedChanged(object sender, EventArgs e)
@@ -192,7 +146,24 @@ namespace OpenCBS.GUI.Contracts
 
         private void chkBox_only_active_CheckedChanged(object sender, EventArgs e)
         {
-            InitializerContracts(GetLoanOfficerID(fromCombobox.Text));
+        }
+
+        private void ReloadContracts()
+        {
+            var user = fromCombobox.SelectedItem as User;
+            if (user == null) return;
+
+            var backgroundWorker = new BackgroundWorker();
+            backgroundWorker.DoWork += (sender, args) =>
+            {
+                var loanService = ServicesProvider.GetInstance().GetContractServices();
+                args.Result = loanService.FindContractsByLoanOfficerId(user.Id, false);
+            };
+            backgroundWorker.RunWorkerCompleted += (sender, args) =>
+            {
+                contractsObjectListView.SetObjects(args.Result as IEnumerable<ReassignContractItem>);
+            };
+            backgroundWorker.RunWorkerAsync();
         }
     }
 }

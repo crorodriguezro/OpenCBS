@@ -402,6 +402,45 @@
   <data name="&gt;&gt;optionsPanel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="contractCodeColumn.Text" xml:space="preserve">
+    <value>Contract code</value>
+  </data>
+  <data name="contractCodeColumn.Width" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="clientLastNameColumn.Text" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="clientLastNameColumn.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
+  <data name="clientFirstNameColumn.DisplayIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="clientFirstNameColumn.Text" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="clientFirstNameColumn.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
+  <data name="contractStatusColumn.Text" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="contractStatusColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="contractStatusColumn.Width" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="olbColumn.Text" xml:space="preserve">
+    <value>OLB</value>
+  </data>
+  <data name="olbColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="olbColumn.Width" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
   <data name="contractsObjectListView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -464,6 +503,36 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Reassign contracts</value>
+  </data>
+  <data name="&gt;&gt;contractCodeColumn.Name" xml:space="preserve">
+    <value>contractCodeColumn</value>
+  </data>
+  <data name="&gt;&gt;contractCodeColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;clientFirstNameColumn.Name" xml:space="preserve">
+    <value>clientFirstNameColumn</value>
+  </data>
+  <data name="&gt;&gt;clientFirstNameColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;clientLastNameColumn.Name" xml:space="preserve">
+    <value>clientLastNameColumn</value>
+  </data>
+  <data name="&gt;&gt;clientLastNameColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;contractStatusColumn.Name" xml:space="preserve">
+    <value>contractStatusColumn</value>
+  </data>
+  <data name="&gt;&gt;contractStatusColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;olbColumn.Name" xml:space="preserve">
+    <value>olbColumn</value>
+  </data>
+  <data name="&gt;&gt;olbColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ReassignContractsForm</value>

@@ -43,6 +43,11 @@ namespace OpenCBS.GUI.Contracts
             this.optionsPanel = new System.Windows.Forms.Panel();
             this.listPanel = new System.Windows.Forms.Panel();
             this.contractsObjectListView = new BrightIdeasSoftware.ObjectListView();
+            this.contractCodeColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clientFirstNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.clientLastNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.contractStatusColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olbColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.optionsPanel.SuspendLayout();
             this.listPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsObjectListView)).BeginInit();
@@ -94,7 +99,6 @@ namespace OpenCBS.GUI.Contracts
             this.toCombobox.FormattingEnabled = true;
             resources.ApplyResources(this.toCombobox, "toCombobox");
             this.toCombobox.Name = "toCombobox";
-            this.toCombobox.SelectedIndexChanged += new System.EventHandler(this.cbLoanOfficerTo_SelectedIndexChanged);
             // 
             // fromCombobox
             // 
@@ -102,7 +106,6 @@ namespace OpenCBS.GUI.Contracts
             this.fromCombobox.FormattingEnabled = true;
             resources.ApplyResources(this.fromCombobox, "fromCombobox");
             this.fromCombobox.Name = "fromCombobox";
-            this.fromCombobox.SelectedIndexChanged += new System.EventHandler(this.cbLoanOfficerFrom_SelectedIndexChanged);
             // 
             // optionsPanel
             // 
@@ -126,10 +129,50 @@ namespace OpenCBS.GUI.Contracts
             // 
             // contractsObjectListView
             // 
+            this.contractsObjectListView.AllColumns.Add(this.contractCodeColumn);
+            this.contractsObjectListView.AllColumns.Add(this.clientLastNameColumn);
+            this.contractsObjectListView.AllColumns.Add(this.clientFirstNameColumn);
+            this.contractsObjectListView.AllColumns.Add(this.contractStatusColumn);
+            this.contractsObjectListView.AllColumns.Add(this.olbColumn);
+            this.contractsObjectListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.contractCodeColumn,
+            this.clientLastNameColumn,
+            this.clientFirstNameColumn,
+            this.contractStatusColumn,
+            this.olbColumn});
             resources.ApplyResources(this.contractsObjectListView, "contractsObjectListView");
+            this.contractsObjectListView.GridLines = true;
             this.contractsObjectListView.Name = "contractsObjectListView";
+            this.contractsObjectListView.ShowGroups = false;
             this.contractsObjectListView.UseCompatibleStateImageBehavior = false;
             this.contractsObjectListView.View = System.Windows.Forms.View.Details;
+            // 
+            // contractCodeColumn
+            // 
+            this.contractCodeColumn.AspectName = "ContractCode";
+            resources.ApplyResources(this.contractCodeColumn, "contractCodeColumn");
+            // 
+            // clientFirstNameColumn
+            // 
+            this.clientFirstNameColumn.AspectName = "ClientFirstName";
+            resources.ApplyResources(this.clientFirstNameColumn, "clientFirstNameColumn");
+            // 
+            // clientLastNameColumn
+            // 
+            this.clientLastNameColumn.AspectName = "ClientLastName";
+            resources.ApplyResources(this.clientLastNameColumn, "clientLastNameColumn");
+            // 
+            // contractStatusColumn
+            // 
+            this.contractStatusColumn.AspectName = "StatusCode";
+            this.contractStatusColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            resources.ApplyResources(this.contractStatusColumn, "contractStatusColumn");
+            // 
+            // olbColumn
+            // 
+            this.olbColumn.AspectName = "Olb";
+            this.olbColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            resources.ApplyResources(this.olbColumn, "olbColumn");
             // 
             // ReassignContractsForm
             // 
@@ -163,6 +206,11 @@ namespace OpenCBS.GUI.Contracts
         private System.Windows.Forms.Panel optionsPanel;
         private System.Windows.Forms.Panel listPanel;
         private BrightIdeasSoftware.ObjectListView contractsObjectListView;
+        private BrightIdeasSoftware.OLVColumn contractCodeColumn;
+        private BrightIdeasSoftware.OLVColumn clientFirstNameColumn;
+        private BrightIdeasSoftware.OLVColumn clientLastNameColumn;
+        private BrightIdeasSoftware.OLVColumn contractStatusColumn;
+        private BrightIdeasSoftware.OLVColumn olbColumn;
 
     }
 }
