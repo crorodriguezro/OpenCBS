@@ -42,15 +42,20 @@ namespace OpenCBS.GUI.Contracts
             this.optionsPanel = new System.Windows.Forms.Panel();
             this.listPanel = new System.Windows.Forms.Panel();
             this.contractsObjectListView = new BrightIdeasSoftware.ObjectListView();
-            this.contractCodeColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.clientLastNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.clientFirstNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.clientFatherNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.districtNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.contractCodeColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.contractStatusColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.amountColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olbColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.startDateColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.closeDateColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.numberOfInstallmentsColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.interestRateColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.loanProductNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.installmentTypeColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.optionsPanel.SuspendLayout();
             this.listPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsObjectListView)).BeginInit();
@@ -124,36 +129,42 @@ namespace OpenCBS.GUI.Contracts
             // 
             // contractsObjectListView
             // 
-            this.contractsObjectListView.AllColumns.Add(this.contractCodeColumn);
             this.contractsObjectListView.AllColumns.Add(this.clientLastNameColumn);
             this.contractsObjectListView.AllColumns.Add(this.clientFirstNameColumn);
             this.contractsObjectListView.AllColumns.Add(this.clientFatherNameColumn);
+            this.contractsObjectListView.AllColumns.Add(this.districtNameColumn);
+            this.contractsObjectListView.AllColumns.Add(this.contractCodeColumn);
             this.contractsObjectListView.AllColumns.Add(this.contractStatusColumn);
             this.contractsObjectListView.AllColumns.Add(this.amountColumn);
             this.contractsObjectListView.AllColumns.Add(this.olbColumn);
             this.contractsObjectListView.AllColumns.Add(this.startDateColumn);
             this.contractsObjectListView.AllColumns.Add(this.closeDateColumn);
+            this.contractsObjectListView.AllColumns.Add(this.numberOfInstallmentsColumn);
+            this.contractsObjectListView.AllColumns.Add(this.interestRateColumn);
+            this.contractsObjectListView.AllColumns.Add(this.loanProductNameColumn);
+            this.contractsObjectListView.AllColumns.Add(this.installmentTypeColumn);
             this.contractsObjectListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.contractCodeColumn,
             this.clientLastNameColumn,
             this.clientFirstNameColumn,
             this.clientFatherNameColumn,
+            this.districtNameColumn,
+            this.contractCodeColumn,
             this.contractStatusColumn,
             this.amountColumn,
             this.olbColumn,
             this.startDateColumn,
-            this.closeDateColumn});
+            this.closeDateColumn,
+            this.numberOfInstallmentsColumn,
+            this.interestRateColumn,
+            this.loanProductNameColumn,
+            this.installmentTypeColumn});
             resources.ApplyResources(this.contractsObjectListView, "contractsObjectListView");
             this.contractsObjectListView.GridLines = true;
+            this.contractsObjectListView.HeaderWordWrap = true;
             this.contractsObjectListView.Name = "contractsObjectListView";
             this.contractsObjectListView.ShowGroups = false;
             this.contractsObjectListView.UseCompatibleStateImageBehavior = false;
             this.contractsObjectListView.View = System.Windows.Forms.View.Details;
-            // 
-            // contractCodeColumn
-            // 
-            this.contractCodeColumn.AspectName = "ContractCode";
-            resources.ApplyResources(this.contractCodeColumn, "contractCodeColumn");
             // 
             // clientLastNameColumn
             // 
@@ -169,6 +180,16 @@ namespace OpenCBS.GUI.Contracts
             // 
             this.clientFatherNameColumn.AspectName = "ClientFatherName";
             resources.ApplyResources(this.clientFatherNameColumn, "clientFatherNameColumn");
+            // 
+            // districtNameColumn
+            // 
+            this.districtNameColumn.AspectName = "DistrictName";
+            resources.ApplyResources(this.districtNameColumn, "districtNameColumn");
+            // 
+            // contractCodeColumn
+            // 
+            this.contractCodeColumn.AspectName = "ContractCode";
+            resources.ApplyResources(this.contractCodeColumn, "contractCodeColumn");
             // 
             // contractStatusColumn
             // 
@@ -199,6 +220,28 @@ namespace OpenCBS.GUI.Contracts
             this.closeDateColumn.AspectName = "CloseDate";
             this.closeDateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             resources.ApplyResources(this.closeDateColumn, "closeDateColumn");
+            // 
+            // numberOfInstallmentsColumn
+            // 
+            this.numberOfInstallmentsColumn.AspectName = "NumberOfInstallments";
+            this.numberOfInstallmentsColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            resources.ApplyResources(this.numberOfInstallmentsColumn, "numberOfInstallmentsColumn");
+            // 
+            // interestRateColumn
+            // 
+            this.interestRateColumn.AspectName = "InterestRate";
+            this.interestRateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            resources.ApplyResources(this.interestRateColumn, "interestRateColumn");
+            // 
+            // loanProductNameColumn
+            // 
+            this.loanProductNameColumn.AspectName = "LoanProductName";
+            resources.ApplyResources(this.loanProductNameColumn, "loanProductNameColumn");
+            // 
+            // installmentTypeColumn
+            // 
+            this.installmentTypeColumn.AspectName = "InstallmentType";
+            resources.ApplyResources(this.installmentTypeColumn, "installmentTypeColumn");
             // 
             // ReassignContractsForm
             // 
@@ -240,6 +283,11 @@ namespace OpenCBS.GUI.Contracts
         private BrightIdeasSoftware.OLVColumn clientFatherNameColumn;
         private BrightIdeasSoftware.OLVColumn startDateColumn;
         private BrightIdeasSoftware.OLVColumn closeDateColumn;
+        private BrightIdeasSoftware.OLVColumn numberOfInstallmentsColumn;
+        private BrightIdeasSoftware.OLVColumn loanProductNameColumn;
+        private BrightIdeasSoftware.OLVColumn installmentTypeColumn;
+        private BrightIdeasSoftware.OLVColumn districtNameColumn;
+        private BrightIdeasSoftware.OLVColumn interestRateColumn;
 
     }
 }

@@ -387,12 +387,6 @@
   <data name="&gt;&gt;optionsPanel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="contractCodeColumn.Text" xml:space="preserve">
-    <value>Contract code</value>
-  </data>
-  <data name="contractCodeColumn.Width" type="System.Int32, mscorlib">
-    <value>200</value>
-  </data>
   <data name="clientLastNameColumn.Text" xml:space="preserve">
     <value>Last name</value>
   </data>
@@ -410,6 +404,18 @@
   </data>
   <data name="clientFatherNameColumn.Width" type="System.Int32, mscorlib">
     <value>150</value>
+  </data>
+  <data name="districtNameColumn.Text" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="districtNameColumn.Width" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="contractCodeColumn.Text" xml:space="preserve">
+    <value>Contract code</value>
+  </data>
+  <data name="contractCodeColumn.Width" type="System.Int32, mscorlib">
+    <value>200</value>
   </data>
   <data name="contractStatusColumn.Text" xml:space="preserve">
     <value>Status</value>
@@ -455,6 +461,36 @@
   </data>
   <data name="closeDateColumn.Width" type="System.Int32, mscorlib">
     <value>80</value>
+  </data>
+  <data name="numberOfInstallmentsColumn.Text" xml:space="preserve">
+    <value>Number of installments</value>
+  </data>
+  <data name="numberOfInstallmentsColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="numberOfInstallmentsColumn.Width" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="interestRateColumn.Text" xml:space="preserve">
+    <value>Interest rate</value>
+  </data>
+  <data name="interestRateColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="interestRateColumn.Width" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
+  <data name="loanProductNameColumn.Text" xml:space="preserve">
+    <value>Loan product</value>
+  </data>
+  <data name="loanProductNameColumn.Width" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="installmentTypeColumn.Text" xml:space="preserve">
+    <value>Installment type</value>
+  </data>
+  <data name="installmentTypeColumn.Width" type="System.Int32, mscorlib">
+    <value>100</value>
   </data>
   <data name="contractsObjectListView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -534,12 +570,6 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Reassign contracts</value>
   </data>
-  <data name="&gt;&gt;contractCodeColumn.Name" xml:space="preserve">
-    <value>contractCodeColumn</value>
-  </data>
-  <data name="&gt;&gt;contractCodeColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
-  </data>
   <data name="&gt;&gt;clientLastNameColumn.Name" xml:space="preserve">
     <value>clientLastNameColumn</value>
   </data>
@@ -556,6 +586,18 @@
     <value>clientFatherNameColumn</value>
   </data>
   <data name="&gt;&gt;clientFatherNameColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;districtNameColumn.Name" xml:space="preserve">
+    <value>districtNameColumn</value>
+  </data>
+  <data name="&gt;&gt;districtNameColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;contractCodeColumn.Name" xml:space="preserve">
+    <value>contractCodeColumn</value>
+  </data>
+  <data name="&gt;&gt;contractCodeColumn.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;contractStatusColumn.Name" xml:space="preserve">
@@ -586,6 +628,30 @@
     <value>closeDateColumn</value>
   </data>
   <data name="&gt;&gt;closeDateColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;numberOfInstallmentsColumn.Name" xml:space="preserve">
+    <value>numberOfInstallmentsColumn</value>
+  </data>
+  <data name="&gt;&gt;numberOfInstallmentsColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;interestRateColumn.Name" xml:space="preserve">
+    <value>interestRateColumn</value>
+  </data>
+  <data name="&gt;&gt;interestRateColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;loanProductNameColumn.Name" xml:space="preserve">
+    <value>loanProductNameColumn</value>
+  </data>
+  <data name="&gt;&gt;loanProductNameColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;installmentTypeColumn.Name" xml:space="preserve">
+    <value>installmentTypeColumn</value>
+  </data>
+  <data name="&gt;&gt;installmentTypeColumn.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

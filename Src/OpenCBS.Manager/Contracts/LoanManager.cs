@@ -21,8 +21,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
+using Dapper;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Alerts;
@@ -34,16 +34,14 @@ using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment;
 using OpenCBS.CoreDomain.Events;
 using OpenCBS.CoreDomain.Events.Loan;
+using OpenCBS.CoreDomain.Products.Collaterals;
 using OpenCBS.CoreDomain.SearchResult;
 using OpenCBS.Enums;
 using OpenCBS.Manager.Clients;
-using OpenCBS.Manager.Products;
 using OpenCBS.Manager.Events;
-using OpenCBS.Manager.QueryForObject;
+using OpenCBS.Manager.Products;
 using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
-using OpenCBS.CoreDomain.Products.Collaterals;
-using Dapper;
 
 namespace OpenCBS.Manager.Contracts
 {
@@ -970,14 +968,23 @@ namespace OpenCBS.Manager.Contracts
                     COALESCE(p.first_name, g.name, corp.name) ClientFirstName,
                     p.last_name ClientLastName,
                     p.father_name ClientFatherName,
+                    d.name DistrictName,
                     cr.amount Amount,
                     ISNULL(al.olb, 0) Olb,
                     c.status StatusCode,
                     c.start_date StartDate,
-                    c.close_date CloseDate
+                    c.close_date CloseDate,
+                    cr.nb_of_installment NumberOfInstallments,
+                    pack.name LoanProductName,
+                    it.name InstallmentType,
+                    cr.interest_rate InterestRate
                 FROM dbo.Contracts c
                 LEFT JOIN dbo.Credit cr ON cr.id = c.id
+                LEFT JOIN dbo.Packages pack ON pack.id = cr.package_id
+                LEFT JOIN dbo.InstallmentTypes it ON it.id = pack.installment_type
                 LEFT JOIN dbo.Projects j ON j.id = c.project_id
+                LEFT JOIN dbo.Tiers t ON t.id = j.tiers_id
+                LEFT JOIN dbo.Districts d ON d.id = t.district_id
                 LEFT JOIN dbo.ActiveLoans(GETDATE(), 0) al ON al.id = c.id
                 LEFT JOIN dbo.Persons p ON p.id = j.tiers_id
                 LEFT JOIN dbo.Groups g ON g.id = j.tiers_id

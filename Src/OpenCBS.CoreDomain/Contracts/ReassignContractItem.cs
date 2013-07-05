@@ -17,7 +17,6 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
-
 using System;
 
 namespace OpenCBS.CoreDomain.Contracts
@@ -32,6 +31,8 @@ namespace OpenCBS.CoreDomain.Contracts
 
         public string ClientFatherName { get; set; }
 
+        public string DistrictName { get; set; }
+
         public int StatusCode { get; set; }
 
         public decimal Olb { get; set; }
@@ -41,5 +42,13 @@ namespace OpenCBS.CoreDomain.Contracts
         public DateTime StartDate { get; set; }
 
         public DateTime CloseDate { get; set; }
+
+        public int NumberOfInstallments { get; set; }
+
+        public string LoanProductName { get; set; }
+
+        public string InstallmentType { get; set; }
+
+        public decimal InterestRate { get; set; }
     }
 }
