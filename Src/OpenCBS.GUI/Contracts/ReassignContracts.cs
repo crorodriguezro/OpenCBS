@@ -31,7 +31,7 @@ namespace OpenCBS.GUI.Contracts
 {
     public partial class ReassignContractsForm : SweetForm
     {
-        private List<User> users;
+        private List<User> _users;
         private IEnumerable<ReassignContractItem> _contracts;
         private string _filter;
 
@@ -80,9 +80,9 @@ namespace OpenCBS.GUI.Contracts
         {
             fromCombobox.Items.Clear();
 
-            users = ServicesProvider.GetInstance().GetUserServices().FindAll(false).OrderBy(item => item.FirstName).ThenBy(item => item.LastName).ToList();
+            _users = ServicesProvider.GetInstance().GetUserServices().FindAll(false).OrderBy(item => item.LastName).ThenBy(item => item.FirstName).ToList();
 
-            foreach (User user in users)
+            foreach (var user in _users)
             {
                 fromCombobox.Items.Add(user);
 
@@ -182,6 +182,8 @@ namespace OpenCBS.GUI.Contracts
             };
             Cursor = Cursors.WaitCursor;
             Disable();
+            _contracts = new List<ReassignContractItem>();
+            ShowContracts();
             backgroundWorker.RunWorkerAsync();
         }
     }
