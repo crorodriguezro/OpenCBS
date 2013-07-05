@@ -34,6 +34,8 @@ namespace OpenCBS.GUI.Contracts
     public partial class ReassignContractsForm : SweetForm
     {
         private List<User> users;
+        private IEnumerable<ReassignContractItem> _contracts;
+        private string _filter;
         
         public ReassignContractsForm()
         {
@@ -45,6 +47,11 @@ namespace OpenCBS.GUI.Contracts
         {
             Load += (sender, args) => LoadForm();
             fromCombobox.SelectedIndexChanged += (sender, args) => ReloadContracts();
+            filterTextbox.TextChanged += (sender, args) =>
+            {
+                _filter = filterTextbox.Text;
+                ShowContracts();
+            };
         }
 
         private void LoadForm()
@@ -159,6 +166,20 @@ namespace OpenCBS.GUI.Contracts
             optionsPanel.Enabled = true;
         }
 
+        private void ShowContracts()
+        {
+            if (string.IsNullOrEmpty(_filter))
+            {
+                contractsObjectListView.SetObjects(_contracts);
+                return;
+            }
+
+            var filteredContracts = from contract in _contracts
+                                    where contract.ClientLastName.ToLower().Contains(_filter.ToLower())
+                                    select contract;
+            contractsObjectListView.SetObjects(filteredContracts);
+        }
+
         private void ReloadContracts()
         {
             var user = fromCombobox.SelectedItem as User;
@@ -169,7 +190,7 @@ namespace OpenCBS.GUI.Contracts
             backgroundWorker.DoWork += (sender, args) =>
             {
                 var loanService = ServicesProvider.GetInstance().GetContractServices();
-                args.Result = loanService.FindContractsByLoanOfficerId(user.Id, false);
+                _contracts = loanService.FindContractsByLoanOfficerId(user.Id, false);
             };
             backgroundWorker.RunWorkerCompleted += (sender, args) =>
             {
@@ -180,7 +201,7 @@ namespace OpenCBS.GUI.Contracts
                     Fail(args.Error.Message);
                     return;
                 }
-                contractsObjectListView.SetObjects(args.Result as IEnumerable<ReassignContractItem>);
+                ShowContracts();
             };
             Cursor = Cursors.WaitCursor;
             Disable();
