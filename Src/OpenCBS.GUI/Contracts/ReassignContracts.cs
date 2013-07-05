@@ -23,6 +23,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows.Forms;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Contracts;
 using OpenCBS.GUI.UserControl;
@@ -43,6 +44,7 @@ namespace OpenCBS.GUI.Contracts
         private void Setup()
         {
             Load += (sender, args) => LoadForm();
+            fromCombobox.SelectedIndexChanged += (sender, args) => ReloadContracts();
         }
 
         private void LoadForm()
@@ -50,7 +52,6 @@ namespace OpenCBS.GUI.Contracts
             LoadUsers();
             fromCombobox.SelectedIndex = 0;
             toCombobox.SelectedIndex = 0;
-            ReloadContracts();
         }
 
         private void LoadUsers()
@@ -148,11 +149,22 @@ namespace OpenCBS.GUI.Contracts
         {
         }
 
+        private void Disable()
+        {
+            optionsPanel.Enabled = false;
+        }
+
+        private void Enable()
+        {
+            optionsPanel.Enabled = true;
+        }
+
         private void ReloadContracts()
         {
             var user = fromCombobox.SelectedItem as User;
             if (user == null) return;
 
+            var cursor = Cursor;
             var backgroundWorker = new BackgroundWorker();
             backgroundWorker.DoWork += (sender, args) =>
             {
@@ -161,8 +173,17 @@ namespace OpenCBS.GUI.Contracts
             };
             backgroundWorker.RunWorkerCompleted += (sender, args) =>
             {
+                Enable();
+                Cursor = cursor;
+                if (args.Error != null)
+                {
+                    Fail(args.Error.Message);
+                    return;
+                }
                 contractsObjectListView.SetObjects(args.Result as IEnumerable<ReassignContractItem>);
             };
+            Cursor = Cursors.WaitCursor;
+            Disable();
             backgroundWorker.RunWorkerAsync();
         }
     }
