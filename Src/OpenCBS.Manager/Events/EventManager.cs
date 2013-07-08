@@ -1114,6 +1114,11 @@ namespace OpenCBS.Manager.Events
             AddLoanEventHead(pEvent, contractId, transaction);
 		}
 
+        public void AddLoanEvent(ManualScheduleChangeEvent pEvent, int contractId, SqlTransaction transaction)
+        {
+            AddLoanEventHead(pEvent, contractId, transaction);
+        }
+
         public void AddTellerEvent(TellerEvent tellerEvent, SqlTransaction sqlTransaction)
         {
             const string sql =

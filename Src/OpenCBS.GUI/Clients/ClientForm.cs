@@ -4274,7 +4274,8 @@ namespace OpenCBS.GUI.Clients
                     || e is TrancheEvent
                     || e is OverdueEvent
                     || e is ProvisionEvent
-                    || e is LoanCloseEvent)
+                    || e is LoanCloseEvent
+                    || e is ManualScheduleChangeEvent)
                 {
                     e.Cancelable = true;
                     if (e is LoanDisbursmentEvent)
@@ -4387,7 +4388,8 @@ namespace OpenCBS.GUI.Clients
                 else if (displayEvent is RegEvent
                          || displayEvent is WriteOffEvent
                          || displayEvent is LoanValidationEvent
-                         || displayEvent is LoanCloseEvent)
+                         || displayEvent is LoanCloseEvent
+                         || displayEvent is ManualScheduleChangeEvent)
                 {
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
@@ -4426,7 +4428,7 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                 }
-
+                
                 listViewItem.SubItems.Add(displayEvent.Cancelable.ToString());
                 listViewItem.SubItems.Add(displayEvent.User.ToString());
 
@@ -7021,8 +7023,17 @@ namespace OpenCBS.GUI.Clients
                 try
                 {
                     _credit = manualScheduleForm.Loan;
+
+                    var manualScheduleChangeEvent = new ManualScheduleChangeEvent();
+                    manualScheduleChangeEvent.User = User.CurrentUser;
+                    manualScheduleChangeEvent.Date = DateTime.Today;
+                    ServiceProvider.GetContractServices()
+                                   .AddManualScheduleChangeEvent(_credit, manualScheduleChangeEvent);
+
                     SaveContract();
+                    
                     DisplayListViewLoanRepayments(_credit);
+                    DisplayLoanEvents(_credit);
                 }
                 catch (Exception ex)
                 {

@@ -135,7 +135,7 @@ namespace OpenCBS.GUI.Contracts
             {
                 decimal newInterest;
                 if (decimal.TryParse(e.NewValue.ToString(), out newInterest) &&
-                    newInterest > _loan.InstallmentList[index].PaidInterests.Value)
+                    newInterest >= _loan.InstallmentList[index].PaidInterests.Value)
                     return true;
                 return false;
             }
@@ -143,7 +143,7 @@ namespace OpenCBS.GUI.Contracts
             {
                 decimal newPrincipal;
                 if (decimal.TryParse(e.NewValue.ToString(), out newPrincipal) &&
-                    newPrincipal > _loan.InstallmentList[index].PaidCapital.Value)
+                    newPrincipal >= _loan.InstallmentList[index].PaidCapital.Value)
                     return true;
                 return false;
             }
