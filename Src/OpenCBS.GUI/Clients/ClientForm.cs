@@ -7029,7 +7029,7 @@ namespace OpenCBS.GUI.Clients
                                    .AddManualScheduleChangeEvent(_credit, manualScheduleChangeEvent);
 
                     SaveContract();
-                    
+                    _credit = ServiceProvider.GetContractServices().SelectLoan(_credit.Id, true, true, true);
                     DisplayListViewLoanRepayments(_credit);
                     DisplayLoanEvents(_credit);
                 }
