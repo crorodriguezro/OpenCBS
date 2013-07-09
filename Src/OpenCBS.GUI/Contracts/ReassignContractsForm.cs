@@ -51,7 +51,7 @@ namespace OpenCBS.GUI.Contracts
                 _filter = filterTextbox.Text;
                 ApplyFilter();
             };
-            contractsObjectListView.ItemChecked += (sender, args) => UpdateTitle();
+            //contractsObjectListView.ItemChecked += (sender, args) => UpdateTitle();
             assignButton.Click += (sender, args) => Reassign();
             selectAllCheckbox.CheckedChanged += (sender, args) => SelectAll();
         }
@@ -215,14 +215,26 @@ namespace OpenCBS.GUI.Contracts
             Text = string.Format("Reassign contracts ({0} of {1})", numberOfChecked, number);
         }
 
+        private void ItemChecked(object sender, ItemCheckedEventArgs args)
+        {
+            UpdateTitle();
+        }
+
         private void SelectAll()
         {
-            var contracts = contractsObjectListView.Objects as IEnumerable<ReassignContractItem>;
-            if (contracts == null) return;
-            foreach (var contract in contracts)
+            contractsObjectListView.ItemChecked -= ItemChecked;
+            try
             {
-                contract.CanReassign = selectAllCheckbox.Checked;
-                contractsObjectListView.RefreshObject(contract);
+                var contracts = contractsObjectListView.FilteredObjects.Cast<ReassignContractItem>();
+                if (selectAllCheckbox.Checked)
+                    contractsObjectListView.CheckObjects(contracts);
+                else
+                    contractsObjectListView.UncheckObjects(contracts);
+                UpdateTitle();
+            }
+            finally
+            {
+                contractsObjectListView.ItemChecked += ItemChecked;
             }
         }
     }
