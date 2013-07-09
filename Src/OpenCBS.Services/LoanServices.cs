@@ -1087,6 +1087,25 @@ namespace OpenCBS.Services
             }
         }
 
+        public Loan AddManualScheduleChangeEvent(Loan loan, ManualScheduleChangeEvent manualScheduleChangeEvent)
+        {
+            using (SqlConnection conn = _savingEventManager.GetConnection())
+            using (SqlTransaction sqlTransaction = conn.BeginTransaction())
+            {
+                try
+                {
+                    _ePs.FireEvent(manualScheduleChangeEvent, loan, sqlTransaction);
+                    sqlTransaction.Commit();
+                    return loan;
+                }
+                catch (Exception ex)
+                {
+                    sqlTransaction.Rollback();
+                    throw ex;
+                }
+            }
+        }
+
         public Loan AddTranche(Loan loan, IClient client, ITrancheConfiguration trancheConfiguration)
         {
             using (var connection = _loanManager.GetConnection())
