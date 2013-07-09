@@ -25,6 +25,7 @@ using System.Windows.Forms;
 using OpenCBS.Controls;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Database;
+using OpenCBS.GUI.Tools;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
 using OpenCBS.Shared.Settings;
@@ -98,6 +99,7 @@ namespace OpenCBS.GUI.Login
                 }
                 databaseCombobox.SelectedIndex = index;
                 usernameTextbox.Focus();
+                databaseCombobox.SelectedIndexChanged += (sender2, args2) => ChangeDefaultDatabaseAndRestart();
             };
             Controls.Add(loaderControl);
             loaderControl.AttachTo(databaseCombobox);
@@ -152,6 +154,12 @@ namespace OpenCBS.GUI.Login
         private bool UserIsValid()
         {
             return string.IsNullOrEmpty(usernameTextbox.Text) || string.IsNullOrEmpty(passwordTextbox.Text);
+        }
+
+        private void ChangeDefaultDatabaseAndRestart()
+        {
+            TechnicalSettings.DatabaseName = databaseCombobox.Text;
+            Restart.LaunchRestarter();
         }
     }
 }
