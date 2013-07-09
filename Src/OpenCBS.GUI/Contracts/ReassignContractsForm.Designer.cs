@@ -164,6 +164,7 @@ namespace OpenCBS.GUI.Contracts
             this.contractsObjectListView.Name = "contractsObjectListView";
             this.contractsObjectListView.ShowGroups = false;
             this.contractsObjectListView.UseCompatibleStateImageBehavior = false;
+            this.contractsObjectListView.UseFiltering = true;
             this.contractsObjectListView.View = System.Windows.Forms.View.Details;
             // 
             // clientLastNameColumn

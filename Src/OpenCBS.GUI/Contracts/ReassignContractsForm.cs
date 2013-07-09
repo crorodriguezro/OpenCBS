@@ -22,6 +22,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
+using BrightIdeasSoftware;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Contracts;
 using OpenCBS.GUI.UserControl;
@@ -48,7 +49,7 @@ namespace OpenCBS.GUI.Contracts
             filterTextbox.TextChanged += (sender, args) =>
             {
                 _filter = filterTextbox.Text;
-                ShowContracts();
+                ApplyFilter();
             };
             contractsObjectListView.ItemChecked += (sender, args) => UpdateTitle();
             assignButton.Click += (sender, args) => Reassign();
@@ -75,7 +76,7 @@ namespace OpenCBS.GUI.Contracts
             interestRateColumn.AspectToStringConverter = value =>
             {
                 var interestRate = (decimal)value;
-                return (interestRate*100).ToString("N2") + " %";
+                return (interestRate * 100).ToString("N2") + " %";
             };
         }
 
@@ -147,20 +148,20 @@ namespace OpenCBS.GUI.Contracts
             optionsPanel.Enabled = true;
         }
 
-        private void ShowContracts()
+        private void ApplyFilter()
         {
             if (string.IsNullOrEmpty(_filter))
             {
-                contractsObjectListView.SetObjects(_contracts);
+                contractsObjectListView.ModelFilter = null;
                 UpdateTitle();
                 return;
             }
 
-            var filteredContracts = from contract in _contracts
-                                    where contract.ClientLastName.ToLower().Contains(_filter.ToLower())
-                                    select contract;
-            contractsObjectListView.SetObjects(filteredContracts);
-            UpdateTitle();
+            contractsObjectListView.ModelFilter = new ModelFilter(rowObject =>
+            {
+                var model = (ReassignContractItem)rowObject;
+                return model.ClientLastName.ToLower().Contains(_filter.ToLower());
+            });
         }
 
         private void ReloadContracts()
@@ -184,12 +185,12 @@ namespace OpenCBS.GUI.Contracts
                     Fail(args.Error.Message);
                     return;
                 }
-                ShowContracts();
+                contractsObjectListView.SetObjects(_contracts);
+                ApplyFilter();
             };
             Cursor = Cursors.WaitCursor;
             Disable();
-            _contracts = new List<ReassignContractItem>();
-            ShowContracts();
+            contractsObjectListView.ClearObjects();
             backgroundWorker.RunWorkerAsync();
         }
 
