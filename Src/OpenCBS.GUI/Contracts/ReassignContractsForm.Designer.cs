@@ -41,7 +41,7 @@ namespace OpenCBS.GUI.Contracts
             this.fromCombobox = new System.Windows.Forms.ComboBox();
             this.optionsPanel = new System.Windows.Forms.Panel();
             this.listPanel = new System.Windows.Forms.Panel();
-            this.contractsObjectListView = new BrightIdeasSoftware.ObjectListView();
+            this.contractsObjectListView = new BrightIdeasSoftware.FastObjectListView();
             this.clientLastNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.clientFirstNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.clientFatherNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -274,7 +274,7 @@ namespace OpenCBS.GUI.Contracts
         private System.Windows.Forms.TextBox filterTextbox;
         private System.Windows.Forms.Panel optionsPanel;
         private System.Windows.Forms.Panel listPanel;
-        private BrightIdeasSoftware.ObjectListView contractsObjectListView;
+        private BrightIdeasSoftware.FastObjectListView contractsObjectListView;
         private BrightIdeasSoftware.OLVColumn contractCodeColumn;
         private BrightIdeasSoftware.OLVColumn clientFirstNameColumn;
         private BrightIdeasSoftware.OLVColumn clientLastNameColumn;
