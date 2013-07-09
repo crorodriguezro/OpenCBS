@@ -340,16 +340,6 @@ namespace OpenCBS.Test.Manager
             Assert.AreEqual(_loan.Id, loans[0].Id);
         }
 
-        [Test]
-        public void UpdateLoanLoanOfficer()
-        {
-            _loan.Id = _loanManager.Add(_loan, 1);
-            _loanManager.UpdateLoanLoanOfficer(_loan.Id, 2, 1);
-
-            Loan updatedLoan = _loanManager.SelectLoan(_loan.Id, false, true, true);
-            Assert.AreEqual(2, updatedLoan.LoanOfficer.Id);
-        }
-
 	    [Test]
         public void SelectLoans_NoResult()
         {

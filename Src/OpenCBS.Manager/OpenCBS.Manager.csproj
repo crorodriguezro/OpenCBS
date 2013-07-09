@@ -240,6 +240,10 @@
   <ItemGroup>
     <EmbeddedResource Include="SQL\LoanManager\GetReassignContractItems.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SQL\LoanManager\ReassignLoans.sql" />
+    <EmbeddedResource Include="SQL\LoanManager\ReassignLoansHistory.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

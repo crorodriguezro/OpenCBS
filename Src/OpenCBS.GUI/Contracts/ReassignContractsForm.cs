@@ -51,7 +51,6 @@ namespace OpenCBS.GUI.Contracts
                 _filter = filterTextbox.Text;
                 ApplyFilter();
             };
-            //contractsObjectListView.ItemChecked += (sender, args) => UpdateTitle();
             assignButton.Click += (sender, args) => Reassign();
             selectAllCheckbox.CheckedChanged += (sender, args) => SelectAll();
         }
@@ -105,9 +104,9 @@ namespace OpenCBS.GUI.Contracts
             if (from.Id == to.Id) return;
 
             var selectedContracts =
-                from contract in contractsObjectListView.Objects as IEnumerable<ReassignContractItem>
+                (from contract in contractsObjectListView.FilteredObjects.Cast<ReassignContractItem>()
                 where contract.CanReassign
-                select contract;
+                select contract.ContractId).ToArray();
             if (!selectedContracts.Any()) return;
 
             if (!Confirm("Do you confirm the operation?")) return;
@@ -117,10 +116,7 @@ namespace OpenCBS.GUI.Contracts
             backgroundWorkder.DoWork += (sender, args) =>
             {
                 var loanService = ServicesProvider.GetInstance().GetContractServices();
-                foreach (var contract in selectedContracts)
-                {
-                    loanService.ReassignContract(contract.ContractId, to.Id, from.Id);
-                }
+                loanService.ReassignLoans(selectedContracts, to.Id);
             };
             backgroundWorkder.RunWorkerCompleted += (sender, args) =>
             {

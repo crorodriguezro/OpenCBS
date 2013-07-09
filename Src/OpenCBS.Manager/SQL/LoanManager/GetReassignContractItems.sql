@@ -31,4 +31,3 @@ LEFT JOIN dbo.Persons p ON p.id = j.tiers_id
 LEFT JOIN dbo.Groups g ON g.id = j.tiers_id
 LEFT JOIN dbo.Corporates corp ON corp.id = j.tiers_id
 WHERE cr.loanofficer_id = @Id
---WHERE cr.loanofficer_id = 6

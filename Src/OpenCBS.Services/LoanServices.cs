@@ -1371,6 +1371,24 @@ namespace OpenCBS.Services
             }
         }
 
+        public void ReassignLoans(int[] ids, int to)
+        {
+            using (var connection = _loanManager.GetConnection())
+            using (var transaction = connection.BeginTransaction())
+            {
+                try
+                {
+                    _loanManager.ReassignLoans(ids, to, transaction);
+                    transaction.Commit();
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
+
         public List<Loan> FindAllContractsForClosure()
         {
             return _loanManager.SelectLoansForClosure(OClosureTypes.Degradation);

@@ -838,20 +838,12 @@ namespace OpenCBS.Manager.Contracts
             }
         }
 
-        public void UpdateLoanLoanOfficer(int pLoanId, int pOfficerToId, int pOfficerFromId)
+        public void ReassignLoans(int[] ids, int loanOfficerId, SqlTransaction transaction)
         {
-            using (SqlConnection connection = GetConnection())
-            using (SqlTransaction transaction = connection.BeginTransaction())
-                try
-                {
-                    UpdateLoanLoanOfficer(pLoanId, pOfficerToId, pOfficerFromId, transaction);
-                    transaction.Commit();
-                }
-                catch
-                {
-                    transaction.Rollback();
-                    throw;
-                }
+            var query = ReadQuery("LoanManager.ReassignLoansHistory.sql");
+            transaction.Connection.Execute(query, new { To = loanOfficerId, Ids = ids }, transaction);
+            query = ReadQuery("LoanManager.ReassignLoans.sql");
+            transaction.Connection.Execute(query, new { To = loanOfficerId, Ids = ids }, transaction);
         }
 
         public void UpdateLoanLoanOfficer(int pLoanId, int pOfficerToId, int pOfficerFromId, SqlTransaction pTransac)
