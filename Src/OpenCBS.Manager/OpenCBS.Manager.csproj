@@ -237,6 +237,9 @@
   <ItemGroup>
     <EmbeddedResource Include="SQL\OpenCBSDatabases.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SQL\LoanManager\GetReassignContractItems.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
