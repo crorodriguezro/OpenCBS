@@ -160,8 +160,14 @@ namespace OpenCBS.GUI.Contracts
             contractsObjectListView.ModelFilter = new ModelFilter(rowObject =>
             {
                 var model = (ReassignContractItem)rowObject;
-                return model.ClientLastName.ToLower().Contains(_filter.ToLower());
+                var filterLower = _filter.ToLower();
+                return model.ClientLastName.ToLower().Contains(filterLower)
+                       || model.ClientFatherName.ToLower().Contains(filterLower)
+                       || model.ClientFirstName.ToLower().Contains(filterLower)
+                       || model.DistrictName.ToLower().Contains(filterLower)
+                       || model.ContractCode.ToLower().Contains(filterLower);
             });
+            UpdateTitle();
         }
 
         private void ReloadContracts()
@@ -196,7 +202,7 @@ namespace OpenCBS.GUI.Contracts
 
         private void UpdateTitle()
         {
-            var contracts = contractsObjectListView.Objects as IEnumerable<ReassignContractItem>;
+            var contracts = contractsObjectListView.FilteredObjects.Cast<ReassignContractItem>();
             if (contracts == null || !contracts.Any())
             {
                 Text = "Reassign contracts";
