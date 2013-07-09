@@ -838,20 +838,12 @@ namespace OpenCBS.Manager.Contracts
             }
         }
 
-        public void UpdateLoanLoanOfficer(int pLoanId, int pOfficerToId, int pOfficerFromId)
+        public void ReassignLoans(int[] ids, int loanOfficerId, SqlTransaction transaction)
         {
-            using (SqlConnection connection = GetConnection())
-            using (SqlTransaction transaction = connection.BeginTransaction())
-                try
-                {
-                    UpdateLoanLoanOfficer(pLoanId, pOfficerToId, pOfficerFromId, transaction);
-                    transaction.Commit();
-                }
-                catch
-                {
-                    transaction.Rollback();
-                    throw;
-                }
+            var query = ReadQuery("LoanManager.ReassignLoansHistory.sql");
+            transaction.Connection.Execute(query, new { To = loanOfficerId, Ids = ids }, transaction);
+            query = ReadQuery("LoanManager.ReassignLoans.sql");
+            transaction.Connection.Execute(query, new { To = loanOfficerId, Ids = ids }, transaction);
         }
 
         public void UpdateLoanLoanOfficer(int pLoanId, int pOfficerToId, int pOfficerFromId, SqlTransaction pTransac)
@@ -962,36 +954,7 @@ namespace OpenCBS.Manager.Contracts
 
         public IEnumerable<ReassignContractItem> SelectLoansByLoanOfficerId(int id, bool onlyActive)
         {
-            const string query = @"
-                SELECT
-                    c.id ContractId,
-                    c.contract_code ContractCode,
-                    COALESCE(p.first_name, g.name, corp.name) ClientFirstName,
-                    p.last_name ClientLastName,
-                    p.father_name ClientFatherName,
-                    d.name DistrictName,
-                    cr.amount Amount,
-                    ISNULL(al.olb, 0) Olb,
-                    c.status StatusCode,
-                    c.start_date StartDate,
-                    c.close_date CloseDate,
-                    cr.nb_of_installment NumberOfInstallments,
-                    pack.name LoanProductName,
-                    it.name InstallmentType,
-                    cr.interest_rate InterestRate
-                FROM dbo.Contracts c
-                LEFT JOIN dbo.Credit cr ON cr.id = c.id
-                LEFT JOIN dbo.Packages pack ON pack.id = cr.package_id
-                LEFT JOIN dbo.InstallmentTypes it ON it.id = pack.installment_type
-                LEFT JOIN dbo.Projects j ON j.id = c.project_id
-                LEFT JOIN dbo.Tiers t ON t.id = j.tiers_id
-                LEFT JOIN dbo.Districts d ON d.id = t.district_id
-                LEFT JOIN dbo.ActiveLoans(GETDATE(), 0) al ON al.id = c.id
-                LEFT JOIN dbo.Persons p ON p.id = j.tiers_id
-                LEFT JOIN dbo.Groups g ON g.id = j.tiers_id
-                LEFT JOIN dbo.Corporates corp ON corp.id = j.tiers_id
-                WHERE cr.loanofficer_id = @Id
-                ";
+            var query = ReadQuery("LoanManager.GetReassignContractItems.sql");
             using (var connection = GetConnection())
             {
                 return connection.Query<ReassignContractItem>(query, new { Id = id });
