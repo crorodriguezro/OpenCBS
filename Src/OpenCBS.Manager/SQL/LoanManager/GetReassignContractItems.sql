@@ -1,9 +1,9 @@
 SELECT
     c.id ContractId,
     c.contract_code ContractCode,
-    COALESCE(p.first_name, g.name, corp.name) ClientFirstName,
-    p.last_name ClientLastName,
-    p.father_name ClientFatherName,
+    COALESCE(p.first_name, g.name, corp.name, '') ClientFirstName,
+    COALESCE(p.last_name, '') ClientLastName,
+    COALESCE(p.father_name, '') ClientFatherName,
     d.name DistrictName,
     cr.amount Amount,
     ISNULL(olb.olb, 0) olb,
