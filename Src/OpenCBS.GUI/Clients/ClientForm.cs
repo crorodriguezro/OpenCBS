@@ -7014,7 +7014,7 @@ namespace OpenCBS.GUI.Clients
         private void buttonManualSchedule_Click(object sender, EventArgs e)
         {
             if (null == _credit || 0 == _credit.InstallmentList.Count) return;
-            ManualScheduleForm manualScheduleForm = new ManualScheduleForm(_credit);
+            ManualScheduleForm manualScheduleForm = new ManualScheduleForm(_credit.Copy());
 
             if (manualScheduleForm.ShowDialog() == DialogResult.OK)
             {

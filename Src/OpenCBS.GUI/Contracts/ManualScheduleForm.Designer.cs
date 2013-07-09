@@ -81,6 +81,7 @@
             // 
             // olvSchedule
             // 
+            this.olvSchedule.Alignment = System.Windows.Forms.ListViewAlignment.Default;
             this.olvSchedule.AllColumns.Add(this.numberColumn);
             this.olvSchedule.AllColumns.Add(this.dateColumn);
             this.olvSchedule.AllColumns.Add(this.interestColumn);
@@ -120,79 +121,79 @@
             // numberColumn
             // 
             this.numberColumn.AspectName = "Number";
-            this.numberColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numberColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numberColumn.IsEditable = false;
             this.numberColumn.Text = "#";
             this.numberColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numberColumn.Width = 75;
+            this.numberColumn.Width = 70;
             // 
             // dateColumn
             // 
             this.dateColumn.AspectName = "ExpectedDate";
-            this.dateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.dateColumn.Text = "Date";
-            this.dateColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dateColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.dateColumn.Width = 90;
             // 
             // interestColumn
             // 
             this.interestColumn.AspectName = "InterestsRepayment";
-            this.interestColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.interestColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.interestColumn.Text = "Interest";
-            this.interestColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.interestColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.interestColumn.Width = 100;
             // 
             // principalColumn
             // 
             this.principalColumn.AspectName = "CapitalRepayment";
-            this.principalColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.principalColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.principalColumn.Text = "Principal";
-            this.principalColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.principalColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.principalColumn.Width = 100;
             // 
             // totalColumn
             // 
             this.totalColumn.AspectName = "AmountHasToPayWithInterest";
-            this.totalColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.totalColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.totalColumn.IsEditable = false;
             this.totalColumn.Text = "Total";
-            this.totalColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.totalColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.totalColumn.Width = 100;
             // 
             // olbColumn
             // 
             this.olbColumn.AspectName = "OLB";
-            this.olbColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.olbColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.olbColumn.IsEditable = false;
             this.olbColumn.Text = "OLB";
-            this.olbColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.olbColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.olbColumn.Width = 100;
             // 
             // paidInterestColumn
             // 
             this.paidInterestColumn.AspectName = "PaidInterests";
-            this.paidInterestColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.paidInterestColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.paidInterestColumn.IsEditable = false;
-            this.paidInterestColumn.Text = "Paid Interest";
-            this.paidInterestColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.paidInterestColumn.Text = "Paid interest";
+            this.paidInterestColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.paidInterestColumn.Width = 100;
             // 
             // paidPrincipalColumn
             // 
             this.paidPrincipalColumn.AspectName = "PaidCapital";
-            this.paidPrincipalColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.paidPrincipalColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.paidPrincipalColumn.IsEditable = false;
-            this.paidPrincipalColumn.Text = "Paid Principal";
-            this.paidPrincipalColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.paidPrincipalColumn.Text = "Paid principal";
+            this.paidPrincipalColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.paidPrincipalColumn.Width = 100;
             // 
             // paymentDateColumn
             // 
             this.paymentDateColumn.AspectName = "PaidDate";
-            this.paymentDateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.paymentDateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.paymentDateColumn.IsEditable = false;
-            this.paymentDateColumn.Text = "Payment Date";
-            this.paymentDateColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.paymentDateColumn.Text = "Payment date";
+            this.paymentDateColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.paymentDateColumn.Width = 90;
             // 
             // ManualScheduleForm
@@ -203,8 +204,11 @@
             this.Controls.Add(this.olvSchedule);
             this.Controls.Add(this.pnlButtons);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ManualScheduleForm";
-            this.Text = "ManualScheduleForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Manual schedule";
             this.pnlButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.olvSchedule)).EndInit();
             this.ResumeLayout(false);
