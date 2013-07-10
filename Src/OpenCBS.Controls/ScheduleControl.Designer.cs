@@ -1,6 +1,6 @@
-﻿namespace OpenCBS.GUI
+﻿namespace OpenCBS.Controls
 {
-    partial class ScheduleUserControl
+    partial class ScheduleControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScheduleUserControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScheduleControl));
             this.scheduleObjectListView = new BrightIdeasSoftware.ObjectListView();
             this.numberColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.dateColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -134,7 +134,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.scheduleObjectListView);
-            this.Name = "ScheduleUserControl";
+            this.Name = "ScheduleControl";
             ((System.ComponentModel.ISupportInitialize)(this.scheduleObjectListView)).EndInit();
             this.ResumeLayout(false);
 

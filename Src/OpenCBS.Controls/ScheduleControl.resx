@@ -289,7 +289,7 @@
     <value>1004, 368</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>ScheduleUserControl</value>
+    <value>ScheduleControl</value>
   </data>
   <data name="&gt;&gt;dateColumn.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>

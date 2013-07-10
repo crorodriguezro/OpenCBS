@@ -1,3 +1,5 @@
+using OpenCBS.Controls;
+
 namespace OpenCBS.GUI.Contracts
 {
     partial class AddTrancheForm
@@ -46,7 +48,7 @@ namespace OpenCBS.GUI.Contracts
             this.gracePeriodLabel = new System.Windows.Forms.Label();
             this.gracePeriodNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.amountLabel = new System.Windows.Forms.Label();
-            this.scheduleUserControl = new OpenCBS.GUI.ScheduleUserControl();
+            this.scheduleUserControl = new OpenCBS.Controls.ScheduleControl();
             ((System.ComponentModel.ISupportInitialize)(this.interestRateNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.installmentsNumericUpDown)).BeginInit();
             this.buttonsPanel.SuspendLayout();
@@ -213,6 +215,6 @@ namespace OpenCBS.GUI.Contracts
         private System.Windows.Forms.NumericUpDown gracePeriodNumericUpDown;
         private System.Windows.Forms.DateTimePicker firstRepaymentDateTimePicker;
         private System.Windows.Forms.Label firstRepaymentOnLabel;
-        private ScheduleUserControl scheduleUserControl;
+        private ScheduleControl scheduleUserControl;
     }
 }

@@ -695,12 +695,6 @@
     <Compile Include="Report Browser\ReportLoadingProgressForm.Designer.cs">
       <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ScheduleUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ScheduleUserControl.Designer.cs">
-      <DependentUpon>ScheduleUserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Search\CFSearchClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2602,21 +2596,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report Browser\ReportLoadingProgressForm.ru-RU.resx">
       <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScheduleUserControl.es-ES.resx">
-      <DependentUpon>ScheduleUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScheduleUserControl.fr.resx">
-      <DependentUpon>ScheduleUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScheduleUserControl.pt.resx">
-      <DependentUpon>ScheduleUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScheduleUserControl.resx">
-      <DependentUpon>ScheduleUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScheduleUserControl.ru-RU.resx">
-      <DependentUpon>ScheduleUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Search\SearchClientForm.es-ES.resx">
       <DependentUpon>SearchClientForm.cs</DependentUpon>
