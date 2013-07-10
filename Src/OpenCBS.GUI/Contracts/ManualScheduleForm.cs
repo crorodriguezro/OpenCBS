@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
 using OpenCBS.CoreDomain.Contracts.Loans;
@@ -20,13 +14,13 @@ namespace OpenCBS.GUI.Contracts
         private Loan _loan;
         private string _amountFormatString;
         private Installment _total;
-        
+
         public Loan Loan
         {
             get { return _loan; }
             set { _loan = value; }
-        }        
-        
+        }
+
         public ManualScheduleForm()
         {
             InitializeComponent();
@@ -59,53 +53,38 @@ namespace OpenCBS.GUI.Contracts
                 totalPaidCapital += installment.PaidCapital.Value;
                 totalPaidInterests += installment.PaidInterests.Value;
             }
-            //for (int i = 0; i < scheduleObjectListView.Items.Count; i++)
-            //{
-            //    var installment = (Installment)scheduleObjectListView.GetItem(i).RowObject;
-            //    totalInterest += installment.InterestsRepayment.Value;
-            //    totalPrincipal += installment.CapitalRepayment.Value;
-            //    totalPaidCapital += installment.PaidCapital.Value;
-            //    totalPaidInterests += installment.PaidInterests.Value;
-            //}
-            OCurrency hasntValue = new OCurrency();
-            DateTime date = new DateTime();
-            _total = new Installment(date, totalInterest, totalPrincipal, totalPaidCapital, totalPaidInterests, hasntValue,
+            var empty = new OCurrency();
+            var date = new DateTime();
+            _total = new Installment(date, totalInterest, totalPrincipal, totalPaidCapital, totalPaidInterests, empty,
                                     null, -1);
         }
 
         private void Setup()
         {
             dateColumn.AspectToStringConverter =
-                paymentDateColumn.AspectToStringConverter = value =>
-                {
-                    var date = (DateTime?)value;
-                    return (date.HasValue && date != new DateTime())
-                               ? date.Value.ToString("dd.MM.yyyy")
-                               : string.Empty;
-                };
-            var numberFormatInfo = new NumberFormatInfo
+            paymentDateColumn.AspectToStringConverter = value =>
             {
-                NumberGroupSeparator = " ",
-                NumberDecimalSeparator = ",",
+                var date = (DateTime?)value;
+                return (date.HasValue && date != new DateTime())
+                            ? date.Value.ToString("dd.MM.yyyy")
+                            : string.Empty;
             };
             principalColumn.AspectToStringConverter =
-                interestColumn.AspectToStringConverter =
-                paidPrincipalColumn.AspectToStringConverter =
-                paidInterestColumn.AspectToStringConverter =
-                totalColumn.AspectToStringConverter =
-                olbColumn.AspectToStringConverter = value =>
-                {
-                    var amount = (OCurrency)value;
-                    return amount.HasValue
-                               ? amount.Value.ToString(_amountFormatString, numberFormatInfo)
-                               : string.Empty;
-                };
+            interestColumn.AspectToStringConverter =
+            paidPrincipalColumn.AspectToStringConverter =
+            paidInterestColumn.AspectToStringConverter =
+            totalColumn.AspectToStringConverter =
+            olbColumn.AspectToStringConverter = value =>
+            {
+                var amount = (OCurrency)value;
+                return amount.HasValue
+                            ? amount.Value.ToString(_amountFormatString)
+                            : string.Empty;
+            };
             numberColumn.AspectToStringConverter = value =>
             {
-                int i = (int)value;
-                if (i == -1)
-                    return "Total";
-                return value.ToString();
+                var i = (int)value;
+                return i == -1 ? "Total" : value.ToString();
             };
             olvSchedule.CellEditActivation = ObjectListView.CellEditActivateMode.DoubleClick;
         }
@@ -125,10 +104,11 @@ namespace OpenCBS.GUI.Contracts
             int index = e.ListViewItem.Index;
             if (e.Column == dateColumn)
             {
-                DateTime newDate = Convert.ToDateTime(e.NewValue);
+                var newDate = Convert.ToDateTime(e.NewValue);
                 if (index > 0 && newDate < _loan.InstallmentList[index - 1].ExpectedDate)
                     return false;
-                if (index < olvSchedule.Items.Count - 1 && newDate > _loan.InstallmentList[index + 1].ExpectedDate)
+                if (index < olvSchedule.Items.Count - 1 && 
+                    newDate > _loan.InstallmentList[index + 1].ExpectedDate)
                     return false;
             }
             else if (e.Column == interestColumn)
@@ -153,17 +133,13 @@ namespace OpenCBS.GUI.Contracts
         private void HandleCellEditStarting(object sender, CellEditEventArgs e)
         {
             var installment = (Installment)e.RowObject;
-            if (installment.Number == -1)
-                e.Cancel = true;
-            if (installment.IsRepaid)
+            if (installment.Number == -1 || installment.IsRepaid)
                 e.Cancel = true;
         }
 
         private void HandleCellEditFinishing(object sender, CellEditEventArgs e)
         {
-            if (!IsValidValue(e))
-                e.Cancel = true;
-            else
+            if (IsValidValue(e))
             {
                 if (e.Column == interestColumn)
                 {
@@ -190,7 +166,7 @@ namespace OpenCBS.GUI.Contracts
                 olvSchedule.RefreshObject(_total);
 
                 btnOK.Enabled = _total.CapitalRepayment != _loan.Amount ? false : true;
-                Color fg = _total.CapitalRepayment != _loan.Amount ? Color.Red : Color.Black;
+                var fg = _total.CapitalRepayment != _loan.Amount ? Color.Red : Color.Black;
                 for (int i = 0; i <= _loan.InstallmentList.Count - 1; i++)
                     if (!_loan.InstallmentList[i].IsRepaid)
                     {
@@ -199,6 +175,7 @@ namespace OpenCBS.GUI.Contracts
                         olvSchedule.RefreshObject(olvSchedule.GetItem(i));
                     }
             }
+            else e.Cancel = true;
         }
 
         private void ScheduleRecalculation()
@@ -208,7 +185,7 @@ namespace OpenCBS.GUI.Contracts
                                                _loan.InstallmentList[i - 1].CapitalRepayment;
             if (_loan.Product.LoanType == OLoanTypes.Flat) return;
             for (int i = 1; i < _loan.InstallmentList.Count; i++)
-                _loan.InstallmentList[i].InterestsRepayment = _loan.InstallmentList[i].OLB*_loan.InterestRate;
+                _loan.InstallmentList[i].InterestsRepayment = _loan.InstallmentList[i].OLB * _loan.InterestRate;
         }
     }
 }
