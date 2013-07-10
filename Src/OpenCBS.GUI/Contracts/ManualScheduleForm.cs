@@ -1,4 +1,23 @@
-﻿using System;
+﻿// // Copyright © 2013 Open Octopus Ltd.
+// //
+// // This program is free software; you can redistribute it and/or modify
+// // it under the terms of the GNU Lesser General Public License as published by
+// // the Free Software Foundation; either version 2 of the License, or
+// // (at your option) any later version.
+// //
+// // This program is distributed in the hope that it will be useful,
+// // but WITHOUT ANY WARRANTY; without even the implied warranty of
+// // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// // GNU Lesser General Public License for more details.
+// //
+// // You should have received a copy of the GNU Lesser General Public License along
+// // with this program; if not, write to the Free Software Foundation, Inc.,
+// // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+// //
+// // Website: http://www.opencbs.com
+// // Contact: contact@opencbs.com
+// 
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
@@ -11,34 +30,29 @@ namespace OpenCBS.GUI.Contracts
 {
     public partial class ManualScheduleForm : Form
     {
-        private Loan _loan;
         private string _amountFormatString;
         private Installment _total;
 
-        public Loan Loan
-        {
-            get { return _loan; }
-            set { _loan = value; }
-        }
+        public Loan Loan { get; set; }
 
         public ManualScheduleForm()
         {
             InitializeComponent();
         }
 
-        public ManualScheduleForm(Loan pLoan)
+        public ManualScheduleForm(Loan loan)
         {
             InitializeComponent();
             olvSchedule.RowFormatter = FormatRow;
-            _loan = pLoan;
+            Loan = loan;
             InitializeSchedule();
         }
 
         private void InitializeSchedule()
         {
-            _amountFormatString = _loan.UseCents ? "N2" : "N0";
+            _amountFormatString = Loan.UseCents ? "N2" : "N0";
             Setup();
-            olvSchedule.SetObjects(_loan.InstallmentList);
+            olvSchedule.SetObjects(Loan.InstallmentList);
             InitTotal();
             olvSchedule.AddObject(_total);
         }
@@ -46,7 +60,7 @@ namespace OpenCBS.GUI.Contracts
         private void InitTotal()
         {
             decimal totalInterest = 0, totalPrincipal = 0, totalPaidInterests = 0, totalPaidCapital = 0;
-            foreach (Installment installment in _loan.InstallmentList)
+            foreach (var installment in Loan.InstallmentList)
             {
                 totalInterest += installment.InterestsRepayment.Value;
                 totalPrincipal += installment.CapitalRepayment.Value;
@@ -55,8 +69,15 @@ namespace OpenCBS.GUI.Contracts
             }
             var empty = new OCurrency();
             var date = new DateTime();
-            _total = new Installment(date, totalInterest, totalPrincipal, totalPaidCapital, totalPaidInterests, empty,
-                                    null, -1);
+            _total = new Installment(
+                date,
+                totalInterest,
+                totalPrincipal,
+                totalPaidCapital,
+                totalPaidInterests,
+                empty,
+                null,
+                -1);
         }
 
         private void Setup()
@@ -101,31 +122,27 @@ namespace OpenCBS.GUI.Contracts
 
         private bool IsValidValue(CellEditEventArgs e)
         {
-            int index = e.ListViewItem.Index;
+            var index = e.ListViewItem.Index;
             if (e.Column == dateColumn)
             {
                 var newDate = Convert.ToDateTime(e.NewValue);
-                if (index > 0 && newDate < _loan.InstallmentList[index - 1].ExpectedDate)
+                if (index > 0 && newDate < Loan.InstallmentList[index - 1].ExpectedDate)
                     return false;
-                if (index < olvSchedule.Items.Count - 1 && 
-                    newDate > _loan.InstallmentList[index + 1].ExpectedDate)
+                if (index < olvSchedule.Items.Count - 1 &&
+                    newDate > Loan.InstallmentList[index + 1].ExpectedDate)
                     return false;
             }
             else if (e.Column == interestColumn)
             {
                 decimal newInterest;
-                if (decimal.TryParse(e.NewValue.ToString(), out newInterest) &&
-                    newInterest >= _loan.InstallmentList[index].PaidInterests.Value)
-                    return true;
-                return false;
+                return decimal.TryParse(e.NewValue.ToString(), out newInterest) &&
+                       newInterest >= Loan.InstallmentList[index].PaidInterests.Value;
             }
             else if (e.Column == principalColumn)
             {
                 decimal newPrincipal;
-                if (decimal.TryParse(e.NewValue.ToString(), out newPrincipal) &&
-                    newPrincipal >= _loan.InstallmentList[index].PaidCapital.Value)
-                    return true;
-                return false;
+                return decimal.TryParse(e.NewValue.ToString(), out newPrincipal) &&
+                       newPrincipal >= Loan.InstallmentList[index].PaidCapital.Value;
             }
             return true;
         }
@@ -133,59 +150,60 @@ namespace OpenCBS.GUI.Contracts
         private void HandleCellEditStarting(object sender, CellEditEventArgs e)
         {
             var installment = (Installment)e.RowObject;
-            if (installment.Number == -1 || installment.IsRepaid)
-                e.Cancel = true;
+            if (installment.Number == -1 || installment.IsRepaid) e.Cancel = true;
         }
 
         private void HandleCellEditFinishing(object sender, CellEditEventArgs e)
         {
-            if (IsValidValue(e))
+            if (!IsValidValue(e))
             {
-                if (e.Column == interestColumn)
-                {
-                    var installment = (Installment) e.RowObject;
-                    decimal amount;
-                    if (decimal.TryParse(e.NewValue.ToString(), out amount))
-                    {
-                        _total.InterestsRepayment += amount - installment.InterestsRepayment;
-                        installment.InterestsRepayment = amount;
-                    }
-                }
-                if (e.Column == principalColumn)
-                {
-                    var installment = (Installment) e.RowObject;
-                    decimal amount;
-                    if (decimal.TryParse(e.NewValue.ToString(), out amount))
-                    {
-                        _total.CapitalRepayment += amount - installment.CapitalRepayment;
-                        _loan.InstallmentList[e.ListViewItem.Index].CapitalRepayment = amount;
-                    }
-                    ScheduleRecalculation();
-                }
-                olvSchedule.RefreshObjects(_loan.InstallmentList);
-                olvSchedule.RefreshObject(_total);
-
-                btnOK.Enabled = _total.CapitalRepayment != _loan.Amount ? false : true;
-                var fg = _total.CapitalRepayment != _loan.Amount ? Color.Red : Color.Black;
-                for (int i = 0; i <= _loan.InstallmentList.Count - 1; i++)
-                    if (!_loan.InstallmentList[i].IsRepaid)
-                    {
-                        olvSchedule.Items[i].UseItemStyleForSubItems = false;
-                        olvSchedule.Items[i].SubItems[principalColumn.Index].ForeColor = fg;
-                        olvSchedule.RefreshObject(olvSchedule.GetItem(i));
-                    }
+                e.Cancel = true;
+                return;
             }
-            else e.Cancel = true;
+            
+            if (e.Column == interestColumn)
+            {
+                var installment = (Installment)e.RowObject;
+                decimal amount;
+                if (decimal.TryParse(e.NewValue.ToString(), out amount))
+                {
+                    _total.InterestsRepayment += amount - installment.InterestsRepayment;
+                    installment.InterestsRepayment = amount;
+                }
+            }
+            if (e.Column == principalColumn)
+            {
+                var installment = (Installment)e.RowObject;
+                decimal amount;
+                if (decimal.TryParse(e.NewValue.ToString(), out amount))
+                {
+                    _total.CapitalRepayment += amount - installment.CapitalRepayment;
+                    Loan.InstallmentList[e.ListViewItem.Index].CapitalRepayment = amount;
+                }
+                ScheduleRecalculation();
+            }
+            olvSchedule.RefreshObjects(Loan.InstallmentList);
+            olvSchedule.RefreshObject(_total);
+
+            btnOK.Enabled = _total.CapitalRepayment == Loan.Amount;
+            var foreColor = _total.CapitalRepayment != Loan.Amount ? Color.Red : Color.Black;
+            for (var i = 0; i <= Loan.InstallmentList.Count - 1; i++)
+                if (!Loan.InstallmentList[i].IsRepaid)
+                {
+                    olvSchedule.Items[i].UseItemStyleForSubItems = false;
+                    olvSchedule.Items[i].SubItems[principalColumn.Index].ForeColor = foreColor;
+                    olvSchedule.RefreshObject(olvSchedule.GetItem(i));
+                }
         }
 
         private void ScheduleRecalculation()
         {
-            for (int i = 1; i < _loan.InstallmentList.Count; i++)
-                _loan.InstallmentList[i].OLB = _loan.InstallmentList[i - 1].OLB -
-                                               _loan.InstallmentList[i - 1].CapitalRepayment;
-            if (_loan.Product.LoanType == OLoanTypes.Flat) return;
-            for (int i = 1; i < _loan.InstallmentList.Count; i++)
-                _loan.InstallmentList[i].InterestsRepayment = _loan.InstallmentList[i].OLB * _loan.InterestRate;
+            for (var i = 1; i < Loan.InstallmentList.Count; i++)
+                Loan.InstallmentList[i].OLB = Loan.InstallmentList[i - 1].OLB -
+                                               Loan.InstallmentList[i - 1].CapitalRepayment;
+            if (Loan.Product.LoanType == OLoanTypes.Flat) return;
+            for (var i = 1; i < Loan.InstallmentList.Count; i++)
+                Loan.InstallmentList[i].InterestsRepayment = Loan.InstallmentList[i].OLB * Loan.InterestRate;
         }
     }
 }
