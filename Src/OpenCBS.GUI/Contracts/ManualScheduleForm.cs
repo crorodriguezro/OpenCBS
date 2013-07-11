@@ -128,7 +128,7 @@ namespace OpenCBS.GUI.Contracts
                 var newDate = Convert.ToDateTime(e.NewValue);
                 if (index > 0 && newDate < Loan.InstallmentList[index - 1].ExpectedDate)
                     return false;
-                if (index < olvSchedule.Items.Count - 1 &&
+                if (index < Loan.InstallmentList.Count - 1 &&
                     newDate > Loan.InstallmentList[index + 1].ExpectedDate)
                     return false;
             }

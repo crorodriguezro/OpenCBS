@@ -7020,7 +7020,6 @@ namespace OpenCBS.GUI.Clients
             {
                 try
                 {
-                    _credit = manualScheduleForm.Loan;
 
                     var manualScheduleChangeEvent = new ManualScheduleChangeEvent();
                     manualScheduleChangeEvent.User = User.CurrentUser;
@@ -7028,6 +7027,8 @@ namespace OpenCBS.GUI.Clients
                     ServiceProvider.GetContractServices()
                                    .AddManualScheduleChangeEvent(_credit, manualScheduleChangeEvent);
 
+                    _credit = manualScheduleForm.Loan;
+                    
                     SaveContract();
                     _credit = ServiceProvider.GetContractServices().SelectLoan(_credit.Id, true, true, true);
                     DisplayListViewLoanRepayments(_credit);

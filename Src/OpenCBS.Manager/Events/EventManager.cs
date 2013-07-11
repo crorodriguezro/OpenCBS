@@ -1116,7 +1116,7 @@ namespace OpenCBS.Manager.Events
 
         public void AddLoanEvent(ManualScheduleChangeEvent pEvent, int contractId, SqlTransaction transaction)
         {
-            AddLoanEventHead(pEvent, contractId, transaction);
+            pEvent.Id = AddLoanEventHead(pEvent, contractId, transaction);
         }
 
         public void AddTellerEvent(TellerEvent tellerEvent, SqlTransaction sqlTransaction)

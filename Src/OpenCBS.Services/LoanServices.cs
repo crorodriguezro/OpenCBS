@@ -1094,7 +1094,10 @@ namespace OpenCBS.Services
             {
                 try
                 {
+                    Loan copyOfLoan = loan.Copy();
                     _ePs.FireEvent(manualScheduleChangeEvent, loan, sqlTransaction);
+                    ArchiveInstallments(copyOfLoan, manualScheduleChangeEvent, sqlTransaction);
+                    
                     sqlTransaction.Commit();
                     return loan;
                 }
