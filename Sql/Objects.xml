@@ -581,7 +581,7 @@ AS RETURN
 	LEFT JOIN dbo.Tiers t ON t.id = j.tiers_id
 	LEFT JOIN _amounts a ON a.id = l.id
 	WHERE olb > 0.5
-		AND f.disbursed > 0 AND 0 = f.written_off AND 0 = f.closed
+		AND f.disbursed > 0 AND f.written_off < 1 AND f.closed < 1 
 		AND (0 = @branch_id OR t.branch_id = @branch_id)
 )
 ]]></create>
@@ -5033,8 +5033,7 @@ END
             DROP PROCEDURE [dbo].[GetDashboard]]]></drop>
   </object>
   <object name="GetXIRR" priority="81">
-    <create><![CDATA[
-CREATE FUNCTION [dbo].[GetXIRR](@contractId INT)
+    <create><![CDATA[CREATE FUNCTION [dbo].[GetXIRR](@contractId INT)
 RETURNS FLOAT
 AS
 BEGIN
@@ -5043,7 +5042,6 @@ BEGIN
 		n FLOAT
 		, amount MONEY
 	)
-
 	DECLARE @startDate DATETIME
 	DECLARE @eventType NVARCHAR(4)
 	SELECT TOP 1 @startDate = event_date, @eventType = event_type
@@ -5052,12 +5050,10 @@ BEGIN
 	    AND event_type IN ('LODE', 'TEET')
 	    AND contract_id = @contractId
 	ORDER BY event_date DESC
-
 	--INSERT INTO @cashflows
 	--SELECT 0, -cr.amount + ISNULL(dbo.getEntryFees(@contractId), 0)
 	--FROM dbo.Credit cr
 	--WHERE cr.id = @contractId
-
     DECLARE @amount MONEY
     SELECT @amount = SUM(principal - paid_principal)
     FROM dbo.InstallmentSnapshot(@startDate)
@@ -5069,7 +5065,6 @@ BEGIN
     END
     INSERT INTO @cashflows
     SELECT 0, -@amount
-
 	INSERT INTO @cashflows
 	SELECT -DATEDIFF(dd, @startDate, expected_date)/365.0, principal + interest
 	FROM dbo.InstallmentSnapshot(@startDate)
@@ -5081,10 +5076,8 @@ BEGIN
 	SET @rate = 0
 	DECLARE @err FLOAT
 	SET @err = .00000001
-
 	DECLARE @val FLOAT
 	DECLARE @pval FLOAT
-
 	DECLARE @i INT
 	SET @i = 0
 	WHILE @i < 10
