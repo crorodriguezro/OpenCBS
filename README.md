@@ -30,3 +30,4 @@ Here is a list of big themes that we want implemented in the coming year:
 - [Localization](https://github.com/PavelBastov/opencbs/issues/13)
 - [Specflow](https://github.com/PavelBastov/opencbs/issues/18)
 - [MS Office](https://github.com/PavelBastov/opencbs/issues/5)
+
