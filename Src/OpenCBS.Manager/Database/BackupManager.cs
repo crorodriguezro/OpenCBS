@@ -289,7 +289,7 @@ namespace OpenCBS.Manager.Database
         private static void BackupToFileImpl(string pTempSavingPath, string pDatabaseName, SqlConnection pSqlConnection)
         {
             
-            string sqlRecoveryMode1 = String.Format("ALTER DATABASE {0} SET RECOVERY FULL", pDatabaseName);
+            string sqlRecoveryMode1 = String.Format("ALTER DATABASE {0} SET RECOVERY SIMPLE", pDatabaseName);
 
             string sqlAutoShrink2 = String.Format("ALTER DATABASE {0} SET AUTO_SHRINK ON", pDatabaseName);
 
