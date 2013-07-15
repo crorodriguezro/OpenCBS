@@ -180,7 +180,7 @@ namespace OpenCBS.GUI.Contracts
                     _total.CapitalRepayment += amount - installment.CapitalRepayment;
                     Loan.InstallmentList[e.ListViewItem.Index].CapitalRepayment = amount;
                 }
-                ScheduleRecalculation();
+                ScheduleRecalculation(e.ListViewItem.Index);
             }
             olvSchedule.RefreshObjects(Loan.InstallmentList);
             olvSchedule.RefreshObject(_total);
@@ -196,14 +196,39 @@ namespace OpenCBS.GUI.Contracts
                 }
         }
 
-        private void ScheduleRecalculation()
+        private void ScheduleRecalculation(int indexOfChangedItem)
         {
             for (var i = 1; i < Loan.InstallmentList.Count; i++)
                 Loan.InstallmentList[i].OLB = Loan.InstallmentList[i - 1].OLB -
                                                Loan.InstallmentList[i - 1].CapitalRepayment;
             if (Loan.Product.LoanType == OLoanTypes.Flat) return;
-            for (var i = 1; i < Loan.InstallmentList.Count; i++)
-                Loan.InstallmentList[i].InterestsRepayment = Loan.InstallmentList[i].OLB * Loan.InterestRate;
+            if (Loan.Product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest)
+            {
+                int daysInTheYear = 0;
+                for (int i = 1; i <= 12; i++)
+                    daysInTheYear += DateTime.DaysInMonth(Loan.AlignDisbursementDate.Date.Year, i);
+
+                int days;
+                if (indexOfChangedItem == 0)
+                    days = (Loan.InstallmentList[0].ExpectedDate - Loan.AlignDisbursementDate).Days;
+                else
+                    days =
+                        (Loan.InstallmentList[indexOfChangedItem].ExpectedDate -
+                         Loan.InstallmentList[indexOfChangedItem - 1].ExpectedDate).Days;
+
+                Loan.InstallmentList[indexOfChangedItem].InterestsRepayment =
+                    Loan.InstallmentList[indexOfChangedItem].OLB*Loan.InterestRate/
+                    daysInTheYear*days;
+                for (int i = indexOfChangedItem + 1; i < Loan.NbOfInstallments - 1; i++)
+                {
+                    days = (Loan.InstallmentList[i].ExpectedDate - Loan.InstallmentList[i - 1].ExpectedDate).Days;
+                    Loan.InstallmentList[i].InterestsRepayment = Loan.InstallmentList[i].OLB*Loan.InterestRate/
+                                                                 daysInTheYear*days;
+                }
+            }
+            else
+                for (var i = 1; i < Loan.InstallmentList.Count; i++)
+                    Loan.InstallmentList[i].InterestsRepayment = Loan.InstallmentList[i].OLB*Loan.InterestRate;
         }
     }
 }
