@@ -107,7 +107,9 @@ namespace OpenCBS.GUI.Contracts
                 var i = (int)value;
                 return i == -1 ? "Total" : value.ToString();
             };
-            olvSchedule.CellEditActivation = ObjectListView.CellEditActivateMode.DoubleClick;
+            olvSchedule.CellEditActivation = ObjectListView.CellEditActivateMode.SingleClick;
+            olvSchedule.CellEditEnterChangesRows = true;
+            olvSchedule.CellEditTabChangesRows = true;
         }
 
         private static void FormatRow(OLVListItem item)
@@ -160,7 +162,14 @@ namespace OpenCBS.GUI.Contracts
                 e.Cancel = true;
                 return;
             }
-            
+            if (e.Column == dateColumn)
+            {
+                var installment = (Installment)e.RowObject;
+                DateTime date;
+                if (DateTime.TryParse(e.NewValue.ToString(), out date))
+                    installment.ExpectedDate = date;
+                ScheduleRecalculation(e.ListViewItem.Index);
+            }
             if (e.Column == interestColumn)
             {
                 var installment = (Installment)e.RowObject;
@@ -227,7 +236,7 @@ namespace OpenCBS.GUI.Contracts
                 }
             }
             else
-                for (var i = 1; i < Loan.InstallmentList.Count; i++)
+                for (var i = indexOfChangedItem; i < Loan.InstallmentList.Count; i++)
                     Loan.InstallmentList[i].InterestsRepayment = Loan.InstallmentList[i].OLB*Loan.InterestRate;
         }
     }

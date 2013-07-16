@@ -52,7 +52,7 @@
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlButtons.Location = new System.Drawing.Point(0, 325);
             this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(860, 50);
+            this.pnlButtons.Size = new System.Drawing.Size(875, 50);
             this.pnlButtons.TabIndex = 33;
             // 
             // btnCancel
@@ -61,7 +61,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Arial", 9.75F);
             this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCancel.Location = new System.Drawing.Point(745, 13);
+            this.btnCancel.Location = new System.Drawing.Point(760, 13);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(103, 25);
             this.btnCancel.TabIndex = 34;
@@ -73,7 +73,7 @@
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.Font = new System.Drawing.Font("Arial", 9.75F);
             this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnOK.Location = new System.Drawing.Point(626, 13);
+            this.btnOK.Location = new System.Drawing.Point(641, 13);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(103, 25);
             this.btnOK.TabIndex = 33;
@@ -111,7 +111,7 @@
             this.olvSchedule.MultiSelect = false;
             this.olvSchedule.Name = "olvSchedule";
             this.olvSchedule.ShowGroups = false;
-            this.olvSchedule.Size = new System.Drawing.Size(860, 325);
+            this.olvSchedule.Size = new System.Drawing.Size(875, 325);
             this.olvSchedule.TabIndex = 34;
             this.olvSchedule.UseCompatibleStateImageBehavior = false;
             this.olvSchedule.View = System.Windows.Forms.View.Details;
@@ -200,7 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 375);
+            this.ClientSize = new System.Drawing.Size(875, 375);
             this.Controls.Add(this.olvSchedule);
             this.Controls.Add(this.pnlButtons);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
