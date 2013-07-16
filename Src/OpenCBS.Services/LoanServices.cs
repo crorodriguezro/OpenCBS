@@ -2395,5 +2395,9 @@ namespace OpenCBS.Services
 
             throw new ApplicationException("Cannot find contract code generator.");
         }
+
+        public void ManualScheduleBeforeDisbursement() {}
+
+        public void ManualScheduleAfterDisbursement() {}
     }
 }
