@@ -911,8 +911,14 @@
   <data name="buttonLoanReschedule.Text" xml:space="preserve">
     <value>Изменить график</value>
   </data>
-  <data name="buttonAddTranche.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="buttonManualSchedule.Location" type="System.Drawing.Point, System.Drawing">
     <value>315, 3</value>
+  </data>
+  <data name="buttonManualSchedule.Text" xml:space="preserve">
+    <value>Правка в ручную</value>
+  </data>
+  <data name="buttonAddTranche.Location" type="System.Drawing.Point, System.Drawing">
+    <value>461, 3</value>
   </data>
   <data name="buttonAddTranche.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 28</value>
@@ -921,13 +927,13 @@
     <value>Добавить транш</value>
   </data>
   <data name="btnWriteOff.Location" type="System.Drawing.Point, System.Drawing">
-    <value>481, 3</value>
+    <value>627, 3</value>
   </data>
   <data name="btnWriteOff.Text" xml:space="preserve">
     <value>Списать</value>
   </data>
   <data name="btnPrintLoanRepayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>627, 3</value>
+    <value>773, 3</value>
   </data>
   <data name="btnPrintLoanRepayment.Text" xml:space="preserve">
     <value>Печать</value>
@@ -1015,7 +1021,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        HQAAAk1TRnQBSQFMAgEBBQEAAYgBDAGIAQwBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAAZgBDAGYAQwBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -1544,33 +1550,6 @@
   <data name="buttonReopenSaving.Text" xml:space="preserve">
     <value>Переоткрыть</value>
   </data>
-  <data name="savingDepositToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
-  </data>
-  <data name="savingDepositToolStripMenuItem.Text" xml:space="preserve">
-    <value>Депозит</value>
-  </data>
-  <data name="savingWithdrawToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
-  </data>
-  <data name="savingWithdrawToolStripMenuItem.Text" xml:space="preserve">
-    <value>Снятие</value>
-  </data>
-  <data name="savingTransferToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
-  </data>
-  <data name="savingTransferToolStripMenuItem.Text" xml:space="preserve">
-    <value>Перевод</value>
-  </data>
-  <data name="specialOperationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
-  </data>
-  <data name="specialOperationToolStripMenuItem.Text" xml:space="preserve">
-    <value>Спец. операция</value>
-  </data>
-  <data name="menuBtnAddSavingOperation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 92</value>
-  </data>
   <data name="buttonSavingsOperations.Text" xml:space="preserve">
     <value>Операции</value>
   </data>
@@ -1585,10 +1564,6 @@
   </data>
   <data name="pnlSavingsButtons.Size" type="System.Drawing.Size, System.Drawing">
     <value>406, 34</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnPrintSavings.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
   </data>
   <data name="btnPrintSavings.Location" type="System.Drawing.Point, System.Drawing">
     <value>1100, 13</value>
@@ -1694,6 +1669,33 @@
   </data>
   <data name="tabPageContracts.Text" xml:space="preserve">
     <value>Контракты</value>
+  </data>
+  <data name="savingDepositToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 22</value>
+  </data>
+  <data name="savingDepositToolStripMenuItem.Text" xml:space="preserve">
+    <value>Депозит</value>
+  </data>
+  <data name="savingWithdrawToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 22</value>
+  </data>
+  <data name="savingWithdrawToolStripMenuItem.Text" xml:space="preserve">
+    <value>Снятие</value>
+  </data>
+  <data name="savingTransferToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 22</value>
+  </data>
+  <data name="savingTransferToolStripMenuItem.Text" xml:space="preserve">
+    <value>Перевод</value>
+  </data>
+  <data name="specialOperationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 22</value>
+  </data>
+  <data name="specialOperationToolStripMenuItem.Text" xml:space="preserve">
+    <value>Спец. операция</value>
+  </data>
+  <data name="menuBtnAddSavingOperation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 92</value>
   </data>
   <data name="olvColumnSACExportedBalance.Text" xml:space="preserve">
     <value>Экспортированный баланс</value>
@@ -1821,19 +1823,19 @@
     <value>Подтвердить ожидаемый платеж</value>
   </data>
   <data name="menuItemConfirmPendingSavingEvent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 22</value>
+    <value>194, 22</value>
   </data>
   <data name="menuItemConfirmPendingSavingEvent.Text" xml:space="preserve">
     <value>Подтвердить событие</value>
   </data>
   <data name="menuItemCancelPendingSavingEvent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 22</value>
+    <value>194, 22</value>
   </data>
   <data name="menuItemCancelPendingSavingEvent.Text" xml:space="preserve">
     <value>Отменить событие</value>
   </data>
   <data name="menuPendingSavingEvents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 48</value>
+    <value>195, 48</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Клиент</value>

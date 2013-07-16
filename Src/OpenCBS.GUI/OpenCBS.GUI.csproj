@@ -1839,6 +1839,9 @@
     <EmbeddedResource Include="Contracts\ManualScheduleForm.resx">
       <DependentUpon>ManualScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\ManualScheduleForm.ru-RU.resx">
+      <DependentUpon>ManualScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Contracts\SavingsOperationForm.fr.resx">
       <DependentUpon>SavingsOperationForm.cs</DependentUpon>
     </EmbeddedResource>

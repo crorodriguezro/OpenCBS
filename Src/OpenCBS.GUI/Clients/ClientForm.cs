@@ -6108,10 +6108,9 @@ namespace OpenCBS.GUI.Clients
         private void btnEditSchedule_Click(object sender, EventArgs e)
         {
             if (null == _credit || 0 == _credit.InstallmentList.Count) return;
-            Loan loan = _credit.Copy();
-            EditContractSchedule editContractSchedule = new EditContractSchedule(ref loan);
+            ManualScheduleForm manualScheduleForm = new ManualScheduleForm(_credit.Copy());
 
-            if (editContractSchedule.ShowDialog() == DialogResult.OK)
+            if (manualScheduleForm.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
@@ -6120,9 +6119,9 @@ namespace OpenCBS.GUI.Clients
 
                     if (_credit.ContractStatus != 0)
                         ServicesProvider.GetInstance().GetContractServices().SaveSchedule(
-                            editContractSchedule.Installments, _credit);
+                            manualScheduleForm.Loan.InstallmentList, _credit);
 
-                    _credit.InstallmentList = editContractSchedule.Installments;
+                    _credit.InstallmentList = manualScheduleForm.Loan.InstallmentList;
 
                     DisplayInstallments(ref _credit);
                 }
@@ -7028,7 +7027,7 @@ namespace OpenCBS.GUI.Clients
                                    .AddManualScheduleChangeEvent(_credit, manualScheduleChangeEvent);
 
                     _credit = manualScheduleForm.Loan;
-                    
+
                     SaveContract();
                     _credit = ServiceProvider.GetContractServices().SelectLoan(_credit.Id, true, true, true);
                     DisplayListViewLoanRepayments(_credit);
