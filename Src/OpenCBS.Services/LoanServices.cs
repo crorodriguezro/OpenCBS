@@ -285,8 +285,6 @@ namespace OpenCBS.Services
             return true;
         }
 
-        public void CanUserEditRepaymentSchedule() { }
-
         private void SetEconomicActivity(Loan pLoan, SqlTransaction sqlTransaction)
         {
             // Write EconomicActivityLoanHistory object
