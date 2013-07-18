@@ -32,7 +32,7 @@ namespace OpenCBS.Extensions
     [PartCreationPolicy(CreationPolicy.Shared)]
     public class ContractCodeGenerator : IContractCodeGenerator
     {
-        public string GenerateContractCode(IClient client, Loan loan, SqlConnection connection)
+        public string GenerateContractCode(IClient client, Loan loan, SqlTransaction transaction)
         {
             var settings = ApplicationSettings.GetInstance(User.CurrentUser.Md5);
             var pattern = settings.ContractCodeTemplate;

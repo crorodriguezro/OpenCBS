@@ -25,6 +25,6 @@ namespace OpenCBS.Extensions
 {
     public interface IContractCodeGenerator
     {
-        string GenerateContractCode(IClient client, Loan loan, SqlConnection connection);
+        string GenerateContractCode(IClient client, Loan loan, SqlTransaction transaction);
     }
 }

@@ -37,7 +37,7 @@ namespace OpenCBS.Extensions.Samples
     [PartCreationPolicy(CreationPolicy.Shared)]
     public class AutoincrementedContractCodeGenerator : IContractCodeGenerator
     {
-        public string GenerateContractCode(IClient client, Loan loan, SqlConnection connection)
+        public string GenerateContractCode(IClient client, Loan loan, SqlTransaction transaction)
         {
             return loan.Id.ToString(CultureInfo.InvariantCulture);
         }
