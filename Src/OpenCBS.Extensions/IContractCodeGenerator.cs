@@ -17,6 +17,7 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
+using System.Data.SqlClient;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Loans;
 
@@ -24,6 +25,6 @@ namespace OpenCBS.Extensions
 {
     public interface IContractCodeGenerator
     {
-        string GenerateContractCode(IClient client, Loan loan);
+        string GenerateContractCode(IClient client, Loan loan, SqlConnection connection);
     }
 }

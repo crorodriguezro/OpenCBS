@@ -285,8 +285,6 @@ namespace OpenCBS.Services
             return true;
         }
 
-        public void CanUserEditRepaymentSchedule() { }
-
         private void SetEconomicActivity(Loan pLoan, SqlTransaction sqlTransaction)
         {
             // Write EconomicActivityLoanHistory object
@@ -2034,7 +2032,7 @@ namespace OpenCBS.Services
                 pLoan.BranchCode = branchCode;
 
                 pLoan.Id = AddLoanInDatabase(pLoan, pProjectId, pClient, transaction);
-                pLoan.Code = GenerateContractCode(pClient, pLoan);
+                pLoan.Code = GenerateContractCode(pClient, pLoan, transaction.Connection);
                 _loanManager.UpdateContractCode(pLoan.Id, pLoan.Code, transaction);
             }
             catch
@@ -2377,23 +2375,27 @@ namespace OpenCBS.Services
             if (!IsDateWithinCurrentFiscalYear(date)) throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
         }
 
-        private string GenerateContractCode(IClient client, Loan loan)
+        private string GenerateContractCode(IClient client, Loan loan, SqlConnection connection)
         {
             // Find non-default implementation
             var generator = (
                 from gen in ContractCodeGenerators
                 where gen.Metadata.ContainsKey("Implementation") && gen.Metadata["Implementation"].ToString() != "Default"
                 select gen.Value).FirstOrDefault();
-            if (generator != null) return generator.GenerateContractCode(client, loan);
+            if (generator != null) return generator.GenerateContractCode(client, loan, connection);
 
             // Otherwise, find the default one
             generator = (
                 from gen in ContractCodeGenerators
                 where gen.Metadata.ContainsKey("Implementation") && gen.Metadata["Implementation"].ToString() == "Default"
                 select gen.Value).FirstOrDefault();
-            if (generator != null) return generator.GenerateContractCode(client, loan);
+            if (generator != null) return generator.GenerateContractCode(client, loan, connection);
 
             throw new ApplicationException("Cannot find contract code generator.");
         }
+
+        public void ManualScheduleBeforeDisbursement() {}
+
+        public void ManualScheduleAfterDisbursement() {}
     }
 }

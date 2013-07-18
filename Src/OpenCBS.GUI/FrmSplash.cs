@@ -72,7 +72,9 @@ namespace OpenCBS.GUI
                     if (!_sqlServerConnectionIsOk) _CheckSQLServerConnection();
                     if (!_sqlDatabaseConnectionIsOk) _CheckSQLDatabaseConnection();
                     if (!_sqlDatabaseVersionIsOk) _CheckDatabaseVersion();
+#if DEBUG
                     if (!_sqlDatabaseSchemaIsOk) _CheckDatabaseSchema();
+#endif
                 }
                 if (!_crystalReportIsOk) _CheckCrystalReports();
                 if (!_environnementIsOk) _CheckEnvironnement();

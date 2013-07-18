@@ -2,7 +2,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
   <!--Remember: you need to change ProductVersion and ProductCode-->
 
-  <?define PreviousVersion="13.6.0" ?>
+  <?define PreviousVersion="13.6.0.0" ?>
   <?define ProductVersion="13.7.0.0" ?>
   <?define ProductVersionReduced="13.7" ?>
   <?define UpgradeCode="be584361-0c04-42c9-8ea8-457cdea8b89e"?>
@@ -25,7 +25,31 @@
       <UpgradeVersion Minimum="$(var.PreviousVersion)" IncludeMinimum="yes" Maximum="$(var.ProductVersion)" IncludeMaximum="no"
                       Language="1033" Property="UPGRADEFOUND" />
     </Upgrade>
-
+	
+	<Property Id="LOGINNAME">
+		<RegistrySearch Id='FindLoginName' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_LOGIN_NAME" />
+	</Property>
+	
+	<Property Id="DATABASENAME">
+		<RegistrySearch Id='FindDatabaseName' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_NAME" />
+	</Property>
+	
+	<Property Id="SERVERNAME">
+		<RegistrySearch Id='FindServerName' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_SERVER_NAME" />
+	</Property>
+	
+	<Property Id="PASSWORD">
+		<RegistrySearch Id='FindPassword' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_PASSWORD" />
+	</Property>
+	
+	<Property Id="TIMEOUT">
+		<RegistrySearch Id='FindDatabaseTimeout' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_TIMEOUT" />
+	</Property>
+	
+	<Property Id="DATABASELIST">
+		<RegistrySearch Id='FindDatabaseList' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_LIST" />
+	</Property>
+	
     <Directory Id="TARGETDIR" Name="SourceDir">
 
       <Directory Id="ProgramMenuFolder">
@@ -88,11 +112,12 @@
             <Component Id="Registry" Guid="674968e0-7c4a-4164-aaec-5ddf6922a2dc" Permanent="yes">
                 <RegistryKey Id="OpenCbsKey" Root="HKLM" Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.ProductVersion)" Action="create">
                     <util:PermissionEx User="Users" GenericAll="yes"/>
-                    <RegistryValue Id="DATABASE_LOGIN_NAME" Type="string" Name="DATABASE_LOGIN_NAME" Value="sa"/>
-                    <RegistryValue Id="DATABASE_NAME" Type="string" Name="DATABASE_NAME" Value="opencbs"/>
-                    <RegistryValue Id="DATABASE_SERVER_NAME" Type="string" Name="DATABASE_SERVER_NAME" Value="(local)"/>
-                    <RegistryValue Id="DATABASE_PASSWORD" Type="string" Name="DATABASE_PASSWORD" Value="opencbs"/>
-                    <RegistryValue Id="DATABASE_TIMEOUT" Type="string" Name="DATABASE_TIMEOUT" Value="100"/>
+                    <RegistryValue Id="DATABASE_LOGIN_NAME" Type="string" Name="DATABASE_LOGIN_NAME" Value="[LOGINNAME]"/>
+                    <RegistryValue Id="DATABASE_NAME" Type="string" Name="DATABASE_NAME" Value="[DATABASENAME]"/>
+                    <RegistryValue Id="DATABASE_SERVER_NAME" Type="string" Name="DATABASE_SERVER_NAME" Value="[SERVERNAME]"/>
+                    <RegistryValue Id="DATABASE_PASSWORD" Type="string" Name="DATABASE_PASSWORD" Value="[PASSWORD]"/>
+                    <RegistryValue Id="DATABASE_TIMEOUT" Type="string" Name="DATABASE_TIMEOUT" Value="[TIMEOUT]"/>
+					<RegistryValue Id="DATABASE_LIST" Type="string" Name="DATABASE_LIST" Value="[DATABASELIST]"/>
               </RegistryKey>
             </Component>
             <Directory Id="DIR_TEMPLATE" Name="Template">

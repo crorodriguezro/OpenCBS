@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManualScheduleForm));
             this.pnlButtons = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
@@ -49,39 +50,24 @@
             // 
             this.pnlButtons.Controls.Add(this.btnCancel);
             this.pnlButtons.Controls.Add(this.btnOK);
-            this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlButtons.Location = new System.Drawing.Point(0, 325);
+            resources.ApplyResources(this.pnlButtons, "pnlButtons");
             this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(860, 50);
-            this.pnlButtons.TabIndex = 33;
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCancel.Location = new System.Drawing.Point(745, 13);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(103, 25);
-            this.btnCancel.TabIndex = 34;
-            this.btnCancel.Text = "Cancel";
             // 
             // btnOK
             // 
-            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.btnOK, "btnOK");
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.btnOK.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnOK.Location = new System.Drawing.Point(626, 13);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(103, 25);
-            this.btnOK.TabIndex = 33;
-            this.btnOK.Text = "Ok";
             // 
             // olvSchedule
             // 
-            this.olvSchedule.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            resources.ApplyResources(this.olvSchedule, "olvSchedule");
             this.olvSchedule.AllColumns.Add(this.numberColumn);
             this.olvSchedule.AllColumns.Add(this.dateColumn);
             this.olvSchedule.AllColumns.Add(this.interestColumn);
@@ -101,18 +87,13 @@
             this.paidInterestColumn,
             this.paidPrincipalColumn,
             this.paymentDateColumn});
-            this.olvSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.olvSchedule.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.olvSchedule.FullRowSelect = true;
             this.olvSchedule.GridLines = true;
             this.olvSchedule.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.olvSchedule.HeaderWordWrap = true;
-            this.olvSchedule.Location = new System.Drawing.Point(0, 0);
             this.olvSchedule.MultiSelect = false;
             this.olvSchedule.Name = "olvSchedule";
             this.olvSchedule.ShowGroups = false;
-            this.olvSchedule.Size = new System.Drawing.Size(860, 325);
-            this.olvSchedule.TabIndex = 34;
             this.olvSchedule.UseCompatibleStateImageBehavior = false;
             this.olvSchedule.View = System.Windows.Forms.View.Details;
             this.olvSchedule.CellEditFinishing += new BrightIdeasSoftware.CellEditEventHandler(this.HandleCellEditFinishing);
@@ -123,92 +104,70 @@
             this.numberColumn.AspectName = "Number";
             this.numberColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numberColumn.IsEditable = false;
-            this.numberColumn.Text = "#";
-            this.numberColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numberColumn.Width = 70;
+            resources.ApplyResources(this.numberColumn, "numberColumn");
             // 
             // dateColumn
             // 
             this.dateColumn.AspectName = "ExpectedDate";
             this.dateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.dateColumn.Text = "Date";
-            this.dateColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.dateColumn.Width = 90;
+            resources.ApplyResources(this.dateColumn, "dateColumn");
             // 
             // interestColumn
             // 
             this.interestColumn.AspectName = "InterestsRepayment";
             this.interestColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.interestColumn.Text = "Interest";
-            this.interestColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.interestColumn.Width = 100;
+            resources.ApplyResources(this.interestColumn, "interestColumn");
             // 
             // principalColumn
             // 
             this.principalColumn.AspectName = "CapitalRepayment";
             this.principalColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.principalColumn.Text = "Principal";
-            this.principalColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.principalColumn.Width = 100;
+            resources.ApplyResources(this.principalColumn, "principalColumn");
             // 
             // totalColumn
             // 
             this.totalColumn.AspectName = "AmountHasToPayWithInterest";
             this.totalColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.totalColumn.IsEditable = false;
-            this.totalColumn.Text = "Total";
-            this.totalColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.totalColumn.Width = 100;
+            resources.ApplyResources(this.totalColumn, "totalColumn");
             // 
             // olbColumn
             // 
             this.olbColumn.AspectName = "OLB";
             this.olbColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.olbColumn.IsEditable = false;
-            this.olbColumn.Text = "OLB";
-            this.olbColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.olbColumn.Width = 100;
+            resources.ApplyResources(this.olbColumn, "olbColumn");
             // 
             // paidInterestColumn
             // 
             this.paidInterestColumn.AspectName = "PaidInterests";
             this.paidInterestColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.paidInterestColumn.IsEditable = false;
-            this.paidInterestColumn.Text = "Paid interest";
-            this.paidInterestColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.paidInterestColumn.Width = 100;
+            resources.ApplyResources(this.paidInterestColumn, "paidInterestColumn");
             // 
             // paidPrincipalColumn
             // 
             this.paidPrincipalColumn.AspectName = "PaidCapital";
             this.paidPrincipalColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.paidPrincipalColumn.IsEditable = false;
-            this.paidPrincipalColumn.Text = "Paid principal";
-            this.paidPrincipalColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.paidPrincipalColumn.Width = 100;
+            resources.ApplyResources(this.paidPrincipalColumn, "paidPrincipalColumn");
             // 
             // paymentDateColumn
             // 
             this.paymentDateColumn.AspectName = "PaidDate";
             this.paymentDateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.paymentDateColumn.IsEditable = false;
-            this.paymentDateColumn.Text = "Payment date";
-            this.paymentDateColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.paymentDateColumn.Width = 90;
+            resources.ApplyResources(this.paymentDateColumn, "paymentDateColumn");
             // 
             // ManualScheduleForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 375);
             this.Controls.Add(this.olvSchedule);
             this.Controls.Add(this.pnlButtons);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ManualScheduleForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Manual schedule";
             this.pnlButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.olvSchedule)).EndInit();
             this.ResumeLayout(false);
