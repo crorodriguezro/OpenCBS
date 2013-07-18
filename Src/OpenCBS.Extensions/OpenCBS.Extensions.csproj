@@ -64,6 +64,7 @@
     <Compile Include="IContractCodeGenerator.cs" />
     <Compile Include="ICorporateTabs.cs" />
     <Compile Include="IHost.cs" />
+    <Compile Include="ILoanDetailsButton.cs" />
     <Compile Include="ILoanTabs.cs" />
     <Compile Include="IMenu.cs" />
     <Compile Include="INonSolidarityGroupTabs.cs" />

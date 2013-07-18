@@ -113,6 +113,9 @@ namespace OpenCBS.GUI.Clients
         [ImportMany(typeof(ISavingsTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<ISavingsTabs> SavingsExtensions { get; set; }
 
+        [ImportMany(typeof(ILoanDetailsButton), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<ILoanDetailsButton> LoanDetailsButtons { get; set; }
+
         #endregion
 
         #region *** Constructors ***
@@ -246,6 +249,7 @@ namespace OpenCBS.GUI.Clients
             bool active = _credit != null && _credit.ContractStatus == OContractStatus.Active;
             InitializeCustomizableFields(OCustomizableFieldEntities.Loan, pContractId, active);
             LoadLoanDetailsExtensions();
+            LoadLoanDetailsButtons();
         }
 
         public ClientForm(IClient pClient, int pContractId, Form pMdiParent, string selectedTab)
@@ -272,6 +276,7 @@ namespace OpenCBS.GUI.Clients
             bool active = _credit != null && _credit.ContractStatus == OContractStatus.Active;
             InitializeCustomizableFields(OCustomizableFieldEntities.Loan, pContractId, active);
             LoadLoanDetailsExtensions();
+            LoadLoanDetailsButtons();
         }
         #endregion
 
@@ -1739,6 +1744,7 @@ namespace OpenCBS.GUI.Clients
 
             SetGuarantorsEnabled(_product.UseGuarantorCollateral);
             LoadLoanDetailsExtensions();
+            LoadLoanDetailsButtons();
         }
 
         private void ViewContract()
@@ -1798,6 +1804,7 @@ namespace OpenCBS.GUI.Clients
                             tabControlPerson.SelectedTab = tabPageCreditCommitee;
                         }
                         LoadLoanDetailsExtensions();
+                        LoadLoanDetailsButtons();
                     }
                     if (lvContracts.FocusedItem.Text == @"G")
                     {
@@ -7017,6 +7024,15 @@ namespace OpenCBS.GUI.Clients
                 if (null == pages) continue;
                 foreach (var page in pages) page.Tag = true; // mark as extension
                 tabControlSavingsDetails.TabPages.AddRange(pages);
+            }
+        }
+
+        private void LoadLoanDetailsButtons()
+        {
+            foreach (var loanDetailsButton in LoanDetailsButtons)
+            {
+                var button = loanDetailsButton.GetButton(_client, null);
+                loanDetailsButtonsPanel.Controls.Add(button);
             }
         }
 
