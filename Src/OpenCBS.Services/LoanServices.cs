@@ -2032,7 +2032,7 @@ namespace OpenCBS.Services
                 pLoan.BranchCode = branchCode;
 
                 pLoan.Id = AddLoanInDatabase(pLoan, pProjectId, pClient, transaction);
-                pLoan.Code = GenerateContractCode(pClient, pLoan, transaction.Connection);
+                pLoan.Code = GenerateContractCode(pClient, pLoan, transaction);
                 _loanManager.UpdateContractCode(pLoan.Id, pLoan.Code, transaction);
             }
             catch
@@ -2375,21 +2375,21 @@ namespace OpenCBS.Services
             if (!IsDateWithinCurrentFiscalYear(date)) throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
         }
 
-        private string GenerateContractCode(IClient client, Loan loan, SqlConnection connection)
+        private string GenerateContractCode(IClient client, Loan loan, SqlTransaction transaction)
         {
             // Find non-default implementation
             var generator = (
                 from gen in ContractCodeGenerators
                 where gen.Metadata.ContainsKey("Implementation") && gen.Metadata["Implementation"].ToString() != "Default"
                 select gen.Value).FirstOrDefault();
-            if (generator != null) return generator.GenerateContractCode(client, loan, connection);
+            if (generator != null) return generator.GenerateContractCode(client, loan, transaction);
 
             // Otherwise, find the default one
             generator = (
                 from gen in ContractCodeGenerators
                 where gen.Metadata.ContainsKey("Implementation") && gen.Metadata["Implementation"].ToString() == "Default"
                 select gen.Value).FirstOrDefault();
-            if (generator != null) return generator.GenerateContractCode(client, loan, connection);
+            if (generator != null) return generator.GenerateContractCode(client, loan, transaction);
 
             throw new ApplicationException("Cannot find contract code generator.");
         }
