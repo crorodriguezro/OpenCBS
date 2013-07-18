@@ -191,6 +191,7 @@
     <Compile Include="OCurrency.cs" />
     <Compile Include="PublicHolidaysComparer.cs" />
     <Compile Include="Settings\Remote\XmlRemoteServerSettings.cs" />
+    <Compile Include="Settings\UserSettingsStore1.cs" />
     <Compile Include="SQLInfoEnumerator.cs" />
     <Compile Include="Settings\TechnicalSettings.cs" />
     <Compile Include="SqlServerSettings.cs" />
