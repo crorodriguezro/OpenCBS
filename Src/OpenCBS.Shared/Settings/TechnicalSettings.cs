@@ -90,7 +90,7 @@ namespace OpenCBS.Shared.Settings
 
         public static string ReportPath
         {
-            get { return GetValue("DATABASE_REPORT_PATH", "c:\\"); }
+            get { return GetValue("DATABASE_REPORT_PATH", String.Empty); }
             set { SetValue("DATABASE_REPORT_PATH", value); }
         }
 
