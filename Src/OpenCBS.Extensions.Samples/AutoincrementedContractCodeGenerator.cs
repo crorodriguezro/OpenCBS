@@ -18,6 +18,7 @@
 // Contact: contact@opencbs.com
 
 using System.ComponentModel.Composition;
+using System.Data.SqlClient;
 using System.Globalization;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Loans;
@@ -36,7 +37,7 @@ namespace OpenCBS.Extensions.Samples
     [PartCreationPolicy(CreationPolicy.Shared)]
     public class AutoincrementedContractCodeGenerator : IContractCodeGenerator
     {
-        public string GenerateContractCode(IClient client, Loan loan)
+        public string GenerateContractCode(IClient client, Loan loan, SqlConnection connection)
         {
             return loan.Id.ToString(CultureInfo.InvariantCulture);
         }
