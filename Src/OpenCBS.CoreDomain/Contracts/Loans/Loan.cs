@@ -45,9 +45,6 @@ using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.CoreDomain.Contracts.Loans
 {
-    /// <summary>
-    /// Description r�sum�e de CreditContract
-    /// </summary>
     [Serializable]
     public class Loan : IContract, IDisposable
     {
