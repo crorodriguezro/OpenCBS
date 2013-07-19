@@ -7032,9 +7032,10 @@ namespace OpenCBS.GUI.Clients
             foreach (var loanDetailsButton in LoanDetailsButtons)
             {
                 var button = loanDetailsButton.GetButton(_client, null);
+                if (button == null) continue;
                 // Remove button if exists
                 var controls = loanDetailsButtonsPanel.Controls.Find(button.Name, false);
-                if (controls.Count() > 0) loanDetailsButtonsPanel.Controls.Remove(controls[0]);
+                if (controls.Any()) loanDetailsButtonsPanel.Controls.Remove(controls[0]);
                 loanDetailsButtonsPanel.Controls.Add(button);
             }
         }
