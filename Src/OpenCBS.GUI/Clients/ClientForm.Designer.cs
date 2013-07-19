@@ -223,7 +223,7 @@ namespace OpenCBS.GUI.Clients
             this.columnHeaderLoanInstallmentTotal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderLoanOLB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageLoanCustomizableFields = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.loanDetailsButtonsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSaveLoan = new System.Windows.Forms.Button();
             this.buttonLoanPreview = new System.Windows.Forms.Button();
             this.buttonLoanDisbursment = new System.Windows.Forms.Button();
@@ -592,7 +592,7 @@ namespace OpenCBS.GUI.Clients
             this.tabPageLoansDetails.SuspendLayout();
             this.tclLoanDetails.SuspendLayout();
             this.tabPageInstallments.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
+            this.loanDetailsButtonsPanel.SuspendLayout();
             this.gbxLoanDetails.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLoanGracePeriod)).BeginInit();
@@ -1466,7 +1466,7 @@ namespace OpenCBS.GUI.Clients
             // tabPageLoansDetails
             // 
             this.tabPageLoansDetails.Controls.Add(this.tclLoanDetails);
-            this.tabPageLoansDetails.Controls.Add(this.flowLayoutPanel2);
+            this.tabPageLoansDetails.Controls.Add(this.loanDetailsButtonsPanel);
             this.tabPageLoansDetails.Controls.Add(this.gbxLoanDetails);
             resources.ApplyResources(this.tabPageLoansDetails, "tabPageLoansDetails");
             this.tabPageLoansDetails.Name = "tabPageLoansDetails";
@@ -1531,16 +1531,16 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.tabPageLoanCustomizableFields, "tabPageLoanCustomizableFields");
             this.tabPageLoanCustomizableFields.Name = "tabPageLoanCustomizableFields";
             // 
-            // flowLayoutPanel2
+            // loanDetailsButtonsPanel
             // 
-            resources.ApplyResources(this.flowLayoutPanel2, "flowLayoutPanel2");
-            this.flowLayoutPanel2.Controls.Add(this.btnSaveLoan);
-            this.flowLayoutPanel2.Controls.Add(this.buttonLoanPreview);
-            this.flowLayoutPanel2.Controls.Add(this.buttonLoanDisbursment);
-            this.flowLayoutPanel2.Controls.Add(this.btnPrintLoanDetails);
-            this.flowLayoutPanel2.Controls.Add(this.btnLoanShares);
-            this.flowLayoutPanel2.Controls.Add(this.btnEditSchedule);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            resources.ApplyResources(this.loanDetailsButtonsPanel, "loanDetailsButtonsPanel");
+            this.loanDetailsButtonsPanel.Controls.Add(this.btnSaveLoan);
+            this.loanDetailsButtonsPanel.Controls.Add(this.buttonLoanPreview);
+            this.loanDetailsButtonsPanel.Controls.Add(this.buttonLoanDisbursment);
+            this.loanDetailsButtonsPanel.Controls.Add(this.btnPrintLoanDetails);
+            this.loanDetailsButtonsPanel.Controls.Add(this.btnLoanShares);
+            this.loanDetailsButtonsPanel.Controls.Add(this.btnEditSchedule);
+            this.loanDetailsButtonsPanel.Name = "loanDetailsButtonsPanel";
             // 
             // btnSaveLoan
             // 
@@ -3862,7 +3862,7 @@ namespace OpenCBS.GUI.Clients
             this.tabPageLoansDetails.PerformLayout();
             this.tclLoanDetails.ResumeLayout(false);
             this.tabPageInstallments.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
+            this.loanDetailsButtonsPanel.ResumeLayout(false);
             this.gbxLoanDetails.ResumeLayout(false);
             this.gbxLoanDetails.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -4235,7 +4235,7 @@ namespace OpenCBS.GUI.Clients
         private ToolStripMenuItem menuItemConfirmPendingSavingEvent;
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel pnlLoans;
-        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel loanDetailsButtonsPanel;
         private TableLayoutPanel tableLayoutPanel4;
         private FlowLayoutPanel pnlGuarantorButtons;
         private FlowLayoutPanel pnlCollateralButtons;

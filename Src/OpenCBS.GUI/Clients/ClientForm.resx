@@ -3099,10 +3099,10 @@
   <data name="&gt;&gt;tclLoanDetails.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="flowLayoutPanel2.AutoSize" type="System.Boolean, mscorlib">
+  <data name="loanDetailsButtonsPanel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="flowLayoutPanel2.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+  <data name="loanDetailsButtonsPanel.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
   <data name="btnSaveLoan.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -3130,7 +3130,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSaveLoan.Parent" xml:space="preserve">
-    <value>flowLayoutPanel2</value>
+    <value>loanDetailsButtonsPanel</value>
   </data>
   <data name="&gt;&gt;btnSaveLoan.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -3157,7 +3157,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;buttonLoanPreview.Parent" xml:space="preserve">
-    <value>flowLayoutPanel2</value>
+    <value>loanDetailsButtonsPanel</value>
   </data>
   <data name="&gt;&gt;buttonLoanPreview.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -3187,7 +3187,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;buttonLoanDisbursment.Parent" xml:space="preserve">
-    <value>flowLayoutPanel2</value>
+    <value>loanDetailsButtonsPanel</value>
   </data>
   <data name="&gt;&gt;buttonLoanDisbursment.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -3217,7 +3217,7 @@
     <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=13.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanDetails.Parent" xml:space="preserve">
-    <value>flowLayoutPanel2</value>
+    <value>loanDetailsButtonsPanel</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanDetails.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -3244,7 +3244,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnLoanShares.Parent" xml:space="preserve">
-    <value>flowLayoutPanel2</value>
+    <value>loanDetailsButtonsPanel</value>
   </data>
   <data name="&gt;&gt;btnLoanShares.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -3271,33 +3271,33 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnEditSchedule.Parent" xml:space="preserve">
-    <value>flowLayoutPanel2</value>
+    <value>loanDetailsButtonsPanel</value>
   </data>
   <data name="&gt;&gt;btnEditSchedule.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="flowLayoutPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="loanDetailsButtonsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="flowLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="loanDetailsButtonsPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 244</value>
   </data>
-  <data name="flowLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="loanDetailsButtonsPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>1243, 34</value>
   </data>
-  <data name="flowLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
+  <data name="loanDetailsButtonsPanel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;flowLayoutPanel2.Name" xml:space="preserve">
-    <value>flowLayoutPanel2</value>
+  <data name="&gt;&gt;loanDetailsButtonsPanel.Name" xml:space="preserve">
+    <value>loanDetailsButtonsPanel</value>
   </data>
-  <data name="&gt;&gt;flowLayoutPanel2.Type" xml:space="preserve">
+  <data name="&gt;&gt;loanDetailsButtonsPanel.Type" xml:space="preserve">
     <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;flowLayoutPanel2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;loanDetailsButtonsPanel.Parent" xml:space="preserve">
     <value>tabPageLoansDetails</value>
   </data>
-  <data name="&gt;&gt;flowLayoutPanel2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;loanDetailsButtonsPanel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="gbxLoanDetails.AutoSize" type="System.Boolean, mscorlib">
@@ -7489,7 +7489,7 @@ Max:
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        HQAAAk1TRnQBSQFMAgEBBQEAAbQBIgG0ASIBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAAbwBIgG8ASIBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -10158,7 +10158,7 @@ Max:
     <value>1</value>
   </data>
   <data name="tlpSBDetails.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblIbtFeeMinMax" Row="7" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbTransferFees" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudIbtFee" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbDepositFees" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudTransferFees" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbReopenFeesMinMax" Row="6" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbTransferFeesMinMax" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="nudReopenFees" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbReopenFees" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbDepositFeesMinMax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbAgioFeesMinMax" Row="5" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbChequeDepositFees" Row="8" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudAgioFees" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudChequeDepositFees" Row="8" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbAgioFees" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbOverdraftFeesMinMax" Row="4" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblChequeDepositFeesMinMax" Row="8" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbCloseFees" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudOverdraftFees" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudCloseFees" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbOverdraftFees" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbCloseFeesMinMax" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbManagementFeesMinMax" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbManagementFees" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudManagementFees" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudDepositFees" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblInterBranchTransfer" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50.17572,Percent,29.22858,Percent,20.5957" /&gt;&lt;Rows Styles="Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,1" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblIbtFeeMinMax" Row="7" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbTransferFees" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudIbtFee" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbDepositFees" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudTransferFees" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbReopenFeesMinMax" Row="6" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbTransferFeesMinMax" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="nudReopenFees" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbReopenFees" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbDepositFeesMinMax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbAgioFeesMinMax" Row="5" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbChequeDepositFees" Row="8" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudAgioFees" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudChequeDepositFees" Row="8" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbAgioFees" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbOverdraftFeesMinMax" Row="4" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblChequeDepositFeesMinMax" Row="8" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbCloseFees" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudOverdraftFees" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudCloseFees" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbOverdraftFees" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbCloseFeesMinMax" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbManagementFeesMinMax" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbManagementFees" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudManagementFees" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudDepositFees" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblInterBranchTransfer" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,17572,Percent,29,22858,Percent,20,5957" /&gt;&lt;Rows Styles="Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,1" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tabPageSavingsAmountsAndFees.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 29</value>
