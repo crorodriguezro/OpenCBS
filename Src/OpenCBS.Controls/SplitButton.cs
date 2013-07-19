@@ -27,11 +27,6 @@ namespace OpenCBS.Controls
 
         TextFormatFlags _textFormatFlags = TextFormatFlags.Default;
 
-        public SplitButton()
-        {
-            AutoSize = true;
-        }
-
         #region Properties
 
         [Browsable(false)]
@@ -56,14 +51,14 @@ namespace OpenCBS.Controls
                 //remove the event handlers for the old SplitMenu
                 if (_splitMenu != null)
                 {
-                    _splitMenu.Popup -= SplitMenu_Popup;
+                    _splitMenu.Popup -= SplitMenuPopup;
                 }
 
                 //add the event handlers for the new SplitMenu
                 if (value != null)
                 {
                     ShowSplit = true;
-                    value.Popup += SplitMenu_Popup;
+                    value.Popup += SplitMenuPopup;
                 }
                 else
                     ShowSplit = false;
@@ -84,16 +79,16 @@ namespace OpenCBS.Controls
                 //remove the event handlers for the old SplitMenuStrip
                 if (_splitMenuStrip != null)
                 {
-                    _splitMenuStrip.Closing -= SplitMenuStrip_Closing;
-                    _splitMenuStrip.Opening -= SplitMenuStrip_Opening;
+                    _splitMenuStrip.Closing -= SplitMenuStripClosing;
+                    _splitMenuStrip.Opening -= SplitMenuStripOpening;
                 }
 
                 //add the event handlers for the new SplitMenuStrip
                 if (value != null)
                 {
                     ShowSplit = true;
-                    value.Closing += SplitMenuStrip_Closing;
-                    value.Opening += SplitMenuStrip_Opening;
+                    value.Closing += SplitMenuStripClosing;
+                    value.Opening += SplitMenuStripOpening;
                 }
                 else
                     ShowSplit = false;
@@ -765,12 +760,12 @@ namespace OpenCBS.Controls
             }
         }
 
-        void SplitMenuStrip_Opening(object sender, CancelEventArgs e)
+        void SplitMenuStripOpening(object sender, CancelEventArgs e)
         {
             _isSplitMenuVisible = true;
         }
 
-        void SplitMenuStrip_Closing(object sender, ToolStripDropDownClosingEventArgs e)
+        void SplitMenuStripClosing(object sender, ToolStripDropDownClosingEventArgs e)
         {
             _isSplitMenuVisible = false;
 
@@ -783,7 +778,7 @@ namespace OpenCBS.Controls
         }
 
 
-        void SplitMenu_Popup(object sender, EventArgs e)
+        void SplitMenuPopup(object sender, EventArgs e)
         {
             _isSplitMenuVisible = true;
         }
