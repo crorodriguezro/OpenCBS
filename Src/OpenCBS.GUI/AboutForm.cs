@@ -101,7 +101,7 @@ namespace OpenCBS.GUI
 
         private void OnLoad(object sender, System.EventArgs e)
         {
-            versionLabel.Text = "version " + TechnicalSettings.GetDisplayVersion();
+            versionLabel.Text = "OpenCBS LLC Kyrgyz Republic. v" + TechnicalSettings.GetDisplayVersion();
         }
 	}
 }
