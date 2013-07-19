@@ -1834,11 +1834,6 @@ namespace OpenCBS.Manager.Contracts
 
                 if (_projectManager != null)
                     loan.Project = _projectManager.SelectProjectByContractId(loan.Id);
-
-                foreach (Installment installment in loan.InstallmentList)
-                {
-                    installment.OLB = loan.CalculateExpectedOlb(installment.Number, loan.Product.KeepExpectedInstallment);
-                }
             }
 
             if (pAddOptionalInformation)
