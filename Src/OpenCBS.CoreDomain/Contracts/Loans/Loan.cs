@@ -1675,7 +1675,8 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                     installment.IsPending = pending;
                 }
 
-                installment.OLB = CalculateExpectedOlb(installment.Number, keepExpectedInstallment);
+                if (!keepExpectedInstallment && (paymentType == OPaymentType.PartialPayment || paymentType == OPaymentType.TotalPayment))
+                    installment.OLB = CalculateExpectedOlb(installment.Number, keepExpectedInstallment);
             }
             EscapedMember = null;
             return rPe;
