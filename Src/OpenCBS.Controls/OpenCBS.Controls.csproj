@@ -65,6 +65,9 @@
     <Compile Include="ScheduleControl.Designer.cs">
       <DependentUpon>ScheduleControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="SplitButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="LoaderControl.resx">
