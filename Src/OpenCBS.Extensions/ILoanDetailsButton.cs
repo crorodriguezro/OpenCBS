@@ -19,12 +19,14 @@
 
 using System.Windows.Forms;
 using OpenCBS.CoreDomain.Clients;
+using OpenCBS.CoreDomain.Contracts.Guarantees;
 using OpenCBS.CoreDomain.Contracts.Loans;
+using OpenCBS.CoreDomain.Contracts.Savings;
 
 namespace OpenCBS.Extensions
 {
     public interface ILoanDetailsButton
     {
-        Button GetButton(IClient client, Loan loan);
+        Button GetButton(IClient client, Loan loan, Guarantee guarantee, SavingBookContract savings);
     }
 }

@@ -7031,7 +7031,7 @@ namespace OpenCBS.GUI.Clients
         {
             foreach (var loanDetailsButton in LoanDetailsButtons)
             {
-                var button = loanDetailsButton.GetButton(_client, null);
+                var button = loanDetailsButton.GetButton(_client, _credit, _guarantee, _saving);
                 if (button == null) continue;
                 // Remove button if exists
                 var controls = loanDetailsButtonsPanel.Controls.Find(button.Name, false);
