@@ -2397,5 +2397,74 @@ namespace OpenCBS.Services
         public void ManualScheduleBeforeDisbursement() {}
 
         public void ManualScheduleAfterDisbursement() {}
+
+        public void LoanPenaltyAccrual()
+        {
+            const string q = @"SELECT al.id AS id,
+                                    al.amount * cr.non_repayment_penalties_based_on_initial_amount +
+	                                al.olb * cr.non_repayment_penalties_based_on_olb +
+	                                al.principal_due * cr.non_repayment_penalties_based_on_overdue_principal +
+	                                al.interest_due * cr.non_repayment_penalties_based_on_overdue_interest AS penalty,
+	                                al.late_days
+	                                FROM dbo.ActiveLoans(@date, 0) AS al
+	                                LEFT JOIN dbo.Credit AS cr ON cr.id=al.id
+	                                WHERE al.late_days > 0";
+            var user = ServicesProvider.GetInstance().GetUserServices().Find(1);
+            var em = new EventManager(user);
+            var date = LastPenaltyAccrualEventDate();
+
+            while (date.Date < DateTime.Now.Date)
+            {
+                date = date.AddDays(1);
+                using (var connection = _loanManager.GetConnection())
+                    using (var transaction = connection.BeginTransaction())
+                        try
+                        {
+                            var penaltyEventList = new List<LoanPenaltyAccrualEvent>();
+                            using (var c = new OpenCbsCommand(q, connection, transaction))
+                            {
+                                c.AddParam("@date", date);
+
+                                using (var r = c.ExecuteReader())
+                                {
+                                    while (r.Read())
+                                    {
+                                        int loanId = r.GetInt("id");
+                                        var penalty = r.GetDouble("penalty");
+
+                                        var penaltyEvent = new LoanPenaltyAccrualEvent();
+                                        penaltyEvent.Date = date;
+                                        penaltyEvent.User = user;
+                                        penaltyEvent.Penalty = Convert.ToDecimal(penalty);
+                                        penaltyEvent.ContracId = loanId;
+                                        penaltyEventList.Add(penaltyEvent);
+                                    }
+                                }
+                                foreach (var penaltyEvent in penaltyEventList)
+                                    em.AddLoanEvent(penaltyEvent, penaltyEvent.ContracId, transaction);
+                            }
+                            transaction.Commit();
+                        }
+                        catch (Exception)
+                        {
+                            transaction.Rollback();
+                            throw;
+                        }
+            }
+        }
+
+        private DateTime LastPenaltyAccrualEventDate()
+        {
+            const string q = @"SELECT TOP 1 ce.event_date 
+                                FROM dbo.LoanPenaltyAccrualEvents AS pe
+                                LEFT JOIN dbo.ContractEvents AS ce ON ce.id=pe.id
+                                ORDER BY ce.id DESC";
+            using (var connection = _loanManager.GetConnection())
+            using (var r = new OpenCbsCommand(q, connection).ExecuteReader())
+            {
+                r.Read();
+                return r.GetDateTime("event_date");
+            }
+        }
     }
 }

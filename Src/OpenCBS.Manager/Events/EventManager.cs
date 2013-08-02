@@ -1119,6 +1119,22 @@ namespace OpenCBS.Manager.Events
             pEvent.Id = AddLoanEventHead(pEvent, contractId, transaction);
         }
 
+        public void AddLoanEvent(LoanPenaltyAccrualEvent pEvent, int contractId, SqlTransaction transaction)
+        {
+            pEvent.Id = AddLoanEventHead(pEvent, contractId, transaction);
+            const string q = @"INSERT INTO [LoanPenaltyAccrualEvents](
+                                        [id], 
+                                        [penalty]) 
+                                     VALUES(@id, 
+                                        @penalty)";
+
+            using (OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
+            {
+                SetLoanPenaltyAccrualEvent(c, pEvent, pEvent.Penalty);
+                c.ExecuteNonQuery();
+            }
+        }
+
         public void AddTellerEvent(TellerEvent tellerEvent, SqlTransaction sqlTransaction)
         {
             const string sql =
@@ -1302,6 +1318,12 @@ namespace OpenCBS.Manager.Events
             c.AddParam("@tellerId", pEvent.TellerId);
             c.AddParam("@parentId", pEvent.ParentId);
             c.AddParam("@comment", pEvent.Comment);
+        }
+
+        private static void SetLoanPenaltyAccrualEvent(OpenCbsCommand c, Event pEvent, OCurrency penalty)
+        {
+            c.AddParam("@id", pEvent.Id);
+            c.AddParam("@penalty", penalty);
         }
 
         private Event ReadEvent(OpenCbsReader r)
