@@ -1,10 +1,18 @@
 INSERT INTO [dbo].[EventTypes]([event_type],[description],[sort_order]) VALUES('LPAE','Loan Penalty Accrual Event',730)
+INSERT INTO [dbo].[EventTypes]([event_type],[description],[sort_order]) VALUES('AILE','Accrual Interest Loan Event',740)
 GO
 
 CREATE TABLE LoanPenaltyAccrualEvents
 (
 	id INT NOT NULL,
 	penalty MONEY NOT NULL,
+)
+GO
+
+CREATE TABLE AccrualInterestLoanEvents
+(
+	id INT NOT NULL,
+	interest MONEY NOT NULL,
 )
 GO
 
@@ -267,6 +275,66 @@ OPEN cur
 				
 		FETCH NEXT FROM cur
 				INTO @contract_id
+	END
+CLOSE cur
+DEALLOCATE cur
+GO
+
+DECLARE @date DATE
+	, @contract_id INT
+	, @previous_date DATE
+	, @interest FLOAT
+	, @next_installment_interest FLOAT
+	, @interest_per_day FLOAT
+	, @eventId INT
+SET @date = GETDATE()
+
+DECLARE cur CURSOR FOR
+SELECT al.id
+	,MAX(inst.expected_date) AS previous_date
+	,SUM(inst.interest) AS interest
+FROM Activeloans(@date, 0) AS al
+LEFT JOIN InstallmentSnapshot(@date) AS inst ON inst.contract_id=al.id
+WHERE @date >= inst.expected_date
+GROUP BY al.id
+OPEN cur
+	FETCH NEXT FROM	cur
+	INTO @contract_id, @previous_date, @interest
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		INSERT INTO [dbo].[ContractEvents] 
+				([event_type],[contract_id],[event_date],[user_id],[is_deleted],[is_exported]) 
+				VALUES('AILE',@contract_id,@previous_date,1,0,0)
+		SELECT @eventId = SCOPE_IDENTITY()
+		INSERT INTO [dbo].[AccrualInterestLoanEvents] ([id],[interest]) VALUES(@eventId, @interest)
+		
+		WITH summary AS (SELECT al.id
+						,inst.expected_date
+						,inst.interest
+						,ROW_NUMBER() OVER(PARTITION BY al.id
+													 ORDER BY al.id) AS rk
+						FROM Activeloans(@date,0) AS al
+							LEFT JOIN InstallmentSnapshot(@date) AS inst ON inst.contract_id=al.id
+							WHERE @date < inst.expected_date)
+		SELECT @next_installment_interest=s.interest
+		FROM summary s
+		WHERE s.rk = 1 AND s.id=@contract_id
+		
+		SELECT @previous_date = DATEADD(dd,1,@previous_date)
+		SELECT @interest_per_day=@next_installment_interest/30
+		
+		WHILE @date>=@previous_date
+		BEGIN
+			INSERT INTO [dbo].[ContractEvents] 
+				([event_type],[contract_id],[event_date],[user_id],[is_deleted],[is_exported]) 
+				VALUES('AILE',@contract_id,@previous_date,1,0,0)
+			SELECT @eventId = SCOPE_IDENTITY()
+			INSERT INTO [dbo].[AccrualInterestLoanEvents] ([id],[interest]) VALUES(@eventId, @interest_per_day)
+			SELECT @previous_date = DATEADD(dd,1,@previous_date)
+		END
+		
+		FETCH NEXT FROM cur
+				INTO @contract_id, @previous_date, @interest
 	END
 CLOSE cur
 DEALLOCATE cur
