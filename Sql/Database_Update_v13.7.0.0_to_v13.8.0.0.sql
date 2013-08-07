@@ -324,7 +324,7 @@ WITH summary AS (SELECT al.id
 						FROM Activeloans(@date,0) AS al
 							LEFT JOIN InstallmentSnapshot(@date) AS inst ON inst.contract_id=al.id
 							WHERE @date < inst.expected_date)
-SELECT s.id, s.expexted_date, s.interest
+SELECT s.id, s.interest
 FROM summary s
 WHERE s.rk = 1
 OPEN cur1
@@ -360,7 +360,7 @@ OPEN cur1
 			INSERT INTO [dbo].[AccrualInterestLoanEvents] ([id],[interest]) VALUES(@eventId, @interest_per_day)
 			SELECT @date_ink = DATEADD(dd,1,@date_ink)
 		END
-		FETCH NEXT FROM cur
+		FETCH NEXT FROM cur1
 				INTO @contract_id, @interest
 	END
 CLOSE cur1
