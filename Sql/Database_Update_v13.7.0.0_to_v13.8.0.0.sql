@@ -283,8 +283,9 @@ GO
 DECLARE @date DATE
 	, @contract_id INT
 	, @previous_date DATE
+	, @previous_installment_date DATE
+	, @date_ink DATE
 	, @interest FLOAT
-	, @next_installment_interest FLOAT
 	, @interest_per_day FLOAT
 	, @eventId INT
 SET @date = GETDATE()
@@ -307,8 +308,15 @@ OPEN cur
 				VALUES('AILE',@contract_id,@previous_date,1,0,0)
 		SELECT @eventId = SCOPE_IDENTITY()
 		INSERT INTO [dbo].[AccrualInterestLoanEvents] ([id],[interest]) VALUES(@eventId, @interest)
-		
-		WITH summary AS (SELECT al.id
+			
+		FETCH NEXT FROM cur
+				INTO @contract_id, @previous_date, @interest
+	END
+CLOSE cur
+DEALLOCATE cur
+
+DECLARE cur1 CURSOR FOR
+WITH summary AS (SELECT al.id
 						,inst.expected_date
 						,inst.interest
 						,ROW_NUMBER() OVER(PARTITION BY al.id
@@ -316,28 +324,47 @@ OPEN cur
 						FROM Activeloans(@date,0) AS al
 							LEFT JOIN InstallmentSnapshot(@date) AS inst ON inst.contract_id=al.id
 							WHERE @date < inst.expected_date)
-		SELECT @next_installment_interest=s.interest
-		FROM summary s
-		WHERE s.rk = 1 AND s.id=@contract_id
-		
-		SELECT @previous_date = DATEADD(dd,1,@previous_date)
-		SELECT @interest_per_day=@next_installment_interest/30
-		
-		WHILE @date>=@previous_date
+SELECT s.id, s.expexted_date, s.interest
+FROM summary s
+WHERE s.rk = 1
+OPEN cur1
+	FETCH NEXT FROM	cur1
+	INTO @contract_id, @interest
+	WHILE @@FETCH_STATUS = 0
+	BEGIN	
+		SELECT @previous_installment_date = NULL
+		SELECT @previous_installment_date = MAX(inst.expected_date)
+			FROM Activeloans(@date, 0) AS al
+			LEFT JOIN InstallmentSnapshot(@date) AS inst ON inst.contract_id=al.id
+			WHERE @date >= inst.expected_date AND al.id=@contract_id
+			group by al.id
+		IF @previous_installment_date=NULL
 		BEGIN
+			SELECT @previous_installment_date= cr.align_disbursed_date
+				 FROM Activeloans(@date,0) AS al
+				 LEFT JOIN Contracts cr ON cr.id=al.id
+				 WHERE al.id=@contract_id
+		END;
+		
+		SET @date_ink = DATEADD(dd,1,@previous_installment_date)
+		SET @interest_per_day = @interest / 30
+		
+		WHILE @date >= @date_ink
+		BEGIN
+			IF (SELECT DATEDIFF(dd,@previous_installment_date,@date_ink)) > 30
+				SELECT @interest_per_day = 0;
 			INSERT INTO [dbo].[ContractEvents] 
 				([event_type],[contract_id],[event_date],[user_id],[is_deleted],[is_exported]) 
-				VALUES('AILE',@contract_id,@previous_date,1,0,0)
+				VALUES('AILE',@contract_id,@date_ink,1,0,0)
 			SELECT @eventId = SCOPE_IDENTITY()
 			INSERT INTO [dbo].[AccrualInterestLoanEvents] ([id],[interest]) VALUES(@eventId, @interest_per_day)
-			SELECT @previous_date = DATEADD(dd,1,@previous_date)
+			SELECT @date_ink = DATEADD(dd,1,@date_ink)
 		END
-		
 		FETCH NEXT FROM cur
-				INTO @contract_id, @previous_date, @interest
+				INTO @contract_id, @interest
 	END
-CLOSE cur
-DEALLOCATE cur
+CLOSE cur1
+DEALLOCATE cur1
 GO
 
 UPDATE  [TechnicalParameters]
