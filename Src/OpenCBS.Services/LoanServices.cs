@@ -2466,5 +2466,28 @@ namespace OpenCBS.Services
                 return r.GetDateTime("event_date");
             }
         }
+
+        public void LoanInterestAccrual()
+        {
+            const string q = @"SELECT al.id
+	                            FROM dbo.ActiveLoans(@date,0) AS al
+                                LEFT JOIN dbo.Contracts AS cr ON cr.id=al.id
+                                WHERE al.late_days>0 AND cr.close_date<=@date";
+        }
+
+        private DateTime LastInterestAccrualEventDate()
+        {
+            const string q = @"SELECT TOP 1 ce.event_date 
+                                FROM dbo.AccrualInterestLoanEvents AS ai
+                                LEFT JOIN dbo.ContractEvents AS ce ON ce.id=ai.id
+                                WHERE ce.contract_id=16
+                                ORDER BY ce.id DESC";
+            using (var connection = _loanManager.GetConnection())
+            using (var r = new OpenCbsCommand(q, connection).ExecuteReader())
+            {
+                r.Read();
+                return r.GetDateTime("event_date");
+            }
+        }
     }
 }

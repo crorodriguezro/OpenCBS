@@ -340,10 +340,9 @@ OPEN cur1
 			group by al.id
 		IF @previous_installment_date=NULL
 		BEGIN
-			SELECT @previous_installment_date= cr.align_disbursed_date
-				 FROM Activeloans(@date,0) AS al
-				 LEFT JOIN Contracts cr ON cr.id=al.id
-				 WHERE al.id=@contract_id
+			SELECT @previous_installment_date= start_date
+				 FROM Contracts
+				 WHERE id=@contract_id
 		END;
 		
 		SET @date_ink = DATEADD(dd,1,@previous_installment_date)
