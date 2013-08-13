@@ -15,7 +15,7 @@ CREATE TABLE AccrualInterestLoanEvents
 	interest MONEY NOT NULL,
 )
 GO
-
+---------------------Penalty-----------------------
 DECLARE @eventId INT
 DECLARE @date DATE
 SET @date = GETDATE()
@@ -280,6 +280,7 @@ CLOSE cur
 DEALLOCATE cur
 GO
 
+---------------------Interest----------------------
 DECLARE @date DATE
 	, @contract_id INT
 	, @previous_date DATE

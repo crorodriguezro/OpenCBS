@@ -2432,11 +2432,13 @@ namespace OpenCBS.Services
                                         int loanId = r.GetInt("id");
                                         var penalty = r.GetDouble("penalty");
 
-                                        var penaltyEvent = new LoanPenaltyAccrualEvent();
-                                        penaltyEvent.Date = date;
-                                        penaltyEvent.User = user;
-                                        penaltyEvent.Penalty = Convert.ToDecimal(penalty);
-                                        penaltyEvent.ContracId = loanId;
+                                        var penaltyEvent = new LoanPenaltyAccrualEvent
+                                            {
+                                                Date = date,
+                                                User = user,
+                                                Penalty = Convert.ToDecimal(penalty),
+                                                ContracId = loanId
+                                            };
                                         penaltyEventList.Add(penaltyEvent);
                                     }
                                 }
@@ -2469,10 +2471,63 @@ namespace OpenCBS.Services
 
         public void LoanInterestAccrual()
         {
-            const string q = @"SELECT al.id
-	                            FROM dbo.ActiveLoans(@date,0) AS al
-                                LEFT JOIN dbo.Contracts AS cr ON cr.id=al.id
-                                WHERE al.late_days>0 AND cr.close_date<=@date";
+            const string q = @"WITH summary AS (SELECT al.id
+						                            ,inst.interest
+                                                    ,inst.expected_date
+						                            ,ROW_NUMBER() OVER(PARTITION BY al.id
+													                             ORDER BY al.id) AS rk
+						                            FROM Activeloans(@date,0) AS al
+							                            LEFT JOIN InstallmentSnapshot(@date) AS inst ON inst.contract_id=al.id
+							                            WHERE @date < inst.expected_date)
+                                SELECT s.id, s.interest, s.expected_date
+                                FROM summary s
+                                WHERE s.rk = 1";
+            var user = ServicesProvider.GetInstance().GetUserServices().Find(1);
+            var em = new EventManager(user);
+            var date = LastInterestAccrualEventDate();
+            while (date.Date < DateTime.Now.Date)
+            {
+                date = date.AddDays(1);
+                using (var connection = _loanManager.GetConnection())
+                using (var transaction = connection.BeginTransaction())
+                    try
+                    {
+                        var interestEventList = new List<LoanInterestAccrualEvent>();
+                        using (var c = new OpenCbsCommand(q, connection, transaction))
+                        {
+                            c.AddParam("@date", date);
+
+                            using (var r = c.ExecuteReader())
+                            {
+                                while (r.Read())
+                                {
+                                    var loanId = r.GetInt("id");
+                                    var interest = r.GetDouble("interest")/30;
+                                    var expectedDate = r.GetDateTime("expected_date");
+
+                                    var interestEvent = new LoanInterestAccrualEvent
+                                        {
+                                            Date = date,
+                                            User = user,
+                                            Interest = Convert.ToDecimal(interest),
+                                            InstallmentExpectedDate = expectedDate,
+                                            ContracId = loanId
+                                        };
+                                    interestEventList.Add(interestEvent);
+                                }
+                            }
+                            foreach (var interestEvent in interestEventList)
+                                em.AddLoanEvent(interestEvent, interestEvent.ContracId, transaction);
+                        }
+                        transaction.Commit();
+                    }
+                    catch (Exception)
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+            }
+
         }
 
         private DateTime LastInterestAccrualEventDate()

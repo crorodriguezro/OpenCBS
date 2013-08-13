@@ -1135,6 +1135,22 @@ namespace OpenCBS.Manager.Events
             }
         }
 
+        public void AddLoanEvent(LoanInterestAccrualEvent pEvent, int contractId, SqlTransaction transaction)
+        {
+            pEvent.Id = AddLoanEventHead(pEvent, contractId, transaction);
+            const string q = @"INSERT INTO [AccrualInterestLoanEvents](
+                                        [id], 
+                                        [interest]) 
+                                     VALUES(@id, 
+                                        @interest)";
+
+            using (OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
+            {
+                SetLoanInterestAccrualEvent(c, pEvent, pEvent.Interest);
+                c.ExecuteNonQuery();
+            }
+        }
+
         public void AddTellerEvent(TellerEvent tellerEvent, SqlTransaction sqlTransaction)
         {
             const string sql =
@@ -1324,6 +1340,12 @@ namespace OpenCBS.Manager.Events
         {
             c.AddParam("@id", pEvent.Id);
             c.AddParam("@penalty", penalty);
+        }
+
+        private static void SetLoanInterestAccrualEvent(OpenCbsCommand c, Event pEvent, OCurrency interest)
+        {
+            c.AddParam("@id", pEvent.Id);
+            c.AddParam("@interest", interest);
         }
 
         private Event ReadEvent(OpenCbsReader r)
