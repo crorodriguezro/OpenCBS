@@ -194,8 +194,8 @@ namespace OpenCBS.GUI.Contracts
             olvSchedule.RefreshObjects(Loan.InstallmentList);
             olvSchedule.RefreshObject(_total);
 
-            btnOK.Enabled = _total.CapitalRepayment == Loan.Amount;
-            var foreColor = _total.CapitalRepayment != Loan.Amount ? Color.Red : Color.Black;
+            btnOK.Enabled = CheckPrincipal(e.ListViewItem.Index);
+            var foreColor = !btnOK.Enabled ? Color.Red : Color.Black;
             for (var i = 0; i <= Loan.InstallmentList.Count - 1; i++)
                 if (!Loan.InstallmentList[i].IsRepaid)
                 {
@@ -207,7 +207,7 @@ namespace OpenCBS.GUI.Contracts
 
         private void ScheduleRecalculation(int indexOfChangedItem)
         {
-            for (var i = 1; i < Loan.InstallmentList.Count; i++)
+            for (var i = indexOfChangedItem + 1; i < Loan.InstallmentList.Count; i++)
                 Loan.InstallmentList[i].OLB = Loan.InstallmentList[i - 1].OLB -
                                                Loan.InstallmentList[i - 1].CapitalRepayment;
             if (Loan.Product.LoanType == OLoanTypes.Flat) return;
@@ -238,6 +238,14 @@ namespace OpenCBS.GUI.Contracts
             else
                 for (var i = indexOfChangedItem; i < Loan.InstallmentList.Count; i++)
                     Loan.InstallmentList[i].InterestsRepayment = Loan.InstallmentList[i].OLB*Loan.InterestRate;
+        }
+
+        private bool CheckPrincipal(int indexOfChangedItem)
+        {
+            decimal capital = 0;
+            for (var i = indexOfChangedItem; i < Loan.InstallmentList.Count; i++)
+                capital += Loan.InstallmentList[i].CapitalRepayment.Value;
+            return capital == Loan.InstallmentList[indexOfChangedItem].OLB.Value ? true : false;
         }
     }
 }
