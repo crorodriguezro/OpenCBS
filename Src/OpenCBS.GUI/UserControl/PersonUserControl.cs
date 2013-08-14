@@ -77,7 +77,7 @@ namespace OpenCBS.GUI.UserControl
             Initialization();
             _tempPerson = person;
             InitializePerson();
-            _InitializeGroup();
+            InitializeGroup();
             DisplayProjects(person.Projects);
             DisplaySavings(person.Savings);
             _tempPerson.DateOfBirth = person.DateOfBirth; //new DateTime(1980,1,1);
@@ -124,7 +124,7 @@ namespace OpenCBS.GUI.UserControl
 				else
 				{
 					InitializePerson();
-                    _InitializeGroup();
+                    InitializeGroup();
 				}
 			}
 		}
@@ -197,17 +197,24 @@ namespace OpenCBS.GUI.UserControl
             }
 		}
 
-        private void _InitializeGroup()
+        private void InitializeGroup()
         {
-            return; // TODO: remove this line after performance benchmark is done
-            List<Group> listGroups = ServicesProvider.GetInstance().GetClientServices().FindAllGroupsWhereSelectedPersonIsAMember(_tempPerson.Id);
-            List<Village> listNSGs = ServicesProvider.GetInstance().GetClientServices().FindAllNSGsWhereSelectedPersonIsAMember(_tempPerson.Id);
-
-            List<IClient> allGroups = new List<IClient>();
-            allGroups.AddRange(listGroups.ToArray());
-            allGroups.AddRange(listNSGs.ToArray());
-
-            _DisplayAllGroups(allGroups);
+            var membership = ServicesProvider.GetInstance().GetClientServices().GetGroupMembership(_tempPerson.Id);
+            listViewGroup.Items.Clear();
+            foreach (var line in membership)
+            {
+                var item = new ListViewItem(line.Name);
+                item.SubItems.Add(line.Type);
+                item.SubItems.Add(line.EstablishedAt.ToShortDateString());
+                item.SubItems.Add(line.JoinedAt.ToShortDateString());
+                if (line.LeftAt.HasValue) item.SubItems.Add(line.LeftAt.Value.ToShortDateString());
+                item.Tag = new object[]
+                {
+                    line.Id,
+                    "SG" == line.Type ? OClientTypes.Group : OClientTypes.Village
+                };
+                listViewGroup.Items.Add(item);
+            }
         }
 
         private void _InitializeCombobox()
@@ -608,16 +615,19 @@ namespace OpenCBS.GUI.UserControl
 
         private void listViewGroup_DoubleClick(object sender, EventArgs e)
         {
-            IClient client = (IClient)listViewGroup.SelectedItems[0].Tag;
-            client = ServicesProvider.GetInstance().GetClientServices().FindTiers(client.Id, client.Type);
+            var data = (object[]) listViewGroup.SelectedItems[0].Tag;
+            var clientId = (int) data[0];
+            var clientType = (OClientTypes) data[1];
+
+            var client = ServicesProvider.GetInstance().GetClientServices().FindTiers(clientId, clientType);
             if (client is Group)
             {
-                ClientForm form = new ClientForm((Group)client, _mdiParent);
+                var form = new ClientForm((Group)client, _mdiParent);
                 form.ShowDialog();
             }
             else if (client is Village)
             {
-                NonSolidaryGroupForm form = new NonSolidaryGroupForm((Village)client);
+                var form = new NonSolidaryGroupForm((Village)client);
                 form.ShowDialog();
             }
         }

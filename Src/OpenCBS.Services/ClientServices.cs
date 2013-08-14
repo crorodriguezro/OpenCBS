@@ -776,6 +776,11 @@ namespace OpenCBS.Services
             return _clientManagement.GetPersonGroupCount(personId);
         }
 
+        public IEnumerable<GroupMembership> GetGroupMembership(int personId)
+        {
+            return _clientManagement.GetGroupMembership(personId);
+        }
+
         public List<Village> FindAllNSGsWhereSelectedPersonIsAMember(int pPersonId)
         {
             return _clientManagement.SelectAllNSGsWhereSelectedPersonIsAMember(pPersonId);
