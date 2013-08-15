@@ -766,11 +766,6 @@ namespace OpenCBS.Services
             _clientManagement.UpdateClientStatus(pClient, sqlTransaction);
         }
 
-        public List<Group> FindAllGroupsWhereSelectedPersonIsAMember(int pPersonId)
-        {
-            return _clientManagement.SelectAllGroupsWhereSelectedPersonIsAMember(pPersonId);
-        }
-
         public int GetPersonGroupCount(int personId)
         {
             return _clientManagement.GetPersonGroupCount(personId);
@@ -779,11 +774,6 @@ namespace OpenCBS.Services
         public IEnumerable<GroupMembership> GetGroupMembership(int personId)
         {
             return _clientManagement.GetGroupMembership(personId);
-        }
-
-        public List<Village> FindAllNSGsWhereSelectedPersonIsAMember(int pPersonId)
-        {
-            return _clientManagement.SelectAllNSGsWhereSelectedPersonIsAMember(pPersonId);
         }
 
         public bool ClientCanBeAddToAGroup(IClient client, Group group)
