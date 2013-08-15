@@ -94,7 +94,7 @@ namespace OpenCBS.GUI
             catch (Exception ex)
             {
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
-                System.Diagnostics.Debugger.Break();
+                 System.Diagnostics.Debugger.Break();
             }
         }
 

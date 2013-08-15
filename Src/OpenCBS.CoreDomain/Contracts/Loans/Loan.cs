@@ -982,7 +982,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                 if (repEvent.InstallmentNumber == pNumber && !repEvent.Deleted)
                     amount += repEvent.Principal;
             }
-
+            
             return amount;
         }
 
@@ -1048,15 +1048,16 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
 
         public OCurrency CalculateActualOlbBasedOnRepayments()
         {
-            OCurrency amount = Amount;
+            OCurrency CapitalRepaymentAmount = 0;
+            OCurrency PaidCapitalAmount = 0;
 
-            foreach (RepaymentEvent repaymentEvent in Events.GetRepaymentEvents())
-            {
-                if (!repaymentEvent.Deleted)
-                    amount -= repaymentEvent.Principal;
-            }
+                 foreach (Installment installment in _installmentList)
+                 {
+                      CapitalRepaymentAmount += installment.CapitalRepayment;
+                      PaidCapitalAmount+=installment.PaidCapital;
+                 }
 
-            return amount;
+            return CapitalRepaymentAmount-PaidCapitalAmount;
         }
 
         /// <summary>
