@@ -1605,7 +1605,7 @@ namespace OpenCBS.GUI.Clients
                 if (credit.ContractStatus == OContractStatus.Abandoned || credit.ContractStatus == OContractStatus.Refused)
                     item.SubItems.Add(credit.UseCents ? "0.00" : "0");
                 else
-                    item.SubItems.Add(credit.CalculateActualOlbBasedOnRepayments().GetFormatedValue(credit.UseCents));
+                    item.SubItems.Add(credit.CalculateActualOlb().GetFormatedValue(credit.UseCents));
                 item.SubItems.Add(credit.Product.Currency.Code);
                 item.SubItems.Add(Math.Round(credit.InterestRate * 100, decimalPlaces).ToString());
                 item.SubItems.Add(credit.InstallmentType.Name);
@@ -1625,13 +1625,13 @@ namespace OpenCBS.GUI.Clients
                                                   ? 0
                                                   : credit.Amount / customExchangeRate.Rate;
 
-                        totalOlb += credit.CalculateActualOlbBasedOnRepayments();
+                        totalOlb += credit.CalculateActualOlb();
                         totalOlbInPivot += latestExchangeRate.Rate == 0
                                                ? 0
-                                               : credit.CalculateActualOlbBasedOnRepayments() /
+                                               : credit.CalculateActualOlb() /
                                                  latestExchangeRate.Rate;
 
-                        credit.CalculateActualOlbBasedOnRepayments();
+                        credit.CalculateActualOlb();
                     }
                     else if (credit.ContractStatus == OContractStatus.Closed)
                     {
@@ -3792,7 +3792,7 @@ namespace OpenCBS.GUI.Clients
             String statusText = MultiLanguageStrings.GetString(Ressource.ClientForm, "Status.Text") + "\n" +
                                MultiLanguageStrings.GetString(Ressource.ClientForm, "Currency.Text") + "   " + _credit.Product.Currency.Name + "\n" +
                                MultiLanguageStrings.GetString(Ressource.ClientForm, "CapitalDue.Text") + "   "
-                               + _credit.CalculateActualOlbBasedOnRepayments().GetFormatedValue(credit.UseCents) + "\n" +
+                               + _credit.CalculateActualOlb().GetFormatedValue(credit.UseCents) + "\n" +
                                MultiLanguageStrings.GetString(Ressource.ClientForm, "PercentsDue.Text") + "   " + interestsDue.GetFormatedValue(credit.UseCents);
             richTextBoxStatus.Text = statusText;
         }
@@ -7080,6 +7080,8 @@ namespace OpenCBS.GUI.Clients
             }
 
         }
+
+
 
 
     }

@@ -1045,20 +1045,8 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
 
             return amount;
         }
+           
 
-        public OCurrency CalculateActualOlbBasedOnRepayments()
-        {
-            OCurrency CapitalRepaymentAmount = 0;
-            OCurrency PaidCapitalAmount = 0;
-
-                 foreach (Installment installment in _installmentList)
-                 {
-                      CapitalRepaymentAmount += installment.CapitalRepayment;
-                      PaidCapitalAmount+=installment.PaidCapital;
-                 }
-
-            return CapitalRepaymentAmount-PaidCapitalAmount;
-        }
 
         /// <summary>
         /// Calculate OLB based on remaining capital at date d

@@ -481,7 +481,7 @@ namespace OpenCBS.GUI.Clients
                 item.SubItems.Add(MultiLanguageStrings.GetString(Ressource.ClientForm, loan.ContractStatus + ".Text"));
                 item.SubItems.Add(loan.Amount.GetFormatedValue(loan.UseCents));
                 item.SubItems.Add(
-                    loan.CalculateActualOlbBasedOnRepayments().GetFormatedValue(loan.UseCents));
+                    loan.CalculateActualOlb().GetFormatedValue(loan.UseCents));
                 item.SubItems.Add(loan.Product.Currency.Name);
                 item.SubItems.Add(Math.Round(loan.InterestRate*100m, decimalPlaces).ToString());
                 item.SubItems.Add(loan.InstallmentType.Name);

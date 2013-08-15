@@ -2679,6 +2679,7 @@ namespace OpenCBS.GUI.Clients
             this.richTextBoxStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.richTextBoxStatus.Name = "richTextBoxStatus";
             this.richTextBoxStatus.ReadOnly = true;
+
             // 
             // lblLoanStatus
             // 
