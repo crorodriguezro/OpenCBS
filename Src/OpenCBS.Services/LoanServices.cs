@@ -2512,14 +2512,15 @@ namespace OpenCBS.Services
                                 while (r.Read())
                                 {
                                     var loanId = r.GetInt("id");
-                                    var interest = r.GetDouble("interest");
-                                    //var expectedDate = r.GetDateTime("expected_date");
+                                    var interest = r.GetDecimal("interest");
+                                    var expectedDate = r.GetDateTime("expected_date");
 
                                     var interestEvent = new LoanInterestAccrualEvent
                                         {
                                             Date = date,
                                             User = user,
-                                            Interest = Convert.ToDecimal(interest),
+                                            Interest = interest,
+                                            InstallmentExpectedDate = expectedDate,
                                             ContracId = loanId
                                         };
                                     interestEventList.Add(interestEvent);
@@ -2568,7 +2569,6 @@ namespace OpenCBS.Services
             const string q = @"SELECT TOP 1 ce.event_date 
                                 FROM dbo.AccrualInterestLoanEvents AS ai
                                 LEFT JOIN dbo.ContractEvents AS ce ON ce.id=ai.id
-                                WHERE ce.contract_id=16
                                 ORDER BY ce.id DESC";
             using (var connection = _loanManager.GetConnection())
             using (var r = new OpenCbsCommand(q, connection).ExecuteReader())
