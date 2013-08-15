@@ -199,6 +199,7 @@ namespace OpenCBS.GUI.UserControl
 
         private void _InitializeGroup()
         {
+            return; // TODO: remove this line after performance benchmark is done
             List<Group> listGroups = ServicesProvider.GetInstance().GetClientServices().FindAllGroupsWhereSelectedPersonIsAMember(_tempPerson.Id);
             List<Village> listNSGs = ServicesProvider.GetInstance().GetClientServices().FindAllNSGsWhereSelectedPersonIsAMember(_tempPerson.Id);
 
