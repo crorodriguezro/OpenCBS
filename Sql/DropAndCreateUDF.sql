@@ -1,6 +1,6 @@
 --Use current script to generate link between SQL Server and Octopus file Octopus.Stringifier.dll
 -- instead of 0 put your database name
-exec sp_dbcmptlevel 'testmr', 90
+exec sp_dbcmptlevel '{0}', 90
 GO
 
 sp_configure 'clr_enable', 1
@@ -26,7 +26,7 @@ DROP ASSEMBLY [sqludf]
 GO
 
 -- instead of {1} put path to the file Octopus.Stringfiler.dll
-CREATE ASSEMBLY sqludf FROM 'D:\opencbs\Src\OpenCBS.GUI\bin\Debug\OpenCBS.Stringifier.dll'
+CREATE ASSEMBLY sqludf FROM '{1}'
 GO
 
 CREATE FUNCTION AmountToLetters(@number DECIMAL(18, 2), @lang NVARCHAR(5) = 'en-US') RETURNS NVARCHAR(255)
