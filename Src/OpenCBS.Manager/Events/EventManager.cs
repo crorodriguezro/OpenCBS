@@ -1404,6 +1404,10 @@ namespace OpenCBS.Manager.Events
                     e = new LoanCloseEvent { Id = r.GetInt("event_id") };
                 else if (r.GetString("code").Equals("MSCE"))
                     e = new ManualScheduleChangeEvent { Id = r.GetInt("event_id") };
+                else if (r.GetString("code").Equals("LPAE"))
+                    e = new LoanPenaltyAccrualEvent { Id = r.GetInt("event_id") };
+                else if (r.GetString("code").Equals("AILE"))
+                    e = new LoanInterestAccrualEvent { Id = r.GetInt("event_id") };
                 else
                     e = new RegEvent { Id = r.GetInt("event_id") };
             }
