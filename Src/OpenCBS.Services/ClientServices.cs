@@ -766,19 +766,14 @@ namespace OpenCBS.Services
             _clientManagement.UpdateClientStatus(pClient, sqlTransaction);
         }
 
-        public List<Group> FindAllGroupsWhereSelectedPersonIsAMember(int pPersonId)
-        {
-            return _clientManagement.SelectAllGroupsWhereSelectedPersonIsAMember(pPersonId);
-        }
-
         public int GetPersonGroupCount(int personId)
         {
             return _clientManagement.GetPersonGroupCount(personId);
         }
 
-        public List<Village> FindAllNSGsWhereSelectedPersonIsAMember(int pPersonId)
+        public IEnumerable<GroupMembership> GetGroupMembership(int personId)
         {
-            return _clientManagement.SelectAllNSGsWhereSelectedPersonIsAMember(pPersonId);
+            return _clientManagement.GetGroupMembership(personId);
         }
 
         public bool ClientCanBeAddToAGroup(IClient client, Group group)

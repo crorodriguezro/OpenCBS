@@ -22,9 +22,11 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using Dapper;
 using OpenCBS.CoreDomain;
 using System.Collections;
 using OpenCBS.CoreDomain.Clients;
+using OpenCBS.CoreDomain.Contracts;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.FundingLines;
 using OpenCBS.CoreDomain.SearchResult;
@@ -972,72 +974,13 @@ namespace OpenCBS.Manager.Clients
             }
         }
 
-        public List<Village> SelectAllNSGsWhereSelectedPersonIsAMember(int pPersonId)
+        public IEnumerable<GroupMembership> GetGroupMembership(int personId)
         {
-            List<Village> list = new List<Village>();
-            const string q = @"SELECT Villages.id 
-                                      FROM Villages, VillagesPersons 
-                                      WHERE Villages.id = VillagesPersons.village_id
-                                      AND VillagesPersons.person_id = @personId";
-
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+            var query = ReadQuery("ClientManager.GetGroupMembership.sql");
+            using (var connection = GetConnection())
             {
-                c.AddParam("@personId", pPersonId);
-                using (OpenCbsReader r = c.ExecuteReader())
-                {
-                    if (!r.Empty)
-                    {
-                        while (r.Read())
-                        {
-                            Village village = new Village();
-                            village.Id = r.GetInt("id");
-                            list.Add(village);
-                        }
-                    }
-                }
+                return connection.Query<GroupMembership>(query, new { PersonId = personId });
             }
-            for (int i = 0; i < list.Count; i++)
-            {
-                list[i] = SelectVillageById(list[i].Id);
-            }
-            return list;
-        }
-
-        public List<Group> SelectAllGroupsWhereSelectedPersonIsAMember(int pPersonId)
-        {
-            List<Group> list = new List<Group>();
-            const string q = @"SELECT Groups.id 
-                                    FROM Groups,PersonGroupBelonging 
-                                    WHERE Groups.id = PersonGroupBelonging.group_id 
-                                    AND PersonGroupBelonging.person_id = @personId
-                                    AND PersonGroupBelonging.left_date IS NULL";
-
-            using (SqlConnection conn = GetConnection())
-            {
-                using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-                {
-                    c.AddParam("@personId", pPersonId);
-                    using (OpenCbsReader r = c.ExecuteReader())
-                    {
-                        if (!r.Empty)
-                        {
-                            while (r.Read())
-                            {
-                                Group group = new Group();
-                                group.Id = r.GetInt("id");
-                                list.Add(group);
-                            }
-                        }
-                    }
-                }
-            }
-
-            for (int i = 0; i < list.Count; i++)
-            {
-                list[i] = SelectGroupById(list[i].Id);
-            }
-            return list;
         }
 
         private Group SelectGroup(int pGroupId)
