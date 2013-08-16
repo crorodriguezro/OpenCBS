@@ -308,6 +308,12 @@ namespace OpenCBS.Manager.Events
                     ProvisionEvents.id AS pe_id,
                     ProvisionEvents.amount AS pe_amount,
                     ProvisionEvents.overdue_days AS pe_overdue_days,
+                    
+                    LoanPenaltyAccrualEvents.id AS lpae_id,
+                    LoanPenaltyAccrualEvents.penalty AS lpae_penalty,
+
+                    AccrualInterestLoanEvents.id AS aile_id,
+                    AccrualInterestLoanEvents.interest AS aile_interest,
 
                     Users.id AS user_id, 
                     Users.deleted AS user_deleted, 
@@ -336,6 +342,8 @@ namespace OpenCBS.Manager.Events
                     LEFT OUTER JOIN TrancheEvents ON ContractEvents.id = TrancheEvents.id
                     LEFT OUTER JOIN OverdueEvents ON ContractEvents.id = OverdueEvents.id
                     LEFT OUTER JOIN ProvisionEvents ON ContractEvents.id = ProvisionEvents.id
+                    LEFT OUTER JOIN LoanPenaltyAccrualEvents ON ContractEvents.id = LoanPenaltyAccrualEvents.id
+                    LEFT OUTER JOIN AccrualInterestLoanEvents ON ContractEvents.id = AccrualInterestLoanEvents.id
                     WHERE (ContractEvents.contract_id = @id)
                     ORDER BY ContractEvents.id";
             using (SqlConnection conn = GetConnection())
@@ -1396,6 +1404,14 @@ namespace OpenCBS.Manager.Events
             {
                 e = GetSavingEvent(r);
             }
+            else if (r.GetNullInt("lpae_id").HasValue)
+            {
+                e = GetLoanPenaltyAccrualEvent(r);
+            }
+            else if (r.GetNullInt("aile_id").HasValue)
+            {
+                e = GetLoanInterestAccrualEvent(r);
+            }
             else
             {
                 if (r.GetString("code").Equals("LOVE"))
@@ -1404,10 +1420,6 @@ namespace OpenCBS.Manager.Events
                     e = new LoanCloseEvent { Id = r.GetInt("event_id") };
                 else if (r.GetString("code").Equals("MSCE"))
                     e = new ManualScheduleChangeEvent { Id = r.GetInt("event_id") };
-                else if (r.GetString("code").Equals("LPAE"))
-                    e = new LoanPenaltyAccrualEvent { Id = r.GetInt("event_id") };
-                else if (r.GetString("code").Equals("AILE"))
-                    e = new LoanInterestAccrualEvent { Id = r.GetInt("event_id") };
                 else
                     e = new RegEvent { Id = r.GetInt("event_id") };
             }
@@ -1589,6 +1601,24 @@ namespace OpenCBS.Manager.Events
                        };
         }
 
+        private static LoanPenaltyAccrualEvent GetLoanPenaltyAccrualEvent(OpenCbsReader r)
+        {
+            return new LoanPenaltyAccrualEvent
+                {
+                    Id = r.GetInt("lpae_id"),
+                    Penalty = r.GetMoney("lpae_penalty"),
+                };
+        }
+
+        private static LoanInterestAccrualEvent GetLoanInterestAccrualEvent(OpenCbsReader r)
+        {
+            return new LoanInterestAccrualEvent
+                {
+                    Id = r.GetInt("aile_id"),
+                    Interest = r.GetMoney("aile_interest"),
+                };
+        }
+        
 	    private static OverdueEvent GetOverdueEvent(OpenCbsReader r)
         {
             return new OverdueEvent{
