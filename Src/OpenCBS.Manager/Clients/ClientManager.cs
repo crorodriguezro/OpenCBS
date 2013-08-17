@@ -1204,7 +1204,7 @@ namespace OpenCBS.Manager.Clients
                 
                 foreach (VillageMember member in members)
                 {
-                    member.Tiers = SelectPersonById(member.Tiers.Id);
+//                    member.Tiers = SelectPersonById(member.Tiers.Id);
                     village.AddMember(member);
                     if (IsLeaderInVillage(member.Tiers.Id))
                         village.Leader = member;
