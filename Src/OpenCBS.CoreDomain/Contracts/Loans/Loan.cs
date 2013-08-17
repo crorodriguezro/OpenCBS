@@ -1064,7 +1064,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
             return amount;
         }
 
-        public OCurrency GetOlb()
+        public OCurrency GetOlb() 
         {
             foreach (Installment installment in _installmentList)
             {
