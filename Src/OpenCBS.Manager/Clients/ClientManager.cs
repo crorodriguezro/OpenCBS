@@ -328,7 +328,12 @@ namespace OpenCBS.Manager.Clients
             }
         }
 
-        public Person SelectPersonById(int pPersonId)
+        public Person SelectPersonById(int personId)
+        {
+            return SelectPersonById(personId, true);
+        }
+
+        public Person SelectPersonById(int pPersonId, bool loadLoans)
         {
             Person person = null;
             int? districtId = null;
@@ -455,7 +460,7 @@ namespace OpenCBS.Manager.Clients
 
                 if (person != null)
                 {
-                    if (_projectManager != null)
+                    if (_projectManager != null && loadLoans)
                         person.AddProjects(_projectManager.SelectProjectsByClientId(person.Id));
                     if (_savingManager != null)
                         person.AddSavings(_savingManager.SelectSavings(person.Id));
@@ -1204,7 +1209,7 @@ namespace OpenCBS.Manager.Clients
                 
                 foreach (VillageMember member in members)
                 {
-//                    member.Tiers = SelectPersonById(member.Tiers.Id);
+                    member.Tiers = SelectPersonById(member.Tiers.Id, false);
                     village.AddMember(member);
                     if (IsLeaderInVillage(member.Tiers.Id))
                         village.Leader = member;
