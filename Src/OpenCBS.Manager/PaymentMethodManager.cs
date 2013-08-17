@@ -29,6 +29,8 @@ namespace OpenCBS.Manager
 {
     public class PaymentMethodManager:Manager
     {
+        private List<PaymentMethod> _cache;
+
         private readonly BranchManager _branchManager;
         private readonly AccountManager _accountManager;
 
@@ -46,6 +48,12 @@ namespace OpenCBS.Manager
         public PaymentMethodManager(string testDb, User user) : base(testDb)
         {
             
+        }
+
+        private void InitCache()
+        {
+            if (_cache != null) return;
+            _cache = SelectPaymentMethods();
         }
 
         public List<PaymentMethod> SelectPaymentMethods()
@@ -144,6 +152,8 @@ namespace OpenCBS.Manager
 
         public PaymentMethod SelectPaymentMethodById(int paymentMethodId)
         {
+            InitCache();
+            return _cache.Find(pm2 => pm2.Id == paymentMethodId);
             string q = @"SELECT pm.[id]
                                   ,[name]
                                   ,[description]

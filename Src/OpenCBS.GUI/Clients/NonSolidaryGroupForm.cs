@@ -390,8 +390,8 @@ namespace OpenCBS.GUI.Clients
 
             foreach (VillageMember member in _village.Members.OrderBy(i => i.Tiers.Name))
             {
-                member.ActiveLoans =
-                    ServicesProvider.GetInstance().GetContractServices().FindActiveContracts(member.Tiers.Id);
+//                member.ActiveLoans =
+//                    ServicesProvider.GetInstance().GetContractServices().FindActiveContracts(member.Tiers.Id);
                 Person person = (Person) member.Tiers;
                 ListViewItem item = new ListViewItem(person.Name) {Tag = member};
                 item.SubItems.Add(person.IdentificationData);
