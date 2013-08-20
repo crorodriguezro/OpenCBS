@@ -31,10 +31,10 @@ namespace OpenCBS.GUI.Configuration
 {
     public partial class FrmEconomicActivity : SweetBaseForm
     {
-        private TreeNode selectedNode;
+        private TreeNode _selectedNode;
         private EconomicActivity _economicActivity;
-        private string IsSame;
-        
+        private string _isSame;
+
         public FrmEconomicActivity()
         {
             InitializeComponent();
@@ -43,17 +43,17 @@ namespace OpenCBS.GUI.Configuration
 
         private void Initialization()
         {
-            TreeNode root = new TreeNode(GetString("doa.Text"));
+            var root = new TreeNode(GetString("doa.Text"));
             tvEconomicActivity.Nodes.Add(root);
 
             List<EconomicActivity> doaList = ServicesProvider.GetInstance().GetEconomicActivityServices().FindAllEconomicActivities();
             tvEconomicActivity.BeginUpdate();
             foreach (EconomicActivity domainOfApplication in doaList)
             {
-                TreeNode node = new TreeNode(domainOfApplication.Name) {Tag = domainOfApplication};
+                var node = new TreeNode(domainOfApplication.Name) { Tag = domainOfApplication };
                 root.Nodes.Add(node);
-                if(domainOfApplication.HasChildrens)
-                    _DisplayAllChildrensNodes(node,domainOfApplication);
+                if (domainOfApplication.HasChildrens)
+                    _DisplayAllChildrensNodes(node, domainOfApplication);
             }
             tvEconomicActivity.EndUpdate();
             root.Expand();
@@ -70,14 +70,14 @@ namespace OpenCBS.GUI.Configuration
             {
                 tvEconomicActivity.SelectedNode = tvEconomicActivity.Nodes[0];
                 tvEconomicActivity.Focus();
-            }            
+            }
         }
 
         private static void _DisplayAllChildrensNodes(TreeNode pNode, EconomicActivity pApplication)
         {
             foreach (EconomicActivity domainOfApplication in pApplication.Childrens)
             {
-                TreeNode node = new TreeNode(domainOfApplication.Name) {Tag = domainOfApplication};
+                var node = new TreeNode(domainOfApplication.Name) { Tag = domainOfApplication };
                 pNode.Nodes.Add(node);
                 if (domainOfApplication.HasChildrens)
                     _DisplayAllChildrensNodes(node, domainOfApplication);
@@ -97,7 +97,7 @@ namespace OpenCBS.GUI.Configuration
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            if (buttonEdit.Text.Equals(GetString("buttonSave"))) 
+            if (buttonEdit.Text.Equals(GetString("buttonSave")))
                 EditDomain();
             else
             {
@@ -108,8 +108,8 @@ namespace OpenCBS.GUI.Configuration
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            var selectedNode = tvEconomicActivity.SelectedNode;
-            if (selectedNode == null)
+            _selectedNode = tvEconomicActivity.SelectedNode;
+            if (_selectedNode == null)
             {
                 MessageBox.Show(GetString("messageBoxNoSelection.Text"), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -118,10 +118,10 @@ namespace OpenCBS.GUI.Configuration
             {
 
                 var economicActivityServices = ServicesProvider.GetInstance().GetEconomicActivityServices();
-                bool isEditable = economicActivityServices.NodeEditable(selectedNode.Tag);
+                bool isEditable = economicActivityServices.NodeEditable(_selectedNode.Tag);
                 if (!isEditable) return;
 
-                var economicActivity = (EconomicActivity)selectedNode.Tag;
+                var economicActivity = (EconomicActivity)_selectedNode.Tag;
                 var format = GetString("areYouSureMessage.Text");
                 var message = string.Format(format, economicActivity.Name);
                 if (MessageBox.Show(message, message, MessageBoxButtons.YesNo) ==
@@ -138,20 +138,20 @@ namespace OpenCBS.GUI.Configuration
 
         private void AddDomain()
         {
-            TreeNode selectedNode = tvEconomicActivity.SelectedNode;
+            _selectedNode = tvEconomicActivity.SelectedNode;
 
             //var doan = new FrmEconomicActivityName { DoaName = String.Empty, Text = "Economic activity" };
             //doan.ShowDialog();
             //if (doan.IsClosed) return;
 
             var doa = new EconomicActivity { Name = textBoxName.Text };
-            
+
             try
             {
                 EconomicActivity parent;
 
                 // add economic activity (in the root)
-                if (selectedNode.Tag == null)
+                if (_selectedNode.Tag == null)
                 {
                     parent = new EconomicActivity();
                     doa.Parent = parent;
@@ -159,20 +159,19 @@ namespace OpenCBS.GUI.Configuration
                 // add in the tree
                 else
                 {
-                    parent = (EconomicActivity)selectedNode.Tag;
+                    parent = (EconomicActivity)_selectedNode.Tag;
                     doa.Parent = parent;
                 }
                 doa.Id = ServicesProvider.GetInstance().GetEconomicActivityServices().AddEconomicActivity(doa);
-                TreeNode node = new TreeNode(doa.Name);
-                node.Tag = doa;
-                selectedNode.Nodes.Add(node);
+                var node = new TreeNode(doa.Name) { Tag = doa };
+                _selectedNode.Nodes.Add(node);
 
                 if (parent != null)
                 {
                     parent.Childrens.Add(doa);
-                    selectedNode.Tag = parent;
+                    _selectedNode.Tag = parent;
                 }
-                selectedNode.Expand();
+                _selectedNode.Expand();
             }
             catch (Exception up)
             {
@@ -190,14 +189,14 @@ namespace OpenCBS.GUI.Configuration
             {
                 if (buttonEdit.Text.Equals(GetString("buttonEdit")))
                 {
-                    selectedNode = tvEconomicActivity.SelectedNode;
-                    _economicActivity = (EconomicActivity)selectedNode.Tag;
+                    _selectedNode = tvEconomicActivity.SelectedNode;
+                    _economicActivity = (EconomicActivity)_selectedNode.Tag;
 
                     if (_economicActivity != null)
                     {
-                        _economicActivity.Parent = (EconomicActivity) selectedNode.Parent.Tag;
+                        _economicActivity.Parent = (EconomicActivity)_selectedNode.Parent.Tag;
                         textBoxName.Text = _economicActivity.Name;
-                        IsSame = textBoxName.Text;
+                        _isSame = textBoxName.Text;
                         buttonExit.Enabled = false;
                         buttonAdd.Enabled = false;
                         buttonDelete.Enabled = false;
@@ -208,19 +207,19 @@ namespace OpenCBS.GUI.Configuration
                 }
                 else
                 {
-                    if (ServicesProvider.GetInstance().GetEconomicActivityServices().NodeEditable(selectedNode.Tag))
+                    if (ServicesProvider.GetInstance().GetEconomicActivityServices().NodeEditable(_selectedNode.Tag))
                     {
-                        if (selectedNode.Level == 1) 
+                        if (_selectedNode.Level == 1)
                             _economicActivity.Parent = new EconomicActivity(); // no parent
 
-                        if (IsSame != textBoxName.Text)
-                        if (ServicesProvider.GetInstance().GetEconomicActivityServices().ChangeDomainOfApplicationName(_economicActivity, textBoxName.Text))
-                        {
-                            tvEconomicActivity.BeginUpdate();
-                            selectedNode.Tag = _economicActivity;
-                            selectedNode.Text = textBoxName.Text;
-                            tvEconomicActivity.EndUpdate();
-                        }
+                        if (_isSame != textBoxName.Text)
+                            if (ServicesProvider.GetInstance().GetEconomicActivityServices().ChangeDomainOfApplicationName(_economicActivity, textBoxName.Text))
+                            {
+                                tvEconomicActivity.BeginUpdate();
+                                _selectedNode.Tag = _economicActivity;
+                                _selectedNode.Text = textBoxName.Text;
+                                tvEconomicActivity.EndUpdate();
+                            }
                     }
 
                     buttonExit.Enabled = true;
@@ -247,11 +246,11 @@ namespace OpenCBS.GUI.Configuration
             _economicActivity = economicActivity;
             ServicesProvider.GetInstance().GetEconomicActivityServices().DeleteEconomicActivity(_economicActivity);
 
-            var parent = (EconomicActivity) selectedNode.Parent.Tag;
+            var parent = (EconomicActivity)_selectedNode.Parent.Tag;
             if (parent != null) parent.RemoveChildren(_economicActivity);
 
             tvEconomicActivity.BeginUpdate();
-            selectedNode.Remove();
+            _selectedNode.Remove();
             tvEconomicActivity.EndUpdate();
 
             SelectRootNode();
