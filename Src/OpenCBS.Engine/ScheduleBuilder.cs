@@ -27,11 +27,13 @@ namespace OpenCBS.Engine
             configuration.AdjustmentPolicy.Adjust(result, configuration);
 
             // CalculationPolicy interest during grace period
-            for (var i = 0; i < configuration.GracePeriod; i++)
+            if (configuration.ChargeInterestDuringGracePeriod)
             {
-                result[i].Interest = CalculateInterest(result[i], configuration);
+                for (var i = 0; i < configuration.GracePeriod; i++)
+                {
+                    result[i].Interest = CalculateInterest(result[i], configuration);
+                }
             }
-
             // Caluclate interest of the first installment if the maturity
             // is less than or greater than a period (week, month, etc.)
             var firstInstallment = result[0];

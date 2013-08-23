@@ -39,6 +39,7 @@ namespace OpenCBS.Engine.Test
                 NumberOfInstallments = 5,
                 StartDate = new DateTime(2013, 1, 1),
                 PreferredFirstInstallmentDate = new DateTime(2013, 2, 5),
+                ChargeInterestDuringGracePeriod = true,
                 PeriodPolicy = new MonthlyPeriodPolicy(),
                 YearPolicy = new ActualNumberOfDayYearPolicy(),
                 RoundingPolicy = new TwoDecimalRoundingPolicy(),

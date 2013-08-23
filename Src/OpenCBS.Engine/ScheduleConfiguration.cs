@@ -14,6 +14,8 @@ namespace OpenCBS.Engine
 
         public int GracePeriod { get; set; }
 
+        public bool ChargeInterestDuringGracePeriod { get; set; }
+
         public decimal Amount { get; set; }
 
         public IPeriodPolicy PeriodPolicy { get; set; }
@@ -29,6 +31,11 @@ namespace OpenCBS.Engine
         public decimal InterestRate { get; set; }
 
         public IDateShiftPolicy DateShiftPolicy { get; set; }
+
+        public ScheduleConfiguration()
+        {
+            ChargeInterestDuringGracePeriod = true;
+        }
 
         public object Clone()
         {

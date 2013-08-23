@@ -48,6 +48,7 @@
     <Compile Include="AdjustmentPolicy\BaseAdjustmentPolicy.cs" />
     <Compile Include="AdjustmentPolicy\FirstInstallmentAdjustmentPolicy.cs" />
     <Compile Include="AdjustmentPolicy\LastInstallmentAdjustmentPolicy.cs" />
+    <Compile Include="RescheduleAssembler.cs" />
     <Compile Include="DefaultScheduleConfigurationFactory.cs" />
     <Compile Include="DatePolicy\BackwardDateShiftPolicy.cs" />
     <Compile Include="DatePolicy\ForwardDateShiftPolicy.cs" />
