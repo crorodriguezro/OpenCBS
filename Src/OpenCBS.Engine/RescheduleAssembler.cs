@@ -48,13 +48,20 @@ namespace OpenCBS.Engine
                 select installment
             ).Sum(installment => installment.PaidInterest);
 
-            // 3. To calculate extra interest for used days. We check the date of rescheduling and OLB we have on it. 
-            //    We need it to calculate extra interest between last closed installment and date of rescheduling. 
 
+            // 3. To get total of first calculated interest. It will be interest between last closed installment and date of rescheduling 
+	        //    plus interest between date of rescheduling and first repayment date
+
+            //    To calculate extra interest for used days.
             var currentOlb = newSchedule.Last().Olb - newSchedule.Last().PaidPrincipal;
             var daysInYear = rescheduleConfiguration.YearPolicy.GetNumberOfDays(rescheduleConfiguration.StartDate);
-            var usedDays = (rescheduleConfiguration.StartDate - newSchedule.Last().RepaymentDate).Days;
+            var usedDays = (rescheduleConfiguration.StartDate - newSchedule.Last().EndDate).Days;
             var extraInterest = currentOlb * rescheduleConfiguration.InterestRate / 100 * usedDays / daysInYear;
+
+            // To calculate interest between date of rescheduling and first repayment date.
+            var daysTillRepayment =
+                (rescheduleConfiguration.PreferredFirstInstallmentDate - rescheduleConfiguration.StartDate).Days;
+            var firstInterest = currentOlb * rescheduleConfiguration.InterestRate / 100 * daysTillRepayment / daysInYear;
 
             // 4. We generate new schedule according to new parametrs.
             rescheduleConfiguration.Amount = currentOlb;
@@ -68,7 +75,7 @@ namespace OpenCBS.Engine
             }
 
             // Distribute the extra and overpaid interest
-            rescheduled.First().Interest += extraInterest;
+            rescheduled.First().Interest = rescheduleConfiguration.RoundingPolicy.Round(firstInterest + extraInterest);
             foreach (var installment in rescheduled)
             {
                 if (installment.Interest < overpaidInterest)
