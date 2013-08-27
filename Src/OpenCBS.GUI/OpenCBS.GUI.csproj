@@ -508,6 +508,12 @@
     <Compile Include="Contracts\ContractCollateralForm.Designer.cs">
       <DependentUpon>ContractCollateralForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contracts\ReschedulingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contracts\ReschedulingForm.Designer.cs">
+      <DependentUpon>ReschedulingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Contracts\EditContractSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1761,6 +1767,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contracts\ContractCollateralForm.pt.resx">
       <DependentUpon>ContractCollateralForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\ReschedulingForm.es-ES.resx">
+      <DependentUpon>ReschedulingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\ReschedulingForm.fr.resx">
+      <DependentUpon>ReschedulingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\ReschedulingForm.pt.resx">
+      <DependentUpon>ReschedulingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\ReschedulingForm.resx">
+      <DependentUpon>ReschedulingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\ReschedulingForm.ru-RU.resx">
+      <DependentUpon>ReschedulingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contracts\EditContractSchedule.pt.resx">
       <DependentUpon>EditContractSchedule.cs</DependentUpon>

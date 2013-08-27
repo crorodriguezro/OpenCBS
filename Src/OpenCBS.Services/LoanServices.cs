@@ -924,6 +924,35 @@ namespace OpenCBS.Services
             return fakeContract;
         }
 
+        public Loan SimulateRescheduling(Loan loan, ScheduleConfiguration rescheduleConfiguration)
+        {
+            var copyOfLoan = loan.Copy();
+            var scheduleConfiguration = _configurationFactory
+                .Init()
+                .WithLoan(copyOfLoan)
+                .Finish()
+                .GetConfiguration();
+            var schedule = Mapper.Map<IEnumerable<Installment>, IEnumerable<IInstallment>>(copyOfLoan.InstallmentList);
+            var scheduleBuilder = new ScheduleBuilder();
+            var rescheduleAssembler = new RescheduleAssembler();
+            var copyOfRescheduleConfiguration = (IScheduleConfiguration)rescheduleConfiguration.Clone();
+            copyOfRescheduleConfiguration.InterestRate *= (decimal)scheduleConfiguration.PeriodPolicy.GetNumberOfPeriodsInYear(
+                copyOfRescheduleConfiguration.StartDate,
+                scheduleConfiguration.YearPolicy);
+
+            schedule = rescheduleAssembler.AssembleRescheduling(
+                schedule,
+                scheduleConfiguration,
+                copyOfRescheduleConfiguration,
+                scheduleBuilder);
+
+            var newSchedule = Mapper.Map<IEnumerable<IInstallment>, List<Installment>>(schedule);
+
+            copyOfLoan.InstallmentList = newSchedule;
+            copyOfLoan.NbOfInstallments = newSchedule.Count();
+            return copyOfLoan;
+        }
+
         public Loan SimulateTranche(Loan loan, ITrancheConfiguration trancheConfiguration)
         {
             var copyOfLoan = loan.Copy();

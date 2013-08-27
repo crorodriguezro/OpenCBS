@@ -4702,15 +4702,27 @@ namespace OpenCBS.GUI.Clients
                 return;
             }
 
-            ContractReschedulingForm cRF = new ContractReschedulingForm(_credit, _client);
-            cRF.ShowDialog();
-            if (cRF.DialogResult != DialogResult.Cancel)
+            //ContractReschedulingForm cRF = new ContractReschedulingForm(_credit, _client);
+            //cRF.ShowDialog();
+            //if (cRF.DialogResult != DialogResult.Cancel)
+            //{
+            //    _credit = cRF.Contract;
+            //    DisplayLoanEvents(_credit);
+            //    DisplayListViewLoanRepayments(_credit);
+            //    InitializeContractStatus(_credit);
+            //    ((LotrasmicMainWindowForm)MdiParent).ReloadAlertsSync();
+            //}
+            var reschedulingForm = new ReschedulingForm(_credit, _client);
+            reschedulingForm.ShowDialog();
+
+            if (reschedulingForm.DialogResult != DialogResult.Cancel)
             {
-                _credit = cRF.Contract;
-                DisplayLoanEvents(_credit);
-                DisplayListViewLoanRepayments(_credit);
+                _credit = reschedulingForm.Contract;
                 InitializeContractStatus(_credit);
-                ((LotrasmicMainWindowForm)MdiParent).ReloadAlertsSync();
+                InitializeTabPageLoansDetails(_credit);
+                DisplayListViewLoanRepayments(_credit);
+                DisplayLoanEvents(_credit);
+                DisplayContracts(_project.Credits);
             }
         }
 
