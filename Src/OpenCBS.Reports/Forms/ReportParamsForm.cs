@@ -60,9 +60,8 @@ namespace OpenCBS.Reports.Forms
                         Text = p.Label,
                         TextAlign = ContentAlignment.MiddleLeft,
                         Name = p.Name + "_label",
-                        ForeColor = Color.FromArgb(0, 88, 56),
                         BackColor = Color.Transparent,
-                        Font = new Font("Arial", 9F, FontStyle.Bold)
+                        Font = new Font("Arial", 9F)
                     };
                     tlpParams.Controls.Add(l, 0, rowCount);
                 }
