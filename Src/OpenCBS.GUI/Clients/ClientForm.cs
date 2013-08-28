@@ -1841,7 +1841,6 @@ namespace OpenCBS.GUI.Clients
             DisplayListViewLoanRepayments(pCredit);
             DisplayLoanEvents(pCredit);
             buttonLoanReschedule.Enabled = !pCredit.Closed;
-            IsRescheduleAllowed(pCredit);
             buttonManualSchedule.Enabled = !pCredit.Closed;
             try
             {
@@ -3786,7 +3785,6 @@ namespace OpenCBS.GUI.Clients
                 lvLoansRepayments.Items.Add(listViewItem);
             }
 
-            IsRescheduleAllowed(credit);
             richTextBoxStatus.Clear();
 
             String statusText = MultiLanguageStrings.GetString(Ressource.ClientForm, "Status.Text") + "\n" +
@@ -3795,17 +3793,6 @@ namespace OpenCBS.GUI.Clients
                                + _credit.CalculateActualOlb().GetFormatedValue(credit.UseCents) + "\n" +
                                MultiLanguageStrings.GetString(Ressource.ClientForm, "PercentsDue.Text") + "   " + interestsDue.GetFormatedValue(credit.UseCents);
             richTextBoxStatus.Text = statusText;
-        }
-
-        private void IsRescheduleAllowed(Loan credit)
-        {
-            buttonLoanReschedule.Enabled = true;
-            foreach (Installment installment in credit.InstallmentList)
-            {
-                if (!installment.IsPartiallyRepaid) continue;
-                buttonLoanReschedule.Enabled = false;
-                break;
-            }
         }
 
         private Exception SaveContract()
@@ -4676,53 +4663,39 @@ namespace OpenCBS.GUI.Clients
 
         private void buttonLoanReschedule_Click(object sender, EventArgs e)
         {
-            if (_credit.Closed || _credit.ContractStatus.Equals(OContractStatus.Abandoned) ||
-                _credit.ContractStatus.Equals(OContractStatus.Refused))
+            try
             {
-                buttonLoanReschedule.Enabled = false;
-                MessageBox.Show("Cannot reschedule! Loan is closed, abandoned or refused.");
-            }
-            else
-            {
-                //if (!_credit.Rescheduled)
-                Reschedule();
-                /*else
+                if (_credit.Closed || _credit.ContractStatus.Equals(OContractStatus.Abandoned) ||
+                    _credit.ContractStatus.Equals(OContractStatus.Refused))
                 {
                     buttonLoanReschedule.Enabled = false;
-                    MessageBox.Show("Already rescheduled!");
-                }*/
+                    MessageBox.Show("Cannot reschedule! Loan is closed, abandoned or refused.");
+                }
+                else
+                {
+                    if (_credit.FundingLine == null && comboBoxLoanFundingLine.Tag == null)
+                    {
+                        MessageBox.Show(MultiLanguageStrings.GetString(Ressource.ClientForm, "ContractIsReadOnly.Text"));
+                        return;
+                    }
+
+                    var reschedulingForm = new ReschedulingForm(_credit, _client);
+                    reschedulingForm.ShowDialog();
+
+                    if (reschedulingForm.DialogResult != DialogResult.Cancel)
+                    {
+                        _credit = reschedulingForm.Contract;
+                        InitializeContractStatus(_credit);
+                        InitializeTabPageLoansDetails(_credit);
+                        DisplayListViewLoanRepayments(_credit);
+                        DisplayLoanEvents(_credit);
+                        DisplayContracts(_project.Credits);
+                    }
+                }
             }
-        }
-
-        private void Reschedule()
-        {
-            if (_credit.FundingLine == null && comboBoxLoanFundingLine.Tag == null)
+            catch (Exception ex)
             {
-                MessageBox.Show(MultiLanguageStrings.GetString(Ressource.ClientForm, "ContractIsReadOnly.Text"));
-                return;
-            }
-
-            //ContractReschedulingForm cRF = new ContractReschedulingForm(_credit, _client);
-            //cRF.ShowDialog();
-            //if (cRF.DialogResult != DialogResult.Cancel)
-            //{
-            //    _credit = cRF.Contract;
-            //    DisplayLoanEvents(_credit);
-            //    DisplayListViewLoanRepayments(_credit);
-            //    InitializeContractStatus(_credit);
-            //    ((LotrasmicMainWindowForm)MdiParent).ReloadAlertsSync();
-            //}
-            var reschedulingForm = new ReschedulingForm(_credit, _client);
-            reschedulingForm.ShowDialog();
-
-            if (reschedulingForm.DialogResult != DialogResult.Cancel)
-            {
-                _credit = reschedulingForm.Contract;
-                InitializeContractStatus(_credit);
-                InitializeTabPageLoansDetails(_credit);
-                DisplayListViewLoanRepayments(_credit);
-                DisplayLoanEvents(_credit);
-                DisplayContracts(_project.Credits);
+                new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
             }
         }
 

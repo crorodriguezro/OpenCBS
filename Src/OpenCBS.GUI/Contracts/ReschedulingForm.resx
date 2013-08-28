@@ -244,7 +244,7 @@
     <value>8</value>
   </data>
   <data name="startDateTimePicker.Location" type="System.Drawing.Point, System.Drawing">
-    <value>801, 37</value>
+    <value>801, 34</value>
   </data>
   <data name="startDateTimePicker.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -508,7 +508,7 @@
     <value>2</value>
   </data>
   <data name="firstRepaymentDateTimePicker.Location" type="System.Drawing.Point, System.Drawing">
-    <value>801, 67</value>
+    <value>801, 66</value>
   </data>
   <data name="firstRepaymentDateTimePicker.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -541,7 +541,7 @@
     <value>NoControl</value>
   </data>
   <data name="firstRepaymentOnLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>642, 69</value>
+    <value>642, 71</value>
   </data>
   <data name="firstRepaymentOnLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 16</value>

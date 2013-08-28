@@ -69,7 +69,9 @@ namespace OpenCBS.Engine
             // To calculate interest between date of rescheduling and first repayment date.
             var daysTillRepayment =
                 (rescheduleConfiguration.PreferredFirstInstallmentDate - rescheduleConfiguration.StartDate).Days;
-            var firstInterest = currentOlb * rescheduleConfiguration.InterestRate / 100 * daysTillRepayment / daysInYear;
+            decimal firstInterest = 0;
+            if (rescheduleConfiguration.GracePeriod == 0 || rescheduleConfiguration.ChargeInterestDuringGracePeriod)
+                firstInterest = currentOlb*rescheduleConfiguration.InterestRate/100*daysTillRepayment/daysInYear;
 
             // 4. We generate new schedule according to new parametrs.
             rescheduleConfiguration.Amount = currentOlb;
@@ -89,7 +91,12 @@ namespace OpenCBS.Engine
             }
 
             // Distribute the extra and overpaid interest
-            rescheduled.First().Interest = rescheduleConfiguration.RoundingPolicy.Round(firstInterest + extraInterest);
+            if (rescheduleConfiguration.GracePeriod > 0 && !rescheduleConfiguration.ChargeInterestDuringGracePeriod)
+                rescheduled[rescheduleConfiguration.GracePeriod].Interest +=
+                    rescheduleConfiguration.RoundingPolicy.Round(extraInterest);
+            else
+                rescheduled.First().Interest =
+                    rescheduleConfiguration.RoundingPolicy.Round(firstInterest + extraInterest);
             foreach (var installment in rescheduled)
             {
                 if (installment.Interest < overpaidInterest)

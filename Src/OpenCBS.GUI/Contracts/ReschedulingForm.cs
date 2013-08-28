@@ -24,7 +24,6 @@ using System.Windows.Forms;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.Engine;
-using OpenCBS.Engine.Interfaces;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.GUI.UserControl;
 using OpenCBS.Services;
@@ -41,14 +40,6 @@ namespace OpenCBS.GUI.Contracts
             InitializeComponent();
             _client = pClient;
             _contract = contract;
-            contractCodeLabel.Text = contract.Code;
-            interestRateNumericUpDown.Value = contract.InterestRate*100;
-            if (contract.Product.InterestRate.HasValue) { /* checkBoxIRChanged.Enabled = false; */ }
-            else
-            {
-                interestRateNumericUpDown.Minimum = Convert.ToDecimal(contract.Product.InterestRateMin * 100);
-                interestRateNumericUpDown.Maximum = Convert.ToDecimal(contract.Product.InterestRateMax * 100);
-            }
             InitializeRescheduleComponents();
             Setup();
         }
@@ -56,17 +47,16 @@ namespace OpenCBS.GUI.Contracts
         public void InitializeRescheduleComponents()
         {
             startDateTimePicker.Value = DateTime.Today;
-
-            if (Contract.Product.NbOfInstallments != null)
-            {
-                installmentsNumericUpDown.Maximum = (decimal)Contract.Product.NbOfInstallments;
-                installmentsNumericUpDown.Minimum = (decimal)Contract.Product.NbOfInstallments;
-            }
-            else
-            {
-                installmentsNumericUpDown.Maximum = (decimal)Contract.Product.NbOfInstallmentsMax;
-                installmentsNumericUpDown.Minimum = (decimal)Contract.Product.NbOfInstallmentsMin;
-            }
+            firstRepaymentDateTimePicker.Value = startDateTimePicker
+                    .Value
+                    .Date
+                    .AddMonths(_contract.InstallmentType.NbOfMonths)
+                    .AddDays(_contract.InstallmentType.NbOfDays);
+            contractCodeLabel.Text = Contract.Code;
+            interestRateNumericUpDown.Value = Contract.InterestRate*100;
+            interestRateNumericUpDown.Minimum = 0;
+            installmentsNumericUpDown.Minimum = 1;
+            installmentsNumericUpDown.Value = 1;
         }
 
         private void LoadForm()
@@ -145,10 +135,10 @@ namespace OpenCBS.GUI.Contracts
             try
             {
                 _contract.Rescheduled = true;
-                //_contract = ServicesProvider
-                //    .GetInstance()
-                //    .GetContractServices()
-                //    .AddTranche(_contract, _client, GetRescheduleConfiguration());
+                _contract = ServicesProvider
+                    .GetInstance()
+                    .GetContractServices()
+                    .Reschedule(_contract, _client, GetRescheduleConfiguration());
                 DialogResult = DialogResult.OK;
                 Close();
             }

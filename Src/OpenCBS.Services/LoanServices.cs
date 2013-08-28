@@ -1250,52 +1250,56 @@ namespace OpenCBS.Services
                 throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.TrancheAmount);
         }
 
-        public Loan Reschedule(Loan pContract, DateTime pDate, int pNbOfMaturity, int dateOffset,
-            bool pAccruedInterestDuringTheGracePeriod, decimal pNewInterestRate, int gracePeriod, bool chargeInterestDuringGracePeriod)
+        public Loan Reschedule(Loan loan, IClient client, ScheduleConfiguration rescheduleConfiguration)
         {
-            using (SqlConnection conn = _loanManager.GetConnection())
-            using (SqlTransaction sqlTransac = conn.BeginTransaction())
+            using (var connection = _loanManager.GetConnection())
+            using (var transaction = connection.BeginTransaction())
             {
                 try
                 {
-                    Loan copyOfLoan = pContract.Copy();
+                    var copyOfLoan = SimulateRescheduling(loan, rescheduleConfiguration);
+                    var rescheduleLoanEvent = new RescheduleLoanEvent
+                    {
+                        Amount = copyOfLoan.CalculateActualOlb(),
+                        Date = rescheduleConfiguration.StartDate,
+                        ClientType = client.Type,
+                        Interest = rescheduleConfiguration.InterestRate,
+                        BadLoan = loan.BadLoan,
+                        NbOfMaturity = rescheduleConfiguration.NumberOfInstallments,
+                        DateOffset =
+                            (rescheduleConfiguration.PreferredFirstInstallmentDate -
+                                rescheduleConfiguration.StartDate).Days,
+                        GracePeriod = rescheduleConfiguration.GracePeriod,
+                        ChargeInterestDuringGracePeriod = rescheduleConfiguration.ChargeInterestDuringGracePeriod,
+                        ChargeInterestDuringShift = true,
+                        InstallmentNumber =
+                            copyOfLoan.GetLastFullyRepaidInstallment() == null
+                                ? 1
+                                : copyOfLoan.GetLastFullyRepaidInstallment().Number + 1,
+                        User = _user,
+                    };
 
-                    //create the rescheduling loan event
-                    ReschedulingOptions ro = new ReschedulingOptions
-                                                 {
-                                                     ReschedulingDate = pDate,
-                                                     ChargeInterestDuringShift = pAccruedInterestDuringTheGracePeriod,
-                                                     InterestRate = pNewInterestRate,
-                                                     RepaymentDateOffset = dateOffset,
-                                                     NewInstallments = pNbOfMaturity,
-                                                     GracePeriod = gracePeriod,
-                                                     ChargeInterestDuringGracePeriod = chargeInterestDuringGracePeriod
-                                                 };
-                    RescheduleLoanEvent rescheduleLoanEvent = pContract.Reschedule(ro);
-                    rescheduleLoanEvent.User = _user;
+                    //insert into table TrancheEvent
+                    _ePs.FireEvent(rescheduleLoanEvent, copyOfLoan, transaction);
 
-                    //insert into table ReschedulingOfALoanEvents
-                    _ePs.FireEvent(rescheduleLoanEvent, pContract, sqlTransac);
-                    OverdueEvent overdueEvent = pContract.AddRecheduleTransformationEvent(pDate);
-                    if (overdueEvent != null) _ePs.FireEvent(overdueEvent, pContract, sqlTransac);
-
-                    ArchiveInstallments(copyOfLoan, rescheduleLoanEvent, sqlTransac);
+                    ArchiveInstallments(loan, rescheduleLoanEvent, transaction);
 
                     //delete all the old installments of the table Installments
-                    _instalmentManager.DeleteInstallments(pContract.Id, sqlTransac);
+                    _instalmentManager.DeleteInstallments(loan.Id, transaction);
 
                     //insert all the new installments in the table Installments
-                    _instalmentManager.AddInstallments(pContract.InstallmentList, pContract.Id, sqlTransac);
+                    _instalmentManager.AddInstallments(copyOfLoan.InstallmentList, copyOfLoan.Id, transaction);
 
-                    _loanManager.UpdateLoanToRescheduled(pNewInterestRate, pNbOfMaturity, pContract, sqlTransac);
+                    copyOfLoan.Events.Add(rescheduleLoanEvent);
+                    transaction.Commit();
 
-                    sqlTransac.Commit();
-                    return pContract;
+                    SetClientStatus(copyOfLoan, client);
+                    return copyOfLoan;
                 }
-                catch (Exception ex)
+                catch
                 {
-                    sqlTransac.Rollback();
-                    throw ex;
+                    transaction.Rollback();
+                    throw;
                 }
             }
         }
