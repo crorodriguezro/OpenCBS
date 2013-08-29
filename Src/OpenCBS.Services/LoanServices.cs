@@ -32,7 +32,6 @@ using OpenCBS.CoreDomain.Alerts;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts;
 using OpenCBS.CoreDomain.Contracts.Loans;
-using OpenCBS.CoreDomain.Contracts.Rescheduling;
 using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.CoreDomain.EconomicActivities;
 using OpenCBS.CoreDomain.Events;
@@ -907,24 +906,7 @@ namespace OpenCBS.Services
             }
         }
 
-        public Loan FakeReschedule(Loan contract, DateTime date, int nbOfMaturity, int dateOffset, bool pAccruedInterestDuringTheGracePeriod, decimal pNewInterestRate, int gracePeriod, bool chargeInterestDuringGracePeriod)
-        {
-            Loan fakeContract = contract.Copy();
-            ReschedulingOptions ro = new ReschedulingOptions
-                                         {
-                                             ChargeInterestDuringShift = pAccruedInterestDuringTheGracePeriod,
-                                             NewInstallments = nbOfMaturity,
-                                             InterestRate = pNewInterestRate,
-                                             RepaymentDateOffset = dateOffset,
-                                             ReschedulingDate = date,
-                                             GracePeriod = gracePeriod,
-                                             ChargeInterestDuringGracePeriod = chargeInterestDuringGracePeriod
-                                         };
-            fakeContract.Reschedule(ro);
-            return fakeContract;
-        }
-
-        public Loan SimulateRescheduling(Loan loan, ScheduleConfiguration rescheduleConfiguration)
+       public Loan SimulateRescheduling(Loan loan, ScheduleConfiguration rescheduleConfiguration)
         {
             var copyOfLoan = loan.Copy();
             var scheduleConfiguration = _configurationFactory
@@ -1266,16 +1248,13 @@ namespace OpenCBS.Services
                         Interest = rescheduleConfiguration.InterestRate,
                         BadLoan = loan.BadLoan,
                         NbOfMaturity = rescheduleConfiguration.NumberOfInstallments,
-                        DateOffset =
-                            (rescheduleConfiguration.PreferredFirstInstallmentDate -
-                                rescheduleConfiguration.StartDate).Days,
                         GracePeriod = rescheduleConfiguration.GracePeriod,
                         ChargeInterestDuringGracePeriod = rescheduleConfiguration.ChargeInterestDuringGracePeriod,
-                        ChargeInterestDuringShift = true,
                         InstallmentNumber =
                             copyOfLoan.GetLastFullyRepaidInstallment() == null
                                 ? 1
                                 : copyOfLoan.GetLastFullyRepaidInstallment().Number + 1,
+                        PreferredFirstInstallmentDate =rescheduleConfiguration.PreferredFirstInstallmentDate,
                         User = _user,
                     };
 

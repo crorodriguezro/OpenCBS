@@ -30,7 +30,6 @@ using OpenCBS.CoreDomain.Contracts.Loans.CalculateInstallments;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment;
 using OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateInstallments;
-using OpenCBS.CoreDomain.Contracts.Rescheduling;
 using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.CoreDomain.EconomicActivities;
 using OpenCBS.CoreDomain.Events;
@@ -2430,19 +2429,6 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                     if (!i.IsRepaid) yield return i;
                 }
             }
-        }
-
-        public RescheduleLoanEvent Reschedule(ReschedulingOptions ro)
-        {
-            if (Closed) 
-                throw new ReschedulingContractClosedException();
-
-            RescheduleLoan reschedule = new RescheduleLoan();
-
-            RescheduleLoanEvent rSe = reschedule.Reschedule(ro, this, _nwdS, _generalSettings);
-            _nbOfInstallments = _installmentList.Count;
-            Events.Add(rSe);
-            return rSe;
         }
 
         public Installment LastInstallment
