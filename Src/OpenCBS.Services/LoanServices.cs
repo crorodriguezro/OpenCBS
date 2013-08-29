@@ -1187,19 +1187,19 @@ namespace OpenCBS.Services
 
         private static void CheckTranche(DateTime date, Loan loan, decimal amount)
         {
-            if (loan.GetLastFullyRepaidInstallment() != null)
+            var repayment = (from e in loan.Events.GetEvents()
+                             where
+                                 e is RepaymentEvent || e is RepaymentOverWriteOffEvent ||
+                                 e is RescheduledLoanRepaymentEvent
+                             orderby e.Date
+                             select e).LastOrDefault();
+            if (repayment != null && date.Date < repayment.Date.Date)
             {
-                if (date.Date < loan.GetLastFullyRepaidInstallment().PaidDate.Value.Date)
-                {
-                    throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.TrancheDate);
-                }
+                throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.TrancheDate);
             }
-            else
+            if (loan.StartDate > date.Date)
             {
-                if (loan.StartDate > date.Date)
-                {
-                    throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.TrancheDate);
-                }
+                throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.TrancheDate);
             }
 
             if (loan.AmountUnderLoc.HasValue)
