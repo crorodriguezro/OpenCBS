@@ -14,7 +14,8 @@ EXEC sp_executesql @sql
 ALTER TABLE dbo.ReschedulingOfALoanEvents DROP COLUMN charge_interest_during_shift
 GO
 
-ALTER TABLE dbo.ReschedulingOfALoanEvents ADD preferred_first_installment_date DATE NOT NULL DEFAULT(GETDATE())
+ALTER TABLE dbo.ReschedulingOfALoanEvents ADD preferred_first_installment_date DATETIME NOT NULL DEFAULT(GETDATE())
+GO
 
 UPDATE dbo.ReschedulingOfALoanEvents
 SET preferred_first_installment_date=
