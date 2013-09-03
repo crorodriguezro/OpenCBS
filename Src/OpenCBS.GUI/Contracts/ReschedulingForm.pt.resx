@@ -117,158 +117,50 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="columnHeader1.Text" xml:space="preserve">
-    <value>№</value>
-  </data>
-  <data name="columnHeader2.Text" xml:space="preserve">
-    <value>Дата</value>
-  </data>
-  <data name="columnHeader3.Text" xml:space="preserve">
-    <value>Погашение процента</value>
-  </data>
-  <data name="columnHeader4.Text" xml:space="preserve">
-    <value>Погашение основного долга</value>
-  </data>
-  <data name="columnHeader5.Text" xml:space="preserve">
-    <value>Всего взносов</value>
-  </data>
-  <data name="columnHeader6.Text" xml:space="preserve">
-    <value>Портфель займов</value>
-  </data>
-  <data name="columnHeader7.Text" xml:space="preserve">
-    <value>Оплаченный процент</value>
-  </data>
-  <data name="columnHeader8.Text" xml:space="preserve">
-    <value>Выплаченная основная сумма</value>
-  </data>
-  <data name="columnHeader9.Text" xml:space="preserve">
-    <value>Дата выплаты</value>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Cancelar</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="cbApplynewInterestforOLB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>679, 18</value>
+  <data name="applyToOlbCheckbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
   </data>
-  <data name="cbApplynewInterestforOLB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 19</value>
+  <data name="applyToOlbCheckbox.Text" xml:space="preserve">
+    <value>Aplicar ao SEP:</value>
   </data>
-  <data name="cbApplynewInterestforOLB.Text" xml:space="preserve">
-    <value>Применить новый процент для КП</value>
+  <data name="interestRateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 16</value>
   </data>
-  <data name="cbChargeInterestDuringGracePeriod.Location" type="System.Drawing.Point, System.Drawing">
-    <value>679, 46</value>
+  <data name="interestRateLabel.Text" xml:space="preserve">
+    <value>Taxa de juros:</value>
   </data>
-  <data name="cbChargeInterestDuringGracePeriod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 19</value>
+  <data name="startDateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 16</value>
   </data>
-  <data name="cbChargeInterestDuringGracePeriod.Text" xml:space="preserve">
-    <value>Процент на льготный период</value>
+  <data name="startDateLabel.Text" xml:space="preserve">
+    <value>Data de início:</value>
   </data>
-  <data name="nudGracePeriod.Location" type="System.Drawing.Point, System.Drawing">
-    <value>621, 46</value>
+  <data name="newInstallmentsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 16</value>
   </data>
-  <data name="lblGracePeriod.Location" type="System.Drawing.Point, System.Drawing">
-    <value>507, 47</value>
+  <data name="newInstallmentsLabel.Text" xml:space="preserve">
+    <value>Número de prestação:</value>
   </data>
-  <data name="lblGracePeriod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 15</value>
+  <data name="firstRepaymentOnLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 16</value>
   </data>
-  <data name="lblGracePeriod.Text" xml:space="preserve">
-    <value>Льготный период:</value>
+  <data name="firstRepaymentOnLabel.Text" xml:space="preserve">
+    <value>Primeiro reembolso:</value>
   </data>
-  <data name="lbNewInterest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>507, 19</value>
+  <data name="gracePeriodLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 16</value>
   </data>
-  <data name="lbNewInterest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 15</value>
+  <data name="gracePeriodLabel.Text" xml:space="preserve">
+    <value>Período de carencia:</value>
   </data>
-  <data name="lbNewInterest.Text" xml:space="preserve">
-    <value>Новый процент:</value>
-  </data>
-  <data name="dateTimePickerStartDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>616, 74</value>
-  </data>
-  <data name="labelStartDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>507, 76</value>
-  </data>
-  <data name="labelStartDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 15</value>
-  </data>
-  <data name="labelStartDate.Text" xml:space="preserve">
-    <value>Дата начала:</value>
-  </data>
-  <data name="labelShiftDateDays.Location" type="System.Drawing.Point, System.Drawing">
-    <value>201, 75</value>
-  </data>
-  <data name="labelShiftDateDays.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 15</value>
-  </data>
-  <data name="labelShiftDateDays.Text" xml:space="preserve">
-    <value>дни</value>
-  </data>
-  <data name="tbDateOffset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>141, 73</value>
-  </data>
-  <data name="labelShiftDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 15</value>
-  </data>
-  <data name="labelShiftDate.Text" xml:space="preserve">
-    <value>Дата смещения:</value>
-  </data>
-  <data name="labelMaturityUnity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>201, 47</value>
-  </data>
-  <data name="labelMaturityUnity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 15</value>
-  </data>
-  <data name="labelMaturityUnity.Text" xml:space="preserve">
-    <value>колчисество</value>
-  </data>
-  <data name="numericUpDownNewIR.Location" type="System.Drawing.Point, System.Drawing">
-    <value>621, 18</value>
-  </data>
-  <data name="checkBoxAccrue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 19</value>
-  </data>
-  <data name="checkBoxAccrue.Text" xml:space="preserve">
-    <value>Начислять проценты на смещение</value>
-  </data>
-  <data name="numericUpDownMaturity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>141, 45</value>
-  </data>
-  <data name="labelMaturity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 15</value>
-  </data>
-  <data name="labelMaturity.Text" xml:space="preserve">
-    <value>Оставшийся срок:</value>
-  </data>
-  <data name="labelContractCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 19</value>
-  </data>
-  <data name="labelContractCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 15</value>
-  </data>
-  <data name="labelContractCode.Text" xml:space="preserve">
-    <value>Код контракта</value>
-  </data>
-  <data name="labelTitleRescheduleContract.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 15</value>
-  </data>
-  <data name="labelTitleRescheduleContract.Text" xml:space="preserve">
-    <value>Код контракта:</value>
-  </data>
-  <data name="groupBoxParameters.Text" xml:space="preserve">
-    <value>Параметры:</value>
-  </data>
-  <data name="buttonCancel.Text" xml:space="preserve">
-    <value>Отмена</value>
-  </data>
-  <data name="buttonConfirm.Text" xml:space="preserve">
-    <value>Ок</value>
-  </data>
-  <data name="groupBoxConfirm.Text" xml:space="preserve">
-    <value>Подтвердить</value>
+  <data name="amountLabel.Text" xml:space="preserve">
+    <value>Quantia:</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Пересмотр графика погашений</value>
+    <value>Adicionar prestação</value>
   </data>
 </root>

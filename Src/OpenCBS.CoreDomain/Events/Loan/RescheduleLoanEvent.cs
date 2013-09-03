@@ -40,12 +40,11 @@ namespace OpenCBS.CoreDomain.Events
 	    public OCurrency Amount { get; set; }
         public OCurrency Interest { get; set; }
 	    public int NbOfMaturity { get; set; }
-        public int DateOffset { get; set; }
 	    public bool BadLoan { get; set; }
         public override string Description { get; set; }
         public int GracePeriod { get; set; }
-        public bool ChargeInterestDuringShift { get; set; }
         public bool ChargeInterestDuringGracePeriod { get; set; }
+        public DateTime PreferredFirstInstallmentDate { get; set; }
 
 	    public override Event Copy()
 		{

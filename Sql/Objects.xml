@@ -4145,10 +4145,9 @@ RETURNS TABLE AS RETURN
 		, re.amount
 		, re.interest
 		, re.nb_of_maturity
-		, re.date_offset
 		, re.grace_period
-		, re.charge_interest_during_shift
 		, re.charge_interest_during_grace_period
+    , re.preferred_first_installment_date
 		, ce.event_date reschedule_date
 	FROM dbo.ReschedulingOfALoanEvents re
 	LEFT JOIN dbo.ContractEvents ce ON re.id = ce.id
@@ -4176,10 +4175,9 @@ RETURNS TABLE AS RETURN
 		, rl.amount * dbo.GetXR(p.currency_id, @display_in, rl.reschedule_date) amount
 		, rl.interest * dbo.GetXR(p.currency_id, @display_in, rl.reschedule_date) interest
 		, rl.nb_of_maturity
-		, rl.date_offset
 		, rl.grace_period
-		, rl.charge_interest_during_shift
 		, rl.charge_interest_during_grace_period
+    , rl.preferred_first_installment_date
 		, rl.reschedule_date
 	FROM dbo.RescheduledLoans(@from, @to, @branch_id) rl
 	LEFT JOIN dbo.Credit cr ON cr.id = rl.contract_id

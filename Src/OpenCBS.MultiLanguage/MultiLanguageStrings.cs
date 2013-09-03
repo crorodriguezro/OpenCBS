@@ -39,6 +39,7 @@ namespace OpenCBS.MultiLanguageRessources
         ChartOfAccountsForm,
         Common,
         ContractReschedulingForm,
+        ReschedulingForm,
         CreditContractDisbursmentForm,
         CreditContractForm,
         CreditContractRepayForm,
