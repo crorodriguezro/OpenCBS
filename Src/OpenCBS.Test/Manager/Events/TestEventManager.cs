@@ -244,6 +244,7 @@ namespace OpenCBS.Test.Manager.Events
                                                    Id = 14,
                                                    User = new User { Id = 1 },
                                                    Date = new DateTime(2006, 7, 21),
+                                                   PreferredFirstInstallmentDate = new DateTime(2006, 8, 21),
                                                    Amount = 2345,
                                                    NbOfMaturity = 4,
                                                    Interest = 100
@@ -262,6 +263,7 @@ namespace OpenCBS.Test.Manager.Events
                 Id = 14,
                 User = new User { Id = 1 },
                 Date = new DateTime(2006, 7, 21),
+                PreferredFirstInstallmentDate = new DateTime(2006, 8, 21),
                 Amount = 2345,
                 NbOfMaturity = 4,
                 Interest = 100

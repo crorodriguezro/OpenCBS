@@ -385,7 +385,7 @@ INSERT INTO [WriteOffEvents] ([id], [olb], [accrued_interests], [accrued_penalti
 
 
 ------------------------------------- RESCHEDULINGLOANEVENT -------------------------------------------------------
-INSERT INTO [ReschedulingOfALoanEvents] ([id],[amount],[nb_of_maturity],[date_offset]) VALUES (6,1000,2,0)
+INSERT INTO [ReschedulingOfALoanEvents] ([id],[amount],[nb_of_maturity]) VALUES (6,1000,2)
 
 
 ------------------------------------- LOANINTERESTACCRUINGEVENT -------------------------------------------------------
