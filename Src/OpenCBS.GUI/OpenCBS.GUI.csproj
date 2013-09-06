@@ -2323,6 +2323,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Products\FrmAvailableSavingProducts.pt.resx">
       <DependentUpon>FrmAvailableSavingProducts.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Products\FrmAvalaibleCollateralProducts.es-ES.resx">
       <DependentUpon>FrmAvalaibleCollateralProducts.cs</DependentUpon>

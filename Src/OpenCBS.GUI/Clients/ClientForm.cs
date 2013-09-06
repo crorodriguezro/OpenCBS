@@ -7004,7 +7004,8 @@ namespace OpenCBS.GUI.Clients
                 var page = tclLoanDetails.TabPages[i];
                 if (page.Tag is bool && (bool)page.Tag) tclLoanDetails.TabPages.Remove(page);
             }
-            for (var i = tabControlRepayments.TabPages.Count - 1; i >= 0; i--)
+            for (var i = tabControlRepayments.TabPages.Count - 1; i >= 0; i--) 
+
             {
                 var page = tabControlRepayments.TabPages[i];
                 if (page.Tag is bool && (bool)page.Tag) tabControlRepayments.TabPages.Remove(page);
@@ -7027,6 +7028,7 @@ namespace OpenCBS.GUI.Clients
                 }
             }
         }
+
 
         private void LoadSavingsExtensions()
         {
