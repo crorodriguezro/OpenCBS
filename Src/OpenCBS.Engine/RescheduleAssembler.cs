@@ -8,6 +8,7 @@ namespace OpenCBS.Engine
     {
         public IEnumerable<IInstallment> AssembleRescheduling(
             IEnumerable<IInstallment> schedule,
+            IScheduleConfiguration scheduleConfiguration,
             IScheduleConfiguration rescheduleConfiguration,
             IScheduleBuilder scheduleBuilder)
         {
@@ -29,7 +30,8 @@ namespace OpenCBS.Engine
             ).Sum(installment => installment.PaidPrincipal);
 
             //Add overpaid principal to paid principal of the last installment before the rescheduling
-            newSchedule.Last().PaidPrincipal += overpaidPrincipal;
+            if (newSchedule.Any())
+                newSchedule.Last().PaidPrincipal += overpaidPrincipal;
 
             // Close all active installments before date of rescheduling
             var olbDifference = 0m;
@@ -53,18 +55,32 @@ namespace OpenCBS.Engine
 	        //    plus interest between date of rescheduling and first repayment date
 
             //    To calculate extra interest for used days.
-            var currentOlb = newSchedule.Last().Olb - newSchedule.Last().PaidPrincipal;
-            var daysInYear = rescheduleConfiguration.YearPolicy.GetNumberOfDays(rescheduleConfiguration.StartDate);
-            var usedDays = (rescheduleConfiguration.StartDate - newSchedule.Last().EndDate).Days;
-            var extraInterest = currentOlb * rescheduleConfiguration.InterestRate / 100 * usedDays / daysInYear;
+            //    For the case when date of rescheduling < date of first installment
+            var currentOlb = schedule.First().Olb;
+            var usedDays = 0;
+            if (newSchedule.Any())
+            {
+                currentOlb = newSchedule.Last().Olb - newSchedule.Last().PaidPrincipal;
+                usedDays = (rescheduleConfiguration.StartDate - newSchedule.Last().EndDate).Days;
+            }
+            var daysInYear = scheduleConfiguration.YearPolicy.GetNumberOfDays(rescheduleConfiguration.StartDate);
+            var extraInterest = currentOlb*scheduleConfiguration.InterestRate/100*usedDays/daysInYear;
 
             // To calculate interest between date of rescheduling and first repayment date.
             var daysTillRepayment =
                 (rescheduleConfiguration.PreferredFirstInstallmentDate - rescheduleConfiguration.StartDate).Days;
-            var firstInterest = currentOlb * rescheduleConfiguration.InterestRate / 100 * daysTillRepayment / daysInYear;
+            decimal firstInterest = 0;
+            if (rescheduleConfiguration.GracePeriod == 0 || rescheduleConfiguration.ChargeInterestDuringGracePeriod)
+                firstInterest = currentOlb*rescheduleConfiguration.InterestRate/100*daysTillRepayment/daysInYear;
 
             // 4. We generate new schedule according to new parametrs.
             rescheduleConfiguration.Amount = currentOlb;
+            rescheduleConfiguration.AdjustmentPolicy = scheduleConfiguration.AdjustmentPolicy;
+            rescheduleConfiguration.CalculationPolicy = scheduleConfiguration.CalculationPolicy;
+            rescheduleConfiguration.DateShiftPolicy = scheduleConfiguration.DateShiftPolicy;
+            rescheduleConfiguration.PeriodPolicy = scheduleConfiguration.PeriodPolicy;
+            rescheduleConfiguration.RoundingPolicy = scheduleConfiguration.RoundingPolicy;
+            rescheduleConfiguration.YearPolicy = scheduleConfiguration.YearPolicy;
             var rescheduled = scheduleBuilder.BuildSchedule(rescheduleConfiguration);
 
             // Adjust the new schedule's installment numbers
@@ -75,7 +91,12 @@ namespace OpenCBS.Engine
             }
 
             // Distribute the extra and overpaid interest
-            rescheduled.First().Interest = rescheduleConfiguration.RoundingPolicy.Round(firstInterest + extraInterest);
+            if (rescheduleConfiguration.GracePeriod > 0 && !rescheduleConfiguration.ChargeInterestDuringGracePeriod)
+                rescheduled[rescheduleConfiguration.GracePeriod].Interest +=
+                    rescheduleConfiguration.RoundingPolicy.Round(extraInterest);
+            else
+                rescheduled.First().Interest =
+                    rescheduleConfiguration.RoundingPolicy.Round(firstInterest + extraInterest);
             foreach (var installment in rescheduled)
             {
                 if (installment.Interest < overpaidInterest)

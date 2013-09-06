@@ -117,135 +117,65 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="columnHeader7.Text" xml:space="preserve">
-    <value>Intéret payé</value>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="okButton.Text" xml:space="preserve">
+    <value>ОК</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="labelGracePeriod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 15</value>
+  <data name="interestRateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 16</value>
   </data>
-  <data name="labelTitleRescheduleContract.Text" xml:space="preserve">
-    <value>Code contrat :</value>
+  <data name="interestRateLabel.Text" xml:space="preserve">
+    <value>Процентная ставка:</value>
   </data>
-  <data name="checkBoxAccrue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>324, 19</value>
+  <data name="startDateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 16</value>
   </data>
-  <data name="columnHeader5.Text" xml:space="preserve">
-    <value>Total de l'échéance</value>
+  <data name="startDateLabel.Text" xml:space="preserve">
+    <value>Дата начала:</value>
   </data>
-  <data name="columnHeader8.Text" xml:space="preserve">
-    <value>Capital payé</value>
+  <data name="newInstallmentsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 16</value>
   </data>
-  <data name="buttonCancel.Text" xml:space="preserve">
-    <value>Annuler</value>
+  <data name="newInstallmentsLabel.Text" xml:space="preserve">
+    <value>Кол-во погашений:</value>
   </data>
-  <data name="labelTitleRescheduleContract.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 15</value>
+  <data name="chargeInterestDuringGracePeriodCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>306, 70</value>
   </data>
-  <data name="labelGracePeriod.Text" xml:space="preserve">
-    <value>Période de grâce</value>
+  <data name="chargeInterestDuringGracePeriodCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 20</value>
   </data>
-  <data name="labelMaturity.Text" xml:space="preserve">
-    <value>Ajout d'échéance :</value>
+  <data name="chargeInterestDuringGracePeriodCheckBox.Text" xml:space="preserve">
+    <value>Начислять проценты в время льготного периода</value>
   </data>
-  <data name="columnHeader4.Text" xml:space="preserve">
-    <value>Principal à payer</value>
+  <data name="titleRescheduleContractLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 16</value>
   </data>
-  <data name="labelMaturity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 15</value>
+  <data name="titleRescheduleContractLabel.Text" xml:space="preserve">
+    <value>Код контракта: </value>
   </data>
-  <data name="groupBoxParameters.Text" xml:space="preserve">
-    <value>Paramètres</value>
+  <data name="firstRepaymentOnLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 16</value>
+  </data>
+  <data name="firstRepaymentOnLabel.Text" xml:space="preserve">
+    <value>Дата первого платежа:</value>
+  </data>
+  <data name="gracePeriodLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>303, 39</value>
+  </data>
+  <data name="gracePeriodLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 16</value>
+  </data>
+  <data name="gracePeriodLabel.Text" xml:space="preserve">
+    <value>Льготный период:</value>
+  </data>
+  <data name="gracePeriodNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>452, 37</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Rééchelonnement du contrat</value>
-  </data>
-  <data name="columnHeader3.Text" xml:space="preserve">
-    <value>Intérêt à payer</value>
-  </data>
-  <data name="columnHeader9.Text" xml:space="preserve">
-    <value>Date de paiement</value>
-  </data>
-  <data name="checkBoxIRChanged.Text" xml:space="preserve">
-    <value>Changer le taux d'intérêt par période</value>
-  </data>
-  <data name="numericUpDownGracePeriod.Location" type="System.Drawing.Point, System.Drawing">
-    <value>119, 42</value>
-  </data>
-  <data name="columnHeader6.Text" xml:space="preserve">
-    <value>Encours</value>
-  </data>
-  <data name="buttonConfirm.Text" xml:space="preserve">
-    <value>Rééchelonner</value>
-  </data>
-  <data name="checkBoxAccrue.Text" xml:space="preserve">
-    <value>Comptabiliser les intérêts durant la periode de grâce</value>
-  </data>
-  <data name="labelGracePeriodUnity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>176, 43</value>
-  </data>
-  <data name="checkBoxIRChanged.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 19</value>
-  </data>
-  <data name="labelStartDate.Text" xml:space="preserve">
-    <value>Date de début :</value>
-  </data>
-  <data name="cbApplynewInterestforOLB.Text" xml:space="preserve">
-    <value>Appliquer ce taux d'intérêt pour l'encours</value>
-  </data>
-  <data name="lblGracePeriod.Location" type="System.Drawing.Point, System.Drawing">
-    <value>532, 45</value>
-  </data>
-  <data name="labelStartDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 15</value>
-  </data>
-  <data name="lbNewInterest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 15</value>
-  </data>
-  <data name="labelShiftDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 15</value>
-  </data>
-  <data name="cbChargeInterestDuringGracePeriod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 19</value>
-  </data>
-  <data name="labelStartDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>621, 75</value>
-  </data>
-  <data name="lblGracePeriod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 15</value>
-  </data>
-  <data name="checkBoxAccrue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>242, 75</value>
-  </data>
-  <data name="dateTimePickerStartDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>718, 72</value>
-  </data>
-  <data name="lbNewInterest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>502, 19</value>
-  </data>
-  <data name="lblGracePeriod.Text" xml:space="preserve">
-    <value>Période de grâce :</value>
-  </data>
-  <data name="labelShiftDate.Text" xml:space="preserve">
-    <value>Décaler la date :</value>
-  </data>
-  <data name="labelShiftDateDays.Text" xml:space="preserve">
-    <value>Jour(s)</value>
-  </data>
-  <data name="lbNewInterest.Text" xml:space="preserve">
-    <value>Nouveau taux d'intérêt :</value>
-  </data>
-  <data name="labelShiftDateDays.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 15</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="listViewRepayments" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="groupBoxParameters" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="groupBoxConfirm" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,110,Percent,100,Absolute,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="cbApplynewInterestforOLB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 19</value>
-  </data>
-  <data name="cbChargeInterestDuringGracePeriod.Text" xml:space="preserve">
-    <value>Charger les intérêts durant cette période</value>
+    <value>Реструктуризация</value>
   </data>
 </root>

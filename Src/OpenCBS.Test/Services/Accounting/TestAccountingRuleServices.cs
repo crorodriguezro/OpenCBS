@@ -26,7 +26,6 @@ using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment;
-using OpenCBS.CoreDomain.Contracts.Rescheduling;
 using OpenCBS.CoreDomain.Events;
 using OpenCBS.CoreDomain.Events.Loan;
 using OpenCBS.CoreDomain.Products;
@@ -270,127 +269,6 @@ namespace OpenCBS.Test.Services.Accounting
         }
 
         [Test]
-        public void Test_RescheduleGoodLoanProcessing()
-        {
-            Loan myContract = _SetContract(1000, 0.03m, OLoanTypes.Flat, new NonRepaymentPenalties(0, 0, 0.003, 0), false, 1, new DateTime(2010, 6, 6), 6);
-            OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateInstallments.CalculateInstallments rLI =
-                _SetRepaymentOptions(myContract, false);
-
-            Assert.AreEqual(new DateTime(2010, 7, 6), myContract.GetInstallment(0).ExpectedDate);
-            Assert.AreEqual(new DateTime(2010, 8, 6), myContract.GetInstallment(1).ExpectedDate);
-
-            myContract.Repay(1, new DateTime(2010, 7, 6), 230, false, true);
-            myContract.Repay(2, new DateTime(2010, 8, 6), 230, false, true);
-
-            rLI.CalculateNewInstallmentsWithLateFees(new DateTime(2010, 9, 1));
-            ReschedulingOptions ro = new ReschedulingOptions
-            {
-                InterestRate = 0.04m,
-                NewInstallments = 2,
-                RepaymentDateOffset = 0,
-                ChargeInterestDuringShift = true,
-                ReschedulingDate = new DateTime(2010, 9, 1)
-            };
-            myContract.Reschedule(ro);
-            myContract.AddRecheduleTransformationEvent(ro.ReschedulingDate);
-            List<OverdueEvent> list = myContract.Events.GetOverdueEvents();
-            Assert.AreEqual(list[0].Code, "GLRL");
-            // good loan to the bad loan
-            OverdueEvent e = myContract.GetOverdueEvent(new DateTime(2010, 10, 1));
-            Assert.AreEqual(e.Code, "GLLL");
-            e = myContract.GetOverdueEvent(new DateTime(2010, 10, 20));
-            Assert.AreEqual(e, null);
-            myContract.Repay(1, new DateTime(2010, 10, 20), 500, false, true);
-            //bad loan to the late loan
-            e = myContract.GetOverdueEvent(new DateTime(2010, 10, 21));
-
-            Assert.AreEqual(e.Code, "LLGL");
-            myContract.Repay(1, new DateTime(2010, 11, 6), 500, false, true);
-            //late loan to the good loan
-        }
-
-        [Test]
-        public void Test_RescheduleLateLoanProcessing()
-        {
-            Loan myContract = _SetContract(1000, 0.03m, OLoanTypes.Flat, new NonRepaymentPenalties(0, 0, 0.003, 0), false, 1, new DateTime(2010, 6, 6), 6);
-            OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateInstallments.CalculateInstallments rLI =
-                _SetRepaymentOptions(myContract, false);
-
-            Assert.AreEqual(new DateTime(2010, 7, 6), myContract.GetInstallment(0).ExpectedDate);
-            Assert.AreEqual(new DateTime(2010, 8, 6), myContract.GetInstallment(1).ExpectedDate);
-
-            myContract.Repay(1, new DateTime(2010, 7, 6), 230, false, true);
-            myContract.Repay(2, new DateTime(2010, 8, 6), 230, false, true);
-
-            rLI.CalculateNewInstallmentsWithLateFees(new DateTime(2010, 10, 1));
-            ReschedulingOptions ro = new ReschedulingOptions
-            {
-                InterestRate = 0.04m,
-                NewInstallments = 2,
-                RepaymentDateOffset = 0,
-                ChargeInterestDuringShift = true,
-                ReschedulingDate = new DateTime(2010, 10, 1)
-            };
-            myContract.Reschedule(ro);
-            myContract.AddRecheduleTransformationEvent(ro.ReschedulingDate);
-            List<OverdueEvent> list = myContract.Events.GetOverdueEvents();
-            Assert.AreEqual(list[0].Code, "LLRL");
-            
-            // good loan to the bad loan
-            OverdueEvent e = myContract.GetOverdueEvent(new DateTime(2010, 10, 1));
-            Assert.AreEqual(e.Code, "GLLL");
-            e = myContract.GetOverdueEvent(new DateTime(2010, 10, 20));
-            Assert.AreEqual(e, null);
-            myContract.Repay(1, new DateTime(2010, 10, 20), 500, false, true);
-            //bad loan to the late loan
-            e = myContract.GetOverdueEvent(new DateTime(2010, 10, 21));
-
-            Assert.AreEqual(e.Code, "LLGL");
-            myContract.Repay(1, new DateTime(2010, 11, 6), 500, false, true);
-            //late loan to the good loan
-        }
-
-        [Test]
-        public void Test_RescheduleBadLoanProcessing()
-        {
-            Loan myContract = _SetContract(1000, 0.03m, OLoanTypes.Flat, new NonRepaymentPenalties(0, 0, 0.003, 0), false, 1, new DateTime(2010, 6, 6), 6);
-            OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateInstallments.CalculateInstallments rLI =
-                _SetRepaymentOptions(myContract, false);
-
-            Assert.AreEqual(new DateTime(2010, 7, 6), myContract.GetInstallment(0).ExpectedDate);
-            Assert.AreEqual(new DateTime(2010, 8, 6), myContract.GetInstallment(1).ExpectedDate);
-
-            myContract.Repay(1, new DateTime(2010, 7, 6), 230, false, true);
-            myContract.Repay(2, new DateTime(2010, 8, 6), 230, false, true);
-
-            rLI.CalculateNewInstallmentsWithLateFees(new DateTime(2010, 12, 1));
-            ReschedulingOptions ro = new ReschedulingOptions
-            {
-                InterestRate = 0.04m,
-                NewInstallments = 2,
-                RepaymentDateOffset = 0,
-                ChargeInterestDuringShift = true,
-                ReschedulingDate = new DateTime(2010,12, 1)
-            };
-            myContract.Reschedule(ro);
-            myContract.AddRecheduleTransformationEvent(ro.ReschedulingDate);
-            List<OverdueEvent> list = myContract.Events.GetOverdueEvents();
-            Assert.AreEqual(list[0].Code, "BLRL");
-            // good loan to the bad loan
-            OverdueEvent e = myContract.GetOverdueEvent(new DateTime(2010, 10, 1));
-            Assert.AreEqual(e.Code, "GLLL");
-            e = myContract.GetOverdueEvent(new DateTime(2010, 10, 20));
-            Assert.AreEqual(e, null);
-            myContract.Repay(1, new DateTime(2010, 10, 20), 500, false, true);
-            //bad loan to the late loan
-            e = myContract.GetOverdueEvent(new DateTime(2010, 10, 21));
-
-            Assert.AreEqual(e.Code, "LLGL");
-            myContract.Repay(1, new DateTime(2010, 11, 6), 500, false, true);
-            //late loan to the good loan
-        }
-
-        [Test]
         public void Test_ProvisionLoanProcessing()
         {
             Loan myContract = _SetContract(1000, 0.03m, OLoanTypes.Flat, new NonRepaymentPenalties(0, 0, 0.003, 0), false, 1, new DateTime(2010, 6, 6), 6);
@@ -415,45 +293,6 @@ namespace OpenCBS.Test.Services.Accounting
             Assert.AreEqual(e.Amount, 2000);
             myContract.Events.Add(e);
             myContract.Repay(1, new DateTime(2010, 10, 20), 500, false, true);
-        }
-
-        [Test]
-        public void Test_ProvisionRescheduledLoanProcessing()
-        {
-            Loan myContract = _SetContract(1000, 0.03m, OLoanTypes.Flat, new NonRepaymentPenalties(0, 0, 0.003, 0), false, 1, new DateTime(2010, 6, 6), 6);
-            OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateInstallments.CalculateInstallments rLI =
-                _SetRepaymentOptions(myContract, false);
-
-            ProvisionTable provisionTable = ProvisionTable.GetInstance(new User());
-            provisionTable.ProvisioningRates = new List<ProvisioningRate>();
-            provisionTable.Add(new ProvisioningRate { Number = 1, NbOfDaysMin = 0, NbOfDaysMax = 0, Rate = 0.5 });
-            provisionTable.Add(new ProvisioningRate { Number = 2, NbOfDaysMin = 1, NbOfDaysMax = 30, Rate = 1 });
-            provisionTable.Add(new ProvisioningRate { Number = 3, NbOfDaysMin = 31, NbOfDaysMax = 60, Rate = 1.5 });
-            provisionTable.Add(new ProvisioningRate { Number = 3, NbOfDaysMin = 60, NbOfDaysMax = 999, Rate = 2 });
-            provisionTable.Add(new ProvisioningRate { Number = 4, NbOfDaysMin = -1, NbOfDaysMax = -1, Rate = 1 });
-
-
-            Assert.AreEqual(new DateTime(2010, 7, 6), myContract.GetInstallment(0).ExpectedDate);
-            Assert.AreEqual(new DateTime(2010, 8, 6), myContract.GetInstallment(1).ExpectedDate);
-            myContract.Repay(1, new DateTime(2010, 8, 6), 100, false, false);
-
-            ReschedulingOptions ro = new ReschedulingOptions
-            {
-                InterestRate = 0.04m,
-                NewInstallments = 2,
-                RepaymentDateOffset = 0,
-                ChargeInterestDuringShift = true,
-                ReschedulingDate = new DateTime(2010, 12, 1)
-            };
-            myContract.Reschedule(ro);
-            myContract.Rescheduled = true;
-
-            rLI.CalculateNewInstallmentsWithLateFees(new DateTime(2010, 10, 1));
-
-            ProvisionEvent e = myContract.GetProvisionEvent(new DateTime(2010, 10, 1), provisionTable);
-            Assert.AreEqual(e.Code, "LLPE");
-            Assert.AreEqual(e.Amount, 1000);
-            myContract.Events.Add(e);
         }
 
         [Test]

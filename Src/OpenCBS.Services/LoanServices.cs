@@ -32,7 +32,6 @@ using OpenCBS.CoreDomain.Alerts;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts;
 using OpenCBS.CoreDomain.Contracts.Loans;
-using OpenCBS.CoreDomain.Contracts.Rescheduling;
 using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.CoreDomain.EconomicActivities;
 using OpenCBS.CoreDomain.Events;
@@ -907,21 +906,33 @@ namespace OpenCBS.Services
             }
         }
 
-        public Loan FakeReschedule(Loan contract, DateTime date, int nbOfMaturity, int dateOffset, bool pAccruedInterestDuringTheGracePeriod, decimal pNewInterestRate, int gracePeriod, bool chargeInterestDuringGracePeriod)
+       public Loan SimulateRescheduling(Loan loan, ScheduleConfiguration rescheduleConfiguration)
         {
-            Loan fakeContract = contract.Copy();
-            ReschedulingOptions ro = new ReschedulingOptions
-                                         {
-                                             ChargeInterestDuringShift = pAccruedInterestDuringTheGracePeriod,
-                                             NewInstallments = nbOfMaturity,
-                                             InterestRate = pNewInterestRate,
-                                             RepaymentDateOffset = dateOffset,
-                                             ReschedulingDate = date,
-                                             GracePeriod = gracePeriod,
-                                             ChargeInterestDuringGracePeriod = chargeInterestDuringGracePeriod
-                                         };
-            fakeContract.Reschedule(ro);
-            return fakeContract;
+            var copyOfLoan = loan.Copy();
+            var scheduleConfiguration = _configurationFactory
+                .Init()
+                .WithLoan(copyOfLoan)
+                .Finish()
+                .GetConfiguration();
+            var schedule = Mapper.Map<IEnumerable<Installment>, IEnumerable<IInstallment>>(copyOfLoan.InstallmentList);
+            var scheduleBuilder = new ScheduleBuilder();
+            var rescheduleAssembler = new RescheduleAssembler();
+            var copyOfRescheduleConfiguration = (IScheduleConfiguration)rescheduleConfiguration.Clone();
+            copyOfRescheduleConfiguration.InterestRate *= (decimal)scheduleConfiguration.PeriodPolicy.GetNumberOfPeriodsInYear(
+                copyOfRescheduleConfiguration.StartDate,
+                scheduleConfiguration.YearPolicy);
+
+            schedule = rescheduleAssembler.AssembleRescheduling(
+                schedule,
+                scheduleConfiguration,
+                copyOfRescheduleConfiguration,
+                scheduleBuilder);
+
+            var newSchedule = Mapper.Map<IEnumerable<IInstallment>, List<Installment>>(schedule);
+
+            copyOfLoan.InstallmentList = newSchedule;
+            copyOfLoan.NbOfInstallments = newSchedule.Count();
+            return copyOfLoan;
         }
 
         public Loan SimulateTranche(Loan loan, ITrancheConfiguration trancheConfiguration)
@@ -1187,19 +1198,19 @@ namespace OpenCBS.Services
 
         private static void CheckTranche(DateTime date, Loan loan, decimal amount)
         {
-            if (loan.GetLastFullyRepaidInstallment() != null)
+            var repayment = (from e in loan.Events.GetEvents()
+                             where
+                                 e is RepaymentEvent || e is RepaymentOverWriteOffEvent ||
+                                 e is RescheduledLoanRepaymentEvent
+                             orderby e.Date
+                             select e).LastOrDefault();
+            if (repayment != null && date.Date < repayment.Date.Date)
             {
-                if (date.Date < loan.GetLastFullyRepaidInstallment().PaidDate.Value.Date)
-                {
-                    throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.TrancheDate);
-                }
+                throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.TrancheDate);
             }
-            else
+            if (loan.StartDate > date.Date)
             {
-                if (loan.StartDate > date.Date)
-                {
-                    throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.TrancheDate);
-                }
+                throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.TrancheDate);
             }
 
             if (loan.AmountUnderLoc.HasValue)
@@ -1221,52 +1232,53 @@ namespace OpenCBS.Services
                 throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.TrancheAmount);
         }
 
-        public Loan Reschedule(Loan pContract, DateTime pDate, int pNbOfMaturity, int dateOffset,
-            bool pAccruedInterestDuringTheGracePeriod, decimal pNewInterestRate, int gracePeriod, bool chargeInterestDuringGracePeriod)
+        public Loan Reschedule(Loan loan, IClient client, ScheduleConfiguration rescheduleConfiguration)
         {
-            using (SqlConnection conn = _loanManager.GetConnection())
-            using (SqlTransaction sqlTransac = conn.BeginTransaction())
+            using (var connection = _loanManager.GetConnection())
+            using (var transaction = connection.BeginTransaction())
             {
                 try
                 {
-                    Loan copyOfLoan = pContract.Copy();
+                    var copyOfLoan = SimulateRescheduling(loan, rescheduleConfiguration);
+                    var rescheduleLoanEvent = new RescheduleLoanEvent
+                    {
+                        Amount = copyOfLoan.CalculateActualOlb(),
+                        Date = rescheduleConfiguration.StartDate,
+                        ClientType = client.Type,
+                        Interest = rescheduleConfiguration.InterestRate,
+                        BadLoan = loan.BadLoan,
+                        NbOfMaturity = rescheduleConfiguration.NumberOfInstallments,
+                        GracePeriod = rescheduleConfiguration.GracePeriod,
+                        ChargeInterestDuringGracePeriod = rescheduleConfiguration.ChargeInterestDuringGracePeriod,
+                        InstallmentNumber =
+                            copyOfLoan.GetLastFullyRepaidInstallment() == null
+                                ? 1
+                                : copyOfLoan.GetLastFullyRepaidInstallment().Number + 1,
+                        PreferredFirstInstallmentDate =rescheduleConfiguration.PreferredFirstInstallmentDate,
+                        User = _user,
+                    };
 
-                    //create the rescheduling loan event
-                    ReschedulingOptions ro = new ReschedulingOptions
-                                                 {
-                                                     ReschedulingDate = pDate,
-                                                     ChargeInterestDuringShift = pAccruedInterestDuringTheGracePeriod,
-                                                     InterestRate = pNewInterestRate,
-                                                     RepaymentDateOffset = dateOffset,
-                                                     NewInstallments = pNbOfMaturity,
-                                                     GracePeriod = gracePeriod,
-                                                     ChargeInterestDuringGracePeriod = chargeInterestDuringGracePeriod
-                                                 };
-                    RescheduleLoanEvent rescheduleLoanEvent = pContract.Reschedule(ro);
-                    rescheduleLoanEvent.User = _user;
+                    //insert into table TrancheEvent
+                    _ePs.FireEvent(rescheduleLoanEvent, copyOfLoan, transaction);
 
-                    //insert into table ReschedulingOfALoanEvents
-                    _ePs.FireEvent(rescheduleLoanEvent, pContract, sqlTransac);
-                    OverdueEvent overdueEvent = pContract.AddRecheduleTransformationEvent(pDate);
-                    if (overdueEvent != null) _ePs.FireEvent(overdueEvent, pContract, sqlTransac);
-
-                    ArchiveInstallments(copyOfLoan, rescheduleLoanEvent, sqlTransac);
+                    ArchiveInstallments(loan, rescheduleLoanEvent, transaction);
 
                     //delete all the old installments of the table Installments
-                    _instalmentManager.DeleteInstallments(pContract.Id, sqlTransac);
+                    _instalmentManager.DeleteInstallments(loan.Id, transaction);
 
                     //insert all the new installments in the table Installments
-                    _instalmentManager.AddInstallments(pContract.InstallmentList, pContract.Id, sqlTransac);
+                    _instalmentManager.AddInstallments(copyOfLoan.InstallmentList, copyOfLoan.Id, transaction);
 
-                    _loanManager.UpdateLoanToRescheduled(pNewInterestRate, pNbOfMaturity, pContract, sqlTransac);
+                    copyOfLoan.Events.Add(rescheduleLoanEvent);
+                    transaction.Commit();
 
-                    sqlTransac.Commit();
-                    return pContract;
+                    SetClientStatus(copyOfLoan, client);
+                    return copyOfLoan;
                 }
-                catch (Exception ex)
+                catch
                 {
-                    sqlTransac.Rollback();
-                    throw ex;
+                    transaction.Rollback();
+                    throw;
                 }
             }
         }

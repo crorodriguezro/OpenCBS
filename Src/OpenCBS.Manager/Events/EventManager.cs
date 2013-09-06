@@ -126,7 +126,7 @@ namespace OpenCBS.Manager.Events
                         ReschedulingOfALoanEvents.id AS rle_id, 
                         ReschedulingOfALoanEvents.amount AS rle_amount, 
                         ReschedulingOfALoanEvents.nb_of_maturity AS rle_maturity, 
-                        ReschedulingOfALoanEvents.date_offset AS rle_date_offset,
+                        ReschedulingOfALoanEvents.preferred_first_installment_date AS rle_preferred_first_installment_date,
      
                         RepaymentEvents.id AS rpe_id, 
                         RepaymentEvents.principal AS rpe_principal, 
@@ -272,7 +272,7 @@ namespace OpenCBS.Manager.Events
                     ReschedulingOfALoanEvents.id AS rle_id, 
                     ReschedulingOfALoanEvents.amount AS rle_amount, 
                     ReschedulingOfALoanEvents.nb_of_maturity AS rle_maturity, 
-                    ReschedulingOfALoanEvents.date_offset AS rle_date_offset, 
+                    ReschedulingOfALoanEvents.preferred_first_installment_date AS rle_preferred_first_installment_date, 
 
                     RepaymentEvents.id AS rpe_id, 
                     RepaymentEvents.principal AS rpe_principal, 
@@ -489,7 +489,7 @@ namespace OpenCBS.Manager.Events
                     ReschedulingOfALoanEvents.id AS rle_id, 
                     ReschedulingOfALoanEvents.amount AS rle_amount, 
                     ReschedulingOfALoanEvents.nb_of_maturity AS rle_maturity, 
-                    ReschedulingOfALoanEvents.date_offset AS rle_date_offset, 
+                    ReschedulingOfALoanEvents.preferred_first_installment_date AS rle_preferred_first_installment_date, 
 
                     RepaymentEvents.id AS rpe_id, 
                     RepaymentEvents.principal AS rpe_principal, 
@@ -966,9 +966,28 @@ namespace OpenCBS.Manager.Events
 		{
             rescheduleLoanEvent.Id = AddLoanEventHead(rescheduleLoanEvent, contractId, transaction);
 
-            const string q = @"INSERT INTO [ReschedulingOfALoanEvents]
-                                    ([id], [amount], [nb_of_maturity], [date_offset], [interest], [grace_period], [charge_interest_during_shift], [charge_interest_during_grace_period]) 
-                                    VALUES(@id, @amount, @maturity,@dateOffset, @interest, @gracePeriod, @chargeInterestDuringShift, @chargeInterestDuringGracePeriod)";
+            const string q = @"
+                INSERT INTO [ReschedulingOfALoanEvents]
+                (
+                    [id], 
+                    [amount], 
+                    [nb_of_maturity], 
+                    [interest], 
+                    [grace_period], 
+                    [charge_interest_during_grace_period], 
+                    [preferred_first_installment_date]
+                ) 
+                VALUES
+                (
+                    @id, 
+                    @amount, 
+                    @maturity,
+                    @interest, 
+                    @gracePeriod, 
+                    @chargeInterestDuringGracePeriod, 
+                    @preferredFirstInstallmentDate
+                )
+            ";
 
             using(OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
             {
@@ -1292,11 +1311,10 @@ namespace OpenCBS.Manager.Events
             c.AddParam("@id", pEvent.Id);
             c.AddParam("@amount", pEvent.Amount);
             c.AddParam("@maturity", pEvent.NbOfMaturity);
-            c.AddParam("@dateOffset", pEvent.DateOffset);
             c.AddParam("@interest", pEvent.Interest);
             c.AddParam("@gracePeriod", pEvent.GracePeriod);
-            c.AddParam("@chargeInterestDuringShift", pEvent.ChargeInterestDuringShift);
             c.AddParam("@chargeInterestDuringGracePeriod", pEvent.ChargeInterestDuringGracePeriod);
+            c.AddParam("@preferredFirstInstallmentDate", pEvent.PreferredFirstInstallmentDate);
         }
 
         private static void SetLoanRepaymentEvent(RepaymentEvent evnt, OpenCbsCommand c)
@@ -1756,7 +1774,7 @@ namespace OpenCBS.Manager.Events
                 Id = r.GetInt("rle_id"),
                 Amount = r.GetMoney("rle_amount"),
                 NbOfMaturity = r.GetInt("rle_maturity"),
-                DateOffset = r.GetInt("rle_date_offset")
+                PreferredFirstInstallmentDate = r.GetDateTime("rle_preferred_first_installment_date")
             };
 	    }
 

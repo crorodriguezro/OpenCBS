@@ -90,7 +90,6 @@ namespace OpenCBS.Test.Manager.Events
             Assert.AreEqual(pDate, pEvent.Date);
             Assert.AreEqual(pAmount.Value, pEvent.Amount.Value);
             Assert.AreEqual(pNbOfMaturity, pEvent.NbOfMaturity);
-            Assert.AreEqual(dateOffset, pEvent.DateOffset);
         }
 
         private static void _AssertWriteOffEvent(WriteOffEvent pEvent, DateTime pDate, OCurrency pOLB, OCurrency pAccruedInterests, OCurrency pAccruedPenalties,
@@ -245,9 +244,9 @@ namespace OpenCBS.Test.Manager.Events
                                                    Id = 14,
                                                    User = new User { Id = 1 },
                                                    Date = new DateTime(2006, 7, 21),
+                                                   PreferredFirstInstallmentDate = new DateTime(2006, 8, 21),
                                                    Amount = 2345,
                                                    NbOfMaturity = 4,
-                                                   DateOffset = 0,
                                                    Interest = 100
                                                };
             eventManager.AddLoanEvent(rescheduleLoanEvent, 1);
@@ -264,9 +263,9 @@ namespace OpenCBS.Test.Manager.Events
                 Id = 14,
                 User = new User { Id = 1 },
                 Date = new DateTime(2006, 7, 21),
+                PreferredFirstInstallmentDate = new DateTime(2006, 8, 21),
                 Amount = 2345,
                 NbOfMaturity = 4,
-                DateOffset = 0,
                 Interest = 100
             };
             eventManager.AddLoanEvent(rescheduleLoanEvent, 1);
