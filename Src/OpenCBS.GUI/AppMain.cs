@@ -155,7 +155,7 @@ namespace OpenCBS.GUI
                     ServicesProvider.GetInstance().GetDatabaseServices().DumpObjects(TechnicalSettings.DatabaseName);
                     Environment.Exit(1);
                 }
-                else if (arg == "-skipSchemaCheck")
+                else if (arg == "--skip-schema-check")
                 {
                     _skipSchemaCheck = true;
                 }
