@@ -514,12 +514,6 @@
     <Compile Include="Contracts\ReschedulingForm.Designer.cs">
       <DependentUpon>ReschedulingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Contracts\EditContractSchedule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contracts\EditContractSchedule.Designer.cs">
-      <DependentUpon>EditContractSchedule.cs</DependentUpon>
-    </Compile>
     <Compile Include="Contracts\FastDepositForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1780,12 +1774,6 @@
     <EmbeddedResource Include="Contracts\ReschedulingForm.ru-RU.resx">
       <DependentUpon>ReschedulingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Contracts\EditContractSchedule.pt.resx">
-      <DependentUpon>EditContractSchedule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contracts\EditContractSchedule.ru-RU.resx">
-      <DependentUpon>EditContractSchedule.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Contracts\FastDepositForm.pt.resx">
       <DependentUpon>FastDepositForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1803,15 +1791,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contracts\CreditContractRepayForm.pt.resx">
       <DependentUpon>CreditContractRepayForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contracts\EditContractSchedule.es-ES.resx">
-      <DependentUpon>EditContractSchedule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contracts\EditContractSchedule.fr.resx">
-      <DependentUpon>EditContractSchedule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contracts\EditContractSchedule.resx">
-      <DependentUpon>EditContractSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contracts\EventCancelConfirmationForm.pt.resx">
       <DependentUpon>EventCancelConfirmationForm.cs</DependentUpon>
