@@ -23,7 +23,7 @@ using System.Reflection;
 [assembly: AssemblyCompany("Open Octopus Ltd.")]
 [assembly: AssemblyProduct("OpenCBS")]
 //[assembly: AssemblyCopyright("Copyright (c) Open Octopus Ltd. 2013")]
-[assembly: AssemblyVersion("13.9.build.0")]
+[assembly: AssemblyVersion("13.10.build.0")]
 [assembly: AssemblyGitRevision("revision")]
 
 [AttributeUsage(AttributeTargets.Assembly)]
