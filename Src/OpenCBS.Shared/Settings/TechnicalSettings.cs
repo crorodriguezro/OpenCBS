@@ -142,12 +142,6 @@ namespace OpenCBS.Shared.Settings
             set { _useOnlineMode = value;}
         }
 
-        public static bool UseDebugMode
-        {
-            get { return _useDebugMode; }
-            set { _useDebugMode = value; }
-        }
-
         public static bool SentQuestionnaire
         {
             get { return Convert.ToBoolean(GetValue("SENT_QUESTIONNAIRE", "True")); }

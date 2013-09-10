@@ -46,14 +46,16 @@ namespace OpenCBS.GUI
         private bool _environnementIsOk;
         private bool _applicationSettingsAreOk;
         private bool _accountingSettingsAreOk;
-        private string _user;
-        private string _password;
+        private readonly string _user;
+        private readonly string _password;
+        private readonly bool _skipSchemaCheck;
 
-        public FrmSplash(string pUserName, string pPassword)
+        public FrmSplash(string pUserName, string pPassword, bool skipSchemaCheck)
         {
             InitializeComponent();
             _user = pUserName;
             _password = pPassword;
+            _skipSchemaCheck = skipSchemaCheck;
         }
 
         private void FrmSplash_Shown(object sender, EventArgs e)
@@ -73,7 +75,7 @@ namespace OpenCBS.GUI
                     if (!_sqlDatabaseConnectionIsOk) _CheckSQLDatabaseConnection();
                     if (!_sqlDatabaseVersionIsOk) _CheckDatabaseVersion();
 #if DEBUG
-                    if (!_sqlDatabaseSchemaIsOk) _CheckDatabaseSchema();
+                    if (!_skipSchemaCheck && !_sqlDatabaseSchemaIsOk) _CheckDatabaseSchema();
 #endif
                 }
                 if (!_crystalReportIsOk) _CheckCrystalReports();

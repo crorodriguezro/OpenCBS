@@ -229,8 +229,7 @@ namespace OpenCBS.GUI.Database
                 : MultiLanguageStrings.GetString(
                     Ressource.FrmDatabaseSettings, "StructureConforms.Text");
 
-            if(TechnicalSettings.UseDebugMode)
-                if(!string.IsNullOrEmpty(result)) btnContinue.Visible = true;
+            if(!string.IsNullOrEmpty(result)) btnContinue.Visible = true;
         }
 
         private void InitializeTabPageSqlServerSettings()
@@ -666,7 +665,6 @@ namespace OpenCBS.GUI.Database
         {
             if (_exitApplicationIfClose)
             {
-                TechnicalSettings.UseDebugMode = true;
                 Restart.LaunchRestarter();
             }
             else
