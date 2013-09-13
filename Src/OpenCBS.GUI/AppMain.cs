@@ -49,6 +49,7 @@ namespace OpenCBS.GUI
                                     -setup : Open setup dialog
                                     -registry : Only for developper: initialize general parameters with registry keys
                                     -dumpObjects: Dump database objects";
+        private static bool _skipSchemaCheck;
 
         /// <summary>
         /// Application entry point.
@@ -70,13 +71,7 @@ namespace OpenCBS.GUI
                 Application.EnableVisualStyles();
                 Application.DoEvents();
 
-                #if DEBUG
-                    TechnicalSettings.UseDebugMode = true;
-                #else
-                    TechnicalSettings.UseDebugMode = false;
-                #endif
-
-                new FrmSplash(_user, _password).ShowDialog();
+                new FrmSplash(_user, _password, _skipSchemaCheck).ShowDialog();
 
                 switch (User.CurrentUser.Id)
                 {
@@ -159,6 +154,10 @@ namespace OpenCBS.GUI
                     TechnicalSettings.CheckSettings();
                     ServicesProvider.GetInstance().GetDatabaseServices().DumpObjects(TechnicalSettings.DatabaseName);
                     Environment.Exit(1);
+                }
+                else if (arg == "--skip-schema-check")
+                {
+                    _skipSchemaCheck = true;
                 }
             }
         }

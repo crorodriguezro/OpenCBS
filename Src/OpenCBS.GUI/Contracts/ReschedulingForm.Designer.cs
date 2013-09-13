@@ -76,8 +76,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // startDateTimePicker
             // 
-            resources.ApplyResources(this.startDateTimePicker, "startDateTimePicker");
             this.startDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            resources.ApplyResources(this.startDateTimePicker, "startDateTimePicker");
             this.startDateTimePicker.Name = "startDateTimePicker";
             // 
             // startDateLabel
@@ -87,13 +87,13 @@ namespace OpenCBS.GUI.Contracts
             // 
             // interestRateNumericUpDown
             // 
-            resources.ApplyResources(this.interestRateNumericUpDown, "interestRateNumericUpDown");
             this.interestRateNumericUpDown.DecimalPlaces = 2;
             this.interestRateNumericUpDown.Increment = new decimal(new int[] {
             5,
             0,
             0,
             131072});
+            resources.ApplyResources(this.interestRateNumericUpDown, "interestRateNumericUpDown");
             this.interestRateNumericUpDown.Name = "interestRateNumericUpDown";
             // 
             // installmentsNumericUpDown
@@ -108,14 +108,13 @@ namespace OpenCBS.GUI.Contracts
             // 
             // buttonsPanel
             // 
-            resources.ApplyResources(this.buttonsPanel, "buttonsPanel");
             this.buttonsPanel.Controls.Add(this.okButton);
             this.buttonsPanel.Controls.Add(this.cancelButton);
+            resources.ApplyResources(this.buttonsPanel, "buttonsPanel");
             this.buttonsPanel.Name = "buttonsPanel";
             // 
             // trancheConfigurationPanel
             // 
-            resources.ApplyResources(this.trancheConfigurationPanel, "trancheConfigurationPanel");
             this.trancheConfigurationPanel.Controls.Add(this.chargeInterestDuringGracePeriodCheckBox);
             this.trancheConfigurationPanel.Controls.Add(this.contractCodeLabel);
             this.trancheConfigurationPanel.Controls.Add(this.titleRescheduleContractLabel);
@@ -129,6 +128,7 @@ namespace OpenCBS.GUI.Contracts
             this.trancheConfigurationPanel.Controls.Add(this.installmentsNumericUpDown);
             this.trancheConfigurationPanel.Controls.Add(this.startDateLabel);
             this.trancheConfigurationPanel.Controls.Add(this.interestRateNumericUpDown);
+            resources.ApplyResources(this.trancheConfigurationPanel, "trancheConfigurationPanel");
             this.trancheConfigurationPanel.Name = "trancheConfigurationPanel";
             // 
             // chargeInterestDuringGracePeriodCheckBox
@@ -150,8 +150,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // firstRepaymentDateTimePicker
             // 
-            resources.ApplyResources(this.firstRepaymentDateTimePicker, "firstRepaymentDateTimePicker");
             this.firstRepaymentDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            resources.ApplyResources(this.firstRepaymentDateTimePicker, "firstRepaymentDateTimePicker");
             this.firstRepaymentDateTimePicker.Name = "firstRepaymentDateTimePicker";
             // 
             // firstRepaymentOnLabel
@@ -183,8 +183,6 @@ namespace OpenCBS.GUI.Contracts
             this.Controls.Add(this.trancheConfigurationPanel);
             this.Controls.Add(this.buttonsPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "ReschedulingForm";
             ((System.ComponentModel.ISupportInitialize)(this.interestRateNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.installmentsNumericUpDown)).EndInit();
