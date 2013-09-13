@@ -1166,13 +1166,14 @@ RETURN
 		SELECT ce.contract_id, ISNULL(SUM(lode.amount),0)+ISNULL(SUM(te.amount),0) AS amount, 
 		SUM(lode.interest) AS interest, 
 		SUM(lode.fees) AS fees, 
-		ce.event_date
+		ce.event_date,
+		ce.event_type
 		FROM dbo.LoanDisbursmentEvents AS lode
 		RIGHT JOIN dbo.ContractEvents AS ce ON ce.id = lode.id
 		LEFT JOIN dbo.TrancheEvents te ON te.id = ce.id
 		WHERE ce.event_type IN ('LODE','TEET') AND ce.is_deleted = 0
 		AND ce.event_date BETWEEN @from AND @to
-		GROUP BY ce.contract_id,ce.event_date
+		GROUP BY ce.contract_id,ce.event_date,ce.event_type
 	),
 	
 	_contracts
@@ -1183,7 +1184,8 @@ RETURN
 				CASE WHEN _lode.event_date IS NULL THEN 0 ELSE 1 END AS disbursed,
 				CASE WHEN _lode.event_date IS NULL THEN i.amount ELSE _lode.amount END AS amount,
 				CASE WHEN _lode.event_date IS NULL THEN i.interest ELSE ISNULL(_lode.interest,0) END AS interest,
-				ISNULL(lee.fees,0) AS fees
+				ISNULL(lee.fees,0) AS fees,
+				_lode.event_type
 				FROM dbo.Contracts AS c
 				INNER JOIN dbo.Credit cr ON c.id = cr.id
 				INNER JOIN dbo.Projects AS j ON j.id = c.project_id
@@ -1215,6 +1217,7 @@ RETURN
 	, fees
 	, CAST(ROUND(fees/(1+vat_rate), 2) AS MONEY) AS fees_wo_vat
 	, fees - CAST(ROUND(fees/(1+vat_rate), 2) AS MONEY) AS fees_vat
+	,event_type
 	FROM
 	(
 		SELECT c.* 
