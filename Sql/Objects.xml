@@ -1266,6 +1266,7 @@ RETURN
 	, CAST(d.fees * dbo.GetXR(pkg.currency_id, @display_in, d.disbursement_date) AS MONEY) AS fees
 	, CAST(d.fees_wo_vat * dbo.GetXR(pkg.currency_id, @display_in, d.disbursement_date) AS MONEY) AS fees_wo_vat
 	, CAST(d.fees_vat * dbo.GetXR(pkg.currency_id, @display_in, d.disbursement_date) AS MONEY) AS fees_vat
+    ,d.event_type
 	FROM dbo.Disbursements(@from, @to, @user_id, @subordinate_id, @branch_id) AS d
 	LEFT JOIN dbo.Credit AS cr ON cr.id = d.contract_id
 	LEFT JOIN dbo.Packages AS pkg ON pkg.id = cr.package_id
