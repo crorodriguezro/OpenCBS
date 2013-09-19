@@ -586,14 +586,14 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
                         NextMaturity = NextMaturity.Value.AddDays(-1);
                     }
                     
-                    NextMaturity = DateCalculationStrategy.GetNextMaturity(NextMaturity.Value,
-                                                                           Product.Periodicity, 
-                                                                           1);
 
+                    NextMaturity = DateCalculationStrategy.GetNextMaturity(NextMaturity.Value,
+                                                                           Product.Periodicity,
+                                                                           NumberOfPeriods);
                     
 
                     int previousPeriodsCount =
-                                    this.Events.FindAll(item => 
+                                    Events.FindAll(item => 
                                                         item is SavingInterestsPostingEvent && 
                                                         item.Deleted == false).Count;
 
@@ -614,7 +614,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
                         NextMaturity = NextMaturity.Value.AddDays(-1);
                     NextMaturity = DateCalculationStrategy.GetNextMaturity(NextMaturity.Value, 
                                                                            Product.Periodicity, 
-                                                                           1);
+                                                                           NumberOfPeriods);
                     int previousPeriodCount = this.Events.FindAll(item =>
                                                                   item is SavingInterestsPostingEvent &&
                                                                   item.Deleted == false).Count;
@@ -634,7 +634,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
                         NextMaturity = NextMaturity.Value.AddDays(-1);
                     NextMaturity = DateCalculationStrategy.GetNextMaturity(NextMaturity.Value, 
                                                                            Product.Periodicity, 
-                                                                           1);
+                                                                           NumberOfPeriods);
                 }
                     
             }
