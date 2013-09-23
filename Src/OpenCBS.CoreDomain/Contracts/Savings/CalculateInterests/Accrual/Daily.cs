@@ -51,11 +51,6 @@ namespace OpenCBS.CoreDomain.Contracts.Savings.CalculateInterests.Accrual
 
             while (DateCalculationStrategy.DateCalculationDiary(lastClosureDate, pClosureDate))
             {
-                if (lastClosureDate.Date == _saving.CreationDate.Date &&
-                    listInterestsAccrualEvent.Count == 0)
-                    {
-                        lastClosureDate= lastClosureDate.AddDays(-1);
-                    } 
                 lastClosureDate = lastClosureDate.AddDays(1);
                 listInterestsAccrualEvent.Add(GetInterests(lastClosureDate));
             }

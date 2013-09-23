@@ -55,7 +55,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings.PostingInterests
                                                 Product = product, 
                                                 InterestRate = 0.1
                                             };
-            saving.NextMaturity = saving.CreationDate;
+            saving.NextMaturity = saving.CreationDate.AddDays(1);
             List<SavingInterestsPostingEvent> list = new List<SavingInterestsPostingEvent>();
             list = saving.PostingInterests(
                                             saving.NextMaturity.Value, 
@@ -98,7 +98,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings.PostingInterests
                 saving.Events.Add(accrualEvent);
             }
 
-            saving.NextMaturity = saving.CreationDate.AddDays(-1);
+            saving.NextMaturity = saving.CreationDate.AddDays(1);
 
             while (
                     DateCalculationStrategy.GetNextMaturity(saving.NextMaturity.Value, saving.Product.Periodicity, 1)
@@ -116,7 +116,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings.PostingInterests
             }
 
 
-            Assert.AreEqual(10, saving.Events.FindAll(item =>item is SavingInterestsPostingEvent).Count);
+            Assert.AreEqual(9, saving.Events.FindAll(item =>item is SavingInterestsPostingEvent).Count);
         }
     }
 }

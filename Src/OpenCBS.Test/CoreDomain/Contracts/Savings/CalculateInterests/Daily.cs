@@ -75,7 +75,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings.CalculateInterests
             List<SavingInterestsAccrualEvent> list = new List<SavingInterestsAccrualEvent>();
             list = saving.CalculateInterest(new DateTime(2009, 07, 02), new User { Id = 1 });
 
-            Assert.AreEqual(2, list.Count);
+            Assert.AreEqual(1, list.Count);
         }
 
         [Test]
@@ -96,7 +96,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings.CalculateInterests
             List<SavingInterestsAccrualEvent> list = new List<SavingInterestsAccrualEvent>();
             list = saving.CalculateInterest(new DateTime(2009, 01, 31), new User { Id = 1 });
 
-            Assert.AreEqual(31, list.Count);
+            Assert.AreEqual(30, list.Count);
         }
 
 
@@ -122,7 +122,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings.CalculateInterests
             List<SavingInterestsAccrualEvent> list = new List<SavingInterestsAccrualEvent>();
             list = saving.CalculateInterest(new DateTime(2010, 01, 01), new User { Id = 1 });
 
-            Assert.AreEqual(366, list.Count);
+            Assert.AreEqual(365, list.Count);
         }
     }
 }

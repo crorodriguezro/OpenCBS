@@ -577,9 +577,6 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
             {
                 if (Rollover == OSavingsRollover.None)
                 {
-                    events.AddRange(AddSavingEvent(CalculateInterest(NextMaturity.Value, user)));
-                    events.AddRange(AddSavingEvent(PostingInterests(NextMaturity.Value, user)));
-
                     DateTime transferDate = NextMaturity.GetValueOrDefault();
                     if (NextMaturity.Value.Date == CreationDate.Date)
                     {
@@ -607,8 +604,6 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
 
                 else if (Rollover==OSavingsRollover.Principal)
                 {
-                    events.AddRange(AddSavingEvent(CalculateInterest(NextMaturity.Value, user)));
-                    events.AddRange(AddSavingEvent(PostingInterests(NextMaturity.Value, user)));
                     DateTime transferDate = NextMaturity.GetValueOrDefault();
                     if (NextMaturity.Value.Date == CreationDate.Date)
                         NextMaturity = NextMaturity.Value.AddDays(-1);
@@ -627,9 +622,6 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
 
                 else if (Rollover == OSavingsRollover.PrincipalAndInterests)
                 {
-                    events.AddRange(AddSavingEvent(CalculateInterest(NextMaturity.Value, user)));
-                    events.AddRange(AddSavingEvent(PostingInterests(NextMaturity.Value, user)));
-                    DateTime transferDate = NextMaturity.GetValueOrDefault();
                     if (NextMaturity.Value.Date == CreationDate.Date)
                         NextMaturity = NextMaturity.Value.AddDays(-1);
                     NextMaturity = DateCalculationStrategy.GetNextMaturity(NextMaturity.Value, 
