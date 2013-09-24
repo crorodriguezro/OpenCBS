@@ -25,13 +25,13 @@ using OpenCBS.Shared;
 namespace OpenCBS.CoreDomain.Events.Loan
 {
     [Serializable]
-    public class LoanPenaltyAccrualEvent : Event
+    public class LoanTransitionEvent : Event
     {
         public override string Code
         {
-            get { return "LPAE"; }
+            get { return _code; }
             set { _code = value; }
         }
-        public OCurrency Penalty { get; set; }
+        public OCurrency Amount { get; set; }
     }
 }

@@ -1155,9 +1155,25 @@ namespace OpenCBS.Manager.Events
                                      VALUES(@id, 
                                         @penalty)";
 
-            using (OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
+            using (var c = new OpenCbsCommand(q, transaction.Connection, transaction))
             {
                 SetLoanPenaltyAccrualEvent(c, pEvent, pEvent.Penalty);
+                c.ExecuteNonQuery();
+            }
+        }
+
+        public void AddLoanEvent(LoanTransitionEvent pEvent, int contractId, SqlTransaction transaction)
+        {
+            pEvent.Id = AddLoanEventHead(pEvent, contractId, transaction);
+            const string q = @"INSERT INTO [LoanTransitionEvents](
+                                        [id], 
+                                        [amount]) 
+                                     VALUES(@id, 
+                                        @amount)";
+
+            using (var c = new OpenCbsCommand(q, transaction.Connection, transaction))
+            {
+                SetLoanTransitionEvent(c, pEvent, pEvent.Amount);
                 c.ExecuteNonQuery();
             }
         }
@@ -1171,7 +1187,7 @@ namespace OpenCBS.Manager.Events
                                      VALUES(@id, 
                                         @interest)";
 
-            using (OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
+            using (var c = new OpenCbsCommand(q, transaction.Connection, transaction))
             {
                 SetLoanInterestAccrualEvent(c, pEvent, pEvent.Interest);
                 c.ExecuteNonQuery();
@@ -1366,6 +1382,12 @@ namespace OpenCBS.Manager.Events
         {
             c.AddParam("@id", pEvent.Id);
             c.AddParam("@penalty", penalty);
+        }
+
+        private static void SetLoanTransitionEvent(OpenCbsCommand c, Event pEvent, OCurrency amount)
+        {
+            c.AddParam("@id", pEvent.Id);
+            c.AddParam("@amount", amount);
         }
 
         private static void SetLoanInterestAccrualEvent(OpenCbsCommand c, Event pEvent, OCurrency interest)
