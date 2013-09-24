@@ -89,6 +89,9 @@ namespace OpenCBS.Stringifier
                 case "mr":
                     return new Marathi();
 
+                case "kz":
+                    return new Kazakh();
+
                 default:
                     return null;
             }

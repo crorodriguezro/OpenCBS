@@ -57,6 +57,7 @@
     </Compile>
     <Compile Include="English.cs" />
     <Compile Include="French.cs" />
+    <Compile Include="Kazakh.cs" />
     <Compile Include="Marathi.cs" />
     <Compile Include="Russian.cs" />
     <Compile Include="Spanish.cs" />
