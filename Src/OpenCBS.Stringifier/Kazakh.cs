@@ -106,12 +106,7 @@ namespace OpenCBS.Stringifier
 
         protected override string GetPercent(decimal amount)
         {
-            if (amount != Math.Floor(amount)) return "процента";
-            int mod10 = Convert.ToInt32(amount%10);
-            int mod100 = Convert.ToInt32(amount%100);
-            if (1 == mod10 && mod100 != 11) return "процент";
-            if (2 == mod10 || 3 == mod10 || 4 == mod10) return "процента";
-            return "процентов";
+            return "процент";
         }
     }
 }
