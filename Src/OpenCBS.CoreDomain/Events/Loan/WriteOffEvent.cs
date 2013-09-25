@@ -43,6 +43,7 @@ namespace OpenCBS.CoreDomain.Events
 	    public OCurrency AccruedPenalties { get; set; }
         public OCurrency OverduePrincipal { get; set; }
         public override string Description { get; set; }
+        public int WriteOffMethod { get; set; }
 
 	    public override Event Copy()
 		{

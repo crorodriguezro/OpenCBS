@@ -12,6 +12,12 @@ CREATE TABLE LoanTransitionEvents
 )
 GO
 
+ALTER TABLE dbo.WriteOffEvents 
+ADD write_off_method INT NULL
+CONSTRAINT WriteOffMethodDF
+DEFAULT 0 WITH VALUES ;
+GO
+
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v13.10.0.0'
 WHERE   [name] = 'VERSION'

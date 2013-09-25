@@ -2232,7 +2232,7 @@ namespace OpenCBS.Services
             return loans.Where(loan => loan.ContractStatus == OContractStatus.Active).ToList();
         }
 
-        public void WriteOff(Loan loan, DateTime onDate)
+        public void WriteOff(Loan loan, DateTime onDate, int writeOffMethodId)
         {
             using (SqlConnection conn = _loanManager.GetConnection())
             using (SqlTransaction sqlTransaction = conn.BeginTransaction())
@@ -2241,6 +2241,7 @@ namespace OpenCBS.Services
                 {
                     WriteOffEvent writeOffEvent = loan.WriteOff(onDate);
                     writeOffEvent.User = User.CurrentUser;
+                    writeOffEvent.WriteOffMethod = writeOffMethodId;
 
                     if (Teller.CurrentTeller != null && Teller.CurrentTeller.Id != 0)
                         writeOffEvent.TellerId = Teller.CurrentTeller.Id;
