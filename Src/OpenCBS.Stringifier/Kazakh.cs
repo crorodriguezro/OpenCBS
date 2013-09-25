@@ -91,22 +91,27 @@ namespace OpenCBS.Stringifier
 
         protected override string GetWhole(int whole)
         {
-            return 1 == whole%10 & whole%100 != 11 ? "целая" : "целых";
+            return "бутін";
         }
 
         protected override string GetTenths(int fraction)
         {
-            return 1 == fraction%10 ? "десятая" : "десятых";
+            return "оннан";
         }
 
         protected override string GetHundredths(int fraction)
         {
-            return 1 == fraction%10 & fraction%100 != 11 ? "сотая" : "сотых";
+            return "жузден";
         }
 
         protected override string GetPercent(decimal amount)
         {
-            return "процент";
+            return "пайыз";
+        }
+
+        protected override bool IsFractionToLeft()
+        {
+            return true;
         }
     }
 }
