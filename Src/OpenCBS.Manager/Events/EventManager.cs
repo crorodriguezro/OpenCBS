@@ -315,6 +315,9 @@ namespace OpenCBS.Manager.Events
                     AccrualInterestLoanEvents.id AS aile_id,
                     AccrualInterestLoanEvents.interest AS aile_interest,
 
+                    LoanTransitionEvents.id AS glll_id,
+                    LoanTransitionEvents.amount AS glll_amount,
+
                     Users.id AS user_id, 
                     Users.deleted AS user_deleted, 
                     Users.user_name AS user_username, 
@@ -344,6 +347,7 @@ namespace OpenCBS.Manager.Events
                     LEFT OUTER JOIN ProvisionEvents ON ContractEvents.id = ProvisionEvents.id
                     LEFT OUTER JOIN LoanPenaltyAccrualEvents ON ContractEvents.id = LoanPenaltyAccrualEvents.id
                     LEFT OUTER JOIN AccrualInterestLoanEvents ON ContractEvents.id = AccrualInterestLoanEvents.id
+                    LEFT OUTER JOIN LoanTransitionEvents ON ContractEvents.id = LoanTransitionEvents.id
                     WHERE (ContractEvents.contract_id = @id)
                     ORDER BY ContractEvents.id";
             using (SqlConnection conn = GetConnection())
@@ -1454,6 +1458,10 @@ namespace OpenCBS.Manager.Events
             {
                 e = GetLoanInterestAccrualEvent(r);
             }
+            else if (r.GetNullInt("glll_id").HasValue)
+            {
+                e = GetLoanTransitionEvent(r);
+            }
             else
             {
                 if (r.GetString("code").Equals("LOVE"))
@@ -1659,6 +1667,15 @@ namespace OpenCBS.Manager.Events
                     Id = r.GetInt("aile_id"),
                     Interest = r.GetMoney("aile_interest"),
                 };
+        }
+
+        private static LoanTransitionEvent GetLoanTransitionEvent(OpenCbsReader r)
+        {
+            return new LoanTransitionEvent
+            {
+                Id = r.GetInt("glll_id"),
+                Amount = r.GetMoney("glll_amount"),
+            };
         }
         
 	    private static OverdueEvent GetOverdueEvent(OpenCbsReader r)
