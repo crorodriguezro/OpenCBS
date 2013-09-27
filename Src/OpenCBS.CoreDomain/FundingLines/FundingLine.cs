@@ -53,7 +53,11 @@ namespace OpenCBS.CoreDomain.FundingLines
         public string Purpose { get; set; }
 
         public FundingLine()
-        {}
+        {
+            DateTime date;
+            if (DateTime.TryParse("01/01/1900", out date))
+                StartDate = date;
+        }
 
         public FundingLine(string name, bool deleted)
         {
