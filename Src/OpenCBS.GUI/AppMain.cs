@@ -68,6 +68,11 @@ namespace OpenCBS.GUI
                 };
 
                 _ParseApplicationSettings(pArgs);
+
+                if (!String.IsNullOrEmpty(Properties.Settings.Default.LANG))
+                    Localization.LanguageParser.parseXML(Properties.Settings.Default.LANG);
+                else Localization.LanguageParser.parseXML("en-En");
+
                 Application.EnableVisualStyles();
                 Application.DoEvents();
 

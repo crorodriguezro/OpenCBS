@@ -32,7 +32,7 @@ using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Login
 {
-    public partial class LoginForm : Form
+    public partial class LoginForm :Localization.BaseForm
     {
         private readonly string _userName;
         private readonly string _password;
@@ -44,13 +44,14 @@ namespace OpenCBS.GUI.Login
             _userName = userName;
             _password = password;
         }
+  
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.Escape) Close();
             return base.ProcessCmdKey(ref msg, keyData);
         }
-
+ 
         private void Setup()
         {
             Load += (sender, args) => LoadForm();
