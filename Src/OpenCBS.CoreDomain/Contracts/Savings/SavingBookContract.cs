@@ -577,23 +577,20 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
             {
                 if (Rollover == OSavingsRollover.None)
                 {
-                    events.AddRange(AddSavingEvent(CalculateInterest(NextMaturity.Value, user)));
-                    events.AddRange(AddSavingEvent(PostingInterests(NextMaturity.Value, user)));
-
                     DateTime transferDate = NextMaturity.GetValueOrDefault();
                     if (NextMaturity.Value.Date == CreationDate.Date)
                     {
                         NextMaturity = NextMaturity.Value.AddDays(-1);
                     }
                     
-                    NextMaturity = DateCalculationStrategy.GetNextMaturity(NextMaturity.Value,
-                                                                           Product.Periodicity, 
-                                                                           1);
 
+                    NextMaturity = DateCalculationStrategy.GetNextMaturity(NextMaturity.Value,
+                                                                           Product.Periodicity,
+                                                                           NumberOfPeriods);
                     
 
                     int previousPeriodsCount =
-                                    this.Events.FindAll(item => 
+                                    Events.FindAll(item => 
                                                         item is SavingInterestsPostingEvent && 
                                                         item.Deleted == false).Count;
 
@@ -607,14 +604,12 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
 
                 else if (Rollover==OSavingsRollover.Principal)
                 {
-                    events.AddRange(AddSavingEvent(CalculateInterest(NextMaturity.Value, user)));
-                    events.AddRange(AddSavingEvent(PostingInterests(NextMaturity.Value, user)));
                     DateTime transferDate = NextMaturity.GetValueOrDefault();
                     if (NextMaturity.Value.Date == CreationDate.Date)
                         NextMaturity = NextMaturity.Value.AddDays(-1);
                     NextMaturity = DateCalculationStrategy.GetNextMaturity(NextMaturity.Value, 
                                                                            Product.Periodicity, 
-                                                                           1);
+                                                                           NumberOfPeriods);
                     int previousPeriodCount = this.Events.FindAll(item =>
                                                                   item is SavingInterestsPostingEvent &&
                                                                   item.Deleted == false).Count;
@@ -627,14 +622,11 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
 
                 else if (Rollover == OSavingsRollover.PrincipalAndInterests)
                 {
-                    events.AddRange(AddSavingEvent(CalculateInterest(NextMaturity.Value, user)));
-                    events.AddRange(AddSavingEvent(PostingInterests(NextMaturity.Value, user)));
-                    DateTime transferDate = NextMaturity.GetValueOrDefault();
                     if (NextMaturity.Value.Date == CreationDate.Date)
                         NextMaturity = NextMaturity.Value.AddDays(-1);
                     NextMaturity = DateCalculationStrategy.GetNextMaturity(NextMaturity.Value, 
                                                                            Product.Periodicity, 
-                                                                           1);
+                                                                           NumberOfPeriods);
                 }
                     
             }

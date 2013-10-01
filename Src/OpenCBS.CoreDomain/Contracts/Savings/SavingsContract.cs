@@ -485,23 +485,12 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
 
         public DateTime GetLastPostingDate()
         {
-            SavingInterestsPostingEvent lastPosting = (SavingInterestsPostingEvent) Events.OrderByDescending(
-                item => item.Date).FirstOrDefault(item => item is SavingInterestsPostingEvent && !item.Deleted);
-
-            if (lastPosting == null)
-            {
-                if (Product is SavingsBookProduct)
-                {
-                    if (((SavingsBookProduct) Product).InterestFrequency == OSavingInterestFrequency.EndOfDay ||
-                        ((SavingBookContract) this).UseTermDeposit)
-                    {
-                        return CreationDate.AddDays(-1);
-                    }
-                    return CreationDate;
-                }
-                return CreationDate;
-            }
-            return lastPosting.Date;
+            var events = TransferAccount != null ? TransferAccount.Events : Events;
+            var lastPosting = (from e in events
+                            where !e.Deleted && e is SavingInterestsPostingEvent
+                            orderby e.Date ascending 
+                            select e as SavingInterestsPostingEvent).LastOrDefault();
+            return lastPosting != null ? lastPosting.Date : CreationDate;
         }
 
         public DateTime GetLastAccrualDate()

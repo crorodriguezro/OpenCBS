@@ -571,10 +571,10 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int accrualEventsCount = saving.Events.FindAll(item => item is SavingInterestsAccrualEvent).Count;
             int postingEventsCount = saving.Events.FindAll(item => item is SavingInterestsPostingEvent).Count;
             
-            Assert.AreEqual(31, events.Count);
-            Assert.AreEqual(15, accrualEventsCount);
-            Assert.AreEqual(15, postingEventsCount);
-            Assert.AreEqual(4142.72m, saving.GetBalance().Value);
+            Assert.AreEqual(29, events.Count);
+            Assert.AreEqual(14, accrualEventsCount);
+            Assert.AreEqual(14, postingEventsCount);
+            Assert.AreEqual(3797.51m, saving.GetBalance().Value);
         }
 
         [Test]
@@ -659,8 +659,8 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int accrualEventsCount = saving.Events.FindAll(item => item is SavingInterestsAccrualEvent).Count;
             int postingEvents = saving.Events.FindAll(item => item is SavingInterestsPostingEvent).Count;
 
-            Assert.AreEqual(events.Count, 16);
-            Assert.AreEqual(accrualEventsCount, 15);
+            Assert.AreEqual(events.Count, 15);
+            Assert.AreEqual(accrualEventsCount, 14);
             Assert.AreEqual(postingEvents, 0);
             Assert.AreEqual(1000m, saving.GetBalance().Value);
         }
@@ -976,8 +976,8 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int accrualEventsCount = saving.Events.FindAll(item => item is SavingInterestsAccrualEvent).Count;
             int postingEventsCount = saving.Events.FindAll(item => item is SavingInterestsPostingEvent).Count;
 
-            Assert.AreEqual(3, events.Count);
-            Assert.AreEqual(2, accrualEventsCount);
+            Assert.AreEqual(2, events.Count);
+            Assert.AreEqual(1, accrualEventsCount);
             Assert.AreEqual(0, postingEventsCount);
             Assert.AreEqual(1000m, saving.GetBalance().Value);
         }
@@ -998,8 +998,8 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int accrualEvents = saving.Events.FindAll(item => item is SavingInterestsAccrualEvent).Count;
             int postingEvents = saving.Events.FindAll(item => item is SavingInterestsPostingEvent).Count;
 
-            Assert.AreEqual(events.Count, 3);
-            Assert.AreEqual(accrualEvents, 2);
+            Assert.AreEqual(events.Count, 2);
+            Assert.AreEqual(accrualEvents, 1);
             Assert.AreEqual(postingEvents, 0);
             Assert.AreEqual(saving.GetBalance(), 1000);
         }
@@ -1024,8 +1024,8 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int accrualEvents = saving.Events.FindAll(item => item is SavingInterestsAccrualEvent).Count;
             int postingEvents = saving.Events.FindAll(item => item is SavingInterestsPostingEvent).Count;
 
-            Assert.AreEqual(3,  events.Count);
-            Assert.AreEqual(2, accrualEvents);
+            Assert.AreEqual(2,  events.Count);
+            Assert.AreEqual(1, accrualEvents);
             Assert.AreEqual(0, postingEvents);
             Assert.AreEqual(1000m,saving.GetBalance().Value);
         }
@@ -1258,9 +1258,9 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int accrualEvents = saving.Events.FindAll(item => item is SavingInterestsAccrualEvent).Count;
             int postingEvents = saving.Events.FindAll(items => items is SavingInterestsPostingEvent).Count;
 
-            Assert.AreEqual(8, accrualEvents);
-            Assert.AreEqual(8, postingEvents);
-            Assert.AreEqual(2125.87m, saving.GetBalance().Value);
+            Assert.AreEqual(7, accrualEvents);
+            Assert.AreEqual(7, postingEvents);
+            Assert.AreEqual(1948.72m, saving.GetBalance().Value);
         }
 
        [Test]
@@ -1286,7 +1286,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int accrualEvents = saving.Events.FindAll(item => item is SavingInterestsAccrualEvent).Count;
             int postingEvents = saving.Events.FindAll(items => items is SavingInterestsPostingEvent).Count;
 
-            Assert.AreEqual(8, accrualEvents);
+            Assert.AreEqual(7, accrualEvents);
             Assert.AreEqual(0, postingEvents);
             Assert.AreEqual(1000m, saving.GetBalance().Value);
         }
@@ -1310,7 +1310,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int accrualEvents = saving.Events.FindAll(item => item is SavingInterestsAccrualEvent).Count;
             int postingEvents = saving.Events.FindAll(items => items is SavingInterestsPostingEvent).Count;
 
-            Assert.AreEqual(8,  accrualEvents);
+            Assert.AreEqual(7,  accrualEvents);
             Assert.AreEqual(0, postingEvents);
             Assert.AreEqual(1000m, saving.GetBalance().Value);
         }
@@ -1330,7 +1330,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int accrualEvents = saving.Events.FindAll(item => item is SavingInterestsAccrualEvent).Count;
             int postingEvents = saving.Events.FindAll(items => items is SavingInterestsPostingEvent).Count;
 
-            Assert.AreEqual(8,  accrualEvents);
+            Assert.AreEqual(7,  accrualEvents);
             Assert.AreEqual(1, postingEvents);
             Assert.AreEqual(1400m, saving.GetBalance().Value);
         }
@@ -1498,7 +1498,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int accrualEvents = saving.Events.FindAll(item => item is SavingInterestsAccrualEvent).Count;
             int postingEvents = saving.Events.FindAll(items => items is SavingInterestsPostingEvent).Count;
 
-            Assert.AreEqual(accrualEvents, 4);
+            Assert.AreEqual(accrualEvents, 3);
             Assert.AreEqual(postingEvents, 0);
              Assert.AreEqual(saving.GetBalance(), 1000);
         }
@@ -1517,7 +1517,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int accrualEvents = saving.Events.FindAll(item => item is SavingInterestsAccrualEvent).Count;
             int postingEvents = saving.Events.FindAll(items => items is SavingInterestsPostingEvent).Count;
 
-            Assert.AreEqual(accrualEvents, 31);
+            Assert.AreEqual(accrualEvents, 30);
             Assert.AreEqual(postingEvents, 0);
             Assert.AreEqual(saving.GetBalance(), 1000);
         }
@@ -1536,7 +1536,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int accrualEvents = saving.Events.FindAll(item => item is SavingInterestsAccrualEvent).Count;
             int postingEvents = saving.Events.FindAll(items => items is SavingInterestsPostingEvent).Count;
 
-            Assert.AreEqual(accrualEvents, 365);
+            Assert.AreEqual(accrualEvents, 364);
             Assert.AreEqual(postingEvents, 0);
               Assert.AreEqual(saving.GetBalance(), 890);
         }
@@ -1706,7 +1706,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int postingEvents = saving.Events.FindAll(items => items is SavingInterestsPostingEvent).Count;
             OCurrency interests = saving.Events.Where(item => item is SavingInterestsAccrualEvent).Sum(item => item.Amount.Value);
 
-            Assert.AreEqual(accrualEvents, 366);
+            Assert.AreEqual(accrualEvents, 365);
             Assert.AreEqual(postingEvents, 1);
             Assert.AreEqual(saving.GetBalance(), 37500);
         }
@@ -1728,9 +1728,9 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int postingEvents = saving.Events.FindAll(items => items is SavingInterestsPostingEvent).Count;
             OCurrency interests = saving.Events.Where(item => item is SavingInterestsAccrualEvent).Sum(item => item.Amount.Value);
 
-            Assert.AreEqual(accrualEvents, 32);
+            Assert.AreEqual(accrualEvents, 31);
             Assert.AreEqual(postingEvents, 1);
-            Assert.AreEqual(saving.GetBalance(), 3300);
+            Assert.AreEqual(saving.GetBalance(), 3200);
         }
 
         [Test]
@@ -1746,7 +1746,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int postingEvents = saving.Events.FindAll(items => items is SavingInterestsPostingEvent).Count;
             OCurrency interests = saving.Events.Where(item => item is SavingInterestsAccrualEvent).Sum(item => item.Amount.Value);
 
-            Assert.AreEqual(accrualEvents, 5);
+            Assert.AreEqual(accrualEvents, 4);
             Assert.AreEqual(postingEvents, 0);
             Assert.AreEqual(saving.GetBalance(), 100);
         }
@@ -1765,7 +1765,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int postingEvents = saving.Events.FindAll(items => items is SavingInterestsPostingEvent).Count;
             OCurrency interests = saving.Events.Where(item => item is SavingInterestsAccrualEvent).Sum(item => item.Amount.Value);
 
-            Assert.AreEqual(accrualEvents, 5);
+            Assert.AreEqual(accrualEvents, 4);
             Assert.AreEqual(postingEvents, 0);
             Assert.AreEqual(saving.GetBalance(), 1000);
         }
@@ -1891,9 +1891,9 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int postingEvents = saving.Events.FindAll(items => items is SavingInterestsPostingEvent).Count;
             //OCurrency interests = saving.Events.Where(item => item is SavingInterestsAccrualEvent).Sum(item => item.Amount.Value);
 
-            Assert.AreEqual(accrualEvents, 66);
+            Assert.AreEqual(accrualEvents, 65);
             Assert.AreEqual(postingEvents, 2);
-            Assert.AreEqual(saving.GetBalance(), 958000);
+            Assert.AreEqual(saving.GetBalance(), 929000);
         }
 
         [Test]
@@ -1909,11 +1909,10 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
 
             int accrualEvents = saving.Events.FindAll(item => item is SavingInterestsAccrualEvent).Count;
             int postingEvents = saving.Events.FindAll(items => items is SavingInterestsPostingEvent).Count;
-            //OCurrency interests = saving.Events.Where(item => item is SavingInterestsAccrualEvent).Sum(item => item.Amount.Value);
 
-            Assert.AreEqual(accrualEvents, 35);
+            Assert.AreEqual(accrualEvents, 34);
             Assert.AreEqual(postingEvents, 1);
-            Assert.AreEqual(saving.GetBalance(), 1309.9);
+            Assert.AreEqual(saving.GetBalance(), 1299.9);
         }
 
         [Test]
@@ -1930,7 +1929,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             int postingEvents = saving.Events.FindAll(items => items is SavingInterestsPostingEvent).Count;
             OCurrency interests = saving.Events.Where(item => item is SavingInterestsAccrualEvent).Sum(item => item.Amount.Value);
 
-            Assert.AreEqual(accrualEvents, 6);
+            Assert.AreEqual(accrualEvents, 5);
             Assert.AreEqual(postingEvents, 0);
             Assert.AreEqual(saving.GetBalance(), 1000);
         }

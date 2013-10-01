@@ -31,6 +31,7 @@ namespace OpenCBS.GUI.Contracts
     public partial class ManualScheduleForm : Form
     {
         private string _amountFormatString;
+        private int _rounding;
         private Installment _total;
 
         public Loan Loan { get; set; }
@@ -51,6 +52,7 @@ namespace OpenCBS.GUI.Contracts
         private void InitializeSchedule()
         {
             _amountFormatString = Loan.UseCents ? "N2" : "N0";
+            _rounding = Loan.UseCents ? 2 : 0;
             Setup();
             olvSchedule.SetObjects(Loan.InstallmentList);
             InitTotal();
@@ -226,18 +228,20 @@ namespace OpenCBS.GUI.Contracts
                          Loan.InstallmentList[indexOfChangedItem - 1].ExpectedDate).Days;
 
                 Loan.InstallmentList[indexOfChangedItem].InterestsRepayment =
-                    Loan.InstallmentList[indexOfChangedItem].OLB*Loan.InterestRate/
-                    daysInTheYear*days;
+                    Math.Round(Loan.InstallmentList[indexOfChangedItem].OLB.Value*Loan.InterestRate/
+                               daysInTheYear*days, _rounding);
                 for (int i = indexOfChangedItem + 1; i < Loan.NbOfInstallments - 1; i++)
                 {
                     days = (Loan.InstallmentList[i].ExpectedDate - Loan.InstallmentList[i - 1].ExpectedDate).Days;
-                    Loan.InstallmentList[i].InterestsRepayment = Loan.InstallmentList[i].OLB*Loan.InterestRate/
-                                                                 daysInTheYear*days;
+                    Loan.InstallmentList[i].InterestsRepayment =
+                        Math.Round(Loan.InstallmentList[i].OLB.Value*Loan.InterestRate/
+                                   daysInTheYear*days, _rounding);
                 }
             }
             else
                 for (var i = indexOfChangedItem; i < Loan.InstallmentList.Count; i++)
-                    Loan.InstallmentList[i].InterestsRepayment = Loan.InstallmentList[i].OLB*Loan.InterestRate;
+                    Loan.InstallmentList[i].InterestsRepayment =
+                        Math.Round(Loan.InstallmentList[i].OLB.Value*Loan.InterestRate, _rounding);
         }
 
         private bool CheckPrincipal(int indexOfChangedItem)

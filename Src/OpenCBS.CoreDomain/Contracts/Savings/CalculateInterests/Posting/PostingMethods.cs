@@ -74,7 +74,8 @@ namespace OpenCBS.CoreDomain.Contracts.Savings.CalculateInterests.Posting
                         Amount = interestsToPost,
                         User = _user,
                         Cancelable = true,
-                        ProductType = _saving.Product.GetType()
+                        ProductType = _saving.Product.GetType(),
+                        ContracId = _saving.TransferAccount == null ? _saving.Id : _saving.TransferAccount.Id
                     });
                 }
             }
