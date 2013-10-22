@@ -4700,6 +4700,8 @@ namespace OpenCBS.GUI.Clients
                     if (reschedulingForm.DialogResult != DialogResult.Cancel)
                     {
                         _credit = reschedulingForm.Contract;
+                        nudLoanNbOfInstallments.Value = _credit.NbOfInstallments;
+                        SaveContract();
                         InitializeContractStatus(_credit);
                         InitializeTabPageLoansDetails(_credit);
                         DisplayListViewLoanRepayments(_credit);
