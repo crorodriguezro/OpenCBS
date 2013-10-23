@@ -7085,25 +7085,23 @@ namespace OpenCBS.GUI.Clients
             try
             {
                 ServiceProvider.GetContractServices().ManualScheduleAfterDisbursement();
-                ManualScheduleForm manualScheduleForm = new ManualScheduleForm(_credit.Copy());
+                var manualScheduleForm = new ManualScheduleForm(_credit.Copy());
 
-                if (manualScheduleForm.ShowDialog() == DialogResult.OK)
+                if (manualScheduleForm.ShowDialog() != DialogResult.OK) return;
+                var manualScheduleChangeEvent = new ManualScheduleChangeEvent
                 {
+                    User = User.CurrentUser,
+                    Date = TimeProvider.Now
+                };
+                ServiceProvider.GetContractServices()
+                               .AddManualScheduleChangeEvent(_credit, manualScheduleChangeEvent);
 
+                _credit = manualScheduleForm.Loan;
 
-                    var manualScheduleChangeEvent = new ManualScheduleChangeEvent();
-                    manualScheduleChangeEvent.User = User.CurrentUser;
-                    manualScheduleChangeEvent.Date = DateTime.Today;
-                    ServiceProvider.GetContractServices()
-                                   .AddManualScheduleChangeEvent(_credit, manualScheduleChangeEvent);
-
-                    _credit = manualScheduleForm.Loan;
-
-                    SaveContract();
-                    _credit = ServiceProvider.GetContractServices().SelectLoan(_credit.Id, true, true, true);
-                    DisplayListViewLoanRepayments(_credit);
-                    DisplayLoanEvents(_credit);
-                }
+                SaveContract();
+                _credit = ServiceProvider.GetContractServices().SelectLoan(_credit.Id, true, true, true);
+                DisplayListViewLoanRepayments(_credit);
+                DisplayLoanEvents(_credit);
             }
             catch (Exception ex)
             {
