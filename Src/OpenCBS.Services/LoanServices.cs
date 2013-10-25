@@ -75,7 +75,7 @@ namespace OpenCBS.Services
 
         private readonly OctopusScheduleConfigurationFactory _configurationFactory;
 
-        [ImportMany(typeof(IContractCodeGenerator))]
+        [ImportMany(typeof (IContractCodeGenerator))]
         private Lazy<IContractCodeGenerator, IDictionary<string, object>>[] ContractCodeGenerators { get; set; }
 
         public LoanServices(User pUser)
@@ -100,7 +100,8 @@ namespace OpenCBS.Services
             MefContainer.Current.Bind(this);
         }
 
-        public LoanServices(InstallmentManager pInstalmentManager, ClientManager pClientManager, LoanManager pLoanManager)
+        public LoanServices(InstallmentManager pInstalmentManager, ClientManager pClientManager,
+                            LoanManager pLoanManager)
         {
             _user = new User();
             _instalmentManager = pInstalmentManager;
@@ -134,7 +135,9 @@ namespace OpenCBS.Services
             int nbOfModifiedInstalments = 0;
             foreach (KeyValuePair<int, Installment> pair in pInstallmentList)
             {
-                DateTime date = nonWorkingDate.GetTheNearestValidDate(pair.Value.ExpectedDate, appSettings.IsIncrementalDuringDayOff, appSettings.DoNotSkipNonWorkingDays, true);
+                DateTime date = nonWorkingDate.GetTheNearestValidDate(pair.Value.ExpectedDate,
+                                                                      appSettings.IsIncrementalDuringDayOff,
+                                                                      appSettings.DoNotSkipNonWorkingDays, true);
 
                 if (pair.Value.ExpectedDate == date) continue;
 
@@ -218,15 +221,15 @@ namespace OpenCBS.Services
                     {
                         case OClientTypes.Group:
                             clientServices.SetFavouriteLoanOfficerForGroup(
-                                (Group)pClient, pLoan.LoanOfficer.Id, transaction);
+                                (Group) pClient, pLoan.LoanOfficer.Id, transaction);
                             break;
                         case OClientTypes.Corporate:
                             clientServices.SetFavouriteLoanOfficerForCorporate(
-                                (Corporate)pClient, pLoan.LoanOfficer.Id);
+                                (Corporate) pClient, pLoan.LoanOfficer.Id);
                             break;
                         case OClientTypes.Person:
                             clientServices.SetFavouriteLoanOfficerForPerson(
-                                (Person)pClient, pLoan.LoanOfficer.Id, transaction);
+                                (Person) pClient, pLoan.LoanOfficer.Id, transaction);
                             break;
                     }
                     if (action != null) action(transaction, pLoan.Id);
@@ -266,10 +269,13 @@ namespace OpenCBS.Services
         /// <param name="pDateToDisburse"></param>
         /// <param name="pDisableFees"></param>
         /// <returns>a Loan disbursement event</returns>
-        public LoanDisbursmentEvent DisburseSimulation(Loan pLoan, bool pAlignInstallmentsDatesOnRealDisbursmentDate, DateTime pDateToDisburse, bool pDisableFees)
+        public LoanDisbursmentEvent DisburseSimulation(Loan pLoan, bool pAlignInstallmentsDatesOnRealDisbursmentDate,
+                                                       DateTime pDateToDisburse, bool pDisableFees)
         {
             Loan clonedLoan = pLoan.Copy();
-            LoanDisbursmentEvent loanDisbursmentEvent = clonedLoan.Disburse(pDateToDisburse, pAlignInstallmentsDatesOnRealDisbursmentDate, pDisableFees);
+            LoanDisbursmentEvent loanDisbursmentEvent = clonedLoan.Disburse(pDateToDisburse,
+                                                                            pAlignInstallmentsDatesOnRealDisbursmentDate,
+                                                                            pDisableFees);
 
             if (loanDisbursmentEvent == null)
                 throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.DisburseIsNull);
@@ -293,98 +299,99 @@ namespace OpenCBS.Services
             {
                 if (
                     !_econimcActivityServices.EconomicActivityLoanHistoryExists(pLoan.Id, pLoan.Project.Client.Id,
-                                                                                    sqlTransaction))
+                                                                                sqlTransaction))
                 {
                     activityLoanHistory = new EconomicActivityLoanHistory
-                                              {
-                                                  Contract = pLoan,
-                                                  Deleted = false,
-                                                  Group = null,
-                                                  Person = pLoan.Project.Client,
-                                                  EconomicActivity = ((Person)pLoan.Project.Client).Activity
-                                              };
+                        {
+                            Contract = pLoan,
+                            Deleted = false,
+                            Group = null,
+                            Person = pLoan.Project.Client,
+                            EconomicActivity = ((Person) pLoan.Project.Client).Activity
+                        };
                     _econimcActivityServices.AddEconomicActivityLoanHistory(activityLoanHistory, sqlTransaction);
                 }
                 else
                 {
                     if (_econimcActivityServices.EconomicActivityLoanHistoryDeleted(pLoan.Id,
-                                                                                        pLoan.Project.Client.Id,
-                                                                                        sqlTransaction))
+                                                                                    pLoan.Project.Client.Id,
+                                                                                    sqlTransaction))
                         _econimcActivityServices.UpdateDeletedEconomicActivityLoanHistory(pLoan.Id,
-                                                                                              pLoan.Project.Client.Id,
-                                                                                              ((Person)
-                                                                                               pLoan.Project.Client).
-                                                                                                  Activity.Id,
-                                                                                              sqlTransaction, false);
+                                                                                          pLoan.Project.Client.Id,
+                                                                                          ((Person)
+                                                                                           pLoan.Project.Client).
+                                                                                              Activity.Id,
+                                                                                          sqlTransaction, false);
                 }
             }
             else if (pLoan.Project.Client is Group)
             {
-                foreach (Member member in ((Group)pLoan.Project.Client).Members)
+                foreach (Member member in ((Group) pLoan.Project.Client).Members)
                 {
                     if (
                         !_econimcActivityServices.EconomicActivityLoanHistoryExists(pLoan.Id, member.Tiers.Id,
-                                                                                        sqlTransaction))
+                                                                                    sqlTransaction))
                     {
                         activityLoanHistory = new EconomicActivityLoanHistory
-                                                  {
-                                                      Contract = pLoan,
-                                                      Deleted = false,
-                                                      Group = (Group)pLoan.Project.Client,
-                                                      Person = member.Tiers,
-                                                      EconomicActivity = ((Person)member.Tiers).Activity
-                                                  };
+                            {
+                                Contract = pLoan,
+                                Deleted = false,
+                                Group = (Group) pLoan.Project.Client,
+                                Person = member.Tiers,
+                                EconomicActivity = ((Person) member.Tiers).Activity
+                            };
                         _econimcActivityServices.AddEconomicActivityLoanHistory(activityLoanHistory, sqlTransaction);
                     }
                     else
                     {
                         if (_econimcActivityServices.EconomicActivityLoanHistoryDeleted(pLoan.Id, member.Tiers.Id,
-                                                                                            sqlTransaction))
+                                                                                        sqlTransaction))
                             _econimcActivityServices.UpdateDeletedEconomicActivityLoanHistory(pLoan.Id,
-                                                                                                  member.Tiers.Id,
-                                                                                                  ((Person)member.Tiers)
-                                                                                                      .Activity.Id,
-                                                                                                  sqlTransaction, false);
+                                                                                              member.Tiers.Id,
+                                                                                              ((Person) member.Tiers)
+                                                                                                  .Activity.Id,
+                                                                                              sqlTransaction, false);
                     }
                 }
             }
             else if (pLoan.Project.Client is Corporate)
             {
-                if (((Corporate)pLoan.Project.Client).Activity == null)
+                if (((Corporate) pLoan.Project.Client).Activity == null)
                     throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.EconomicActivityIsNull);
 
                 if (
                     !_econimcActivityServices.EconomicActivityLoanHistoryExists(pLoan.Id,
-                                                                                    pLoan.Project.Client.Id,
-                                                                                    sqlTransaction))
+                                                                                pLoan.Project.Client.Id,
+                                                                                sqlTransaction))
                 {
                     activityLoanHistory = new EconomicActivityLoanHistory
-                                              {
-                                                  Contract = pLoan,
-                                                  Deleted = false,
-                                                  Group = null,
-                                                  Person = pLoan.Project.Client,
-                                                  EconomicActivity = ((Corporate)pLoan.Project.Client).Activity
-                                              };
+                        {
+                            Contract = pLoan,
+                            Deleted = false,
+                            Group = null,
+                            Person = pLoan.Project.Client,
+                            EconomicActivity = ((Corporate) pLoan.Project.Client).Activity
+                        };
                     _econimcActivityServices.AddEconomicActivityLoanHistory(activityLoanHistory, sqlTransaction);
                 }
                 else
                 {
                     if (_econimcActivityServices.EconomicActivityLoanHistoryDeleted(pLoan.Id,
-                                                                                        pLoan.Project.Client.Id,
-                                                                                        sqlTransaction))
+                                                                                    pLoan.Project.Client.Id,
+                                                                                    sqlTransaction))
                         _econimcActivityServices.UpdateDeletedEconomicActivityLoanHistory(pLoan.Id,
-                                                                                              pLoan.Project.Client.
-                                                                                                  Id,
-                                                                                              ((Corporate)
-                                                                                               pLoan.Project.Client)
-                                                                                                  .Activity.Id,
-                                                                                              sqlTransaction, false);
+                                                                                          pLoan.Project.Client.
+                                                                                                Id,
+                                                                                          ((Corporate)
+                                                                                           pLoan.Project.Client)
+                                                                                              .Activity.Id,
+                                                                                          sqlTransaction, false);
                 }
             }
         }
 
-        public Loan Disburse(Loan pLoan, DateTime pDateToDisburse, bool pAlignInstallmentsDatesOnRealDisbursmentDate, bool pDisableFees, PaymentMethod method)
+        public Loan Disburse(Loan pLoan, DateTime pDateToDisburse, bool pAlignInstallmentsDatesOnRealDisbursmentDate,
+                             bool pDisableFees, PaymentMethod method)
         {
             Loan copyLoan = pLoan.Copy();
             CheckDisbursedLoan(copyLoan, pDateToDisburse);
@@ -405,17 +412,17 @@ namespace OpenCBS.Services
                         loanDisbursmentEvent.Comment = pLoan.CompulsorySavings.Code;
 
                     FundingLineEvent flFundingLineEvent = new FundingLineEvent
-                                                              {
-                                                                  Code = String.Concat("DE_", copyLoan.Code),
-                                                                  Type = OFundingLineEventTypes.Disbursment,
-                                                                  Amount = loanDisbursmentEvent.Amount,
-                                                                  Movement = OBookingDirections.Debit,
-                                                                  CreationDate = TimeProvider.Now,
-                                                                  FundingLine =
-                                                                      _fundingLineServices.SelectFundingLineById(
-                                                                          copyLoan.FundingLine.Id, sqlTransaction),
-                                                                  AttachTo = loanDisbursmentEvent
-                                                              };
+                        {
+                            Code = String.Concat("DE_", copyLoan.Code),
+                            Type = OFundingLineEventTypes.Disbursment,
+                            Amount = loanDisbursmentEvent.Amount,
+                            Movement = OBookingDirections.Debit,
+                            CreationDate = TimeProvider.Now,
+                            FundingLine =
+                                _fundingLineServices.SelectFundingLineById(
+                                    copyLoan.FundingLine.Id, sqlTransaction),
+                            AttachTo = loanDisbursmentEvent
+                        };
 
                     if (Teller.CurrentTeller != null && Teller.CurrentTeller.Id != 0)
                     {
@@ -446,7 +453,7 @@ namespace OpenCBS.Services
                     int loanDisbEventId = loanDisbursmentEvent.Id;
                     if (pAlignInstallmentsDatesOnRealDisbursmentDate ||
                         ApplicationSettings.GetInstance(_user != null ? _user.Md5 : string.Empty).
-                            PayFirstInterestRealValue)
+                                            PayFirstInterestRealValue)
                         foreach (Installment installment in copyLoan.InstallmentList)
                             _instalmentManager.UpdateInstallment(installment, copyLoan.Id, loanDisbEventId,
                                                                  sqlTransaction);
@@ -492,8 +499,9 @@ namespace OpenCBS.Services
             if (!copyLoan.FundingLine.Currency.Equals(copyLoan.Product.Currency))
                 throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.CurrencyMisMatch);
 
-            if (((DateTime)copyLoan.CreditCommiteeDate).Date > pDateToDisburse.Date)
-                throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.LoanWasValidatedLaterThanDisbursed);
+            if (((DateTime) copyLoan.CreditCommiteeDate).Date > pDateToDisburse.Date)
+                throw new OpenCbsContractSaveException(
+                    OpenCbsContractSaveExceptionEnum.LoanWasValidatedLaterThanDisbursed);
 
             if (copyLoan.Product.UseCompulsorySavings && copyLoan.CompulsorySavings == null)
                 throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.LoanHasNoCompulsorySavings);
@@ -503,30 +511,39 @@ namespace OpenCBS.Services
         }
 
         public Loan ChangeRepaymentType(Loan loan, IClient client, int installmentNumber, DateTime date,
-            OCurrency amount, bool disableFees, OCurrency manualFeesAmount, OCurrency manualCommission,
-            bool disableInterests, OCurrency manualInterestsAmount, bool keepExpectedInstallment, bool proportionPayment,
-            PaymentMethod paymentMethod, string comment, bool pending)
+                                        OCurrency amount, bool disableFees, OCurrency manualFeesAmount,
+                                        OCurrency manualCommission,
+                                        bool disableInterests, OCurrency manualInterestsAmount,
+                                        bool keepExpectedInstallment, bool proportionPayment,
+                                        PaymentMethod paymentMethod, string comment, bool pending)
         {
             return Repay(loan, client, installmentNumber, date, amount, disableFees, manualFeesAmount, manualCommission,
-                disableInterests, manualInterestsAmount, keepExpectedInstallment, proportionPayment, paymentMethod, comment, pending);
+                         disableInterests, manualInterestsAmount, keepExpectedInstallment, proportionPayment,
+                         paymentMethod, comment, pending);
         }
 
         public Loan ManualInterestCalculation(Loan loan, IClient client, int installmentNumber, DateTime date,
-            OCurrency amount, bool disableFees, OCurrency manualFeesAmount, OCurrency manualCommission,
-            bool disableInterests, OCurrency manualInterestsAmount, bool keepExpectedInstallment, bool proportionPayment,
-            PaymentMethod paymentMethod, string comment, bool pending)
+                                              OCurrency amount, bool disableFees, OCurrency manualFeesAmount,
+                                              OCurrency manualCommission,
+                                              bool disableInterests, OCurrency manualInterestsAmount,
+                                              bool keepExpectedInstallment, bool proportionPayment,
+                                              PaymentMethod paymentMethod, string comment, bool pending)
         {
             return Repay(loan, client, installmentNumber, date, amount, disableFees, manualFeesAmount, manualCommission,
-                disableInterests, manualInterestsAmount, keepExpectedInstallment, proportionPayment, paymentMethod, comment, pending);
+                         disableInterests, manualInterestsAmount, keepExpectedInstallment, proportionPayment,
+                         paymentMethod, comment, pending);
         }
 
         public Loan ManualFeesCalculation(Loan loan, IClient client, int installmentNumber, DateTime date,
-            OCurrency amount, bool disableFees, OCurrency manualFeesAmount, OCurrency manualCommission,
-            bool disableInterests, OCurrency manualInterestsAmount, bool keepExpectedInstallment, bool proportionPayment,
-            PaymentMethod paymentMethod, string comment, bool pending)
+                                          OCurrency amount, bool disableFees, OCurrency manualFeesAmount,
+                                          OCurrency manualCommission,
+                                          bool disableInterests, OCurrency manualInterestsAmount,
+                                          bool keepExpectedInstallment, bool proportionPayment,
+                                          PaymentMethod paymentMethod, string comment, bool pending)
         {
             return Repay(loan, client, installmentNumber, date, amount, disableFees, manualFeesAmount, manualCommission,
-                disableInterests, manualInterestsAmount, keepExpectedInstallment, proportionPayment, paymentMethod, comment, pending);
+                         disableInterests, manualInterestsAmount, keepExpectedInstallment, proportionPayment,
+                         paymentMethod, comment, pending);
         }
 
         public Loan Repay(Loan curentLoan,
@@ -597,24 +614,24 @@ namespace OpenCBS.Services
                     if (!isPending)
                     {
                         FundingLineEvent repayFlFundingLineEvent = new FundingLineEvent
-                                                                       {
-                                                                           Code =
-                                                                               String.Concat("RE_", curentLoan.Code,
-                                                                                             "_INS_", installmentNumber),
-                                                                           Type = OFundingLineEventTypes.Repay,
-                                                                           Amount =
-                                                                               ApplicationSettings.GetInstance(
-                                                                                                            _user != null
-                                                                                                            ? _user.Md5
-                                                                                                            : "")
-                                                                                   .InterestsCreditedInFL
-                                                                                   ? amount
-                                                                                   : repayEvent.Principal,
-                                                                           Movement = OBookingDirections.Credit,
-                                                                           CreationDate = TimeProvider.Now,
-                                                                           FundingLine = curentLoan.FundingLine,
-                                                                           AttachTo = repayEvent
-                                                                       };
+                            {
+                                Code =
+                                    String.Concat("RE_", curentLoan.Code,
+                                                  "_INS_", installmentNumber),
+                                Type = OFundingLineEventTypes.Repay,
+                                Amount =
+                                    ApplicationSettings.GetInstance(
+                                        _user != null
+                                            ? _user.Md5
+                                            : "")
+                                                       .InterestsCreditedInFL
+                                        ? amount
+                                        : repayEvent.Principal,
+                                Movement = OBookingDirections.Credit,
+                                CreationDate = TimeProvider.Now,
+                                FundingLine = curentLoan.FundingLine,
+                                AttachTo = repayEvent
+                            };
                         //the code below should be moved into event generation proccess
                         if (Teller.CurrentTeller != null && Teller.CurrentTeller.Id != 0)
                             repayFlFundingLineEvent.TellerId = Teller.CurrentTeller.Id;
@@ -702,7 +719,8 @@ namespace OpenCBS.Services
             }
         }
 
-        private void DoRepaymentFromSavings(Loan savedContract, RepaymentEvent repayEvent, OCurrency amount, SqlTransaction sqlTransaction)
+        private void DoRepaymentFromSavings(Loan savedContract, RepaymentEvent repayEvent, OCurrency amount,
+                                            SqlTransaction sqlTransaction)
         {
             if (savedContract.CompulsorySavings == null)
                 throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.NoCompulsorySavings);
@@ -727,26 +745,26 @@ namespace OpenCBS.Services
                         repayEvent.TellerId = Teller.CurrentTeller.Id;
 
                     FundingLineEvent repayFlFundingLineEvent = new FundingLineEvent
-                                                                   {
-                                                                       Code =
-                                                                           String.Concat("RE_", pLoan.Code, "_INS_",
-                                                                                         repayEvent.InstallmentNumber),
-                                                                       Type = OFundingLineEventTypes.Repay,
-                                                                       Amount =
-                                                                           ApplicationSettings.GetInstance(_user != null
-                                                                                                               ? _user.
-                                                                                                                     Md5
-                                                                                                               : "").
-                                                                               InterestsCreditedInFL
-                                                                               ? repayEvent.Principal +
-                                                                                 repayEvent.Interests
-                                                                               : repayEvent.Principal,
-                                                                       Movement = OBookingDirections.Credit,
-                                                                       CreationDate = TimeProvider.Now,
-                                                                       FundingLine = pLoan.FundingLine
-                                                                       ,
-                                                                       AttachTo = repayEvent
-                                                                   };
+                        {
+                            Code =
+                                String.Concat("RE_", pLoan.Code, "_INS_",
+                                              repayEvent.InstallmentNumber),
+                            Type = OFundingLineEventTypes.Repay,
+                            Amount =
+                                ApplicationSettings.GetInstance(_user != null
+                                                                    ? _user.
+                                                                          Md5
+                                                                    : "").
+                                                    InterestsCreditedInFL
+                                    ? repayEvent.Principal +
+                                      repayEvent.Interests
+                                    : repayEvent.Principal,
+                            Movement = OBookingDirections.Credit,
+                            CreationDate = TimeProvider.Now,
+                            FundingLine = pLoan.FundingLine
+                            ,
+                            AttachTo = repayEvent
+                        };
 
                     if (Teller.CurrentTeller != null && Teller.CurrentTeller.Id != 0)
                         repayFlFundingLineEvent.TellerId = Teller.CurrentTeller.Id;
@@ -823,7 +841,7 @@ namespace OpenCBS.Services
 
             if (pClient is Group)
             {
-                foreach (var member in ((Group)pClient).Members)
+                foreach (var member in ((Group) pClient).Members)
                 {
                     membersOfGroup.Add(_clientManager.SelectPersonById(member.Tiers.Id));
                 }
@@ -886,12 +904,12 @@ namespace OpenCBS.Services
 
                     foreach (var guarantor in pCredit.Guarantors)
                     {
-                        ((Person)guarantor.Tiers).Active = (pClient.Active ||
+                        ((Person) guarantor.Tiers).Active = (pClient.Active ||
                                                              (_clientManager.GetNumberOfGuarantorsLoansCover(
                                                                  guarantor.Tiers.Id, sqlTransaction) != 0));
-                        if (((Person)guarantor.Tiers).Active == false)
+                        if (((Person) guarantor.Tiers).Active == false)
                         {
-                            ((Person)guarantor.Tiers).Status = OClientStatus.Inactive;
+                            ((Person) guarantor.Tiers).Status = OClientStatus.Inactive;
                         }
                         _clientManager.UpdateClientStatus(guarantor.Tiers, sqlTransaction);
                     }
@@ -906,7 +924,7 @@ namespace OpenCBS.Services
             }
         }
 
-       public Loan SimulateRescheduling(Loan loan, ScheduleConfiguration rescheduleConfiguration)
+        public Loan SimulateRescheduling(Loan loan, ScheduleConfiguration rescheduleConfiguration)
         {
             var copyOfLoan = loan.Copy();
             var scheduleConfiguration = _configurationFactory
@@ -917,10 +935,11 @@ namespace OpenCBS.Services
             var schedule = Mapper.Map<IEnumerable<Installment>, IEnumerable<IInstallment>>(copyOfLoan.InstallmentList);
             var scheduleBuilder = new ScheduleBuilder();
             var rescheduleAssembler = new RescheduleAssembler();
-            var copyOfRescheduleConfiguration = (IScheduleConfiguration)rescheduleConfiguration.Clone();
-            copyOfRescheduleConfiguration.InterestRate *= (decimal)scheduleConfiguration.PeriodPolicy.GetNumberOfPeriodsInYear(
-                copyOfRescheduleConfiguration.StartDate,
-                scheduleConfiguration.YearPolicy);
+            var copyOfRescheduleConfiguration = (IScheduleConfiguration) rescheduleConfiguration.Clone();
+            copyOfRescheduleConfiguration.InterestRate *=
+                (decimal) scheduleConfiguration.PeriodPolicy.GetNumberOfPeriodsInYear(
+                    copyOfRescheduleConfiguration.StartDate,
+                    scheduleConfiguration.YearPolicy);
 
             schedule = rescheduleAssembler.AssembleRescheduling(
                 schedule,
@@ -947,10 +966,11 @@ namespace OpenCBS.Services
             var scheduleBuilder = new ScheduleBuilder();
             var trancheBuilder = new TrancheBuilder();
             var trancheAssembler = new TrancheAssembler();
-            var copyOfTrancheConfiguration = (ITrancheConfiguration)trancheConfiguration.Clone();
-            copyOfTrancheConfiguration.InterestRate *= (decimal)scheduleConfiguration.PeriodPolicy.GetNumberOfPeriodsInYear(
-                copyOfTrancheConfiguration.StartDate,
-                scheduleConfiguration.YearPolicy);
+            var copyOfTrancheConfiguration = (ITrancheConfiguration) trancheConfiguration.Clone();
+            copyOfTrancheConfiguration.InterestRate *=
+                (decimal) scheduleConfiguration.PeriodPolicy.GetNumberOfPeriodsInYear(
+                    copyOfTrancheConfiguration.StartDate,
+                    scheduleConfiguration.YearPolicy);
 
             schedule = trancheAssembler.AssembleTranche(
                 schedule,
@@ -1020,7 +1040,8 @@ namespace OpenCBS.Services
             }
         }
 
-        public Loan AddAccruedInterestEvent(Loan loan, AccruedInterestEvent accruedInterestEvent, SqlTransaction sqlTransaction)
+        public Loan AddAccruedInterestEvent(Loan loan, AccruedInterestEvent accruedInterestEvent,
+                                            SqlTransaction sqlTransaction)
         {
             try
             {
@@ -1106,7 +1127,7 @@ namespace OpenCBS.Services
                     Loan copyOfLoan = loan.Copy();
                     _ePs.FireEvent(manualScheduleChangeEvent, loan, sqlTransaction);
                     ArchiveInstallments(copyOfLoan, manualScheduleChangeEvent, sqlTransaction);
-                    
+
                     sqlTransaction.Commit();
                     return loan;
                 }
@@ -1130,22 +1151,22 @@ namespace OpenCBS.Services
                     var copyOfLoan = SimulateTranche(loan, trancheConfiguration);
                     var startInstallment =
                         copyOfLoan.InstallmentList
-                        .FindAll(i => i.ExpectedDate <= trancheConfiguration.StartDate)
-                        .LastOrDefault();
+                                  .FindAll(i => i.ExpectedDate <= trancheConfiguration.StartDate)
+                                  .LastOrDefault();
                     var trancheEvent = new TrancheEvent
-                    {
-                        Amount = trancheConfiguration.Amount,
-                        ApplyNewInterest = trancheConfiguration.ApplyNewInterestRateToOlb,
-                        Maturity = trancheConfiguration.NumberOfInstallments,
-                        StartDate = trancheConfiguration.StartDate,
-                        Date = trancheConfiguration.StartDate,
-                        InterestRate = trancheConfiguration.InterestRate / 100,
-                        Number = copyOfLoan.GivenTranches.Count,
-                        FirstRepaymentDate = trancheConfiguration.PreferredFirstInstallmentDate,
-                        GracePeriod = trancheConfiguration.GracePeriod,
-                        StartedFromInstallment = startInstallment == null ? 0 : startInstallment.Number,
-                        User = _user,
-                    };
+                        {
+                            Amount = trancheConfiguration.Amount,
+                            ApplyNewInterest = trancheConfiguration.ApplyNewInterestRateToOlb,
+                            Maturity = trancheConfiguration.NumberOfInstallments,
+                            StartDate = trancheConfiguration.StartDate,
+                            Date = trancheConfiguration.StartDate,
+                            InterestRate = trancheConfiguration.InterestRate/100,
+                            Number = copyOfLoan.GivenTranches.Count,
+                            FirstRepaymentDate = trancheConfiguration.PreferredFirstInstallmentDate,
+                            GracePeriod = trancheConfiguration.GracePeriod,
+                            StartedFromInstallment = startInstallment == null ? 0 : startInstallment.Number,
+                            User = _user,
+                        };
 
                     trancheEvent.User = _user;
 
@@ -1169,7 +1190,7 @@ namespace OpenCBS.Services
                     }
                     //in the feature might be combine UpdateLoan + UpdateLoanWithinTranche
                     _loanManager.UpdateLoanWithinTranche(
-                        trancheConfiguration.InterestRate / 100,
+                        trancheConfiguration.InterestRate/100,
                         copyOfLoan.NbOfInstallments,
                         copyOfLoan,
                         transaction);
@@ -1241,22 +1262,22 @@ namespace OpenCBS.Services
                 {
                     var copyOfLoan = SimulateRescheduling(loan, rescheduleConfiguration);
                     var rescheduleLoanEvent = new RescheduleLoanEvent
-                    {
-                        Amount = copyOfLoan.CalculateActualOlb(),
-                        Date = rescheduleConfiguration.StartDate,
-                        ClientType = client.Type,
-                        Interest = rescheduleConfiguration.InterestRate,
-                        BadLoan = loan.BadLoan,
-                        NbOfMaturity = rescheduleConfiguration.NumberOfInstallments,
-                        GracePeriod = rescheduleConfiguration.GracePeriod,
-                        ChargeInterestDuringGracePeriod = rescheduleConfiguration.ChargeInterestDuringGracePeriod,
-                        InstallmentNumber =
-                            copyOfLoan.GetLastFullyRepaidInstallment() == null
-                                ? 1
-                                : copyOfLoan.GetLastFullyRepaidInstallment().Number + 1,
-                        PreferredFirstInstallmentDate =rescheduleConfiguration.PreferredFirstInstallmentDate,
-                        User = _user,
-                    };
+                        {
+                            Amount = copyOfLoan.CalculateActualOlb(),
+                            Date = rescheduleConfiguration.StartDate,
+                            ClientType = client.Type,
+                            Interest = rescheduleConfiguration.InterestRate,
+                            BadLoan = loan.BadLoan,
+                            NbOfMaturity = rescheduleConfiguration.NumberOfInstallments,
+                            GracePeriod = rescheduleConfiguration.GracePeriod,
+                            ChargeInterestDuringGracePeriod = rescheduleConfiguration.ChargeInterestDuringGracePeriod,
+                            InstallmentNumber =
+                                copyOfLoan.GetLastFullyRepaidInstallment() == null
+                                    ? 1
+                                    : copyOfLoan.GetLastFullyRepaidInstallment().Number + 1,
+                            PreferredFirstInstallmentDate = rescheduleConfiguration.PreferredFirstInstallmentDate,
+                            User = _user,
+                        };
 
                     //insert into table TrancheEvent
                     _ePs.FireEvent(rescheduleLoanEvent, copyOfLoan, transaction);
@@ -1284,19 +1305,19 @@ namespace OpenCBS.Services
         }
 
         public KeyValuePair<Loan, RepaymentEvent> ShowNewContract(Loan pContract,
-            int installmentNumber,
-            DateTime date,
-            OCurrency amount,
-            bool disableFees,
-            OCurrency manualFeesAmount,
-            OCurrency manualCommissionAmount,
-            bool disableInterests,
-            OCurrency manualInterests,
-            bool pKeepExpectedInstallment,
-            bool doProportionPayment,
-            PaymentMethod pPaymentMethod,
-            bool pPending,
-            bool isTotalRepayment)
+                                                                  int installmentNumber,
+                                                                  DateTime date,
+                                                                  OCurrency amount,
+                                                                  bool disableFees,
+                                                                  OCurrency manualFeesAmount,
+                                                                  OCurrency manualCommissionAmount,
+                                                                  bool disableInterests,
+                                                                  OCurrency manualInterests,
+                                                                  bool pKeepExpectedInstallment,
+                                                                  bool doProportionPayment,
+                                                                  PaymentMethod pPaymentMethod,
+                                                                  bool pPending,
+                                                                  bool isTotalRepayment)
         {
 
             if (!pContract.UseCents)
@@ -1312,15 +1333,16 @@ namespace OpenCBS.Services
             Loan fakeContract = pContract.Copy();
 
             OCurrency expectedMaxAmount = fakeContract.CalculateMaximumAmountAuthorizedToRepay(installmentNumber, date,
-                                                                                            disableFees,
-                                                                                            manualFeesAmount,
-                                                                                            manualCommissionAmount,
-                                                                                            disableInterests,
-                                                                                            manualInterests,
-                                                                                            pKeepExpectedInstallment);
+                                                                                               disableFees,
+                                                                                               manualFeesAmount,
+                                                                                               manualCommissionAmount,
+                                                                                               disableInterests,
+                                                                                               manualInterests,
+                                                                                               pKeepExpectedInstallment);
 
-            expectedMaxAmount = fakeContract.UseCents ? Math.Round(expectedMaxAmount.Value, 2, MidpointRounding.AwayFromZero) :
-                expectedMaxAmount;
+            expectedMaxAmount = fakeContract.UseCents
+                                    ? Math.Round(expectedMaxAmount.Value, 2, MidpointRounding.AwayFromZero)
+                                    : expectedMaxAmount;
 
 
             if (!disableFees && !isTotalRepayment)
@@ -1355,9 +1377,9 @@ namespace OpenCBS.Services
                 LoanEntryFee loanFee = new LoanEntryFee();
                 loanFee.ProductEntryFee = fee;
                 if (fee.Min != null)
-                    loanFee.FeeValue = (decimal)fee.Min;
+                    loanFee.FeeValue = (decimal) fee.Min;
                 else
-                    loanFee.FeeValue = (decimal)fee.Value;
+                    loanFee.FeeValue = (decimal) fee.Value;
                 loanEntryFees.Add(loanFee);
             }
             return loanEntryFees;
@@ -1556,7 +1578,8 @@ namespace OpenCBS.Services
                             contract.ContractStatus = OContractStatus.Closed;
                             contract.Closed = true;
                             //Restore interest rate
-                            contract.InterestRate = contract.GivenTranches[contract.GivenTranches.Count - 1].InterestRate.Value;
+                            contract.InterestRate =
+                                contract.GivenTranches[contract.GivenTranches.Count - 1].InterestRate.Value;
                         }
                     }
                     else if (cancelledEvent is RepaymentEvent)
@@ -1569,7 +1592,8 @@ namespace OpenCBS.Services
                             if (contract.HasCompulsoryAmount())
                             {
                                 SavingEvent savingUnblockEvent =
-                                    contract.CompulsorySavings.Events.FirstOrDefault(e => e.LoanEventId == cancelledEvent.Id);
+                                    contract.CompulsorySavings.Events.FirstOrDefault(
+                                        e => e.LoanEventId == cancelledEvent.Id);
                                 if (savingUnblockEvent != null)
                                 {
                                     _savingEventManager.DeleteSavingsEventByLoanEventId(
@@ -1589,8 +1613,8 @@ namespace OpenCBS.Services
                         else
                         {
                             contract.ContractStatus = evnt is LoanValidationEvent
-                                                         ? OContractStatus.Pending
-                                                         : OContractStatus.Active;
+                                                          ? OContractStatus.Pending
+                                                          : OContractStatus.Active;
                         }
 
                     }
@@ -1619,21 +1643,22 @@ namespace OpenCBS.Services
                         {
                             _savingEventManager.DeleteSavingsEventByLoanEventId(
                                 cancelledEvent.ParentId ?? cancelledEvent.Id, sqlTransaction);
-                            SavingBlockCompulsarySavingsEvent savingBlockEvent = contract.CompulsorySavings.GetBlockCompulsorySavingEvent();
+                            SavingBlockCompulsarySavingsEvent savingBlockEvent =
+                                contract.CompulsorySavings.GetBlockCompulsorySavingEvent();
                             savingBlockEvent.Deleted = true;
                         }
 
 
-                        LoanDisbursmentEvent temp = (LoanDisbursmentEvent)cancelledEvent;
+                        LoanDisbursmentEvent temp = (LoanDisbursmentEvent) cancelledEvent;
                         flFundingLineEvent = new FundingLineEvent
-                                      {
-                                          Code = String.Concat("DE_", contract.Code),
-                                          Type = OFundingLineEventTypes.Disbursment,
-                                          Amount = temp.Amount,
-                                          Movement = OBookingDirections.Debit,
-                                          CreationDate = TimeProvider.Now,
-                                          FundingLine = contract.FundingLine
-                                      };
+                            {
+                                Code = String.Concat("DE_", contract.Code),
+                                Type = OFundingLineEventTypes.Disbursment,
+                                Amount = temp.Amount,
+                                Movement = OBookingDirections.Debit,
+                                CreationDate = TimeProvider.Now,
+                                FundingLine = contract.FundingLine
+                            };
                         DeleteFundingLineEvent(ref contract, flFundingLineEvent, sqlTransaction);
                         _clientManager.DecrementLoanCycleByContractId(contract.Id, sqlTransaction);
                         // delete entry fee events
@@ -1643,61 +1668,79 @@ namespace OpenCBS.Services
                                 continue;
                             if (contractEvent is LoanEntryFeeEvent)
                             {
-                                _ePs.CancelFireEvent(contractEvent, sqlTransaction, contract, contract.Product.Currency.Id);
+                                _ePs.CancelFireEvent(contractEvent, sqlTransaction, contract,
+                                                     contract.Product.Currency.Id);
                                 contractEvent.Deleted = true;
                             }
                             if (contractEvent is CreditInsuranceEvent)
                             {
-                                _ePs.CancelFireEvent(contractEvent, sqlTransaction, contract, contract.Product.Currency.Id);
+                                _ePs.CancelFireEvent(contractEvent, sqlTransaction, contract,
+                                                     contract.Product.Currency.Id);
                                 contractEvent.Deleted = true;
                             }
                         }
 
                         if (evnt.ClientType == OClientTypes.Person)
                         {
-                            if (_econimcActivityServices.EconomicActivityLoanHistoryExists(contract.Id, pClient.Id, sqlTransaction))
-                                _econimcActivityServices.UpdateDeletedEconomicActivityLoanHistory(contract.Id, pClient.Id,
-                                    ((Person)pClient).Activity.Id, sqlTransaction, true);
+                            if (_econimcActivityServices.EconomicActivityLoanHistoryExists(contract.Id, pClient.Id,
+                                                                                           sqlTransaction))
+                                _econimcActivityServices.UpdateDeletedEconomicActivityLoanHistory(contract.Id,
+                                                                                                  pClient.Id,
+                                                                                                  ((Person) pClient)
+                                                                                                      .Activity.Id,
+                                                                                                  sqlTransaction, true);
                         }
                         else if (evnt.ClientType == OClientTypes.Group)
                         {
-                            foreach (Member member in ((Group)pClient).Members)
+                            foreach (Member member in ((Group) pClient).Members)
                             {
-                                if (_econimcActivityServices.EconomicActivityLoanHistoryExists(contract.Id, member.Tiers.Id, sqlTransaction))
-                                    _econimcActivityServices.UpdateDeletedEconomicActivityLoanHistory(contract.Id, member.Tiers.Id,
-                                       ((Person)member.Tiers).Activity.Id, sqlTransaction, true);
+                                if (_econimcActivityServices.EconomicActivityLoanHistoryExists(contract.Id,
+                                                                                               member.Tiers.Id,
+                                                                                               sqlTransaction))
+                                    _econimcActivityServices.UpdateDeletedEconomicActivityLoanHistory(contract.Id,
+                                                                                                      member.Tiers.Id,
+                                                                                                      ((Person)
+                                                                                                       member.Tiers)
+                                                                                                          .Activity.Id,
+                                                                                                      sqlTransaction,
+                                                                                                      true);
                             }
                         }
                         else if (evnt.ClientType == OClientTypes.Corporate)
                         {
-                            if (_econimcActivityServices.EconomicActivityLoanHistoryExists(contract.Id, pClient.Id, sqlTransaction))
-                                _econimcActivityServices.UpdateDeletedEconomicActivityLoanHistory(contract.Id, pClient.Id,
-                                    ((Corporate)pClient).Activity.Id, sqlTransaction, true);
+                            if (_econimcActivityServices.EconomicActivityLoanHistoryExists(contract.Id, pClient.Id,
+                                                                                           sqlTransaction))
+                                _econimcActivityServices.UpdateDeletedEconomicActivityLoanHistory(contract.Id,
+                                                                                                  pClient.Id,
+                                                                                                  ((Corporate) pClient)
+                                                                                                      .Activity.Id,
+                                                                                                  sqlTransaction, true);
                         }
 
                     }
                     else if (cancelledEvent is RepaymentEvent)
                     {
-                        RepaymentEvent temp = (RepaymentEvent)cancelledEvent;
+                        RepaymentEvent temp = (RepaymentEvent) cancelledEvent;
                         decimal amountCalc = (temp.Principal.HasValue ? temp.Principal.Value : 0) +
                                              (ApplicationSettings.GetInstance(_user != null ? _user.Md5 : "").
-                                                  InterestsCreditedInFL
+                                                                  InterestsCreditedInFL
                                                   ? ((temp.Interests.HasValue ? temp.Interests.Value : 0)
                                                      + (temp.Penalties.HasValue ? temp.Penalties.Value : 0))
                                                   : 0);
 
-                        if (amountCalc > 0 || ApplicationSettings.GetInstance(_user != null ? _user.Md5 : "").InterestsCreditedInFL)
+                        if (amountCalc > 0 ||
+                            ApplicationSettings.GetInstance(_user != null ? _user.Md5 : "").InterestsCreditedInFL)
                         {
                             flFundingLineEvent = new FundingLineEvent
-                                          {
-                                              Code = String.Concat("RE_", contract.Code, "_INS_", temp.InstallmentNumber),
-                                              Type = OFundingLineEventTypes.Repay,
-                                              Amount = amountCalc,
-                                              CreationDate = TimeProvider.Now,
-                                              FundingLine =
-                                                  _fundingLineServices.SelectFundingLineById(contract.FundingLine.Id,
-                                                                                             sqlTransaction)
-                                          };
+                                {
+                                    Code = String.Concat("RE_", contract.Code, "_INS_", temp.InstallmentNumber),
+                                    Type = OFundingLineEventTypes.Repay,
+                                    Amount = amountCalc,
+                                    CreationDate = TimeProvider.Now,
+                                    FundingLine =
+                                        _fundingLineServices.SelectFundingLineById(contract.FundingLine.Id,
+                                                                                   sqlTransaction)
+                                };
 
                             //temporary line to check whether funding line has enough amount to debit repayment event
                             flFundingLineEvent.Movement = OBookingDirections.Debit;
@@ -1727,13 +1770,13 @@ namespace OpenCBS.Services
             if (cancelledEvent.PaymentMethod != null)
                 if (cancelledEvent.PaymentMethod.Method == OPaymentMethods.Savings
                     &&
-                        (cancelledEvent.Code == "RBLE" ||
-                         cancelledEvent.Code == "RGLE" ||
-                         cancelledEvent.Code == "APR" ||
-                         cancelledEvent.Code == "ATR" ||
-                         cancelledEvent.Code == "RRLE" ||
-                         cancelledEvent.Code == "APTR"
-                         )
+                    (cancelledEvent.Code == "RBLE" ||
+                     cancelledEvent.Code == "RGLE" ||
+                     cancelledEvent.Code == "APR" ||
+                     cancelledEvent.Code == "ATR" ||
+                     cancelledEvent.Code == "RRLE" ||
+                     cancelledEvent.Code == "APTR"
+                    )
                     )
                 {
                     int loanEventId = cancelledEvent.ParentId ?? cancelledEvent.Id;
@@ -1743,7 +1786,7 @@ namespace OpenCBS.Services
 
         private void UpdateGroupMembersStatuses(Loan contract)
         {
-            var group = (Group)contract.Project.Client;
+            var group = (Group) contract.Project.Client;
             foreach (var member in group.Members)
             {
                 List<Loan> loansOfMember = _loanManager.SelectLoansByClientId(member.Tiers.Id);
@@ -1796,7 +1839,7 @@ namespace OpenCBS.Services
 
                 try
                 {
-                    if (credit.StartDate.Date < ((DateTime)credit.CreditCommiteeDate).Date)
+                    if (credit.StartDate.Date < ((DateTime) credit.CreditCommiteeDate).Date)
                         throw new OpenCbsContractSaveException(
                             OpenCbsContractSaveExceptionEnum.LoanWasValidatedLaterThanDisbursed);
 
@@ -1808,7 +1851,7 @@ namespace OpenCBS.Services
                         if (tempLoan.Events.GetLastLoanNonDeletedEvent != null &&
                             tempLoan.Events.GetLastLoanNonDeletedEvent is LoanValidationEvent)
                         {
-                            ((LoanValidationEvent)tempLoan.Events.GetLastLoanNonDeletedEvent).Amount = credit.Amount;
+                            ((LoanValidationEvent) tempLoan.Events.GetLastLoanNonDeletedEvent).Amount = credit.Amount;
                             _ePs.CancelFireEvent(tempLoan.Events.GetLastLoanNonDeletedEvent, sqlTransaction, tempLoan,
                                                  tempLoan.Product.Currency.Id);
                             tempLoan.Events.GetLastLoanNonDeletedEvent.Deleted = true;
@@ -1836,21 +1879,21 @@ namespace OpenCBS.Services
                     new ClientServices(_user).UpdateClientStatus(client, sqlTransaction);
 
                     FundingLineEvent pendingFundingLineEvent = new FundingLineEvent
-                                                                   {
-                                                                       Code =
-                                                                           string.Concat(
-                                                                               OFundingLineEventTypes.Commitment.
-                                                                                   ToString(), "/", tempLoan.Code),
-                                                                       Type = OFundingLineEventTypes.Commitment,
-                                                                       FundingLine =
-                                                                           _fundingLineServices.SelectFundingLineById(
-                                                                               tempLoan.FundingLine.Id, sqlTransaction),
-                                                                       Movement = OBookingDirections.Debit,
-                                                                       CreationDate = TimeProvider.Now,
-                                                                       Amount = tempLoan.Amount
-                                                                       ,
-                                                                       AttachTo = lve
-                                                                   };
+                        {
+                            Code =
+                                string.Concat(
+                                    OFundingLineEventTypes.Commitment.
+                                                           ToString(), "/", tempLoan.Code),
+                            Type = OFundingLineEventTypes.Commitment,
+                            FundingLine =
+                                _fundingLineServices.SelectFundingLineById(
+                                    tempLoan.FundingLine.Id, sqlTransaction),
+                            Movement = OBookingDirections.Debit,
+                            CreationDate = TimeProvider.Now,
+                            Amount = tempLoan.Amount
+                            ,
+                            AttachTo = lve
+                        };
                     //if this is a new validate event, register it, otherwise delete previous validate event
                     if (tempLoan.ContractStatus == OContractStatus.Validated)
                         tempLoan.FundingLine.AddEvent(_fundingLineServices.AddFundingLineEvent(pendingFundingLineEvent,
@@ -1870,7 +1913,8 @@ namespace OpenCBS.Services
             }
         }
 
-        private void DeleteFundingLineEvent(ref Loan contract, FundingLineEvent flFundingLineEvent, SqlTransaction sqlTransaction)
+        private void DeleteFundingLineEvent(ref Loan contract, FundingLineEvent flFundingLineEvent,
+                                            SqlTransaction sqlTransaction)
         {
             if (flFundingLineEvent != null)
             {
@@ -1929,14 +1973,16 @@ namespace OpenCBS.Services
             _loanManager.DeleteLoanShareAmountWhereNotDisbursed(groupId);
         }
 
-        public List<CreditSearchResult> FindContracts(int pCurrentlyPage, out int pNumbersTotalPage, out int pNumberOfRecords, string pQuery)
+        public List<CreditSearchResult> FindContracts(int pCurrentlyPage, out int pNumbersTotalPage,
+                                                      out int pNumberOfRecords, string pQuery)
         {
-            List<CreditSearchResult> list = _loanManager.SearchCreditContractByCriteres(pCurrentlyPage, pQuery, out pNumberOfRecords);
+            List<CreditSearchResult> list = _loanManager.SearchCreditContractByCriteres(pCurrentlyPage, pQuery,
+                                                                                        out pNumberOfRecords);
             UserServices us = ServicesProvider.GetInstance().GetUserServices();
             foreach (CreditSearchResult sr in list)
                 sr.LoanOfficer = us.Find(sr.LoanOfficer.Id);
 
-            pNumbersTotalPage = (pNumberOfRecords / 20) + 1;
+            pNumbersTotalPage = (pNumberOfRecords/20) + 1;
             return list;
         }
 
@@ -1994,7 +2040,8 @@ namespace OpenCBS.Services
             if (pLoan.InstallmentType == null)
                 throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.InstallmentTypeIsNull);
             if (pLoan.AnticipatedTotalRepaymentPenalties == -1)
-                throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.AnticipatedRepaymentPenaltiesIsNull);
+                throw new OpenCbsContractSaveException(
+                    OpenCbsContractSaveExceptionEnum.AnticipatedRepaymentPenaltiesIsNull);
             if (pLoan.NonRepaymentPenalties.InitialAmount == -1)
                 throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.NonRepaymentPenaltiesIsNull);
             if (pLoan.NonRepaymentPenalties.OLB == -1)
@@ -2090,7 +2137,7 @@ namespace OpenCBS.Services
             _clientManager.UpdateClientStatus(pClient, pSqlTransaction);
             if (pClient is Group)
             {
-                foreach (Member member in ((Group)pClient).Members)
+                foreach (Member member in ((Group) pClient).Members)
                 {
                     member.Tiers.Status = OClientStatus.Active;
                     _clientManager.UpdateClientStatus(member.Tiers, pSqlTransaction);
@@ -2110,7 +2157,8 @@ namespace OpenCBS.Services
             _loanManager.UpdateLoan(pContract, pSqlTransaction);
 
             if (pContract.LoanInitialOfficer != null)
-                _loanManager.UpdateLoanLoanOfficer(pContract.Id, pContract.LoanOfficer.Id, pContract.LoanInitialOfficer.Id, pSqlTransaction);
+                _loanManager.UpdateLoanLoanOfficer(pContract.Id, pContract.LoanOfficer.Id,
+                                                   pContract.LoanInitialOfficer.Id, pSqlTransaction);
 
             //update Guarantor
             foreach (Guarantor guarantor in pContract.Guarantors)
@@ -2160,11 +2208,12 @@ namespace OpenCBS.Services
         }
 
         public Loan SelectLoan(int pLoanId,
-            bool pAddGeneralInformations,
-            bool pAddOptionalInformations,
-            bool pAddOptionalEventInformations)
+                               bool pAddGeneralInformations,
+                               bool pAddOptionalInformations,
+                               bool pAddOptionalEventInformations)
         {
-            return _loanManager.SelectLoan(pLoanId, pAddGeneralInformations, pAddOptionalInformations, pAddOptionalEventInformations);
+            return _loanManager.SelectLoan(pLoanId, pAddGeneralInformations, pAddOptionalInformations,
+                                           pAddOptionalEventInformations);
         }
 
         public int SelectLoanId(string pLoanCode)
@@ -2205,7 +2254,8 @@ namespace OpenCBS.Services
             return _alerts;
         }
 
-        public List<Alert_v2> FindAlerts(bool late, bool pending, bool posponed, bool overdraft, bool savingsPending, bool validated)
+        public List<Alert_v2> FindAlerts(bool late, bool pending, bool posponed, bool overdraft, bool savingsPending,
+                                         bool validated)
         {
             LoadAlerts();
             return _alerts.FindAll(
@@ -2215,7 +2265,8 @@ namespace OpenCBS.Services
                      || (validated && i.IsLoan && i.Status == OContractStatus.Validated)
                      || (posponed && i.IsLoan && i.Status == OContractStatus.Postponed)
                      || (overdraft && i.IsSaving && i.Amount < 0)
-                     || (savingsPending && i.IsSaving && i.Status == OContractStatus.Pending) // Pending savings! (not loan)
+                     || (savingsPending && i.IsSaving && i.Status == OContractStatus.Pending)
+                // Pending savings! (not loan)
 
                 );
         }
@@ -2278,6 +2329,7 @@ namespace OpenCBS.Services
                 }
             }
         }
+
         /// <summary>
         /// This method determines if current user is allowed to
         /// perform a credit contract operation in the past
@@ -2331,10 +2383,10 @@ namespace OpenCBS.Services
                 throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.WrongEvent);
             if (!foundEvent.Cancelable)
                 throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.EventNotCancelable);
-            if (((RepaymentEvent)foundEvent).Fees == 0)
+            if (((RepaymentEvent) foundEvent).Fees == 0)
                 throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.ZeroFee);
 
-            string fee = ((RepaymentEvent)foundEvent).Fees.GetFormatedValue(credit.UseCents);
+            string fee = ((RepaymentEvent) foundEvent).Fees.GetFormatedValue(credit.UseCents);
             String comment = "FEE WAIVED [" + fee.Replace("�", string.Empty) + "]";
             //foundEvent.Comment = comment;
             ////EventProcessorServices eps = ServicesProvider.GetInstance().GetEventProcessorServices();
@@ -2354,25 +2406,25 @@ namespace OpenCBS.Services
                 }
             }
 
-            OCurrency amount = ((RepaymentEvent)foundEvent).Principal +
-                               ((RepaymentEvent)foundEvent).Interests + ((RepaymentEvent)foundEvent).Fees;
+            OCurrency amount = ((RepaymentEvent) foundEvent).Principal +
+                               ((RepaymentEvent) foundEvent).Interests + ((RepaymentEvent) foundEvent).Fees;
 
             comment = "ID[" + foundEvent.Id + "] FEE WAIVED [" + fee.Replace("�", string.Empty) + "]";
             Loan l = Repay(credit,
-                  client,
-                  foundEvent.InstallmentNumber,
-                  foundEvent.Date,
-                  amount,
-                  true,
-                  0,
-                  0,
-                  false,
-                  0,
-                  true,
-                  false,
-                  foundEvent.PaymentMethod,
-                  comment,
-                  false);
+                           client,
+                           foundEvent.InstallmentNumber,
+                           foundEvent.Date,
+                           amount,
+                           true,
+                           0,
+                           0,
+                           false,
+                           0,
+                           true,
+                           false,
+                           foundEvent.PaymentMethod,
+                           comment,
+                           false);
 
             credit.Events = l.Events;
         }
@@ -2380,250 +2432,176 @@ namespace OpenCBS.Services
         private bool IsDateWithinCurrentFiscalYear(DateTime date)
         {
             ChartOfAccountsServices coaService = ServicesProvider.GetInstance().GetChartOfAccountsServices();
-            FiscalYear year = coaService.SelectFiscalYears().Find(y => date >= y.OpenDate && (y.CloseDate == null || date <= y.CloseDate));
+            FiscalYear year =
+                coaService.SelectFiscalYears()
+                          .Find(y => date >= y.OpenDate && (y.CloseDate == null || date <= y.CloseDate));
             return null != year && year.Open;
         }
 
         private void CheckOperationDate(DateTime date)
         {
-            if (!IsDateWithinCurrentFiscalYear(date)) throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
+            if (!IsDateWithinCurrentFiscalYear(date))
+                throw new OpenCbsContractSaveException(
+                    OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
         }
 
         private string GenerateContractCode(IClient client, Loan loan, SqlTransaction transaction)
         {
             // Find non-default implementation
             var generator = (
-                from gen in ContractCodeGenerators
-                where gen.Metadata.ContainsKey("Implementation") && gen.Metadata["Implementation"].ToString() != "Default"
-                select gen.Value).FirstOrDefault();
+                                from gen in ContractCodeGenerators
+                                where
+                                    gen.Metadata.ContainsKey("Implementation") &&
+                                    gen.Metadata["Implementation"].ToString() != "Default"
+                                select gen.Value).FirstOrDefault();
             if (generator != null) return generator.GenerateContractCode(client, loan, transaction);
 
             // Otherwise, find the default one
             generator = (
-                from gen in ContractCodeGenerators
-                where gen.Metadata.ContainsKey("Implementation") && gen.Metadata["Implementation"].ToString() == "Default"
-                select gen.Value).FirstOrDefault();
+                            from gen in ContractCodeGenerators
+                            where
+                                gen.Metadata.ContainsKey("Implementation") &&
+                                gen.Metadata["Implementation"].ToString() == "Default"
+                            select gen.Value).FirstOrDefault();
             if (generator != null) return generator.GenerateContractCode(client, loan, transaction);
 
             throw new ApplicationException("Cannot find contract code generator.");
         }
 
-        public void ManualScheduleBeforeDisbursement() {}
+        public void ManualScheduleBeforeDisbursement()
+        {
+        }
 
-        public void ManualScheduleAfterDisbursement() {}
+        public void ManualScheduleAfterDisbursement()
+        {
+        }
 
         public void LoanPenaltyAccrual()
         {
-            const string q = @"SELECT al.id AS id,
-                                    al.amount * cr.non_repayment_penalties_based_on_initial_amount +
-	                                al.olb * cr.non_repayment_penalties_based_on_olb +
-	                                al.principal_due * cr.non_repayment_penalties_based_on_overdue_principal +
-	                                al.interest_due * cr.non_repayment_penalties_based_on_overdue_interest AS penalty,
-	                                al.late_days
-	                                FROM dbo.ActiveLoans(@date, 0) AS al
-	                                LEFT JOIN dbo.Credit AS cr ON cr.id=al.id
-	                                WHERE al.late_days > 0";
-
+            var launchDate = DateTime.Today;
+            var listOfLoans = _loanManager.GetListOfLoansToAccruePenalty(launchDate);
             var em = new EventManager(User.CurrentUser);
-            var date = LastPenaltyAccrualEventDate();
-
-            while (date.Date < DateTime.Now.Date)
-            {
-                date = date.AddDays(1);
-                using (var connection = _loanManager.GetConnection())
-                    using (var transaction = connection.BeginTransaction())
-                        try
-                        {
-                            var penaltyEventList = new List<LoanPenaltyAccrualEvent>();
-                            using (var c = new OpenCbsCommand(q, connection, transaction))
+            using (var connection=_loanManager.GetConnection())
+                foreach (var item in listOfLoans)
+                {
+                    var date = item.Value;
+                    while (date < launchDate)
+                    {
+                        date = date.AddDays(1);
+                        var penaltyEvent = new LoanPenaltyAccrualEvent
                             {
-                                c.AddParam("@date", date);
-
-                                using (var r = c.ExecuteReader())
-                                {
-                                    while (r.Read())
-                                    {
-                                        var loanId = r.GetInt("id");
-                                        var penalty = r.GetDouble("penalty");
-
-                                        var penaltyEvent = new LoanPenaltyAccrualEvent
-                                            {
-                                                Date = date,
-                                                User = User.CurrentUser,
-                                                Penalty = Convert.ToDecimal(penalty),
-                                                ContracId = loanId
-                                            };
-                                        penaltyEventList.Add(penaltyEvent);
-                                    }
-                                }
-                                foreach (var penaltyEvent in penaltyEventList)
-                                    em.AddLoanEvent(penaltyEvent, penaltyEvent.ContracId, transaction);
+                                Penalty = _loanManager.GetDailyPenaltyForLoan(item.Key, date),
+                                Date = date,
+                                User = User.CurrentUser,
+                                ContracId = item.Key
+                            };
+                        using (var transaction = connection.BeginTransaction())
+                            try
+                            {
+                                em.AddLoanEvent(penaltyEvent, penaltyEvent.ContracId, transaction);
+                                transaction.Commit();
                             }
-                            transaction.Commit();
-                        }
-                        catch (Exception)
-                        {
-                            transaction.Rollback();
-                            throw;
-                        }
-            }
+                            catch (Exception)
+                            {
+                                transaction.Rollback();
+                                //throw;
+                            }
+                    }
+                }
         }
-
-        private DateTime LastPenaltyAccrualEventDate()
-        {
-            const string q = @"SELECT TOP 1 ce.event_date 
-                                FROM dbo.LoanPenaltyAccrualEvents AS pe
-                                LEFT JOIN dbo.ContractEvents AS ce ON ce.id=pe.id
-                                ORDER BY ce.id DESC";
-            using (var connection = _loanManager.GetConnection())
-            using (var r = new OpenCbsCommand(q, connection).ExecuteReader())
-            {
-                return !r.Read() ? DateTime.Today.AddDays(-1) : r.GetDateTime("event_date");
-            }
-        }
-
+        //public void LoanPenaltyAccrual2()
+        //{
+        //    var launchDate = DateTime.Today;
+        //    var listOfLoans = _loanManager.GetListOfLoansToAccruePenalty1(launchDate);
+        //    var em = new EventManager(User.CurrentUser);
+        //    using (var connection = _loanManager.GetConnection())
+        //        foreach (var item in listOfLoans)
+        //        {
+        //            var date = launchDate.AddDays(-1);
+        //            while (date < launchDate)
+        //            {
+        //                date = date.AddDays(1);
+        //                var penaltyEvent = new LoanPenaltyAccrualEvent
+        //                {
+        //                    Penalty = item.Value,
+        //                    Date = date,
+        //                    User = User.CurrentUser,
+        //                    ContracId = item.Key
+        //                };
+        //                using (var transaction = connection.BeginTransaction())
+        //                    try
+        //                    {
+        //                        em.AddLoanEvent(penaltyEvent, penaltyEvent.ContracId, transaction);
+        //                        transaction.Commit();
+        //                    }
+        //                    catch (Exception)
+        //                    {
+        //                        transaction.Rollback();
+        //                        //throw;
+        //                    }
+        //            }
+        //        }
+        //}
         public void LoanInterestAccrual()
         {
-            const string q = @"WITH summary AS (SELECT al.id
-						                            ,inst.interest
-                                                    ,inst.expected_date
-						                            ,ROW_NUMBER() OVER(PARTITION BY al.id
-													                             ORDER BY al.id) AS rk
-						                            FROM Activeloans(@date,0) AS al
-							                            LEFT JOIN InstallmentSnapshot(@date) AS inst ON inst.contract_id=al.id
-							                            WHERE @date < inst.expected_date)
-                                SELECT s.id, s.interest, s.expected_date
-                                FROM summary s
-                                WHERE s.rk = 1";
-            const string q1 = @"SELECT TOP 1 date FROM (
-                                            SELECT MAX(inst.expected_date) AS date
-	                                            FROM Activeloans(@date, 0) AS al
-	                                            LEFT JOIN InstallmentSnapshot(@date) AS inst ON inst.contract_id=al.id
-	                                            WHERE @date >= inst.expected_date AND al.id=@contractId
-	                                            group by al.id
-                                            UNION ALL
-                                            SELECT start_date
-	                                            FROM Contracts
-	                                            WHERE id=@contractId) t ORDER by date desc";
-
+            var launchDate = DateTime.Today;
+            var listOfLoans = _loanManager.GetListOfLoansToAccrueInterest(launchDate);
             var em = new EventManager(User.CurrentUser);
-            var date = LastInterestAccrualEventDate();
-            while (date.Date < DateTime.Now.Date)
-            {
-                date = date.AddDays(1);
-                using (var connection = _loanManager.GetConnection())
-                using (var transaction = connection.BeginTransaction())
-                    try
-                    {
-                        var interestEventList = new List<LoanInterestAccrualEvent>();
-                        using (var c = new OpenCbsCommand(q, connection, transaction))
-                        {
-                            c.AddParam("@date", date);
-
-                            using (var r = c.ExecuteReader())
-                            {
-                                while (r.Read())
-                                {
-                                    var loanId = r.GetInt("id");
-                                    var interest = r.GetDecimal("interest");
-                                    var expectedDate = r.GetDateTime("expected_date");
-
-                                    var interestEvent = new LoanInterestAccrualEvent
-                                        {
-                                            Date = date,
-                                            User = User.CurrentUser,
-                                            Interest = interest,
-                                            InstallmentExpectedDate = expectedDate,
-                                            ContracId = loanId
-                                        };
-                                    interestEventList.Add(interestEvent);
-                                }
-                            }
-                        }
-                        foreach (var interestEvent in interestEventList)
-                        {
-                            DateTime previousInstallmentDate;
-                            using (var c = new OpenCbsCommand(q1, connection, transaction))
-                            {
-                                c.AddParam("@date", date);
-                                c.AddParam("@contractId", interestEvent.ContracId);
-                                using (var r = c.ExecuteReader())
-                                {
-                                    r.Read();
-                                    previousInstallmentDate = r.GetDateTime("date");
-                                }
-                            }
-                            var passedPeriod = interestEvent.Date - previousInstallmentDate;
-                            if (passedPeriod.Days > 30)
-                                interestEvent.Interest = 0;
-                            else if (interestEvent.Date == interestEvent.InstallmentExpectedDate)
-                                interestEvent.Interest -= GetSumOfAccruedInterests(interestEvent.Date,
-                                                                                   previousInstallmentDate,
-                                                                                   interestEvent.ContracId);
-                            else
-                                interestEvent.Interest = interestEvent.Interest.Value/30;
-
-
-                            em.AddLoanEvent(interestEvent, interestEvent.ContracId, transaction);
-                        }
-                        transaction.Commit();
-                    }
-                    catch (Exception)
-                    {
-                        transaction.Rollback();
-                        throw;
-                    }
-            }
-
-        }
-
-        private DateTime LastInterestAccrualEventDate()
-        {
-            const string q = @"SELECT TOP 1 ce.event_date 
-                                FROM dbo.AccrualInterestLoanEvents AS ai
-                                LEFT JOIN dbo.ContractEvents AS ce ON ce.id=ai.id
-                                ORDER BY ce.id DESC";
             using (var connection = _loanManager.GetConnection())
-            using (var r = new OpenCbsCommand(q, connection).ExecuteReader())
-            {
-                return !r.Read() ? DateTime.Today.AddDays(-1) : r.GetDateTime("event_date");
-            }
-        }
-
-        private decimal GetSumOfAccruedInterests(DateTime date, DateTime previousInstallmentDate, int contractId)
-        {
-            const string q = @"SELECT SUM(ai.interest) sum
-                                FROM dbo.AccrualInterestLoanEvents AS ai
-                                LEFT JOIN dbo.ContractEvents AS ce ON ce.id=ai.id
-                                WHERE ce.contract_id=@contractId 
-                                and ce.event_date<@date 
-                                and ce.event_date>@lastInstallmentDate";
-            using (var connection = _loanManager.GetConnection())
-            using (var c = new OpenCbsCommand(q, connection))
-            {
-                c.AddParam("@date", date);
-                c.AddParam("@lastInstallmentDate", previousInstallmentDate);
-                c.AddParam("@contractId", contractId);
-                using (var r = c.ExecuteReader())
+                foreach (var item in listOfLoans)
                 {
-                    r.Read();
-                    return r.GetDecimal("sum");
+                    var date = item.Value;
+                    var loan = SelectLoan(item.Key, true, false, false);
+                    while (date < launchDate)
+                    {
+                        date = date.AddDays(1);
+                        var interest = GetDailyInterestForLoan(loan, date);
+                        if (interest <= 0) continue;
+                        var interestEvent = new LoanInterestAccrualEvent
+                            {
+                                Interest = interest,
+                                Date = date,
+                                User = User.CurrentUser,
+                                ContracId = item.Key
+                            };
+                        using (var transaction = connection.BeginTransaction())
+                            try
+                            {
+                                _ePs.FireEvent(interestEvent, loan, transaction);
+                                transaction.Commit();
+                            }
+                            catch (Exception)
+                            {
+                                transaction.Rollback();
+                                //throw;
+                            }
+                    }
                 }
-            }
+
+        }
+
+
+        private decimal GetDailyInterestForLoan(Loan loan, DateTime date)
+        {
+            if (date > loan.LastInstallment.ExpectedDate) return 0;
+            var nextInstallment = loan.InstallmentList.First(installment => date <= installment.ExpectedDate);
+            var nextDate = nextInstallment.ExpectedDate;
+            var previousDate = nextInstallment.Number > 1
+                                   ? loan.GetInstallment(nextInstallment.Number - 1).ExpectedDate
+                                   : loan.StartDate;
+            if ((date - previousDate).Days > 30) return 0;
+            var interest = nextInstallment.InterestsRepayment;
+            if (nextDate == date)
+                interest -= _loanManager.GetSumOfAccruedInterests(loan.Id, previousDate, date);
+            else
+                interest = interest/30;
+            return interest.Value;
         }
 
         public void GenerateLoanTransitionEvent()
         {
-            const string glll = @"SELECT id, olb, late_days
-                            FROM dbo.ActiveLoans(@date, 0)
-                            WHERE late_days = 1";
-            const string llgl = @"SELECT a1.id,a1.olb,a1.late_days
-                            FROM dbo.ActiveLoans(@date, 0) a1
-                            INNER JOIN dbo.ActiveLoans(DATEADD(dd,-1,@date), 0) a2 ON a2.id = a1.id
-                            WHERE a1.late_days = 0 and a2.late_days>0";
-
             var em = new EventManager(User.CurrentUser);
-            var date = LastLoanTransitionEventDate();
+            var date = _loanManager.LastLoanTransitionEventDate();
 
             while (date.Date < DateTime.Now.Date)
             {
@@ -2632,53 +2610,26 @@ namespace OpenCBS.Services
                 using (var transaction = connection.BeginTransaction())
                     try
                     {
-                        var transitionEventList = new List<LoanTransitionEvent>();
-                        using (var c = new OpenCbsCommand(glll, connection, transaction))
-                        {
-                            c.AddParam("@date", date);
-
-                            using (var r = c.ExecuteReader())
+                        var glll = _loanManager.GetListOfTransitionToLateLoan(date);
+                        var transitionEventList = glll.Select(item => new LoanTransitionEvent
                             {
-                                while (r.Read())
-                                {
-                                    var loanId = r.GetInt("id");
-                                    var amount = r.GetDecimal("olb");
+                                Code = "GLLL",
+                                Date = date,
+                                User = User.CurrentUser,
+                                Amount = item.Value,
+                                ContracId = item.Key
+                            }).ToList();
 
-                                    var transitionEvent = new LoanTransitionEvent
-                                    {
-                                        Code = "GLLL",
-                                        Date = date,
-                                        User = User.CurrentUser,
-                                        Amount = amount,
-                                        ContracId = loanId
-                                    };
-                                    transitionEventList.Add(transitionEvent);
-                                }
-                            }
-                        }
-                        using (var c = new OpenCbsCommand(llgl, connection, transaction))
-                        {
-                            c.AddParam("@date", date);
-
-                            using (var r = c.ExecuteReader())
+                        var llgl = _loanManager.GetListOfTransitionToGoodLoan(date);
+                        transitionEventList.AddRange(llgl.Select(item => new LoanTransitionEvent
                             {
-                                while (r.Read())
-                                {
-                                    var loanId = r.GetInt("id");
-                                    var amount = r.GetDecimal("olb");
+                                Code = "LLGL",
+                                Date = date,
+                                User = User.CurrentUser,
+                                Amount = item.Value,
+                                ContracId = item.Key
+                            }));
 
-                                    var transitionEvent = new LoanTransitionEvent
-                                    {
-                                        Code = "LLGL",
-                                        Date = date,
-                                        User = User.CurrentUser,
-                                        Amount = amount,
-                                        ContracId = loanId
-                                    };
-                                    transitionEventList.Add(transitionEvent);
-                                }
-                            }
-                        }
                         foreach (var transitionEvent in transitionEventList)
                             em.AddLoanEvent(transitionEvent, transitionEvent.ContracId, transaction);
 
@@ -2689,19 +2640,6 @@ namespace OpenCBS.Services
                         transaction.Rollback();
                         throw;
                     }
-            }
-        }
-
-        private DateTime LastLoanTransitionEventDate()
-        {
-            const string q = @"SELECT TOP 1 ce.event_date 
-                            FROM dbo.LoanTransitionEvents AS tr
-                            LEFT JOIN dbo.ContractEvents AS ce ON ce.id=tr.id
-                            ORDER BY ce.id DESC";
-            using (var connection = _loanManager.GetConnection())
-            using (var r = new OpenCbsCommand(q, connection).ExecuteReader())
-            {
-                return !r.Read() ? DateTime.Today.AddDays(-1) : r.GetDateTime("event_date");
             }
         }
     }
