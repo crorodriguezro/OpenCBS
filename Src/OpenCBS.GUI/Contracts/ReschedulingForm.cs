@@ -135,6 +135,7 @@ namespace OpenCBS.GUI.Contracts
             try
             {
                 _contract.Rescheduled = true;
+                _contract.NbOfInstallments = _contract.InstallmentList.Count;
                 _contract = ServicesProvider
                     .GetInstance()
                     .GetContractServices()

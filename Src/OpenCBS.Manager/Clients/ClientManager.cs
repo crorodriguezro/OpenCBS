@@ -1209,7 +1209,7 @@ namespace OpenCBS.Manager.Clients
                 
                 foreach (VillageMember member in members)
                 {
-                    member.Tiers = SelectPersonById(member.Tiers.Id, false);
+                    member.Tiers = SelectPersonById(member.Tiers.Id, true);
                     village.AddMember(member);
                     if (IsLeaderInVillage(member.Tiers.Id))
                         village.Leader = member;

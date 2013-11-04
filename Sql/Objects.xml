@@ -502,12 +502,22 @@ AS RETURN
 (
 	WITH _amounts AS
 	(
-		SELECT c.id, c.amount + ISNULL(SUM(te.amount), 0) amount
-		FROM dbo.Credit c
-		LEFT JOIN dbo.ContractEvents ce ON ce.contract_id = c.id
-		LEFT JOIN dbo.TrancheEvents te ON te.id = ce.id		
-		WHERE ce.is_deleted = 0 AND ce.event_date <= @date
-		GROUP BY c.id, c.amount
+		SELECT contract_id id, SUM(amount) amount
+		FROM
+		(
+		    SELECT ce.contract_id, lode.amount
+		    FROM dbo.ContractEvents ce
+		    INNER JOIN dbo.LoanDisbursmentEvents lode ON ce.id = lode.id
+		    WHERE ce.is_deleted = 0 AND ce.event_date <= @date
+		    
+		    UNION ALL
+		    
+		    SELECT ce.contract_id, te.amount
+		    FROM dbo.ContractEvents ce
+		    INNER JOIN dbo.TrancheEvents te ON ce.id = te.id
+		    WHERE ce.is_deleted = 0 AND ce.event_date <= @date
+		) t
+		GROUP BY contract_id
 	)
 	, _installments AS
 	(
