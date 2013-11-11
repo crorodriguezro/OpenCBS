@@ -2,9 +2,9 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
   <!--Remember: you need to change ProductVersion and ProductCode-->
 
-  <?define PreviousVersion="13.10.0.0" ?>
-  <?define ProductVersion="13.11.0.0" ?>
-  <?define ProductVersionReduced="13.11" ?>
+  <?define PreviousVersion="13.11.0.0" ?>
+  <?define ProductVersion="13.12.0.0" ?>
+  <?define ProductVersionReduced="13.12" ?>
   <?define UpgradeCode="be584361-0c04-42c9-8ea8-457cdea8b89e"?>
   <?define ProductCode="74aeefdb-9cf5-4bc3-b9bd-8bec3f078f4a"?>
 
@@ -193,7 +193,7 @@
                 <File Id="DropAndCreateUDF.sql" Source="SourceDir\Update\DropAndCreateUDF.sql" />
               </Component>
               <Component Id="sql_create_database" Guid="6A36DFA4-83F5-FC67-DDB2-0AD22AB03E72">
-                <File Id="CreateDatabase_v13.11.0.0.sql" Source="SourceDir\Update\CreateDatabase_v13.11.0.0.sql" />
+                <File Id="CreateDatabase_v13.12.0.0.sql" Source="SourceDir\Update\CreateDatabase_v13.12.0.0.sql" />
               </Component>
               <Component Id="sql_update_database" Guid="BDBEE7A0-23E5-2E7D-BD1B-E58C5CFA0E65">
                 <File Id="Database_Update_v1.1.0_to_v1.1.1.sql" Source="SourceDir\Update\Database_Update_v1.1.0_to_v1.1.1.sql" />
@@ -265,9 +265,10 @@
                 <File Id="Database_Update_v13.8.0.0_to_v13.9.0.0.sql" Source="SourceDir\Update\Database_Update_v13.8.0.0_to_v13.9.0.0.sql" />
                 <File Id="Database_Update_v13.9.0.0_to_v13.10.0.0.sql" Source="SourceDir\Update\Database_Update_v13.9.0.0_to_v13.10.0.0.sql" />
                 <File Id="Database_Update_v13.10.0.0_to_v13.11.0.0.sql" Source="SourceDir\Update\Database_Update_v13.10.0.0_to_v13.11.0.0.sql" />
+                <File Id="Database_Update_v13.11.0.0_to_v13.12.0.0.sql" Source="SourceDir\Update\Database_Update_v13.11.0.0_to_v13.12.0.0.sql" />
               </Component>
               <Component Id="xml_data_schema" Guid="CB26138B-9031-2360-D666-DD5F20038ED9">
-                <File Id="OCTOPUS_Data_Schema_v13.11.0.0.xml" Name="OCTOPUS_Data_Schema_(v13.11.0.0).xml" Source="SourceDir\Update\OCTOPUS_Data_Schema_(v13.11.0.0).xml" />
+                <File Id="OCTOPUS_Data_Schema_v13.12.0.0.xml" Name="OCTOPUS_Data_Schema_(v13.12.0.0).xml" Source="SourceDir\Update\OCTOPUS_Data_Schema_(v13.12.0.0).xml" />
                 <File Id="OCTOPUS_Upgrade_Schema.xml" Source="SourceDir\Update\OCTOPUS_Upgrade_Schema.xml" />
                 <File Id="Objects.xml" Source="SourceDir\Update\Objects.xml" />
               </Component>
