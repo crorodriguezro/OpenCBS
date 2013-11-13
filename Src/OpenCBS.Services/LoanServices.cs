@@ -1139,7 +1139,7 @@ namespace OpenCBS.Services
             }
         }
 
-        public Loan AddTranche(Loan loan, IClient client, ITrancheConfiguration trancheConfiguration)
+        public Loan AddTranche(Loan loan, IClient client, ITrancheConfiguration trancheConfiguration, IList<LoanEntryFee> entryFees)
         {
             using (var connection = _loanManager.GetConnection())
             using (var transaction = connection.BeginTransaction())
@@ -1172,6 +1172,24 @@ namespace OpenCBS.Services
 
                     //insert into table TrancheEvent
                     _ePs.FireEvent(trancheEvent, copyOfLoan, transaction);
+                    copyOfLoan.Events.Add(trancheEvent);
+
+                    // Add entry fee events
+                    foreach (var entryFee in entryFees)
+                    {
+                        if (entryFee.FeeValue == 0) continue;
+                        var entryFeeEvent = new LoanEntryFeeEvent
+                        {
+                            Fee = entryFee.FeeValue,
+                            Code = "LEE" + entryFee.ProductEntryFee.Index,
+                            DisbursementEventId = trancheEvent.Id,
+                            Cancelable = true,
+                            User = User.CurrentUser,
+                            Date = trancheEvent.Date
+                        };
+                        _ePs.FireEvent(entryFeeEvent, copyOfLoan, transaction);
+                        copyOfLoan.Events.Add(entryFeeEvent);
+                    }
 
                     ArchiveInstallments(loan, trancheEvent, transaction);
 
@@ -1194,7 +1212,6 @@ namespace OpenCBS.Services
                         copyOfLoan.NbOfInstallments,
                         copyOfLoan,
                         transaction);
-                    copyOfLoan.Events.Add(trancheEvent);
                     copyOfLoan.GivenTranches.Add(trancheEvent);
                     transaction.Commit();
 
