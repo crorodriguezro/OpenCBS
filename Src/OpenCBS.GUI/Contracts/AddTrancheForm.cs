@@ -20,6 +20,7 @@
 // Contact: contact@opencbs.com
 
 using System;
+using System.Linq;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Loans;
@@ -42,7 +43,7 @@ namespace OpenCBS.GUI.Contracts
             Setup();
             _client = pClient;
             _contract = contract;
-            interestRateNumericUpDown.Value = contract.InterestRate*100;
+            interestRateNumericUpDown.Value = contract.InterestRate * 100;
             if (contract.Product.InterestRate.HasValue) { /* checkBoxIRChanged.Enabled = false; */ }
             else
             {
@@ -58,13 +59,13 @@ namespace OpenCBS.GUI.Contracts
 
             if (Contract.Product.NbOfInstallments != null)
             {
-                installmentsNumericUpDown.Maximum = (decimal)Contract.Product.NbOfInstallments;
-                installmentsNumericUpDown.Minimum = (decimal)Contract.Product.NbOfInstallments;
+                installmentsNumericUpDown.Maximum = (decimal) Contract.Product.NbOfInstallments;
+                installmentsNumericUpDown.Minimum = (decimal) Contract.Product.NbOfInstallments;
             }
             else
             {
-                installmentsNumericUpDown.Maximum = (decimal)Contract.Product.NbOfInstallmentsMax;
-                installmentsNumericUpDown.Minimum = (decimal)Contract.Product.NbOfInstallmentsMin;
+                installmentsNumericUpDown.Maximum = (decimal) Contract.Product.NbOfInstallmentsMax;
+                installmentsNumericUpDown.Minimum = (decimal) Contract.Product.NbOfInstallmentsMin;
             }
         }
 
@@ -127,9 +128,9 @@ namespace OpenCBS.GUI.Contracts
             {
                 Amount = amount,
                 ApplyNewInterestRateToOlb = applyToOlbCheckbox.Checked,
-                GracePeriod = (int)gracePeriodNumericUpDown.Value,
+                GracePeriod = (int) gracePeriodNumericUpDown.Value,
                 InterestRate = interestRateNumericUpDown.Value,
-                NumberOfInstallments = (int)installmentsNumericUpDown.Value,
+                NumberOfInstallments = (int) installmentsNumericUpDown.Value,
                 PreferredFirstInstallmentDate = firstRepaymentDateTimePicker.Value.Date,
                 StartDate = startDateTimePicker.Value.Date,
             };
@@ -156,7 +157,23 @@ namespace OpenCBS.GUI.Contracts
 
         private void AddTranche()
         {
-            if (!Confirm("Confirm")) return;
+            var configuration = GetTrancheConfiguration();
+
+            var entryFeesForm = new LoanEntryFeesForm
+            {
+                EntryFees = _contract.LoanEntryFeesList.Select(fee =>
+                {
+                    var result = new LoanEntryFee
+                    {
+                        FeeValue = fee.ProductEntryFee.IsRate ? configuration.Amount * fee.FeeValue / 100 : fee.FeeValue,
+                        Id = fee.Id,
+                        ProductEntryFee = fee.ProductEntryFee,
+                        ProductEntryFeeId = fee.ProductEntryFeeId
+                    };
+                    return result;
+                }).ToList()
+            };
+            if (entryFeesForm.ShowDialog() != DialogResult.OK) return;
 
             try
             {
@@ -164,7 +181,7 @@ namespace OpenCBS.GUI.Contracts
                 _contract = ServicesProvider
                     .GetInstance()
                     .GetContractServices()
-                    .AddTranche(_contract, _client, GetTrancheConfiguration());
+                    .AddTranche(_contract, _client, GetTrancheConfiguration(), entryFeesForm.EntryFees);
                 DialogResult = DialogResult.OK;
                 Close();
             }
