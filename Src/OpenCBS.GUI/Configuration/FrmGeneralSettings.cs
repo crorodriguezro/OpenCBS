@@ -1058,6 +1058,8 @@ namespace OpenCBS.GUI.Configuration
             if (pR.NbOfDaysMin == -1)
             {
                 textBoxProvisioningOlb.Text = (pR.ProvisioningOlb * 100).ToString();
+                textBoxProvisioningInterest.Text = (pR.ProvisioningInterest * 100).ToString();
+                textBoxProvisioningPenalty.Text = (pR.ProvisioningPenalty * 100).ToString();
                 textBoxNbOfDaysMin.Text = @"rest.";
                 textBoxNbOfDaysMax.Text = @"rest.";
             }
