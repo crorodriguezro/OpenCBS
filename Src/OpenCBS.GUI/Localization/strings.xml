@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+
+<languages>
+  <lang name="en-En">
+  </lang>
+
+  <lang name="ru-Ru">
+  </lang>
+
+</languages>
+
+
+
+<items>
+	<item name="Add">
+		<ru-Ru>Добавить</ru-Ru>
+	</item>
+
+        <item name="Delete">
+               <ru-Ru>Удалить</ru-Ru>
+	</item>
+
+       
+        <item name="Cancel">
+		<ru-Ru>Отмена</ru-Ru>
+	</item>
+
+        <item name="Database">
+		<ru-Ru>База данных</ru-Ru>
+	</item>
+
+        <item name="Username">
+		<ru-Ru>Логин</ru-Ru>
+	</item>
+
+        <item name="Password">
+		<ru-Ru>Пароль</ru-Ru>
+	</item>
+        <item name="Start">
+		<ru-Ru>Начать</ru-Ru>
+	</item>
+</items>
+
+</root>

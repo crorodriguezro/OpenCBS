@@ -71,6 +71,7 @@ namespace OpenCBS.GUI
         {
             MefContainer.Current.Bind(this);
             InitializeComponent();
+            InitnewLanguageToolStripMenuItem();
             _menuItems = new List<MenuObject>();
             _menuItems = Services.GetMenuItemServices().GetMenuList(OSecurityObjectTypes.MenuItem);
             LoadReports();
@@ -78,7 +79,27 @@ namespace OpenCBS.GUI
             InitializeTracer();
             DisplayWinFormDetails();
         }
-
+        private void InitnewLanguageToolStripMenuItem()
+        {
+            newLanguageToolStripMenuItem.DropDownItems.AddRange(GetMenu());
+        }
+        private ToolStripItem[] GetMenu()
+        {
+            var result = new List<ToolStripItem>();
+           
+            foreach (var lang in Localization.LanguageParser.Languages)
+            {
+                var menuItem = new ToolStripMenuItem { Text = lang};
+                menuItem.Click += (sender, args) =>
+                {
+                    Properties.Settings.Default.LANG = lang;
+                    Properties.Settings.Default.Save();
+                    Application.Restart();
+                };
+                result.Add(menuItem);
+            }
+            return result.ToArray();
+        }
         private void InitializeTracer()
         {
             string folder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -1155,6 +1176,9 @@ namespace OpenCBS.GUI
                 Fail(ex.Message);
             }
         }
+
+
+
 
 
     }
