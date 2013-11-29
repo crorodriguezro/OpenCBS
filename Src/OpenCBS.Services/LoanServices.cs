@@ -2637,15 +2637,15 @@ namespace OpenCBS.Services
                                 ContracId = item.Key
                             }).ToList();
 
-                        var llgl = _loanManager.GetListOfTransitionToGoodLoan(date);
-                        transitionEventList.AddRange(llgl.Select(item => new LoanTransitionEvent
-                            {
-                                Code = "LLGL",
-                                Date = date,
-                                User = User.CurrentUser,
-                                Amount = item.Value,
-                                ContracId = item.Key
-                            }));
+                        //var llgl = _loanManager.GetListOfTransitionToGoodLoan(date);
+                        //transitionEventList.AddRange(llgl.Select(item => new LoanTransitionEvent
+                        //    {
+                        //        Code = "LLGL",
+                        //        Date = date,
+                        //        User = User.CurrentUser,
+                        //        Amount = item.Value,
+                        //        ContracId = item.Key
+                        //    }));
 
                         foreach (var transitionEvent in transitionEventList)
                             em.AddLoanEvent(transitionEvent, transitionEvent.ContracId, transaction);
