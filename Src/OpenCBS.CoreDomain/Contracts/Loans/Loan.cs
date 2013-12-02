@@ -2715,12 +2715,12 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
             {
                 if(lateDays >= provisioningRate.NbOfDaysMin && lateDays <= provisioningRate.NbOfDaysMax)
                 {
-                    rate = (decimal)provisioningRate.ProvisioningOlb;
+                    rate = (decimal)provisioningRate.provisioning_value;
                 }
 
                 if(Rescheduled && provisioningRate.NbOfDaysMin  < 0 && provisioningRate.NbOfDaysMax < 0)
                 {
-                    rate = (decimal)provisioningRate.ProvisioningOlb;
+                    rate = (decimal)provisioningRate.provisioning_value;
                 }
             }
             

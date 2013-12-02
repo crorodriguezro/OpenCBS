@@ -840,13 +840,13 @@ namespace OpenCBS.Test.Services
 
             ProvisionTable _provisionningTable = ProvisionTable.GetInstance(new User() {Id = 1});
             _provisionningTable.ProvisioningRates = new List<ProvisioningRate>();
-            _provisionningTable.Add(new ProvisioningRate { Number = 1, NbOfDaysMin = 0, NbOfDaysMax = 0, ProvisioningOlb = 0.02, ProvisioningInterest = 0.02, ProvisioningPenalty = 0.02 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 2, NbOfDaysMin = 1, NbOfDaysMax = 30, ProvisioningOlb = 0.1, ProvisioningInterest = 0.01, ProvisioningPenalty = 0.01 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 3, NbOfDaysMin = 31, NbOfDaysMax = 60, ProvisioningOlb = 0.25, ProvisioningInterest = 0.025, ProvisioningPenalty = 0.025 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 4, NbOfDaysMin = 61, NbOfDaysMax = 90, ProvisioningOlb = 0.5, ProvisioningInterest = 0.5, ProvisioningPenalty = 0.5 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 5, NbOfDaysMin = 91, NbOfDaysMax = 180, ProvisioningOlb = 0.75, ProvisioningInterest = 0.75, ProvisioningPenalty = 0.75 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 6, NbOfDaysMin = 181, NbOfDaysMax = 365, ProvisioningOlb = 1, ProvisioningInterest = 1, ProvisioningPenalty = 1 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 7, NbOfDaysMin = 366, NbOfDaysMax = 99999, ProvisioningOlb = 1, ProvisioningInterest = 1, ProvisioningPenalty = 1 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 1, NbOfDaysMin = 0, NbOfDaysMax = 0, provisioning_value = 0.02, provisioning_interest = 0.02, provisioning_penalty = 0.02 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 2, NbOfDaysMin = 1, NbOfDaysMax = 30, provisioning_value = 0.1, provisioning_interest = 0.01, provisioning_penalty = 0.01 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 3, NbOfDaysMin = 31, NbOfDaysMax = 60, provisioning_value = 0.25, provisioning_interest = 0.025, provisioning_penalty = 0.025 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 4, NbOfDaysMin = 61, NbOfDaysMax = 90, provisioning_value = 0.5, provisioning_interest = 0.5, provisioning_penalty = 0.5 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 5, NbOfDaysMin = 91, NbOfDaysMax = 180, provisioning_value = 0.75, provisioning_interest = 0.75, provisioning_penalty = 0.75 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 6, NbOfDaysMin = 181, NbOfDaysMax = 365, provisioning_value = 1, provisioning_interest = 1, provisioning_penalty = 1 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 7, NbOfDaysMin = 366, NbOfDaysMax = 99999, provisioning_value = 1, provisioning_interest = 1, provisioning_penalty = 1 });
 
             Teller.CurrentTeller = null;
 
@@ -977,13 +977,13 @@ namespace OpenCBS.Test.Services
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.BAD_LOAN_DAYS, "180");
             ProvisionTable _provisionningTable = ProvisionTable.GetInstance(new User() { Id = 1 });
             _provisionningTable.ProvisioningRates = new List<ProvisioningRate>();
-            _provisionningTable.Add(new ProvisioningRate { Number = 1, NbOfDaysMin = 0, NbOfDaysMax = 0, ProvisioningOlb = 0.02, ProvisioningInterest = 0.02, ProvisioningPenalty = 0.02 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 2, NbOfDaysMin = 1, NbOfDaysMax = 30, ProvisioningOlb = 0.1, ProvisioningInterest = 0.1, ProvisioningPenalty = 0.1 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 3, NbOfDaysMin = 31, NbOfDaysMax = 60, ProvisioningOlb = 0.25, ProvisioningInterest = 0.25, ProvisioningPenalty = 0.25 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 4, NbOfDaysMin = 61, NbOfDaysMax = 90, ProvisioningOlb = 0.5, ProvisioningInterest= 0.5, ProvisioningPenalty= 0.5 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 5, NbOfDaysMin = 91, NbOfDaysMax = 180, ProvisioningOlb = 0.75, ProvisioningInterest = 0.75, ProvisioningPenalty = 0.75 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 6, NbOfDaysMin = 181, NbOfDaysMax = 365, ProvisioningOlb = 1, ProvisioningInterest = 1, ProvisioningPenalty= 1 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 7, NbOfDaysMin = 366, NbOfDaysMax = 99999, ProvisioningOlb = 1, ProvisioningInterest= 1, ProvisioningPenalty= 1 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 1, NbOfDaysMin = 0, NbOfDaysMax = 0, provisioning_value = 0.02, provisioning_interest = 0.02, provisioning_penalty = 0.02 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 2, NbOfDaysMin = 1, NbOfDaysMax = 30, provisioning_value = 0.1, provisioning_interest = 0.1, provisioning_penalty = 0.1 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 3, NbOfDaysMin = 31, NbOfDaysMax = 60, provisioning_value = 0.25, provisioning_interest = 0.25, provisioning_penalty = 0.25 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 4, NbOfDaysMin = 61, NbOfDaysMax = 90, provisioning_value = 0.5, provisioning_interest= 0.5, provisioning_penalty= 0.5 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 5, NbOfDaysMin = 91, NbOfDaysMax = 180, provisioning_value = 0.75, provisioning_interest = 0.75, provisioning_penalty = 0.75 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 6, NbOfDaysMin = 181, NbOfDaysMax = 365, provisioning_value = 1, provisioning_interest = 1, provisioning_penalty= 1 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 7, NbOfDaysMin = 366, NbOfDaysMax = 99999, provisioning_value = 1, provisioning_interest= 1, provisioning_penalty= 1 });
 
             Teller.CurrentTeller = null;
 

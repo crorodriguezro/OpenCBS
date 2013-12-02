@@ -62,12 +62,12 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Loans
 
             _provisionningTable = ProvisionTable.GetInstance(new User());
             _provisionningTable.ProvisioningRates = new List<ProvisioningRate>();
-            _provisionningTable.Add(new ProvisioningRate { Number = 1, NbOfDaysMin = 0, NbOfDaysMax = 30, ProvisioningOlb = 10 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 2, NbOfDaysMin = 31, NbOfDaysMax = 60, ProvisioningOlb = 25 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 3, NbOfDaysMin = 61, NbOfDaysMax = 90, ProvisioningOlb = 50 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 4, NbOfDaysMin = 91, NbOfDaysMax = 180, ProvisioningOlb = 75 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 5, NbOfDaysMin = 181, NbOfDaysMax = 365, ProvisioningOlb = 100 });
-            _provisionningTable.Add(new ProvisioningRate { Number = 6, NbOfDaysMin = 366, NbOfDaysMax = 99999, ProvisioningOlb = 100 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 1, NbOfDaysMin = 0, NbOfDaysMax = 30, provisioning_value = 10 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 2, NbOfDaysMin = 31, NbOfDaysMax = 60, provisioning_value = 25 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 3, NbOfDaysMin = 61, NbOfDaysMax = 90, provisioning_value = 50 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 4, NbOfDaysMin = 91, NbOfDaysMax = 180, provisioning_value = 75 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 5, NbOfDaysMin = 181, NbOfDaysMax = 365, provisioning_value = 100 });
+            _provisionningTable.Add(new ProvisioningRate { Number = 6, NbOfDaysMin = 366, NbOfDaysMax = 99999, provisioning_value = 100 });
 
             _nonWorkingDate = NonWorkingDateSingleton.GetInstance("");
             _nonWorkingDate.PublicHolidays = new Dictionary<DateTime, string>();

@@ -38,9 +38,9 @@ namespace OpenCBS.Manager.Accounting
                                         id,
                                         number_of_days_min, 
                                         number_of_days_max, 
-                                         ProvisioningOlb,
-                                       ProvisioningInterest,
-                                       ProvisioningPenalty)
+                                         provisioning_value,
+                                       provisioning_interest,
+                                       provisioning_penalty)
                                     VALUES(
                                       @number,
                                       @numberOfDaysMin, 
@@ -62,9 +62,9 @@ namespace OpenCBS.Manager.Accounting
             octCommand.AddParam("@number", pProvisionningRate.Number);
             octCommand.AddParam("@numberOfDaysMin", pProvisionningRate.NbOfDaysMin);
             octCommand.AddParam("@numberOfDaysMax", pProvisionningRate.NbOfDaysMax);
-            octCommand.AddParam("@ProvisioningOlb", pProvisionningRate.ProvisioningOlb);
-            octCommand.AddParam("@ProvisioningInterest", pProvisionningRate.ProvisioningInterest);
-            octCommand.AddParam("@ProvisioningPenalty", pProvisionningRate.ProvisioningPenalty);
+            octCommand.AddParam("@ProvisioningOlb", pProvisionningRate.provisioning_value);
+            octCommand.AddParam("@ProvisioningInterest", pProvisionningRate.provisioning_interest);
+            octCommand.AddParam("@ProvisioningPenalty", pProvisionningRate.provisioning_penalty);
         }
 
         ///// <summary>
@@ -78,9 +78,9 @@ namespace OpenCBS.Manager.Accounting
                                        id,
                                        number_of_days_min, 
                                        number_of_days_max, 
-                                       ProvisioningOlb,
-                                       ProvisioningInterest,
-                                       ProvisioningPenalty   
+                                       provisioning_value,
+                                       provisioning_interest,
+                                       provisioning_penalty   
                                      FROM ProvisioningRules";
             using (SqlConnection conn = GetConnection())
             {
@@ -106,9 +106,9 @@ namespace OpenCBS.Manager.Accounting
                            Number = reader.GetInt("id"),
                            NbOfDaysMin = reader.GetInt("number_of_days_min"),
                            NbOfDaysMax = reader.GetInt("number_of_days_max"),
-                           ProvisioningOlb = reader.GetDouble("ProvisioningOlb"),
-                           ProvisioningInterest = reader.GetDouble("ProvisioningInterest"),
-                           ProvisioningPenalty = reader.GetDouble("ProvisioningPenalty")
+                           provisioning_value = reader.GetDouble("provisioning_value"),
+                           provisioning_interest = reader.GetDouble("provisioning_interest"),
+                           provisioning_penalty = reader.GetDouble("provisioning_penalty")
                        };
         }
 

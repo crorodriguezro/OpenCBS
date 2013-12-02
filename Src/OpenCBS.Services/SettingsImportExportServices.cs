@@ -223,7 +223,7 @@ namespace OpenCBS.Services
             settings.Add(provisioningRules);
             foreach (ProvisioningRate prate in ProvisionTable.GetInstance(_user).ProvisioningRates)
             {
-                provisioningRules.Add(new Setting(prate.NbOfDaysMin + "-" + prate.NbOfDaysMax, prate.ProvisioningOlb.ToString()));
+                provisioningRules.Add(new Setting(prate.NbOfDaysMin + "-" + prate.NbOfDaysMax, prate.provisioning_value.ToString()));
             }
 
             // Public Holidays
@@ -302,7 +302,7 @@ namespace OpenCBS.Services
                 {
                     if(rate.NbOfDaysMin + "-" + rate.NbOfDaysMax == s.Name)
                     {
-                        rate.ProvisioningOlb = Convert.ToDouble(s.Value);
+                        rate.provisioning_value = Convert.ToDouble(s.Value);
                     }
                 }
             }

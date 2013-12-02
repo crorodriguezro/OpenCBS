@@ -34,7 +34,7 @@ namespace OpenCBS.Test.Manager.Accounting
         public void AddProvisionningRateInDatabase()
         {
             ProvisioningRuleManager provisioningRuleManager = (ProvisioningRuleManager) container["ProvisioningRuleManager"];
-            ProvisioningRate rate = new ProvisioningRate {Number = 12, NbOfDaysMin = 1000, NbOfDaysMax = 1111, ProvisioningOlb = 2, ProvisioningInterest=2, ProvisioningPenalty=2};
+            ProvisioningRate rate = new ProvisioningRate {Number = 12, NbOfDaysMin = 1000, NbOfDaysMax = 1111, provisioning_value = 2, provisioning_interest=2, provisioning_penalty=2};
             SqlTransaction transaction = provisioningRuleManager.GetConnection().BeginTransaction();
             provisioningRuleManager.AddProvisioningRate(rate, transaction);
             transaction.Commit();
@@ -63,9 +63,9 @@ namespace OpenCBS.Test.Manager.Accounting
             Assert.AreEqual(pNumber, pProvisioningRate.Number);
             Assert.AreEqual(pNbOfDaysMin, pProvisioningRate.NbOfDaysMin);
             Assert.AreEqual(pNbOfDaysMax, pProvisioningRate.NbOfDaysMax);
-            Assert.AreEqual(pOlb, pProvisioningRate.ProvisioningOlb);
-            Assert.AreEqual(pInterest, pProvisioningRate.ProvisioningInterest);
-            Assert.AreEqual(pPenalty, pProvisioningRate.ProvisioningPenalty);
+            Assert.AreEqual(pOlb, pProvisioningRate.provisioning_value);
+            Assert.AreEqual(pInterest, pProvisioningRate.provisioning_interest);
+            Assert.AreEqual(pPenalty, pProvisioningRate.provisioning_penalty);
         }
 
         [Test]
