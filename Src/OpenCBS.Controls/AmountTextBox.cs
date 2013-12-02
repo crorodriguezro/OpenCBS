@@ -24,10 +24,15 @@ namespace OpenCBS.Controls
 {
     public class AmountTextBox : TextBox
     {
+        public AmountTextBox()
+        {
+            TextAlign = HorizontalAlignment.Right;
+        }
+
         protected override void OnKeyPress(KeyPressEventArgs e)
         {
             var separator = CultureInfo.CurrentUICulture.NumberFormat.NumberDecimalSeparator[0];
-            if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar) || (e.KeyChar == separator && Text.IndexOf(separator) == -1))
+            if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar) || (e.KeyChar == separator && Text.IndexOf(separator) == -1) && AllowDecimalSeparator)
             {
                 e.Handled = false;
             }
@@ -35,6 +40,19 @@ namespace OpenCBS.Controls
             {
                 e.Handled = true;
             }
+        }
+
+        public bool AllowDecimalSeparator { get; set; }
+
+        public decimal? Amount
+        {
+            get
+            {
+                decimal result;
+                return decimal.TryParse(Text, out result) ? result : (decimal?) null;
+            }
+
+            set { Text = AllowDecimalSeparator ? string.Format("{0:N2}", value) : string.Format("{0:N0}", value); }
         }
     }
 }

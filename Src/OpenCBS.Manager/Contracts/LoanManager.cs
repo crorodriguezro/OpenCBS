@@ -2480,9 +2480,11 @@ namespace OpenCBS.Manager.Contracts
 
         public Dictionary<int, decimal> GetListOfTransitionToLateLoan(DateTime launchDate)
         {
-            const string q = @"SELECT id, olb, late_days
-                            FROM dbo.ActiveLoans(@date, 0)
-                            WHERE late_days = 1";
+            const string q = @"SELECT al.id, ins.capital_repayment-ins.paid_capital installment_principal_due
+                            FROM dbo.ActiveLoans(@date, 0) al
+                            LEFT JOIN dbo.Installments ins ON ins.contract_id=al.id
+                            WHERE ins.expected_date=CAST(DATEADD(d,-1,@date) AS DATE)
+                            AND ins.capital_repayment>ins.paid_capital";
             using (var connection = GetConnection())
             using (var c = new OpenCbsCommand(q, connection))
             {
@@ -2491,31 +2493,31 @@ namespace OpenCBS.Manager.Contracts
                 {
                     var dict = new Dictionary<int, decimal>();
                     while (r.Read())
-                        dict.Add(r.GetInt("id"), r.GetDecimal("olb"));
+                        dict.Add(r.GetInt("id"), r.GetDecimal("installment_principal_due"));
                     return dict;
                 }
             }
         }
 
-        public Dictionary<int, decimal> GetListOfTransitionToGoodLoan(DateTime launchDate)
-        {
-            const string q = @"SELECT a1.id,a1.olb,a1.late_days
-                            FROM dbo.ActiveLoans(@date, 0) a1
-                            INNER JOIN dbo.ActiveLoans(DATEADD(dd,-1,@date), 0) a2 ON a2.id = a1.id
-                            WHERE a1.late_days = 0 and a2.late_days>0";
-            using (var connection = GetConnection())
-            using (var c = new OpenCbsCommand(q, connection))
-            {
-                c.AddParam("date", launchDate);
-                using (var r = c.ExecuteReader())
-                {
-                    var dict = new Dictionary<int, decimal>();
-                    while (r.Read())
-                        dict.Add(r.GetInt("id"), r.GetDecimal("olb"));
-                    return dict;
-                }
-            }
-        }
+//        public Dictionary<int, decimal> GetListOfTransitionToGoodLoan(DateTime launchDate)
+//        {
+//            const string q = @"SELECT a1.id,a1.olb,a1.late_days
+//                            FROM dbo.ActiveLoans(@date, 0) a1
+//                            INNER JOIN dbo.ActiveLoans(DATEADD(dd,-1,@date), 0) a2 ON a2.id = a1.id
+//                            WHERE a1.late_days = 0 and a2.late_days>0";
+//            using (var connection = GetConnection())
+//            using (var c = new OpenCbsCommand(q, connection))
+//            {
+//                c.AddParam("date", launchDate);
+//                using (var r = c.ExecuteReader())
+//                {
+//                    var dict = new Dictionary<int, decimal>();
+//                    while (r.Read())
+//                        dict.Add(r.GetInt("id"), r.GetDecimal("olb"));
+//                    return dict;
+//                }
+//            }
+//        }
 
         public DateTime LastLoanTransitionEventDate()
         {
