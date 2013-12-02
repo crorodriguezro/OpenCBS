@@ -49,12 +49,12 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Loans
         public void TestFixtureSetUp()
         {
             ProvisionTable provisionTable = ProvisionTable.GetInstance(new User());
-            provisionTable.Add(new ProvisioningRate { Number = 1, NbOfDaysMin = 0, NbOfDaysMax = 30, provisioning_value = 10, provisioning_interest = 10, provisioning_penalty = 10 });
-            provisionTable.Add(new ProvisioningRate { Number = 2, NbOfDaysMin = 31, NbOfDaysMax = 60, provisioning_value = 25, provisioning_interest = 25, provisioning_penalty = 25 });
-            provisionTable.Add(new ProvisioningRate { Number = 3, NbOfDaysMin = 61, NbOfDaysMax = 90, provisioning_value = 50, provisioning_interest = 50, provisioning_penalty = 50 });
-            provisionTable.Add(new ProvisioningRate { Number = 4, NbOfDaysMin = 91, NbOfDaysMax = 180, provisioning_value = 75, provisioning_interest = 75, provisioning_penalty = 75 });
-            provisionTable.Add(new ProvisioningRate { Number = 5, NbOfDaysMin = 181, NbOfDaysMax = 365, provisioning_value = 100, provisioning_interest = 100, provisioning_penalty = 100 });
-            provisionTable.Add(new ProvisioningRate { Number = 6, NbOfDaysMin = 366, NbOfDaysMax = 99999, provisioning_value = 100, provisioning_interest = 100, provisioning_penalty = 100 });
+            provisionTable.Add(new ProvisioningRate { Number = 1, NbOfDaysMin = 0, NbOfDaysMax = 30, ProvisioningValue = 10, ProvisioningInterest = 10, ProvisioningPenalty = 10 });
+            provisionTable.Add(new ProvisioningRate { Number = 2, NbOfDaysMin = 31, NbOfDaysMax = 60, ProvisioningValue = 25, ProvisioningInterest = 25, ProvisioningPenalty = 25 });
+            provisionTable.Add(new ProvisioningRate { Number = 3, NbOfDaysMin = 61, NbOfDaysMax = 90, ProvisioningValue = 50, ProvisioningInterest = 50, ProvisioningPenalty = 50 });
+            provisionTable.Add(new ProvisioningRate { Number = 4, NbOfDaysMin = 91, NbOfDaysMax = 180, ProvisioningValue = 75, ProvisioningInterest = 75, ProvisioningPenalty = 75 });
+            provisionTable.Add(new ProvisioningRate { Number = 5, NbOfDaysMin = 181, NbOfDaysMax = 365, ProvisioningValue = 100, ProvisioningInterest = 100, ProvisioningPenalty = 100 });
+            provisionTable.Add(new ProvisioningRate { Number = 6, NbOfDaysMin = 366, NbOfDaysMax = 99999, ProvisioningValue = 100, ProvisioningInterest = 100, ProvisioningPenalty = 100 });
             _nonWorkingDateHelper = NonWorkingDateSingleton.GetInstance("");
             _nonWorkingDateHelper.WeekEndDay1 = 6;
             _nonWorkingDateHelper.WeekEndDay2 = 0;

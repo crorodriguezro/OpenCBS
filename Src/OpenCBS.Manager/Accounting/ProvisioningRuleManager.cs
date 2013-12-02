@@ -62,9 +62,9 @@ namespace OpenCBS.Manager.Accounting
             octCommand.AddParam("@number", pProvisionningRate.Number);
             octCommand.AddParam("@numberOfDaysMin", pProvisionningRate.NbOfDaysMin);
             octCommand.AddParam("@numberOfDaysMax", pProvisionningRate.NbOfDaysMax);
-            octCommand.AddParam("@ProvisioningOlb", pProvisionningRate.provisioning_value);
-            octCommand.AddParam("@ProvisioningInterest", pProvisionningRate.provisioning_interest);
-            octCommand.AddParam("@ProvisioningPenalty", pProvisionningRate.provisioning_penalty);
+            octCommand.AddParam("@ProvisioningOlb", pProvisionningRate.ProvisioningValue);
+            octCommand.AddParam("@ProvisioningInterest", pProvisionningRate.ProvisioningInterest);
+            octCommand.AddParam("@ProvisioningPenalty", pProvisionningRate.ProvisioningPenalty);
         }
 
         ///// <summary>
@@ -106,9 +106,9 @@ namespace OpenCBS.Manager.Accounting
                            Number = reader.GetInt("id"),
                            NbOfDaysMin = reader.GetInt("number_of_days_min"),
                            NbOfDaysMax = reader.GetInt("number_of_days_max"),
-                           provisioning_value = reader.GetDouble("provisioning_value"),
-                           provisioning_interest = reader.GetDouble("provisioning_interest"),
-                           provisioning_penalty = reader.GetDouble("provisioning_penalty")
+                           ProvisioningValue = reader.GetDouble("provisioning_value"),
+                           ProvisioningInterest = reader.GetDouble("provisioning_interest"),
+                           ProvisioningPenalty = reader.GetDouble("provisioning_penalty")
                        };
         }
 

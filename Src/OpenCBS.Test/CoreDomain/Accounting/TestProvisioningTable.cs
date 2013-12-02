@@ -38,9 +38,9 @@ namespace OpenCBS.Test.CoreDomain.Accounting
 		{
             provisionTable = ProvisionTable.GetInstance(new User());
             provisionTable.ProvisioningRates = new List<ProvisioningRate>();
-            provisionTable.Add(new ProvisioningRate { Number = 1, NbOfDaysMin = 0, NbOfDaysMax = 0, provisioning_value = 2, provisioning_interest=2, provisioning_penalty=2 });
-            provisionTable.Add(new ProvisioningRate { Number = 2, NbOfDaysMin = 1, NbOfDaysMax = 30, provisioning_value = 10, provisioning_interest = 10, provisioning_penalty = 10 });
-            provisionTable.Add(new ProvisioningRate { Number = 3, NbOfDaysMin = 31, NbOfDaysMax = 60, provisioning_value = 25, provisioning_interest = 25, provisioning_penalty = 25 });
+            provisionTable.Add(new ProvisioningRate { Number = 1, NbOfDaysMin = 0, NbOfDaysMax = 0, ProvisioningValue = 2, ProvisioningInterest=2, ProvisioningPenalty=2 });
+            provisionTable.Add(new ProvisioningRate { Number = 2, NbOfDaysMin = 1, NbOfDaysMax = 30, ProvisioningValue = 10, ProvisioningInterest = 10, ProvisioningPenalty = 10 });
+            provisionTable.Add(new ProvisioningRate { Number = 3, NbOfDaysMin = 31, NbOfDaysMax = 60, ProvisioningValue = 25, ProvisioningInterest = 25, ProvisioningPenalty = 25 });
 		}
 
 		[TestFixtureTearDown]
@@ -69,30 +69,30 @@ namespace OpenCBS.Test.CoreDomain.Accounting
 		public void TestProvisioningRateOlb()
 		{
 			ProvisioningRate pR = new ProvisioningRate();
-			pR.provisioning_value= 10.5;
-			Assert.AreEqual(10.5,pR.provisioning_value);
+			pR.ProvisioningValue= 10.5;
+			Assert.AreEqual(10.5,pR.ProvisioningValue);
 		}
         
         [Test]
         public void TestProvisioningRateInterest()
         {
             ProvisioningRate pR = new ProvisioningRate();
-            pR.provisioning_interest = 10.5;
-            Assert.AreEqual(10.5, pR.provisioning_interest);
+            pR.ProvisioningInterest = 10.5;
+            Assert.AreEqual(10.5, pR.ProvisioningInterest);
         }
 
         [Test]
         public void TestProvisioningRatePenalty()
         {
             ProvisioningRate pR = new ProvisioningRate();
-            pR.provisioning_penalty = 10.5;
-            Assert.AreEqual(10.5, pR.provisioning_penalty);
+            pR.ProvisioningPenalty = 10.5;
+            Assert.AreEqual(10.5, pR.ProvisioningPenalty);
         }
 
 		[Test]
 		public void TestGetProvisioningRateByRank()
 		{
-			Assert.AreEqual(25,provisionTable.GetProvisioningRate(2).provisioning_value);
+			Assert.AreEqual(25,provisionTable.GetProvisioningRate(2).ProvisioningValue);
 		}
 
 		[Test]
@@ -104,13 +104,13 @@ namespace OpenCBS.Test.CoreDomain.Accounting
 		[Test]
 		public void TestGetProvisioningRateByNbOfDays()
 		{
-			Assert.AreEqual(10,provisionTable.GetProvisiningRateByNbOfDays(21).provisioning_value);
+			Assert.AreEqual(10,provisionTable.GetProvisiningRateByNbOfDays(21).ProvisioningValue);
 		}
 
 		[Test]
 		public void TestGetProvisioningRateByNbOfDaysWhenZero()
 		{
-			Assert.AreEqual(2,provisionTable.GetProvisiningRateByNbOfDays(0).provisioning_value);
+			Assert.AreEqual(2,provisionTable.GetProvisiningRateByNbOfDays(0).ProvisioningValue);
 		}
 
 		[Test]

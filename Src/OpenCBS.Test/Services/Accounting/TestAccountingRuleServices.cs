@@ -277,10 +277,10 @@ namespace OpenCBS.Test.Services.Accounting
 
             ProvisionTable provisionTable = ProvisionTable.GetInstance(new User());
             provisionTable.ProvisioningRates = new List<ProvisioningRate>();
-            provisionTable.Add(new ProvisioningRate { Number = 1, NbOfDaysMin = 0, NbOfDaysMax = 0, provisioning_value = 0.5, provisioning_interest = 0.5, provisioning_penalty = 0.5 });
-            provisionTable.Add(new ProvisioningRate { Number = 2, NbOfDaysMin = 1, NbOfDaysMax = 30, provisioning_value = 1, provisioning_interest = 1, provisioning_penalty = 1 });
-            provisionTable.Add(new ProvisioningRate { Number = 3, NbOfDaysMin = 31, NbOfDaysMax = 60, provisioning_value = 1.5, provisioning_interest = 1.5, provisioning_penalty = 1.5 });
-            provisionTable.Add(new ProvisioningRate { Number = 3, NbOfDaysMin = 60, NbOfDaysMax = 999, provisioning_value = 2, provisioning_interest = 2, provisioning_penalty = 2 });
+            provisionTable.Add(new ProvisioningRate { Number = 1, NbOfDaysMin = 0, NbOfDaysMax = 0, ProvisioningValue = 0.5, ProvisioningInterest = 0.5, ProvisioningPenalty = 0.5 });
+            provisionTable.Add(new ProvisioningRate { Number = 2, NbOfDaysMin = 1, NbOfDaysMax = 30, ProvisioningValue = 1, ProvisioningInterest = 1, ProvisioningPenalty = 1 });
+            provisionTable.Add(new ProvisioningRate { Number = 3, NbOfDaysMin = 31, NbOfDaysMax = 60, ProvisioningValue = 1.5, ProvisioningInterest = 1.5, ProvisioningPenalty = 1.5 });
+            provisionTable.Add(new ProvisioningRate { Number = 3, NbOfDaysMin = 60, NbOfDaysMax = 999, ProvisioningValue = 2, ProvisioningInterest = 2, ProvisioningPenalty = 2 });
 
 
             Assert.AreEqual(new DateTime(2010, 7, 6), myContract.GetInstallment(0).ExpectedDate);

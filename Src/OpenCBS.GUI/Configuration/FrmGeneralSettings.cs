@@ -231,9 +231,9 @@ namespace OpenCBS.GUI.Configuration
                     listViewItem.SubItems.Add("-");
                     
                     //listViewItem.SubItems.Add((Math.Round(provisioningRate.Rate, 2) * 100).ToString());
-                    listViewItem.SubItems.Add((provisioningRate.provisioning_value * 100).ToString());
-                    listViewItem.SubItems.Add((provisioningRate.provisioning_interest * 100).ToString());
-                    listViewItem.SubItems.Add((provisioningRate.provisioning_penalty * 100).ToString());
+                    listViewItem.SubItems.Add((provisioningRate.ProvisioningValue * 100).ToString());
+                    listViewItem.SubItems.Add((provisioningRate.ProvisioningInterest * 100).ToString());
+                    listViewItem.SubItems.Add((provisioningRate.ProvisioningPenalty * 100).ToString());
                     listViewItemRes = listViewItem;
                 }
                 else
@@ -242,9 +242,9 @@ namespace OpenCBS.GUI.Configuration
                     listViewItem.SubItems.Add(provisioningRate.NbOfDaysMin.ToString());
                     listViewItem.SubItems.Add(provisioningRate.NbOfDaysMax.ToString());
                     //listViewItem.SubItems.Add((Math.Round(provisioningRate.Rate, 2)*100).ToString());
-                    listViewItem.SubItems.Add((provisioningRate.provisioning_value * 100).ToString());
-                    listViewItem.SubItems.Add((provisioningRate.provisioning_interest * 100).ToString());
-                    listViewItem.SubItems.Add((provisioningRate.provisioning_penalty * 100).ToString());
+                    listViewItem.SubItems.Add((provisioningRate.ProvisioningValue * 100).ToString());
+                    listViewItem.SubItems.Add((provisioningRate.ProvisioningInterest * 100).ToString());
+                    listViewItem.SubItems.Add((provisioningRate.ProvisioningPenalty * 100).ToString());
                     listViewProvisioningRules.Items.Add(listViewItem);
                 }
             }
@@ -1013,7 +1013,7 @@ namespace OpenCBS.GUI.Configuration
         {
             try
             {
-                pR.provisioning_value = Convert.ToDouble(textBoxProvisioningOlb.Text) / 100;
+                pR.ProvisioningValue = Convert.ToDouble(textBoxProvisioningOlb.Text) / 100;
             }
             catch (FormatException ex)
             {
@@ -1057,9 +1057,9 @@ namespace OpenCBS.GUI.Configuration
 
             if (pR.NbOfDaysMin == -1)
             {
-                textBoxProvisioningOlb.Text = (pR.provisioning_value * 100).ToString();
-                textBoxProvisioningInterest.Text = (pR.provisioning_interest * 100).ToString();
-                textBoxProvisioningPenalty.Text = (pR.provisioning_penalty * 100).ToString();
+                textBoxProvisioningOlb.Text = (pR.ProvisioningValue * 100).ToString();
+                textBoxProvisioningInterest.Text = (pR.ProvisioningInterest * 100).ToString();
+                textBoxProvisioningPenalty.Text = (pR.ProvisioningPenalty * 100).ToString();
                 textBoxNbOfDaysMin.Text = @"rest.";
                 textBoxNbOfDaysMax.Text = @"rest.";
             }
@@ -1067,9 +1067,9 @@ namespace OpenCBS.GUI.Configuration
             {
                 textBoxNbOfDaysMin.Text = pR.NbOfDaysMin.ToString();
                 textBoxNbOfDaysMax.Text = pR.NbOfDaysMax.ToString();
-                textBoxProvisioningOlb.Text = (pR.provisioning_value * 100).ToString();
-                textBoxProvisioningInterest.Text = (pR.provisioning_interest * 100).ToString();
-                textBoxProvisioningPenalty.Text = (pR.provisioning_penalty * 100).ToString();
+                textBoxProvisioningOlb.Text = (pR.ProvisioningValue * 100).ToString();
+                textBoxProvisioningInterest.Text = (pR.ProvisioningInterest * 100).ToString();
+                textBoxProvisioningPenalty.Text = (pR.ProvisioningPenalty * 100).ToString();
             }
         }
 
@@ -1570,7 +1570,7 @@ namespace OpenCBS.GUI.Configuration
         {
             try
             {
-                pR.provisioning_interest = Convert.ToDouble(textBoxProvisioningInterest.Text) / 100;
+                pR.ProvisioningInterest = Convert.ToDouble(textBoxProvisioningInterest.Text) / 100;
             }
             catch (FormatException ex)
             {
@@ -1589,7 +1589,7 @@ namespace OpenCBS.GUI.Configuration
         {
             try
             {
-                pR.provisioning_penalty = Convert.ToDouble(textBoxProvisioningPenalty.Text) / 100;
+                pR.ProvisioningPenalty = Convert.ToDouble(textBoxProvisioningPenalty.Text) / 100;
             }
             catch (FormatException ex)
             {
