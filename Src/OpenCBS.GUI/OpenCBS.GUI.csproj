@@ -391,12 +391,6 @@
     <Compile Include="AuditTrail\AuditTrailForm.Designer.cs">
       <DependentUpon>AuditTrailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Localization\BaseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Localization\BaseForm.Designer.cs">
-      <DependentUpon>BaseForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Clients\ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </Compile>
@@ -690,7 +684,6 @@
     <Compile Include="Export\StringFieldPropertiesForm.Designer.cs">
       <DependentUpon>StringFieldPropertiesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Localization\LanguageParser.cs" />
     <Compile Include="Login\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2996,7 +2989,6 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
-    <Content Include="Localization\strings.xml" />
     <Content Include="opencbs.ico" />
     <Content Include="Reports\Internal\Collection_Sheet.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
