@@ -3815,11 +3815,7 @@ xcopy "$(SolutionDir)..\Sql\DropAndCreateView.sql" "$(TargetDir)Update" /y
 xcopy "$(SolutionDir)..\Sql\DropAndCreateFunctions.sql" "$(TargetDir)Update" /y
 xcopy "$(SolutionDir)..\Sql\DropAndCreateUDF.sql" "$(TargetDir)Update" /y
 xcopy "$(SolutionDir)..\Sql\AccountingRules.sql" "$(TargetDir)Update" /y
-xcopy "$(SolutionDir)..\Sql\Objects.xml" "$(TargetDir)Update" /y
-
-mkdir "C:\OpenCbsLibs"
-xcopy "$(TargetDir)OpenCBS.*.dll" "C:\OpenCbsLibs" /s /y
-xcopy "$(TargetDir)OpenCBS.*.pdb" "C:\OpenCbsLibs" /s /y</PostBuildEvent>
+xcopy "$(SolutionDir)..\Sql\Objects.xml" "$(TargetDir)Update" /y</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
 </Project>

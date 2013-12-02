@@ -2604,12 +2604,12 @@ namespace OpenCBS.Services
             var nextInstallment = loan.InstallmentList.First(installment => date <= installment.ExpectedDate);
             var nextDate = nextInstallment.ExpectedDate;
             var previousDate = nextInstallment.Number > 1
-                                   ? loan.GetInstallment(nextInstallment.Number - 1).ExpectedDate
+                                   ? loan.InstallmentList[nextInstallment.Number - 2].ExpectedDate
                                    : loan.StartDate;
             if ((date - previousDate).Days > 30) return 0;
             var interest = nextInstallment.InterestsRepayment;
             if (nextDate == date)
-                interest -= _loanManager.GetSumOfAccruedInterests(loan.Id, previousDate, date);
+                interest = interest - _loanManager.GetSumOfAccruedInterests(loan.Id, previousDate, date);
             else
                 interest = interest/30;
             return interest.Value;
@@ -2637,15 +2637,15 @@ namespace OpenCBS.Services
                                 ContracId = item.Key
                             }).ToList();
 
-                        var llgl = _loanManager.GetListOfTransitionToGoodLoan(date);
-                        transitionEventList.AddRange(llgl.Select(item => new LoanTransitionEvent
-                            {
-                                Code = "LLGL",
-                                Date = date,
-                                User = User.CurrentUser,
-                                Amount = item.Value,
-                                ContracId = item.Key
-                            }));
+                        //var llgl = _loanManager.GetListOfTransitionToGoodLoan(date);
+                        //transitionEventList.AddRange(llgl.Select(item => new LoanTransitionEvent
+                        //    {
+                        //        Code = "LLGL",
+                        //        Date = date,
+                        //        User = User.CurrentUser,
+                        //        Amount = item.Value,
+                        //        ContracId = item.Key
+                        //    }));
 
                         foreach (var transitionEvent in transitionEventList)
                             em.AddLoanEvent(transitionEvent, transitionEvent.ContracId, transaction);
