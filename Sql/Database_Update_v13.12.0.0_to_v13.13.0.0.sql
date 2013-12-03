@@ -1,7 +1,3 @@
- 
- UPDATE dbo.ProvisioningRules
-SET dbo.ProvisioningRules.provisioning_value =  2  
-
      
 
 AlTER TABLE dbo.ProvisioningRules  ADD  

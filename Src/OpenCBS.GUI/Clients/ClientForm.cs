@@ -1829,7 +1829,7 @@ namespace OpenCBS.GUI.Clients
 
         private void SetAddTrancheButton(Loan pCredit)
         {
-            bool enableButton = pCredit.Product.ActivatedLOC;
+            bool enableButton = pCredit.Product.ActivatedLOC && pCredit.ContractStatus == OContractStatus.Active;
 
             if (pCredit.ClientType == OClientTypes.Group)
                 enableButton = false;
@@ -4220,6 +4220,7 @@ namespace OpenCBS.GUI.Clients
                         buttonLoanReschedule.Enabled = false;
                         buttonReschedule.Enabled = false;
                         btnWriteOff.Enabled = false;
+                        buttonManualSchedule.Enabled = false;
                     }
 
                     if (MdiParent != null)
