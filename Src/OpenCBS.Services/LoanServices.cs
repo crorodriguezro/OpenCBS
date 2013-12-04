@@ -2600,9 +2600,9 @@ namespace OpenCBS.Services
 
         private decimal GetDailyInterestForLoan(Loan loan, DateTime date)
         {
-            if (date > loan.LastInstallment.ExpectedDate) return 0;
-            var nextInstallment = loan.InstallmentList.First(installment => date <= installment.ExpectedDate);
-            var nextDate = nextInstallment.ExpectedDate;
+            if (date >= loan.LastInstallment.ExpectedDate) return 0;
+            var nextInstallment = loan.InstallmentList.First(installment => date < installment.ExpectedDate);
+            var nextDate = nextInstallment.ExpectedDate.AddDays(-1);
             var previousDate = nextInstallment.Number > 1
                                    ? loan.InstallmentList[nextInstallment.Number - 2].ExpectedDate
                                    : loan.StartDate;

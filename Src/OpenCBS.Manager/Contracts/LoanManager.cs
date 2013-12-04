@@ -2463,7 +2463,7 @@ namespace OpenCBS.Manager.Contracts
                                 LEFT JOIN dbo.ContractEvents AS ce ON ce.id=ai.id
                                 WHERE ce.contract_id=@contractId 
                                 and ce.event_date<@to 
-                                and ce.event_date>@from";
+                                and ce.event_date>=@from";
             using (var connection = GetConnection())
             using (var c = new OpenCbsCommand(q, connection))
             {
