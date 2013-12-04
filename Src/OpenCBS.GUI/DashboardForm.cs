@@ -441,7 +441,7 @@ namespace OpenCBS.GUI
         {
             var allBranches = new Dictionary<int, string>
             {
-                { 0, "All branches" }
+                { 0, GetString("AllBranches") }
             };
             var branches = User.CurrentUser.Branches.ToDictionary(b => b.Id, b => b.Name);
             allBranches = allBranches.Concat(branches).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
@@ -451,7 +451,7 @@ namespace OpenCBS.GUI
 
             var allUsers = new Dictionary<int, string>
             {
-                { 0, "All users" }
+                { 0, GetString("AllUsers") }
             };
             var users = User.CurrentUser.Subordinates.ToDictionary(u => u.Id, u => u.Name);
             allUsers = allUsers.Concat(users).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
@@ -461,7 +461,7 @@ namespace OpenCBS.GUI
 
             var allLoanProducts = new Dictionary<int, string>
             {
-                { 0, "All loan products" }
+                { 0, GetString("AllLoanProducts") }
             };
             var service = ServicesProvider.GetInstance().GetProductServices();
             var loanProducts = service.FindAllPackages(false, OClientTypes.All).ToDictionary(lp => lp.Id, lp => lp.Name);

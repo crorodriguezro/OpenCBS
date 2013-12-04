@@ -133,8 +133,26 @@
     <value>РИСК</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_loanProductFilterLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 16</value>
+  </data>
+  <data name="_loanProductFilterLabel.Text" xml:space="preserve">
+    <value>Кредитный продукт</value>
+  </data>
+  <data name="_userFilterLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 16</value>
+  </data>
+  <data name="_userFilterLabel.Text" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="_branchFilterLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 16</value>
+  </data>
+  <data name="_branchFilterLabel.Text" xml:space="preserve">
+    <value>Филиал</value>
+  </data>
   <data name="refreshLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>680, 5</value>
+    <value>722, 5</value>
   </data>
   <data name="refreshLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 19</value>
@@ -143,7 +161,7 @@
     <value>Обновить</value>
   </data>
   <data name="aboutLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 106</value>
+    <value>251, 106</value>
   </data>
   <data name="aboutLabel.Text" xml:space="preserve">
     <value>Добро пожаловать. Внизу отражена краткая статистика по вашему портфелю. Слева - быстрый доступ к самым важным операциям.</value>
@@ -268,14 +286,17 @@
   <data name="auditTrailLabel.Text" xml:space="preserve">
     <value>Контрольный журнал</value>
   </data>
-  <data name="reportsLink.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="activeLoansLink.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 362</value>
   </data>
-  <data name="reportsLink.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 16</value>
+  <data name="parAnalysisLink.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 385</value>
   </data>
-  <data name="reportsLink.Text" xml:space="preserve">
-    <value>Отчеты</value>
+  <data name="delinquentLoansLink.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 408</value>
+  </data>
+  <data name="disbursementsLink.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 431</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Стартовое окно</value>

@@ -118,6 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="infoPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>703, 527</value>
+  </data>
+  <data name="quickLinksPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 527</value>
+  </data>
+  <data name="generalInfoPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>923, 527</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>703, 180</value>
+  </data>
+  <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>415, 174</value>
+  </data>
   <data name="disbursementsPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>201, 168</value>
   </data>
@@ -127,17 +142,20 @@
   <data name="olbTrendPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>202, 168</value>
   </data>
-  <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>415, 174</value>
-  </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>703, 180</value>
-  </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>703, 40</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>PRODUCTIVITE</value>
+  </data>
+  <data name="riskTableLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>703, 180</value>
+  </data>
+  <data name="parListView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>424, 5</value>
+  </data>
+  <data name="parListView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 170</value>
   </data>
   <data name="parNameColumn.Text" xml:space="preserve">
     <value>Portefeuille</value>
@@ -148,11 +166,8 @@
   <data name="parQuantityColumn.Text" xml:space="preserve">
     <value>#Contrats</value>
   </data>
-  <data name="parListView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>424, 5</value>
-  </data>
-  <data name="parListView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>276, 170</value>
+  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>415, 174</value>
   </data>
   <data name="portfolioPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>201, 168</value>
@@ -163,17 +178,35 @@
   <data name="parPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>202, 168</value>
   </data>
-  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>415, 174</value>
-  </data>
-  <data name="riskTableLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>703, 180</value>
-  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>703, 40</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>RISQUES</value>
+  </data>
+  <data name="_filterPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>703, 50</value>
+  </data>
+  <data name="_loanProductFilterLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 16</value>
+  </data>
+  <data name="_loanProductFilterLabel.Text" xml:space="preserve">
+    <value>Produit de credit</value>
+  </data>
+  <data name="_userFilterLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 16</value>
+  </data>
+  <data name="_userFilterLabel.Text" xml:space="preserve">
+    <value>Utilisateur</value>
+  </data>
+  <data name="_branchFilterLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 16</value>
+  </data>
+  <data name="_branchFilterLabel.Text" xml:space="preserve">
+    <value>Branche</value>
+  </data>
+  <data name="topBarPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>703, 127</value>
   </data>
   <data name="refreshLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>637, 5</value>
@@ -190,11 +223,8 @@
   <data name="aboutLabel.Text" xml:space="preserve">
     <value>Bienvenue. Utilisez le tableau de bord ci-dessous pour suivre votre activité ou utilisez le menu ci-contre pour manager votre portefeuille.</value>
   </data>
-  <data name="topBarPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>703, 127</value>
-  </data>
-  <data name="infoPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>703, 527</value>
+  <data name="flowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 527</value>
   </data>
   <data name="operateLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 14</value>
@@ -285,21 +315,6 @@
   </data>
   <data name="auditTrailLabel.Text" xml:space="preserve">
     <value>Relevé des opérations</value>
-  </data>
-  <data name="reportsLink.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 16</value>
-  </data>
-  <data name="reportsLink.Text" xml:space="preserve">
-    <value>Rapports</value>
-  </data>
-  <data name="flowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 527</value>
-  </data>
-  <data name="quickLinksPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 527</value>
-  </data>
-  <data name="generalInfoPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>923, 527</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>923, 527</value>
