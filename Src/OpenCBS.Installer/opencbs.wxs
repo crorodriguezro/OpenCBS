@@ -146,6 +146,8 @@
                 <CreateFolder Directory="DIR_EXTENSION">
                   <Permission User="Everyone" GenericAll="yes" />
                 </CreateFolder>
+                <File Id="OpenCBS.Extension.ExcelReports.dll" Source="SourceDir\Extensions\OpenCBS.Extension.ExcelReports.dll" />
+                <File Id="OpenCBS.Extension.OfficeReports.dll" Source="SourceDir\Extensions\OpenCBS.Extension.OfficeReports.dll" />
               </Component>              
             </Directory>
             
