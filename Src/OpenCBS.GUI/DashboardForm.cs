@@ -497,9 +497,17 @@ namespace OpenCBS.GUI
             get { return (int) _loanProductFilterComboBox.SelectedValue; }
         }
 
+        private void OpenUrl(string url)
+        {
+            System.Diagnostics.Process.Start(url);
+        }
+
         private void SetUp()
         {
             _refreshButton.Click += (sender, e) => RefreshDashboard();
+            _servicesLinkLabel.LinkClicked += (sender, e) => OpenUrl("http://opencbs.com/our-services/");
+            _userGuideLinkLabel.LinkClicked += (sender, e) => OpenUrl("http://opencbs.com/helpcenter/userguide/");
+            _contactLinkLabel.LinkClicked += (sender, e) => OpenUrl("mailto://contact@opencbs.com?subject=User request");
         }
     }
 }
