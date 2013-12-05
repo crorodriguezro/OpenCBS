@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllBranches" xml:space="preserve">
+    <value>Toutes les branches</value>
+  </data>
+  <data name="AllLoanProducts" xml:space="preserve">
+    <value>Tous les produits</value>
+  </data>
+  <data name="AllUsers" xml:space="preserve">
+    <value>Tous les utilisateurs</value>
+  </data>
   <data name="NumberOfDisbursements" xml:space="preserve">
     <value>Nombre de déboursement ces 10 derniers jours</value>
   </data>

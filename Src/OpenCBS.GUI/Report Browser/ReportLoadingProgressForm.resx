@@ -133,13 +133,13 @@
     <value>2, 0, 2, 0</value>
   </data>
   <data name="elapsedTimeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>21, 13</value>
+    <value>49, 13</value>
   </data>
   <data name="elapsedTimeLabel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="elapsedTimeLabel.Text" xml:space="preserve">
-    <value>0 s</value>
+    <value>00:00:00</value>
   </data>
   <data name="&gt;&gt;elapsedTimeLabel.Name" xml:space="preserve">
     <value>elapsedTimeLabel</value>

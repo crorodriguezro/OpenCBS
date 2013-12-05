@@ -84,6 +84,7 @@ namespace OpenCBS.GUI
                 }
             };
             Authorize();
+            InitFilter();
             RefreshDashboard();
         }
 
@@ -323,7 +324,7 @@ namespace OpenCBS.GUI
         private void RefreshDashboard()
         {
             var us = ServicesProvider.GetInstance().GetUserServices();
-            var dashboard = us.GetDashboard();
+            var dashboard = us.GetDashboard(FilterBranchId, FilterUserId, FilterLoanProductId);
 
             RefreshPortfolioPieChart(dashboard);
             RefreshParPieChart(dashboard);
@@ -434,6 +435,55 @@ namespace OpenCBS.GUI
             {
                 Fail(ex.Message);
             }
+        }
+
+        private void InitFilter()
+        {
+            var allBranches = new Dictionary<int, string>
+            {
+                { 0, GetString("AllBranches") }
+            };
+            var branches = User.CurrentUser.Branches.ToDictionary(b => b.Id, b => b.Name);
+            allBranches = allBranches.Concat(branches).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+            _branchFilterComboBox.ValueMember = "Key";
+            _branchFilterComboBox.DisplayMember = "Value";
+            _branchFilterComboBox.DataSource = new BindingSource(allBranches, null);
+
+            var allUsers = new Dictionary<int, string>
+            {
+                { 0, GetString("AllUsers") }
+            };
+            var users = User.CurrentUser.Subordinates.ToDictionary(u => u.Id, u => u.Name);
+            allUsers = allUsers.Concat(users).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+            _userFilterComboBox.ValueMember = "Key";
+            _userFilterComboBox.DisplayMember = "Value";
+            _userFilterComboBox.DataSource = new BindingSource(allUsers, null);
+
+            var allLoanProducts = new Dictionary<int, string>
+            {
+                { 0, GetString("AllLoanProducts") }
+            };
+            var service = ServicesProvider.GetInstance().GetProductServices();
+            var loanProducts = service.FindAllPackages(false, OClientTypes.All).ToDictionary(lp => lp.Id, lp => lp.Name);
+            allLoanProducts = allLoanProducts.Concat(loanProducts).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+            _loanProductFilterComboBox.ValueMember = "Key";
+            _loanProductFilterComboBox.DisplayMember = "Value";
+            _loanProductFilterComboBox.DataSource = new BindingSource(allLoanProducts, null);
+        }
+
+        private int FilterBranchId
+        {
+            get { return (int) _branchFilterComboBox.SelectedValue; }
+        }
+
+        private int FilterUserId
+        {
+            get { return (int) _userFilterComboBox.SelectedValue; }
+        }
+
+        private int FilterLoanProductId
+        {
+            get { return (int) _loanProductFilterComboBox.SelectedValue; }
         }
     }
 }

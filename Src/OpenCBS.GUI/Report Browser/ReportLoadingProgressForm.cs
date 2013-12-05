@@ -28,7 +28,8 @@ namespace OpenCBS.GUI.Report_Browser
 
         private void Tick()
         {
-            elapsedTimeLabel.Text = (DateTime.Now - _startDate).Seconds + " s.";
+            var timeSpan = DateTime.Now - _startDate;
+            elapsedTimeLabel.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds);
         }
     }
 }

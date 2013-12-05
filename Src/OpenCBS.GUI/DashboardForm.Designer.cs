@@ -43,6 +43,13 @@ namespace OpenCBS.GUI
             this.portfolioPanel = new System.Windows.Forms.Panel();
             this.parPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this._filterPanel = new System.Windows.Forms.Panel();
+            this._loanProductFilterComboBox = new System.Windows.Forms.ComboBox();
+            this._loanProductFilterLabel = new System.Windows.Forms.Label();
+            this._userFilterComboBox = new System.Windows.Forms.ComboBox();
+            this._userFilterLabel = new System.Windows.Forms.Label();
+            this._branchFilterComboBox = new System.Windows.Forms.ComboBox();
+            this._branchFilterLabel = new System.Windows.Forms.Label();
             this.topBarPanel = new System.Windows.Forms.TableLayoutPanel();
             this.refreshLinkLabel = new System.Windows.Forms.LinkLabel();
             this.smallLogoPictureBox = new System.Windows.Forms.PictureBox();
@@ -75,6 +82,7 @@ namespace OpenCBS.GUI
             this.riskTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.parListView)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            this._filterPanel.SuspendLayout();
             this.topBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.smallLogoPictureBox)).BeginInit();
             this.quickLinksPanel.SuspendLayout();
@@ -83,20 +91,21 @@ namespace OpenCBS.GUI
             // 
             // generalInfoPanel
             // 
+            resources.ApplyResources(this.generalInfoPanel, "generalInfoPanel");
             this.generalInfoPanel.Controls.Add(this.infoPanel);
             this.generalInfoPanel.Controls.Add(this.quickLinksPanel);
-            resources.ApplyResources(this.generalInfoPanel, "generalInfoPanel");
             this.generalInfoPanel.Name = "generalInfoPanel";
             // 
             // infoPanel
             // 
+            resources.ApplyResources(this.infoPanel, "infoPanel");
             this.infoPanel.BackColor = System.Drawing.Color.White;
             this.infoPanel.Controls.Add(this.tableLayoutPanel1);
             this.infoPanel.Controls.Add(this.label2);
             this.infoPanel.Controls.Add(this.riskTableLayoutPanel);
             this.infoPanel.Controls.Add(this.label1);
+            this.infoPanel.Controls.Add(this._filterPanel);
             this.infoPanel.Controls.Add(this.topBarPanel);
-            resources.ApplyResources(this.infoPanel, "infoPanel");
             this.infoPanel.Name = "infoPanel";
             // 
             // tableLayoutPanel1
@@ -137,6 +146,7 @@ namespace OpenCBS.GUI
             // 
             // parListView
             // 
+            resources.ApplyResources(this.parListView, "parListView");
             this.parListView.AllColumns.Add(this.parNameColumn);
             this.parListView.AllColumns.Add(this.parAmountColumn);
             this.parListView.AllColumns.Add(this.parQuantityColumn);
@@ -144,11 +154,11 @@ namespace OpenCBS.GUI
             this.parNameColumn,
             this.parAmountColumn,
             this.parQuantityColumn});
-            resources.ApplyResources(this.parListView, "parListView");
             this.parListView.FullRowSelect = true;
             this.parListView.GridLines = true;
             this.parListView.HasCollapsibleGroups = false;
             this.parListView.Name = "parListView";
+            this.parListView.OverlayText.Text = resources.GetString("resource.Text");
             this.parListView.ShowGroups = false;
             this.parListView.UseCompatibleStateImageBehavior = false;
             this.parListView.View = System.Windows.Forms.View.Details;
@@ -161,14 +171,14 @@ namespace OpenCBS.GUI
             // parAmountColumn
             // 
             this.parAmountColumn.AspectName = "Amount";
-            this.parAmountColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             resources.ApplyResources(this.parAmountColumn, "parAmountColumn");
+            this.parAmountColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // parQuantityColumn
             // 
             this.parQuantityColumn.AspectName = "Quantity";
-            this.parQuantityColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             resources.ApplyResources(this.parQuantityColumn, "parQuantityColumn");
+            this.parQuantityColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tableLayoutPanel2
             // 
@@ -193,6 +203,53 @@ namespace OpenCBS.GUI
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.label1.Name = "label1";
             // 
+            // _filterPanel
+            // 
+            resources.ApplyResources(this._filterPanel, "_filterPanel");
+            this._filterPanel.Controls.Add(this._loanProductFilterComboBox);
+            this._filterPanel.Controls.Add(this._loanProductFilterLabel);
+            this._filterPanel.Controls.Add(this._userFilterComboBox);
+            this._filterPanel.Controls.Add(this._userFilterLabel);
+            this._filterPanel.Controls.Add(this._branchFilterComboBox);
+            this._filterPanel.Controls.Add(this._branchFilterLabel);
+            this._filterPanel.Name = "_filterPanel";
+            // 
+            // _loanProductFilterComboBox
+            // 
+            resources.ApplyResources(this._loanProductFilterComboBox, "_loanProductFilterComboBox");
+            this._loanProductFilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._loanProductFilterComboBox.FormattingEnabled = true;
+            this._loanProductFilterComboBox.Name = "_loanProductFilterComboBox";
+            // 
+            // _loanProductFilterLabel
+            // 
+            resources.ApplyResources(this._loanProductFilterLabel, "_loanProductFilterLabel");
+            this._loanProductFilterLabel.Name = "_loanProductFilterLabel";
+            // 
+            // _userFilterComboBox
+            // 
+            resources.ApplyResources(this._userFilterComboBox, "_userFilterComboBox");
+            this._userFilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._userFilterComboBox.FormattingEnabled = true;
+            this._userFilterComboBox.Name = "_userFilterComboBox";
+            // 
+            // _userFilterLabel
+            // 
+            resources.ApplyResources(this._userFilterLabel, "_userFilterLabel");
+            this._userFilterLabel.Name = "_userFilterLabel";
+            // 
+            // _branchFilterComboBox
+            // 
+            resources.ApplyResources(this._branchFilterComboBox, "_branchFilterComboBox");
+            this._branchFilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._branchFilterComboBox.FormattingEnabled = true;
+            this._branchFilterComboBox.Name = "_branchFilterComboBox";
+            // 
+            // _branchFilterLabel
+            // 
+            resources.ApplyResources(this._branchFilterLabel, "_branchFilterLabel");
+            this._branchFilterLabel.Name = "_branchFilterLabel";
+            // 
             // topBarPanel
             // 
             resources.ApplyResources(this.topBarPanel, "topBarPanel");
@@ -203,8 +260,8 @@ namespace OpenCBS.GUI
             // 
             // refreshLinkLabel
             // 
-            this.refreshLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.refreshLinkLabel, "refreshLinkLabel");
+            this.refreshLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.refreshLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.refreshLinkLabel.Name = "refreshLinkLabel";
             this.refreshLinkLabel.TabStop = true;
@@ -224,13 +281,14 @@ namespace OpenCBS.GUI
             // 
             // quickLinksPanel
             // 
+            resources.ApplyResources(this.quickLinksPanel, "quickLinksPanel");
             this.quickLinksPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.quickLinksPanel.Controls.Add(this.flowLayoutPanel1);
-            resources.ApplyResources(this.quickLinksPanel, "quickLinksPanel");
             this.quickLinksPanel.Name = "quickLinksPanel";
             // 
             // flowLayoutPanel1
             // 
+            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
             this.flowLayoutPanel1.Controls.Add(this.operateLabel);
             this.flowLayoutPanel1.Controls.Add(this.searchClientLabel);
             this.flowLayoutPanel1.Controls.Add(this.searchContractLabel);
@@ -250,7 +308,6 @@ namespace OpenCBS.GUI
             this.flowLayoutPanel1.Controls.Add(this.parAnalysisLink);
             this.flowLayoutPanel1.Controls.Add(this.delinquentLoansLink);
             this.flowLayoutPanel1.Controls.Add(this.disbursementsLink);
-            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
             // operateLabel
@@ -262,8 +319,8 @@ namespace OpenCBS.GUI
             // 
             // searchClientLabel
             // 
-            this.searchClientLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.searchClientLabel, "searchClientLabel");
+            this.searchClientLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.searchClientLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.searchClientLabel.Name = "searchClientLabel";
             this.searchClientLabel.TabStop = true;
@@ -272,8 +329,8 @@ namespace OpenCBS.GUI
             // 
             // searchContractLabel
             // 
-            this.searchContractLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.searchContractLabel, "searchContractLabel");
+            this.searchContractLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.searchContractLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.searchContractLabel.Name = "searchContractLabel";
             this.searchContractLabel.TabStop = true;
@@ -282,8 +339,8 @@ namespace OpenCBS.GUI
             // 
             // newIndividualClientLinkLabel
             // 
-            this.newIndividualClientLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.newIndividualClientLinkLabel, "newIndividualClientLinkLabel");
+            this.newIndividualClientLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.newIndividualClientLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.newIndividualClientLinkLabel.Name = "newIndividualClientLinkLabel";
             this.newIndividualClientLinkLabel.TabStop = true;
@@ -292,8 +349,8 @@ namespace OpenCBS.GUI
             // 
             // newSolidarityGroupLinkLabel
             // 
-            this.newSolidarityGroupLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.newSolidarityGroupLinkLabel, "newSolidarityGroupLinkLabel");
+            this.newSolidarityGroupLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.newSolidarityGroupLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.newSolidarityGroupLinkLabel.Name = "newSolidarityGroupLinkLabel";
             this.newSolidarityGroupLinkLabel.TabStop = true;
@@ -302,8 +359,8 @@ namespace OpenCBS.GUI
             // 
             // newNonSolidairtyGroupLinkLabel
             // 
-            this.newNonSolidairtyGroupLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.newNonSolidairtyGroupLinkLabel, "newNonSolidairtyGroupLinkLabel");
+            this.newNonSolidairtyGroupLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.newNonSolidairtyGroupLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.newNonSolidairtyGroupLinkLabel.Name = "newNonSolidairtyGroupLinkLabel";
             this.newNonSolidairtyGroupLinkLabel.TabStop = true;
@@ -312,8 +369,8 @@ namespace OpenCBS.GUI
             // 
             // newCorporateClientLinkLabel
             // 
-            this.newCorporateClientLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.newCorporateClientLinkLabel, "newCorporateClientLinkLabel");
+            this.newCorporateClientLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.newCorporateClientLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.newCorporateClientLinkLabel.Name = "newCorporateClientLinkLabel";
             this.newCorporateClientLinkLabel.TabStop = true;
@@ -328,8 +385,8 @@ namespace OpenCBS.GUI
             // 
             // configureLoanProductsLabel
             // 
-            this.configureLoanProductsLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.configureLoanProductsLabel, "configureLoanProductsLabel");
+            this.configureLoanProductsLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.configureLoanProductsLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.configureLoanProductsLabel.Name = "configureLoanProductsLabel";
             this.configureLoanProductsLabel.TabStop = true;
@@ -338,8 +395,8 @@ namespace OpenCBS.GUI
             // 
             // configureSavingsProductsLabel
             // 
-            this.configureSavingsProductsLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.configureSavingsProductsLabel, "configureSavingsProductsLabel");
+            this.configureSavingsProductsLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.configureSavingsProductsLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.configureSavingsProductsLabel.Name = "configureSavingsProductsLabel";
             this.configureSavingsProductsLabel.TabStop = true;
@@ -348,8 +405,8 @@ namespace OpenCBS.GUI
             // 
             // configureCollateralProducts
             // 
-            this.configureCollateralProducts.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.configureCollateralProducts, "configureCollateralProducts");
+            this.configureCollateralProducts.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.configureCollateralProducts.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.configureCollateralProducts.Name = "configureCollateralProducts";
             this.configureCollateralProducts.TabStop = true;
@@ -358,8 +415,8 @@ namespace OpenCBS.GUI
             // 
             // configureSettingsLabel
             // 
-            this.configureSettingsLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.configureSettingsLabel, "configureSettingsLabel");
+            this.configureSettingsLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.configureSettingsLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.configureSettingsLabel.Name = "configureSettingsLabel";
             this.configureSettingsLabel.TabStop = true;
@@ -368,8 +425,8 @@ namespace OpenCBS.GUI
             // 
             // configurePermissionsLabel
             // 
-            this.configurePermissionsLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.configurePermissionsLabel, "configurePermissionsLabel");
+            this.configurePermissionsLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.configurePermissionsLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.configurePermissionsLabel.Name = "configurePermissionsLabel";
             this.configurePermissionsLabel.TabStop = true;
@@ -384,8 +441,8 @@ namespace OpenCBS.GUI
             // 
             // auditTrailLabel
             // 
-            this.auditTrailLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.auditTrailLabel, "auditTrailLabel");
+            this.auditTrailLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.auditTrailLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.auditTrailLabel.Name = "auditTrailLabel";
             this.auditTrailLabel.TabStop = true;
@@ -394,8 +451,8 @@ namespace OpenCBS.GUI
             // 
             // activeLoansLink
             // 
-            this.activeLoansLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.activeLoansLink, "activeLoansLink");
+            this.activeLoansLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.activeLoansLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.activeLoansLink.Name = "activeLoansLink";
             this.activeLoansLink.Tag = "Active_Loans.zip";
@@ -403,8 +460,8 @@ namespace OpenCBS.GUI
             // 
             // parAnalysisLink
             // 
-            this.parAnalysisLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.parAnalysisLink, "parAnalysisLink");
+            this.parAnalysisLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.parAnalysisLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.parAnalysisLink.Name = "parAnalysisLink";
             this.parAnalysisLink.Tag = "PAR_Analysis.zip";
@@ -412,8 +469,8 @@ namespace OpenCBS.GUI
             // 
             // delinquentLoansLink
             // 
-            this.delinquentLoansLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.delinquentLoansLink, "delinquentLoansLink");
+            this.delinquentLoansLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.delinquentLoansLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.delinquentLoansLink.Name = "delinquentLoansLink";
             this.delinquentLoansLink.Tag = "Delinquent_Loans.zip";
@@ -421,8 +478,8 @@ namespace OpenCBS.GUI
             // 
             // disbursementsLink
             // 
-            this.disbursementsLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.disbursementsLink, "disbursementsLink");
+            this.disbursementsLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.disbursementsLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
             this.disbursementsLink.Name = "disbursementsLink";
             this.disbursementsLink.Tag = "Disbursments.zip";
@@ -446,6 +503,8 @@ namespace OpenCBS.GUI
             this.riskTableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.parListView)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this._filterPanel.ResumeLayout(false);
+            this._filterPanel.PerformLayout();
             this.topBarPanel.ResumeLayout(false);
             this.topBarPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.smallLogoPictureBox)).EndInit();
@@ -498,5 +557,12 @@ namespace OpenCBS.GUI
         private System.Windows.Forms.LinkLabel parAnalysisLink;
         private System.Windows.Forms.LinkLabel delinquentLoansLink;
         private System.Windows.Forms.LinkLabel disbursementsLink;
+        private System.Windows.Forms.Panel _filterPanel;
+        private System.Windows.Forms.Label _branchFilterLabel;
+        private System.Windows.Forms.ComboBox _branchFilterComboBox;
+        private System.Windows.Forms.ComboBox _userFilterComboBox;
+        private System.Windows.Forms.Label _userFilterLabel;
+        private System.Windows.Forms.ComboBox _loanProductFilterComboBox;
+        private System.Windows.Forms.Label _loanProductFilterLabel;
     }
 }

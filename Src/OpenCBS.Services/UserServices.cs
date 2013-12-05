@@ -312,9 +312,9 @@ namespace OpenCBS.Services
             return _users.Find(item => (item.FirstName + (string.IsNullOrEmpty(item.LastName) ? "" : " ") + item.LastName) == fullName);
         }
 
-        public Dashboard GetDashboard()
+        public Dashboard GetDashboard(int branchId, int subordinateId, int loanProductId)
         {
-            return _userManager.GetDashboard();
+            return _userManager.GetDashboard(branchId, subordinateId, loanProductId);
         }
 
         public void ClearCache()
