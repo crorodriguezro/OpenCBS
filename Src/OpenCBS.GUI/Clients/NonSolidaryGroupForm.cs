@@ -465,6 +465,7 @@ namespace OpenCBS.GUI.Clients
                     ShowLoanInListView(member, loan);
                 }
             }
+             
         }
 
         private void ShowLoanInListView(VillageMember member, Loan loan)
@@ -477,6 +478,7 @@ namespace OpenCBS.GUI.Clients
             if (loan.CreationDate.Date >= _village.EstablishmentDate.Value.Date && _village.Id == loan.NsgID)
             {
                 item.SubItems.Add(loan.ProductName);
+                item.SubItems.Add(person.LoanCycle.ToString());
                 item.SubItems.Add(loan.Code);
                 item.SubItems.Add(MultiLanguageStrings.GetString(Ressource.ClientForm, loan.ContractStatus + ".Text"));
                 item.SubItems.Add(loan.Amount.GetFormatedValue(loan.UseCents));
@@ -504,8 +506,9 @@ namespace OpenCBS.GUI.Clients
                 }
                 item.SubItems.Add(loan.CloseDate.ToShortDateString());
                 if (member.LeftDate != null)
-                    item.BackColor = Color.Red;
+                   item.BackColor = Color.Red;
                 listViewLoans.Items.Add(item);
+                
             }
         }
 
@@ -794,7 +797,11 @@ namespace OpenCBS.GUI.Clients
 
         private void listViewLoans_DoubleClick(object sender, EventArgs e)
         {
+
             VillageMember member = (VillageMember)listViewLoans.SelectedItems[0].Tag;
+
+            var mem = member.ActiveLoans[0];
+
             if (member != null)
             {
                 ClientForm frm;

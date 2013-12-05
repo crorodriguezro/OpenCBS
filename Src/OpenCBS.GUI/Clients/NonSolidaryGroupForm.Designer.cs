@@ -73,6 +73,7 @@ namespace OpenCBS.GUI.Clients
             this.listViewLoans = new System.Windows.Forms.ListView();
             this.clientName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.loanProduct = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LoanCycle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contractCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.amount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -423,6 +424,7 @@ namespace OpenCBS.GUI.Clients
             this.listViewLoans.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.clientName,
             this.loanProduct,
+            this.LoanCycle,
             this.contractCode,
             this.status,
             this.amount,
@@ -451,6 +453,10 @@ namespace OpenCBS.GUI.Clients
             // loanProduct
             // 
             resources.ApplyResources(this.loanProduct, "loanProduct");
+            // 
+            // LoanCycle
+            // 
+            resources.ApplyResources(this.LoanCycle, "LoanCycle");
             // 
             // contractCode
             // 
@@ -879,5 +885,6 @@ namespace OpenCBS.GUI.Clients
         private System.Windows.Forms.TabPage tabPageCustomizableFields;
         private BrightIdeasSoftware.OLVColumn olvAttendeeLoanIdColumn;
         private PrintButton btnPrint;
+        private System.Windows.Forms.ColumnHeader LoanCycle;
     }
 }
