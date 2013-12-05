@@ -129,8 +129,15 @@
   <data name="parQuantityColumn.Text" xml:space="preserve">
     <value>Кол-во</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="resource.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
   <data name="label1.Text" xml:space="preserve">
     <value>РИСК</value>
+  </data>
+  <data name="_refreshButton.Text" xml:space="preserve">
+    <value>Обновить</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="_loanProductFilterLabel.Size" type="System.Drawing.Size, System.Drawing">
@@ -150,18 +157,6 @@
   </data>
   <data name="_branchFilterLabel.Text" xml:space="preserve">
     <value>Филиал</value>
-  </data>
-  <data name="refreshLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>722, 5</value>
-  </data>
-  <data name="refreshLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 19</value>
-  </data>
-  <data name="refreshLinkLabel.Text" xml:space="preserve">
-    <value>Обновить</value>
-  </data>
-  <data name="aboutLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 106</value>
   </data>
   <data name="aboutLabel.Text" xml:space="preserve">
     <value>Добро пожаловать. Внизу отражена краткая статистика по вашему портфелю. Слева - быстрый доступ к самым важным операциям.</value>

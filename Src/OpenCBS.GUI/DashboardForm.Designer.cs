@@ -44,6 +44,7 @@ namespace OpenCBS.GUI
             this.parPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this._filterPanel = new System.Windows.Forms.Panel();
+            this._refreshButton = new System.Windows.Forms.Button();
             this._loanProductFilterComboBox = new System.Windows.Forms.ComboBox();
             this._loanProductFilterLabel = new System.Windows.Forms.Label();
             this._userFilterComboBox = new System.Windows.Forms.ComboBox();
@@ -51,7 +52,6 @@ namespace OpenCBS.GUI
             this._branchFilterComboBox = new System.Windows.Forms.ComboBox();
             this._branchFilterLabel = new System.Windows.Forms.Label();
             this.topBarPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.refreshLinkLabel = new System.Windows.Forms.LinkLabel();
             this.smallLogoPictureBox = new System.Windows.Forms.PictureBox();
             this.aboutLabel = new System.Windows.Forms.Label();
             this.quickLinksPanel = new System.Windows.Forms.Panel();
@@ -206,6 +206,7 @@ namespace OpenCBS.GUI
             // _filterPanel
             // 
             resources.ApplyResources(this._filterPanel, "_filterPanel");
+            this._filterPanel.Controls.Add(this._refreshButton);
             this._filterPanel.Controls.Add(this._loanProductFilterComboBox);
             this._filterPanel.Controls.Add(this._loanProductFilterLabel);
             this._filterPanel.Controls.Add(this._userFilterComboBox);
@@ -213,6 +214,12 @@ namespace OpenCBS.GUI
             this._filterPanel.Controls.Add(this._branchFilterComboBox);
             this._filterPanel.Controls.Add(this._branchFilterLabel);
             this._filterPanel.Name = "_filterPanel";
+            // 
+            // _refreshButton
+            // 
+            resources.ApplyResources(this._refreshButton, "_refreshButton");
+            this._refreshButton.Name = "_refreshButton";
+            this._refreshButton.UseVisualStyleBackColor = true;
             // 
             // _loanProductFilterComboBox
             // 
@@ -253,19 +260,9 @@ namespace OpenCBS.GUI
             // topBarPanel
             // 
             resources.ApplyResources(this.topBarPanel, "topBarPanel");
-            this.topBarPanel.Controls.Add(this.refreshLinkLabel, 2, 0);
             this.topBarPanel.Controls.Add(this.smallLogoPictureBox, 0, 0);
             this.topBarPanel.Controls.Add(this.aboutLabel, 1, 0);
             this.topBarPanel.Name = "topBarPanel";
-            // 
-            // refreshLinkLabel
-            // 
-            resources.ApplyResources(this.refreshLinkLabel, "refreshLinkLabel");
-            this.refreshLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.refreshLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            this.refreshLinkLabel.Name = "refreshLinkLabel";
-            this.refreshLinkLabel.TabStop = true;
-            this.refreshLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnRefreshLinkLabelClick);
             // 
             // smallLogoPictureBox
             // 
@@ -551,7 +548,6 @@ namespace OpenCBS.GUI
         private System.Windows.Forms.LinkLabel auditTrailLabel;
         private System.Windows.Forms.LinkLabel activeLoansLink;
         private System.Windows.Forms.TableLayoutPanel topBarPanel;
-        private System.Windows.Forms.LinkLabel refreshLinkLabel;
         private System.Windows.Forms.PictureBox smallLogoPictureBox;
         private System.Windows.Forms.Label aboutLabel;
         private System.Windows.Forms.LinkLabel parAnalysisLink;
@@ -564,5 +560,6 @@ namespace OpenCBS.GUI
         private System.Windows.Forms.Label _userFilterLabel;
         private System.Windows.Forms.ComboBox _loanProductFilterComboBox;
         private System.Windows.Forms.Label _loanProductFilterLabel;
+        private System.Windows.Forms.Button _refreshButton;
     }
 }

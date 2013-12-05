@@ -50,6 +50,7 @@ namespace OpenCBS.GUI
         public DashboardForm()
         {
             InitializeComponent();
+            SetUp();
         }
 
         private void OnLoad(object sender, EventArgs e)
@@ -323,14 +324,29 @@ namespace OpenCBS.GUI
 
         private void RefreshDashboard()
         {
-            var us = ServicesProvider.GetInstance().GetUserServices();
-            var dashboard = us.GetDashboard(FilterBranchId, FilterUserId, FilterLoanProductId);
+            _branchFilterComboBox.Enabled = false;
+            _userFilterComboBox.Enabled = false;
+            _loanProductFilterComboBox.Enabled = false;
+            _refreshButton.Enabled = false;
 
-            RefreshPortfolioPieChart(dashboard);
-            RefreshParPieChart(dashboard);
-            RefreshParTable(dashboard);
-            RefreshDisbursementsChart(dashboard);
-            RefreshOlbTrendChart(dashboard);
+            try
+            {
+                var us = ServicesProvider.GetInstance().GetUserServices();
+                var dashboard = us.GetDashboard(FilterBranchId, FilterUserId, FilterLoanProductId);
+
+                RefreshPortfolioPieChart(dashboard);
+                RefreshParPieChart(dashboard);
+                RefreshParTable(dashboard);
+                RefreshDisbursementsChart(dashboard);
+                RefreshOlbTrendChart(dashboard);
+            }
+            finally
+            {
+                _branchFilterComboBox.Enabled = true;
+                _userFilterComboBox.Enabled = true;
+                _loanProductFilterComboBox.Enabled = true;
+                _refreshButton.Enabled = true;
+            }
         }
 
         private void OnSearchClientClick(object sender, LinkLabelLinkClickedEventArgs e)
@@ -384,11 +400,6 @@ namespace OpenCBS.GUI
         {
             var auditTrailForm = new AuditTrailForm { MdiParent = Application.OpenForms[0] };
             auditTrailForm.Show();
-        }
-
-        private void OnRefreshLinkLabelClick(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            RefreshDashboard();
         }
 
         private void OnReportsClick(object sender, LinkLabelLinkClickedEventArgs e)
@@ -484,6 +495,11 @@ namespace OpenCBS.GUI
         private int FilterLoanProductId
         {
             get { return (int) _loanProductFilterComboBox.SelectedValue; }
+        }
+
+        private void SetUp()
+        {
+            _refreshButton.Click += (sender, e) => RefreshDashboard();
         }
     }
 }
