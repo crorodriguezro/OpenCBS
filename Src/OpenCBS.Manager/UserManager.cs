@@ -473,7 +473,8 @@ namespace OpenCBS.Manager
                 .With("@userId", User.CurrentUser.Id)
                 .With("@subordinateId", subordinateId)
                 .With("@branchId", branchId)
-                .With("@loanProductId", loanProductId))
+                .With("@loanProductId", loanProductId)
+                .WithTimeout(100))
             using (var reader = command.ExecuteReader())
             {
                 while (reader.Read())

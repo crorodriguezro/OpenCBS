@@ -387,5 +387,11 @@ namespace OpenCBS.Manager
             AddParam(paramName, paramValue);
             return this;
         }
+
+        public OpenCbsCommand WithTimeout(int timeout)
+        {
+            _cmd.CommandTimeout = timeout;
+            return this;
+        }
     }
 }
