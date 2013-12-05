@@ -2421,7 +2421,7 @@ namespace OpenCBS.Manager.Contracts
             const string q = @"SELECT al.id,
                             CASE
 								WHEN li.event_date IS NULL
-								THEN c.[start_date]
+								THEN DATEADD(DD,-1,c.[start_date])
 								ELSE li.event_date
 							END AS event_date
                             FROM dbo.ActiveLoans(@date, 0) AS al

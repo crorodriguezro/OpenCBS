@@ -2594,9 +2594,43 @@ namespace OpenCBS.Services
                             }
                     }
                 }
-
         }
 
+        public void LoanInterestAccrual(DateTime launchDate)
+        {
+            var listOfLoans = _loanManager.GetListOfLoansToAccrueInterest(launchDate);
+            var em = new EventManager(User.CurrentUser);
+            using (var connection = _loanManager.GetConnection())
+                foreach (var item in listOfLoans)
+                {
+                    var date = item.Value;
+                    var loan = SelectLoan(item.Key, true, false, false);
+                    while (date < launchDate)
+                    {
+                        date = date.AddDays(1);
+                        var interest = GetDailyInterestForLoan(loan, date);
+                        if (interest <= 0) continue;
+                        var interestEvent = new LoanInterestAccrualEvent
+                        {
+                            Interest = interest,
+                            Date = date,
+                            User = User.CurrentUser,
+                            ContracId = item.Key
+                        };
+                        using (var transaction = connection.BeginTransaction())
+                            try
+                            {
+                                _ePs.FireEvent(interestEvent, loan, transaction);
+                                transaction.Commit();
+                            }
+                            catch (Exception)
+                            {
+                                transaction.Rollback();
+                                //throw;
+                            }
+                    }
+                }
+        }
 
         private decimal GetDailyInterestForLoan(Loan loan, DateTime date)
         {
