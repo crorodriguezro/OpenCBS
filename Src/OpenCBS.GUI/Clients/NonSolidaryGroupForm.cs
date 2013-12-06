@@ -360,8 +360,9 @@ namespace OpenCBS.GUI.Clients
                 member.ActiveLoans = ServicesProvider.GetInstance().GetContractServices().FindActiveContracts(member.Tiers.Id);
                 Person person = (Person)member.Tiers;
                 ListViewItem item = new ListViewItem(person.Name) { Tag = member };
+                item.SubItems.Add(person.LoanCycle.ToString());
                 item.SubItems.Add(person.IdentificationData);
-
+               
                 item.SubItems.Add(person.Active ? activeClient : inActiveClient);
                 item.SubItems.Add(member.JoinedDate.ToShortDateString());
                 if (_village.Leader != null)
@@ -379,6 +380,7 @@ namespace OpenCBS.GUI.Clients
                     else
                         item.BackColor = Color.White;
                 }
+               
                 lvMembers.Items.Add(item);
             }
         }
@@ -394,6 +396,7 @@ namespace OpenCBS.GUI.Clients
 //                    ServicesProvider.GetInstance().GetContractServices().FindActiveContracts(member.Tiers.Id);
                 Person person = (Person) member.Tiers;
                 ListViewItem item = new ListViewItem(person.Name) {Tag = member};
+                item.SubItems.Add(person.LoanCycle.ToString());
                 item.SubItems.Add(person.IdentificationData);
 
                 item.SubItems.Add(person.Active ? activeClient : inActiveClient);
@@ -478,7 +481,6 @@ namespace OpenCBS.GUI.Clients
             if (loan.CreationDate.Date >= _village.EstablishmentDate.Value.Date && _village.Id == loan.NsgID)
             {
                 item.SubItems.Add(loan.ProductName);
-                item.SubItems.Add(person.LoanCycle.ToString());
                 item.SubItems.Add(loan.Code);
                 item.SubItems.Add(MultiLanguageStrings.GetString(Ressource.ClientForm, loan.ContractStatus + ".Text"));
                 item.SubItems.Add(loan.Amount.GetFormatedValue(loan.UseCents));

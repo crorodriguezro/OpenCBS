@@ -858,6 +858,15 @@
   <data name="colName.Width" type="System.Int32, mscorlib">
     <value>250</value>
   </data>
+  <data name="colLoanCycle.Text" xml:space="preserve">
+    <value>Loan Cycle</value>
+  </data>
+  <data name="colLoanCycle.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="colLoanCycle.Width" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
   <data name="colPassport.Text" xml:space="preserve">
     <value>Passport</value>
   </data>
@@ -1134,15 +1143,6 @@ members</value>
   </data>
   <data name="loanProduct.Width" type="System.Int32, mscorlib">
     <value>94</value>
-  </data>
-  <data name="LoanCycle.Text" xml:space="preserve">
-    <value>Loan Cycle</value>
-  </data>
-  <data name="LoanCycle.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="LoanCycle.Width" type="System.Int32, mscorlib">
-    <value>80</value>
   </data>
   <data name="contractCode.Text" xml:space="preserve">
     <value>Code</value>
@@ -2002,6 +2002,12 @@ members</value>
   <data name="&gt;&gt;colLeftDate.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;colLoanCycle.Name" xml:space="preserve">
+    <value>colLoanCycle</value>
+  </data>
+  <data name="&gt;&gt;colLoanCycle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;clientName.Name" xml:space="preserve">
     <value>clientName</value>
   </data>
@@ -2012,12 +2018,6 @@ members</value>
     <value>loanProduct</value>
   </data>
   <data name="&gt;&gt;loanProduct.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LoanCycle.Name" xml:space="preserve">
-    <value>LoanCycle</value>
-  </data>
-  <data name="&gt;&gt;LoanCycle.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;contractCode.Name" xml:space="preserve">
