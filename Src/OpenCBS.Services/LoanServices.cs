@@ -2641,7 +2641,9 @@ namespace OpenCBS.Services
                                    ? loan.InstallmentList[nextInstallment.Number - 2].ExpectedDate
                                    : loan.StartDate;
             if ((date - previousDate).Days > 30) return 0;
-            var interest = nextInstallment.InterestsRepayment;
+            var interest = date == DateTime.Today
+                               ? nextInstallment.InterestsRepayment
+                               : _loanManager.GetInstallmentInterest(loan.Id, nextInstallment.Number, date);
             if (nextDate == date)
                 interest = interest - _loanManager.GetSumOfAccruedInterests(loan.Id, previousDate, date);
             else

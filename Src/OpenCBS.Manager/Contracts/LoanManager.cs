@@ -2452,6 +2452,21 @@ namespace OpenCBS.Manager.Contracts
             }
         }
 
+        public decimal GetInstallmentInterest(int contractId, int installmentNumber, DateTime date)
+        {
+            const string q = @"SELECT interest FROM dbo.InstallmentSnapshot(@date) 
+                            WHERE contract_id=@contractId AND number=@installmentId";
+            using (var connection = GetConnection())
+            using (var c = new OpenCbsCommand(q, connection))
+            {
+                c.AddParam("date", date);
+                c.AddParam("contractId", contractId);
+                c.AddParam("installmentId", installmentNumber);
+                var result = c.ExecuteScalar();
+                return result != null ? Convert.ToDecimal(result) : 0;
+            }
+        }
+
         public decimal GetSumOfAccruedInterests(int contractId, DateTime from, DateTime to)
         {
             const string q = @"SELECT CASE
