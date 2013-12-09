@@ -279,7 +279,7 @@
             </Directory>
             <Directory Id="DIR_REPORTS" Name="Reports">
               <Directory Id="dir_standard" Name="Standard">
-                <Component Id="dir_standard" Guid="625E4E02-68E0-45F2-8198-10CE3FD14BF" KeyPath="yes">
+                <Component Id="dir_standard" Guid="625E4E02-68E0-45F2-8198-10CE3FD140BF" KeyPath="yes">
                   <File Id="Active_Loans" Name = "Active_Loans.zip" Source="SourceDir\Reports\Standard\Active_Loans.zip" />
                   <File Id="Active_Savings" Name="Active_Savings.zip" Source="SourceDir\Reports\Standard\Active_Savings.zip" />
                   <File Id="Client_ShareOfWomen" Name="Client_ShareOfWomen.zip" Source="SourceDir\Reports\Standard\Client_ShareOfWomen.zip" />
