@@ -2346,6 +2346,7 @@ namespace OpenCBS.Manager.Contracts
 	                            ELSE DATEDIFF(DD, lp.event_date, @date)
 	                            END AS [not_accrued_days]
                             FROM dbo.ActiveLoans(@date, 0) AS al
+                            LEFT JOIN dbo.Contracts c ON c.id=al.id
                             LEFT JOIN (
 	                            SELECT contract_id
 	                            , MAX(ce.event_date) AS event_date
@@ -2354,7 +2355,7 @@ namespace OpenCBS.Manager.Contracts
 	                            WHERE is_deleted=0
 	                            GROUP BY contract_id
 	                            ) lp ON lp.contract_id=al.id
-                            WHERE al.late_days > 0";
+                            WHERE al.late_days > 0 AND c.[status]!=8";
             using (var connection = GetConnection())
             using (var c = new OpenCbsCommand(q, connection))
             {
@@ -2433,7 +2434,8 @@ namespace OpenCBS.Manager.Contracts
                                 LEFT JOIN dbo.ContractEvents ce ON ce.id=li.id
                                 WHERE is_deleted=0
                                 GROUP BY contract_id
-                                ) li ON li.contract_id=al.id";
+                                ) li ON li.contract_id=al.id
+                            WHERE c.[status]!=8";
             using (var connection = GetConnection())
             using (var c = new OpenCbsCommand(q, connection))
             {

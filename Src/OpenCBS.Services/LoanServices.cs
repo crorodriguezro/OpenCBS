@@ -2644,10 +2644,10 @@ namespace OpenCBS.Services
             var interest = date == DateTime.Today
                                ? nextInstallment.InterestsRepayment
                                : _loanManager.GetInstallmentInterest(loan.Id, nextInstallment.Number, date);
-            if (nextDate == date)
+            if (nextDate == date || (date - previousDate).Days == 30)
                 interest = interest - _loanManager.GetSumOfAccruedInterests(loan.Id, previousDate, date);
             else
-                interest = interest/30;
+                interest = interest / 30;
             return interest.Value;
         }
 
