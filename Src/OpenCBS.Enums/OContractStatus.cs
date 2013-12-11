@@ -30,6 +30,7 @@ namespace OpenCBS.Enums
         Active = 5,
         Closed = 6,
         WrittenOff = 7,
-        Postponed = 8
+        Postponed = 8,
+        Deleted = 9
     }
 }
