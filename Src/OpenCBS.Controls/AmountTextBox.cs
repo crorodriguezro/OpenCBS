@@ -17,6 +17,7 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
+using System;
 using System.Globalization;
 using System.Windows.Forms;
 
@@ -52,7 +53,27 @@ namespace OpenCBS.Controls
                 return decimal.TryParse(Text, out result) ? result : (decimal?) null;
             }
 
-            set { Text = AllowDecimalSeparator ? string.Format("{0:N2}", value) : string.Format("{0:N0}", value); }
+            set
+            {
+                if (!value.HasValue)
+                {
+                    Text = string.Empty;
+                    return;
+                }
+                if (!AllowDecimalSeparator)
+                {
+                    Text = string.Format("{0:N0}", value);
+                    return;
+                }
+
+                var text = value.ToString();
+                text = text.TrimEnd('0').TrimEnd(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator.ToCharArray());
+                value = decimal.Parse(text);
+                var decimalPlaces = BitConverter.GetBytes(decimal.GetBits(value.Value)[3])[2];
+                var format = @"{0:N" + decimalPlaces + "}";
+                Text = string.Format(format, value);
+            }
         }
-    }
+    } 
 }
+ 

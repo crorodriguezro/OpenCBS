@@ -53,8 +53,7 @@ namespace OpenCBS.GUI.Contracts
                     .AddMonths(_contract.InstallmentType.NbOfMonths)
                     .AddDays(_contract.InstallmentType.NbOfDays);
             contractCodeLabel.Text = Contract.Code;
-            interestRateNumericUpDown.Value = Contract.InterestRate*100;
-            interestRateNumericUpDown.Minimum = 0;
+            _interestRateTextBox.Amount = Contract.InterestRate * 100;
             installmentsNumericUpDown.Minimum = 1;
             installmentsNumericUpDown.Value = 1;
         }
@@ -67,7 +66,7 @@ namespace OpenCBS.GUI.Contracts
         private void Setup()
         {
             Load += (sender, args) => LoadForm();
-            interestRateNumericUpDown.ValueChanged += (sender, args) => RecalculateAndRefreshSchedule();
+            _interestRateTextBox.TextChanged += (sender, args) => RecalculateAndRefreshSchedule();
             installmentsNumericUpDown.ValueChanged += (sender, args) =>
             {
                 gracePeriodNumericUpDown.Maximum = installmentsNumericUpDown.Value - 1;
@@ -119,9 +118,9 @@ namespace OpenCBS.GUI.Contracts
         {
             return new ScheduleConfiguration
             {
-                NumberOfInstallments = (int)installmentsNumericUpDown.Value,
-                InterestRate = interestRateNumericUpDown.Value,
-                GracePeriod = (int)gracePeriodNumericUpDown.Value,
+                NumberOfInstallments = (int) installmentsNumericUpDown.Value,
+                InterestRate = _interestRateTextBox.Amount.HasValue ? _interestRateTextBox.Amount.Value : Contract.InterestRate*100,
+                GracePeriod = (int) gracePeriodNumericUpDown.Value,
                 ChargeInterestDuringGracePeriod = chargeInterestDuringGracePeriodCheckBox.Checked,
                 StartDate = startDateTimePicker.Value.Date,
                 PreferredFirstInstallmentDate = firstRepaymentDateTimePicker.Value.Date,
