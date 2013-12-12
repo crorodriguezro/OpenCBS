@@ -73,7 +73,7 @@ namespace OpenCBS.GUI.UserControl
 
         public PersonUserControl(Person person, Form pMdiParent)
         {
-            _mdiParent = pMdiParent;
+           _mdiParent = pMdiParent;
             Initialization();
             _tempPerson = person;
             InitializePerson();

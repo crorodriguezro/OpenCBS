@@ -1912,7 +1912,7 @@ namespace OpenCBS.GUI.Clients
             InitializeLoanOfficer();
             SetPackageValuesForLoanDetails(pCredit, false);
             DisableContractDetails(pCredit.ContractStatus);
-
+ 
             DisableCommitteeDecision(pCredit.ContractStatus);
 
             nudInterestRate.Text = (pCredit.InterestRate * 100).ToString();
@@ -4796,8 +4796,12 @@ namespace OpenCBS.GUI.Clients
             return ((KeyValuePair<OContractStatus, string>)cmbContractStatus.SelectedItem).Key;
         }
 
+
+
+
         private void buttonCreditCommiteeSaveDecision_Click(object sender, EventArgs e)
         {
+            
             if (buttonCreditCommiteeSaveDecision.Text.Equals(GetString("update")))
             {
                 EnableBoxCreditCommitteeComponents(true);
@@ -4808,11 +4812,15 @@ namespace OpenCBS.GUI.Clients
             {
                 OContractStatus currentCreditStatus = OContractStatus.Pending;
                 OContractStatus currentGuaranteeStatus = OContractStatus.Pending;
+
+                 
+             
                 try
                 {
                     if (_credit != null)
                     {
-                        OContractStatus newStatus = GetNewStatusAndValidate(ref currentCreditStatus);
+                        OContractStatus  newStatus = GetNewStatusAndValidate(ref currentCreditStatus);
+
 
                         _credit.ContractStatus = newStatus;
                         _credit.CreditCommiteeComment = textBoxCreditCommiteeComment.Text;
@@ -4879,7 +4887,7 @@ namespace OpenCBS.GUI.Clients
                         {
                             btnEditSchedule.Enabled = false;
                             InitializeTabPageGuaranteesDetailsButtons(_credit.Product.UseGuarantorCollateral);
-                            DisableContractDetails(OContractStatus.Validated);
+                          DisableContractDetails(OContractStatus.Validated);
                         }
                         InitLoanDetails(false, _credit.Disbursed, _credit.ContractStatus == OContractStatus.Validated);
                         tabPageLoansDetails.Enabled = true;
@@ -4912,10 +4920,18 @@ namespace OpenCBS.GUI.Clients
                         InitializePackageLoanCompulsorySavings(_credit.Product, false);
 
                         DisplayContracts(_project.Credits);
+
+                        DisableContractDetails(newStatus);
+                        if (_credit.Product.InterestRate.HasValue)
+                        {
+                            nudInterestRate.Enabled = false;
+                        }
+                 
+
                     }
 
                     ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
-
+               
                 }
                 catch (Exception ex)
                 {
@@ -4924,6 +4940,10 @@ namespace OpenCBS.GUI.Clients
                     new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
                 }
             }
+              
+            
+            
+ 
         }
 
         private OContractStatus GetNewStatusAndValidate(ref OContractStatus currentCreditStatus)
