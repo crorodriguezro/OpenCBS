@@ -787,7 +787,7 @@ namespace OpenCBS.GUI.Contracts
                                     date,
                                     _village.MeetingDay,
                                     User.CurrentUser,
-                                    ServicesProvider.GetInstance().GetGeneralSettings(),
+                                    ServicesProvider.GetInstance().GetGeneralSettings(), 
                                     ServicesProvider.GetInstance().GetNonWorkingDate(),
                                     CoreDomainProvider.GetInstance().GetProvisioningTable(),
                                     CoreDomainProvider.GetInstance().GetChartOfAccounts())
@@ -815,7 +815,7 @@ namespace OpenCBS.GUI.Contracts
                         NmbOfInstallmentsMin = member.Product.NbOfInstallmentsMin,
                         NmbOfInstallmentsMax = member.Product.NbOfInstallmentsMax
                     };
-
+                     
                     loan.LoanEntryFeesList = new List<LoanEntryFee>();
                     foreach (EntryFee fee in loan.Product.EntryFees)
                     {

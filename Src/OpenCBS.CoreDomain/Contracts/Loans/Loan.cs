@@ -307,8 +307,9 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
             _firstInstallmentDate = CalculateInstallmentDate(pStartDate, 1);
             if (meetingDay.HasValue)
                 _firstInstallmentDate = GetMeetingDate(_firstInstallmentDate, meetingDay);
-          
-            _alignAlignDisbursementDate = CalculateAlignDisbursementDate(_firstInstallmentDate);
+
+                _alignAlignDisbursementDate = CalculateAlignDisbursementDate(_firstInstallmentDate);
+           
 
             //with this constructor, installment are directly calculated when a new CreditContract is instanciated
             _installmentList = CalculateInstallments(true);

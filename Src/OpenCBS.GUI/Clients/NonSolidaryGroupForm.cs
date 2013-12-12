@@ -61,7 +61,7 @@ namespace OpenCBS.GUI.Clients
         {
             MefContainer.Current.Bind(this);
             InitializeComponent();
-            _village = new Village {CreationDate = TimeProvider.Now};
+            _village = new Village { CreationDate = TimeProvider.Now };
             InitializeControls();
             InitializeCustomizableFields(null);
             InitializeTitle();
@@ -88,7 +88,7 @@ namespace OpenCBS.GUI.Clients
 
         private void LoadMeetingDates()
         {
-            comboBoxMeetingDates.DataSource 
+            comboBoxMeetingDates.DataSource
                 = ServicesProvider.GetInstance().GetContractServices().FindInstallmentDatesForVillageActiveContracts(_village.Id);
         }
 
@@ -117,7 +117,7 @@ namespace OpenCBS.GUI.Clients
                 else
                 {
                     // Restore the genuine title (e.g. after update).
-                     Text = _title;
+                    Text = _title;
                 }
                 Text += "  " + " [" + _village.Name + "]";
             }
@@ -125,7 +125,7 @@ namespace OpenCBS.GUI.Clients
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Close();  
+            Close();
         }
 
         internal bool Save()
@@ -156,7 +156,7 @@ namespace OpenCBS.GUI.Clients
                 tabPageLoan.Enabled = true;
                 tabPageSavings.Enabled = true;
                 membersSaved = true;
-                
+
                 foreach (VillageMember member in _village.Members)
                     member.IsSaved = true;
 
@@ -172,7 +172,7 @@ namespace OpenCBS.GUI.Clients
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Save();   
+            Save();
         }
 
         private DayOfWeek GetDayOfWeek()
@@ -207,9 +207,9 @@ namespace OpenCBS.GUI.Clients
             _village.City = _ucAddress.City;
             _village.Address = _ucAddress.Comments;
             _village.ZipCode = _ucAddress.ZipCode;
-            _village.LoanOfficer = (User) cbLoanOfficers.SelectedItem;
-            _village.MeetingDay = cbMeetingDay.Checked ? (DayOfWeek?) GetDayOfWeek() : null;
-            _village.Branch = (Branch) cbBranch.SelectedItem;
+            _village.LoanOfficer = (User)cbLoanOfficers.SelectedItem;
+            _village.MeetingDay = cbMeetingDay.Checked ? (DayOfWeek?)GetDayOfWeek() : null;
+            _village.Branch = (Branch)cbBranch.SelectedItem;
         }
 
         private void InitializeControls()
@@ -219,7 +219,7 @@ namespace OpenCBS.GUI.Clients
             _ucAddress.ExtraVisible = false;
             _ucAddress.Dock = DockStyle.Fill;
             gbAddress.Controls.Add(_ucAddress);
-            InitializeLoanOfficers();            
+            InitializeLoanOfficers();
             if (_village != null && _village.Id > 0)
             {
                 tbName.Text = _village.Name;
@@ -235,7 +235,7 @@ namespace OpenCBS.GUI.Clients
 
                 if (_village.MeetingDay.HasValue)
                 {
-                    cmbWeekDay.SelectedIndex = (int) _village.MeetingDay;
+                    cmbWeekDay.SelectedIndex = (int)_village.MeetingDay;
                     cbMeetingDay.Checked = true;
                 }
 
@@ -317,13 +317,13 @@ namespace OpenCBS.GUI.Clients
                 {
                     var personId = client.Id;
                     clientServices.CheckPersonGroupCount(personId);
-                    var member = new VillageMember { Tiers = client, JoinedDate = TimeProvider.Now, CurrentlyIn = true, IsLeader = false, IsSaved = false};
+                    var member = new VillageMember { Tiers = client, JoinedDate = TimeProvider.Now, CurrentlyIn = true, IsLeader = false, IsSaved = false };
                     member.ActiveLoans = ServicesProvider.GetInstance().GetContractServices().
                         FindActiveContracts(personId);
-                    
+
                     List<ISavingsContract> savingsContracts =
                         ServicesProvider.GetInstance().GetSavingServices().GetSavingsByClientId(member.Tiers.Id);
-           
+
                     foreach (ISavingsContract contract in savingsContracts)
                     {
                         member.Tiers.Savings.Add(contract);
@@ -335,7 +335,8 @@ namespace OpenCBS.GUI.Clients
                     DisplayLoans();
                     DisplaySavings();
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
             }
@@ -362,7 +363,7 @@ namespace OpenCBS.GUI.Clients
                 ListViewItem item = new ListViewItem(person.Name) { Tag = member };
                 item.SubItems.Add(person.LoanCycle.ToString());
                 item.SubItems.Add(person.IdentificationData);
-               
+
                 item.SubItems.Add(person.Active ? activeClient : inActiveClient);
                 item.SubItems.Add(member.JoinedDate.ToShortDateString());
                 if (_village.Leader != null)
@@ -380,7 +381,7 @@ namespace OpenCBS.GUI.Clients
                     else
                         item.BackColor = Color.White;
                 }
-               
+
                 lvMembers.Items.Add(item);
             }
         }
@@ -392,10 +393,10 @@ namespace OpenCBS.GUI.Clients
 
             foreach (VillageMember member in _village.Members.OrderBy(i => i.Tiers.Name))
             {
-//                member.ActiveLoans =
-//                    ServicesProvider.GetInstance().GetContractServices().FindActiveContracts(member.Tiers.Id);
-                Person person = (Person) member.Tiers;
-                ListViewItem item = new ListViewItem(person.Name) {Tag = member};
+                //                member.ActiveLoans =
+                //                    ServicesProvider.GetInstance().GetContractServices().FindActiveContracts(member.Tiers.Id);
+                Person person = (Person)member.Tiers;
+                ListViewItem item = new ListViewItem(person.Name) { Tag = member };
                 item.SubItems.Add(person.LoanCycle.ToString());
                 item.SubItems.Add(person.IdentificationData);
 
@@ -412,7 +413,7 @@ namespace OpenCBS.GUI.Clients
                     else
                         item.BackColor = Color.White;
                 }
-                
+
                 lvMembers.Items.Add(item);
             }
         }
@@ -429,7 +430,7 @@ namespace OpenCBS.GUI.Clients
             }
             else
             {
-                if (_village.MemberHistory==null || _village.MemberHistory.Count==0)
+                if (_village.MemberHistory == null || _village.MemberHistory.Count == 0)
                     _village.MemberHistory =
                    ServicesProvider.GetInstance().GetClientServices().FindVillageHistoryPersons(_village.Id);
                 foreach (VillageMember member in _village.MemberHistory)
@@ -445,16 +446,16 @@ namespace OpenCBS.GUI.Clients
                 ServicesProvider.GetInstance().GetContractServices().FindAllLoansOfClient(member.Tiers.Id);
             foreach (Loan item in allLoansOfMember)
             {
-                if (item.CreationDate.Date>=member.JoinedDate.Date)
-                    if (member.LeftDate!=null)
+                if (item.CreationDate.Date >= member.JoinedDate.Date)
+                    if (member.LeftDate != null)
                     {
-                        if (member.LeftDate.Value.Date>=item.CreationDate.Date 
-                            && member.JoinedDate.Date<=item.CreationDate.Date)
+                        if (member.LeftDate.Value.Date >= item.CreationDate.Date
+                            && member.JoinedDate.Date <= item.CreationDate.Date)
                             ShowLoanInListView(member, item);
                     }
                     else
                     {
-                        ShowLoanInListView(member,item);
+                        ShowLoanInListView(member, item);
                     }
             }
         }
@@ -468,7 +469,7 @@ namespace OpenCBS.GUI.Clients
                     ShowLoanInListView(member, loan);
                 }
             }
-             
+
         }
 
         private void ShowLoanInListView(VillageMember member, Loan loan)
@@ -477,7 +478,7 @@ namespace OpenCBS.GUI.Clients
             ApplicationSettings dataParam = ApplicationSettings.GetInstance(string.Empty);
             int decimalPlaces = dataParam.InterestRateDecimalPlaces;
             ListViewItem item = new ListViewItem(person.Name) { Tag = member };
-            if (loan == null || _village.EstablishmentDate==null) return;
+            if (loan == null || _village.EstablishmentDate == null) return;
             if (loan.CreationDate.Date >= _village.EstablishmentDate.Value.Date && _village.Id == loan.NsgID)
             {
                 item.SubItems.Add(loan.ProductName);
@@ -487,12 +488,17 @@ namespace OpenCBS.GUI.Clients
                 item.SubItems.Add(
                     loan.CalculateActualOlb().GetFormatedValue(loan.UseCents));
                 item.SubItems.Add(loan.Product.Currency.Name);
-                item.SubItems.Add(Math.Round(loan.InterestRate*100m, decimalPlaces).ToString());
+                item.SubItems.Add(Math.Round(loan.InterestRate * 100m, decimalPlaces).ToString());
                 item.SubItems.Add(loan.InstallmentType.Name);
                 item.SubItems.Add(loan.NbOfInstallments.ToString());
-                item.SubItems.Add(loan.AlignDisbursementDate.ToShortDateString());
 
-                if (loan.GetLastNonDeletedEvent() != null) item.SubItems.Add(loan.GetLastNonDeletedEvent().Date.ToShortDateString());
+                if (loan.ContractStatus == OContractStatus.Active && loan.Disbursed == true)
+                    item.SubItems.Add(loan.AlignDisbursementDate.ToShortDateString());
+                else item.SubItems.Add("-");
+
+                if (loan.GetLastNonDeletedEvent() != null )
+                    item.SubItems.Add(loan.GetLastNonDeletedEvent().Date.ToShortDateString());
+                 
                 else item.SubItems.Add("-");
 
                 if (loan.NextInstallment != null)
@@ -508,9 +514,9 @@ namespace OpenCBS.GUI.Clients
                 }
                 item.SubItems.Add(loan.CloseDate.ToShortDateString());
                 if (member.LeftDate != null)
-                   item.BackColor = Color.Red;
+                    item.BackColor = Color.Red;
                 listViewLoans.Items.Add(item);
-                
+
             }
         }
 
@@ -522,7 +528,7 @@ namespace OpenCBS.GUI.Clients
             {
                 if (member.Tiers.Savings.Count > 0)
                 {
-                    ListViewGroup group = new ListViewGroup(member.Tiers.Name) {Tag = member.Tiers};
+                    ListViewGroup group = new ListViewGroup(member.Tiers.Name) { Tag = member.Tiers };
 
                     List<ISavingsContract> savings = ServicesProvider.GetInstance().GetSavingServices().GetSavingsByClientId(member.Tiers.Id);
 
@@ -530,7 +536,7 @@ namespace OpenCBS.GUI.Clients
                     {
                         ListViewItem item = new ListViewItem(member.Tiers.Name) { Tag = saving };
                         item.SubItems.Add(saving.Code);
-                        item.SubItems.Add(MultiLanguageStrings.GetString(Ressource.ClientForm, 
+                        item.SubItems.Add(MultiLanguageStrings.GetString(Ressource.ClientForm,
                             saving is SavingBookContract ? "SavingsBook.Text" : "CompulsorySavings.Text"));
                         item.SubItems.Add(saving.Product.Name);
                         item.SubItems.Add(saving.GetBalance().GetFormatedValue(saving.Product.Currency.UseCents));
@@ -539,7 +545,7 @@ namespace OpenCBS.GUI.Clients
                         item.SubItems.Add((saving.Events.Count != 0) ? saving.Events[saving.Events.Count - 1].Date.ToShortDateString() : "");
                         item.SubItems.Add(saving.Status.ToString());
                         item.SubItems.Add(saving.ClosedDate.HasValue ? saving.ClosedDate.Value.ToShortDateString() : "");
-                        item.Group = group;                        
+                        item.Group = group;
                         listViewSavings.Items.Add(item);
                     }
                 }
@@ -550,7 +556,7 @@ namespace OpenCBS.GUI.Clients
         {
             try
             {
-                if (1 == lvMembers.SelectedItems.Count && lvMembers.SelectedItems[0].BackColor!=Color.Red)
+                if (1 == lvMembers.SelectedItems.Count && lvMembers.SelectedItems[0].BackColor != Color.Red)
                 {
                     VillageMember member = (VillageMember)lvMembers.SelectedItems[0].Tag;
                     if (member.ActiveLoans != null && member.ActiveLoans.Count > 0)
@@ -571,20 +577,20 @@ namespace OpenCBS.GUI.Clients
                             DisplayLoans();
                         }
                     }
-                }    
+                }
             }
             catch (Exception ex)
             {
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
             }
-            
+
         }
 
         private void lvMembers_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             if (lvMembers.SelectedItems.Count != 0)
             {
-                VillageMember member = (VillageMember) lvMembers.SelectedItems[0].Tag;
+                VillageMember member = (VillageMember)lvMembers.SelectedItems[0].Tag;
                 if (member != null)
                 {
                     btnRemove.Enabled = (1 == lvMembers.SelectedItems.Count && member.CurrentlyIn);
@@ -607,10 +613,10 @@ namespace OpenCBS.GUI.Clients
                 Person person = frm.Person;
                 if (ServicesProvider.GetInstance().GetClientServices().ClientIsAPerson(person))
                 {
-                    var member = new VillageMember { Tiers = person, JoinedDate = TimeProvider.Now, CurrentlyIn = true, IsLeader = false, IsSaved = false};
+                    var member = new VillageMember { Tiers = person, JoinedDate = TimeProvider.Now, CurrentlyIn = true, IsLeader = false, IsSaved = false };
                     member.ActiveLoans = ServicesProvider.GetInstance().GetContractServices().
                          FindActiveContracts(member.Tiers.Id);
-                    
+
                     _village.AddMember(member);
                     membersSaved = false;
                     DisplayMembers();
@@ -625,7 +631,7 @@ namespace OpenCBS.GUI.Clients
 
         private void lvMembers_DoubleClick(object sender, EventArgs e)
         {
-            VillageMember member = (VillageMember) lvMembers.SelectedItems[0].Tag;
+            VillageMember member = (VillageMember)lvMembers.SelectedItems[0].Tag;
             if (member != null)
             {
                 ClientForm frm;
@@ -641,7 +647,7 @@ namespace OpenCBS.GUI.Clients
                 }
                 else
                 {
-                    frm = new ClientForm((Person) member.Tiers, MdiParent);
+                    frm = new ClientForm((Person)member.Tiers, MdiParent);
                 }
                 frm.ShowDialog();
             }
@@ -654,24 +660,24 @@ namespace OpenCBS.GUI.Clients
             List<LoanProduct> products = svc.FindAllPackages(false, OClientTypes.Village);
             foreach (LoanProduct product in products)
             {
-                ToolStripMenuItem item = new ToolStripMenuItem {Text = product.Name, Tag = product};
+                ToolStripMenuItem item = new ToolStripMenuItem { Text = product.Name, Tag = product };
                 item.Click += LoanProduct_Click;
                 _ctxProducts.Items.Add(item);
             }
-            _ctxProducts.Show(btnAddLoan, 0 - _ctxProducts.Size.Width,0);
+            _ctxProducts.Show(btnAddLoan, 0 - _ctxProducts.Size.Width, 0);
         }
 
         private void LoanProduct_Click(object sender, EventArgs e)
         {
-            ToolStripMenuItem item = (ToolStripMenuItem) sender;
+            ToolStripMenuItem item = (ToolStripMenuItem)sender;
             if (null == item) return;
-            LoanProduct product = (LoanProduct) item.Tag;
+            LoanProduct product = (LoanProduct)item.Tag;
             if (null == product) return;
             VillageAddLoanForm frm = new VillageAddLoanForm(_village, product, this);
-            
+
             if (DialogResult.OK == frm.ShowDialog())
             {
-                ((LotrasmicMainWindowForm) MdiParent).ReloadAlerts();
+                ((LotrasmicMainWindowForm)MdiParent).ReloadAlerts();
             }
             DisplayMembers();
             DisplayLoans();
@@ -685,7 +691,7 @@ namespace OpenCBS.GUI.Clients
                 DisplayMembers();
                 DisplayLoans();
                 LoadMeetingDates();
-                ((LotrasmicMainWindowForm) MdiParent).ReloadAlerts();
+                ((LotrasmicMainWindowForm)MdiParent).ReloadAlerts();
             }
         }
 
@@ -696,7 +702,7 @@ namespace OpenCBS.GUI.Clients
             {
                 DisplayMembers();
                 DisplayLoans();
-                ((LotrasmicMainWindowForm) MdiParent).ReloadAlerts();
+                ((LotrasmicMainWindowForm)MdiParent).ReloadAlerts();
             }
         }
         private bool CheckDataInOpenFiscalYear()
@@ -722,7 +728,7 @@ namespace OpenCBS.GUI.Clients
 
         private void btnAddSavings_Click(object sender, EventArgs e)
         {
-            if(!CheckDataInOpenFiscalYear())return;
+            if (!CheckDataInOpenFiscalYear()) return;
             _ctxProducts.Items.Clear();
             SavingProductServices svc = ServicesProvider.GetInstance().GetSavingProductServices();
             List<ISavingProduct> products = svc.FindAllSavingsProducts(false, OClientTypes.Village);
@@ -809,7 +815,7 @@ namespace OpenCBS.GUI.Clients
                 ClientForm frm;
                 if (member.ActiveLoans != null)
                 {
-                    if (member.ActiveLoans.Count>0)
+                    if (member.ActiveLoans.Count > 0)
                     {
                         IClient client = ServicesProvider.GetInstance().GetClientServices().FindTiersByContractId(member.ActiveLoans[0].Id);
                         if (client.Projects != null)
@@ -829,20 +835,20 @@ namespace OpenCBS.GUI.Clients
                     frm = new ClientForm((Person)member.Tiers, MdiParent);
                 }
                 frm.ShowDialog();
-                
-                
-                if (_village.Members!=null) 
-                    if(_village.Members.Count!=0)
-                { 
-                    for (int i = 0; i < _village.Members.Count; i++)
+
+
+                if (_village.Members != null)
+                    if (_village.Members.Count != 0)
                     {
-                        if (_village.Members[i] == member)
+                        for (int i = 0; i < _village.Members.Count; i++)
                         {
-                            _village.Members[i].ActiveLoans = 
-                                ServicesProvider.GetInstance().GetContractServices().FindActiveContracts(member.Tiers.Id);
+                            if (_village.Members[i] == member)
+                            {
+                                _village.Members[i].ActiveLoans =
+                                    ServicesProvider.GetInstance().GetContractServices().FindActiveContracts(member.Tiers.Id);
+                            }
                         }
                     }
-                }
 
                 DisplayLoans();
                 ((LotrasmicMainWindowForm)MdiParent).ReloadAlerts();
@@ -862,7 +868,7 @@ namespace OpenCBS.GUI.Clients
         private void cbxShowRemovedMembers_CheckedChanged(object sender, EventArgs e)
         {
             if (!membersSaved)
-                if(Confirm("ConfirmSave.Text"))
+                if (Confirm("ConfirmSave.Text"))
                     Save();
             if (cbxShowRemovedMembers.Checked)
             {
@@ -899,7 +905,7 @@ namespace OpenCBS.GUI.Clients
 
         private void buttonFastDeposit_Click(object sender, EventArgs e)
         {
-            if(!CheckDataInOpenFiscalYear())return;
+            if (!CheckDataInOpenFiscalYear()) return;
             FastDepositForm frm = new FastDepositForm(_village);
             if (frm.ShowDialog() == DialogResult.OK)
                 DisplaySavings();
@@ -907,8 +913,8 @@ namespace OpenCBS.GUI.Clients
 
         private void comboBoxMeetingDates_SelectedValueChanged(object sender, EventArgs e)
         {
-            List<VillageAttendee> attendees = 
-                ServicesProvider.GetInstance().GetContractServices().FindMeetingAttendees(_village.Id,((DateTime)comboBoxMeetingDates.SelectedValue).Date);
+            List<VillageAttendee> attendees =
+                ServicesProvider.GetInstance().GetContractServices().FindMeetingAttendees(_village.Id, ((DateTime)comboBoxMeetingDates.SelectedValue).Date);
 
             olvAttendees.SetObjects(attendees);
         }
@@ -925,7 +931,7 @@ namespace OpenCBS.GUI.Clients
                 attendee.AttendedDate = ((DateTime)this.comboBoxMeetingDates.SelectedValue).Date;
                 attendee.Attended = Convert.ToBoolean(item.SubItems[3].Text);
                 attendee.Comment = item.SubItems[4].Text;
-                attendee.LoanId = Convert.ToInt32(item.SubItems[5].Text);  
+                attendee.LoanId = Convert.ToInt32(item.SubItems[5].Text);
                 ServicesProvider.GetInstance().GetContractServices().UpdateMeetingAttendees(attendee);
                 item.SubItems[0].Text = attendee.Id.ToString();
             }
