@@ -216,4 +216,7 @@
   <data name="Deleted.Text" xml:space="preserve">
     <value>Borrado</value>
   </data>
+  <data name="NonAccrual.Text" xml:space="preserve">
+    <value>No devengo</value>
+  </data>
 </root>

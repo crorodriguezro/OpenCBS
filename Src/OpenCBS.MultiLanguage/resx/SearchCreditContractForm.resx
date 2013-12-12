@@ -174,4 +174,7 @@
   <data name="Deleted" xml:space="preserve">
     <value>Deleted</value>
   </data>
+  <data name="NonAccrual" xml:space="preserve">
+    <value>Non-accrual</value>
+  </data>
 </root>

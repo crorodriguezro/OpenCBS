@@ -339,4 +339,7 @@
   <data name="WrittenOff.Text" xml:space="preserve">
     <value>Abatido</value>
   </data>
+  <data name="NonAccrual.Text" xml:space="preserve">
+    <value>Não competência</value>
+  </data>
 </root>
