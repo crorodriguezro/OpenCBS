@@ -96,7 +96,7 @@ namespace OpenCBS.GUI.UserControl
                 textBoxSigle.Text = _corporate.Sigle;
                 dateTimePickerDateOfCreate.Value = _corporate.RegistrationDate == DateTime.MinValue
                                                        ? TimeProvider.Today
-                                                       : _corporate.RegistrationDate;
+                                                      : _corporate.RegistrationDate;
                 textBoxSmallNameCorporate.Text = _corporate.SmallName;
                 textBoxCorpLoanCycle.Text = _corporate.LoanCycle.ToString(CultureInfo.InvariantCulture);
  

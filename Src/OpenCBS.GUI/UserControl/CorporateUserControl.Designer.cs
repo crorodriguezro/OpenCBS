@@ -7,6 +7,7 @@ using OpenCBS.ExceptionsHandler;
 using OpenCBS.GUI.Clients;
 using OpenCBS.GUI.Tools;
 using OpenCBS.Enums;
+using OpenCBS.Shared;
 
 namespace OpenCBS.GUI.UserControl
 {
@@ -310,7 +311,7 @@ namespace OpenCBS.GUI.UserControl
             resources.ApplyResources(this.dateTimePickerDateOfCreate, "dateTimePickerDateOfCreate");
             this.dateTimePickerDateOfCreate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerDateOfCreate.Name = "dateTimePickerDateOfCreate";
-            this.dateTimePickerDateOfCreate.Value = new System.DateTime(2006, 5, 15, 0, 0, 0, 0);
+            this.dateTimePickerDateOfCreate.Value = TimeProvider.Today;
             // 
             // textBoxSigle
             // 
