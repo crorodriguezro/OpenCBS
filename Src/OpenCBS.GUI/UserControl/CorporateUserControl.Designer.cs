@@ -311,7 +311,7 @@ namespace OpenCBS.GUI.UserControl
             resources.ApplyResources(this.dateTimePickerDateOfCreate, "dateTimePickerDateOfCreate");
             this.dateTimePickerDateOfCreate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerDateOfCreate.Name = "dateTimePickerDateOfCreate";
-            this.dateTimePickerDateOfCreate.Value = TimeProvider.Today;
+            this.dateTimePickerDateOfCreate.Value = new System.DateTime(2006, 5, 15, 0, 0, 0, 0);
             // 
             // textBoxSigle
             // 

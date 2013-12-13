@@ -86,6 +86,7 @@ namespace OpenCBS.GUI.UserControl
 
         private void InitializeCorporate()
         {
+            dateTimePickerDateOfCreate.Value = TimeProvider.Today;
             if (_corporate.Id != 0)
             {
                 buttonSave.Text = MultiLanguageStrings.GetString(Ressource.CorporateUserControl, "buttonUpdate.Text");
