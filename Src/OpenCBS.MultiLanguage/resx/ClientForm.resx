@@ -336,4 +336,7 @@
   <data name="Yes.Text" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="Deleted.Text" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
 </root>

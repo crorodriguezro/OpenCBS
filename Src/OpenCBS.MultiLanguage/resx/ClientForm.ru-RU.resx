@@ -342,4 +342,7 @@
   <data name="Yes.Text" xml:space="preserve">
     <value>Да</value>
   </data>
+  <data name="Deleted.Text" xml:space="preserve">
+    <value>Удалён</value>
+  </data>
 </root>

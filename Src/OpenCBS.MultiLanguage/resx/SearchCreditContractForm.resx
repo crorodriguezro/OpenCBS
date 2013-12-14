@@ -171,4 +171,7 @@
   <data name="Pending.Text" xml:space="preserve">
     <value>Pending</value>
   </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
 </root>

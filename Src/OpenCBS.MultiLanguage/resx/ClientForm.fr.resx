@@ -339,4 +339,7 @@
   <data name="Postponed.Text" xml:space="preserve">
     <value>Reporté</value>
   </data>
+  <data name="Deleted.Text" xml:space="preserve">
+    <value>Supprimé</value>
+  </data>
 </root>

@@ -213,4 +213,7 @@
   <data name="LoanPostponed.Text" xml:space="preserve">
     <value>Aplazado</value>
   </data>
+  <data name="Deleted.Text" xml:space="preserve">
+    <value>Borrado</value>
+  </data>
 </root>

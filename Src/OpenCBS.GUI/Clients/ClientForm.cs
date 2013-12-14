@@ -154,6 +154,8 @@ namespace OpenCBS.GUI.Clients
             contractStatusItems.Add(GetContractStatusItem(OContractStatus.Validated));
             contractStatusItems.Add(GetContractStatusItem(OContractStatus.Refused));
             contractStatusItems.Add(GetContractStatusItem(OContractStatus.Abandoned));
+            
+            contractStatusItems.Add(GetContractStatusItem(OContractStatus.Deleted));
             cmbContractStatus.SelectedItem = firstItem;
 
             ApplicationSettings dataParam = ApplicationSettings.GetInstance(string.Empty);
@@ -2008,6 +2010,7 @@ namespace OpenCBS.GUI.Clients
                 case OContractStatus.Postponed:
                 case OContractStatus.Refused:
                 case OContractStatus.Abandoned:
+                case OContractStatus.Deleted: 
                     itemToSelect = items.First(item => item.Key == pStatus);
                     break;
                 case OContractStatus.Validated:
@@ -4834,7 +4837,8 @@ namespace OpenCBS.GUI.Clients
 
                         if (OContractStatus.Refused == newStatus
                             || OContractStatus.Abandoned == newStatus
-                            || OContractStatus.Closed == newStatus)
+                            || OContractStatus.Closed == newStatus
+                            || OContractStatus.Deleted == newStatus)
                         {
                             _credit.Closed = true;
                             if (client != null)
@@ -4860,7 +4864,7 @@ namespace OpenCBS.GUI.Clients
                             }
                         }
                         else
-                        {
+                         {
                             _credit.Closed = false;
                             if (client != null)
                             {
