@@ -27,7 +27,9 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Reflection;
+using System.Text;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
 using OpenCBS.CoreDomain;
@@ -860,6 +862,7 @@ namespace OpenCBS.GUI
             UserSettings.Language = UserSettings.GetUserLanguage();
             if (InitializeTellerManagement())
             {
+                Ping();
                 LogUser();
                 panelLeft.Visible = UserSettings.GetLoadAlerts();
                 panelLeft.Width = UserSettings.GetAlertsWidth();
@@ -876,6 +879,38 @@ namespace OpenCBS.GUI
             {
                 Environment.Exit(0);
             }
+        }
+
+        private static void Ping()
+        {
+            var worker = new BackgroundWorker();
+            worker.DoWork += (sender, args) =>
+            {
+                var collection = new Dictionary<string, string>
+                {
+                    { "Guid", ServicesProvider.GetInstance().GetApplicationSettingsServices().GetGuid().ToString() },
+                    { "Username", User.CurrentUser.UserName },
+                    { "Version", TechnicalSettings.CurrentVersion }
+                };
+                var parameters = string.Join("&", collection.Select(x => string.Format("{0}={1}", x.Key, x.Value)).ToArray());
+                var data = Encoding.UTF8.GetBytes(parameters);
+                var request = (HttpWebRequest) WebRequest.Create("http://opencbsping.apphb.com/Ping");
+                request.Method = "POST";
+                request.ContentType = "application/x-www-form-urlencoded";
+                request.ContentLength = data.Length;
+                request.UserAgent = "OpenCBS";
+                request.Timeout = 5000;
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                }
+            };
+            worker.RunWorkerCompleted += (sender, args) =>
+            {
+                if (args.Error != null)
+                    Debug.WriteLine(args.Error.Message);
+            };
+            worker.RunWorkerAsync();
         }
 
         private void LoadReprotsToolStrip()
