@@ -890,7 +890,7 @@ namespace OpenCBS.GUI
                 {
                     { "Guid", ServicesProvider.GetInstance().GetApplicationSettingsServices().GetGuid().ToString() },
                     { "Username", User.CurrentUser.UserName },
-                    { "Version", TechnicalSettings.CurrentVersion }
+                    { "Version", TechnicalSettings.GetDisplayVersion() }
                 };
                 var parameters = string.Join("&", collection.Select(x => string.Format("{0}={1}", x.Key, x.Value)).ToArray());
                 var data = Encoding.UTF8.GetBytes(parameters);
