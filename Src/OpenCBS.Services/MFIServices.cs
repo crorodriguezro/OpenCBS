@@ -85,5 +85,10 @@ namespace OpenCBS.Services
 
             return true;
         }
+
+        public PingInfo GetPingInfo()
+        {
+            return _MFIManager.GetPingInfo();
+        }
     }
 }

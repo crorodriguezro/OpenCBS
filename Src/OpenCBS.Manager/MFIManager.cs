@@ -19,9 +19,12 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
+using System.Data;
+using System.Linq;
 using OpenCBS.CoreDomain;
 using System.Data.SqlClient;
 using OpenCBS.Shared;
+using Dapper;
 
 namespace OpenCBS.Manager
 {
@@ -110,6 +113,28 @@ namespace OpenCBS.Manager
                 using (SqlConnection connection = GetConnection())
                 using (OpenCbsCommand cmd = new OpenCbsCommand(sqlText, connection))
                     cmd.ExecuteNonQuery();
+            }
+        }
+
+        public PingInfo GetPingInfo()
+        {
+            const string sql = @"
+                select sum(olb) from dbo.ActiveLoans(getdate(), 0)
+                select count(*) from Persons
+                select count(*) from Groups
+                select count(*) from Villages
+                select count(*) from Corporates
+            ";
+            var result = new PingInfo();
+            using (var connection = GetConnection())
+            using (var multi = connection.QueryMultiple(sql, null, CommandType.Text))
+            {
+                result.Olb = multi.Read<decimal>().Single();
+                result.NumberOfIndividualClients = multi.Read<int>().Single();
+                result.NumberOfSolidarityGroups = multi.Read<int>().Single();
+                result.NumberOfNonSolidarityGroups = multi.Read<int>().Single();
+                result.NumberOfCompanies = multi.Read<int>().Single();
+                return result;
             }
         }
     }

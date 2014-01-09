@@ -886,11 +886,18 @@ namespace OpenCBS.GUI
             var worker = new BackgroundWorker();
             worker.DoWork += (sender, args) =>
             {
+                var mfiService = ServicesProvider.GetInstance().GetMFIServices();
+                var pingInfo = mfiService.GetPingInfo();
                 var collection = new Dictionary<string, string>
                 {
                     { "Guid", ServicesProvider.GetInstance().GetApplicationSettingsServices().GetGuid().ToString() },
                     { "Username", User.CurrentUser.UserName },
-                    { "Version", TechnicalSettings.GetDisplayVersion() }
+                    { "Version", TechnicalSettings.GetDisplayVersion() },
+                    { "Olb", pingInfo.Olb.ToString("0") },
+                    { "NumberOfIndividualClients", pingInfo.NumberOfIndividualClients.ToString("0") },
+                    { "NumberOfSolidarityGroups", pingInfo.NumberOfSolidarityGroups.ToString("0") },
+                    { "NumberOfNonSolidarityGroups", pingInfo.NumberOfNonSolidarityGroups.ToString("0") },
+                    { "NumberOfCompanies", pingInfo.NumberOfCompanies.ToString("0") }
                 };
                 var parameters = string.Join("&", collection.Select(x => string.Format("{0}={1}", x.Key, x.Value)).ToArray());
                 var data = Encoding.UTF8.GetBytes(parameters);

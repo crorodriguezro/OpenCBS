@@ -267,6 +267,7 @@
     <Compile Include="Events\Teller\TellerCashOutEvent.cs" />
     <Compile Include="Events\Teller\TellerEvent.cs" />
     <Compile Include="MyInformation.cs" />
+    <Compile Include="PingInfo.cs" />
     <Compile Include="Teller.cs" />
     <Compile Include="LoanCycles\Cycle.cs" />
     <Compile Include="LoanCycles\CycleObject.cs" />
