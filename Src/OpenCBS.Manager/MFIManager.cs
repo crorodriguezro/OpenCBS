@@ -119,7 +119,7 @@ namespace OpenCBS.Manager
         public PingInfo GetPingInfo()
         {
             const string sql = @"
-                select sum(olb) from dbo.ActiveLoans(getdate(), 0)
+                select isnull(sum(olb), 0) from dbo.ActiveLoans(getdate(), 0)
                 select count(*) from Persons
                 select count(*) from Groups
                 select count(*) from Villages

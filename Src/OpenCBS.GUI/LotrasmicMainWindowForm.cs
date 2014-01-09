@@ -888,9 +888,16 @@ namespace OpenCBS.GUI
             {
                 var mfiService = ServicesProvider.GetInstance().GetMFIServices();
                 var pingInfo = mfiService.GetPingInfo();
+                var appSettingsService = ServicesProvider.GetInstance().GetApplicationSettingsServices();
+                var guid = appSettingsService.GetGuid();
+                if (guid == null)
+                {
+                    guid = Guid.NewGuid();
+                    appSettingsService.SetGuid(guid.Value);
+                }
                 var collection = new Dictionary<string, string>
                 {
-                    { "Guid", ServicesProvider.GetInstance().GetApplicationSettingsServices().GetGuid().ToString() },
+                    { "Guid", guid.ToString() },
                     { "Username", User.CurrentUser.UserName },
                     { "Version", TechnicalSettings.GetDisplayVersion() },
                     { "Olb", pingInfo.Olb.ToString("0") },
