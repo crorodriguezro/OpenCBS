@@ -4572,7 +4572,8 @@ namespace OpenCBS.GUI.Clients
             {
                 LoanServices cServices = ServicesProvider.GetInstance().GetContractServices();
 
-                Event foundEvent = _credit.GetLastNonDeletedEvent();
+                  Event foundEvent = _credit.GetLastNonDeletedEvent();
+
 
                 if (foundEvent == null)
                     throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.EventIsNull);
@@ -4590,6 +4591,7 @@ namespace OpenCBS.GUI.Clients
                 List<Installment> archivedInstallments = cServices.GetArchivedInstallments(foundEvent.Id);
                 // Request user confirmation
                 var eventCancelConfirmationForm = new EventCancelConfirmationForm(_credit, foundEvent, archivedInstallments);
+                
                 DialogResult response = eventCancelConfirmationForm.ShowDialog();
 
                 if (response == DialogResult.OK)

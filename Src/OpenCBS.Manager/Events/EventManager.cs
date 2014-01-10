@@ -65,7 +65,6 @@ namespace OpenCBS.Manager.Events
                 c.AddParam("@branch_id", filter.BranchId);
                 c.AddParam("@types", filter.Types);
                 c.AddParam("@del", filter.IncludeDeleted);
-
                 using (OpenCbsReader r = c.ExecuteReader())
                 {
                     if (r.Empty) return retval;
