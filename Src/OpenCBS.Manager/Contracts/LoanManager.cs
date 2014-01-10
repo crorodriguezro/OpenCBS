@@ -2355,7 +2355,7 @@ namespace OpenCBS.Manager.Contracts
 	                            WHERE is_deleted=0
 	                            GROUP BY contract_id
 	                            ) lp ON lp.contract_id=al.id
-                            WHERE al.late_days > 0 AND c.[status]!=8";
+                            WHERE al.late_days > 0 AND c.[status]!=10";
             using (var connection = GetConnection())
             using (var c = new OpenCbsCommand(q, connection))
             {
@@ -2435,7 +2435,7 @@ namespace OpenCBS.Manager.Contracts
                                 WHERE is_deleted=0
                                 GROUP BY contract_id
                                 ) li ON li.contract_id=al.id
-                            WHERE c.[status]!=8";
+                            WHERE c.[status]!=10";
             using (var connection = GetConnection())
             using (var c = new OpenCbsCommand(q, connection))
             {

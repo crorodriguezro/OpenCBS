@@ -342,4 +342,7 @@
   <data name="Deleted.Text" xml:space="preserve">
     <value>Supprimé</value>
   </data>
+  <data name="NonAccrual.Text" xml:space="preserve">
+    <value>Non-exercice</value>
+  </data>
 </root>

@@ -479,7 +479,7 @@ namespace OpenCBS.GUI.Clients
             int decimalPlaces = dataParam.InterestRateDecimalPlaces;
             ListViewItem item = new ListViewItem(person.Name) { Tag = member };
             if (loan == null || _village.EstablishmentDate == null) return;
-            if (loan.CreationDate.Date >= _village.EstablishmentDate.Value.Date && _village.Id == loan.NsgID)
+            if (_village.Id == loan.NsgID)
             {
                 item.SubItems.Add(loan.ProductName);
                 item.SubItems.Add(loan.Code);

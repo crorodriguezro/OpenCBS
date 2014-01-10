@@ -345,4 +345,7 @@
   <data name="Deleted.Text" xml:space="preserve">
     <value>Удалён</value>
   </data>
+  <data name="NonAccrual.Text" xml:space="preserve">
+    <value>Неначисление</value>
+  </data>
 </root>

@@ -31,6 +31,7 @@ namespace OpenCBS.Enums
         Closed = 6,
         WrittenOff = 7,
         Postponed = 8,
-        Deleted = 9
+        Deleted = 9,
+        NonAccrual = 10
     }
 }

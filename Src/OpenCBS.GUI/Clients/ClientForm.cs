@@ -154,8 +154,8 @@ namespace OpenCBS.GUI.Clients
             contractStatusItems.Add(GetContractStatusItem(OContractStatus.Validated));
             contractStatusItems.Add(GetContractStatusItem(OContractStatus.Refused));
             contractStatusItems.Add(GetContractStatusItem(OContractStatus.Abandoned));
-            
             contractStatusItems.Add(GetContractStatusItem(OContractStatus.Deleted));
+            contractStatusItems.Add(GetContractStatusItem(OContractStatus.NonAccrual));
             cmbContractStatus.SelectedItem = firstItem;
 
             ApplicationSettings dataParam = ApplicationSettings.GetInstance(string.Empty);
@@ -2010,7 +2010,8 @@ namespace OpenCBS.GUI.Clients
                 case OContractStatus.Postponed:
                 case OContractStatus.Refused:
                 case OContractStatus.Abandoned:
-                case OContractStatus.Deleted: 
+                case OContractStatus.Deleted:
+                case OContractStatus.NonAccrual:
                     itemToSelect = items.First(item => item.Key == pStatus);
                     break;
                 case OContractStatus.Validated:
