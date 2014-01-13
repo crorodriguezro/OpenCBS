@@ -22,7 +22,7 @@ INSERT INTO [Packages]
 	,[anticipated_partial_repayment_penalties]
 	,[anticipated_partial_repayment_base]
 	,[anticipated_total_repayment_base])
-	VALUES('default', 'Default Loan Product', 1000, 1000000, 0.03, 1, 0, 3, 36, 0, 3, 1, 1, 0.001, 0,0, 0.001, 1, 1, 3, 0, 2, 2)
+	VALUES('default', 'Loan Product', 1000, 1000000, 0.03, 1, 0, 3, 36, 0, 3, 1, 1, 0.001, 0,0, 0.001, 1, 1, 3, 0, 2, 2)
 	
 DECLARE @packageId INT
 SELECT @packageId = SCOPE_IDENTITY()
@@ -46,7 +46,7 @@ INSERT INTO [SavingProducts]
     ,[entry_fees]
     ,[currency_id]
     ,[product_type])
-      VALUES('Default Saving Product', 'cumulative', 0, 100000000, 0, 100000000, 1, 100000000, 1, 100000000, 1, 100000000, 0, 0, 1, 'B')
+      VALUES('Saving Product', 'default', 0, 100000000, 0, 100000000, 1, 100000000, 1, 100000000, 1, 100000000, 0, 0, 1, 'B')
       
 DECLARE @savingProductId INT
 SELECT @savingProductId = SCOPE_IDENTITY()
