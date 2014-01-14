@@ -514,7 +514,7 @@ namespace OpenCBS.Manager.Contracts
             const string q = @"UPDATE Credit 
                                      SET rescheduled = 1, 
                                          nb_of_installment = @nbOfInstallment, 
-                                         interest_rate = @newInterestRate                                         
+                                         interest_rate = CAST(@newInterestRate AS NUMERIC(16,12))                                         
                                      WHERE id = @id";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
