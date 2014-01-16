@@ -1424,13 +1424,13 @@ namespace OpenCBS.Services
             return;
         }
 
-        public void AddAndActivateDefaultSavingAccount(IClient client)
+        public ISavingsContract AddAndActivateDefaultSavingAccount(IClient client)
         {
             var productList = ServicesProvider.GetInstance()
                                                .GetSavingProductServices()
                                                .FindAllSavingsProducts(false, OClientTypes.All);
             var products = from item in productList where item.Code == "default" select item;
-            if (!products.Any()) return;
+            if (!products.Any()) return null;
             var saving = new SavingBookContract(
                 ServicesProvider.GetInstance().GetGeneralSettings(),
                 User.CurrentUser,
@@ -1461,6 +1461,8 @@ namespace OpenCBS.Services
             saving.Id = SaveContract(saving, (Client) client);
 
             FirstDeposit(saving, 0, TimeProvider.Now, saving.EntryFees, User.CurrentUser, Teller.CurrentTeller);
+
+            return saving;
         }
-	}
+    }
 }

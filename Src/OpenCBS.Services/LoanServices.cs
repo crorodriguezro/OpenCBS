@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using AutoMapper;
 using OpenCBS.CoreDomain;
@@ -32,6 +33,7 @@ using OpenCBS.CoreDomain.Alerts;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts;
 using OpenCBS.CoreDomain.Contracts.Loans;
+using OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment;
 using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.CoreDomain.EconomicActivities;
 using OpenCBS.CoreDomain.Events;
@@ -2694,6 +2696,40 @@ namespace OpenCBS.Services
                         throw;
                     }
             }
+        }
+
+        public Loan RepayLoanFromTransitAccount(RepaymentConfiguration config)
+        {
+            var currentUser = User.CurrentUser ?? ServicesProvider.GetInstance().GetUserServices().Find(1);
+            var balance = config.Saving.GetBalance().Value;
+            var amount = config.Loan.CalculateOverduePrincipal(config.Date).Value +
+                         config.Loan.GetUnpaidInterest(config.Date).Value +
+                         config.Loan.GetUnpaidLatePenalties(config.Date);
+            if (amount > balance || !config.KeepExpectedInstallment)
+                amount = balance;
+            if (amount <= 0) return config.Loan;
+            ServicesProvider.GetInstance()
+                            .GetSavingServices()
+                            .Withdraw(config.Saving, config.Date.Date, amount,
+                                      "Withdraw for loan repayment " + config.Loan.Code, currentUser, new Teller());
+            var paymentMethod =
+                ServicesProvider.GetInstance().GetPaymentMethodServices().GetPaymentMethodByName("Savings");
+            var installment = config.Loan.GetFirstUnpaidInstallment() ?? config.Loan.InstallmentList.First();
+            return Repay(config.Loan,
+                         config.Client,
+                         installment.Number,
+                         config.Date.Date,
+                         amount,
+                         config.DisableFees,
+                         config.ManualFeesAmount,
+                         config.ManualCommission,
+                         config.DisableInterests,
+                         config.ManualInterestsAmount,
+                         config.KeepExpectedInstallment,
+                         config.ProportionPayment,
+                         paymentMethod,
+                         config.Saving.Events.Last().Id.ToString(CultureInfo.InvariantCulture),
+                         config.IsPending);
         }
     }
 }
