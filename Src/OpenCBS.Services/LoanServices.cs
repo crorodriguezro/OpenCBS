@@ -2731,5 +2731,48 @@ namespace OpenCBS.Services
                          config.Saving.Events.Last().Id.ToString(CultureInfo.InvariantCulture),
                          config.IsPending);
         }
+
+        public void RepayAllExpectedInstallments(DateTime date)
+        {
+            var loanIdList = _loanManager.GetLoanIdForRepayment(date);
+            foreach (var id in loanIdList)
+            {
+                var client = ServicesProvider.GetInstance()
+                                             .GetClientServices()
+                                             .FindTiersByContractId(id);
+                if (!(from item in client.Savings where item.Product.Code == "default" select item).Any())
+                    continue;
+                var repaymentConfiguration = new RepaymentConfiguration
+                {
+                    Loan = SelectLoan(id, true, true, false),
+                    Client = client,
+                    Saving = (from item in client.Savings where item.Product.Code == "default" select item).First(),
+                    KeepExpectedInstallment = !false,
+                    Date = date,
+                    DisableFees = false,
+                    ManualFeesAmount = 0,
+                    DisableInterests = false,
+                    ManualInterestsAmount = 0,
+                    ManualCommission = 0,
+                    ProportionPayment = false,
+                    IsPending = false
+                };
+                RepayLoanFromTransitAccount(repaymentConfiguration);
+            }
+        }
+
+        public DateTime GetRepaymentModuleLastStartupDate()
+        {
+            var repaymentDate = _loanManager.GetRepaymentModuleLastStartupDate();
+            if (repaymentDate != "")
+                return Convert.ToDateTime(repaymentDate);
+            _loanManager.CreateRepaymentModuleLastStartupDateRecord();
+            return DateTime.Today;
+        }
+
+        public void SetRepaymentModuleLastStartupDate(DateTime date)
+        {
+            _loanManager.SetRepaymentModuleLastStartupDate(date);
+        }
     }
 }
