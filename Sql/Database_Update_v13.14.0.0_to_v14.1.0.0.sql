@@ -83,6 +83,9 @@ GO
 INSERT INTO [GeneralParameters]([key], [value]) VALUES('USE_MANDATORY_SAVING_ACCOUNT', 0)
 GO
 
+INSERT INTO [GeneralParameters]([key], [value]) VALUES('USE_DAILY_ACCRUAL_OF_PENALTY', 0)
+GO
+
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v14.1.0.0'
 WHERE   [name] = 'VERSION'

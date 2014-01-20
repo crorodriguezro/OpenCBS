@@ -101,6 +101,7 @@ namespace OpenCBS.Shared.Settings
             _defaultParamList.Add(OGeneralSettings.STOP_WRITEOFF_PENALTY, 0);
             _defaultParamList.Add(OGeneralSettings.MODIFY_ENTRY_FEE, 0);
             _defaultParamList.Add(OGeneralSettings.USE_MANDATORY_SAVING_ACCOUNT, 0);
+            _defaultParamList.Add(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, 0);
         }
 
         #region Internal stuff
@@ -531,6 +532,11 @@ namespace OpenCBS.Shared.Settings
         public bool UseMandatorySavingAccount
         {
             get { return GetSpecificParameter(OGeneralSettings.USE_MANDATORY_SAVING_ACCOUNT).ToString() == "1"; }
+        }
+
+        public bool UseDailyAccrualOfPenalty
+        {
+            get { return GetSpecificParameter(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY).ToString() == "1"; }
         }
     }
 }
