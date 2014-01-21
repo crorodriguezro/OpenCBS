@@ -426,10 +426,13 @@ namespace OpenCBS.GUI.Contracts
                 {
                     ISavingsContract saving;
                     if (!(from item in _client.Savings where item.Product.Code == "default" select item).Any())
+                    {
                         saving =
                             ServicesProvider.GetInstance()
                                             .GetSavingServices()
                                             .AddAndActivateDefaultSavingAccount(_client);
+                        _client.Savings.Add(saving);
+                    }
                     else
                         saving = (from item in _client.Savings where item.Product.Code == "default" select item).First();
 
