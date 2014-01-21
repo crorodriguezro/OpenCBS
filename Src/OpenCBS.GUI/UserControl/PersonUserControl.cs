@@ -459,10 +459,14 @@ namespace OpenCBS.GUI.UserControl
                 textBoxIdentificationData.Text = string.Format(_tempPerson.IdentificationData);
                 //EnableDocuments();
                 ResetImagesFlags();
-                
+
                 if (ApplicationSettings.GetInstance(User.CurrentUser.Md5).UseMandatorySavingAccount &&
                     Person.Savings.Count == 0)
-                    ServicesProvider.GetInstance().GetSavingServices().AddAndActivateDefaultSavingAccount(Person);
+                {
+                    Person.Savings.Add(
+                        ServicesProvider.GetInstance().GetSavingServices().AddAndActivateDefaultSavingAccount(Person));
+                    DisplaySavings(Person.Savings);
+                }
             }
             catch (Exception ex)
             {
