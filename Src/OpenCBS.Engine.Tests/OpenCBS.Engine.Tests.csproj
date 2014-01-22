@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdjustmentPolicy.cs" />
+    <Compile Include="AnnuityScheduleFact.cs" />
     <Compile Include="BuildEngine.cs" />
     <Compile Include="DefaultScheduleConfigurationFactoryTests.cs" />
     <Compile Include="DatePolicyTests\BackwardDateShiftPolicyTests.cs" />
