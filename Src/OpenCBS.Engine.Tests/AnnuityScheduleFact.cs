@@ -18,7 +18,7 @@ namespace OpenCBS.Engine.Test
         private IScheduleBuilder _builder;
 
         [SetUp]
-        public void FlatSchedule_Setup()
+        public void AnnuitySchedule_Setup()
         {
             _configuration = new ScheduleConfiguration
             {
@@ -38,7 +38,7 @@ namespace OpenCBS.Engine.Test
         }
 
         [Test]
-        public void FlatSchedule_SumOfPrincipal_IsEqualToAmount()
+        public void AnnuitySchedule_SumOfPrincipal_IsEqualToAmount()
         {
             var list = _builder.BuildSchedule(_configuration);
             var sum = list.Sum(i => i.Principal);
