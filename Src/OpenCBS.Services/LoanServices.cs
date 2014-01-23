@@ -2566,7 +2566,7 @@ namespace OpenCBS.Services
         //}
         public void LoanInterestAccrual()
         {
-            var launchDate = DateTime.Today.AddDays(-1);
+            var launchDate = DateTime.Today;
             var listOfLoans = _loanManager.GetListOfLoansToAccrueInterest(launchDate);
             var em = new EventManager(User.CurrentUser);
             using (var connection = _loanManager.GetConnection())
