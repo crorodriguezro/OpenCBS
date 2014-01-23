@@ -135,6 +135,7 @@ namespace OpenCBS.GUI.Contracts
             {
                 _contract.Rescheduled = true;
                 _contract.NbOfInstallments = _contract.InstallmentList.Count;
+                _contract.InterestRate = Convert.ToDecimal(_interestRateTextBox.Text);
                 _contract = ServicesProvider
                     .GetInstance()
                     .GetContractServices()

@@ -211,7 +211,7 @@
     <value>btnRefresh</value>
   </data>
   <data name="&gt;&gt;btnRefresh.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetButton, OpenCBS.GUI, Version=1.1.1.28732, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnRefresh.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -244,7 +244,7 @@
     <value>btnPrint</value>
   </data>
   <data name="&gt;&gt;btnPrint.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetButton, OpenCBS.GUI, Version=1.1.1.28732, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnPrint.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -682,7 +682,7 @@
     <value>btnUncheckAll</value>
   </data>
   <data name="&gt;&gt;btnUncheckAll.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetButton, OpenCBS.GUI, Version=1.1.1.28732, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnUncheckAll.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -715,7 +715,7 @@
     <value>btnCheckAll</value>
   </data>
   <data name="&gt;&gt;btnCheckAll.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetButton, OpenCBS.GUI, Version=1.1.1.28732, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnCheckAll.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -798,6 +798,9 @@
   <data name="panOptions.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
+  <data name="panOptions.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>300, 0</value>
+  </data>
   <data name="panOptions.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 1, 0, 5</value>
   </data>
@@ -847,7 +850,7 @@
     <value>btnClose</value>
   </data>
   <data name="&gt;&gt;btnClose.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetButton, OpenCBS.GUI, Version=1.1.1.28732, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblTitle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1039,6 +1042,6 @@
     <value>AuditTrailForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=1.1.1.28732, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=14.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

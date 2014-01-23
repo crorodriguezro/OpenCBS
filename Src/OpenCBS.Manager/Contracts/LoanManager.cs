@@ -514,7 +514,7 @@ namespace OpenCBS.Manager.Contracts
             const string q = @"UPDATE Credit 
                                      SET rescheduled = 1, 
                                          nb_of_installment = @nbOfInstallment, 
-                                         interest_rate = @newInterestRate                                         
+                                         interest_rate = CAST(@newInterestRate AS NUMERIC(16,12))                                         
                                      WHERE id = @id";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
@@ -2339,10 +2339,16 @@ namespace OpenCBS.Manager.Contracts
         public Dictionary<int, DateTime> GetListOfLoansToAccruePenalty(DateTime launchDate)
         {
             const string q = @"SELECT al.id AS id,
-                            al.late_days,
+                            CASE WHEN al.late_days=0
+								THEN 1
+								ELSE al.late_days
+								END AS late_days,
                             CASE 
 	                            WHEN lp.event_date IS NULL
-	                            THEN al.late_days
+	                            THEN CASE WHEN al.late_days=0
+									THEN 1
+									ELSE al.late_days
+									END
 	                            ELSE DATEDIFF(DD, lp.event_date, @date)
 	                            END AS [not_accrued_days]
                             FROM dbo.ActiveLoans(@date, 0) AS al
@@ -2355,7 +2361,8 @@ namespace OpenCBS.Manager.Contracts
 	                            WHERE is_deleted=0
 	                            GROUP BY contract_id
 	                            ) lp ON lp.contract_id=al.id
-                            WHERE al.late_days > 0 AND c.[status]!=10";
+                            WHERE (al.late_days > 0 OR (al.late_days=0 AND 
+                                    (al.principal_due!=0 or al.interest_due!=0))) AND c.[status]!=10";
             using (var connection = GetConnection())
             using (var c = new OpenCbsCommand(q, connection))
             {

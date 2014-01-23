@@ -1323,6 +1323,11 @@ namespace OpenCBS.Services
             }
         }
 
+        public void UpdateCredit(decimal interestRate, int nbOfMaturity, Loan loan)
+        {
+            _loanManager.UpdateLoanToRescheduled(interestRate, nbOfMaturity, loan);
+        }
+
         public KeyValuePair<Loan, RepaymentEvent> ShowNewContract(Loan pContract,
                                                                   int installmentNumber,
                                                                   DateTime date,

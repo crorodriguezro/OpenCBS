@@ -4707,7 +4707,10 @@ namespace OpenCBS.GUI.Clients
                     if (reschedulingForm.DialogResult != DialogResult.Cancel)
                     {
                         _credit = reschedulingForm.Contract;
-                        nudLoanNbOfInstallments.Value = _credit.NbOfInstallments;
+                        nudLoanNbOfInstallments.Value = nudLoanNbOfInstallments.Maximum = _credit.NbOfInstallments;
+                        nudInterestRate.Value = nudInterestRate.Minimum = nudInterestRate.Maximum = _credit.InterestRate;
+                        if (_credit.GracePeriod != null)
+                            numericUpDownLoanGracePeriod.Value = (decimal) _credit.GracePeriod;
                         SaveContract();
                         InitializeContractStatus(_credit);
                         InitializeTabPageLoansDetails(_credit);

@@ -33,8 +33,8 @@ namespace OpenCBS.GUI.AuditTrail
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuditTrailForm));
             this.split2 = new System.Windows.Forms.SplitContainer();
             this.lvEventType = new System.Windows.Forms.ListView();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -58,13 +58,13 @@ namespace OpenCBS.GUI.AuditTrail
             this.bwReport = new System.ComponentModel.BackgroundWorker();
             this.bwRefresh = new System.ComponentModel.BackgroundWorker();
             this.olvEvents = new BrightIdeasSoftware.ObjectListView();
-            this.colEvents_Date = new BrightIdeasSoftware.OLVColumn();
-            this.colEvents_EntryDate = new BrightIdeasSoftware.OLVColumn();
-            this.colEvents_Code = new BrightIdeasSoftware.OLVColumn();
-            this.colEvents_User = new BrightIdeasSoftware.OLVColumn();
-            this.colEvents_Role = new BrightIdeasSoftware.OLVColumn();
-            this.colEvents_Description = new BrightIdeasSoftware.OLVColumn();
-            this.colEvents_BranchName = new BrightIdeasSoftware.OLVColumn();
+            this.colEvents_Date = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colEvents_EntryDate = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colEvents_Code = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colEvents_User = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colEvents_Role = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colEvents_Description = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colEvents_BranchName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.split2.Panel1.SuspendLayout();
             this.split2.Panel2.SuspendLayout();
             this.split2.SuspendLayout();
@@ -226,7 +226,6 @@ namespace OpenCBS.GUI.AuditTrail
             // 
             this.panOptions.Controls.Add(this.split2);
             resources.ApplyResources(this.panOptions, "panOptions");
-            this.panOptions.MinimumSize = new System.Drawing.Size(300, 0);
             this.panOptions.Name = "panOptions";
             // 
             // btnClose

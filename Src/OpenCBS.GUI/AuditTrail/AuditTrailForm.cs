@@ -67,8 +67,8 @@ namespace OpenCBS.GUI.AuditTrail
                     Text = t.EventCode
                     , Tag = t.EventCode
                 };
-                item.SubItems.Add(GetString("EventTypes", t.EventCode));
-                lvEventType.Items.Add(item);
+                    item.SubItems.Add(GetString("EventTypes", t.EventCode));
+                    lvEventType.Items.Add(item);
             }
             lvEventType.Columns[0].Width = -1; // auto size
             lvEventType.Columns[1].Width = -1; // auto size
