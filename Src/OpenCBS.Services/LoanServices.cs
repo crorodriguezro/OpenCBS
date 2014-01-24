@@ -480,6 +480,8 @@ namespace OpenCBS.Services
 
                     SetEconomicActivity(pLoan, sqlTransaction);
 
+                    _accountingServices.CreateBooking(pLoan, sqlTransaction);
+
                     sqlTransaction.Commit();
                     return copyLoan;
                 }
