@@ -635,8 +635,8 @@ namespace OpenCBS.Manager.Events
 
         public List<EventType> SelectEventTypes()
         {
-            const string q = @"SELECT id, event_type, description
-                               FROM dbo.EventTypes
+            const string q = @" SELECT id, event_type, description
+                               FROM dbo.EventTypes where event_type <> 'FLNE'
                                ORDER BY event_type";
 
             List<EventType> list = new List<EventType>();
