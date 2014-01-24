@@ -153,7 +153,7 @@
     <value>Дополнительные параметры</value>
   </data>
   <data name="cbUseLoanCycle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 20</value>
+    <value>192, 20</value>
   </data>
   <data name="cbUseLoanCycle.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -189,7 +189,7 @@
     <value>144, 41</value>
   </data>
   <data name="labelNbIOr.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 16</value>
+    <value>88, 16</value>
   </data>
   <data name="labelNbIOr.Text" xml:space="preserve">
     <value>или значение</value>
@@ -222,7 +222,7 @@
     <value>Ставка процента (% за период)*</value>
   </data>
   <data name="labelRateOr.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 16</value>
+    <value>88, 16</value>
   </data>
   <data name="labelRateOr.Text" xml:space="preserve">
     <value>или значение</value>
@@ -267,7 +267,7 @@
     <value>268, 35</value>
   </data>
   <data name="labelAmountOr.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 16</value>
+    <value>88, 16</value>
   </data>
   <data name="labelAmountOr.Text" xml:space="preserve">
     <value>или значение</value>
@@ -326,6 +326,21 @@
   <data name="buttonRemoveAmountCycles.Text" xml:space="preserve">
     <value>Удалить</value>
   </data>
+  <data name="buttonAmountCyclesSave.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAADECAIAAAAdy+YyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACH0lEQVRoQ+3LS0gTcADH8V8QEUGHrh27
+        duvU1UMRFFQQiPQOegpGgmEghSEWJYiIRSZJmRhmiYgmmiWarUxt5PuxZOrc2sM555xu0+r+P/U9CMb/
+        y+f61W+U3YzsZmQ3I7sZ2c3IbkZ2M7Kbkd2M7GZkNyO6raPsZmQ3o82xra2vAXYz0C21lgKUTKWA/3xL
+        AptjSyQTgFaTCWCDt5XEKrDBWzyxAtBteTUOKLYSBzbHFo3HALotLi8BG7xFYlFA4aUoQLf5aARQKLoA
+        0C24GAYUiIQBuvkXQoB+hYOAvOEgQLe5+QAgT8gPaDboAzQd8AF/Ny8gt98DaMrvAeTyzQCa9E4DdBuf
+        cwMa80wBGpn9CWh4xgVo0D0BaMA9Dsg5NQqo3zUMqM81BKh3chBQz8QAIMeYE9DnUSegrpF+QJ1DvYA+
+        DvQAav/xBVCb0wGo5Xs3oOb+LkBNfZ2AGr91AKr/2g7ojeM9oNfdrYBefXoHqLqzCVBVRyOgyg8NgCra
+        3gIqb60D9LilFlBpcw2g4saXgIoaXgC6V18JqKCuAlB+bTmgvJpHgG5VlwK6WVUCKPt5MaCsZw8BXXt6
+        H9DFJ4WAzpXdBXSq9A6g9JI8QMeKcgEdeZAD6GDhDUBpBdcB7c/PBLTv9hVAe/MuAdqTex7Q7pwzgHZl
+        nwS0Mysd0I7ME4C2Xz0OaNvlo4C2XjgMaMvZQ4B0+gChjLR/lpH2B8auF1qedkGxAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="buttonAmountCyclesSave.Location" type="System.Drawing.Point, System.Drawing">
     <value>445, 208</value>
   </data>
@@ -351,7 +366,7 @@
     <value>3, 11</value>
   </data>
   <data name="lblCycleObjects.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 16</value>
+    <value>102, 16</value>
   </data>
   <data name="lblCycleObjects.Text" xml:space="preserve">
     <value>Объекты цикла:</value>
@@ -393,28 +408,19 @@
     <value>149, 86</value>
   </data>
   <data name="groupBoxRoundingType.Text" xml:space="preserve">
-    <value>Тип округления*</value>
+    <value>Дней в году*</value>
   </data>
-  <data name="comboBoxRoundingType.Items" xml:space="preserve">
-    <value>По факту</value>
+  <data name="cbxDaysInYear.Items" xml:space="preserve">
+    <value>Фактический</value>
   </data>
-  <data name="comboBoxRoundingType.Items1" xml:space="preserve">
-    <value>Первое погашение</value>
-  </data>
-  <data name="comboBoxRoundingType.Items2" xml:space="preserve">
-    <value>Последнее погашение</value>
-  </data>
-  <data name="comboBoxRoundingType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 36</value>
-  </data>
-  <data name="comboBoxRoundingType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 24</value>
+  <data name="cbxDaysInYear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 24</value>
   </data>
   <data name="textBoxCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>163, 50</value>
   </data>
   <data name="label32.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 16</value>
+    <value>44, 16</value>
   </data>
   <data name="label32.Text" xml:space="preserve">
     <value>Код *:</value>
@@ -477,7 +483,7 @@
     <value>137, 24</value>
   </data>
   <data name="clientTypeIndivCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 20</value>
+    <value>55, 20</value>
   </data>
   <data name="clientTypeIndivCheckBox.Text" xml:space="preserve">
     <value>Инд.</value>
@@ -495,7 +501,7 @@
     <value>196, 24</value>
   </data>
   <data name="clientTypeCorpCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
+    <value>51, 20</value>
   </data>
   <data name="clientTypeCorpCheckBox.Text" xml:space="preserve">
     <value>Орг.</value>
@@ -504,7 +510,7 @@
     <value>80, 24</value>
   </data>
   <data name="clientTypeGroupCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
+    <value>52, 20</value>
   </data>
   <data name="clientTypeGroupCheckBox.Text" xml:space="preserve">
     <value>ГСО</value>
@@ -513,7 +519,7 @@
     <value>27, 24</value>
   </data>
   <data name="clientTypeAllCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 20</value>
+    <value>50, 20</value>
   </data>
   <data name="clientTypeAllCheckBox.Text" xml:space="preserve">
     <value>Все</value>
@@ -525,25 +531,25 @@
     <value>Тип графика*</value>
   </data>
   <data name="rbDecliningFixedPrincipalRelaInterest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 20</value>
+    <value>176, 20</value>
   </data>
   <data name="rbDecliningFixedPrincipalRelaInterest.Text" xml:space="preserve">
     <value>Проценты на КП по дням</value>
   </data>
   <data name="rbDecliningFixedPrincipal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 20</value>
+    <value>123, 20</value>
   </data>
   <data name="rbDecliningFixedPrincipal.Text" xml:space="preserve">
     <value>Проценты на КП</value>
   </data>
   <data name="rbDecliningFixedInstallments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 20</value>
+    <value>80, 20</value>
   </data>
   <data name="rbDecliningFixedInstallments.Text" xml:space="preserve">
     <value>Аннуитет</value>
   </data>
   <data name="rbFlat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 20</value>
+    <value>122, 20</value>
   </data>
   <data name="rbFlat.Text" xml:space="preserve">
     <value>Фиксированный</value>
@@ -570,7 +576,7 @@
     <value>168, 49</value>
   </data>
   <data name="labelGPOr.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 16</value>
+    <value>88, 16</value>
   </data>
   <data name="labelGPOr.Text" xml:space="preserve">
     <value>или значение</value>
@@ -588,7 +594,7 @@
     <value>163, 75</value>
   </data>
   <data name="labelInstallmentType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 16</value>
+    <value>114, 16</value>
   </data>
   <data name="labelInstallmentType.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -600,7 +606,7 @@
     <value>163, 24</value>
   </data>
   <data name="labelName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 16</value>
+    <value>136, 16</value>
   </data>
   <data name="labelName.Text" xml:space="preserve">
     <value>Название продукта *:</value>
@@ -615,13 +621,13 @@
     <value>166, 45</value>
   </data>
   <data name="label43.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 16</value>
+    <value>69, 16</value>
   </data>
   <data name="label43.Text" xml:space="preserve">
     <value>Значение:</value>
   </data>
   <data name="label42.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 16</value>
+    <value>29, 16</value>
   </data>
   <data name="label42.Text" xml:space="preserve">
     <value>или</value>
@@ -630,7 +636,7 @@
     <value>Штраф за частичное досрочное погашение *:</value>
   </data>
   <data name="rbPrepaidPrincipal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 20</value>
+    <value>185, 20</value>
   </data>
   <data name="rbPrepaidPrincipal.Text" xml:space="preserve">
     <value>% на предоплаченную ОС</value>
@@ -642,7 +648,7 @@
     <value>% на КП</value>
   </data>
   <data name="rbPartialRemainingInterest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 20</value>
+    <value>183, 20</value>
   </data>
   <data name="rbPartialRemainingInterest.Text" xml:space="preserve">
     <value>% на оставшийся процент</value>
@@ -657,7 +663,7 @@
     <value>% на КП</value>
   </data>
   <data name="rbRemainingInterest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 20</value>
+    <value>183, 20</value>
   </data>
   <data name="rbRemainingInterest.Text" xml:space="preserve">
     <value>% на оставшийся процент</value>
@@ -669,7 +675,7 @@
     <value>166, 37</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 16</value>
+    <value>69, 16</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Значение:</value>
@@ -681,7 +687,7 @@
     <value>16, 27</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 16</value>
+    <value>29, 16</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>или</value>
@@ -705,7 +711,7 @@
     <value>227, 192</value>
   </data>
   <data name="labelLateFeeGracePeriod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 16</value>
+    <value>156, 16</value>
   </data>
   <data name="labelLateFeeGracePeriod.Text" xml:space="preserve">
     <value>Льготный период пени *:</value>
@@ -720,13 +726,13 @@
     <value>168, 39</value>
   </data>
   <data name="label25.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 16</value>
+    <value>69, 16</value>
   </data>
   <data name="label25.Text" xml:space="preserve">
     <value>Значение:</value>
   </data>
   <data name="label28.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 16</value>
+    <value>29, 16</value>
   </data>
   <data name="label28.Text" xml:space="preserve">
     <value>или</value>
@@ -750,13 +756,13 @@
     <value>168, 39</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 16</value>
+    <value>69, 16</value>
   </data>
   <data name="label13.Text" xml:space="preserve">
     <value>Значение:</value>
   </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 16</value>
+    <value>29, 16</value>
   </data>
   <data name="label16.Text" xml:space="preserve">
     <value>или</value>
@@ -780,13 +786,13 @@
     <value>168, 39</value>
   </data>
   <data name="label21.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 16</value>
+    <value>69, 16</value>
   </data>
   <data name="label21.Text" xml:space="preserve">
     <value>Значение:</value>
   </data>
   <data name="label24.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 16</value>
+    <value>29, 16</value>
   </data>
   <data name="label24.Text" xml:space="preserve">
     <value>или</value>
@@ -810,13 +816,13 @@
     <value>168, 39</value>
   </data>
   <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 16</value>
+    <value>69, 16</value>
   </data>
   <data name="label17.Text" xml:space="preserve">
     <value>Значение:</value>
   </data>
   <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 16</value>
+    <value>29, 16</value>
   </data>
   <data name="label20.Text" xml:space="preserve">
     <value>или</value>
@@ -867,13 +873,13 @@
     <value>434, 18</value>
   </data>
   <data name="lblEntryFeesFromCycle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 16</value>
+    <value>45, 16</value>
   </data>
   <data name="lblEntryFeesFromCycle.Text" xml:space="preserve">
     <value>Число</value>
   </data>
   <data name="cbEnableEntryFeesCycle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 20</value>
+    <value>127, 20</value>
   </data>
   <data name="cbEnableEntryFeesCycle.Text" xml:space="preserve">
     <value>На основе цикла</value>
@@ -882,7 +888,7 @@
     <value>146, 21</value>
   </data>
   <data name="lblEntryFeesCycle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 16</value>
+    <value>93, 16</value>
   </data>
   <data name="lblEntryFeesCycle.Text" xml:space="preserve">
     <value>Цикл кредита:</value>
@@ -894,7 +900,7 @@
     <value>Нетипичный продукт</value>
   </data>
   <data name="labelTotalExoticInstallments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 16</value>
+    <value>53, 16</value>
   </data>
   <data name="labelTotalExoticInstallments.Text" xml:space="preserve">
     <value>Сумма:</value>
@@ -933,7 +939,7 @@
     <value>4, 44</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 16</value>
+    <value>61, 16</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
     <value>Процент:</value>
@@ -942,7 +948,7 @@
     <value>4, 13</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 16</value>
+    <value>114, 16</value>
   </data>
   <data name="label10.Text" xml:space="preserve">
     <value>Основная сумма:</value>
@@ -996,7 +1002,7 @@
     <value>274, 22</value>
   </data>
   <data name="drawingNumberLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 16</value>
+    <value>251, 16</value>
   </data>
   <data name="drawingNumberLabel.Text" xml:space="preserve">
     <value>Количество траншей в кредитной линии:</value>
@@ -1014,13 +1020,13 @@
     <value>306, 44</value>
   </data>
   <data name="label45.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 16</value>
+    <value>69, 16</value>
   </data>
   <data name="label45.Text" xml:space="preserve">
     <value>Значение:</value>
   </data>
   <data name="label48.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 16</value>
+    <value>29, 16</value>
   </data>
   <data name="label48.Text" xml:space="preserve">
     <value>или</value>
@@ -1038,13 +1044,13 @@
     <value>307, 44</value>
   </data>
   <data name="label36.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 16</value>
+    <value>69, 16</value>
   </data>
   <data name="label36.Text" xml:space="preserve">
     <value>Значение:</value>
   </data>
   <data name="label39.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 16</value>
+    <value>29, 16</value>
   </data>
   <data name="label39.Text" xml:space="preserve">
     <value>или</value>
@@ -1056,7 +1062,7 @@
     <value>20, 293</value>
   </data>
   <data name="cbUseCompulsorySavings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 20</value>
+    <value>268, 20</value>
   </data>
   <data name="cbUseCompulsorySavings.Text" xml:space="preserve">
     <value>Использовать обязательное накопление</value>
@@ -1074,43 +1080,43 @@
     <value>160, 22</value>
   </data>
   <data name="rbCompulsoryAmountRate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 20</value>
+    <value>75, 20</value>
   </data>
   <data name="rbCompulsoryAmountRate.Text" xml:space="preserve">
     <value>Процент</value>
   </data>
   <data name="rbCompulsoryAmountFlat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 20</value>
+    <value>67, 20</value>
   </data>
   <data name="rbCompulsoryAmountFlat.Text" xml:space="preserve">
     <value>Сумма</value>
   </data>
   <data name="lbCompulsoryAmountType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 16</value>
+    <value>32, 16</value>
   </data>
   <data name="lbCompulsoryAmountType.Text" xml:space="preserve">
     <value>Тип:</value>
   </data>
   <data name="lbCompulsoryAmountValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 16</value>
+    <value>71, 16</value>
   </data>
   <data name="lbCompulsoryAmountValue.Text" xml:space="preserve">
     <value>значение :</value>
   </data>
   <data name="lbCompulsoryAmountMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 16</value>
+    <value>43, 16</value>
   </data>
   <data name="lbCompulsoryAmountMax.Text" xml:space="preserve">
     <value>Макс:</value>
   </data>
   <data name="lbCompulsoryAmountMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="lbCompulsoryAmountMin.Text" xml:space="preserve">
     <value>Мин:</value>
   </data>
   <data name="lbCompulsoryAmountOr.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 16</value>
+    <value>29, 16</value>
   </data>
   <data name="lbCompulsoryAmountOr.Text" xml:space="preserve">
     <value>или</value>
@@ -1119,7 +1125,7 @@
     <value>342, 65</value>
   </data>
   <data name="checkBoxSetSepCollGuar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>439, 20</value>
+    <value>394, 20</value>
   </data>
   <data name="checkBoxSetSepCollGuar.Text" xml:space="preserve">
     <value>Установить раздельные значения для поручителей и залогов</value>
@@ -1134,13 +1140,13 @@
     <value>390, 27</value>
   </data>
   <data name="label34.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 16</value>
+    <value>121, 16</value>
   </data>
   <data name="label34.Text" xml:space="preserve">
     <value>% от суммы займа</value>
   </data>
   <data name="label33.Size" type="System.Drawing.Size, System.Drawing">
-    <value>331, 16</value>
+    <value>297, 16</value>
   </data>
   <data name="label33.Text" xml:space="preserve">
     <value>Минимальный процент поручительства + залоги</value>
@@ -1155,37 +1161,37 @@
     <value>108, 96</value>
   </data>
   <data name="label49.Size" type="System.Drawing.Size, System.Drawing">
-    <value>633, 16</value>
+    <value>566, 16</value>
   </data>
   <data name="label49.Text" xml:space="preserve">
     <value>Примечание: введите значение "0", если вы не хотите использовать поручителей или залоги</value>
   </data>
   <data name="label44.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 16</value>
+    <value>121, 16</value>
   </data>
   <data name="label44.Text" xml:space="preserve">
     <value>% от суммы займа</value>
   </data>
   <data name="label35.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 16</value>
+    <value>121, 16</value>
   </data>
   <data name="label35.Text" xml:space="preserve">
     <value>% от суммы займа</value>
   </data>
   <data name="labelMinPercColl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>249, 16</value>
+    <value>224, 16</value>
   </data>
   <data name="labelMinPercColl.Text" xml:space="preserve">
     <value>Минимальный процент для залогов:</value>
   </data>
   <data name="labelMinPercGuar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>282, 16</value>
+    <value>253, 16</value>
   </data>
   <data name="labelMinPercGuar.Text" xml:space="preserve">
     <value>Минимальный процент для поручителей:</value>
   </data>
   <data name="checkBoxGuarCollRequired.Size" type="System.Drawing.Size, System.Drawing">
-    <value>269, 20</value>
+    <value>243, 20</value>
   </data>
   <data name="checkBoxGuarCollRequired.Text" xml:space="preserve">
     <value>Использовать поручителей и залоги</value>
@@ -1206,13 +1212,13 @@
     <value>57, 21</value>
   </data>
   <data name="label50.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 16</value>
+    <value>43, 16</value>
   </data>
   <data name="label50.Text" xml:space="preserve">
     <value>Макс:</value>
   </data>
   <data name="label51.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="label51.Text" xml:space="preserve">
     <value>Мин:</value>
@@ -1237,6 +1243,21 @@
   </data>
   <data name="label7.Text" xml:space="preserve">
     <value>Использование из существующих</value>
+  </data>
+  <data name="buttonCancel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAADECAIAAAAdy+YyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACH0lEQVRoQ+3LS0gTcADH8V8QEUGHrh27
+        duvU1UMRFFQQiPQOegpGgmEghSEWJYiIRSZJmRhmiYgmmiWarUxt5PuxZOrc2sM555xu0+r+P/U9CMb/
+        y+f61W+U3YzsZmQ3I7sZ2c3IbkZ2M7Kbkd2M7GZkNyO6raPsZmQ3o82xra2vAXYz0C21lgKUTKWA/3xL
+        AptjSyQTgFaTCWCDt5XEKrDBWzyxAtBteTUOKLYSBzbHFo3HALotLi8BG7xFYlFA4aUoQLf5aARQKLoA
+        0C24GAYUiIQBuvkXQoB+hYOAvOEgQLe5+QAgT8gPaDboAzQd8AF/Ny8gt98DaMrvAeTyzQCa9E4DdBuf
+        cwMa80wBGpn9CWh4xgVo0D0BaMA9Dsg5NQqo3zUMqM81BKh3chBQz8QAIMeYE9DnUSegrpF+QJ1DvYA+
+        DvQAav/xBVCb0wGo5Xs3oOb+LkBNfZ2AGr91AKr/2g7ojeM9oNfdrYBefXoHqLqzCVBVRyOgyg8NgCra
+        3gIqb60D9LilFlBpcw2g4saXgIoaXgC6V18JqKCuAlB+bTmgvJpHgG5VlwK6WVUCKPt5MaCsZw8BXXt6
+        H9DFJ4WAzpXdBXSq9A6g9JI8QMeKcgEdeZAD6GDhDUBpBdcB7c/PBLTv9hVAe/MuAdqTex7Q7pwzgHZl
+        nwS0Mysd0I7ME4C2Xz0OaNvlo4C2XjgMaMvZQ4B0+gChjLR/lpH2B8auF1qedkGxAAAAAElFTkSuQmCC
+</value>
   </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Выход</value>

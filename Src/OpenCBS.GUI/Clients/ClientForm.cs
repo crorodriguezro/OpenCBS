@@ -3404,7 +3404,7 @@ namespace OpenCBS.GUI.Clients
 
         private Loan CreateLoan()
         {
-            Loan credit = new Loan(_product,
+            var credit = new Loan(_product,
                                        ServicesHelper.ConvertStringToDecimal(nudLoanAmount.Text, _product.UseCents),
                                        nudInterestRate.Value / 100m,
                                        Convert.ToInt32(nudLoanNbOfInstallments.Value),
@@ -3421,7 +3421,7 @@ namespace OpenCBS.GUI.Clients
                                   Collaterals = _collaterals,
                                   LoanShares = _loanShares
                               };
-
+            credit.InstallmentList = ServicesProvider.GetInstance().GetContractServices().SimulateScheduleCreation(credit);
             if (!string.IsNullOrEmpty(tbLocAmount.Text))
                 credit.AmountUnderLoc = decimal.Parse(tbLocAmount.Text);
 
@@ -3584,7 +3584,8 @@ namespace OpenCBS.GUI.Clients
             {
                 if (!pCredit.ScheduleChangedManually)
                 {
-                    pCredit.InstallmentList = pCredit.CalculateInstallments(true);
+                    pCredit.InstallmentList = pCredit.Product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest || pCredit.Product.IsExotic 
+                        ? pCredit.CalculateInstallments(true) : ServiceProvider.GetContractServices().SimulateScheduleCreation(pCredit);
                     pCredit.CalculateStartDates();
                 }
             }
