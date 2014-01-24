@@ -80,6 +80,9 @@ namespace OpenCBS.Services
         [ImportMany(typeof (IContractCodeGenerator))]
         private Lazy<IContractCodeGenerator, IDictionary<string, object>>[] ContractCodeGenerators { get; set; }
 
+        [ImportMany(typeof(IEventInterceptor))]
+        private Lazy<IEventInterceptor, IDictionary<string, object>>[] EventInterceptors { get; set; }
+
         public LoanServices(User pUser)
             : base(pUser)
         {
@@ -480,7 +483,7 @@ namespace OpenCBS.Services
 
                     SetEconomicActivity(pLoan, sqlTransaction);
 
-                    _accountingServices.CreateBooking(pLoan, sqlTransaction);
+                    CallInterceptor(pLoan, sqlTransaction);
 
                     sqlTransaction.Commit();
                     return copyLoan;
@@ -2492,6 +2495,31 @@ namespace OpenCBS.Services
             if (generator != null) return generator.GenerateContractCode(client, loan, transaction);
 
             throw new ApplicationException("Cannot find contract code generator.");
+        }
+
+        private void CallInterceptor(Loan loan, SqlTransaction transaction)
+        {
+            // Find non-default implementation
+            var creator = (
+                                from item in EventInterceptors
+                                where
+                                    item.Metadata.ContainsKey("Implementation") &&
+                                    item.Metadata["Implementation"].ToString() != "Default"
+                                select item.Value).FirstOrDefault();
+            if (creator != null)
+            {
+                creator.CallInterceptor(loan, transaction);
+                return;
+            }
+
+            // Otherwise, find the default one
+            creator = (
+                            from item in EventInterceptors
+                            where
+                                item.Metadata.ContainsKey("Implementation") &&
+                                item.Metadata["Implementation"].ToString() == "Default"
+                            select item.Value).FirstOrDefault();
+            if (creator != null) creator.CallInterceptor(loan, transaction);
         }
 
         public void ManualScheduleBeforeDisbursement()

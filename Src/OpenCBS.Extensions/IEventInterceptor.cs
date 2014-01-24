@@ -17,19 +17,13 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
-using System.ComponentModel.Composition;
 using System.Data.SqlClient;
 using OpenCBS.CoreDomain.Contracts.Loans;
 
 namespace OpenCBS.Extensions
 {
-    [Export(typeof (IBookingCreator))]
-    [ExportMetadata("Implementation", "Default")]
-    [PartCreationPolicy(CreationPolicy.Shared)]
-    public class BookingCreator : IBookingCreator
+    public interface IEventInterceptor
     {
-        public void CreateBooking(Loan loan, SqlTransaction transaction)
-        {
-        }
+        void CallInterceptor(Loan loan, SqlTransaction transaction);
     }
 }

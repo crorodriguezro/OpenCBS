@@ -20,15 +20,11 @@
 // Contact: contact@opencbs.com
 
 using System;
-using System.ComponentModel.Composition;
 using System.Data;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.DatabaseConnection;
 using OpenCBS.ExceptionsHandler.Exceptions.AccountExceptions;
-using OpenCBS.Extensions;
 using OpenCBS.Manager.Accounting;
 using OpenCBS.CoreDomain;
 using OpenCBS.ExceptionsHandler;
@@ -45,10 +41,7 @@ namespace OpenCBS.Services.Accounting
 		private readonly AccountingTransactionManager _movementSetManagement;
         private readonly ExchangeRateServices _exchangeRateServices;
         private readonly User _user;
-
-        [ImportMany(typeof(IBookingCreator))]
-        private Lazy<IBookingCreator, IDictionary<string, object>>[] BookingCreators { get; set; }
-        
+     
 		#region constructors
 
         public AccountingServices(User pUser)
@@ -56,8 +49,6 @@ namespace OpenCBS.Services.Accounting
             _user = pUser;
             _exchangeRateServices = new ExchangeRateServices(_user);
             _movementSetManagement = new AccountingTransactionManager(pUser);
-
-            MefContainer.Current.Bind(this);
         }
 
         public AccountingServices(string testDb)
@@ -66,8 +57,6 @@ namespace OpenCBS.Services.Accounting
             _exchangeRateServices = new ExchangeRateServices(testDb);
 			_movementSetManagement = new AccountingTransactionManager(testDb);
 			ConnectionManager.GetInstance(testDb);
-
-            MefContainer.Current.Bind(this);
 		}
 
 		#endregion
@@ -350,31 +339,6 @@ namespace OpenCBS.Services.Accounting
         {
             return _movementSetManagement.SelectBookings(pAccount, pBeginDate, pEndDate, currencyId, pBookingType,
                                                          pBranchId);
-        }
-
-        public void CreateBooking(Loan loan, SqlTransaction transaction)
-        {
-            // Find non-default implementation
-            var creator = (
-                                from item in BookingCreators
-                                where
-                                    item.Metadata.ContainsKey("Implementation") &&
-                                    item.Metadata["Implementation"].ToString() != "Default"
-                                select item.Value).FirstOrDefault();
-            if (creator != null)
-            {
-                creator.CreateBooking(loan, transaction);
-                return;
-            }
-
-            // Otherwise, find the default one
-            creator = (
-                            from item in BookingCreators
-                            where
-                                item.Metadata.ContainsKey("Implementation") &&
-                                item.Metadata["Implementation"].ToString() == "Default"
-                            select item.Value).FirstOrDefault();
-            if (creator != null) creator.CreateBooking(loan, transaction);
         }
 	}
 }
