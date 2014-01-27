@@ -57,7 +57,7 @@ namespace OpenCBS.Engine
         {
             _scheduleConfiguration.CalculationPolicy = GetPolicy<IInstallmentCalculationPolicy>(GetCalculationPolicyKey());
             _scheduleConfiguration.PeriodPolicy = GetPeriodPolicy();
-            _scheduleConfiguration.YearPolicy = GetPolicy<IYearPolicy>("360");
+            _scheduleConfiguration.YearPolicy = GetYearPolicy();
             _scheduleConfiguration.RoundingPolicy = GetRoundingPolicy();
             _scheduleConfiguration.DateShiftPolicy = GetDateShiftPolicy();
             _scheduleConfiguration.AdjustmentPolicy = GetAdjustmentPolicy();
@@ -112,10 +112,12 @@ namespace OpenCBS.Engine
 
         private IPeriodPolicy GetPeriodPolicy()
         {
-            if (_loan.InstallmentType.NbOfMonths == 1 && _loan.InstallmentType.NbOfDays == 0)
+            if (_loan.InstallmentType.NbOfMonths == 0 && _loan.InstallmentType.NbOfDays == 30)
                 return GetPolicy<IPeriodPolicy>("Monthly (30 day)");
             if (_loan.InstallmentType.NbOfMonths == 0 && _loan.InstallmentType.NbOfDays == 1)
                 return GetPolicy<IPeriodPolicy>("Daily");
+            if (_loan.InstallmentType.NbOfMonths == 1 && _loan.InstallmentType.NbOfDays == 0)
+                return GetPolicy<IPeriodPolicy>("Monthly");
 
             var policy = (CustomPeriodPolicy)GetPolicy<IPeriodPolicy>("Custom");
             policy.SetNumberOfDays(_loan.InstallmentType.NbOfDays);
@@ -126,6 +128,21 @@ namespace OpenCBS.Engine
         {
             var key = _loan.Product.Currency.UseCents ? "Two decimal" : "Whole";
             return GetPolicy<IRoundingPolicy>(key);
+        }
+
+        private IYearPolicy GetYearPolicy()
+        {
+            string key;
+            switch (_loan.Product.YearType)
+            {
+                case OYearType.Days360:
+                    key = "360";
+                    break;
+                default:
+                    key = "Actual";
+                    break;
+            }
+            return GetPolicy<IYearPolicy>(key);
         }
 
         private IDateShiftPolicy GetDateShiftPolicy()

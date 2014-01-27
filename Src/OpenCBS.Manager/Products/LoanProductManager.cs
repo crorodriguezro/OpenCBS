@@ -52,110 +52,111 @@ namespace OpenCBS.Manager.Products
             installmentTypeManagement = new InstallmentTypeManager(testDB);
         }
 
-        private static void SetProduct(OpenCbsCommand c, LoanProduct pPackage)
+        private static void SetProduct(OpenCbsCommand c, LoanProduct package)
         {
-            c.AddParam("@packageId", pPackage.Id);
-            c.AddParam("@deleted", pPackage.Delete);
-            c.AddParam("@name", pPackage.Name);
-            c.AddParam("@code", pPackage.Code);
-            c.AddParam("@clientType", pPackage.ClientType);
-            c.AddParam("@installmentTypeId", pPackage.InstallmentType.Id);
-            c.AddParam("@loanType", (int)pPackage.LoanType);
-            c.AddParam("@rounding_type", (int)pPackage.RoundingType);
-            c.AddParam("@amount", pPackage.Amount);
-            c.AddParam("@amountMin", pPackage.AmountMin);
-            c.AddParam("@amountMax", pPackage.AmountMax);
+            c.AddParam("@packageId", package.Id);
+            c.AddParam("@deleted", package.Delete);
+            c.AddParam("@name", package.Name);
+            c.AddParam("@code", package.Code);
+            c.AddParam("@clientType", package.ClientType);
+            c.AddParam("@installmentTypeId", package.InstallmentType.Id);
+            c.AddParam("@loanType", (int)package.LoanType);
+            c.AddParam("@rounding_type", (int)package.RoundingType);
+            c.AddParam("@amount", package.Amount);
+            c.AddParam("@amountMin", package.AmountMin);
+            c.AddParam("@amountMax", package.AmountMax);
 
-            c.AddParam("@interestRate", pPackage.InterestRate);
-            c.AddParam("@interestRateMin", pPackage.InterestRateMin);
-            c.AddParam("@interestRateMax", pPackage.InterestRateMax);         
+            c.AddParam("@interestRate", package.InterestRate);
+            c.AddParam("@interestRateMin", package.InterestRateMin);
+            c.AddParam("@interestRateMax", package.InterestRateMax);         
    
-            c.AddParam("@gracePeriod", pPackage.GracePeriod);
-            c.AddParam("@gracePeriodMin", pPackage.GracePeriodMin);
-            c.AddParam("@gracePeriodMax", pPackage.GracePeriodMax);
-            c.AddParam("@grace_period_of_latefees", pPackage.GracePeriodOfLateFees);
+            c.AddParam("@gracePeriod", package.GracePeriod);
+            c.AddParam("@gracePeriodMin", package.GracePeriodMin);
+            c.AddParam("@gracePeriodMax", package.GracePeriodMax);
+            c.AddParam("@grace_period_of_latefees", package.GracePeriodOfLateFees);
             
-            c.AddParam("@nbOfInstallments", pPackage.NbOfInstallments);
-            c.AddParam("@nbOfInstallmentsMin", pPackage.NbOfInstallmentsMin);
-            c.AddParam("@nbOfInstallmentsMax", pPackage.NbOfInstallmentsMax);
+            c.AddParam("@nbOfInstallments", package.NbOfInstallments);
+            c.AddParam("@nbOfInstallmentsMin", package.NbOfInstallmentsMin);
+            c.AddParam("@nbOfInstallmentsMax", package.NbOfInstallmentsMax);
             
-            c.AddParam("@anticipatedTotalRepaymentPenalties", pPackage.AnticipatedTotalRepaymentPenalties);
-            c.AddParam("@anticipatedTotalRepaymentPenaltiesMin", pPackage.AnticipatedTotalRepaymentPenaltiesMin);
-            c.AddParam("@anticipatedTotalRepaymentPenaltiesMax", pPackage.AnticipatedTotalRepaymentPenaltiesMax);
+            c.AddParam("@anticipatedTotalRepaymentPenalties", package.AnticipatedTotalRepaymentPenalties);
+            c.AddParam("@anticipatedTotalRepaymentPenaltiesMin", package.AnticipatedTotalRepaymentPenaltiesMin);
+            c.AddParam("@anticipatedTotalRepaymentPenaltiesMax", package.AnticipatedTotalRepaymentPenaltiesMax);
 
-            c.AddParam("@anticipatedPartialRepaymentPenalties", pPackage.AnticipatedPartialRepaymentPenalties);
-            c.AddParam("@anticipatedPartialRepaymentPenaltiesMin", pPackage.AnticipatedPartialRepaymentPenaltiesMin);
-            c.AddParam("@anticipatedPartialRepaymentPenaltiesMax", pPackage.AnticipatedPartialRepaymentPenaltiesMax);
+            c.AddParam("@anticipatedPartialRepaymentPenalties", package.AnticipatedPartialRepaymentPenalties);
+            c.AddParam("@anticipatedPartialRepaymentPenaltiesMin", package.AnticipatedPartialRepaymentPenaltiesMin);
+            c.AddParam("@anticipatedPartialRepaymentPenaltiesMax", package.AnticipatedPartialRepaymentPenaltiesMax);
             
-            c.AddParam("@chargeInterestWithInGracePeriod", pPackage.ChargeInterestWithinGracePeriod);
+            c.AddParam("@chargeInterestWithInGracePeriod", package.ChargeInterestWithinGracePeriod);
             
-            c.AddParam("@AnticipatedTotalRepaymentPenaltiesBase", (int)pPackage.AnticipatedTotalRepaymentPenaltiesBase);
-            c.AddParam("@AnticipatedPartialRepaymentPenaltiesBase", (int)pPackage.AnticipatedPartialRepaymentPenaltiesBase);
+            c.AddParam("@AnticipatedTotalRepaymentPenaltiesBase", (int)package.AnticipatedTotalRepaymentPenaltiesBase);
+            c.AddParam("@AnticipatedPartialRepaymentPenaltiesBase", (int)package.AnticipatedPartialRepaymentPenaltiesBase);
             
-            c.AddParam("@keepExpectedInstallment", pPackage.KeepExpectedInstallment);
-            c.AddParam("@currency_id", pPackage.Currency.Id);
+            c.AddParam("@keepExpectedInstallment", package.KeepExpectedInstallment);
+            c.AddParam("@currency_id", package.Currency.Id);
 
-            if (pPackage.FundingLine != null)
-                c.AddParam("@fundingLine_id", pPackage.FundingLine.Id);
+            if (package.FundingLine != null)
+                c.AddParam("@fundingLine_id", package.FundingLine.Id);
             else
                 c.AddParam("@fundingLine_id", null);
 
-            c.AddParam("@nonRepaymentPenaltiesInitialAmount", pPackage.NonRepaymentPenalties.InitialAmount);
-            c.AddParam("@nonRepaymentPenaltiesOlb", pPackage.NonRepaymentPenalties.OLB);
-            c.AddParam("@nonRepaymentPenaltiesOverdueInterest", pPackage.NonRepaymentPenalties.OverDueInterest);
-            c.AddParam("@nonRepaymentPenaltiesOverduePrincipal", pPackage.NonRepaymentPenalties.OverDuePrincipal);
+            c.AddParam("@nonRepaymentPenaltiesInitialAmount", package.NonRepaymentPenalties.InitialAmount);
+            c.AddParam("@nonRepaymentPenaltiesOlb", package.NonRepaymentPenalties.OLB);
+            c.AddParam("@nonRepaymentPenaltiesOverdueInterest", package.NonRepaymentPenalties.OverDueInterest);
+            c.AddParam("@nonRepaymentPenaltiesOverduePrincipal", package.NonRepaymentPenalties.OverDuePrincipal);
 
-            c.AddParam("@nonRepaymentPenaltiesInitialAmountMin", pPackage.NonRepaymentPenaltiesMin.InitialAmount);
-            c.AddParam("@nonRepaymentPenaltiesOlbMin", pPackage.NonRepaymentPenaltiesMin.OLB);
-            c.AddParam("@nonRepaymentPenaltiesOverdueInterestMin", pPackage.NonRepaymentPenaltiesMin.OverDueInterest);
-            c.AddParam("@nonRepaymentPenaltiesOverduePrincipalMin", pPackage.NonRepaymentPenaltiesMin.OverDuePrincipal);
+            c.AddParam("@nonRepaymentPenaltiesInitialAmountMin", package.NonRepaymentPenaltiesMin.InitialAmount);
+            c.AddParam("@nonRepaymentPenaltiesOlbMin", package.NonRepaymentPenaltiesMin.OLB);
+            c.AddParam("@nonRepaymentPenaltiesOverdueInterestMin", package.NonRepaymentPenaltiesMin.OverDueInterest);
+            c.AddParam("@nonRepaymentPenaltiesOverduePrincipalMin", package.NonRepaymentPenaltiesMin.OverDuePrincipal);
 
-            c.AddParam("@nonRepaymentPenaltiesInitialAmountMax", pPackage.NonRepaymentPenaltiesMax.InitialAmount);
-            c.AddParam("@nonRepaymentPenaltiesOlbMax", pPackage.NonRepaymentPenaltiesMax.OLB);
-            c.AddParam("@nonRepaymentPenaltiesOverdueInterestMax", pPackage.NonRepaymentPenaltiesMax.OverDueInterest);
-            c.AddParam("@nonRepaymentPenaltiesOverduePrincipalMax", pPackage.NonRepaymentPenaltiesMax.OverDuePrincipal);
+            c.AddParam("@nonRepaymentPenaltiesInitialAmountMax", package.NonRepaymentPenaltiesMax.InitialAmount);
+            c.AddParam("@nonRepaymentPenaltiesOlbMax", package.NonRepaymentPenaltiesMax.OLB);
+            c.AddParam("@nonRepaymentPenaltiesOverdueInterestMax", package.NonRepaymentPenaltiesMax.OverDueInterest);
+            c.AddParam("@nonRepaymentPenaltiesOverduePrincipalMax", package.NonRepaymentPenaltiesMax.OverDuePrincipal);
             
-            if (pPackage.UseLoanCycle)
-                c.AddParam("@cycleId", pPackage.CycleId);
+            if (package.UseLoanCycle)
+                c.AddParam("@cycleId", package.CycleId);
             else
                 c.AddParam("@cycleId", null);
 
-            if (pPackage.ExoticProduct == null)
+            if (package.ExoticProduct == null)
                 c.AddParam("@exoticId", null);
             else
-                c.AddParam("@exoticId", pPackage.ExoticProduct.Id);
+                c.AddParam("@exoticId", package.ExoticProduct.Id);
             
             /* Line of credit */
-            c.AddParam("@DrawingsNumber", pPackage.DrawingsNumber);
+            c.AddParam("@DrawingsNumber", package.DrawingsNumber);
 
-            c.AddParam("@AmountUnderLoc", pPackage.AmountUnderLoc);
-            c.AddParam("@AmountUnderLocMin", pPackage.AmountUnderLocMin);
-            c.AddParam("@AmountUnderLocMax", pPackage.AmountUnderLocMax);
+            c.AddParam("@AmountUnderLoc", package.AmountUnderLoc);
+            c.AddParam("@AmountUnderLocMin", package.AmountUnderLocMin);
+            c.AddParam("@AmountUnderLocMax", package.AmountUnderLocMax);
 
-            c.AddParam("@MaturityLoc", pPackage.MaturityLoc);
-            c.AddParam("@MaturityLocMin", pPackage.MaturityLocMin);
-            c.AddParam("@MaturityLocMax", pPackage.MaturityLocMax);
-            c.AddParam("@activated_loc", pPackage.ActivatedLOC);
+            c.AddParam("@MaturityLoc", package.MaturityLoc);
+            c.AddParam("@MaturityLocMin", package.MaturityLocMin);
+            c.AddParam("@MaturityLocMax", package.MaturityLocMax);
+            c.AddParam("@activated_loc", package.ActivatedLOC);
 
-            c.AddParam("@allow_flexible_schedule", pPackage.AllowFlexibleSchedule);
+            c.AddParam("@allow_flexible_schedule", package.AllowFlexibleSchedule);
 
             /* Some coolish Guarantors and Collaterals */
-            c.AddParam("@use_guarantor_collateral", pPackage.UseGuarantorCollateral);
-            c.AddParam("@set_separate_guarantor_collateral", pPackage.SetSeparateGuarantorCollateral);
-            c.AddParam("@percentage_total_guarantor_collateral", pPackage.PercentageTotalGuarantorCollateral);
-            c.AddParam("@percentage_separate_guarantor", pPackage.PercentageSeparateGuarantour);
-            c.AddParam("@percentage_separate_collateral", pPackage.PercentageSeparateCollateral);
+            c.AddParam("@use_guarantor_collateral", package.UseGuarantorCollateral);
+            c.AddParam("@set_separate_guarantor_collateral", package.SetSeparateGuarantorCollateral);
+            c.AddParam("@percentage_total_guarantor_collateral", package.PercentageTotalGuarantorCollateral);
+            c.AddParam("@percentage_separate_guarantor", package.PercentageSeparateGuarantour);
+            c.AddParam("@percentage_separate_collateral", package.PercentageSeparateCollateral);
             
             // Some cool stuff for compulsory savings
-            c.AddParam("@use_compulsory_savings", pPackage.UseCompulsorySavings);
-            c.AddParam("@compulsory_amount", pPackage.CompulsoryAmount);
-            c.AddParam("@compulsory_amount_min", pPackage.CompulsoryAmountMin);
-            c.AddParam("@compulsory_amount_max", pPackage.CompulsoryAmountMax);
+            c.AddParam("@use_compulsory_savings", package.UseCompulsorySavings);
+            c.AddParam("@compulsory_amount", package.CompulsoryAmount);
+            c.AddParam("@compulsory_amount_min", package.CompulsoryAmountMin);
+            c.AddParam("@compulsory_amount_max", package.CompulsoryAmountMax);
             //Insurance values
-            c.AddParam("@insurance_min", pPackage.CreditInsuranceMin);
-            c.AddParam("@insurance_max", pPackage.CreditInsuranceMax);
+            c.AddParam("@insurance_min", package.CreditInsuranceMin);
+            c.AddParam("@insurance_max", package.CreditInsuranceMax);
             
-            c.AddParam("@use_entry_fees_cycles", pPackage.UseEntryFeesCycles);
+            c.AddParam("@use_entry_fees_cycles", package.UseEntryFeesCycles);
+            c.AddParam("@yearType", package.YearType);
         }
 
         private void FireProductLoaded(LoanProduct product)
@@ -240,7 +241,8 @@ namespace OpenCBS.Manager.Products
 	            ,[compulsory_amount_max]
                 ,[insurance_min]
                 ,[insurance_max]
-                ,[use_entry_fees_cycles])
+                ,[use_entry_fees_cycles]
+                ,[year_type])
                 VALUES
                 (@deleted
                 ,@name
@@ -308,7 +310,8 @@ namespace OpenCBS.Manager.Products
 	            ,@compulsory_amount_max
                 ,@insurance_min
                 ,@insurance_max
-                ,@use_entry_fees_cycles)
+                ,@use_entry_fees_cycles
+                ,@yearType)
                 SELECT SCOPE_IDENTITY()";
 
             using (SqlConnection conn = GetConnection())
@@ -405,7 +408,8 @@ namespace OpenCBS.Manager.Products
                 ,[currency_id] = @currency_id 
                 ,[insurance_min] = @insurance_min
                 ,[insurance_max] = @insurance_max  
-                ,[use_entry_fees_cycles] = @use_entry_fees_cycles             
+                ,[use_entry_fees_cycles] = @use_entry_fees_cycles    
+                ,[year_type] = @yearType         
                 WHERE id = @packageId";
 
             using (SqlConnection conn = GetConnection())
@@ -1106,6 +1110,7 @@ namespace OpenCBS.Manager.Products
             package.CycleId = r.GetNullInt("cycle_id");
             package.CreditInsuranceMin = r.GetDecimal("insurance_min");
             package.CreditInsuranceMax = r.GetDecimal("insurance_max");
+            package.YearType = (OYearType)r.GetInt("year_type");
             return package;
         }
 

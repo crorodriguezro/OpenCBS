@@ -194,6 +194,7 @@ namespace OpenCBS.GUI.Products
             InitializeComboBoxLoanCycles();
             InitializeComboBoxFundingLine();
             InitializeComboBoxCurrencies();
+            cbxDaysInYear.SelectedIndex = 0;
             _product.ClientType = '-';
             _product.ChargeInterestWithinGracePeriod = true;
 
@@ -397,14 +398,12 @@ namespace OpenCBS.GUI.Products
             else
                 radioButtonChargeInterestYes.Checked = true;
 
-            switch (pack.RoundingType)
+            switch (pack.YearType)
             {
-                case ORoundingType.Approximate:
-                    comboBoxRoundingType.SelectedIndex = 0; break;
-                case ORoundingType.Begin:
-                    comboBoxRoundingType.SelectedIndex = 1; break;
-                case ORoundingType.End:
-                    comboBoxRoundingType.SelectedIndex = 2; break;
+                case OYearType.Fact:
+                    cbxDaysInYear.SelectedIndex = 0; break;
+                case OYearType.Days360:
+                    cbxDaysInYear.SelectedIndex = 1; break;
             }
 
             if (pack.CycleId != null)
@@ -640,35 +639,36 @@ namespace OpenCBS.GUI.Products
                 switch (_product.PackageMode)
                 {
                     case OPackageMode.Insert:
-                        {
-                            ServicesProvider.GetInstance().GetProductServices().ParseFieldsAndCheckErrors(_product, _useExoticProduct, _checkBoxCounter);
-                            ServicesProvider.GetInstance().GetProductServices().AddPackage(_product);
-                            Close();
-                            break;
-                        }
+                    {
+                        _product.RoundingType = ORoundingType.End;
+                        ServicesProvider.GetInstance().GetProductServices().ParseFieldsAndCheckErrors(_product, _useExoticProduct, _checkBoxCounter);
+                        ServicesProvider.GetInstance().GetProductServices().AddPackage(_product);
+                        Close();
+                        break;
+                    }
 
                     case OPackageMode.Edit:
+                    {
+                        ServicesProvider.GetInstance().GetProductServices().ParseFieldsAndCheckErrors(_product, _useExoticProduct, _checkBoxCounter);
+
+                        if (_ischangeFee)
                         {
-                            ServicesProvider.GetInstance().GetProductServices().ParseFieldsAndCheckErrors(_product, _useExoticProduct, _checkBoxCounter);
-
-                            if (_ischangeFee)
+                            if (MessageBox.Show(
+                                MultiLanguageStrings.GetString(Ressource.FrmAddLoanProduct, "messageUpdate.Text"),
+                                MultiLanguageStrings.GetString(Ressource.PackagesForm, "title.Text"),
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
-                                if (MessageBox.Show(
-                                    MultiLanguageStrings.GetString(Ressource.FrmAddLoanProduct, "messageUpdate.Text"),
-                                    MultiLanguageStrings.GetString(Ressource.PackagesForm, "title.Text"),
-                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                                {
-                                    ServicesProvider.GetInstance().GetProductServices().UpdatePackage(_product, true);
-                                }
+                                ServicesProvider.GetInstance().GetProductServices().UpdatePackage(_product, true);
                             }
-                            else
-                            {
-                                ServicesProvider.GetInstance().GetProductServices().UpdatePackage(_product, false);
-                            }
-
-                            Close();
-                            break;
                         }
+                        else
+                        {
+                            ServicesProvider.GetInstance().GetProductServices().UpdatePackage(_product, false);
+                        }
+
+                        Close();
+                        break;
+                    }
                 }
             }
             catch (Exception ex)
@@ -872,22 +872,6 @@ namespace OpenCBS.GUI.Products
             textBoxAmountMin.Clear();
             textBoxAmountMax.Clear();
             buttonSave.Enabled = true;
-        }
-
-        private void _CheckAmountTypes(bool pUseSpecifiedAmount)
-        {
-            if (pUseSpecifiedAmount)
-            {
-                groupBoxAmount.Visible = true;
-                groupBoxAmountCycles.Visible = false;
-                _CancelSpecifiedAmount();
-            }
-            else
-            {
-                groupBoxAmount.Visible = false;
-                groupBoxAmountCycles.Visible = true;
-                _CancelAmountCycles();
-            }
         }
 
         private void buttonNewAmountCycles_Click(object sender, EventArgs e)
@@ -1622,21 +1606,6 @@ namespace OpenCBS.GUI.Products
         {
             _product.Currency = (Currency)comboBoxCurrencies.SelectedItem;
             InitializeLabelCurrency(_product.Currency.Code);
-        }
-
-        private void comboBoxRoundingType_SelectedValueChanged(object sender, EventArgs e)
-        {
-            switch (comboBoxRoundingType.SelectedIndex + 1)
-            {
-                case 1:
-                    _product.RoundingType = ORoundingType.Approximate; break;
-                case 2:
-                    _product.RoundingType = ORoundingType.Begin; break;
-                case 3:
-                    _product.RoundingType = ORoundingType.End; break;
-            }
-
-            buttonSave.Enabled = true;
         }
 
         private void textBoxGracePeriodLateFee_TextChanged(object sender, EventArgs e)
@@ -2444,6 +2413,19 @@ namespace OpenCBS.GUI.Products
             {
                 lvEntryFees.Enabled = false;
             }
+            buttonSave.Enabled = true;
+        }
+
+        private void cbxDaysInYear_SelectedValueChanged(object sender, EventArgs e)
+        {
+            switch (cbxDaysInYear.SelectedIndex + 1)
+            {
+                case 1:
+                    _product.YearType = OYearType.Fact; break;
+                case 2:
+                    _product.YearType = OYearType.Days360; break;
+            }
+
             buttonSave.Enabled = true;
         }
 	}

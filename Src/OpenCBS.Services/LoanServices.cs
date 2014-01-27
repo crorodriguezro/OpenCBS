@@ -41,6 +41,8 @@ using OpenCBS.CoreDomain.FundingLines;
 using OpenCBS.CoreDomain.SearchResult;
 using OpenCBS.Engine;
 using OpenCBS.Engine.Interfaces;
+using OpenCBS.Engine.PeriodPolicy;
+using OpenCBS.Engine.YearPolicy;
 using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.ExceptionsHandler.Exceptions.SavingExceptions;
@@ -924,6 +926,20 @@ namespace OpenCBS.Services
             }
         }
 
+        public List<Installment> SimulateScheduleCreation(Loan loan)
+        {
+            var scheduleConfiguration = _configurationFactory
+                .Init()
+                .WithLoan(loan)
+                .Finish()
+                .GetConfiguration();
+
+            var scheduleBuilder = new ScheduleBuilder();
+            var installmentList = scheduleBuilder.BuildSchedule(scheduleConfiguration);
+            var schedule = Mapper.Map<IEnumerable<IInstallment>, List<Installment>>(installmentList);
+            return schedule;
+        }
+
         public Loan SimulateRescheduling(Loan loan, ScheduleConfiguration rescheduleConfiguration)
         {
             var copyOfLoan = loan.Copy();
@@ -932,6 +948,11 @@ namespace OpenCBS.Services
                 .WithLoan(copyOfLoan)
                 .Finish()
                 .GetConfiguration();
+
+            scheduleConfiguration.YearPolicy = new ThreeHundredSixtyDayYearPolicy();
+            if (loan.InstallmentType.NbOfMonths == 1 && loan.InstallmentType.NbOfDays == 0)
+                scheduleConfiguration.PeriodPolicy = new Monthly30DayPeriodPolicy();
+
             var schedule = Mapper.Map<IEnumerable<Installment>, IEnumerable<IInstallment>>(copyOfLoan.InstallmentList);
             var scheduleBuilder = new ScheduleBuilder();
             var rescheduleAssembler = new RescheduleAssembler();
@@ -962,6 +983,11 @@ namespace OpenCBS.Services
                 .WithLoan(copyOfLoan)
                 .Finish()
                 .GetConfiguration();
+
+            scheduleConfiguration.YearPolicy = new ThreeHundredSixtyDayYearPolicy();
+            if (loan.InstallmentType.NbOfMonths == 1 && loan.InstallmentType.NbOfDays == 0)
+                scheduleConfiguration.PeriodPolicy = new Monthly30DayPeriodPolicy();
+
             var schedule = Mapper.Map<IEnumerable<Installment>, IEnumerable<IInstallment>>(copyOfLoan.InstallmentList);
             var scheduleBuilder = new ScheduleBuilder();
             var trancheBuilder = new TrancheBuilder();
