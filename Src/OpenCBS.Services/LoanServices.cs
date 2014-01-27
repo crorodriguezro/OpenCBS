@@ -483,7 +483,13 @@ namespace OpenCBS.Services
 
                     SetEconomicActivity(pLoan, sqlTransaction);
 
-                    CallInterceptor(pLoan, sqlTransaction);
+                    CallInterceptor(new Dictionary<string, object>()
+                        {
+                            {"Loan", pLoan},
+                            {"EventType", "Disbursement"},
+                            {"Amount", loanDisbursmentEvent.Amount},
+                            {"SqlTransaction", sqlTransaction}
+                        });
 
                     sqlTransaction.Commit();
                     return copyLoan;
@@ -2497,7 +2503,7 @@ namespace OpenCBS.Services
             throw new ApplicationException("Cannot find contract code generator.");
         }
 
-        private void CallInterceptor(Loan loan, SqlTransaction transaction)
+        private void CallInterceptor(IDictionary<string, object> interceptorParams)
         {
             // Find non-default implementation
             var creator = (
@@ -2508,7 +2514,7 @@ namespace OpenCBS.Services
                                 select item.Value).FirstOrDefault();
             if (creator != null)
             {
-                creator.CallInterceptor(loan, transaction);
+                creator.CallInterceptor(interceptorParams);
                 return;
             }
 
@@ -2519,7 +2525,7 @@ namespace OpenCBS.Services
                                 item.Metadata.ContainsKey("Implementation") &&
                                 item.Metadata["Implementation"].ToString() == "Default"
                             select item.Value).FirstOrDefault();
-            if (creator != null) creator.CallInterceptor(loan, transaction);
+            if (creator != null) creator.CallInterceptor(interceptorParams);
         }
 
         public void ManualScheduleBeforeDisbursement()

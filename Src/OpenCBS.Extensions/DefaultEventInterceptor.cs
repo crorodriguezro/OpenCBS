@@ -17,9 +17,8 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Data.SqlClient;
-using OpenCBS.CoreDomain.Contracts.Loans;
 
 namespace OpenCBS.Extensions
 {
@@ -28,7 +27,7 @@ namespace OpenCBS.Extensions
     [PartCreationPolicy(CreationPolicy.Shared)]
     public class DefaultEventInterceptor : IEventInterceptor
     {
-        public void CallInterceptor(Loan loan, SqlTransaction transaction)
+        public void CallInterceptor(IDictionary<string, object> interceptorParams)
         {
         }
     }

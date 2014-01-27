@@ -17,13 +17,12 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
-using System.Data.SqlClient;
-using OpenCBS.CoreDomain.Contracts.Loans;
+using System.Collections.Generic;
 
 namespace OpenCBS.Extensions
 {
     public interface IEventInterceptor
     {
-        void CallInterceptor(Loan loan, SqlTransaction transaction);
+        void CallInterceptor(IDictionary<string,object> interceptorParams);
     }
 }
