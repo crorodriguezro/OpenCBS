@@ -212,20 +212,20 @@ namespace OpenCBS.GUI.Products
             _ischangeFee = false;
         }
 
-	    private void InitializeComboBoxInterestScheme(int index)
-	    {
+        private void InitializeComboBoxInterestScheme(int index)
+        {
             cmbInterestScheme.Items.Clear();
-	        cmbInterestScheme.Items.Add(GetString("ActualActual.Text"));
-	        cmbInterestScheme.Items.Add(GetString("Actual360.Text"));
-	        var installmentType = _product.InstallmentType;
+            cmbInterestScheme.Items.Add(GetString("ActualActual.Text"));
+            cmbInterestScheme.Items.Add(GetString("Actual360.Text"));
+            var installmentType = _product.InstallmentType;
             if (installmentType == null || (installmentType.NbOfDays == 0 &&
                 installmentType.NbOfMonths == 1))
-	        {
-	            cmbInterestScheme.Items.Add(GetString("ThirtyActual.Text"));
+            {
+                cmbInterestScheme.Items.Add(GetString("ThirtyActual.Text"));
                 cmbInterestScheme.Items.Add(GetString("Thirty360.Text"));
-	        }
-	        cmbInterestScheme.SelectedIndex = index;
-	    }
+            }
+            cmbInterestScheme.SelectedIndex = index;
+        }
 
         private void InitializeCycleObjects()
         {
