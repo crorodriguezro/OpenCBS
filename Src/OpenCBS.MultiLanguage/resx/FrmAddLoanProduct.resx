@@ -216,4 +216,16 @@
   <data name="OnlyIntegerIsAccepted.Text" xml:space="preserve">
     <value>The compulsory amount must be integer, not real</value>
   </data>
+  <data name="Actual360.Text" xml:space="preserve">
+    <value>Actual/360</value>
+  </data>
+  <data name="ActualActual.Text" xml:space="preserve">
+    <value>Actual/Actual</value>
+  </data>
+  <data name="Thirty360.Text" xml:space="preserve">
+    <value>30/360</value>
+  </data>
+  <data name="ThirtyActual.Text" xml:space="preserve">
+    <value>30/Actual</value>
+  </data>
 </root>
