@@ -137,7 +137,7 @@ namespace OpenCBS.Engine
             switch (_loan.Product.InterestScheme)
             {
                 case OInterestScheme.Thirty360:
-                case OInterestScheme.ThirtyActual:
+                case OInterestScheme.Actual360:
                     key = "360";
                     break;
                 default:
