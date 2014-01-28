@@ -24,9 +24,11 @@ using System;
 namespace OpenCBS.Enums
 {
     [Serializable]
-    public enum OYearType
+    public enum OInterestScheme
     {
-        Fact = 1,
-        Days360 = 2,
+        ActualActual = 1,
+        Actual360 = 2,
+        ThirtyActual = 3,
+        Thirty360 = 4
     }
 }

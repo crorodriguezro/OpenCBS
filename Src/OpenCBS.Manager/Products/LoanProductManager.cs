@@ -156,7 +156,7 @@ namespace OpenCBS.Manager.Products
             c.AddParam("@insurance_max", package.CreditInsuranceMax);
             
             c.AddParam("@use_entry_fees_cycles", package.UseEntryFeesCycles);
-            c.AddParam("@yearType", package.YearType);
+            c.AddParam("@interestScheme", package.InterestScheme);
         }
 
         private void FireProductLoaded(LoanProduct product)
@@ -242,7 +242,7 @@ namespace OpenCBS.Manager.Products
                 ,[insurance_min]
                 ,[insurance_max]
                 ,[use_entry_fees_cycles]
-                ,[year_type])
+                ,[interest_scheme])
                 VALUES
                 (@deleted
                 ,@name
@@ -311,7 +311,7 @@ namespace OpenCBS.Manager.Products
                 ,@insurance_min
                 ,@insurance_max
                 ,@use_entry_fees_cycles
-                ,@yearType)
+                ,@interestScheme)
                 SELECT SCOPE_IDENTITY()";
 
             using (SqlConnection conn = GetConnection())
@@ -409,7 +409,7 @@ namespace OpenCBS.Manager.Products
                 ,[insurance_min] = @insurance_min
                 ,[insurance_max] = @insurance_max  
                 ,[use_entry_fees_cycles] = @use_entry_fees_cycles    
-                ,[year_type] = @yearType         
+                ,[interest_scheme] = @interestScheme         
                 WHERE id = @packageId";
 
             using (SqlConnection conn = GetConnection())
@@ -1110,7 +1110,7 @@ namespace OpenCBS.Manager.Products
             package.CycleId = r.GetNullInt("cycle_id");
             package.CreditInsuranceMin = r.GetDecimal("insurance_min");
             package.CreditInsuranceMax = r.GetDecimal("insurance_max");
-            package.YearType = (OYearType)r.GetInt("year_type");
+            package.InterestScheme = (OInterestScheme)r.GetInt("interest_scheme");
             return package;
         }
 

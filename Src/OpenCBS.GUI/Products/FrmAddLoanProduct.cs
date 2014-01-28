@@ -194,7 +194,7 @@ namespace OpenCBS.GUI.Products
             InitializeComboBoxLoanCycles();
             InitializeComboBoxFundingLine();
             InitializeComboBoxCurrencies();
-            cbxDaysInYear.SelectedIndex = 0;
+            InitializeComboBoxInterestScheme(0);
             _product.ClientType = '-';
             _product.ChargeInterestWithinGracePeriod = true;
 
@@ -211,6 +211,21 @@ namespace OpenCBS.GUI.Products
             lvEntryFees.DoubleClickActivation = true;
             _ischangeFee = false;
         }
+
+	    private void InitializeComboBoxInterestScheme(int index)
+	    {
+            cmbInterestScheme.Items.Clear();
+	        cmbInterestScheme.Items.Add(GetString("ActualActual.Text"));
+	        cmbInterestScheme.Items.Add(GetString("Actual360.Text"));
+	        var installmentType = _product.InstallmentType;
+            if (installmentType == null || (installmentType.NbOfDays == 0 &&
+                installmentType.NbOfMonths == 1))
+	        {
+	            cmbInterestScheme.Items.Add(GetString("ThirtyActual.Text"));
+                cmbInterestScheme.Items.Add(GetString("Thirty360.Text"));
+	        }
+	        cmbInterestScheme.SelectedIndex = index;
+	    }
 
         private void InitializeCycleObjects()
         {
@@ -398,13 +413,7 @@ namespace OpenCBS.GUI.Products
             else
                 radioButtonChargeInterestYes.Checked = true;
 
-            switch (pack.YearType)
-            {
-                case OYearType.Fact:
-                    cbxDaysInYear.SelectedIndex = 0; break;
-                case OYearType.Days360:
-                    cbxDaysInYear.SelectedIndex = 1; break;
-            }
+            InitializeComboBoxInterestScheme((int)pack.InterestScheme - 1);
 
             if (pack.CycleId != null)
             {
@@ -691,6 +700,13 @@ namespace OpenCBS.GUI.Products
         private void comboBoxInstallmentType_SelectionChangeCommitted(object sender, EventArgs e)
         {
             _product.InstallmentType = (InstallmentType)comboBoxInstallmentType.SelectedItem;
+            var index = cmbInterestScheme.SelectedIndex;
+            if (_product.InstallmentType.NbOfMonths != 1 || _product.InstallmentType.NbOfDays != 0)
+            {
+                if (index > 1)
+                    index -= 2;
+            }
+            InitializeComboBoxInterestScheme(index);
             buttonSave.Enabled = true;
         }
 
@@ -2416,14 +2432,18 @@ namespace OpenCBS.GUI.Products
             buttonSave.Enabled = true;
         }
 
-        private void cbxDaysInYear_SelectedValueChanged(object sender, EventArgs e)
+        private void cmbInterestScheme_SelectedValueChanged(object sender, EventArgs e)
         {
-            switch (cbxDaysInYear.SelectedIndex + 1)
+            switch (cmbInterestScheme.SelectedIndex + 1)
             {
                 case 1:
-                    _product.YearType = OYearType.Fact; break;
+                    _product.InterestScheme = OInterestScheme.ActualActual; break;
                 case 2:
-                    _product.YearType = OYearType.Days360; break;
+                    _product.InterestScheme = OInterestScheme.Actual360; break;
+                case 3:
+                    _product.InterestScheme = OInterestScheme.ThirtyActual; break;
+                case 4:
+                    _product.InterestScheme = OInterestScheme.Thirty360; break;
             }
 
             buttonSave.Enabled = true;

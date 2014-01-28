@@ -99,7 +99,7 @@ namespace OpenCBS.CoreDomain.Products
         public ExoticInstallmentsTable ExoticProduct { get; set; }
         public InstallmentType InstallmentType { get; set; }
 
-        public OYearType YearType { get; set; }
+        public OInterestScheme InterestScheme { get; set; }
 
         public List<LoanAmountCycle> LoanAmountCycleParams { get; set; }
         public List<RateCycle> RateCycleParams { get; set; }

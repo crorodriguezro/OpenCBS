@@ -112,13 +112,14 @@ namespace OpenCBS.Engine
 
         private IPeriodPolicy GetPeriodPolicy()
         {
-            if (_loan.InstallmentType.NbOfMonths == 0 && _loan.InstallmentType.NbOfDays == 30)
-                return GetPolicy<IPeriodPolicy>("Monthly (30 day)");
             if (_loan.InstallmentType.NbOfMonths == 0 && _loan.InstallmentType.NbOfDays == 1)
                 return GetPolicy<IPeriodPolicy>("Daily");
             if (_loan.InstallmentType.NbOfMonths == 1 && _loan.InstallmentType.NbOfDays == 0)
+            {
+                if (_loan.Product.InterestScheme == OInterestScheme.Thirty360 || _loan.Product.InterestScheme == OInterestScheme.ThirtyActual)
+                    return GetPolicy<IPeriodPolicy>("Monthly (30 day)");
                 return GetPolicy<IPeriodPolicy>("Monthly");
-
+            }
             var policy = (CustomPeriodPolicy)GetPolicy<IPeriodPolicy>("Custom");
             policy.SetNumberOfDays(_loan.InstallmentType.NbOfDays);
             return policy;
@@ -133,9 +134,10 @@ namespace OpenCBS.Engine
         private IYearPolicy GetYearPolicy()
         {
             string key;
-            switch (_loan.Product.YearType)
+            switch (_loan.Product.InterestScheme)
             {
-                case OYearType.Days360:
+                case OInterestScheme.Thirty360:
+                case OInterestScheme.ThirtyActual:
                     key = "360";
                     break;
                 default:

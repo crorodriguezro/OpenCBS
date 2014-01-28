@@ -408,13 +408,10 @@
     <value>149, 86</value>
   </data>
   <data name="groupBoxRoundingType.Text" xml:space="preserve">
-    <value>Дней в году*</value>
+    <value>Схема начисления*</value>
   </data>
-  <data name="cbxDaysInYear.Items" xml:space="preserve">
-    <value>Фактический</value>
-  </data>
-  <data name="cbxDaysInYear.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 24</value>
+  <data name="cmbYearType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 24</value>
   </data>
   <data name="textBoxCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>163, 50</value>

@@ -216,4 +216,16 @@
   <data name="AddEntryFeeCycleError.Text" xml:space="preserve">
     <value>Такой цикл уже существует.</value>
   </data>
+  <data name="Actual360.Text" xml:space="preserve">
+    <value>Факт/360</value>
+  </data>
+  <data name="ActualActual.Text" xml:space="preserve">
+    <value>Факт/Факт</value>
+  </data>
+  <data name="Thirty360.Text" xml:space="preserve">
+    <value>30/360</value>
+  </data>
+  <data name="ThirtyActual.Text" xml:space="preserve">
+    <value>30/Факт</value>
+  </data>
 </root>
