@@ -966,7 +966,8 @@ namespace OpenCBS.Services
                 schedule,
                 scheduleConfiguration,
                 copyOfRescheduleConfiguration,
-                scheduleBuilder);
+                scheduleBuilder,
+                loan.CalculateActualOlb().Value);
 
             var newSchedule = Mapper.Map<IEnumerable<IInstallment>, List<Installment>>(schedule);
 

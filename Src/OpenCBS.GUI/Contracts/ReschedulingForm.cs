@@ -46,7 +46,8 @@ namespace OpenCBS.GUI.Contracts
 
         public void InitializeRescheduleComponents()
         {
-            startDateTimePicker.Value = DateTime.Today;
+            startDateTimePicker.Value = DateTime.Today > Contract.GetLastRepaymentDate()
+                ? DateTime.Today : Contract.GetLastRepaymentDate();
             firstRepaymentDateTimePicker.Value = startDateTimePicker
                     .Value
                     .Date
@@ -129,10 +130,14 @@ namespace OpenCBS.GUI.Contracts
 
         private void Reschedule()
         {
-            if (!Confirm("Confirm")) return;
-
-            try
+            if (startDateTimePicker.Value < _contract.GetLastRepaymentDate())
             {
+                Fail(GetString("RescheduleStartDateIsNotCorrect.Text"));
+                return;
+            }
+            if (!Confirm(GetString("Confirm"))) return;
+            try
+            {                
                 _contract.Rescheduled = true;
                 _contract.NbOfInstallments = _contract.InstallmentList.Count;
                 _contract.InterestRate = Convert.ToDecimal(_interestRateTextBox.Text);

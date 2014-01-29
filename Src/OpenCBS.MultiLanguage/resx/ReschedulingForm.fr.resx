@@ -120,4 +120,7 @@
   <data name="Confirm" xml:space="preserve">
     <value>Confirmez-vous l'opération?</value>
   </data>
+  <data name="RescheduleStartDateIsNotCorrect.Text" xml:space="preserve">
+    <value>La date début ne peut pas être avant le dernier repayment</value>
+  </data>
 </root>
