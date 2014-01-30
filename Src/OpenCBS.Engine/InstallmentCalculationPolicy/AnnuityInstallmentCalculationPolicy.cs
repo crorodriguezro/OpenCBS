@@ -43,13 +43,14 @@ namespace OpenCBS.Engine.InstallmentCalculationPolicy
             do
             {
                 // loop is only for building schedule and determining the remainder
-                for (var i = configuration.GracePeriod + 1; i <= number; ++i)
+                for (var i = 1; i <= configuration.NumberOfInstallments; ++i)
                 {
                     installment.Number = i;
                     installment.StartDate = i != 1 ? installment.EndDate : configuration.StartDate;
                     installment.EndDate = i != 1
                         ? configuration.PeriodPolicy.GetNextDate(installment.StartDate)
                         : configuration.PreferredFirstInstallmentDate;
+                    if (i <= configuration.GracePeriod) continue;
                     installment.Interest = CalculateInterest(installment, configuration, installment.Olb);
                     installment.Principal = annuity - installment.Interest;
                     installment.Olb -= installment.Principal;

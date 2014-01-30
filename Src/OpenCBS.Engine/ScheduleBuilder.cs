@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using OpenCBS.Engine.InstallmentCalculationPolicy;
 using OpenCBS.Engine.Interfaces;
 
 namespace OpenCBS.Engine
@@ -33,17 +34,6 @@ namespace OpenCBS.Engine
                 {
                     result[i].Interest = CalculateInterest(result[i], configuration);
                 }
-            }
-            // Caluclate interest of the first installment if the maturity
-            // is less than or greater than a period (week, month, etc.)
-            var firstInstallment = result[0];
-            var periodEndDate = configuration.PeriodPolicy.GetNextDate(firstInstallment.StartDate);
-            var actualEndDate = firstInstallment.EndDate;
-            if (periodEndDate != actualEndDate)
-            {
-                var numerator = (decimal) (firstInstallment.EndDate.Date - firstInstallment.StartDate.Date).Days;
-                var denominator = configuration.PeriodPolicy.GetNumberOfDays(firstInstallment.EndDate);
-                firstInstallment.Interest = configuration.RoundingPolicy.Round(firstInstallment.Interest * numerator / denominator);
             }
 
             // Initialize RepaymentDate's
@@ -93,9 +83,20 @@ namespace OpenCBS.Engine
 
         private static decimal CalculateInterest(IInstallment installment, IScheduleConfiguration configuration)
         {
-            var daysInPeriod = configuration.PeriodPolicy.GetNumberOfDays(installment.EndDate);
+            var daysInPeriod = configuration.PeriodPolicy.GetNumberOfDays(installment, configuration.DateShiftPolicy);
             var daysInYear = configuration.YearPolicy.GetNumberOfDays(installment.EndDate);
-            var interest = installment.Olb * configuration.InterestRate / 100 * daysInPeriod / daysInYear;
+            var interest = installment.Olb*configuration.InterestRate / 100 * daysInPeriod / daysInYear;
+            //if schedule is flat
+            if (configuration.CalculationPolicy.GetType() == typeof(FlatInstallmentCalculationPolicy))
+            {
+                var numberOfPeriods =
+                    (decimal)
+                        (configuration.PeriodPolicy.GetNumberOfPeriodsInYear(
+                            configuration.PreferredFirstInstallmentDate, configuration.YearPolicy));
+                var gracePeriod = configuration.ChargeInterestDuringGracePeriod ? 0 : configuration.GracePeriod;
+                interest = configuration.Amount*configuration.InterestRate/numberOfPeriods/100/
+                           (configuration.NumberOfInstallments - gracePeriod);
+            }
             return configuration.RoundingPolicy.Round(interest);
         }
     }

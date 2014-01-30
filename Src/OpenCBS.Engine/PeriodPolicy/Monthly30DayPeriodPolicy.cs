@@ -13,6 +13,11 @@ namespace OpenCBS.Engine.PeriodPolicy
             return date.AddMonths(1);
         }
 
+        public DateTime GetNextRepaymentDate(DateTime date, IDateShiftPolicy shiftPolicy)
+        {
+            return date.AddMonths(1);
+        }
+
         public DateTime GetPreviousDate(DateTime date)
         {
             return date.AddMonths(-1);
@@ -20,6 +25,13 @@ namespace OpenCBS.Engine.PeriodPolicy
 
         public int GetNumberOfDays(DateTime date)
         {
+            return 30;
+        }
+
+        public int GetNumberOfDays(IInstallment installment, IDateShiftPolicy shiftPolicy)
+        {
+            if (installment.Number == 1)
+                return installment.EndDate == installment.StartDate.AddMonths(1) ? 30 : (installment.EndDate - installment.StartDate).Days;
             return 30;
         }
 
