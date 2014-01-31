@@ -949,10 +949,6 @@ namespace OpenCBS.Services
                 .Finish()
                 .GetConfiguration();
 
-            scheduleConfiguration.YearPolicy = new ThreeHundredSixtyDayYearPolicy();
-            if (loan.InstallmentType.NbOfMonths == 1 && loan.InstallmentType.NbOfDays == 0)
-                scheduleConfiguration.PeriodPolicy = new Monthly30DayPeriodPolicy();
-
             var schedule = Mapper.Map<IEnumerable<Installment>, IEnumerable<IInstallment>>(copyOfLoan.InstallmentList);
             var scheduleBuilder = new ScheduleBuilder();
             var rescheduleAssembler = new RescheduleAssembler();
@@ -984,10 +980,6 @@ namespace OpenCBS.Services
                 .WithLoan(copyOfLoan)
                 .Finish()
                 .GetConfiguration();
-
-            scheduleConfiguration.YearPolicy = new ThreeHundredSixtyDayYearPolicy();
-            if (loan.InstallmentType.NbOfMonths == 1 && loan.InstallmentType.NbOfDays == 0)
-                scheduleConfiguration.PeriodPolicy = new Monthly30DayPeriodPolicy();
 
             var schedule = Mapper.Map<IEnumerable<Installment>, IEnumerable<IInstallment>>(copyOfLoan.InstallmentList);
             var scheduleBuilder = new ScheduleBuilder();
