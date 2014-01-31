@@ -40,7 +40,8 @@ namespace OpenCBS.GUI.Contracts
         private readonly Village _village;
         private bool _blockItemCheck;
         private DateTime _CreditCommitteeDate = TimeProvider.Today;
-        
+        private bool _sync = false;
+
         private const int IdxAmount = 2;
         private const int IdxCurrency = 3;
         private const int IdxLoanOfficer = 4;
@@ -48,7 +49,9 @@ namespace OpenCBS.GUI.Contracts
         private const int IdxCreditCommitteeDate = 6;
         private const int IdxValidationCode = 7;
         private const int IdxComment = 8;
-        
+
+
+
         public VillageCreditCommitteeForm(Village village)
         {
             _village = village;
@@ -62,7 +65,7 @@ namespace OpenCBS.GUI.Contracts
             Color dfc = Color.Gray;
             Color fc = Color.Black;
             Color bc = Color.White;
-            
+
             foreach (VillageMember member in _village.Members)
             {
                 if (member.ActiveLoans.Count == 0) continue;
@@ -70,23 +73,23 @@ namespace OpenCBS.GUI.Contracts
                 {
                     if (loan.ContractStatus == OContractStatus.Active)
                         continue;
-                    Person person = (Person) member.Tiers;
+                    Person person = (Person)member.Tiers;
 
-                    ListViewItem item = new ListViewItem(person.Name) {Tag = loan};
-                    item.SubItems.Add(person.IdentificationData);
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", loan.Amount.HasValue ? dfc : fc,
-                                                                       bc, item.Font));
-                    item.SubItems.Add(loan.Product.Currency.Code);
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", dfc, bc, item.Font));
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", dfc, bc, item.Font));
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", dfc, bc, item.Font));
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", dfc, bc, item.Font));
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", true ? dfc : fc, bc, item.Font));
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", dfc, bc, item.Font));
+                     ListViewItem item = new ListViewItem(person.Name) { Tag = loan };
+                     item.SubItems.Add(person.IdentificationData);
+                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", loan.Amount.HasValue ? dfc : fc,
+                                                                        bc, item.Font));
+                     item.SubItems.Add(loan.Product.Currency.Code);
+                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", dfc, bc, item.Font));
+                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", dfc, bc, item.Font));
+                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", dfc, bc, item.Font));
+                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", dfc, bc, item.Font));
+                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", true ? dfc : fc, bc, item.Font));
+                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", dfc, bc, item.Font));
                     lvMembers.Items.Add(item);
                 }
-                
-               
+
+
             }
             cbStatus.Items.Add(GetContractStatusItem(OContractStatus.Pending).Value);
             cbStatus.Items.Add(GetContractStatusItem(OContractStatus.Postponed).Value);
@@ -97,17 +100,69 @@ namespace OpenCBS.GUI.Contracts
             lvMembers.SubItemClicked += lvMembers_SubItemClicked;
             lvMembers.SubItemEndEditing += lvMembers_SubItemEndEditing;
             lvMembers.DoubleClickActivation = true;
+            buttonValidate.Click += Validate;
+            checkBoxSelectAll.CheckedChanged += checkBoxSelectAll_CheckedChanged;
+
         }
+
+
+        void checkBoxSelectAll_CheckedChanged(object sender, EventArgs e)
+        {
+            var box = (sender as CheckBox);
+
+            if (box.CheckState != CheckState.Indeterminate)
+                foreach (ListViewItem item in lvMembers.Items)
+                {
+                    _sync = false;
+                    item.Checked = box.Checked;
+                }
+        }
+
+        private void Validate(object sender, EventArgs e)
+        {
+
+            foreach (ListViewItem item in lvMembers.Items)
+            {
+
+                if (item.Checked)
+                {
+                    var loan = (Loan)item.Tag;
+                    loan.ContractStatus = OContractStatus.Validated;
+                    item.SubItems[5].Text = OContractStatus.Validated.ToString();
+                    item.SubItems[5].Tag = OContractStatus.Validated;
+                }
+            }     
+    
+ 
+        }
+
+
 
         private KeyValuePair<OContractStatus, string> GetContractStatusItem(OContractStatus oContractStatus)
         {
             string statusName = oContractStatus.GetName();
-            string statusText = MultiLanguageStrings.GetString(Ressource.ClientForm,string.Format("{0}.Text", statusName));
+            string statusText = MultiLanguageStrings.GetString(Ressource.ClientForm, string.Format("{0}.Text", statusName));
             return new KeyValuePair<OContractStatus, string>(oContractStatus, statusText);
+        }
+
+        private void SetState()
+        {
+            if (_sync && lvMembers.Items.Count > lvMembers.CheckedItems.Count)
+            {
+                checkBoxSelectAll.CheckState = CheckState.Indeterminate;
+                if (lvMembers.CheckedItems.Count == 0)
+                    checkBoxSelectAll.CheckState = CheckState.Unchecked;
+            }
+
+            if (lvMembers.CheckedItems.Count == lvMembers.Items.Count)
+                checkBoxSelectAll.CheckState = CheckState.Checked;
+            _sync = true;
         }
 
         private void lvMembers_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
+            SetState();
+
             ListViewItem item = e.Item;
             item.Font = new Font("Arial", 9F, item.Checked ? FontStyle.Bold : FontStyle.Regular);
             foreach (ListViewItem.ListViewSubItem subitem in item.SubItems)
@@ -116,6 +171,7 @@ namespace OpenCBS.GUI.Contracts
             }
             if (item.Checked)
             {
+
                 if (string.IsNullOrEmpty(item.SubItems[IdxAmount].Text)) // Amount
                 {
                     item.SubItems[IdxAmount].Text = ((Loan)item.Tag).Amount.GetFormatedValue(false);
@@ -124,7 +180,7 @@ namespace OpenCBS.GUI.Contracts
                 {
                     item.SubItems[IdxCurrency].Text = ((Loan)item.Tag).Product.Currency.Code;
                 }
-                
+
                 if (string.IsNullOrEmpty(item.SubItems[IdxLoanOfficer].Text)) // Loan officer
                 {
                     item.SubItems[IdxLoanOfficer].Text = _village.LoanOfficer.ToString();
@@ -133,7 +189,7 @@ namespace OpenCBS.GUI.Contracts
                 var statusSubItem = item.SubItems[IdxStatus];
                 if (string.IsNullOrEmpty(statusSubItem.Text)) // Status
                 {
-                    var loan = (Loan) item.Tag;
+                    var loan = (Loan)item.Tag;
                     var items = cbStatus.Items;
                     if (loan.ContractStatus == OContractStatus.Pending)
                         statusSubItem.Text = items[0].ToString();
@@ -162,6 +218,7 @@ namespace OpenCBS.GUI.Contracts
                     item.SubItems[i].Text = "";
                 }
             }
+
         }
 
         private void lvMembers_SubItemClicked(object sender, SubItemEventArgs e)
@@ -264,8 +321,8 @@ namespace OpenCBS.GUI.Contracts
                     var loan = item.Tag as Loan;
                     string comment = item.SubItems[IdxComment].Text;
                     OContractStatus currentStatus = loan.ContractStatus;
-                    OContractStatus status = (OContractStatus) item.SubItems[IdxStatus].Tag;
-                    if (currentStatus==status) continue;
+                    OContractStatus status = (OContractStatus)item.SubItems[IdxStatus].Tag;
+                    if (currentStatus == status) continue;
                     string code = item.SubItems[IdxValidationCode].Text;
                     DateTime date = Convert.ToDateTime(item.SubItems[IdxCreditCommitteeDate].Tag);
 
@@ -287,9 +344,9 @@ namespace OpenCBS.GUI.Contracts
                     loan.CreditCommitteeCode = code;
                     loan.CreditCommiteeComment = comment;
                     Project project = client.Projects[0];
-                    
-                    loan = ServicesProvider.GetInstance().GetContractServices().UpdateContractStatus(loan, project, client, currentStatus==OContractStatus.Validated);
-                    if (OContractStatus.Refused == status || 
+
+                    loan = ServicesProvider.GetInstance().GetContractServices().UpdateContractStatus(loan, project, client, currentStatus == OContractStatus.Validated);
+                    if (OContractStatus.Refused == status ||
                         OContractStatus.Abandoned == status ||
                         OContractStatus.Closed == status)
                     {
@@ -326,5 +383,9 @@ namespace OpenCBS.GUI.Contracts
         {
             _CreditCommitteeDate = dtCreditCommittee.Value;
         }
+
+
+
+
     }
 }
