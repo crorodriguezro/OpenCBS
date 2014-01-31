@@ -483,13 +483,26 @@ namespace OpenCBS.Services
 
                     SetEconomicActivity(pLoan, sqlTransaction);
 
-                    CallInterceptor(new Dictionary<string, object>()
+                    loanDisbursmentEvent.PaymentMethodId = method.Id;
+                    CallInterceptor(new Dictionary<string, object>
+                    {
+                        {"Loan", pLoan},
+                        {"Event", loanDisbursmentEvent},
+                        {"SqlTransaction", sqlTransaction}
+                    });
+                    CallInterceptor(new Dictionary<string, object>
+                    {
+                        {"Loan", pLoan},
                         {
-                            {"Loan", pLoan},
-                            {"EventType", "Disbursement"},
-                            {"Amount", loanDisbursmentEvent.Amount},
-                            {"SqlTransaction", sqlTransaction}
-                        });
+                            "Event", new LoanEntryFeeEvent
+                                {
+                                    Id = loanDisbursmentEvent.Commissions.First().Id,
+                                    Fee = loanDisbursmentEvent.Commissions.Sum(i => i.Fee.Value),
+                                    Code = "LEE0"
+                                }
+                        },
+                        {"SqlTransaction", sqlTransaction}
+                    });
 
                     sqlTransaction.Commit();
                     return copyLoan;
