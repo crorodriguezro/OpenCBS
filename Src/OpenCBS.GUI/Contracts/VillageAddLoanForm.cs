@@ -815,7 +815,8 @@ namespace OpenCBS.GUI.Contracts
                         NmbOfInstallmentsMin = member.Product.NbOfInstallmentsMin,
                         NmbOfInstallmentsMax = member.Product.NbOfInstallmentsMax
                     };
-                     
+                    loan.InstallmentList =
+                        ServicesProvider.GetInstance().GetContractServices().SimulateScheduleCreation(loan);
                     loan.LoanEntryFeesList = new List<LoanEntryFee>();
                     foreach (EntryFee fee in loan.Product.EntryFees)
                     {
