@@ -47,9 +47,6 @@
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="EnumExtensions.cs" />
-    <Compile Include="OCustomFieldExceptionEnum.cs" />
-    <Compile Include="OCustomizableFieldTypes.cs" />
-    <Compile Include="OCustomizableFieldEntities.cs" />
     <Compile Include="ODocumentObjectType.cs" />
     <Compile Include="OGender.cs" />
     <Compile Include="OMovementType.cs" />

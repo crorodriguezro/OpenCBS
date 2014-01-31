@@ -116,7 +116,6 @@ namespace OpenCBS.GUI.UserControl
         private ColumnHeader columnHeaderLoanCycle;
         private Form _mdiParent;
         private SavingsListUserControl savingsListUserControl1;
-        private CustomizableFieldsControl _customizableFieldsControl;
         public MembersChangedEventHandler MembersChanged;
         private LinkLabel linkLabelChangePhoto;
         public PictureBox pictureBox1;
@@ -134,7 +133,6 @@ namespace OpenCBS.GUI.UserControl
         private Label labelGroupCycle;
         private ComboBox cbBranch;
         private Label label2;
-        private TabPage tabPageCustomizableFields;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
         private PrintButton btnPrint;
@@ -199,7 +197,6 @@ namespace OpenCBS.GUI.UserControl
             this.tabPageProjects = new System.Windows.Forms.TabPage();
             this.tabPageSaving = new System.Windows.Forms.TabPage();
             this.savingsListUserControl1 = new OpenCBS.GUI.UserControl.SavingsListUserControl();
-            this.tabPageCustomizableFields = new System.Windows.Forms.TabPage();
             this.imageListTab = new System.Windows.Forms.ImageList(this.components);
             this.cbBranch = new System.Windows.Forms.ComboBox();
             this.groupBoxButtonBottom = new System.Windows.Forms.GroupBox();
@@ -434,7 +431,6 @@ namespace OpenCBS.GUI.UserControl
             this.tabControlGroupInfo.Controls.Add(this.tabPageHistory);
             this.tabControlGroupInfo.Controls.Add(this.tabPageProjects);
             this.tabControlGroupInfo.Controls.Add(this.tabPageSaving);
-            this.tabControlGroupInfo.Controls.Add(this.tabPageCustomizableFields);
             resources.ApplyResources(this.tabControlGroupInfo, "tabControlGroupInfo");
             this.tabControlGroupInfo.ImageList = this.imageListTab;
             this.tabControlGroupInfo.Name = "tabControlGroupInfo";
@@ -551,11 +547,6 @@ namespace OpenCBS.GUI.UserControl
             this.savingsListUserControl1.AddSelectedSaving += new System.EventHandler(this.savingsListUserControl1_AddSelectedSaving);
             this.savingsListUserControl1.ViewSelectedSaving += new System.EventHandler(this.savingsListUserControl1_ViewSelectedSaving);
             this.savingsListUserControl1.Load += new System.EventHandler(this.savingsListUserControl1_Load);
-            // 
-            // tabPageCustomizableFields
-            // 
-            resources.ApplyResources(this.tabPageCustomizableFields, "tabPageCustomizableFields");
-            this.tabPageCustomizableFields.Name = "tabPageCustomizableFields";
             // 
             // imageListTab
             // 
@@ -847,7 +838,6 @@ namespace OpenCBS.GUI.UserControl
                 linkLabelChangePhoto.Visible = false;
                 linkLabelChangePhoto2.Visible = false;
             }
-            InitializeCustomizableFields(group.Id);
         }
 
         private void Initialization()
@@ -942,19 +932,6 @@ namespace OpenCBS.GUI.UserControl
                 if (cbBranch.Items.Count > 0) cbBranch.SelectedIndex = 0;
             }
             InitPrintButton();
-        }
-
-        private void InitializeCustomizableFields(int linkId)
-        {
-            _customizableFieldsControl = new CustomizableFieldsControl(OCustomizableFieldEntities.SG, linkId, false)
-            {
-                Dock = DockStyle.Fill,
-                Enabled = true,
-                Name = "customizableFieldsControl",
-                Visible = true
-            };
-
-            tabPageCustomizableFields.Controls.Add(_customizableFieldsControl);
         }
 
         public void ResetAllComponents()
@@ -1233,7 +1210,6 @@ namespace OpenCBS.GUI.UserControl
                 bool save = 0 == group.Id;
                 if (group.Name != null)
                     group.Name = group.Name.Trim();
-                _customizableFieldsControl.Check();
 
                 string result = ServicesProvider
                     .GetInstance()
@@ -1242,9 +1218,6 @@ namespace OpenCBS.GUI.UserControl
                     {
                         foreach (var extension in Extensions) extension.Save(group, tx);
                     });
-
-                if (group.Id > 0)
-                    _customizableFieldsControl.Save(group.Id);
 
                 EventProcessorServices es = ServicesProvider.GetInstance().GetEventProcessorServices();
 
@@ -1255,7 +1228,6 @@ namespace OpenCBS.GUI.UserControl
                 if (result != string.Empty) MessageBox.Show(result, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 buttonSave.Text = MultiLanguageStrings.GetString(Ressource.Common, "updateButton.Text");
 
-                InitializeCustomizableFields(group.Id);
                 //EnableDocuments();
             }
             catch (Exception ex)

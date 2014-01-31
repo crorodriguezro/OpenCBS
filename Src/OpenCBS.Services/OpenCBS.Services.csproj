@@ -195,7 +195,6 @@
     <Compile Include="Accounting\AccountingServices.cs" />
     <Compile Include="BranchService.cs" />
     <Compile Include="CollateralProductServices.cs" />
-    <Compile Include="CustomizableFieldsServices.cs" />
     <Compile Include="MenuItemServices.cs" />
     <Compile Include="PaymentMethodServices.cs" />
     <Compile Include="TellerService.cs" />

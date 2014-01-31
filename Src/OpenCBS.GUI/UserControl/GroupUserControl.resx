@@ -949,7 +949,7 @@
     <value>savingsListUserControl1</value>
   </data>
   <data name="&gt;&gt;savingsListUserControl1.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SavingsListUserControl, OpenCBS.GUI, Version=1.1.1.29024, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SavingsListUserControl, OpenCBS.GUI, Version=14.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;savingsListUserControl1.Parent" xml:space="preserve">
     <value>tabPageSaving</value>
@@ -984,33 +984,6 @@
   <data name="&gt;&gt;tabPageSaving.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="tabPageCustomizableFields.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 36</value>
-  </data>
-  <data name="tabPageCustomizableFields.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageCustomizableFields.Size" type="System.Drawing.Size, System.Drawing">
-    <value>986, 333</value>
-  </data>
-  <data name="tabPageCustomizableFields.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="tabPageCustomizableFields.Text" xml:space="preserve">
-    <value>Customizable fields</value>
-  </data>
-  <data name="&gt;&gt;tabPageCustomizableFields.Name" xml:space="preserve">
-    <value>tabPageCustomizableFields</value>
-  </data>
-  <data name="&gt;&gt;tabPageCustomizableFields.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageCustomizableFields.Parent" xml:space="preserve">
-    <value>tabControlGroupInfo</value>
-  </data>
-  <data name="&gt;&gt;tabPageCustomizableFields.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="tabControlGroupInfo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -1025,7 +998,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAQ
-        HAAAAk1TRnQBSQFMAgEBBQEAAXABAwFwAQMBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HAAAAk1TRnQBSQFMAgEBBQEAAXgBAwF4AQMBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -1331,7 +1304,7 @@
     <value>btnPrint</value>
   </data>
   <data name="&gt;&gt;btnPrint.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=1.1.1.29024, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrint.Parent" xml:space="preserve">
     <value>groupBoxButtons</value>
@@ -1993,11 +1966,14 @@
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>45</value>
   </metadata>
+  <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="$this.AutoScrollMinSize" type="System.Drawing.Size, System.Drawing">
     <value>1000, 660</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>854, 589</value>
+    <value>837, 572</value>
   </data>
   <data name="&gt;&gt;columnHeaderName.Name" xml:space="preserve">
     <value>columnHeaderName</value>
@@ -2135,6 +2111,6 @@
     <value>GroupUserControl</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ClientControl, OpenCBS.GUI, Version=1.1.1.29024, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ClientControl, OpenCBS.GUI, Version=14.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

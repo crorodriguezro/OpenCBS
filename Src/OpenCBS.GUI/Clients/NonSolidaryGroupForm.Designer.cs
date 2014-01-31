@@ -59,11 +59,11 @@ namespace OpenCBS.GUI.Clients
             this.tpMembers = new System.Windows.Forms.TabPage();
             this.lvMembers = new System.Windows.Forms.ListView();
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colLoanCycle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPassport = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colJoinDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colLeftDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colLoanCycle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelMembersControls = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -121,7 +121,6 @@ namespace OpenCBS.GUI.Clients
             this.labelMeetingDate = new System.Windows.Forms.Label();
             this.comboBoxMeetingDates = new System.Windows.Forms.ComboBox();
             this.buttonUpdateAttendence = new System.Windows.Forms.Button();
-            this.tabPageCustomizableFields = new System.Windows.Forms.TabPage();
             this.gbDetails.SuspendLayout();
             this.panelNSGDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -309,7 +308,6 @@ namespace OpenCBS.GUI.Clients
             this.tabVillage.Controls.Add(this.tabPageLoan);
             this.tabVillage.Controls.Add(this.tabPageSavings);
             this.tabVillage.Controls.Add(this.tabPageMeetings);
-            this.tabVillage.Controls.Add(this.tabPageCustomizableFields);
             resources.ApplyResources(this.tabVillage, "tabVillage");
             this.tabVillage.Name = "tabVillage";
             this.tabVillage.SelectedIndex = 0;
@@ -357,6 +355,10 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.colName, "colName");
             // 
+            // colLoanCycle
+            // 
+            resources.ApplyResources(this.colLoanCycle, "colLoanCycle");
+            // 
             // colPassport
             // 
             resources.ApplyResources(this.colPassport, "colPassport");
@@ -372,10 +374,6 @@ namespace OpenCBS.GUI.Clients
             // colLeftDate
             // 
             resources.ApplyResources(this.colLeftDate, "colLeftDate");
-            // 
-            // colLoanCycle
-            // 
-            resources.ApplyResources(this.colLoanCycle, "colLoanCycle");
             // 
             // panelMembersControls
             // 
@@ -746,11 +744,6 @@ namespace OpenCBS.GUI.Clients
             this.buttonUpdateAttendence.Name = "buttonUpdateAttendence";
             this.buttonUpdateAttendence.Click += new System.EventHandler(this.buttonUpdateAttendence_Click);
             // 
-            // tabPageCustomizableFields
-            // 
-            resources.ApplyResources(this.tabPageCustomizableFields, "tabPageCustomizableFields");
-            this.tabPageCustomizableFields.Name = "tabPageCustomizableFields";
-            // 
             // NonSolidaryGroupForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -882,7 +875,6 @@ namespace OpenCBS.GUI.Clients
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel panelMembersControls;
         private System.Windows.Forms.Button btnValidateLoans;
-        private System.Windows.Forms.TabPage tabPageCustomizableFields;
         private BrightIdeasSoftware.OLVColumn olvAttendeeLoanIdColumn;
         private PrintButton btnPrint;
         private System.Windows.Forms.ColumnHeader colLoanCycle;

@@ -442,18 +442,6 @@
     <Compile Include="Configuration\AddTellerForm.Designer.cs">
       <DependentUpon>AddTellerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuration\CustomizableFieldsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Configuration\CustomizableFieldsForm.Designer.cs">
-      <DependentUpon>CustomizableFieldsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Configuration\AddCustomizableFields.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Configuration\AddCustomizableFields.Designer.cs">
-      <DependentUpon>AddCustomizableFields.cs</DependentUpon>
-    </Compile>
     <Compile Include="Configuration\TellersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -630,12 +618,6 @@
     <Compile Include="Export\CustomizableImportForm.Designer.cs">
       <DependentUpon>CustomizableImportForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Export\CustomFieldPropertiesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Export\CustomFieldPropertiesForm.Designer.cs">
-      <DependentUpon>CustomFieldPropertiesForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Export\CustomizableExportConfigurationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -709,9 +691,6 @@
     <Compile Include="Report Browser\ReportLoadingProgressForm.Designer.cs">
       <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Search\CFSearchClientForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="TellerManagement\FrmOpenCloseTeller.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -735,14 +714,6 @@
     </Compile>
     <Compile Include="UserControl\ClientControl.Designer.cs">
       <DependentUpon>ClientControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControl\CustomClientField.cs" />
-    <Compile Include="UserControl\CustomizableFieldClientEditor.cs" />
-    <Compile Include="UserControl\CustomizableFieldsControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControl\CustomizableFieldsControl.Designer.cs">
-      <DependentUpon>CustomizableFieldsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl\EconomicActivityControl.cs">
       <SubType>UserControl</SubType>
@@ -1559,30 +1530,6 @@
     <EmbeddedResource Include="Configuration\AddTellerForm.ru-RU.resx">
       <DependentUpon>AddTellerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\CustomizableFieldsForm.fr.resx">
-      <DependentUpon>CustomizableFieldsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\CustomizableFieldsForm.pt.resx">
-      <DependentUpon>CustomizableFieldsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\CustomizableFieldsForm.resx">
-      <DependentUpon>CustomizableFieldsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\CustomizableFieldsForm.ru-RU.resx">
-      <DependentUpon>CustomizableFieldsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\AddCustomizableFields.fr.resx">
-      <DependentUpon>AddCustomizableFields.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\AddCustomizableFields.pt.resx">
-      <DependentUpon>AddCustomizableFields.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\AddCustomizableFields.resx">
-      <DependentUpon>AddCustomizableFields.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\AddCustomizableFields.ru-RU.resx">
-      <DependentUpon>AddCustomizableFields.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Configuration\FrmEconomicActivity.es.resx">
       <DependentUpon>FrmEconomicActivity.cs</DependentUpon>
     </EmbeddedResource>
@@ -2133,16 +2080,6 @@
       <DependentUpon>CreateCustomizableFileForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Export\CustomFieldPropertiesForm.es-ES.resx">
-      <DependentUpon>CustomFieldPropertiesForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Export\CustomFieldPropertiesForm.fr.resx">
-      <DependentUpon>CustomFieldPropertiesForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Export\CustomFieldPropertiesForm.pt.resx">
-      <DependentUpon>CustomFieldPropertiesForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Export\CustomizableExportConfigurationForm.fr.resx">
       <DependentUpon>CustomizableExportConfigurationForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -2169,10 +2106,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Export\CustomizableImportForm.resx">
       <DependentUpon>CustomizableImportForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Export\CustomFieldPropertiesForm.resx">
-      <DependentUpon>CustomFieldPropertiesForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Export\CustomizableExportConfigurationForm.resx">
@@ -3291,15 +3224,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\ClientControl.resx">
       <DependentUpon>ClientControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\CustomizableFieldsControl.fr.resx">
-      <DependentUpon>CustomizableFieldsControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\CustomizableFieldsControl.resx">
-      <DependentUpon>CustomizableFieldsControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\CustomizableFieldsControl.ru-RU.resx">
-      <DependentUpon>CustomizableFieldsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\CorporateUserControl.es-ES.resx">
       <DependentUpon>CorporateUserControl.cs</DependentUpon>

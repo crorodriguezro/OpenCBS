@@ -113,13 +113,6 @@ namespace OpenCBS.CoreDomain.Export.Files
                     else
                         formatedRowData.Add(_getFormatedField(pRowData, field as Field));
                 }
-                else if (field is CustomField)
-                {
-                    if (HasStringEncloseChar)
-                        formatedRowData.Add(EncloseChar + ((CustomField)field).Format() + EncloseChar);
-                    else
-                        formatedRowData.Add(((CustomField)field).Format());
-                }
                 else if (field is ComplexField)
                 {
                     if (HasStringEncloseChar)
@@ -140,8 +133,6 @@ namespace OpenCBS.CoreDomain.Export.Files
             {
                 if (pField.Fields[i] is Field)
                     formatedString += _getFormatedField(pRowData, pField.Fields[i] as Field);
-                else if (pField.Fields[i] is CustomField)
-                    formatedString += ((CustomField)pField.Fields[i]).Format();
                 else if (pField.Fields[i] is ComplexField)
                     formatedString += _getFormatedComplexField(pRowData, pField.Fields[i] as ComplexField);
 

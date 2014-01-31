@@ -57,8 +57,6 @@ namespace OpenCBS.GUI.Export
             pDefaultList.ForEach(item => item.Header = item.DisplayName.ToString());
             if (!_file.IsExportFile)
                 pDefaultList.OfType<Field>().Where(item => item.IsRequired).ToList().ForEach(item => item.DisplayName = "* " + item.DisplayName);
-            else
-                pDefaultList.Add(new CustomField { DisplayName = MultiLanguageStrings.GetString(Ressource.CustomizableExport, "CustomField.Text"), Length = 0 });
 
             fieldListUserControl1.DefaultList = pDefaultList;
         }

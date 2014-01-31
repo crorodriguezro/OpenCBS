@@ -184,7 +184,6 @@
     <EmbeddedResource Include="resx\AccountView.ru-Ru.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\AddCustomizableFields.pt.resx" />
     <EmbeddedResource Include="resx\AddBranchForm.es-ES.resx" />
     <EmbeddedResource Include="resx\AddBranchForm.pt.resx" />
     <EmbeddedResource Include="resx\AddBranchForm.ru-RU.resx" />
@@ -224,7 +223,6 @@
     <EmbeddedResource Include="resx\ReschedulingForm.resx" />
     <EmbeddedResource Include="resx\ReschedulingForm.ru-RU.resx" />
     <EmbeddedResource Include="resx\DashboardForm.fr.resx" />
-    <EmbeddedResource Include="resx\CustomizableFieldsForm.pt.resx" />
     <EmbeddedResource Include="resx\ApplicationExceptionHandler.pt.resx" />
     <EmbeddedResource Include="resx\AuditTrailForm.pt.resx" />
     <EmbeddedResource Include="resx\BadLoanRepaymentForm.pt.resx" />
@@ -378,12 +376,6 @@
     <EmbeddedResource Include="resx\AddTellerForm.fr.resx" />
     <EmbeddedResource Include="resx\AddTellerForm.resx" />
     <EmbeddedResource Include="resx\AddTellerForm.ru-RU.resx" />
-    <EmbeddedResource Include="resx\AddCustomizableFields.fr.resx" />
-    <EmbeddedResource Include="resx\AddCustomizableFields.resx" />
-    <EmbeddedResource Include="resx\AddCustomizableFields.ru-RU.resx" />
-    <EmbeddedResource Include="resx\CustomizableFieldsForm.fr.resx" />
-    <EmbeddedResource Include="resx\CustomizableFieldsForm.resx" />
-    <EmbeddedResource Include="resx\CustomizableFieldsForm.ru-RU.resx" />
     <EmbeddedResource Include="resx\FrmAddSavingEvent.fr.resx" />
     <EmbeddedResource Include="resx\FrmAddSavingEvent.pt.resx" />
     <EmbeddedResource Include="resx\FrmAddSavingEvent.resx" />

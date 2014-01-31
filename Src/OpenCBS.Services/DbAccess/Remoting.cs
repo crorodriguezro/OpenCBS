@@ -334,11 +334,6 @@ namespace OpenCBS.Services
             return _remoteOperation.GetTellerServices(CurrentUser);
         }
 
-        public CustomizableFieldsServices GetCustomizableFieldsServices()
-        {
-            return _remoteOperation.GetAdvancedCustomizableFieldsServices(CurrentUser);
-        }
-
         public PaymentMethodServices GetPaymentMethodServices()
         {
             return _remoteOperation.GetPaymentMethodServices(CurrentUser);

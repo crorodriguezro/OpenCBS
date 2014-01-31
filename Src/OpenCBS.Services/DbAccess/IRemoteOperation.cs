@@ -63,7 +63,6 @@ namespace OpenCBS.Services
         ExportServices GetExportServices(User pUser);
         BranchService GetBranchService(User user);
         TellerServices GetTellerServices(User user);
-        CustomizableFieldsServices GetAdvancedCustomizableFieldsServices(User user);
         PaymentMethodServices GetPaymentMethodServices(User user);
         MenuItemServices GetMenuItemServices(User user);
         
