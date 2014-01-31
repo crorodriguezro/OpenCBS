@@ -33,20 +33,22 @@ namespace OpenCBS.GUI.Contracts
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VillageCreditCommitteeForm));
             this.pnlButtons = new System.Windows.Forms.Panel();
+            this.buttonValidate = new System.Windows.Forms.Button();
+            this.checkBoxSelectAll = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tbAmount = new System.Windows.Forms.TextBox();
             this.tbEntryFee = new System.Windows.Forms.TextBox();
             this.lvMembers = new OpenCBS.GUI.UserControl.ListViewEx();
-            this.chName = new System.Windows.Forms.ColumnHeader();
-            this.chPassport = new System.Windows.Forms.ColumnHeader();
-            this.chAmount = new System.Windows.Forms.ColumnHeader();
-            this.chCurrency = new System.Windows.Forms.ColumnHeader();
-            this.chLoanOfficer = new System.Windows.Forms.ColumnHeader();
-            this.chStatus = new System.Windows.Forms.ColumnHeader();
-            this.chValidationDate = new System.Windows.Forms.ColumnHeader();
-            this.chValidationCode = new System.Windows.Forms.ColumnHeader();
-            this.chComment = new System.Windows.Forms.ColumnHeader();
+            this.chName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chPassport = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chCurrency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chLoanOfficer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chValidationDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chValidationCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.tbComment = new System.Windows.Forms.TextBox();
             this.dtCreditCommittee = new System.Windows.Forms.DateTimePicker();
@@ -57,10 +59,24 @@ namespace OpenCBS.GUI.Contracts
             // 
             // pnlButtons
             // 
+            this.pnlButtons.Controls.Add(this.buttonValidate);
+            this.pnlButtons.Controls.Add(this.checkBoxSelectAll);
             this.pnlButtons.Controls.Add(this.btnCancel);
             this.pnlButtons.Controls.Add(this.btnSave);
             resources.ApplyResources(this.pnlButtons, "pnlButtons");
             this.pnlButtons.Name = "pnlButtons";
+            // 
+            // buttonValidate
+            // 
+            resources.ApplyResources(this.buttonValidate, "buttonValidate");
+            this.buttonValidate.Name = "buttonValidate";
+            this.buttonValidate.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSelectAll
+            // 
+            resources.ApplyResources(this.checkBoxSelectAll, "checkBoxSelectAll");
+            this.checkBoxSelectAll.Name = "checkBoxSelectAll";
+            this.checkBoxSelectAll.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
@@ -105,8 +121,8 @@ namespace OpenCBS.GUI.Contracts
             this.lvMembers.Name = "lvMembers";
             this.lvMembers.UseCompatibleStateImageBehavior = false;
             this.lvMembers.View = System.Windows.Forms.View.Details;
-            this.lvMembers.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvMembers_ItemChecked);
             this.lvMembers.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lvMembers_ItemCheck);
+            this.lvMembers.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvMembers_ItemChecked);
             this.lvMembers.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvMembers_MouseDown);
             // 
             // chName
@@ -189,6 +205,7 @@ namespace OpenCBS.GUI.Contracts
             this.Controls.Add(this.pnlButtons);
             this.Name = "VillageCreditCommitteeForm";
             this.pnlButtons.ResumeLayout(false);
+            this.pnlButtons.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,5 +233,7 @@ namespace OpenCBS.GUI.Contracts
         private System.Windows.Forms.TextBox tbValidationCode;
         private System.Windows.Forms.ColumnHeader chValidationCode;
         private System.Windows.Forms.TextBox tbLoanOfficer;
+        private System.Windows.Forms.Button buttonValidate;
+        private System.Windows.Forms.CheckBox checkBoxSelectAll;
     }
 }
