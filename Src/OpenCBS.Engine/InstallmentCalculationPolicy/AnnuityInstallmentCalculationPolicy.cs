@@ -39,6 +39,7 @@ namespace OpenCBS.Engine.InstallmentCalculationPolicy
             // left remainder // should be divided by number of installments in order to proportionally spread between installments
             // but because we need to count interest also that amount should be multiplied by interest rate / 100
             var remainder = 0m;
+            var counter = 0;
             var installment = new Installment {Olb = configuration.Amount};
             do
             {
@@ -57,8 +58,9 @@ namespace OpenCBS.Engine.InstallmentCalculationPolicy
                 }
                 remainder = installment.Olb;
                 installment.Olb = configuration.Amount;
+                ++counter;
                 annuity += (remainder * configuration.InterestRate / 100 / number);
-            } while (Math.Abs(remainder) > 0.01m);
+            } while (Math.Abs(remainder) > 0.01m && counter < 1000);
             return annuity;
         }
     }
