@@ -23,6 +23,7 @@ using System;
 using System.Globalization;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.Shared;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.Services
 {
@@ -231,7 +232,9 @@ namespace OpenCBS.Services
                 try
                 {
                     double value = isPercent ? (number.Value*100) : number.Value;
-                    return Convert.ToString(Math.Round(value, 2, MidpointRounding.AwayFromZero));
+                    var dataParam = ApplicationSettings.GetInstance(string.Empty);
+                    int decimalPlaces = dataParam.InterestRateDecimalPlaces;
+                    return Convert.ToString(Math.Round(value, decimalPlaces, MidpointRounding.AwayFromZero));
                 }
                 catch
                 {
