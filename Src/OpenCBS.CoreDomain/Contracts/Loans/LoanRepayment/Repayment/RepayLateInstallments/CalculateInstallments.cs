@@ -68,19 +68,8 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateIn
             if (ApplicationSettings.GetInstance(User.CurrentUser.Md5).UseDailyAccrualOfPenalty)
             {
                 var installment = _contract.GetFirstUnpaidInstallment();
-                var accruedPenalty = _contract.Events.OfType<LoanPenaltyAccrualEvent>().ToList()
-                                              .Where(e => !e.Deleted)
-                                              .Aggregate<LoanPenaltyAccrualEvent, OCurrency>(0,
-                                                                                             (current, e) =>
-                                                                                             current + e.Penalty)
-                                              .Value;
-                var paidPenalty = _contract.Events.OfType<RepaymentEvent>().ToList()
-                                           .Where(e => !(e is PendingRepaymentEvent) && !e.Deleted)
-                                           .Aggregate<RepaymentEvent, OCurrency>(0,
-                                                                                 (current, e) => current + e.Penalties)
-                                           .Value;
-                var penalty = accruedPenalty - paidPenalty;
-                installment.CalculatedPenalty = installment.FeesUnpaid = penalty < 0 ? 0 : penalty;
+                installment.CalculatedPenalty =
+                    installment.FeesUnpaid = _contract.CalculateDailyAccrualUnpaidPenalties(pDate);
             }
             else
             {

@@ -718,6 +718,25 @@ namespace OpenCBS.Services
                         }
                     }
 
+                    //var repaymentEvents = (from item in savedContract.Events.GetRepaymentEvents()
+                    //                       where item.ParentId == repayEvent.Id || item.Id == repayEvent.Id
+                    //                       select item).ToList();
+                    //if (repayEvent.Code == "RBLE")
+                    //{
+                    //    var listOfRble = (from item in repaymentEvents where item.Code == "RBLE" select item).ToList();
+                    //    var rble=new RepaymentEvent
+                    //        {
+                    //            Code="RBLE",
+                    //            Principal = 
+                    //        }
+                    //    CallInterceptor(new Dictionary<string, object>
+                    //        {
+                    //            {"Loan", savedContract},
+                    //            {"Event", loanDisbursmentEvent},
+                    //            {"SqlTransaction", sqlTransaction}
+                    //        });
+                    //}
+
                     if (savedContract.AllInstallmentsRepaid)
                     {
                         _ePs.FireEvent(savedContract.GetCloseEvent(payDate), savedContract, sqlTransaction);
