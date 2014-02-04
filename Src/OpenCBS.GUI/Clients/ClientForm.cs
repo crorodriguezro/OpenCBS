@@ -537,7 +537,7 @@ namespace OpenCBS.GUI.Clients
             tabControlPerson.TabPages.Remove(tabPageContracts);
 
             InitializeProjectAddress();
-            
+
             if (pClientType == OClientTypes.Person)
             {
                 _personUserControl = new PersonUserControl(_person, pMdiParent)
@@ -558,7 +558,7 @@ namespace OpenCBS.GUI.Clients
                 _personUserControl.AddSelectedSaving += PersonUserControl_SavingSelected;
                 _personUserControl.ViewSelectedSaving += PersonUserControl_ViewSelectedSaving;
                 tabPageDetails.Controls.Add(_personUserControl);
-                
+
                 if (!ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
                 {
                     _personUserControl.RemoveSavings();
@@ -586,7 +586,7 @@ namespace OpenCBS.GUI.Clients
                 _groupUserControl.MembersChanged += MembersChanged;
 
                 tabPageDetails.Controls.Add(_groupUserControl);
-                
+
                 if (!ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
                 {
                     _groupUserControl.RemoveSavings();
@@ -615,7 +615,7 @@ namespace OpenCBS.GUI.Clients
                     _corporateUserControl.CloseCorporate += CorporateUserControl_Closed;
 
                 tabPageDetails.Controls.Add(_corporateUserControl);
-                
+
                 if (!ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
                 {
                     _corporateUserControl.RemoveSavings();
@@ -1880,7 +1880,7 @@ namespace OpenCBS.GUI.Clients
             InitializeLoanOfficer();
             SetPackageValuesForLoanDetails(pCredit, false);
             DisableContractDetails(pCredit.ContractStatus);
- 
+
             DisableCommitteeDecision(pCredit.ContractStatus);
 
             nudInterestRate.Text = (pCredit.InterestRate * 100).ToString();
@@ -3447,7 +3447,8 @@ namespace OpenCBS.GUI.Clients
             if (_credit != null && _credit.ScheduleChangedManually)
             {
                 credit.ScheduleChangedManually = _credit.ScheduleChangedManually;
-                credit.InstallmentList = _credit.InstallmentList;
+
+                //credit.InstallmentList = _credit.InstallmentList;
             }
             credit.EconomicActivity = eacLoan.Activity;
             return credit;
@@ -3541,6 +3542,7 @@ namespace OpenCBS.GUI.Clients
         {
             listViewLoanInstallments.Items.Clear();
 
+
             if (pCredit.InstallmentList.Count == 0)
             {
                 pCredit.Product = _product;
@@ -3550,12 +3552,13 @@ namespace OpenCBS.GUI.Clients
             {
                 if (!pCredit.ScheduleChangedManually)
                 {
-                    pCredit.InstallmentList = pCredit.Product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest || pCredit.Product.IsExotic 
+                    pCredit.InstallmentList = pCredit.Product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest || pCredit.Product.IsExotic
                         ? pCredit.CalculateInstallments(true) : ServiceProvider.GetContractServices().SimulateScheduleCreation(pCredit);
-                    pCredit.CalculateStartDates();
+                          pCredit.CalculateStartDates(); 
                 }
             }
-
+            
+           
             OCurrency interestTotal = 0;
             OCurrency principalTotal = 0;
 
@@ -4431,7 +4434,7 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                 }
-                
+
                 listViewItem.SubItems.Add(displayEvent.Cancelable.ToString());
                 listViewItem.SubItems.Add(displayEvent.User.ToString());
 
@@ -4526,7 +4529,7 @@ namespace OpenCBS.GUI.Clients
             {
                 LoanServices cServices = ServicesProvider.GetInstance().GetContractServices();
 
-                  Event foundEvent = _credit.GetLastNonDeletedEvent();
+                Event foundEvent = _credit.GetLastNonDeletedEvent();
 
 
                 if (foundEvent == null)
@@ -4545,7 +4548,7 @@ namespace OpenCBS.GUI.Clients
                 List<Installment> archivedInstallments = cServices.GetArchivedInstallments(foundEvent.Id);
                 // Request user confirmation
                 var eventCancelConfirmationForm = new EventCancelConfirmationForm(_credit, foundEvent, archivedInstallments);
-                
+
                 DialogResult response = eventCancelConfirmationForm.ShowDialog();
 
                 if (response == DialogResult.OK)
@@ -4663,7 +4666,7 @@ namespace OpenCBS.GUI.Clients
                         nudLoanNbOfInstallments.Value = nudLoanNbOfInstallments.Maximum = _credit.NbOfInstallments;
                         nudInterestRate.Value = nudInterestRate.Minimum = nudInterestRate.Maximum = _credit.InterestRate;
                         if (_credit.GracePeriod != null)
-                            numericUpDownLoanGracePeriod.Value = (decimal) _credit.GracePeriod;
+                            numericUpDownLoanGracePeriod.Value = (decimal)_credit.GracePeriod;
                         SaveContract();
                         InitializeContractStatus(_credit);
                         InitializeTabPageLoansDetails(_credit);
@@ -4763,7 +4766,7 @@ namespace OpenCBS.GUI.Clients
 
         private void buttonCreditCommiteeSaveDecision_Click(object sender, EventArgs e)
         {
-            
+
             if (buttonCreditCommiteeSaveDecision.Text.Equals(GetString("update")))
             {
                 EnableBoxCreditCommitteeComponents(true);
@@ -4775,13 +4778,13 @@ namespace OpenCBS.GUI.Clients
                 OContractStatus currentCreditStatus = OContractStatus.Pending;
                 OContractStatus currentGuaranteeStatus = OContractStatus.Pending;
 
-                 
-             
+
+
                 try
                 {
                     if (_credit != null)
                     {
-                        OContractStatus  newStatus = GetNewStatusAndValidate(ref currentCreditStatus);
+                        OContractStatus newStatus = GetNewStatusAndValidate(ref currentCreditStatus);
 
 
                         _credit.ContractStatus = newStatus;
@@ -4823,7 +4826,7 @@ namespace OpenCBS.GUI.Clients
                             }
                         }
                         else
-                         {
+                        {
                             _credit.Closed = false;
                             if (client != null)
                             {
@@ -4850,7 +4853,7 @@ namespace OpenCBS.GUI.Clients
                         {
                             btnEditSchedule.Enabled = false;
                             InitializeTabPageGuaranteesDetailsButtons(_credit.Product.UseGuarantorCollateral);
-                          DisableContractDetails(OContractStatus.Validated);
+                            DisableContractDetails(OContractStatus.Validated);
                         }
                         InitLoanDetails(false, _credit.Disbursed, _credit.ContractStatus == OContractStatus.Validated);
                         tabPageLoansDetails.Enabled = true;
@@ -4889,12 +4892,12 @@ namespace OpenCBS.GUI.Clients
                         {
                             nudInterestRate.Enabled = false;
                         }
-                 
+
 
                     }
 
                     ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
-               
+
                 }
                 catch (Exception ex)
                 {
@@ -4903,10 +4906,10 @@ namespace OpenCBS.GUI.Clients
                     new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
                 }
             }
-              
-            
-            
- 
+
+
+
+
         }
 
         private OContractStatus GetNewStatusAndValidate(ref OContractStatus currentCreditStatus)
@@ -6427,12 +6430,12 @@ namespace OpenCBS.GUI.Clients
                 foreach (CollateralPropertyValue propertyValue in selectedCollateral.PropertyValues)
                     if (propertyValue.Property.Name.Equals(GetString("FrmAddCollateralProduct", "propertyAmount")) ||
                         propertyValue.Property.Name.Equals("Montant") || propertyValue.Property.Name.Equals("Сумма") || propertyValue.Property.Name.Equals("Amount"))
-                            selectedCollateralAmount = new OCurrency(Converter.CustomFieldValueToDecimal(propertyValue.Value));
+                        selectedCollateralAmount = new OCurrency(Converter.CustomFieldValueToDecimal(propertyValue.Value));
 
                 string selectedCollateralDescription = string.Empty;
                 foreach (CollateralPropertyValue propertyValue in selectedCollateral.PropertyValues)
                     if (propertyValue.Property.Name.Equals(GetString("FrmAddCollateralProduct", "propertyDescription")) ||
-                        propertyValue.Property.Name.Equals("Description") || propertyValue.Property.Name.Equals("Описание")) 
+                        propertyValue.Property.Name.Equals("Description") || propertyValue.Property.Name.Equals("Описание"))
                         selectedCollateralDescription = propertyValue.Value;
 
                 var listViewItem = new ListViewItem(collateralProduct.Name) { Tag = selectedCollateral };
@@ -6984,8 +6987,7 @@ namespace OpenCBS.GUI.Clients
                 var page = tclLoanDetails.TabPages[i];
                 if (page.Tag is bool && (bool)page.Tag) tclLoanDetails.TabPages.Remove(page);
             }
-            for (var i = tabControlRepayments.TabPages.Count - 1; i >= 0; i--) 
-
+            for (var i = tabControlRepayments.TabPages.Count - 1; i >= 0; i--)
             {
                 var page = tabControlRepayments.TabPages[i];
                 if (page.Tag is bool && (bool)page.Tag) tabControlRepayments.TabPages.Remove(page);
@@ -7016,7 +7018,7 @@ namespace OpenCBS.GUI.Clients
             for (var i = tabControlSavingsDetails.TabPages.Count - 1; i >= 0; i--)
             {
                 var page = tabControlSavingsDetails.TabPages[i];
-                if (page.Tag is bool && (bool) page.Tag)
+                if (page.Tag is bool && (bool)page.Tag)
                 {
                     tabControlSavingsDetails.TabPages.Remove(page);
                 }
