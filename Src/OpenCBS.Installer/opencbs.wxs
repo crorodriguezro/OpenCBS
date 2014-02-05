@@ -313,7 +313,6 @@
 				          <File Id="Guarantors" Name="Guarantors.zip" Source="SourceDir\Reports\Standard\Guarantors.zip" />
 				          <File Id="Booking_List" Name="Booking_List.zip" Source="SourceDir\Reports\Standard\Booking_List.zip" />
                   <File Id="NBT" Name="NBT.zip" Source="SourceDir\Reports\Standard\NBT.zip" />
-				          <File Id="Accrued_Interest" Name="Accrued_Interest.zip" Source="SourceDir\Reports\Standard\Accrued_Interest.zip" />
 				          <File Id="Tranches" Name="Tranches.zip" Source="SourceDir\Reports\Standard\Tranches.zip" />
 				          <File Id="Compulsary_Savings_Accounts" Name="Compulsory_Savings_Accounts.zip" Source="SourceDir\Reports\Standard\Compulsory_Savings_Accounts.zip" />
 				          <File Id="Statistics_per_gender" Name = "Statistics_per_gender.zip" Source="SourceDir\Reports\Standard\Statistics_per_gender.zip" />
