@@ -718,24 +718,44 @@ namespace OpenCBS.Services
                         }
                     }
 
-                    //var repaymentEvents = (from item in savedContract.Events.GetRepaymentEvents()
-                    //                       where item.ParentId == repayEvent.Id || item.Id == repayEvent.Id
-                    //                       select item).ToList();
-                    //if (repayEvent.Code == "RBLE")
-                    //{
-                    //    var listOfRble = (from item in repaymentEvents where item.Code == "RBLE" select item).ToList();
-                    //    var rble=new RepaymentEvent
-                    //        {
-                    //            Code="RBLE",
-                    //            Principal = 
-                    //        }
-                    //    CallInterceptor(new Dictionary<string, object>
-                    //        {
-                    //            {"Loan", savedContract},
-                    //            {"Event", loanDisbursmentEvent},
-                    //            {"SqlTransaction", sqlTransaction}
-                    //        });
-                    //}
+                    var repaymentEvents = (from item in savedContract.Events.GetRepaymentEvents()
+                                           where item.ParentId == repayEvent.Id || item.Id == repayEvent.Id
+                                           select item).ToList();
+                    var listOfRble = (from item in repaymentEvents where item.Code == "RBLE" select item).ToList();
+                    var listOfRgle = repaymentEvents.Except(listOfRble).ToList();
+                    if (repayEvent.Code == "RBLE")
+                        CallInterceptor(new Dictionary<string, object>
+                        {
+                            {"Loan", savedContract},
+                            {
+                                "Event", new RepaymentEvent
+                                {
+                                    Code = "RBLE",
+                                    Principal = listOfRble.Sum(item => item.Principal.Value),
+                                    Interests = listOfRble.Sum(item => item.Interests.Value),
+                                    Commissions = listOfRble.Sum(item => item.Commissions.Value),
+                                    Penalties = listOfRble.Sum(item => item.Fees.Value),
+                                    Id = repayEvent.Id
+                                }
+                            },
+                            {"SqlTransaction", sqlTransaction}
+                        });
+                    CallInterceptor(new Dictionary<string, object>
+                    {
+                        {"Loan", savedContract},
+                        {
+                            "Event", new RepaymentEvent
+                            {
+                                Code = "RGLE",
+                                Principal = listOfRgle.Sum(item => item.Principal.Value),
+                                Interests = listOfRgle.Sum(item => item.Interests.Value),
+                                Commissions = listOfRgle.Sum(item => item.Commissions.Value),
+                                Penalties = listOfRgle.Sum(item => item.Fees.Value),
+                                Id = repayEvent.Id
+                            }
+                        },
+                        {"SqlTransaction", sqlTransaction}
+                    });
 
                     if (savedContract.AllInstallmentsRepaid)
                     {
