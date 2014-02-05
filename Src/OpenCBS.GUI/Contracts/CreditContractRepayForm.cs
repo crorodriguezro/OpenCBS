@@ -439,10 +439,24 @@ namespace OpenCBS.GUI.Contracts
                     var savingsMethod =
                         (OSavingsMethods)
                         Enum.Parse(typeof (OSavingsMethods), (cmbPaymentMethod.SelectedIndex == 0) ? "Cash" : "Cheque");
-                    ServicesProvider.GetInstance()
-                                    .GetSavingServices()
-                                    .Deposit(saving, _date.Date, _amount, " ", User.CurrentUser, false,
-                                             savingsMethod, null, Teller.CurrentTeller);
+                    var savingEvent = ServicesProvider
+                        .GetInstance()
+                        .GetSavingServices()
+                        .Deposit(saving, _date.Date, _amount, " ", User.CurrentUser, false, savingsMethod, null,
+                                 Teller.CurrentTeller).FirstOrDefault();
+
+                    using (var sqlTransaction = DatabaseConnection.GetConnection().BeginTransaction())
+                    {
+                        ServicesProvider.GetInstance()
+                                        .GetContractServices()
+                                        .CallInterceptor(new Dictionary<string, object>
+                                            {
+                                                {"Loan", _loan},
+                                                {"Event", savingEvent},
+                                                {"SqlTransaction", sqlTransaction}
+                                            });
+                        sqlTransaction.Commit();
+                    }
                     var repaymentConfiguration = new RepaymentConfiguration()
                     {
                         Client = _client,

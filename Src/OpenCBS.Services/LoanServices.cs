@@ -2555,7 +2555,7 @@ namespace OpenCBS.Services
             throw new ApplicationException("Cannot find contract code generator.");
         }
 
-        private void CallInterceptor(IDictionary<string, object> interceptorParams)
+        public void CallInterceptor(IDictionary<string, object> interceptorParams)
         {
             // Find non-default implementation
             var creator = (
