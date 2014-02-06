@@ -35,7 +35,6 @@ namespace OpenCBS.Test.CoreDomain.Events
         {
             _eventStock = new EventStock();
             _eventStock.Add(new RepaymentEvent());
-            _eventStock.Add(new RescheduledLoanRepaymentEvent());
             _eventStock.Add(new BadLoanRepaymentEvent());
             _eventStock.Add(new StatisticalProvisionningEvent());
             _eventStock.Add(new LoanDisbursmentEvent());

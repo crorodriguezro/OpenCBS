@@ -88,13 +88,6 @@ namespace OpenCBS.Test.CoreDomain
 		}
 
 		[Test]
-		public void TestRepaymentEventCodeCorrectlyGeneratedWhenBadLoanAndNotRescheduled()
-		{
-            RescheduledLoanRepaymentEvent rPE = new RescheduledLoanRepaymentEvent();
-			Assert.AreEqual("RRLE",rPE.Code);
-		}
-
-		[Test]
 		public void TestIfEventDateCorrectlySetAndRetrieved()
 		{
 			loanDisbursmentEvent.Date = new DateTime(2004,2,23);

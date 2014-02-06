@@ -1257,8 +1257,8 @@ namespace OpenCBS.Services
         {
             var repayment = (from e in loan.Events.GetEvents()
                              where
-                                 e is RepaymentEvent || e is RepaymentOverWriteOffEvent ||
-                                 e is RescheduledLoanRepaymentEvent
+                                 e is RepaymentEvent || e is RepaymentOverWriteOffEvent
+                                 
                              orderby e.Date
                              select e).LastOrDefault();
             if (repayment != null && date.Date < repayment.Date.Date)
