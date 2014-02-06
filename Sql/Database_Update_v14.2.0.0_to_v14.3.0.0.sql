@@ -1,3 +1,17 @@
+UPDATE ce SET ce.event_type = 'RGLE'
+FROM ContractEvents ce
+INNER JOIN RepaymentEvents re ON re.id = ce.id
+WHERE ce.event_type = 'RRLE'
+    AND re.past_due_days = 0
+GO
+    
+UPDATE ce SET ce.event_type = 'RBLE'
+FROM ContractEvents ce
+INNER JOIN RepaymentEvents re ON re.id = ce.id
+WHERE ce.event_type = 'RRLE'
+    AND re.past_due_days <> 0
+GO
+
 DELETE lam FROM LoanAccountingMovements lam
 INNER JOIN AccountingRules ar ON ar.id = lam.rule_id
 WHERE ar.event_attribute_id IN
