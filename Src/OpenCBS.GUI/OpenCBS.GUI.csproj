@@ -3057,9 +3057,6 @@
     <None Include="Reports\Internal\Village_Repayment_Schedule.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Reports\Standard\Accrued_Interest.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Reports\Standard\Anticipated_Totally_Repaid_Loans.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
