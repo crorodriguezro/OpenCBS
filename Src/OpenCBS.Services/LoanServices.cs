@@ -2402,6 +2402,13 @@ namespace OpenCBS.Services
                     }
                     UpdateLoan(ref loan, sqlTransaction);
 
+                    CallInterceptor(new Dictionary<string, object>
+                    {
+                        {"Loan", loan},
+                        {"Event", writeOffEvent},
+                        {"SqlTransaction", sqlTransaction}
+                    });
+
                     if (sqlTransaction != null)
                         sqlTransaction.Commit();
 
@@ -2680,6 +2687,12 @@ namespace OpenCBS.Services
                             try
                             {
                                 _ePs.FireEvent(interestEvent, loan, transaction);
+                                CallInterceptor(new Dictionary<string, object>
+                                {
+                                    {"Loan", loan},
+                                    {"Event", interestEvent},
+                                    {"SqlTransaction", transaction}
+                                });
                                 transaction.Commit();
                             }
                             catch (Exception)
@@ -2716,6 +2729,12 @@ namespace OpenCBS.Services
                             try
                             {
                                 _ePs.FireEvent(interestEvent, loan, transaction);
+                                CallInterceptor(new Dictionary<string, object>
+                                {
+                                    {"Loan", loan},
+                                    {"Event", interestEvent},
+                                    {"SqlTransaction", transaction}
+                                });
                                 transaction.Commit();
                             }
                             catch (Exception)

@@ -2349,6 +2349,23 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
             return balance;
         }
 
+        public decimal CalculateUnpaidOfAccruedInterest(DateTime date)
+        {
+            var accruedInterest = Events.OfType<LoanInterestAccrualEvent>().ToList()
+                                       .Where(e => !e.Deleted && e.Date <= date)
+                                       .Aggregate<LoanInterestAccrualEvent, OCurrency>(0,
+                                                                                      (current, e) =>
+                                                                                      current + e.Interest)
+                                       .Value;
+            var paidInterest = Events.OfType<RepaymentEvent>().ToList()
+                                    .Where(e => !(e is PendingRepaymentEvent) && !e.Deleted && e.Date <= date)
+                                    .Aggregate<RepaymentEvent, OCurrency>(0,
+                                                                          (current, e) => current + e.Interests)
+                                    .Value;
+            var penalty = accruedInterest - paidInterest;
+            return penalty < 0 ? 0 : penalty;
+        }
+
         public string Duration
         {
             get
