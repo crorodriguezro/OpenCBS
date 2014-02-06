@@ -4400,16 +4400,6 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                 }
-                else if (displayEvent is RescheduledLoanRepaymentEvent)
-                {
-                    RescheduledLoanRepaymentEvent _event = displayEvent as RescheduledLoanRepaymentEvent;
-                    listViewItem.SubItems.Add(_event.Principal.GetFormatedValue(pCredit.UseCents));
-                    listViewItem.SubItems.Add(_event.Interests.GetFormatedValue(pCredit.UseCents));
-                    listViewItem.SubItems.Add(_event.Commissions.GetFormatedValue(pCredit.UseCents));
-                    listViewItem.SubItems.Add(_event.Penalties.GetFormatedValue(pCredit.UseCents));
-                    listViewItem.SubItems.Add("-");
-                    listViewItem.SubItems.Add("-");
-                }
                 else if (displayEvent is RescheduleLoanEvent)
                 {
                     RescheduleLoanEvent _event = displayEvent as RescheduleLoanEvent;
