@@ -68,7 +68,6 @@ namespace OpenCBS.GUI.Clients
         private Project _project;
         private Group _group;
         private Loan _credit;
-        private Loan _copyOfCredit;
         private Guarantee _guarantee;
         private Person _person;
         private readonly Form _mdiParent;
@@ -2147,7 +2146,6 @@ namespace OpenCBS.GUI.Clients
                 ServicesProvider.GetInstance().GetNonWorkingDate(),
                 CoreDomainProvider.GetInstance().GetProvisioningTable(),
                 CoreDomainProvider.GetInstance().GetChartOfAccounts());
-            _copyOfCredit = _credit;
             _credit.Product = pPackage;
 
             nudLoanAmount.Text = string.Empty;
@@ -3643,8 +3641,6 @@ namespace OpenCBS.GUI.Clients
 
             if (_credit != null)
                 SaveContract();
-
-            _copyOfCredit.Id = _credit != null ? _credit.Id : 0;
         }
 
         private void DisplayListViewLoanRepayments(Loan credit)
@@ -6982,13 +6978,13 @@ namespace OpenCBS.GUI.Clients
             for (var i = tclLoanDetails.TabPages.Count - 1; i >= 0; i--)
             {
                 var page = tclLoanDetails.TabPages[i];
-                if (page.Tag is bool && (bool)page.Tag) tclLoanDetails.TabPages.Remove(page);
+                if (page.Tag != null) tclLoanDetails.TabPages.Remove(page);
             }
             for (var i = tabControlRepayments.TabPages.Count - 1; i >= 0; i--) 
 
             {
                 var page = tabControlRepayments.TabPages[i];
-                if (page.Tag is bool && (bool)page.Tag) tabControlRepayments.TabPages.Remove(page);
+                if (page.Tag != null) tabControlRepayments.TabPages.Remove(page);
             }
 
             foreach (var extension in LoanExtensions)
@@ -6996,14 +6992,12 @@ namespace OpenCBS.GUI.Clients
                 var pages = extension.GetTabPages(_credit);
                 if (pages != null)
                 {
-                    foreach (var page in pages) page.Tag = true; // mark as extension
                     tclLoanDetails.TabPages.AddRange(pages);
                 }
 
                 pages = extension.GetRepaymentTabPages(_credit);
                 if (pages != null)
                 {
-                    foreach (var page in pages) page.Tag = true; // mark as extension
                     tabControlRepayments.TabPages.AddRange(pages);
                 }
             }
