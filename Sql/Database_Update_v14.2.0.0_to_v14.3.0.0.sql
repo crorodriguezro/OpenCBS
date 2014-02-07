@@ -40,7 +40,14 @@ GO
 
 DELETE FROM EventTypes WHERE event_type = 'RRLE'
 GO
-
+ IF (not exists(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE  TABLE_NAME = 'LateDaysRange'))
+		BEGIN 
+			CREATE TABLE LateDaysRange
+			(
+			 [Min] INT not  null, [Max] INT not  null, [Label] NVARCHAR(15) null, [Color] NVARCHAR(30) null
+			)
+		END
+GO
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v14.3.0.0'
 WHERE   [name] = 'VERSION'

@@ -35,10 +35,6 @@ namespace OpenCBS.GUI
             this.olbTrendPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.riskTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.parListView = new BrightIdeasSoftware.ObjectListView();
-            this.parNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.parAmountColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.parQuantityColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.portfolioPanel = new System.Windows.Forms.Panel();
             this.parPanel = new System.Windows.Forms.Panel();
@@ -58,6 +54,8 @@ namespace OpenCBS.GUI
             this._servicesLinkLabel = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
             this._userGuideLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.label5 = new System.Windows.Forms.Label();
+            this._contactLinkLabel = new System.Windows.Forms.LinkLabel();
             this.quickLinksPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.operateLabel = new System.Windows.Forms.Label();
@@ -79,14 +77,15 @@ namespace OpenCBS.GUI
             this.parAnalysisLink = new System.Windows.Forms.LinkLabel();
             this.delinquentLoansLink = new System.Windows.Forms.LinkLabel();
             this.disbursementsLink = new System.Windows.Forms.LinkLabel();
-            this.label5 = new System.Windows.Forms.Label();
-            this._contactLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.parNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.parAmountColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.parQuantityColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.parListView = new BrightIdeasSoftware.ObjectListView();
             this.generalInfoPanel.SuspendLayout();
             this.infoPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.riskTableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.parListView)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this._filterPanel.SuspendLayout();
             this.topBarPanel.SuspendLayout();
@@ -94,6 +93,7 @@ namespace OpenCBS.GUI
             this._infoFlowLayoutPanel.SuspendLayout();
             this.quickLinksPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.parListView)).BeginInit();
             this.SuspendLayout();
             // 
             // generalInfoPanel
@@ -150,41 +150,6 @@ namespace OpenCBS.GUI
             this.riskTableLayoutPanel.Controls.Add(this.parListView, 1, 0);
             this.riskTableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.riskTableLayoutPanel.Name = "riskTableLayoutPanel";
-            // 
-            // parListView
-            // 
-            this.parListView.AllColumns.Add(this.parNameColumn);
-            this.parListView.AllColumns.Add(this.parAmountColumn);
-            this.parListView.AllColumns.Add(this.parQuantityColumn);
-            this.parListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.parNameColumn,
-            this.parAmountColumn,
-            this.parQuantityColumn});
-            resources.ApplyResources(this.parListView, "parListView");
-            this.parListView.FullRowSelect = true;
-            this.parListView.GridLines = true;
-            this.parListView.HasCollapsibleGroups = false;
-            this.parListView.Name = "parListView";
-            this.parListView.ShowGroups = false;
-            this.parListView.UseCompatibleStateImageBehavior = false;
-            this.parListView.View = System.Windows.Forms.View.Details;
-            // 
-            // parNameColumn
-            // 
-            this.parNameColumn.AspectName = "Name";
-            resources.ApplyResources(this.parNameColumn, "parNameColumn");
-            // 
-            // parAmountColumn
-            // 
-            this.parAmountColumn.AspectName = "Amount";
-            this.parAmountColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            resources.ApplyResources(this.parAmountColumn, "parAmountColumn");
-            // 
-            // parQuantityColumn
-            // 
-            this.parQuantityColumn.AspectName = "Quantity";
-            this.parQuantityColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            resources.ApplyResources(this.parQuantityColumn, "parQuantityColumn");
             // 
             // tableLayoutPanel2
             // 
@@ -311,6 +276,17 @@ namespace OpenCBS.GUI
             this._userGuideLinkLabel.Name = "_userGuideLinkLabel";
             this._userGuideLinkLabel.TabStop = true;
             this._userGuideLinkLabel.Tag = "";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // _contactLinkLabel
+            // 
+            resources.ApplyResources(this._contactLinkLabel, "_contactLinkLabel");
+            this._contactLinkLabel.Name = "_contactLinkLabel";
+            this._contactLinkLabel.TabStop = true;
             // 
             // quickLinksPanel
             // 
@@ -518,16 +494,40 @@ namespace OpenCBS.GUI
             this.disbursementsLink.Tag = "Disbursments.zip";
             this.disbursementsLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnReportsClick);
             // 
-            // label5
+            // parNameColumn
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
+            this.parNameColumn.AspectName = "Name";
+            resources.ApplyResources(this.parNameColumn, "parNameColumn");
             // 
-            // _contactLinkLabel
+            // parAmountColumn
             // 
-            resources.ApplyResources(this._contactLinkLabel, "_contactLinkLabel");
-            this._contactLinkLabel.Name = "_contactLinkLabel";
-            this._contactLinkLabel.TabStop = true;
+            this.parAmountColumn.AspectName = "Amount";
+            this.parAmountColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            resources.ApplyResources(this.parAmountColumn, "parAmountColumn");
+            // 
+            // parQuantityColumn
+            // 
+            this.parQuantityColumn.AspectName = "Quantity";
+            this.parQuantityColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            resources.ApplyResources(this.parQuantityColumn, "parQuantityColumn");
+            // 
+            // parListView
+            // 
+            this.parListView.AllColumns.Add(this.parNameColumn);
+            this.parListView.AllColumns.Add(this.parAmountColumn);
+            this.parListView.AllColumns.Add(this.parQuantityColumn);
+            this.parListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.parNameColumn,
+            this.parAmountColumn,
+            this.parQuantityColumn});
+            resources.ApplyResources(this.parListView, "parListView");
+            this.parListView.FullRowSelect = true;
+            this.parListView.GridLines = true;
+            this.parListView.HasCollapsibleGroups = false;
+            this.parListView.Name = "parListView";
+            this.parListView.ShowGroups = false;
+            this.parListView.UseCompatibleStateImageBehavior = false;
+            this.parListView.View = System.Windows.Forms.View.Details;
             // 
             // DashboardForm
             // 
@@ -545,7 +545,6 @@ namespace OpenCBS.GUI
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.riskTableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.parListView)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this._filterPanel.ResumeLayout(false);
             this._filterPanel.PerformLayout();
@@ -556,6 +555,7 @@ namespace OpenCBS.GUI
             this.quickLinksPanel.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.parListView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -570,10 +570,6 @@ namespace OpenCBS.GUI
         private System.Windows.Forms.LinkLabel newSolidarityGroupLinkLabel;
         private System.Windows.Forms.LinkLabel newCorporateClientLinkLabel;
         private System.Windows.Forms.TableLayoutPanel riskTableLayoutPanel;
-        private BrightIdeasSoftware.ObjectListView parListView;
-        private BrightIdeasSoftware.OLVColumn parNameColumn;
-        private BrightIdeasSoftware.OLVColumn parAmountColumn;
-        private BrightIdeasSoftware.OLVColumn parQuantityColumn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel portfolioPanel;
         private System.Windows.Forms.Panel parPanel;
@@ -615,5 +611,9 @@ namespace OpenCBS.GUI
         private System.Windows.Forms.LinkLabel _userGuideLinkLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.LinkLabel _contactLinkLabel;
+        private BrightIdeasSoftware.ObjectListView parListView;
+        private BrightIdeasSoftware.OLVColumn parNameColumn;
+        private BrightIdeasSoftware.OLVColumn parAmountColumn;
+        private BrightIdeasSoftware.OLVColumn parQuantityColumn;
     }
 }
