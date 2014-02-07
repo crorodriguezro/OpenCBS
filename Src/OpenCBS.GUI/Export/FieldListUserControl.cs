@@ -102,8 +102,6 @@ namespace OpenCBS.GUI.Export
                         {
                             if (field is Field)
                                 field.Length = ((Field)field).DefaultLength;
-                            else if (field is CustomField)
-                                field.Length = ((CustomField)field).DefaultValue.Length;
                             else
                                 field.Length = 0;
 
@@ -256,57 +254,23 @@ namespace OpenCBS.GUI.Export
                         olvSelectedFields.RefreshObject(olvSelectedFields.SelectedObject);
                     }
                 }
-                else if (selectedField is CustomField)
-                {
-                    CustomFieldPropertiesForm frm = new CustomFieldPropertiesForm { CustomField = selectedField as CustomField };
-                    if (frm.ShowDialog() == DialogResult.OK)
-                    {
-                        var customField = frm.CustomField;
-                        olvSelectedFields.RefreshObject(customField);
-                    }
-                }
             }
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            IField field = ((IField)comboBoxDefaultFields.SelectedItem).Clone() as IField;
-            if (field is CustomField)
-            {
-                field = new CustomField()
+            IField field = ((IField) comboBoxDefaultFields.SelectedItem).Clone() as IField;
+            field.Header = textBoxHeader.Text;
+            if (_useSpecficLenght)
+                try
                 {
-                    Header = textBoxHeader.Text
-                };
-                if (_useSpecficLenght)
-                    try
-                    {
-                        field.Length = Convert.ToInt32(textNumericUserControl1.Text);
-                    }
-                    catch
-                    {
-                        field.Length = 0;
-                    }
-
-                CustomFieldPropertiesForm frm = new CustomFieldPropertiesForm { CustomField = field as CustomField };
-                if (frm.ShowDialog() == DialogResult.OK)
-                {
-                    _addField(frm.CustomField);
+                    field.Length = Convert.ToInt32(textNumericUserControl1.Text);
                 }
-            }
-            else 
-            {
-                field.Header = textBoxHeader.Text;
-                if (_useSpecficLenght)
-                    try
-                    {
-                        field.Length = Convert.ToInt32(textNumericUserControl1.Text);
-                    }
-                    catch
-                    {
-                        field.Length = ((Field)field).DefaultLength;
-                    }
-                _addField(field);
-            }
+                catch
+                {
+                    field.Length = ((Field) field).DefaultLength;
+                }
+            _addField(field);
         }
 
         private void listViewSelectedFields_SelectedIndexChanged(object sender, EventArgs e)

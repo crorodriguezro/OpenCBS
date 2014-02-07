@@ -194,6 +194,7 @@ namespace OpenCBS.GUI.Products
             InitializeComboBoxLoanCycles();
             InitializeComboBoxFundingLine();
             InitializeComboBoxCurrencies();
+            InitializeComboBoxInterestScheme(0);
             _product.ClientType = '-';
             _product.ChargeInterestWithinGracePeriod = true;
 
@@ -209,6 +210,21 @@ namespace OpenCBS.GUI.Products
             lvEntryFees.SubItemEndEditing += lvEntryFees_SubItemEndEditing;
             lvEntryFees.DoubleClickActivation = true;
             _ischangeFee = false;
+        }
+
+        private void InitializeComboBoxInterestScheme(int index)
+        {
+            cmbInterestScheme.Items.Clear();
+            cmbInterestScheme.Items.Add(GetString("ActualActual.Text"));
+            cmbInterestScheme.Items.Add(GetString("Actual360.Text"));
+            var installmentType = _product.InstallmentType;
+            if (installmentType == null || (installmentType.NbOfDays == 0 &&
+                installmentType.NbOfMonths == 1))
+            {
+                cmbInterestScheme.Items.Add(GetString("ThirtyActual.Text"));
+                cmbInterestScheme.Items.Add(GetString("Thirty360.Text"));
+            }
+            cmbInterestScheme.SelectedIndex = index;
         }
 
         private void InitializeCycleObjects()
@@ -397,15 +413,7 @@ namespace OpenCBS.GUI.Products
             else
                 radioButtonChargeInterestYes.Checked = true;
 
-            switch (pack.RoundingType)
-            {
-                case ORoundingType.Approximate:
-                    comboBoxRoundingType.SelectedIndex = 0; break;
-                case ORoundingType.Begin:
-                    comboBoxRoundingType.SelectedIndex = 1; break;
-                case ORoundingType.End:
-                    comboBoxRoundingType.SelectedIndex = 2; break;
-            }
+            InitializeComboBoxInterestScheme((int)pack.InterestScheme - 1);
 
             if (pack.CycleId != null)
             {
@@ -640,35 +648,36 @@ namespace OpenCBS.GUI.Products
                 switch (_product.PackageMode)
                 {
                     case OPackageMode.Insert:
-                        {
-                            ServicesProvider.GetInstance().GetProductServices().ParseFieldsAndCheckErrors(_product, _useExoticProduct, _checkBoxCounter);
-                            ServicesProvider.GetInstance().GetProductServices().AddPackage(_product);
-                            Close();
-                            break;
-                        }
+                    {
+                        _product.RoundingType = ORoundingType.End;
+                        ServicesProvider.GetInstance().GetProductServices().ParseFieldsAndCheckErrors(_product, _useExoticProduct, _checkBoxCounter);
+                        ServicesProvider.GetInstance().GetProductServices().AddPackage(_product);
+                        Close();
+                        break;
+                    }
 
                     case OPackageMode.Edit:
+                    {
+                        ServicesProvider.GetInstance().GetProductServices().ParseFieldsAndCheckErrors(_product, _useExoticProduct, _checkBoxCounter);
+
+                        if (_ischangeFee)
                         {
-                            ServicesProvider.GetInstance().GetProductServices().ParseFieldsAndCheckErrors(_product, _useExoticProduct, _checkBoxCounter);
-
-                            if (_ischangeFee)
+                            if (MessageBox.Show(
+                                MultiLanguageStrings.GetString(Ressource.FrmAddLoanProduct, "messageUpdate.Text"),
+                                MultiLanguageStrings.GetString(Ressource.PackagesForm, "title.Text"),
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
-                                if (MessageBox.Show(
-                                    MultiLanguageStrings.GetString(Ressource.FrmAddLoanProduct, "messageUpdate.Text"),
-                                    MultiLanguageStrings.GetString(Ressource.PackagesForm, "title.Text"),
-                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                                {
-                                    ServicesProvider.GetInstance().GetProductServices().UpdatePackage(_product, true);
-                                }
+                                ServicesProvider.GetInstance().GetProductServices().UpdatePackage(_product, true);
                             }
-                            else
-                            {
-                                ServicesProvider.GetInstance().GetProductServices().UpdatePackage(_product, false);
-                            }
-
-                            Close();
-                            break;
                         }
+                        else
+                        {
+                            ServicesProvider.GetInstance().GetProductServices().UpdatePackage(_product, false);
+                        }
+
+                        Close();
+                        break;
+                    }
                 }
             }
             catch (Exception ex)
@@ -691,6 +700,13 @@ namespace OpenCBS.GUI.Products
         private void comboBoxInstallmentType_SelectionChangeCommitted(object sender, EventArgs e)
         {
             _product.InstallmentType = (InstallmentType)comboBoxInstallmentType.SelectedItem;
+            var index = cmbInterestScheme.SelectedIndex;
+            if (_product.InstallmentType.NbOfMonths != 1 || _product.InstallmentType.NbOfDays != 0)
+            {
+                if (index > 1)
+                    index -= 2;
+            }
+            InitializeComboBoxInterestScheme(index);
             buttonSave.Enabled = true;
         }
 
@@ -872,22 +888,6 @@ namespace OpenCBS.GUI.Products
             textBoxAmountMin.Clear();
             textBoxAmountMax.Clear();
             buttonSave.Enabled = true;
-        }
-
-        private void _CheckAmountTypes(bool pUseSpecifiedAmount)
-        {
-            if (pUseSpecifiedAmount)
-            {
-                groupBoxAmount.Visible = true;
-                groupBoxAmountCycles.Visible = false;
-                _CancelSpecifiedAmount();
-            }
-            else
-            {
-                groupBoxAmount.Visible = false;
-                groupBoxAmountCycles.Visible = true;
-                _CancelAmountCycles();
-            }
         }
 
         private void buttonNewAmountCycles_Click(object sender, EventArgs e)
@@ -1622,21 +1622,6 @@ namespace OpenCBS.GUI.Products
         {
             _product.Currency = (Currency)comboBoxCurrencies.SelectedItem;
             InitializeLabelCurrency(_product.Currency.Code);
-        }
-
-        private void comboBoxRoundingType_SelectedValueChanged(object sender, EventArgs e)
-        {
-            switch (comboBoxRoundingType.SelectedIndex + 1)
-            {
-                case 1:
-                    _product.RoundingType = ORoundingType.Approximate; break;
-                case 2:
-                    _product.RoundingType = ORoundingType.Begin; break;
-                case 3:
-                    _product.RoundingType = ORoundingType.End; break;
-            }
-
-            buttonSave.Enabled = true;
         }
 
         private void textBoxGracePeriodLateFee_TextChanged(object sender, EventArgs e)
@@ -2444,6 +2429,23 @@ namespace OpenCBS.GUI.Products
             {
                 lvEntryFees.Enabled = false;
             }
+            buttonSave.Enabled = true;
+        }
+
+        private void cmbInterestScheme_SelectedValueChanged(object sender, EventArgs e)
+        {
+            switch (cmbInterestScheme.SelectedIndex + 1)
+            {
+                case 1:
+                    _product.InterestScheme = OInterestScheme.ActualActual; break;
+                case 2:
+                    _product.InterestScheme = OInterestScheme.Actual360; break;
+                case 3:
+                    _product.InterestScheme = OInterestScheme.ThirtyActual; break;
+                case 4:
+                    _product.InterestScheme = OInterestScheme.Thirty360; break;
+            }
+
             buttonSave.Enabled = true;
         }
 	}

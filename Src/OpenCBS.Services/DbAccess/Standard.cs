@@ -244,11 +244,6 @@ namespace OpenCBS.Services
             return new TellerServices(CurrentUser);
         }
 
-        public CustomizableFieldsServices GetCustomizableFieldsServices()
-        {
-            return new CustomizableFieldsServices(CurrentUser);
-        }
-
         #region IServices Members
 
         public NonWorkingDateSingleton GetNonWorkingDate()

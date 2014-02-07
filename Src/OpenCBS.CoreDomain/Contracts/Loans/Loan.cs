@@ -2017,13 +2017,11 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                                                     bool pending)
         {
             //We need to generate specific RepaymentEvent in case of bad loan or rescheduled loan
-            RepaymentEvent rPe = !_badLoan && Rescheduled && !_writtenOff
-                                     ? new RescheduledLoanRepaymentEvent()
-                                     : (_badLoan && !_writtenOff
+            RepaymentEvent rPe = _badLoan && !_writtenOff
                                         ? new BadLoanRepaymentEvent()
                                             : (_writtenOff ?
                                                 new RepaymentOverWriteOffEvent()
-                                                : new RepaymentEvent()));
+                                                : new RepaymentEvent());
 
             if ((overDueDays > 0 || penaltiesEvent > 0) && !_writtenOff)
                 rPe = new BadLoanRepaymentEvent();

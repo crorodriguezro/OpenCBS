@@ -120,7 +120,6 @@ namespace OpenCBS.GUI
             this.mnuConfiguration = new System.Windows.Forms.ToolStripMenuItem();
             this.branchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tellersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CustomizableFieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorConfig1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuDomainOfApplication = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemLocations = new System.Windows.Forms.ToolStripMenuItem();
@@ -568,7 +567,6 @@ namespace OpenCBS.GUI
             this.mnuConfiguration.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.branchesToolStripMenuItem,
             this.tellersToolStripMenuItem,
-            this.CustomizableFieldsToolStripMenuItem,
             this.toolStripSeparatorConfig1,
             this.mnuDomainOfApplication,
             this.menuItemLocations,
@@ -593,12 +591,6 @@ namespace OpenCBS.GUI
             this.tellersToolStripMenuItem.Name = "tellersToolStripMenuItem";
             resources.ApplyResources(this.tellersToolStripMenuItem, "tellersToolStripMenuItem");
             this.tellersToolStripMenuItem.Click += new System.EventHandler(this.tellersToolStripMenuItem_Click);
-            // 
-            // CustomizableFieldsToolStripMenuItem
-            // 
-            this.CustomizableFieldsToolStripMenuItem.Name = "CustomizableFieldsToolStripMenuItem";
-            resources.ApplyResources(this.CustomizableFieldsToolStripMenuItem, "CustomizableFieldsToolStripMenuItem");
-            this.CustomizableFieldsToolStripMenuItem.Click += new System.EventHandler(this.CustomizableFieldsToolStripMenuItem_Click);
             // 
             // toolStripSeparatorConfig1
             // 
@@ -989,7 +981,6 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem branchesToolStripMenuItem;
         private ToolStripStatusLabel toolStripStatusLblDB;
         private BrightIdeasSoftware.OLVColumn colAlerts_BranchName;
-        private ToolStripMenuItem CustomizableFieldsToolStripMenuItem;
         private CheckBox chkOverdraftSavings;
         private CheckBox chkPostponedLoans;
         private CheckBox chkPendingSavings;

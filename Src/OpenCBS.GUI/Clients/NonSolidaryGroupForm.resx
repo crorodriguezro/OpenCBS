@@ -697,7 +697,7 @@
     <value>btnPrint</value>
   </data>
   <data name="&gt;&gt;btnPrint.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=13.13.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrint.Parent" xml:space="preserve">
     <value>panelNSGControls</value>
@@ -1903,33 +1903,6 @@ members</value>
   <data name="&gt;&gt;tabPageMeetings.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="tabPageCustomizableFields.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 36</value>
-  </data>
-  <data name="tabPageCustomizableFields.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageCustomizableFields.Size" type="System.Drawing.Size, System.Drawing">
-    <value>956, 298</value>
-  </data>
-  <data name="tabPageCustomizableFields.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="tabPageCustomizableFields.Text" xml:space="preserve">
-    <value>Customizable fields</value>
-  </data>
-  <data name="&gt;&gt;tabPageCustomizableFields.Name" xml:space="preserve">
-    <value>tabPageCustomizableFields</value>
-  </data>
-  <data name="&gt;&gt;tabPageCustomizableFields.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageCustomizableFields.Parent" xml:space="preserve">
-    <value>tabVillage</value>
-  </data>
-  <data name="&gt;&gt;tabPageCustomizableFields.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="tabVillage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -1978,6 +1951,12 @@ members</value>
   <data name="&gt;&gt;colName.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;colLoanCycle.Name" xml:space="preserve">
+    <value>colLoanCycle</value>
+  </data>
+  <data name="&gt;&gt;colLoanCycle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;colPassport.Name" xml:space="preserve">
     <value>colPassport</value>
   </data>
@@ -2000,12 +1979,6 @@ members</value>
     <value>colLeftDate</value>
   </data>
   <data name="&gt;&gt;colLeftDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;colLoanCycle.Name" xml:space="preserve">
-    <value>colLoanCycle</value>
-  </data>
-  <data name="&gt;&gt;colLoanCycle.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;clientName.Name" xml:space="preserve">
@@ -2198,6 +2171,6 @@ members</value>
     <value>NonSolidaryGroupForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=13.13.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=14.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

@@ -48,8 +48,6 @@ namespace OpenCBS.GUI.UserControl
         [ImportMany(typeof(IPersonTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<IPersonTabs> Extensions { get; set; }
 
-	    private CustomizableFieldsControl _advancedFieldsControl;
-
         public event EventHandler AddSelectedSaving;
         public event EventHandler ViewSelectedSaving;
 
@@ -85,26 +83,8 @@ namespace OpenCBS.GUI.UserControl
             textBoxIdentificationData.ReadOnly = ServicesProvider.GetInstance().GetGeneralSettings().IsAutomaticID;
             if (ServicesProvider.GetInstance().GetGeneralSettings().IsAutomaticID)
                 textBoxIdentificationData.BackColor = Color.WhiteSmoke;
-
-            if (_tempPerson != null && _tempPerson.Id != 0)
-                InitializeAdvancedCustomizableFields(_tempPerson.Id);
-            else
-                InitializeAdvancedCustomizableFields(null);
         }
-
-        private void InitializeAdvancedCustomizableFields(int? linkId)
-        {
-            _advancedFieldsControl = new CustomizableFieldsControl(OCustomizableFieldEntities.Individual, linkId, false)
-                                         {
-                                             Dock = DockStyle.Fill,
-                                             Enabled = true,
-                                             Name = "customizableFieldsControl",
-                                             Visible = true
-                                         };
-            
-            tabPageCustomizableFields.Controls.Add(_advancedFieldsControl);
-        }
-	    
+ 
 	    public bool PersonSaved
 		{
 			get { return _personSaved; }
@@ -425,9 +405,6 @@ namespace OpenCBS.GUI.UserControl
                 if (_tempPerson.IdentificationData != null)
                     _tempPerson.IdentificationData = _tempPerson.IdentificationData.Trim();
 
-                if (_advancedFieldsControl != null)
-                    _advancedFieldsControl.Check();
-
                 string result = ServicesProvider
                     .GetInstance()
                     .GetClientServices()
@@ -435,9 +412,6 @@ namespace OpenCBS.GUI.UserControl
                     {
                         foreach (var extension in Extensions) extension.Save(_tempPerson, tx);
                     });
-
-                if (_tempPerson.Id > 0 && _advancedFieldsControl != null)
-                    _advancedFieldsControl.Save(_tempPerson.Id);
 
                 EventProcessorServices es = ServicesProvider.GetInstance().GetEventProcessorServices();
                 es.LogClientSaveUpdateEvent(_tempPerson, save);

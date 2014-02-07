@@ -166,7 +166,6 @@
     <Compile Include="Accounting\AccountingRuleManager.cs" />
     <Compile Include="Accounting\AccountManager.cs" />
     <Compile Include="BranchManager.cs" />
-    <Compile Include="CustomizableFieldsManager.cs" />
     <Compile Include="CollateralProductManager.cs" />
     <Compile Include="MenuItemManager.cs" />
     <Compile Include="PaymentMethodManager.cs" />

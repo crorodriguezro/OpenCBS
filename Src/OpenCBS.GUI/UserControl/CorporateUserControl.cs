@@ -60,8 +60,6 @@ namespace OpenCBS.GUI.UserControl
         [ImportMany(typeof(ICorporateTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<ICorporateTabs> Extensions { get; set; }
 
-        private CustomizableFieldsControl _customziableFieldsControl;
-
         public System.Windows.Forms.UserControl PanelSavings
         {
             get { return savingsListUserControl1; }
@@ -154,7 +152,6 @@ namespace OpenCBS.GUI.UserControl
                 linkLabelChangePhoto.Visible = false;
                 linkLabelChangePhoto2.Visible = false;
             }
-            InitializeCustomizableFields(_corporate.Id);
         }
 
         private void InitializeUserControlsAddress()
@@ -170,19 +167,6 @@ namespace OpenCBS.GUI.UserControl
                                               Dock = DockStyle.Fill
                                           };
             groupBoxAddress.Controls.Add(addressUserControlFirst);
-        }
-
-        private void InitializeCustomizableFields(int linkId)
-        {
-            _customziableFieldsControl = new CustomizableFieldsControl(OCustomizableFieldEntities.Corporate, linkId, false)
-            {
-                Dock = DockStyle.Fill,
-                Enabled = true,
-                Name = "customizableFieldsControl",
-                Visible = true
-            };
-
-            tabPageCustomizableFields.Controls.Add(_customziableFieldsControl);
         }
 
         private void RecoverDatasFromUserControlsAddress()
@@ -222,7 +206,6 @@ namespace OpenCBS.GUI.UserControl
 
                 _corporate.Sigle = _corporate.Sigle.Trim();
                 _corporate.SmallName = _corporate.SmallName.Trim();
-                _customziableFieldsControl.Check();
                 EventProcessorServices es = ServicesProvider.GetInstance().GetEventProcessorServices();
                 if (_corporate.Id == 0)
                 {
@@ -245,14 +228,8 @@ namespace OpenCBS.GUI.UserControl
                     es.LogClientSaveUpdateEvent(_corporate, false);
                 }
 
-                if (_corporate.Id > 0)
-                    _customziableFieldsControl.Save(_corporate.Id);
-
-
                 if (SaveCorporateFundingLine != null)
                     SaveCorporateFundingLine(this, e);
-
-                InitializeCustomizableFields(_corporate.Id);
 
                 _saved = true;
             }

@@ -43,6 +43,8 @@ using OpenCBS.CoreDomain.FundingLines;
 using OpenCBS.CoreDomain.SearchResult;
 using OpenCBS.Engine;
 using OpenCBS.Engine.Interfaces;
+using OpenCBS.Engine.PeriodPolicy;
+using OpenCBS.Engine.YearPolicy;
 using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.ExceptionsHandler.Exceptions.SavingExceptions;
@@ -989,6 +991,20 @@ namespace OpenCBS.Services
             }
         }
 
+        public List<Installment> SimulateScheduleCreation(Loan loan)
+        {
+            var scheduleConfiguration = _configurationFactory
+                .Init()
+                .WithLoan(loan)
+                .Finish()
+                .GetConfiguration();
+
+            var scheduleBuilder = new ScheduleBuilder();
+            var installmentList = scheduleBuilder.BuildSchedule(scheduleConfiguration);
+            var schedule = Mapper.Map<IEnumerable<IInstallment>, List<Installment>>(installmentList);
+            return schedule;
+        }
+
         public Loan SimulateRescheduling(Loan loan, ScheduleConfiguration rescheduleConfiguration)
         {
             var copyOfLoan = loan.Copy();
@@ -997,6 +1013,7 @@ namespace OpenCBS.Services
                 .WithLoan(copyOfLoan)
                 .Finish()
                 .GetConfiguration();
+
             var schedule = Mapper.Map<IEnumerable<Installment>, IEnumerable<IInstallment>>(copyOfLoan.InstallmentList);
             var scheduleBuilder = new ScheduleBuilder();
             var rescheduleAssembler = new RescheduleAssembler();
@@ -1010,7 +1027,8 @@ namespace OpenCBS.Services
                 schedule,
                 scheduleConfiguration,
                 copyOfRescheduleConfiguration,
-                scheduleBuilder);
+                scheduleBuilder,
+                loan.CalculateActualOlb().Value);
 
             var newSchedule = Mapper.Map<IEnumerable<IInstallment>, List<Installment>>(schedule);
 
@@ -1027,6 +1045,7 @@ namespace OpenCBS.Services
                 .WithLoan(copyOfLoan)
                 .Finish()
                 .GetConfiguration();
+
             var schedule = Mapper.Map<IEnumerable<Installment>, IEnumerable<IInstallment>>(copyOfLoan.InstallmentList);
             var scheduleBuilder = new ScheduleBuilder();
             var trancheBuilder = new TrancheBuilder();
@@ -1303,8 +1322,8 @@ namespace OpenCBS.Services
         {
             var repayment = (from e in loan.Events.GetEvents()
                              where
-                                 e is RepaymentEvent || e is RepaymentOverWriteOffEvent ||
-                                 e is RescheduledLoanRepaymentEvent
+                                 e is RepaymentEvent || e is RepaymentOverWriteOffEvent
+                                 
                              orderby e.Date
                              select e).LastOrDefault();
             if (repayment != null && date.Date < repayment.Date.Date)

@@ -19,15 +19,16 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
+using System;
+
 namespace OpenCBS.Enums
 {
-    public enum OCustomizableFieldEntities
+    [Serializable]
+    public enum OInterestScheme
     {
-        Individual = 1,
-        SG = 2,
-        NSG = 3,
-        Corporate = 4,
-        Loan = 5,
-        Savings = 6
+        ActualActual = 1,
+        Actual360 = 2,
+        ThirtyActual = 3,
+        Thirty360 = 4
     }
 }

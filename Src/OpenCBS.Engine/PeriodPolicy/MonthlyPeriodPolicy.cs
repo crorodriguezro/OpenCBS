@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using OpenCBS.CoreDomain.Contracts.Loans.CalculateInstallments.Declining;
+using OpenCBS.Engine.InstallmentCalculationPolicy;
 using OpenCBS.Engine.Interfaces;
 
 namespace OpenCBS.Engine.PeriodPolicy
@@ -12,6 +14,10 @@ namespace OpenCBS.Engine.PeriodPolicy
         {
             return date.AddMonths(1);
         }
+        public DateTime GetNextRepaymentDate(DateTime date, IDateShiftPolicy shiftPolicy)
+        {
+            return shiftPolicy.ShiftDate(date.AddMonths(1));
+        }
 
         public DateTime GetPreviousDate(DateTime date)
         {
@@ -21,6 +27,11 @@ namespace OpenCBS.Engine.PeriodPolicy
         public int GetNumberOfDays(DateTime date)
         {
             return (date - GetPreviousDate(date)).Days;
+        }
+
+        public int GetNumberOfDays(IInstallment installment, IDateShiftPolicy shiftPolicy)
+        {
+            return (shiftPolicy.ShiftDate(installment.EndDate) - shiftPolicy.ShiftDate(installment.StartDate)).Days;
         }
 
         public double GetNumberOfPeriodsInYear(DateTime date, IYearPolicy yearPolicy)

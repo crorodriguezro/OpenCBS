@@ -206,10 +206,6 @@
     <Compile Include="Contracts\FlatRoundingSchedule.cs" />
     <Compile Include="Contracts\Loans\LoanRepayment\RepaymentConfiguration.cs" />
     <Compile Include="Contracts\ReassignContractItem.cs" />
-    <Compile Include="CustomFields\CollectionItem.cs" />
-    <Compile Include="CustomFields\CustomFields.cs" />
-    <Compile Include="CustomFields\Field.cs" />
-    <Compile Include="CustomizableField.cs" />
     <Compile Include="Alerts\Alert_v2.cs" />
     <Compile Include="Branch.cs" />
     <Compile Include="Clients\VillageAttendee.cs" />
@@ -301,7 +297,6 @@
     <Compile Include="Events\Saving\SavingTransferEvent.cs" />
     <Compile Include="Events\Loan\UserLogEvent.cs" />
     <Compile Include="Export\Fields\ComplexField.cs" />
-    <Compile Include="Export\Fields\CustomField.cs" />
     <Compile Include="Export\FieldType\DecimalFieldType.cs" />
     <Compile Include="Export\FieldType\DateFieldType.cs" />
     <Compile Include="Export\FieldType\IFieldType.cs" />
@@ -517,9 +512,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Events\Loan\RepaymentEvent.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Events\Loan\RescheduledLoanRepaymentEvent.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Events\Loan\RescheduleLoanEvent.cs">

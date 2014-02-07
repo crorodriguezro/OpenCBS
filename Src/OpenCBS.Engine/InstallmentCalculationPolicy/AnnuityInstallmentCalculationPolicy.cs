@@ -39,25 +39,28 @@ namespace OpenCBS.Engine.InstallmentCalculationPolicy
             // left remainder // should be divided by number of installments in order to proportionally spread between installments
             // but because we need to count interest also that amount should be multiplied by interest rate / 100
             var remainder = 0m;
+            var counter = 0;
             var installment = new Installment {Olb = configuration.Amount};
             do
             {
                 // loop is only for building schedule and determining the remainder
-                for (var i = configuration.GracePeriod + 1; i <= number; ++i)
+                for (var i = 1; i <= configuration.NumberOfInstallments; ++i)
                 {
                     installment.Number = i;
                     installment.StartDate = i != 1 ? installment.EndDate : configuration.StartDate;
                     installment.EndDate = i != 1
                         ? configuration.PeriodPolicy.GetNextDate(installment.StartDate)
                         : configuration.PreferredFirstInstallmentDate;
+                    if (i <= configuration.GracePeriod) continue;
                     installment.Interest = CalculateInterest(installment, configuration, installment.Olb);
                     installment.Principal = annuity - installment.Interest;
                     installment.Olb -= installment.Principal;
                 }
                 remainder = installment.Olb;
                 installment.Olb = configuration.Amount;
+                ++counter;
                 annuity += (remainder * configuration.InterestRate / 100 / number);
-            } while (remainder > 0.01m);
+            } while (Math.Abs(remainder) > 0.01m && counter < 1000);
             return annuity;
         }
     }

@@ -10,7 +10,8 @@ namespace OpenCBS.Engine
             IEnumerable<IInstallment> schedule,
             IScheduleConfiguration scheduleConfiguration,
             IScheduleConfiguration rescheduleConfiguration,
-            IScheduleBuilder scheduleBuilder)
+            IScheduleBuilder scheduleBuilder,
+            decimal currentOlb)
         {
             // Build a new combined schedule
 
@@ -56,11 +57,10 @@ namespace OpenCBS.Engine
 
             //    To calculate extra interest for used days.
             //    For the case when date of rescheduling < date of first installment
-            var currentOlb = schedule.First().Olb;
+            
             var usedDays = 0;
             if (newSchedule.Any())
             {
-                currentOlb = newSchedule.Last().Olb - newSchedule.Last().PaidPrincipal;
                 usedDays = (rescheduleConfiguration.StartDate - newSchedule.Last().EndDate).Days;
             }
             var daysInYear = scheduleConfiguration.YearPolicy.GetNumberOfDays(rescheduleConfiguration.StartDate);

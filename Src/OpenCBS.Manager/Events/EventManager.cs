@@ -1730,11 +1730,6 @@ namespace OpenCBS.Manager.Events
                         e = new BadLoanRepaymentEvent {Id = r.GetInt("rpe_id")};
                         break;
                     }
-                case "RRLE":
-                    {
-                        e = new RescheduledLoanRepaymentEvent {Id = r.GetInt("rpe_id")};
-                        break;
-                    }
                 case "ROWO":
                     {
                         e = new RepaymentOverWriteOffEvent { Id = r.GetInt("rpe_id") };

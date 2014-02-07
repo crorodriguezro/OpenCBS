@@ -156,7 +156,6 @@
     <Compile Include="Exceptions\ContractExceptions\OpenCbsReportsException.cs" />
     <Compile Include="Exceptions\ContractExceptions\Rescheduling\ReschedulingContractClosedException.cs" />
     <Compile Include="Exceptions\ContractExceptions\Rescheduling\ReschedulingException.cs" />
-    <Compile Include="Exceptions\CustomFieldExceptions\OpenCbsCustomFieldNameException.cs" />
     <Compile Include="Exceptions\DOAExceptions\OpenCbsDoaDeleteException.cs">
       <SubType>Code</SubType>
     </Compile>

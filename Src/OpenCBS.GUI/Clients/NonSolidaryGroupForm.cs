@@ -50,7 +50,6 @@ namespace OpenCBS.GUI.Clients
         private readonly Village _village;
         private AddressUserControl _ucAddress;
         private ContextMenuStrip _ctxProducts;
-        private CustomizableFieldsControl _customizableFieldsControl;
         private String _title = null;
         private bool membersSaved = true;
 
@@ -63,7 +62,6 @@ namespace OpenCBS.GUI.Clients
             InitializeComponent();
             _village = new Village { CreationDate = TimeProvider.Now };
             InitializeControls();
-            InitializeCustomizableFields(null);
             InitializeTitle();
         }
 
@@ -82,7 +80,6 @@ namespace OpenCBS.GUI.Clients
             InitializeComponent();
             InitializeControls();
             LoadMeetingDates();
-            InitializeCustomizableFields(_village.Id);
             InitializeTitle();
         }
 
@@ -90,19 +87,6 @@ namespace OpenCBS.GUI.Clients
         {
             comboBoxMeetingDates.DataSource
                 = ServicesProvider.GetInstance().GetContractServices().FindInstallmentDatesForVillageActiveContracts(_village.Id);
-        }
-
-        private void InitializeCustomizableFields(int? linkId)
-        {
-            _customizableFieldsControl = new CustomizableFieldsControl(OCustomizableFieldEntities.NSG, linkId, false)
-                                         {
-                                             Dock = DockStyle.Fill,
-                                             Enabled = true,
-                                             Name = "customizableFieldsControl",
-                                             Visible = true
-                                         };
-
-            tabPageCustomizableFields.Controls.Add(_customizableFieldsControl);
         }
 
         private void InitializeTitle()
@@ -136,7 +120,6 @@ namespace OpenCBS.GUI.Clients
                 InitializeTitle();
                 bool save = 0 == _village.Id;
                 _village.Name = _village.Name.Trim();
-                _customizableFieldsControl.Check();
                 _village.Id = ServicesProvider
                     .GetInstance()
                     .GetClientServices()
@@ -144,9 +127,6 @@ namespace OpenCBS.GUI.Clients
                     {
                         foreach (var extension in Extensions) extension.Save(_village, tx);
                     });
-
-                if (_village.Id > 0)
-                    _customizableFieldsControl.Save(_village.Id);
 
                 ServicesProvider.GetInstance().GetClientServices().SetFavouriteLoanOfficerForVillage(_village);
                 EventProcessorServices es = ServicesProvider.GetInstance().GetEventProcessorServices();

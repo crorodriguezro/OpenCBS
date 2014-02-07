@@ -120,4 +120,7 @@
   <data name="Confirm" xml:space="preserve">
     <value>Подтверждаете операцию?</value>
   </data>
+  <data name="RescheduleStartDateIsNotCorrect.Text" xml:space="preserve">
+    <value>Дата начала графика не может быть раньше даты последней оплаты</value>
+  </data>
 </root>

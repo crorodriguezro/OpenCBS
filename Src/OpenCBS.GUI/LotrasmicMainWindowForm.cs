@@ -1135,12 +1135,6 @@ namespace OpenCBS.GUI
             return false;
         }
 
-        private void CustomizableFieldsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CustomizableFieldsForm frm = new CustomizableFieldsForm { MdiParent = this };
-            frm.Show();
-        }
-
         private void newClosureToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             AccountingClosureForm frm = new AccountingClosureForm { MdiParent = this };
