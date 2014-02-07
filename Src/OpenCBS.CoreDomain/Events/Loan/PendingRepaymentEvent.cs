@@ -29,9 +29,7 @@ namespace OpenCBS.CoreDomain.Events
     {
         public PendingRepaymentEvent(RepaymentEvent pEvent)
         {
-            if (pEvent is RescheduledLoanRepaymentEvent)
-                Code = "PRLR";
-            else if (pEvent is BadLoanRepaymentEvent)
+            if (pEvent is BadLoanRepaymentEvent)
                 Code = "PBLR";
             else if (pEvent is RepaymentOverWriteOffEvent)
                 Code = "PRWO";
@@ -58,9 +56,7 @@ namespace OpenCBS.CoreDomain.Events
         {
             RepaymentEvent rPe;
 
-            if (Code == "PRLR")
-                rPe = new RescheduledLoanRepaymentEvent();
-            else if (Code == "PBLR")
+            if (Code == "PBLR")
                 rPe = new BadLoanRepaymentEvent();
             else if (Code == "PRWO")
                 rPe = new RepaymentOverWriteOffEvent();

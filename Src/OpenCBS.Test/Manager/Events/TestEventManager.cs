@@ -56,15 +56,7 @@ namespace OpenCBS.Test.Manager.Events
             _AssertWriteOffEvent((WriteOffEvent)eventStock.GetEvent(4), new DateTime(2009, 5, 1), 1000, 20, 24, 1);
             _AssertReschedulingLoanEvent((RescheduleLoanEvent)eventStock.GetEvent(5), new DateTime(2009, 6, 1), 1000, 2, 0);
             _AssertLoanInterestAccruingEvent((AccruedInterestEvent) eventStock.GetEvent(6), new DateTime(2009, 7, 1), 342, 22, true, 3,false);
-            _AssertRescheduledLoanRepaymentEvent((RescheduledLoanRepaymentEvent)eventStock.GetEvent(7), new DateTime(2009, 8, 1), 105, 544, 5, 7, 8);
         }
-
-        private static void _AssertRescheduledLoanRepaymentEvent(RescheduledLoanRepaymentEvent pEvent, DateTime pDate, int pPastDueDays, OCurrency pPrincipal,
-                                                         OCurrency pInterest, OCurrency pFees, int pInstallmentNumber)
-        {
-            _AssertRepaymentEvent(pEvent, "RRLE", pDate, pPastDueDays, pPrincipal, pInterest, pFees, pInstallmentNumber);
-        }
-
         private static void _AssertLoanInterestAccruingEvent(AccruedInterestEvent pEvent, DateTime pDate, OCurrency pInterestPrepayment, OCurrency pAccruedInterest, bool pRescheduled, 
             int pInstallmentNumber, bool pDeleted)
         {

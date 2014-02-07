@@ -107,13 +107,6 @@ namespace OpenCBS.GUI
                 listViewItem.SubItems.Add("-");
                 listViewItem.SubItems.Add("-");
             }
-            else if (_event is RescheduledLoanRepaymentEvent)
-            {
-                RescheduledLoanRepaymentEvent evt = _event as RescheduledLoanRepaymentEvent;
-                listViewItem.SubItems.Add(evt.Principal.GetFormatedValue(true));
-                listViewItem.SubItems.Add(evt.Interests.GetFormatedValue(true));
-                listViewItem.SubItems.Add(evt.Fees.GetFormatedValue(true));
-            }
             else if (_event is RescheduleLoanEvent)
             {
                 RescheduleLoanEvent evt = _event as RescheduleLoanEvent;

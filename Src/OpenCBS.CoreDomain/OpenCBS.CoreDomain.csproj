@@ -513,9 +513,6 @@
     <Compile Include="Events\Loan\RepaymentEvent.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Events\Loan\RescheduledLoanRepaymentEvent.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Events\Loan\RescheduleLoanEvent.cs">
       <SubType>Code</SubType>
     </Compile>
