@@ -127,7 +127,7 @@ namespace OpenCBS.Manager
             using (OpenCbsCommand sqlCommand = new OpenCbsCommand(sqlText, conn))
             {
                 sqlCommand.AddParam("@role_id", pRoleId);
-                sqlCommand.AddParam("@user_id",  pUserId);
+                sqlCommand.AddParam("@user_id", pUserId);
                 sqlCommand.ExecuteScalar();
             }
         }
@@ -147,7 +147,7 @@ namespace OpenCBS.Manager
                                 Phone = pReader.GetString("phone")
                             };
             user.SetRole(pReader.GetString("role_code"));
-            
+
             user.UserRole = new Role
                             {
                                 RoleName = pReader.GetString("role_name"),
@@ -155,7 +155,7 @@ namespace OpenCBS.Manager
                                 IsRoleForLoan = pReader.GetBool("role_of_loan"),
                                 IsRoleForSaving = pReader.GetBool("role_of_saving"),
                                 IsRoleForTeller = pReader.GetBool("role_of_teller")
-                            };      
+                            };
 
             return user;
         }
@@ -166,7 +166,7 @@ namespace OpenCBS.Manager
             sqlCommand.AddParam("@userpass", pUser.Password);
             sqlCommand.AddParam("@roleCode", pUser.UserRole.ToString());
             sqlCommand.AddParam("@firstname", pUser.FirstName);
-            sqlCommand.AddParam("@lastname",  pUser.LastName);
+            sqlCommand.AddParam("@lastname", pUser.LastName);
             sqlCommand.AddParam("@mail", pUser.Mail);
             sqlCommand.AddParam("@sex", pUser.Sex);
             sqlCommand.AddParam("@phone", pUser.Phone);
@@ -184,7 +184,7 @@ namespace OpenCBS.Manager
             }
         }
 
-        public User SelectUser(int pUserId,bool pIncludeDeletedUser)
+        public User SelectUser(int pUserId, bool pIncludeDeletedUser)
         {
             const string selectUser = @"SELECT [Users].[id] as user_id, 
                                                    [user_name], 
@@ -211,7 +211,7 @@ namespace OpenCBS.Manager
                                             WHERE 1 = 1 ";
 
             string sqlText = selectUser + @" AND [Users].[id] = @id ";
-                             
+
             if (!pIncludeDeletedUser)
                 sqlText += @" AND [Users].[deleted] = 0";
 
@@ -479,15 +479,16 @@ namespace OpenCBS.Manager
             {
                 while (reader.Read())
                 {
+                  
                     var portfolioLine = new PortfolioLine
                     {
                         Name = reader.GetString("name"),
                         Amount = reader.GetDecimal("amount"),
                         Quantity = reader.GetInt("quantity"),
+                          Color = reader.GetString("color")
                     };
                     dashboard.PortfolioLines.Add(portfolioLine);
                 }
-
                 reader.NextResult();
                 while (reader.Read())
                 {
@@ -502,7 +503,6 @@ namespace OpenCBS.Manager
                     dashboard.ActionStats.Add(stat);
                 }
             }
-
             return dashboard;
         }
     }

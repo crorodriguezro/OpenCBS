@@ -55,10 +55,10 @@ namespace OpenCBS.GUI
 
         private void OnLoad(object sender, EventArgs e)
         {
-            activeLoansLink.Text = ReportService.GetInstance().GetReportByName((string) activeLoansLink.Tag).Title;
-            parAnalysisLink.Text = ReportService.GetInstance().GetReportByName((string) parAnalysisLink.Tag).Title;
-            delinquentLoansLink.Text = ReportService.GetInstance().GetReportByName((string) delinquentLoansLink.Tag).Title;
-            disbursementsLink.Text = ReportService.GetInstance().GetReportByName((string) disbursementsLink.Tag).Title;
+            activeLoansLink.Text = ReportService.GetInstance().GetReportByName((string)activeLoansLink.Tag).Title;
+            parAnalysisLink.Text = ReportService.GetInstance().GetReportByName((string)parAnalysisLink.Tag).Title;
+            delinquentLoansLink.Text = ReportService.GetInstance().GetReportByName((string)delinquentLoansLink.Tag).Title;
+            disbursementsLink.Text = ReportService.GetInstance().GetReportByName((string)disbursementsLink.Tag).Title;
 
             var numberFormatInfo = new NumberFormatInfo
             {
@@ -72,8 +72,9 @@ namespace OpenCBS.GUI
                 };
             parNameColumn.AspectToStringConverter = value =>
             {
-                var name = (string) value;
-                return GetString(name);
+                var name = (string)value;
+                //  var temp = GetString(name);
+                return name.Contains("Par") == null ? GetString(name) : name;
             };
             parListView.RowFormatter = listViewItem =>
             {
@@ -129,7 +130,7 @@ namespace OpenCBS.GUI
             series.ChartType = SeriesChartType.Pie;
             var point = series.Points.Add(Convert.ToDouble(performingPercentage));
             point.LegendText = string.Format(
-                "{0}: {1} %", 
+                "{0}: {1} %",
                 GetString("Performing"),
                 performingPercentage.ToString("N1", numberFormatInfo));
             //point.Color = Color.FromArgb(28, 151, 234);
@@ -166,28 +167,26 @@ namespace OpenCBS.GUI
 
             var values = dashboard.
                 PortfolioLines.
-                Where(line => line.Name.StartsWith("PAR")).
+                Where(line => line.Name.Contains("PAR")).
                 Select(line => line.Amount).
                 ToArray();
             var legends = dashboard.
                 PortfolioLines.
-                Where(line => line.Name.StartsWith("PAR")).
-                Select(line => GetString(line.Name)).
-                ToArray();
+                Where(line => line.Name.Contains("PAR")).Select(line => line.Name).ToArray();
+                //Select(line => GetString(line.Name)).ToArray();
+              
+ 
 
-            var colors = new[]
-            {
-                Color.FromArgb(234, 200, 28),
-                Color.FromArgb(234, 160, 28),
-                Color.FromArgb(234, 120, 28),
-                Color.FromArgb(234, 80, 28),
-                Color.FromArgb(234, 40, 28),
-                Color.FromArgb(234, 0, 28),
-            };
+            var colors = new List<Color>();
+
+            foreach (var line in dashboard.PortfolioLines)
+                if (line.Color != "0")
+                    colors.Add(ColorTranslator.FromHtml(line.Color));
 
             var series = new Series();
             series.ChartType = SeriesChartType.Pie;
-            for (var i = 0; i < 6; i++)
+
+            for (var i = 0; i < legends.Length; i++)
             {
                 var value = Math.Round(0 == dashboard.Par ? 0 : 100 * values[i] / dashboard.Par, 1);
                 var point = series.Points.Add(Convert.ToDouble(value));
@@ -484,17 +483,17 @@ namespace OpenCBS.GUI
 
         private int FilterBranchId
         {
-            get { return (int) _branchFilterComboBox.SelectedValue; }
+            get { return (int)_branchFilterComboBox.SelectedValue; }
         }
 
         private int FilterUserId
         {
-            get { return (int) _userFilterComboBox.SelectedValue; }
+            get { return (int)_userFilterComboBox.SelectedValue; }
         }
 
         private int FilterLoanProductId
         {
-            get { return (int) _loanProductFilterComboBox.SelectedValue; }
+            get { return (int)_loanProductFilterComboBox.SelectedValue; }
         }
 
         private void OpenUrl(string url)
