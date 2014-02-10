@@ -1857,6 +1857,14 @@ namespace OpenCBS.Services
                     }
 
                     CancelSavingsEvent(cancelledEvent, sqlTransaction);
+                    CallInterceptor(new Dictionary<string, object>
+                    {
+                        {"Loan", contract},
+                        {"Event", new RepaymentEvent {Id = cancelledEvent.ParentId ?? cancelledEvent.Id}},
+                        {"Deleted", true},
+                        {"SqlTransaction", sqlTransaction}
+                    });
+
                     sqlTransaction.Commit();
                     sqlTransaction.Dispose();
                     SetClientStatus(contract, pClient);
@@ -2841,7 +2849,7 @@ namespace OpenCBS.Services
             if (amount <= 0) return config.Loan;
             ServicesProvider.GetInstance()
                             .GetSavingServices()
-                            .Withdraw(config.Saving, config.Date.Date, amount,
+                            .Withdraw(config.Saving, TimeProvider.Today, amount,
                                       "Withdraw for loan repayment " + config.Loan.Code, currentUser, new Teller());
             var paymentMethod =
                 ServicesProvider.GetInstance().GetPaymentMethodServices().GetPaymentMethodByName("Savings");

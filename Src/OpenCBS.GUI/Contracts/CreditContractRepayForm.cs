@@ -442,7 +442,7 @@ namespace OpenCBS.GUI.Contracts
                     var savingEvent = ServicesProvider
                         .GetInstance()
                         .GetSavingServices()
-                        .Deposit(saving, _date.Date, _amount, " ", User.CurrentUser, false, savingsMethod, null,
+                        .Deposit(saving, TimeProvider.Today, _amount, " ", User.CurrentUser, false, savingsMethod, null,
                                  Teller.CurrentTeller).FirstOrDefault();
 
                     using (var sqlTransaction = DatabaseConnection.GetConnection().BeginTransaction())

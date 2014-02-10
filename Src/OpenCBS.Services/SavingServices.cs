@@ -1434,7 +1434,7 @@ namespace OpenCBS.Services
             var saving = new SavingBookContract(
                 ServicesProvider.GetInstance().GetGeneralSettings(),
                 User.CurrentUser,
-                TimeProvider.Now,
+                TimeProvider.Today,
                 (SavingsBookProduct) products.First(),
                 client)
                 {
@@ -1460,7 +1460,7 @@ namespace OpenCBS.Services
 
             saving.Id = SaveContract(saving, (Client) client);
 
-            FirstDeposit(saving, 0, TimeProvider.Now, saving.EntryFees, User.CurrentUser, Teller.CurrentTeller);
+            FirstDeposit(saving, 0, TimeProvider.Today, saving.EntryFees, User.CurrentUser, Teller.CurrentTeller);
 
             return saving;
         }
