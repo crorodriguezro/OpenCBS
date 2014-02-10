@@ -1993,7 +1993,8 @@ namespace OpenCBS.GUI.Clients
 
         private void DisableContractDetails(OContractStatus pContractStatus)
         {
-            bool isPendingOrPostponed = pContractStatus == OContractStatus.Pending || pContractStatus == OContractStatus.Postponed;
+            bool isPendingOrPostponed = pContractStatus == OContractStatus.Pending || pContractStatus == OContractStatus.Postponed
+                || pContractStatus == 0;
 
             nudLoanAmount.Enabled = isPendingOrPostponed;
             nudInterestRate.Enabled = isPendingOrPostponed;
@@ -2156,6 +2157,7 @@ namespace OpenCBS.GUI.Clients
             InitializeFundingLine();
             InitializeInstallmentTypes();
             InitializeLoanOfficer();
+            DisableContractDetails(_credit.ContractStatus);
             SetPackageValuesForLoanDetails(_credit, true);
             SetSecurityForTabPageLoansDetails(true);
             InitLoanDetails(true, false, false);
