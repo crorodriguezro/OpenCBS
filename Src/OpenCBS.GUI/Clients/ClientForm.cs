@@ -1826,10 +1826,11 @@ namespace OpenCBS.GUI.Clients
         private void InitLoanDetails(bool isNew, bool disbursed, bool validated)
         {
             btnSaveLoan.Text = isNew ? GetString("save") : GetString("update");
+            btnUpdateSettings.Text = isNew ? GetString("save") : GetString("update");
             //InitialDoclistLoan();
 
             btnSaveLoan.Enabled = !validated;
-            btnUpdateSettings.Enabled = isNew || _credit.PendingOrPostponed();
+            btnUpdateSettings.Enabled = isNew || _credit.PendingOrPostponed() || _credit.AmountUnderLoc == 0;
             buttonLoanPreview.Enabled = (isNew || !validated) && !disbursed;
             buttonLoanDisbursment.Enabled = !disbursed && validated && !isNew;
             if (isNew)
@@ -2193,7 +2194,8 @@ namespace OpenCBS.GUI.Clients
 
         private void EnableLocAmountTextBox(Loan credit)
         {
-            if ((credit.PendingOrPostponed() || credit.ContractStatus == 0) &&
+            if ((credit.PendingOrPostponed() || credit.ContractStatus == 0 || credit.Disbursed 
+                || credit.ContractStatus == OContractStatus.Validated) &&
                 (credit.Product.AmountUnderLocMin.HasValue && credit.Product.AmountUnderLocMax.HasValue))
                 tbLocAmount.Enabled = true;
             else
