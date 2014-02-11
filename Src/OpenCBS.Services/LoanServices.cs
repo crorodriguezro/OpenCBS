@@ -1258,6 +1258,13 @@ namespace OpenCBS.Services
                     _ePs.FireEvent(trancheEvent, copyOfLoan, transaction);
                     copyOfLoan.Events.Add(trancheEvent);
 
+                    CallInterceptor(new Dictionary<string, object>
+                    {
+                        {"Loan", copyOfLoan},
+                        {"Event", trancheEvent},
+                        {"SqlTransaction", transaction}
+                    });
+
                     // Add entry fee events
                     foreach (var entryFee in entryFees)
                     {
@@ -1274,6 +1281,24 @@ namespace OpenCBS.Services
                         _ePs.FireEvent(entryFeeEvent, copyOfLoan, transaction);
                         copyOfLoan.Events.Add(entryFeeEvent);
                     }
+
+                    var trancheEntryFeeEvent =
+                        copyOfLoan.Events.OfType<LoanEntryFeeEvent>()
+                                  .First(i => i.DisbursementEventId == trancheEvent.Id);
+                    if (trancheEntryFeeEvent != null)
+                        CallInterceptor(new Dictionary<string, object>
+                        {
+                            {"Loan", copyOfLoan},
+                            {
+                                "Event", new LoanEntryFeeEvent
+                                    {
+                                        Id = trancheEntryFeeEvent.Id,
+                                        Fee = entryFees.Sum(i => i.FeeValue),
+                                        Code = "LEE0"
+                                    }
+                            },
+                            {"SqlTransaction", transaction}
+                        });
 
                     ArchiveInstallments(loan, trancheEvent, transaction);
 
