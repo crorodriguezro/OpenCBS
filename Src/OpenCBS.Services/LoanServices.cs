@@ -1625,6 +1625,25 @@ namespace OpenCBS.Services
                     else if (pClient is Village)
                         evnt.ClientType = OClientTypes.Village;
 
+                    CallInterceptor(new Dictionary<string, object>
+                    {
+                        {"Loan", contract},
+                        {"Event", new RepaymentEvent {Id = evnt.ParentId ?? evnt.Id}},
+                        {"Deleted", true},
+                        {"SqlTransaction", sqlTransaction}
+                    });
+                    if (ApplicationSettings.GetInstance(User.CurrentUser.Md5).UseMandatorySavingAccount)
+                    {
+                        var id = 0;
+                        if (int.TryParse(evnt.Comment, out id))
+                            ServicesProvider.GetInstance()
+                                            .GetSavingServices()
+                                            .DeleteEvent(new SavingWithdrawEvent()
+                                                {
+                                                    Id = id,
+                                                    CancelDate = TimeProvider.Today
+                                                });
+                    }
                     evnt.Comment = comment;
                     evnt.CancelDate = TimeProvider.Now;
 
@@ -1882,14 +1901,6 @@ namespace OpenCBS.Services
                     }
 
                     CancelSavingsEvent(cancelledEvent, sqlTransaction);
-                    CallInterceptor(new Dictionary<string, object>
-                    {
-                        {"Loan", contract},
-                        {"Event", new RepaymentEvent {Id = cancelledEvent.ParentId ?? cancelledEvent.Id}},
-                        {"Deleted", true},
-                        {"SqlTransaction", sqlTransaction}
-                    });
-
                     sqlTransaction.Commit();
                     sqlTransaction.Dispose();
                     SetClientStatus(contract, pClient);
