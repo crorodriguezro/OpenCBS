@@ -75,6 +75,7 @@ namespace OpenCBS.Manager
 
         private bool IsNull(string name)
         {
+            var r = _reader.GetValue(_reader.GetOrdinal(name));
             return DBNull.Value == _reader.GetValue(_reader.GetOrdinal(name));
         }
 

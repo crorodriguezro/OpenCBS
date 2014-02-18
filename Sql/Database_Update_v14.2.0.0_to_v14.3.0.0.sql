@@ -1,3 +1,10 @@
+CREATE NONCLUSTERED INDEX [IX_ContractEvents_type_contract_id] ON [dbo].[ContractEvents] 
+(
+	[event_type] ASC,
+	[contract_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+
 UPDATE ce SET ce.event_type = 'RGLE'
 FROM ContractEvents ce
 INNER JOIN RepaymentEvents re ON re.id = ce.id
@@ -33,7 +40,14 @@ GO
 
 DELETE FROM EventTypes WHERE event_type = 'RRLE'
 GO
-
+ IF (not exists(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE  TABLE_NAME = 'LateDaysRange'))
+		BEGIN 
+			CREATE TABLE LateDaysRange
+			(
+			 [Min] INT not  null, [Max] INT not  null, [Label] NVARCHAR(15) null, [Color] NVARCHAR(30) null
+			)
+		END
+GO
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v14.3.0.0'
 WHERE   [name] = 'VERSION'
