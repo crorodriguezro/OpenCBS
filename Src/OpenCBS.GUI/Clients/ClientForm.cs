@@ -5663,18 +5663,6 @@ namespace OpenCBS.GUI.Clients
                                 temp.Deleted = true;
                                 _saving.Events[i] = temp;
                             }
-
-                        using (var sqlTransaction = DatabaseConnection.GetConnection().BeginTransaction())
-                        {
-                            ServicesProvider.GetInstance().GetContractServices().CallInterceptor(
-                                new Dictionary<string, object>
-                                {
-                                    {"Event", sEvent},
-                                    {"Deleted", true},
-                                    {"SqlTransaction", sqlTransaction}
-                                });
-                            sqlTransaction.Commit();
-                        }
                     }
                     catch (Exception ex)
                     {

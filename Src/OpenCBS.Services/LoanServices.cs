@@ -1625,10 +1625,12 @@ namespace OpenCBS.Services
                     else if (pClient is Village)
                         evnt.ClientType = OClientTypes.Village;
 
+                    var evntCopy = evnt.Copy();
+                    evntCopy.Id = evnt.ParentId ?? evnt.Id;
                     CallInterceptor(new Dictionary<string, object>
                     {
                         {"Loan", contract},
-                        {"Event", new RepaymentEvent {Id = evnt.ParentId ?? evnt.Id}},
+                        {"Event", evntCopy},
                         {"Deleted", true},
                         {"SqlTransaction", sqlTransaction}
                     });

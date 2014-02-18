@@ -799,6 +799,18 @@ namespace OpenCBS.Services
                 _ePS.CancelFireEvent(savingEvent, saving.Product.Currency.Id);
             }
 
+            using (var sqlTransaction = CoreDomain.DatabaseConnection.GetConnection().BeginTransaction())
+            {
+                ServicesProvider.GetInstance().GetContractServices().CallInterceptor(
+                    new Dictionary<string, object>
+                                {
+                                    {"Event", lastSavingEvent},
+                                    {"Deleted", true},
+                                    {"SqlTransaction", sqlTransaction}
+                                });
+                sqlTransaction.Commit();
+            }
+
             return savingEvent;
         }
 
