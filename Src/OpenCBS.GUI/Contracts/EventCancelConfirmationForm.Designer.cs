@@ -32,31 +32,32 @@ namespace OpenCBS.GUI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventCancelConfirmationForm));
             this.listViewRepayments = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader9 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.lblComeBackToState = new System.Windows.Forms.Label();
             this.cbShowCurrentState = new System.Windows.Forms.CheckBox();
             this.lblConfirmEventDelete = new System.Windows.Forms.Label();
             this.listViewEvents = new System.Windows.Forms.ListView();
-            this.columnHeaderDate = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderType = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderPrincipal = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderInterest = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderFees = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader10 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeaderDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderPrincipal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderInterest = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderFees = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxComments = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listViewRepayments
             // 
+            resources.ApplyResources(this.listViewRepayments, "listViewRepayments");
             this.listViewRepayments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -65,7 +66,6 @@ namespace OpenCBS.GUI
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader9});
-            resources.ApplyResources(this.listViewRepayments, "listViewRepayments");
             this.listViewRepayments.FullRowSelect = true;
             this.listViewRepayments.GridLines = true;
             this.listViewRepayments.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
@@ -103,13 +103,13 @@ namespace OpenCBS.GUI
             resources.ApplyResources(this.columnHeader9, "columnHeader9");
             // 
             // buttonCancel
-            //
+            // 
             resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Name = "buttonCancel";
             // 
             // buttonSave
-            //
+            // 
             resources.ApplyResources(this.buttonSave, "buttonSave");
             this.buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonSave.Name = "buttonSave";
@@ -133,6 +133,7 @@ namespace OpenCBS.GUI
             // 
             // listViewEvents
             // 
+            resources.ApplyResources(this.listViewEvents, "listViewEvents");
             this.listViewEvents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderDate,
             this.columnHeaderType,
@@ -142,7 +143,6 @@ namespace OpenCBS.GUI
             this.columnHeader10});
             this.listViewEvents.FullRowSelect = true;
             this.listViewEvents.GridLines = true;
-            resources.ApplyResources(this.listViewEvents, "listViewEvents");
             this.listViewEvents.Name = "listViewEvents";
             this.listViewEvents.UseCompatibleStateImageBehavior = false;
             this.listViewEvents.View = System.Windows.Forms.View.Details;

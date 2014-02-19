@@ -117,427 +117,65 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="listViewRepayments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>818, 256</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="listViewRepayments.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="listViewRepayments.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="listViewRepayments.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="listViewRepayments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 90</value>
-  </data>
-  <data name="&gt;&gt;listViewRepayments.Name" xml:space="preserve">
-    <value>listViewRepayments</value>
-  </data>
-  <data name="&gt;&gt;listViewRepayments.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="listViewEvents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>818, 256</value>
-  </data>
-  <data name="listViewEvents.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="listViewEvents.TabIndex" type="System.Int32, mscorlib">
-    <value>59</value>
-  </data>
-  <data name="listViewEvents.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 90</value>
-  </data>
-  <data name="&gt;&gt;listViewEvents.Name" xml:space="preserve">
-    <value>listViewEvents</value>
-  </data>
-  <data name="&gt;&gt;listViewEvents.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Confirmación</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterParent</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>818, 431</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>EventCancelConfirmationForm</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cbShowCurrentState.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="cbShowCurrentState.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 17</value>
-  </data>
-  <data name="cbShowCurrentState.TabIndex" type="System.Int32, mscorlib">
-    <value>57</value>
-  </data>
-  <data name="cbShowCurrentState.Text" xml:space="preserve">
-    <value>ver actual cronograma de pagos</value>
-  </data>
-  <data name="cbShowCurrentState.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 381</value>
-  </data>
-  <data name="cbShowCurrentState.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;cbShowCurrentState.Name" xml:space="preserve">
-    <value>cbShowCurrentState</value>
-  </data>
-  <data name="&gt;&gt;cbShowCurrentState.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblConfirmEventDelete.TabIndex" type="System.Int32, mscorlib">
-    <value>58</value>
-  </data>
-  <data name="lblConfirmEventDelete.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblConfirmEventDelete.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="lblConfirmEventDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>308, 16</value>
-  </data>
-  <data name="lblConfirmEventDelete.Text" xml:space="preserve">
-    <value>¿Confirme la cancelación de este movimiento?</value>
-  </data>
-  <data name="lblConfirmEventDelete.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lblConfirmEventDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>200, 51</value>
-  </data>
-  <data name="lblConfirmEventDelete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;lblConfirmEventDelete.Name" xml:space="preserve">
-    <value>lblConfirmEventDelete</value>
-  </data>
-  <data name="&gt;&gt;lblConfirmEventDelete.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="columnHeaderInterest.Width" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
-  <data name="columnHeaderInterest.Text" xml:space="preserve">
-    <value>Interés</value>
-  </data>
-  <data name="columnHeaderInterest.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;columnHeaderInterest.Name" xml:space="preserve">
-    <value>columnHeaderInterest</value>
-  </data>
-  <data name="&gt;&gt;columnHeaderInterest.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="columnHeader3.Width" type="System.Int32, mscorlib">
-    <value>137</value>
+  <data name="columnHeader2.Text" xml:space="preserve">
+    <value>Fecha</value>
   </data>
   <data name="columnHeader3.Text" xml:space="preserve">
     <value>Interés a pagar</value>
   </data>
-  <data name="columnHeader3.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;columnHeader3.Name" xml:space="preserve">
-    <value>columnHeader3</value>
-  </data>
-  <data name="&gt;&gt;columnHeader3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="columnHeaderType.Width" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
-  <data name="columnHeaderType.Text" xml:space="preserve">
-    <value>Tipo</value>
-  </data>
-  <data name="columnHeaderType.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;columnHeaderType.Name" xml:space="preserve">
-    <value>columnHeaderType</value>
-  </data>
-  <data name="&gt;&gt;columnHeaderType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="columnHeaderFees.Width" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
-  <data name="columnHeaderFees.Text" xml:space="preserve">
-    <value>gastos</value>
-  </data>
-  <data name="columnHeaderFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;columnHeaderFees.Name" xml:space="preserve">
-    <value>columnHeaderFees</value>
-  </data>
-  <data name="&gt;&gt;columnHeaderFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="columnHeaderPrincipal.Width" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
-  <data name="columnHeaderPrincipal.Text" xml:space="preserve">
-    <value>Capital</value>
-  </data>
-  <data name="columnHeaderPrincipal.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;columnHeaderPrincipal.Name" xml:space="preserve">
-    <value>columnHeaderPrincipal</value>
-  </data>
-  <data name="&gt;&gt;columnHeaderPrincipal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="buttonSave.TabIndex" type="System.Int32, mscorlib">
-    <value>55</value>
-  </data>
-  <data name="buttonSave.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 25</value>
-  </data>
-  <data name="buttonSave.Text" xml:space="preserve">
-    <value>confirmar</value>
-  </data>
-  <data name="buttonSave.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>511, 381</value>
-  </data>
-  <data name="buttonSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;buttonSave.Name" xml:space="preserve">
-    <value>buttonSave</value>
-  </data>
-  <data name="&gt;&gt;buttonSave.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="columnHeader2.Width" type="System.Int32, mscorlib">
-    <value>110</value>
-  </data>
-  <data name="columnHeader2.Text" xml:space="preserve">
-    <value>Fecha</value>
-  </data>
-  <data name="columnHeader2.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;columnHeader2.Name" xml:space="preserve">
-    <value>columnHeader2</value>
-  </data>
-  <data name="&gt;&gt;columnHeader2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblComeBackToState.TabIndex" type="System.Int32, mscorlib">
-    <value>56</value>
-  </data>
-  <data name="lblComeBackToState.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblComeBackToState.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="lblComeBackToState.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 16</value>
-  </data>
-  <data name="lblComeBackToState.Text" xml:space="preserve">
-    <value>¿Confirme que quiere volver a este estado?</value>
-  </data>
-  <data name="lblComeBackToState.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lblComeBackToState.Location" type="System.Drawing.Point, System.Drawing">
-    <value>200, 29</value>
-  </data>
-  <data name="lblComeBackToState.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;lblComeBackToState.Name" xml:space="preserve">
-    <value>lblComeBackToState</value>
-  </data>
-  <data name="&gt;&gt;lblComeBackToState.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="columnHeader1.Width" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="&gt;&gt;columnHeader1.Name" xml:space="preserve">
-    <value>columnHeader1</value>
-  </data>
-  <data name="&gt;&gt;columnHeader1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="columnHeader7.Width" type="System.Int32, mscorlib">
-    <value>100</value>
+  <data name="columnHeader4.Text" xml:space="preserve">
+    <value>Capital a pagar</value>
   </data>
   <data name="columnHeader7.Text" xml:space="preserve">
     <value>Interés pago</value>
   </data>
-  <data name="columnHeader7.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;columnHeader7.Name" xml:space="preserve">
-    <value>columnHeader7</value>
-  </data>
-  <data name="&gt;&gt;columnHeader7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="columnHeader4.Width" type="System.Int32, mscorlib">
-    <value>149</value>
-  </data>
-  <data name="columnHeader4.Text" xml:space="preserve">
-    <value>Capital a pagar</value>
-  </data>
-  <data name="columnHeader4.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;columnHeader4.Name" xml:space="preserve">
-    <value>columnHeader4</value>
-  </data>
-  <data name="&gt;&gt;columnHeader4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="columnHeader10.Width" type="System.Int32, mscorlib">
-    <value>91</value>
-  </data>
-  <data name="columnHeader10.Text" xml:space="preserve">
-    <value>Cancelable</value>
-  </data>
-  <data name="columnHeader10.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;columnHeader10.Name" xml:space="preserve">
-    <value>columnHeader10</value>
-  </data>
-  <data name="&gt;&gt;columnHeader10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="columnHeader8.Width" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
   <data name="columnHeader8.Text" xml:space="preserve">
     <value>Capital pago</value>
-  </data>
-  <data name="columnHeader8.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;columnHeader8.Name" xml:space="preserve">
-    <value>columnHeader8</value>
-  </data>
-  <data name="&gt;&gt;columnHeader8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="columnHeader9.Width" type="System.Int32, mscorlib">
-    <value>138</value>
   </data>
   <data name="columnHeader9.Text" xml:space="preserve">
     <value>fecha de pago</value>
   </data>
-  <data name="columnHeader9.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;columnHeader9.Name" xml:space="preserve">
-    <value>columnHeader9</value>
-  </data>
-  <data name="&gt;&gt;columnHeader9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="buttonCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>54</value>
-  </data>
-  <data name="buttonCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 25</value>
-  </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Cancelar</value>
   </data>
-  <data name="buttonCancel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
+  <data name="buttonSave.Text" xml:space="preserve">
+    <value>Confirmar</value>
   </data>
-  <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>678, 381</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblComeBackToState.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 16</value>
   </data>
-  <data name="buttonCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lblComeBackToState.Text" xml:space="preserve">
+    <value>¿Confirme que quiere volver a este estado?</value>
   </data>
-  <data name="&gt;&gt;buttonCancel.Name" xml:space="preserve">
-    <value>buttonCancel</value>
+  <data name="cbShowCurrentState.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 20</value>
   </data>
-  <data name="&gt;&gt;buttonCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cbShowCurrentState.Text" xml:space="preserve">
+    <value>ver actual cronograma de pagos</value>
   </data>
-  <data name="columnHeaderDate.Width" type="System.Int32, mscorlib">
-    <value>120</value>
+  <data name="lblConfirmEventDelete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 16</value>
+  </data>
+  <data name="lblConfirmEventDelete.Text" xml:space="preserve">
+    <value>¿Confirme la cancelación de este movimiento?</value>
   </data>
   <data name="columnHeaderDate.Text" xml:space="preserve">
     <value>fecha de pago</value>
   </data>
-  <data name="&gt;&gt;columnHeaderDate.Name" xml:space="preserve">
-    <value>columnHeaderDate</value>
+  <data name="columnHeaderType.Text" xml:space="preserve">
+    <value>Tipo</value>
   </data>
-  <data name="&gt;&gt;columnHeaderDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="columnHeaderPrincipal.Text" xml:space="preserve">
+    <value>Capital</value>
   </data>
-  <data name="&gt;&gt;listViewRepayments.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="columnHeaderInterest.Text" xml:space="preserve">
+    <value>Interés</value>
   </data>
-  <data name="&gt;&gt;listViewEvents.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="columnHeaderFees.Text" xml:space="preserve">
+    <value>gastos</value>
   </data>
-  <data name="&gt;&gt;cbShowCurrentState.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblConfirmEventDelete.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;buttonSave.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblComeBackToState.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;buttonCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblConfirmEventDelete.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;cbShowCurrentState.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lblComeBackToState.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;buttonCancel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;buttonSave.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;listViewRepayments.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;listViewEvents.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Confirmación</value>
   </data>
 </root>
