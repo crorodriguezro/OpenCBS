@@ -1223,7 +1223,7 @@ namespace OpenCBS.Services
             }
         }
 
-        public Loan AddTranche(Loan loan, IClient client, ITrancheConfiguration trancheConfiguration, IList<LoanEntryFee> entryFees)
+        public Loan AddTranche(Loan loan, IClient client, ITrancheConfiguration trancheConfiguration, IList<LoanEntryFee> entryFees, PaymentMethod paymentMethod)
         {
             using (var connection = _loanManager.GetConnection())
             using (var transaction = connection.BeginTransaction())
@@ -1250,6 +1250,7 @@ namespace OpenCBS.Services
                             GracePeriod = trancheConfiguration.GracePeriod,
                             StartedFromInstallment = startInstallment == null ? 0 : startInstallment.Number,
                             User = _user,
+                            PaymentMethod = paymentMethod
                         };
 
                     trancheEvent.User = _user;

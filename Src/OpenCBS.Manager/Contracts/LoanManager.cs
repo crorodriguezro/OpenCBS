@@ -1841,6 +1841,12 @@ namespace OpenCBS.Manager.Contracts
                         int paymentMethodId = (int) ((RepaymentEvent) loanEvent).PaymentMethodId;
                         loanEvent.PaymentMethod = _paymentMethodManager.SelectPaymentMethodById(paymentMethodId);
                     }
+                    if (loanEvent is TrancheEvent)
+                    {
+                        if (((TrancheEvent) loanEvent).PaymentMethodId == null) continue;
+                        int paymentMethodId = (int)((TrancheEvent) loanEvent).PaymentMethodId;
+                        loanEvent.PaymentMethod = _paymentMethodManager.SelectPaymentMethodById(paymentMethodId);
+                    }
                 }
 
                 if (_projectManager != null)

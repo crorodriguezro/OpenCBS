@@ -148,6 +148,12 @@
   <data name="newInstallmentsLabel.Text" xml:space="preserve">
     <value>Кол-во погашений:</value>
   </data>
+  <data name="_lbPaymentMethod.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 21</value>
+  </data>
+  <data name="_lbPaymentMethod.Text" xml:space="preserve">
+    <value>Метод транша:</value>
+  </data>
   <data name="firstRepaymentOnLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 16</value>
   </data>
