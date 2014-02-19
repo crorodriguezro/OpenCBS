@@ -48,6 +48,18 @@ GO
 			)
 		END
 GO
+
+INSERT INTO dbo.LateDaysRange ([Min], [Max], [Label] ) VALUES (0, 0, 'Performing') 
+INSERT INTO dbo.LateDaysRange ([Min], [Max], [Label], [Color]) VALUES (1, 30, 'PAR 1-30','#EAC81C') 
+INSERT INTO dbo.LateDaysRange ([Min], [Max], [Label], [Color])  VALUES (31, 60, 'PAR 31-60','#EAA01C')
+INSERT INTO dbo.LateDaysRange ([Min], [Max], [Label], [Color])  VALUES (61, 90, 'PAR 61-90','#EA781C')
+INSERT INTO dbo.LateDaysRange ([Min], [Max], [Label], [Color])  VALUES (91, 180, 'PAR 91-180','#EA501C')
+INSERT INTO dbo.LateDaysRange ([Min], [Max], [Label], [Color]) VALUES (181, 365, 'PAR 181-365','#EA281C')
+INSERT INTO dbo.LateDaysRange ([Min], [Max], [Label], [Color]) VALUES (365, 1000000, 'PAR >365','#EA001C')
+INSERT INTO dbo.LateDaysRange ([Min], [Max], [Label]) VALUES (0, 1000000, 'Total')
+GO
+
+
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v14.3.0.0'
 WHERE   [name] = 'VERSION'
