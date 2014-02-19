@@ -59,6 +59,12 @@ INSERT INTO dbo.LateDaysRange ([Min], [Max], [Label], [Color]) VALUES (365, 1000
 INSERT INTO dbo.LateDaysRange ([Min], [Max], [Label]) VALUES (0, 1000000, 'Total')
 GO
 
+ALTER TABLE TrancheEvents
+ADD payment_method_id INT
+GO
+
+UPDATE TrancheEvents SET payment_method_id = 1
+GO
 
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v14.3.0.0'

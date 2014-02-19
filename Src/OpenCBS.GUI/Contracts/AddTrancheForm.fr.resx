@@ -145,6 +145,12 @@
   <data name="newInstallmentsLabel.Text" xml:space="preserve">
     <value>Nombre d'échéances :</value>
   </data>
+  <data name="_lbPaymentMethod.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 21</value>
+  </data>
+  <data name="_lbPaymentMethod.Text" xml:space="preserve">
+    <value>Méthode de tranche:</value>
+  </data>
   <data name="firstRepaymentOnLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>155, 16</value>
   </data>

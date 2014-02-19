@@ -43,6 +43,8 @@ namespace OpenCBS.GUI.Contracts
             this.newInstallmentsLabel = new System.Windows.Forms.Label();
             this.buttonsPanel = new System.Windows.Forms.Panel();
             this.trancheConfigurationPanel = new System.Windows.Forms.Panel();
+            this.cmbPaymentMethod = new System.Windows.Forms.ComboBox();
+            this._lbPaymentMethod = new System.Windows.Forms.Label();
             this.firstRepaymentDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.firstRepaymentOnLabel = new System.Windows.Forms.Label();
             this.gracePeriodLabel = new System.Windows.Forms.Label();
@@ -128,6 +130,8 @@ namespace OpenCBS.GUI.Contracts
             // trancheConfigurationPanel
             // 
             resources.ApplyResources(this.trancheConfigurationPanel, "trancheConfigurationPanel");
+            this.trancheConfigurationPanel.Controls.Add(this.cmbPaymentMethod);
+            this.trancheConfigurationPanel.Controls.Add(this._lbPaymentMethod);
             this.trancheConfigurationPanel.Controls.Add(this.firstRepaymentDateTimePicker);
             this.trancheConfigurationPanel.Controls.Add(this.firstRepaymentOnLabel);
             this.trancheConfigurationPanel.Controls.Add(this.gracePeriodLabel);
@@ -142,6 +146,20 @@ namespace OpenCBS.GUI.Contracts
             this.trancheConfigurationPanel.Controls.Add(this.amountTextbox);
             this.trancheConfigurationPanel.Controls.Add(this.interestRateNumericUpDown);
             this.trancheConfigurationPanel.Name = "trancheConfigurationPanel";
+            // 
+            // cmbPaymentMethod
+            // 
+            resources.ApplyResources(this.cmbPaymentMethod, "cmbPaymentMethod");
+            this.cmbPaymentMethod.DisplayMember = "Name";
+            this.cmbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPaymentMethod.FormattingEnabled = true;
+            this.cmbPaymentMethod.Name = "cmbPaymentMethod";
+            this.cmbPaymentMethod.ValueMember = "Id";
+            // 
+            // _lbPaymentMethod
+            // 
+            resources.ApplyResources(this._lbPaymentMethod, "_lbPaymentMethod");
+            this._lbPaymentMethod.Name = "_lbPaymentMethod";
             // 
             // firstRepaymentDateTimePicker
             // 
@@ -216,5 +234,7 @@ namespace OpenCBS.GUI.Contracts
         private System.Windows.Forms.DateTimePicker firstRepaymentDateTimePicker;
         private System.Windows.Forms.Label firstRepaymentOnLabel;
         private ScheduleControl scheduleUserControl;
+        private System.Windows.Forms.Label _lbPaymentMethod;
+        private System.Windows.Forms.ComboBox cmbPaymentMethod;
     }
 }

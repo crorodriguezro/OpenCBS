@@ -152,6 +152,7 @@ namespace OpenCBS.Manager.Events
                         TrancheEvents.id AS tranche_id,
                         TrancheEvents.grace_period AS tranche_grace_period,
                         TrancheEvents.first_repayment_date AS tranche_first_repayment_date,
+                        TrancheEvents.payment_method_id as tranche_pm,
 
                         OverdueEvents.id AS ov_id,
                         OverdueEvents.olb AS ov_olb,
@@ -298,6 +299,7 @@ namespace OpenCBS.Manager.Events
                     TrancheEvents.id AS tranche_id,
                     TrancheEvents.grace_period AS tranche_grace_period,
                     TrancheEvents.first_repayment_date AS tranche_first_repayment_date,
+                    TrancheEvents.payment_method_id AS tranche_pm,
 
                     OverdueEvents.id AS ov_id,
                     OverdueEvents.olb AS ov_olb,
@@ -517,6 +519,7 @@ namespace OpenCBS.Manager.Events
                     TrancheEvents.maturity AS tranche_maturity,
                     TrancheEvents.start_date AS tranche_start_date,
                     TrancheEvents.id AS tranche_id,
+                    TrancheEvents.id AS tranche_pm,
 
                     OverdueEvents.id AS ov_id,
                     OverdueEvents.olb AS ov_olb,
@@ -924,7 +927,8 @@ namespace OpenCBS.Manager.Events
                     [applied_new_interest],
                     [started_from_installment],
                     first_repayment_date,
-                    grace_period
+                    grace_period,
+                    payment_method_id
                 )
                 VALUES
                 (
@@ -936,7 +940,8 @@ namespace OpenCBS.Manager.Events
                     @applied_new_interest, 
                     @started_from_installment,
                     @first_repayment_date,
-                    @grace_period
+                    @grace_period,
+                    @payment_method_id
                 )
             ";
 
@@ -1325,6 +1330,7 @@ namespace OpenCBS.Manager.Events
             command.AddParam("@started_from_installment", trancheEvent.StartedFromInstallment);
             command.AddParam("@first_repayment_date", trancheEvent.FirstRepaymentDate);
             command.AddParam("@grace_period", trancheEvent.GracePeriod);
+            command.AddParam("@payment_method_id", trancheEvent.PaymentMethod.Id);
         }
 
         private static void SetLoanReschedulingEvent(RescheduleLoanEvent pEvent, OpenCbsCommand c)
@@ -1707,7 +1713,7 @@ namespace OpenCBS.Manager.Events
             };
         }
 
-        private static TrancheEvent GetTrancheLoanEvent(OpenCbsReader r)
+        private TrancheEvent GetTrancheLoanEvent(OpenCbsReader r)
         {
             return new TrancheEvent{
                 Id = r.GetInt("tranche_id"),
@@ -1717,6 +1723,11 @@ namespace OpenCBS.Manager.Events
                 StartDate = r.GetDateTime("tranche_start_date"),
                 GracePeriod = r.GetInt("tranche_grace_period"),
                 FirstRepaymentDate = r.GetDateTime("tranche_first_repayment_date"),
+                PaymentMethodId = r.GetNullInt("tranche_pm"),
+                PaymentMethod = r.GetNullInt("tranche_pm") == null
+                                    ? null
+                                    : _paymentMethodManager.SelectPaymentMethodById(
+                                        r.GetNullInt("tranche_pm").Value)
             };
         }
 

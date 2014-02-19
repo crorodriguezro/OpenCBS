@@ -20,8 +20,10 @@
 // Contact: contact@opencbs.com
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.Engine;
@@ -51,6 +53,7 @@ namespace OpenCBS.GUI.Contracts
                 interestRateNumericUpDown.Maximum = Convert.ToDecimal(contract.Product.InterestRateMax * 100);
             }
             InitializeTrancheComponents();
+            FillComboBoxPaymentMethods();
         }
 
         public void InitializeTrancheComponents()
@@ -181,7 +184,9 @@ namespace OpenCBS.GUI.Contracts
                 _contract = ServicesProvider
                     .GetInstance()
                     .GetContractServices()
-                    .AddTranche(_contract, _client, GetTrancheConfiguration(), entryFeesForm.EntryFees);
+                    .AddTranche(_contract, _client, GetTrancheConfiguration(), entryFeesForm.EntryFees, (PaymentMethod)
+                                                                                              cmbPaymentMethod.
+                                                                                                  SelectedItem);
                 DialogResult = DialogResult.OK;
                 Close();
             }
@@ -189,6 +194,16 @@ namespace OpenCBS.GUI.Contracts
             {
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
             }
+        }
+
+        private void FillComboBoxPaymentMethods()
+        {
+            List<PaymentMethod> paymentMethods =
+                ServicesProvider.GetInstance().GetPaymentMethodServices().GetAllPaymentMethods();
+            foreach (PaymentMethod method in paymentMethods)
+                cmbPaymentMethod.Items.Add(method);
+
+            cmbPaymentMethod.SelectedItem = paymentMethods[0];
         }
     }
 }

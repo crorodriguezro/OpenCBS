@@ -55,6 +55,8 @@ namespace OpenCBS.CoreDomain.Events
 
         public override string Description { get; set; }
 
+        public int? PaymentMethodId { get; set; }
+
         public override Event Copy()
         {
             return (TrancheEvent) MemberwiseClone();
