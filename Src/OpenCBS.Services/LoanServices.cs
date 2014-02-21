@@ -2888,7 +2888,7 @@ namespace OpenCBS.Services
             if (amount <= 0) return config.Loan;
             ServicesProvider.GetInstance()
                             .GetSavingServices()
-                            .Withdraw(config.Saving, TimeProvider.Today, amount,
+                            .Withdraw(config.Saving, config.Date, amount,
                                       "Withdraw for loan repayment " + config.Loan.Code, currentUser, new Teller());
             var paymentMethod =
                 ServicesProvider.GetInstance().GetPaymentMethodServices().GetPaymentMethodByName("Savings");
