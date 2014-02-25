@@ -492,19 +492,20 @@ namespace OpenCBS.Services
                         {"Event", loanDisbursmentEvent},
                         {"SqlTransaction", sqlTransaction}
                     });
-                    CallInterceptor(new Dictionary<string, object>
-                    {
-                        {"Loan", pLoan},
+                    if (loanDisbursmentEvent.Commissions != null && loanDisbursmentEvent.Commissions.Count != 0)
+                        CallInterceptor(new Dictionary<string, object>
                         {
-                            "Event", new LoanEntryFeeEvent
-                                {
-                                    Id = loanDisbursmentEvent.Commissions.First().Id,
-                                    Fee = loanDisbursmentEvent.Commissions.Sum(i => i.Fee.Value),
-                                    Code = "LEE0"
-                                }
-                        },
-                        {"SqlTransaction", sqlTransaction}
-                    });
+                            {"Loan", pLoan},
+                            {
+                                "Event", new LoanEntryFeeEvent
+                                    {
+                                        Id = loanDisbursmentEvent.Commissions.First().Id,
+                                        Fee = loanDisbursmentEvent.Commissions.Sum(i => i.Fee.Value),
+                                        Code = "LEE0"
+                                    }
+                            },
+                            {"SqlTransaction", sqlTransaction}
+                        });
 
                     sqlTransaction.Commit();
                     return copyLoan;
