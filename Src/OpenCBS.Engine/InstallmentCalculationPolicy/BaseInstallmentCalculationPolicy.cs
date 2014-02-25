@@ -18,9 +18,7 @@ namespace OpenCBS.Engine.InstallmentCalculationPolicy
                     (decimal)
                         (configuration.PeriodPolicy.GetNumberOfPeriodsInYear(
                             configuration.PreferredFirstInstallmentDate, configuration.YearPolicy));
-                var gracePeriod = configuration.ChargeInterestDuringGracePeriod ? 0 : configuration.GracePeriod;
-                interest = configuration.Amount * configuration.InterestRate / numberOfPeriods / 100 /
-                           (configuration.NumberOfInstallments - gracePeriod);
+                interest = configuration.Amount*configuration.InterestRate/numberOfPeriods/100;
             }
             return configuration.RoundingPolicy.Round(interest);
         }
