@@ -293,7 +293,6 @@
                   <File Id="Disbursements_Per_Activity" Name="Disbursements_Per_Activity.zip" Source="SourceDir\Reports\Standard\Disbursements_Per_Activity.zip" />
                   <File Id="Disbursments" Name="Disbursments.zip" Source="SourceDir\Reports\Standard\Disbursments.zip" />
                   <File Id="Disbursements_And_Reimbursements" Name = "Disbursements_And_Reimbursements.zip" Source="SourceDir\Reports\Standard\Disbursements_And_Reimbursements.zip" />
-                  <File Id="Written_off_penalties" Name="Written_off_penalties.zip" Source="SourceDir\Reports\Standard\Written_off_penalties.zip" />
                   <File Id="OLB_and_LLP" Name="OLB_and_LLP.zip" Source="SourceDir\Reports\Standard\OLB_and_LLP.zip" />
                   <File Id="PAR_Analysis" Name="PAR_Analysis.zip" Source="SourceDir\Reports\Standard\PAR_Analysis.zip" />
                   <File Id="Repayments" Name="Repayments.zip" Source="SourceDir\Reports\Standard\Repayments.zip" />
