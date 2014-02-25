@@ -391,7 +391,7 @@
     <value>lvMembers</value>
   </data>
   <data name="&gt;&gt;lvMembers.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvMembers.Parent" xml:space="preserve">
     <value>$this</value>
@@ -595,6 +595,6 @@
     <value>VillageCreditCommitteeForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

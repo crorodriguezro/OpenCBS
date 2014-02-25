@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Clients;
@@ -120,24 +121,13 @@ namespace OpenCBS.GUI.Contracts
 
         private void Validate(object sender, EventArgs e)
         {
-
-            foreach (ListViewItem item in lvMembers.Items)
+            foreach (var item in lvMembers.Items.Cast<ListViewItem>().Where(item => item.Checked))
             {
-
-                if (item.Checked)
-                {
-                    var loan = (Loan)item.Tag;
-                    loan.ContractStatus = OContractStatus.Validated;
-                    item.SubItems[5].Text = OContractStatus.Validated.ToString();
-                    item.SubItems[5].Tag = OContractStatus.Validated;
-                }
-            }     
-    
- 
+                item.SubItems[5].Text = OContractStatus.Validated.ToString();
+                item.SubItems[5].Tag = OContractStatus.Validated;
+            }
         }
-
-
-
+        
         private KeyValuePair<OContractStatus, string> GetContractStatusItem(OContractStatus oContractStatus)
         {
             string statusName = oContractStatus.GetName();
@@ -319,9 +309,9 @@ namespace OpenCBS.GUI.Contracts
                 {
                     if (!item.Checked) continue;
                     var loan = item.Tag as Loan;
-                    string comment = item.SubItems[IdxComment].Text;
-                    OContractStatus currentStatus = loan.ContractStatus;
-                    OContractStatus status = (OContractStatus)item.SubItems[IdxStatus].Tag;
+                    var comment = item.SubItems[IdxComment].Text;
+                    var currentStatus = loan.ContractStatus;
+                    var status = (OContractStatus)item.SubItems[IdxStatus].Tag;
                     if (currentStatus == status) continue;
                     string code = item.SubItems[IdxValidationCode].Text;
                     DateTime date = Convert.ToDateTime(item.SubItems[IdxCreditCommitteeDate].Tag);
