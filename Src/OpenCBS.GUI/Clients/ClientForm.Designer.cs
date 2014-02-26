@@ -206,6 +206,15 @@ namespace OpenCBS.GUI.Clients
             this.tabPageCorporate = new System.Windows.Forms.TabPage();
             this.tabPageFollowUp = new System.Windows.Forms.TabPage();
             this.tabPageLoansDetails = new System.Windows.Forms.TabPage();
+            this.tclLoanDetails = new System.Windows.Forms.TabControl();
+            this.tabPageInstallments = new System.Windows.Forms.TabPage();
+            this.listViewLoanInstallments = new OpenCBS.GUI.UserControl.ListViewEx();
+            this.columnHeaderLoanN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderLoanDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderLoanIP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderLoanPR = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderLoanInstallmentTotal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderLoanOLB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.loanDetailsButtonsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSaveLoan = new System.Windows.Forms.Button();
             this.buttonLoanPreview = new System.Windows.Forms.Button();
@@ -537,15 +546,6 @@ namespace OpenCBS.GUI.Clients
             this.menuPendingSavingEvents = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuItemConfirmPendingSavingEvent = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCancelPendingSavingEvent = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPageInstallments = new System.Windows.Forms.TabPage();
-            this.listViewLoanInstallments = new OpenCBS.GUI.UserControl.ListViewEx();
-            this.columnHeaderLoanN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderLoanDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderLoanIP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderLoanPR = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderLoanInstallmentTotal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderLoanOLB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tclLoanDetails = new System.Windows.Forms.TabControl();
             this.splitContainer10.Panel1.SuspendLayout();
             this.splitContainer10.Panel2.SuspendLayout();
             this.splitContainer10.SuspendLayout();
@@ -581,6 +581,8 @@ namespace OpenCBS.GUI.Clients
             this.tabPageCorporate.SuspendLayout();
             this.tabPageFollowUp.SuspendLayout();
             this.tabPageLoansDetails.SuspendLayout();
+            this.tclLoanDetails.SuspendLayout();
+            this.tabPageInstallments.SuspendLayout();
             this.loanDetailsButtonsPanel.SuspendLayout();
             this.gbxLoanDetails.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -657,8 +659,6 @@ namespace OpenCBS.GUI.Clients
             this.menuBtnAddSavingOperation.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuPendingSavingEvents.SuspendLayout();
-            this.tabPageInstallments.SuspendLayout();
-            this.tclLoanDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer10
@@ -1462,6 +1462,60 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.tabPageLoansDetails, "tabPageLoansDetails");
             this.tabPageLoansDetails.Name = "tabPageLoansDetails";
             // 
+            // tclLoanDetails
+            // 
+            this.tclLoanDetails.Controls.Add(this.tabPageInstallments);
+            resources.ApplyResources(this.tclLoanDetails, "tclLoanDetails");
+            this.tclLoanDetails.Name = "tclLoanDetails";
+            this.tclLoanDetails.SelectedIndex = 0;
+            // 
+            // tabPageInstallments
+            // 
+            this.tabPageInstallments.Controls.Add(this.listViewLoanInstallments);
+            resources.ApplyResources(this.tabPageInstallments, "tabPageInstallments");
+            this.tabPageInstallments.Name = "tabPageInstallments";
+            // 
+            // listViewLoanInstallments
+            // 
+            this.listViewLoanInstallments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderLoanN,
+            this.columnHeaderLoanDate,
+            this.columnHeaderLoanIP,
+            this.columnHeaderLoanPR,
+            this.columnHeaderLoanInstallmentTotal,
+            this.columnHeaderLoanOLB});
+            resources.ApplyResources(this.listViewLoanInstallments, "listViewLoanInstallments");
+            this.listViewLoanInstallments.DoubleClickActivation = false;
+            this.listViewLoanInstallments.GridLines = true;
+            this.listViewLoanInstallments.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listViewLoanInstallments.Name = "listViewLoanInstallments";
+            this.listViewLoanInstallments.UseCompatibleStateImageBehavior = false;
+            this.listViewLoanInstallments.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeaderLoanN
+            // 
+            resources.ApplyResources(this.columnHeaderLoanN, "columnHeaderLoanN");
+            // 
+            // columnHeaderLoanDate
+            // 
+            resources.ApplyResources(this.columnHeaderLoanDate, "columnHeaderLoanDate");
+            // 
+            // columnHeaderLoanIP
+            // 
+            resources.ApplyResources(this.columnHeaderLoanIP, "columnHeaderLoanIP");
+            // 
+            // columnHeaderLoanPR
+            // 
+            resources.ApplyResources(this.columnHeaderLoanPR, "columnHeaderLoanPR");
+            // 
+            // columnHeaderLoanInstallmentTotal
+            // 
+            resources.ApplyResources(this.columnHeaderLoanInstallmentTotal, "columnHeaderLoanInstallmentTotal");
+            // 
+            // columnHeaderLoanOLB
+            // 
+            resources.ApplyResources(this.columnHeaderLoanOLB, "columnHeaderLoanOLB");
+            // 
             // loanDetailsButtonsPanel
             // 
             resources.ApplyResources(this.loanDetailsButtonsPanel, "loanDetailsButtonsPanel");
@@ -1650,11 +1704,13 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.numericUpDownLoanGracePeriod, "numericUpDownLoanGracePeriod");
             this.numericUpDownLoanGracePeriod.ForeColor = System.Drawing.SystemColors.WindowText;
             this.numericUpDownLoanGracePeriod.Name = "numericUpDownLoanGracePeriod";
+            this.numericUpDownLoanGracePeriod.ValueChanged += new System.EventHandler(this.numericUpDownLoanGracePeriod_ValueChanged);
             // 
             // nudLoanNbOfInstallments
             // 
             resources.ApplyResources(this.nudLoanNbOfInstallments, "nudLoanNbOfInstallments");
             this.nudLoanNbOfInstallments.Name = "nudLoanNbOfInstallments";
+            this.nudLoanNbOfInstallments.ValueChanged += new System.EventHandler(this.nudLoanNbOfInstallments_ValueChanged);
             // 
             // lblDay
             // 
@@ -1692,6 +1748,7 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.comboBoxLoanInstallmentType, "comboBoxLoanInstallmentType");
             this.comboBoxLoanInstallmentType.ForeColor = System.Drawing.SystemColors.WindowText;
             this.comboBoxLoanInstallmentType.Name = "comboBoxLoanInstallmentType";
+            this.comboBoxLoanInstallmentType.SelectedIndexChanged += new System.EventHandler(this.comboBoxLoanInstallmentType_SelectedIndexChanged);
             // 
             // labelLoanFundingLine
             // 
@@ -1739,6 +1796,7 @@ namespace OpenCBS.GUI.Clients
             131072});
             resources.ApplyResources(this.nudInterestRate, "nudInterestRate");
             this.nudInterestRate.Name = "nudInterestRate";
+            this.nudInterestRate.ValueChanged += new System.EventHandler(this.nudInterestRate_ValueChanged);
             this.nudInterestRate.EnabledChanged += new System.EventHandler(this.nudLoanAmount_EnabledChanged);
             // 
             // eacLoan
@@ -3731,60 +3789,6 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.menuItemCancelPendingSavingEvent, "menuItemCancelPendingSavingEvent");
             this.menuItemCancelPendingSavingEvent.Click += new System.EventHandler(this.menuItemCancelPendingSavingEvent_Click);
             // 
-            // tabPageInstallments
-            // 
-            this.tabPageInstallments.Controls.Add(this.listViewLoanInstallments);
-            resources.ApplyResources(this.tabPageInstallments, "tabPageInstallments");
-            this.tabPageInstallments.Name = "tabPageInstallments";
-            // 
-            // listViewLoanInstallments
-            // 
-            this.listViewLoanInstallments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeaderLoanN,
-            this.columnHeaderLoanDate,
-            this.columnHeaderLoanIP,
-            this.columnHeaderLoanPR,
-            this.columnHeaderLoanInstallmentTotal,
-            this.columnHeaderLoanOLB});
-            resources.ApplyResources(this.listViewLoanInstallments, "listViewLoanInstallments");
-            this.listViewLoanInstallments.DoubleClickActivation = false;
-            this.listViewLoanInstallments.GridLines = true;
-            this.listViewLoanInstallments.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listViewLoanInstallments.Name = "listViewLoanInstallments";
-            this.listViewLoanInstallments.UseCompatibleStateImageBehavior = false;
-            this.listViewLoanInstallments.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeaderLoanN
-            // 
-            resources.ApplyResources(this.columnHeaderLoanN, "columnHeaderLoanN");
-            // 
-            // columnHeaderLoanDate
-            // 
-            resources.ApplyResources(this.columnHeaderLoanDate, "columnHeaderLoanDate");
-            // 
-            // columnHeaderLoanIP
-            // 
-            resources.ApplyResources(this.columnHeaderLoanIP, "columnHeaderLoanIP");
-            // 
-            // columnHeaderLoanPR
-            // 
-            resources.ApplyResources(this.columnHeaderLoanPR, "columnHeaderLoanPR");
-            // 
-            // columnHeaderLoanInstallmentTotal
-            // 
-            resources.ApplyResources(this.columnHeaderLoanInstallmentTotal, "columnHeaderLoanInstallmentTotal");
-            // 
-            // columnHeaderLoanOLB
-            // 
-            resources.ApplyResources(this.columnHeaderLoanOLB, "columnHeaderLoanOLB");
-            // 
-            // tclLoanDetails
-            // 
-            this.tclLoanDetails.Controls.Add(this.tabPageInstallments);
-            resources.ApplyResources(this.tclLoanDetails, "tclLoanDetails");
-            this.tclLoanDetails.Name = "tclLoanDetails";
-            this.tclLoanDetails.SelectedIndex = 0;
-            // 
             // ClientForm
             // 
             resources.ApplyResources(this, "$this");
@@ -3839,6 +3843,8 @@ namespace OpenCBS.GUI.Clients
             this.tabPageFollowUp.ResumeLayout(false);
             this.tabPageLoansDetails.ResumeLayout(false);
             this.tabPageLoansDetails.PerformLayout();
+            this.tclLoanDetails.ResumeLayout(false);
+            this.tabPageInstallments.ResumeLayout(false);
             this.loanDetailsButtonsPanel.ResumeLayout(false);
             this.gbxLoanDetails.ResumeLayout(false);
             this.gbxLoanDetails.PerformLayout();
@@ -3949,8 +3955,6 @@ namespace OpenCBS.GUI.Clients
             this.menuBtnAddSavingOperation.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.menuPendingSavingEvents.ResumeLayout(false);
-            this.tabPageInstallments.ResumeLayout(false);
-            this.tclLoanDetails.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

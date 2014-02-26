@@ -3449,8 +3449,7 @@ namespace OpenCBS.GUI.Clients
             if (_credit != null && _credit.ScheduleChangedManually)
             {
                 credit.ScheduleChangedManually = _credit.ScheduleChangedManually;
-
-                //credit.InstallmentList = _credit.InstallmentList;
+                credit.InstallmentList = _credit.InstallmentList;
             }
             credit.EconomicActivity = eacLoan.Activity;
             return credit;
@@ -6768,6 +6767,7 @@ namespace OpenCBS.GUI.Clients
                 if (nudLoanAmount.Enabled)
                 {
                     btnSaveLoan.Enabled = true;
+                    _credit.ScheduleChangedManually = false;
                     decimal loanAmount;
                     if (decimal.TryParse(nudLoanAmount.Text, out loanAmount))
                         amount = ServicesHelper.ConvertStringToDecimal(nudLoanAmount.Text, 0, _credit.Product.UseCents);
@@ -7071,6 +7071,26 @@ namespace OpenCBS.GUI.Clients
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
             }
 
+        }
+
+        private void nudInterestRate_ValueChanged(object sender, EventArgs e)
+        {
+            _credit.ScheduleChangedManually = false;
+        }
+
+        private void numericUpDownLoanGracePeriod_ValueChanged(object sender, EventArgs e)
+        {
+            _credit.ScheduleChangedManually = false;
+        }
+
+        private void nudLoanNbOfInstallments_ValueChanged(object sender, EventArgs e)
+        {
+            _credit.ScheduleChangedManually = false;
+        }
+
+        private void comboBoxLoanInstallmentType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _credit.ScheduleChangedManually = false;
         }
 
 
