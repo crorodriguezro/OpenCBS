@@ -501,7 +501,8 @@ namespace OpenCBS.Services
                                     {
                                         Id = loanDisbursmentEvent.Commissions.First().Id,
                                         Fee = loanDisbursmentEvent.Commissions.Sum(i => i.Fee.Value),
-                                        Code = "LEE0"
+                                        Code = "LEE0",
+                                        Date = loanDisbursmentEvent.Date
                                     }
                             },
                             {"SqlTransaction", sqlTransaction}
