@@ -140,11 +140,11 @@ namespace OpenCBS.GUI.Contracts
             {                
                 _contract.Rescheduled = true;
                 _contract.NbOfInstallments = _contract.InstallmentList.Count;
-                _contract.InterestRate = Convert.ToDecimal(_interestRateTextBox.Text);
                 _contract = ServicesProvider
                     .GetInstance()
                     .GetContractServices()
                     .Reschedule(_contract, _client, GetRescheduleConfiguration());
+                _contract.InterestRate = _interestRateTextBox.Amount.HasValue ? _interestRateTextBox.Amount.Value : Contract.InterestRate * 100;
                 DialogResult = DialogResult.OK;
                 Close();
             }
