@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -442,7 +443,8 @@ namespace OpenCBS.GUI.Contracts
                     var savingEvent = ServicesProvider
                         .GetInstance()
                         .GetSavingServices()
-                        .Deposit(saving, _date, _amount, " ", User.CurrentUser, false, savingsMethod, null,
+                        .Deposit(saving, _date, _amount, _loan.Id.ToString(CultureInfo.InvariantCulture),
+                                 User.CurrentUser, false, savingsMethod, null,
                                  Teller.CurrentTeller).FirstOrDefault();
 
                     using (var sqlTransaction = DatabaseConnection.GetConnection().BeginTransaction())
