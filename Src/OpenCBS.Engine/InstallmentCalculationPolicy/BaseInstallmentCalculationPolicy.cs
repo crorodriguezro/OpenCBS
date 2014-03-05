@@ -8,7 +8,7 @@ namespace OpenCBS.Engine.InstallmentCalculationPolicy
     {
         protected decimal CalculateInterest(IInstallment installment, IScheduleConfiguration configuration, decimal amount)
         {
-            var daysInPeriod = configuration.PeriodPolicy.GetNumberOfDays(installment, configuration.DateShiftPolicy);
+            var daysInPeriod = configuration.PeriodPolicy.GetNumberOfDays(installment.EndDate);//, configuration.DateShiftPolicy);
             var daysInYear = configuration.YearPolicy.GetNumberOfDays(installment.EndDate);
             var interest = installment.Olb * configuration.InterestRate / 100 * daysInPeriod / daysInYear;
             //if schedule is flat
