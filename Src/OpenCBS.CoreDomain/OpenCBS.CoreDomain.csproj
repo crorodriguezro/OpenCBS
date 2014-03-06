@@ -44,7 +44,8 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <OldToolsVersion>3.5</OldToolsVersion>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -164,16 +165,8 @@
     </Compile>
     <Compile Include="Accounting\ContractChartOfAccounts.cs" />
     <Compile Include="Accounting\Currency.cs" />
-    <Compile Include="Accounting\Datasets\DataSetElementaryMvts.cs">
-      <DependentUpon>DataSetElementaryMvts.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Accounting\Booking.cs">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Accounting\Datasets\DataSetElementaryMvts.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetElementaryMvts.xsd</DependentUpon>
     </Compile>
     <Compile Include="Accounting\BookingToExport.cs">
       <SubType>Code</SubType>
@@ -527,17 +520,6 @@
     <Compile Include="Online\Remoting.cs" />
     <Compile Include="Online\Standard.cs" />
     <Compile Include="Online\Token.cs" />
-    <Content Include="Accounting\Datasets\DataSetElementaryMvts.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetElementaryMvts.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
-    <None Include="Accounting\Datasets\DataSetElementaryMvts.xsc">
-      <DependentUpon>DataSetElementaryMvts.xsd</DependentUpon>
-    </None>
-    <None Include="Accounting\Datasets\DataSetElementaryMvts.xsx">
-      <DependentUpon>DataSetElementaryMvts.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{5AD368F8-9AD3-4E4C-97D8-1F4F1C124158}" />
