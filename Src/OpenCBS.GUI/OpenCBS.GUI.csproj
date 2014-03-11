@@ -3008,15 +3008,33 @@
     <None Include="Reports\Internal\Village_Repayment_Schedule.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Reports\Standard\Active_Loans.zip" />
-    <None Include="Reports\Standard\Client_Information.zip" />
-    <None Include="Reports\Standard\Closed_Contracts.zip" />
-    <None Include="Reports\Standard\Collection_Sheet.zip" />
-    <None Include="Reports\Standard\Delinquent_Loans.zip" />
-    <None Include="Reports\Standard\Disbursments.zip" />
-    <None Include="Reports\Standard\OLB_and_LLP.zip" />
-    <None Include="Reports\Standard\PAR_Analysis.zip" />
-    <None Include="Reports\Standard\Repayments.zip" />
+    <None Include="Reports\Standard\Active_Loans.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\Standard\Client_Information.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\Standard\Closed_Contracts.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\Standard\Collection_Sheet.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\Standard\Delinquent_Loans.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\Standard\Disbursments.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\Standard\OLB_and_LLP.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\Standard\PAR_Analysis.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\Standard\Repayments.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\dowarrow.png" />
     <None Include="Resources\Admin_Background.png" />
     <None Include="Resources\Admin_Background_180.png" />
