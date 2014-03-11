@@ -1828,6 +1828,13 @@ namespace OpenCBS.Services
                                 _ePs.CancelFireEvent(contractEvent, sqlTransaction, contract,
                                                      contract.Product.Currency.Id);
                                 contractEvent.Deleted = true;
+                                CallInterceptor(new Dictionary<string, object>
+                                {
+                                    {"Loan", contract},
+                                    {"Event", contractEvent},
+                                    {"Deleted", true},
+                                    {"SqlTransaction", sqlTransaction}
+                                });
                             }
                             if (contractEvent is CreditInsuranceEvent)
                             {
