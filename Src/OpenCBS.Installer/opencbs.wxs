@@ -84,7 +84,6 @@
               <File Id="OpenCBS.Manager.dll" Source="SourceDir\OpenCBS.Manager.dll" />
               <File Id="ICSharpCode.SharpZipLib.dll" Source="SourceDir\ICSharpCode.SharpZipLib.dll" />
               <File Id="Ionic.Zip.dll" Source="SourceDir\Ionic.Zip.dll" />
-              <File Id="System.ComponentModel.Composition.dll" Source="SourceDir\System.ComponentModel.Composition.dll" />
               <File Id="OpenCBS.Services.dll" Source="SourceDir\OpenCBS.Services.dll" />
               <File Id="OpenCBS.DatabaseConnection.dll" Source="SourceDir\OpenCBS.DatabaseConnection.dll" />
               <File Id="OpenCBS.Enums.dll" Source="SourceDir\OpenCBS.Enums.dll" />
