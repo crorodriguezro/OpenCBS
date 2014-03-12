@@ -99,7 +99,7 @@ namespace OpenCBS.Services
         public delegate void ExecuteUpgradeSqlDatabaseFile(string pCurrentDatabase, string pExpectedDatabase);
         public event ExecuteUpgradeSqlDatabaseFile UpdateDatabaseEvent;
 
-        private static void _LoadUserDefinedFunctions(string database, SqlConnection conn)
+        private static void LoadUserDefinedFunctions(string database, SqlConnection conn = null, SqlTransaction transaction = null)
         {
             string src = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             src = Path.Combine(src, "Update");
@@ -114,52 +114,52 @@ namespace OpenCBS.Services
             StreamWriter sw = new StreamWriter(dest);
             sw.Write(body);
             sw.Close();
-            DatabaseManager.ExecuteScript(dest, database, conn);
+            DatabaseManager.ExecuteScript(dest, database, conn, transaction);
             File.Delete(dest);
+        }
+
+        private SqlConnection GetMasterConnection()
+        {
+            var connection = ConnectionManager.GeneralSqlConnection;
+            connection.Open();
+            return connection;
         }
 
         public bool UpdateDatabase(string pExpectedVersion, string pDatabaseName, string pScriptPath)
         {
-            SqlConnection connection = ConnectionManager.GeneralSqlConnection;
-            try
+            using (var connection = GetMasterConnection())
             {
-                connection.Open();
                 string currentVersion = DatabaseManager.GetDatabaseVersion(pDatabaseName, connection);
-                
-                List<SqlUpdateDatabaseScript> scripts = _GetScriptsToUpgradeDatabase(pExpectedVersion, currentVersion);
-                foreach (SqlUpdateDatabaseScript script in scripts)
-                {
-                    if (UpdateDatabaseEvent != null)
-                        UpdateDatabaseEvent(script.Current, script.Expected);
 
-                    string createSqlfile = Path.Combine(pScriptPath, string.Format(UPDATEDATABASE, script.Current, script.Expected));
-                    DatabaseManager.ExecuteScript(createSqlfile, pDatabaseName, connection);
-                }
-
-                if (UpdateDatabaseEvent != null)
-                    UpdateDatabaseEvent("", "");
-                DatabaseManager.ExecuteScript(_GetSqlObjects(), pDatabaseName, connection);
-
+                var transaction = connection.BeginTransaction();
                 try
                 {
-                    _LoadUserDefinedFunctions(pDatabaseName, connection);
+                    var scripts = _GetScriptsToUpgradeDatabase(pExpectedVersion, currentVersion);
+                    foreach (var script in scripts)
+                    {
+                        if (UpdateDatabaseEvent != null)
+                            UpdateDatabaseEvent(script.Current, script.Expected);
+
+                        string createSqlfile = Path.Combine(pScriptPath,
+                                                            string.Format(UPDATEDATABASE, script.Current,
+                                                                          script.Expected));
+                        DatabaseManager.ExecuteScript(createSqlfile, pDatabaseName, null, transaction);
+                    }
+
+                    if (UpdateDatabaseEvent != null)
+                        UpdateDatabaseEvent("", "");
+                    DatabaseManager.ExecuteScript(_GetSqlObjects(), pDatabaseName, null, transaction);
+
+                    transaction.Commit();
                 }
-                catch (Exception e)
+                catch
                 {
-                    Debug.WriteLine("Cannot load OpenCBS.Stringifier.dll: " + e.Message);
+                    transaction.Rollback();
+                    throw;
                 }
 
-                connection.Close();
+                LoadUserDefinedFunctions(pDatabaseName, connection);
                 return true;
-            }
-            catch (Exception e)
-            {
-                connection.Close();
-                MessageBox.Show("A database migration problem occured. This can be due to a bug or to a change made in your data model. Please try again using the option 'Create new database' and contact your support.",
-                    "Upgrading error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                Application.Exit();
-                return false;//throw;
             }
         }
 
@@ -193,7 +193,7 @@ namespace OpenCBS.Services
 
                 try
                 {
-                    _LoadUserDefinedFunctions(name, conn);
+                    LoadUserDefinedFunctions(name, conn);
                 }
                 catch (Exception e)
                 {

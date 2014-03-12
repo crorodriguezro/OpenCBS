@@ -1283,7 +1283,7 @@ namespace OpenCBS.GUI.Clients
                 _person = _personUserControl.Person;
                 _client = _person;
                 if (_mdiParent != null)
-                    ((LotrasmicMainWindowForm)_mdiParent).SetInfoMessage(string.Format("Person {0} {1} saved", _person.FirstName, _person.LastName));
+                    ((MainView)_mdiParent).SetInfoMessage(string.Format("Person {0} {1} saved", _person.FirstName, _person.LastName));
                 InitializeTitle(string.Format("{1} {0}", _person.FirstName, _person.LastName));
                 if (_closeFormAfterSave)
                 {
@@ -1310,7 +1310,7 @@ namespace OpenCBS.GUI.Clients
             {
                 _group = _groupUserControl.Group;
                 _client = _group;
-                ((LotrasmicMainWindowForm)_mdiParent).SetInfoMessage(string.Format("Group {0} saved", _group.Name));
+                ((MainView)_mdiParent).SetInfoMessage(string.Format("Group {0} saved", _group.Name));
                 InitializeTitle(_group.Name);
                 if (!tabControlPerson.TabPages.Contains(tabPageContracts))
                 {
@@ -1328,7 +1328,7 @@ namespace OpenCBS.GUI.Clients
             {
                 _corporate = _corporateUserControl.Corporate;
                 _client = _corporate;
-                ((LotrasmicMainWindowForm)_mdiParent).SetInfoMessage(string.Format("Corporate {0} saved", _corporate.Name));
+                ((MainView)_mdiParent).SetInfoMessage(string.Format("Corporate {0} saved", _corporate.Name));
                 InitializeTitle(_corporate.Name);
                 if (!tabControlPerson.TabPages.Contains(tabPageContracts))
                 {
@@ -3844,7 +3844,7 @@ namespace OpenCBS.GUI.Clients
                     tabControlPerson.SelectedTab = _product.UseGuarantorCollateral ? tabPageLoanGuarantees : tabPageCreditCommitee;
 
                     Text = string.Format("{0} - {1}", _title, _credit.Code);
-                    ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+                    ((MainView)_mdiParent).ReloadAlertsSync();
                 }
                 else
                 {
@@ -4064,7 +4064,7 @@ namespace OpenCBS.GUI.Clients
                     tabControlPerson.TabPages.Add(tabPageLoanRepayment);
                     tabControlPerson.SelectedTab = tabPageLoanRepayment;
                     buttonLoanDisbursment.Enabled = false;
-                    ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+                    ((MainView)_mdiParent).ReloadAlertsSync();
                     InitializeTabPageLoanRepayment(_credit);
                     DisplayInstallments(ref _credit);
                     DisableCommitteeDecision(_credit.ContractStatus);
@@ -4183,7 +4183,7 @@ namespace OpenCBS.GUI.Clients
                     }
 
                     if (MdiParent != null)
-                        ((LotrasmicMainWindowForm)MdiParent).ReloadAlertsSync();
+                        ((MainView)MdiParent).ReloadAlertsSync();
                 }
                 SetAddTrancheButton(_credit);
             }
@@ -4573,7 +4573,7 @@ namespace OpenCBS.GUI.Clients
                         tabControlPerson.TabPages.Remove(tabPageSavingDetails);
                         tabControlPerson.SelectedTab = tabPageLoansDetails;
 
-                        ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+                        ((MainView)_mdiParent).ReloadAlertsSync();
 
                         buttonLoanDisbursment.Enabled = true;
                         DisableCommitteeDecision(_credit.ContractStatus);
@@ -4885,7 +4885,7 @@ namespace OpenCBS.GUI.Clients
 
                     }
 
-                    ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+                    ((MainView)_mdiParent).ReloadAlertsSync();
 
                 }
                 catch (Exception ex)
@@ -5428,7 +5428,7 @@ namespace OpenCBS.GUI.Clients
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
             DisplaySavings(_client.Savings);
-            ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+            ((MainView)_mdiParent).ReloadAlertsSync();
         }
 
         private void buttonSavingWithDraw_Click(object sender, EventArgs e)
@@ -5439,7 +5439,7 @@ namespace OpenCBS.GUI.Clients
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
             DisplaySavings(_client.Savings);
-            ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+            ((MainView)_mdiParent).ReloadAlertsSync();
         }
 
         private List<User> _subordinates;
@@ -5668,7 +5668,7 @@ namespace OpenCBS.GUI.Clients
                         new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
                     }
 
-                    ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+                    ((MainView)_mdiParent).ReloadAlertsSync();
 
                     DisplaySavingEvent(_saving);
 
@@ -5776,7 +5776,7 @@ namespace OpenCBS.GUI.Clients
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
             DisplaySavings(_client.Savings);
-            ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+            ((MainView)_mdiParent).ReloadAlertsSync();
         }
 
         private void OnFirstInstallmentDateChanged(object sender, EventArgs e)
@@ -6472,7 +6472,7 @@ namespace OpenCBS.GUI.Clients
                     savEvent.IsPending = false;
                     lvSavingEvent.SelectedItems[0].Tag = savEvent;
 
-                    ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+                    ((MainView)_mdiParent).ReloadAlertsSync();
 
                     DisplaySavingEvent(_saving);
                     if (_person != null) DisplaySavings(_person.Savings);
@@ -6499,7 +6499,7 @@ namespace OpenCBS.GUI.Clients
                 savEvent.IsPending = false;
                 lvSavingEvent.SelectedItems[0].Tag = savEvent;
 
-                ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+                ((MainView)_mdiParent).ReloadAlertsSync();
 
                 DisplaySavingEvent(_saving);
                 if (_person != null) DisplaySavings(_person.Savings);
@@ -6580,7 +6580,7 @@ namespace OpenCBS.GUI.Clients
                     InitializeContractStatus(_credit);
                     if (MdiParent != null)
                     {
-                        ((LotrasmicMainWindowForm)MdiParent).ReloadAlertsSync();
+                        ((MainView)MdiParent).ReloadAlertsSync();
                     }
                 }
                 catch (Exception ex)
@@ -6680,7 +6680,7 @@ namespace OpenCBS.GUI.Clients
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
             DisplaySavings(_client.Savings);
-            ((LotrasmicMainWindowForm)MdiParent).ReloadAlertsSync();
+            ((MainView)MdiParent).ReloadAlertsSync();
         }
 
         private void ShowTotalFeesInListView(ListViewItem item)

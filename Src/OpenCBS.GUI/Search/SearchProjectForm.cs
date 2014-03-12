@@ -178,11 +178,11 @@ namespace OpenCBS.GUI.Projets
                
 
                 if (result.Type == OClientTypes.Person)
-                        ((LotrasmicMainWindowForm)_mdiForm).InitializePersonForm((Person)_client,_projet);
+                        ((MainView)_mdiForm).InitializePersonForm((Person)_client,_projet);
                 if (result.Type == OClientTypes.Group)
-                        ((LotrasmicMainWindowForm)_mdiForm).InitializeGroupForm((Group)_client,_projet);
+                        ((MainView)_mdiForm).InitializeGroupForm((Group)_client,_projet);
                 if (result.Type == OClientTypes.Corporate)
-                        ((LotrasmicMainWindowForm)_mdiForm).InitializeCorporateForm((Corporate)_client,_projet);
+                        ((MainView)_mdiForm).InitializeCorporateForm((Corporate)_client,_projet);
                
                     Close();
             }

@@ -215,7 +215,7 @@ namespace OpenCBS.GUI
 
                         if (clientServices.CheckIfTiersIsValid(client))
                         {
-                            var mainForm = (LotrasmicMainWindowForm) Application.OpenForms[0];
+                            var mainForm = (MainView) Application.OpenForms[0];
                             mainForm.InitializeCreditContractForm(client, pCredit.Id);
                         }
                     }
@@ -246,7 +246,7 @@ namespace OpenCBS.GUI
 
                     if (clientServices.CheckIfTiersIsValid(client))
                     {
-                        var mainForm = (LotrasmicMainWindowForm)Application.OpenForms[0];
+                        var mainForm = (MainView)Application.OpenForms[0];
                         mainForm.InitializeSavingContractForm(client, saving.Id);
                     }
                 }

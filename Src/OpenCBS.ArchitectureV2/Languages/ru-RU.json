@@ -1,0 +1,10 @@
+{
+	"Database": "База данных",
+	"Error": "Ошибка",
+	"Invalid username or password.": "Неверное имя пользователя или пароль.",
+	"Login": "Вход",
+	"Password": "Пароль",
+    "Upgrade": "Обновление",
+    "Upgrading database...": "Обновляю базу данных...",
+	"Username": "Имя пользователя"
+}

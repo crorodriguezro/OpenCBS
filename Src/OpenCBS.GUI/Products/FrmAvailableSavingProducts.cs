@@ -100,7 +100,7 @@ namespace OpenCBS.GUI.Products
             if (addPackageForm.ShowDialog() == DialogResult.OK)
             {
                 InitializePackages();
-                ((LotrasmicMainWindowForm)MdiParent).SetInfoMessage(GetString("SaveSavingProduct.Text"));
+                ((MainView)MdiParent).SetInfoMessage(GetString("SaveSavingProduct.Text"));
             }
         }
 
@@ -127,7 +127,7 @@ namespace OpenCBS.GUI.Products
             if (editProductForm.ShowDialog() == DialogResult.OK)
             {
                 InitializePackages();
-                ((LotrasmicMainWindowForm)MdiParent).SetInfoMessage(GetString("ModifiSavingProduct.Text"));
+                ((MainView)MdiParent).SetInfoMessage(GetString("ModifiSavingProduct.Text"));
             }
         }
 

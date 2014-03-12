@@ -22,16 +22,17 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Threading;
+using System.Windows.Forms;
 using AutoMapper;
-using OpenCBS.CoreDomain;
+using OpenCBS.ArchitectureV2;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.GUI.Configuration;
 using OpenCBS.GUI.Database;
 using OpenCBS.Services;
 using OpenCBS.Shared;
-using System.Threading;
-using System.Windows.Forms;
 using OpenCBS.Shared.Settings;
+using StructureMap;
 
 namespace OpenCBS.GUI
 {
@@ -72,25 +73,15 @@ namespace OpenCBS.GUI
                 Application.EnableVisualStyles();
                 Application.DoEvents();
 
-                new FrmSplash(_user, _password, _skipSchemaCheck).ShowDialog();
-
-                switch (User.CurrentUser.Id)
-                {
-                    case 0:
-                        Application.Exit();
-                        break;
-                    default:
-                        ConfigureAutoMapper();
-                        Application.Run(new LotrasmicMainWindowForm());
-                        break;
-                }
-
-                ServicesProvider.GetInstance().SuppressAllRemotingInfos(Environment.MachineName, Environment.UserName);
+                ConfigureAutoMapper();
+                var bootstrapper = new Bootstrapper(new Container());
+                Application.Run(bootstrapper.GetAppContext());
             }
             catch (Exception ex)
             {
-                new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
-                 System.Diagnostics.Debugger.Break();
+                //new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
+                //System.Diagnostics.Debugger.Break();
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

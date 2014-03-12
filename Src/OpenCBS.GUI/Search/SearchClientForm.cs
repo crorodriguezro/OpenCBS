@@ -674,7 +674,7 @@ namespace OpenCBS.GUI
 
                 if (test != 2)
                 {
-                    var mainForm = (LotrasmicMainWindowForm) Application.OpenForms[0];
+                    var mainForm = (MainView) Application.OpenForms[0];
                     if (pClient.Type == OClientTypes.Person)
                         mainForm.InitializePersonForm((Person)_client, null);
                     if (pClient.Type == OClientTypes.Group)

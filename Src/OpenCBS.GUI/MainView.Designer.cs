@@ -7,7 +7,7 @@ using OpenCBS.CoreDomain;
 
 namespace OpenCBS.GUI
 {
-    partial class LotrasmicMainWindowForm
+    partial class MainView
     {
         private System.Windows.Forms.ToolStripMenuItem mnuClients;
         private System.Windows.Forms.ToolStripMenuItem mnuAccounting;
@@ -65,7 +65,7 @@ namespace OpenCBS.GUI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LotrasmicMainWindowForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
             this.imageListAlert = new System.Windows.Forms.ImageList(this.components);
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.toolBarLblVersion = new System.Windows.Forms.ToolStripLabel();
@@ -921,7 +921,7 @@ namespace OpenCBS.GUI
             this.Controls.Add(this.mainMenu);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mainMenu;
-            this.Name = "LotrasmicMainWindowForm";
+            this.Name = "MainView";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LotrasmicMainWindowForm_FormClosing);
             this.Load += new System.EventHandler(this.LotrasmicMainWindowForm_Load);

@@ -86,19 +86,25 @@ namespace OpenCBS.Manager.Database
         /// Exept after the /** IGNORE ERRORS **/ section where all errors are ignored.<br/>
         /// Warning : Only /*xxx*/ comments on a single line are supported!<br/>
         /// </summary>
-        /// <param name="pScriptFile">Scripy file path</param>
-        /// <param name="pDatabaseName"></param>
-        /// <param name="pSqlConnection"></param>
+        /// <param name="script">Scripy file path</param>
+        /// <param name="database"></param>
+        /// <param name="connection"></param>
         /// <returns>Script exec result status</returns>
 
-        public static void ExecuteScript(string pScriptFile, string pDatabaseName, SqlConnection pSqlConnection)
+        public static void ExecuteScript(string script, string database, SqlConnection connection = null, SqlTransaction transaction = null)
         {
-            List<string> queries = new List<string> {string.Format("USE [{0}]", pDatabaseName)};
-            queries.AddRange(_ParseSqlFile(pScriptFile));
-
-            foreach (string query in queries)
+            if (connection == null && transaction == null)
             {
-                OpenCbsCommand command = new OpenCbsCommand(query, pSqlConnection) { CommandTimeout = 480 };
+                throw new ArgumentException("Both connection and transaction cannot be null.");
+            }
+
+            var queries = new List<string> { string.Format("USE [{0}]", database) };
+            queries.AddRange(_ParseSqlFile(script));
+
+            foreach (var query in queries)
+            {
+                var conn = connection ?? transaction.Connection;
+                var command = new OpenCbsCommand(query, conn, transaction) { CommandTimeout = 480 };
                 command.ExecuteNonQuery();
             }
         }
@@ -160,13 +166,18 @@ namespace OpenCBS.Manager.Database
             return retval;
         }
 
-        public static string GetDatabaseVersion(string pDatabase, SqlConnection pSqlConnection)
+        public static string GetDatabaseVersion(string database, SqlConnection connection = null, SqlTransaction transaction = null)
         {
-            if (!IsOctopusDatabase(pDatabase, pSqlConnection)) return string.Empty;
+            if (connection == null && transaction == null)
+            {
+                throw new ArgumentException("Both connection and transaction cannot be null.");
+            }
+
+            if (!IsOctopusDatabase(database, connection)) return string.Empty;
 
             string sqlText = string.Format(
-                "USE [{0}] SELECT [value] FROM [TechnicalParameters] WHERE [name]='version'", pDatabase);
-            using (OpenCbsCommand select = new OpenCbsCommand(sqlText, pSqlConnection))
+                "USE [{0}] SELECT [value] FROM [TechnicalParameters] WHERE [name]='version'", database);
+            using (OpenCbsCommand select = new OpenCbsCommand(sqlText, connection))
             using (OpenCbsReader reader = select.ExecuteReader())
             {
                 if (reader.Empty) return string.Empty;

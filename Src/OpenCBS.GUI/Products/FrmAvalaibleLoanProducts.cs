@@ -109,7 +109,7 @@ namespace OpenCBS.GUI.Products
             var addPackageForm = new FrmAddLoanProduct();
             addPackageForm.ShowDialog();
             InitializePackages();
-            ((LotrasmicMainWindowForm) MdiParent).SetInfoMessage("Product saved");
+            ((MainView) MdiParent).SetInfoMessage("Product saved");
         }
 
         private void buttonSave_Click(object sender, EventArgs e)

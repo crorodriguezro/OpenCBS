@@ -1,6 +1,7 @@
 --Use current script to generate link between SQL Server and Octopus file Octopus.Stringifier.dll
 -- instead of 0 put your database name
-exec sp_dbcmptlevel '{0}', 90
+ALTER DATABASE {0} 
+SET COMPATIBILITY_LEVEL = 90
 GO
 
 sp_configure 'clr_enable', 1
