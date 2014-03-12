@@ -25,6 +25,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Dashboard;
 using OpenCBS.Enums;
@@ -47,8 +48,11 @@ namespace OpenCBS.GUI
         private Chart _disbursementsChart;
         private Chart _olbTrendChart;
 
-        public DashboardForm()
+        private readonly IApplicationController _applicationController;
+
+        public DashboardForm(IApplicationController applicationController)
         {
+            _applicationController = applicationController;
             InitializeComponent();
            SetUp();
         }
@@ -291,7 +295,7 @@ namespace OpenCBS.GUI
         private void OpenClientForm(OClientTypes clientType)
         {
             var parent = Application.OpenForms[0];
-            var form = new ClientForm(clientType, parent, false) { MdiParent = parent };
+            var form = new ClientForm(clientType, parent, false, _applicationController) { MdiParent = parent };
             form.Show();
         }
 
@@ -307,7 +311,7 @@ namespace OpenCBS.GUI
 
         private void OnNewNonSolidairtyGroupLinkLabelLinkClick(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var form = new NonSolidaryGroupForm { MdiParent = Application.OpenForms[0] };
+            var form = new NonSolidaryGroupForm(_applicationController) { MdiParent = Application.OpenForms[0] };
             form.Show();
         }
 

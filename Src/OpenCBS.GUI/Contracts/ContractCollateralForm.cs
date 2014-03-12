@@ -20,19 +20,19 @@
 // Contact: contact@opencbs.com
 
 using System;
-using System.ComponentModel;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
-using OpenCBS.CoreDomain.Contracts.Collaterals;
+using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain.Clients;
+using OpenCBS.CoreDomain.Contracts.Collaterals;
 using OpenCBS.CoreDomain.Products.Collaterals;
 using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
-using OpenCBS.Extensions;
 using OpenCBS.GUI.Clients;
+using OpenCBS.GUI.UserControl;
 using OpenCBS.Services;
 using OpenCBS.Shared;
-using OpenCBS.GUI.UserControl;
 
 namespace OpenCBS.GUI.Contracts
 {
@@ -43,6 +43,7 @@ namespace OpenCBS.GUI.Contracts
         private CustomClass myProperties;
         private readonly Form _mdiParent;
         private CollectionList collections;
+        private readonly IApplicationController _applicationController;
 
         public ContractCollateral ContractCollateral
         {
@@ -52,8 +53,9 @@ namespace OpenCBS.GUI.Contracts
             }
         }
 
-        public ContractCollateralForm(CollateralProduct product)
+        public ContractCollateralForm(CollateralProduct product, IApplicationController applicationController)
         {
+            _applicationController = applicationController;
             this.product = product;
             contractCollateral = new ContractCollateral();
             myProperties = new CustomClass();
@@ -63,8 +65,9 @@ namespace OpenCBS.GUI.Contracts
             FillCollateralProperties();
         }
 
-        public ContractCollateralForm(CollateralProduct product, ContractCollateral contractCollateral, bool isView)
+        public ContractCollateralForm(CollateralProduct product, ContractCollateral contractCollateral, bool isView, IApplicationController applicationController)
         {
+            _applicationController = applicationController;
             this.product = product;
             this.contractCollateral = contractCollateral;
             myProperties = new CustomClass();
@@ -262,7 +265,7 @@ namespace OpenCBS.GUI.Contracts
 
         private Person AddOwner()
         {
-            var personForm = new ClientForm(OClientTypes.Person, this.MdiParent, true);
+            var personForm = new ClientForm(OClientTypes.Person, this.MdiParent, true, _applicationController);
             personForm.ShowDialog();
             //client = personForm.Person;
 

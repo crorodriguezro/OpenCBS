@@ -23,8 +23,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.FundingLines;
@@ -56,6 +56,7 @@ namespace OpenCBS.GUI.UserControl
         public event EventHandler CloseCorporate;
         public event EventHandler AddSelectedSaving;
         public event EventHandler ViewSelectedSaving;
+        private readonly IApplicationController _applicationController;
 
         [ImportMany(typeof(ICorporateTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<ICorporateTabs> Extensions { get; set; }
@@ -129,8 +130,9 @@ namespace OpenCBS.GUI.UserControl
 
         private readonly FundingLine _fundingLine;
 
-        public CorporateUserControl(Corporate corporate, Form pMdiParent)
+        public CorporateUserControl(Corporate corporate, Form pMdiParent, IApplicationController applicationController)
         {
+            _applicationController = applicationController;
             _mdifrom = pMdiParent;
            _corporate = corporate;
             _fundingLine = null;
@@ -389,7 +391,7 @@ namespace OpenCBS.GUI.UserControl
 
         private void BtnAddContactClick(object sender, EventArgs e)
         {
-            var personForm = new ClientForm(OClientTypes.Person, _mdifrom, true);
+            var personForm = new ClientForm(OClientTypes.Person, _mdifrom, true, _applicationController);
             personForm.ShowDialog();
             Contact contact = new Contact {Tiers = personForm.Person};
             if (contact.Tiers != null)
@@ -403,7 +405,7 @@ namespace OpenCBS.GUI.UserControl
             var member = ServicesProvider.GetInstance().GetClientServices().FindPersonById(contact.Tiers.Id);
             if (member != null)
             {
-                var clientForm = new ClientForm(member, _mdifrom);
+                var clientForm = new ClientForm(member, _mdifrom, _applicationController);
                 clientForm.ShowDialog();
             }
         }

@@ -26,6 +26,7 @@ using System.ComponentModel.Composition;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Loans;
@@ -142,7 +143,7 @@ namespace OpenCBS.GUI.UserControl
         [ImportMany(typeof(ISolidarityGroupTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<ISolidarityGroupTabs> Extensions { get; set; }
 
-        #region Code g�n�r?par le Concepteur de composants
+        private readonly IApplicationController _applicationController;
 
         /// <summary> 
         /// M�thode requise pour la prise en charge du concepteur - ne modifiez pas 
@@ -796,8 +797,6 @@ namespace OpenCBS.GUI.UserControl
 
         }
 
-        #endregion
-
         public System.Windows.Forms.UserControl PanelSavings
         {
             get { return savingsListUserControl1; }
@@ -814,8 +813,9 @@ namespace OpenCBS.GUI.UserControl
             tabControlGroupInfo.TabPages.Remove(tabPageSaving);
         }
 
-        public GroupUserControl(Group group, Form pMdiParent)
+        public GroupUserControl(Group group, Form pMdiParent, IApplicationController applicationController)
         {
+            _applicationController = applicationController;
             _mdiParent = pMdiParent;
             InitializeComponent();
             this.group = group;
@@ -1109,7 +1109,7 @@ namespace OpenCBS.GUI.UserControl
             {
                 if (GroupHasActiveContracts())
                 {
-                    ClientForm personForm = new ClientForm(OClientTypes.Person, _mdiParent, true);
+                    ClientForm personForm = new ClientForm(OClientTypes.Person, _mdiParent, true, _applicationController);
                     if (DialogResult.OK == personForm.ShowDialog())
                     {
                         try
@@ -1333,7 +1333,7 @@ namespace OpenCBS.GUI.UserControl
 
         private void ViewPerson(Member pMember, bool leader)
         {
-            var personForm = new ClientForm((Person)pMember.Tiers, _mdiParent);
+            var personForm = new ClientForm((Person)pMember.Tiers, _mdiParent, _applicationController);
             personForm.ShowDialog();
 
             if (leader && personForm.DialogResult == DialogResult.OK)

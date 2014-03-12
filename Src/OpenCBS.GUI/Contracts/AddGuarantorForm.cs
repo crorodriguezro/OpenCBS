@@ -22,16 +22,15 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
-using OpenCBS.Extensions;
 using OpenCBS.GUI.Accounting;
 using OpenCBS.GUI.Clients;
-using OpenCBS.Services;
 using OpenCBS.GUI.UserControl;
-using OpenCBS.Services.Accounting;
+using OpenCBS.Services;
 using OpenCBS.Services.Currencies;
 using OpenCBS.Shared;
 
@@ -56,7 +55,9 @@ namespace OpenCBS.GUI
         private const Container components = null;
         private Currency code;
 
-        public AddGuarantorForm(Form pMdiParent, Currency tcode)
+        private readonly IApplicationController _applicationController;
+
+        public AddGuarantorForm(Form pMdiParent, Currency tcode, IApplicationController applicationController)
         {
             _mdiParent = pMdiParent;
             _guarantor = new Guarantor();
@@ -65,7 +66,7 @@ namespace OpenCBS.GUI
             Initialization();
         }
 
-        public AddGuarantorForm(Guarantor guarantor, Form pMdiParent, bool isView, Currency tcode)
+        public AddGuarantorForm(Guarantor guarantor, Form pMdiParent, bool isView, Currency tcode, IApplicationController applicationController)
         {
             _mdiParent = pMdiParent;
             _guarantor = guarantor;
@@ -251,7 +252,7 @@ namespace OpenCBS.GUI
 
         private void AddAGuarantor()
         {
-            var personForm = new ClientForm(OClientTypes.Person, _mdiParent, true);
+            var personForm = new ClientForm(OClientTypes.Person, _mdiParent, true, _applicationController);
             personForm.ShowDialog();
             _guarantor.Tiers = personForm.Person;
 

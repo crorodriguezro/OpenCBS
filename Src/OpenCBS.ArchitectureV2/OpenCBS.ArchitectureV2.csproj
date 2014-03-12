@@ -51,12 +51,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppContext.cs" />
+    <Compile Include="ApplicationController.cs" />
     <Compile Include="BackgroundTask.cs" />
     <Compile Include="BackgroundTaskFactory.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="CommandData\ShowRepaymentViewCommandData.cs" />
+    <Compile Include="Command\ShowRepaymentViewCommand.cs" />
     <Compile Include="DefaultRegistry.cs" />
+    <Compile Include="Interface\IApplicationController.cs" />
     <Compile Include="Interface\IBackgroundTask.cs" />
     <Compile Include="Interface\IBackgroundTaskFactory.cs" />
+    <Compile Include="Interface\ICommand.cs" />
     <Compile Include="Interface\Presenter\ISqlServerConnectionPresenter.cs" />
     <Compile Include="Interface\Presenter\IUpgradePresenter.cs" />
     <Compile Include="Interface\Service\ISettingsService.cs" />

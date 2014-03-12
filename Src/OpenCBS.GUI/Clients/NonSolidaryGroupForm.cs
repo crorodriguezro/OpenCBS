@@ -25,6 +25,7 @@ using System.ComponentModel.Composition;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Loans;
@@ -56,8 +57,11 @@ namespace OpenCBS.GUI.Clients
         [ImportMany(typeof(INonSolidarityGroupTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<INonSolidarityGroupTabs> Extensions { get; set; }
 
-        public NonSolidaryGroupForm()
+        private readonly IApplicationController _applicationController;
+
+        public NonSolidaryGroupForm(IApplicationController applicationController)
         {
+            _applicationController = applicationController;
             MefContainer.Current.Bind(this);
             InitializeComponent();
             _village = new Village { CreationDate = TimeProvider.Now };
@@ -65,8 +69,9 @@ namespace OpenCBS.GUI.Clients
             InitializeTitle();
         }
 
-        public NonSolidaryGroupForm(Village village)
+        public NonSolidaryGroupForm(Village village, IApplicationController applicationController)
         {
+            _applicationController = applicationController;
             MefContainer.Current.Bind(this);
 
             _village = village;

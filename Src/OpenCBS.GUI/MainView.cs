@@ -32,6 +32,7 @@ using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
+using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.View;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Alerts;
@@ -69,9 +70,11 @@ namespace OpenCBS.GUI
         private List<MenuObject> _menuItems;
         private bool _showTellerFormOnClose = true;
         private bool _triggerAlertsUpdate;
+        private readonly IApplicationController _applicationController;
 
-        public MainView()
+        public MainView(IApplicationController applicationController)
         {
+            _applicationController = applicationController;
             MefContainer.Current.Bind(this);
             InitializeComponent();
             _menuItems = new List<MenuObject>();
@@ -218,7 +221,7 @@ namespace OpenCBS.GUI
 
         private void DisplayFastChoiceForm()
         {
-            DashboardForm fastChoiceForm = new DashboardForm { MdiParent = this };
+            DashboardForm fastChoiceForm = new DashboardForm(_applicationController) { MdiParent = this };
             fastChoiceForm.Show();
 
             foreach (Object tsmi in MainMenuStrip.Items)
@@ -233,18 +236,18 @@ namespace OpenCBS.GUI
 
         public void InitializePersonForm()
         {
-            ClientForm personForm = new ClientForm(OClientTypes.Person, this, false) { MdiParent = this };
+            ClientForm personForm = new ClientForm(OClientTypes.Person, this, false, _applicationController) { MdiParent = this };
             personForm.Show();
         }
 
         public void InitializeCorporateForm()
         {
-            ClientForm corporateForm = new ClientForm(OClientTypes.Corporate, this, false) { MdiParent = this };
+            ClientForm corporateForm = new ClientForm(OClientTypes.Corporate, this, false, _applicationController) { MdiParent = this };
             corporateForm.Show();
         }
         public void InitializeCorporateForm(Corporate corporate, Project project)
         {
-            ClientForm corporateForm = new ClientForm(corporate, this) { MdiParent = this };
+            ClientForm corporateForm = new ClientForm(corporate, this, _applicationController) { MdiParent = this };
             if (project != null)
                 corporateForm.DisplayUserControl_ViewProject(project, null);
 
@@ -253,7 +256,7 @@ namespace OpenCBS.GUI
 
         public void InitializePersonForm(Person person, Project project)
         {
-            ClientForm personForm = new ClientForm(person, this)
+            ClientForm personForm = new ClientForm(person, this, _applicationController)
             {
                 MdiParent = this,
                 Text = string.Format(
@@ -268,25 +271,25 @@ namespace OpenCBS.GUI
 
         public void InitializeGroupForm()
         {
-            ClientForm personForm = new ClientForm(OClientTypes.Group, this, false) { MdiParent = this };
+            ClientForm personForm = new ClientForm(OClientTypes.Group, this, false, _applicationController) { MdiParent = this };
             personForm.Show();
         }
 
         public void InitializeVillageForm()
         {
-            NonSolidaryGroupForm frm = new NonSolidaryGroupForm { MdiParent = this };
+            NonSolidaryGroupForm frm = new NonSolidaryGroupForm(_applicationController) { MdiParent = this };
             frm.Show();
         }
 
         public void InitializeVillageForm(Village village)
         {
-            NonSolidaryGroupForm frm = new NonSolidaryGroupForm(village) { MdiParent = this };
+            NonSolidaryGroupForm frm = new NonSolidaryGroupForm(village, _applicationController) { MdiParent = this };
             frm.Show();
         }
 
         public void InitializeGroupForm(Group group, Project project)
         {
-            ClientForm personForm = new ClientForm(group, this)
+            ClientForm personForm = new ClientForm(group, this, _applicationController)
             {
                 MdiParent = this,
                 Text =
@@ -335,7 +338,7 @@ namespace OpenCBS.GUI
                     if (project.Credits != null)
                         foreach (Loan loan in project.Credits)
                             loan.CompulsorySavings = ServicesProvider.GetInstance().GetSavingServices().GetSavingForLoan(loan.Id, true);
-            ClientForm personForm = new ClientForm(pClient, pContractId, this) { MdiParent = this };
+            ClientForm personForm = new ClientForm(pClient, pContractId, this, _applicationController) { MdiParent = this };
             personForm.Show();
         }
 
@@ -345,7 +348,7 @@ namespace OpenCBS.GUI
             {
                 case OClientTypes.Person:
                     {
-                        var personForm = new ClientForm((Person)client, this)
+                        var personForm = new ClientForm((Person)client, this, _applicationController)
                         {
                             MdiParent = this,
                             Text = string.Format("{0} [{1}]", MultiLanguageStrings.GetString(
@@ -358,7 +361,7 @@ namespace OpenCBS.GUI
                     }
                 case OClientTypes.Group:
                     {
-                        var personForm = new ClientForm((Group)client, this)
+                        var personForm = new ClientForm((Group)client, this, _applicationController)
                         {
                             MdiParent = this,
                             Text = string.Format("{0} [{1}]", MultiLanguageStrings.GetString(Ressource.ClientForm, "Group.Text"), ((Group)client).Name)
@@ -369,13 +372,13 @@ namespace OpenCBS.GUI
                     }
                 case OClientTypes.Village:
                     {
-                        var frm = new NonSolidaryGroupForm((Village)client) { MdiParent = this };
+                        var frm = new NonSolidaryGroupForm((Village)client, _applicationController) { MdiParent = this };
                         frm.Show();
                         break;
                     }
                 case OClientTypes.Corporate:
                     {
-                        var corporateForm = new ClientForm((Corporate)client, this) { MdiParent = this };
+                        var corporateForm = new ClientForm((Corporate)client, this, _applicationController) { MdiParent = this };
                         corporateForm.DisplaySaving(savingId, client);
                         corporateForm.Show();
                         break;

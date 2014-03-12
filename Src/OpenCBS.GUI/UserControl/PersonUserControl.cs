@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Drawing;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Savings;
@@ -53,6 +54,8 @@ namespace OpenCBS.GUI.UserControl
 
 	    private Form _mdiParent;
 
+	    private readonly IApplicationController _applicationController;
+
         public System.Windows.Forms.UserControl PanelSavings
         {
             get { return clSavingList; }
@@ -69,8 +72,9 @@ namespace OpenCBS.GUI.UserControl
             tabControlEconomicInfo.TabPages.Remove(tabPageSavings);
         }
 
-        public PersonUserControl(Person person, Form pMdiParent)
+        public PersonUserControl(Person person, Form pMdiParent, IApplicationController applicationController)
         {
+            _applicationController = applicationController;
            _mdiParent = pMdiParent;
             Initialization();
             _tempPerson = person;
@@ -609,7 +613,7 @@ namespace OpenCBS.GUI.UserControl
             }
             else if (client is Village)
             {
-                var form = new NonSolidaryGroupForm((Village)client);
+                var form = new NonSolidaryGroupForm((Village)client, _applicationController);
                 form.ShowDialog();
             }
         }
