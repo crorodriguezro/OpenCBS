@@ -155,6 +155,8 @@ namespace OpenCBS.GUI
             this.mnuPackages = new System.Windows.Forms.ToolStripMenuItem();
             this.savingProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCollateralProducts = new System.Windows.Forms.ToolStripMenuItem();
+            this._modulesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._aboutModulesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainStatusBar = new System.Windows.Forms.StatusStrip();
             this.mainStatusBarLblUpdateVersion = new System.Windows.Forms.ToolStripStatusLabel();
@@ -189,8 +191,8 @@ namespace OpenCBS.GUI
             // 
             // toolBarLblVersion
             // 
-            this.toolBarLblVersion.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             resources.ApplyResources(this.toolBarLblVersion, "toolBarLblVersion");
+            this.toolBarLblVersion.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolBarLblVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(156)))));
             this.toolBarLblVersion.Name = "toolBarLblVersion";
             // 
@@ -240,12 +242,12 @@ namespace OpenCBS.GUI
             // 
             // splitter6
             // 
+            resources.ApplyResources(this.splitter6, "splitter6");
             this.splitter6.AnimationDelay = 20;
             this.splitter6.AnimationStep = 20;
             this.splitter6.BorderStyle3D = System.Windows.Forms.Border3DStyle.Flat;
             this.splitter6.ControlToHide = this.panelLeft;
             this.splitter6.ExpandParentForm = false;
-            resources.ApplyResources(this.splitter6, "splitter6");
             this.splitter6.Name = "splitter6";
             this.splitter6.TabStop = false;
             this.splitter6.UseAnimations = false;
@@ -253,8 +255,8 @@ namespace OpenCBS.GUI
             // 
             // panelLeft
             // 
-            this.panelLeft.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.panelLeft, "panelLeft");
+            this.panelLeft.BackColor = System.Drawing.Color.Transparent;
             this.panelLeft.Controls.Add(this.olvAlerts);
             this.panelLeft.Controls.Add(this.lblTitle);
             this.panelLeft.Controls.Add(this.tabFilter);
@@ -262,6 +264,7 @@ namespace OpenCBS.GUI
             // 
             // olvAlerts
             // 
+            resources.ApplyResources(this.olvAlerts, "olvAlerts");
             this.olvAlerts.AllColumns.Add(this.colAlerts_ContractCode);
             this.olvAlerts.AllColumns.Add(this.colAlerts_Status);
             this.olvAlerts.AllColumns.Add(this.colAlerts_Client);
@@ -279,11 +282,11 @@ namespace OpenCBS.GUI
             this.colAlerts_LoanOfficer,
             this.colAlerts_Date,
             this.colAlerts_Amount});
-            resources.ApplyResources(this.olvAlerts, "olvAlerts");
             this.olvAlerts.FullRowSelect = true;
             this.olvAlerts.GridLines = true;
             this.olvAlerts.HasCollapsibleGroups = false;
             this.olvAlerts.Name = "olvAlerts";
+            this.olvAlerts.OverlayText.Text = resources.GetString("resource.Text");
             this.olvAlerts.ShowGroups = false;
             this.olvAlerts.SmallImageList = this.imageListAlert;
             this.olvAlerts.UseCompatibleStateImageBehavior = false;
@@ -295,44 +298,44 @@ namespace OpenCBS.GUI
             // colAlerts_ContractCode
             // 
             this.colAlerts_ContractCode.AspectName = "ContractCode";
-            this.colAlerts_ContractCode.IsEditable = false;
             resources.ApplyResources(this.colAlerts_ContractCode, "colAlerts_ContractCode");
+            this.colAlerts_ContractCode.IsEditable = false;
             // 
             // colAlerts_Status
             // 
             this.colAlerts_Status.AspectName = "Status";
-            this.colAlerts_Status.IsEditable = false;
             resources.ApplyResources(this.colAlerts_Status, "colAlerts_Status");
+            this.colAlerts_Status.IsEditable = false;
             // 
             // colAlerts_Client
             // 
             this.colAlerts_Client.AspectName = "ClientName";
-            this.colAlerts_Client.IsEditable = false;
             resources.ApplyResources(this.colAlerts_Client, "colAlerts_Client");
+            this.colAlerts_Client.IsEditable = false;
             // 
             // colAlerts_LoanOfficer
             // 
             this.colAlerts_LoanOfficer.AspectName = "LoanOfficer";
-            this.colAlerts_LoanOfficer.IsEditable = false;
             resources.ApplyResources(this.colAlerts_LoanOfficer, "colAlerts_LoanOfficer");
+            this.colAlerts_LoanOfficer.IsEditable = false;
             // 
             // colAlerts_Date
             // 
             this.colAlerts_Date.AspectName = "Date";
-            this.colAlerts_Date.IsEditable = false;
             resources.ApplyResources(this.colAlerts_Date, "colAlerts_Date");
+            this.colAlerts_Date.IsEditable = false;
             // 
             // colAlerts_Amount
             // 
             this.colAlerts_Amount.AspectName = "Amount";
+            resources.ApplyResources(this.colAlerts_Amount, "colAlerts_Amount");
             this.colAlerts_Amount.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.colAlerts_Amount.IsEditable = false;
-            resources.ApplyResources(this.colAlerts_Amount, "colAlerts_Amount");
             // 
             // lblTitle
             // 
-            this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
             resources.ApplyResources(this.lblTitle, "lblTitle");
+            this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Name = "lblTitle";
             // 
@@ -360,8 +363,8 @@ namespace OpenCBS.GUI
             // 
             // tbFilter
             // 
-            this.tbFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
             resources.ApplyResources(this.tbFilter, "tbFilter");
+            this.tbFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
             this.tbFilter.Name = "tbFilter";
             this.tbFilter.TextChanged += new System.EventHandler(this.OnFilterChanged);
             // 
@@ -417,6 +420,7 @@ namespace OpenCBS.GUI
             // 
             // mnuClients
             // 
+            resources.ApplyResources(this.mnuClients, "mnuClients");
             this.mnuClients.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuNewPerson,
             this.mnuNewClient,
@@ -425,7 +429,6 @@ namespace OpenCBS.GUI
             this.mnuSearchContract,
             this.reasignToolStripMenuItem});
             this.mnuClients.Name = "mnuClients";
-            resources.ApplyResources(this.mnuClients, "mnuClients");
             // 
             // mnuNewPerson
             // 
@@ -435,11 +438,11 @@ namespace OpenCBS.GUI
             // 
             // mnuNewClient
             // 
+            resources.ApplyResources(this.mnuNewClient, "mnuNewClient");
             this.mnuNewClient.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuNewGroup,
             this.mnuNewVillage,
             this.newCorporateToolStripMenuItem});
-            resources.ApplyResources(this.mnuNewClient, "mnuNewClient");
             this.mnuNewClient.Name = "mnuNewClient";
             // 
             // mnuNewGroup
@@ -450,43 +453,44 @@ namespace OpenCBS.GUI
             // 
             // mnuNewVillage
             // 
-            this.mnuNewVillage.Name = "mnuNewVillage";
             resources.ApplyResources(this.mnuNewVillage, "mnuNewVillage");
+            this.mnuNewVillage.Name = "mnuNewVillage";
             this.mnuNewVillage.Click += new System.EventHandler(this.mnuNewVillage_Click);
             // 
             // newCorporateToolStripMenuItem
             // 
-            this.newCorporateToolStripMenuItem.Name = "newCorporateToolStripMenuItem";
             resources.ApplyResources(this.newCorporateToolStripMenuItem, "newCorporateToolStripMenuItem");
+            this.newCorporateToolStripMenuItem.Name = "newCorporateToolStripMenuItem";
             this.newCorporateToolStripMenuItem.Click += new System.EventHandler(this.newCorporateToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             // 
             // mnuSearchClient
             // 
-            this.mnuSearchClient.Image = global::OpenCBS.GUI.Properties.Resources.find;
             resources.ApplyResources(this.mnuSearchClient, "mnuSearchClient");
+            this.mnuSearchClient.Image = global::OpenCBS.GUI.Properties.Resources.find;
             this.mnuSearchClient.Name = "mnuSearchClient";
             this.mnuSearchClient.Click += new System.EventHandler(this.mnuSearchClient_Click);
             // 
             // mnuSearchContract
             // 
-            this.mnuSearchContract.Image = global::OpenCBS.GUI.Properties.Resources.find;
             resources.ApplyResources(this.mnuSearchContract, "mnuSearchContract");
+            this.mnuSearchContract.Image = global::OpenCBS.GUI.Properties.Resources.find;
             this.mnuSearchContract.Name = "mnuSearchContract";
             this.mnuSearchContract.Click += new System.EventHandler(this.mnuSearchContract_Click);
             // 
             // reasignToolStripMenuItem
             // 
-            this.reasignToolStripMenuItem.Name = "reasignToolStripMenuItem";
             resources.ApplyResources(this.reasignToolStripMenuItem, "reasignToolStripMenuItem");
+            this.reasignToolStripMenuItem.Name = "reasignToolStripMenuItem";
             this.reasignToolStripMenuItem.Click += new System.EventHandler(this.reasignToolStripMenuItem_Click);
             // 
             // mnuAccounting
             // 
+            resources.ApplyResources(this.mnuAccounting, "mnuAccounting");
             this.mnuAccounting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuChartOfAccounts,
             this.accountingRulesToolStripMenuItem,
@@ -499,49 +503,48 @@ namespace OpenCBS.GUI
             this.mnuNewclosure,
             this.fiscalYearToolStripMenuItem});
             this.mnuAccounting.Name = "mnuAccounting";
-            resources.ApplyResources(this.mnuAccounting, "mnuAccounting");
             // 
             // mnuChartOfAccounts
             // 
-            this.mnuChartOfAccounts.Image = global::OpenCBS.GUI.Properties.Resources.page;
             resources.ApplyResources(this.mnuChartOfAccounts, "mnuChartOfAccounts");
+            this.mnuChartOfAccounts.Image = global::OpenCBS.GUI.Properties.Resources.page;
             this.mnuChartOfAccounts.Name = "mnuChartOfAccounts";
             // 
             // accountingRulesToolStripMenuItem
             // 
-            this.accountingRulesToolStripMenuItem.Name = "accountingRulesToolStripMenuItem";
             resources.ApplyResources(this.accountingRulesToolStripMenuItem, "accountingRulesToolStripMenuItem");
+            this.accountingRulesToolStripMenuItem.Name = "accountingRulesToolStripMenuItem";
             this.accountingRulesToolStripMenuItem.Click += new System.EventHandler(this.accountingRulesToolStripMenuItem_Click);
             // 
             // trialBalanceToolStripMenuItem
             // 
-            this.trialBalanceToolStripMenuItem.Name = "trialBalanceToolStripMenuItem";
             resources.ApplyResources(this.trialBalanceToolStripMenuItem, "trialBalanceToolStripMenuItem");
+            this.trialBalanceToolStripMenuItem.Name = "trialBalanceToolStripMenuItem";
             this.trialBalanceToolStripMenuItem.Click += new System.EventHandler(this.trialBalanceToolStripMenuItem_Click);
             // 
             // toolStripMenuItemAccountView
             // 
-            this.toolStripMenuItemAccountView.Image = global::OpenCBS.GUI.Properties.Resources.book;
             resources.ApplyResources(this.toolStripMenuItemAccountView, "toolStripMenuItemAccountView");
+            this.toolStripMenuItemAccountView.Image = global::OpenCBS.GUI.Properties.Resources.book;
             this.toolStripMenuItemAccountView.Name = "toolStripMenuItemAccountView";
             this.toolStripMenuItemAccountView.Click += new System.EventHandler(this.toolStripMenuItemAccountView_Click);
             // 
             // manualEntriesToolStripMenuItem
             // 
-            this.manualEntriesToolStripMenuItem.Name = "manualEntriesToolStripMenuItem";
             resources.ApplyResources(this.manualEntriesToolStripMenuItem, "manualEntriesToolStripMenuItem");
+            this.manualEntriesToolStripMenuItem.Name = "manualEntriesToolStripMenuItem";
             this.manualEntriesToolStripMenuItem.Click += new System.EventHandler(this.manualEntriesToolStripMenuItem_Click);
             // 
             // standardToolStripMenuItem
             // 
-            this.standardToolStripMenuItem.Name = "standardToolStripMenuItem";
             resources.ApplyResources(this.standardToolStripMenuItem, "standardToolStripMenuItem");
+            this.standardToolStripMenuItem.Name = "standardToolStripMenuItem";
             this.standardToolStripMenuItem.Click += new System.EventHandler(this.standardToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
             resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
             // 
             // menuItemExportTransaction
             // 
@@ -551,18 +554,19 @@ namespace OpenCBS.GUI
             // 
             // mnuNewclosure
             // 
-            this.mnuNewclosure.Name = "mnuNewclosure";
             resources.ApplyResources(this.mnuNewclosure, "mnuNewclosure");
+            this.mnuNewclosure.Name = "mnuNewclosure";
             this.mnuNewclosure.Click += new System.EventHandler(this.newClosureToolStripMenuItem_Click_1);
             // 
             // fiscalYearToolStripMenuItem
             // 
-            this.fiscalYearToolStripMenuItem.Name = "fiscalYearToolStripMenuItem";
             resources.ApplyResources(this.fiscalYearToolStripMenuItem, "fiscalYearToolStripMenuItem");
+            this.fiscalYearToolStripMenuItem.Name = "fiscalYearToolStripMenuItem";
             this.fiscalYearToolStripMenuItem.Click += new System.EventHandler(this.fiscalYearToolStripMenuItem_Click);
             // 
             // mnuConfiguration
             // 
+            resources.ApplyResources(this.mnuConfiguration, "mnuConfiguration");
             this.mnuConfiguration.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.branchesToolStripMenuItem,
             this.tellersToolStripMenuItem,
@@ -577,24 +581,23 @@ namespace OpenCBS.GUI
             this.toolStripSeparatorConfig3,
             this.miContractCode});
             this.mnuConfiguration.Name = "mnuConfiguration";
-            resources.ApplyResources(this.mnuConfiguration, "mnuConfiguration");
             // 
             // branchesToolStripMenuItem
             // 
-            this.branchesToolStripMenuItem.Name = "branchesToolStripMenuItem";
             resources.ApplyResources(this.branchesToolStripMenuItem, "branchesToolStripMenuItem");
+            this.branchesToolStripMenuItem.Name = "branchesToolStripMenuItem";
             this.branchesToolStripMenuItem.Click += new System.EventHandler(this.branchesToolStripMenuItem_Click);
             // 
             // tellersToolStripMenuItem
             // 
-            this.tellersToolStripMenuItem.Name = "tellersToolStripMenuItem";
             resources.ApplyResources(this.tellersToolStripMenuItem, "tellersToolStripMenuItem");
+            this.tellersToolStripMenuItem.Name = "tellersToolStripMenuItem";
             this.tellersToolStripMenuItem.Click += new System.EventHandler(this.tellersToolStripMenuItem_Click);
             // 
             // toolStripSeparatorConfig1
             // 
-            this.toolStripSeparatorConfig1.Name = "toolStripSeparatorConfig1";
             resources.ApplyResources(this.toolStripSeparatorConfig1, "toolStripSeparatorConfig1");
+            this.toolStripSeparatorConfig1.Name = "toolStripSeparatorConfig1";
             // 
             // mnuDomainOfApplication
             // 
@@ -604,26 +607,26 @@ namespace OpenCBS.GUI
             // 
             // menuItemLocations
             // 
-            this.menuItemLocations.Name = "menuItemLocations";
             resources.ApplyResources(this.menuItemLocations, "menuItemLocations");
+            this.menuItemLocations.Name = "menuItemLocations";
             this.menuItemLocations.Click += new System.EventHandler(this.menuItemLocations_Click);
             // 
             // toolStripMenuItemFundingLines
             // 
-            this.toolStripMenuItemFundingLines.Name = "toolStripMenuItemFundingLines";
             resources.ApplyResources(this.toolStripMenuItemFundingLines, "toolStripMenuItemFundingLines");
+            this.toolStripMenuItemFundingLines.Name = "toolStripMenuItemFundingLines";
             this.toolStripMenuItemFundingLines.Click += new System.EventHandler(this.toolStripMenuItemFundingLines_Click);
             // 
             // toolStripMenuItemInstallmentTypes
             // 
-            this.toolStripMenuItemInstallmentTypes.Name = "toolStripMenuItemInstallmentTypes";
             resources.ApplyResources(this.toolStripMenuItemInstallmentTypes, "toolStripMenuItemInstallmentTypes");
+            this.toolStripMenuItemInstallmentTypes.Name = "toolStripMenuItemInstallmentTypes";
             this.toolStripMenuItemInstallmentTypes.Click += new System.EventHandler(this.toolStripMenuItemInstallmentTypes_Click);
             // 
             // toolStripSeparatorConfig2
             // 
-            this.toolStripSeparatorConfig2.Name = "toolStripSeparatorConfig2";
             resources.ApplyResources(this.toolStripSeparatorConfig2, "toolStripSeparatorConfig2");
+            this.toolStripSeparatorConfig2.Name = "toolStripSeparatorConfig2";
             // 
             // menuItemExchangeRate
             // 
@@ -633,42 +636,43 @@ namespace OpenCBS.GUI
             // 
             // currenciesToolStripMenuItem
             // 
+            resources.ApplyResources(this.currenciesToolStripMenuItem, "currenciesToolStripMenuItem");
             this.currenciesToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.money;
             this.currenciesToolStripMenuItem.Name = "currenciesToolStripMenuItem";
-            resources.ApplyResources(this.currenciesToolStripMenuItem, "currenciesToolStripMenuItem");
             this.currenciesToolStripMenuItem.Click += new System.EventHandler(this.currenciesToolStripMenuItem_Click);
             // 
             // toolStripSeparatorConfig3
             // 
-            this.toolStripSeparatorConfig3.Name = "toolStripSeparatorConfig3";
             resources.ApplyResources(this.toolStripSeparatorConfig3, "toolStripSeparatorConfig3");
+            this.toolStripSeparatorConfig3.Name = "toolStripSeparatorConfig3";
             // 
             // miContractCode
             // 
-            this.miContractCode.Name = "miContractCode";
             resources.ApplyResources(this.miContractCode, "miContractCode");
+            this.miContractCode.Name = "miContractCode";
             this.miContractCode.Click += new System.EventHandler(this.miContractCode_Click);
             // 
             // mnuWindow
             // 
-            this.mnuWindow.Name = "mnuWindow";
             resources.ApplyResources(this.mnuWindow, "mnuWindow");
+            this.mnuWindow.Name = "mnuWindow";
             // 
             // mnuHelp
             // 
+            resources.ApplyResources(this.mnuHelp, "mnuHelp");
             this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutMenuItem});
             this.mnuHelp.Name = "mnuHelp";
-            resources.ApplyResources(this.mnuHelp, "mnuHelp");
             // 
             // aboutMenuItem
             // 
-            this.aboutMenuItem.Name = "aboutMenuItem";
             resources.ApplyResources(this.aboutMenuItem, "aboutMenuItem");
+            this.aboutMenuItem.Name = "aboutMenuItem";
             this.aboutMenuItem.Click += new System.EventHandler(this.OnAboutMenuItemClick);
             // 
             // mainMenu
             // 
+            resources.ApplyResources(this.mainMenu, "mainMenu");
             this.mainMenu.BackColor = System.Drawing.SystemColors.Control;
             this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuSettings,
@@ -676,16 +680,17 @@ namespace OpenCBS.GUI
             this.mnuSecurity,
             this.mnuProducts,
             this.mnuClients,
+            this._modulesMenuItem,
             this.mnuAccounting,
             this.reportsToolStripMenuItem,
             this.mnuWindow,
             this.mnuHelp});
-            resources.ApplyResources(this.mainMenu, "mainMenu");
             this.mainMenu.MdiWindowListItem = this.mnuWindow;
             this.mainMenu.Name = "mainMenu";
             // 
             // mnuSettings
             // 
+            resources.ApplyResources(this.mnuSettings, "mnuSettings");
             this.mnuSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemSetting,
             this.menuItemAdvancedSettings,
@@ -694,12 +699,11 @@ namespace OpenCBS.GUI
             this.menuItemApplicationDate,
             this.languagesToolStripMenuItem});
             this.mnuSettings.Name = "mnuSettings";
-            resources.ApplyResources(this.mnuSettings, "mnuSettings");
             // 
             // menuItemSetting
             // 
-            this.menuItemSetting.Image = global::OpenCBS.GUI.Properties.Resources.cog;
             resources.ApplyResources(this.menuItemSetting, "menuItemSetting");
+            this.menuItemSetting.Image = global::OpenCBS.GUI.Properties.Resources.cog;
             this.menuItemSetting.Name = "menuItemSetting";
             this.menuItemSetting.Click += new System.EventHandler(this.menuItemSetting_Click);
             // 
@@ -711,9 +715,9 @@ namespace OpenCBS.GUI
             // 
             // menuItemDatabaseControlPanel
             // 
+            resources.ApplyResources(this.menuItemDatabaseControlPanel, "menuItemDatabaseControlPanel");
             this.menuItemDatabaseControlPanel.Image = global::OpenCBS.GUI.Properties.Resources.database_gear;
             this.menuItemDatabaseControlPanel.Name = "menuItemDatabaseControlPanel";
-            resources.ApplyResources(this.menuItemDatabaseControlPanel, "menuItemDatabaseControlPanel");
             this.menuItemDatabaseControlPanel.Click += new System.EventHandler(this.menuItemBackupData_Click);
             // 
             // menuItemDatabaseMaintenance
@@ -724,13 +728,14 @@ namespace OpenCBS.GUI
             // 
             // menuItemApplicationDate
             // 
-            this.menuItemApplicationDate.Image = global::OpenCBS.GUI.Properties.Resources.calendar;
             resources.ApplyResources(this.menuItemApplicationDate, "menuItemApplicationDate");
+            this.menuItemApplicationDate.Image = global::OpenCBS.GUI.Properties.Resources.calendar;
             this.menuItemApplicationDate.Name = "menuItemApplicationDate";
             this.menuItemApplicationDate.Click += new System.EventHandler(this.OnChangeApplicationDateClick);
             // 
             // languagesToolStripMenuItem
             // 
+            resources.ApplyResources(this.languagesToolStripMenuItem, "languagesToolStripMenuItem");
             this.languagesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.frenchToolStripMenuItem,
             this.englishToolStripMenuItem,
@@ -738,116 +743,128 @@ namespace OpenCBS.GUI
             this.spanishToolStripMenuItem,
             this.portugueseToolStripMenuItem});
             this.languagesToolStripMenuItem.Name = "languagesToolStripMenuItem";
-            resources.ApplyResources(this.languagesToolStripMenuItem, "languagesToolStripMenuItem");
             // 
             // frenchToolStripMenuItem
             // 
-            this.frenchToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.fr;
             resources.ApplyResources(this.frenchToolStripMenuItem, "frenchToolStripMenuItem");
+            this.frenchToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.fr;
             this.frenchToolStripMenuItem.Name = "frenchToolStripMenuItem";
             this.frenchToolStripMenuItem.Tag = "fr";
             this.frenchToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
             // 
             // englishToolStripMenuItem
             // 
-            this.englishToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.gb;
             resources.ApplyResources(this.englishToolStripMenuItem, "englishToolStripMenuItem");
+            this.englishToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.gb;
             this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
             this.englishToolStripMenuItem.Tag = "en-US";
             this.englishToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
             // 
             // russianToolStripMenuItem
             // 
-            this.russianToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.ru;
             resources.ApplyResources(this.russianToolStripMenuItem, "russianToolStripMenuItem");
+            this.russianToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.ru;
             this.russianToolStripMenuItem.Name = "russianToolStripMenuItem";
             this.russianToolStripMenuItem.Tag = "ru-RU";
             this.russianToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
             // 
             // spanishToolStripMenuItem
             // 
-            this.spanishToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.es;
             resources.ApplyResources(this.spanishToolStripMenuItem, "spanishToolStripMenuItem");
+            this.spanishToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.es;
             this.spanishToolStripMenuItem.Name = "spanishToolStripMenuItem";
             this.spanishToolStripMenuItem.Tag = "es-ES";
             this.spanishToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
             // 
             // portugueseToolStripMenuItem
             // 
-            this.portugueseToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.pt;
             resources.ApplyResources(this.portugueseToolStripMenuItem, "portugueseToolStripMenuItem");
+            this.portugueseToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.pt;
             this.portugueseToolStripMenuItem.Name = "portugueseToolStripMenuItem";
             this.portugueseToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
             // 
             // mnuSecurity
             // 
+            resources.ApplyResources(this.mnuSecurity, "mnuSecurity");
             this.mnuSecurity.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rolesToolStripMenuItem,
             this.menuItemAddUser,
             this.miAuditTrail,
             this.changePasswordToolStripMenuItem});
             this.mnuSecurity.Name = "mnuSecurity";
-            resources.ApplyResources(this.mnuSecurity, "mnuSecurity");
             // 
             // rolesToolStripMenuItem
             // 
-            this.rolesToolStripMenuItem.Name = "rolesToolStripMenuItem";
             resources.ApplyResources(this.rolesToolStripMenuItem, "rolesToolStripMenuItem");
+            this.rolesToolStripMenuItem.Name = "rolesToolStripMenuItem";
             this.rolesToolStripMenuItem.Click += new System.EventHandler(this.rolesToolStripMenuItem_Click);
             // 
             // menuItemAddUser
             // 
-            this.menuItemAddUser.Image = global::OpenCBS.GUI.Properties.Resources.group;
             resources.ApplyResources(this.menuItemAddUser, "menuItemAddUser");
+            this.menuItemAddUser.Image = global::OpenCBS.GUI.Properties.Resources.group;
             this.menuItemAddUser.Name = "menuItemAddUser";
             this.menuItemAddUser.Click += new System.EventHandler(this.menuItemAddUser_Click);
             // 
             // miAuditTrail
             // 
-            this.miAuditTrail.Name = "miAuditTrail";
             resources.ApplyResources(this.miAuditTrail, "miAuditTrail");
+            this.miAuditTrail.Name = "miAuditTrail";
             this.miAuditTrail.Click += new System.EventHandler(this.eventsToolStripMenuItem_Click);
             // 
             // changePasswordToolStripMenuItem
             // 
-            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
             resources.ApplyResources(this.changePasswordToolStripMenuItem, "changePasswordToolStripMenuItem");
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // mnuProducts
             // 
+            resources.ApplyResources(this.mnuProducts, "mnuProducts");
             this.mnuProducts.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuPackages,
             this.savingProductsToolStripMenuItem,
             this.menuItemCollateralProducts});
             this.mnuProducts.Name = "mnuProducts";
-            resources.ApplyResources(this.mnuProducts, "mnuProducts");
             // 
             // mnuPackages
             // 
-            this.mnuPackages.Image = global::OpenCBS.GUI.Properties.Resources.package;
             resources.ApplyResources(this.mnuPackages, "mnuPackages");
+            this.mnuPackages.Image = global::OpenCBS.GUI.Properties.Resources.package;
             this.mnuPackages.Name = "mnuPackages";
             this.mnuPackages.Click += new System.EventHandler(this.menuItemPackages_Click);
             // 
             // savingProductsToolStripMenuItem
             // 
+            resources.ApplyResources(this.savingProductsToolStripMenuItem, "savingProductsToolStripMenuItem");
             this.savingProductsToolStripMenuItem.Image = global::OpenCBS.GUI.Properties.Resources.package;
             this.savingProductsToolStripMenuItem.Name = "savingProductsToolStripMenuItem";
-            resources.ApplyResources(this.savingProductsToolStripMenuItem, "savingProductsToolStripMenuItem");
             this.savingProductsToolStripMenuItem.Click += new System.EventHandler(this.savingProductsToolStripMenuItem_Click);
             // 
             // menuItemCollateralProducts
             // 
-            this.menuItemCollateralProducts.Image = global::OpenCBS.GUI.Properties.Resources.package;
             resources.ApplyResources(this.menuItemCollateralProducts, "menuItemCollateralProducts");
+            this.menuItemCollateralProducts.Image = global::OpenCBS.GUI.Properties.Resources.package;
             this.menuItemCollateralProducts.Name = "menuItemCollateralProducts";
             this.menuItemCollateralProducts.Click += new System.EventHandler(this.menuItemCollateralProducts_Click);
             // 
+            // _modulesMenuItem
+            // 
+            resources.ApplyResources(this._modulesMenuItem, "_modulesMenuItem");
+            this._modulesMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._aboutModulesMenuItem});
+            this._modulesMenuItem.Name = "_modulesMenuItem";
+            // 
+            // _aboutModulesMenuItem
+            // 
+            resources.ApplyResources(this._aboutModulesMenuItem, "_aboutModulesMenuItem");
+            this._aboutModulesMenuItem.Name = "_aboutModulesMenuItem";
+            this._aboutModulesMenuItem.Click += new System.EventHandler(this._aboutModulesMenuItem_Click);
+            // 
             // reportsToolStripMenuItem
             // 
-            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             resources.ApplyResources(this.reportsToolStripMenuItem, "reportsToolStripMenuItem");
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             // 
             // mainStatusBar
             // 
@@ -871,48 +888,48 @@ namespace OpenCBS.GUI
             // 
             // mainStatusBarLblUserName
             // 
+            resources.ApplyResources(this.mainStatusBarLblUserName, "mainStatusBarLblUserName");
             this.mainStatusBarLblUserName.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.mainStatusBarLblUserName.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.mainStatusBarLblUserName.Image = global::OpenCBS.GUI.Properties.Resources.user_gray;
             this.mainStatusBarLblUserName.Name = "mainStatusBarLblUserName";
-            resources.ApplyResources(this.mainStatusBarLblUserName, "mainStatusBarLblUserName");
             // 
             // mainStatusBarLblDate
             // 
+            resources.ApplyResources(this.mainStatusBarLblDate, "mainStatusBarLblDate");
             this.mainStatusBarLblDate.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.mainStatusBarLblDate.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.mainStatusBarLblDate.Image = global::OpenCBS.GUI.Properties.Resources.calendar;
             this.mainStatusBarLblDate.Name = "mainStatusBarLblDate";
-            resources.ApplyResources(this.mainStatusBarLblDate, "mainStatusBarLblDate");
             // 
             // toolStripStatusLblBranchCode
             // 
+            resources.ApplyResources(this.toolStripStatusLblBranchCode, "toolStripStatusLblBranchCode");
             this.toolStripStatusLblBranchCode.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLblBranchCode.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.toolStripStatusLblBranchCode.Name = "toolStripStatusLblBranchCode";
-            resources.ApplyResources(this.toolStripStatusLblBranchCode, "toolStripStatusLblBranchCode");
             // 
             // toolStripStatusLblDB
             // 
+            resources.ApplyResources(this.toolStripStatusLblDB, "toolStripStatusLblDB");
             this.toolStripStatusLblDB.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLblDB.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.toolStripStatusLblDB.Image = global::OpenCBS.GUI.Properties.Resources.database;
             this.toolStripStatusLblDB.Name = "toolStripStatusLblDB";
-            resources.ApplyResources(this.toolStripStatusLblDB, "toolStripStatusLblDB");
             // 
             // alertBindingSource
             // 
             this.alertBindingSource.DataSource = typeof(OpenCBS.CoreDomain.Alert);
             // 
-            // LotrasmicMainWindowForm
+            // MainView
             // 
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.splitter6);
@@ -1008,6 +1025,8 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem spanishToolStripMenuItem;
         private ToolStripMenuItem portugueseToolStripMenuItem;
         private ToolStripMenuItem changePasswordToolStripMenuItem;
+        private ToolStripMenuItem _modulesMenuItem;
+        private ToolStripMenuItem _aboutModulesMenuItem;
 
 
     }

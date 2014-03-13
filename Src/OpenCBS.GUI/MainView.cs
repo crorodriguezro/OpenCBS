@@ -986,18 +986,17 @@ namespace OpenCBS.GUI
             _InitializeStandardBookings();
         }
 
-        private void nIUpdateAvailable_BalloonTipClicked(object sender, EventArgs e)
+        private static void OpenUrl(string url)
         {
-            string url = nIUpdateAvailable.Tag.ToString();
             try
             {
-                Process.Start("firefox.exe", url);
+                Process.Start("chrome.exe", url);
             }
             catch
             {
                 try
                 {
-                    Process.Start("chrome.exe", url);
+                    Process.Start("firefox.exe", url);
                 }
                 catch
                 {
@@ -1010,6 +1009,11 @@ namespace OpenCBS.GUI
                     }
                 }
             }
+        }
+
+        private void nIUpdateAvailable_BalloonTipClicked(object sender, EventArgs e)
+        {
+            OpenUrl(nIUpdateAvailable.Tag.ToString());
             nIUpdateAvailable.Visible = false;
         }
 
@@ -1196,6 +1200,11 @@ namespace OpenCBS.GUI
         public void Run()
         {
             Show();
+        }
+
+        private void _aboutModulesMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenUrl("http://opencbs.com/buy-additional-module/");
         }
     }
 }

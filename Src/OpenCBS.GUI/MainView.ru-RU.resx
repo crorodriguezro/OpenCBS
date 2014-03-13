@@ -112,17 +112,17 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="imageListAlert.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB0
-        CwAAAk1TRnQBSQFMAgEBBQEAAcwBAQHMAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CwAAAk1TRnQBSQFMAgEBBQEAAdQBAQHUAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -173,7 +173,7 @@
         AQEB/gF/AfgBHwH4AQEBgAEBAv8B8AEfAfwBAwHAAQME/wH+AQcB4AEHBf8BDwHwAQ8F/wGfBv8L
 </value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="nIUpdateAvailable.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -215,7 +215,7 @@
     <value>Филиал</value>
   </data>
   <data name="panelLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 704</value>
+    <value>400, 693</value>
   </data>
   <data name="splitter6.Location" type="System.Drawing.Point, System.Drawing">
     <value>400, 24</value>
@@ -239,16 +239,13 @@
     <value>Сумма</value>
   </data>
   <data name="olvAlerts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 512</value>
+    <value>400, 501</value>
   </data>
   <data name="lblTitle.Size" type="System.Drawing.Size, System.Drawing">
     <value>400, 40</value>
   </data>
   <data name="lblTitle.Text" xml:space="preserve">
     <value>Уведомления</value>
-  </data>
-  <data name="tabFilter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 552</value>
   </data>
   <data name="tabFilter.Size" type="System.Drawing.Size, System.Drawing">
     <value>400, 152</value>
@@ -439,12 +436,6 @@
   <data name="tellersToolStripMenuItem.Text" xml:space="preserve">
     <value>Конфигурация кассы</value>
   </data>
-  <data name="CustomizableFieldsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
-  </data>
-  <data name="CustomizableFieldsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Настраиваемые поля</value>
-  </data>
   <data name="toolStripSeparatorConfig1.Size" type="System.Drawing.Size, System.Drawing">
     <value>227, 6</value>
   </data>
@@ -531,6 +522,12 @@
   </data>
   <data name="mnuProducts.Text" xml:space="preserve">
     <value>Продукты</value>
+  </data>
+  <data name="_modulesMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 20</value>
+  </data>
+  <data name="_modulesMenuItem.Text" xml:space="preserve">
+    <value>Модули</value>
   </data>
   <data name="reportsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 20</value>
@@ -646,14 +643,11 @@
   <data name="menuItemCollateralProducts.Text" xml:space="preserve">
     <value>Залоговые продукты</value>
   </data>
-  <data name="otherToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 22</value>
+  <data name="_aboutModulesMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
   </data>
-  <data name="otherToolStripMenuItem.Text" xml:space="preserve">
-    <value>Остальные</value>
-  </data>
-  <data name="mainStatusBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 728</value>
+  <data name="_aboutModulesMenuItem.Text" xml:space="preserve">
+    <value>О модулях...</value>
   </data>
   <data name="mainStatusBarLblUpdateVersion.Size" type="System.Drawing.Size, System.Drawing">
     <value>1021, 20</value>
@@ -663,9 +657,6 @@
   </data>
   <data name="mainStatusBarLblUserName.Text" xml:space="preserve">
     <value>Пользователь</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1284, 753</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -985,9 +976,5 @@
         i+y9kHWHAAAAAOHHAADgxwAA4IcAAOCPAADwnwAA+BAAAP4AAACAAQAAAB8AAAAPAACQBwAA4AMAAMJB
         AADDwAAAx+AAAP/hAAA=
 </value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
 </root>
