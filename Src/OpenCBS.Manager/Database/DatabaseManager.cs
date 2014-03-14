@@ -166,9 +166,9 @@ namespace OpenCBS.Manager.Database
             return retval;
         }
 
-        public static string GetDatabaseVersion(string database, SqlConnection connection = null, SqlTransaction transaction = null)
+        public static string GetDatabaseVersion(string database, SqlConnection connection)
         {
-            if (connection == null && transaction == null)
+            if (connection == null)
             {
                 throw new ArgumentException("Both connection and transaction cannot be null.");
             }
