@@ -66,6 +66,9 @@ namespace OpenCBS.GUI
         [ImportMany(typeof(IMenu), RequiredCreationPolicy = CreationPolicy.Shared)]
         public List<IMenu> ExtensionMenuItems { get; set; }
 
+        [ImportMany(typeof(IInitializer))]
+        public List<IInitializer> ExtensionInitalizers { get; set; }
+
         private delegate void LoadAlertsDelegate(List<Alert_v2> alerts);
         private List<MenuObject> _menuItems;
         private bool _showTellerFormOnClose = true;
@@ -77,6 +80,7 @@ namespace OpenCBS.GUI
             _applicationController = applicationController;
             MefContainer.Current.Bind(this);
             InitializeComponent();
+            InitExtensions();
             _menuItems = new List<MenuObject>();
             _menuItems = Services.GetMenuItemServices().GetMenuList(OSecurityObjectTypes.MenuItem);
             LoadReports();
@@ -97,6 +101,21 @@ namespace OpenCBS.GUI
             _DisplayDetails();
             InitializeContractCurrencies();
             InitAlerts();
+        }
+
+        private void InitExtensions()
+        {
+            try
+            {
+                foreach (var initializer in ExtensionInitalizers)
+                {
+                    initializer.Init();
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private bool InitializeTellerManagement()
