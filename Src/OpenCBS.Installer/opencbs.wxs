@@ -92,7 +92,7 @@
               <File Id="OpenCBS.License.dll" Source="SourceDir\OpenCBS.License.dll" />
               <File Id="AutoMapper.dll" Source="SourceDir\AutoMapper.dll" />
               <File Id="Dapper.dll" Source="SourceDir\Dapper.dll" />
-              <File Id="protobuf-net.dll" Source="SourceDir\protobuf-net.dll" />
+              <File Id="protobuf_net.dll" Source="SourceDir\protobuf-net.dll" />
               <File Id="setup.bat" Source="SourceDir\setup.bat" />
               <File Id="dump.bat" Source="SourceDir\dump.bat" />
               <File Id="dumpObjects.bat" Source="SourceDir\dumpObjects.bat" />
