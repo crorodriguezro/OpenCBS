@@ -89,8 +89,10 @@
               <File Id="OpenCBS.GUI.Restarter.exe" Source="SourceDir\OpenCBS.GUI.Restarter.exe" />
               <File Id="OpenCBS.GUI.exe.config" Source="SourceDir\OpenCBS.GUI.exe.config" />
               <File Id="OpenCBS.Reports.dll" Source="SourceDir\OpenCBS.Reports.dll" />
+              <File Id="OpenCBS.License.dll" Source="SourceDir\OpenCBS.License.dll" />
               <File Id="AutoMapper.dll" Source="SourceDir\AutoMapper.dll" />
               <File Id="Dapper.dll" Source="SourceDir\Dapper.dll" />
+              <File Id="protobuf-net.dll" Source="SourceDir\protobuf-net.dll" />
               <File Id="setup.bat" Source="SourceDir\setup.bat" />
               <File Id="dump.bat" Source="SourceDir\dump.bat" />
               <File Id="dumpObjects.bat" Source="SourceDir\dumpObjects.bat" />
