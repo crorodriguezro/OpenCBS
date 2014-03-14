@@ -77,16 +77,23 @@ namespace OpenCBS.GUI
 
         public MainView(IApplicationController applicationController)
         {
-            _applicationController = applicationController;
-            MefContainer.Current.Bind(this);
             InitializeComponent();
-            InitExtensions();
-            _menuItems = new List<MenuObject>();
-            _menuItems = Services.GetMenuItemServices().GetMenuList(OSecurityObjectTypes.MenuItem);
-            LoadReports();
-            LoadReprotsToolStrip();
-            InitializeTracer();
-            DisplayWinFormDetails();
+            try
+            {
+                _applicationController = applicationController;
+                MefContainer.Current.Bind(this);
+                InitExtensions();
+                _menuItems = new List<MenuObject>();
+                _menuItems = Services.GetMenuItemServices().GetMenuList(OSecurityObjectTypes.MenuItem);
+                LoadReports();
+                LoadReprotsToolStrip();
+                InitializeTracer();
+                DisplayWinFormDetails();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void InitializeTracer()
@@ -105,16 +112,9 @@ namespace OpenCBS.GUI
 
         private void InitExtensions()
         {
-            try
+            foreach (var initializer in ExtensionInitalizers)
             {
-                foreach (var initializer in ExtensionInitalizers)
-                {
-                    initializer.Init();
-                }
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show(error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                initializer.Init();
             }
         }
 
