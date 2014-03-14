@@ -3631,6 +3631,7 @@ xcopy "$(SolutionDir)..\Sql\AccountingRules.sql" "$(TargetDir)Update" /y
 xcopy "$(SolutionDir)..\Sql\Objects.xml" "$(TargetDir)Update" /y
 
 xcopy "$(TargetDir)*.dll" "c:\OpenCBSLibs" /y
+xcopy "$(TargetDir)OpenCBS.GUI.exe" "c:\OpenCBSLibs" /y
 xcopy "$(TargetDir)*.pdb" "c:\OpenCBSLibs" /y</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
