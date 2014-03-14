@@ -144,6 +144,8 @@
                 </CreateFolder>
                 <File Id="OpenCBS.Extension.ExcelReports.dll" Source="SourceDir\Extensions\OpenCBS.Extension.ExcelReports.dll" />
                 <File Id="OpenCBS.Extension.OfficeReports.dll" Source="SourceDir\Extensions\OpenCBS.Extension.OfficeReports.dll" />
+                <File Id="OpenCBS.Extension.CustomFields.dll" Source="SourceDir\Extensions\OpenCBS.Extension.CustomFields.dll" />
+                <File Id="OpenCBS.Extension.CustomFields.lic" Source="SourceDir\Extensions\OpenCBS.Extension.CustomFields.lic" />
               </Component>
             </Directory>
 
