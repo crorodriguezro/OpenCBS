@@ -384,6 +384,7 @@
       <ComponentRef Id="dir_desktop" />
       <ComponentRef Id="ApplicationShortcut" />
       <ComponentRef Id="extensions" />
+      <ComponentRef Id="Languages"/>
     </Feature>
 
     <CustomAction Id="PreventDowngrading" Error="Newer version already installed." />
