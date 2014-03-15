@@ -15,8 +15,8 @@
 
     <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" CompressionLevel="high"/>
 
-    <PropertyRef Id="NETFRAMEWORK35"/>
-    <Condition Message="This application requires .NET Framework 3.5. Please install the .NET Framework then run this installer again.">
+    <PropertyRef Id="NETFRAMEWORK40"/>
+    <Condition Message="This application requires .NET Framework 4.0. Please install the .NET Framework then run this installer again.">
       <![CDATA[Installed OR NETFRAMEWORK35]]>
     </Condition>
 
@@ -91,6 +91,7 @@
               <File Id="OpenCBS.Reports.dll" Source="SourceDir\OpenCBS.Reports.dll" />
               <File Id="OpenCBS.License.dll" Source="SourceDir\OpenCBS.License.dll" />
               <File Id="AutoMapper.dll" Source="SourceDir\AutoMapper.dll" />
+              <File Id="StructureMap.dll" Source="SourceDir\StructureMap.dll" />
               <File Id="Dapper.dll" Source="SourceDir\Dapper.dll" />
               <File Id="protobuf_net.dll" Source="SourceDir\protobuf-net.dll" />
               <File Id="setup.bat" Source="SourceDir\setup.bat" />
@@ -147,6 +148,14 @@
                 <File Id="OpenCBS.Extension.CustomFields.dll" Source="SourceDir\Extensions\OpenCBS.Extension.CustomFields.dll" />
                 <File Id="OpenCBS.Extension.CustomFields.lic" Source="SourceDir\Extensions\OpenCBS.Extension.CustomFields.lic" />
               </Component>
+            </Directory>
+
+            <Directory Id="DIR_LANGUAGES" Name="Languages">
+            	<Component Id="Languages" Guid="55836cad-f655-4548-8da5-157fd1bad061">
+            		<CreateFolder Directory="DIR_LANGUAGES"/>
+            		<File Id="en_US_json" Source="SourceDir\Languages\en-US.json"/>
+            		<File Id="ru_RU_json" Source="SourceDir\Languages\ru-RU.json"/>
+            	</Component>
             </Directory>
 
             <Directory Id="DIR_EXPORT" Name="Export">
