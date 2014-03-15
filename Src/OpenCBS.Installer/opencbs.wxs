@@ -17,7 +17,7 @@
 
     <PropertyRef Id="NETFRAMEWORK40FULL"/>
     <Condition Message="This application requires .NET Framework 4.0. Please install the .NET Framework then run this installer again.">
-      <![CDATA[Installed OR NETFRAMEWORK35]]>
+      <![CDATA[Installed OR NETFRAMEWORK40FULL]]>
     </Condition>
 
     <Upgrade Id="$(var.UpgradeCode)">
