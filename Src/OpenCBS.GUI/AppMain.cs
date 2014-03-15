@@ -21,13 +21,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
 using AutoMapper;
 using OpenCBS.ArchitectureV2;
-using OpenCBS.ExceptionsHandler;
 using OpenCBS.GUI.Configuration;
 using OpenCBS.GUI.Database;
 using OpenCBS.Services;
@@ -59,7 +57,6 @@ namespace OpenCBS.GUI
         [STAThread]
         static void Main(string[] pArgs)
         {
-            Debugger.Launch();
             try
             {
                 Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(UserSettings.Language);
