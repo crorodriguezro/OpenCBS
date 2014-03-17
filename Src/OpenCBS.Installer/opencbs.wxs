@@ -70,7 +70,7 @@
         </Component>
       </Directory>
 
-      <Directory Id="ProgramFilesFolder" SourceName="User's Programs Menu">
+      <Directory Id="$(var.PlatformProgramFilesFolder)" SourceName="User's Programs Menu">
         <Directory Id="DIR_ROOT" Name="OpenCBS" >
           <Directory Id="DIR_ROOT_VERSION" Name="$(var.ProductVersion)">
             <Component Id="ProductComponent" Guid="81c7391d-3b04-48ee-8602-445292fa5756">
