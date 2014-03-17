@@ -113,7 +113,7 @@ namespace OpenCBS.Manager.Database
         {
             List<string> queries = new List<string>();
             Encoding encoding = Encoding.GetEncoding("utf-8");
-            FileStream fs = new FileStream(pScriptFile, FileMode.Open);
+            FileStream fs = new FileStream(pScriptFile, FileMode.Open, FileAccess.Read);
             using (StreamReader reader = new StreamReader(fs, encoding))
             {
                 // Parse file and get individual queries (separated by GO)
