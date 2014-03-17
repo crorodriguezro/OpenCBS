@@ -430,7 +430,7 @@
     <EmbeddedResource Include="resx\GuaranteeContractForm.pt.resx" />
     <EmbeddedResource Include="resx\InternalReportsForm.pt.resx" />
     <EmbeddedResource Include="resx\LoanSharesForm.pt.resx" />
-    <EmbeddedResource Include="resx\LotrasmicMainWindowForm.pt.resx" />
+    <EmbeddedResource Include="resx\MainView.pt.resx" />
     <EmbeddedResource Include="resx\ManualEntryForm.pt.resx" />
     <EmbeddedResource Include="resx\NonSolidaryGroupForm.fr.resx" />
     <EmbeddedResource Include="resx\NonSolidaryGroupForm.pt.resx" />
@@ -710,7 +710,7 @@
     <EmbeddedResource Include="resx\InternalReportsForm.es-ES.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\LotrasmicMainWindowForm.es-ES.resx">
+    <EmbeddedResource Include="resx\MainView.es-ES.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\ManualEntryForm.es-ES.resx">
@@ -896,13 +896,13 @@
     <EmbeddedResource Include="resx\InternalReportsForm.ru-RU.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\LotrasmicMainWindowForm.fr.resx">
+    <EmbeddedResource Include="resx\MainView.fr.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\LotrasmicMainWindowForm.resx">
+    <EmbeddedResource Include="resx\MainView.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\LotrasmicMainWindowForm.ru-RU.resx">
+    <EmbeddedResource Include="resx\MainView.ru-RU.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\ManualEntryForm.fr.resx">
