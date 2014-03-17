@@ -2,16 +2,6 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
   <!--Remember: you need to change ProductVersion and ProductCode-->
 
-  <?if $(var.Platform) = x64 ?>
-  	<?define ProductName = "OpenCBS (64 bit)" ?>
-  	<?define Win64 = "yes" ?>
-  	<?define PlatformProgramFilesFolder = "ProgramFiles64Folder" ?>
-  <?else ?>
-  	<?define ProductName = "OpenCBS" ?>
-  	<?define Win64 = "no" ?>
-  	<?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
-  <?endif ?>
-
   <?define PreviousVersion="14.3.0.0" ?>
   <?define ProductVersion="14.4.0.0" ?>
   <?define ProductVersionReduced="14.4" ?>
@@ -74,7 +64,7 @@
         </Component>
       </Directory>
 
-      <Directory Id="$(var.PlatformProgramFilesFolder)" SourceName="User's Programs Menu">
+      <Directory Id="ProgramFilesFolder" SourceName="User's Programs Menu">
         <Directory Id="DIR_ROOT" Name="OpenCBS" >
           <Directory Id="DIR_ROOT_VERSION" Name="$(var.ProductVersion)">
             <Component Id="ProductComponent" Guid="81c7391d-3b04-48ee-8602-445292fa5756">
@@ -117,7 +107,7 @@
               <Shortcut Id="DesktopShortcut" Directory="DesktopFolder" Name="OpenCBS $(var.ProductVersionReduced)" Icon="opencbs.ico" WorkingDirectory="DIR_ROOT_VERSION" Advertise="yes"/>
             </Component>
             <Component Id="Registry" Guid="674968e0-7c4a-4164-aaec-5ddf6922a2dc" Permanent="yes">
-              <RegistryKey Win64="$(var.Win64)" Id="OpenCbsKey" Root="HKLM" Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.ProductVersion)" Action="create">
+              <RegistryKey Id="OpenCbsKey" Root="HKLM" Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.ProductVersion)" Action="create">
                 <util:PermissionEx User="Users" GenericAll="yes"/>
                 <RegistryValue Id="DATABASE_LOGIN_NAME" Type="string" Name="DATABASE_LOGIN_NAME" Value="[LOGINNAME]"/>
                 <RegistryValue Id="DATABASE_NAME" Type="string" Name="DATABASE_NAME" Value="[DATABASENAME]"/>
