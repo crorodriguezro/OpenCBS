@@ -97,6 +97,7 @@
               <File Id="OpenCBS.Reports.dll" Source="SourceDir\OpenCBS.Reports.dll" />
               <File Id="OpenCBS.License.dll" Source="SourceDir\OpenCBS.License.dll" />
               <File Id="AutoMapper.dll" Source="SourceDir\AutoMapper.dll" />
+              <File Id="Newtonsoft.Json.dll" Source="SourceDir\Newtonsoft.Json.dll" />
               <File Id="StructureMap.dll" Source="SourceDir\StructureMap.dll" />
               <File Id="Dapper.dll" Source="SourceDir\Dapper.dll" />
               <File Id="protobuf_net.dll" Source="SourceDir\protobuf-net.dll" />
