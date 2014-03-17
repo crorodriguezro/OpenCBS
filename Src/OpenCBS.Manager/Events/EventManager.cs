@@ -973,7 +973,7 @@ namespace OpenCBS.Manager.Events
 	    public void AddLoanEvent(RescheduleLoanEvent rescheduleLoanEvent, int contractId, SqlTransaction transaction)
 		{
             rescheduleLoanEvent.Id = AddLoanEventHead(rescheduleLoanEvent, contractId, transaction);
-
+            
             const string q = @"
                 INSERT INTO [ReschedulingOfALoanEvents]
                 (
@@ -981,6 +981,7 @@ namespace OpenCBS.Manager.Events
                     [amount], 
                     [nb_of_maturity], 
                     [interest], 
+                    [previous_interest_rate],
                     [grace_period], 
                     [charge_interest_during_grace_period], 
                     [preferred_first_installment_date]
@@ -991,6 +992,7 @@ namespace OpenCBS.Manager.Events
                     @amount, 
                     @maturity,
                     @interest, 
+                    @previous_interest_rate,
                     @gracePeriod, 
                     @chargeInterestDuringGracePeriod, 
                     @preferredFirstInstallmentDate
@@ -1339,6 +1341,7 @@ namespace OpenCBS.Manager.Events
             c.AddParam("@amount", pEvent.Amount);
             c.AddParam("@maturity", pEvent.NbOfMaturity);
             c.AddParam("@interest", pEvent.Interest);
+            c.AddParam("@previous_interest_rate", pEvent.PreviousInterestRate);
             c.AddParam("@gracePeriod", pEvent.GracePeriod);
             c.AddParam("@chargeInterestDuringGracePeriod", pEvent.ChargeInterestDuringGracePeriod);
             c.AddParam("@preferredFirstInstallmentDate", pEvent.PreferredFirstInstallmentDate);

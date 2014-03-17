@@ -125,6 +125,7 @@ namespace OpenCBS.GUI.Contracts
                 ChargeInterestDuringGracePeriod = chargeInterestDuringGracePeriodCheckBox.Checked,
                 StartDate = startDateTimePicker.Value.Date,
                 PreferredFirstInstallmentDate = firstRepaymentDateTimePicker.Value.Date,
+                PreviousInterestRate = _contract.InterestRate,
             };
         }
 

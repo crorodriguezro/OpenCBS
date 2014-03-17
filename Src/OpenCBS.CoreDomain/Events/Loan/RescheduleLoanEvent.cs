@@ -39,6 +39,7 @@ namespace OpenCBS.CoreDomain.Events
 
 	    public OCurrency Amount { get; set; }
         public OCurrency Interest { get; set; }
+	    public OCurrency PreviousInterestRate { get; set; }
 	    public int NbOfMaturity { get; set; }
 	    public bool BadLoan { get; set; }
         public override string Description { get; set; }

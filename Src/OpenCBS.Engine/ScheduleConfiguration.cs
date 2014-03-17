@@ -30,6 +30,8 @@ namespace OpenCBS.Engine
 
         public decimal InterestRate { get; set; }
 
+        public decimal PreviousInterestRate { get; set; }
+
         public IDateShiftPolicy DateShiftPolicy { get; set; }
 
         public ScheduleConfiguration()
