@@ -76,7 +76,6 @@
             <Component Id="ProductComponent" Guid="81c7391d-3b04-48ee-8602-445292fa5756">
               <File Id="ZedGraph.dll" Source="SourceDir\ZedGraph.dll" />
               <File Id="ObjectListView.dll" Source="SourceDir\ObjectListView.dll" />
-              <File Id="System.Windows.Forms.DataVisualization.dll" Source="c:\Program Files (x86)\Microsoft Chart Controls\Assemblies\System.Windows.Forms.DataVisualization.dll" />
               <File Id="OpenCBS.ArchitectureV2.dll" Source="SourceDir\OpenCBS.ArchitectureV2.dll" />
               <File Id="OpenCBS.Controls.dll" Source="SourceDir\OpenCBS.Controls.dll" />
               <File Id="OpenCBS.CoreDomain.dll" Source="SourceDir\OpenCBS.CoreDomain.dll" />
