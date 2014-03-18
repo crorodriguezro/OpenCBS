@@ -311,16 +311,6 @@
                   <File Id="Collection_Sheet_Standard" Name="Collection_Sheet.zip" Source="SourceDir\Reports\Standard\Collection_Sheet.zip" />
                 </Component>
               </Directory>
-              <Directory Id="dir_consolidated" Name="Consolidated">
-                <Component Id="dir_consolidated" Guid="d1f2afed-0816-4248-b8b0-7c0194bbf35e" KeyPath="yes">
-                  <File Id="evolution_Clients" Name="evolution_Clients.zip" Source="SourceDir\Reports\Consolidated\evolution_Clients.zip" />
-                  <File Id="evolution_Contracts" Name="evolution_Contracts.zip" Source="SourceDir\Reports\Consolidated\evolution_Contracts.zip" />
-                  <File Id="evolution_Disbursements" Name="evolution_Disbursements.zip" Source="SourceDir\Reports\Consolidated\evolution_Disbursements.zip" />
-                  <File Id="evolution_OLB" Name="evolution_OLB.zip" Source="SourceDir\Reports\Consolidated\evolution_OLB.zip" />
-                  <File Id="evolution_PAR" Name="evolution_PAR.zip" Source="SourceDir\Reports\Consolidated\evolution_PAR.zip" />
-                  <File Id="evolution_Repayments" Name="evolution_Repayments.zip" Source="SourceDir\Reports\Consolidated\evolution_Repayments.zip" />
-                </Component>
-              </Directory>
               <Directory Id="dir_internal" Name="Internal">
                 <Component Id="dir_internal" Guid="625E4E02-68E0-45F2-8198-10DA3FD140BF" KeyPath="yes">
                   <File Id="SavingsCompulsory_Contract_Status" Name = "SavingsCompulsory_Contract_Status.zip" Source="SourceDir\Reports\Internal\SavingsCompulsory_Contract_Status.zip" />
@@ -373,7 +363,6 @@
     <Feature Id="ProductFeature" Title="OpenCBS" Level="1">
       <ComponentRef Id="dir_standard" />
       <ComponentRef Id="dir_internal" />
-      <ComponentRef Id="dir_consolidated" />
       <ComponentRef Id="xml_data_schema" />
       <ComponentRef Id="sql_update_database" />
       <ComponentRef Id="sql_create_database" />
