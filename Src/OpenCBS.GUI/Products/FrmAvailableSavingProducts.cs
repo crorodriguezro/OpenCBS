@@ -87,11 +87,11 @@ namespace OpenCBS.GUI.Products
             }
             text += "</body></html>";
 
-            StreamWriter writer = new StreamWriter(string.Format(@"{0}\packages_list.html", templatePath), false, Encoding.UTF8);
-            writer.Write(text);
-            writer.Close();
+            var tempPath = Path.GetTempPath();
+            tempPath = Path.Combine(tempPath, "packages_list.html");
+            File.WriteAllText(tempPath, text, Encoding.UTF8);
 
-            webBrowserPackage.Url = new Uri(string.Format(@"{0}\packages_list.html", templatePath), UriKind.Absolute);
+            webBrowserPackage.Url = new Uri(tempPath, UriKind.Absolute);
         }
 
         private void AddSavingBookProduct()
