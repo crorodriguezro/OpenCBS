@@ -100,6 +100,8 @@
               <File Id="StructureMap.dll" Source="SourceDir\StructureMap.dll" />
               <File Id="Dapper.dll" Source="SourceDir\Dapper.dll" />
               <File Id="protobuf_net.dll" Source="SourceDir\protobuf-net.dll" />
+              <File Id="GMap.Net.Core.dll" Source="SourceDir\GMap.Net.Core.dll" />
+              <File Id="GMap.Net.WindowsForms.dll" Source="SourceDir\GMap.Net.WindowsForms.dll" />
               <File Id="setup.bat" Source="SourceDir\setup.bat" />
               <File Id="dump.bat" Source="SourceDir\dump.bat" />
               <File Id="dumpObjects.bat" Source="SourceDir\dumpObjects.bat" />
@@ -153,6 +155,7 @@
                 <File Id="OpenCBS.Extension.OfficeReports.dll" Source="SourceDir\Extensions\OpenCBS.Extension.OfficeReports.dll" />
                 <File Id="OpenCBS.Extension.CustomFields.dll" Source="SourceDir\Extensions\OpenCBS.Extension.CustomFields.dll" />
                 <File Id="OpenCBS.Extension.CustomFields.lic" Source="SourceDir\Extensions\OpenCBS.Extension.CustomFields.lic" />
+                <File Id="OpenCBS.Extension.Maps.dll" Source="SourceDir\Extensions\OpenCBS.Extension.Maps.dll" />
               </Component>
             </Directory>
 
