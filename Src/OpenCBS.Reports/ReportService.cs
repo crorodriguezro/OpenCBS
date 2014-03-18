@@ -99,29 +99,9 @@ namespace OpenCBS.Reports
             LoadFromDir(dirConsolidated, Flag.Consolidated);
         }
 
-        public ReportList GetReports(string tag, OReportSortOrder sortOrder)
+        public ReportList GetReports()
         {
-            List<Report> reports = new List<Report>();
-            IComparer<Report> comparer = null;
-            switch (sortOrder)
-            {
-                case OReportSortOrder.Alphabet:
-                    comparer = new ReportAbcComparer();
-                    break;
-
-                case OReportSortOrder.Popularity:
-                    comparer = new ReportPopularityComparer();
-                    break;
-            }
-            foreach (Report report in Reports)
-            {
-                if((report.Flag & Flag.Internal) != 0) continue;
-                string[] reportTags = report.Tags;
-                if (!reportTags.Contains(tag, StringComparer.CurrentCultureIgnoreCase)) continue;
-                reports.Add(report);
-            }
-            reports.Sort(comparer);
-            return reports;
+            return Reports.Where(report => (report.Flag & Flag.Internal) == 0).ToList();
         }
 
         public string[] GetTags()

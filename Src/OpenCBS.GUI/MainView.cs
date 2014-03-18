@@ -86,7 +86,7 @@ namespace OpenCBS.GUI
                 _menuItems = new List<MenuObject>();
                 _menuItems = Services.GetMenuItemServices().GetMenuList(OSecurityObjectTypes.MenuItem);
                 LoadReports();
-                LoadReprotsToolStrip();
+                LoadReportsToolStrip();
                 InitializeTracer();
                 DisplayWinFormDetails();
             }
@@ -950,11 +950,11 @@ namespace OpenCBS.GUI
             worker.RunWorkerAsync();
         }
 
-        private void LoadReprotsToolStrip()
+        private void LoadReportsToolStrip()
         {
             ToolStripMenuItem i;
             IComparer<Report> comparer = new ReportAbcComparer();
-            var re = new List<Report>(ReportService.GetInstance().GetReportsByTag("Main", true, Flag.Standard));
+            var re = new List<Report>(ReportService.GetInstance().GetReports());
             re.Sort(comparer);
             foreach (Report report in re)
             {
