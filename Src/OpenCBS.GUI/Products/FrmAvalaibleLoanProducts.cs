@@ -83,9 +83,9 @@ namespace OpenCBS.GUI.Products
 
             var tempPath = Path.GetTempPath();
             tempPath = Path.Combine(tempPath, "packages_list.html");
-            File.WriteAllText(tempPath, text);
+            File.WriteAllText(tempPath, text, Encoding.UTF8);
 
-            webBrowserPackage.Url = new Uri(string.Format(@"{0}\packages_list.html", templatePath), UriKind.Absolute);
+            webBrowserPackage.Url = new Uri(tempPath, UriKind.Absolute);
         }
 
         private void DeletePackage()
