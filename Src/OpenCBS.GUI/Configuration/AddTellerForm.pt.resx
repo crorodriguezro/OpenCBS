@@ -112,17 +112,71 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="tabBasicTeller.Text" xml:space="preserve">
+    <value>Básico</value>
+  </data>
+  <data name="tabAdvancedTeller.Text" xml:space="preserve">
+    <value>Avançado</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chxIsVault.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 20</value>
+  </data>
+  <data name="chxIsVault.Text" xml:space="preserve">
+    <value>Caixa-forte</value>
+  </data>
+  <data name="lblBranch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 16</value>
+  </data>
+  <data name="lblBranch.Text" xml:space="preserve">
+    <value>Nome da sucursal:</value>
+  </data>
+  <data name="lblUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 16</value>
+  </data>
+  <data name="lblUser.Text" xml:space="preserve">
+    <value>Utilizador:</value>
+  </data>
+  <data name="lblCurrency.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 16</value>
+  </data>
+  <data name="lblCurrency.Text" xml:space="preserve">
+    <value>Moeda:</value>
+  </data>
+  <data name="lblAccount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 16</value>
+  </data>
+  <data name="lblAccount.Text" xml:space="preserve">
+    <value>Conta:</value>
+  </data>
+  <data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 16</value>
+  </data>
+  <data name="lblDescription.Text" xml:space="preserve">
+    <value>Descrição:</value>
+  </data>
   <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 16</value>
+    <value>119, 16</value>
   </data>
   <data name="lblName.Text" xml:space="preserve">
-    <value>Nome da Sucursal</value>
+    <value>Nome da Sucursal:</value>
+  </data>
+  <data name="lblMaxAmountWithdrawal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 16</value>
+  </data>
+  <data name="lblMaxAmountWithdrawal.Text" xml:space="preserve">
+    <value>Montante máximo por levantamento:</value>
+  </data>
+  <data name="lblMinAmountWithdrawal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 16</value>
+  </data>
+  <data name="lblMinAmountWithdrawal.Text" xml:space="preserve">
+    <value>Montante mínimo por levantamento:</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 16</value>
@@ -130,11 +184,29 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Descrição:</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 16</value>
+  <data name="lblMaxAmountDeposit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 16</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Conta:</value>
+  <data name="lblMaxAmountDeposit.Text" xml:space="preserve">
+    <value>Montante máximo por depósito:</value>
+  </data>
+  <data name="lblMinAmountDeposit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 16</value>
+  </data>
+  <data name="lblMinAmountDeposit.Text" xml:space="preserve">
+    <value>Montante mínimo por depósito:</value>
+  </data>
+  <data name="lblMaxAmountTeller.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 16</value>
+  </data>
+  <data name="lblMaxAmountTeller.Text" xml:space="preserve">
+    <value>Montante máximo no Caixa:</value>
+  </data>
+  <data name="lblMinAmountTeller.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 16</value>
+  </data>
+  <data name="lblMinAmountTeller.Text" xml:space="preserve">
+    <value>Montante mínimo no Caixa:</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Add Sucursal</value>

@@ -1092,6 +1092,9 @@
     <EmbeddedResource Include="Accounting\AccountingJournals.fr.resx">
       <DependentUpon>AccountingJournals.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\AccountingJournals.pt.resx">
+      <DependentUpon>AccountingJournals.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accounting\AccountingJournals.resx">
       <DependentUpon>AccountingJournals.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -1190,6 +1193,9 @@
     <EmbeddedResource Include="Accounting\EditFiscalYear.fr.resx">
       <DependentUpon>EditFiscalYear.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\EditFiscalYear.pt.resx">
+      <DependentUpon>EditFiscalYear.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accounting\EditFiscalYear.resx">
       <DependentUpon>EditFiscalYear.cs</DependentUpon>
     </EmbeddedResource>
@@ -1200,6 +1206,9 @@
       <DependentUpon>ExportBookingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\FiscalYear.fr.resx">
+      <DependentUpon>FiscalYear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\FiscalYear.pt.resx">
       <DependentUpon>FiscalYear.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\FiscalYear.resx">
@@ -1715,6 +1724,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contracts\LoanEntryFeesForm.ru-RU.resx">
       <DependentUpon>LoanEntryFeesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\ManualScheduleForm.pt.resx">
+      <DependentUpon>ManualScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contracts\ReschedulingForm.es-ES.resx">
       <DependentUpon>ReschedulingForm.cs</DependentUpon>
@@ -2889,6 +2901,9 @@
     <EmbeddedResource Include="Tools\OMonthCalendar.resx">
       <DependentUpon>OMonthCalendar.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\WriteOffOkCancelForm.pt.resx">
+      <DependentUpon>WriteOffOkCancelForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\WriteOffOkCancelForm.resx">
       <DependentUpon>WriteOffOkCancelForm.cs</DependentUpon>

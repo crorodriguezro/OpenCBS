@@ -218,6 +218,7 @@
     <EmbeddedResource Include="resx\ClientControl.resx">
     </EmbeddedResource>
     <EmbeddedResource Include="resx\AddTrancheForm.es-ES.resx" />
+    <EmbeddedResource Include="resx\DashboardForm.resx" />
     <EmbeddedResource Include="resx\ReschedulingForm.es-ES.resx" />
     <EmbeddedResource Include="resx\ReschedulingForm.fr.resx" />
     <EmbeddedResource Include="resx\ReschedulingForm.pt.resx" />
@@ -239,7 +240,7 @@
     <EmbeddedResource Include="resx\CreditContractForm.pt.resx" />
     <EmbeddedResource Include="resx\CreditContractRepayForm.pt.resx" />
     <EmbeddedResource Include="resx\CustomizableExport.pt.resx" />
-    <EmbeddedResource Include="resx\DashboardForm.resx" />
+    <EmbeddedResource Include="resx\DashboardForm.pt.resx" />
     <EmbeddedResource Include="resx\DashboardForm.ru-RU.resx" />
     <EmbeddedResource Include="resx\DatabaseMaitenance.pt.resx" />
     <EmbeddedResource Include="resx\DateTimeUserControl.pt.resx" />

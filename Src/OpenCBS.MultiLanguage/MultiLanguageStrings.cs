@@ -67,7 +67,7 @@ namespace OpenCBS.MultiLanguageRessources
         GroupForm,
         GroupUserControl,
         InternalReportsForm,
-        LotrasmicMainWindowForm,
+        MainView,
         ManualEntryForm,
         MonthlyClosureForm,
         NewExportConso,

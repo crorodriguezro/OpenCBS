@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="tabPageMainParameters.Text" xml:space="preserve">
     <value>Parametros principais</value>
@@ -135,7 +135,7 @@
   <data name="tabPage1.Text" xml:space="preserve">
     <value>O seguro de crédito</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="gbAdvancedParameters.Size" type="System.Drawing.Size, System.Drawing">
     <value>765, 330</value>
   </data>
@@ -143,22 +143,10 @@
     <value>Os parâmetros avançados</value>
   </data>
   <data name="cbUseLoanCycle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 20</value>
+    <value>88, 20</value>
   </data>
   <data name="cbUseLoanCycle.Text" xml:space="preserve">
     <value>Use cíclos</value>
-  </data>
-  <data name="groupBoxInterestRate.Text" xml:space="preserve">
-    <value>Taxa de juros (% por periodo)</value>
-  </data>
-  <data name="labelRateMax.Text" xml:space="preserve">
-    <value>Máx:</value>
-  </data>
-  <data name="labelRateOr.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 16</value>
-  </data>
-  <data name="labelRateOr.Text" xml:space="preserve">
-    <value>ou</value>
   </data>
   <data name="groupBoxNumberOfInstallments.Text" xml:space="preserve">
     <value>Número de prestações</value>
@@ -172,23 +160,26 @@
   <data name="labelNbIOr.Text" xml:space="preserve">
     <value>ou</value>
   </data>
+  <data name="groupBoxInterestRate.Text" xml:space="preserve">
+    <value>Taxa de juros (% por periodo)</value>
+  </data>
+  <data name="labelRateMax.Text" xml:space="preserve">
+    <value>Máx:</value>
+  </data>
+  <data name="labelRateOr.Size" type="System.Drawing.Size, System.Drawing">
+    <value>22, 16</value>
+  </data>
+  <data name="labelRateOr.Text" xml:space="preserve">
+    <value>ou</value>
+  </data>
   <data name="groupBoxAmount.Text" xml:space="preserve">
     <value>Valor</value>
-  </data>
-  <data name="labelLoanCycle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 16</value>
   </data>
   <data name="labelLoanCycle.Text" xml:space="preserve">
     <value>MZN</value>
   </data>
-  <data name="labelLoanCycleMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 16</value>
-  </data>
   <data name="labelLoanCycleMax.Text" xml:space="preserve">
     <value>MZN</value>
-  </data>
-  <data name="labelLoanCycleMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 16</value>
   </data>
   <data name="labelLoanCycleMin.Text" xml:space="preserve">
     <value>MZN</value>
@@ -201,15 +192,6 @@
   </data>
   <data name="labelAmountOr.Text" xml:space="preserve">
     <value>ou</value>
-  </data>
-  <data name="groupBoxAmountCycles.Text" xml:space="preserve">
-    <value>Valor dos cíclos</value>
-  </data>
-  <data name="label31.Text" xml:space="preserve">
-    <value>Usar:</value>
-  </data>
-  <data name="buttonNewAmountCycles.Text" xml:space="preserve">
-    <value>Novo valor do ciclo</value>
   </data>
   <data name="panelAmountCycles.Size" type="System.Drawing.Size, System.Drawing">
     <value>751, 264</value>
@@ -226,6 +208,21 @@
   <data name="buttonRemoveAmountCycles.Text" xml:space="preserve">
     <value>Remover</value>
   </data>
+  <data name="buttonAmountCyclesSave.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAADECAIAAAAdy+YyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACH0lEQVRoQ+3LS0gTcADH8V8QEUGHrh27
+        duvU1UMRFFQQiPQOegpGgmEghSEWJYiIRSZJmRhmiYgmmiWarUxt5PuxZOrc2sM555xu0+r+P/U9CMb/
+        y+f61W+U3YzsZmQ3I7sZ2c3IbkZ2M7Kbkd2M7GZkNyO6raPsZmQ3o82xra2vAXYz0C21lgKUTKWA/3xL
+        AptjSyQTgFaTCWCDt5XEKrDBWzyxAtBteTUOKLYSBzbHFo3HALotLi8BG7xFYlFA4aUoQLf5aARQKLoA
+        0C24GAYUiIQBuvkXQoB+hYOAvOEgQLe5+QAgT8gPaDboAzQd8AF/Ny8gt98DaMrvAeTyzQCa9E4DdBuf
+        cwMa80wBGpn9CWh4xgVo0D0BaMA9Dsg5NQqo3zUMqM81BKh3chBQz8QAIMeYE9DnUSegrpF+QJ1DvYA+
+        DvQAav/xBVCb0wGo5Xs3oOb+LkBNfZ2AGr91AKr/2g7ojeM9oNfdrYBefXoHqLqzCVBVRyOgyg8NgCra
+        3gIqb60D9LilFlBpcw2g4saXgIoaXgC6V18JqKCuAlB+bTmgvJpHgG5VlwK6WVUCKPt5MaCsZw8BXXt6
+        H9DFJ4WAzpXdBXSq9A6g9JI8QMeKcgEdeZAD6GDhDUBpBdcB7c/PBLTv9hVAe/MuAdqTex7Q7pwzgHZl
+        nwS0Mysd0I7ME4C2Xz0OaNvlo4C2XjgMaMvZQ4B0+gChjLR/lpH2B8auF1qedkGxAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="buttonAmountCyclesSave.Location" type="System.Drawing.Point, System.Drawing">
     <value>441, 233</value>
   </data>
@@ -241,20 +238,23 @@
   <data name="buttonAddAmountCycle.Text" xml:space="preserve">
     <value>Adicionar</value>
   </data>
+  <data name="lblCycleObjects.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 16</value>
+  </data>
   <data name="lblCycleObjects.Text" xml:space="preserve">
     <value>Objetos Ciclo:</value>
   </data>
+  <data name="groupBoxAmountCycles.Text" xml:space="preserve">
+    <value>Valor dos cíclos</value>
+  </data>
+  <data name="label31.Text" xml:space="preserve">
+    <value>Usar:</value>
+  </data>
+  <data name="buttonNewAmountCycles.Text" xml:space="preserve">
+    <value>Novo valor do ciclo</value>
+  </data>
   <data name="groupBoxRoundingType.Text" xml:space="preserve">
     <value>Tipo de aredondamento</value>
-  </data>
-  <data name="comboBoxRoundingType.Items" xml:space="preserve">
-    <value>aproximado</value>
-  </data>
-  <data name="comboBoxRoundingType.Items1" xml:space="preserve">
-    <value>primeira parcela</value>
-  </data>
-  <data name="comboBoxRoundingType.Items2" xml:space="preserve">
-    <value>última parcela</value>
   </data>
   <data name="label32.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 16</value>
@@ -277,17 +277,20 @@
   <data name="groupBoxType.Text" xml:space="preserve">
     <value>Anexar produto a tipo de clientes especifico</value>
   </data>
+  <data name="clientTypeVillageCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 20</value>
+  </data>
   <data name="clientTypeVillageCheckBox.Text" xml:space="preserve">
     <value>Grupo não sol.</value>
   </data>
   <data name="clientTypeGroupCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 20</value>
+    <value>85, 20</value>
   </data>
   <data name="clientTypeGroupCheckBox.Text" xml:space="preserve">
     <value>Grupo Sol</value>
   </data>
   <data name="clientTypeAllCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 20</value>
+    <value>59, 20</value>
   </data>
   <data name="clientTypeAllCheckBox.Text" xml:space="preserve">
     <value>todos</value>
@@ -296,25 +299,25 @@
     <value>Tipo de cobrança</value>
   </data>
   <data name="rbDecliningFixedPrincipalRelaInterest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 20</value>
+    <value>173, 20</value>
   </data>
   <data name="rbDecliningFixedPrincipalRelaInterest.Text" xml:space="preserve">
     <value>Capital fixo, com juro real</value>
   </data>
   <data name="rbDecliningFixedPrincipal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 20</value>
+    <value>188, 20</value>
   </data>
   <data name="rbDecliningFixedPrincipal.Text" xml:space="preserve">
     <value>Declínio com o principal fixo</value>
   </data>
   <data name="rbDecliningFixedInstallments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 20</value>
+    <value>204, 20</value>
   </data>
   <data name="rbDecliningFixedInstallments.Text" xml:space="preserve">
     <value>Recusando com parcelas fixas</value>
   </data>
   <data name="rbFlat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 20</value>
+    <value>59, 20</value>
   </data>
   <data name="rbFlat.Text" xml:space="preserve">
     <value>Plano</value>
@@ -330,6 +333,9 @@
   </data>
   <data name="labelGPOr.Text" xml:space="preserve">
     <value>ou</value>
+  </data>
+  <data name="labelInstallmentType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 16</value>
   </data>
   <data name="labelInstallmentType.Text" xml:space="preserve">
     <value>Tipo de prestação:</value>
@@ -347,7 +353,7 @@
     <value>Taxas APR</value>
   </data>
   <data name="label43.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 16</value>
+    <value>42, 16</value>
   </data>
   <data name="label43.Text" xml:space="preserve">
     <value>valor :</value>
@@ -362,10 +368,13 @@
     <value>Base para taxas APR</value>
   </data>
   <data name="rbPrepaidPrincipal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 20</value>
+    <value>152, 20</value>
   </data>
   <data name="rbPrepaidPrincipal.Text" xml:space="preserve">
     <value>% do capital pré-pago</value>
+  </data>
+  <data name="rbPartialRemainingOLB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 20</value>
   </data>
   <data name="rbPartialRemainingOLB.Text" xml:space="preserve">
     <value>% do BTE</value>
@@ -378,6 +387,9 @@
   </data>
   <data name="groupBoxTotalAnticipatedRepaymentBase.Text" xml:space="preserve">
     <value>Base para taxas ATR</value>
+  </data>
+  <data name="rbRemainingOLB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 20</value>
   </data>
   <data name="rbRemainingOLB.Text" xml:space="preserve">
     <value>% do BTE</value>
@@ -392,7 +404,7 @@
     <value>Pagamento em adiatado (% do valor em divida)</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 16</value>
+    <value>42, 16</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>valor :</value>
@@ -401,7 +413,7 @@
     <value>Máx:</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 16</value>
+    <value>29, 16</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Min</value>
@@ -419,7 +431,7 @@
     <value>130, 202</value>
   </data>
   <data name="labelLateFeeGracePeriod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>232, 16</value>
+    <value>233, 16</value>
   </data>
   <data name="labelLateFeeGracePeriod.Text" xml:space="preserve">
     <value>Periodo de graça para taxas de atrazo:</value>
@@ -428,7 +440,7 @@
     <value>Sob valor total do empréstimo</value>
   </data>
   <data name="label25.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 16</value>
+    <value>42, 16</value>
   </data>
   <data name="label25.Text" xml:space="preserve">
     <value>valor :</value>
@@ -446,7 +458,7 @@
     <value>Sob capital em atraso</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 16</value>
+    <value>42, 16</value>
   </data>
   <data name="label13.Text" xml:space="preserve">
     <value>valor :</value>
@@ -464,7 +476,7 @@
     <value>Sob BTE</value>
   </data>
   <data name="label21.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 16</value>
+    <value>42, 16</value>
   </data>
   <data name="label21.Text" xml:space="preserve">
     <value>valor :</value>
@@ -482,7 +494,7 @@
     <value>Sob juros em atraso</value>
   </data>
   <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 16</value>
+    <value>42, 16</value>
   </data>
   <data name="label17.Text" xml:space="preserve">
     <value>valor :</value>
@@ -532,12 +544,6 @@
   <data name="chEntryFeeIndex.Text" xml:space="preserve">
     <value>índice</value>
   </data>
-  <data name="btnEntryFeesRemoveCycle.Text" xml:space="preserve">
-    <value>remover ciclo</value>
-  </data>
-  <data name="btnEntryFeesAddCycle.Text" xml:space="preserve">
-    <value>Adicionar ciclo</value>
-  </data>
   <data name="lblEntryFeesFromCycle.Size" type="System.Drawing.Size, System.Drawing">
     <value>22, 16</value>
   </data>
@@ -545,13 +551,13 @@
     <value>de</value>
   </data>
   <data name="cbEnableEntryFeesCycle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 20</value>
+    <value>191, 20</value>
   </data>
   <data name="cbEnableEntryFeesCycle.Text" xml:space="preserve">
     <value>Utilize ciclo de empréstimos</value>
   </data>
   <data name="lblEntryFeesCycle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 16</value>
+    <value>131, 16</value>
   </data>
   <data name="lblEntryFeesCycle.Text" xml:space="preserve">
     <value>Ciclo do empréstimo:</value>
@@ -608,7 +614,7 @@
     <value>Número máximo de parcelas</value>
   </data>
   <data name="drawingNumberLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 16</value>
+    <value>217, 16</value>
   </data>
   <data name="drawingNumberLabel.Text" xml:space="preserve">
     <value>Número de levantamentos sob LOC:</value>
@@ -620,7 +626,7 @@
     <value>Maturidade das parcelas</value>
   </data>
   <data name="label45.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 16</value>
+    <value>38, 16</value>
   </data>
   <data name="label45.Text" xml:space="preserve">
     <value>valor:</value>
@@ -634,26 +640,17 @@
   <data name="maxLOCAmountGroupBox.Text" xml:space="preserve">
     <value>Valor máximo sob acordo LOC</value>
   </data>
-  <data name="labelLOCAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 16</value>
-  </data>
   <data name="labelLOCAmount.Text" xml:space="preserve">
     <value>MZN</value>
   </data>
-  <data name="labelLOCMaxAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 16</value>
-  </data>
   <data name="labelLOCMaxAmount.Text" xml:space="preserve">
     <value>MZN</value>
-  </data>
-  <data name="labelLOCMinAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 16</value>
   </data>
   <data name="labelLOCMinAmount.Text" xml:space="preserve">
     <value>MZN</value>
   </data>
   <data name="label36.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 16</value>
+    <value>38, 16</value>
   </data>
   <data name="label36.Text" xml:space="preserve">
     <value>valor:</value>
@@ -673,26 +670,23 @@
   <data name="gbCSAmount.Text" xml:space="preserve">
     <value>Valor da poupança obrigatória</value>
   </data>
-  <data name="rbCompulsoryAmountRate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
-  </data>
   <data name="rbCompulsoryAmountRate.Text" xml:space="preserve">
     <value>Taxa</value>
   </data>
   <data name="rbCompulsoryAmountFlat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 20</value>
+    <value>51, 20</value>
   </data>
   <data name="rbCompulsoryAmountFlat.Text" xml:space="preserve">
     <value>Fixo</value>
   </data>
   <data name="lbCompulsoryAmountType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 16</value>
+    <value>36, 16</value>
   </data>
   <data name="lbCompulsoryAmountType.Text" xml:space="preserve">
     <value>Tipo:</value>
   </data>
   <data name="lbCompulsoryAmountValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 16</value>
+    <value>42, 16</value>
   </data>
   <data name="lbCompulsoryAmountValue.Text" xml:space="preserve">
     <value>valor :</value>
@@ -710,13 +704,13 @@
     <value>Selecionar valores diferentes para avalísta e garantias</value>
   </data>
   <data name="label34.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 16</value>
+    <value>158, 16</value>
   </data>
   <data name="label34.Text" xml:space="preserve">
     <value>% do valor do empréstimo</value>
   </data>
   <data name="label33.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 16</value>
+    <value>275, 16</value>
   </data>
   <data name="label33.Text" xml:space="preserve">
     <value>Percentagem mínima para avalista e garantias</value>
@@ -725,19 +719,19 @@
     <value>Separação</value>
   </data>
   <data name="label49.Size" type="System.Drawing.Size, System.Drawing">
-    <value>337, 16</value>
+    <value>336, 16</value>
   </data>
   <data name="label49.Text" xml:space="preserve">
     <value>Note: Colocar '0' se não quiser usar garantias or avalista.</value>
   </data>
   <data name="label44.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 16</value>
+    <value>158, 16</value>
   </data>
   <data name="label44.Text" xml:space="preserve">
     <value>% do valor do empréstimo</value>
   </data>
   <data name="label35.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 16</value>
+    <value>158, 16</value>
   </data>
   <data name="label35.Text" xml:space="preserve">
     <value>% do valor do empréstimo</value>
@@ -749,16 +743,19 @@
     <value>Percentagem mínima para garantias:</value>
   </data>
   <data name="labelMinPercGuar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 16</value>
+    <value>218, 16</value>
   </data>
   <data name="labelMinPercGuar.Text" xml:space="preserve">
     <value>Percentagem minima para avalistas:</value>
   </data>
   <data name="checkBoxGuarCollRequired.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 20</value>
+    <value>169, 20</value>
   </data>
   <data name="checkBoxGuarCollRequired.Text" xml:space="preserve">
     <value>Usar avalista e garantias</value>
+  </data>
+  <data name="groupBox9.Text" xml:space="preserve">
+    <value>Seguro de Crédito</value>
   </data>
   <data name="radioButtonAmountCycle.Text" xml:space="preserve">
     <value>Use valor do cíclo</value>
@@ -774,6 +771,21 @@
   </data>
   <data name="label7.Text" xml:space="preserve">
     <value>usar:</value>
+  </data>
+  <data name="buttonCancel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAADECAIAAAAdy+YyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACH0lEQVRoQ+3LS0gTcADH8V8QEUGHrh27
+        duvU1UMRFFQQiPQOegpGgmEghSEWJYiIRSZJmRhmiYgmmiWarUxt5PuxZOrc2sM555xu0+r+P/U9CMb/
+        y+f61W+U3YzsZmQ3I7sZ2c3IbkZ2M7Kbkd2M7GZkNyO6raPsZmQ3o82xra2vAXYz0C21lgKUTKWA/3xL
+        AptjSyQTgFaTCWCDt5XEKrDBWzyxAtBteTUOKLYSBzbHFo3HALotLi8BG7xFYlFA4aUoQLf5aARQKLoA
+        0C24GAYUiIQBuvkXQoB+hYOAvOEgQLe5+QAgT8gPaDboAzQd8AF/Ny8gt98DaMrvAeTyzQCa9E4DdBuf
+        cwMa80wBGpn9CWh4xgVo0D0BaMA9Dsg5NQqo3zUMqM81BKh3chBQz8QAIMeYE9DnUSegrpF+QJ1DvYA+
+        DvQAav/xBVCb0wGo5Xs3oOb+LkBNfZ2AGr91AKr/2g7ojeM9oNfdrYBefXoHqLqzCVBVRyOgyg8NgCra
+        3gIqb60D9LilFlBpcw2g4saXgIoaXgC6V18JqKCuAlB+bTmgvJpHgG5VlwK6WVUCKPt5MaCsZw8BXXt6
+        H9DFJ4WAzpXdBXSq9A6g9JI8QMeKcgEdeZAD6GDhDUBpBdcB7c/PBLTv9hVAe/MuAdqTex7Q7pwzgHZl
+        nwS0Mysd0I7ME4C2Xz0OaNvlo4C2XjgMaMvZQ4B0+gChjLR/lpH2B8auF1qedkGxAAAAAElFTkSuQmCC
+</value>
   </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Fechar</value>

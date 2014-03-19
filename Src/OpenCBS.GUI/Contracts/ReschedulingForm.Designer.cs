@@ -75,8 +75,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // startDateTimePicker
             // 
-            this.startDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.startDateTimePicker, "startDateTimePicker");
+            this.startDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.startDateTimePicker.Name = "startDateTimePicker";
             // 
             // startDateLabel
@@ -96,13 +96,14 @@ namespace OpenCBS.GUI.Contracts
             // 
             // buttonsPanel
             // 
+            resources.ApplyResources(this.buttonsPanel, "buttonsPanel");
             this.buttonsPanel.Controls.Add(this.okButton);
             this.buttonsPanel.Controls.Add(this.cancelButton);
-            resources.ApplyResources(this.buttonsPanel, "buttonsPanel");
             this.buttonsPanel.Name = "buttonsPanel";
             // 
             // trancheConfigurationPanel
             // 
+            resources.ApplyResources(this.trancheConfigurationPanel, "trancheConfigurationPanel");
             this.trancheConfigurationPanel.Controls.Add(this._interestRateTextBox);
             this.trancheConfigurationPanel.Controls.Add(this.chargeInterestDuringGracePeriodCheckBox);
             this.trancheConfigurationPanel.Controls.Add(this.contractCodeLabel);
@@ -116,14 +117,13 @@ namespace OpenCBS.GUI.Contracts
             this.trancheConfigurationPanel.Controls.Add(this.startDateTimePicker);
             this.trancheConfigurationPanel.Controls.Add(this.installmentsNumericUpDown);
             this.trancheConfigurationPanel.Controls.Add(this.startDateLabel);
-            resources.ApplyResources(this.trancheConfigurationPanel, "trancheConfigurationPanel");
             this.trancheConfigurationPanel.Name = "trancheConfigurationPanel";
             // 
             // _interestRateTextBox
             // 
+            resources.ApplyResources(this._interestRateTextBox, "_interestRateTextBox");
             this._interestRateTextBox.AllowDecimalSeparator = true;
             this._interestRateTextBox.Amount = null;
-            resources.ApplyResources(this._interestRateTextBox, "_interestRateTextBox");
             this._interestRateTextBox.Name = "_interestRateTextBox";
             // 
             // chargeInterestDuringGracePeriodCheckBox
@@ -145,8 +145,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // firstRepaymentDateTimePicker
             // 
-            this.firstRepaymentDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.firstRepaymentDateTimePicker, "firstRepaymentDateTimePicker");
+            this.firstRepaymentDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.firstRepaymentDateTimePicker.Name = "firstRepaymentDateTimePicker";
             // 
             // firstRepaymentOnLabel

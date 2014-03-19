@@ -72,11 +72,11 @@
             // 
             // reserveComboBox
             // 
+            resources.ApplyResources(this.reserveComboBox, "reserveComboBox");
             this.reserveComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.reserveComboBox.Items.AddRange(new object[] {
             resources.GetString("reserveComboBox.Items"),
             resources.GetString("reserveComboBox.Items1")});
-            resources.ApplyResources(this.reserveComboBox, "reserveComboBox");
             this.reserveComboBox.Name = "reserveComboBox";
             this.reserveComboBox.SelectedIndexChanged += new System.EventHandler(this.reserveComboBox_SelectedIndexChanged);
             // 

@@ -47,25 +47,25 @@ namespace OpenCBS.GUI.Accounting
             this.tbcMain = new System.Windows.Forms.TabControl();
             this.tbpMovements = new System.Windows.Forms.TabPage();
             this.olvBookings = new BrightIdeasSoftware.ObjectListView();
-            this.olvColumn_EventId = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_CreditAccount = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_DebitAccount = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_EventType = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_Amount = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_TransactionDate = new BrightIdeasSoftware.OLVColumn();
+            this.olvColumn_EventId = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_CreditAccount = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_DebitAccount = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_EventType = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_Amount = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_TransactionDate = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.cbxAllBookings = new System.Windows.Forms.CheckBox();
             this.tbpEvents = new System.Windows.Forms.TabPage();
             this.olvEvents = new BrightIdeasSoftware.ObjectListView();
-            this.olvColumn_Code = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_Description = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_Amnt = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_Fee = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_OLB = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_OverdueDays = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_OverduePrincipal = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_Date = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_Interest = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_AccruedInterest = new BrightIdeasSoftware.OLVColumn();
+            this.olvColumn_Code = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_Description = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_Amnt = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_Fee = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_OLB = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_OverdueDays = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_OverduePrincipal = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_Date = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_Interest = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_AccruedInterest = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.cbAllEvents = new System.Windows.Forms.CheckBox();
             this.timerClosure = new System.Windows.Forms.Timer(this.components);
             this.bwPostEvents = new System.ComponentModel.BackgroundWorker();
@@ -80,10 +80,7 @@ namespace OpenCBS.GUI.Accounting
             // 
             // pnlRight
             // 
-            this.pnlRight.AccessibleDescription = null;
-            this.pnlRight.AccessibleName = null;
             resources.ApplyResources(this.pnlRight, "pnlRight");
-            this.pnlRight.BackgroundImage = null;
             this.pnlRight.Controls.Add(this.btnView);
             this.pnlRight.Controls.Add(this.btnPost);
             this.pnlRight.Controls.Add(this.clbxFields);
@@ -94,101 +91,65 @@ namespace OpenCBS.GUI.Accounting
             this.pnlRight.Controls.Add(this.lblBeginDate);
             this.pnlRight.Controls.Add(this.lblEndDate);
             this.pnlRight.Controls.Add(this.btnPreview);
-            this.pnlRight.Font = null;
             this.pnlRight.Name = "pnlRight";
             // 
             // btnView
             // 
-            this.btnView.AccessibleDescription = null;
-            this.btnView.AccessibleName = null;
             resources.ApplyResources(this.btnView, "btnView");
-            this.btnView.Font = null;
             this.btnView.Name = "btnView";
             this.btnView.Click += new System.EventHandler(this.BtnViewClick);
             // 
             // btnPost
             // 
-            this.btnPost.AccessibleDescription = null;
-            this.btnPost.AccessibleName = null;
             resources.ApplyResources(this.btnPost, "btnPost");
-            this.btnPost.Font = null;
             this.btnPost.Name = "btnPost";
             this.btnPost.Click += new System.EventHandler(this.BtnPostClick);
             // 
             // clbxFields
             // 
-            this.clbxFields.AccessibleDescription = null;
-            this.clbxFields.AccessibleName = null;
             resources.ApplyResources(this.clbxFields, "clbxFields");
-            this.clbxFields.BackgroundImage = null;
             this.clbxFields.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.clbxFields.CheckOnClick = true;
-            this.clbxFields.Font = null;
             this.clbxFields.FormattingEnabled = true;
             this.clbxFields.Name = "clbxFields";
             // 
             // cmbBranches
             // 
-            this.cmbBranches.AccessibleDescription = null;
-            this.cmbBranches.AccessibleName = null;
             resources.ApplyResources(this.cmbBranches, "cmbBranches");
-            this.cmbBranches.BackgroundImage = null;
             this.cmbBranches.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBranches.Font = null;
             this.cmbBranches.FormattingEnabled = true;
             this.cmbBranches.Name = "cmbBranches";
             // 
             // lblBranch
             // 
-            this.lblBranch.AccessibleDescription = null;
-            this.lblBranch.AccessibleName = null;
             resources.ApplyResources(this.lblBranch, "lblBranch");
             this.lblBranch.Name = "lblBranch";
             // 
             // dateTimePickerBeginDate
             // 
-            this.dateTimePickerBeginDate.AccessibleDescription = null;
-            this.dateTimePickerBeginDate.AccessibleName = null;
             resources.ApplyResources(this.dateTimePickerBeginDate, "dateTimePickerBeginDate");
-            this.dateTimePickerBeginDate.BackgroundImage = null;
-            this.dateTimePickerBeginDate.CalendarFont = null;
-            this.dateTimePickerBeginDate.CustomFormat = null;
-            this.dateTimePickerBeginDate.Font = null;
             this.dateTimePickerBeginDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerBeginDate.Name = "dateTimePickerBeginDate";
             // 
             // dateTimePickerEndDate
             // 
-            this.dateTimePickerEndDate.AccessibleDescription = null;
-            this.dateTimePickerEndDate.AccessibleName = null;
             resources.ApplyResources(this.dateTimePickerEndDate, "dateTimePickerEndDate");
-            this.dateTimePickerEndDate.BackgroundImage = null;
-            this.dateTimePickerEndDate.CalendarFont = null;
-            this.dateTimePickerEndDate.CustomFormat = null;
-            this.dateTimePickerEndDate.Font = null;
             this.dateTimePickerEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
             // 
             // lblBeginDate
             // 
-            this.lblBeginDate.AccessibleDescription = null;
-            this.lblBeginDate.AccessibleName = null;
             resources.ApplyResources(this.lblBeginDate, "lblBeginDate");
             this.lblBeginDate.Name = "lblBeginDate";
             // 
             // lblEndDate
             // 
-            this.lblEndDate.AccessibleDescription = null;
-            this.lblEndDate.AccessibleName = null;
             resources.ApplyResources(this.lblEndDate, "lblEndDate");
             this.lblEndDate.Name = "lblEndDate";
             // 
             // btnPreview
             // 
-            this.btnPreview.AccessibleDescription = null;
-            this.btnPreview.AccessibleName = null;
             resources.ApplyResources(this.btnPreview, "btnPreview");
-            this.btnPreview.Font = null;
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Click += new System.EventHandler(this.BtnRunClick);
             // 
@@ -199,30 +160,21 @@ namespace OpenCBS.GUI.Accounting
             // 
             // tbcMain
             // 
-            this.tbcMain.AccessibleDescription = null;
-            this.tbcMain.AccessibleName = null;
             resources.ApplyResources(this.tbcMain, "tbcMain");
-            this.tbcMain.BackgroundImage = null;
             this.tbcMain.Controls.Add(this.tbpMovements);
             this.tbcMain.Controls.Add(this.tbpEvents);
-            this.tbcMain.Font = null;
             this.tbcMain.Name = "tbcMain";
             this.tbcMain.SelectedIndex = 0;
             // 
             // tbpMovements
             // 
-            this.tbpMovements.AccessibleDescription = null;
-            this.tbpMovements.AccessibleName = null;
             resources.ApplyResources(this.tbpMovements, "tbpMovements");
             this.tbpMovements.Controls.Add(this.olvBookings);
             this.tbpMovements.Controls.Add(this.cbxAllBookings);
-            this.tbpMovements.Font = null;
             this.tbpMovements.Name = "tbpMovements";
             // 
             // olvBookings
             // 
-            this.olvBookings.AccessibleDescription = null;
-            this.olvBookings.AccessibleName = null;
             resources.ApplyResources(this.olvBookings, "olvBookings");
             this.olvBookings.AllColumns.Add(this.olvColumn_EventId);
             this.olvBookings.AllColumns.Add(this.olvColumn_CreditAccount);
@@ -230,7 +182,6 @@ namespace OpenCBS.GUI.Accounting
             this.olvBookings.AllColumns.Add(this.olvColumn_EventType);
             this.olvBookings.AllColumns.Add(this.olvColumn_Amount);
             this.olvBookings.AllColumns.Add(this.olvColumn_TransactionDate);
-            this.olvBookings.BackgroundImage = null;
             this.olvBookings.CheckBoxes = true;
             this.olvBookings.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.olvColumn_EventId,
@@ -239,15 +190,11 @@ namespace OpenCBS.GUI.Accounting
             this.olvColumn_EventType,
             this.olvColumn_Amount,
             this.olvColumn_TransactionDate});
-            this.olvBookings.EmptyListMsg = null;
-            this.olvBookings.Font = null;
             this.olvBookings.FullRowSelect = true;
             this.olvBookings.GridLines = true;
-            this.olvBookings.GroupWithItemCountFormat = null;
-            this.olvBookings.GroupWithItemCountSingularFormat = null;
             this.olvBookings.HasCollapsibleGroups = false;
             this.olvBookings.Name = "olvBookings";
-            this.olvBookings.OverlayText.Text = null;
+            this.olvBookings.OverlayText.Text = resources.GetString("resource.Text");
             this.olvBookings.UseCompatibleStateImageBehavior = false;
             this.olvBookings.View = System.Windows.Forms.View.Details;
             // 
@@ -255,36 +202,24 @@ namespace OpenCBS.GUI.Accounting
             // 
             this.olvColumn_EventId.AspectName = "EventId";
             this.olvColumn_EventId.CheckBoxes = true;
-            this.olvColumn_EventId.GroupWithItemCountFormat = null;
-            this.olvColumn_EventId.GroupWithItemCountSingularFormat = null;
             resources.ApplyResources(this.olvColumn_EventId, "olvColumn_EventId");
-            this.olvColumn_EventId.ToolTipText = null;
             // 
             // olvColumn_CreditAccount
             // 
             this.olvColumn_CreditAccount.AspectName = "CreditAccount";
             this.olvColumn_CreditAccount.Groupable = false;
-            this.olvColumn_CreditAccount.GroupWithItemCountFormat = null;
-            this.olvColumn_CreditAccount.GroupWithItemCountSingularFormat = null;
             resources.ApplyResources(this.olvColumn_CreditAccount, "olvColumn_CreditAccount");
-            this.olvColumn_CreditAccount.ToolTipText = null;
             // 
             // olvColumn_DebitAccount
             // 
             this.olvColumn_DebitAccount.AspectName = "DebitAccount";
             this.olvColumn_DebitAccount.Groupable = false;
-            this.olvColumn_DebitAccount.GroupWithItemCountFormat = null;
-            this.olvColumn_DebitAccount.GroupWithItemCountSingularFormat = null;
             resources.ApplyResources(this.olvColumn_DebitAccount, "olvColumn_DebitAccount");
-            this.olvColumn_DebitAccount.ToolTipText = null;
             // 
             // olvColumn_EventType
             // 
             this.olvColumn_EventType.AspectName = "EventType";
-            this.olvColumn_EventType.GroupWithItemCountFormat = null;
-            this.olvColumn_EventType.GroupWithItemCountSingularFormat = null;
             resources.ApplyResources(this.olvColumn_EventType, "olvColumn_EventType");
-            this.olvColumn_EventType.ToolTipText = null;
             // 
             // olvColumn_Amount
             // 
@@ -292,44 +227,30 @@ namespace OpenCBS.GUI.Accounting
             this.olvColumn_Amount.AutoCompleteEditor = false;
             this.olvColumn_Amount.AutoCompleteEditorMode = System.Windows.Forms.AutoCompleteMode.None;
             this.olvColumn_Amount.Groupable = false;
-            this.olvColumn_Amount.GroupWithItemCountFormat = null;
-            this.olvColumn_Amount.GroupWithItemCountSingularFormat = null;
-            this.olvColumn_Amount.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             resources.ApplyResources(this.olvColumn_Amount, "olvColumn_Amount");
-            this.olvColumn_Amount.ToolTipText = null;
+            this.olvColumn_Amount.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // olvColumn_TransactionDate
             // 
             this.olvColumn_TransactionDate.AspectName = "Date";
             this.olvColumn_TransactionDate.Groupable = false;
-            this.olvColumn_TransactionDate.GroupWithItemCountFormat = null;
-            this.olvColumn_TransactionDate.GroupWithItemCountSingularFormat = null;
             resources.ApplyResources(this.olvColumn_TransactionDate, "olvColumn_TransactionDate");
-            this.olvColumn_TransactionDate.ToolTipText = null;
             // 
             // cbxAllBookings
             // 
-            this.cbxAllBookings.AccessibleDescription = null;
-            this.cbxAllBookings.AccessibleName = null;
             resources.ApplyResources(this.cbxAllBookings, "cbxAllBookings");
-            this.cbxAllBookings.Font = null;
             this.cbxAllBookings.Name = "cbxAllBookings";
             this.cbxAllBookings.CheckedChanged += new System.EventHandler(this.CbxAllBookingsCheckedChanged);
             // 
             // tbpEvents
             // 
-            this.tbpEvents.AccessibleDescription = null;
-            this.tbpEvents.AccessibleName = null;
             resources.ApplyResources(this.tbpEvents, "tbpEvents");
             this.tbpEvents.Controls.Add(this.olvEvents);
             this.tbpEvents.Controls.Add(this.cbAllEvents);
-            this.tbpEvents.Font = null;
             this.tbpEvents.Name = "tbpEvents";
             // 
             // olvEvents
             // 
-            this.olvEvents.AccessibleDescription = null;
-            this.olvEvents.AccessibleName = null;
             resources.ApplyResources(this.olvEvents, "olvEvents");
             this.olvEvents.AllColumns.Add(this.olvColumn_Code);
             this.olvEvents.AllColumns.Add(this.olvColumn_Description);
@@ -341,7 +262,6 @@ namespace OpenCBS.GUI.Accounting
             this.olvEvents.AllColumns.Add(this.olvColumn_Date);
             this.olvEvents.AllColumns.Add(this.olvColumn_Interest);
             this.olvEvents.AllColumns.Add(this.olvColumn_AccruedInterest);
-            this.olvEvents.BackgroundImage = null;
             this.olvEvents.CheckBoxes = true;
             this.olvEvents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.olvColumn_Code,
@@ -354,67 +274,45 @@ namespace OpenCBS.GUI.Accounting
             this.olvColumn_Date,
             this.olvColumn_Interest,
             this.olvColumn_AccruedInterest});
-            this.olvEvents.EmptyListMsg = null;
-            this.olvEvents.Font = null;
             this.olvEvents.FullRowSelect = true;
             this.olvEvents.GridLines = true;
-            this.olvEvents.GroupWithItemCountFormat = null;
-            this.olvEvents.GroupWithItemCountSingularFormat = null;
             this.olvEvents.HasCollapsibleGroups = false;
             this.olvEvents.Name = "olvEvents";
-            this.olvEvents.OverlayText.Text = null;
+            this.olvEvents.OverlayText.Text = resources.GetString("resource.Text1");
             this.olvEvents.UseCompatibleStateImageBehavior = false;
             this.olvEvents.View = System.Windows.Forms.View.Details;
             // 
             // olvColumn_Code
             // 
             this.olvColumn_Code.AspectName = "Code";
-            this.olvColumn_Code.GroupWithItemCountFormat = null;
-            this.olvColumn_Code.GroupWithItemCountSingularFormat = null;
             resources.ApplyResources(this.olvColumn_Code, "olvColumn_Code");
-            this.olvColumn_Code.ToolTipText = null;
             // 
             // olvColumn_Description
             // 
             this.olvColumn_Description.AspectName = "Description";
-            this.olvColumn_Description.GroupWithItemCountFormat = null;
-            this.olvColumn_Description.GroupWithItemCountSingularFormat = null;
             resources.ApplyResources(this.olvColumn_Description, "olvColumn_Description");
-            this.olvColumn_Description.ToolTipText = null;
             // 
             // olvColumn_Amnt
             // 
             this.olvColumn_Amnt.AspectName = "Amount";
-            this.olvColumn_Amnt.GroupWithItemCountFormat = null;
-            this.olvColumn_Amnt.GroupWithItemCountSingularFormat = null;
             resources.ApplyResources(this.olvColumn_Amnt, "olvColumn_Amnt");
-            this.olvColumn_Amnt.ToolTipText = null;
             // 
             // olvColumn_Fee
             // 
             this.olvColumn_Fee.AspectName = "Fee";
-            this.olvColumn_Fee.GroupWithItemCountFormat = null;
-            this.olvColumn_Fee.GroupWithItemCountSingularFormat = null;
             resources.ApplyResources(this.olvColumn_Fee, "olvColumn_Fee");
-            this.olvColumn_Fee.ToolTipText = null;
             // 
             // olvColumn_OLB
             // 
             this.olvColumn_OLB.AspectName = "OLB";
             this.olvColumn_OLB.Groupable = false;
-            this.olvColumn_OLB.GroupWithItemCountFormat = null;
-            this.olvColumn_OLB.GroupWithItemCountSingularFormat = null;
             resources.ApplyResources(this.olvColumn_OLB, "olvColumn_OLB");
-            this.olvColumn_OLB.ToolTipText = null;
             // 
             // olvColumn_OverdueDays
             // 
             this.olvColumn_OverdueDays.AspectName = "OverdueDays";
             this.olvColumn_OverdueDays.Groupable = false;
-            this.olvColumn_OverdueDays.GroupWithItemCountFormat = null;
-            this.olvColumn_OverdueDays.GroupWithItemCountSingularFormat = null;
             resources.ApplyResources(this.olvColumn_OverdueDays, "olvColumn_OverdueDays");
-            this.olvColumn_OverdueDays.ToolTipText = null;
             // 
             // olvColumn_OverduePrincipal
             // 
@@ -422,43 +320,28 @@ namespace OpenCBS.GUI.Accounting
             this.olvColumn_OverduePrincipal.AutoCompleteEditor = false;
             this.olvColumn_OverduePrincipal.AutoCompleteEditorMode = System.Windows.Forms.AutoCompleteMode.None;
             this.olvColumn_OverduePrincipal.Groupable = false;
-            this.olvColumn_OverduePrincipal.GroupWithItemCountFormat = null;
-            this.olvColumn_OverduePrincipal.GroupWithItemCountSingularFormat = null;
-            this.olvColumn_OverduePrincipal.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             resources.ApplyResources(this.olvColumn_OverduePrincipal, "olvColumn_OverduePrincipal");
-            this.olvColumn_OverduePrincipal.ToolTipText = null;
+            this.olvColumn_OverduePrincipal.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // olvColumn_Date
             // 
             this.olvColumn_Date.AspectName = "Date";
             this.olvColumn_Date.Groupable = false;
-            this.olvColumn_Date.GroupWithItemCountFormat = null;
-            this.olvColumn_Date.GroupWithItemCountSingularFormat = null;
             resources.ApplyResources(this.olvColumn_Date, "olvColumn_Date");
-            this.olvColumn_Date.ToolTipText = null;
             // 
             // olvColumn_Interest
             // 
             this.olvColumn_Interest.AspectName = "Interest";
-            this.olvColumn_Interest.GroupWithItemCountFormat = null;
-            this.olvColumn_Interest.GroupWithItemCountSingularFormat = null;
             resources.ApplyResources(this.olvColumn_Interest, "olvColumn_Interest");
-            this.olvColumn_Interest.ToolTipText = null;
             // 
             // olvColumn_AccruedInterest
             // 
             this.olvColumn_AccruedInterest.AspectName = "AccruedInterest";
-            this.olvColumn_AccruedInterest.GroupWithItemCountFormat = null;
-            this.olvColumn_AccruedInterest.GroupWithItemCountSingularFormat = null;
             resources.ApplyResources(this.olvColumn_AccruedInterest, "olvColumn_AccruedInterest");
-            this.olvColumn_AccruedInterest.ToolTipText = null;
             // 
             // cbAllEvents
             // 
-            this.cbAllEvents.AccessibleDescription = null;
-            this.cbAllEvents.AccessibleName = null;
             resources.ApplyResources(this.cbAllEvents, "cbAllEvents");
-            this.cbAllEvents.Font = null;
             this.cbAllEvents.Name = "cbAllEvents";
             this.cbAllEvents.CheckedChanged += new System.EventHandler(this.CbAllEventsCheckedChanged);
             // 
@@ -479,13 +362,10 @@ namespace OpenCBS.GUI.Accounting
             // 
             // AccountingJournals
             // 
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tbcMain);
             this.Controls.Add(this.pnlRight);
-            this.Font = null;
             this.Name = "AccountingJournals";
             this.Load += new System.EventHandler(this.AccountingJournalsLoad);
             this.pnlRight.ResumeLayout(false);

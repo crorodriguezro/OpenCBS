@@ -33,22 +33,22 @@ namespace OpenCBS.GUI.Configuration
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TellersForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.olvTellers = new BrightIdeasSoftware.ObjectListView();
-            this.colName = new BrightIdeasSoftware.OLVColumn();
-            this.colAccount = new BrightIdeasSoftware.OLVColumn();
-            this.colDesc = new BrightIdeasSoftware.OLVColumn();
-            this.colBranch = new BrightIdeasSoftware.OLVColumn();
-            this.colCurrency = new BrightIdeasSoftware.OLVColumn();
-            this.colUser = new BrightIdeasSoftware.OLVColumn();
-            this.colMinAmount = new BrightIdeasSoftware.OLVColumn();
-            this.colMaxAmount = new BrightIdeasSoftware.OLVColumn();
-            this.colMinAmountDeposit = new BrightIdeasSoftware.OLVColumn();
-            this.colMinAmountWithdrawal = new BrightIdeasSoftware.OLVColumn();
+            this.colName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colAccount = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colDesc = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colBranch = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colCurrency = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colUser = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colMinAmount = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colMaxAmount = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colMinAmountDeposit = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colMaxAmountDeposit = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colMinAmountWithdrawal = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.colMaxAmountWithdrawal = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.colMaxAmountDeposit = new BrightIdeasSoftware.OLVColumn();
-            this.colMaxAmountWithdrawal = new BrightIdeasSoftware.OLVColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olvTellers)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -56,13 +56,14 @@ namespace OpenCBS.GUI.Configuration
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.olvTellers);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // olvTellers
             // 
+            resources.ApplyResources(this.olvTellers, "olvTellers");
             this.olvTellers.AllColumns.Add(this.colName);
             this.olvTellers.AllColumns.Add(this.colAccount);
             this.olvTellers.AllColumns.Add(this.colDesc);
@@ -88,11 +89,11 @@ namespace OpenCBS.GUI.Configuration
             this.colMaxAmountDeposit,
             this.colMinAmountWithdrawal,
             this.colMaxAmountWithdrawal});
-            resources.ApplyResources(this.olvTellers, "olvTellers");
             this.olvTellers.FullRowSelect = true;
             this.olvTellers.GridLines = true;
             this.olvTellers.HideSelection = false;
             this.olvTellers.Name = "olvTellers";
+            this.olvTellers.OverlayText.Text = resources.GetString("resource.Text");
             this.olvTellers.ShowGroups = false;
             this.olvTellers.UseCompatibleStateImageBehavior = false;
             this.olvTellers.View = System.Windows.Forms.View.Details;
@@ -144,10 +145,20 @@ namespace OpenCBS.GUI.Configuration
             this.colMinAmountDeposit.AspectName = "MinAmountDeposit";
             resources.ApplyResources(this.colMinAmountDeposit, "colMinAmountDeposit");
             // 
+            // colMaxAmountDeposit
+            // 
+            this.colMaxAmountDeposit.AspectName = "MaxAmountDeposit";
+            resources.ApplyResources(this.colMaxAmountDeposit, "colMaxAmountDeposit");
+            // 
             // colMinAmountWithdrawal
             // 
             this.colMinAmountWithdrawal.AspectName = "MinAmountWithdrawal";
             resources.ApplyResources(this.colMinAmountWithdrawal, "colMinAmountWithdrawal");
+            // 
+            // colMaxAmountWithdrawal
+            // 
+            this.colMaxAmountWithdrawal.AspectName = "MaxAmountWithdrawal";
+            resources.ApplyResources(this.colMaxAmountWithdrawal, "colMaxAmountWithdrawal");
             // 
             // flowLayoutPanel1
             // 
@@ -158,32 +169,22 @@ namespace OpenCBS.GUI.Configuration
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
             // btnAdd
-            //
+            // 
             resources.ApplyResources(this.btnAdd, "btnAdd");
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
-            //
+            // 
             resources.ApplyResources(this.btnEdit, "btnEdit");
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
-            //
+            // 
             resources.ApplyResources(this.btnDelete, "btnDelete");
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // colMaxAmountDeposit
-            // 
-            this.colMaxAmountDeposit.AspectName = "MaxAmountDeposit";
-            resources.ApplyResources(this.colMaxAmountDeposit, "colMaxAmountDeposit");
-            // 
-            // colMaxAmountWithdrawal
-            // 
-            this.colMaxAmountWithdrawal.AspectName = "MaxAmountWithdrawal";
-            resources.ApplyResources(this.colMaxAmountWithdrawal, "colMaxAmountWithdrawal");
             // 
             // TellersForm
             // 

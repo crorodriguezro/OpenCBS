@@ -57,10 +57,11 @@ namespace OpenCBS.GUI.Contracts
             this.tbEntryFee = new System.Windows.Forms.TextBox();
             this.lblPivotCurrency = new System.Windows.Forms.Label();
             this.groupBoxButton = new System.Windows.Forms.GroupBox();
+            this.btnPrint = new OpenCBS.GUI.UserControl.PrintButton();
             this.buttonAddExchangeRate = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.btnPrint = new OpenCBS.GUI.UserControl.PrintButton();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -214,6 +215,14 @@ namespace OpenCBS.GUI.Contracts
             this.groupBoxButton.Name = "groupBoxButton";
             this.groupBoxButton.TabStop = false;
             // 
+            // btnPrint
+            // 
+            resources.ApplyResources(this.btnPrint, "btnPrint");
+            this.btnPrint.AttachmentPoint = OpenCBS.Reports.AttachmentPoint.LoanDetails;
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.ReportInitializer = null;
+            this.btnPrint.UseVisualStyleBackColor = false;
+            // 
             // buttonAddExchangeRate
             // 
             resources.ApplyResources(this.buttonAddExchangeRate, "buttonAddExchangeRate");
@@ -232,14 +241,6 @@ namespace OpenCBS.GUI.Contracts
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Click += new System.EventHandler(this.ButtonSaveClick);
             // 
-            // btnPrint
-            // 
-            resources.ApplyResources(this.btnPrint, "btnPrint");
-            this.btnPrint.AttachmentPoint = OpenCBS.Reports.AttachmentPoint.LoanDetails;
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.ReportInitializer = null;
-            this.btnPrint.UseVisualStyleBackColor = false;
-            // 
             // LoanDisbursementForm
             // 
             resources.ApplyResources(this, "$this");
@@ -251,6 +252,7 @@ namespace OpenCBS.GUI.Contracts
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

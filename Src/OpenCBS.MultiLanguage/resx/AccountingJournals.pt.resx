@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccruedInterestEventsProcessing.Text" xml:space="preserve">
     <value>Os juros acumulados em processamento </value>
@@ -173,5 +173,32 @@
   </data>
   <data name="SelectSavingsContracts.Text" xml:space="preserve">
     <value>Selecione os contratos de poupança</value>
+  </data>
+  <data name="CreditAccountingClosure.Text" xml:space="preserve">
+    <value>Crédito: Fecho da contabilidade</value>
+  </data>
+  <data name="CreditAccruedInterests.Text" xml:space="preserve">
+    <value>Crédito: Juros de Accrual</value>
+  </data>
+  <data name="CreditLoanLossProvision.Text" xml:space="preserve">
+    <value>Crédito: Provisões para credito de cobranca duvidosa</value>
+  </data>
+  <data name="CreditOverdueProcessing.Text" xml:space="preserve">
+    <value>Crédito: Processamento vencido</value>
+  </data>
+  <data name="CreditSavingsCancelledTransaction.Text" xml:space="preserve">
+    <value>Crédito + Poupanças: Transacções canceladas</value>
+  </data>
+  <data name="ManualEntries.Text" xml:space="preserve">
+    <value>Entradas manuais</value>
+  </data>
+  <data name="SavingsAccountingClosure.Text" xml:space="preserve">
+    <value>Poupanças: Fecho da contabilidade</value>
+  </data>
+  <data name="SavingsEventsGeneration.Text" xml:space="preserve">
+    <value>Poupanças: Geração de código</value>
+  </data>
+  <data name="TellerManagement.Text" xml:space="preserve">
+    <value>Gestão do Caixa</value>
   </data>
 </root>

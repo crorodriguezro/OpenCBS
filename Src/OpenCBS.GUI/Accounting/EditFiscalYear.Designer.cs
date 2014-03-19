@@ -46,8 +46,8 @@ namespace OpenCBS.GUI.Accounting
             // 
             // dpkOpenDate
             // 
-            this.dpkOpenDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.dpkOpenDate, "dpkOpenDate");
+            this.dpkOpenDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpkOpenDate.Name = "dpkOpenDate";
             // 
             // lblOpenDate
@@ -62,8 +62,8 @@ namespace OpenCBS.GUI.Accounting
             // 
             // dpkCloseDate
             // 
-            this.dpkCloseDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.dpkCloseDate, "dpkCloseDate");
+            this.dpkCloseDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpkCloseDate.Name = "dpkCloseDate";
             // 
             // tbxName

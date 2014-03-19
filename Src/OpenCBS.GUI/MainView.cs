@@ -543,7 +543,7 @@ namespace OpenCBS.GUI
             form.ShowDialog();
             if (form.DialogResult == DialogResult.OK)
             {
-                MessageBox.Show(MultiLanguageStrings.GetString(Ressource.LotrasmicMainWindowForm, "advancedSettingsChanged.Text"));
+                MessageBox.Show(MultiLanguageStrings.GetString(Ressource.MainView, "advancedSettingsChanged.Text"));
                 Restart.LaunchRestarter();
             }
         }
@@ -603,7 +603,7 @@ namespace OpenCBS.GUI
                 OUserEvents.UserCloseTellerDescription,
                 User.CurrentUser.Id);
 
-            MessageBox.Show(MultiLanguageStrings.GetString(Ressource.LotrasmicMainWindowForm, "advancedSettingsChanged.Text"));
+            MessageBox.Show(MultiLanguageStrings.GetString(Ressource.MainView, "advancedSettingsChanged.Text"));
             Restart.LaunchRestarter();
         }
 

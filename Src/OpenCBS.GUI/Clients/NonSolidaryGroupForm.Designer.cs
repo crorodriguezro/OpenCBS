@@ -141,12 +141,12 @@ namespace OpenCBS.GUI.Clients
             // 
             // gbDetails
             // 
+            resources.ApplyResources(this.gbDetails, "gbDetails");
             this.gbDetails.Controls.Add(this.panelNSGDetails);
             this.gbDetails.Controls.Add(this.linkLabelChangePhoto2);
             this.gbDetails.Controls.Add(this.linkLabelChangePhoto);
             this.gbDetails.Controls.Add(this.pictureBox2);
             this.gbDetails.Controls.Add(this.pictureBox1);
-            resources.ApplyResources(this.gbDetails, "gbDetails");
             this.gbDetails.Name = "gbDetails";
             this.gbDetails.TabStop = false;
             // 
@@ -190,8 +190,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // tbName
             // 
-            this.panelNSGDetails.SetColumnSpan(this.tbName, 2);
             resources.ApplyResources(this.tbName, "tbName");
+            this.panelNSGDetails.SetColumnSpan(this.tbName, 2);
             this.tbName.Name = "tbName";
             // 
             // lblDate
@@ -201,8 +201,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // dtDate
             // 
-            this.panelNSGDetails.SetColumnSpan(this.dtDate, 2);
             resources.ApplyResources(this.dtDate, "dtDate");
+            this.panelNSGDetails.SetColumnSpan(this.dtDate, 2);
             this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtDate.Name = "dtDate";
             // 
@@ -213,9 +213,9 @@ namespace OpenCBS.GUI.Clients
             // 
             // cbLoanOfficers
             // 
+            resources.ApplyResources(this.cbLoanOfficers, "cbLoanOfficers");
             this.panelNSGDetails.SetColumnSpan(this.cbLoanOfficers, 2);
             this.cbLoanOfficers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.cbLoanOfficers, "cbLoanOfficers");
             this.cbLoanOfficers.FormattingEnabled = true;
             this.cbLoanOfficers.Name = "cbLoanOfficers";
             // 
@@ -274,10 +274,10 @@ namespace OpenCBS.GUI.Clients
             // 
             // panelNSGControls
             // 
+            resources.ApplyResources(this.panelNSGControls, "panelNSGControls");
             this.panelNSGControls.Controls.Add(this.btnPrint);
             this.panelNSGControls.Controls.Add(this.btnSave);
             this.panelNSGControls.Controls.Add(this.btnCancel2);
-            resources.ApplyResources(this.panelNSGControls, "panelNSGControls");
             this.panelNSGControls.Name = "panelNSGControls";
             // 
             // btnPrint
@@ -303,19 +303,19 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabVillage
             // 
+            resources.ApplyResources(this.tabVillage, "tabVillage");
             this.tabVillage.Controls.Add(this.tpAddress);
             this.tabVillage.Controls.Add(this.tpMembers);
             this.tabVillage.Controls.Add(this.tabPageLoan);
             this.tabVillage.Controls.Add(this.tabPageSavings);
             this.tabVillage.Controls.Add(this.tabPageMeetings);
-            resources.ApplyResources(this.tabVillage, "tabVillage");
             this.tabVillage.Name = "tabVillage";
             this.tabVillage.SelectedIndex = 0;
             // 
             // tpAddress
             // 
-            this.tpAddress.Controls.Add(this.gbAddress);
             resources.ApplyResources(this.tpAddress, "tpAddress");
+            this.tpAddress.Controls.Add(this.gbAddress);
             this.tpAddress.Name = "tpAddress";
             // 
             // gbAddress
@@ -326,13 +326,14 @@ namespace OpenCBS.GUI.Clients
             // 
             // tpMembers
             // 
+            resources.ApplyResources(this.tpMembers, "tpMembers");
             this.tpMembers.Controls.Add(this.lvMembers);
             this.tpMembers.Controls.Add(this.panelMembersControls);
-            resources.ApplyResources(this.tpMembers, "tpMembers");
             this.tpMembers.Name = "tpMembers";
             // 
             // lvMembers
             // 
+            resources.ApplyResources(this.lvMembers, "lvMembers");
             this.lvMembers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colName,
             this.colLoanCycle,
@@ -340,7 +341,6 @@ namespace OpenCBS.GUI.Clients
             this.colStatus,
             this.colJoinDate,
             this.colLeftDate});
-            resources.ApplyResources(this.lvMembers, "lvMembers");
             this.lvMembers.FullRowSelect = true;
             this.lvMembers.GridLines = true;
             this.lvMembers.HideSelection = false;
@@ -417,13 +417,14 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabPageLoan
             // 
+            resources.ApplyResources(this.tabPageLoan, "tabPageLoan");
             this.tabPageLoan.Controls.Add(this.listViewLoans);
             this.tabPageLoan.Controls.Add(this.flowLayoutPanel3);
-            resources.ApplyResources(this.tabPageLoan, "tabPageLoan");
             this.tabPageLoan.Name = "tabPageLoan";
             // 
             // listViewLoans
             // 
+            resources.ApplyResources(this.listViewLoans, "listViewLoans");
             this.listViewLoans.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.clientName,
             this.loanProduct,
@@ -440,7 +441,6 @@ namespace OpenCBS.GUI.Clients
             this.nextEventDate,
             this.nextAmountToRepay,
             this.closeDate});
-            resources.ApplyResources(this.listViewLoans, "listViewLoans");
             this.listViewLoans.FullRowSelect = true;
             this.listViewLoans.GridLines = true;
             this.listViewLoans.Name = "listViewLoans";
@@ -552,13 +552,14 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabPageSavings
             // 
+            resources.ApplyResources(this.tabPageSavings, "tabPageSavings");
             this.tabPageSavings.Controls.Add(this.listViewSavings);
             this.tabPageSavings.Controls.Add(this.panelSavingsControls);
-            resources.ApplyResources(this.tabPageSavings, "tabPageSavings");
             this.tabPageSavings.Name = "tabPageSavings";
             // 
             // listViewSavings
             // 
+            resources.ApplyResources(this.listViewSavings, "listViewSavings");
             this.listViewSavings.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderClientName,
             this.columnHeaderCode,
@@ -570,7 +571,6 @@ namespace OpenCBS.GUI.Clients
             this.columnHeaderLastEventDate,
             this.columnHeaderStatus,
             this.columnHeaderCloseDate});
-            resources.ApplyResources(this.listViewSavings, "listViewSavings");
             this.listViewSavings.FullRowSelect = true;
             this.listViewSavings.GridLines = true;
             this.listViewSavings.MultiSelect = false;
@@ -647,13 +647,14 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabPageMeetings
             // 
+            resources.ApplyResources(this.tabPageMeetings, "tabPageMeetings");
             this.tabPageMeetings.Controls.Add(this.olvAttendees);
             this.tabPageMeetings.Controls.Add(this.panelAttendeesControls);
-            resources.ApplyResources(this.tabPageMeetings, "tabPageMeetings");
             this.tabPageMeetings.Name = "tabPageMeetings";
             // 
             // olvAttendees
             // 
+            resources.ApplyResources(this.olvAttendees, "olvAttendees");
             this.olvAttendees.AllColumns.Add(this.olvAttendeeIdColumn);
             this.olvAttendees.AllColumns.Add(this.olvAttendeeTiersIdColumn);
             this.olvAttendees.AllColumns.Add(this.olvAttendeeNameColumn);
@@ -669,11 +670,11 @@ namespace OpenCBS.GUI.Clients
             this.olvAttendeeAttendedColumn,
             this.olvAttendeeCommentColumn,
             this.olvAttendeeLoanIdColumn});
-            resources.ApplyResources(this.olvAttendees, "olvAttendees");
             this.olvAttendees.FullRowSelect = true;
             this.olvAttendees.GridLines = true;
             this.olvAttendees.HideSelection = false;
             this.olvAttendees.Name = "olvAttendees";
+            this.olvAttendees.OverlayText.Text = resources.GetString("resource.Text");
             this.olvAttendees.OwnerDraw = true;
             this.olvAttendees.SelectedColumnTint = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.olvAttendees.ShowGroups = false;
@@ -684,27 +685,27 @@ namespace OpenCBS.GUI.Clients
             // olvAttendeeIdColumn
             // 
             this.olvAttendeeIdColumn.AspectName = "Id";
-            this.olvAttendeeIdColumn.IsEditable = false;
             resources.ApplyResources(this.olvAttendeeIdColumn, "olvAttendeeIdColumn");
+            this.olvAttendeeIdColumn.IsEditable = false;
             // 
             // olvAttendeeTiersIdColumn
             // 
             this.olvAttendeeTiersIdColumn.AspectName = "TiersId";
-            this.olvAttendeeTiersIdColumn.IsEditable = false;
             resources.ApplyResources(this.olvAttendeeTiersIdColumn, "olvAttendeeTiersIdColumn");
+            this.olvAttendeeTiersIdColumn.IsEditable = false;
             // 
             // olvAttendeeNameColumn
             // 
             this.olvAttendeeNameColumn.AspectName = "PersonName";
-            this.olvAttendeeNameColumn.IsEditable = false;
             resources.ApplyResources(this.olvAttendeeNameColumn, "olvAttendeeNameColumn");
+            this.olvAttendeeNameColumn.IsEditable = false;
             // 
             // olvAttendeeAttendedColumn
             // 
             this.olvAttendeeAttendedColumn.AspectName = "Attended";
             this.olvAttendeeAttendedColumn.CheckBoxes = true;
-            this.olvAttendeeAttendedColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             resources.ApplyResources(this.olvAttendeeAttendedColumn, "olvAttendeeAttendedColumn");
+            this.olvAttendeeAttendedColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // olvAttendeeCommentColumn
             // 
@@ -714,8 +715,8 @@ namespace OpenCBS.GUI.Clients
             // olvAttendeeLoanIdColumn
             // 
             this.olvAttendeeLoanIdColumn.AspectName = "LoanId";
-            this.olvAttendeeLoanIdColumn.IsEditable = false;
             resources.ApplyResources(this.olvAttendeeLoanIdColumn, "olvAttendeeLoanIdColumn");
+            this.olvAttendeeLoanIdColumn.IsEditable = false;
             // 
             // panelAttendeesControls
             // 
@@ -746,8 +747,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // NonSolidaryGroupForm
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.tabVillage);
             this.Controls.Add(this.panelNSGControls);
             this.Controls.Add(this.gbDetails);

@@ -459,20 +459,20 @@ namespace OpenCBS.GUI.Accounting
 
             if (_mode == 1)
             {
-                _closureItems.Items.Add(new ClosureOption {Name = "Credit: accrued interests", Id = 0});
-                _closureItems.Items.Add(new ClosureOption {Name = "Credit: overdue processing", Id = 1});
-                _closureItems.Items.Add(new ClosureOption {Name = "Credit: loan loss provision", Id = 2});
-                _closureItems.Items.Add(new ClosureOption {Name = "Savings: events generation", Id = 3});
+                _closureItems.Items.Add(new ClosureOption { Name = GetString("CreditAccruedInterests.Text"), Id = 0 });
+                _closureItems.Items.Add(new ClosureOption { Name = GetString("CreditOverdueProcessing.Text"), Id = 1 });
+                _closureItems.Items.Add(new ClosureOption { Name = GetString("CreditLoanLossProvision.Text"), Id = 2 });
+                _closureItems.Items.Add(new ClosureOption { Name = GetString("SavingsEventsGeneration.Text"), Id = 3 });
                 btnView.Visible = false;
             }
 
             if (_mode == 0)
             {
-                _closureItems.Items.Add(new ClosureOption {Name = "Credit + Savings: cancelled transactions", Id = 0});
-                _closureItems.Items.Add(new ClosureOption {Name = "Credit: accounting closure", Id = 1});
-                _closureItems.Items.Add(new ClosureOption {Name = "Savings: accounting closure", Id = 2});
-                _closureItems.Items.Add(new ClosureOption {Name = "Manual entries", Id = 3 });
-                _closureItems.Items.Add(new ClosureOption {Name = "Teller management", Id = 4});
+                _closureItems.Items.Add(new ClosureOption { Name = GetString("CreditSavingsCancelledTransaction.Text"), Id = 0 });
+                _closureItems.Items.Add(new ClosureOption { Name = GetString("CreditAccountingClosure.Text"), Id = 1 });
+                _closureItems.Items.Add(new ClosureOption { Name = GetString("SavingsAccountingClosure.Text"), Id = 2 });
+                _closureItems.Items.Add(new ClosureOption { Name = GetString("ManualEntries.Text"), Id = 3 });
+                _closureItems.Items.Add(new ClosureOption { Name = GetString("TellerManagement.Text"), Id = 4 });
             }
 
             clbxFields.Items.AddRange(_closureItems.Items.ToArray());

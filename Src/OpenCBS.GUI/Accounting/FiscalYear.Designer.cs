@@ -46,6 +46,7 @@ namespace OpenCBS.GUI.Accounting
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -62,14 +63,17 @@ namespace OpenCBS.GUI.Accounting
             // 
             // splitContainer1.Panel1
             // 
+            resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
             this.splitContainer1.Panel1.Controls.Add(this.olvYears);
             // 
             // splitContainer1.Panel2
             // 
+            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             // 
             // olvYears
             // 
+            resources.ApplyResources(this.olvYears, "olvYears");
             this.olvYears.AllColumns.Add(this.olvColumn_Id);
             this.olvYears.AllColumns.Add(this.olvColumn_Name);
             this.olvYears.AllColumns.Add(this.olvColumn_OpenDate);
@@ -79,11 +83,11 @@ namespace OpenCBS.GUI.Accounting
             this.olvColumn_Name,
             this.olvColumn_OpenDate,
             this.olvColumn_EndDate});
-            resources.ApplyResources(this.olvYears, "olvYears");
             this.olvYears.FullRowSelect = true;
             this.olvYears.GridLines = true;
             this.olvYears.HasCollapsibleGroups = false;
             this.olvYears.Name = "olvYears";
+            this.olvYears.OverlayText.Text = resources.GetString("resource.Text");
             this.olvYears.ShowGroups = false;
             this.olvYears.UseCompatibleStateImageBehavior = false;
             this.olvYears.View = System.Windows.Forms.View.Details;
@@ -110,10 +114,10 @@ namespace OpenCBS.GUI.Accounting
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.sweetButton3);
             this.groupBox1.Controls.Add(this.sweetButton2);
             this.groupBox1.Controls.Add(this.btnGenerateEvents);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
@@ -144,10 +148,10 @@ namespace OpenCBS.GUI.Accounting
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.sweetButton1);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.lblTitle);
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // sweetButton1
@@ -163,8 +167,8 @@ namespace OpenCBS.GUI.Accounting
             // 
             // lblTitle
             // 
-            this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
             resources.ApplyResources(this.lblTitle, "lblTitle");
+            this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Name = "lblTitle";
             // 
@@ -184,6 +188,7 @@ namespace OpenCBS.GUI.Accounting
             this.Load += new System.EventHandler(this.FiscalYearLoad);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.olvYears)).EndInit();
             this.groupBox1.ResumeLayout(false);
