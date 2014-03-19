@@ -107,7 +107,12 @@ namespace OpenCBS.Services
             string dest = Path.GetTempFileName();
             StreamReader sr = new StreamReader(src);
             string dllPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            dllPath = Path.Combine(dllPath, "OpenCBS.Stringifier.dll");
+
+            // Change the path depending on the version of the sql server
+            // since different versions are built against different .NET's
+            // The default target is MS SQL Server 2008/.NET 3.5
+            var version = new Version(conn.ServerVersion);
+            dllPath = Path.Combine(dllPath, version.Major < 11 ? "OpenCBS.Stringifier.dll" : "OpenCBS.Stringifier.Dotnet40.dll");
             string body = sr.ReadToEnd();
             sr.Close();
             body = string.Format(body, database, dllPath);
