@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllBranches" xml:space="preserve">
-    <value>All branches</value>
+    <value>Todos os sucursais</value>
   </data>
   <data name="AllLoanProducts" xml:space="preserve">
-    <value>All loan products</value>
+    <value>Todos os produtos</value>
   </data>
   <data name="AllUsers" xml:space="preserve">
-    <value>All users</value>
+    <value>Todos os utilizadores</value>
   </data>
   <data name="NumberOfDisbursements" xml:space="preserve">
     <value>Número de desembolso nos ultimos 10 dias</value>

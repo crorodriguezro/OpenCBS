@@ -160,6 +160,12 @@
   <data name="label3.Text" xml:space="preserve">
     <value>Voce deseja acessar os servicos completos de funcionalidade e suporte para Open CBS.</value>
   </data>
+  <data name="_servicesLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 16</value>
+  </data>
+  <data name="_servicesLinkLabel.Text" xml:space="preserve">
+    <value>Os nossos serviços.</value>
+  </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>415, 16</value>
   </data>
@@ -167,10 +173,13 @@
     <value>Voce quer mais informaçoes sobre a estrutura e como usar o sistema.</value>
   </data>
   <data name="_userGuideLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 48</value>
+    <value>424, 32</value>
   </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 48</value>
+  <data name="_userGuideLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 16</value>
+  </data>
+  <data name="_userGuideLinkLabel.Text" xml:space="preserve">
+    <value>Guia do usuário.</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>309, 16</value>
@@ -179,7 +188,13 @@
     <value>Voce tem uma pergunta específica sobre o sistema.</value>
   </data>
   <data name="_contactLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 64</value>
+    <value>318, 48</value>
+  </data>
+  <data name="_contactLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 16</value>
+  </data>
+  <data name="_contactLinkLabel.Text" xml:space="preserve">
+    <value>Contacte-nos.</value>
   </data>
   <data name="operateLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 14</value>

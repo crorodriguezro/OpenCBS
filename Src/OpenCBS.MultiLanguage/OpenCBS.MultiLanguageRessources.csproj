@@ -240,7 +240,9 @@
     <EmbeddedResource Include="resx\CreditContractForm.pt.resx" />
     <EmbeddedResource Include="resx\CreditContractRepayForm.pt.resx" />
     <EmbeddedResource Include="resx\CustomizableExport.pt.resx" />
-    <EmbeddedResource Include="resx\DashboardForm.pt.resx" />
+    <EmbeddedResource Include="resx\DashboardForm.pt.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="resx\DashboardForm.ru-RU.resx" />
     <EmbeddedResource Include="resx\DatabaseMaitenance.pt.resx" />
     <EmbeddedResource Include="resx\DateTimeUserControl.pt.resx" />
