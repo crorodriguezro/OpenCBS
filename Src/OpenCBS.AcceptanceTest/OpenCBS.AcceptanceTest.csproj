@@ -40,18 +40,6 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="OpenCBS.CoreDomain">
-      <HintPath>..\OpenCBS.GUI\bin\Debug\OpenCBS.CoreDomain.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenCBS.Engine">
-      <HintPath>..\OpenCBS.GUI\bin\Debug\OpenCBS.Engine.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenCBS.Enums">
-      <HintPath>..\OpenCBS.GUI\bin\Debug\OpenCBS.Enums.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenCBS.Shared">
-      <HintPath>..\OpenCBS.GUI\bin\Debug\OpenCBS.Shared.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -66,11 +54,7 @@
         <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
       </ItemGroup>
     </When>
-    <Otherwise>
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
-      </ItemGroup>
-    </Otherwise>
+    <Otherwise />
   </Choose>
   <ItemGroup>
     <Compile Include="LoanProducts.cs" />
@@ -90,7 +74,24 @@
       <LastGenOutput>Simple early repayment.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\OpenCBS.CoreDomain\OpenCBS.CoreDomain.csproj">
+      <Project>{d539c388-3848-4a3e-ab87-42b8e329755a}</Project>
+      <Name>OpenCBS.CoreDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCBS.Engine\OpenCBS.Engine.csproj">
+      <Project>{b1595695-b53f-4d94-85e6-45a6f515c650}</Project>
+      <Name>OpenCBS.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCBS.Enums\OpenCBS.Enums.csproj">
+      <Project>{8afc1e87-3856-4f05-8280-5360d33c200b}</Project>
+      <Name>OpenCBS.Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCBS.Shared\OpenCBS.Shared.csproj">
+      <Project>{b3288e21-e5a9-4620-bef3-afb0b207655c}</Project>
+      <Name>OpenCBS.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
