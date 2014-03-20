@@ -367,6 +367,7 @@
     </DirectoryRef>
 
     <Feature Id="ProductFeature" Title="OpenCBS" Level="1">
+      <ComponentRef Id="dir_excel" />
       <ComponentRef Id="dir_standard" />
       <ComponentRef Id="dir_internal" />
       <ComponentRef Id="xml_data_schema" />
