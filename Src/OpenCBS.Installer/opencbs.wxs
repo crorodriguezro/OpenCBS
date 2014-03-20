@@ -312,6 +312,11 @@
                   <File Id="Collection_Sheet_Standard" Name="Collection_Sheet.zip" Source="SourceDir\Reports\Standard\Collection_Sheet.zip" />
                 </Component>
               </Directory>
+              <Directory Id="dir_excel" Name="Excel">
+	            <Component Id="dir_excel" Guid="84dec70c-70c8-4b06-8a0f-f8f0cfa5e445" KeyPath="yes">
+                  <File Id="Active_Loans_excel" Name="Active_Loans.zip" Source="SourceDir\Reports\Excel\Active_Loans.zip" />
+	            </Component>
+              </Directory>
               <Directory Id="dir_internal" Name="Internal">
                 <Component Id="dir_internal" Guid="625E4E02-68E0-45F2-8198-10DA3FD140BF" KeyPath="yes">
                   <File Id="SavingsCompulsory_Contract_Status" Name = "SavingsCompulsory_Contract_Status.zip" Source="SourceDir\Reports\Internal\SavingsCompulsory_Contract_Status.zip" />
