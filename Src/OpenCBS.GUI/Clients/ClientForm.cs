@@ -3835,10 +3835,20 @@ namespace OpenCBS.GUI.Clients
                         return null;
 
                     credit.ClientType = _oClientType;
-                    ServicesProvider.GetInstance().GetContractServices().SaveLoan(ref credit, _project.Id, ref client, (tx, id) =>
+                    try
                     {
-                        foreach (var extension in LoanExtensions) extension.Save(credit, tx);
-                    });
+                        ServicesProvider.GetInstance()
+                                        .GetContractServices()
+                                        .SaveLoan(ref credit, _project.Id, ref client, (tx, id) =>
+                                        {
+                                            foreach (var extension in LoanExtensions) extension.Save(credit, tx);
+                                        });
+                    }
+                    catch
+                    {
+                        _credit.Id = 0;
+                        throw;
+                    }
                     _credit = credit;
 
                     if (client != null)
