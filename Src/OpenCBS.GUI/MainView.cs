@@ -82,7 +82,6 @@ namespace OpenCBS.GUI
             {
                 _applicationController = applicationController;
                 MefContainer.Current.Bind(this);
-                InitExtensions();
                 _menuItems = new List<MenuObject>();
                 _menuItems = Services.GetMenuItemServices().GetMenuList(OSecurityObjectTypes.MenuItem);
                 LoadReports();
@@ -882,6 +881,7 @@ namespace OpenCBS.GUI
 
         private void LotrasmicMainWindowForm_Load(object sender, EventArgs e)
         {
+            InitExtensions();
             UserSettings.Language = UserSettings.GetUserLanguage();
             if (InitializeTellerManagement())
             {
