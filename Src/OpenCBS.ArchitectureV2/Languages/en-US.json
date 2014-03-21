@@ -4,7 +4,7 @@
 	"Invalid username or password.": "Invalid username or password.",
 	"Login": "Login",
 	"Password": "Password",
-    "Upgrade": "Upgrade",
-    "Upgrading database...": "Upgrading database...",
+	"Upgrade": "Upgrade",
+	"Upgrading database...": "Upgrading database...",
 	"Username": "Username"
 }
