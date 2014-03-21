@@ -167,7 +167,8 @@ namespace OpenCBS.Manager.Contracts
                         [nmb_of_inst_min],
                         [nmb_of_inst_max],
                         [loan_cycle], 
-                        [insurance]) 
+                        [insurance],
+                        [effective_interest_rate]) 
                         VALUES(@id, 
                         @packageId, 
                         @fundingLine_id, 
@@ -195,7 +196,8 @@ namespace OpenCBS.Manager.Contracts
                         @nmb_of_inst_min,
                         @nmb_of_inst_max,
                         @loan_cycle,
-                        @insurance
+                        @insurance,
+                        ISNULL(dbo.GetXIRR(@id),0)
                         )";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
@@ -610,7 +612,8 @@ namespace OpenCBS.Manager.Contracts
                                 [anticipated_total_repayment_base] = @AnticipatedTotalRepaymentPenaltiesBase,
                                 [schedule_changed] = @schedule_changed,
                                 [written_off] = @written_off,
-                                [insurance]=@insurance
+                                [insurance]=@insurance,
+                                [effective_interest_rate] =  ISNULL(dbo.GetXIRR(@id),0)
                               WHERE id = @id";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))

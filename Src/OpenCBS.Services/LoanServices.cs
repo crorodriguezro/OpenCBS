@@ -1408,6 +1408,7 @@ namespace OpenCBS.Services
                                     : copyOfLoan.GetLastFullyRepaidInstallment().Number + 1,
                             PreferredFirstInstallmentDate = rescheduleConfiguration.PreferredFirstInstallmentDate,
                             User = _user,
+                            PreviousInterestRate = rescheduleConfiguration.PreviousInterestRate,
                         };
 
                     //insert into table TrancheEvent
@@ -1705,7 +1706,7 @@ namespace OpenCBS.Services
                     contract.InstallmentList = _instalmentManager.SelectInstallments(contract.Id, sqlTransaction);
                     contract.GivenTranches = _loanManager.SelectTranches(contract.Id, sqlTransaction);
                     contract.NbOfInstallments = contract.InstallmentList.Count;
-
+ 
                     if (evnt is LoanDisbursmentEvent)
                     {
                         contract.Disbursed = false;
