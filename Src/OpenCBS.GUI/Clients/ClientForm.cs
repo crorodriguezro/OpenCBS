@@ -27,6 +27,8 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.CommandData;
+using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Clients;
@@ -112,17 +114,24 @@ namespace OpenCBS.GUI.Clients
         [ImportMany(typeof(ILoanDetailsButton), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<ILoanDetailsButton> LoanDetailsButtons { get; set; }
 
+        private readonly IApplicationController _applicationController;
+
         #endregion
 
         #region *** Constructors ***
 
-        private ClientForm()
+        private ClientForm(IApplicationController applicationController = null)
         {
             MefContainer.Current.Bind(this);
+            _applicationController = applicationController;
         }
 
-        public ClientForm(OClientTypes pClientType, Form pMdiParent, bool pCloseFormAfterSave)
-            : this()
+        public ClientForm(
+            OClientTypes pClientType, 
+            Form pMdiParent, 
+            bool pCloseFormAfterSave, 
+            IApplicationController applicationController = null)
+            : this(applicationController)
         {
             _listGuarantors = new List<Guarantor>();
             _collaterals = new List<ContractCollateral>();
@@ -170,8 +179,8 @@ namespace OpenCBS.GUI.Clients
             return new KeyValuePair<OContractStatus, string>(status, statusText);
         }
 
-        public ClientForm(Person pPerson, Form pMdiParent)
-            : this()
+        public ClientForm(Person pPerson, Form pMdiParent, IApplicationController applicationController = null)
+            : this(applicationController)
         {
             _mdiParent = pMdiParent;
             _person = pPerson;
@@ -188,8 +197,8 @@ namespace OpenCBS.GUI.Clients
             InitializeTitle(string.Format("{0} {1}", pPerson.FirstName, pPerson.LastName));
         }
 
-        public ClientForm(Corporate pCorporate, Form pMdiParent)
-            : this()
+        public ClientForm(Corporate pCorporate, Form pMdiParent, IApplicationController applicationController = null)
+            : this(applicationController)
         {
             _mdiParent = pMdiParent;
             _corporate = pCorporate;
@@ -206,8 +215,8 @@ namespace OpenCBS.GUI.Clients
             InitializeTitle(_corporate.Name);
         }
 
-        public ClientForm(Group pGroup, Form pMdiParent)
-            : this()
+        public ClientForm(Group pGroup, Form pMdiParent, IApplicationController applicationController = null)
+            : this(applicationController)
         {
             _mdiParent = pMdiParent;
             _group = pGroup;
@@ -224,8 +233,8 @@ namespace OpenCBS.GUI.Clients
             InitializeTitle(_group.Name);
         }
 
-        public ClientForm(IClient pClient, int pContractId, Form pMdiParent)
-            : this()
+        public ClientForm(IClient pClient, int pContractId, Form pMdiParent, IApplicationController applicationController = null)
+            : this(applicationController)
         {
             _mdiParent = pMdiParent;
             _listGuarantors = new List<Guarantor>();
@@ -250,8 +259,13 @@ namespace OpenCBS.GUI.Clients
             LoadLoanDetailsButtons();
         }
 
-        public ClientForm(IClient pClient, int pContractId, Form pMdiParent, string selectedTab)
-            : this()
+        public ClientForm(
+            IClient pClient, 
+            int pContractId, 
+            Form pMdiParent, 
+            string selectedTab, 
+            IApplicationController applicationController = null)
+            : this(applicationController)
         {
             _mdiParent = pMdiParent;
             _listGuarantors = new List<Guarantor>();
@@ -539,7 +553,7 @@ namespace OpenCBS.GUI.Clients
 
             if (pClientType == OClientTypes.Person)
             {
-                _personUserControl = new PersonUserControl(_person, pMdiParent)
+                _personUserControl = new PersonUserControl(_person, pMdiParent, _applicationController)
                 {
                     Dock = DockStyle.Fill,
                     Enabled = true,
@@ -566,7 +580,7 @@ namespace OpenCBS.GUI.Clients
             }
             else if (pClientType == OClientTypes.Group)
             {
-                _groupUserControl = new GroupUserControl(_group, pMdiParent)
+                _groupUserControl = new GroupUserControl(_group, pMdiParent, _applicationController)
                 {
                     Dock = DockStyle.Fill,
                     Enabled = true,
@@ -595,7 +609,7 @@ namespace OpenCBS.GUI.Clients
             }
             else
             {
-                _corporateUserControl = new CorporateUserControl(_corporate, pMdiParent)
+                _corporateUserControl = new CorporateUserControl(_corporate, pMdiParent, _applicationController)
                 {
                     Dock = DockStyle.Fill,
                     Enabled = true,
@@ -1283,7 +1297,7 @@ namespace OpenCBS.GUI.Clients
                 _person = _personUserControl.Person;
                 _client = _person;
                 if (_mdiParent != null)
-                    ((LotrasmicMainWindowForm)_mdiParent).SetInfoMessage(string.Format("Person {0} {1} saved", _person.FirstName, _person.LastName));
+                    ((MainView)_mdiParent).SetInfoMessage(string.Format("Person {0} {1} saved", _person.FirstName, _person.LastName));
                 InitializeTitle(string.Format("{1} {0}", _person.FirstName, _person.LastName));
                 if (_closeFormAfterSave)
                 {
@@ -1310,7 +1324,7 @@ namespace OpenCBS.GUI.Clients
             {
                 _group = _groupUserControl.Group;
                 _client = _group;
-                ((LotrasmicMainWindowForm)_mdiParent).SetInfoMessage(string.Format("Group {0} saved", _group.Name));
+                ((MainView)_mdiParent).SetInfoMessage(string.Format("Group {0} saved", _group.Name));
                 InitializeTitle(_group.Name);
                 if (!tabControlPerson.TabPages.Contains(tabPageContracts))
                 {
@@ -1328,7 +1342,7 @@ namespace OpenCBS.GUI.Clients
             {
                 _corporate = _corporateUserControl.Corporate;
                 _client = _corporate;
-                ((LotrasmicMainWindowForm)_mdiParent).SetInfoMessage(string.Format("Corporate {0} saved", _corporate.Name));
+                ((MainView)_mdiParent).SetInfoMessage(string.Format("Corporate {0} saved", _corporate.Name));
                 InitializeTitle(_corporate.Name);
                 if (!tabControlPerson.TabPages.Contains(tabPageContracts))
                 {
@@ -2194,7 +2208,7 @@ namespace OpenCBS.GUI.Clients
 
         private void EnableLocAmountTextBox(Loan credit)
         {
-            if ((credit.PendingOrPostponed() || credit.ContractStatus == 0 || credit.Disbursed
+            if ((credit.PendingOrPostponed() || credit.ContractStatus == 0 || credit.Disbursed 
                 || credit.ContractStatus == OContractStatus.Validated) &&
                 (credit.Product.AmountUnderLocMin.HasValue && credit.Product.AmountUnderLocMax.HasValue))
                 tbLocAmount.Enabled = true;
@@ -3555,11 +3569,11 @@ namespace OpenCBS.GUI.Clients
                 {
                     pCredit.InstallmentList = pCredit.Product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest || pCredit.Product.IsExotic
                         ? pCredit.CalculateInstallments(true) : ServiceProvider.GetContractServices().SimulateScheduleCreation(pCredit);
-                    pCredit.CalculateStartDates();
+                          pCredit.CalculateStartDates(); 
                 }
             }
-
-
+            
+           
             OCurrency interestTotal = 0;
             OCurrency principalTotal = 0;
 
@@ -3821,10 +3835,20 @@ namespace OpenCBS.GUI.Clients
                         return null;
 
                     credit.ClientType = _oClientType;
-                    ServicesProvider.GetInstance().GetContractServices().SaveLoan(ref credit, _project.Id, ref client, (tx, id) =>
+                    try
                     {
-                        foreach (var extension in LoanExtensions) extension.Save(credit, tx);
-                    });
+                        ServicesProvider.GetInstance()
+                                        .GetContractServices()
+                                        .SaveLoan(ref credit, _project.Id, ref client, (tx, id) =>
+                                        {
+                                            foreach (var extension in LoanExtensions) extension.Save(credit, tx);
+                                        });
+                    }
+                    catch
+                    {
+                        _credit.Id = 0;
+                        throw;
+                    }
                     _credit = credit;
 
                     if (client != null)
@@ -3844,7 +3868,7 @@ namespace OpenCBS.GUI.Clients
                     tabControlPerson.SelectedTab = _product.UseGuarantorCollateral ? tabPageLoanGuarantees : tabPageCreditCommitee;
 
                     Text = string.Format("{0} - {1}", _title, _credit.Code);
-                    ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+                    ((MainView)_mdiParent).ReloadAlertsSync();
                 }
                 else
                 {
@@ -4064,7 +4088,7 @@ namespace OpenCBS.GUI.Clients
                     tabControlPerson.TabPages.Add(tabPageLoanRepayment);
                     tabControlPerson.SelectedTab = tabPageLoanRepayment;
                     buttonLoanDisbursment.Enabled = false;
-                    ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+                    ((MainView)_mdiParent).ReloadAlertsSync();
                     InitializeTabPageLoanRepayment(_credit);
                     DisplayInstallments(ref _credit);
                     DisableCommitteeDecision(_credit.ContractStatus);
@@ -4116,7 +4140,14 @@ namespace OpenCBS.GUI.Clients
 
         private void buttonLoanRepaymentRepay_Click(object sender, EventArgs e)
         {
-            Repay();
+            if (TechnicalSettings.NewRepaymentWindow)
+            {
+                _applicationController.Execute(new ShowRepaymentViewCommandData());
+            }
+            else
+            {
+                Repay();
+            }
         }
 
         private void Repay()
@@ -4183,7 +4214,7 @@ namespace OpenCBS.GUI.Clients
                     }
 
                     if (MdiParent != null)
-                        ((LotrasmicMainWindowForm)MdiParent).ReloadAlertsSync();
+                        ((MainView)MdiParent).ReloadAlertsSync();
                 }
                 SetAddTrancheButton(_credit);
             }
@@ -4465,7 +4496,7 @@ namespace OpenCBS.GUI.Clients
 
         private void SelectAGuarantors()
         {
-            var addGuarantor = new AddGuarantorForm(MdiParent, _credit.Product.Currency);
+            var addGuarantor = new AddGuarantorForm(MdiParent, _credit.Product.Currency, _applicationController);
             addGuarantor.ShowDialog();
 
             if (!ServicesProvider.GetInstance().GetClientServices().GuarantorIsNull(addGuarantor.Guarantor))
@@ -4535,7 +4566,6 @@ namespace OpenCBS.GUI.Clients
                 }
 
                 List<Installment> archivedInstallments = cServices.GetArchivedInstallments(foundEvent.Id);
-
                 // Request user confirmation
                 var eventCancelConfirmationForm = new EventCancelConfirmationForm(_credit, foundEvent, archivedInstallments);
 
@@ -4568,15 +4598,13 @@ namespace OpenCBS.GUI.Clients
                             if (loan.Code == _credit.Code)
                                 loan.Disbursed = _credit.Disbursed;
 
-                     _credit.InterestRate = GetPreviousRate();
-                   
                     if (_event is LoanDisbursmentEvent)
                     {
                         tabControlPerson.TabPages.Remove(tabPageLoanRepayment);
                         tabControlPerson.TabPages.Remove(tabPageSavingDetails);
                         tabControlPerson.SelectedTab = tabPageLoansDetails;
 
-                        ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+                        ((MainView)_mdiParent).ReloadAlertsSync();
 
                         buttonLoanDisbursment.Enabled = true;
                         DisableCommitteeDecision(_credit.ContractStatus);
@@ -4631,20 +4659,6 @@ namespace OpenCBS.GUI.Clients
             }
         }
 
-        private decimal GetPreviousRate()
-        {
-            var someEvent = _credit.Events.GetEvents().OrderByDescending(ev => ev.Id).Take(1).Single(); 
-            if (someEvent is RescheduleLoanEvent)
-            {
-                var listevents = _credit.Events.GetEvents().Where(er => er is RescheduleLoanEvent).OrderByDescending(ev => ev.Id).ToList();
-                var resEvent = listevents.Take(1).Single();
-                var rescheduleLoanEvent = resEvent as RescheduleLoanEvent;
-                if (rescheduleLoanEvent != null)
-                    return rescheduleLoanEvent.PreviousInterestRate.Value;
-            }
-            return _credit.InterestRate;
-        }
-
         private void buttonLoanReschedule_Click(object sender, EventArgs e)
         {
             try
@@ -4694,7 +4708,7 @@ namespace OpenCBS.GUI.Clients
             {
                 try
                 {
-                    AddGuarantorForm modifyGuarantor = new AddGuarantorForm((Guarantor)listViewGuarantors.SelectedItems[0].Tag, MdiParent, false, _credit.Product.Currency);
+                    AddGuarantorForm modifyGuarantor = new AddGuarantorForm((Guarantor)listViewGuarantors.SelectedItems[0].Tag, MdiParent, false, _credit.Product.Currency, _applicationController);
                     modifyGuarantor.ShowDialog();
                     if (!ServicesProvider.GetInstance().GetClientServices().GuarantorIsNull(modifyGuarantor.Guarantor))
                         DisplayGuarantors(_listGuarantors, _credit.Amount);
@@ -4902,7 +4916,7 @@ namespace OpenCBS.GUI.Clients
 
                     }
 
-                    ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+                    ((MainView)_mdiParent).ReloadAlertsSync();
 
                 }
                 catch (Exception ex)
@@ -5445,7 +5459,7 @@ namespace OpenCBS.GUI.Clients
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
             DisplaySavings(_client.Savings);
-            ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+            ((MainView)_mdiParent).ReloadAlertsSync();
         }
 
         private void buttonSavingWithDraw_Click(object sender, EventArgs e)
@@ -5456,7 +5470,7 @@ namespace OpenCBS.GUI.Clients
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
             DisplaySavings(_client.Savings);
-            ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+            ((MainView)_mdiParent).ReloadAlertsSync();
         }
 
         private List<User> _subordinates;
@@ -5472,7 +5486,7 @@ namespace OpenCBS.GUI.Clients
                         SelectCollateralProductByPropertyId(contractCollateral.PropertyValues[0].Property.Id);
                     CollateralProduct product = ServicesProvider.GetInstance().GetCollateralProductServices().SelectCollateralProduct(collateralProduct.Id);
 
-                    ContractCollateralForm collateralForm = new ContractCollateralForm(product, contractCollateral, false);
+                    ContractCollateralForm collateralForm = new ContractCollateralForm(product, contractCollateral, false, _applicationController);
                     collateralForm.ShowDialog();
 
                     if (collateralForm.ContractCollateral != null)
@@ -5685,7 +5699,7 @@ namespace OpenCBS.GUI.Clients
                         new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
                     }
 
-                    ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+                    ((MainView)_mdiParent).ReloadAlertsSync();
 
                     DisplaySavingEvent(_saving);
 
@@ -5793,7 +5807,7 @@ namespace OpenCBS.GUI.Clients
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
             DisplaySavings(_client.Savings);
-            ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+            ((MainView)_mdiParent).ReloadAlertsSync();
         }
 
         private void OnFirstInstallmentDateChanged(object sender, EventArgs e)
@@ -6409,7 +6423,7 @@ namespace OpenCBS.GUI.Clients
             var productId = (int)((ToolStripMenuItem)sender).Tag;
             CollateralProduct product = ServicesProvider.GetInstance().GetCollateralProductServices().SelectCollateralProduct(productId);
 
-            ContractCollateralForm collateralForm = new ContractCollateralForm(product);
+            ContractCollateralForm collateralForm = new ContractCollateralForm(product, _applicationController);
             collateralForm.ShowDialog();
 
             if (collateralForm.ContractCollateral != null && collateralForm.ContractCollateral.PropertyValues != null)
@@ -6489,7 +6503,7 @@ namespace OpenCBS.GUI.Clients
                     savEvent.IsPending = false;
                     lvSavingEvent.SelectedItems[0].Tag = savEvent;
 
-                    ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+                    ((MainView)_mdiParent).ReloadAlertsSync();
 
                     DisplaySavingEvent(_saving);
                     if (_person != null) DisplaySavings(_person.Savings);
@@ -6516,7 +6530,7 @@ namespace OpenCBS.GUI.Clients
                 savEvent.IsPending = false;
                 lvSavingEvent.SelectedItems[0].Tag = savEvent;
 
-                ((LotrasmicMainWindowForm)_mdiParent).ReloadAlertsSync();
+                ((MainView)_mdiParent).ReloadAlertsSync();
 
                 DisplaySavingEvent(_saving);
                 if (_person != null) DisplaySavings(_person.Savings);
@@ -6597,7 +6611,7 @@ namespace OpenCBS.GUI.Clients
                     InitializeContractStatus(_credit);
                     if (MdiParent != null)
                     {
-                        ((LotrasmicMainWindowForm)MdiParent).ReloadAlertsSync();
+                        ((MainView)MdiParent).ReloadAlertsSync();
                     }
                 }
                 catch (Exception ex)
@@ -6697,7 +6711,7 @@ namespace OpenCBS.GUI.Clients
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
             DisplaySavings(_client.Savings);
-            ((LotrasmicMainWindowForm)MdiParent).ReloadAlertsSync();
+            ((MainView)MdiParent).ReloadAlertsSync();
         }
 
         private void ShowTotalFeesInListView(ListViewItem item)
@@ -6750,7 +6764,7 @@ namespace OpenCBS.GUI.Clients
                         SelectCollateralProductByPropertyId(contractCollateral.PropertyValues[0].Property.Id);
                     CollateralProduct product = ServicesProvider.GetInstance().GetCollateralProductServices().SelectCollateralProduct(collateralProduct.Id);
 
-                    ContractCollateralForm collateralForm = new ContractCollateralForm(product, contractCollateral, true);
+                    ContractCollateralForm collateralForm = new ContractCollateralForm(product, contractCollateral, true, _applicationController);
                     collateralForm.ShowDialog();
                 }
                 catch (NullReferenceException)
@@ -6766,7 +6780,7 @@ namespace OpenCBS.GUI.Clients
             {
                 try
                 {
-                    AddGuarantorForm modifyGuarantor = new AddGuarantorForm((Guarantor)listViewGuarantors.SelectedItems[0].Tag, MdiParent, true, _credit.Product.Currency);
+                    AddGuarantorForm modifyGuarantor = new AddGuarantorForm((Guarantor)listViewGuarantors.SelectedItems[0].Tag, MdiParent, true, _credit.Product.Currency, _applicationController);
                     modifyGuarantor.ShowDialog();
                 }
                 catch (NullReferenceException)
