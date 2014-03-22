@@ -1706,7 +1706,14 @@ namespace OpenCBS.Services
                     contract.InstallmentList = _instalmentManager.SelectInstallments(contract.Id, sqlTransaction);
                     contract.GivenTranches = _loanManager.SelectTranches(contract.Id, sqlTransaction);
                     contract.NbOfInstallments = contract.InstallmentList.Count;
- 
+                
+
+                    //return interest rate after delete event  
+                    contract.InterestRate = GetPreviousRate(contract);
+
+              
+           
+
                     if (evnt is LoanDisbursmentEvent)
                     {
                         contract.Disbursed = false;
@@ -1929,6 +1936,23 @@ namespace OpenCBS.Services
                 return cancelledEvent;
             }
         }
+
+
+
+        private decimal GetPreviousRate( Loan _credit)
+        {
+            var someEvent =  _credit.Events.GetEvents().OrderByDescending(ev => ev.Id).Take(1).Single();
+            if (someEvent is RescheduleLoanEvent)
+            {
+                var listevents = _credit.Events.GetEvents().Where(er => er is RescheduleLoanEvent).OrderByDescending(ev => ev.Id).ToList();
+                var resEvent = listevents.Take(1).Single();
+                var rescheduleLoanEvent = resEvent as RescheduleLoanEvent;
+                if (rescheduleLoanEvent != null)
+                    return rescheduleLoanEvent.PreviousInterestRate.Value;
+            }
+            return _credit.InterestRate;
+        }
+
 
         private void CancelSavingsEvent(Event cancelledEvent, SqlTransaction sqlTransaction)
         {

@@ -1483,7 +1483,6 @@ namespace OpenCBS.Manager.Events
             }
 
             GetEvent(r, e);
-
             return e;
         }
 

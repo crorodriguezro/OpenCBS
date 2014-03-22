@@ -4598,6 +4598,8 @@ namespace OpenCBS.GUI.Clients
                             if (loan.Code == _credit.Code)
                                 loan.Disbursed = _credit.Disbursed;
 
+                    
+
                     if (_event is LoanDisbursmentEvent)
                     {
                         tabControlPerson.TabPages.Remove(tabPageLoanRepayment);
@@ -4658,6 +4660,9 @@ namespace OpenCBS.GUI.Clients
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
             }
         }
+
+        
+
 
         private void buttonLoanReschedule_Click(object sender, EventArgs e)
         {
