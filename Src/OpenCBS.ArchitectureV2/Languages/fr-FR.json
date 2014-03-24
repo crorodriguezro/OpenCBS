@@ -1,0 +1,10 @@
+﻿{
+	"Database": "Base de données",
+	"Error": "Erreur",
+	"Invalid username or password.": "Nom d'utilisateur ou mot de passe non valides.",
+	"Login": "Identifiant",
+	"Password": "Mot de passe",
+    "Upgrade": "Mise à jour",
+    "Upgrading database...": "Mettre à jour la base données",
+	"Username": "Nom de l'utilisateur"
+}
