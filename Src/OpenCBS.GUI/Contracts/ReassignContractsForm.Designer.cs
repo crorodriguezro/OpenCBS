@@ -93,22 +93,21 @@ namespace OpenCBS.GUI.Contracts
             // 
             // toCombobox
             // 
-            resources.ApplyResources(this.toCombobox, "toCombobox");
             this.toCombobox.BackColor = System.Drawing.SystemColors.Window;
             this.toCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.toCombobox.FormattingEnabled = true;
+            resources.ApplyResources(this.toCombobox, "toCombobox");
             this.toCombobox.Name = "toCombobox";
             // 
             // fromCombobox
             // 
-            resources.ApplyResources(this.fromCombobox, "fromCombobox");
             this.fromCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.fromCombobox.FormattingEnabled = true;
+            resources.ApplyResources(this.fromCombobox, "fromCombobox");
             this.fromCombobox.Name = "fromCombobox";
             // 
             // optionsPanel
             // 
-            resources.ApplyResources(this.optionsPanel, "optionsPanel");
             this.optionsPanel.Controls.Add(this.filterTextbox);
             this.optionsPanel.Controls.Add(this.fromCombobox);
             this.optionsPanel.Controls.Add(this.filterLabel);
@@ -117,17 +116,17 @@ namespace OpenCBS.GUI.Contracts
             this.optionsPanel.Controls.Add(this.toCombobox);
             this.optionsPanel.Controls.Add(this.selectAllCheckbox);
             this.optionsPanel.Controls.Add(this.assignButton);
+            resources.ApplyResources(this.optionsPanel, "optionsPanel");
             this.optionsPanel.Name = "optionsPanel";
             // 
             // listPanel
             // 
-            resources.ApplyResources(this.listPanel, "listPanel");
             this.listPanel.Controls.Add(this.contractsObjectListView);
+            resources.ApplyResources(this.listPanel, "listPanel");
             this.listPanel.Name = "listPanel";
             // 
             // contractsObjectListView
             // 
-            resources.ApplyResources(this.contractsObjectListView, "contractsObjectListView");
             this.contractsObjectListView.AllColumns.Add(this.clientLastNameColumn);
             this.contractsObjectListView.AllColumns.Add(this.clientFirstNameColumn);
             this.contractsObjectListView.AllColumns.Add(this.clientFatherNameColumn);
@@ -142,7 +141,6 @@ namespace OpenCBS.GUI.Contracts
             this.contractsObjectListView.AllColumns.Add(this.interestRateColumn);
             this.contractsObjectListView.AllColumns.Add(this.loanProductNameColumn);
             this.contractsObjectListView.AllColumns.Add(this.installmentTypeColumn);
-            this.contractsObjectListView.CheckBoxes = false;
             this.contractsObjectListView.CheckedAspectName = "CanReassign";
             this.contractsObjectListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.clientLastNameColumn,
@@ -159,10 +157,10 @@ namespace OpenCBS.GUI.Contracts
             this.interestRateColumn,
             this.loanProductNameColumn,
             this.installmentTypeColumn});
+            resources.ApplyResources(this.contractsObjectListView, "contractsObjectListView");
             this.contractsObjectListView.GridLines = true;
             this.contractsObjectListView.HeaderWordWrap = true;
             this.contractsObjectListView.Name = "contractsObjectListView";
-            this.contractsObjectListView.OverlayText.Text = resources.GetString("resource.Text");
             this.contractsObjectListView.ShowGroups = false;
             this.contractsObjectListView.ShowImagesOnSubItems = true;
             this.contractsObjectListView.UseCompatibleStateImageBehavior = false;
@@ -198,44 +196,44 @@ namespace OpenCBS.GUI.Contracts
             // contractStatusColumn
             // 
             this.contractStatusColumn.AspectName = "StatusCode";
-            resources.ApplyResources(this.contractStatusColumn, "contractStatusColumn");
             this.contractStatusColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            resources.ApplyResources(this.contractStatusColumn, "contractStatusColumn");
             // 
             // amountColumn
             // 
             this.amountColumn.AspectName = "Amount";
-            resources.ApplyResources(this.amountColumn, "amountColumn");
             this.amountColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            resources.ApplyResources(this.amountColumn, "amountColumn");
             // 
             // olbColumn
             // 
             this.olbColumn.AspectName = "Olb";
-            resources.ApplyResources(this.olbColumn, "olbColumn");
             this.olbColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            resources.ApplyResources(this.olbColumn, "olbColumn");
             // 
             // startDateColumn
             // 
             this.startDateColumn.AspectName = "StartDate";
-            resources.ApplyResources(this.startDateColumn, "startDateColumn");
             this.startDateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            resources.ApplyResources(this.startDateColumn, "startDateColumn");
             // 
             // closeDateColumn
             // 
             this.closeDateColumn.AspectName = "CloseDate";
-            resources.ApplyResources(this.closeDateColumn, "closeDateColumn");
             this.closeDateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            resources.ApplyResources(this.closeDateColumn, "closeDateColumn");
             // 
             // numberOfInstallmentsColumn
             // 
             this.numberOfInstallmentsColumn.AspectName = "NumberOfInstallments";
-            resources.ApplyResources(this.numberOfInstallmentsColumn, "numberOfInstallmentsColumn");
             this.numberOfInstallmentsColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            resources.ApplyResources(this.numberOfInstallmentsColumn, "numberOfInstallmentsColumn");
             // 
             // interestRateColumn
             // 
             this.interestRateColumn.AspectName = "InterestRate";
-            resources.ApplyResources(this.interestRateColumn, "interestRateColumn");
             this.interestRateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            resources.ApplyResources(this.interestRateColumn, "interestRateColumn");
             // 
             // loanProductNameColumn
             // 

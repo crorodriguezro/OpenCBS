@@ -53,6 +53,7 @@ namespace OpenCBS.GUI.Contracts
             };
             assignButton.Click += (sender, args) => Reassign();
             selectAllCheckbox.CheckedChanged += (sender, args) => SelectAll();
+            contractsObjectListView.ItemChecked += (sender, args) => UpdateTitle();
         }
 
         private void LoadForm()
@@ -60,6 +61,7 @@ namespace OpenCBS.GUI.Contracts
             LoadUsers();
             fromCombobox.SelectedIndex = 0;
             toCombobox.SelectedIndex = 0;
+            contractsObjectListView.CheckBoxes = true;
             olbColumn.AspectToStringConverter =
             amountColumn.AspectToStringConverter = value =>
             {
