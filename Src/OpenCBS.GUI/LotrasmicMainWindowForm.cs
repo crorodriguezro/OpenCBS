@@ -931,7 +931,7 @@ namespace OpenCBS.GUI
         {
             ToolStripMenuItem i;
             IComparer<Report> comparer = new ReportAbcComparer();
-            List<Report> re = new List<Report>(ReportService.GetInstance().GetReportsByTag("Main", true, Flag.Standard));
+            var re = new List<Report>(ReportService.GetInstance().GetReportsByTag("Main", true, Flag.Standard));
             re.Sort(comparer);
             foreach (Report report in re)
             {
@@ -940,17 +940,7 @@ namespace OpenCBS.GUI
                 reportsToolStripMenuItem.DropDownItems.Add(i);
             }
 
-            i = reportsToolStripMenuItem.DropDownItems[0] as ToolStripMenuItem;
-            reportsToolStripMenuItem.DropDownItems.RemoveAt(0);
-            re = new List<Report>(ReportService.GetInstance().GetReportsByTag("Main", false, Flag.Standard));
-            re.Sort(comparer);
-            foreach (Report report in re)
-            {
-                ToolStripMenuItem jItem = new ToolStripMenuItem(report.Title) { Tag = report.Name };
-                jItem.Click += new System.EventHandler(this.activeLoansToolStripMenuItem_Click);
-                i.DropDownItems.Add(jItem);
-            }
-            reportsToolStripMenuItem.DropDownItems.Add(i);
+           
         }
 
         private void LogUser()

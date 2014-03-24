@@ -2,11 +2,11 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
   <!--Remember: you need to change ProductVersion and ProductCode-->
 
-  <?define PreviousVersion="14.3.0.0" ?>
-  <?define ProductVersion="14.4.0.0" ?>
-  <?define ProductVersionReduced="14.4" ?>
+  <?define PreviousVersion="14.2.0.0" ?>
+  <?define ProductVersion="14.3.0.0" ?>
+  <?define ProductVersionReduced="14.3" ?>
   <?define UpgradeCode="be584361-0c04-42c9-8ea8-457cdea8b89e"?>
-  <?define ProductCode="daf1d2f4-5f3f-4f4b-bd83-7e8d3dc1aa62"?>
+  <?define ProductCode="3c47a09d-b514-4ee3-ae1c-9b73fadcd1c4"?>
 
   <Product Id="$(var.ProductCode)" Name="OpenCBS $(var.ProductVersion)" Language="1033"
            Version="$(var.ProductVersion)" Manufacturer="OpenCBS" UpgradeCode="$(var.UpgradeCode)">
@@ -25,31 +25,31 @@
       <UpgradeVersion Minimum="$(var.PreviousVersion)" IncludeMinimum="yes" Maximum="$(var.ProductVersion)" IncludeMaximum="no"
                       Language="1033" Property="UPGRADEFOUND" />
     </Upgrade>
-
-    <Property Id="LOGINNAME">
-      <RegistrySearch Id='FindLoginName' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_LOGIN_NAME" />
-    </Property>
-
-    <Property Id="DATABASENAME">
-      <RegistrySearch Id='FindDatabaseName' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_NAME" />
-    </Property>
-
-    <Property Id="SERVERNAME">
-      <RegistrySearch Id='FindServerName' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_SERVER_NAME" />
-    </Property>
-
-    <Property Id="PASSWORD">
-      <RegistrySearch Id='FindPassword' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_PASSWORD" />
-    </Property>
-
-    <Property Id="TIMEOUT">
-      <RegistrySearch Id='FindDatabaseTimeout' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_TIMEOUT" />
-    </Property>
-
-    <Property Id="DATABASELIST">
-      <RegistrySearch Id='FindDatabaseList' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_LIST" />
-    </Property>
-
+	
+	<Property Id="LOGINNAME">
+		<RegistrySearch Id='FindLoginName' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_LOGIN_NAME" />
+	</Property>
+	
+	<Property Id="DATABASENAME">
+		<RegistrySearch Id='FindDatabaseName' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_NAME" />
+	</Property>
+	
+	<Property Id="SERVERNAME">
+		<RegistrySearch Id='FindServerName' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_SERVER_NAME" />
+	</Property>
+	
+	<Property Id="PASSWORD">
+		<RegistrySearch Id='FindPassword' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_PASSWORD" />
+	</Property>
+	
+	<Property Id="TIMEOUT">
+		<RegistrySearch Id='FindDatabaseTimeout' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_TIMEOUT" />
+	</Property>
+	
+	<Property Id="DATABASELIST">
+		<RegistrySearch Id='FindDatabaseList' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_LIST" />
+	</Property>
+	
     <Directory Id="TARGETDIR" Name="SourceDir">
 
       <Directory Id="ProgramMenuFolder">
@@ -70,8 +70,8 @@
             <Component Id="ProductComponent" Guid="81c7391d-3b04-48ee-8602-445292fa5756">
               <File Id="ZedGraph.dll" Source="SourceDir\ZedGraph.dll" />
               <File Id="ObjectListView.dll" Source="SourceDir\ObjectListView.dll" />
-              <File Id="System.Windows.Forms.DataVisualization.dll" Source="c:\Program Files (x86)\Microsoft Chart Controls\Assemblies\System.Windows.Forms.DataVisualization.dll" />
-              <!--
+	      <File Id="System.Windows.Forms.DataVisualization.dll" Source="c:\Program Files (x86)\Microsoft Chart Controls\Assemblies\System.Windows.Forms.DataVisualization.dll" />
+	      <!--
               <File Id="CrystalDecisions.CrystalReports.Engine.dll" Source="SourceDir\CrystalDecisions.CrystalReports.Engine.dll" />
               <File Id="CrystalDecisions.Shared.dll" Source="SourceDir\CrystalDecisions.Shared.dll" />
               <File Id="CrystalDecisions.Windows.Forms.dll" Source="SourceDir\CrystalDecisions.Windows.Forms.dll" />
@@ -84,6 +84,7 @@
               <File Id="OpenCBS.Manager.dll" Source="SourceDir\OpenCBS.Manager.dll" />
               <File Id="ICSharpCode.SharpZipLib.dll" Source="SourceDir\ICSharpCode.SharpZipLib.dll" />
               <File Id="Ionic.Zip.dll" Source="SourceDir\Ionic.Zip.dll" />
+              <File Id="System.ComponentModel.Composition.dll" Source="SourceDir\System.ComponentModel.Composition.dll" />
               <File Id="OpenCBS.Services.dll" Source="SourceDir\OpenCBS.Services.dll" />
               <File Id="OpenCBS.DatabaseConnection.dll" Source="SourceDir\OpenCBS.DatabaseConnection.dll" />
               <File Id="OpenCBS.Enums.dll" Source="SourceDir\OpenCBS.Enums.dll" />
@@ -93,13 +94,14 @@
               <File Id="OpenCBS.GUI.Restarter.exe" Source="SourceDir\OpenCBS.GUI.Restarter.exe" />
               <File Id="OpenCBS.GUI.exe.config" Source="SourceDir\OpenCBS.GUI.exe.config" />
               <File Id="OpenCBS.Reports.dll" Source="SourceDir\OpenCBS.Reports.dll" />
+              <File Id="log4net.dll" Source="SourceDir\log4net.dll" />
               <File Id="AutoMapper.dll" Source="SourceDir\AutoMapper.dll" />
               <File Id="Dapper.dll" Source="SourceDir\Dapper.dll" />
               <File Id="setup.bat" Source="SourceDir\setup.bat" />
               <File Id="dump.bat" Source="SourceDir\dump.bat" />
               <File Id="dumpObjects.bat" Source="SourceDir\dumpObjects.bat" />
             </Component>
-            <!--<Component Id="BuildLabel.txt" Guid="67E3FC7F-3C61-42db-B7EC-B14FDF99E328">
+	    <!--<Component Id="BuildLabel.txt" Guid="67E3FC7F-3C61-42db-B7EC-B14FDF99E328">
               <File Id="BuildLabel.txt" Source="SourceDir\BuildLabel.txt" />
             </Component>
 	    -->
@@ -108,14 +110,14 @@
               <Shortcut Id="DesktopShortcut" Directory="DesktopFolder" Name="OpenCBS $(var.ProductVersionReduced)" Icon="opencbs.ico" WorkingDirectory="DIR_ROOT_VERSION" Advertise="yes"/>
             </Component>
             <Component Id="Registry" Guid="674968e0-7c4a-4164-aaec-5ddf6922a2dc" Permanent="yes">
-              <RegistryKey Id="OpenCbsKey" Root="HKLM" Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.ProductVersion)" Action="create">
-                <util:PermissionEx User="Users" GenericAll="yes"/>
-                <RegistryValue Id="DATABASE_LOGIN_NAME" Type="string" Name="DATABASE_LOGIN_NAME" Value="[LOGINNAME]"/>
-                <RegistryValue Id="DATABASE_NAME" Type="string" Name="DATABASE_NAME" Value="[DATABASENAME]"/>
-                <RegistryValue Id="DATABASE_SERVER_NAME" Type="string" Name="DATABASE_SERVER_NAME" Value="[SERVERNAME]"/>
-                <RegistryValue Id="DATABASE_PASSWORD" Type="string" Name="DATABASE_PASSWORD" Value="[PASSWORD]"/>
-                <RegistryValue Id="DATABASE_TIMEOUT" Type="string" Name="DATABASE_TIMEOUT" Value="[TIMEOUT]"/>
-                <RegistryValue Id="DATABASE_LIST" Type="string" Name="DATABASE_LIST" Value="[DATABASELIST]"/>
+                <RegistryKey Id="OpenCbsKey" Root="HKLM" Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.ProductVersion)" Action="create">
+                    <util:PermissionEx User="Users" GenericAll="yes"/>
+                    <RegistryValue Id="DATABASE_LOGIN_NAME" Type="string" Name="DATABASE_LOGIN_NAME" Value="[LOGINNAME]"/>
+                    <RegistryValue Id="DATABASE_NAME" Type="string" Name="DATABASE_NAME" Value="[DATABASENAME]"/>
+                    <RegistryValue Id="DATABASE_SERVER_NAME" Type="string" Name="DATABASE_SERVER_NAME" Value="[SERVERNAME]"/>
+                    <RegistryValue Id="DATABASE_PASSWORD" Type="string" Name="DATABASE_PASSWORD" Value="[PASSWORD]"/>
+                    <RegistryValue Id="DATABASE_TIMEOUT" Type="string" Name="DATABASE_TIMEOUT" Value="[TIMEOUT]"/>
+					<RegistryValue Id="DATABASE_LIST" Type="string" Name="DATABASE_LIST" Value="[DATABASELIST]"/>
               </RegistryKey>
             </Component>
             <Directory Id="DIR_TEMPLATE" Name="Template">
@@ -146,9 +148,9 @@
                 </CreateFolder>
                 <File Id="OpenCBS.Extension.ExcelReports.dll" Source="SourceDir\Extensions\OpenCBS.Extension.ExcelReports.dll" />
                 <File Id="OpenCBS.Extension.OfficeReports.dll" Source="SourceDir\Extensions\OpenCBS.Extension.OfficeReports.dll" />
-              </Component>
+              </Component>              
             </Directory>
-
+            
             <Directory Id="DIR_EXPORT" Name="Export">
               <Component Id="export" Guid="F0AA0279-AA60-E9A6-F4D2-F52EC785FB43">
                 <CreateFolder/>
@@ -158,7 +160,7 @@
               <Component Id="fr" Guid="a75ee299-2357-45fa-bef2-7ad60a136661">
                 <File Id="OpenCBS.GUI.resources.dll" Source="SourceDir\fr\OpenCBS.GUI.resources.dll" />
                 <File Id="OpenCBS.MultiLanguageRessources.resources.dll" Source="SourceDir\fr\OpenCBS.MultiLanguageRessources.resources.dll" />
-                <File Id="OpenCBS.Reports.resources.dll" Source="SourceDir\fr\OpenCBS.Reports.resources.dll" />
+				<File Id="OpenCBS.Reports.resources.dll" Source="SourceDir\fr\OpenCBS.Reports.resources.dll" />
               </Component>
             </Directory>
             <Directory Id="DIR_RESSOURCES_EN" Name="en">
@@ -170,7 +172,7 @@
               <Component Id="ru" Guid="E8B3DF4C-BA07-CBDB-78FA-953EB05C7993">
                 <File Id="OpenCBS.GUI.resources_1" Name="OpenCBS.GUI.resources.dll" Source="SourceDir\ru-RU\OpenCBS.GUI.resources.dll" />
                 <File Id="OpenCBS.MultiLanguageRessources.resources_1" Name="OpenCBS.MultiLanguageRessources.resources.dll" Source="SourceDir\ru-RU\OpenCBS.MultiLanguageRessources.resources.dll" />
-                <File Id="OpenCBS.Reports.resources_1" Name="OpenCBS.Reports.resources.dll" Source="SourceDir\ru-RU\OpenCBS.Reports.resources.dll" />
+				<File Id="OpenCBS.Reports.resources_1" Name="OpenCBS.Reports.resources.dll" Source="SourceDir\ru-RU\OpenCBS.Reports.resources.dll" />
               </Component>
             </Directory>
             <Directory Id="DIR_RESSOURCES_ES" Name="es-ES">
@@ -193,7 +195,7 @@
                 <File Id="DropAndCreateUDF.sql" Source="SourceDir\Update\DropAndCreateUDF.sql" />
               </Component>
               <Component Id="sql_create_database" Guid="6A36DFA4-83F5-FC67-DDB2-0AD22AB03E72">
-                <File Id="CreateDatabase_v14.4.0.0.sql" Source="SourceDir\Update\CreateDatabase_v14.4.0.0.sql" />
+                <File Id="CreateDatabase_v14.3.0.0.sql" Source="SourceDir\Update\CreateDatabase_v14.3.0.0.sql" />
               </Component>
               <Component Id="sql_update_database" Guid="BDBEE7A0-23E5-2E7D-BD1B-E58C5CFA0E65">
                 <File Id="Database_Update_v1.1.0_to_v1.1.1.sql" Source="SourceDir\Update\Database_Update_v1.1.0_to_v1.1.1.sql" />
@@ -271,39 +273,65 @@
                 <File Id="Database_Update_v13.14.0.0_to_v14.1.0.0.sql" Source="SourceDir\Update\Database_Update_v13.14.0.0_to_v14.1.0.0.sql" />
                 <File Id="Database_Update_v14.1.0.0_to_v14.2.0.0.sql" Source="SourceDir\Update\Database_Update_v14.1.0.0_to_v14.2.0.0.sql" />
                 <File Id="Database_Update_v14.2.0.0_to_v14.3.0.0.sql" Source="SourceDir\Update\Database_Update_v14.2.0.0_to_v14.3.0.0.sql" />
-                <File Id="Database_Update_v14.3.0.0_to_v14.4.0.0.sql" Source="SourceDir\Update\Database_Update_v14.3.0.0_to_v14.4.0.0.sql" />
               </Component>
               <Component Id="xml_data_schema" Guid="CB26138B-9031-2360-D666-DD5F20038ED9">
-                <File Id="OCTOPUS_Data_Schema_v14.4.0.0.xml" Name="OCTOPUS_Data_Schema_(v14.4.0.0).xml" Source="SourceDir\Update\OCTOPUS_Data_Schema_(v14.4.0.0).xml" />
+                <File Id="OCTOPUS_Data_Schema_v14.3.0.0.xml" Name="OCTOPUS_Data_Schema_(v14.3.0.0).xml" Source="SourceDir\Update\OCTOPUS_Data_Schema_(v14.3.0.0).xml" />
                 <File Id="OCTOPUS_Upgrade_Schema.xml" Source="SourceDir\Update\OCTOPUS_Upgrade_Schema.xml" />
                 <File Id="Objects.xml" Source="SourceDir\Update\Objects.xml" />
               </Component>
             </Directory>
             <Directory Id="DIR_REPORTS" Name="Reports">
-              <Directory Id="dir_standard" Name="Standard">
+              <!--<Directory Id="dir_standard" Name="Standard">
                 <Component Id="dir_standard" Guid="625E4E02-68E0-45F2-8198-10CE3FD140BF" KeyPath="yes">
                   <File Id="Active_Loans" Name = "Active_Loans.zip" Source="SourceDir\Reports\Standard\Active_Loans.zip" />
+                  <File Id="Active_Savings" Name="Active_Savings.zip" Source="SourceDir\Reports\Standard\Active_Savings.zip" />
+                  <File Id="Client_ShareOfWomen" Name="Client_ShareOfWomen.zip" Source="SourceDir\Reports\Standard\Client_ShareOfWomen.zip" />
+                  <File Id="Clients_Loan_Statistics" Name="Clients_Loan_Statistics.zip" Source="SourceDir\Reports\Standard\Clients_Loan_Statistics.zip" />
                   <File Id="Closed_Contracts" Name="Closed_Contracts.zip" Source="SourceDir\Reports\Standard\Closed_Contracts.zip" />
+                  <File Id="Data_Quality_Report" Name="Data_Quality_Report.zip" Source="SourceDir\Reports\Standard\Data_Quality_Report.zip" />
                   <File Id="Delinquent_Loans" Name="Delinquent_Loans.zip" Source="SourceDir\Reports\Standard\Delinquent_Loans.zip" />
+                  <File Id="Disbursements_Per_Activity" Name="Disbursements_Per_Activity.zip" Source="SourceDir\Reports\Standard\Disbursements_Per_Activity.zip" />
                   <File Id="Disbursments" Name="Disbursments.zip" Source="SourceDir\Reports\Standard\Disbursments.zip" />
+                  <File Id="Disbursements_And_Reimbursements" Name = "Disbursements_And_Reimbursements.zip" Source="SourceDir\Reports\Standard\Disbursements_And_Reimbursements.zip" />
                   <File Id="OLB_and_LLP" Name="OLB_and_LLP.zip" Source="SourceDir\Reports\Standard\OLB_and_LLP.zip" />
                   <File Id="PAR_Analysis" Name="PAR_Analysis.zip" Source="SourceDir\Reports\Standard\PAR_Analysis.zip" />
                   <File Id="Repayments" Name="Repayments.zip" Source="SourceDir\Reports\Standard\Repayments.zip" />
+                  <File Id="Residual_Maturity" Name="Residual_Maturity.zip" Source="SourceDir\Reports\Standard\Residual_Maturity.zip" />
+                  <File Id="Written_Off_Loans" Name="Written_Off_Loans.zip" Source="SourceDir\Reports\Standard\Written_Off_Loans.zip" />
+                  <File Id="OLB_per_Client" Name="OLB_per_Client.zip" Source="SourceDir\Reports\Standard\OLB_per_Client.zip" />
+                  <File Id="Rescheduled_Loans" Name="Rescheduled_Loans.zip" Source="SourceDir\Reports\Standard\Rescheduled_Loans.zip" />
+                  <File Id="Reassigned_Loans" Name="Reassigned_Loans.zip" Source="SourceDir\Reports\Standard\Reassigned_Loans.zip" />
+                  <File Id="Anticipated_Totally_Repaid_Loans" Name="Anticipated_Totally_Repaid_Loans.zip" Source="SourceDir\Reports\Standard\Anticipated_Totally_Repaid_Loans.zip" />
                   <File Id="Client_Information" Name="Client_Information.zip" Source="SourceDir\Reports\Standard\Client_Information.zip" />
+                  <File Id="Exchange_Rate_GainLoss" Name="Exchange_Rate_GainLoss.zip" Source="SourceDir\Reports\Standard\Exchange_Rate_GainLoss.zip" />
+                  <File Id="Portfolio_Transfer" Name="Portfolio_Transfer.zip" Source="SourceDir\Reports\Standard\Portfolio_Transfer.zip" />
+                  <File Id="Loan_Renewal_Help" Name="Loan_Renewal_Help.zip" Source="SourceDir\Reports\Standard\Loan_Renewal_Help.zip" />
+                  <File Id="Cash_Book" Name="Cash_Book.zip" Source="SourceDir\Reports\Standard\Cash_Book.zip" />
+                  <File Id="TrialBalance" Name="TrialBalance.zip" Source="SourceDir\Reports\Standard\TrialBalance.zip" />
+                  <File Id="Saving_Contracts" Name="Savings_Contracts.zip" Source="SourceDir\Reports\Standard\Savings_Contracts.zip" />
                   <File Id="Collection_Sheet_Standard" Name="Collection_Sheet.zip" Source="SourceDir\Reports\Standard\Collection_Sheet.zip" />
-                </Component>
-              </Directory>
+				          <File Id="Guarantors" Name="Guarantors.zip" Source="SourceDir\Reports\Standard\Guarantors.zip" />
+				          <File Id="Booking_List" Name="Booking_List.zip" Source="SourceDir\Reports\Standard\Booking_List.zip" />
+                  <File Id="NBT" Name="NBT.zip" Source="SourceDir\Reports\Standard\NBT.zip" />
+				          <File Id="Tranches" Name="Tranches.zip" Source="SourceDir\Reports\Standard\Tranches.zip" />
+				          <File Id="Compulsary_Savings_Accounts" Name="Compulsory_Savings_Accounts.zip" Source="SourceDir\Reports\Standard\Compulsory_Savings_Accounts.zip" />
+				          <File Id="Statistics_per_gender" Name = "Statistics_per_gender.zip" Source="SourceDir\Reports\Standard\Statistics_per_gender.zip" />
+				          <File Id="Loan_Loss_Provision" Name = "LoanLossProvision.zip" Source="SourceDir\Reports\Standard\LoanLossProvision.zip" />
+				          <File Id="Credit_Life_Insurance" Name = "CreditLifeInsurance.zip" Source="SourceDir\Reports\Standard\CreditLifeInsurance.zip" />
+						  <File Id="Collateral_Report" Name = "Collateral_Report.zip" Source="SourceDir\Reports\Standard\Collateral_Report.zip" />
+				</Component>
+              </Directory>-->
               <Directory Id="dir_consolidated" Name="Consolidated">
-                <Component Id="dir_consolidated" Guid="d1f2afed-0816-4248-b8b0-7c0194bbf35e" KeyPath="yes">
-                  <File Id="evolution_Clients" Name="evolution_Clients.zip" Source="SourceDir\Reports\Consolidated\evolution_Clients.zip" />
-                  <File Id="evolution_Contracts" Name="evolution_Contracts.zip" Source="SourceDir\Reports\Consolidated\evolution_Contracts.zip" />
-                  <File Id="evolution_Disbursements" Name="evolution_Disbursements.zip" Source="SourceDir\Reports\Consolidated\evolution_Disbursements.zip" />
-                  <File Id="evolution_OLB" Name="evolution_OLB.zip" Source="SourceDir\Reports\Consolidated\evolution_OLB.zip" />
-                  <File Id="evolution_PAR" Name="evolution_PAR.zip" Source="SourceDir\Reports\Consolidated\evolution_PAR.zip" />
-                  <File Id="evolution_Repayments" Name="evolution_Repayments.zip" Source="SourceDir\Reports\Consolidated\evolution_Repayments.zip" />
-                </Component>
-              </Directory>
-              <Directory Id="dir_internal" Name="Internal">
+                  <Component Id="dir_consolidated" Guid="d1f2afed-0816-4248-b8b0-7c0194bbf35e" KeyPath="yes">
+                      <File Id="evolution_Clients" Name="evolution_Clients.zip" Source="SourceDir\Reports\Consolidated\evolution_Clients.zip" />
+                      <File Id="evolution_Contracts" Name="evolution_Contracts.zip" Source="SourceDir\Reports\Consolidated\evolution_Contracts.zip" />
+                      <File Id="evolution_Disbursements" Name="evolution_Disbursements.zip" Source="SourceDir\Reports\Consolidated\evolution_Disbursements.zip" />
+                      <File Id="evolution_OLB" Name="evolution_OLB.zip" Source="SourceDir\Reports\Consolidated\evolution_OLB.zip" />
+                      <File Id="evolution_PAR" Name="evolution_PAR.zip" Source="SourceDir\Reports\Consolidated\evolution_PAR.zip" />
+                      <File Id="evolution_Repayments" Name="evolution_Repayments.zip" Source="SourceDir\Reports\Consolidated\evolution_Repayments.zip" />
+                  </Component>
+              <!--</Directory>
+              --><!--<Directory Id="dir_internal" Name="Internal">--><!--
                 <Component Id="dir_internal" Guid="625E4E02-68E0-45F2-8198-10DA3FD140BF" KeyPath="yes">
                   <File Id="SavingsCompulsory_Contract_Status" Name = "SavingsCompulsory_Contract_Status.zip" Source="SourceDir\Reports\Internal\SavingsCompulsory_Contract_Status.zip" />
                   <File Id="SavingsCompulsory_Cash_Receipt" Name = "SavingsCompulsory_Cash_Receipt.zip" Source="SourceDir\Reports\Internal\SavingsCompulsory_Cash_Receipt.zip" />
@@ -328,13 +356,13 @@
                   <File Id="Guarantee_Committee_Appraisal" Name = "Guarantee_Committee_Appraisal.zip" Source="SourceDir\Reports\Internal\Guarantee_Committee_Appraisal.zip" />
                   <File Id="Client_Personal_Information" Name = "Client_Personal_Information.zip" Source="SourceDir\Reports\Internal\Client_Personal_Information.zip" />
                   <File Id="Audit_Trail" Name = "Audit_Trail.zip" Source="SourceDir\Reports\Internal\Audit_Trail.zip" />
-                  <File Id="Village_Disbursement_Cash_Receipt" Name = "Village_Disbursement_Cash_Receipt.zip" Source="SourceDir\Reports\Internal\Village_Disbursement_Cash_Receipt.zip" />
-                  <File Id="Village_Collection_Sheet" Name = "Village_Collection_Sheet.zip" Source="SourceDir\Reports\Internal\Village_Collection_Sheet.zip" />
-                  <File Id="Village_Disbursement_Sheet" Name = "Village_Disbursement_Sheet.zip" Source="SourceDir\Reports\Internal\Village_Disbursement_Sheet.zip" />
-                  <File Id="Village_Individual_Loan_Agreement" Name = "Village_Individual_Loan_Agreement.zip" Source="SourceDir\Reports\Internal\Village_Individual_Loan_Agreement.zip" />
-                  <File Id="Village_Repayment_Schedule" Name = "Village_Repayment_Schedule.zip" Source="SourceDir\Reports\Internal\Village_Repayment_Schedule.zip" />
+				  <File Id="Village_Disbursement_Cash_Receipt" Name = "Village_Disbursement_Cash_Receipt.zip" Source="SourceDir\Reports\Internal\Village_Disbursement_Cash_Receipt.zip" />
+				  <File Id="Village_Collection_Sheet" Name = "Village_Collection_Sheet.zip" Source="SourceDir\Reports\Internal\Village_Collection_Sheet.zip" />
+				  <File Id="Village_Disbursement_Sheet" Name = "Village_Disbursement_Sheet.zip" Source="SourceDir\Reports\Internal\Village_Disbursement_Sheet.zip" />				  				          
+				  <File Id="Village_Individual_Loan_Agreement" Name = "Village_Individual_Loan_Agreement.zip" Source="SourceDir\Reports\Internal\Village_Individual_Loan_Agreement.zip" />
+				  <File Id="Village_Repayment_Schedule" Name = "Village_Repayment_Schedule.zip" Source="SourceDir\Reports\Internal\Village_Repayment_Schedule.zip" />				  
                 </Component>
-              </Directory>
+              </Directory>-->
             </Directory>
           </Directory>
         </Directory>
@@ -374,7 +402,7 @@
       <ComponentRef Id="Registry" />
       <ComponentRef Id="dir_desktop" />
       <ComponentRef Id="ApplicationShortcut" />
-      <ComponentRef Id="extensions" />
+      <ComponentRef Id="extensions" />      
     </Feature>
 
     <CustomAction Id="PreventDowngrading" Error="Newer version already installed." />

@@ -156,7 +156,6 @@ namespace OpenCBS.GUI
             this.savingProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCollateralProducts = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.otherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainStatusBar = new System.Windows.Forms.StatusStrip();
             this.mainStatusBarLblUpdateVersion = new System.Windows.Forms.ToolStripStatusLabel();
             this.mainStatusBarLblUserName = new System.Windows.Forms.ToolStripStatusLabel();
@@ -847,15 +846,8 @@ namespace OpenCBS.GUI
             // 
             // reportsToolStripMenuItem
             // 
-            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.otherToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             resources.ApplyResources(this.reportsToolStripMenuItem, "reportsToolStripMenuItem");
-            // 
-            // otherToolStripMenuItem
-            // 
-            this.otherToolStripMenuItem.Name = "otherToolStripMenuItem";
-            resources.ApplyResources(this.otherToolStripMenuItem, "otherToolStripMenuItem");
             // 
             // mainStatusBar
             // 
@@ -991,7 +983,6 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem tellersToolStripMenuItem;
         private ToolStripMenuItem aboutMenuItem;
         private ToolStripMenuItem reportsToolStripMenuItem;
-        private ToolStripMenuItem otherToolStripMenuItem;
         private ToolStripMenuItem mnuSettings;
         private ToolStripMenuItem menuItemSetting;
         private ToolStripMenuItem menuItemAdvancedSettings;

@@ -50,7 +50,7 @@ namespace OpenCBS.GUI
         public DashboardForm()
         {
             InitializeComponent();
-            SetUp();
+           SetUp();
         }
 
         private void OnLoad(object sender, EventArgs e)
