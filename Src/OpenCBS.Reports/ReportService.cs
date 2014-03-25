@@ -29,7 +29,6 @@ using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using System.Data;
 using OpenCBS.CoreDomain;
-using OpenCBS.Enums;
 using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.Reports 
@@ -84,19 +83,14 @@ namespace OpenCBS.Reports
             string dir = GetReportsDir();
             string dirStandard = Path.Combine(dir, "Standard");
             string dirInternal = Path.Combine(dir, "Internal");
-            string dirConsolidated = Path.Combine(dir, "Consolidated");
-            string dirMain = GetReportsDir();
 
             if (!Directory.Exists(dirStandard))
                 Directory.CreateDirectory(dirStandard);
             if (!Directory.Exists(dirInternal))
                 Directory.CreateDirectory(dirInternal);
-            if (!Directory.Exists(dirConsolidated))
-                Directory.CreateDirectory(dirConsolidated);
 
             LoadFromDir(dirStandard, Flag.Standard);
             LoadFromDir(dirInternal, Flag.Internal);
-            LoadFromDir(dirConsolidated, Flag.Consolidated);
         }
 
         public ReportList GetReports()
