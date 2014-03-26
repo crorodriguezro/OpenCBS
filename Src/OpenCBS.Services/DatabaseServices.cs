@@ -238,15 +238,6 @@ namespace OpenCBS.Services
                 );
         }
 
-        public bool CreateDatabase(string pAccountName, string pDatabaseName, string pLogin, string pPassword, string pVersion, string pScriptPath)
-        {
-            SqlConnection connection = DatabaseConnection.Remoting.GetSqlConnectionOnMaster();
-            CreateDatabaseImpl(pDatabaseName, pVersion, pScriptPath, connection);
-            _addDatabaseToAccounts(pAccountName, pDatabaseName, pLogin, pPassword, connection);
-
-            return true;
-        }
-
         public bool CreateAccountDatabase(string pScriptPath)
         {
             string sqlConnection = String.Format(@"user id={0};password={1};data source={2};persist security info=False;initial catalog={3};connection timeout=10",
@@ -285,40 +276,6 @@ namespace OpenCBS.Services
             catch
             {
                 connection.Close();
-                throw;
-            }
-        }
-
-        public bool ChangeAdminPasswordForAccount(string pAccountName, string pPassword)
-        {
-            SqlConnection connection = DatabaseConnection.Remoting.GetSqlConnectionOnMaster();
-            try
-            {
-                connection.Open();
-                int affectedRows = DatabaseManager.ChangeAdminPasswordForAccount(pAccountName, pPassword, connection);
-                connection.Close();
-                return affectedRows == 1;
-            }
-            catch
-            {
-                connection.Close();
-                throw;
-            }
-
-        }
-
-        private bool _addDatabaseToAccounts(string pAccountName, string pDatabaseName, string pLogin, string pPassword, SqlConnection pSqlConnection)
-        {
-            try
-            {
-                pSqlConnection.Open();
-                DatabaseManager.AddDatabaseToAccounts(pAccountName, pDatabaseName, pLogin, pPassword, pSqlConnection);
-                pSqlConnection.Close();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                pSqlConnection.Close();
                 throw;
             }
         }
@@ -398,11 +355,6 @@ namespace OpenCBS.Services
                 connection.Close();
                 throw;
             }
-        }
-
-        public List<SqlAccountsDatabase> GetSQLAccountsDatabases()
-        {
-            return DatabaseManager.GetListDatabasesIntoAccounts(DatabaseConnection.Remoting.GetSqlConnectionOnMaster());
         }
 
         public bool ExecuteScript(string pScriptPath, string pDatabase, string pServerName, string pLoginName, string pPassword)

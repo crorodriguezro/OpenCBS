@@ -53,10 +53,8 @@
     </Compile>
     <Compile Include="ConnectionManager.cs" />
     <Compile Include="IConnectionManager.cs" />
-    <Compile Include="DatabaseConnection\Remoting.cs" />
     <Compile Include="DatabaseConnection\Standard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Timer.cs" />
     <Compile Include="UserRemotingContext.cs" />
   </ItemGroup>
   <ItemGroup>
