@@ -35,7 +35,6 @@ namespace OpenCBS.DatabaseConnection
 
         public void create_timer()
         {
-            Log.RemotingServiceLogger.Info("Call of create_timer");
             _timer.Interval = 6000;
 
             // TODO uncomment : this was just for the test
@@ -63,7 +62,6 @@ namespace OpenCBS.DatabaseConnection
                 {
                     if (((UserRemotingContext)cur_connec.Value).Connection.State != ConnectionState.Closed)
                     {
-                        Log.RemotingServiceLogger.Info("Supress the token unique string : " + ((UserRemotingContext)cur_connec.Value).Token.get_unique_string());
                         ((UserRemotingContext) cur_connec.Value).Connection.Close();
                     }
                     return;

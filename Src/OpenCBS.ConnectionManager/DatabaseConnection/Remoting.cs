@@ -84,8 +84,6 @@ namespace OpenCBS.DatabaseConnection
         {
             if (account_table.Contains(pMd5))
             {
-                Log.RemotingServiceUsersLogger.InfoFormat(@"[DECONNECTION {2}\{3}]: Users, branch name:{0} login:{1}, disconnected", ((UserRemotingContext)account_table[pMd5]).Token.Account, ((UserRemotingContext)account_table[pMd5]).Token.Login, pComputerName, pLoginName);
-                Log.RemotingServiceLogger.InfoFormat(@"[DECONNECTION {2}\{3}]: Users, branch name:{0} login:{1}, disconnected", ((UserRemotingContext)account_table[pMd5]).Token.Account, ((UserRemotingContext)account_table[pMd5]).Token.Login, pComputerName, pLoginName);
                 account_table.Remove(pMd5);
             }
         }
@@ -93,16 +91,12 @@ namespace OpenCBS.DatabaseConnection
 
         public void RunTimeout()
         {
-            Log.RemotingServiceLogger.Warn("Call Of RUN_TIMEOUT");
             Timer timer = new Timer();
             timer.create_timer();
         }
 
         public string GetAuthentification(string pOctoLogin, string pOctoPass, string pOctoAccount, string pComputerName, string pLoginName)
         {
-            Log.RemotingServiceLogger.DebugFormat("Call of get_authentification with login : {0}, pass : {1}, account : {2}", pOctoLogin, pOctoPass, pOctoAccount);
-            Log.RemotingServiceLogger.DebugFormat(" login : {0}, pass : {1}, server : {2}", RemoteServerSettings.GetSettings().LoginName, RemoteServerSettings.GetSettings().Password, RemoteServerSettings.GetSettings().ServerName);
-
             string md5String = "";
             Token token = _getTokenByAccountName(pOctoAccount);
             UserRemotingContext connectionManager = new UserRemotingContext();
@@ -111,7 +105,6 @@ namespace OpenCBS.DatabaseConnection
             {
                 // Throw exeption
                 // FIXME
-                Log.RemotingServiceLogger.Error("Les User/Pass octo donn�e ne sont pas valide");
                 throw new Exception("messageBoxUserPasswordIncorrect.Text");
             }
 
@@ -131,7 +124,6 @@ namespace OpenCBS.DatabaseConnection
 
             string connectionString = "user id=" + token.Login + ";password=" + token.Pass + ";server=" +
                                       RemoteServerSettings.GetSettings().ServerName + ";initial catalog=" + token.Account;
-            Log.RemotingServiceLogger.DebugFormat("Connection String {0}", connectionString);
             SqlConnection connection = new SqlConnection(connectionString);
             SqlConnection secondaryConnection = new SqlConnection(connectionString);
             
@@ -141,17 +133,12 @@ namespace OpenCBS.DatabaseConnection
 
             if (account_table.Contains(md5String) == false)
             {
-                Log.RemotingServiceLogger.DebugFormat("The account Dictionary doesnt contain this md5 : {0}", md5String);
                 account_table[md5String] = connectionManager;
             }
 
             // Set the connection in the connectionManager
-            Log.RemotingServiceLogger.DebugFormat("ConnectionString: {0}", connection.ConnectionString);
             this.SetConnection(connection);
             //OpenCBS.DatabaseConnection.ConnectionManager.GetInstance().SetConnection(connection);
-
-            Log.RemotingServiceUsersLogger.InfoFormat(@"[CONNECTION {3}\{4}] Users, branch name:{0} login:{1}, connected \n \t Connection string :{2}", pOctoAccount, pOctoLogin, connectionString, pComputerName, pLoginName);
-            Log.RemotingServiceLogger.InfoFormat(@"[CONNECTION {3}\{4}] Users, branch name:{0} login:{1}, connected \n \t Connection string :{2}", pOctoAccount, pOctoLogin, connectionString, pComputerName, pLoginName);
 
             return md5String;
         }
@@ -160,8 +147,6 @@ namespace OpenCBS.DatabaseConnection
         SqlConnection _currentConnection = null;
         private SqlConnection _getAccountSqlconnection()
         {
-            Log.RemotingServiceLogger.Debug("Call get_account_sqlconnection");
-
             if (_currentConnection == null)
             {
                 _currentConnection = new SqlConnection();
@@ -178,8 +163,6 @@ namespace OpenCBS.DatabaseConnection
         // Get the token by passing him the accountName
         private Token _getTokenByAccountName(string pAccount)
         {
-            Log.RemotingServiceLogger.DebugFormat("Call getTokenByAccountName with: {0}", pAccount);
-
             Token token = null;
 
             string sqlText = @"SELECT user_name, password, database_name, active
@@ -206,7 +189,6 @@ namespace OpenCBS.DatabaseConnection
 
                         if (!active)
                         {
-                            Log.RemotingServiceLogger.ErrorFormat("Account {0} inactive", pAccount);
                             throw new Exception("AccountInactive.Text");
                         }
 
@@ -214,14 +196,12 @@ namespace OpenCBS.DatabaseConnection
                     }
                     else
                     {
-                        Log.RemotingServiceLogger.ErrorFormat("Account {0} incorrect", pAccount);
                         throw new Exception("AccountNameIncorrect.Text");
                     }
                 }
             }
             catch (Exception e)
             {
-                Log.RemotingServiceLogger.Error("Error during connection to the server", e);
                 throw;
             }
             return token;
@@ -230,15 +210,11 @@ namespace OpenCBS.DatabaseConnection
         // Check the validity of the login/pass/account
         private bool _checkAccount(Token pSqlToken, string pOctoLogin, string pOctoPass)
         {
-            Log.RemotingServiceLogger.Debug("Call CheckAccount");
-
             if (pSqlToken == null)
             {
-                Log.RemotingServiceLogger.Debug("Call CheckAccount with pSqlToken null");
                 return false;
             }
 
-            Log.RemotingServiceLogger.DebugFormat("Call check_account user = {0} pass = {1} token = login {2}, pass {3}, account {4}", pOctoLogin, pOctoPass, pSqlToken.Login, pSqlToken.Pass, pSqlToken.Account);
             int valid = 0;
             string connection_string = "user id=" + pSqlToken.Login + ";password=" + pSqlToken.Pass + ";server=" + RemoteServerSettings.GetSettings().ServerName + ";initial catalog=" + pSqlToken.Account;
             SqlConnection connection = new SqlConnection(connection_string);
@@ -402,8 +378,6 @@ namespace OpenCBS.DatabaseConnection
                 {
                     throw new ApplicationException(
                         "Unable to connect to database (" + _connection.DataSource + "/" + _connection.Database +
-                        "). Please contact your local IT administrator.", ex);
-                    Log.RemotingServiceLogger.Error("Unable to connect to database (" + _connection.DataSource + "/" + _connection.Database +
                         "). Please contact your local IT administrator.", ex);
                 }
             }

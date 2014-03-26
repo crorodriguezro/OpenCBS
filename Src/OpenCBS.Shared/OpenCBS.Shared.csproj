@@ -111,10 +111,6 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Lib\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -160,7 +156,6 @@
     <Compile Include="CustomClass.cs">
     </Compile>
     <Compile Include="FileSizeFormatProvider.cs" />
-    <Compile Include="Log.cs" />
     <Compile Include="Settings\Remote\IRemoteServerSettings.cs" />
     <Compile Include="Settings\Remote\RemoteServerSettings.cs" />
     <Compile Include="Settings\GlobalSettings.Designer.cs">
@@ -220,9 +215,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Log4net.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="RemoteServerSettings.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
