@@ -61,11 +61,6 @@ namespace OpenCBS.GUI
             {
                 Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(UserSettings.Language);
                 Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture;
-                Thread.CurrentThread.CurrentCulture.NumberFormat = new NumberFormatInfo
-                {
-                    NumberGroupSeparator = " ",
-                    NumberDecimalSeparator = ",",
-                };
 
                 _ParseApplicationSettings(pArgs);
 
