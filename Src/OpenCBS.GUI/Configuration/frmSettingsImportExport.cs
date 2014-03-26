@@ -202,7 +202,7 @@ namespace OpenCBS.GUI.Configuration
                         StreamWriter writer = new StreamWriter(frm.FileFullPath, false, Encoding.UTF8);
                         xml.Serialize(writer, GetSelectedSettings());
                         writer.Close();
-                        Close();
+                        
                     }
                     catch(InvalidOperationException ex)
                     {
@@ -210,6 +210,7 @@ namespace OpenCBS.GUI.Configuration
                     }
                 }
             }
+            Close();
         }
 
         private void cbPackages_CheckedChanged(object sender, EventArgs e)
