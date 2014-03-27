@@ -30,5 +30,15 @@ namespace OpenCBS.ArchitectureV2.Service
         {
             return UserSettings.GetUpdatePath;
         }
+
+        public string GetNumberGroupSeparator()
+        {
+            return ApplicationSettings.GetInstance("").NumberGroupSeparator;
+        }
+
+        public string GetNumberDecimalSeparator()
+        {
+            return ApplicationSettings.GetInstance("").NumberDecimalSeparator;
+        }
     }
 }

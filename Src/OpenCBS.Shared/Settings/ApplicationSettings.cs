@@ -102,6 +102,8 @@ namespace OpenCBS.Shared.Settings
             _defaultParamList.Add(OGeneralSettings.MODIFY_ENTRY_FEE, 0);
             _defaultParamList.Add(OGeneralSettings.USE_MANDATORY_SAVING_ACCOUNT, 0);
             _defaultParamList.Add(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, 0);
+            _defaultParamList.Add(OGeneralSettings.NUMBER_GROUP_SEPARATOR, " ");
+            _defaultParamList.Add(OGeneralSettings.NUMBER_DECIMAL_SEPARATOR, ",");
         }
 
         #region Internal stuff
@@ -537,6 +539,16 @@ namespace OpenCBS.Shared.Settings
         public bool UseDailyAccrualOfPenalty
         {
             get { return GetSpecificParameter(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY).ToString() == "1"; }
+        }
+
+        public string NumberGroupSeparator
+        {
+            get { return (string) GetSpecificParameter(OGeneralSettings.NUMBER_GROUP_SEPARATOR); }
+        }
+
+        public string NumberDecimalSeparator
+        {
+            get { return (string) GetSpecificParameter(OGeneralSettings.NUMBER_DECIMAL_SEPARATOR); }
         }
     }
 }

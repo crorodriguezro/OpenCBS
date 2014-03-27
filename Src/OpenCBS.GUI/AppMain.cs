@@ -59,10 +59,10 @@ namespace OpenCBS.GUI
         {
             try
             {
+                _ParseApplicationSettings(pArgs);
+
                 Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(UserSettings.Language);
                 Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture;
-
-                _ParseApplicationSettings(pArgs);
 
                 Application.EnableVisualStyles();
                 Application.DoEvents();
@@ -128,7 +128,7 @@ namespace OpenCBS.GUI
                     frm.ShowDialog();
                     Environment.Exit(1);
                 }
-                else if(arg == PARAM_SETUP)
+                else if (arg == PARAM_SETUP)
                 {
                     TechnicalSettings.CheckSettings();
                     Form frm = new FrmDatabaseSettings(FrmDatabaseSettingsEnum.SqlServerConnection, true, true);
@@ -163,21 +163,21 @@ namespace OpenCBS.GUI
             Mapper
                 .CreateMap<Engine.Interfaces.IInstallment, CoreDomain.Contracts.Loans.Installments.Installment>()
                 .ForMember(dest => dest.ExpectedDate, opt => opt.MapFrom(src => src.RepaymentDate))
-                .ForMember(dest => dest.CapitalRepayment, opt => opt.MapFrom(src => (OCurrency)src.Principal))
-                .ForMember(dest => dest.InterestsRepayment, opt => opt.MapFrom(src => (OCurrency)src.Interest))
-                .ForMember(dest => dest.PaidCapital, opt => opt.MapFrom(src => (OCurrency)src.PaidPrincipal))
-                .ForMember(dest => dest.PaidInterests, opt => opt.MapFrom(src => (OCurrency)src.PaidInterest))
-                .ForMember(dest => dest.OLB, opt => opt.MapFrom(src => (OCurrency)src.Olb))
-                .ForMember(dest => dest.FeesUnpaid, opt => opt.UseValue((OCurrency)0))
+                .ForMember(dest => dest.CapitalRepayment, opt => opt.MapFrom(src => (OCurrency) src.Principal))
+                .ForMember(dest => dest.InterestsRepayment, opt => opt.MapFrom(src => (OCurrency) src.Interest))
+                .ForMember(dest => dest.PaidCapital, opt => opt.MapFrom(src => (OCurrency) src.PaidPrincipal))
+                .ForMember(dest => dest.PaidInterests, opt => opt.MapFrom(src => (OCurrency) src.PaidInterest))
+                .ForMember(dest => dest.OLB, opt => opt.MapFrom(src => (OCurrency) src.Olb))
+                .ForMember(dest => dest.FeesUnpaid, opt => opt.UseValue((OCurrency) 0))
                 .ForMember(dest => dest.NotPaidYet, opt => opt.UseValue(true))
                 .ForMember(dest => dest.Comment, opt => opt.UseValue(string.Empty))
                 .ForMember(dest => dest.IsPending, opt => opt.UseValue(false))
-                .ForMember(dest => dest.PaidFees, opt => opt.UseValue((OCurrency)0))
-                .ForMember(dest => dest.PaidCommissions, opt => opt.UseValue((OCurrency)0))
-                .ForMember(dest => dest.CommissionsUnpaid, opt => opt.UseValue((OCurrency)0))
+                .ForMember(dest => dest.PaidFees, opt => opt.UseValue((OCurrency) 0))
+                .ForMember(dest => dest.PaidCommissions, opt => opt.UseValue((OCurrency) 0))
+                .ForMember(dest => dest.CommissionsUnpaid, opt => opt.UseValue((OCurrency) 0))
                 .ForMember(dest => dest.PaidDate, opt => opt.MapFrom(src => src.LastPaymentDate))
-                .ForMember(dest => dest.Proportion, opt => opt.UseValue((OCurrency)0))
-                .ForMember(dest => dest.CalculatedPenalty, opt => opt.UseValue((OCurrency)0))
+                .ForMember(dest => dest.Proportion, opt => opt.UseValue((OCurrency) 0))
+                .ForMember(dest => dest.CalculatedPenalty, opt => opt.UseValue((OCurrency) 0))
                 .ForMember(dest => dest.IsLastToRepay, opt => opt.UseValue(false));
 
             Mapper.AssertConfigurationIsValid();

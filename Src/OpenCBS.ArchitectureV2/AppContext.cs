@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 using OpenCBS.ArchitectureV2.Interface.Presenter;
 using OpenCBS.ArchitectureV2.Interface.Service;
@@ -34,7 +36,14 @@ namespace OpenCBS.ArchitectureV2
 
         private Form GetMainForm()
         {
-            _container.GetInstance<ISettingsService>().Init();
+            var settingsService = _container.GetInstance<ISettingsService>();
+            settingsService.Init();
+            Thread.CurrentThread.CurrentCulture.NumberFormat = new NumberFormatInfo
+            {
+                NumberGroupSeparator = settingsService.GetNumberGroupSeparator(),
+                NumberDecimalSeparator = settingsService.GetNumberDecimalSeparator(),
+            };
+
             var mainView = _container.GetInstance<IMainView>();
             mainView.Run();
             return (Form) mainView;

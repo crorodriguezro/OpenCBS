@@ -6,6 +6,8 @@
         void SetDatabaseName(string name);
         string GetSoftwareVersion();
         string GetUpdatePath();
+        string GetNumberGroupSeparator();
+        string GetNumberDecimalSeparator();
         void Init();
     }
 }
