@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="messageBoxDefaultInstallmentType.Text" xml:space="preserve">
     <value>Sélectionner un type d'échéancier</value>
@@ -209,5 +209,17 @@
   </data>
   <data name="ThirtyActual.Text" xml:space="preserve">
     <value>30/Réel</value>
+  </data>
+  <data name="DecliningFixedInstallments.Text" xml:space="preserve">
+    <value>Sur capital restant dû - échéances constantes</value>
+  </data>
+  <data name="DecliningFixedPrincipal.Text" xml:space="preserve">
+    <value>Sur capital restant dû - capital constant</value>
+  </data>
+  <data name="DecliningReal.Text" xml:space="preserve">
+    <value>Sur capital restant dû - intérêts au nombre de jours réel</value>
+  </data>
+  <data name="Flat.Text" xml:space="preserve">
+    <value>Sur capital initial - intérêts fixes</value>
   </data>
 </root>

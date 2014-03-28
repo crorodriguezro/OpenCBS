@@ -190,6 +190,7 @@ namespace OpenCBS.GUI.Products
             InitializeTextBox();
             InitializeComboBoxInstallmentType();
             _product.LoanType = OLoanTypes.Flat;
+            InitializeComboBoxInterestRateType(_product);
             InitializeComboBoxExoticProduct();
             InitializeComboBoxLoanCycles();
             InitializeComboBoxFundingLine();
@@ -210,6 +211,27 @@ namespace OpenCBS.GUI.Products
             lvEntryFees.SubItemEndEditing += lvEntryFees_SubItemEndEditing;
             lvEntryFees.DoubleClickActivation = true;
             _ischangeFee = false;
+        }
+
+        private void InitializeComboBoxInterestRateType(LoanProduct pack)
+        {
+            var index = (int) pack.LoanType - 1;
+            cmbInterestRateType.Items.Clear();
+            cmbInterestRateType.Items.Add(GetString("Flat.Text"));
+            cmbInterestRateType.Items.Add(GetString("DecliningFixedInstallments.Text"));
+            cmbInterestRateType.Items.Add(GetString("DecliningFixedPrincipal.Text"));
+            cmbInterestRateType.Items.Add(GetString("DecliningReal.Text"));
+            var list = ServicesProvider.GetInstance().GetProductServices().SelectLoanProuctTypeScripts();
+            foreach (var script in list)
+            {
+                cmbInterestRateType.Items.Add(script);
+            }
+            if (index < 4)
+                cmbInterestRateType.SelectedIndex = index;
+            else
+            {
+                cmbInterestRateType.SelectedItem = pack.ScriptName;
+            }
         }
 
         private void InitializeComboBoxInterestScheme(int index)
@@ -354,6 +376,7 @@ namespace OpenCBS.GUI.Products
         private void InitializePackageValues(LoanProduct pack)
         {
             InitializeComboBoxInstallmentType();
+            InitializeComboBoxInterestRateType(pack);
             textBoxName.Text = pack.Name;
             comboBoxInstallmentType.Text = pack.InstallmentType.Name;
             tbCreditInsuranceMin.Text = pack.CreditInsuranceMin.ToString("0.00");
@@ -499,30 +522,6 @@ namespace OpenCBS.GUI.Products
                 comboBoxFundingLine.Text = pack.FundingLine.Name;
             if (pack.Currency != null)
                 comboBoxCurrencies.Text = pack.Currency.Name;
-
-            switch (_product.LoanType)
-            {
-                case OLoanTypes.DecliningFixedPrincipal:
-                    {
-                        rbDecliningFixedPrincipal.Checked = true;
-                        break;
-                    }
-                case OLoanTypes.Flat:
-                    {
-                        rbFlat.Checked = true;
-                        break;
-                    }
-                case OLoanTypes.DecliningFixedInstallments:
-                    {
-                        rbDecliningFixedInstallments.Checked = true;
-                        break;
-                    }
-                case OLoanTypes.DecliningFixedPrincipalWithRealInterest:
-                    {
-                        rbDecliningFixedPrincipalRelaInterest.Checked = true;
-                        break;
-                    }
-            }
 
             textBoxCode.Text = pack.Code;
             textBoxGracePeriodLateFee.Text = pack.GracePeriodOfLateFees.ToString();
@@ -1429,31 +1428,37 @@ namespace OpenCBS.GUI.Products
         private void _CheckInterestRateType()
         {
             checkBoxUseExceptionalInstallmen.Checked = false;
-
-            if (rbDecliningFixedInstallments.Checked)
+            if (cmbInterestRateType.SelectedIndex == 0)
+            {
+                _product.LoanType = OLoanTypes.Flat;
+                checkBoxUseExceptionalInstallmen.Enabled = true;
+            }
+            else if (cmbInterestRateType.SelectedIndex == 1)
             {
                 _product.LoanType = OLoanTypes.DecliningFixedInstallments;
                 checkBoxUseExceptionalInstallmen.Enabled = false;
                 checkBoxUseExceptionalInstallmen.Checked = false;
             }
-            else if (rbDecliningFixedPrincipal.Checked)
+            else if (cmbInterestRateType.SelectedIndex == 2)
             {
                 _product.LoanType = OLoanTypes.DecliningFixedPrincipal;
                 checkBoxUseExceptionalInstallmen.Enabled = true;
             }
-            else if (rbFlat.Checked)
-            {
-                _product.LoanType = OLoanTypes.Flat;
-                checkBoxUseExceptionalInstallmen.Enabled = true;
-            }
-            else if (rbDecliningFixedPrincipalRelaInterest.Checked)
+            else if (cmbInterestRateType.SelectedIndex == 3)
             {
                 _product.LoanType = OLoanTypes.DecliningFixedPrincipalWithRealInterest;
                 checkBoxUseExceptionalInstallmen.Enabled = true;
             }
 
             InitializeComboBoxExoticProduct();
+            InitializeCustomLoanTypes();
+            interestRateTextChanged();
             comboBoxExoticProduct.Text = MultiLanguageStrings.GetString(Ressource.FrmAddLoanProduct, "messageSelectExotic.Text");
+        }
+
+        private void InitializeCustomLoanTypes()
+        {
+            
         }
 
         private void checkBoxUseExceptionalInstallmen_CheckedChanged(object sender, EventArgs e)
@@ -2380,7 +2385,7 @@ namespace OpenCBS.GUI.Products
 
         private void interestRateTextChanged()
         {
-            if (rbDecliningFixedPrincipalRelaInterest.Checked == false)
+            if (cmbInterestRateType.SelectedIndex == 3)
             {
                 groupBoxInterestRate.Text = MultiLanguageStrings.GetString(Ressource.FrmAddLoanProduct,
                                                                            "grBoxIntRatePer.Text");
@@ -2390,11 +2395,6 @@ namespace OpenCBS.GUI.Products
                 groupBoxInterestRate.Text = MultiLanguageStrings.GetString(Ressource.FrmAddLoanProduct,
                                                                             "grBoxIntRateYear.Text");
             }
-        }
-
-        private void rbDecliningFixedPrincipalRelaInterest_CheckedChanged(object sender, EventArgs e)
-        {
-            interestRateTextChanged();
         }
 
         private void swbtnEntryFeesAddCycle_Click(object sender, EventArgs e)
@@ -2447,6 +2447,31 @@ namespace OpenCBS.GUI.Products
             }
 
             buttonSave.Enabled = true;
+        }
+
+        private void cmbInterestRateType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _product.ScriptName = null;
+            switch (cmbInterestRateType.SelectedIndex)
+            {
+                case 0:
+                    _product.LoanType = OLoanTypes.Flat;
+                    break;
+                case 1:
+                    _product.LoanType = OLoanTypes.DecliningFixedInstallments;
+                    break;
+                case 2:
+                    _product.LoanType = OLoanTypes.DecliningFixedPrincipal;
+                    break;
+                case 3:
+                    _product.LoanType = OLoanTypes.DecliningFixedPrincipalWithRealInterest;
+                    break;
+                default:
+                    _product.LoanType = OLoanTypes.CustomLoanType;
+                    _product.ScriptName = (string) cmbInterestRateType.SelectedItem;
+                    break;
+            }
+            _CheckInterestRateType();
         }
 	}
 }

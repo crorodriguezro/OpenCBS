@@ -22,6 +22,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
+using System.Linq;
 using System.Threading;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Loans;
@@ -35,6 +37,7 @@ using OpenCBS.CoreDomain;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.Manager.Products;
 using OpenCBS.MultiLanguageRessources;
+using OpenCBS.Reports;
 using OpenCBS.Services.Currencies;
 using OpenCBS.Shared.Settings;
 
@@ -855,6 +858,30 @@ namespace OpenCBS.Services
             int id = _productManager.SelectFundingLineId(product.Id);
             if (0 == id) return;
             product.FundingLine = _fundingLineManager.SelectFundingLineById(id, false);
+        }
+
+        public List<string> SelectLoanProuctTypeScripts()
+        {
+            string dir = GetScriptsDir();
+            var dirSchedule = Path.Combine(dir, "Schedule");
+
+            if (!Directory.Exists(dirSchedule))
+                Directory.CreateDirectory(dirSchedule);
+
+            DirectoryInfo di = new DirectoryInfo(dirSchedule);
+            var scripts = new List<string>();
+            foreach (FileInfo fi in di.GetFileSystemInfos("*.py"))
+            {
+                scripts.Add(fi.Name);
+            }             
+            return scripts;
+        }
+
+        private static string GetScriptsDir()
+        {
+            string dir = TechnicalSettings.ScriptPath;
+            if (string.IsNullOrEmpty(dir)) dir = AppDomain.CurrentDomain.BaseDirectory;
+            return Path.Combine(dir, "Scripts");
         }
 	}
 }

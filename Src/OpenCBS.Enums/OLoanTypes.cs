@@ -29,6 +29,7 @@ namespace OpenCBS.Enums
         Flat = 1,
         DecliningFixedPrincipal = 2,
         DecliningFixedInstallments = 3,
-        DecliningFixedPrincipalWithRealInterest = 4
+        DecliningFixedPrincipalWithRealInterest = 4,
+        CustomLoanType = 5
     }
 }

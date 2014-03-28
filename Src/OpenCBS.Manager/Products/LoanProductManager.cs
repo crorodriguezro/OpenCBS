@@ -157,6 +157,7 @@ namespace OpenCBS.Manager.Products
             
             c.AddParam("@use_entry_fees_cycles", package.UseEntryFeesCycles);
             c.AddParam("@interestScheme", package.InterestScheme);
+            c.AddParam("@scriptName", package.ScriptName);
         }
 
         private void FireProductLoaded(LoanProduct product)
@@ -231,18 +232,19 @@ namespace OpenCBS.Manager.Products
                 ,[activated_loc]
                 ,[allow_flexible_schedule]
                 ,[use_guarantor_collateral]
-	            ,[set_separate_guarantor_collateral]
-	            ,[percentage_total_guarantor_collateral]
-	            ,[percentage_separate_guarantor]
-	            ,[percentage_separate_collateral]
+                ,[set_separate_guarantor_collateral]
+                ,[percentage_total_guarantor_collateral]
+                ,[percentage_separate_guarantor]
+                ,[percentage_separate_collateral]
                 ,[use_compulsory_savings]
-	            ,[compulsory_amount]
-	            ,[compulsory_amount_min]
-	            ,[compulsory_amount_max]
+                ,[compulsory_amount]
+                ,[compulsory_amount_min]
+                ,[compulsory_amount_max]
                 ,[insurance_min]
                 ,[insurance_max]
                 ,[use_entry_fees_cycles]
-                ,[interest_scheme])
+                ,[interest_scheme]
+                ,[script_name])
                 VALUES
                 (@deleted
                 ,@name
@@ -311,7 +313,8 @@ namespace OpenCBS.Manager.Products
                 ,@insurance_min
                 ,@insurance_max
                 ,@use_entry_fees_cycles
-                ,@interestScheme)
+                ,@interestScheme
+                ,@scriptName)
                 SELECT SCOPE_IDENTITY()";
 
             using (SqlConnection conn = GetConnection())
@@ -408,8 +411,9 @@ namespace OpenCBS.Manager.Products
                 ,[currency_id] = @currency_id 
                 ,[insurance_min] = @insurance_min
                 ,[insurance_max] = @insurance_max  
-                ,[use_entry_fees_cycles] = @use_entry_fees_cycles    
-                ,[interest_scheme] = @interestScheme         
+                ,[use_entry_fees_cycles] = @use_entry_fees_cycles
+                ,[interest_scheme] = @interestScheme
+                ,[script_name] = @scriptName
                 WHERE id = @packageId";
 
             using (SqlConnection conn = GetConnection())
@@ -1111,6 +1115,7 @@ namespace OpenCBS.Manager.Products
             package.CreditInsuranceMin = r.GetDecimal("insurance_min");
             package.CreditInsuranceMax = r.GetDecimal("insurance_max");
             package.InterestScheme = (OInterestScheme)r.GetInt("interest_scheme");
+            package.ScriptName = r.GetString("script_name");
             return package;
         }
 

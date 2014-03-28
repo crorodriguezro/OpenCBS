@@ -97,6 +97,11 @@
               <File Id="OpenCBS.Reports.dll" Source="SourceDir\OpenCBS.Reports.dll" />
               <File Id="OpenCBS.License.dll" Source="SourceDir\OpenCBS.License.dll" />
               <File Id="AutoMapper.dll" Source="SourceDir\AutoMapper.dll" />
+              <File Id="IronPython.dll" Source="SourceDir\IronPython.dll" />
+              <File Id="IronPython.Modules" Source="SourceDir\IronPython.Modules.dll" />
+              <File Id="Microsoft.Dynamic.dll" Source="SourceDir\Microsoft.Dynamic.dll" />
+              <File Id="Microsoft.Scripting.dll" Source="SourceDir\Microsoft.Scripting.dll" />
+              <File Id="Microsoft.Scripting.Metadata.dll" Source="SourceDir\Microsoft.Scripting.Metadata.dll" />
               <File Id="Newtonsoft.Json.dll" Source="SourceDir\Newtonsoft.Json.dll" />
               <File Id="StructureMap.dll" Source="SourceDir\StructureMap.dll" />
               <File Id="Dapper.dll" Source="SourceDir\Dapper.dll" />
@@ -351,6 +356,16 @@
                 </Component>
               </Directory>
             </Directory>
+            <Directory Id="DIR_SCRIPTS" Name="Scripts">
+              <Directory Id="dir_scripts_schedule" Name="Schedule">
+                <Component Id="dir_scripts_schedule" Guid="AC3C58A1-F5D4-415B-830A-67763186EC53" KeyPath="Yes">
+                </Component>
+              </Directory>
+              <Directory Id="dir_scripts_repayment" Name="Repayment">
+                <Component Id="dir_scripts_repayment" Guid="D7D5A01E-E6A7-48BB-AB99-527237F81049" KeyPath="Yes">
+                </Component>
+              </Directory>
+            </Directory>
           </Directory>
         </Directory>
       </Directory>
@@ -371,6 +386,8 @@
       <ComponentRef Id="dir_excel" />
       <ComponentRef Id="dir_standard" />
       <ComponentRef Id="dir_internal" />
+      <ComponentRef Id="dir_scripts_schedule" />
+      <ComponentRef Id="dir_scripts_repayment" />
       <ComponentRef Id="xml_data_schema" />
       <ComponentRef Id="sql_update_database" />
       <ComponentRef Id="sql_create_database" />

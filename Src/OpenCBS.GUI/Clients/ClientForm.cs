@@ -3381,6 +3381,7 @@ namespace OpenCBS.GUI.Clients
 
         private void buttonLoanPreview_Click(object sender, EventArgs e)
         {
+            _credit.ScheduleChangedManually = false;
             Preview();
         }
 
@@ -3563,17 +3564,12 @@ namespace OpenCBS.GUI.Clients
                 pCredit.Product = _product;
             }
 
-            if (!pCredit.Disbursed)
+            if (!pCredit.Disbursed && !pCredit.ScheduleChangedManually)
             {
-                if (!pCredit.ScheduleChangedManually)
-                {
-                    pCredit.InstallmentList = pCredit.Product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest || pCredit.Product.IsExotic
-                        ? pCredit.CalculateInstallments(true) : ServiceProvider.GetContractServices().SimulateScheduleCreation(pCredit);
-                          pCredit.CalculateStartDates(); 
-                }
+                pCredit.InstallmentList = pCredit.Product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest || pCredit.Product.IsExotic
+                    ? pCredit.CalculateInstallments(true) : ServiceProvider.GetContractServices().SimulateScheduleCreation(pCredit);
             }
-            
-           
+
             OCurrency interestTotal = 0;
             OCurrency principalTotal = 0;
 
@@ -7128,9 +7124,5 @@ namespace OpenCBS.GUI.Clients
         {
             _credit.ScheduleChangedManually = false;
         }
-
-
-
-
     }
 }

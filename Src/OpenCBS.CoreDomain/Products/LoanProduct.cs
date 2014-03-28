@@ -97,6 +97,7 @@ namespace OpenCBS.CoreDomain.Products
         public bool AllowFlexibleSchedule { get; set; }
         public Currency Currency { get; set; }
         public ExoticInstallmentsTable ExoticProduct { get; set; }
+        public string ScriptName { get; set; }
         public InstallmentType InstallmentType { get; set; }
 
         public OInterestScheme InterestScheme { get; set; }

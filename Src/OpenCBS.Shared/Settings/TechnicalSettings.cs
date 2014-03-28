@@ -99,6 +99,12 @@ namespace OpenCBS.Shared.Settings
             set { SetValue("REPORT_PATH", value); }
         }
 
+        public static string ScriptPath
+        {
+            get { return GetValue("SCRIPT_PATH", String.Empty); }
+            set { SetValue("SCRIPT_PATH", value); }
+        }
+
         public static List<string> AvailableDatabases
         {
             get

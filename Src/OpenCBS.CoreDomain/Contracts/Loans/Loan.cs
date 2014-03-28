@@ -279,8 +279,8 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
             _alignAlignDisbursementDate = CalculateAlignDisbursementDate(_firstInstallmentDate);
 
             //with this constructor, installment are directly calculated when a new CreditContract is instanciated
-            _installmentList = CalculateInstallments(true);
-            CalculateStartDates();
+            //_installmentList = CalculateInstallments(true);
+            //CalculateStartDates();
         }
 
         public Loan(LoanProduct pAckage, OCurrency pAmount, decimal pInterestRate, int pNbOfInstallments, int pGracePeriod,
