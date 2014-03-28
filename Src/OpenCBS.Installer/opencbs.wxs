@@ -98,10 +98,9 @@
               <File Id="OpenCBS.License.dll" Source="SourceDir\OpenCBS.License.dll" />
               <File Id="AutoMapper.dll" Source="SourceDir\AutoMapper.dll" />
               <File Id="IronPython.dll" Source="SourceDir\IronPython.dll" />
-              <File Id="IronPython.Modules" Source="SourceDir\IronPython.Modules.dll" />
+              <File Id="IronPython.Modules.dll" Source="SourceDir\IronPython.Modules.dll" />
               <File Id="Microsoft.Dynamic.dll" Source="SourceDir\Microsoft.Dynamic.dll" />
-              <File Id="Microsoft.Scripting.dll" Source="SourceDir\Microsoft.Scripting.dll" />
-              <File Id="Microsoft.Scripting.Metadata.dll" Source="SourceDir\Microsoft.Scripting.Metadata.dll" />
+              <File Id="Microsoft.Scripting.dll" Source="SourceDir\Microsoft.Scripting.dll" />              
               <File Id="Newtonsoft.Json.dll" Source="SourceDir\Newtonsoft.Json.dll" />
               <File Id="StructureMap.dll" Source="SourceDir\StructureMap.dll" />
               <File Id="Dapper.dll" Source="SourceDir\Dapper.dll" />
