@@ -358,11 +358,11 @@
             </Directory>
             <Directory Id="DIR_SCRIPTS" Name="Scripts">
               <Directory Id="dir_scripts_schedule" Name="Schedule">
-                <Component Id="dir_scripts_schedule" Guid="AC3C58A1-F5D4-415B-830A-67763186EC53" KeyPath="Yes">
+                <Component Id="dir_scripts_schedule" Guid="AC3C58A1-F5D4-415B-830A-67763186EC53" KeyPath="yes">
                 </Component>
               </Directory>
               <Directory Id="dir_scripts_repayment" Name="Repayment">
-                <Component Id="dir_scripts_repayment" Guid="D7D5A01E-E6A7-48BB-AB99-527237F81049" KeyPath="Yes">
+                <Component Id="dir_scripts_repayment" Guid="D7D5A01E-E6A7-48BB-AB99-527237F81049" KeyPath="yes">
                 </Component>
               </Directory>
             </Directory>
