@@ -62,6 +62,7 @@ using OpenCBS.Services.Accounting;
 using OpenCBS.Services.Events;
 using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
+using IronPython.Modules;
 using Installment = OpenCBS.CoreDomain.Contracts.Loans.Installments.Installment;
 
 namespace OpenCBS.Services
