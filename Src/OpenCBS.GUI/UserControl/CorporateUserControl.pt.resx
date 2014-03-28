@@ -117,10 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="groupBoxCorporate.Text" xml:space="preserve">
-    <value>Corporativo</value>
+  <data name="columnHeaderName.Text" xml:space="preserve">
+    <value>Nome</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lvContacts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>694, 380</value>
+  </data>
+  <data name="btnAddContact.Text" xml:space="preserve">
+    <value>Adicionar</value>
+  </data>
+  <data name="btnSelectContact.Text" xml:space="preserve">
+    <value>Busce clientes</value>
+  </data>
+  <data name="buttonDelete.Text" xml:space="preserve">
+    <value>Apagar</value>
+  </data>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 380</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
+    <value>694</value>
+  </data>
   <data name="labelLastname.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 16</value>
   </data>
@@ -172,6 +191,9 @@
   <data name="linkLabelChangePhoto.Text" xml:space="preserve">
     <value>Mude foto</value>
   </data>
+  <data name="groupBoxCorporate.Text" xml:space="preserve">
+    <value>Corporativo</value>
+  </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Cancelar</value>
   </data>
@@ -202,25 +224,6 @@
   </data>
   <data name="tabPageContacts.Text" xml:space="preserve">
     <value>Contactos</value>
-  </data>
-  <data name="lvContacts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>694, 380</value>
-  </data>
-  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 380</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>694</value>
-  </data>
-  <data name="columnHeaderName.Text" xml:space="preserve">
-    <value>Nome</value>
-  </data>
-  <data name="buttonDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 67</value>
-  </data>
-  <data name="buttonDelete.Text" xml:space="preserve">
-    <value>Apagar</value>
   </data>
   <data name="tabPageAddress.Text" xml:space="preserve">
     <value>Endereço</value>

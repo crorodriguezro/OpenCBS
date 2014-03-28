@@ -937,9 +937,16 @@ namespace OpenCBS.GUI
                 request.ContentLength = data.Length;
                 request.UserAgent = "OpenCBS";
                 request.Timeout = 5000;
-                using (var stream = request.GetRequestStream())
+                try
                 {
-                    stream.Write(data, 0, data.Length);
+                    using (var stream = request.GetRequestStream())
+                    {
+                        stream.Write(data, 0, data.Length);
+                    }
+                }
+                catch 
+                {
+ 
                 }
             };
             worker.RunWorkerCompleted += (sender, args) =>

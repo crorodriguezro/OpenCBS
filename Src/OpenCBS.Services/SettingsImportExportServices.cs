@@ -296,11 +296,12 @@ namespace OpenCBS.Services
         }
         private void ApplyProvisioningRules(SettingGroup group)
         {
+
             foreach (Setting s in group.Settings)
             {
                 foreach (ProvisioningRate rate in ProvisionTable.GetInstance(_user).ProvisioningRates)
                 {
-                    if(rate.NbOfDaysMin + "-" + rate.NbOfDaysMax == s.Name)
+                    if (rate.NbOfDaysMin + "-" + rate.NbOfDaysMax == s.Name)
                     {
                         rate.ProvisioningValue = Convert.ToDouble(s.Value);
                     }
