@@ -112,16 +112,16 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="split2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="split2.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 1</value>
   </data>
@@ -137,7 +137,7 @@
   <data name="columnHeader1.Text" xml:space="preserve">
     <value>Description</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="columnHeader1.Width" type="System.Int32, mscorlib">
     <value>200</value>
   </data>
@@ -160,7 +160,7 @@
     <value>lvEventType</value>
   </data>
   <data name="&gt;&gt;lvEventType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lvEventType.Parent" xml:space="preserve">
     <value>split2.Panel1</value>
@@ -175,7 +175,7 @@
     <value>split2.Panel1</value>
   </data>
   <data name="&gt;&gt;split2.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;split2.Panel1.Parent" xml:space="preserve">
     <value>split2</value>
@@ -186,7 +186,7 @@
   <data name="panel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <metadata name="btnRefresh.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="btnRefresh.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="btnRefresh.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -211,7 +211,7 @@
     <value>btnRefresh</value>
   </data>
   <data name="&gt;&gt;btnRefresh.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnRefresh.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -219,7 +219,7 @@
   <data name="&gt;&gt;btnRefresh.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="btnPrint.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="btnPrint.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="btnPrint.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -244,7 +244,7 @@
     <value>btnPrint</value>
   </data>
   <data name="&gt;&gt;btnPrint.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnPrint.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -271,7 +271,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>split2.Panel2</value>
@@ -291,7 +291,7 @@
   <data name="tabPeriod.ColumnCount" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <metadata name="dtFrom.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="dtFrom.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="dtFrom.Location" type="System.Drawing.Point, System.Drawing">
@@ -310,7 +310,7 @@
     <value>dtFrom</value>
   </data>
   <data name="&gt;&gt;dtFrom.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dtFrom.Parent" xml:space="preserve">
     <value>tabPeriod</value>
@@ -318,7 +318,7 @@
   <data name="&gt;&gt;dtFrom.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="dtTo.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="dtTo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="dtTo.Location" type="System.Drawing.Point, System.Drawing">
@@ -337,7 +337,7 @@
     <value>dtTo</value>
   </data>
   <data name="&gt;&gt;dtTo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dtTo.Parent" xml:space="preserve">
     <value>tabPeriod</value>
@@ -373,7 +373,7 @@
     <value>lblMdash</value>
   </data>
   <data name="&gt;&gt;lblMdash.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblMdash.Parent" xml:space="preserve">
     <value>tabPeriod</value>
@@ -403,7 +403,7 @@
     <value>tabPeriod</value>
   </data>
   <data name="&gt;&gt;tabPeriod.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabPeriod.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -448,7 +448,7 @@
     <value>lblPeriod</value>
   </data>
   <data name="&gt;&gt;lblPeriod.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblPeriod.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -472,7 +472,7 @@
     <value>cbBranch</value>
   </data>
   <data name="&gt;&gt;cbBranch.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbBranch.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -505,7 +505,7 @@
     <value>lblBranch</value>
   </data>
   <data name="&gt;&gt;lblBranch.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblBranch.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -513,7 +513,7 @@
   <data name="&gt;&gt;lblBranch.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <metadata name="cbUser.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="cbUser.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="cbUser.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -535,7 +535,7 @@
     <value>cbUser</value>
   </data>
   <data name="&gt;&gt;cbUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbUser.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -577,7 +577,7 @@
     <value>lblUser</value>
   </data>
   <data name="&gt;&gt;lblUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblUser.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -585,7 +585,7 @@
   <data name="&gt;&gt;lblUser.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <metadata name="chkIncludeDeleted.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="chkIncludeDeleted.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="chkIncludeDeleted.AutoSize" type="System.Boolean, mscorlib">
@@ -619,7 +619,7 @@
     <value>chkIncludeDeleted</value>
   </data>
   <data name="&gt;&gt;chkIncludeDeleted.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;chkIncludeDeleted.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -646,7 +646,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;panel3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
     <value>split2.Panel2</value>
@@ -657,7 +657,7 @@
   <data name="panel2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <metadata name="btnUncheckAll.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="btnUncheckAll.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="btnUncheckAll.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -682,7 +682,7 @@
     <value>btnUncheckAll</value>
   </data>
   <data name="&gt;&gt;btnUncheckAll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnUncheckAll.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -690,7 +690,7 @@
   <data name="&gt;&gt;btnUncheckAll.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="btnCheckAll.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="btnCheckAll.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="btnCheckAll.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -715,7 +715,7 @@
     <value>btnCheckAll</value>
   </data>
   <data name="&gt;&gt;btnCheckAll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnCheckAll.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -742,7 +742,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
     <value>split2.Panel2</value>
@@ -757,7 +757,7 @@
     <value>split2.Panel2</value>
   </data>
   <data name="&gt;&gt;split2.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;split2.Panel2.Parent" xml:space="preserve">
     <value>split2</value>
@@ -778,7 +778,7 @@
     <value>split2</value>
   </data>
   <data name="&gt;&gt;split2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;split2.Parent" xml:space="preserve">
     <value>panOptions</value>
@@ -786,7 +786,7 @@
   <data name="&gt;&gt;split2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="panOptions.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="panOptions.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="panOptions.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -814,7 +814,7 @@
     <value>panOptions</value>
   </data>
   <data name="&gt;&gt;panOptions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panOptions.Parent" xml:space="preserve">
     <value>$this</value>
@@ -850,7 +850,7 @@
     <value>btnClose</value>
   </data>
   <data name="&gt;&gt;btnClose.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblTitle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -886,12 +886,12 @@
     <value>lblTitle</value>
   </data>
   <data name="&gt;&gt;lblTitle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="bwReport.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="bwReport.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="bwRefresh.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="bwRefresh.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>136, 17</value>
   </metadata>
   <data name="colEvents_Date.Text" xml:space="preserve">
@@ -957,7 +957,7 @@
   <data name="&gt;&gt;olvEvents.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
@@ -976,25 +976,25 @@
     <value>columnHeader2</value>
   </data>
   <data name="&gt;&gt;columnHeader2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;columnHeader1.Name" xml:space="preserve">
     <value>columnHeader1</value>
   </data>
   <data name="&gt;&gt;columnHeader1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bwReport.Name" xml:space="preserve">
     <value>bwReport</value>
   </data>
   <data name="&gt;&gt;bwReport.Type" xml:space="preserve">
-    <value>System.ComponentModel.BackgroundWorker, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bwRefresh.Name" xml:space="preserve">
     <value>bwRefresh</value>
   </data>
   <data name="&gt;&gt;bwRefresh.Type" xml:space="preserve">
-    <value>System.ComponentModel.BackgroundWorker, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;colEvents_Date.Name" xml:space="preserve">
     <value>colEvents_Date</value>
@@ -1042,6 +1042,6 @@
     <value>AuditTrailForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=14.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=14.4.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

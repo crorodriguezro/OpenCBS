@@ -53,8 +53,8 @@ namespace OpenCBS.GUI.Login
             // 
             // startButton
             // 
-            resources.ApplyResources(this.startButton, "startButton");
             this.startButton.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.startButton, "startButton");
             this.startButton.Name = "startButton";
             this.startButton.UseVisualStyleBackColor = false;
             // 
@@ -70,42 +70,42 @@ namespace OpenCBS.GUI.Login
             // 
             // usernameLabel
             // 
-            resources.ApplyResources(this.usernameLabel, "usernameLabel");
             this.usernameLabel.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.usernameLabel, "usernameLabel");
             this.usernameLabel.Name = "usernameLabel";
             // 
             // passwordLabel
             // 
-            resources.ApplyResources(this.passwordLabel, "passwordLabel");
             this.passwordLabel.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.passwordLabel, "passwordLabel");
             this.passwordLabel.Name = "passwordLabel";
             // 
             // logoPicturebox
             // 
-            resources.ApplyResources(this.logoPicturebox, "logoPicturebox");
             this.logoPicturebox.BackColor = System.Drawing.Color.Transparent;
             this.logoPicturebox.BackgroundImage = global::OpenCBS.GUI.Properties.Resources.LOGO;
+            resources.ApplyResources(this.logoPicturebox, "logoPicturebox");
             this.logoPicturebox.Name = "logoPicturebox";
             this.logoPicturebox.TabStop = false;
             // 
             // databaseCombobox
             // 
-            resources.ApplyResources(this.databaseCombobox, "databaseCombobox");
             this.databaseCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.databaseCombobox.FormattingEnabled = true;
+            resources.ApplyResources(this.databaseCombobox, "databaseCombobox");
             this.databaseCombobox.Name = "databaseCombobox";
             // 
             // databaseLabel
             // 
-            resources.ApplyResources(this.databaseLabel, "databaseLabel");
             this.databaseLabel.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.databaseLabel, "databaseLabel");
             this.databaseLabel.Name = "databaseLabel";
             // 
             // LoginForm
             // 
             this.AcceptButton = this.startButton;
-            resources.ApplyResources(this, "$this");
             this.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.databaseLabel);
             this.Controls.Add(this.databaseCombobox);
             this.Controls.Add(this.logoPicturebox);

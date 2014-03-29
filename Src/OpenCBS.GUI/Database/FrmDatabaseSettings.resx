@@ -112,16 +112,16 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnDefault.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnDefault.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -131,7 +131,7 @@
   <data name="btnDefault.Size" type="System.Drawing.Size, System.Drawing">
     <value>134, 22</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnDefault.TabIndex" type="System.Int32, mscorlib">
     <value>39</value>
   </data>
@@ -142,7 +142,7 @@
     <value>btnDefault</value>
   </data>
   <data name="&gt;&gt;btnDefault.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnDefault.Parent" xml:space="preserve">
     <value>groupBoxSQLServerConnection</value>
@@ -172,7 +172,7 @@
     <value>btnGetServersList</value>
   </data>
   <data name="&gt;&gt;btnGetServersList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnGetServersList.Parent" xml:space="preserve">
     <value>groupBoxSQLServerConnection</value>
@@ -202,7 +202,7 @@
     <value>lblInstallInstructionSQLServer</value>
   </data>
   <data name="&gt;&gt;lblInstallInstructionSQLServer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblInstallInstructionSQLServer.Parent" xml:space="preserve">
     <value>groupBoxSQLServerConnection</value>
@@ -232,7 +232,7 @@
     <value>lblHelpServerName</value>
   </data>
   <data name="&gt;&gt;lblHelpServerName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblHelpServerName.Parent" xml:space="preserve">
     <value>groupBoxSQLServerConnection</value>
@@ -256,7 +256,7 @@
     <value>cbServerName</value>
   </data>
   <data name="&gt;&gt;cbServerName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbServerName.Parent" xml:space="preserve">
     <value>groupBoxSQLServerConnection</value>
@@ -280,7 +280,7 @@
     <value>txtPassword</value>
   </data>
   <data name="&gt;&gt;txtPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtPassword.Parent" xml:space="preserve">
     <value>groupBoxSQLServerConnection</value>
@@ -313,7 +313,7 @@
     <value>lblPassword</value>
   </data>
   <data name="&gt;&gt;lblPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblPassword.Parent" xml:space="preserve">
     <value>groupBoxSQLServerConnection</value>
@@ -337,7 +337,7 @@
     <value>txtLoginName</value>
   </data>
   <data name="&gt;&gt;txtLoginName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtLoginName.Parent" xml:space="preserve">
     <value>groupBoxSQLServerConnection</value>
@@ -370,7 +370,7 @@
     <value>lblLoginName</value>
   </data>
   <data name="&gt;&gt;lblLoginName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblLoginName.Parent" xml:space="preserve">
     <value>groupBoxSQLServerConnection</value>
@@ -403,7 +403,7 @@
     <value>lblServerName</value>
   </data>
   <data name="&gt;&gt;lblServerName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblServerName.Parent" xml:space="preserve">
     <value>groupBoxSQLServerConnection</value>
@@ -433,7 +433,7 @@
     <value>lblFindDBInfo</value>
   </data>
   <data name="&gt;&gt;lblFindDBInfo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblFindDBInfo.Parent" xml:space="preserve">
     <value>groupBoxSQLServerConnection</value>
@@ -457,7 +457,7 @@
     <value>groupBoxSQLServerConnection</value>
   </data>
   <data name="&gt;&gt;groupBoxSQLServerConnection.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBoxSQLServerConnection.Parent" xml:space="preserve">
     <value>tableLayoutPanelServerSettings</value>
@@ -487,7 +487,7 @@
     <value>btnSQLServerChangeSettings</value>
   </data>
   <data name="&gt;&gt;btnSQLServerChangeSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSQLServerChangeSettings.Parent" xml:space="preserve">
     <value>groupBoxSQLSettings</value>
@@ -514,7 +514,7 @@
     <value>lblSQLServerSettings</value>
   </data>
   <data name="&gt;&gt;lblSQLServerSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblSQLServerSettings.Parent" xml:space="preserve">
     <value>groupBoxSQLSettings</value>
@@ -541,7 +541,7 @@
     <value>groupBoxSQLSettings</value>
   </data>
   <data name="&gt;&gt;groupBoxSQLSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBoxSQLSettings.Parent" xml:space="preserve">
     <value>tableLayoutPanelSQLSettings</value>
@@ -571,7 +571,7 @@
     <value>lblDetectDatabasesInProgress</value>
   </data>
   <data name="&gt;&gt;lblDetectDatabasesInProgress.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblDetectDatabasesInProgress.Parent" xml:space="preserve">
     <value>groupBoxDatabaseManagement</value>
@@ -601,7 +601,7 @@
     <value>btnSQLServerSettingsShowDetails</value>
   </data>
   <data name="&gt;&gt;btnSQLServerSettingsShowDetails.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSQLServerSettingsShowDetails.Parent" xml:space="preserve">
     <value>groupBoxDatabaseManagement</value>
@@ -631,7 +631,7 @@
     <value>btnRestore</value>
   </data>
   <data name="&gt;&gt;btnRestore.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnRestore.Parent" xml:space="preserve">
     <value>groupBoxDatabaseManagement</value>
@@ -661,7 +661,7 @@
     <value>btnBackup</value>
   </data>
   <data name="&gt;&gt;btnBackup.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnBackup.Parent" xml:space="preserve">
     <value>groupBoxDatabaseManagement</value>
@@ -691,7 +691,7 @@
     <value>btnSetAsDefault</value>
   </data>
   <data name="&gt;&gt;btnSetAsDefault.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSetAsDefault.Parent" xml:space="preserve">
     <value>groupBoxDatabaseManagement</value>
@@ -721,7 +721,7 @@
     <value>btnCreateNewDatabase</value>
   </data>
   <data name="&gt;&gt;btnCreateNewDatabase.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnCreateNewDatabase.Parent" xml:space="preserve">
     <value>groupBoxDatabaseManagement</value>
@@ -754,7 +754,7 @@
     <value>lblDatabases</value>
   </data>
   <data name="&gt;&gt;lblDatabases.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblDatabases.Parent" xml:space="preserve">
     <value>groupBoxDatabaseManagement</value>
@@ -796,7 +796,7 @@
     <value>listViewDatabases</value>
   </data>
   <data name="&gt;&gt;listViewDatabases.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;listViewDatabases.Parent" xml:space="preserve">
     <value>groupBoxDatabaseManagement</value>
@@ -823,7 +823,7 @@
     <value>groupBoxDatabaseManagement</value>
   </data>
   <data name="&gt;&gt;groupBoxDatabaseManagement.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBoxDatabaseManagement.Parent" xml:space="preserve">
     <value>tableLayoutPanelSQLSettings</value>
@@ -853,7 +853,7 @@
     <value>btnDatabaseConnection</value>
   </data>
   <data name="&gt;&gt;btnDatabaseConnection.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnDatabaseConnection.Parent" xml:space="preserve">
     <value>groupBoxSaveSettings</value>
@@ -883,7 +883,7 @@
     <value>btnExit</value>
   </data>
   <data name="&gt;&gt;btnExit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnExit.Parent" xml:space="preserve">
     <value>groupBoxSaveSettings</value>
@@ -910,7 +910,7 @@
     <value>lblResultMessage</value>
   </data>
   <data name="&gt;&gt;lblResultMessage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblResultMessage.Parent" xml:space="preserve">
     <value>groupBoxSaveSettings</value>
@@ -940,7 +940,7 @@
     <value>btnSave</value>
   </data>
   <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
     <value>groupBoxSaveSettings</value>
@@ -964,7 +964,7 @@
     <value>groupBoxSaveSettings</value>
   </data>
   <data name="&gt;&gt;groupBoxSaveSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBoxSaveSettings.Parent" xml:space="preserve">
     <value>tableLayoutPanelSQLSettings</value>
@@ -994,7 +994,7 @@
     <value>tableLayoutPanelServerSettings</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanelServerSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanelServerSettings.Parent" xml:space="preserve">
     <value>tabPageSQLServerConnection</value>
@@ -1024,7 +1024,7 @@
     <value>tabPageSQLServerConnection</value>
   </data>
   <data name="&gt;&gt;tabPageSQLServerConnection.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabPageSQLServerConnection.Parent" xml:space="preserve">
     <value>tabControlDatabase</value>
@@ -1054,7 +1054,7 @@
     <value>tableLayoutPanelSQLSettings</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanelSQLSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanelSQLSettings.Parent" xml:space="preserve">
     <value>tabPageSQLServerSettings</value>
@@ -1084,7 +1084,7 @@
     <value>tabPageSQLServerSettings</value>
   </data>
   <data name="&gt;&gt;tabPageSQLServerSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabPageSQLServerSettings.Parent" xml:space="preserve">
     <value>tabControlDatabase</value>
@@ -1120,7 +1120,7 @@
     <value>btnSQLDatabaseSettingsUpgrade</value>
   </data>
   <data name="&gt;&gt;btnSQLDatabaseSettingsUpgrade.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSQLDatabaseSettingsUpgrade.Parent" xml:space="preserve">
     <value>groupBoxSQLDatabaseSettings</value>
@@ -1150,7 +1150,7 @@
     <value>btnSQLDatabaseSettingsChangeName</value>
   </data>
   <data name="&gt;&gt;btnSQLDatabaseSettingsChangeName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSQLDatabaseSettingsChangeName.Parent" xml:space="preserve">
     <value>groupBoxSQLDatabaseSettings</value>
@@ -1177,7 +1177,7 @@
     <value>lblSQLDatabaseSettingsVersion</value>
   </data>
   <data name="&gt;&gt;lblSQLDatabaseSettingsVersion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblSQLDatabaseSettingsVersion.Parent" xml:space="preserve">
     <value>groupBoxSQLDatabaseSettings</value>
@@ -1204,7 +1204,7 @@
     <value>lblSQLDatabaseSettingsName</value>
   </data>
   <data name="&gt;&gt;lblSQLDatabaseSettingsName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblSQLDatabaseSettingsName.Parent" xml:space="preserve">
     <value>groupBoxSQLDatabaseSettings</value>
@@ -1231,7 +1231,7 @@
     <value>groupBoxSQLDatabaseSettings</value>
   </data>
   <data name="&gt;&gt;groupBoxSQLDatabaseSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBoxSQLDatabaseSettings.Parent" xml:space="preserve">
     <value>tableLayoutPanelDatabaseSettings</value>
@@ -1267,7 +1267,7 @@
     <value>btnContinue</value>
   </data>
   <data name="&gt;&gt;btnContinue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnContinue.Parent" xml:space="preserve">
     <value>groupBoxSQLDatabaseStructure</value>
@@ -1297,7 +1297,7 @@
     <value>lblDatabaseSettingsMessage</value>
   </data>
   <data name="&gt;&gt;lblDatabaseSettingsMessage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblDatabaseSettingsMessage.Parent" xml:space="preserve">
     <value>groupBoxSQLDatabaseStructure</value>
@@ -1324,7 +1324,7 @@
     <value>tBDatabaseSettingsSchemaResult</value>
   </data>
   <data name="&gt;&gt;tBDatabaseSettingsSchemaResult.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tBDatabaseSettingsSchemaResult.Parent" xml:space="preserve">
     <value>groupBoxSQLDatabaseStructure</value>
@@ -1351,7 +1351,7 @@
     <value>groupBoxSQLDatabaseStructure</value>
   </data>
   <data name="&gt;&gt;groupBoxSQLDatabaseStructure.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBoxSQLDatabaseStructure.Parent" xml:space="preserve">
     <value>tableLayoutPanelDatabaseSettings</value>
@@ -1378,7 +1378,7 @@
     <value>tableLayoutPanelDatabaseSettings</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanelDatabaseSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanelDatabaseSettings.Parent" xml:space="preserve">
     <value>tabPageSqlDatabaseSettings</value>
@@ -1405,7 +1405,7 @@
     <value>tabPageSqlDatabaseSettings</value>
   </data>
   <data name="&gt;&gt;tabPageSqlDatabaseSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabPageSqlDatabaseSettings.Parent" xml:space="preserve">
     <value>tabControlDatabase</value>
@@ -1429,7 +1429,7 @@
     <value>tabControlDatabase</value>
   </data>
   <data name="&gt;&gt;tabControlDatabase.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabControlDatabase.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1437,10 +1437,10 @@
   <data name="&gt;&gt;tabControlDatabase.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="bWDatabasesDetection.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="bWDatabasesDetection.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>6, 5</value>
   </metadata>
-  <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>296, 5</value>
   </metadata>
   <data name="openFileDialog.Filter" xml:space="preserve">
@@ -1449,25 +1449,25 @@
   <data name="openFileDialog.Title" xml:space="preserve">
     <value>Select the backup file to restore</value>
   </data>
-  <metadata name="bWDatabaseCreation.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="bWDatabaseCreation.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>406, 5</value>
   </metadata>
-  <metadata name="bWDatabaseBackup.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="bWDatabaseBackup.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>686, 5</value>
   </metadata>
-  <metadata name="bWDatabaseRestore.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="bWDatabaseRestore.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>548, 5</value>
   </metadata>
-  <metadata name="bWDatabaseUpdate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="bWDatabaseUpdate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>160, 5</value>
   </metadata>
-  <metadata name="folderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="folderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>822, 6</value>
   </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>32</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
@@ -1486,72 +1486,72 @@
     <value>columnHeaderName</value>
   </data>
   <data name="&gt;&gt;columnHeaderName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;columnHeaderBranchCode.Name" xml:space="preserve">
     <value>columnHeaderBranchCode</value>
   </data>
   <data name="&gt;&gt;columnHeaderBranchCode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;columnHeaderVersion.Name" xml:space="preserve">
     <value>columnHeaderVersion</value>
   </data>
   <data name="&gt;&gt;columnHeaderVersion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;columnHeaderSize.Name" xml:space="preserve">
     <value>columnHeaderSize</value>
   </data>
   <data name="&gt;&gt;columnHeaderSize.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bWDatabasesDetection.Name" xml:space="preserve">
     <value>bWDatabasesDetection</value>
   </data>
   <data name="&gt;&gt;bWDatabasesDetection.Type" xml:space="preserve">
-    <value>System.ComponentModel.BackgroundWorker, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;openFileDialog.Name" xml:space="preserve">
     <value>openFileDialog</value>
   </data>
   <data name="&gt;&gt;openFileDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bWDatabaseCreation.Name" xml:space="preserve">
     <value>bWDatabaseCreation</value>
   </data>
   <data name="&gt;&gt;bWDatabaseCreation.Type" xml:space="preserve">
-    <value>System.ComponentModel.BackgroundWorker, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bWDatabaseBackup.Name" xml:space="preserve">
     <value>bWDatabaseBackup</value>
   </data>
   <data name="&gt;&gt;bWDatabaseBackup.Type" xml:space="preserve">
-    <value>System.ComponentModel.BackgroundWorker, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bWDatabaseRestore.Name" xml:space="preserve">
     <value>bWDatabaseRestore</value>
   </data>
   <data name="&gt;&gt;bWDatabaseRestore.Type" xml:space="preserve">
-    <value>System.ComponentModel.BackgroundWorker, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bWDatabaseUpdate.Name" xml:space="preserve">
     <value>bWDatabaseUpdate</value>
   </data>
   <data name="&gt;&gt;bWDatabaseUpdate.Type" xml:space="preserve">
-    <value>System.ComponentModel.BackgroundWorker, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;folderBrowserDialog.Name" xml:space="preserve">
     <value>folderBrowserDialog</value>
   </data>
   <data name="&gt;&gt;folderBrowserDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmDatabaseSettings</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=13.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.4.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

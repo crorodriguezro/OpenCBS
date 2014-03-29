@@ -65,6 +65,7 @@ namespace OpenCBS.GUI.AuditTrail
             this.colEvents_Role = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.colEvents_Description = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.colEvents_BranchName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            ((System.ComponentModel.ISupportInitialize)(this.split2)).BeginInit();
             this.split2.Panel1.SuspendLayout();
             this.split2.Panel2.SuspendLayout();
             this.split2.SuspendLayout();
@@ -322,6 +323,7 @@ namespace OpenCBS.GUI.AuditTrail
             this.split2.Panel1.ResumeLayout(false);
             this.split2.Panel2.ResumeLayout(false);
             this.split2.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.split2)).EndInit();
             this.split2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

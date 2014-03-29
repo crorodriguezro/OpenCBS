@@ -10,7 +10,6 @@ ALTER TABLE Credit ADD effective_interest_rate DECIMAL(18, 2) NOT NULL DEFAULT 0
 END
 GO
 
-
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v14.4.0.0'
 WHERE   [name] = 'VERSION'

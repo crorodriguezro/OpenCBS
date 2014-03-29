@@ -126,7 +126,8 @@ namespace OpenCBS.Manager.Events
                         ReschedulingOfALoanEvents.amount AS rle_amount, 
                         ReschedulingOfALoanEvents.nb_of_maturity AS rle_maturity, 
                         ReschedulingOfALoanEvents.preferred_first_installment_date AS rle_preferred_first_installment_date,
-     
+                        ReschedulingOfALoanEvents.previous_interest_rate AS rle_previous_interest_rate, 
+
                         RepaymentEvents.id AS rpe_id, 
                         RepaymentEvents.principal AS rpe_principal, 
                         RepaymentEvents.interests AS rpe_interests, 
@@ -273,6 +274,7 @@ namespace OpenCBS.Manager.Events
                     ReschedulingOfALoanEvents.amount AS rle_amount, 
                     ReschedulingOfALoanEvents.nb_of_maturity AS rle_maturity, 
                     ReschedulingOfALoanEvents.preferred_first_installment_date AS rle_preferred_first_installment_date, 
+                    ReschedulingOfALoanEvents.previous_interest_rate AS rle_previous_interest_rate,                     
 
                     RepaymentEvents.id AS rpe_id, 
                     RepaymentEvents.principal AS rpe_principal, 
@@ -495,6 +497,7 @@ namespace OpenCBS.Manager.Events
                     ReschedulingOfALoanEvents.amount AS rle_amount, 
                     ReschedulingOfALoanEvents.nb_of_maturity AS rle_maturity, 
                     ReschedulingOfALoanEvents.preferred_first_installment_date AS rle_preferred_first_installment_date, 
+                    ReschedulingOfALoanEvents.previous_interest_rate AS rle_previous_interest_rate, 
 
                     RepaymentEvents.id AS rpe_id, 
                     RepaymentEvents.principal AS rpe_principal, 
@@ -1822,7 +1825,8 @@ namespace OpenCBS.Manager.Events
                 Id = r.GetInt("rle_id"),
                 Amount = r.GetMoney("rle_amount"),
                 NbOfMaturity = r.GetInt("rle_maturity"),
-                PreferredFirstInstallmentDate = r.GetDateTime("rle_preferred_first_installment_date")
+                PreferredFirstInstallmentDate = r.GetDateTime("rle_preferred_first_installment_date"),
+                 PreviousInterestRate = r.GetDecimal("rle_previous_interest_rate")
             };
 	    }
 
