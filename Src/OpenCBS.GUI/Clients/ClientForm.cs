@@ -3381,7 +3381,6 @@ namespace OpenCBS.GUI.Clients
 
         private void buttonLoanPreview_Click(object sender, EventArgs e)
         {
-            _credit.ScheduleChangedManually = false;
             Preview();
         }
 
@@ -3564,12 +3563,17 @@ namespace OpenCBS.GUI.Clients
                 pCredit.Product = _product;
             }
 
-            if (!pCredit.Disbursed && !pCredit.ScheduleChangedManually)
+            if (!pCredit.Disbursed)
             {
-                pCredit.InstallmentList = pCredit.Product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest || pCredit.Product.IsExotic
-                    ? pCredit.CalculateInstallments(true) : ServiceProvider.GetContractServices().SimulateScheduleCreation(pCredit);
+                if (!pCredit.ScheduleChangedManually)
+                {
+                    pCredit.InstallmentList = pCredit.Product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest || pCredit.Product.IsExotic
+                        ? pCredit.CalculateInstallments(true) : ServiceProvider.GetContractServices().SimulateScheduleCreation(pCredit);
+                          pCredit.CalculateStartDates(); 
+                }
             }
-
+            
+           
             OCurrency interestTotal = 0;
             OCurrency principalTotal = 0;
 
@@ -6600,13 +6604,14 @@ namespace OpenCBS.GUI.Clients
             }
         }
 
-        private void WriteOff(int writeOffMethodId)
+
+        private void WriteOff(int writeOffMethodId, string comment)
         {
             if (_credit != null)
             {
                 try
                 {
-                    ServicesProvider.GetInstance().GetContractServices().WriteOff(_credit, TimeProvider.Now, writeOffMethodId);
+                    ServicesProvider.GetInstance().GetContractServices().WriteOff(_credit, TimeProvider.Now, writeOffMethodId, comment);
                     btnWriteOff.Enabled = false;
                     DisplayLoanEvents(_credit);
                     InitializeContractStatus(_credit);
@@ -6625,13 +6630,13 @@ namespace OpenCBS.GUI.Clients
 
         private void btnWriteOff_Click(object sender, EventArgs e)
         {
-            //if (Confirm("ConfirmWriteOff.Text"))
-            //    WriteOff();
-            int writeOffMethodId;
-            var dialogResult = new WriteOffOkCancelForm().ShowDialogWrappe(out writeOffMethodId);
+            var form = new WriteOffOkCancelForm();
+            var loanService = ServiceProvider.GetContractServices();
+            form.ShowWriteOffOptions(loanService.GetWriteOffOptions());
 
-            if (dialogResult != DialogResult.Cancel)
-                WriteOff(writeOffMethodId);
+            if (form.ShowDialog() != DialogResult.OK) return;
+
+            WriteOff(form.OptionId, form.Comment);
         }
 
 
@@ -7124,5 +7129,9 @@ namespace OpenCBS.GUI.Clients
         {
             _credit.ScheduleChangedManually = false;
         }
+
+
+
+
     }
 }

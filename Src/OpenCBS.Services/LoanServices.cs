@@ -25,13 +25,8 @@ using System.ComponentModel.Composition;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Windows.Forms;
 using AutoMapper;
-using IronPython.Hosting;
-using IronPython.Runtime;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Alerts;
@@ -62,7 +57,6 @@ using OpenCBS.Services.Accounting;
 using OpenCBS.Services.Events;
 using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
-using IronPython.Modules;
 using Installment = OpenCBS.CoreDomain.Contracts.Loans.Installments.Installment;
 
 namespace OpenCBS.Services
@@ -1003,26 +997,16 @@ namespace OpenCBS.Services
 
         public List<Installment> SimulateScheduleCreation(Loan loan)
         {
-            try
-            {
-                if (loan.Product.ScriptName != null) return SimulateScriptSchedule(loan);
-                var scheduleConfiguration = _configurationFactory
-                    .Init()
-                    .WithLoan(loan)
-                    .Finish()
-                    .GetConfiguration();
+            var scheduleConfiguration = _configurationFactory
+                .Init()
+                .WithLoan(loan)
+                .Finish()
+                .GetConfiguration();
 
-                var scheduleBuilder = new ScheduleBuilder();
-                var installmentList = scheduleBuilder.BuildSchedule(scheduleConfiguration);
-                var schedule = Mapper.Map<IEnumerable<IInstallment>, List<Installment>>(installmentList);
-                return schedule;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
-            }
-            
+            var scheduleBuilder = new ScheduleBuilder();
+            var installmentList = scheduleBuilder.BuildSchedule(scheduleConfiguration);
+            var schedule = Mapper.Map<IEnumerable<IInstallment>, List<Installment>>(installmentList);
+            return schedule;
         }
 
         public Loan SimulateRescheduling(Loan loan, ScheduleConfiguration rescheduleConfiguration)
@@ -2498,7 +2482,7 @@ namespace OpenCBS.Services
             return loans.Where(loan => loan.ContractStatus == OContractStatus.Active).ToList();
         }
 
-        public void WriteOff(Loan loan, DateTime onDate, int writeOffMethodId)
+        public void WriteOff(Loan loan, DateTime onDate, int writeOffMethodId, string comment)
         {
             using (SqlConnection conn = _loanManager.GetConnection())
             using (SqlTransaction sqlTransaction = conn.BeginTransaction())
@@ -2508,6 +2492,7 @@ namespace OpenCBS.Services
                     WriteOffEvent writeOffEvent = loan.WriteOff(onDate);
                     writeOffEvent.User = User.CurrentUser;
                     writeOffEvent.WriteOffMethod = writeOffMethodId;
+                    writeOffEvent.Comment = comment;
 
                     if (Teller.CurrentTeller != null && Teller.CurrentTeller.Id != 0)
                         writeOffEvent.TellerId = Teller.CurrentTeller.Id;
@@ -3015,27 +3000,9 @@ namespace OpenCBS.Services
             _loanManager.SetRepaymentModuleLastStartupDate(date);
         }
 
-        public List<Installment> SimulateScriptSchedule(Loan loan)
+        public IList<WriteOffOption> GetWriteOffOptions()
         {
-            string dir = TechnicalSettings.ScriptPath;
-            if (string.IsNullOrEmpty(dir)) dir = AppDomain.CurrentDomain.BaseDirectory;
-            dir = Path.Combine(dir, "Scripts\\Schedule\\");
-            var file = Path.Combine(dir, loan.Product.ScriptName);
-            if (!File.Exists(file))
-                throw new Exception("Couldn't load the file " + loan.Product.ScriptName);
-            var script = RunScript(file);
-            var res = script.Main(loan);
-            return (List<Installment>)res;
-        }
-
-        private static dynamic RunScript(string file)
-        {
-            var options = new Dictionary<string, object>();
-            options["Debug"] = true;
-            var engine = Python.CreateEngine(options);
-            var assemby = typeof (Installment).Assembly;
-            engine.Runtime.LoadAssembly(assemby);
-            return engine.ExecuteFile(file);
+            return _loanManager.GetWriteOffOptions();
         }
     }
 }

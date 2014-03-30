@@ -44,7 +44,7 @@ namespace OpenCBS.CoreDomain.Events
         public OCurrency OverduePrincipal { get; set; }
         public override string Description { get; set; }
         public int WriteOffMethod { get; set; }
-
+        public string Comment { get; set; }
 	    public override Event Copy()
 		{
 			return (WriteOffEvent)MemberwiseClone();

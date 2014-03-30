@@ -33,8 +33,10 @@
             this.tabButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.reserveComboBox = new System.Windows.Forms.ComboBox();
+            this._optionComboBox = new System.Windows.Forms.ComboBox();
+            this._commentTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this._optionLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabButtons.SuspendLayout();
             this.SuspendLayout();
@@ -65,28 +67,36 @@
             this.btnOk.Name = "btnOk";
             this.btnOk.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // _optionComboBox
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            this._optionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this._optionComboBox, "_optionComboBox");
+            this._optionComboBox.Name = "_optionComboBox";
             // 
-            // reserveComboBox
+            // _commentTextBox
             // 
-            resources.ApplyResources(this.reserveComboBox, "reserveComboBox");
-            this.reserveComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.reserveComboBox.Items.AddRange(new object[] {
-            resources.GetString("reserveComboBox.Items"),
-            resources.GetString("reserveComboBox.Items1")});
-            this.reserveComboBox.Name = "reserveComboBox";
-            this.reserveComboBox.SelectedIndexChanged += new System.EventHandler(this.reserveComboBox_SelectedIndexChanged);
+            resources.ApplyResources(this._commentTextBox, "_commentTextBox");
+            this._commentTextBox.Name = "_commentTextBox";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // _optionLabel
+            // 
+            resources.ApplyResources(this._optionLabel, "_optionLabel");
+            this._optionLabel.Name = "_optionLabel";
             // 
             // WriteOffOkCancelForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.Controls.Add(this.reserveComboBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this._commentTextBox);
+            this.Controls.Add(this._optionComboBox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this._optionLabel);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -106,7 +116,9 @@
         private System.Windows.Forms.TableLayoutPanel tabButtons;
         private System.Windows.Forms.Button btnCancel;
         protected System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox reserveComboBox;
+        private System.Windows.Forms.ComboBox _optionComboBox;
+        private System.Windows.Forms.TextBox _commentTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label _optionLabel;
     }
 }
