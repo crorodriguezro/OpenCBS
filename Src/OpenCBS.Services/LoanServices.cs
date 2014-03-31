@@ -25,8 +25,11 @@ using System.ComponentModel.Composition;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using AutoMapper;
+using IronPython.Hosting;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Alerts;
@@ -997,16 +1000,26 @@ namespace OpenCBS.Services
 
         public List<Installment> SimulateScheduleCreation(Loan loan)
         {
-            var scheduleConfiguration = _configurationFactory
-                .Init()
-                .WithLoan(loan)
-                .Finish()
-                .GetConfiguration();
+            try
+            {
+                if (loan.Product.ScriptName != null) return SimulateScriptSchedule(loan);
+                var scheduleConfiguration = _configurationFactory
+                    .Init()
+                    .WithLoan(loan)
+                    .Finish()
+                    .GetConfiguration();
 
-            var scheduleBuilder = new ScheduleBuilder();
-            var installmentList = scheduleBuilder.BuildSchedule(scheduleConfiguration);
-            var schedule = Mapper.Map<IEnumerable<IInstallment>, List<Installment>>(installmentList);
-            return schedule;
+                var scheduleBuilder = new ScheduleBuilder();
+                var installmentList = scheduleBuilder.BuildSchedule(scheduleConfiguration);
+                var schedule = Mapper.Map<IEnumerable<IInstallment>, List<Installment>>(installmentList);
+                return schedule;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+
         }
 
         public Loan SimulateRescheduling(Loan loan, ScheduleConfiguration rescheduleConfiguration)
@@ -3003,6 +3016,29 @@ namespace OpenCBS.Services
         public IList<WriteOffOption> GetWriteOffOptions()
         {
             return _loanManager.GetWriteOffOptions();
+        }
+
+        public List<Installment> SimulateScriptSchedule(Loan loan)
+        {
+            string dir = TechnicalSettings.ScriptPath;
+            if (string.IsNullOrEmpty(dir)) dir = AppDomain.CurrentDomain.BaseDirectory;
+            dir = Path.Combine(dir, "Scripts\\Schedule\\");
+            var file = Path.Combine(dir, loan.Product.ScriptName);
+            if (!File.Exists(file))
+                throw new Exception("Couldn't load the file " + loan.Product.ScriptName);
+            var script = RunScript(file);
+            var res = script.Main(loan);
+            return (List<Installment>)res;
+        }
+
+        private static dynamic RunScript(string file)
+        {
+            var options = new Dictionary<string, object>();
+            options["Debug"] = true;
+            var engine = Python.CreateEngine(options);
+            var assemby = typeof(Installment).Assembly;
+            engine.Runtime.LoadAssembly(assemby);
+            return engine.ExecuteFile(file);
         }
     }
 }
