@@ -161,6 +161,7 @@
                 <File Id="OpenCBS.Extension.CustomFields.lic" Source="SourceDir\Extensions\OpenCBS.Extension.CustomFields.lic" />
                 <File Id="OpenCBS.Extension.Maps.dll" Source="SourceDir\Extensions\OpenCBS.Extension.Maps.dll" />
                 <File Id="OpenCBS.Extension.Events.dll" Source="SourceDir\Extensions\OpenCBS.Extension.Events.dll" />
+                <File Id="OpenCBS.Extension.Events.lic" Source="SourceDir\Extensions\OpenCBS.Extension.Events.lic" />
               </Component>
             </Directory>
 
