@@ -1080,8 +1080,9 @@ namespace OpenCBS.Manager.Events
                                         [accrued_penalties], 
                                         [past_due_days],
                                         [overdue_principal],
-                                        [write_off_method])
-                                     VALUES(@id, @olb, @accruedInterests, @accruedPenalties, @pastDueDays, @overdue_principal, @writeOffMethod)
+                                        [write_off_method],
+                                        [comment])
+                                     VALUES(@id, @olb, @accruedInterests, @accruedPenalties, @pastDueDays, @overdue_principal, @writeOffMethod, @comment)
                                     SELECT SCOPE_IDENTITY()";
 
             using(var c = new OpenCbsCommand(q, transaction.Connection, transaction))
@@ -1322,6 +1323,7 @@ namespace OpenCBS.Manager.Events
             c.AddParam("@pastDueDays", pEvent.PastDueDays);
             c.AddParam("@overdue_principal", pEvent.OverduePrincipal);
             c.AddParam("@writeOffMethod", pEvent.WriteOffMethod);
+            c.AddParam("@comment", pEvent.Comment);
         }
 
         private static void SetLoanTrancheEvent(TrancheEvent trancheEvent, OpenCbsCommand command)

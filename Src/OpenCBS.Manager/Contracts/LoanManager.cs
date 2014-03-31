@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using Dapper;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Accounting;
@@ -516,7 +517,8 @@ namespace OpenCBS.Manager.Contracts
             const string q = @"UPDATE Credit 
                                      SET rescheduled = 1, 
                                          nb_of_installment = @nbOfInstallment, 
-                                         interest_rate = CAST(@newInterestRate AS NUMERIC(16,12))                                         
+                                         interest_rate = CAST(@newInterestRate AS NUMERIC(16,12)),
+                                         [effective_interest_rate] = dbo.GetXIRR(@id)                                         
                                      WHERE id = @id";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
@@ -534,7 +536,8 @@ namespace OpenCBS.Manager.Contracts
             const string q = @"UPDATE Credit 
                                      SET nb_of_installment = @nbOfInstallment, 
                                          interest_rate = @newInterestRate,
-                                         amount = @amount 
+                                         amount = @amount, 
+                                        [effective_interest_rate] = dbo.GetXIRR(@id)
                                      WHERE id = @id";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
@@ -2621,6 +2624,14 @@ namespace OpenCBS.Manager.Contracts
             using (var select = new OpenCbsCommand(sqlText, conn))
             {
                 select.ExecuteScalar();
+            }
+        }
+
+        public IList<WriteOffOption> GetWriteOffOptions()
+        {
+            using (var connection = GetConnection())
+            {
+                return connection.Query<WriteOffOption>(@"select Id, Name from WriteOffOptions", null).ToList().AsReadOnly();
             }
         }
     }
