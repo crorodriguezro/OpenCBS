@@ -72,21 +72,20 @@ namespace OpenCBS.GUI.Contracts
             this.SuspendLayout();
             // 
             // btnSave
-            //
+            // 
             resources.ApplyResources(this.btnSave, "btnSave");
             this.btnSave.Name = "btnSave";
             this.btnSave.Click += new System.EventHandler(this.BSaveClick);
             // 
             // btnCancel
-            //
-            resources.ApplyResources(this.btnCancel, "btnCancel");
+            // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Click += new System.EventHandler(this.bCancel_Click);
             // 
             // gbxMainWindow
-            //
-            resources.ApplyResources(this.gbxMainWindow, "gbxMainWindow");
+            // 
             this.gbxMainWindow.Controls.Add(this.nudTotalAmount);
             this.gbxMainWindow.Controls.Add(this.nudAmount);
             this.gbxMainWindow.Controls.Add(this.rbxCredit);
@@ -109,6 +108,7 @@ namespace OpenCBS.GUI.Contracts
             this.gbxMainWindow.Controls.Add(this.lblDescription);
             this.gbxMainWindow.Controls.Add(this.plTransfer);
             this.gbxMainWindow.Controls.Add(this.pnlSavingPending);
+            resources.ApplyResources(this.gbxMainWindow, "gbxMainWindow");
             this.gbxMainWindow.Name = "gbxMainWindow";
             this.gbxMainWindow.TabStop = false;
             // 
@@ -178,7 +178,7 @@ namespace OpenCBS.GUI.Contracts
             this.lblSavingCurrencyFees.Name = "lblSavingCurrencyFees";
             // 
             // lbAmountMinMaxCurrencyPivot
-            //
+            // 
             resources.ApplyResources(this.lbAmountMinMaxCurrencyPivot, "lbAmountMinMaxCurrencyPivot");
             this.lbAmountMinMaxCurrencyPivot.Name = "lbAmountMinMaxCurrencyPivot";
             // 
@@ -189,7 +189,7 @@ namespace OpenCBS.GUI.Contracts
             this.lblSavingCurrency.Name = "lblSavingCurrency";
             // 
             // lbAmountMinMax
-            //
+            // 
             resources.ApplyResources(this.lbAmountMinMax, "lbAmountMinMax");
             this.lbAmountMinMax.Name = "lbAmountMinMax";
             // 
@@ -246,7 +246,7 @@ namespace OpenCBS.GUI.Contracts
             this.tbTargetAccount.TextChanged += new System.EventHandler(this.TbSavingCodeTextChanged);
             // 
             // btnSearchContract
-            //
+            // 
             resources.ApplyResources(this.btnSearchContract, "btnSearchContract");
             this.btnSearchContract.Name = "btnSearchContract";
             this.btnSearchContract.Click += new System.EventHandler(this.btSearchContract_Click);
@@ -264,8 +264,9 @@ namespace OpenCBS.GUI.Contracts
             // 
             // cbBookings
             // 
+            this.cbBookings.BackColor = System.Drawing.Color.White;
             this.cbBookings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBookings.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cbBookings.ForeColor = System.Drawing.Color.Black;
             this.cbBookings.FormattingEnabled = true;
             resources.ApplyResources(this.cbBookings, "cbBookings");
             this.cbBookings.Name = "cbBookings";

@@ -112,16 +112,16 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnSave.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 8.25pt</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -131,7 +131,7 @@
   <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>172, 25</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
@@ -142,7 +142,7 @@
     <value>btnSave</value>
   </data>
   <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetButton, OpenCBS.GUI, Version=1.1.1.28732, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -172,7 +172,7 @@
     <value>btnCancel</value>
   </data>
   <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetButton, OpenCBS.GUI, Version=1.1.1.28732, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -199,7 +199,7 @@
     <value>nudTotalAmount</value>
   </data>
   <data name="&gt;&gt;nudTotalAmount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;nudTotalAmount.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -226,7 +226,7 @@
     <value>nudAmount</value>
   </data>
   <data name="&gt;&gt;nudAmount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;nudAmount.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -244,7 +244,7 @@
     <value>429, 72</value>
   </data>
   <data name="rbxCredit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 20</value>
+    <value>60, 20</value>
   </data>
   <data name="rbxCredit.TabIndex" type="System.Int32, mscorlib">
     <value>78</value>
@@ -259,7 +259,7 @@
     <value>rbxCredit</value>
   </data>
   <data name="&gt;&gt;rbxCredit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbxCredit.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -277,7 +277,7 @@
     <value>360, 72</value>
   </data>
   <data name="rbxDebit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 20</value>
+    <value>56, 20</value>
   </data>
   <data name="rbxDebit.TabIndex" type="System.Int32, mscorlib">
     <value>77</value>
@@ -292,7 +292,7 @@
     <value>rbxDebit</value>
   </data>
   <data name="&gt;&gt;rbxDebit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbxDebit.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -325,7 +325,7 @@
     <value>lblAmountFeesMinMax</value>
   </data>
   <data name="&gt;&gt;lblAmountFeesMinMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblAmountFeesMinMax.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -349,7 +349,7 @@
     <value>updAmountFees</value>
   </data>
   <data name="&gt;&gt;updAmountFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;updAmountFees.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -382,7 +382,7 @@
     <value>lblTotalSavingCurrency</value>
   </data>
   <data name="&gt;&gt;lblTotalSavingCurrency.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblTotalSavingCurrency.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -403,7 +403,7 @@
     <value>14, 46</value>
   </data>
   <data name="lblTotalAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 16</value>
+    <value>97, 16</value>
   </data>
   <data name="lblTotalAmount.TabIndex" type="System.Int32, mscorlib">
     <value>68</value>
@@ -415,7 +415,7 @@
     <value>lblTotalAmount</value>
   </data>
   <data name="&gt;&gt;lblTotalAmount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblTotalAmount.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -436,7 +436,7 @@
     <value>14, 97</value>
   </data>
   <data name="lblFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 16</value>
+    <value>107, 16</value>
   </data>
   <data name="lblFees.TabIndex" type="System.Int32, mscorlib">
     <value>63</value>
@@ -448,7 +448,7 @@
     <value>lblFees</value>
   </data>
   <data name="&gt;&gt;lblFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblFees.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -481,7 +481,7 @@
     <value>lblSavingCurrencyFees</value>
   </data>
   <data name="&gt;&gt;lblSavingCurrencyFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblSavingCurrencyFees.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -514,7 +514,7 @@
     <value>lbAmountMinMaxCurrencyPivot</value>
   </data>
   <data name="&gt;&gt;lbAmountMinMaxCurrencyPivot.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbAmountMinMaxCurrencyPivot.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -547,7 +547,7 @@
     <value>lblSavingCurrency</value>
   </data>
   <data name="&gt;&gt;lblSavingCurrency.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblSavingCurrency.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -580,7 +580,7 @@
     <value>lbAmountMinMax</value>
   </data>
   <data name="&gt;&gt;lbAmountMinMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbAmountMinMax.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -604,7 +604,7 @@
     <value>dtpDate</value>
   </data>
   <data name="&gt;&gt;dtpDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dtpDate.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -625,7 +625,7 @@
     <value>14, 23</value>
   </data>
   <data name="lblDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 16</value>
+    <value>39, 16</value>
   </data>
   <data name="lblDate.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -637,7 +637,7 @@
     <value>lblDate</value>
   </data>
   <data name="&gt;&gt;lblDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblDate.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -658,7 +658,7 @@
     <value>14, 71</value>
   </data>
   <data name="lblAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 16</value>
+    <value>79, 16</value>
   </data>
   <data name="lblAmount.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -670,7 +670,7 @@
     <value>lblAmount</value>
   </data>
   <data name="&gt;&gt;lblAmount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblAmount.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -691,7 +691,7 @@
     <value>tbxSavingCode</value>
   </data>
   <data name="&gt;&gt;tbxSavingCode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbxSavingCode.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
@@ -712,7 +712,7 @@
     <value>14, 125</value>
   </data>
   <data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 16</value>
+    <value>77, 16</value>
   </data>
   <data name="lblDescription.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -724,187 +724,13 @@
     <value>lblDescription</value>
   </data>
   <data name="&gt;&gt;lblDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblDescription.Parent" xml:space="preserve">
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;lblDescription.ZOrder" xml:space="preserve">
     <value>19</value>
-  </data>
-  <data name="&gt;&gt;lblInterBranch.Name" xml:space="preserve">
-    <value>lblInterBranch</value>
-  </data>
-  <data name="&gt;&gt;lblInterBranch.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblInterBranch.Parent" xml:space="preserve">
-    <value>plTransfer</value>
-  </data>
-  <data name="&gt;&gt;lblInterBranch.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tbTargetAccount.Name" xml:space="preserve">
-    <value>tbTargetAccount</value>
-  </data>
-  <data name="&gt;&gt;tbTargetAccount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbTargetAccount.Parent" xml:space="preserve">
-    <value>plTransfer</value>
-  </data>
-  <data name="&gt;&gt;tbTargetAccount.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnSearchContract.Name" xml:space="preserve">
-    <value>btnSearchContract</value>
-  </data>
-  <data name="&gt;&gt;btnSearchContract.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetButton, OpenCBS.GUI, Version=1.1.1.28732, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;btnSearchContract.Parent" xml:space="preserve">
-    <value>plTransfer</value>
-  </data>
-  <data name="&gt;&gt;btnSearchContract.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lbTargetSavings.Name" xml:space="preserve">
-    <value>lbTargetSavings</value>
-  </data>
-  <data name="&gt;&gt;lbTargetSavings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbTargetSavings.Parent" xml:space="preserve">
-    <value>plTransfer</value>
-  </data>
-  <data name="&gt;&gt;lbTargetSavings.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;lblClientName.Name" xml:space="preserve">
-    <value>lblClientName</value>
-  </data>
-  <data name="&gt;&gt;lblClientName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblClientName.Parent" xml:space="preserve">
-    <value>plTransfer</value>
-  </data>
-  <data name="&gt;&gt;lblClientName.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;cbBookings.Name" xml:space="preserve">
-    <value>cbBookings</value>
-  </data>
-  <data name="&gt;&gt;cbBookings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbBookings.Parent" xml:space="preserve">
-    <value>plTransfer</value>
-  </data>
-  <data name="&gt;&gt;cbBookings.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="plTransfer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 150</value>
-  </data>
-  <data name="plTransfer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>674, 46</value>
-  </data>
-  <data name="plTransfer.TabIndex" type="System.Int32, mscorlib">
-    <value>58</value>
-  </data>
-  <data name="&gt;&gt;plTransfer.Name" xml:space="preserve">
-    <value>plTransfer</value>
-  </data>
-  <data name="&gt;&gt;plTransfer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;plTransfer.Parent" xml:space="preserve">
-    <value>gbxMainWindow</value>
-  </data>
-  <data name="&gt;&gt;plTransfer.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="&gt;&gt;cbSavingsMethod.Name" xml:space="preserve">
-    <value>cbSavingsMethod</value>
-  </data>
-  <data name="&gt;&gt;cbSavingsMethod.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbSavingsMethod.Parent" xml:space="preserve">
-    <value>pnlSavingPending</value>
-  </data>
-  <data name="&gt;&gt;cbSavingsMethod.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;cbxPending.Name" xml:space="preserve">
-    <value>cbxPending</value>
-  </data>
-  <data name="&gt;&gt;cbxPending.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbxPending.Parent" xml:space="preserve">
-    <value>pnlSavingPending</value>
-  </data>
-  <data name="&gt;&gt;cbxPending.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lblPaymentMethod.Name" xml:space="preserve">
-    <value>lblPaymentMethod</value>
-  </data>
-  <data name="&gt;&gt;lblPaymentMethod.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblPaymentMethod.Parent" xml:space="preserve">
-    <value>pnlSavingPending</value>
-  </data>
-  <data name="&gt;&gt;lblPaymentMethod.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="pnlSavingPending.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 150</value>
-  </data>
-  <data name="pnlSavingPending.Size" type="System.Drawing.Size, System.Drawing">
-    <value>674, 46</value>
-  </data>
-  <data name="pnlSavingPending.TabIndex" type="System.Int32, mscorlib">
-    <value>67</value>
-  </data>
-  <data name="&gt;&gt;pnlSavingPending.Name" xml:space="preserve">
-    <value>pnlSavingPending</value>
-  </data>
-  <data name="&gt;&gt;pnlSavingPending.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlSavingPending.Parent" xml:space="preserve">
-    <value>gbxMainWindow</value>
-  </data>
-  <data name="&gt;&gt;pnlSavingPending.ZOrder" xml:space="preserve">
-    <value>21</value>
-  </data>
-  <data name="gbxMainWindow.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="gbxMainWindow.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="gbxMainWindow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>699, 240</value>
-  </data>
-  <data name="gbxMainWindow.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;gbxMainWindow.Name" xml:space="preserve">
-    <value>gbxMainWindow</value>
-  </data>
-  <data name="&gt;&gt;gbxMainWindow.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbxMainWindow.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbxMainWindow.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="lblInterBranch.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -931,7 +757,7 @@
     <value>lblInterBranch</value>
   </data>
   <data name="&gt;&gt;lblInterBranch.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblInterBranch.Parent" xml:space="preserve">
     <value>plTransfer</value>
@@ -955,7 +781,7 @@
     <value>tbTargetAccount</value>
   </data>
   <data name="&gt;&gt;tbTargetAccount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbTargetAccount.Parent" xml:space="preserve">
     <value>plTransfer</value>
@@ -985,7 +811,7 @@
     <value>btnSearchContract</value>
   </data>
   <data name="&gt;&gt;btnSearchContract.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetButton, OpenCBS.GUI, Version=1.1.1.28732, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSearchContract.Parent" xml:space="preserve">
     <value>plTransfer</value>
@@ -1006,7 +832,7 @@
     <value>8, 4</value>
   </data>
   <data name="lbTargetSavings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 16</value>
+    <value>75, 16</value>
   </data>
   <data name="lbTargetSavings.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -1018,7 +844,7 @@
     <value>lbTargetSavings</value>
   </data>
   <data name="&gt;&gt;lbTargetSavings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbTargetSavings.Parent" xml:space="preserve">
     <value>plTransfer</value>
@@ -1048,7 +874,7 @@
     <value>lblClientName</value>
   </data>
   <data name="&gt;&gt;lblClientName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblClientName.Parent" xml:space="preserve">
     <value>plTransfer</value>
@@ -1069,13 +895,34 @@
     <value>cbBookings</value>
   </data>
   <data name="&gt;&gt;cbBookings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbBookings.Parent" xml:space="preserve">
     <value>plTransfer</value>
   </data>
   <data name="&gt;&gt;cbBookings.ZOrder" xml:space="preserve">
     <value>5</value>
+  </data>
+  <data name="plTransfer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 150</value>
+  </data>
+  <data name="plTransfer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>674, 46</value>
+  </data>
+  <data name="plTransfer.TabIndex" type="System.Int32, mscorlib">
+    <value>58</value>
+  </data>
+  <data name="&gt;&gt;plTransfer.Name" xml:space="preserve">
+    <value>plTransfer</value>
+  </data>
+  <data name="&gt;&gt;plTransfer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plTransfer.Parent" xml:space="preserve">
+    <value>gbxMainWindow</value>
+  </data>
+  <data name="&gt;&gt;plTransfer.ZOrder" xml:space="preserve">
+    <value>20</value>
   </data>
   <data name="cbSavingsMethod.Location" type="System.Drawing.Point, System.Drawing">
     <value>128, 3</value>
@@ -1090,7 +937,7 @@
     <value>cbSavingsMethod</value>
   </data>
   <data name="&gt;&gt;cbSavingsMethod.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbSavingsMethod.Parent" xml:space="preserve">
     <value>pnlSavingPending</value>
@@ -1126,7 +973,7 @@
     <value>cbxPending</value>
   </data>
   <data name="&gt;&gt;cbxPending.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbxPending.Parent" xml:space="preserve">
     <value>pnlSavingPending</value>
@@ -1162,7 +1009,7 @@
     <value>lblPaymentMethod</value>
   </data>
   <data name="&gt;&gt;lblPaymentMethod.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblPaymentMethod.Parent" xml:space="preserve">
     <value>pnlSavingPending</value>
@@ -1170,10 +1017,55 @@
   <data name="&gt;&gt;lblPaymentMethod.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="pnlSavingPending.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 150</value>
+  </data>
+  <data name="pnlSavingPending.Size" type="System.Drawing.Size, System.Drawing">
+    <value>674, 46</value>
+  </data>
+  <data name="pnlSavingPending.TabIndex" type="System.Int32, mscorlib">
+    <value>67</value>
+  </data>
+  <data name="&gt;&gt;pnlSavingPending.Name" xml:space="preserve">
+    <value>pnlSavingPending</value>
+  </data>
+  <data name="&gt;&gt;pnlSavingPending.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlSavingPending.Parent" xml:space="preserve">
+    <value>gbxMainWindow</value>
+  </data>
+  <data name="&gt;&gt;pnlSavingPending.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="gbxMainWindow.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gbxMainWindow.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gbxMainWindow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>699, 240</value>
+  </data>
+  <data name="gbxMainWindow.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gbxMainWindow.Name" xml:space="preserve">
+    <value>gbxMainWindow</value>
+  </data>
+  <data name="&gt;&gt;gbxMainWindow.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbxMainWindow.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbxMainWindow.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>45</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
@@ -1192,6 +1084,6 @@
     <value>SavingsOperationForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=1.1.1.28732, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
