@@ -1657,13 +1657,21 @@ namespace OpenCBS.Services
                     {
                         var id = 0;
                         if (int.TryParse(evnt.Comment, out id))
-                            ServicesProvider.GetInstance()
-                                            .GetSavingServices()
-                                            .DeleteEvent(new SavingWithdrawEvent()
-                                                {
-                                                    Id = id,
-                                                    CancelDate = TimeProvider.Today
-                                                });
+                        {
+                            var listSavingsEvents = new List<SavingEvent>();
+
+                            foreach (var saving in pClient.Savings)
+                                listSavingsEvents.AddRange(saving.Events.OfType<SavingEvent>());
+
+                            var debitSavingEvent = listSavingsEvents.First(ev => ev.Id == id);
+                            var creditSavingEvent = listSavingsEvents.First(ev => ev.Amount == debitSavingEvent.Amount && ev.Date == debitSavingEvent.Date);
+                            debitSavingEvent.CancelDate = TimeProvider.Today;
+                            creditSavingEvent.CancelDate = TimeProvider.Today;
+                                
+                            var tempService = ServicesProvider.GetInstance().GetSavingServices();
+                            tempService.DeleteEvent(debitSavingEvent);
+                            tempService.DeleteEvent(creditSavingEvent);
+                        }
                     }
                     evnt.Comment = comment;
                     evnt.CancelDate = TimeProvider.Now;
