@@ -47,7 +47,7 @@ namespace OpenCBS.GUI.Contracts
     {
         private readonly Village _village;
         private readonly LoanProduct _product;
-        private DateTime _CreditCommitteeDate = TimeProvider.Today;
+        private DateTime _CreditCommitteeDate = TimeProvider.Now;
         private bool _blockItemCheck;
         private bool _hasMember;
         private ListViewItem _itemTotal = new ListViewItem("");
@@ -224,7 +224,7 @@ namespace OpenCBS.GUI.Contracts
                 
                 customExchangeRate =
                        ServicesProvider.GetInstance().GetAccountingServices().FindLatestExchangeRate(
-                           DateTime.Today, _product.Currency);
+                           TimeProvider.Today, _product.Currency);
                 total += customExchangeRate.Rate == 0
                                           ? 0
                                           : (OCurrency)Convert.ToDecimal(item.SubItems[IdxAmount].Text) / customExchangeRate.Rate;

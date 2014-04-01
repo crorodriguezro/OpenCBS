@@ -223,7 +223,7 @@ namespace OpenCBS.GUI.Contracts
 
                 customExchangeRate =
                         ServicesProvider.GetInstance().GetAccountingServices().FindLatestExchangeRate(
-                            DateTime.Today, (Currency)item.SubItems[8].Tag);
+                            TimeProvider.Today, (Currency)item.SubItems[8].Tag);
 
                 principal += customExchangeRate.Rate == 0
                                           ? 0
@@ -459,7 +459,7 @@ namespace OpenCBS.GUI.Contracts
             try
             {
                 int installmentNumber = loan.GetFirstUnpaidInstallment().Number;
-                DateTime date = TimeProvider.Today;
+                DateTime date = TimeProvider.Now;
 
                 PaymentMethod paymentMethod =
                     ServicesProvider.GetInstance().GetPaymentMethodServices().GetPaymentMethodById(1);

@@ -31,6 +31,7 @@ using OpenCBS.Engine.Interfaces;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.GUI.UserControl;
 using OpenCBS.Services;
+using OpenCBS.Shared;
 
 namespace OpenCBS.GUI.Contracts
 {
@@ -58,7 +59,7 @@ namespace OpenCBS.GUI.Contracts
 
         public void InitializeTrancheComponents()
         {
-            startDateTimePicker.Value = DateTime.Today;
+            startDateTimePicker.Value = TimeProvider.Now;
 
             if (Contract.Product.NbOfInstallments != null)
             {

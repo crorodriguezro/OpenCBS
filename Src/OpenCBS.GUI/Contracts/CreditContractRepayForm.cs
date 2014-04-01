@@ -208,7 +208,7 @@ namespace OpenCBS.GUI.Contracts
                     (ServicesProvider.GetInstance().GetCurrencyServices().FindAllCurrencies(), _date.Date))
                 {
                     _btAddExchangeRate.Enabled = panelEC.Enabled = true;
-                    ExchangeRateForm _xrForm = new ExchangeRateForm(new DateTime(_date.Year, _date.Month, _date.Day), _loan.Product.Currency);
+                    ExchangeRateForm _xrForm = new ExchangeRateForm(new DateTime(_date.Year, _date.Month, _date.Day, TimeProvider.Now.Hour, TimeProvider.Now.Minute, TimeProvider.Now.Second, TimeProvider.Now.Millisecond), _loan.Product.Currency);
                     _xrForm.ShowDialog();
                 }
                 _exchangeRate = ServicesProvider.GetInstance().GetAccountingServices().FindExchangeRate(_date.Date, _loan.Product.Currency);
@@ -412,15 +412,15 @@ namespace OpenCBS.GUI.Contracts
                 if (res == DialogResult.No) return;
             }
 
-            _date = new DateTime(dtpRepaymentDate.Value.Year, dtpRepaymentDate.Value.Month, dtpRepaymentDate.Value.Day); 
+            _date = new DateTime(dtpRepaymentDate.Value.Year, dtpRepaymentDate.Value.Month, dtpRepaymentDate.Value.Day, TimeProvider.Now.Hour, TimeProvider.Now.Minute, TimeProvider.Now.Second, TimeProvider.Now.Millisecond); 
 
             try
             {
                 bool isNotPaid = true;
 
-                if (_date.Date < DateTime.Today.Date)
+                if (_date.Date < TimeProvider.Now)
                     ServicesProvider.GetInstance().GetContractServices().PerformBackDateOperations();
-                else if (_date.Date > DateTime.Today.Date)
+                else if (_date.Date > TimeProvider.Now)
                     ServicesProvider.GetInstance().GetContractServices().PerformFutureDateOperations();
 
                 if (ApplicationSettings.GetInstance(User.CurrentUser.Md5).UseMandatorySavingAccount)
@@ -843,14 +843,14 @@ namespace OpenCBS.GUI.Contracts
             try
             {
                 //_date = _dateTimePicker.Value;
-                _date = new DateTime(dtpRepaymentDate.Value.Year, dtpRepaymentDate.Value.Month, dtpRepaymentDate.Value.Day);
+                _date = new DateTime(dtpRepaymentDate.Value.Year, dtpRepaymentDate.Value.Month, dtpRepaymentDate.Value.Day, TimeProvider.Now.Hour, TimeProvider.Now.Minute, TimeProvider.Now.Second, TimeProvider.Now.Millisecond);
                 SetExchangeRate();
             }
             catch (Exception ex)
             {
                 //_dateTimePicker.Value = TimeProvider.Today;
                 //_date = _dateTimePicker.Value;
-                _date = new DateTime(TimeProvider.Today.Year, TimeProvider.Today.Month, TimeProvider.Today.Day);
+                _date = TimeProvider.Now;
                 dtpRepaymentDate.Invalidate();
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
                 SetExchangeRate();

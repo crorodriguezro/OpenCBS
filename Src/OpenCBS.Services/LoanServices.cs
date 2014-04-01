@@ -1260,7 +1260,7 @@ namespace OpenCBS.Services
                             ApplyNewInterest = trancheConfiguration.ApplyNewInterestRateToOlb,
                             Maturity = trancheConfiguration.NumberOfInstallments,
                             StartDate = trancheConfiguration.StartDate,
-                            Date = trancheConfiguration.StartDate,
+                            Date = TimeProvider.Now,
                             InterestRate = trancheConfiguration.InterestRate / 100,
                             Number = copyOfLoan.GivenTranches.Count,
                             FirstRepaymentDate = trancheConfiguration.PreferredFirstInstallmentDate,
@@ -1408,7 +1408,7 @@ namespace OpenCBS.Services
                     var rescheduleLoanEvent = new RescheduleLoanEvent
                         {
                             Amount = copyOfLoan.CalculateActualOlb(),
-                            Date = rescheduleConfiguration.StartDate,
+                            Date = TimeProvider.Now,
                             ClientType = client.Type,
                             Interest = rescheduleConfiguration.InterestRate,
                             BadLoan = loan.BadLoan,
@@ -2956,7 +2956,7 @@ namespace OpenCBS.Services
             return Repay(config.Loan,
                          config.Client,
                          installment.Number,
-                         config.Date.Date,
+                         config.Date,
                          amount,
                          config.DisableFees,
                          config.ManualFeesAmount,

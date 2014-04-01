@@ -6607,36 +6607,35 @@ namespace OpenCBS.GUI.Clients
 
         private void WriteOff(int writeOffMethodId, string comment)
         {
-            if (_credit != null)
+            ServicesProvider.GetInstance().GetContractServices().WriteOff(_credit, TimeProvider.Now, writeOffMethodId, comment);
+            btnWriteOff.Enabled = false;
+            DisplayLoanEvents(_credit);
+            InitializeContractStatus(_credit);
+            if (MdiParent != null)
             {
-                try
-                {
-                    ServicesProvider.GetInstance().GetContractServices().WriteOff(_credit, TimeProvider.Now, writeOffMethodId, comment);
-                    btnWriteOff.Enabled = false;
-                    DisplayLoanEvents(_credit);
-                    InitializeContractStatus(_credit);
-                    if (MdiParent != null)
-                    {
-                        ((MainView)MdiParent).ReloadAlertsSync();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
-                    return;
-                }
+                ((MainView)MdiParent).ReloadAlertsSync();
             }
         }
 
         private void btnWriteOff_Click(object sender, EventArgs e)
         {
-            var form = new WriteOffOkCancelForm();
-            var loanService = ServiceProvider.GetContractServices();
-            form.ShowWriteOffOptions(loanService.GetWriteOffOptions());
+            if (_credit == null) return;
+            try
+            {
+                var form = new WriteOffOkCancelForm();
+                var loanService = ServiceProvider.GetContractServices();
+                form.ShowWriteOffOptions(loanService.GetWriteOffOptions());
 
-            if (form.ShowDialog() != DialogResult.OK) return;
+                if (form.ShowDialog() != DialogResult.OK) return;
 
-            WriteOff(form.OptionId, form.Comment);
+                WriteOff(form.OptionId, form.Comment);
+            }
+            catch (Exception ex)
+            {
+                new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
+                return;
+            }
+
         }
 
 

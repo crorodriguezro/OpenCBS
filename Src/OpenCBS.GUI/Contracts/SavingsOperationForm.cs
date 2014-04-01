@@ -328,14 +328,14 @@ namespace OpenCBS.GUI.Contracts
                 (OSavingsMethods) Enum.Parse(typeof (OSavingsMethods), cbSavingsMethod.SelectedValue.ToString());
             try
             {
-                _date = new DateTime(dtpDate.Value.Year, dtpDate.Value.Month, dtpDate.Value.Day, DateTime.Now.Hour,
-                                     DateTime.Now.Minute, DateTime.Now.Second);
+                _date = new DateTime(dtpDate.Value.Year, dtpDate.Value.Month, dtpDate.Value.Day, TimeProvider.Now.Hour,
+                                     TimeProvider.Now.Minute, TimeProvider.Now.Second);
 
                 SavingServices savingServices = ServicesProvider.GetInstance().GetSavingServices();
 
-                if (_date.Date < DateTime.Today.Date)
+                if (_date.Date < TimeProvider.Today.Date)
                     savingServices.PerformBackDateOperations(_date);
-                else if (_date.Date > DateTime.Today.Date)
+                else if (_date.Date > TimeProvider.Today.Date)
                     savingServices.PerformFutureDateOperations(_date);
 
                 if (_saving.HasPendingEvents())

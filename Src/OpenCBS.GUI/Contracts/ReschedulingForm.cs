@@ -27,6 +27,7 @@ using OpenCBS.Engine;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.GUI.UserControl;
 using OpenCBS.Services;
+using OpenCBS.Shared;
 
 namespace OpenCBS.GUI.Contracts
 {
@@ -46,8 +47,8 @@ namespace OpenCBS.GUI.Contracts
 
         public void InitializeRescheduleComponents()
         {
-            startDateTimePicker.Value = DateTime.Today > Contract.GetLastRepaymentDate()
-                ? DateTime.Today : Contract.GetLastRepaymentDate();
+            startDateTimePicker.Value = TimeProvider.Now > Contract.GetLastRepaymentDate()
+                ? TimeProvider.Now : Contract.GetLastRepaymentDate();
             firstRepaymentDateTimePicker.Value = startDateTimePicker
                     .Value
                     .Date

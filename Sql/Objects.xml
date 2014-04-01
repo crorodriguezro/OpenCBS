@@ -508,14 +508,14 @@ AS RETURN
 		    SELECT ce.contract_id, lode.amount
 		    FROM dbo.ContractEvents ce
 		    INNER JOIN dbo.LoanDisbursmentEvents lode ON ce.id = lode.id
-		    WHERE ce.is_deleted = 0 AND ce.event_date <= @date
+		    WHERE ce.is_deleted = 0 AND CONVERT(date, ce.event_date) <= @date
 		    
 		    UNION ALL
 		    
 		    SELECT ce.contract_id, te.amount
 		    FROM dbo.ContractEvents ce
 		    INNER JOIN dbo.TrancheEvents te ON ce.id = te.id
-		    WHERE ce.is_deleted = 0 AND ce.event_date <= @date
+		    WHERE ce.is_deleted = 0 AND CONVERT(date, ce.event_date) <= @date
 		) t
 		GROUP BY contract_id
 	)
@@ -1164,7 +1164,7 @@ RETURN
 		RIGHT JOIN dbo.ContractEvents AS ce ON ce.id = lode.id
 		LEFT JOIN dbo.TrancheEvents te ON te.id = ce.id
 		WHERE ce.event_type IN ('LODE','TEET') AND ce.is_deleted = 0
-		AND ce.event_date BETWEEN @from AND @to
+		AND CONVERT(date, ce.event_date) BETWEEN @from AND @to
 		GROUP BY ce.contract_id,ce.event_date,ce.event_type
 	),
 	
@@ -1317,7 +1317,7 @@ RETURN
 		) AS FLOAT)/100 AS vat_rate
 		, CASE
 			WHEN wroe.event_date IS NULL THEN 0
-			WHEN wroe.event_date <= ce.event_date THEN 1
+			WHEN CONVERT(date, wroe.event_date) <= CONVERT(date, ce.event_date) THEN 1
 			ELSE 0
 		END AS written_off
 		, ce.parent_id
@@ -1327,7 +1327,7 @@ RETURN
 		(
 			SELECT contract_id, MIN(event_date) AS event_date
 			FROM dbo.ContractEvents
-			WHERE event_type = 'WROE' AND event_date <= @to AND is_deleted = 0
+			WHERE event_type = 'WROE' AND CONVERT(date, event_date) <= @to AND is_deleted = 0
 			GROUP BY contract_id
 		) AS wroe ON wroe.contract_id = ce.contract_id
 		LEFT JOIN dbo.Contracts AS c ON c.id = ce.contract_id
@@ -1336,9 +1336,9 @@ RETURN
 		INNER JOIN dbo.Tiers AS t ON t.id = j.tiers_id
 		WHERE ce.is_deleted = 0
 		AND ((@from IS NULL AND @to IS NULL)
-			OR (@from IS NULL AND ce.event_date <= @to)
-			OR (@to IS NULL AND ce.event_date >= @from)
-			OR (ce.event_date >= @from AND ce.event_date <= @to))
+			OR (@from IS NULL AND CONVERT(date, ce.event_date) <= @to)
+			OR (@to IS NULL AND CONVERT(date, ce.event_date) >= @from)
+			OR (CONVERT(date, ce.event_date) >= @from AND CONVERT(date, ce.event_date) <= @to))
 		AND ((0 = @branch_id AND t.branch_id IN (SELECT branch_id FROM dbo.UsersBranches WHERE user_id = @user_id))
 			OR t.branch_id = @branch_id)
 		AND 
