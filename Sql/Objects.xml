@@ -5010,29 +5010,41 @@ BEGIN
 		n FLOAT
 		, amount MONEY
 	)
-	DECLARE @startDate DATETIME
-	DECLARE @eventType NVARCHAR(4)
-	SELECT TOP 1 @startDate = event_date, @eventType = event_type
-	FROM dbo.ContractEvents
-	WHERE is_deleted = 0
-	    AND event_type IN ('LODE', 'TEET')
-	    AND contract_id = @contractId
-	ORDER BY event_date DESC
-	--INSERT INTO @cashflows
-	--SELECT 0, -cr.amount + ISNULL(dbo.getEntryFees(@contractId), 0)
-	--FROM dbo.Credit cr
-	--WHERE cr.id = @contractId
-    DECLARE @amount MONEY
-    SELECT @amount = SUM(principal - paid_principal)
-    FROM dbo.InstallmentSnapshot(@startDate)
-    WHERE contract_id = @contractId
-    
-    IF @eventType = 'LODE'
-    BEGIN
-        SET @amount = @amount - ISNULL(dbo.getEntryFees(@contractId), 0)
-    END
-    INSERT INTO @cashflows
-    SELECT 0, -@amount
+	 DECLARE @startDate DATETIME
+  DECLARE @eventType NVARCHAR(4)
+  DECLARE @eventId INT
+  SELECT TOP 1 @startDate = event_date, @eventType = event_type, @eventId = id
+  FROM dbo.ContractEvents
+  WHERE is_deleted = 0
+      AND event_type IN ('LODE', 'TEET', 'ROLE', 'APR')
+      AND contract_id = @contractId
+  ORDER BY event_date DESC
+  --INSERT INTO @cashflows
+  --SELECT 0, -cr.amount + ISNULL(dbo.getEntryFees(@contractId), 0)
+  --FROM dbo.Credit cr
+  --WHERE cr.id = @contractId
+  DECLARE @amount MONEY
+  SELECT @amount = SUM(principal - paid_principal)
+  FROM dbo.InstallmentSnapshot(@startDate)
+  WHERE contract_id = @contractId
+  
+  IF @eventType = 'LODE'
+  BEGIN
+      SET @amount = @amount - ISNULL(dbo.getEntryFees(@contractId), 0)
+  END
+  
+  IF @eventType = 'TEET'
+  BEGIN
+  DECLARE @trancheFee MONEY
+  SELECT @trancheFee = SUM(lee.fee) FROM LoanEntryFeeEvents lee
+  INNER JOIN TrancheEvents te ON lee.disbursement_event_id = te.id
+  INNER JOIN ContractEvents ce ON ce.id = lee.id
+  WHERE ce.contract_id = @contractId
+      AND ce.is_deleted = 0
+      AND lee.disbursement_event_id = @eventId 
+      
+  INSERT INTO @cashflows
+  SELECT 0, -@amount
 	INSERT INTO @cashflows
 	SELECT -DATEDIFF(dd, @startDate, expected_date)/365.0, principal + interest
 	FROM dbo.InstallmentSnapshot(@startDate)
