@@ -99,6 +99,7 @@ namespace OpenCBS.Manager.Accounting
             }
         }
 
+
         private static ProvisioningRate GetProvisionningRate(OpenCbsReader reader)
         {
             return new ProvisioningRate
