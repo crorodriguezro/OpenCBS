@@ -5005,77 +5005,74 @@ END
 RETURNS FLOAT
 AS
 BEGIN
-	DECLARE @cashflows TABLE
-	(
-		n FLOAT
-		, amount MONEY
-	)
-	 DECLARE @startDate DATETIME
-  DECLARE @eventType NVARCHAR(4)
-  DECLARE @eventId INT
-  SELECT TOP 1 @startDate = event_date, @eventType = event_type, @eventId = id
-  FROM dbo.ContractEvents
-  WHERE is_deleted = 0
-      AND event_type IN ('LODE', 'TEET', 'ROLE', 'APR')
-      AND contract_id = @contractId
-  ORDER BY event_date DESC
-  --INSERT INTO @cashflows
-  --SELECT 0, -cr.amount + ISNULL(dbo.getEntryFees(@contractId), 0)
-  --FROM dbo.Credit cr
-  --WHERE cr.id = @contractId
-  DECLARE @amount MONEY
-  SELECT @amount = SUM(principal - paid_principal)
-  FROM dbo.InstallmentSnapshot(@startDate)
-  WHERE contract_id = @contractId
+    DECLARE @cashflows TABLE
+    (
+	    n FLOAT
+	    , amount MONEY
+    )
+    DECLARE @startDate DATETIME
+    DECLARE @eventType NVARCHAR(4)
+    DECLARE @eventId INT
+    SELECT TOP 1 @startDate = event_date, @eventType = event_type, @eventId = id
+    FROM dbo.ContractEvents
+    WHERE is_deleted = 0
+        AND event_type IN ('LODE', 'TEET', 'ROLE', 'APR')
+        AND contract_id = @contractId
+    ORDER BY event_date DESC
   
-  IF @eventType = 'LODE'
-  BEGIN
+    DECLARE @amount MONEY
+    SELECT @amount = SUM(principal - paid_principal)
+    FROM dbo.InstallmentSnapshot(@startDate)
+    WHERE contract_id = @contractId
+
+    IF @eventType = 'LODE'
+    BEGIN
       SET @amount = @amount - ISNULL(dbo.getEntryFees(@contractId), 0)
-  END
+    END
   
-  IF @eventType = 'TEET'
-  BEGIN
-  DECLARE @trancheFee MONEY
-  SELECT @trancheFee = SUM(lee.fee) FROM LoanEntryFeeEvents lee
-  INNER JOIN TrancheEvents te ON lee.disbursement_event_id = te.id
-  INNER JOIN ContractEvents ce ON ce.id = lee.id
-  WHERE ce.contract_id = @contractId
-      AND ce.is_deleted = 0
-      AND lee.disbursement_event_id = @eventId 
+    IF @eventType = 'TEET'
+    BEGIN
+      DECLARE @trancheFee MONEY
+      SELECT @trancheFee = SUM(lee.fee) FROM LoanEntryFeeEvents lee
+      INNER JOIN TrancheEvents te ON lee.disbursement_event_id = te.id
+      INNER JOIN ContractEvents ce ON ce.id = lee.id
+      WHERE ce.contract_id = @contractId
+          AND ce.is_deleted = 0
+          AND lee.disbursement_event_id = @eventId 
+    END
       
-  INSERT INTO @cashflows
-  SELECT 0, -@amount
-	INSERT INTO @cashflows
-	SELECT -DATEDIFF(dd, @startDate, expected_date)/365.0, principal + interest
-	FROM dbo.InstallmentSnapshot(@startDate)
-	WHERE contract_id = @contractId
-	    AND principal + interest - paid_principal - paid_interest > 0
-	    
-	DECLARE @rate FLOAT
-	DECLARE @temp FLOAT
-	SET @rate = 0
-	DECLARE @err FLOAT
-	SET @err = .00000001
-	DECLARE @val FLOAT
-	DECLARE @pval FLOAT
-	DECLARE @i INT
-	SET @i = 0
-	WHILE @i < 10
-	BEGIN
-		SELECT @val = SUM(amount * POWER(1 + @rate, n)) FROM @cashflows
-		SELECT @pval = SUM(amount * n * POWER(1 + @rate, n - 1)) FROM @cashflows
-		SET @temp = @rate - @val/@pval
-		IF ABS(@temp - @rate) < @err
-		BEGIN
-			SET @rate = @temp
-			BREAK
-		END
-		SET @rate = @temp
-		SET @i = @i + 1
-	END
-	RETURN @rate
-END
-]]></create>
+    INSERT INTO @cashflows
+    SELECT 0, -@amount
+    INSERT INTO @cashflows
+    SELECT -DATEDIFF(dd, @startDate, expected_date)/365.0, principal + interest
+    FROM dbo.InstallmentSnapshot(@startDate)
+    WHERE contract_id = @contractId
+        AND principal + interest - paid_principal - paid_interest > 0
+        
+    DECLARE @rate FLOAT
+    DECLARE @temp FLOAT
+    SET @rate = 0
+    DECLARE @err FLOAT
+    SET @err = .00000001
+    DECLARE @val FLOAT
+    DECLARE @pval FLOAT
+    DECLARE @i INT
+    SET @i = 0
+    WHILE @i < 10
+    BEGIN
+	    SELECT @val = SUM(amount * POWER(1 + @rate, n)) FROM @cashflows
+	    SELECT @pval = SUM(amount * n * POWER(1 + @rate, n - 1)) FROM @cashflows
+	    SET @temp = @rate - @val/@pval
+	    IF ABS(@temp - @rate) < @err
+	    BEGIN
+		    SET @rate = @temp
+		    BREAK
+	    END
+	    SET @rate = @temp
+	    SET @i = @i + 1
+    END
+    RETURN @rate
+END]]></create>
     <drop><![CDATA[IF  EXISTS (
                 SELECT * 
                 FROM sys.objects 
