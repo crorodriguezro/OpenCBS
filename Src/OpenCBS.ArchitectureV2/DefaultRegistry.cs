@@ -19,6 +19,9 @@ namespace OpenCBS.ArchitectureV2
 
             For<ITranslationService>().Singleton().Use<TranslationService>();
             For<IApplicationController>().Singleton().Use<ApplicationController>();
+            For<IEventPublisher>().Singleton().Use<EventPublisher>();
+
+            RegisterInterceptor(new EventAggregatorInterceptor());
         }
     }
 }

@@ -8,10 +8,12 @@ namespace OpenCBS.ArchitectureV2
     public class ApplicationController : IApplicationController
     {
         private readonly IContainer _container;
+        private readonly IEventPublisher _eventPublisher;
 
-        public ApplicationController(IContainer container)
+        public ApplicationController(IContainer container, IEventPublisher eventPublisher)
         {
             _container = container;
+            _eventPublisher = eventPublisher;
         }
 
         public void Execute<T>(T commandData)
@@ -33,12 +35,12 @@ namespace OpenCBS.ArchitectureV2
 
         public void Raise<T>(T eventData)
         {
-            throw new System.NotImplementedException();
+            _eventPublisher.Publish(eventData);
         }
 
         public void Unsubscribe(object eventHandlers)
         {
-            throw new System.NotImplementedException();
+            _eventPublisher.Unsubscribe(eventHandlers);
         }
     }
 }

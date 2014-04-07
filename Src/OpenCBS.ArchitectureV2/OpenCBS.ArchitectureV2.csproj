@@ -58,10 +58,14 @@
     <Compile Include="CommandData\ShowRepaymentViewCommandData.cs" />
     <Compile Include="Command\ShowRepaymentViewCommand.cs" />
     <Compile Include="DefaultRegistry.cs" />
+    <Compile Include="EventAggregatorInterceptor.cs" />
+    <Compile Include="EventPublisher.cs" />
     <Compile Include="Interface\IApplicationController.cs" />
     <Compile Include="Interface\IBackgroundTask.cs" />
     <Compile Include="Interface\IBackgroundTaskFactory.cs" />
     <Compile Include="Interface\ICommand.cs" />
+    <Compile Include="Interface\IEventHandler.cs" />
+    <Compile Include="Interface\IEventPublisher.cs" />
     <Compile Include="Interface\Presenter\ISqlServerConnectionPresenter.cs" />
     <Compile Include="Interface\Presenter\IUpgradePresenter.cs" />
     <Compile Include="Interface\Service\ISettingsService.cs" />
