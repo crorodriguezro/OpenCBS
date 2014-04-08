@@ -22,81 +22,92 @@
 using System;
 using System.Collections;
 using OpenCBS.CoreDomain;
+using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.Enums;
+using OpenCBS.Manager.Accounting;
 using OpenCBS.Manager.Database;
 using OpenCBS.Manager;
 using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.Services
 {
-	/// <summary>
-	/// Summary description for DatabaseParametersServices.
-	/// </summary>
-	public class ApplicationSettingsServices : MarshalByRefObject
-	{
+    /// <summary>
+    /// Summary description for DatabaseParametersServices.
+    /// </summary>
+    public class ApplicationSettingsServices : MarshalByRefObject
+    {
         private readonly ApplicationSettingsManager _dataParamManager;
-		private readonly NonWorkingDateManagement _nonWorkingDateManager;
-	    private readonly User _user;
+        private readonly NonWorkingDateManagement _nonWorkingDateManager;
+        private readonly ProvisioningRuleManager _provisioningRuleManager;
+        private readonly User _user;
 
         public ApplicationSettingsServices(User pUser)
         {
             _user = pUser;
             _dataParamManager = new ApplicationSettingsManager(pUser);
             _nonWorkingDateManager = new NonWorkingDateManagement(pUser);
+            _provisioningRuleManager = new ProvisioningRuleManager(pUser);
         }
 
         public ApplicationSettingsServices(string pTestDb)
         {
             _dataParamManager = new ApplicationSettingsManager(pTestDb);
             _nonWorkingDateManager = new NonWorkingDateManagement(pTestDb);
+            _provisioningRuleManager = new ProvisioningRuleManager(pTestDb);
         }
 
-	    public void FillGeneralDatabaseParameter()
-		{
-			_dataParamManager.FillGeneralSettings();
-		}
+        public void FillGeneralDatabaseParameter()
+        {
+            _dataParamManager.FillGeneralSettings();
+        }
 
-		public void FillNonWorkingDate()
-		{
-			_nonWorkingDateManager.FillNonWorkingDateHelper();
-		}
+        public void FillNonWorkingDate()
+        {
+            _nonWorkingDateManager.FillNonWorkingDateHelper();
+        }
 
         public void UpdateNonWorkingDate(DictionaryEntry pEntry)
-		{
-			_nonWorkingDateManager.UpdatePublicHoliday(pEntry);
-		}
+        {
+            _nonWorkingDateManager.UpdatePublicHoliday(pEntry);
+        }
 
-		public void AddNonWorkingDate(DictionaryEntry pEntry)
-		{
-			_nonWorkingDateManager.AddPublicHoliday(pEntry);
-		}
+        public void AddNonWorkingDate(DictionaryEntry pEntry)
+        {
+            _nonWorkingDateManager.AddPublicHoliday(pEntry);
+        }
 
-		public void DeleteNonWorkingDate(DictionaryEntry pEntry)
-		{
-			_nonWorkingDateManager.DeletePublicHoliday(pEntry);
-		}
+        public void DeleteNonWorkingDate(DictionaryEntry pEntry)
+        {
+            _nonWorkingDateManager.DeletePublicHoliday(pEntry);
+        }
 
-		public void AddDatabaseParameter(DictionaryEntry pParameter)
-		{
-			_dataParamManager.AddParameter(pParameter);
-		}
+        public void AddDatabaseParameter(DictionaryEntry pParameter)
+        {
+            _dataParamManager.AddParameter(pParameter);
+        }
 
-		public void CheckApplicationSettings()
-		{
+        public void CheckApplicationSettings()
+        {
             _dataParamManager.FillGeneralSettings();
             _nonWorkingDateManager.FillNonWorkingDateHelper();
-
+           FillProvisioningRule();
             foreach (DictionaryEntry entry in ApplicationSettings.GetInstance(_user.Md5).DefaultParamList)
-			{
+            {
                 if (ApplicationSettings.GetInstance(_user.Md5).GetSpecificParameter(entry.Key.ToString()) == null &&
                     entry.Key.ToString() != OGeneralSettings.LATEDAYSAFTERACCRUALCEASES &&
                     entry.Key.ToString() != OGeneralSettings.WEEKENDDAY1 &&
-                    entry.Key.ToString() != OGeneralSettings.WEEKENDDAY2 )
-				{
-					_dataParamManager.AddParameter(entry);
-				}
-			}
-		}
+                    entry.Key.ToString() != OGeneralSettings.WEEKENDDAY2)
+                {
+                    _dataParamManager.AddParameter(entry);
+                }
+            }
+        }
+
+        private void FillProvisioningRule()
+        {
+            var table = ProvisionTable.GetInstance(_user);
+            table.ProvisioningRates = _provisioningRuleManager.SelectAllProvisioningRates();
+        }
 
         public int UpdateSelectedParameter(string pName, object pNewValue)
         {
@@ -106,7 +117,7 @@ namespace OpenCBS.Services
                 return _dataParamManager.UpdateSelectedParameter(pName, (int)pNewValue);
             if (pNewValue is bool)
                 return _dataParamManager.UpdateSelectedParameter(pName, (bool)pNewValue);
-            
+
             return _dataParamManager.UpdateSelectedParameter(pName, pNewValue.ToString());
         }
 
@@ -119,5 +130,5 @@ namespace OpenCBS.Services
         {
             _dataParamManager.SetGuid(guid);
         }
-	}
+    }
 }

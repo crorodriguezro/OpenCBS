@@ -4304,7 +4304,7 @@ namespace OpenCBS.GUI.Clients
 
             foreach (Event displayEvent in events)
             {
-                var listViewItem = new ListViewItem(displayEvent.Date.ToShortDateString());
+                var listViewItem = new ListViewItem(displayEvent.Date.ToString());
                 listViewItem.SubItems.Add(displayEvent.EntryDate.ToShortDateString());
 
                 listViewItem.SubItems.Add(displayEvent.Code);

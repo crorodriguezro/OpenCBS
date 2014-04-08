@@ -124,6 +124,7 @@ namespace OpenCBS.GUI.Configuration
         private Label label3;
         private OpenFileDialog openFileDialog;
         #endregion
+
         public FrmGeneralSettings()
         {
             pR = new ProvisioningRate();
@@ -222,9 +223,9 @@ namespace OpenCBS.GUI.Configuration
             listViewProvisioningRules.Items.Clear();
             var listViewItemRes = new ListViewItem();
 
-            List<ProvisioningRate> pr = CoreDomainProvider.GetInstance().GetProvisioningTable().ProvisioningRates;
-            
-            foreach (ProvisioningRate provisioningRate in CoreDomainProvider.GetInstance().GetProvisioningTable().ProvisioningRates)
+            List<ProvisioningRate> provisioningRates = CoreDomainProvider.GetInstance().GetProvisioningTable().ProvisioningRates;
+
+            foreach (ProvisioningRate provisioningRate in provisioningRates)
             {
                 var listViewItem = new ListViewItem(provisioningRate.Number.ToString());
 
@@ -1559,7 +1560,7 @@ namespace OpenCBS.GUI.Configuration
         private void textBoxNbOfDaysMin_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(textBoxNbOfDaysMin.Text) && textBoxNbOfDaysMin.Text != "rest.")
-                pR.NbOfDaysMin = ServicesHelper.ConvertStringToInt32(textBoxNbOfDaysMin.Text);
+                pR.NbOfDaysMin = Convert.ToInt32(textBoxNbOfDaysMin.Text.Trim());
         }
 
         private void textBoxNbOfDaysMax_TextChanged(object sender, EventArgs e)

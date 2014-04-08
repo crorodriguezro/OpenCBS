@@ -7155,7 +7155,7 @@ Max:
     <value>Date</value>
   </data>
   <data name="columnHeader11.Width" type="System.Int32, mscorlib">
-    <value>102</value>
+    <value>123</value>
   </data>
   <data name="EntryDate.Text" xml:space="preserve">
     <value>Entry date</value>
@@ -7462,7 +7462,7 @@ Max:
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        HQAAAk1TRnQBSQFMAgEBBQEAAQwBIwEMASMBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAARQBIwEUASMBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -10131,7 +10131,7 @@ Max:
     <value>1</value>
   </data>
   <data name="tlpSBDetails.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblIbtFeeMinMax" Row="7" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbTransferFees" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudIbtFee" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbDepositFees" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudTransferFees" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbReopenFeesMinMax" Row="6" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbTransferFeesMinMax" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="nudReopenFees" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbReopenFees" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbDepositFeesMinMax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbAgioFeesMinMax" Row="5" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbChequeDepositFees" Row="8" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudAgioFees" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudChequeDepositFees" Row="8" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbAgioFees" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbOverdraftFeesMinMax" Row="4" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblChequeDepositFeesMinMax" Row="8" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbCloseFees" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudOverdraftFees" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudCloseFees" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbOverdraftFees" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbCloseFeesMinMax" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbManagementFeesMinMax" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbManagementFees" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudManagementFees" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudDepositFees" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblInterBranchTransfer" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,17572,Percent,29,22858,Percent,20,5957" /&gt;&lt;Rows Styles="Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,1" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblIbtFeeMinMax" Row="7" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbTransferFees" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudIbtFee" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbDepositFees" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudTransferFees" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbReopenFeesMinMax" Row="6" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbTransferFeesMinMax" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="nudReopenFees" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbReopenFees" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbDepositFeesMinMax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbAgioFeesMinMax" Row="5" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbChequeDepositFees" Row="8" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudAgioFees" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudChequeDepositFees" Row="8" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbAgioFees" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbOverdraftFeesMinMax" Row="4" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblChequeDepositFeesMinMax" Row="8" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbCloseFees" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudOverdraftFees" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudCloseFees" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbOverdraftFees" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbCloseFeesMinMax" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbManagementFeesMinMax" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbManagementFees" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudManagementFees" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudDepositFees" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblInterBranchTransfer" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50.17572,Percent,29.22858,Percent,20.5957" /&gt;&lt;Rows Styles="Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,11,Percent,1" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tabPageSavingsAmountsAndFees.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 29</value>
@@ -10236,7 +10236,7 @@ Max:
     <value>3, 3</value>
   </data>
   <data name="lvSavingEvent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1229, 297</value>
+    <value>1229, 299</value>
   </data>
   <data name="lvSavingEvent.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -10260,7 +10260,7 @@ Max:
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageSavingsEvents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 303</value>
+    <value>1235, 305</value>
   </data>
   <data name="tabPageSavingsEvents.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -10335,7 +10335,7 @@ Max:
     <value>0, 0</value>
   </data>
   <data name="olvLoans.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 303</value>
+    <value>1235, 305</value>
   </data>
   <data name="olvLoans.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -10356,7 +10356,7 @@ Max:
     <value>4, 29</value>
   </data>
   <data name="tabPageLoans.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 303</value>
+    <value>1235, 305</value>
   </data>
   <data name="tabPageLoans.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -10638,7 +10638,7 @@ Max:
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tpTermDeposit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 303</value>
+    <value>1235, 305</value>
   </data>
   <data name="tpTermDeposit.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -11885,17 +11885,16 @@ Max:
   <data name="buttonPrintSchedule.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAADECAIAAAAdy+YyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACQ0lEQVRoQ+3US0hUYRyG8TeIiKBF25Zt
-        27Vq66IICioIJLoHXQUjwTAYCkMsShARi0ySMjHMEhFNNEvGbMrUhrxfJhl1dJqLo446zkXt7Gcx+CwE
-        4/v4bZ/Ny/8craMnVK2bLGk3M4mZJPXHZK7EXIm5ktQLmCtJvZH5l5grMVeSegFzJak30hp6JkuazUyy
-        RSdZXVsFBBorMVnS2kqsJgDFEwngP8/i8cSGWZNsuLGSTc5i8RigaDwGbHK2EosCAo2V0CwSWwEEGivR
-        cjQCaGklAmyNLBxZAgQaK9HC8iKwydn8UhhQaDEM0Gw2PA8oGJ4DaBZYCAHyz4cAmvnmgoD+hgKAZkIB
-        gGbTs35AnqAP0FTAC2jC7wWsbAaQ2+cBNO7zAHJ5JwGNzUwANBuZdgMa9owDGpz6A2hg0gWozz0KqNc9
-        Asg5PgSoxzUAqNvVD6hrrA9Q52gvIMewE9C3ISeg9sEeQPb+LkBfejsBtf7+DqjF6QDU9KsDUGNPO6CG
-        bjug+p9tgGp/tAJ67/gE6F1HM6C3Xz8CqrQ3AKpoqwdU/rkOUFnLB0ClzTWAnjVVAypurAJUWP8GUEHd
-        a0APa8sB5dWUAcqtLgVkq3oK6G5lMaA7FUWAsl4VAsp8+QTQzRePAF15ng/oYskDQGeL7wNKL7IBOlGQ
-        A+jY42xAh/NvA0rLuwXoYG4GoAP3rgPab7sKaF/OJUB7s88D2pN1BtDuzHRAuzJOAdp54ySgHdeOA9p+
-        +SigbReOANK5Q4ROpwH/AMauF1q5qdMQAAAAAElFTkSuQmCC
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACH0lEQVRoQ+3LS0gTcADH8V8QEUGHrh27
+        duvU1UMRFFQQiPQOegpGgmEghSEWJYiIRSZJmRhmiYgmmiWarUxt5PuxZOrc2sM555xu0+r+P/U9CMb/
+        y+f61W+U3YzsZmQ3I7sZ2c3IbkZ2M7Kbkd2M7GZkNyO6raPsZmQ3o82xra2vAXYz0C21lgKUTKWA/3xL
+        AptjSyQTgFaTCWCDt5XEKrDBWzyxAtBteTUOKLYSBzbHFo3HALotLi8BG7xFYlFA4aUoQLf5aARQKLoA
+        0C24GAYUiIQBuvkXQoB+hYOAvOEgQLe5+QAgT8gPaDboAzQd8AF/Ny8gt98DaMrvAeTyzQCa9E4DdBuf
+        cwMa80wBGpn9CWh4xgVo0D0BaMA9Dsg5NQqo3zUMqM81BKh3chBQz8QAIMeYE9DnUSegrpF+QJ1DvYA+
+        DvQAav/xBVCb0wGo5Xs3oOb+LkBNfZ2AGr91AKr/2g7ojeM9oNfdrYBefXoHqLqzCVBVRyOgyg8NgCra
+        3gIqb60D9LilFlBpcw2g4saXgIoaXgC6V18JqKCuAlB+bTmgvJpHgG5VlwK6WVUCKPt5MaCsZw8BXXt6
+        H9DFJ4WAzpXdBXSq9A6g9JI8QMeKcgEdeZAD6GDhDUBpBdcB7c/PBLTv9hVAe/MuAdqTex7Q7pwzgHZl
+        nwS0Mysd0I7ME4C2Xz0OaNvlo4C2XjgMaMvZQ4B0+gChjLR/lpH2B8auF1qedkGxAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="buttonPrintSchedule.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
@@ -11937,17 +11936,16 @@ Max:
   <data name="buttonReschedule.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAADECAIAAAAdy+YyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACQ0lEQVRoQ+3US0hUYRyG8TeIiKBF25Zt
-        27Vq66IICioIJLoHXQUjwTAYCkMsShARi0ySMjHMEhFNNEvGbMrUhrxfJhl1dJqLo446zkXt7Gcx+CwE
-        4/v4bZ/Ny/8craMnVK2bLGk3M4mZJPXHZK7EXIm5ktQLmCtJvZH5l5grMVeSegFzJak30hp6JkuazUyy
-        RSdZXVsFBBorMVnS2kqsJgDFEwngP8/i8cSGWZNsuLGSTc5i8RigaDwGbHK2EosCAo2V0CwSWwEEGivR
-        cjQCaGklAmyNLBxZAgQaK9HC8iKwydn8UhhQaDEM0Gw2PA8oGJ4DaBZYCAHyz4cAmvnmgoD+hgKAZkIB
-        gGbTs35AnqAP0FTAC2jC7wWsbAaQ2+cBNO7zAHJ5JwGNzUwANBuZdgMa9owDGpz6A2hg0gWozz0KqNc9
-        Asg5PgSoxzUAqNvVD6hrrA9Q52gvIMewE9C3ISeg9sEeQPb+LkBfejsBtf7+DqjF6QDU9KsDUGNPO6CG
-        bjug+p9tgGp/tAJ67/gE6F1HM6C3Xz8CqrQ3AKpoqwdU/rkOUFnLB0ClzTWAnjVVAypurAJUWP8GUEHd
-        a0APa8sB5dWUAcqtLgVkq3oK6G5lMaA7FUWAsl4VAsp8+QTQzRePAF15ng/oYskDQGeL7wNKL7IBOlGQ
-        A+jY42xAh/NvA0rLuwXoYG4GoAP3rgPab7sKaF/OJUB7s88D2pN1BtDuzHRAuzJOAdp54ySgHdeOA9p+
-        +SigbReOANK5Q4ROpwH/AMauF1q5qdMQAAAAAElFTkSuQmCC
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACH0lEQVRoQ+3LS0gTcADH8V8QEUGHrh27
+        duvU1UMRFFQQiPQOegpGgmEghSEWJYiIRSZJmRhmiYgmmiWarUxt5PuxZOrc2sM555xu0+r+P/U9CMb/
+        y+f61W+U3YzsZmQ3I7sZ2c3IbkZ2M7Kbkd2M7GZkNyO6raPsZmQ3o82xra2vAXYz0C21lgKUTKWA/3xL
+        AptjSyQTgFaTCWCDt5XEKrDBWzyxAtBteTUOKLYSBzbHFo3HALotLi8BG7xFYlFA4aUoQLf5aARQKLoA
+        0C24GAYUiIQBuvkXQoB+hYOAvOEgQLe5+QAgT8gPaDboAzQd8AF/Ny8gt98DaMrvAeTyzQCa9E4DdBuf
+        cwMa80wBGpn9CWh4xgVo0D0BaMA9Dsg5NQqo3zUMqM81BKh3chBQz8QAIMeYE9DnUSegrpF+QJ1DvYA+
+        DvQAav/xBVCb0wGo5Xs3oOb+LkBNfZ2AGr91AKr/2g7ojeM9oNfdrYBefXoHqLqzCVBVRyOgyg8NgCra
+        3gIqb60D9LilFlBpcw2g4saXgIoaXgC6V18JqKCuAlB+bTmgvJpHgG5VlwK6WVUCKPt5MaCsZw8BXXt6
+        H9DFJ4WAzpXdBXSq9A6g9JI8QMeKcgEdeZAD6GDhDUBpBdcB7c/PBLTv9hVAe/MuAdqTex7Q7pwzgHZl
+        nwS0Mysd0I7ME4C2Xz0OaNvlo4C2XjgMaMvZQ4B0+gChjLR/lpH2B8auF1qedkGxAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="buttonReschedule.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
@@ -11962,15 +11960,15 @@ Max:
   <data name="buttonReschedule.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABvElEQVQ4T62TrZeCQBTFPRv3D9ho2LjB
-        YCQYDASCgWAgEAgEA4FoIBAMBoJhA4FAMGwwGAwGg4FgMBAMBoPBQDAQCATvvjcIfp7jhuWcewYeb37z
-        7sybWu387HY73GtPsXtxTjlHjPv9Hnme48Q6nSrlpxwZxS7K6D0T/znftu0CxIBy4nKzhjcJxfc0WqDd
-        0yBbOsmARGN/NKxyPc+7AHi12SpC3ejgTarD8T0wOAgD+L6PcRjCGrpQ9C6yNBWQwWBwAaRZBnfkQTK7
-        aKgyNEPHer2+sTShijqmhvQZQFggX8Fsgm7PwDFJqsTS3ng5fwEgSLCYQiXA/YYy5G+AeQHIydL1ifwb
-        QDE0HI/Hx00sVwteVCAAh0QAXNd97AMBMPUbCxnZ4cYRp0D9wMfLMcdxngM0y3zw74bfaNoaPjQZMlWx
-        WC6fA/z5BF+6Au8nFHLHPkI62nizEfH3xicsy0Icx+j3+0UFh8OhWnG1iaFTBWyjaxro6Bp6toWE+oIb
-        i7sviiLxXQE4cH2Z2B93W0q7zQ3Fnlm80Ha7FeIKVFW93EpJkiDLMtrtthhlRSnGc6zVaoFzSjWbzWry
-        L+E99IEOthJjAAAAAElFTkSuQmCC
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABs0lEQVQ4T62ToZOCQBTGnYv3B1w0XLxg
+        IBIMhA0EA4FAIBAIBgLRYCAYDIQLFwgEguGCwWAwGAgEg4FgMBgMBIOBQCD43b5F8M7h5m5ubme+2X2P
+        t799b/fRqcfhcMC9ji0i/3VLNY7HI8qyxIV0uTQqLyUK7rupEBLfuO26bgUiQL0p3m3hzyOxXiRrKEMD
+        zDG5LMh8Hr1Om1jf928AOm25SdC1BniQuxgHPsgfRiGCIMAsiuBMPaimjiLPBWAymdwAeVHAe/Uh2zp6
+        GoNhmdhut81ppDnPaGAbyNsAIojXFS7n0IcWzqdTE1hrFq9+AHCF6wU0Dri/UNLvAKsKUPKSal+tfwGo
+        loHz+SzsvwOyk7A9z/sGYJtfAAVfU+OIV+D9QPHkG4/H7QDDsRu7lhe9QXINPBkMjGexjuN2QLCa48VU
+        4b9HQt4sQMSfNt3thP+x9wzHcZCmKUajUQXIsqwBbHYpTJ4BlaHbFgamgaHr4MT7ghqLLi5JEmE3AHJ8
+        /pmoPnqqnN82NRRlSKKD9vu9EGWgaVoFoCHLMhhjUBRFzExVq/nq6/f7oJhakiRdN3c6H+E99IGmE8LH
+        AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="buttonReschedule.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
@@ -12000,17 +11998,16 @@ Max:
   <data name="buttonRepay.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAADECAIAAAAdy+YyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACQ0lEQVRoQ+3US0hUYRyG8TeIiKBF25Zt
-        27Vq66IICioIJLoHXQUjwTAYCkMsShARi0ySMjHMEhFNNEvGbMrUhrxfJhl1dJqLo446zkXt7Gcx+CwE
-        4/v4bZ/Ny/8craMnVK2bLGk3M4mZJPXHZK7EXIm5ktQLmCtJvZH5l5grMVeSegFzJak30hp6JkuazUyy
-        RSdZXVsFBBorMVnS2kqsJgDFEwngP8/i8cSGWZNsuLGSTc5i8RigaDwGbHK2EosCAo2V0CwSWwEEGivR
-        cjQCaGklAmyNLBxZAgQaK9HC8iKwydn8UhhQaDEM0Gw2PA8oGJ4DaBZYCAHyz4cAmvnmgoD+hgKAZkIB
-        gGbTs35AnqAP0FTAC2jC7wWsbAaQ2+cBNO7zAHJ5JwGNzUwANBuZdgMa9owDGpz6A2hg0gWozz0KqNc9
-        Asg5PgSoxzUAqNvVD6hrrA9Q52gvIMewE9C3ISeg9sEeQPb+LkBfejsBtf7+DqjF6QDU9KsDUGNPO6CG
-        bjug+p9tgGp/tAJ67/gE6F1HM6C3Xz8CqrQ3AKpoqwdU/rkOUFnLB0ClzTWAnjVVAypurAJUWP8GUEHd
-        a0APa8sB5dWUAcqtLgVkq3oK6G5lMaA7FUWAsl4VAsp8+QTQzRePAF15ng/oYskDQGeL7wNKL7IBOlGQ
-        A+jY42xAh/NvA0rLuwXoYG4GoAP3rgPab7sKaF/OJUB7s88D2pN1BtDuzHRAuzJOAdp54ySgHdeOA9p+
-        +SigbReOANK5Q4ROpwH/AMauF1q5qdMQAAAAAElFTkSuQmCC
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACH0lEQVRoQ+3LS0gTcADH8V8QEUGHrh27
+        duvU1UMRFFQQiPQOegpGgmEghSEWJYiIRSZJmRhmiYgmmiWarUxt5PuxZOrc2sM555xu0+r+P/U9CMb/
+        y+f61W+U3YzsZmQ3I7sZ2c3IbkZ2M7Kbkd2M7GZkNyO6raPsZmQ3o82xra2vAXYz0C21lgKUTKWA/3xL
+        AptjSyQTgFaTCWCDt5XEKrDBWzyxAtBteTUOKLYSBzbHFo3HALotLi8BG7xFYlFA4aUoQLf5aARQKLoA
+        0C24GAYUiIQBuvkXQoB+hYOAvOEgQLe5+QAgT8gPaDboAzQd8AF/Ny8gt98DaMrvAeTyzQCa9E4DdBuf
+        cwMa80wBGpn9CWh4xgVo0D0BaMA9Dsg5NQqo3zUMqM81BKh3chBQz8QAIMeYE9DnUSegrpF+QJ1DvYA+
+        DvQAav/xBVCb0wGo5Xs3oOb+LkBNfZ2AGr91AKr/2g7ojeM9oNfdrYBefXoHqLqzCVBVRyOgyg8NgCra
+        3gIqb60D9LilFlBpcw2g4saXgIoaXgC6V18JqKCuAlB+bTmgvJpHgG5VlwK6WVUCKPt5MaCsZw8BXXt6
+        H9DFJ4WAzpXdBXSq9A6g9JI8QMeKcgEdeZAD6GDhDUBpBdcB7c/PBLTv9hVAe/MuAdqTex7Q7pwzgHZl
+        nwS0Mysd0I7ME4C2Xz0OaNvlo4C2XjgMaMvZQ4B0+gChjLR/lpH2B8auF1qedkGxAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="buttonRepay.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
@@ -12025,16 +12022,16 @@ Max:
   <data name="buttonRepay.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB90lEQVQ4T42TEZjjQBTH9zs8WDgoHh4E
-        DgKFQCAQCAQCC4XAQWGhECgEAoFAIFAIFA4ChYWFQKGwUAgEAoGFQCAQGAgsFAr977zpJde0hZ3ve18m
-        M/N+8/7vvXl4+DfqusZXrfcR37ZpcDwecTqdBqP/3i7X+zntOY4DAWg4oN9gH90I1K8XTYVlskJZV8N+
-        FEZjQM1amM4cl0AC+EmM3zMDE1PFxFIRbNYCEgbBGFC1DaYzE2VZDrfsyhySoSJer/HsuwjWK/xQJFRV
-        hSi6iqBiDRTbwvsFIHzdiNtrLnPOAZSvNE3PgGsJ9wB5VeLRmMKOPDx5DmoeZZ+X4EbCnQjo8PZtB+WP
-        he+mAsk2sEo3AnIDaDoGlUuoeXjXpSMJT84zFlzGoy4jy/OxBErgtsygLGwkO66RNxVBdkWOl7ctusMH
-        Zu5C5EBfzuGFwf8IWMuwzfeYzDR8M2T8VGUkm0QAPF6yCQ+9qN6xCH3xpUqFvAK+74/L+Dd9wS/uTNoY
-        YwLQcllTrl+yTUx5dFQlzTSw3+/he95tJ5ZFMTj3eaCwgziCZGpw3aUoI11A8/NbaNu77UuA/j10XYdV
-        HKPIC9B5ku267hmQZdlw8PIR0fxwOICc6cambkQDkVG3WpZ1BtBQFAW6ro9M0zT0pqoqyOgcmSzLg/Mn
-        62HpgV8XXBQAAAAASUVORK5CYII=
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB7ElEQVQ4T42TEZisUBTH53v4YOHB4MMH
+        wYNgIAiCIAiChYHgwcDCQDAQBEEQBAPBwEIwsPAgGBhYGAiCIFgIgiAIgoWBgfnvPbetV7MD737f/6vu
+        PefX+Z9Ts36VZYn/1WdKt+qqwuVywfV6HUTPvcb743PLsjpQxQD9QfPeTgJ7ZVWBTbRFXhbDXuAHU0DZ
+        1NCtFcZAkhuF+L3UMNdlzA0Z3n7H933PmwKKusJiqSPP8yH5mKcQNBnhbocn14a32+KHJKAoCgTBTQVF
+        U0EyDbyNAP7fPX97yWJWDED9iuO4A9xauAdIixwP2gJm4ODRsVCyKvsz74uFOwDS4fUI6Y+B77oEwdSw
+        jff3AVXbQGaAkpU3BpDIwqP1hDWz8aCKSNJ0aoEaeMgTSGsT0ZF5ZB8LJR6zFC+vB7TndyztNe+BulnB
+        8b1/FTR1g0N6wnyp4Jsm4qcsItpHHOCwkc1Z6VnxhrXv8itNymcTcF13auE5fsEvlkzkpmn4Xs1sLZh/
+        wdSxYNVRjxRdw+l0gus4UwApz7IhuReV7YUBBF2BbW/4GCmG7jmgrutJwlj9/9C2LbZhiCzNQPFk27bt
+        DpAkyRB4q/P5zJPpjVXJms0mRKKv1TCMDkBLkiSoqjqRoiiDZFnmojiSKIqfybPZB+th6YE9n8WnAAAA
+        AElFTkSuQmCC
 </value>
   </data>
   <data name="buttonRepay.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">

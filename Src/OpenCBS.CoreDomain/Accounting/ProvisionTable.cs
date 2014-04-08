@@ -38,10 +38,10 @@ namespace OpenCBS.CoreDomain.Accounting
             }
         }
 
-		private ProvisionTable()
+        private ProvisionTable()
         {
-			_provisioningRates = new List<ProvisioningRate>();
-		}
+            _provisioningRates = new List<ProvisioningRate>();
+        }
 
 
         public static ProvisionTable GetInstance(User pUser)
@@ -51,35 +51,35 @@ namespace OpenCBS.CoreDomain.Accounting
             return ProvisioningTableList[pUser.Md5];
         }
 
-		public List<ProvisioningRate> ProvisioningRates
-		{
-			get{return _provisioningRates;}
-			set{_provisioningRates = value;}
-		}
+        public List<ProvisioningRate> ProvisioningRates
+        {
+            get { return _provisioningRates; }
+            set { _provisioningRates = value; }
+        }
 
-		public void Add(ProvisioningRate pR)
-		{
-			_provisioningRates.Add(pR);
-		}
+        public void Add(ProvisioningRate pR)
+        {
+            _provisioningRates.Add(pR);
+        }
 
         public void Add(List<ProvisioningRate> pList)
         {
             _provisioningRates.AddRange(pList);
         }
 
-		public ProvisioningRate GetProvisioningRate(int rank)
-		{
-			return rank < _provisioningRates.Count && rank >= 0 ? _provisioningRates[rank] : null;
-		}
+        public ProvisioningRate GetProvisioningRate(int rank)
+        {
+            return rank < _provisioningRates.Count && rank >= 0 ? _provisioningRates[rank] : null;
+        }
 
-		public ProvisioningRate GetProvisiningRateByNbOfDays(int nbOfDays)
-		{
-			foreach (ProvisioningRate pR in _provisioningRates)
-			{
-				if (nbOfDays >= pR.NbOfDaysMin && nbOfDays <= pR.NbOfDaysMax)
-					return pR;
-			}
-			return null;
-		}
+        public ProvisioningRate GetProvisiningRateByNbOfDays(int nbOfDays)
+        {
+            foreach (ProvisioningRate pR in _provisioningRates)
+            {
+                if (nbOfDays >= pR.NbOfDaysMin && nbOfDays <= pR.NbOfDaysMax)
+                    return pR;
+            }
+            return null;
+        }
 	}
 }

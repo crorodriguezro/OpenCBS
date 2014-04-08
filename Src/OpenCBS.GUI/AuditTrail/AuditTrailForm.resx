@@ -898,7 +898,7 @@
     <value>Event date</value>
   </data>
   <data name="colEvents_Date.Width" type="System.Int32, mscorlib">
-    <value>100</value>
+    <value>115</value>
   </data>
   <data name="colEvents_EntryDate.Text" xml:space="preserve">
     <value>Entry date</value>
@@ -1042,6 +1042,6 @@
     <value>AuditTrailForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=14.4.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=14.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

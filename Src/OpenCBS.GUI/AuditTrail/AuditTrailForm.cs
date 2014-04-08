@@ -46,7 +46,7 @@ namespace OpenCBS.GUI.AuditTrail
             colEvents_Date.AspectToStringConverter = delegate(object value)
             {
                 DateTime date = (DateTime)value;
-                return date.ToShortDateString();
+                return date.ToString();
             };
 
             colEvents_EntryDate.AspectToStringConverter = delegate(object value)

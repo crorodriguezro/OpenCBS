@@ -223,7 +223,12 @@ namespace OpenCBS.Services
             settings.Add(provisioningRules);
             foreach (ProvisioningRate prate in ProvisionTable.GetInstance(_user).ProvisioningRates)
             {
-                provisioningRules.Add(new Setting(prate.NbOfDaysMin + "-" + prate.NbOfDaysMax, prate.ProvisioningValue.ToString()));
+                provisioningRules.Add(new Setting(prate.Number.ToString(), String.Format("{0}/{1}/{2}/{3}/{4}",
+                    prate.NbOfDaysMin, 
+                    prate.NbOfDaysMax,
+                    prate.ProvisioningValue, 
+                    prate.ProvisioningInterest,
+                    prate.ProvisioningPenalty)));
             }
 
             // Public Holidays
@@ -296,16 +301,21 @@ namespace OpenCBS.Services
         }
         private void ApplyProvisioningRules(SettingGroup group)
         {
-
             foreach (Setting s in group.Settings)
             {
                 foreach (ProvisioningRate rate in ProvisionTable.GetInstance(_user).ProvisioningRates)
                 {
-                    if (rate.NbOfDaysMin + "-" + rate.NbOfDaysMax == s.Name)
+                    if (rate.Number.ToString() == s.Name)
                     {
-                        rate.ProvisioningValue = Convert.ToDouble(s.Value);
+                        var values = s.Value.Split('/');
+                        rate.NbOfDaysMin = Convert.ToInt32(values[0]);
+                        rate.NbOfDaysMax = Convert.ToInt32(values[1]);
+                        rate.ProvisioningValue = Convert.ToDouble(values[2]);
+                        rate.ProvisioningInterest = Convert.ToDouble(values[3]);
+                        rate.ProvisioningPenalty = Convert.ToDouble(values[4]);
                     }
                 }
+             
             }
             ServicesProvider.GetInstance().GetChartOfAccountsServices().UpdateProvisioningTableInstance();
         }
