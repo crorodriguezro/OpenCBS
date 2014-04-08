@@ -322,7 +322,9 @@
               </Directory>
               <Directory Id="dir_excel" Name="Excel">
 	            <Component Id="dir_excel" Guid="84dec70c-70c8-4b06-8a0f-f8f0cfa5e445" KeyPath="yes">
-                  <File Id="Active_Loans_excel" Name="Active_Loans.zip" Source="SourceDir\Reports\Excel\Active Loans.zip" />
+                        <File Id="Active_Loans_excel" Name="Active_Loans.zip" Source="SourceDir\Reports\Excel\Active Loans.zip" />
+                        <File Id="Disbursements_excel" Name="Disbursements.zip" Source="SourceDir\Reports\Excel\Disbursements.zip" />
+                        <File Id="Repayments_excel" Name="Repayments.zip" Source="SourceDir\Reports\Excel\Repayments.zip" />
 	            </Component>
               </Directory>
               <Directory Id="dir_internal" Name="Internal">

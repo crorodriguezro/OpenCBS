@@ -2998,8 +2998,11 @@
     <None Include="Reports\Excel\Active Loans.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Reports\Excel\Disbursment.zip">
+    <None Include="Reports\Excel\Disbursement.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\Excel\Repayments.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Reports\Internal\Audit_Trail.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
