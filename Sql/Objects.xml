@@ -1853,8 +1853,8 @@ BEGIN
 	LEFT JOIN dbo.Projects j ON j.id = c.project_id
 	LEFT JOIN dbo.Tiers t ON t.id = j.tiers_id
 	LEFT JOIN dbo.Branches b ON b.id = t.branch_id
-	WHERE (ce.event_date >= @from OR @from IS NULL)
-	  AND (ce.event_date <= @to OR @to IS NULL)
+	WHERE (CONVERT(date, ce.event_date) >= @from OR @from IS NULL)
+	  AND (CONVERT(date, ce.event_date) <= @to OR @to IS NULL)
 	  AND (ce.user_id = @user_id OR 0 = @user_id)
 	  AND (ce.is_deleted = 0 OR 1 = @include_deleted)
 	  AND (0 = @branch_id OR t.branch_id = @branch_id)
@@ -1873,8 +1873,8 @@ BEGIN
 	LEFT JOIN dbo.SavingContracts As sc ON sc.id = se.contract_id
 	LEFT JOIN dbo.Tiers t ON t.id = sc.tiers_id
 	LEFT JOIN dbo.Branches b ON b.id = t.branch_id
-	WHERE (se.creation_date >= @from OR @from IS NULL)
-	  AND (se.creation_date <= @to OR @to IS NULL)
+	WHERE (CONVERT(date, se.creation_date) >= @from OR @from IS NULL)
+	  AND (CONVERT(date, se.creation_date) <= @to OR @to IS NULL)
 	  AND (se.user_id = @user_id OR 0 = @user_id)	
 	  AND (se.deleted = 0 OR 1 = @include_deleted)	
 	  AND (0 = @branch_id OR t.branch_id = @branch_id)
@@ -1890,8 +1890,8 @@ BEGIN
 	  fle.deleted,
 	  ''
 	FROM dbo.FundingLineEvents AS fle
-	WHERE (fle.creation_date >= @from OR @from IS NULL)
-	  AND (fle.creation_date <= @to OR @to IS NULL)
+	WHERE (Convert(date, fle.creation_date) >= @from OR @from IS NULL)
+	  AND (CONVERT(date, fle.creation_date) <= @to OR @to IS NULL)
 	  AND (fle.deleted = 0 OR 1 = @include_deleted)
     AND (fle.user_id = @user_id OR 0 = @user_id)
 	  AND 0 = @branch_id
@@ -1912,11 +1912,11 @@ BEGIN
 		  event_code, 
 		  user_id, 
 		  event_description, 
-		  CAST(FLOOR(CAST(event_date AS FLOAT)) AS DATETIME) AS event_date
+		  event_date
 		FROM dbo.TraceUserLogs
 	) AS tue
-	WHERE (tue.event_date >= @from OR @from IS NULL)
-	AND (tue.event_date <= @to OR @to IS NULL)
+	WHERE (CONVERT(date, tue.event_date) >= @from OR @from IS NULL)
+	AND (CONVERT(date, tue.event_date) <= @to OR @to IS NULL)
 	AND (tue.user_id = @user_id OR 0 = @user_id)
 	AND 0 = @branch_id
 	
