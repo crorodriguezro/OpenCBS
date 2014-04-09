@@ -177,7 +177,7 @@ namespace OpenCBS.GUI.Configuration
                         val.Key.ToString() == OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE ||
                         val.Key.ToString() == OGeneralSettings.USEPROJECTS ||
                         val.Key.ToString() == OGeneralSettings.ENFORCE_ID_PATTERN ||
-                        val.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
+                       // val.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
                         val.Key.ToString() == OGeneralSettings.INCREMENTALDURINGDAYOFF ||
                         val.Key.ToString() == OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL ||
                         val.Key.ToString() == OGeneralSettings.USE_TELLER_MANAGEMENT ||
@@ -1134,7 +1134,7 @@ namespace OpenCBS.GUI.Configuration
                 entry.Key.ToString() == OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE ||
                 entry.Key.ToString() == OGeneralSettings.USEPROJECTS ||
                 entry.Key.ToString() == OGeneralSettings.ENFORCE_ID_PATTERN ||
-                entry.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
+               // entry.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
                 entry.Key.ToString() == OGeneralSettings.INCREMENTALDURINGDAYOFF ||
                 entry.Key.ToString() == OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL ||
                 entry.Key.ToString() == OGeneralSettings.USE_TELLER_MANAGEMENT ||
@@ -1228,7 +1228,7 @@ namespace OpenCBS.GUI.Configuration
                      entry.Key.ToString() == OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE ||
                      entry.Key.ToString() == OGeneralSettings.USEPROJECTS ||
                      entry.Key.ToString() == OGeneralSettings.ENFORCE_ID_PATTERN ||
-                     entry.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
+                    // entry.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
                      entry.Key.ToString() == OGeneralSettings.INCREMENTALDURINGDAYOFF ||
                      entry.Key.ToString() == OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL ||
                      entry.Key.ToString() == OGeneralSettings.USE_TELLER_MANAGEMENT ||

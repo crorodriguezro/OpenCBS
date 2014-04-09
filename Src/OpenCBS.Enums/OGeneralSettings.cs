@@ -47,7 +47,7 @@ namespace OpenCBS.Enums
         public static readonly string USEPROJECTS = "USE_PROJECTS";
         public static readonly string INTERESTS_ALSO_CREDITED_IN_FL = "INTERESTS_ALSO_CREDITED_IN_FL";
         public static readonly string ID_PATTERN = "ID_PATTERN";
-        public static readonly string ID_WILD_CHAR_CHECK = "ID_WILD_CHAR_CHECK";
+//        public static readonly string ID_WILD_CHAR_CHECK = "ID_WILD_CHAR_CHECK";
         public static readonly string ENFORCE_ID_PATTERN = "ENFORCE_ID_PATTERN";
         public static readonly string SAVINGS_CODE_TEMPLATE = "SAVINGS_CODE_TEMPLATE";
         public static readonly string IMF_CODE = "IMF_CODE";

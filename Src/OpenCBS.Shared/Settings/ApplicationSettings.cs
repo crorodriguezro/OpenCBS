@@ -86,7 +86,7 @@ namespace OpenCBS.Shared.Settings
             _defaultParamList.Add(OGeneralSettings.USEPROJECTS, 0);
             _defaultParamList.Add(OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL, 0);
             _defaultParamList.Add(OGeneralSettings.ENFORCE_ID_PATTERN, 0);
-            _defaultParamList.Add(OGeneralSettings.ID_WILD_CHAR_CHECK, 0);
+        //    _defaultParamList.Add(OGeneralSettings.ID_WILD_CHAR_CHECK, 0);
             _defaultParamList.Add(OGeneralSettings.ID_PATTERN, "[A-Z]{2}[0-9]{7}");
             _defaultParamList.Add(OGeneralSettings.SAVINGS_CODE_TEMPLATE, "IC/BC/CS/ID");
             _defaultParamList.Add(OGeneralSettings.IMF_CODE, "IMF");
@@ -413,13 +413,13 @@ namespace OpenCBS.Shared.Settings
                 return GetSpecificParameter(OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL).ToString() == "1";
             }
         }
-        public bool IDWildCharCheck
-        {
-            get 
-            {
-                return GetSpecificParameter(OGeneralSettings.ID_WILD_CHAR_CHECK).ToString() == "1";
-            }
-        }
+        //public bool IDWildCharCheck
+        //{
+        //    get 
+        //    {
+        //        return GetSpecificParameter(OGeneralSettings.ID_WILD_CHAR_CHECK).ToString() == "1";
+        //    }
+        //}
         public bool EnforceIDPattern
         {
             get
