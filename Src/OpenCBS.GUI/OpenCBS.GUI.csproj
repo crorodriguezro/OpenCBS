@@ -2998,8 +2998,14 @@
     <None Include="Reports\Excel\Active Loans.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Reports\Excel\Collection_Sheet.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Reports\Excel\Disbursements.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\Excel\OLB_and_LLP.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Reports\Excel\Repayments.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
