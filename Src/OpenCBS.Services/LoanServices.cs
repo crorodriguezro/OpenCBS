@@ -3035,7 +3035,11 @@ namespace OpenCBS.Services
             if (!File.Exists(file))
                 throw new Exception("Couldn't load the file " + loan.Product.ScriptName);
             var script = RunScript(file);
-            var res = script.Main(loan);
+            var configuration = new Dictionary<string, object>();
+            var nonWorkingDate = NonWorkingDateSingleton.GetInstance(string.Empty);
+            configuration.Add("Holidays", nonWorkingDate);
+            
+            var res = script.Main(loan, configuration);
             return (List<Installment>)res;
         }
 
