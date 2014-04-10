@@ -22,7 +22,7 @@ Name NVARCHAR(255)
 END
 GO
 
-INSERT INTO dbo.WriteOffOptions VALUES('Standart')
+INSERT INTO dbo.WriteOffOptions VALUES('Standard')
 GO
 
 UPDATE  [TechnicalParameters]
