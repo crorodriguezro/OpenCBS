@@ -19,11 +19,10 @@ CREATE TABLE WriteOffOptions
 Id INT IDENTITY(1,1),
 Name NVARCHAR(255)
 )
+INSERT INTO dbo.WriteOffOptions VALUES('Standard')
 END
 GO
-
-INSERT INTO dbo.WriteOffOptions VALUES('Standart')
-GO
+ 
 
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v14.5.0.0'
