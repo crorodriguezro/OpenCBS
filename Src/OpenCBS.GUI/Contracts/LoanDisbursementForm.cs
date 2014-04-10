@@ -149,7 +149,7 @@ namespace OpenCBS.GUI.Contracts
 
         private void InitializeDate()
         {
-            _newStartDate = _loan.StartDate;
+            _newStartDate = _loan.StartDate + TimeProvider.Now.TimeOfDay;
         }
 
         private bool InitializeLoanDisburseEvent()
