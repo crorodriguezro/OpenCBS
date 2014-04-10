@@ -356,7 +356,7 @@ namespace OpenCBS.GUI.Contracts
                                     ((SavingBookContract)_saving).ChequeDepositFees = updAmountFees.Value;
                                 else ((SavingBookContract) _saving).DepositFees = updAmountFees.Value;
                             }
-
+                            
                             savingServices.Deposit(_saving, _date, _amount, _description, User.CurrentUser, pending,
                                                    savingsMethod, null, Teller.CurrentTeller);
                             break;

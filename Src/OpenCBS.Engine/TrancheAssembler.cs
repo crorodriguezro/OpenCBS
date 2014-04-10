@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.Engine.Interfaces;
+using IInstallment = OpenCBS.Engine.Interfaces.IInstallment;
 
 namespace OpenCBS.Engine
 {
     public class TrancheAssembler
     {
-        public IEnumerable<IInstallment> AssembleTranche(
-            IEnumerable<IInstallment> schedule,
+        public IEnumerable<Installment> AssembleTranche(
+            IEnumerable<Installment> schedule,
             IScheduleConfiguration scheduleConfiguration,
             ITrancheConfiguration trancheConfiguration,
             IScheduleBuilder scheduleBuilder,
@@ -19,28 +21,28 @@ namespace OpenCBS.Engine
             // Get an interested paid in advance, whereas "in advance" means after the new tranche date
             var overpaidInterest = (
                 from installment in schedule
-                where installment.RepaymentDate > trancheConfiguration.StartDate
+                where installment.ExpectedDate > trancheConfiguration.StartDate
                 select installment
-            ).Sum(installment => installment.PaidInterest);
+            ).Sum(installment => installment.PaidInterests.Value);
 
             // Get the part of the schedule that comes before the tranche date...
             var newSchedule =
                 from installment in schedule
-                where installment.RepaymentDate <= trancheConfiguration.StartDate
+                where installment.ExpectedDate <= trancheConfiguration.StartDate
                 select installment;
 
             // ...and force close it (set expected equal to paid)
             var olbDifference = 0m;
             foreach (var installment in newSchedule)
             {
-                installment.Olb += olbDifference;
-                olbDifference += installment.Principal - installment.PaidPrincipal;
-                if (!(installment.Principal == installment.PaidPrincipal && installment.Interest == installment.PaidInterest))
+                installment.OLB += olbDifference;
+                olbDifference += installment.CapitalRepayment.Value - installment.PaidCapital.Value;
+                if (!(installment.CapitalRepayment == installment.PaidCapital && installment.InterestsRepayment == installment.PaidInterests))
                 {
-                    installment.LastPaymentDate = trancheConfiguration.StartDate;
+                    installment.PaidDate = trancheConfiguration.StartDate;
                 }
-                installment.Principal = installment.PaidPrincipal;
-                installment.Interest = installment.PaidInterest;
+                installment.CapitalRepayment = installment.PaidCapital;
+                installment.InterestsRepayment = installment.PaidInterests;
             }
 
             // Adjust the new schedule's installment numbers
@@ -49,20 +51,20 @@ namespace OpenCBS.Engine
             {
                 installment.Number += increment;
             }
-            var result = new List<IInstallment>();
+            var result = new List<Installment>();
             result.AddRange(newSchedule);
 
             // Distribute the overpaid interest
             foreach (var installment in trancheSchedule)
             {
-                if (installment.Interest < overpaidInterest)
+                if (installment.InterestsRepayment < overpaidInterest)
                 {
-                    installment.PaidInterest = installment.Interest;
-                    overpaidInterest -= installment.Interest;
+                    installment.PaidInterests = installment.InterestsRepayment;
+                    overpaidInterest -= installment.InterestsRepayment.Value;
                 }
                 else
                 {
-                    installment.PaidInterest = overpaidInterest;
+                    installment.PaidInterests = overpaidInterest;
                     break;
                 }
             }

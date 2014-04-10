@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.Engine.Interfaces;
 
 namespace OpenCBS.Engine.InstallmentCalculationPolicy
@@ -8,12 +9,12 @@ namespace OpenCBS.Engine.InstallmentCalculationPolicy
     [PolicyAttribute(Implementation = "Annuity")]
     public class AnnuityInstallmentCalculationPolicy : BaseInstallmentCalculationPolicy, IInstallmentCalculationPolicy
     {
-        public void Calculate(IInstallment installment, IScheduleConfiguration configuration)
+        public void Calculate(Installment installment, IScheduleConfiguration configuration)
         {
             var annuity = configuration.RoundingPolicy.Round(FindAnnuity(configuration));
 
-            installment.Interest = CalculateInterest(installment, configuration, installment.Olb);
-            installment.Principal = annuity - installment.Interest;
+            installment.InterestsRepayment = CalculateInterest(installment, configuration, installment.OLB.Value);
+            installment.CapitalRepayment = annuity - installment.InterestsRepayment;
         }
 
         /// <summary>
@@ -40,24 +41,24 @@ namespace OpenCBS.Engine.InstallmentCalculationPolicy
             // but because we need to count interest also that amount should be multiplied by interest rate / 100
             var remainder = 0m;
             var counter = 0;
-            var installment = new Installment {Olb = configuration.Amount};
+            var installment = new Installment {OLB = configuration.Amount};
             do
             {
                 // loop is only for building schedule and determining the remainder
                 for (var i = 1; i <= configuration.NumberOfInstallments; ++i)
                 {
                     installment.Number = i;
-                    installment.StartDate = i != 1 ? installment.EndDate : configuration.StartDate;
-                    installment.EndDate = i != 1
+                    installment.StartDate = i != 1 ? installment.ExpectedDate : configuration.StartDate;
+                    installment.ExpectedDate = i != 1
                         ? configuration.PeriodPolicy.GetNextDate(installment.StartDate)
                         : configuration.PreferredFirstInstallmentDate;
                     if (i <= configuration.GracePeriod) continue;
-                    installment.Interest = CalculateInterest(installment, configuration, installment.Olb);
-                    installment.Principal = annuity - installment.Interest;
-                    installment.Olb -= installment.Principal;
+                    installment.InterestsRepayment = CalculateInterest(installment, configuration, installment.OLB.Value);
+                    installment.CapitalRepayment = annuity - installment.InterestsRepayment;
+                    installment.OLB -= installment.CapitalRepayment;
                 }
-                remainder = installment.Olb;
-                installment.Olb = configuration.Amount;
+                remainder = installment.OLB.Value;
+                installment.OLB = configuration.Amount;
                 ++counter;
                 annuity += (remainder * configuration.InterestRate / 100 / number);
             } while (Math.Abs(remainder) > 0.01m && counter < 1000);

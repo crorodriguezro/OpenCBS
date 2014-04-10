@@ -83,6 +83,7 @@ namespace OpenCBS.AcceptanceTest
                 GracePeriodMin = 0,
                 GracePeriodMax = 6,
                 LoanType = OLoanTypes.DecliningFixedInstallments,
+                InterestScheme = OInterestScheme.Thirty360,
                 ChargeInterestWithinGracePeriod = true,
                 KeepExpectedInstallment = true,
                 AnticipatedTotalRepaymentPenaltiesBase = OAnticipatedRepaymentPenaltiesBases.RemainingOLB,

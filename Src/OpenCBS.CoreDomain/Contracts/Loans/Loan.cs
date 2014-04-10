@@ -678,6 +678,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                                                                           (current, e) => current + e.Penalties)
                                     .Value;
             var penalty = accruedPenalty - paidPenalty;
+            penalty = UseCents ? Math.Round(penalty, 2) : Math.Round(penalty);
             return penalty < 0 ? 0 : penalty;
         }
 

@@ -74,7 +74,6 @@
     <Compile Include="OctopusScheduleConfigurationFactory.cs" />
     <Compile Include="PeriodPolicy\CustomPeriodPolicy.cs" />
     <Compile Include="PeriodPolicy\DailyPeriodPolicy.cs" />
-    <Compile Include="Installment.cs" />
     <Compile Include="Interfaces\IPeriodPolicy.cs" />
     <Compile Include="Interfaces\IInstallment.cs" />
     <Compile Include="Interfaces\IScheduleBuilder.cs" />

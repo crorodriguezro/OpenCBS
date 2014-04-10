@@ -4142,7 +4142,32 @@ namespace OpenCBS.GUI.Clients
         {
             if (TechnicalSettings.NewRepaymentWindow)
             {
-                _applicationController.Execute(new ShowRepaymentViewCommandData());
+                _applicationController.Execute(new ShowRepaymentViewCommandData {Loan = _credit});
+
+                DisplayListViewLoanRepayments(_credit);
+                DisplayLoanEvents(_credit);
+
+                InitializeContractStatus(_credit);
+                if (_credit.Closed)
+                {
+                    buttonRepay.Enabled = false;
+                    //we are sure that the last credit is closed, so we force here to make the last credit closed...
+                    int count = _project.Credits.Count;
+                    _project.Credits[count - 1].Closed = true;
+                    DisplayContracts(_project.Credits);
+                }
+
+                if (_credit.InstallmentList[_credit.InstallmentList.Count - 1].IsRepaid)
+                {
+                    buttonLoanRepaymentRepay.Enabled = false;
+                    buttonLoanReschedule.Enabled = false;
+                    buttonReschedule.Enabled = false;
+                    btnWriteOff.Enabled = false;
+                    buttonManualSchedule.Enabled = false;
+                }
+                DisplaySavings(_client.Savings);
+                if (MdiParent != null)
+                    ((MainView)MdiParent).ReloadAlertsSync();
             }
             else
             {
@@ -7128,9 +7153,5 @@ namespace OpenCBS.GUI.Clients
         {
             _credit.ScheduleChangedManually = false;
         }
-
-
-
-
     }
 }

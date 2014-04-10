@@ -447,18 +447,6 @@ namespace OpenCBS.GUI.Contracts
                                  User.CurrentUser, false, savingsMethod, null,
                                  Teller.CurrentTeller).FirstOrDefault();
 
-                    using (var sqlTransaction = DatabaseConnection.GetConnection().BeginTransaction())
-                    {
-                        ServicesProvider.GetInstance()
-                                        .GetContractServices()
-                                        .CallInterceptor(new Dictionary<string, object>
-                                            {
-                                                {"Loan", _loan},
-                                                {"Event", savingEvent},
-                                                {"SqlTransaction", sqlTransaction}
-                                            });
-                        sqlTransaction.Commit();
-                    }
                     var repaymentConfiguration = new RepaymentConfiguration()
                     {
                         Client = _client,

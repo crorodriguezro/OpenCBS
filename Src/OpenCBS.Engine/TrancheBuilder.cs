@@ -1,33 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.Engine.Interfaces;
 
 namespace OpenCBS.Engine
 {
     public class TrancheBuilder : ITrancheBuilder
     {
-        private DateTime GetLastEndDate(IEnumerable<IInstallment> schedule, ITrancheConfiguration trancheConfiguration)
+        private DateTime GetLastEndDate(IEnumerable<Installment> schedule, ITrancheConfiguration trancheConfiguration)
         {
             var installment = (from i in schedule
-                               where i.RepaymentDate <= trancheConfiguration.StartDate
+                               where i.ExpectedDate <= trancheConfiguration.StartDate
                                select i).LastOrDefault();
             if (installment == null) return schedule.First().StartDate;
-            return installment.RepaymentDate;
+            return installment.ExpectedDate;
         }
 
-        private decimal GetExtraInterest(IEnumerable<IInstallment> schedule,
+        private decimal GetExtraInterest(IEnumerable<Installment> schedule,
                                          IScheduleConfiguration scheduleConfiguration,
                                          ITrancheConfiguration trancheConfiguration)
         {
             var days = (trancheConfiguration.StartDate - GetLastEndDate(schedule, trancheConfiguration)).Days;
             var daysInYear = scheduleConfiguration.YearPolicy.GetNumberOfDays(trancheConfiguration.StartDate);
-            var olb = schedule.Sum(i => i.Principal - i.PaidPrincipal);
+            var olb = schedule.Sum(i => i.CapitalRepayment.Value - i.PaidCapital.Value);
             var interest = olb * scheduleConfiguration.InterestRate / 100 * days / daysInYear;
             return scheduleConfiguration.RoundingPolicy.Round(interest);
         }
 
-        public List<IInstallment> BuildTranche(IEnumerable<IInstallment> schedule, IScheduleBuilder scheduleBuilder, IScheduleConfiguration scheduleConfiguration, ITrancheConfiguration trancheConfiguration)
+        public List<Installment> BuildTranche(IEnumerable<Installment> schedule, IScheduleBuilder scheduleBuilder, IScheduleConfiguration scheduleConfiguration, ITrancheConfiguration trancheConfiguration)
         {
             var rhc = (IScheduleConfiguration)scheduleConfiguration.Clone();
             rhc.Amount = trancheConfiguration.Amount;
@@ -38,7 +39,7 @@ namespace OpenCBS.Engine
             rhc.PreferredFirstInstallmentDate = trancheConfiguration.PreferredFirstInstallmentDate;
 
             var lhc = (IScheduleConfiguration)rhc.Clone();
-            lhc.Amount = schedule.Sum(i => i.Principal - i.PaidPrincipal);
+            lhc.Amount = schedule.Sum(i => i.CapitalRepayment.Value - i.PaidCapital.Value);
             if (!trancheConfiguration.ApplyNewInterestRateToOlb)
             {
                 lhc.InterestRate = scheduleConfiguration.InterestRate;
@@ -47,7 +48,7 @@ namespace OpenCBS.Engine
             var lhs = scheduleBuilder.BuildSchedule(lhc);
             var rhs = scheduleBuilder.BuildSchedule(rhc);
 
-            var result = new List<IInstallment>();
+            var result = new List<Installment>();
 
             // Merge the two schedules
             var max = Math.Max(lhs.Count, rhs.Count);
@@ -56,7 +57,7 @@ namespace OpenCBS.Engine
                 var lhi = i >= lhs.Count ? null : lhs[i];
                 var rhi = i >= rhs.Count ? null : rhs[i];
 
-                IInstallment installment;
+                Installment installment;
 
                 if (lhi == null)
                 {
@@ -72,17 +73,17 @@ namespace OpenCBS.Engine
                     {
                         Number = lhi.Number,
                         StartDate = lhi.StartDate,
-                        EndDate = lhi.EndDate,
-                        RepaymentDate = lhi.RepaymentDate,
-                        Principal = lhi.Principal + rhi.Principal,
-                        Interest = lhi.Interest + rhi.Interest,
-                        Olb = lhi.Olb + rhi.Olb,
+                        ExpectedDate = lhi.ExpectedDate,
+                        //RepaymentDate = lhi.RepaymentDate,
+                        CapitalRepayment = lhi.CapitalRepayment + rhi.CapitalRepayment,
+                        InterestsRepayment = lhi.InterestsRepayment + rhi.InterestsRepayment,
+                        OLB = lhi.OLB + rhi.OLB,
                     };
                 }
                 result.Add(installment);
             }
 
-            result[0].Interest += GetExtraInterest(schedule, scheduleConfiguration, trancheConfiguration);
+            result[0].InterestsRepayment += GetExtraInterest(schedule, scheduleConfiguration, trancheConfiguration);
             return result;
         }
     }

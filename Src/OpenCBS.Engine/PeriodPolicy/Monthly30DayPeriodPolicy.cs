@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.Engine.Interfaces;
 
 namespace OpenCBS.Engine.PeriodPolicy
@@ -28,10 +29,10 @@ namespace OpenCBS.Engine.PeriodPolicy
             return 30;
         }
 
-        public int GetNumberOfDays(IInstallment installment, IDateShiftPolicy shiftPolicy)
+        public int GetNumberOfDays(Installment installment, IDateShiftPolicy shiftPolicy)
         {
             if (installment.Number == 1)
-                return installment.EndDate == installment.StartDate.AddMonths(1) ? 30 : (installment.EndDate - installment.StartDate).Days;
+                return installment.ExpectedDate == installment.StartDate.AddMonths(1) ? 30 : (installment.ExpectedDate - installment.StartDate).Days;
             return 30;
         }
 

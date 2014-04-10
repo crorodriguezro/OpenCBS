@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.Engine.Interfaces;
 
 namespace OpenCBS.Engine.PeriodPolicy
@@ -27,9 +28,9 @@ namespace OpenCBS.Engine.PeriodPolicy
         {
             return 1;
         }
-        public int GetNumberOfDays(IInstallment installment, IDateShiftPolicy shiftPolicy)
+        public int GetNumberOfDays(Installment installment, IDateShiftPolicy shiftPolicy)
         {
-            return (shiftPolicy.ShiftDate(installment.EndDate) - shiftPolicy.ShiftDate(installment.StartDate)).Days;
+            return (shiftPolicy.ShiftDate(installment.ExpectedDate) - shiftPolicy.ShiftDate(installment.StartDate)).Days;
         }
 
         public double GetNumberOfPeriodsInYear(DateTime date, IYearPolicy yearPolicy)
