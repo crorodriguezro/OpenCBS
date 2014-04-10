@@ -186,7 +186,7 @@ namespace OpenCBS.Services
             generalParameters.Add(new Setting(OGeneralSettings.MAX_LOANS_COVERED, gp.MaxLoansCovered.ToString()));
             generalParameters.Add(new Setting(OGeneralSettings.MAX_GUARANTOR_AMOUNT, gp.MaxGuarantorAmount.ToString()));
 
-            generalParameters.Add(new Setting(OGeneralSettings.ID_WILD_CHAR_CHECK, gp.IDWildCharCheck.ToString()));
+           // generalParameters.Add(new Setting(OGeneralSettings.ID_WILD_CHAR_CHECK, gp.IDWildCharCheck.ToString()));
             generalParameters.Add(new Setting(OGeneralSettings.ID_PATTERN, gp.IDPattern));
             generalParameters.Add(new Setting(OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL, gp.InterestsCreditedInFL.ToString()));
             generalParameters.Add(new Setting(OGeneralSettings.INCREMENTALDURINGDAYOFF, gp.IsIncrementalDuringDayOff.ToString()));

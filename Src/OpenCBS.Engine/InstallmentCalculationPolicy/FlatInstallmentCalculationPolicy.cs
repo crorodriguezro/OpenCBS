@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Composition;
+using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.Engine.Interfaces;
 
 namespace OpenCBS.Engine.InstallmentCalculationPolicy
@@ -7,11 +8,11 @@ namespace OpenCBS.Engine.InstallmentCalculationPolicy
     [PolicyAttribute(Implementation = "Flat")]
     public class FlatInstallmentCalculationPolicy : BaseInstallmentCalculationPolicy, IInstallmentCalculationPolicy
     {
-        public void Calculate(IInstallment installment, IScheduleConfiguration configuration)
+        public void Calculate(Installment installment, IScheduleConfiguration configuration)
         {
             var number = configuration.NumberOfInstallments - configuration.GracePeriod;
-            installment.Principal = configuration.RoundingPolicy.Round(configuration.Amount / number);
-            installment.Interest = CalculateInterest(installment, configuration, configuration.Amount);
+            installment.CapitalRepayment = configuration.RoundingPolicy.Round(configuration.Amount / number);
+            installment.InterestsRepayment = CalculateInterest(installment, configuration, configuration.Amount);
         }
     }
 }

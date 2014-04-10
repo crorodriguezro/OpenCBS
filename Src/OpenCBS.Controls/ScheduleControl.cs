@@ -33,7 +33,7 @@ namespace OpenCBS.Controls
         public ScheduleControl()
         {
             InitializeComponent();
-            Load += (sender, args) => Setup();
+            Setup();
             scheduleObjectListView.RowFormatter = FormatRow;
         }
 

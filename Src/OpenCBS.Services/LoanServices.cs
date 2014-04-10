@@ -28,7 +28,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using AutoMapper;
 using IronPython.Hosting;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Accounting;
@@ -46,8 +45,6 @@ using OpenCBS.CoreDomain.FundingLines;
 using OpenCBS.CoreDomain.SearchResult;
 using OpenCBS.Engine;
 using OpenCBS.Engine.Interfaces;
-using OpenCBS.Engine.PeriodPolicy;
-using OpenCBS.Engine.YearPolicy;
 using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.ExceptionsHandler.Exceptions.SavingExceptions;
@@ -1011,15 +1008,14 @@ namespace OpenCBS.Services
 
                 var scheduleBuilder = new ScheduleBuilder();
                 var installmentList = scheduleBuilder.BuildSchedule(scheduleConfiguration);
-                var schedule = Mapper.Map<IEnumerable<IInstallment>, List<Installment>>(installmentList);
-                return schedule;
+                //var schedule = Mapper.Map<IEnumerable<IInstallment>, List<Installment>>(installmentList);
+                return installmentList;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return null;
             }
-
         }
 
         public Loan SimulateRescheduling(Loan loan, ScheduleConfiguration rescheduleConfiguration)
@@ -1031,7 +1027,7 @@ namespace OpenCBS.Services
                 .Finish()
                 .GetConfiguration();
 
-            var schedule = Mapper.Map<IEnumerable<Installment>, IEnumerable<IInstallment>>(copyOfLoan.InstallmentList);
+            var schedule = copyOfLoan.InstallmentList;
             var scheduleBuilder = new ScheduleBuilder();
             var rescheduleAssembler = new RescheduleAssembler();
             var copyOfRescheduleConfiguration = (IScheduleConfiguration)rescheduleConfiguration.Clone();
@@ -1045,12 +1041,10 @@ namespace OpenCBS.Services
                 scheduleConfiguration,
                 copyOfRescheduleConfiguration,
                 scheduleBuilder,
-                loan.CalculateActualOlb().Value);
+                loan.CalculateActualOlb().Value).ToList();
 
-            var newSchedule = Mapper.Map<IEnumerable<IInstallment>, List<Installment>>(schedule);
-
-            copyOfLoan.InstallmentList = newSchedule;
-            copyOfLoan.NbOfInstallments = newSchedule.Count();
+            copyOfLoan.InstallmentList = schedule;
+            copyOfLoan.NbOfInstallments = schedule.Count();
             return copyOfLoan;
         }
 
@@ -1063,7 +1057,7 @@ namespace OpenCBS.Services
                 .Finish()
                 .GetConfiguration();
 
-            var schedule = Mapper.Map<IEnumerable<Installment>, IEnumerable<IInstallment>>(copyOfLoan.InstallmentList);
+            var schedule = copyOfLoan.InstallmentList;
             var scheduleBuilder = new ScheduleBuilder();
             var trancheBuilder = new TrancheBuilder();
             var trancheAssembler = new TrancheAssembler();
@@ -1073,14 +1067,12 @@ namespace OpenCBS.Services
                     copyOfTrancheConfiguration.StartDate,
                     scheduleConfiguration.YearPolicy);
 
-            schedule = trancheAssembler.AssembleTranche(
+            var newSchedule = trancheAssembler.AssembleTranche(
                 schedule,
                 scheduleConfiguration,
                 copyOfTrancheConfiguration,
                 scheduleBuilder,
-                trancheBuilder);
-
-            var newSchedule = Mapper.Map<IEnumerable<IInstallment>, List<Installment>>(schedule);
+                trancheBuilder).ToList();
 
             foreach (var installment in newSchedule)
             {
@@ -1659,9 +1651,12 @@ namespace OpenCBS.Services
                         if (int.TryParse(evnt.Comment, out id))
                         {
                             var listSavingsEvents = new List<SavingEvent>();
-
                             foreach (var saving in pClient.Savings)
-                                listSavingsEvents.AddRange(saving.Events.OfType<SavingEvent>());
+                                listSavingsEvents.AddRange(
+                                    ServicesProvider.GetInstance()
+                                                    .GetSavingServices()
+                                                    .GetSaving(saving.Id)
+                                                    .Events.OfType<SavingEvent>());
 
                             var debitSavingEvent = listSavingsEvents.First(ev => ev.Id == id);
                             var creditSavingEvent = listSavingsEvents.First(ev => ev.Amount == debitSavingEvent.Amount && ev.Date == debitSavingEvent.Date);
@@ -3048,9 +3043,113 @@ namespace OpenCBS.Services
             var options = new Dictionary<string, object>();
             options["Debug"] = true;
             var engine = Python.CreateEngine(options);
-            var assemby = typeof(Installment).Assembly;
+            var assemby = typeof (Installment).Assembly;
             engine.Runtime.LoadAssembly(assemby);
             return engine.ExecuteFile(file);
+        }
+
+        public Loan SaveInstallmentsAndRepaymentEvents(Loan loan, IList<Installment> newInstallments, EventStock eventStock)
+        {
+            var repayEvent = eventStock.GetRepaymentEvents().First(i => !i.IsFired).Copy();
+            var amount =
+                eventStock.GetRepaymentEvents()
+                    .Where(i => !i.IsFired)
+                    .Sum(i => i.Commissions.Value + i.Penalties.Value + i.Interests.Value + i.Principal.Value);
+            using (var sqlTransaction = _loanManager.GetConnection().BeginTransaction())
+            {
+                try
+                {
+                    if (ApplicationSettings.GetInstance(User.CurrentUser.Md5).UseMandatorySavingAccount)
+                    {
+                        var saving =
+                            (from item in loan.Project.Client.Savings where item.Product.Code == "default" select item)
+                                .FirstOrDefault();
+                        if (saving == null)
+                        {
+                            MessageBox.Show("Make sure that client has default saving account");
+                            return loan;
+                        }
+                        saving = ServicesProvider.GetInstance().GetSavingServices().GetSaving(saving.Id);
+                        var balance = saving.GetBalance(repayEvent.Date);
+                        if (amount > balance)
+                        {
+                            MessageBox.Show("Balance is not enough to repay");
+                            return loan;
+                        }
+                        ServicesProvider.GetInstance()
+                                        .GetSavingServices()
+                                        .Withdraw(saving, repayEvent.Date, amount,
+                                                  "Withdraw for loan repayment " + loan.Code, User.CurrentUser,
+                                                  new Teller(),
+                                                  sqlTransaction);
+                        eventStock.GetRepaymentEvents().First(i => !i.IsFired).Comment =
+                            saving.Events.Last().Id.ToString(CultureInfo.InvariantCulture);
+                    }
+                    loan.Events = eventStock;
+                    _ePs.FireEvent(repayEvent, loan, sqlTransaction);
+                    ArchiveInstallments(loan, repayEvent, sqlTransaction);
+                    loan.InstallmentList = newInstallments.ToList();
+                    foreach (var installment in newInstallments)
+                        _instalmentManager.UpdateInstallment(installment, loan.Id, repayEvent.Id, sqlTransaction);
+                    if (newInstallments.All(installment => installment.IsRepaid))
+                    {
+                        _ePs.FireEvent(loan.GetCloseEvent(TimeProvider.Now), loan, sqlTransaction);
+                        loan.Closed = true;
+                        loan.ContractStatus = OContractStatus.Closed;
+                        _loanManager.UpdateLoan(loan, sqlTransaction);
+                    }
+
+                    var repaymentEvents = (from item in loan.Events.GetRepaymentEvents()
+                                           where item.ParentId == repayEvent.Id || item.Id == repayEvent.Id
+                                           select item).ToList();
+                    var listOfRble = (from item in repaymentEvents where item.Code == "RBLE" select item).ToList();
+                    var listOfRgle = repaymentEvents.Except(listOfRble).ToList();
+                    if (repayEvent.Code == "RBLE")
+                        CallInterceptor(new Dictionary<string, object>
+                        {
+                            {"Loan", loan},
+                            {
+                                "Event", new RepaymentEvent
+                                {
+                                    Code = "RBLE",
+                                    Principal = listOfRble.Sum(item => item.Principal.Value),
+                                    Interests = listOfRble.Sum(item => item.Interests.Value),
+                                    Commissions = listOfRble.Sum(item => item.Commissions.Value),
+                                    Penalties = listOfRble.Sum(item => item.Fees.Value),
+                                    Id = repayEvent.Id,
+                                    Date = repayEvent.Date
+                                }
+                            },
+                            {"SqlTransaction", sqlTransaction}
+                        });
+                    CallInterceptor(new Dictionary<string, object>
+                    {
+                        {"Loan", loan},
+                        {
+                            "Event", new RepaymentEvent
+                            {
+                                Code = "RGLE",
+                                Principal = listOfRgle.Sum(item => item.Principal.Value),
+                                Interests = listOfRgle.Sum(item => item.Interests.Value),
+                                Commissions = listOfRgle.Sum(item => item.Commissions.Value),
+                                Penalties = listOfRgle.Sum(item => item.Fees.Value),
+                                Id = repayEvent.Id,
+                                Date = repayEvent.Date
+                            }
+                        },
+                        {"SqlTransaction", sqlTransaction}
+                    });
+                    sqlTransaction.Commit();
+                }
+                catch (Exception)
+                {
+                    sqlTransaction.Rollback();
+                    throw;
+                }
+            }
+            if(loan.Closed)
+                SetClientStatus(loan, loan.Project.Client);
+            return loan;
         }
     }
 }

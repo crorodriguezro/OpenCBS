@@ -403,6 +403,9 @@ namespace OpenCBS.Services
 
                     ISavingsContract savingSimulation = (ISavingsContract) saving.Clone();
                         // Create a fake Saving object
+                    if (saving.Client == null)
+                        saving.Client =
+                            ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(saving.Id);
 
                     // Do deposit to the fake Saving object
                     savingSimulation.Deposit(depositAmount, dateTime, description, user, false, isPending, savingsMethod,
@@ -418,6 +421,14 @@ namespace OpenCBS.Services
                     foreach (SavingEvent savingEvent in events)
                     {
                         _ePS.FireEvent(savingEvent, saving, sqlTransaction);
+                        ServicesProvider.GetInstance()
+                                        .GetContractServices()
+                                        .CallInterceptor(new Dictionary<string, object>
+                                            {
+                                                {"Saving", saving},
+                                                {"Event", savingEvent},
+                                                {"SqlTransaction", sqlTransaction}
+                                            });
                     }
 
                     // Change overdraft state
@@ -609,6 +620,33 @@ namespace OpenCBS.Services
 	                throw;
 	            }
 	        }
+	    }
+
+	    public List<SavingEvent> Withdraw(ISavingsContract pSaving, DateTime pDate, OCurrency pWithdrawAmount,
+	                                      string pDescription, User pUser, Teller teller, SqlTransaction sqlTransaction)
+	    {
+	        ValidateWithdrawal(pWithdrawAmount, pSaving, pDate, pDescription, pUser, teller);
+
+	        List<SavingEvent> events = pSaving.Withdraw(pWithdrawAmount, pDate, pDescription, pUser, false, teller);
+	        foreach (SavingEvent savingEvent in events)
+	        {
+	            _ePS.FireEvent(savingEvent, pSaving, sqlTransaction);
+	        }
+
+	        // Charge overdraft fees if the balance is negative
+	        if (pSaving is SavingBookContract)
+	        {
+	            if (pSaving.GetBalance() < 0 && !((SavingBookContract) pSaving).InOverdraft)
+	            {
+	                SavingEvent overdraftFeeEvent = pSaving.ChargeOverdraftFee(pDate, pUser);
+	                _ePS.FireEvent(overdraftFeeEvent, pSaving, sqlTransaction);
+
+	                ((SavingBookContract) pSaving).InOverdraft = true;
+	                UpdateOverdraftStatus(pSaving.Id, true);
+	            }
+	        }
+
+	        return events;
 	    }
 
 	    private void ValidateWithdrawal(OCurrency pWithdrawAmount, ISavingsContract pSaving, DateTime pDate, string pDescription, User pUser, Teller teller)

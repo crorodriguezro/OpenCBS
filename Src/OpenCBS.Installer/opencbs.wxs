@@ -325,6 +325,8 @@
                         <File Id="Active_Loans_excel" Name="Active_Loans.zip" Source="SourceDir\Reports\Excel\Active Loans.zip" />
                         <File Id="Disbursements_excel" Name="Disbursements.zip" Source="SourceDir\Reports\Excel\Disbursements.zip" />
                         <File Id="Repayments_excel" Name="Repayments.zip" Source="SourceDir\Reports\Excel\Repayments.zip" />
+                        <File Id="Collection_Sheet_excel" Name="Collection_Sheet.zip" Source="SourceDir\Reports\Excel\Collection_Sheet.zip" />
+                        <File Id="OLB_and_LLP_excel" Name="OLB_and_LLP.zip" Source="SourceDir\Reports\Excel\OLB_and_LLP.zip" />
 	            </Component>
               </Directory>
               <Directory Id="dir_internal" Name="Internal">

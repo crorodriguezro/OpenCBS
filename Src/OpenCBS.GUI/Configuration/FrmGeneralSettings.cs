@@ -177,7 +177,7 @@ namespace OpenCBS.GUI.Configuration
                         val.Key.ToString() == OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE ||
                         val.Key.ToString() == OGeneralSettings.USEPROJECTS ||
                         val.Key.ToString() == OGeneralSettings.ENFORCE_ID_PATTERN ||
-                        val.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
+                       // val.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
                         val.Key.ToString() == OGeneralSettings.INCREMENTALDURINGDAYOFF ||
                         val.Key.ToString() == OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL ||
                         val.Key.ToString() == OGeneralSettings.USE_TELLER_MANAGEMENT ||
@@ -501,7 +501,7 @@ namespace OpenCBS.GUI.Configuration
             // 
             resources.ApplyResources(this.radioButtonNo, "radioButtonNo");
             this.radioButtonNo.Name = "radioButtonNo";
-            this.radioButtonNo.CheckedChanged += new System.EventHandler(this.radioButtonNo_CheckedChanged);
+            this.radioButtonNo.CheckedChanged += new System.EventHandler(this.radioButtonNo_CheckedChanged_1);
             // 
             // radioButtonYes
             // 
@@ -509,6 +509,7 @@ namespace OpenCBS.GUI.Configuration
             resources.ApplyResources(this.radioButtonYes, "radioButtonYes");
             this.radioButtonYes.Name = "radioButtonYes";
             this.radioButtonYes.TabStop = true;
+            this.radioButtonYes.CheckedChanged += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // comboBoxSavings
             // 
@@ -541,12 +542,14 @@ namespace OpenCBS.GUI.Configuration
             resources.ApplyResources(this.cbxValue, "cbxValue");
             this.cbxValue.Name = "cbxValue";
             this.cbxValue.SelectionChangeCommitted += new System.EventHandler(this.comboBoxValue_SelectionChangeCommitted);
+            this.cbxValue.SelectedValueChanged += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // textBoxGeneralParameterValue
             // 
             resources.ApplyResources(this.textBoxGeneralParameterValue, "textBoxGeneralParameterValue");
             this.textBoxGeneralParameterValue.Name = "textBoxGeneralParameterValue";
             this.textBoxGeneralParameterValue.TextChanged += new System.EventHandler(this.textBoxGeneralParameterValue_TextChanged);
+            this.textBoxGeneralParameterValue.Leave += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // tabPageProvioningRules
             // 
@@ -1134,7 +1137,7 @@ namespace OpenCBS.GUI.Configuration
                 entry.Key.ToString() == OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE ||
                 entry.Key.ToString() == OGeneralSettings.USEPROJECTS ||
                 entry.Key.ToString() == OGeneralSettings.ENFORCE_ID_PATTERN ||
-                entry.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
+               // entry.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
                 entry.Key.ToString() == OGeneralSettings.INCREMENTALDURINGDAYOFF ||
                 entry.Key.ToString() == OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL ||
                 entry.Key.ToString() == OGeneralSettings.USE_TELLER_MANAGEMENT ||
@@ -1228,7 +1231,7 @@ namespace OpenCBS.GUI.Configuration
                      entry.Key.ToString() == OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE ||
                      entry.Key.ToString() == OGeneralSettings.USEPROJECTS ||
                      entry.Key.ToString() == OGeneralSettings.ENFORCE_ID_PATTERN ||
-                     entry.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
+                    // entry.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
                      entry.Key.ToString() == OGeneralSettings.INCREMENTALDURINGDAYOFF ||
                      entry.Key.ToString() == OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL ||
                      entry.Key.ToString() == OGeneralSettings.USE_TELLER_MANAGEMENT ||
@@ -1369,10 +1372,7 @@ namespace OpenCBS.GUI.Configuration
 
         private void radioButtonNo_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonYes.Checked)
-                entry.Value = true;
-            else
-                entry.Value = false;
+
         }
 
         private void InitializeHoliday()
@@ -1612,7 +1612,17 @@ namespace OpenCBS.GUI.Configuration
             }
         }
 
-        
+        private void radioButtonNo_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (radioButtonYes.Checked)
+                entry.Value = true;
+            else
+                entry.Value = false;
+
+            buttonUpdate_Click(sender, e);
+        }
+
+
 
     }
 }
