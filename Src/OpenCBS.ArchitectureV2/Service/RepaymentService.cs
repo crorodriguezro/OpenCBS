@@ -103,7 +103,7 @@ namespace OpenCBS.ArchitectureV2.Service
                     newInstallment.PaidInterests <= installment.PaidInterests &&
                     newInstallment.PaidFees <= installment.PaidFees &&
                     newInstallment.PaidCommissions <= installment.PaidCommissions) continue;
-                if (newInstallment.ExpectedDate > oldConfig.Date)
+                if (newInstallment.ExpectedDate.Date >= oldConfig.Date.Date)
                 {
                     events.Add(new RepaymentEvent
                         {
