@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 using OpenCBS.ArchitectureV2.Interface.Presenter;
 using OpenCBS.ArchitectureV2.Interface.Service;
 using OpenCBS.ArchitectureV2.Interface.View;
@@ -20,11 +21,16 @@ namespace OpenCBS.ArchitectureV2.View
         public void Attach(IRepaymentPresenterCallbacks presenterCallbacks)
         {
             _amountNumericUpDown.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
+            _amountNumericUpDown.KeyDown += (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
             _dateTimePicker.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
             _principalNumericUpDown.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
+            _principalNumericUpDown.KeyDown += (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
             _interestNumericUpDown.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
+            _interestNumericUpDown.KeyDown += (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
             _penaltyNumericUpDown.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
+            _penaltyNumericUpDown.KeyDown += (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
             _commissionNumericUpDown.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
+            _commissionNumericUpDown.KeyDown += (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
             _typeOfRepaymentComboBox.SelectedIndexChanged += (sender, e) => presenterCallbacks.OnRefresh();
             _okButton.Click += (sender, e) => presenterCallbacks.OnRepay();
             _cancelButton.Click += (sender, e) => presenterCallbacks.OnCancel();
