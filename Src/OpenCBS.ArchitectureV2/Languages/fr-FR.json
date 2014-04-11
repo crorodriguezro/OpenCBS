@@ -2,7 +2,7 @@
 	"Database": "Base de données",
 	"Error": "Erreur",
 	"Invalid username or password.": "Nom d'utilisateur ou mot de passe non valides.",
-	"Login": "Identifiant",
+	"Login": "S'identifier",
 	"Password": "Mot de passe",
     "Upgrade": "Mise à jour",
     "Upgrading database...": "Mettre à jour la base données",
