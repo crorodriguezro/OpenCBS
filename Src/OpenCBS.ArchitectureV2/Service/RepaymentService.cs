@@ -38,6 +38,17 @@ namespace OpenCBS.ArchitectureV2.Service
             return Settings.Loan;
         }
 
+        public decimal GetRepaymentAmount(DateTime date)
+        {
+            var newSettings = (RepaymentSettings)Settings.Clone();
+            newSettings.Date = date;
+            var script = RunScript(newSettings.ScriptName);
+            script.GetInitAmounts(newSettings);
+            return
+                Math.Round(newSettings.Penalty + newSettings.Commission + newSettings.Interest + newSettings.Principal,
+                           2);
+        }
+
         public Dictionary<string, string> GetAllRepaymentScriptsWithTypes()
         {
             var scripts = new Dictionary<string, string>();

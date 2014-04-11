@@ -2975,7 +2975,7 @@ namespace OpenCBS.Services
 
         public void RepayAllExpectedInstallments(DateTime date)
         {
-            var loanIdList = _loanManager.GetLoanIdForRepayment(date);
+            var loanIdList = GetLoanIdsForRepayment(date);
             foreach (var id in loanIdList)
             {
                 var client = ServicesProvider.GetInstance()
@@ -3002,13 +3002,18 @@ namespace OpenCBS.Services
             }
         }
 
+        public List<int> GetLoanIdsForRepayment(DateTime date)
+        {
+            return _loanManager.GetLoanIdForRepayment(date);
+        }
+
         public DateTime GetRepaymentModuleLastStartupDate()
         {
             var repaymentDate = _loanManager.GetRepaymentModuleLastStartupDate();
             if (repaymentDate != "")
                 return Convert.ToDateTime(repaymentDate);
             _loanManager.CreateRepaymentModuleLastStartupDateRecord();
-            return DateTime.Today;
+            return DateTime.Now;
         }
 
         public void SetRepaymentModuleLastStartupDate(DateTime date)
@@ -3076,6 +3081,8 @@ namespace OpenCBS.Services
                             MessageBox.Show("Balance is not enough to repay");
                             return loan;
                         }
+                        if (amount <= 0)
+                            return loan;
                         ServicesProvider.GetInstance()
                                         .GetSavingServices()
                                         .Withdraw(saving, repayEvent.Date, amount,
