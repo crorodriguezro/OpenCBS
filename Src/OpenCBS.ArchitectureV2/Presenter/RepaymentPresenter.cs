@@ -103,6 +103,8 @@ namespace OpenCBS.ArchitectureV2.Presenter
             _repaymentService.Repay();
             _repaymentService.Settings.DateChanged = false;
             _repaymentService.Settings.AmountChanged = false;
+            if (_saving != null)
+                _view.OkButtonEnabled = _repaymentService.Settings.Amount <= _saving.GetBalance(_view.Date).Value;
             RefreshAmounts();
         }
 

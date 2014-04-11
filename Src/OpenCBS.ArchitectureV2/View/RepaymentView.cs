@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using OpenCBS.ArchitectureV2.Interface.Presenter;
@@ -114,7 +115,9 @@ namespace OpenCBS.ArchitectureV2.View
         public bool OkButtonEnabled
         {
             get { return _okButton.Enabled; }
-            set { _okButton.Enabled = value; }
+            set { _okButton.Enabled = value;
+                _amountNumericUpDown.ForeColor = _okButton.Enabled ? Color.Black : Color.Red;
+            }
         }
         public string Comment
         {
