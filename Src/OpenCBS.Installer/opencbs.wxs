@@ -172,6 +172,9 @@
             		<CreateFolder Directory="DIR_LANGUAGES"/>
             		<File Id="en_US_json" Source="SourceDir\Languages\en-US.json"/>
             		<File Id="ru_RU_json" Source="SourceDir\Languages\ru-RU.json"/>
+            		<File Id="fr_FR_json" Source="SourceDir\Languages\fr-FR.json"/>
+            		<File Id="pt_BR_json" Source="SourceDir\Languages\pt-BR.json"/>
+            		<File Id="es_ES_json" Source="SourceDir\Languages\es-ES.json"/>
             	</Component>
             </Directory>
 

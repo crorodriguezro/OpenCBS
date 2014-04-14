@@ -43,16 +43,16 @@ namespace OpenCBS.ArchitectureV2.View
             this._passwordTextBox = new System.Windows.Forms.TextBox();
             this._usernameLabel = new System.Windows.Forms.Label();
             this._passwordLabel = new System.Windows.Forms.Label();
-            this.logoPicturebox = new System.Windows.Forms.PictureBox();
             this._databaseComboBox = new System.Windows.Forms.ComboBox();
             this._databaseLabel = new System.Windows.Forms.Label();
+            this.logoPicturebox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.logoPicturebox)).BeginInit();
             this.SuspendLayout();
             // 
             // _loginButton
             // 
-            this._loginButton.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this._loginButton, "_loginButton");
+            this._loginButton.BackColor = System.Drawing.SystemColors.Control;
             this._loginButton.Name = "_loginButton";
             this._loginButton.UseVisualStyleBackColor = false;
             // 
@@ -68,36 +68,36 @@ namespace OpenCBS.ArchitectureV2.View
             // 
             // _usernameLabel
             // 
-            this._usernameLabel.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this._usernameLabel, "_usernameLabel");
+            this._usernameLabel.BackColor = System.Drawing.Color.Transparent;
             this._usernameLabel.Name = "_usernameLabel";
             // 
             // _passwordLabel
             // 
-            this._passwordLabel.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this._passwordLabel, "_passwordLabel");
+            this._passwordLabel.BackColor = System.Drawing.Color.Transparent;
             this._passwordLabel.Name = "_passwordLabel";
-            // 
-            // logoPicturebox
-            // 
-            this.logoPicturebox.BackColor = System.Drawing.Color.Transparent;
-            this.logoPicturebox.BackgroundImage = global::OpenCBS.ArchitectureV2.Properties.Resources.Logo;
-            resources.ApplyResources(this.logoPicturebox, "logoPicturebox");
-            this.logoPicturebox.Name = "logoPicturebox";
-            this.logoPicturebox.TabStop = false;
             // 
             // _databaseComboBox
             // 
+            resources.ApplyResources(this._databaseComboBox, "_databaseComboBox");
             this._databaseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._databaseComboBox.FormattingEnabled = true;
-            resources.ApplyResources(this._databaseComboBox, "_databaseComboBox");
             this._databaseComboBox.Name = "_databaseComboBox";
             // 
             // _databaseLabel
             // 
-            this._databaseLabel.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this._databaseLabel, "_databaseLabel");
+            this._databaseLabel.BackColor = System.Drawing.Color.Transparent;
             this._databaseLabel.Name = "_databaseLabel";
+            // 
+            // logoPicturebox
+            // 
+            resources.ApplyResources(this.logoPicturebox, "logoPicturebox");
+            this.logoPicturebox.BackColor = System.Drawing.Color.Transparent;
+            this.logoPicturebox.BackgroundImage = global::OpenCBS.ArchitectureV2.Properties.Resources.Logo;
+            this.logoPicturebox.Name = "logoPicturebox";
+            this.logoPicturebox.TabStop = false;
             // 
             // LoginView
             // 
