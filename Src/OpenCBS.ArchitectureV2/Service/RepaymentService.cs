@@ -86,7 +86,6 @@ namespace OpenCBS.ArchitectureV2.Service
             var events = new EventStock();
             foreach (var installment in oldConfig.Loan.InstallmentList)
             {
-                if (installment.IsRepaid) continue;
                 var newInstallment = newConfig.Loan.GetInstallment(installment.Number - 1);
                 if (newInstallment.CapitalRepayment != installment.CapitalRepayment)
                 {
