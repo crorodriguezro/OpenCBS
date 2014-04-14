@@ -1693,7 +1693,7 @@
     <value>#</value>
   </data>
   <data name="columnHeader10.Text" xml:space="preserve">
-    <value>Minimum Amount</value>
+    <value>Minimum Amount</value>
   </data>
   <data name="columnHeader10.Width" type="System.Int32, mscorlib">
     <value>97</value>

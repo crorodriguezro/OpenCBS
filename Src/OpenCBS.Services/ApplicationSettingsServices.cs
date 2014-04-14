@@ -39,6 +39,7 @@ namespace OpenCBS.Services
         private readonly ApplicationSettingsManager _dataParamManager;
         private readonly NonWorkingDateManagement _nonWorkingDateManager;
         private readonly ProvisioningRuleManager _provisioningRuleManager;
+        private readonly LoanScaleManager _loanScaleManager;
         private readonly User _user;
 
         public ApplicationSettingsServices(User pUser)
@@ -47,6 +48,7 @@ namespace OpenCBS.Services
             _dataParamManager = new ApplicationSettingsManager(pUser);
             _nonWorkingDateManager = new NonWorkingDateManagement(pUser);
             _provisioningRuleManager = new ProvisioningRuleManager(pUser);
+            _loanScaleManager = new LoanScaleManager(_user);
         }
 
         public ApplicationSettingsServices(string pTestDb)
@@ -54,6 +56,7 @@ namespace OpenCBS.Services
             _dataParamManager = new ApplicationSettingsManager(pTestDb);
             _nonWorkingDateManager = new NonWorkingDateManagement(pTestDb);
             _provisioningRuleManager = new ProvisioningRuleManager(pTestDb);
+            _loanScaleManager = new LoanScaleManager(pTestDb);
         }
 
         public void FillGeneralDatabaseParameter()
@@ -90,7 +93,8 @@ namespace OpenCBS.Services
         {
             _dataParamManager.FillGeneralSettings();
             _nonWorkingDateManager.FillNonWorkingDateHelper();
-           FillProvisioningRule();
+            FillProvisioningRule();
+            FillLoanScaleTable();
             foreach (DictionaryEntry entry in ApplicationSettings.GetInstance(_user.Md5).DefaultParamList)
             {
                 if (ApplicationSettings.GetInstance(_user.Md5).GetSpecificParameter(entry.Key.ToString()) == null &&
@@ -101,6 +105,11 @@ namespace OpenCBS.Services
                     _dataParamManager.AddParameter(entry);
                 }
             }
+        }
+
+        private void FillLoanScaleTable()
+        {
+            _loanScaleManager.SelectLoanScales();
         }
 
         private void FillProvisioningRule()
