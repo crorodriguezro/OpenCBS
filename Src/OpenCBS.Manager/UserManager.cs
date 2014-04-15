@@ -194,7 +194,7 @@ namespace OpenCBS.Manager
                                                    [phone],
                                                    [Users].[deleted], 
                                                    [Roles].[id] as role_id, 
-                                                   [Roles].[code] AS role_name
+                                                   [Roles].[code] AS role_name,
                                                    (SELECT COUNT(a.id) 
                                                    FROM  (SELECT Credit.id, loanofficer_id 
                                                           FROM Credit 
