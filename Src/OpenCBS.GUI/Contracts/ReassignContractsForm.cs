@@ -91,7 +91,7 @@ namespace OpenCBS.GUI.Contracts
             {
                 fromCombobox.Items.Add(user);
 
-                if (!user.IsDeleted && (user.UserRole.IsRoleForLoan || user.UserRole.IsRoleForSaving))
+                if (!user.IsDeleted )
                 {
                     toCombobox.Items.Add(user);
                 }

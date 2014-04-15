@@ -50,8 +50,8 @@ namespace OpenCBS.Manager
         public int AddRole(Role pRole)
         {
             const string q = @"INSERT INTO [Roles]
-                                     ([deleted], [code], [description], [role_of_loan], [role_of_saving], [role_of_teller]) 
-                                     VALUES(@deleted, @code, @description, @role_of_loan, @role_of_saving, @role_of_teller) 
+                                     ([deleted], [code], [description]) 
+                                     VALUES(@deleted, @code, @description) 
                                      SELECT SCOPE_IDENTITY()";
 
             using (SqlConnection conn = GetConnection())
@@ -61,9 +61,6 @@ namespace OpenCBS.Manager
                     c.AddParam("@deleted", false);
                     c.AddParam("@code", pRole.RoleName);
                     c.AddParam("@description", pRole.Description);
-                    c.AddParam("@role_of_loan", pRole.IsRoleForLoan);
-                    c.AddParam("@role_of_saving", pRole.IsRoleForSaving);
-                    c.AddParam("@role_of_teller", pRole.IsRoleForTeller);
 
                     pRole.Id = int.Parse(c.ExecuteScalar().ToString());
                     SaveRoleMenu(pRole);
@@ -82,10 +79,7 @@ namespace OpenCBS.Manager
             const string q = @"UPDATE [Roles] 
                                      SET [code]=@code, 
                                          [deleted]=@deleted, 
-                                         [description]=@description,
-                                         [role_of_loan] = @role_of_loan, 
-                                         [role_of_saving] = @role_of_saving, 
-                                         [role_of_teller] = @role_of_teller 
+                                         [description]=@description 
                                      WHERE [id] = @RoleId";
 
             using (SqlConnection conn = GetConnection())
@@ -96,9 +90,6 @@ namespace OpenCBS.Manager
                     c.AddParam("@deleted", pRole.IsDeleted);
                     c.AddParam("@code", pRole.RoleName);
                     c.AddParam("@description", pRole.Description);
-                    c.AddParam("@role_of_loan", pRole.IsRoleForLoan);
-                    c.AddParam("@role_of_saving", pRole.IsRoleForSaving);
-                    c.AddParam("@role_of_teller", pRole.IsRoleForTeller);
 
                     c.ExecuteNonQuery();
                     SaveRoleMenu(pRole);
@@ -135,7 +126,7 @@ namespace OpenCBS.Manager
         /// <returns>selected Role or null otherwise</returns>
         public Role SelectRole(int pRoleId, bool pIncludeDeletedRole, SqlTransaction pSqlTransac)
         {
-            string q = @"SELECT [Roles].[id], [code], [deleted], [description], [role_of_loan], [role_of_saving], [role_of_teller]  
+            string q = @"SELECT [Roles].[id], [code], [deleted], [description] 
                                FROM [Roles] WHERE [id] = @id ";
 
             if (!pIncludeDeletedRole)
@@ -202,7 +193,7 @@ namespace OpenCBS.Manager
 
         public List<Role> SelectAllRoles(bool pSelectDeletedRoles)
         {
-            string q = @"SELECT [Roles].[id], [code], [deleted], [description], [role_of_loan], [role_of_saving], [role_of_teller]
+            string q = @"SELECT [Roles].[id], [code], [deleted], [description]
                                FROM [Roles] WHERE 1 = 1 ";
 
             if (!pSelectDeletedRoles)
@@ -240,7 +231,7 @@ namespace OpenCBS.Manager
         /// <returns>selected role or null otherwise</returns>
         public Role SelectRole(string pRoleName,bool pIncludeDeleted)
         {
-            string q = @"SELECT [id], [code], [deleted], [description], [role_of_loan], [role_of_saving], [role_of_teller]
+            string q = @"SELECT [id], [code], [deleted], [description]
                                     FROM [Roles] WHERE [code] = @name ";
 
             q += pIncludeDeleted ? "" : "AND [deleted] = 0";
@@ -523,10 +514,7 @@ namespace OpenCBS.Manager
                     Id = r.GetInt("id"),
                     RoleName = r.GetString("code"),
                     IsDeleted = r.GetBool("deleted"),
-                    Description = r.GetString("description"),
-                    IsRoleForLoan = r.GetBool("role_of_loan"),
-                    IsRoleForSaving = r.GetBool("role_of_saving"),
-                    IsRoleForTeller = r.GetBool("role_of_teller")
+                    Description = r.GetString("description")
                 };;
         }
 

@@ -51,7 +51,7 @@ namespace OpenCBS.GUI.Configuration
 
             foreach (User user in _users)
             {
-                if (!user.IsDeleted && (user.UserRole.IsRoleForLoan || user.UserRole.IsRoleForSaving))
+                if (!user.IsDeleted)
                 {
                     cbUsers.Items.Add(user);
                 }

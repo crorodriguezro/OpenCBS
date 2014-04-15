@@ -121,34 +121,32 @@ namespace OpenCBS.GUI
         {
             if (ServicesProvider.GetInstance().GetGeneralSettings().UseTellerManagement)
             {
-                if (User.CurrentUser.UserRole.IsRoleForTeller)
+                FrmOpenCloseTeller frm = new FrmOpenCloseTeller(true);
+                frm.ShowDialog();
+
+                if (frm.DialogResult == DialogResult.OK)
                 {
-                    FrmOpenCloseTeller frm = new FrmOpenCloseTeller(true);
-                    frm.ShowDialog();
-
-                    if (frm.DialogResult == DialogResult.OK)
+                    if (frm.Teller != null && frm.Teller.Id != 0)
                     {
-                        if (frm.Teller != null && frm.Teller.Id != 0)
-                        {
-                            Teller.CurrentTeller = frm.Teller;
-                            //tellerManagementToolStripMenuItem.Visible = true;
-                            ServicesProvider.GetInstance().GetEventProcessorServices().LogUser(OUserEvents.UserOpenTellerEvent,
-                                Teller.CurrentTeller.Name + " opened", User.CurrentUser.Id);
-                            ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(frm.OpenOfDayAmountEvent);
+                        Teller.CurrentTeller = frm.Teller;
+                        //tellerManagementToolStripMenuItem.Visible = true;
+                        ServicesProvider.GetInstance().GetEventProcessorServices().LogUser(OUserEvents.UserOpenTellerEvent,
+                            Teller.CurrentTeller.Name + " opened", User.CurrentUser.Id);
+                        ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(frm.OpenOfDayAmountEvent);
 
-                            if (frm.OpenAmountPositiveDifferenceEvent != null)
-                                ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                                    frm.OpenAmountPositiveDifferenceEvent);
-                            else if (frm.OpenAmountNegativeDifferenceEvent != null)
-                                ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                                    frm.OpenAmountNegativeDifferenceEvent);
+                        if (frm.OpenAmountPositiveDifferenceEvent != null)
+                            ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
+                                frm.OpenAmountPositiveDifferenceEvent);
+                        else if (frm.OpenAmountNegativeDifferenceEvent != null)
+                            ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
+                                frm.OpenAmountNegativeDifferenceEvent);
 
-                        }
-
-                        return true;
                     }
-                    return false;
+
+                    return true;
                 }
+                return false;
+
             }
             return true;
         }
@@ -278,7 +276,7 @@ namespace OpenCBS.GUI
             {
                 MdiParent = this,
                 Text = string.Format(
-                       "{0} [{1}]", 
+                       "{0} [{1}]",
                        MultiLanguageStrings.GetString(Ressource.ClientForm, "Person.Text"),
                        person.Name)
             };
@@ -615,30 +613,26 @@ namespace OpenCBS.GUI
 
             if (ServicesProvider.GetInstance().GetGeneralSettings().UseTellerManagement)
             {
-                if (User.CurrentUser.UserRole.IsRoleForTeller)
+                if (Teller.CurrentTeller != null && Teller.CurrentTeller.Id != 0)
                 {
-                    if (Teller.CurrentTeller != null && Teller.CurrentTeller.Id != 0)
-                    {
-                        FrmOpenCloseTeller frm = new FrmOpenCloseTeller(false);
-                        frm.ShowDialog();
+                    FrmOpenCloseTeller frm = new FrmOpenCloseTeller(false);
+                    frm.ShowDialog();
 
-                        if (frm.DialogResult == DialogResult.OK)
-                        {
-                            _showTellerFormOnClose = false;
-                            Teller.CurrentTeller = null;
+                    if (frm.DialogResult == DialogResult.OK)
+                    {
+                        _showTellerFormOnClose = false;
+                        Teller.CurrentTeller = null;
+                        ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
+                                                                                frm.CloseOfDayAmountEvent);
+                        if (frm.CloseAmountNegativeDifferenceEvent != null)
                             ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                                                                                    frm.CloseOfDayAmountEvent);
-                            if (frm.CloseAmountNegativeDifferenceEvent != null)
-                                ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                                    frm.CloseAmountNegativeDifferenceEvent);
-                            else if (frm.CloseAmountPositiveDifferenceEvent != null)
-                                ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                                    frm.CloseAmountPositiveDifferenceEvent);
-                            RestartApplication(language);
-                        }
+                                frm.CloseAmountNegativeDifferenceEvent);
+                        else if (frm.CloseAmountPositiveDifferenceEvent != null)
+                            ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
+                                frm.CloseAmountPositiveDifferenceEvent);
+                        RestartApplication(language);
                     }
                 }
-                else RestartApplication(language);
             }
             else RestartApplication(language);
         }
@@ -931,7 +925,7 @@ namespace OpenCBS.GUI
                 };
                 var parameters = string.Join("&", collection.Select(x => string.Format("{0}={1}", x.Key, x.Value)).ToArray());
                 var data = Encoding.UTF8.GetBytes(parameters);
-                var request = (HttpWebRequest) WebRequest.Create("http://opencbsping.apphb.com/Ping");
+                var request = (HttpWebRequest)WebRequest.Create("http://opencbsping.apphb.com/Ping");
                 request.Method = "POST";
                 request.ContentType = "application/x-www-form-urlencoded";
                 request.ContentLength = data.Length;
@@ -944,9 +938,9 @@ namespace OpenCBS.GUI
                         stream.Write(data, 0, data.Length);
                     }
                 }
-                catch 
+                catch
                 {
- 
+
                 }
             };
             worker.RunWorkerCompleted += (sender, args) =>
@@ -970,7 +964,7 @@ namespace OpenCBS.GUI
                 reportsToolStripMenuItem.DropDownItems.Add(i);
             }
 
-           
+
         }
 
         private void LogUser()
@@ -1060,16 +1054,13 @@ namespace OpenCBS.GUI
         {
             if (ServicesProvider.GetInstance().GetGeneralSettings().UseTellerManagement)
             {
-                if (User.CurrentUser.UserRole.IsRoleForTeller)
+                if (_showTellerFormOnClose)
                 {
-                    if (_showTellerFormOnClose)
-                    {
-                        e.Cancel = false;
+                    e.Cancel = false;
 
-                        if (Teller.CurrentTeller != null && Teller.CurrentTeller.Id != 0)
-                            if (!CloseTeller())
-                                e.Cancel = true;
-                    }
+                    if (Teller.CurrentTeller != null && Teller.CurrentTeller.Id != 0)
+                        if (!CloseTeller())
+                            e.Cancel = true;
                 }
             }
             UserSettings.SetAlertState(olvAlerts.SaveState());

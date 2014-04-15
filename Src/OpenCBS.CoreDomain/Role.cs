@@ -82,11 +82,7 @@ namespace OpenCBS.CoreDomain
             get { return _isDeleted; }
             set { _isDeleted = value; }
         }
-
-        public bool IsRoleForLoan { get; set; }
-        public bool IsRoleForSaving{ get; set; }
-        public bool IsRoleForTeller { get; set; }
-
+        
         public string Description
         {
             get { return _description; }

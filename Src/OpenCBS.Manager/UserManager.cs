@@ -151,10 +151,7 @@ namespace OpenCBS.Manager
             user.UserRole = new Role
                             {
                                 RoleName = pReader.GetString("role_name"),
-                                Id = pReader.GetInt("role_id"),
-                                IsRoleForLoan = pReader.GetBool("role_of_loan"),
-                                IsRoleForSaving = pReader.GetBool("role_of_saving"),
-                                IsRoleForTeller = pReader.GetBool("role_of_teller")
+                                Id = pReader.GetInt("role_id")
                             };
 
             return user;
@@ -197,10 +194,7 @@ namespace OpenCBS.Manager
                                                    [phone],
                                                    [Users].[deleted], 
                                                    [Roles].[id] as role_id, 
-                                                   [Roles].[code] AS role_name,
-                                                   [Roles].[role_of_loan],
-                                                   [Roles].[role_of_saving],
-                                                   [Roles].[role_of_teller],
+                                                   [Roles].[code] AS role_name
                                                    (SELECT COUNT(a.id) 
                                                    FROM  (SELECT Credit.id, loanofficer_id 
                                                           FROM Credit 
@@ -226,10 +220,8 @@ namespace OpenCBS.Manager
                                    [sex],
                                    [phone],                                   
                                    [Roles].id, 
-                                   [Roles].code,
-                                   [Roles].[role_of_loan],
-                                   [Roles].[role_of_saving],
-                                   [Roles].[role_of_teller]";
+                                   [Roles].code
+";
 
             using (SqlConnection conn = GetConnection())
             using (OpenCbsCommand sqlCommand = new OpenCbsCommand(sqlText, conn))

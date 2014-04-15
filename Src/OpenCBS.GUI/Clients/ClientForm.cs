@@ -2293,7 +2293,7 @@ namespace OpenCBS.GUI.Clients
 
             foreach (User user in _subordinates)
             {
-                if (!user.IsDeleted && user.UserRole.IsRoleForLoan)
+                if (!user.IsDeleted)
                     cmbLoanOfficer.Items.Add(user);
             }
             // set favoutite loan officer
@@ -5287,7 +5287,7 @@ namespace OpenCBS.GUI.Clients
             cmbSavingsOfficer.Items.Add(User.CurrentUser);
             foreach (User subordinate in User.CurrentUser.Subordinates)
             {
-                if (!subordinate.IsDeleted && subordinate.UserRole.IsRoleForSaving)
+                if (!subordinate.IsDeleted)
                     cmbSavingsOfficer.Items.Add(subordinate);
             }
             cmbSavingsOfficer.SelectedIndex = 0;

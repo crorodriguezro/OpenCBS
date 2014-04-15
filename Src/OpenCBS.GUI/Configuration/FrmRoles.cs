@@ -57,9 +57,6 @@ namespace OpenCBS.GUI.Configuration
             _role = new Role();
             txtTitle.Text = _role.RoleName;
             txtDescription.Text = _role.Description;
-            trvOptions.Nodes[0].Checked = _role.IsRoleForLoan;
-            trvOptions.Nodes[1].Checked = _role.IsRoleForSaving;
-            trvOptions.Nodes[2].Checked = _role.IsRoleForTeller;
         }
 
         List<MenuObject> GetDeidMenuItems()
@@ -87,9 +84,6 @@ namespace OpenCBS.GUI.Configuration
         {
             _role.RoleName = txtTitle.Text;
             _role.Description = txtDescription.Text;
-            _role.IsRoleForLoan = trvOptions.Nodes[0].Checked;
-            _role.IsRoleForSaving = trvOptions.Nodes[1].Checked;
-            _role.IsRoleForTeller = trvOptions.Nodes[2].Checked;
 
             try
             {
@@ -117,9 +111,6 @@ namespace OpenCBS.GUI.Configuration
         {
             _role.RoleName = txtTitle.Text;
             _role.Description = txtDescription.Text;
-            _role.IsRoleForLoan = trvOptions.Nodes[0].Checked;
-            _role.IsRoleForSaving = trvOptions.Nodes[1].Checked;
-            _role.IsRoleForTeller = trvOptions.Nodes[2].Checked;
 
             try
             {
@@ -399,9 +390,6 @@ namespace OpenCBS.GUI.Configuration
         {
             txtTitle.Text = role.RoleName;
             txtDescription.Text = role.Description;
-            trvOptions.Nodes[0].Checked = role.IsRoleForLoan;
-            trvOptions.Nodes[1].Checked = role.IsRoleForSaving;
-            trvOptions.Nodes[2].Checked = role.IsRoleForTeller;
         }
 
         private void BtnNewClick(object sender, EventArgs e)

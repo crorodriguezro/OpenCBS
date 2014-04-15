@@ -49,26 +49,27 @@ namespace OpenCBS.GUI.Configuration
             this.trvMenuItems = new System.Windows.Forms.TreeView();
             this.tabPageGUIActions = new System.Windows.Forms.TabPage();
             this.trwActionItems = new System.Windows.Forms.TreeView();
-            this.tabPageOptions = new System.Windows.Forms.TabPage();
-            this.trvOptions = new System.Windows.Forms.TreeView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.labelRoles = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblRoles = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerLeft)).BeginInit();
             this.splitContainerLeft.Panel1.SuspendLayout();
             this.splitContainerLeft.Panel2.SuspendLayout();
             this.splitContainerLeft.SuspendLayout();
             this.tabControlActions.SuspendLayout();
             this.tabPageMenu.SuspendLayout();
             this.tabPageGUIActions.SuspendLayout();
-            this.tabPageOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
@@ -186,7 +187,6 @@ namespace OpenCBS.GUI.Configuration
             // 
             this.tabControlActions.Controls.Add(this.tabPageMenu);
             this.tabControlActions.Controls.Add(this.tabPageGUIActions);
-            this.tabControlActions.Controls.Add(this.tabPageOptions);
             resources.ApplyResources(this.tabControlActions, "tabControlActions");
             this.tabControlActions.Name = "tabControlActions";
             this.tabControlActions.SelectedIndex = 0;
@@ -216,22 +216,6 @@ namespace OpenCBS.GUI.Configuration
             resources.ApplyResources(this.trwActionItems, "trwActionItems");
             this.trwActionItems.Name = "trwActionItems";
             this.trwActionItems.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.TreeViewActionItemsAfterCheck);
-            // 
-            // tabPageOptions
-            // 
-            this.tabPageOptions.Controls.Add(this.trvOptions);
-            resources.ApplyResources(this.tabPageOptions, "tabPageOptions");
-            this.tabPageOptions.Name = "tabPageOptions";
-            // 
-            // trvOptions
-            // 
-            this.trvOptions.CheckBoxes = true;
-            resources.ApplyResources(this.trvOptions, "trvOptions");
-            this.trvOptions.Name = "trvOptions";
-            this.trvOptions.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            ((System.Windows.Forms.TreeNode)(resources.GetObject("trvOptions.Nodes"))),
-            ((System.Windows.Forms.TreeNode)(resources.GetObject("trvOptions.Nodes1"))),
-            ((System.Windows.Forms.TreeNode)(resources.GetObject("trvOptions.Nodes2")))});
             // 
             // splitContainer1
             // 
@@ -291,19 +275,22 @@ namespace OpenCBS.GUI.Configuration
             this.Name = "FrmRoles";
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.splitContainerLeft.Panel1.ResumeLayout(false);
             this.splitContainerLeft.Panel2.ResumeLayout(false);
             this.splitContainerLeft.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerLeft)).EndInit();
             this.splitContainerLeft.ResumeLayout(false);
             this.tabControlActions.ResumeLayout(false);
             this.tabPageMenu.ResumeLayout(false);
             this.tabPageGUIActions.ResumeLayout(false);
-            this.tabPageOptions.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.splitContainerMain.Panel1.ResumeLayout(false);
             this.splitContainerMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -334,8 +321,6 @@ namespace OpenCBS.GUI.Configuration
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.TabPage tabPageOptions;
-        private System.Windows.Forms.TreeView trvOptions;
         private System.Windows.Forms.Label stateLabel;
     }
 }
