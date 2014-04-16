@@ -25,6 +25,9 @@ ALTER TABLE  Roles DROP COLUMN  role_of_teller
 END
 GO
  
+DELETE FROM dbo.GeneralParameters WHERE [KEY] ='CITY_IS_AN_OPEN_VALUE'
+GO
+ 
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v14.6.0.0'
 WHERE   [name] = 'VERSION'

@@ -33,7 +33,6 @@ namespace OpenCBS.Enums
         public static readonly string GROUPMAXMEMBERS = "GROUP_MAX_MEMBERS";
         public static readonly string VILLAGEMINMEMBERS = "NSG_MIN_MEMBERS";
         public static readonly string VILLAGEMAXMEMBERS = "NSG_MAX_MEMBERS";
-        public static readonly string CITYOPENVALUE = "CITY_IS_AN_OPEN_VALUE";
         public static readonly string LOANOFFICERPORTFOLIOFILTER = "LOAN_OFFICER_PORTFOLIO_FILTER";
         public static readonly string LATEDAYSAFTERACCRUALCEASES = "LATE_DAYS_AFTER_ACCRUAL_CEASES";
         public static readonly string ALLOWSMULTIPLELOANS = "ALLOWS_MULTIPLE_LOANS";

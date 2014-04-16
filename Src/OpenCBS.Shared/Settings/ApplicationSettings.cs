@@ -73,7 +73,6 @@ namespace OpenCBS.Shared.Settings
             _defaultParamList.Add(OGeneralSettings.CLIENT_AGE_MAX, 100);
             _defaultParamList.Add(OGeneralSettings.MAX_GUARANTOR_AMOUNT, 2000000000);
             _defaultParamList.Add(OGeneralSettings.MAX_LOANS_COVERED, 1);
-            _defaultParamList.Add(OGeneralSettings.CITYOPENVALUE, 1);
             _defaultParamList.Add(OGeneralSettings.ACCOUNTINGPROCESS, 1);
             _defaultParamList.Add(OGeneralSettings.LATEDAYSAFTERACCRUALCEASES, null);
             _defaultParamList.Add(OGeneralSettings.ALLOWSMULTIPLELOANS, 0);
@@ -324,13 +323,7 @@ namespace OpenCBS.Shared.Settings
             }
         }
 
-        public bool IsCityAnOpenValue
-        {
-            get
-            {
-                return GetSpecificParameter(OGeneralSettings.CITYOPENVALUE).ToString() == "1";
-            }
-        }
+       
 
         public bool IsOlbBeforeRepayment
         {

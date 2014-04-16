@@ -164,7 +164,6 @@ namespace OpenCBS.Services
             generalParameters.Add(new Setting(OGeneralSettings.CALCULATIONLATEFEESDURINGPUBLICHOLIDAYS, gp.IsCalculationLateFeesDuringHolidays.ToString()));
             generalParameters.Add(new Setting(OGeneralSettings.CEASE_LAIE_DAYS, gp.CeaseLateDays.ToString()));
             generalParameters.Add(new Setting(OGeneralSettings.CITYMANDATORY, gp.IsCityMandatory.ToString()));
-            generalParameters.Add(new Setting(OGeneralSettings.CITYOPENVALUE, gp.IsCityAnOpenValue.ToString()));
             generalParameters.Add(new Setting(OGeneralSettings.CONSOLIDATION_MODE, gp.ConsolidationMode.ToString()));
             generalParameters.Add(new Setting(OGeneralSettings.CONTRACT_CODE_TEMPLATE, gp.ContractCodeTemplate));
             generalParameters.Add(new Setting(OGeneralSettings.COUNTRY, gp.Country));
