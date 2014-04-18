@@ -289,22 +289,7 @@ namespace OpenCBS.Test.Manager.Database
             Assert.AreEqual(20000, dataParam.MaxGuarantorAmount);
         }
 
-        [Test]
-        public void TestUpdateCityOpenValue()
-        {
-            ApplicationSettings dataParam = ApplicationSettings.GetInstance("");
-            _generalSettingsManager.UpdateSelectedParameter(OGeneralSettings.CITYOPENVALUE, true);
-            Assert.AreEqual(true, dataParam.IsCityAnOpenValue);
-
-            _generalSettingsManager.FillGeneralSettings();
-            Assert.AreEqual(true, dataParam.IsCityAnOpenValue);
-
-            _generalSettingsManager.UpdateSelectedParameter(OGeneralSettings.CITYOPENVALUE, false);
-            Assert.AreEqual(false, dataParam.IsCityAnOpenValue);
-
-            _generalSettingsManager.FillGeneralSettings();
-            Assert.AreEqual(false, dataParam.IsCityAnOpenValue);
-        }
+       
 
         [Test]
         public void TestUpdateSavingsCodeTemplate()
