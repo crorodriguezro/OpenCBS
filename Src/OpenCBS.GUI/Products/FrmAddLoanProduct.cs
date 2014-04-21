@@ -218,8 +218,8 @@ namespace OpenCBS.GUI.Products
             var index = (int) pack.LoanType - 1;
             cmbInterestRateType.Items.Clear();
             cmbInterestRateType.Items.Add(GetString("Flat.Text"));
-            cmbInterestRateType.Items.Add(GetString("DecliningFixedInstallments.Text"));
             cmbInterestRateType.Items.Add(GetString("DecliningFixedPrincipal.Text"));
+            cmbInterestRateType.Items.Add(GetString("DecliningFixedInstallments.Text"));
             cmbInterestRateType.Items.Add(GetString("DecliningReal.Text"));
             var list = ServicesProvider.GetInstance().GetProductServices().SelectLoanProuctTypeScripts();
             foreach (var script in list)
