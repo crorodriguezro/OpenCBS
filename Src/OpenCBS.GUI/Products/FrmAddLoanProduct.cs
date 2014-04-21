@@ -2458,10 +2458,10 @@ namespace OpenCBS.GUI.Products
                     _product.LoanType = OLoanTypes.Flat;
                     break;
                 case 1:
-                    _product.LoanType = OLoanTypes.DecliningFixedInstallments;
+                    _product.LoanType = OLoanTypes.DecliningFixedPrincipal;
                     break;
                 case 2:
-                    _product.LoanType = OLoanTypes.DecliningFixedPrincipal;
+                    _product.LoanType = OLoanTypes.DecliningFixedInstallments;
                     break;
                 case 3:
                     _product.LoanType = OLoanTypes.DecliningFixedPrincipalWithRealInterest;
