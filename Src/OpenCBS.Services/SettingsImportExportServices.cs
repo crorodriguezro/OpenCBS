@@ -196,7 +196,7 @@ namespace OpenCBS.Services
             generalParameters.Add(new Setting(OGeneralSettings.MAX_NUMBER_INSTALLMENT, gp.MaxNumberInstallment.ToString())); ;
             generalParameters.Add(new Setting(OGeneralSettings.MFI_NAME, gp.MfiName));
 
-            generalParameters.Add(new Setting(OGeneralSettings.NAME_FORMAT, gp.FirstNameFormat));
+       //     generalParameters.Add(new Setting(OGeneralSettings.NAME_FORMAT, gp.FirstNameFormat));
 
             generalParameters.Add(new Setting(OGeneralSettings.OLBBEFOREREPAYMENT, gp.IsOlbBeforeRepayment.ToString()));
 

@@ -39,7 +39,7 @@ namespace OpenCBS.Enums
         public static readonly string ALLOWSMULTIPLEGROUPS = "ALLOWS_MULTIPLE_GROUPS";
         public static readonly string OLBBEFOREREPAYMENT = "OLB_BEFORE_REPAYMENT";
         public static readonly string CALCULATIONLATEFEESDURINGPUBLICHOLIDAYS = "CALCULATION_LATE_FEES_DURING_PUBLIC_HOLIDAYS";
-        public static readonly string NAME_FORMAT = "NAME_FORMAT";
+        //public static readonly string NAME_FORMAT = "NAME_FORMAT";
         public static readonly string DONOTSKIPWEEKENDSININSTALLMENTSDATE = "DONOT_SKIP_WEEKENDS_IN_INSTALLMENTS_DATE";
         public static readonly string INCREMENTALDURINGDAYOFF = "INCREMENTAL_DURING_DAYOFFS";
         public static readonly string CONTRACT_CODE_TEMPLATE = "CONTRACT_CODE_TEMPLATE";

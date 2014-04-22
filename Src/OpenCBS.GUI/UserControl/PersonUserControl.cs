@@ -428,8 +428,8 @@ namespace OpenCBS.GUI.UserControl
 
                 var formatInfo = new NameFormatInfo();
                 var settings = ServicesProvider.GetInstance().GetGeneralSettings();
-                var fnFormat = @"{0:" + settings.FirstNameFormat + @"}";
-                var lnFormat = @"{0:" + settings.LastNameFormat + @"}";
+                //var fnFormat = @"{0:" + settings.FirstNameFormat + @"}";
+                //var lnFormat = @"{0:" + settings.LastNameFormat + @"}";
                 textBoxFirstName.Text = string.Format(_tempPerson.FirstName);
                 textBoxLastname.Text = string.Format(_tempPerson.LastName);
                 if (_tempPerson.FatherName != null)

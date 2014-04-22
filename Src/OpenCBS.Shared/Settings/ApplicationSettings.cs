@@ -78,7 +78,7 @@ namespace OpenCBS.Shared.Settings
             _defaultParamList.Add(OGeneralSettings.ALLOWSMULTIPLELOANS, 0);
             _defaultParamList.Add(OGeneralSettings.ALLOWSMULTIPLEGROUPS, 0);
             _defaultParamList.Add(OGeneralSettings.CALCULATIONLATEFEESDURINGPUBLICHOLIDAYS, 1);
-            _defaultParamList.Add(OGeneralSettings.NAME_FORMAT, "L U");
+          //  _defaultParamList.Add(OGeneralSettings.NAME_FORMAT, "L U");
             _defaultParamList.Add(OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE, 0);
             _defaultParamList.Add(OGeneralSettings.INCREMENTALDURINGDAYOFF, 1);
             _defaultParamList.Add(OGeneralSettings.CONTRACT_CODE_TEMPLATE, "BC/YY/PC-LC/ID");
@@ -436,41 +436,41 @@ namespace OpenCBS.Shared.Settings
             }
         }
 
-        public string FirstNameFormat
-        {
-            get
-            {
-                var format = (string) GetSpecificParameter(OGeneralSettings.NAME_FORMAT);
-                var retval = "L";
-                if (!string.IsNullOrEmpty(format))
-                {
-                    var items = format.Trim().Split(' ');
-                    if (items.Length >= 1)
-                    {
-                        retval = items[0];
-                    }
-                }
-                return retval;
-            }
-        }
+        //public string FirstNameFormat
+        //{
+        //    get
+        //    {
+        //        var format = (string) GetSpecificParameter(OGeneralSettings.NAME_FORMAT);
+        //        var retval = "L";
+        //        if (!string.IsNullOrEmpty(format))
+        //        {
+        //            var items = format.Trim().Split(' ');
+        //            if (items.Length >= 1)
+        //            {
+        //                retval = items[0];
+        //            }
+        //        }
+        //        return retval;
+        //    }
+        //}
 
-        public string LastNameFormat
-        {
-            get
-            {
-                var format = (string) GetSpecificParameter(OGeneralSettings.NAME_FORMAT);
-                var retval = "U";
-                if (!string.IsNullOrEmpty(format))
-                {
-                    var items = format.Trim().Split();
-                    if (2 == items.Length)
-                    {
-                        retval = items[1];
-                    }
-                }
-                return retval;
-            }
-        }
+        //public string LastNameFormat
+        //{
+        //    get
+        //    {
+        //        var format = (string) GetSpecificParameter(OGeneralSettings.NAME_FORMAT);
+        //        var retval = "U";
+        //        if (!string.IsNullOrEmpty(format))
+        //        {
+        //            var items = format.Trim().Split();
+        //            if (2 == items.Length)
+        //            {
+        //                retval = items[1];
+        //            }
+        //        }
+        //        return retval;
+        //    }
+        //}
 
         public string ContractCodeTemplate
         {

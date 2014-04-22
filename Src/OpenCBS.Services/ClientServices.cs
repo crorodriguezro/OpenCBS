@@ -152,7 +152,7 @@ namespace OpenCBS.Services
             numbersTotalPage += numberOfRecords % 20 > 0 ? 1 : 0;
             return result;
         }
-        public List<Person> SelectAllPersons ()
+        public List<Person> SelectAllPersons()
         {
             return _clientManagement.FindAllPersons();
         }
@@ -274,14 +274,14 @@ namespace OpenCBS.Services
         {
             IClient client = _clientManagement.SelectClientByContractId(pContractId);
 
-//            foreach (Project project in client.Projects)
-//            {
-//                foreach (Loan credit in project.Credits)
-//                {
-//                     credit.Corporate = _ClientManagement.SelectBodyCorporateById(credit.Corporate.Id);
-//                    credit.FillStockAccountBalance();
-//                }
-//            }
+            //            foreach (Project project in client.Projects)
+            //            {
+            //                foreach (Loan credit in project.Credits)
+            //                {
+            //                     credit.Corporate = _ClientManagement.SelectBodyCorporateById(credit.Corporate.Id);
+            //                    credit.FillStockAccountBalance();
+            //                }
+            //            }
             return client;
         }
 
@@ -301,8 +301,8 @@ namespace OpenCBS.Services
                 client = _clientManagement.SelectPersonById(tiersId);
             if (OClientTypes.Village == type)
                 client = _clientManagement.SelectVillageById(tiersId);
-            
-            if (client!=null)
+
+            if (client != null)
                 client.ActiveLoans = _loanServices.GetActiveLoans(client.Id);
             return client;
         }
@@ -310,7 +310,7 @@ namespace OpenCBS.Services
         public Group FindGroupById(int groupId)
         {
             var group = _clientManagement.SelectGroupById(groupId);
-            group.ActiveLoans=_loanServices.GetActiveLoans(groupId);
+            group.ActiveLoans = _loanServices.GetActiveLoans(groupId);
             return group;
         }
 
@@ -335,7 +335,7 @@ namespace OpenCBS.Services
 
         public List<VillageMember> FindVillageHistoryPersons(int villageId)
         {
-            List<VillageMember> villageMembers= _clientManagement.SelectVillageMembersByVillageId(villageId, null);
+            List<VillageMember> villageMembers = _clientManagement.SelectVillageMembersByVillageId(villageId, null);
             foreach (VillageMember member in villageMembers)
             {
                 member.Tiers = _clientManagement.SelectPersonById(member.Tiers.Id);
@@ -403,7 +403,7 @@ namespace OpenCBS.Services
         {
             return;
         }
-        
+
         public string SavePerson(ref Person person)
         {
             return SavePerson(ref person, null);
@@ -526,9 +526,9 @@ namespace OpenCBS.Services
             }
             else
             {
-                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.BirthDateIsWrong);    
+                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.BirthDateIsWrong);
             }
-            
+
             if (null == person.Branch)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.BranchIsEmpty);
         }
@@ -572,7 +572,7 @@ namespace OpenCBS.Services
             if (group.IsImageUpdated)
                 _picturesServices.UpdatePicture("GROUP", group.Id, 0, group.ImagePath);
             if (group.IsImageDeleted)
-                _picturesServices.DeletePicture("GROUP",group.Id,0);
+                _picturesServices.DeletePicture("GROUP", group.Id, 0);
             if (!string.IsNullOrEmpty(group.ImagePath) && group.IsImageAdded)
                 _picturesServices.AddPicture("GROUP", group.Id, 0, group.ImagePath);
 
@@ -619,11 +619,14 @@ namespace OpenCBS.Services
                 pPerson.Scoring = 0.6;
                 try
                 {
-                    string fnFormat = string.Format(@"{{0:{0}}}", _dataParam.FirstNameFormat);
-                    string lnFormat = string.Format(@"{{0:{0}}}", _dataParam.LastNameFormat);
+                    //string fnFormat = string.Format(@"{{0:{0}}}", _dataParam.FirstNameFormat);
+                    //string lnFormat = string.Format(@"{{0:{0}}}", _dataParam.LastNameFormat);
 
-                    pPerson.FirstName = string.Format(fnFormat, pPerson.FirstName);
-                    pPerson.LastName = string.Format(lnFormat, pPerson.LastName);
+                    //pPerson.FirstName = string.Format(fnFormat, pPerson.FirstName);
+                    //pPerson.LastName = string.Format(lnFormat, pPerson.LastName);
+
+                    pPerson.FirstName = string.Format(pPerson.FirstName);
+                    pPerson.LastName = string.Format(pPerson.LastName);
 
                     if (pPerson.IdentificationData == null)
                     {
@@ -656,19 +659,19 @@ namespace OpenCBS.Services
             IClient oldPerson = _clientManagement.SelectPersonById(person.Id);
             using (SqlConnection connection = _clientManagement.GetConnection())
             using (SqlTransaction transac = connection.BeginTransaction())
-            try
-            {
-                _clientManagement.UpdatePerson(person, transac);
-                UpdateClientBranchHistory(person, oldPerson, transac);
+                try
+                {
+                    _clientManagement.UpdatePerson(person, transac);
+                    UpdateClientBranchHistory(person, oldPerson, transac);
 
-                if (action != null) action(transac, person.Id);
-                transac.Commit();
-            }
-            catch (Exception ex)
-            {
-                transac.Rollback();
-                throw ex;
-            }
+                    if (action != null) action(transac, person.Id);
+                    transac.Commit();
+                }
+                catch (Exception ex)
+                {
+                    transac.Rollback();
+                    throw ex;
+                }
         }
 
         public bool ClientIsAPerson(IClient client)
@@ -731,7 +734,7 @@ namespace OpenCBS.Services
         {
             using (SqlConnection connection = _clientManagement.GetConnection())
             using (SqlTransaction sqlTransac = connection.BeginTransaction())
-            return _clientManagement.GetNumberOfGuarantorsLoansCover(client.Id, sqlTransac);
+                return _clientManagement.GetNumberOfGuarantorsLoansCover(client.Id, sqlTransac);
         }
 
         public void ClientIsActive(IClient client)
@@ -778,7 +781,7 @@ namespace OpenCBS.Services
 
         public bool ClientCanBeAddToAGroup(IClient client, Group group)
         {
-            Person person = (Person) client;
+            Person person = (Person)client;
 
             var personId = person.Id;
             foreach (Member selectedPerson in group.Members)
@@ -789,7 +792,7 @@ namespace OpenCBS.Services
 
             if (person.Active && !ApplicationSettings.GetInstance(_user != null ? _user.Md5 : "").IsAllowMultipleGroups)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.PersonIsActive);
-            
+
             if (_clientManagement.IsLeaderIsActive(personId))
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.PersonIsALeader);
 
@@ -923,7 +926,7 @@ namespace OpenCBS.Services
 
             if (group.Id == 0 && IsGroupNameAlreadyUsedInDistrict(group.Name, group.District))
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.NameAlreadyUsedInDistrict);
-            
+
             if (group.Id != 0 && !group.Leader.CurrentlyIn)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.LeaderIsEmpty);
             return status;
@@ -1054,9 +1057,9 @@ namespace OpenCBS.Services
                         throw new OpenCbsCorporateException(OpenCbsCorporateExceptionEnum.CityIsEmpty);
                     if (body.District.Name == string.Empty || body.District == null)
                         throw new OpenCbsCorporateException(OpenCbsCorporateExceptionEnum.DistrictIsEmpty);
-                    if (body.VolunteerCount == (int) EnumIHM.ErrorSaisieVolunteer)
+                    if (body.VolunteerCount == (int)EnumIHM.ErrorSaisieVolunteer)
                         throw new OpenCbsCorporateException(OpenCbsCorporateExceptionEnum.VolunteerIsFalseFormat);
-                    if (body.EmployeeCount == (int) EnumIHM.ErrorSaisieEmployeeCount)
+                    if (body.EmployeeCount == (int)EnumIHM.ErrorSaisieEmployeeCount)
                         throw new OpenCbsCorporateException(OpenCbsCorporateExceptionEnum.EmployeeIsFalseFormat);
 
                     if (null == body.Branch)
@@ -1200,7 +1203,8 @@ namespace OpenCBS.Services
                     foreach (VillageMember member in village.Members)
                         _clientManagement.SetFavourLoanOfficerForPerson(member.Tiers.Id, village.LoanOfficer.Id, transaction);
                     transaction.Commit();
-                } catch
+                }
+                catch
                 {
                     transaction.Rollback();
                     throw;
@@ -1236,7 +1240,7 @@ namespace OpenCBS.Services
         /// </summary>
         /// <param name="corporate">an instance of type Corporate</param>
         ///  <param name="loanOfficerId">loan officer id</param>
-        public void  SetFavouriteLoanOfficerForCorporate(Corporate corporate, int loanOfficerId)
+        public void SetFavouriteLoanOfficerForCorporate(Corporate corporate, int loanOfficerId)
         {
             _clientManagement.SetFavourLoanOfficerForCorporate(corporate.Id, loanOfficerId);
         }
@@ -1247,7 +1251,7 @@ namespace OpenCBS.Services
             BranchService bs = ServicesProvider.GetInstance().GetBranchService();
             client.Branch = bs.FindById(client.Branch.Id);
         }
-        
+
         public void RemoveMember(Village village, VillageMember member)
         {
             if (null == village || null == member) return;
@@ -1270,7 +1274,7 @@ namespace OpenCBS.Services
             return _clientManagement.SelectGroupByName(name);
         }
 
-		public IClient FindClientByContractCode(string code)
+        public IClient FindClientByContractCode(string code)
         {
             int id = _clientManagement.SelectClientIdByContractCode(code);
             return _clientManagement.SelectClientById(id);

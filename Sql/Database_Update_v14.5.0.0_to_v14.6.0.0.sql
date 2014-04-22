@@ -28,6 +28,8 @@ GO
 DELETE FROM dbo.GeneralParameters WHERE [KEY] ='CITY_IS_AN_OPEN_VALUE'
 GO
 
+DELETE FROM dbo.GeneralParameters WHERE [KEY] ='NAME_FORMAT'
+GO
 
  
 UPDATE  [TechnicalParameters]

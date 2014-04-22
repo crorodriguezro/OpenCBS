@@ -54,7 +54,8 @@ namespace OpenCBS.Manager.Clients
 
         public event ClientManager.ClientSelectedEventHandler ClientSelected;
 
-        public ClientManager(User pUser, bool pInitializeProject, bool pInitializeSavings) : base(pUser)
+        public ClientManager(User pUser, bool pInitializeProject, bool pInitializeSavings)
+            : base(pUser)
         {
             _doam = new EconomicActivityManager(pUser);
             _locations = new LocationsManager(pUser);
@@ -65,7 +66,8 @@ namespace OpenCBS.Manager.Clients
             _userManager = new UserManager(pUser);
         }
 
-        public ClientManager(string pTestDb) : base(pTestDb)
+        public ClientManager(string pTestDb)
+            : base(pTestDb)
         {
             _doam = new EconomicActivityManager(pTestDb);
             _locations = new LocationsManager(pTestDb);
@@ -261,7 +263,7 @@ namespace OpenCBS.Manager.Clients
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
             {
-                
+
                 c.AddParam("@handicapped", pPerson.Handicapped);
                 c.AddParam("@BirthPlace", pPerson.BirthPlace);
                 c.AddParam("@firstContact", pPerson.FirstContact);
@@ -421,7 +423,7 @@ namespace OpenCBS.Manager.Clients
                             INNER JOIN Persons ON Tiers.id = Persons.id 
                             WHERE Persons.id = @id";
 
-            
+
             using (SqlConnection conn = GetConnection())
             using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
             {
@@ -446,7 +448,7 @@ namespace OpenCBS.Manager.Clients
             {
                 UserManager userManager = new UserManager(User.CurrentUser);
                 if (person.FavouriteLoanOfficerId.HasValue)
-                    person.FavouriteLoanOfficer = userManager.SelectUser((int) person.FavouriteLoanOfficerId,
+                    person.FavouriteLoanOfficer = userManager.SelectUser((int)person.FavouriteLoanOfficerId,
                                                                          true);
 
                 if (activityId.HasValue)
@@ -485,7 +487,7 @@ namespace OpenCBS.Manager.Clients
                              FamilySituation = r.GetString("family_situation"),
                              Handicapped = r.GetBool("handicapped"),
                              Email = r.GetString("e_mail"),
-                             Status = (OClientStatus) r.GetSmallInt("status"),
+                             Status = (OClientStatus)r.GetSmallInt("status"),
                              SecondaryEmail = r.GetString("secondary_e_mail"),
                              HomeType = r.GetString("home_type"),
                              SecondaryHomeType = r.GetString("secondary_hometype"),
@@ -546,7 +548,7 @@ namespace OpenCBS.Manager.Clients
                              Sponsor1Comment = r.GetString("sponsor1_comment"),
                              Sponsor2Comment = r.GetString("sponsor2_comment"),
                              FavouriteLoanOfficerId = r.GetNullInt("loan_officer_id"),
-                             Branch = new Branch {Id = r.GetInt("branch_id")},
+                             Branch = new Branch { Id = r.GetInt("branch_id") },
 
                              PovertyLevelIndicators =
                                  {
@@ -656,10 +658,12 @@ namespace OpenCBS.Manager.Clients
 
                 var formatInfo = new NameFormatInfo();
                 var settings = ApplicationSettings.GetInstance("");
-                var fnFormat = @"{0:" + settings.FirstNameFormat + @"}";
-                var lnFormat = @"{0:" + settings.LastNameFormat + @"}";
-                person.FirstName = string.Format(formatInfo, fnFormat, person.FirstName);
-                person.LastName = string.Format(formatInfo, lnFormat, person.LastName);
+                //var fnFormat = @"{0:" + settings.FirstNameFormat + @"}";
+                //var lnFormat = @"{0:" + settings.LastNameFormat + @"}";
+                //person.FirstName = string.Format(formatInfo, fnFormat, person.FirstName);
+                //person.LastName = string.Format(formatInfo, lnFormat, person.LastName);
+                person.FirstName = string.Format(formatInfo, person.FirstName);
+                person.LastName = string.Format(formatInfo, person.LastName);
 
                 c.AddParam("@handicapped", person.Handicapped);
                 c.AddParam("@studyLevel", person.StudyLevel);
@@ -694,7 +698,7 @@ namespace OpenCBS.Manager.Clients
                 c.AddParam("@fathername", person.FatherName);
                 c.AddParam("@mothername", person.MotherName);
                 c.AddParam("@image", person.Image);
-                c.AddParam("@family_situation",  person.FamilySituation);
+                c.AddParam("@family_situation", person.FamilySituation);
                 c.AddParam("@povertyLevelChildrenEducation", person.PovertyLevelIndicators.ChildrenEducation);
                 c.AddParam("@povertyLevelHealthSituation", person.PovertyLevelIndicators.HealthSituation);
                 c.AddParam("@povertyLevelSocialParticipation", person.PovertyLevelIndicators.SocialParticipation);
@@ -709,7 +713,7 @@ namespace OpenCBS.Manager.Clients
             }
         }
 
-       private int? SelectCurrentlyGroupIdForAPersonId(int personId, SqlTransaction transac)
+        private int? SelectCurrentlyGroupIdForAPersonId(int personId, SqlTransaction transac)
         {
             int? result = null;
             string q = @"SELECT 
@@ -856,7 +860,7 @@ namespace OpenCBS.Manager.Clients
                 c.AddParam("@comments", group.Comments);
                 if (group.MeetingDay.HasValue)
                 {
-                    c.AddParam("@meeting_day", (int) group.MeetingDay);
+                    c.AddParam("@meeting_day", (int)group.MeetingDay);
                 }
                 else
                 {
@@ -875,9 +879,9 @@ namespace OpenCBS.Manager.Clients
 
                 bool leader = (member).Equals(@group.Leader);
                 AddMemberToGroup(member, group, leader, sqlTransac);
-                UpdatePerson((Person) member.Tiers, sqlTransac);
+                UpdatePerson((Person)member.Tiers, sqlTransac);
             }
-        
+
             return tiersId;
         }
 
@@ -969,7 +973,7 @@ namespace OpenCBS.Manager.Clients
                                     currently_in = 0
                                 WHERE village_id = @village_id 
                                 AND person_id = @person_id";
-            
+
             using (OpenCbsCommand c = new OpenCbsCommand(q, t.Connection, t))
             {
                 c.AddParam("@village_id", village_id);
@@ -1064,7 +1068,7 @@ namespace OpenCBS.Manager.Clients
                                         PersonalPhone = r.GetString("personal_phone"),
                                         SecondaryHomePhone = r.GetString("secondary_home_phone"),
                                         SecondaryPersonalPhone = r.GetString("secondary_personal_phone"),
-                                        Status = ((OClientStatus) r.GetSmallInt("status")),
+                                        Status = ((OClientStatus)r.GetSmallInt("status")),
                                         CashReceiptIn = r.GetNullInt("cash_input_voucher_number"),
                                         CashReceiptOut = r.GetNullInt("cash_output_voucher_number"),
                                         Type = r.GetChar("client_type_code") == 'I'
@@ -1084,8 +1088,8 @@ namespace OpenCBS.Manager.Clients
                                         Comments = r.GetString("comments"),
                                         Email = r.GetString("e_mail"),
                                         SecondaryEmail = r.GetString("secondary_e_mail"),
-                                        MeetingDay = (DayOfWeek?) r.GetNullInt("meeting_day"),
-                                        Branch = new Branch {Id = r.GetInt("branch_id")},
+                                        MeetingDay = (DayOfWeek?)r.GetNullInt("meeting_day"),
+                                        Branch = new Branch { Id = r.GetInt("branch_id") },
                                         FavouriteLoanOfficerId = r.GetNullInt("loan_officer_id")
                                     };
 
@@ -1108,7 +1112,7 @@ namespace OpenCBS.Manager.Clients
 
                         UserManager userManager = new UserManager(User.CurrentUser);
                         if (group.FavouriteLoanOfficerId.HasValue)
-                            group.FavouriteLoanOfficer = userManager.SelectUser((int) group.FavouriteLoanOfficerId,
+                            group.FavouriteLoanOfficer = userManager.SelectUser((int)group.FavouriteLoanOfficerId,
                                                                                 true);
                     }
                 }
@@ -1139,8 +1143,8 @@ namespace OpenCBS.Manager.Clients
                         group.AddMember(member);
                 }
 
-                if(activityId.HasValue)
-                    group.Activity = _doam.SelectEconomicActivity((int) activityId);
+                if (activityId.HasValue)
+                    group.Activity = _doam.SelectEconomicActivity((int)activityId);
             }
 
             OnClientSelected(group);
@@ -1205,8 +1209,8 @@ namespace OpenCBS.Manager.Clients
                 if (districtId.HasValue)
                     village.District = _locations.SelectDistrictById(districtId.Value);
 
-                List<VillageMember> members = SelectVillageMembersByVillageId(village.Id, true);    
-                
+                List<VillageMember> members = SelectVillageMembersByVillageId(village.Id, true);
+
                 foreach (VillageMember member in members)
                 {
                     member.Tiers = SelectPersonById(member.Tiers.Id, true);
@@ -1250,14 +1254,14 @@ namespace OpenCBS.Manager.Clients
         }
 
         private List<Member> SelectPersonIdsByGroupId(int groupId, bool? currentlyIn)
-        {            
+        {
             using (SqlConnection conn = GetConnection())
             using (SqlTransaction transaction = conn.BeginTransaction())
             {
                 List<Member> list = SelectPersonIdsByGroupId(groupId, transaction, currentlyIn);
                 transaction.Commit();
                 return list;
-            }            
+            }
         }
 
         private List<Member> SelectPersonIdsByGroupId(int groupId, SqlTransaction transac, bool? currentlyIn)
@@ -1426,7 +1430,7 @@ namespace OpenCBS.Manager.Clients
                         {
                             Member member = new Member
                                                 {
-                                                    Tiers = {Id = r.GetInt("person_id")},
+                                                    Tiers = { Id = r.GetInt("person_id") },
                                                     CurrentlyIn = r.GetBool("currently_in"),
                                                     IsLeader = r.GetBool("is_leader"),
                                                     JoinedDate = r.GetDateTime("joined_date"),
@@ -1475,7 +1479,7 @@ namespace OpenCBS.Manager.Clients
                 c.AddParam("@comments", group.Comments);
                 if (group.MeetingDay.HasValue)
                 {
-                    c.AddParam("@meeting_day", (int) group.MeetingDay);
+                    c.AddParam("@meeting_day", (int)group.MeetingDay);
                 }
                 else
                 {
@@ -1578,7 +1582,7 @@ namespace OpenCBS.Manager.Clients
                 c.AddParam("@district", string.Format("%{0}%", pQuery));
                 c.AddParam("@city", string.Format("%{0}%", pQuery));
 
-                return (int) c.ExecuteScalar();
+                return (int)c.ExecuteScalar();
             }
         }
 
@@ -1621,7 +1625,7 @@ namespace OpenCBS.Manager.Clients
                 c.AddParam("@name", string.Format("%{0}%", pQuery));
                 c.AddParam("@district", string.Format("%{0}%", pQuery));
                 c.AddParam("@city", string.Format("%{0}%", pQuery));
-                return (int) c.ExecuteScalar();
+                return (int)c.ExecuteScalar();
             }
         }
 
@@ -1655,7 +1659,7 @@ namespace OpenCBS.Manager.Clients
                 if (pId != 0)
                     c.AddParam("@id", pId);
 
-                int count = (int) c.ExecuteScalar();
+                int count = (int)c.ExecuteScalar();
                 return (count > 0);
             }
         }
@@ -1665,7 +1669,7 @@ namespace OpenCBS.Manager.Clients
             string beginning = pIdentificationData;
             string end = pIdentificationData;
             string param = "identification_data LIKE '_" + beginning.Substring(1) + "'";
-            for(int i = 1; i< pIdentificationData.Length; i++)
+            for (int i = 1; i < pIdentificationData.Length; i++)
             {
                 beginning = end = pIdentificationData;
                 param += " OR identification_data LIKE '" + beginning.Substring(0, i) + "_" + end.Substring(i + 1, end.Length - i - 1) + "'";
@@ -1698,7 +1702,7 @@ namespace OpenCBS.Manager.Clients
             }
             return _persons;
         }
-        
+
         public List<ClientSearchResult> SetClientSearchResult(string q, string pQuery, OClientTypes pClientType)
         {
             List<ClientSearchResult> list = new List<ClientSearchResult>();
@@ -1851,7 +1855,7 @@ namespace OpenCBS.Manager.Clients
         public List<Person> FindAllPersons()
         {
             List<Person> result = new List<Person>();
-           
+
             Person person = null;
             int? districtId = null;
             int? secondaryDistrictId = null;
@@ -1979,12 +1983,12 @@ namespace OpenCBS.Manager.Clients
 
                                 OnClientSelected(person);
                             }
-                           result.Add(person);
+                            result.Add(person);
                         }
-                     }
+                    }
                 }
             }
-           return result;
+            return result;
         }
 
         public List<ClientSearchResult> SearchPersonByCriteres(int pageNumber, string pQuery)
@@ -2101,7 +2105,7 @@ namespace OpenCBS.Manager.Clients
             if (onlyActive == 0 || onlyActive == 1) { sign = "="; } // active or not active clients
             else if (onlyActive == 2) { sign = "<"; } // everyone
             else { sign = ">"; } // no one
-            
+
             List<ClientSearchResult> list = new List<ClientSearchResult>();
             string SELECT_FROM_PROJET_ = String.Format(@"SELECT TOP 100 percent 
                                            Corporates.id, 
@@ -2279,7 +2283,7 @@ namespace OpenCBS.Manager.Clients
                 {
                     c.AddParam(item.Key, string.Format("%{0}%", item.Value));
                 }
-                return (int) c.ExecuteScalar();
+                return (int)c.ExecuteScalar();
             }
         }
 
@@ -2306,7 +2310,7 @@ namespace OpenCBS.Manager.Clients
                 {
                     c.AddParam(item.Key, string.Format("%{0}%", item.Value));
                 }
-                return (int) c.ExecuteScalar();
+                return (int)c.ExecuteScalar();
             }
         }
 
@@ -2330,7 +2334,7 @@ namespace OpenCBS.Manager.Clients
                 {
                     c.AddParam(item.Key, string.Format("%{0}%", item.Value));
                 }
-                return (int) c.ExecuteScalar();
+                return (int)c.ExecuteScalar();
             }
         }
 
@@ -2353,7 +2357,7 @@ namespace OpenCBS.Manager.Clients
                 {
                     c.AddParam(item.Key, string.Format("%{0}%", item.Value));
                 }
-                return (int) c.ExecuteScalar();
+                return (int)c.ExecuteScalar();
             }
         }
 
@@ -2361,7 +2365,7 @@ namespace OpenCBS.Manager.Clients
         {
             using (SqlConnection conn = GetConnection())
             using (OpenCbsCommand c = GenerateSearchQuery(true, query, isActive, 0, includePersons, includeGroups, includeVillages, conn))
-                return (int) c.ExecuteScalar();
+                return (int)c.ExecuteScalar();
         }
 
         public List<ClientSearchResult> SearchAllByCriteres(string pQuery, int activeOnly, int currentPage, int includePersons, int includeGroups, int includeVillages)
@@ -2412,14 +2416,14 @@ namespace OpenCBS.Manager.Clients
 
             int startRow = 0 + (currentPage - 1) * 20 + 1;
             int endRow = currentPage * 20;
-            string sqlText = count ? 
-                                @"	SELECT count(id) FROM " : 
+            string sqlText = count ?
+                                @"	SELECT count(id) FROM " :
                                 @" SELECT * 
                                 FROM (
                                         SELECT Row_Number() over (order by id) _rowNum, * 
                                         FROM ";
-            
-            
+
+
             sqlText += string.Format(@"
 		         ( 
 			         SELECT pers.id as id
@@ -2520,13 +2524,13 @@ namespace OpenCBS.Manager.Clients
             if (!count) sqlText += ") matable where matable._rowNum between @startRow and @endRow order by name";
 
             var select = new OpenCbsCommand(sqlText, conn);
-            
+
             select.AddParam("@district", "%" + query + "%");
             select.AddParam("@city", "%" + query + "%");
             select.AddParam("@name", "%" + query + "%");
             select.AddParam("@passport", "%" + query + "%");
             select.AddParam("@siret", "%" + query + "%");
-            
+
             select.AddParam("@active", activeOnly);
             select.AddParam("@startRow", startRow);
             select.AddParam("@endRow", endRow);
@@ -2569,7 +2573,7 @@ namespace OpenCBS.Manager.Clients
                     c.AddParam(item.Key, string.Format("%{0}%", item.Value));
                 }
                 c.AddParam("@user_id", User.CurrentUser.Id);
-                return (int) c.ExecuteScalar();
+                return (int)c.ExecuteScalar();
             }
         }
 
@@ -2581,7 +2585,7 @@ namespace OpenCBS.Manager.Clients
             {
                 c.AddParam("@name", pName.ToUpper());
                 c.AddParam("@disctrictId", pDistrict.Id);
-                int count = (int) c.ExecuteScalar();
+                int count = (int)c.ExecuteScalar();
                 return (count > 0);
             }
         }
@@ -2615,8 +2619,8 @@ namespace OpenCBS.Manager.Clients
             IClient client = SelectGroup(id);
             if (client == null)
                 client = SelectPersonById(id);
-            if (client== null)
-            client = SelectBodyCorporateById(id);
+            if (client == null)
+                client = SelectBodyCorporateById(id);
 
             return client;
         }
@@ -2771,7 +2775,7 @@ namespace OpenCBS.Manager.Clients
 
                 c.AddParam("@agrement_date", body.AgrementDate != DateTime.MinValue ? body.AgrementDate : null);
                 c.AddParam("@date_create"
-                           , body.CreationDate != DateTime.MinValue ? (object) body.RegistrationDate : null
+                           , body.CreationDate != DateTime.MinValue ? (object)body.RegistrationDate : null
                     );
 
                 c.ExecuteNonQuery();
@@ -2803,7 +2807,7 @@ namespace OpenCBS.Manager.Clients
                                    {
                                        Id = r.GetInt("id"),
                                        Name = r.GetString("name"),
-                                       Status = (OClientStatus) r.GetSmallInt("status"),
+                                       Status = (OClientStatus)r.GetSmallInt("status"),
                                        IsDeleted = r.GetBool("deleted"),
                                        CashReceiptIn = r.GetNullInt("cash_input_voucher_number"),
                                        CashReceiptOut =
@@ -2850,7 +2854,7 @@ namespace OpenCBS.Manager.Clients
                                        InsertionType = r.GetString("insertionType"),
                                        Email = r.GetString("e_mail"),
                                        FavouriteLoanOfficerId = r.GetNullInt("loan_officer_id"),
-                                       Branch = new Branch {Id = r.GetInt("branch_id")},
+                                       Branch = new Branch { Id = r.GetInt("branch_id") },
                                        RegistrationDate = r.GetNullDateTime("date_create") ?? TimeProvider.Today
                                    };
 
@@ -2860,7 +2864,7 @@ namespace OpenCBS.Manager.Clients
                     }
                 }
             }
-            if (body!=null)
+            if (body != null)
             {
                 if (body.FavouriteLoanOfficerId != null)
                 {
@@ -2868,7 +2872,7 @@ namespace OpenCBS.Manager.Clients
                     body.FavouriteLoanOfficer = userManager.SelectUser((int)body.FavouriteLoanOfficerId, true);
                 }
             }
-                
+
             if (districtId.HasValue) body.District = _locations.SelectDistrictById(districtId.Value);
 
             if (secondaryDistrictId.HasValue) body.SecondaryDistrict = _locations.SelectDistrictById(secondaryDistrictId.Value);
@@ -2983,7 +2987,7 @@ namespace OpenCBS.Manager.Clients
                                      FROM LinkGuarantorCredit lgc
                                      INNER JOIN Contracts c ON lgc.contract_id = c.id
                                      WHERE tiers_id = @id AND c.closed = 0";
-            using (OpenCbsCommand c = new OpenCbsCommand(q,sqlTransaction.Connection, sqlTransaction))
+            using (OpenCbsCommand c = new OpenCbsCommand(q, sqlTransaction.Connection, sqlTransaction))
             {
                 c.AddParam("@id", TiersID);
                 return Convert.ToInt32(c.ExecuteScalar());
@@ -3125,7 +3129,7 @@ namespace OpenCBS.Manager.Clients
                 c.AddParam("@establishmentDate", pVillage.EstablishmentDate);
                 c.AddParam("@loan_officer", pVillage.LoanOfficer.Id);
                 if (pVillage.MeetingDay.HasValue)
-                    c.AddParam("@meeting_day", (int) pVillage.MeetingDay);
+                    c.AddParam("@meeting_day", (int)pVillage.MeetingDay);
                 else
                     c.AddParam("@meeting_day", null);
 
@@ -3152,7 +3156,7 @@ namespace OpenCBS.Manager.Clients
             }
 
             List<VillageMember> members = SelectVillageMembersByVillageId(pVillage.Id, pSqlTransac, null);
-            
+
             foreach (VillageMember member in members)
             {
                 DeleteVillageMember(pVillage.Id, member.Tiers.Id, pSqlTransac);
@@ -3229,7 +3233,7 @@ namespace OpenCBS.Manager.Clients
                                 currently_in = @currentlyIn
                                 WHERE village_id = @village_id
                                 AND person_id = @person_id";
-            
+
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
             {
                 c.AddParam("@village_id", pVillage.Id);
@@ -3244,21 +3248,21 @@ namespace OpenCBS.Manager.Clients
         {
             char type = 'I';
             switch (clientType)
-                {
-                    case OClientTypes.Person :
-                        type = 'I';
-                       break;
+            {
+                case OClientTypes.Person:
+                    type = 'I';
+                    break;
 
-                    case OClientTypes.Group:
-                       type = 'G';
-                       break;
-                    case OClientTypes.Corporate:
-                       type = 'C';
-                       break;
-                    case OClientTypes.Village:
-                       type = 'V';
-                       break;
-                }
+                case OClientTypes.Group:
+                    type = 'G';
+                    break;
+                case OClientTypes.Corporate:
+                    type = 'C';
+                    break;
+                case OClientTypes.Village:
+                    type = 'V';
+                    break;
+            }
             return type;
         }
 
@@ -3388,7 +3392,7 @@ namespace OpenCBS.Manager.Clients
             }
         }
 
-        
+
         public void RestorMemberOfGroupByEventId(int pEventId, Loan pLoan, SqlTransaction pSqlTransac)
         {
             string q = @"SELECT person_id 
@@ -3454,7 +3458,7 @@ namespace OpenCBS.Manager.Clients
             }
         }
 
-		public Person SelectPersonByPassport(string passport)
+        public Person SelectPersonByPassport(string passport)
         {
             const string q = @"SELECT id FROM dbo.Persons
             WHERE identification_data = @passport";
@@ -3480,7 +3484,7 @@ namespace OpenCBS.Manager.Clients
             }
         }
 
-		public int SelectClientIdByContractCode(string code)
+        public int SelectClientIdByContractCode(string code)
         {
             const string q = @"select j.tiers_id
             from dbo.Contracts c
