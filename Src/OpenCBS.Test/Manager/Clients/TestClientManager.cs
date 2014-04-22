@@ -64,7 +64,6 @@ namespace OpenCBS.Test.Manager
 			_district = _addDataForTesting.AddDistrictIntoDatabase();
             _projectManager = new ProjectManager(DataUtil.TESTDB);
             ApplicationSettings settings = ApplicationSettings.GetInstance("");
-            settings.UpdateParameter(OGeneralSettings.NAME_FORMAT, "L U");
         }
 
 		[TestFixtureTearDown]
