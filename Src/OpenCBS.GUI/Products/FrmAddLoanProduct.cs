@@ -1435,13 +1435,13 @@ namespace OpenCBS.GUI.Products
             }
             else if (cmbInterestRateType.SelectedIndex == 1)
             {
-                _product.LoanType = OLoanTypes.DecliningFixedInstallments;
+                _product.LoanType = OLoanTypes.DecliningFixedPrincipal;
                 checkBoxUseExceptionalInstallmen.Enabled = false;
                 checkBoxUseExceptionalInstallmen.Checked = false;
             }
             else if (cmbInterestRateType.SelectedIndex == 2)
             {
-                _product.LoanType = OLoanTypes.DecliningFixedPrincipal;
+                _product.LoanType = OLoanTypes.DecliningFixedInstallments;
                 checkBoxUseExceptionalInstallmen.Enabled = true;
             }
             else if (cmbInterestRateType.SelectedIndex == 3)
