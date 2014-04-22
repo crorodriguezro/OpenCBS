@@ -439,7 +439,7 @@ RETURN
 	(
 		-- Unite Installments and InstallmentHistory
 		SELECT h.event_id AS snapshot_id
-			, e.event_date AS snapshot_date
+			, cast(e.event_date as date) AS snapshot_date
 			, h.contract_id
 			, h.number
 			, h.expected_date
@@ -5024,7 +5024,6 @@ BEGIN
     SELECT @amount = SUM(principal - paid_principal)
     FROM dbo.InstallmentSnapshot(@startDate)
     WHERE contract_id = @contractId
-
     IF @eventType = 'LODE'
     BEGIN
       SET @amount = @amount - ISNULL(dbo.getEntryFees(@contractId), 0)
@@ -5072,7 +5071,8 @@ BEGIN
 	    SET @i = @i + 1
     END
     RETURN @rate
-END]]></create>
+END
+]]></create>
     <drop><![CDATA[IF  EXISTS (
                 SELECT * 
                 FROM sys.objects 
