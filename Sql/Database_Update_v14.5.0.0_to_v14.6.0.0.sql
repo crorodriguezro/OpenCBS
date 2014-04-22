@@ -31,6 +31,8 @@ GO
 DELETE FROM dbo.GeneralParameters WHERE [KEY] ='NAME_FORMAT'
 GO
 
+DELETE  FROM  dbo.GeneralParameters WHERE [KEY] ='CONSOLIDATION_MODE'
+GO
  
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v14.6.0.0'

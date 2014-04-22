@@ -57,7 +57,6 @@ namespace OpenCBS.Enums
         public static readonly string CEASE_LAIE_DAYS = "CEASE_LAIE_DAYS";
         public static readonly string MFI_NAME = "MFI_NAME";
         public static readonly string USE_TELLER_MANAGEMENT = "USE_TELLER_MANAGEMENT";
-        public static readonly string CONSOLIDATION_MODE = "CONSOLIDATION_MODE";
         public static readonly string REAL_EXPECTED_AMOUNT = "REAL_EXPECTED_AMOUNT";
         public static readonly string CLIENT_AGE_MIN = "CLIENT_AGE_MIN";
         public static readonly string CLIENT_AGE_MAX = "CLIENT_AGE_MAX";

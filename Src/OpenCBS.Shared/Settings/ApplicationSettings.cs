@@ -95,7 +95,6 @@ namespace OpenCBS.Shared.Settings
             _defaultParamList.Add(OGeneralSettings.VAT_RATE, 0);
             _defaultParamList.Add(OGeneralSettings.CEASE_LAIE_DAYS, 1000);
             _defaultParamList.Add(OGeneralSettings.USE_TELLER_MANAGEMENT, 0);
-            _defaultParamList.Add(OGeneralSettings.CONSOLIDATION_MODE, 0);
             _defaultParamList.Add(OGeneralSettings.INTEREST_RATE_DECIMAL_PLACES, 2);
             _defaultParamList.Add(OGeneralSettings.STOP_WRITEOFF_PENALTY, 0);
             _defaultParamList.Add(OGeneralSettings.MODIFY_ENTRY_FEE, 0);
@@ -516,14 +515,7 @@ namespace OpenCBS.Shared.Settings
             return days;
         }
 
-        public bool ConsolidationMode
-        {
-            get
-            {
-                return "1" == GetSpecificParameter(OGeneralSettings.CONSOLIDATION_MODE).ToString();
-            }
-        }
-
+       
         public bool UseMandatorySavingAccount
         {
             get { return GetSpecificParameter(OGeneralSettings.USE_MANDATORY_SAVING_ACCOUNT).ToString() == "1"; }
