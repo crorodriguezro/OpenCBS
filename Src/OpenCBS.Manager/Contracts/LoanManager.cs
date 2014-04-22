@@ -2245,7 +2245,7 @@ namespace OpenCBS.Manager.Contracts
             using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
             {
                 c.CommandTimeout = 600;
-                c.AddParam("@date", date.Date);
+                c.AddParam("@date", date);
                 c.AddParam("@user_id", userId);
                 c.AddParam("@branch_id", 1);
 
