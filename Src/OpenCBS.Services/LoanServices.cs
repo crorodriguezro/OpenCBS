@@ -1294,7 +1294,7 @@ namespace OpenCBS.Services
 
                     var trancheEntryFeeEvent =
                         copyOfLoan.Events.OfType<LoanEntryFeeEvent>()
-                                  .First(i => i.DisbursementEventId == trancheEvent.Id);
+                                  .FirstOrDefault(i => i.DisbursementEventId == trancheEvent.Id);
                     if (trancheEntryFeeEvent != null)
                         CallInterceptor(new Dictionary<string, object>
                         {

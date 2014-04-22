@@ -56,6 +56,8 @@ namespace OpenCBS.Engine
                 StartDate = configuration.StartDate,
                 ExpectedDate = configuration.PreferredFirstInstallmentDate,
                 OLB = configuration.Amount,
+                CapitalRepayment = 0m,
+                InterestsRepayment =  0m,
                 FeesUnpaid = 0
             };
             if (configuration.GracePeriod == 0)
@@ -76,6 +78,8 @@ namespace OpenCBS.Engine
                 Number = previous.Number + 1,
                 StartDate = previous.ExpectedDate,
                 ExpectedDate = configuration.PeriodPolicy.GetNextDate(previous.ExpectedDate),
+                InterestsRepayment = 0m,
+                CapitalRepayment = 0m,
                 OLB = previous.OLB - previous.CapitalRepayment,
                 FeesUnpaid = 0
             };
