@@ -2351,16 +2351,10 @@ namespace OpenCBS.Manager.Contracts
         public Dictionary<int, DateTime> GetListOfLoansToAccruePenalty(DateTime launchDate)
         {
             const string q = @"SELECT al.id AS id,
-                            CASE WHEN al.late_days=0
-								THEN 1
-								ELSE al.late_days
-								END AS late_days,
+                            al.late_days,
                             CASE 
 	                            WHEN lp.event_date IS NULL
-	                            THEN CASE WHEN al.late_days=0
-									THEN 1
-									ELSE al.late_days
-									END
+	                            THEN al.late_days									
 	                            ELSE DATEDIFF(DD, lp.event_date, @date)
 	                            END AS [not_accrued_days]
                             FROM dbo.ActiveLoans(@date, 0) AS al
@@ -2373,8 +2367,7 @@ namespace OpenCBS.Manager.Contracts
 	                            WHERE is_deleted=0
 	                            GROUP BY contract_id
 	                            ) lp ON lp.contract_id=al.id
-                            WHERE (al.late_days > 0 OR (al.late_days=0 AND 
-                                    (al.principal_due!=0 or al.interest_due!=0))) AND c.[status]!=10";
+                            WHERE al.late_days > 0 AND c.[status]!=10";
             using (var connection = GetConnection())
             using (var c = new OpenCbsCommand(q, connection))
             {

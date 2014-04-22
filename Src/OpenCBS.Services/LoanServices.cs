@@ -2757,39 +2757,7 @@ namespace OpenCBS.Services
                     }
                 }
         }
-        //public void LoanPenaltyAccrual2()
-        //{
-        //    var launchDate = DateTime.Today;
-        //    var listOfLoans = _loanManager.GetListOfLoansToAccruePenalty1(launchDate);
-        //    var em = new EventManager(User.CurrentUser);
-        //    using (var connection = _loanManager.GetConnection())
-        //        foreach (var item in listOfLoans)
-        //        {
-        //            var date = launchDate.AddDays(-1);
-        //            while (date < launchDate)
-        //            {
-        //                date = date.AddDays(1);
-        //                var penaltyEvent = new LoanPenaltyAccrualEvent
-        //                {
-        //                    Penalty = item.Value,
-        //                    Date = date,
-        //                    User = User.CurrentUser,
-        //                    ContracId = item.Key
-        //                };
-        //                using (var transaction = connection.BeginTransaction())
-        //                    try
-        //                    {
-        //                        em.AddLoanEvent(penaltyEvent, penaltyEvent.ContracId, transaction);
-        //                        transaction.Commit();
-        //                    }
-        //                    catch (Exception)
-        //                    {
-        //                        transaction.Rollback();
-        //                        //throw;
-        //                    }
-        //            }
-        //        }
-        //}
+        
         public void LoanInterestAccrual()
         {
             var launchDate = DateTime.Today;
