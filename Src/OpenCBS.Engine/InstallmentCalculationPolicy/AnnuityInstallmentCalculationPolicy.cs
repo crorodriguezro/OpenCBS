@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.Engine.Interfaces;
 
@@ -42,6 +43,7 @@ namespace OpenCBS.Engine.InstallmentCalculationPolicy
             var remainder = 0m;
             var counter = 0;
             var installment = new Installment {OLB = configuration.Amount};
+            var endDate = configuration.PreferredFirstInstallmentDate;
             do
             {
                 // loop is only for building schedule and determining the remainder
@@ -49,9 +51,10 @@ namespace OpenCBS.Engine.InstallmentCalculationPolicy
                 {
                     installment.Number = i;
                     installment.StartDate = i != 1 ? installment.ExpectedDate : configuration.StartDate;
-                    installment.ExpectedDate = i != 1
-                        ? configuration.PeriodPolicy.GetNextDate(installment.StartDate)
-                        : configuration.PreferredFirstInstallmentDate;
+                    endDate = i == 1
+                        ? configuration.PreferredFirstInstallmentDate
+                        : configuration.PeriodPolicy.GetNextDate(endDate);
+                    installment.ExpectedDate = configuration.DateShiftPolicy.ShiftDate(endDate);
                     if (i <= configuration.GracePeriod) continue;
                     installment.InterestsRepayment = CalculateInterest(installment, configuration, installment.OLB.Value);
                     installment.CapitalRepayment = annuity - installment.InterestsRepayment;
@@ -60,7 +63,7 @@ namespace OpenCBS.Engine.InstallmentCalculationPolicy
                 remainder = installment.OLB.Value;
                 installment.OLB = configuration.Amount;
                 ++counter;
-                annuity += (remainder * configuration.InterestRate / 100 / number);
+                annuity += (remainder * configuration.InterestRate * 12 / (decimal)numberOfPeriods / 100 / number);
             } while (Math.Abs(remainder) > 0.01m && counter < 1000);
             return annuity;
         }
