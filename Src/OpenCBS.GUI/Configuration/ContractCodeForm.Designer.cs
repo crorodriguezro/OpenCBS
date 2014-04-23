@@ -35,7 +35,6 @@ namespace OpenCBS.GUI.Configuration
             this.chkLoanOfficer = new System.Windows.Forms.CheckBox();
             this.chkProductCode = new System.Windows.Forms.CheckBox();
             this.chkLoanCycle = new System.Windows.Forms.CheckBox();
-            this.chkProjectCycle = new System.Windows.Forms.CheckBox();
             this.chkClientId = new System.Windows.Forms.CheckBox();
             this.gbFields = new System.Windows.Forms.GroupBox();
             this.lblContractCode = new System.Windows.Forms.Label();
@@ -86,12 +85,6 @@ namespace OpenCBS.GUI.Configuration
             this.chkLoanCycle.Name = "chkLoanCycle";
             this.chkLoanCycle.CheckedChanged += new System.EventHandler(this.chkLoanCycle_CheckedChanged);
             // 
-            // chkProjectCycle
-            // 
-            resources.ApplyResources(this.chkProjectCycle, "chkProjectCycle");
-            this.chkProjectCycle.Name = "chkProjectCycle";
-            this.chkProjectCycle.CheckedChanged += new System.EventHandler(this.chkProjectCycle_CheckedChanged);
-            // 
             // chkClientId
             // 
             resources.ApplyResources(this.chkClientId, "chkClientId");
@@ -101,14 +94,13 @@ namespace OpenCBS.GUI.Configuration
             this.chkClientId.CheckedChanged += new System.EventHandler(this.chkID_CheckedChanged);
             // 
             // gbFields
-            //
+            // 
             this.gbFields.Controls.Add(this.lblContractCode);
             this.gbFields.Controls.Add(this.tbCode);
             this.gbFields.Controls.Add(this.chkProductCode);
             this.gbFields.Controls.Add(this.chkContractId);
             this.gbFields.Controls.Add(this.chkClientId);
             this.gbFields.Controls.Add(this.chkBranchCode);
-            this.gbFields.Controls.Add(this.chkProjectCycle);
             this.gbFields.Controls.Add(this.chkDistrict);
             this.gbFields.Controls.Add(this.chkLoanCycle);
             this.gbFields.Controls.Add(this.chkYear);
@@ -143,7 +135,7 @@ namespace OpenCBS.GUI.Configuration
             this.pnlButtons.Name = "pnlButtons";
             // 
             // btnOK
-            //
+            // 
             resources.ApplyResources(this.btnOK, "btnOK");
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.Name = "btnOK";
@@ -179,7 +171,6 @@ namespace OpenCBS.GUI.Configuration
         private System.Windows.Forms.CheckBox chkLoanOfficer;
         private System.Windows.Forms.CheckBox chkProductCode;
         private System.Windows.Forms.CheckBox chkLoanCycle;
-        private System.Windows.Forms.CheckBox chkProjectCycle;
         private System.Windows.Forms.CheckBox chkClientId;
         private System.Windows.Forms.GroupBox gbFields;
         private System.Windows.Forms.Panel pnlButtons;

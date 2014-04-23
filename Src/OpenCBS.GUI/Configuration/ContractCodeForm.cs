@@ -29,7 +29,7 @@ namespace OpenCBS.GUI.Configuration
     public partial class ContractCodeForm : Form
     {
         private readonly User _user;
-        
+
         public ContractCodeForm()
         {
             InitializeComponent();
@@ -42,7 +42,6 @@ namespace OpenCBS.GUI.Configuration
             chkLoanOfficer.Checked = code.IndexOf("LO") > -1;
             chkProductCode.Checked = code.IndexOf("PC") > -1;
             chkLoanCycle.Checked = code.IndexOf("LC") > -1;
-            chkProjectCycle.Checked = code.IndexOf("JC") > -1;
             chkClientId.Checked = code.IndexOf("ID") > -1;
             tbCode.Text = appSettings.ContractCodeTemplate;
         }
@@ -77,11 +76,6 @@ namespace OpenCBS.GUI.Configuration
             get { return chkLoanCycle.Checked; }
         }
 
-        public bool ProjectCycle
-        {
-            get { return chkProjectCycle.Checked; }
-        }
-
         public bool ID
         {
             get { return chkClientId.Checked; }
@@ -112,8 +106,6 @@ namespace OpenCBS.GUI.Configuration
                 code += "PC/";
             if (chkLoanCycle.Checked)
                 code += "LC/";
-            if (chkProjectCycle.Checked)
-                code += "JC/";
             if (chkClientId.Checked)
                 code += "ID/";
             return code.Remove(code.Length - 1, 1);
@@ -154,6 +146,6 @@ namespace OpenCBS.GUI.Configuration
             tbCode.Text = GenerateCode();
         }
 
-        
+
     }
 }
