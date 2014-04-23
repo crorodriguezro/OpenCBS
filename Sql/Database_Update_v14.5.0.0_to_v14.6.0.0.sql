@@ -34,6 +34,9 @@ GO
 DELETE  FROM  dbo.GeneralParameters WHERE [KEY] ='CONSOLIDATION_MODE'
 GO
  
+UPDATE dbo.FundingLines SET [name] = 'DEFAULT_FUNDING_LINE' , purpose = 'DEFAULT_FUNDING_LINE' WHERE id =1 
+GO 
+ 
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v14.6.0.0'
 WHERE   [name] = 'VERSION'
