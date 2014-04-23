@@ -413,7 +413,8 @@ namespace OpenCBS.Reports
     {
         protected ListBox _control;
 
-        public QueryParamMulti(string query) : base(query)
+        public QueryParamMulti(string query)
+            : base(query)
         {
         }
 
@@ -467,14 +468,14 @@ namespace OpenCBS.Reports
         public CurrencyParam(bool includeAll)
         {
             _includeAll = includeAll;
-            if (ApplicationSettings.GetInstance("").ConsolidationMode)
-            {
-                _query = "SELECT id, name FROM dbo.Currencies WHERE is_pivot = 1";
-            }
-            else
-            {
-                _query = "SELECT id, name FROM dbo.Currencies";
-            }
+            //if (ApplicationSettings.GetInstance("").ConsolidationMode)
+            //{
+            //    _query = "SELECT id, name FROM dbo.Currencies WHERE is_pivot = 1";
+            //}
+            //else
+            //{
+            _query = "SELECT id, name FROM dbo.Currencies";
+
         }
 
         public override void InitControl()
@@ -492,25 +493,14 @@ namespace OpenCBS.Reports
     public class BranchParam : QueryParam
     {
         public static string AllBranches = "All branches";
-        private string _consoTable;
 
         public BranchParam(string consoTable)
         {
-            _consoTable = consoTable;
-            if (ApplicationSettings.GetInstance("").ConsolidationMode && !string.IsNullOrEmpty(_consoTable))
-            {
-                _query = @"SELECT CAST(ROW_NUMBER() OVER (ORDER BY branch_name) AS INT), branch_name
-                FROM dbo.Rep_Active_Loans_Data
-                GROUP BY branch_name";
-            }
-            else
-            {
-                _query = @"SELECT DISTINCT id, name
+            _query = @"SELECT DISTINCT id, name
                 FROM dbo.Branches b
                 INNER JOIN dbo.UsersBranches ub ON ub.branch_id = b.id
                 WHERE ub.user_id = {0}";
-                _query = string.Format(_query, User.CurrentUser.Id);
-            }
+            _query = string.Format(_query, User.CurrentUser.Id);
         }
 
         public override void InitControl()
