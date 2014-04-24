@@ -93,9 +93,9 @@ namespace OpenCBS.ArchitectureV2.View
             // 
             // logoPicturebox
             // 
-            resources.ApplyResources(this.logoPicturebox, "logoPicturebox");
             this.logoPicturebox.BackColor = System.Drawing.Color.Transparent;
             this.logoPicturebox.BackgroundImage = global::OpenCBS.ArchitectureV2.Properties.Resources.Logo;
+            resources.ApplyResources(this.logoPicturebox, "logoPicturebox");
             this.logoPicturebox.Name = "logoPicturebox";
             this.logoPicturebox.TabStop = false;
             // 
@@ -104,12 +104,12 @@ namespace OpenCBS.ArchitectureV2.View
             this.AcceptButton = this._loginButton;
             resources.ApplyResources(this, "$this");
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this._databaseLabel);
             this.Controls.Add(this._databaseComboBox);
             this.Controls.Add(this.logoPicturebox);
             this.Controls.Add(this._usernameTextBox);
             this.Controls.Add(this._passwordTextBox);
             this.Controls.Add(this._loginButton);
+            this.Controls.Add(this._databaseLabel);
             this.Controls.Add(this._passwordLabel);
             this.Controls.Add(this._usernameLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

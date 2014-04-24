@@ -121,6 +121,9 @@
   <data name="logoPicturebox.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
   </data>
+  <data name="logoPicturebox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
   <data name="logoPicturebox.ErrorImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
@@ -132,13 +135,13 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="logoPicturebox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
+    <value>0, 0</value>
   </data>
   <data name="logoPicturebox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
   <data name="logoPicturebox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 102</value>
+    <value>426, 123</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="logoPicturebox.TabIndex" type="System.Int32, mscorlib">
@@ -156,11 +159,14 @@
   <data name="&gt;&gt;logoPicturebox.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="_upgradeLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <data name="_upgradeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 148</value>
+    <value>9, 150</value>
   </data>
   <data name="_upgradeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 22</value>
+    <value>405, 22</value>
   </data>
   <data name="_upgradeLabel.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -183,11 +189,14 @@
   <data name="&gt;&gt;_upgradeLabel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="_upgradingProgressBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <data name="_upgradingProgressBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 173</value>
+    <value>9, 175</value>
   </data>
   <data name="_upgradingProgressBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 23</value>
+    <value>405, 23</value>
   </data>
   <data name="_upgradingProgressBar.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -208,10 +217,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
+    <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>409, 210</value>
+    <value>426, 216</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -536,7 +548,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>425, 298</value>
+    <value>442, 254</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
