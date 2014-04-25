@@ -88,11 +88,17 @@ namespace OpenCBS.GUI
                 LoadReportsToolStrip();
                 InitializeTracer();
                 DisplayWinFormDetails();
+                InitMenu();
             }
             catch (Exception error)
             {
                 MessageBox.Show(error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void InitMenu()
+        {
+            tellersToolStripMenuItem.Visible = ServicesProvider.GetInstance().GetGeneralSettings().UseTellerManagement;
         }
 
         private void InitializeTracer()
