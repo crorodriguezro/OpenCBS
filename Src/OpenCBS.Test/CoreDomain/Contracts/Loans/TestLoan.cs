@@ -59,6 +59,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Loans
             _generalSettings.AddParameter(OGeneralSettings.PAYFIRSTINSTALLMENTREALVALUE, true);
             _generalSettings.AddParameter(OGeneralSettings.BAD_LOAN_DAYS, "180");
             _generalSettings.AddParameter(OGeneralSettings.STOP_WRITEOFF_PENALTY, true);
+            _generalSettings.AddParameter(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, false);
 
             _provisionningTable = ProvisionTable.GetInstance(new User());
             _provisionningTable.ProvisioningRates = new List<ProvisioningRate>();

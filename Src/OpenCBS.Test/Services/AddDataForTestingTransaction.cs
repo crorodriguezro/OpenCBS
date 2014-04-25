@@ -222,8 +222,9 @@ namespace OpenCBS.Test.Services
                                     ,[grace_period]
                                     ,[written_off]
                                     ,[rescheduled]
-                                    ,[bad_loan])
-                                VALUES(@id, @packageId, 1000, 2, 1, 2, 2 ,2 ,2 ,3 ,2 ,0 ,1 ,{0} ,6 ,0 ,0 ,0)
+                                    ,[bad_loan]
+                                    ,[effective_interest_rate])
+                                VALUES(@id, @packageId, 1000, 2, 1, 2, 2 ,2 ,2 ,3 ,2 ,0 ,1 ,{0} ,6 ,0 ,0 ,0,0)
                                     ", fundingline_id);
 
             OpenCbsCommand insertCredit = new OpenCbsCommand(sqlText, _connection);

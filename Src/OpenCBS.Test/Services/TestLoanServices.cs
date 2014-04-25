@@ -1122,6 +1122,7 @@ namespace OpenCBS.Test.Services
 	        ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL, 1);
 	        ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE, 0);
 	        ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.BAD_LOAN_DAYS, "180");
+            ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, false);
 	    }
 
 	    private void AddFundingLineEvent(Loan loan)

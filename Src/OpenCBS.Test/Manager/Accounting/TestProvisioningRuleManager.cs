@@ -48,13 +48,13 @@ namespace OpenCBS.Test.Manager.Accounting
 
             Assert.AreEqual(7, list.Count);
 
-            _AssertProvisioningRule(list[0], 1, 0, 0, 0.02, 0.02, 0.02);
-            _AssertProvisioningRule(list[1], 2, 1, 30, 0.1, 0.01, 0.01);
-            _AssertProvisioningRule(list[2], 3, 31, 60, 0.25, 0.025, 0.025);
-            _AssertProvisioningRule(list[3], 4, 61, 90, 0.5, 0.5, 0.5);
-            _AssertProvisioningRule(list[4], 5, 91, 180, 0.75, 0.75, 0.75);
-            _AssertProvisioningRule(list[5], 6, 181, 365, 1, 1,1);
-            _AssertProvisioningRule(list[6], 7, 366, 99999, 1,1,1);
+            _AssertProvisioningRule(list[0], 1, 0, 0, 0.02, 0, 0);
+            _AssertProvisioningRule(list[1], 2, 1, 30, 0.1, 0, 0);
+            _AssertProvisioningRule(list[2], 3, 31, 60, 0.25, 0, 0);
+            _AssertProvisioningRule(list[3], 4, 61, 90, 0.5, 0, 0);
+            _AssertProvisioningRule(list[4], 5, 91, 180, 0.75, 0, 0);
+            _AssertProvisioningRule(list[5], 6, 181, 365, 1, 0, 0);
+            _AssertProvisioningRule(list[6], 7, 366, 99999, 1, 0, 0);
         }
 
         private static void _AssertProvisioningRule(ProvisioningRate pProvisioningRate, int pNumber, int pNbOfDaysMin,

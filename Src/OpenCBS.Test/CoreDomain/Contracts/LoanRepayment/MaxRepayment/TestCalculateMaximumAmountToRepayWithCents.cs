@@ -72,6 +72,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.LoanRepayment.MaxRepayment
             generalParameters.AddParameter(OGeneralSettings.STOP_WRITEOFF_PENALTY, true);
             generalParameters.AddParameter(OGeneralSettings.INTEREST_RATE_DECIMAL_PLACES, 2);
             ApplicationSettings.GetInstance("").UpdateParameter("CALCULATION_LATE_FEES_DURING_PUBLIC_HOLIDAYS", true);
+            generalParameters.AddParameter(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, false);
         }
 
         [TestFixtureTearDown]

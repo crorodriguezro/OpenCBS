@@ -73,6 +73,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.LoanRepayment.MaxRepayment
             generalParameters.AddParameter(OGeneralSettings.INTEREST_RATE_DECIMAL_PLACES, 2);
             generalParameters.AddParameter(OGeneralSettings.PAYFIRSTINSTALLMENTREALVALUE, true);
             generalParameters.AddParameter(OGeneralSettings.STOP_WRITEOFF_PENALTY, true);
+            generalParameters.AddParameter(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, false);
         }
 
         [SetUp]

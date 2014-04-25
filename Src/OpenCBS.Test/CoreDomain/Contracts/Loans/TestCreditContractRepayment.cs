@@ -86,6 +86,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Loans
             dataParam.AddParameter(OGeneralSettings.STOP_WRITEOFF_PENALTY, true);
             dataParam.AddParameter(OGeneralSettings.BAD_LOAN_DAYS, "180");
             dataParam.AddParameter(OGeneralSettings.INTEREST_RATE_DECIMAL_PLACES, 2);
+            dataParam.AddParameter(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, false);
         }
 
         [SetUp]

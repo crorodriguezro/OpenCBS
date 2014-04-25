@@ -69,6 +69,7 @@ namespace OpenCBS.Test.Services.Accounting
             generalSettings.AddParameter(OGeneralSettings.CALCULATIONLATEFEESDURINGPUBLICHOLIDAYS, true);
             generalSettings.AddParameter(OGeneralSettings.BAD_LOAN_DAYS, 50);
             generalSettings.AddParameter(OGeneralSettings.STOP_WRITEOFF_PENALTY, true);
+            generalSettings.AddParameter(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, false);
         }
 
         [Test]
@@ -307,6 +308,7 @@ namespace OpenCBS.Test.Services.Accounting
             generalSettings.AddParameter(OGeneralSettings.CALCULATIONLATEFEESDURINGPUBLICHOLIDAYS, true);
             generalSettings.AddParameter(OGeneralSettings.BAD_LOAN_DAYS, 50);
             generalSettings.AddParameter(OGeneralSettings.CEASE_LAIE_DAYS, 100);
+            generalSettings.AddParameter(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, false);
 
             Loan myContract = _SetContract(6000, 0.0833m, OLoanTypes.Flat,
                                            new NonRepaymentPenalties(0, 0, 0, 0), false, 0,
@@ -340,6 +342,7 @@ namespace OpenCBS.Test.Services.Accounting
             generalSettings.AddParameter(OGeneralSettings.CALCULATIONLATEFEESDURINGPUBLICHOLIDAYS, true);
             generalSettings.AddParameter(OGeneralSettings.BAD_LOAN_DAYS, 50);
             generalSettings.AddParameter(OGeneralSettings.CEASE_LAIE_DAYS, 10);
+            generalSettings.AddParameter(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, false);
 
             Loan myContract = _SetContract(6000, 0.0833m, OLoanTypes.Flat,
                                            new NonRepaymentPenalties(0, 0, 0, 0), false, 0,

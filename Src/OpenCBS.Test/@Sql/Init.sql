@@ -123,13 +123,13 @@ INSERT INTO [ExchangeRates]([exchange_date],[exchange_rate], [currency_id]) VALU
 INSERT INTO [ExchangeRates]([exchange_date],[exchange_rate], [currency_id]) VALUES(GETDATE()+1,3,2)
 
 --------------------------------------PROVISIONINGRULES-------------------------------------------------------------- 
-INSERT INTO [ProvisioningRules]([id], [number_of_days_min], [number_of_days_max], [provisioning_value]) VALUES(1, 0, 0, 0.02)
-INSERT INTO [ProvisioningRules]([id], [number_of_days_min], [number_of_days_max], [provisioning_value]) VALUES(2, 1, 30, 0.1)
-INSERT INTO [ProvisioningRules]([id], [number_of_days_min], [number_of_days_max], [provisioning_value]) VALUES(3, 31, 60, 0.25)
-INSERT INTO [ProvisioningRules]([id], [number_of_days_min], [number_of_days_max], [provisioning_value]) VALUES(4, 61, 90, 0.5)
-INSERT INTO [ProvisioningRules]([id], [number_of_days_min], [number_of_days_max], [provisioning_value]) VALUES(5, 91, 180, 0.75)
-INSERT INTO [ProvisioningRules]([id], [number_of_days_min], [number_of_days_max], [provisioning_value]) VALUES(6, 181, 365, 1)
-INSERT INTO [ProvisioningRules]([id], [number_of_days_min], [number_of_days_max], [provisioning_value]) VALUES(7, 366, 99999, 1)
+INSERT INTO [ProvisioningRules]([id], [number_of_days_min], [number_of_days_max], [provisioning_value], [provisioning_interest], [provisioning_penalty]) VALUES(1, 0, 0, 0.02, 0, 0)
+INSERT INTO [ProvisioningRules]([id], [number_of_days_min], [number_of_days_max], [provisioning_value], [provisioning_interest], [provisioning_penalty]) VALUES(2, 1, 30, 0.1, 0, 0)
+INSERT INTO [ProvisioningRules]([id], [number_of_days_min], [number_of_days_max], [provisioning_value], [provisioning_interest], [provisioning_penalty]) VALUES(3, 31, 60, 0.25, 0, 0)
+INSERT INTO [ProvisioningRules]([id], [number_of_days_min], [number_of_days_max], [provisioning_value], [provisioning_interest], [provisioning_penalty]) VALUES(4, 61, 90, 0.5, 0, 0)
+INSERT INTO [ProvisioningRules]([id], [number_of_days_min], [number_of_days_max], [provisioning_value], [provisioning_interest], [provisioning_penalty]) VALUES(5, 91, 180, 0.75, 0, 0)
+INSERT INTO [ProvisioningRules]([id], [number_of_days_min], [number_of_days_max], [provisioning_value], [provisioning_interest], [provisioning_penalty]) VALUES(6, 181, 365, 1, 0, 0)
+INSERT INTO [ProvisioningRules]([id], [number_of_days_min], [number_of_days_max], [provisioning_value], [provisioning_interest], [provisioning_penalty]) VALUES(7, 366, 99999, 1, 0, 0)
 
 ---------------------------------------CURRENCIES--------------------------------------------
 SET IDENTITY_INSERT Currencies ON  
@@ -352,11 +352,11 @@ SET IDENTITY_INSERT Contracts OFF
 INSERT INTO Credit(id,package_id,amount,interest_rate,installment_type,nb_of_installment,anticipated_total_repayment_penalties,
 disbursed,loanofficer_id,written_off,rescheduled,bad_loan,non_repayment_penalties_based_on_overdue_principal,
 non_repayment_penalties_based_on_initial_amount,non_repayment_penalties_based_on_olb,non_repayment_penalties_based_on_overdue_interest,
-fundingLine_id, grace_period) VALUES(1,1,1000,10,1,3,100,0,1,10,0,0,0,40,40,40,1,0)
+fundingLine_id, grace_period, effective_interest_rate) VALUES(1,1,1000,10,1,3,100,0,1,10,0,0,0,40,40,40,1,0,0)
 INSERT INTO Credit(id,package_id,amount,interest_rate,installment_type,nb_of_installment,anticipated_total_repayment_penalties,
 disbursed,loanofficer_id,written_off,rescheduled,bad_loan,non_repayment_penalties_based_on_overdue_principal,
 non_repayment_penalties_based_on_initial_amount,non_repayment_penalties_based_on_olb,non_repayment_penalties_based_on_overdue_interest,
-fundingLine_id,grace_period) VALUES(5,1,1000,10,1,3,100,0,1,10,0,0,0,40,40,40,1,0)
+fundingLine_id,grace_period,effective_interest_rate) VALUES(5,1,1000,10,1,3,100,0,1,10,0,0,0,40,40,40,1,0,0)
 
 SET IDENTITY_INSERT [ContractEvents] ON  
 INSERT INTO [ContractEvents]([id],[event_type],[contract_id],[event_date],[user_id],[is_deleted]) VALUES(1, 'LODE',1,'2009-1-1',1,0)

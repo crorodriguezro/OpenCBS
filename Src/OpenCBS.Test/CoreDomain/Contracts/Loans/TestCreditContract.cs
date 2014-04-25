@@ -70,6 +70,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Loans
             dataParam.AddParameter(OGeneralSettings.INCREMENTALDURINGDAYOFF, true);
             dataParam.AddParameter(OGeneralSettings.STOP_WRITEOFF_PENALTY, true);
             dataParam.AddParameter(OGeneralSettings.INTEREST_RATE_DECIMAL_PLACES, 2);
+            dataParam.AddParameter(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, false);
         }
 
         [SetUp]
@@ -2011,6 +2012,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Loans
             pDataParam.AddParameter("PAY_FIRST_INSTALLMENT_REAL_VALUE", true);
             pDataParam.AddParameter(OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE, false);
             pDataParam.AddParameter(OGeneralSettings.INCREMENTALDURINGDAYOFF, true);
+            pDataParam.AddParameter(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, false);
 
             LoanProduct package = new LoanProduct
                                       {
@@ -2033,6 +2035,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Loans
             pDataParam.AddParameter(OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE, false);
             pDataParam.AddParameter(OGeneralSettings.INCREMENTALDURINGDAYOFF, true);
             pDataParam.AddParameter(OGeneralSettings.PAYFIRSTINSTALLMENTREALVALUE, true);
+            pDataParam.AddParameter(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, false);
 
             LoanProduct package = new LoanProduct
                                       {
@@ -2107,6 +2110,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Loans
             pDataParam.AddParameter(OGeneralSettings.CALCULATIONLATEFEESDURINGPUBLICHOLIDAYS, true);
             pDataParam.AddParameter(OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE, false);
             pDataParam.AddParameter(OGeneralSettings.INCREMENTALDURINGDAYOFF, true);
+            pDataParam.AddParameter(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, false);
 
             LoanProduct package = new LoanProduct
                                       {

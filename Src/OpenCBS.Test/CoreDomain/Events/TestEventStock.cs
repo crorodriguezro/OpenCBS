@@ -57,13 +57,13 @@ namespace OpenCBS.Test.CoreDomain.Events
         [Test]
         public void GetEvents()
         {
-            Assert.AreEqual(7, _eventStock.GetEvents().Count);
+            Assert.AreEqual(6, _eventStock.GetEvents().Count);
         }
 
         [Test]
         public void GetRepaymentEvents()
         {
-            Assert.AreEqual(3, _eventStock.GetRepaymentEvents().Count);
+            Assert.AreEqual(2, _eventStock.GetRepaymentEvents().Count);
         }
     }
 }

@@ -64,6 +64,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Loans
             dataParam.AddParameter(OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE, false);
             dataParam.AddParameter(OGeneralSettings.PAYFIRSTINSTALLMENTREALVALUE, true);
             dataParam.AddParameter(OGeneralSettings.STOP_WRITEOFF_PENALTY, true);
+            dataParam.AddParameter(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, false);
         }
 
         [Test]

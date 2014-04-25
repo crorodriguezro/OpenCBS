@@ -239,7 +239,8 @@ namespace OpenCBS.Test.Manager.Events
                                                    PreferredFirstInstallmentDate = new DateTime(2006, 8, 21),
                                                    Amount = 2345,
                                                    NbOfMaturity = 4,
-                                                   Interest = 100
+                                                   Interest = 100,
+                                                   PreviousInterestRate = 0
                                                };
             eventManager.AddLoanEvent(rescheduleLoanEvent, 1);
             Assert.AreNotEqual(0, rescheduleLoanEvent.Id);
@@ -258,7 +259,8 @@ namespace OpenCBS.Test.Manager.Events
                 PreferredFirstInstallmentDate = new DateTime(2006, 8, 21),
                 Amount = 2345,
                 NbOfMaturity = 4,
-                Interest = 100
+                Interest = 100,
+                PreviousInterestRate = 0
             };
             eventManager.AddLoanEvent(rescheduleLoanEvent, 1);
             

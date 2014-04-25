@@ -223,8 +223,8 @@ namespace OpenCBS.Test.Manager
                 Assert.AreEqual(pExpectedPerson.City, pActualPerson.City);
             
             Assert.AreEqual(pExpectedPerson.District.Name, pActualPerson.District.Name);
-            Assert.AreEqual(pExpectedPerson.FirstName.ToLower(), pActualPerson.FirstName.ToLower());
-            Assert.AreEqual(pExpectedPerson.LastName.ToUpper(), pActualPerson.LastName.ToUpper());
+            Assert.AreEqual(pExpectedPerson.FirstName, pActualPerson.FirstName);
+            Assert.AreEqual(pExpectedPerson.LastName, pActualPerson.LastName);
             Assert.AreEqual(pExpectedPerson.Sex, pActualPerson.Sex);
             Assert.AreEqual(pExpectedPerson.LoanCycle, pActualPerson.LoanCycle);
             Assert.AreEqual(pExpectedPerson.IdentificationData, pActualPerson.IdentificationData);
@@ -364,11 +364,11 @@ namespace OpenCBS.Test.Manager
         [Test]
         public void AddPerson_FirstNameInLowerCase()
         {
-            _person.FirstName = "nicolas";
+            _person.FirstName = "Nicolas";
             int id = _cltManagement.AddPerson(_person);
 
             Person selectedPerson = _cltManagement.SelectPersonById(id);
-            Assert.AreEqual("nicolas",selectedPerson.FirstName);
+            Assert.AreEqual("Nicolas",selectedPerson.FirstName);
         }
 
         [Test]
@@ -403,11 +403,11 @@ namespace OpenCBS.Test.Manager
         [Test]
         public void AddPerson_LastNameInUpperCase_ButSaveInlowerCase()
         {
-            _person.LastName = "mangin";
+            _person.LastName = "Mangin";
             int id = _cltManagement.AddPerson(_person);
 
             Person selectedPerson = _cltManagement.SelectPersonById(id);
-            Assert.AreEqual("MANGIN", selectedPerson.LastName.ToUpper());
+            Assert.AreEqual("Mangin", selectedPerson.LastName);
         }
 	    [Test]
 		public void TestAddPersonAndSelectPersonById()
@@ -642,8 +642,8 @@ namespace OpenCBS.Test.Manager
             Assert.AreEqual("Radha", selectedPerson.MotherName);
 
             Assert.AreEqual(_person.MotherName, selectedPerson.MotherName);
-			Assert.AreEqual(_person.FirstName.ToLower(),selectedPerson.FirstName);
-			Assert.AreEqual(_person.LastName.ToUpper(),selectedPerson.LastName);
+			Assert.AreEqual(_person.FirstName,selectedPerson.FirstName);
+			Assert.AreEqual(_person.LastName,selectedPerson.LastName);
 			Assert.AreEqual(_person.Sex,selectedPerson.Sex);
 			Assert.AreEqual(_person.IdentificationData,selectedPerson.IdentificationData);
 			Assert.IsFalse(selectedPerson.HouseHoldHead);
@@ -977,8 +977,8 @@ namespace OpenCBS.Test.Manager
 			Assert.AreEqual(101,_group.CashReceiptIn.Value);
 			Assert.AreEqual(141,_group.CashReceiptOut.Value);
 
-            Assert.AreEqual(firstPersonToAdd.LastName.ToUpper(), ((Person)selectedGroup.Leader.Tiers).LastName);
-            Assert.AreEqual(firstPersonToAdd.FirstName.ToLower(), ((Person)selectedGroup.Leader.Tiers).FirstName);
+            Assert.AreEqual(firstPersonToAdd.LastName, ((Person)selectedGroup.Leader.Tiers).LastName);
+            Assert.AreEqual(firstPersonToAdd.FirstName, ((Person)selectedGroup.Leader.Tiers).FirstName);
             Assert.AreEqual(firstPersonToAdd.Id, ((Person)selectedGroup.Leader.Tiers).Id);
 		}
 		[Test]
@@ -1250,7 +1250,7 @@ namespace OpenCBS.Test.Manager
 
             Group newGroup = _cltManagement.SelectGroupById(grp.Id);
 
-            Assert.AreEqual("nicolas MANGIN", newGroup.Leader.Tiers.Name);
+            Assert.AreEqual("Nicolas MANGIN", newGroup.Leader.Tiers.Name);
         }
 
 	    [Test]

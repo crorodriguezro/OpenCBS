@@ -441,17 +441,6 @@ namespace OpenCBS.Test.Manager
         }
 
         [Test]
-        public void UpdateLoanToRescheduled()
-        {
-            _loan.Rescheduled = false;
-            _loan.Id = _loanManager.Add(_loan, 1);
-            _loanManager.UpdateLoanToRescheduled(Convert.ToDecimal(_loan.InterestRate), 0,_loan);
-
-            Loan updatedLoan = _loanManager.SelectLoan(_loan.Id, false, false, false);
-            Assert.IsTrue(updatedLoan.Rescheduled);
-        }
-
-        [Test]
         public void UpdateLoanToBadLoan()
         {
             _loan.BadLoan = false;
