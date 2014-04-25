@@ -129,7 +129,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="_loginButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 214</value>
+    <value>131, 212</value>
   </data>
   <data name="_loginButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -160,13 +160,13 @@
     <value>Bottom, Right</value>
   </data>
   <data name="_usernameTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>185, 156</value>
+    <value>180, 148</value>
   </data>
   <data name="_usernameTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
   <data name="_usernameTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 20</value>
+    <value>173, 23</value>
   </data>
   <data name="_usernameTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -190,7 +190,7 @@
     <value>NoControl</value>
   </data>
   <data name="_passwordTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>185, 185</value>
+    <value>180, 178</value>
   </data>
   <data name="_passwordTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -199,7 +199,7 @@
     <value>*</value>
   </data>
   <data name="_passwordTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 20</value>
+    <value>173, 23</value>
   </data>
   <data name="_passwordTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -223,10 +223,10 @@
     <value>NoControl</value>
   </data>
   <data name="_usernameLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 159</value>
+    <value>37, 151</value>
   </data>
   <data name="_usernameLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 17</value>
+    <value>159, 20</value>
   </data>
   <data name="_usernameLabel.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -256,10 +256,10 @@
     <value>NoControl</value>
   </data>
   <data name="_passwordLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 188</value>
+    <value>37, 182</value>
   </data>
   <data name="_passwordLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 17</value>
+    <value>159, 20</value>
   </data>
   <data name="_passwordLabel.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -286,13 +286,13 @@
     <value>Bottom, Right</value>
   </data>
   <data name="_databaseComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>185, 126</value>
+    <value>180, 115</value>
   </data>
   <data name="_databaseComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
   <data name="_databaseComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 21</value>
+    <value>173, 23</value>
   </data>
   <data name="_databaseComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -316,10 +316,10 @@
     <value>NoControl</value>
   </data>
   <data name="_databaseLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 129</value>
+    <value>37, 119</value>
   </data>
   <data name="_databaseLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 17</value>
+    <value>159, 20</value>
   </data>
   <data name="_databaseLabel.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -364,7 +364,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="logoPicturebox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>407, 122</value>
+    <value>409, 114</value>
   </data>
   <data name="logoPicturebox.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -385,13 +385,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>407, 258</value>
+    <value>409, 258</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
+    <value>Segoe UI, 9pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -716,7 +716,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>423, 296</value>
+    <value>492, 338</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

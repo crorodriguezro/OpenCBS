@@ -141,7 +141,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="logoPicturebox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>426, 123</value>
+    <value>439, 132</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="logoPicturebox.TabIndex" type="System.Int32, mscorlib">
@@ -159,14 +159,17 @@
   <data name="&gt;&gt;logoPicturebox.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="_upgradeLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+  <data name="_upgradeLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="_upgradeLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
   </data>
   <data name="_upgradeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 150</value>
+    <value>0, 132</value>
   </data>
   <data name="_upgradeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>405, 22</value>
+    <value>439, 37</value>
   </data>
   <data name="_upgradeLabel.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -193,10 +196,10 @@
     <value>Bottom, Right</value>
   </data>
   <data name="_upgradingProgressBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 175</value>
+    <value>12, 172</value>
   </data>
   <data name="_upgradingProgressBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>405, 23</value>
+    <value>415, 27</value>
   </data>
   <data name="_upgradingProgressBar.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -217,13 +220,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>426, 216</value>
+    <value>439, 211</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
+    <value>Segoe UI, 9pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -548,7 +551,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>442, 254</value>
+    <value>515, 289</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
