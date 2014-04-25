@@ -661,13 +661,10 @@ namespace OpenCBS.GUI.Products
 
                         if (_ischangeFee)
                         {
-                            if (MessageBox.Show(
+                            ServicesProvider.GetInstance().GetProductServices().UpdatePackage(_product, MessageBox.Show(
                                 MultiLanguageStrings.GetString(Ressource.FrmAddLoanProduct, "messageUpdate.Text"),
                                 MultiLanguageStrings.GetString(Ressource.PackagesForm, "title.Text"),
-                                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                            {
-                                ServicesProvider.GetInstance().GetProductServices().UpdatePackage(_product, true);
-                            }
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes);
                         }
                         else
                         {
