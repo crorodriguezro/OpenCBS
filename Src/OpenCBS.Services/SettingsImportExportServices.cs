@@ -205,7 +205,6 @@ namespace OpenCBS.Services
             generalParameters.Add(new Setting(OGeneralSettings.SAVINGS_CODE_TEMPLATE, gp.SavingsCodeTemplate));
 
             generalParameters.Add(new Setting(OGeneralSettings.USE_TELLER_MANAGEMENT, gp.UseTellerManagement.ToString()));
-            generalParameters.Add(new Setting(OGeneralSettings.USEPROJECTS, gp.UseProjects.ToString()));
 
             generalParameters.Add(new Setting(OGeneralSettings.VAT_RATE, gp.VatRate.ToString()));
 

@@ -127,9 +127,9 @@ namespace OpenCBS.GUI.Clients
         }
 
         public ClientForm(
-            OClientTypes pClientType, 
-            Form pMdiParent, 
-            bool pCloseFormAfterSave, 
+            OClientTypes pClientType,
+            Form pMdiParent,
+            bool pCloseFormAfterSave,
             IApplicationController applicationController = null)
             : this(applicationController)
         {
@@ -260,10 +260,10 @@ namespace OpenCBS.GUI.Clients
         }
 
         public ClientForm(
-            IClient pClient, 
-            int pContractId, 
-            Form pMdiParent, 
-            string selectedTab, 
+            IClient pClient,
+            int pContractId,
+            Form pMdiParent,
+            string selectedTab,
             IApplicationController applicationController = null)
             : this(applicationController)
         {
@@ -452,15 +452,9 @@ namespace OpenCBS.GUI.Clients
                 }
             }
 
-            if (ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
-            {
-                tabControlPerson.TabPages.Add(tabPageProject);
-                DisplaySelectedProject(_project);
-            }
-            else
-            {
-                AddProject(_project);
-            }
+
+            AddProject(_project);
+
 
             tabControlPerson.TabPages.Add(tabPageLoansDetails);
             tabControlPerson.TabPages.Add(tabPageAdvancedSettings);
@@ -572,11 +566,10 @@ namespace OpenCBS.GUI.Clients
                 _personUserControl.ViewSelectedSaving += PersonUserControl_ViewSelectedSaving;
                 tabPageDetails.Controls.Add(_personUserControl);
 
-                if (!ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
-                {
-                    _personUserControl.RemoveSavings();
-                    panelSavingsContracts.Controls.Add(_personUserControl.PanelSavings);
-                }
+
+                _personUserControl.RemoveSavings();
+                panelSavingsContracts.Controls.Add(_personUserControl.PanelSavings);
+
             }
             else if (pClientType == OClientTypes.Group)
             {
@@ -599,13 +592,10 @@ namespace OpenCBS.GUI.Clients
                 _groupUserControl.MembersChanged += MembersChanged;
 
                 tabPageDetails.Controls.Add(_groupUserControl);
+                _groupUserControl.RemoveSavings();
+                panelSavingsContracts.Controls.Add(_groupUserControl.PanelSavings);
+                AddProject(null);
 
-                if (!ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
-                {
-                    _groupUserControl.RemoveSavings();
-                    panelSavingsContracts.Controls.Add(_groupUserControl.PanelSavings);
-                    AddProject(null);
-                }
             }
             else
             {
@@ -628,14 +618,11 @@ namespace OpenCBS.GUI.Clients
                     _corporateUserControl.CloseCorporate += CorporateUserControl_Closed;
 
                 tabPageDetails.Controls.Add(_corporateUserControl);
+                _corporateUserControl.RemoveSavings();
+                panelSavingsContracts.Controls.Add(_corporateUserControl.PanelSavings);
+                AddProject(null);
+                tabControlPerson.SelectedTab = tabPageCorporate;
 
-                if (!ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
-                {
-                    _corporateUserControl.RemoveSavings();
-                    panelSavingsContracts.Controls.Add(_corporateUserControl.PanelSavings);
-                    AddProject(null);
-                    tabControlPerson.SelectedTab = tabPageCorporate;
-                }
             }
         }
 
@@ -1480,28 +1467,7 @@ namespace OpenCBS.GUI.Clients
 
         private void AddProject(Project pProject)
         {
-            if (ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
-            {
-                tabControlPerson.TabPages.Remove(tabPageProject);
-                tabControlPerson.TabPages.Remove(tabPageLoansDetails);
-                tabControlPerson.TabPages.Remove(tabPageAdvancedSettings);
-                tabControlPerson.TabPages.Remove(tabPageLoanRepayment);
-
-                tabControlPerson.TabPages.Remove(tabPageSavingDetails);
-                tabControlPerson.TabPages.Remove(tabPageLoanGuarantees);
-
-                tabControlPerson.TabPages.Add(tabPageProject);
-                tabControlPerson.SelectedTab = tabPageProject;
-                if ((pProject == null))
-                {
-                    _project = new Project();
-                    pProject = _project;
-                }
-
-                DisplaySelectedProject(pProject);
-            }
-            else
-            {
+            
                 tabControlPerson.TabPages.Remove(tabPageProject);
 
                 bool IsTabContractsExists = false;
@@ -1537,7 +1503,7 @@ namespace OpenCBS.GUI.Clients
                         FillProjectLoans(_corporateUserControl.Corporate.Projects, _corporateUserControl.Corporate.Name);
                     }
                 }
-            }
+            
         }
 
         private void DisplayContracts(IEnumerable<Loan> loans)
@@ -2208,7 +2174,7 @@ namespace OpenCBS.GUI.Clients
 
         private void EnableLocAmountTextBox(Loan credit)
         {
-            if ((credit.PendingOrPostponed() || credit.ContractStatus == 0 || credit.Disbursed 
+            if ((credit.PendingOrPostponed() || credit.ContractStatus == 0 || credit.Disbursed
                 || credit.ContractStatus == OContractStatus.Validated) &&
                 (credit.Product.AmountUnderLocMin.HasValue && credit.Product.AmountUnderLocMax.HasValue))
                 tbLocAmount.Enabled = true;
@@ -3569,11 +3535,11 @@ namespace OpenCBS.GUI.Clients
                 {
                     pCredit.InstallmentList = pCredit.Product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest || pCredit.Product.IsExotic
                         ? pCredit.CalculateInstallments(true) : ServiceProvider.GetContractServices().SimulateScheduleCreation(pCredit);
-                          pCredit.CalculateStartDates(); 
+                    pCredit.CalculateStartDates();
                 }
             }
-            
-           
+
+
             OCurrency interestTotal = 0;
             OCurrency principalTotal = 0;
 
@@ -4142,7 +4108,7 @@ namespace OpenCBS.GUI.Clients
         {
             if (TechnicalSettings.NewRepaymentWindow)
             {
-                _applicationController.Execute(new ShowRepaymentViewCommandData {Loan = _credit});
+                _applicationController.Execute(new ShowRepaymentViewCommandData { Loan = _credit });
 
                 DisplayListViewLoanRepayments(_credit);
                 DisplayLoanEvents(_credit);
@@ -4607,7 +4573,7 @@ namespace OpenCBS.GUI.Clients
                         client = _personUserControl.Person;
 
                     if (_oClientType == OClientTypes.Group)
-                        client = _groupUserControl.Group; 
+                        client = _groupUserControl.Group;
 
                     //foundEvent.Comment = eventCancelConfirmationForm.Comment;
                     //EventProcessorServices eps = ServicesProvider.GetInstance().GetEventProcessorServices();
@@ -4623,7 +4589,7 @@ namespace OpenCBS.GUI.Clients
                             if (loan.Code == _credit.Code)
                                 loan.Disbursed = _credit.Disbursed;
 
-                    
+
 
                     if (_event is LoanDisbursmentEvent)
                     {
@@ -4686,7 +4652,7 @@ namespace OpenCBS.GUI.Clients
             }
         }
 
-        
+
 
 
         private void buttonLoanReschedule_Click(object sender, EventArgs e)

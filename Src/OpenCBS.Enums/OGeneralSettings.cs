@@ -43,7 +43,6 @@ namespace OpenCBS.Enums
         public static readonly string DONOTSKIPWEEKENDSININSTALLMENTSDATE = "DONOT_SKIP_WEEKENDS_IN_INSTALLMENTS_DATE";
         public static readonly string INCREMENTALDURINGDAYOFF = "INCREMENTAL_DURING_DAYOFFS";
         public static readonly string CONTRACT_CODE_TEMPLATE = "CONTRACT_CODE_TEMPLATE";
-        public static readonly string USEPROJECTS = "USE_PROJECTS";
         public static readonly string INTERESTS_ALSO_CREDITED_IN_FL = "INTERESTS_ALSO_CREDITED_IN_FL";
         public static readonly string ID_PATTERN = "ID_PATTERN";
 //        public static readonly string ID_WILD_CHAR_CHECK = "ID_WILD_CHAR_CHECK";

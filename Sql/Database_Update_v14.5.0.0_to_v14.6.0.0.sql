@@ -36,6 +36,9 @@ GO
  
 UPDATE dbo.FundingLines SET [name] = 'DEFAULT_FUNDING_LINE' , purpose = 'DEFAULT_FUNDING_LINE' WHERE id =1 
 GO 
+
+DELETE  FROM  dbo.GeneralParameters WHERE [KEY] ='USE_PROJECTS'
+GO
  
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v14.6.0.0'
