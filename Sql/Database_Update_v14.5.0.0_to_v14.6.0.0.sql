@@ -39,6 +39,9 @@ GO
 
 DELETE  FROM  dbo.GeneralParameters WHERE [KEY] ='USE_PROJECTS'
 GO
+
+DELETE  FROM  dbo.GeneralParameters WHERE [KEY] ='IMF_CODE'
+GO
  
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v14.6.0.0'
