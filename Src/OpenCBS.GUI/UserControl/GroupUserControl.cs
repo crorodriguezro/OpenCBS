@@ -1446,7 +1446,7 @@ namespace OpenCBS.GUI.UserControl
 
             groupBoxFirstAddress.Size = new Size(tabPageBusinessAddress.Width / 2, tabPageBusinessAddress.Height);
 
-            if (!ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
+             
                 ButtonAddProjectClick(buttonViewProject, null);
 
             LoadExtensions();
@@ -1525,22 +1525,9 @@ namespace OpenCBS.GUI.UserControl
 
         public void DisplayProjects(IEnumerable<Project> pProject)
         {
-            if (ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
-            {
-                listViewProjects.Items.Clear();
-                foreach (Project project in pProject)
-                {
-                    ListViewItem item = new ListViewItem(project.Id.ToString()) { Tag = project };
-                    item.SubItems.Add(project.Name);
-                    item.SubItems.Add(project.Code);
-                    item.SubItems.Add(project.Credits.Count.ToString());
-                    listViewProjects.Items.Add(item);
-                }
-            }
-            else
-            {
+          
                 tabControlGroupInfo.TabPages.Remove(tabPageProjects);
-            }
+             
         }
 
         public void DisplaySavings(IEnumerable<ISavingsContract> pSavings)

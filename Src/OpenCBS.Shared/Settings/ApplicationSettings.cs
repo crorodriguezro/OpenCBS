@@ -82,8 +82,6 @@ namespace OpenCBS.Shared.Settings
             _defaultParamList.Add(OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE, 0);
             _defaultParamList.Add(OGeneralSettings.INCREMENTALDURINGDAYOFF, 1);
             _defaultParamList.Add(OGeneralSettings.CONTRACT_CODE_TEMPLATE, "BC/YY/PC-LC/ID");
-            _defaultParamList.Add(OGeneralSettings.USEPROJECTS, 0);
-            _defaultParamList.Add(OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL, 0);
             _defaultParamList.Add(OGeneralSettings.ENFORCE_ID_PATTERN, 0);
         //    _defaultParamList.Add(OGeneralSettings.ID_WILD_CHAR_CHECK, 0);
             _defaultParamList.Add(OGeneralSettings.ID_PATTERN, "[A-Z]{2}[0-9]{7}");
@@ -223,10 +221,7 @@ namespace OpenCBS.Shared.Settings
             }
         }
 
-        public bool UseProjects
-        {
-            get { return GetSpecificParameter(OGeneralSettings.USEPROJECTS).ToString() == "1"; }
-        }
+     
 
         public bool IsCalculationLateFeesDuringHolidays
         {

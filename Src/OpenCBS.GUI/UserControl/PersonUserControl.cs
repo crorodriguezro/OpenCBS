@@ -41,9 +41,9 @@ using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.UserControl
 {
-	public partial class PersonUserControl : ClientControl
-	{
-		private Person _tempPerson;
+    public partial class PersonUserControl : ClientControl
+    {
+        private Person _tempPerson;
         private bool _personSaved;
 
         [ImportMany(typeof(IPersonTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
@@ -52,9 +52,9 @@ namespace OpenCBS.GUI.UserControl
         public event EventHandler AddSelectedSaving;
         public event EventHandler ViewSelectedSaving;
 
-	    private Form _mdiParent;
+        private Form _mdiParent;
 
-	    private readonly IApplicationController _applicationController;
+        private readonly IApplicationController _applicationController;
 
         public System.Windows.Forms.UserControl PanelSavings
         {
@@ -75,7 +75,7 @@ namespace OpenCBS.GUI.UserControl
         public PersonUserControl(Person person, Form pMdiParent, IApplicationController applicationController)
         {
             _applicationController = applicationController;
-           _mdiParent = pMdiParent;
+            _mdiParent = pMdiParent;
             Initialization();
             _tempPerson = person;
             InitializePerson();
@@ -88,30 +88,30 @@ namespace OpenCBS.GUI.UserControl
             if (ServicesProvider.GetInstance().GetGeneralSettings().IsAutomaticID)
                 textBoxIdentificationData.BackColor = Color.WhiteSmoke;
         }
- 
-	    public bool PersonSaved
-		{
-			get { return _personSaved; }
-		}
 
-		public Person Person
-		{
-			get { return _tempPerson; }
+        public bool PersonSaved
+        {
+            get { return _personSaved; }
+        }
 
-			set
-			{
-				_tempPerson = value;
-				if (_tempPerson == null)
-				{
-					ResetAllComponents();
-				}
-				else
-				{
-					InitializePerson();
+        public Person Person
+        {
+            get { return _tempPerson; }
+
+            set
+            {
+                _tempPerson = value;
+                if (_tempPerson == null)
+                {
+                    ResetAllComponents();
+                }
+                else
+                {
+                    InitializePerson();
                     InitializeGroup();
-				}
-			}
-		}
+                }
+            }
+        }
 
         public void DisplaySavings(IEnumerable<ISavingsContract> pSavings)
         {
@@ -120,66 +120,49 @@ namespace OpenCBS.GUI.UserControl
 
         public void DisplayProjects(IEnumerable<Project> pProjects)
         {
-            if (ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
-            {
-                listViewProjects.Items.Clear();
-                foreach (Project project in pProjects)
-                {
-                    ListViewItem item = new ListViewItem(project.Id.ToString());
-                    item.Tag = project;
-                    item.SubItems.Add(project.Code);
-                    item.SubItems.Add(project.Name);
-                    item.SubItems.Add(project.Credits.Count.ToString());
-                    //item.SubItems.Add(project.Guarantees.Count.ToString());
-                    listViewProjects.Items.Add(item);
-                }
-            }
-            else
-            {
-                tabControlEconomicInfo.TabPages.Remove(tabPageProjects);
-            }
+            tabControlEconomicInfo.TabPages.Remove(tabPageProjects);
         }
 
-		private void InitializeUserControlsAddress()
-		{
-			addressUserControlFirst = new AddressUserControl();
-            addressUserControlFirst.TextBoxHomePhoneText = MultiLanguageStrings.GetString(Ressource.PersonUserControl, "Homephone.Text");          
+        private void InitializeUserControlsAddress()
+        {
+            addressUserControlFirst = new AddressUserControl();
+            addressUserControlFirst.TextBoxHomePhoneText = MultiLanguageStrings.GetString(Ressource.PersonUserControl, "Homephone.Text");
             addressUserControlFirst.TextBoxPersonalPhoneText = MultiLanguageStrings.GetString(Ressource.PersonUserControl, "Personalphone.Text");
-			addressUserControlFirst.Dock = DockStyle.Fill;
-			groupBoxFirstAddress.Controls.Add(addressUserControlFirst);
+            addressUserControlFirst.Dock = DockStyle.Fill;
+            groupBoxFirstAddress.Controls.Add(addressUserControlFirst);
 
             addressUserControlSecondaryAddress = new AddressUserControl();
             addressUserControlSecondaryAddress.TextBoxHomePhoneText =
                 MultiLanguageStrings.GetString(Ressource.PersonUserControl, "Businesscellphone.Text");
             addressUserControlSecondaryAddress.TextBoxPersonalPhoneText =
                 MultiLanguageStrings.GetString(Ressource.PersonUserControl, "Businessphone.Text");
-			addressUserControlSecondaryAddress.Dock = DockStyle.Fill;
-			groupBoxSecondaryAddress.Controls.Add(addressUserControlSecondaryAddress);
-		}
+            addressUserControlSecondaryAddress.Dock = DockStyle.Fill;
+            groupBoxSecondaryAddress.Controls.Add(addressUserControlSecondaryAddress);
+        }
 
-       private void Initialization()
-		{
+        private void Initialization()
+        {
             InitializeComponent();
-		    ApplicationSettings generalSettings = ServicesProvider.GetInstance().GetGeneralSettings();
+            ApplicationSettings generalSettings = ServicesProvider.GetInstance().GetGeneralSettings();
             textBoxNationality.Text = generalSettings.Country;
 
             //InitializeSecurity();
-			InitializeUserControlsAddress();
+            InitializeUserControlsAddress();
             _InitializeCombobox();
-			_personSaved = false;
-			_tempPerson = new Person();
+            _personSaved = false;
+            _tempPerson = new Person();
             _tempPerson.Nationality = generalSettings.Country;
-			InitializeSex();
-		    dateTimePickerDateOfBirth.Value = DateTime.Now;
-            _tempPerson.DateOfBirth = DateTime.Now; 
+            InitializeSex();
+            dateTimePickerDateOfBirth.Value = DateTime.Now;
+            _tempPerson.DateOfBirth = DateTime.Now;
             _tempPerson.LoanCycle = 0;
-		    InitPrintButton();
+            InitPrintButton();
 
             foreach (Branch branch in User.CurrentUser.Branches)
             {
                 cbBranch.Items.Add(branch);
             }
-		}
+        }
 
         private void InitializeGroup()
         {
@@ -204,22 +187,22 @@ namespace OpenCBS.GUI.UserControl
         private void _InitializeCombobox()
         {
             _InitializeSponsor();
-            _InitializeSponsor2();            
-       }
+            _InitializeSponsor2();
+        }
 
-	    private void _DisplayAllGroups(List<IClient> listAllGroups)
-	    {
+        private void _DisplayAllGroups(List<IClient> listAllGroups)
+        {
             //tabControlEconomicInfo.TabPages.Remove(tabPageGroupMember);
             if (listAllGroups.Count != 0)
-	        {
-	            //tabControlEconomicInfo.TabPages.Add(tabPageGroupMember);
+            {
+                //tabControlEconomicInfo.TabPages.Add(tabPageGroupMember);
                 listViewGroup.Items.Clear();
                 foreach (IClient client in listAllGroups)
                 {
                     ListViewItem item = new ListViewItem(client.Name) { Tag = client };
                     if (client is Group)
                     {
-                        Group group = (Group) client;
+                        Group group = (Group)client;
                         item.SubItems.Add("SG");
                         if (group.EstablishmentDate.HasValue) item.SubItems.Add(group.EstablishmentDate.Value.ToShortDateString()); else item.SubItems.Add("-");
 
@@ -231,11 +214,11 @@ namespace OpenCBS.GUI.UserControl
                             if (member.Tiers.Id == _tempPerson.Id)
                             {
                                 item.SubItems.Add(member.JoinedDate.ToShortDateString());
-                                if (member.LeftDate.HasValue) 
-                                    item.SubItems.Add(member.LeftDate.Value.ToShortDateString()); 
+                                if (member.LeftDate.HasValue)
+                                    item.SubItems.Add(member.LeftDate.Value.ToShortDateString());
                                 else item.SubItems.Add("-");
 
-                                listViewGroup.Items.Add(item);                                
+                                listViewGroup.Items.Add(item);
                                 break;
                             }
                         }
@@ -244,7 +227,7 @@ namespace OpenCBS.GUI.UserControl
                     }
                     else if (client is Village)
                     {
-                        Village village = (Village) client;
+                        Village village = (Village)client;
                         item.SubItems.Add("NSG");
                         if (village.EstablishmentDate.HasValue) item.SubItems.Add(village.EstablishmentDate.Value.ToShortDateString()); else item.SubItems.Add("-");
 
@@ -256,11 +239,11 @@ namespace OpenCBS.GUI.UserControl
                             if (member.Tiers.Id == _tempPerson.Id)
                             {
                                 item.SubItems.Add(member.JoinedDate.ToShortDateString());
-                                if (member.LeftDate.HasValue) 
-                                    item.SubItems.Add(member.LeftDate.Value.ToShortDateString()); 
+                                if (member.LeftDate.HasValue)
+                                    item.SubItems.Add(member.LeftDate.Value.ToShortDateString());
                                 else item.SubItems.Add("-");
 
-                                listViewGroup.Items.Add(item);                                
+                                listViewGroup.Items.Add(item);
                                 break;
                             }
                         }
@@ -269,17 +252,17 @@ namespace OpenCBS.GUI.UserControl
                     }
                 }
             }
-	    }
+        }
 
-	    private void InitializeSex()
-		{
-			comboBoxSex.LoadGender();
-		}
+        private void InitializeSex()
+        {
+            comboBoxSex.LoadGender();
+        }
 
-	
 
-		private void InitializePerson()
-		{
+
+        private void InitializePerson()
+        {
             if (_tempPerson.Id != 0)
             {
                 buttonSave.Text = MultiLanguageStrings.GetString(Ressource.PersonUserControl, "Update");
@@ -295,12 +278,12 @@ namespace OpenCBS.GUI.UserControl
                 textBoxBirthPlace.Text = _tempPerson.BirthPlace ?? String.Empty;
                 textBoxNationality.Text = _tempPerson.Nationality ?? ServicesProvider.GetInstance().GetGeneralSettings().Country;
                 richTextBoxCommentsActivity.Text = _tempPerson.FollowUpComment;
-                
+
                 comboBoxSex.SelectGender(_tempPerson.Sex);
-                
+
                 comboBoxSex.Text = _tempPerson.Sex.ToString();
                 eacPerson.Activity = _tempPerson.Activity;
-                
+
                 comboBoxSponsor1.Text = _tempPerson.Sponsor1;
                 comboBoxSponsor2.Text = _tempPerson.Sponsor2;
                 textBoxSponsor1.Text = _tempPerson.Sponsor1Comment;
@@ -337,67 +320,67 @@ namespace OpenCBS.GUI.UserControl
                 if (cbBranch.Items.Count > 0) cbBranch.SelectedIndex = 0;
             }
             InitializePhoto();
-		}
+        }
 
-		public void ResetAllComponents()
-		{
-			_tempPerson = new Person();
-			addressUserControlFirst.ResetAllComponents();
-			addressUserControlSecondaryAddress.ResetAllComponents();
-			textBoxFirstName.Text = string.Empty;
-			textBoxLastname.Text = string.Empty;
-			pictureBox.Image = null;
+        public void ResetAllComponents()
+        {
+            _tempPerson = new Person();
+            addressUserControlFirst.ResetAllComponents();
+            addressUserControlSecondaryAddress.ResetAllComponents();
+            textBoxFirstName.Text = string.Empty;
+            textBoxLastname.Text = string.Empty;
+            pictureBox.Image = null;
             dateTimePickerDateOfBirth.Value = new DateTime(1980, 1, 1);
             dateTimePickerFirstContact.Value = TimeProvider.Today;
-			textBoxIdentificationData.Text = string.Empty;
-			
-			checkBoxHeadOfHousehold.Checked = false;
-			richTextBoxCommentsActivity.Text = string.Empty;
+            textBoxIdentificationData.Text = string.Empty;
 
-		    eacPerson.Activity = null;
+            checkBoxHeadOfHousehold.Checked = false;
+            richTextBoxCommentsActivity.Text = string.Empty;
+
+            eacPerson.Activity = null;
             textBoxBirthPlace.Clear();
-            
+
             textBoxNationality.Clear();
         }
 
-		private void RecoverDatasFromUserControlsAddress()
-		{
+        private void RecoverDatasFromUserControlsAddress()
+        {
             _tempPerson.ZipCode = addressUserControlFirst.ZipCode;
             _tempPerson.HomeType = addressUserControlFirst.HomeType;
             _tempPerson.Email = addressUserControlFirst.Email;
-			_tempPerson.District = addressUserControlFirst.District;
-			_tempPerson.City = addressUserControlFirst.City;
-			_tempPerson.Address = addressUserControlFirst.Comments;
+            _tempPerson.District = addressUserControlFirst.District;
+            _tempPerson.City = addressUserControlFirst.City;
+            _tempPerson.Address = addressUserControlFirst.Comments;
             _tempPerson.HomePhone = addressUserControlFirst.HomePhone;
             _tempPerson.PersonalPhone = addressUserControlFirst.PersonalPhone;
 
             _tempPerson.SecondaryZipCode = addressUserControlSecondaryAddress.ZipCode;
             _tempPerson.SecondaryHomeType = addressUserControlSecondaryAddress.HomeType;
             _tempPerson.SecondaryEmail = addressUserControlSecondaryAddress.Email;
-			_tempPerson.SecondaryDistrict = addressUserControlSecondaryAddress.District;
-			_tempPerson.SecondaryCity = addressUserControlSecondaryAddress.City;
-			_tempPerson.SecondaryAddress = addressUserControlSecondaryAddress.Comments;
+            _tempPerson.SecondaryDistrict = addressUserControlSecondaryAddress.District;
+            _tempPerson.SecondaryCity = addressUserControlSecondaryAddress.City;
+            _tempPerson.SecondaryAddress = addressUserControlSecondaryAddress.Comments;
             _tempPerson.SecondaryHomePhone = addressUserControlSecondaryAddress.HomePhone;
             _tempPerson.SecondaryPersonalPhone = addressUserControlSecondaryAddress.PersonalPhone;
-		}
+        }
 
         private void RecoverDataFromCombobox()
         {
             _tempPerson.Sponsor1 = comboBoxSponsor1.Text;
-            _tempPerson.Sponsor2 = comboBoxSponsor2.Text;            
+            _tempPerson.Sponsor2 = comboBoxSponsor2.Text;
         }
 
-		private void SavePerson()
-		{
-			_personSaved = false;
-			RecoverDatasFromUserControlsAddress();
-		    RecoverDataFromCombobox();
+        private void SavePerson()
+        {
+            _personSaved = false;
+            RecoverDatasFromUserControlsAddress();
+            RecoverDataFromCombobox();
 
-		    _tempPerson.FirstContact = dateTimePickerFirstContact.Value;
+            _tempPerson.FirstContact = dateTimePickerFirstContact.Value;
             _tempPerson.FirstAppointment = dateTimePickerFirstAppointment.Value;
-		    _tempPerson.Branch = (Branch) cbBranch.SelectedItem;
+            _tempPerson.Branch = (Branch)cbBranch.SelectedItem;
 
-		    try
+            try
             {
                 bool save = 0 == _tempPerson.Id;
                 if (_tempPerson.FirstName != null)
@@ -422,7 +405,7 @@ namespace OpenCBS.GUI.UserControl
 
                 if (result != string.Empty)
                     MessageBox.Show(result, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
                 _personSaved = true;
                 buttonSave.Text = MultiLanguageStrings.GetString(Ressource.PersonUserControl, "Update");
 
@@ -450,7 +433,7 @@ namespace OpenCBS.GUI.UserControl
             {
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
             }
-		}
+        }
 
         private void ResetImagesFlags()
         {
@@ -462,17 +445,17 @@ namespace OpenCBS.GUI.UserControl
             _tempPerson.IsImageUpdated = false;
         }
 
-	    private void checkBoxHeadOfHousehold_CheckedChanged(object sender, EventArgs e)
-		{
-			_tempPerson.HouseHoldHead = checkBoxHeadOfHousehold.Checked;
-		}
+        private void checkBoxHeadOfHousehold_CheckedChanged(object sender, EventArgs e)
+        {
+            _tempPerson.HouseHoldHead = checkBoxHeadOfHousehold.Checked;
+        }
 
-		private void dateTimePickerDateOfBirth_ValueChanged(object sender, EventArgs e)
-		{
+        private void dateTimePickerDateOfBirth_ValueChanged(object sender, EventArgs e)
+        {
             if (dateTimePickerDateOfBirth.Value.Date > DateTime.Now.Date)
                 dateTimePickerDateOfBirth.Value = DateTime.Now;
 
-			_tempPerson.DateOfBirth = dateTimePickerDateOfBirth.Value.Date;
+            _tempPerson.DateOfBirth = dateTimePickerDateOfBirth.Value.Date;
 
             int year = DateTime.Now.Year - dateTimePickerDateOfBirth.Value.Year;
 
@@ -481,51 +464,51 @@ namespace OpenCBS.GUI.UserControl
                 --year;
 
             labelRangeOfAge.Text = year
-                   + @" " + MultiLanguageStrings.GetString(Ressource.PersonUserControl, "Age"); 
+                   + @" " + MultiLanguageStrings.GetString(Ressource.PersonUserControl, "Age");
         }
 
-		private void textBoxLastname_TextChanged(object sender, EventArgs e)
-		{
-			_tempPerson.LastName = ServicesHelper.CheckTextBoxText(textBoxLastname.Text);
-		}
+        private void textBoxLastname_TextChanged(object sender, EventArgs e)
+        {
+            _tempPerson.LastName = ServicesHelper.CheckTextBoxText(textBoxLastname.Text);
+        }
 
-		private void textBoxFirstName_TextChanged(object sender, EventArgs e)
-		{
-			_tempPerson.FirstName = ServicesHelper.CheckTextBoxText(textBoxFirstName.Text);
-		}
+        private void textBoxFirstName_TextChanged(object sender, EventArgs e)
+        {
+            _tempPerson.FirstName = ServicesHelper.CheckTextBoxText(textBoxFirstName.Text);
+        }
 
-		private void comboBoxSex_SelectionChangeCommitted(object sender, EventArgs e)
-		{
-		    _tempPerson.Sex = comboBoxSex.GetGender();
-		}
+        private void comboBoxSex_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            _tempPerson.Sex = comboBoxSex.GetGender();
+        }
 
-		private void buttonSave_Click(object sender, EventArgs e)
-		{
-			SavePerson();
-			if (ButtonSaveClick != null)
-				ButtonSaveClick(this, e);
-		}
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            SavePerson();
+            if (ButtonSaveClick != null)
+                ButtonSaveClick(this, e);
+        }
 
-	    private void buttonCancel_Click(object sender, EventArgs e)
-		{
-			if (ButtonCancelClick != null)
-				ButtonCancelClick(this, e);
-		}
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            if (ButtonCancelClick != null)
+                ButtonCancelClick(this, e);
+        }
 
-		
-		private void PersonUserControl_Load(object sender, EventArgs e)
-		{
+
+        private void PersonUserControl_Load(object sender, EventArgs e)
+        {
             Tabs = tabControlEconomicInfo;
             Client = _tempPerson;
             InitDocuments();
 
-			groupBoxFirstAddress.Size = new Size(tabPageAddress.Width/2, tabPageAddress.Height);
-		    
-            if (!ServicesProvider.GetInstance().GetGeneralSettings().UseProjects)
+            groupBoxFirstAddress.Size = new Size(tabPageAddress.Width / 2, tabPageAddress.Height);
+
+            
                 ButtonAddProjectClick(buttonViewProject, null);
 
-		    LoadExtensions();
-		}
+            LoadExtensions();
+        }
 
         private void LoadExtensions()
         {
@@ -537,20 +520,20 @@ namespace OpenCBS.GUI.UserControl
             }
         }
 
-	    private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
-		    int photoSubId;
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            int photoSubId;
             if (((LinkLabel)sender).Name == "changePhotoLinkLabel")
                 photoSubId = 0;//it means that we want to get 1st picture
             else
                 photoSubId = 1;//it means that we want to get 2nd picture
             ShowPictureForm pictureForm = new ShowPictureForm(Person, photoSubId, this);
             pictureForm.ShowDialog();
-		}
+        }
 
-		public void InitializePhoto()
-		{
-		    PicturesServices ps = ServicesProvider.GetInstance().GetPicturesServices();
+        public void InitializePhoto()
+        {
+            PicturesServices ps = ServicesProvider.GetInstance().GetPicturesServices();
             if (!ps.IsEnabled())
             {
                 pictureBox.Visible = false;
@@ -562,11 +545,11 @@ namespace OpenCBS.GUI.UserControl
 
             int photoSubId = 0;//it means that we want to get 1st picture
             pictureBox.Image = ps.GetPicture(_tempPerson.Id, photoSubId, true);
-		    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-		    photoSubId = 1;//it means that we want to get 2nd picture
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            photoSubId = 1;//it means that we want to get 2nd picture
             pictureBox2.Image = ps.GetPicture(_tempPerson.Id, photoSubId, true);
-		    pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-		}
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+        }
 
         private void textBoxLoanCycle_TextChanged(object sender, EventArgs e)
         {
@@ -585,7 +568,7 @@ namespace OpenCBS.GUI.UserControl
 
         private void pictureBox_Click(object sender, EventArgs e)
         {
-            int photoSubId=0;
+            int photoSubId = 0;
             if (sender is PictureBox)
             {
                 if (((PictureBox)sender).Name == "pictureBox2")
@@ -601,9 +584,9 @@ namespace OpenCBS.GUI.UserControl
 
         private void listViewGroup_DoubleClick(object sender, EventArgs e)
         {
-            var data = (object[]) listViewGroup.SelectedItems[0].Tag;
-            var clientId = (int) data[0];
-            var clientType = (OClientTypes) data[1];
+            var data = (object[])listViewGroup.SelectedItems[0].Tag;
+            var clientId = (int)data[0];
+            var clientType = (OClientTypes)data[1];
 
             var client = ServicesProvider.GetInstance().GetClientServices().FindTiers(clientId, clientType);
             if (client is Group)
@@ -640,7 +623,7 @@ namespace OpenCBS.GUI.UserControl
             }
         }
 
-	    private void buttonViewProject_Click(object sender, EventArgs e)
+        private void buttonViewProject_Click(object sender, EventArgs e)
         {
             _ViewProject(e);
         }
@@ -655,17 +638,17 @@ namespace OpenCBS.GUI.UserControl
             _tempPerson.BirthPlace = ServicesHelper.CheckTextBoxText(textBoxBirthPlace.Text);
         }
 
-       
+
         private void richTextBoxCommentsActivity_TextChanged(object sender, EventArgs e)
         {
             _tempPerson.FollowUpComment = ServicesHelper.CheckTextBoxText(richTextBoxCommentsActivity.Text);
         }
 
-	   private void _InitializeSponsor()
+        private void _InitializeSponsor()
         {
             comboBoxSponsor1.Items.Clear();
             List<string> list = ServicesProvider.GetInstance().GetClientServices().FindAllSetUpFields(OSetUpFieldTypes.Sponsor1);
-            foreach(string s in list)
+            foreach (string s in list)
             {
                 comboBoxSponsor1.Items.Add(s);
             }
@@ -690,7 +673,7 @@ namespace OpenCBS.GUI.UserControl
             _tempPerson.Sponsor2Comment = textBoxSponsor2.Text;
         }
 
-        
+
         public void HideSavings()
         {
             tabControlEconomicInfo.TabPages.Remove(tabPageSavings);
@@ -708,7 +691,7 @@ namespace OpenCBS.GUI.UserControl
                 if (textBoxIdentificationData.Text != String.Empty)
                     if (ServicesProvider.GetInstance().GetClientServices().CheckIfIdentificationDataAlreadyExists(
                         textBoxIdentificationData.Text, _tempPerson.Id))
-                            throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IdentificationDataAlreadyUsed);
+                        throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IdentificationDataAlreadyUsed);
                 _tempPerson.IdentificationData = ServicesHelper.CheckTextBoxText(textBoxIdentificationData.Text);
             }
             catch (Exception ex)
@@ -744,5 +727,5 @@ namespace OpenCBS.GUI.UserControl
         {
             if (_tempPerson != null) _tempPerson.Activity = eacPerson.Activity;
         }
-	}
+    }
 }

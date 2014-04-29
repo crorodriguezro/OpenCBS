@@ -174,7 +174,6 @@ namespace OpenCBS.GUI.Configuration
                         val.Key.ToString() == OGeneralSettings.OLBBEFOREREPAYMENT ||
                         val.Key.ToString() == OGeneralSettings.CALCULATIONLATEFEESDURINGPUBLICHOLIDAYS ||
                         val.Key.ToString() == OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE ||
-                        val.Key.ToString() == OGeneralSettings.USEPROJECTS ||
                         val.Key.ToString() == OGeneralSettings.ENFORCE_ID_PATTERN ||
                        // val.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
                         val.Key.ToString() == OGeneralSettings.INCREMENTALDURINGDAYOFF ||
@@ -1132,7 +1131,6 @@ namespace OpenCBS.GUI.Configuration
                 entry.Key.ToString() == OGeneralSettings.OLBBEFOREREPAYMENT ||
                 entry.Key.ToString() == OGeneralSettings.CALCULATIONLATEFEESDURINGPUBLICHOLIDAYS ||
                 entry.Key.ToString() == OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE ||
-                entry.Key.ToString() == OGeneralSettings.USEPROJECTS ||
                 entry.Key.ToString() == OGeneralSettings.ENFORCE_ID_PATTERN ||
                // entry.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
                 entry.Key.ToString() == OGeneralSettings.INCREMENTALDURINGDAYOFF ||
@@ -1224,7 +1222,6 @@ namespace OpenCBS.GUI.Configuration
                      entry.Key.ToString() == OGeneralSettings.OLBBEFOREREPAYMENT ||
                      entry.Key.ToString() == OGeneralSettings.CALCULATIONLATEFEESDURINGPUBLICHOLIDAYS ||
                      entry.Key.ToString() == OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE ||
-                     entry.Key.ToString() == OGeneralSettings.USEPROJECTS ||
                      entry.Key.ToString() == OGeneralSettings.ENFORCE_ID_PATTERN ||
                     // entry.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
                      entry.Key.ToString() == OGeneralSettings.INCREMENTALDURINGDAYOFF ||
