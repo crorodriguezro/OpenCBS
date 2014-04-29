@@ -117,7 +117,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
 			Assert.AreEqual("S/BC/2007/SAVIN-4/GUIG-2", saving.Code);
 
             saving.GenerateSavingCode(new Person { Id = 2, FirstName = "Vincent", LastName = "Guigui" }, 4, "IC/BC/CS/ID", "BC");
-            Assert.AreEqual("IMF/BC/05/00002", saving.Code);
+            Assert.AreEqual("BC/05/00002", saving.Code);
 		}
 
 		[Test]
@@ -132,7 +132,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
 			Assert.AreEqual("S/BC/2007/SAVIN-1/GUIG-2", saving.Code);
 
             saving.GenerateSavingCode(new Corporate { Id = 2, Name = "Guigui" }, 1, "IC/BC/CS/ID", "BC");
-            Assert.AreEqual("IMF/BC/02/00002", saving.Code);
+            Assert.AreEqual("BC/02/00002", saving.Code);
 		}
 
         [Test]
