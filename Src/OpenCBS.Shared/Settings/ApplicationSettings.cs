@@ -88,7 +88,6 @@ namespace OpenCBS.Shared.Settings
         //    _defaultParamList.Add(OGeneralSettings.ID_WILD_CHAR_CHECK, 0);
             _defaultParamList.Add(OGeneralSettings.ID_PATTERN, "[A-Z]{2}[0-9]{7}");
             _defaultParamList.Add(OGeneralSettings.SAVINGS_CODE_TEMPLATE, "IC/BC/CS/ID");
-            _defaultParamList.Add(OGeneralSettings.IMF_CODE, "IMF");
             _defaultParamList.Add(OGeneralSettings.MAX_NUMBER_INSTALLMENT, "MAX_NUMBER_INSTALLMENT");
             _defaultParamList.Add(OGeneralSettings.PENDING_SAVINGS_MODE, "NONE");
             _defaultParamList.Add(OGeneralSettings.BAD_LOAN_DAYS, "180");
@@ -479,11 +478,6 @@ namespace OpenCBS.Shared.Settings
         public string SavingsCodeTemplate
         {
             get { return (string)GetSpecificParameter(OGeneralSettings.SAVINGS_CODE_TEMPLATE); }
-        }
-
-        public string ImfCode
-        {
-            get { return (string)GetSpecificParameter(OGeneralSettings.IMF_CODE); }
         }
 
         public string PendingSavingsMode

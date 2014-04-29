@@ -5179,7 +5179,7 @@ namespace OpenCBS.GUI.Clients
                 groupBoxSaving.Name += string.Format(" {0}", product.Name);
                 int numbersOfSavings = SavingServices.GetSavingCount(_client);
                 _saving.GenerateSavingCode(_client, numbersOfSavings, ServicesProvider.GetInstance().GetGeneralSettings().SavingsCodeTemplate,
-                    ServicesProvider.GetInstance().GetGeneralSettings().ImfCode, _client.Branch.Code);
+                   _client.Branch.Code);
                 int nextSavingsId = SavingServices.GetLastSavingsId() + 1;
                 tBSavingCode.Text = _saving.Code + '/' + nextSavingsId.ToString();
 

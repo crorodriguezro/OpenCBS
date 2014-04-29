@@ -1366,7 +1366,6 @@ namespace OpenCBS.Services
                 client,
                 savingsCount,
                 ApplicationSettings.GetInstance(_user.Md5).SavingsCodeTemplate,
-                ApplicationSettings.GetInstance(_user.Md5).ImfCode,
                 client.Branch.Code
                 );
 

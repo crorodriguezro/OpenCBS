@@ -93,7 +93,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
         DateTime GetLastAccrualDate();
         List<SavingInterestsAccrualEvent> CalculateInterest(DateTime pDate, User pUser);
         List<SavingInterestsPostingEvent> PostingInterests(DateTime pDate, User pUser);
-        string GenerateSavingCode(Client pClient, int pSavingsCount, string pCodeTemplate, string pImfCode, string pBranchCode);
+        string GenerateSavingCode(Client pClient, int pSavingsCount, string pCodeTemplate, string pBranchCode);
 
         List<SavingEvent> RepayLoanFromSaving(Loan loan, int repaymentEventId, DateTime date, OCurrency amount, string description, User user, Teller teller);
         OSavingsRollover Rollover { get; set; }

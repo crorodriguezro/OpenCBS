@@ -113,10 +113,10 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
 		                                    {Code = "", Product = new SavingsBookProduct() {Id = 2, Code = "SavingProduct"}};
             saving.FirstDeposit(12m, new DateTime(2007, 08, 11), 0, new User(), Teller.CurrentTeller);
 
-			saving.GenerateSavingCode(new Person { Id = 2, FirstName="Vincent", LastName = "Guigui" }, 3, "BC/YY/PC-PS/CN-ID", "IMF", "BC");
+			saving.GenerateSavingCode(new Person { Id = 2, FirstName="Vincent", LastName = "Guigui" }, 3, "BC/YY/PC-PS/CN-ID", "BC");
 			Assert.AreEqual("S/BC/2007/SAVIN-4/GUIG-2", saving.Code);
 
-            saving.GenerateSavingCode(new Person { Id = 2, FirstName = "Vincent", LastName = "Guigui" }, 4, "IC/BC/CS/ID", "IMF", "BC");
+            saving.GenerateSavingCode(new Person { Id = 2, FirstName = "Vincent", LastName = "Guigui" }, 4, "IC/BC/CS/ID", "BC");
             Assert.AreEqual("IMF/BC/05/00002", saving.Code);
 		}
 
@@ -128,10 +128,10 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
 		                                    {Code = "", Product = new SavingsBookProduct() {Id = 2, Code = "SavingProduct"}};
             saving.FirstDeposit(12m, new DateTime(2007, 08, 11), 0, new User(), Teller.CurrentTeller);
 
-            saving.GenerateSavingCode(new Corporate { Id = 2, Name = "Guigui" }, 0, "BC/YY/PC-PS/CN-ID", "IMF", "BC");
+            saving.GenerateSavingCode(new Corporate { Id = 2, Name = "Guigui" }, 0, "BC/YY/PC-PS/CN-ID", "BC");
 			Assert.AreEqual("S/BC/2007/SAVIN-1/GUIG-2", saving.Code);
 
-            saving.GenerateSavingCode(new Corporate { Id = 2, Name = "Guigui" }, 1, "IC/BC/CS/ID", "IMF", "BC");
+            saving.GenerateSavingCode(new Corporate { Id = 2, Name = "Guigui" }, 1, "IC/BC/CS/ID", "BC");
             Assert.AreEqual("IMF/BC/02/00002", saving.Code);
 		}
 

@@ -1284,25 +1284,7 @@ namespace OpenCBS.GUI.Configuration
             string entryKey = entry.Key.ToString();
             try
             {
-                if (entryKey == OGeneralSettings.IMF_CODE)
-                {
-                    // Branch name can only contain chars
-                    string value = textBoxGeneralParameterValue.Text;
-                    for (int i = 0; i < value.Length; i++)
-                    {
-                        char c = value[i];
-                        if (
-                            !(((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z')) || ((c >= '0') && (c <= '9')) ||
-                              (c == '_')))
-                        {
-                            throw new GeneralSettingException(GeneralSettingEnumException.OnlyChar);
-                        }
-                        if (i == value.Length - 1)
-                            entry.Value = textBoxGeneralParameterValue.Text;
-                    }
-                }
-
-                else if (entryKey == OGeneralSettings.GROUPMINMEMBERS ||
+                if (entryKey == OGeneralSettings.GROUPMINMEMBERS ||
                          entryKey == OGeneralSettings.GROUPMAXMEMBERS ||
                          entryKey == OGeneralSettings.VILLAGEMINMEMBERS ||
                          entryKey == OGeneralSettings.VILLAGEMAXMEMBERS ||

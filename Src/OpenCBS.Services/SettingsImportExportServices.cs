@@ -184,18 +184,14 @@ namespace OpenCBS.Services
             generalParameters.Add(new Setting(OGeneralSettings.MAX_LOANS_COVERED, gp.MaxLoansCovered.ToString()));
             generalParameters.Add(new Setting(OGeneralSettings.MAX_GUARANTOR_AMOUNT, gp.MaxGuarantorAmount.ToString()));
 
-           // generalParameters.Add(new Setting(OGeneralSettings.ID_WILD_CHAR_CHECK, gp.IDWildCharCheck.ToString()));
             generalParameters.Add(new Setting(OGeneralSettings.ID_PATTERN, gp.IDPattern));
             generalParameters.Add(new Setting(OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL, gp.InterestsCreditedInFL.ToString()));
             generalParameters.Add(new Setting(OGeneralSettings.INCREMENTALDURINGDAYOFF, gp.IsIncrementalDuringDayOff.ToString()));
-            generalParameters.Add(new Setting(OGeneralSettings.IMF_CODE, gp.ImfCode));
 
             generalParameters.Add(new Setting(OGeneralSettings.LATEDAYSAFTERACCRUALCEASES, gp.LateDaysAfterAccrualCeases.ToString()));
 
             generalParameters.Add(new Setting(OGeneralSettings.MAX_NUMBER_INSTALLMENT, gp.MaxNumberInstallment.ToString())); ;
             generalParameters.Add(new Setting(OGeneralSettings.MFI_NAME, gp.MfiName));
-
-       //     generalParameters.Add(new Setting(OGeneralSettings.NAME_FORMAT, gp.FirstNameFormat));
 
             generalParameters.Add(new Setting(OGeneralSettings.OLBBEFOREREPAYMENT, gp.IsOlbBeforeRepayment.ToString()));
 

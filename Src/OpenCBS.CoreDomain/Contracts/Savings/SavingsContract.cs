@@ -514,7 +514,6 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
         public string GenerateSavingCode(Client pClient, 
                                          int pSavingsCount, 
                                          string pCodeTemplate, 
-                                         string pImfCode, 
                                          string pBranchCode)
         {
             switch (pCodeTemplate)
@@ -538,7 +537,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
                     {
                         string clientCode = pClient.Id.ToString().PadLeft(5, '0');
                         string savingsCount = (pSavingsCount + 1).ToString().PadLeft(2, '0');
-                        Code = string.Format("{0}/{1}/{2}/{3}", pImfCode, pBranchCode, savingsCount, clientCode);
+                        Code = string.Format("{0}/{1}/{2}", pBranchCode, savingsCount, clientCode);
                         break;
                     }
             }

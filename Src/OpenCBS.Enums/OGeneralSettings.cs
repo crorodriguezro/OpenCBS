@@ -49,7 +49,6 @@ namespace OpenCBS.Enums
 //        public static readonly string ID_WILD_CHAR_CHECK = "ID_WILD_CHAR_CHECK";
         public static readonly string ENFORCE_ID_PATTERN = "ENFORCE_ID_PATTERN";
         public static readonly string SAVINGS_CODE_TEMPLATE = "SAVINGS_CODE_TEMPLATE";
-        public static readonly string IMF_CODE = "IMF_CODE";
         public static readonly string MAX_NUMBER_INSTALLMENT = "MAX_NUMBER_INSTALLMENT";
         public static readonly string PENDING_SAVINGS_MODE = "PENDING_SAVINGS_MODE";
         public static readonly string BAD_LOAN_DAYS = "BAD_LOAN_DAYS";

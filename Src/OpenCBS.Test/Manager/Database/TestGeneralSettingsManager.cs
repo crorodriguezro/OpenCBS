@@ -308,22 +308,6 @@ namespace OpenCBS.Test.Manager.Database
             Assert.AreEqual("IC/BC/CS/ID", dataParam.SavingsCodeTemplate);
         }
 
-        [Test]
-        public void TestUpdateIMFCode()
-        {
-            ApplicationSettings dataParam = ApplicationSettings.GetInstance("");
-            _generalSettingsManager.UpdateSelectedParameter(OGeneralSettings.IMF_CODE, "AIRDIE");
-            Assert.AreEqual("AIRDIE", dataParam.ImfCode);
-
-            _generalSettingsManager.FillGeneralSettings();
-            Assert.AreEqual("AIRDIE", dataParam.ImfCode);
-
-            _generalSettingsManager.UpdateSelectedParameter(OGeneralSettings.IMF_CODE, "I01");
-            Assert.AreEqual("I01", dataParam.ImfCode);
-
-            _generalSettingsManager.FillGeneralSettings();
-            Assert.AreEqual("I01", dataParam.ImfCode);
-        }
 
         [Test]
         public void TestSelectAllParameters()
