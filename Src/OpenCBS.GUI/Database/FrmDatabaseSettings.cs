@@ -371,7 +371,8 @@ namespace OpenCBS.GUI.Database
                               settings.Name, MultiLanguageStrings.GetString(Ressource.FrmDatabaseSettings,
                                                                                "InProgress.Text"));
 
-            bWDatabaseBackup.RunWorkerAsync(settings);
+            var data = new object[] { settings, folderBrowserDialog.SelectedPath };
+            bWDatabaseBackup.RunWorkerAsync(data);
         }
 
         private void buttonRestore_Click(object sender, EventArgs e)
@@ -558,12 +559,14 @@ namespace OpenCBS.GUI.Database
 
         private void bWDatabaseBackup_DoWork(object sender, DoWorkEventArgs e)
         {
-            var settings = (SqlDatabaseSettings) e.Argument;
+            var data = (object[]) e.Argument;
+            var settings = (SqlDatabaseSettings) data[0];
+            var path = (string) data[1];
             e.Result = DatabaseServices.RawBackup(
-                settings.Name, settings.Version
-                , settings.BranchCode
-                , UserSettings.BackupPath
-            );
+                settings.Name, 
+                settings.Version, 
+                settings.BranchCode, 
+                path);
         }
 
         private void bWDatabaseBackup_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
