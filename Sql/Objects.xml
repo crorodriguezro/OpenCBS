@@ -2688,14 +2688,14 @@ AS BEGIN
 										SELECT MAX(id) 
 										FROM SavingEvents 
 										WHERE code = 'SVRE' 
-										AND creation_date <= @date
+										AND convert(date, creation_date) <= @date
 										AND contract_id = @savingId 
 										AND deleted = 0),0)
    SET @laterReopenEventId    = ISNULL(
    									   (SELECT MIN(id) 
 										FROM SavingEvents 
 										WHERE code = 'SVRE' 
-										AND creation_date >@date
+										AND convert(date, creation_date) >@date
 										AND contract_id = @savingId 
 										AND deleted = 0),
 										2147483647
@@ -2706,7 +2706,7 @@ AS BEGIN
 				 WHERE se.contract_id = @savingId 
 				 AND se.deleted = 0 
 				 AND se.is_fired = 1 
-				 AND se.creation_date <= @date
+				 AND convert(date, se.creation_date) <= @date
 				 AND se.code IN ('SVIE','SVDE','SIPE','SCTE','SOCE','SVRE','SCIT','SVLD')
 				 AND se.id BETWEEN @previousReopenEventId AND @laterReopenEventId)
    
@@ -2715,7 +2715,7 @@ AS BEGIN
 				WHERE se.contract_id = @savingId 
 				AND se.deleted = 0 
 				AND se.is_fired = 1 
-				AND se.creation_date <= @date
+				AND convert(date, se.creation_date) <= @date
 				AND se.code IN ('SVWE','SDTE','SMFE','SOFE','SVAE','SODE','SDIT','SRLE')
 				AND se.id BETWEEN @previousReopenEventId AND @laterReopenEventId)
 	
@@ -2725,7 +2725,7 @@ AS BEGIN
 				WHERE se.contract_id = @savingId 
 				AND se.deleted = 0
 				AND se.is_fired = 1
-				AND se.creation_date <= @date
+				AND convert(date, se.creation_date) <= @date
 				AND se.code IN ('SVLD','SVCE','SVWE','SDTE','SDIT')
 				AND se.id BETWEEN @previousReopenEventId AND @laterReopenEventId)	
    

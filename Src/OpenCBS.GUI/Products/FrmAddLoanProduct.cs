@@ -2382,7 +2382,7 @@ namespace OpenCBS.GUI.Products
 
         private void interestRateTextChanged()
         {
-            if (cmbInterestRateType.SelectedIndex == 3)
+            if (cmbInterestRateType.SelectedIndex != 3)
             {
                 groupBoxInterestRate.Text = MultiLanguageStrings.GetString(Ressource.FrmAddLoanProduct,
                                                                            "grBoxIntRatePer.Text");

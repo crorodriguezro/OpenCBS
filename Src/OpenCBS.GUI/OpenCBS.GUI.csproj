@@ -2921,7 +2921,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Reports\Excel\Active Loans.zip">
+    <None Include="Reports\Excel\Active_Loans.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Reports\Excel\Collection_Sheet.zip">
