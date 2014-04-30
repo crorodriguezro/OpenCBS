@@ -3655,8 +3655,8 @@ namespace OpenCBS.GUI.Clients
                     else
                     {
                         DateTime now = TimeProvider.Now;
-                        DateTime dt = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0, 0);
-                        int lateDays = Convert.ToInt32(dt.Subtract(installment.ExpectedDate).TotalDays);
+                        //DateTime dt = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0, 0);
+                        int lateDays = (now.Date - installment.ExpectedDate).Days;
                         if (lateDays > 0)
                         {
                             listViewItem.BackColor = Color.White;
@@ -3709,7 +3709,7 @@ namespace OpenCBS.GUI.Clients
                 if (installment.PaidDate.HasValue)
                 {
                     listViewItem.SubItems.Add(installment.PaidDate.Value.ToShortDateString());
-                    int lateDays = Convert.ToInt32(installment.PaidDate.Value.Subtract(installment.ExpectedDate).TotalDays);
+                    int lateDays = (Convert.ToDateTime(installment.PaidDate) - installment.ExpectedDate).Days;
                     if (lateDays > 0)
                     {
                         listViewItem.SubItems.Add(lateDays.ToString());
@@ -3730,8 +3730,8 @@ namespace OpenCBS.GUI.Clients
                     else
                     {
                         DateTime now = TimeProvider.Now;
-                        DateTime dt = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0, 0);
-                        int lateDays = Convert.ToInt32(dt.Subtract(installment.ExpectedDate).TotalDays);
+                        //DateTime dt = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0, 0);
+                        int lateDays = (now.Date - installment.ExpectedDate).Days;
                         if (lateDays > 0) listViewItem.SubItems.Add(lateDays.ToString());
                         else listViewItem.SubItems.Add("-");
                     }
