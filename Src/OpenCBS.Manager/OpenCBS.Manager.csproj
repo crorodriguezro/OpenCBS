@@ -226,7 +226,6 @@
     <Compile Include="QueryForObject\QueryEntity.cs" />
     <Compile Include="QuestionnaireManager.cs" />
     <Compile Include="RoleManager.cs" />
-    <Compile Include="SQLToolManager.cs" />
     <Compile Include="UserManager.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -359,7 +359,7 @@ namespace OpenCBS.GUI.Database
             folderBrowserDialog.SelectedPath = UserSettings.BackupPath;
             if (DialogResult.OK != folderBrowserDialog.ShowDialog()) return;
 
-            UserSettings.BackupPath = folderBrowserDialog.SelectedPath;
+          //  UserSettings.BackupPath = folderBrowserDialog.SelectedPath;
 
             SqlDatabaseSettings settings = (SqlDatabaseSettings) listViewDatabases.SelectedItems[0].Tag;
 

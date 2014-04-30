@@ -57,7 +57,7 @@ namespace OpenCBS.Shared.Settings
             var textVersion = string.Format("{0}.{1}.{2}", version.Major, version.Minor, version.Build);
             var attribute =
                 (AssemblyGitRevision)
-                (Assembly.GetExecutingAssembly().GetCustomAttributes(typeof (AssemblyGitRevision), true).FirstOrDefault());
+                (Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyGitRevision), true).FirstOrDefault());
             if (attribute == null) return textVersion;
             var revision = attribute.Revision;
             revision = revision.Length > 7 ? revision.Substring(0, 7) : revision;
@@ -135,8 +135,8 @@ namespace OpenCBS.Shared.Settings
 
         public static string CurrentVersion
         {
-            get 
-            { 
+            get
+            {
                 var version = GetVersion();
                 return string.Format("{0}.{1}.0.0", version.Major, version.Minor);
             }
@@ -150,7 +150,7 @@ namespace OpenCBS.Shared.Settings
         public static bool UseOnlineMode
         {
             get { return _useOnlineMode; }
-            set { _useOnlineMode = value;}
+            set { _useOnlineMode = value; }
         }
 
         public static bool SentQuestionnaire
@@ -241,5 +241,6 @@ namespace OpenCBS.Shared.Settings
                 return value;
             }
         }
+
     }
 }

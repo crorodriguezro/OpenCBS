@@ -458,9 +458,6 @@
     <Compile Include="Configuration\FrmRoles.Designer.cs">
       <DependentUpon>FrmRoles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuration\FrmUserSettings.Designer.cs">
-      <DependentUpon>FrmUserSettings.cs</DependentUpon>
-    </Compile>
     <Compile Include="Configuration\PublicHolidaysWaitingForm.Designer.cs">
       <DependentUpon>PublicHolidaysWaitingForm.cs</DependentUpon>
     </Compile>
@@ -901,9 +898,6 @@
     <Compile Include="Configuration\ApplicationDate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Configuration\FrmUserSettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Configuration\FrmGeneralSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -915,12 +909,6 @@
     </Compile>
     <Compile Include="Configuration\PublicHolidaysWaitingForm.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tools\DatabaseMaintenance.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tools\DatabaseMaintenance.Designer.cs">
-      <DependentUpon>DatabaseMaintenance.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\Extensions.cs" />
     <Compile Include="Tools\frmProgress.cs">
@@ -940,12 +928,6 @@
     </Compile>
     <Compile Include="Tools\ShowPictureForm.Designer.cs">
       <DependentUpon>ShowPictureForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Tools\frmSQLTool.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tools\frmSQLTool.Designer.cs">
-      <DependentUpon>frmSQLTool.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\OMonthCalendar.cs">
       <SubType>Component</SubType>
@@ -1663,25 +1645,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\frmUserSelection.pt.resx">
       <DependentUpon>frmUserSelection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\FrmUserSettings.es-ES.resx">
-      <DependentUpon>FrmUserSettings.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\FrmUserSettings.fr.resx">
-      <DependentUpon>FrmUserSettings.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\FrmUserSettings.pt.resx">
-      <DependentUpon>FrmUserSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\FrmUserSettings.resx">
-      <DependentUpon>FrmUserSettings.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\FrmUserSettings.ru-RU.resx">
-      <DependentUpon>FrmUserSettings.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\PublicHolidaysWaitingForm.pt.resx">
       <DependentUpon>PublicHolidaysWaitingForm.cs</DependentUpon>
@@ -2606,13 +2569,6 @@
     <EmbeddedResource Include="TellerManagement\FrmTellerOperation.ru-RU.resx">
       <DependentUpon>FrmTellerOperation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tools\DatabaseMaintenance.es-ES.resx">
-      <DependentUpon>DatabaseMaintenance.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tools\DatabaseMaintenance.pt.resx">
-      <DependentUpon>DatabaseMaintenance.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Tools\frmProgress.es-ES.resx">
       <DependentUpon>frmProgress.cs</DependentUpon>
     </EmbeddedResource>
@@ -2625,9 +2581,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\frmSaveFile.pt.resx">
       <DependentUpon>frmSaveFile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tools\frmSQLTool.pt.resx">
-      <DependentUpon>frmSQLTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\PasswordForm.es-ES.resx">
       <DependentUpon>PasswordForm.cs</DependentUpon>
@@ -2836,18 +2789,6 @@
       <DependentUpon>PublicHolidaysWaitingForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tools\DatabaseMaintenance.fr.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>DatabaseMaintenance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tools\DatabaseMaintenance.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>DatabaseMaintenance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tools\DatabaseMaintenance.ru-RU.resx">
-      <DependentUpon>DatabaseMaintenance.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Tools\frmProgress.fr.resx">
       <DependentUpon>frmProgress.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -2881,21 +2822,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\ShowPictureForm.ru-RU.resx">
       <DependentUpon>ShowPictureForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tools\frmSQLTool.es-ES.resx">
-      <DependentUpon>frmSQLTool.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tools\frmSQLTool.fr.resx">
-      <DependentUpon>frmSQLTool.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tools\frmSQLTool.resx">
-      <DependentUpon>frmSQLTool.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tools\frmSQLTool.ru-RU.resx">
-      <DependentUpon>frmSQLTool.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\OMonthCalendar.resx">
