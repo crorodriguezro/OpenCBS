@@ -294,10 +294,6 @@ namespace OpenCBS.Services
             return _remoteOperation.GetNonWorkingDate(CurrentUser);
         }
 
-        public SQLToolServices GetSQLToolServices()
-        {
-            return _remoteOperation.GetSQLToolServices(CurrentUser);
-        }
 
         public QuestionnaireServices GetQuestionnaireServices()
         {

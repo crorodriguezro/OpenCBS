@@ -588,21 +588,7 @@ namespace OpenCBS.Services
             }
         }
 
-        public void ShrinkDatabase()
-        {
-            SqlConnection connection = ConnectionManager.GeneralSqlConnection;
-            try
-            {
-                connection.Open();
-                DatabaseManager.ShrinkDatabase(TechnicalSettings.DatabaseName, connection);
-                connection.Close();
-            }
-            catch (Exception)
-            {
-                connection.Close();
-                throw;
-            }
-        }
+        
 
         public void SaveDatabaseDiagramsInXml(bool pBool,string pDatabaseName)
         {

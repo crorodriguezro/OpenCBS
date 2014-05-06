@@ -209,10 +209,6 @@ namespace OpenCBS.Services
             return new FundingLineServices(CurrentUser);
         }
 
-        public SQLToolServices GetSQLToolServices()
-        {
-            return new SQLToolServices(CurrentUser);
-        }
 
         public CurrencyServices GetCurrencyServices()
         {

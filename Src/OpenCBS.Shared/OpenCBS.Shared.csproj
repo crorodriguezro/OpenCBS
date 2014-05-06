@@ -164,12 +164,6 @@
       <DependentUpon>GlobalSettings.settings</DependentUpon>
     </Compile>
     <Compile Include="Settings\UserSettings.cs" />
-    <Compile Include="Settings\UserSettingsStore.cs" />
-    <Compile Include="Settings\UserSettingsStore.Designer.cs">
-      <DependentUpon>UserSettingsStore.settings</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -199,10 +193,6 @@
     <None Include="Settings\GlobalSettings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>GlobalSettings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Settings\UserSettingsStore.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>UserSettingsStore.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

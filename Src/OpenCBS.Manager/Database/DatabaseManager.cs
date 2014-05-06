@@ -261,27 +261,7 @@ namespace OpenCBS.Manager.Database
             }
         }
 
-      
-        public static void ShrinkDatabase(string pDatabaseName, SqlConnection pSqlConnection)
-        {
-            string database = TechnicalSettings.DatabaseName;
-            string sql1 = String.Format("ALTER DATABASE {0} SET RECOVERY SIMPLE", database);
-            string sql2 = String.Format("ALTER DATABASE {0} SET AUTO_SHRINK ON", database);
-
-            try
-            {
-                OpenCbsCommand cmd = new OpenCbsCommand(sql1, pSqlConnection);
-                cmd.ExecuteNonQuery();
-                cmd = new OpenCbsCommand(sql2, pSqlConnection);
-                cmd.ExecuteNonQuery();
-
-                string sql = String.Format("DBCC SHRINKDATABASE ({0})", database);
-                cmd = new OpenCbsCommand(sql, pSqlConnection);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception) { }
-        }
-
+     
         private static List<string> GetObjectNamesToDump()
         {
             List<string> retval = new List<string>

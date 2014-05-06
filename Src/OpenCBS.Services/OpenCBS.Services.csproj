@@ -255,7 +255,6 @@
     </Compile>
     <Compile Include="Events\EventProcessorServices.cs" />
     <Compile Include="SettingsImportExportServices.cs" />
-    <Compile Include="SQLToolServices.cs" />
     <Compile Include="UserServices.cs">
       <SubType>Code</SubType>
     </Compile>

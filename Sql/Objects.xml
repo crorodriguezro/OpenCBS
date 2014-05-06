@@ -439,7 +439,7 @@ RETURN
 	(
 		-- Unite Installments and InstallmentHistory
 		SELECT h.event_id AS snapshot_id
-			, cast(e.event_date as date) AS snapshot_date
+			, CAST(e.event_date AS DATE) AS snapshot_date
 			, h.contract_id
 			, h.number
 			, h.expected_date
@@ -450,7 +450,7 @@ RETURN
 			, h.paid_date
 		FROM dbo.InstallmentHistory AS h
 		LEFT JOIN dbo.ContractEvents AS e ON h.event_id = e.id
-		WHERE e.is_deleted = 0
+		WHERE e.is_deleted = 0 AND CAST(e.event_date AS DATE) > @date
 		UNION ALL
 		SELECT 0 AS snapshot_id
 			, '2050-01-01' AS snapshot_date -- date in a very distant future
@@ -2688,14 +2688,14 @@ AS BEGIN
 										SELECT MAX(id) 
 										FROM SavingEvents 
 										WHERE code = 'SVRE' 
-										AND creation_date <= @date
+										AND convert(date, creation_date) <= @date
 										AND contract_id = @savingId 
 										AND deleted = 0),0)
    SET @laterReopenEventId    = ISNULL(
    									   (SELECT MIN(id) 
 										FROM SavingEvents 
 										WHERE code = 'SVRE' 
-										AND creation_date >@date
+										AND convert(date, creation_date) >@date
 										AND contract_id = @savingId 
 										AND deleted = 0),
 										2147483647
@@ -2706,7 +2706,7 @@ AS BEGIN
 				 WHERE se.contract_id = @savingId 
 				 AND se.deleted = 0 
 				 AND se.is_fired = 1 
-				 AND se.creation_date <= @date
+				 AND convert(date, se.creation_date) <= @date
 				 AND se.code IN ('SVIE','SVDE','SIPE','SCTE','SOCE','SVRE','SCIT','SVLD')
 				 AND se.id BETWEEN @previousReopenEventId AND @laterReopenEventId)
    
@@ -2715,7 +2715,7 @@ AS BEGIN
 				WHERE se.contract_id = @savingId 
 				AND se.deleted = 0 
 				AND se.is_fired = 1 
-				AND se.creation_date <= @date
+				AND convert(date, se.creation_date) <= @date
 				AND se.code IN ('SVWE','SDTE','SMFE','SOFE','SVAE','SODE','SDIT','SRLE')
 				AND se.id BETWEEN @previousReopenEventId AND @laterReopenEventId)
 	
@@ -2725,7 +2725,7 @@ AS BEGIN
 				WHERE se.contract_id = @savingId 
 				AND se.deleted = 0
 				AND se.is_fired = 1
-				AND se.creation_date <= @date
+				AND convert(date, se.creation_date) <= @date
 				AND se.code IN ('SVLD','SVCE','SVWE','SDTE','SDIT')
 				AND se.id BETWEEN @previousReopenEventId AND @laterReopenEventId)	
    

@@ -43,6 +43,9 @@ GO
 DELETE  FROM  dbo.GeneralParameters WHERE [KEY] ='IMF_CODE'
 GO
  
+DELETE  FROM  dbo.GeneralParameters WHERE [KEY] ='ID_WILD_CHAR_CHECK'
+GO
+ 
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v14.6.0.0'
 WHERE   [name] = 'VERSION'

@@ -30,97 +30,51 @@ using OpenCBS.Enums;
 
 namespace OpenCBS.Shared.Settings
 {
-	[Serializable]
-	public static class UserSettings
+    [Serializable]
+    public static class UserSettings
     {
-	    public static string GetReportPath
-	    {
-            get { return Path.Combine(ApplicationDirectory, "Reports"); } 
-	    }
+        public static string GetReportPath
+        {
+            get { return Path.Combine(ApplicationDirectory, "Reports"); }
+        }
 
         public static string GetTemplatePath
         {
             get { return Path.Combine(ApplicationDirectory, "Template"); }
         }
 
-	    public static string GetInternalReportPath
+        public static string GetInternalReportPath
         {
             get { return Path.Combine(ApplicationDirectory, @"Reports\Internal"); }
         }
 
-	    public static string GetUpdatePath
+        public static string GetUpdatePath
         {
             get { return Path.Combine(ApplicationDirectory, "Update"); }
         }
 
-	    public static string ApplicationPath
-	    {
-	        get { return Path.Combine(ApplicationDirectory, "OpenCBS.GUI.exe"); }
-	    }
-
-	    public static string ApplicationDirectory
-	    {
-	        get { return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location); }
-	    }
-
-	    public static string Language
+        public static string ApplicationPath
         {
-            get { return UserSettingsStore.Default.LANGUAGE; }
-            set { _SetSetting("LANGUAGE", value); }
+            get { return Path.Combine(ApplicationDirectory, "OpenCBS.GUI.exe"); }
+        }
+
+        public static string ApplicationDirectory
+        {
+            get { return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location); }
+        }
+
+        public static string Language
+        {
+            get { return GetUserLanguage(); }
+            set { SetUserLanguage(value); }
         }
 
         public static string BackupPath
         {
-            get
-            {
-                if (string.IsNullOrEmpty(UserSettingsStore.Default.BACKUP_PATH))
-                {
-                    if (Directory.Exists(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Backup")))
-                    {
-                        _SetSetting("BACKUP_PATH", Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Backup"));
-                    }
-                    else
-                    {
-                        _SetSetting("BACKUP_PATH", Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
-
-                    }
-                }
-                return UserSettingsStore.Default.BACKUP_PATH;
-            }
-            set { _SetSetting("BACKUP_PATH", value); }
+            get { return Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Backup"); }
         }
 
-        public static string ExportConsoPath
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(UserSettingsStore.Default.EXPORT_PATH))
-                {
-                    _SetSetting("EXPORT_PATH", Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Export"));
-                }
-                return UserSettingsStore.Default.EXPORT_PATH;
-            }
-            set { _SetSetting("EXPORT_PATH", value); }
-        }
-
-	    public static bool AutoUpdate
-	    {
-            get { return UserSettingsStore.Default.AUTO_UPDATE; }
-            set { _SetSetting("AUTO_UPDATE", value); }
-	    }
-
-        private static void _SetSetting(string pPropertyName, string pValue)
-        {
-            UserSettingsStore.Default[pPropertyName] = pValue;
-            UserSettingsStore.Default.Save();
-        }
-
-        private static void _SetSetting(string pPropertyName, bool pValue)
-        {
-            UserSettingsStore.Default[pPropertyName] = pValue;
-            UserSettingsStore.Default.Save();
-        }
-
+   
         private static RegistryKey OctopusKey
         {
             get
@@ -135,7 +89,7 @@ namespace OpenCBS.Shared.Settings
 
         public static byte[] GetAlertState()
         {
-            return (byte[]) OctopusKey.GetValue("AlertState", null);
+            return (byte[])OctopusKey.GetValue("AlertState", null);
         }
 
         public static void SetAlertState(byte[] state)
@@ -147,7 +101,7 @@ namespace OpenCBS.Shared.Settings
         {
             RegistryKey key = OctopusKey.CreateSubKey(reportName);
             Debug.Assert(key != null, "Registry: report key missing");
-            return (int) key.GetValue("OpenCount", 0);
+            return (int)key.GetValue("OpenCount", 0);
         }
 
         public static void SetReportOpenCount(string reportName, int count)
@@ -160,7 +114,7 @@ namespace OpenCBS.Shared.Settings
         public static OReportSortOrder GetReportSortOrder()
         {
             string value = OctopusKey.GetValue("ReportSortOrder", "Alphabet").ToString();
-            return (OReportSortOrder) Enum.Parse(typeof (OReportSortOrder), value);
+            return (OReportSortOrder)Enum.Parse(typeof(OReportSortOrder), value);
         }
 
         public static void SetReportSortOrder(OReportSortOrder sortOrder)
@@ -288,15 +242,15 @@ namespace OpenCBS.Shared.Settings
             SetInt("AlertsWidth", value);
         }
 
-	    private const int ReportStarred = 1;
-	    private const int ReportUnstarred = 0;
+        private const int ReportStarred = 1;
+        private const int ReportUnstarred = 0;
 
         public static void SetReportStarred(string reportName, bool starred)
-	    {
+        {
             RegistryKey key = OctopusKey.CreateSubKey(reportName);
             Debug.Assert(key != null, "Registry: report key missing");
             key.SetValue("Starred", starred ? ReportStarred : ReportUnstarred, RegistryValueKind.DWord);
-	    }
+        }
 
         public static bool GetReportStarred(string reportName)
         {

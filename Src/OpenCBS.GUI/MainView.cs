@@ -540,27 +540,11 @@ namespace OpenCBS.GUI
             ReloadAlerts();
         }
 
-        private void menuItemAdvancedSettings_Click(object sender, System.EventArgs e)
-        {
-            Form form = new FrmUserSettings();
-            form.ShowDialog();
-            if (form.DialogResult == DialogResult.OK)
-            {
-                MessageBox.Show(MultiLanguageStrings.GetString(Ressource.MainView, "advancedSettingsChanged.Text"));
-                Restart.LaunchRestarter();
-            }
-        }
 
         private void menuItemBackupData_Click(object sender, EventArgs e)
         {
             FrmDatabaseSettings frmDatabaseSettings = new FrmDatabaseSettings(FrmDatabaseSettingsEnum.SqlServerSettings, false, true);
             frmDatabaseSettings.ShowDialog();
-        }
-
-        private void menuItemDatabaseMaintenance_Click(object sender, EventArgs e)
-        {
-            Form form = new frmDatabaseMaintenance();
-            form.ShowDialog();
         }
 
         private void FillDropDownMenuWithLanguages()
@@ -882,7 +866,7 @@ namespace OpenCBS.GUI
         private void LotrasmicMainWindowForm_Load(object sender, EventArgs e)
         {
             InitExtensions();
-            UserSettings.Language = UserSettings.GetUserLanguage();
+             UserSettings.Language = UserSettings.GetUserLanguage();
             if (InitializeTellerManagement())
             {
                 Ping();

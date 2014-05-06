@@ -52,7 +52,6 @@ namespace OpenCBS.Services
         ApplicationSettings GetGeneralSettings(User pUser);
         FundingLineServices GetFundingLinesServices(User pUser);
         MFIServices GetMFIServices(User pUser);
-        SQLToolServices GetSQLToolServices(User pUser);
         QuestionnaireServices GetQuestionnaireServices(User pUser);
         SavingProductServices GetSavingProductServices(User pUser);
         SavingServices GetSavingServices(User pUser);

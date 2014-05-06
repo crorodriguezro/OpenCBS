@@ -121,13 +121,6 @@ namespace OpenCBS.GUI
                     ServicesProvider.GetInstance().GetDatabaseServices().SaveDatabaseDiagramsInXml(false, TechnicalSettings.DatabaseName);
                     Environment.Exit(1);
                 }
-                else if (arg == PARAM_USER_SETTINGS)
-                {
-                    TechnicalSettings.CheckSettings();
-                    Form frm = new FrmUserSettings();
-                    frm.ShowDialog();
-                    Environment.Exit(1);
-                }
                 else if (arg == PARAM_SETUP)
                 {
                     TechnicalSettings.CheckSettings();
