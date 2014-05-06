@@ -439,7 +439,7 @@ RETURN
 	(
 		-- Unite Installments and InstallmentHistory
 		SELECT h.event_id AS snapshot_id
-			, cast(e.event_date as date) AS snapshot_date
+			, CAST(e.event_date AS DATE) AS snapshot_date
 			, h.contract_id
 			, h.number
 			, h.expected_date
@@ -450,7 +450,7 @@ RETURN
 			, h.paid_date
 		FROM dbo.InstallmentHistory AS h
 		LEFT JOIN dbo.ContractEvents AS e ON h.event_id = e.id
-		WHERE e.is_deleted = 0
+		WHERE e.is_deleted = 0 AND CAST(e.event_date AS DATE) > @date
 		UNION ALL
 		SELECT 0 AS snapshot_id
 			, '2050-01-01' AS snapshot_date -- date in a very distant future
