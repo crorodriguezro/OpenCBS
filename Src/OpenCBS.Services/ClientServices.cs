@@ -429,14 +429,7 @@ namespace OpenCBS.Services
                 {
                     if (CheckIfIdentificationDataAlreadyExists(person.IdentificationData, person.Id))
                         throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IdentificationDataAlreadyUsed);
-                    try
-                    {
-                        UpdatePerson(person, action);
-                    }
-                    catch
-                    {
-                        person.Id = AddPerson(person, action);
-                    }
+                    UpdatePerson(person, action);
                     SavePicture(person);
                 }
             }
@@ -654,6 +647,7 @@ namespace OpenCBS.Services
                 }
                 catch (Exception ex)
                 {
+                    pPerson.Id = 0;
                     System.Diagnostics.Debug.WriteLine(ex.Message);
                     transac.Rollback();
                     throw ex;
