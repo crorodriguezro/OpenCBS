@@ -68,7 +68,7 @@ namespace OpenCBS.Manager
 
         public byte GetByte(string name)
         {
-            if (string.IsNullOrEmpty(name)) throw new ArgumentException("Column name should no be empty");
+            if (string.IsNullOrEmpty(name)) throw new ArgumentException("Column name should not be empty");
             int ordinal = _reader.GetOrdinal(name);
             return _reader.GetByte(ordinal);
         }
@@ -109,7 +109,7 @@ namespace OpenCBS.Manager
 
         public char GetChar(string name)
         {
-            if (string.IsNullOrEmpty(name)) throw new ArgumentException("Column name should no be empty");
+            if (string.IsNullOrEmpty(name)) throw new ArgumentException("Column name should not be empty");
             return _reader.GetString(_reader.GetOrdinal(name))[0];
         }
 
@@ -277,7 +277,8 @@ namespace OpenCBS.Manager
             {
                 _cmd.Parameters.Add(name, SqlDbType.NVarChar);
                 _cmd.Parameters[name].Value = DBNull.Value;
-            } else
+            }
+            else
                 _cmd.Parameters.AddWithValue(name, value);
         }
 
