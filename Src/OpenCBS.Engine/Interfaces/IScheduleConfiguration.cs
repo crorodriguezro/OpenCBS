@@ -12,5 +12,6 @@ namespace OpenCBS.Engine.Interfaces
         IAdjustmentPolicy AdjustmentPolicy { get; set; }
         IDateShiftPolicy DateShiftPolicy { get; set; }
         bool ChargeInterestDuringGracePeriod { get; set; }
+        bool ChargeActualInterestForFirstInstallment { get; set; }
     }
 }

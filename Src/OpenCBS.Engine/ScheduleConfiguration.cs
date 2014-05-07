@@ -43,5 +43,7 @@ namespace OpenCBS.Engine
         {
             return MemberwiseClone();
         }
+
+        public bool ChargeActualInterestForFirstInstallment { get; set; }
     }
 }

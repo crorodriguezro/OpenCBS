@@ -71,6 +71,7 @@ namespace OpenCBS.Engine
             _scheduleConfiguration.InterestRate = _loan.InterestRate * numberOfPeriods * 100;
             _scheduleConfiguration.StartDate = _loan.StartDate;
             _scheduleConfiguration.PreferredFirstInstallmentDate = _loan.FirstInstallmentDate;
+            _scheduleConfiguration.ChargeActualInterestForFirstInstallment = _settings.PayFirstInterestRealValue;
             return this;
         }
 

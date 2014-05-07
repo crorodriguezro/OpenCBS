@@ -118,9 +118,17 @@ namespace OpenCBS.Engine
             {
                 var numberOfPeriods =
                     (decimal)
-                        (configuration.PeriodPolicy.GetNumberOfPeriodsInYear(
-                            configuration.PreferredFirstInstallmentDate, configuration.YearPolicy));
-                interest = configuration.Amount * configuration.InterestRate / numberOfPeriods / 100;
+                    (configuration.PeriodPolicy.GetNumberOfPeriodsInYear(
+                        configuration.PreferredFirstInstallmentDate, configuration.YearPolicy));
+                interest = configuration.Amount*configuration.InterestRate/numberOfPeriods/100;
+
+                if (configuration.ChargeActualInterestForFirstInstallment)
+                {
+                    var nextDate = configuration.PeriodPolicy.GetNextDate(configuration.StartDate);
+                    var numerator = (installment.ExpectedDate - configuration.StartDate).Days;
+                    var denominator = (nextDate - configuration.StartDate).Days;
+                    interest = interest*numerator/denominator;
+                }
             }
             return configuration.RoundingPolicy.Round(interest.Value);
         }
