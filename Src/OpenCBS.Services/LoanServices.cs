@@ -2938,5 +2938,26 @@ namespace OpenCBS.Services
                 SetClientStatus(loan, loan.Project.Client);
             return loan;
         }
+
+        public void FireEvent(Event eEvent, Loan loan)
+        {
+            using (var transaction = _loanManager.GetConnection().BeginTransaction())
+                try
+                {
+                    _ePs.FireEvent(eEvent, loan, transaction);
+                    CallInterceptor(new Dictionary<string, object>
+                        {
+                            {"Loan", loan},
+                            {"Event", eEvent},
+                            {"SqlTransaction", transaction}
+                        });
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+        }
     }
 }
