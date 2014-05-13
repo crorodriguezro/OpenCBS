@@ -164,9 +164,6 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.MaxRepayment
 
         public OCurrency CalculateMaximumAmountAuthorizedToRepay(DateTime pDate)
         {
-            if (_cCo.LoansType == OLoanTypes.DecliningFixedPrincipalWithRealInterest)
-                return MaxAmountOfRealSchedule(pDate);
-
             OCurrency amount = 0;
             //capital
             amount += _contract.CalculateActualOlb();

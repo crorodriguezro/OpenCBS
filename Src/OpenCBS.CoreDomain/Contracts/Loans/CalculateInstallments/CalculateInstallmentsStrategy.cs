@@ -72,9 +72,6 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.CalculateInstallments
                         case OLoanTypes.DecliningFixedPrincipal:
                             _iCi = new FixedPrincipalStrategy(pCio.Contract, _generalSettings);
                             break;
-                        case OLoanTypes.DecliningFixedPrincipalWithRealInterest:
-                            _iCi = new FixedPrincipalWithRealInterest(pCio.Contract, _generalSettings);
-                            break;
                     }
                 }
             }

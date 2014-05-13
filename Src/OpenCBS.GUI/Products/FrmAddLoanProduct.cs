@@ -220,14 +220,15 @@ namespace OpenCBS.GUI.Products
             cmbInterestRateType.Items.Add(GetString("Flat.Text"));
             cmbInterestRateType.Items.Add(GetString("DecliningFixedPrincipal.Text"));
             cmbInterestRateType.Items.Add(GetString("DecliningFixedInstallments.Text"));
-            cmbInterestRateType.Items.Add(GetString("DecliningReal.Text"));
             var list = ServicesProvider.GetInstance().GetProductServices().SelectLoanProuctTypeScripts();
             foreach (var script in list)
             {
                 cmbInterestRateType.Items.Add(script);
             }
-            if (index < 4)
+            if (index < 3)
+            {
                 cmbInterestRateType.SelectedIndex = index;
+            }
             else
             {
                 cmbInterestRateType.SelectedItem = pack.ScriptName;
@@ -1441,11 +1442,6 @@ namespace OpenCBS.GUI.Products
                 _product.LoanType = OLoanTypes.DecliningFixedInstallments;
                 checkBoxUseExceptionalInstallmen.Enabled = true;
             }
-            else if (cmbInterestRateType.SelectedIndex == 3)
-            {
-                _product.LoanType = OLoanTypes.DecliningFixedPrincipalWithRealInterest;
-                checkBoxUseExceptionalInstallmen.Enabled = true;
-            }
 
             InitializeComboBoxExoticProduct();
             InitializeCustomLoanTypes();
@@ -2459,9 +2455,6 @@ namespace OpenCBS.GUI.Products
                     break;
                 case 2:
                     _product.LoanType = OLoanTypes.DecliningFixedInstallments;
-                    break;
-                case 3:
-                    _product.LoanType = OLoanTypes.DecliningFixedPrincipalWithRealInterest;
                     break;
                 default:
                     _product.LoanType = OLoanTypes.CustomLoanType;

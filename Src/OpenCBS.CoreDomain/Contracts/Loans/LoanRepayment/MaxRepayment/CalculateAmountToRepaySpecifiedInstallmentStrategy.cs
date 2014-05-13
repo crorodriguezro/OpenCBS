@@ -194,9 +194,6 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.MaxRepayment
 
         public OCurrency CalculateAmountToRepaySpecifiedInstallment(DateTime pDate,int pInstallmentNumber)
         {
-            if (_cCo.LoansType == OLoanTypes.DecliningFixedPrincipalWithRealInterest)
-                return MaxAmountOfRealSchedule(pDate.Date);
-
             OCurrency amount = 0;
 
             //principal

@@ -2788,10 +2788,7 @@ namespace OpenCBS.GUI.Clients
         private void InitializePackageInterestRate(Loan credit, bool pForCreation)
         {
             LoanProduct creditProduct = credit.Product;
-            string annualType = creditProduct.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest
-                                       ? MultiLanguageStrings.GetString(Ressource.CreditContractForm, "annual.Text")
-                                       + "\n"
-                                       : "";
+            string annualType = "";
 
             if (pForCreation) //if it is new contract
             {
@@ -3533,7 +3530,7 @@ namespace OpenCBS.GUI.Clients
             {
                 if (!pCredit.ScheduleChangedManually)
                 {
-                    pCredit.InstallmentList = pCredit.Product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest || pCredit.Product.IsExotic
+                    pCredit.InstallmentList = pCredit.Product.IsExotic
                         ? pCredit.CalculateInstallments(true) : ServiceProvider.GetContractServices().SimulateScheduleCreation(pCredit);
                     pCredit.CalculateStartDates();
                 }

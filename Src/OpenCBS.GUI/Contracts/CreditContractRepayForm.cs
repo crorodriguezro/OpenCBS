@@ -184,9 +184,6 @@ namespace OpenCBS.GUI.Contracts
             _date = TimeProvider.Today.Date;
             _amount = _loan.CalculateAmountToRepaySpecifiedInstallment(_instalmentNumber, TimeProvider.Now.Date,
                 _disableFees, _manualPenalties, _manualCommission, _disableInterests, _manualInterests, _keepExpectedInstallment);
-
-            if(_loan.Product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest)
-                gbTypeOfRepayment.Visible = false;
         }
 
         private void SetExchangeRate()
@@ -271,10 +268,6 @@ namespace OpenCBS.GUI.Contracts
             lblAmountToGoBackNormal.Text = string.Format("{0} {1}",
                 MultiLanguageStrings.GetString(Ressource.CreditContractRepayForm, "amountToGoNormal.Text"),_regradingAmount.GetFormatedValue(_loan.UseCents));
             
-            if (_loan.Product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest)
-                nudICAmount.Value = _regradingAmount.Value;
-
-
             if (_exchangeRate != null && ServicesProvider.GetInstance().GetCurrencyServices().FindAllCurrencies().Count != 1)
             {
                 _lbECName.Text = ServicesProvider.GetInstance().GetCurrencyServices().GetPivot().Name;
