@@ -37,7 +37,10 @@ namespace OpenCBS.Engine
                 }
             }
             // if the difference between start date and first installment date less or greater than period
-            result[0].InterestsRepayment = CalculateFirstInstallmentInterest(result[0], configuration);
+            if (configuration.GracePeriod > 0 && configuration.ChargeInterestDuringGracePeriod)
+            {
+                result[0].InterestsRepayment = CalculateFirstInstallmentInterest(result[0], configuration);
+            }
 
             // Initialize RepaymentDate's
             foreach (var i in result)
