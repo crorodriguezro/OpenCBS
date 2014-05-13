@@ -1591,9 +1591,6 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                 cCo.KeepExpectedInstallments = false;
             }
 
-            if (_product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest)
-                paymentType = OPaymentType.StandardPayment;
-
             // We have to calculate penalties here because
             // once the repayment is done it is impossible to do
             // reliably afterward. These values are later used (see below)
@@ -2037,17 +2034,9 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
             rPe.Commissions = commissionsEvent;
             rPe.Interests = interestEvent;
 
-            if (_product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest 
-                && repaymentType == OPaymentType.TotalPayment)
+            if (InstallmentList[installmentNumber - 1].ExpectedDate <= pDate)
             {
-                repaymentType = OPaymentType.TotalPayment;
-            }
-            else
-            {
-                if (InstallmentList[installmentNumber - 1].ExpectedDate <= pDate)
-                {
-                    repaymentType = OPaymentType.StandardPayment;
-                }
+                repaymentType = OPaymentType.StandardPayment;
             }
 
             rPe.RepaymentType = repaymentType;

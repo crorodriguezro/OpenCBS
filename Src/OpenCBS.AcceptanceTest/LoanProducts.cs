@@ -20,7 +20,6 @@ namespace OpenCBS.AcceptanceTest
             _loanProducts.Add("Annuity Monthly (30 day)", Get_Annuity_Monthly_30Day());
             _loanProducts.Add("SCG Declining Rate Fixed Principal", Get_SCG_DecliningRate_FixedPrincipal());
             _loanProducts.Add("SCG Declining Rate Fixed Principal - Cents", Get_SCG_DecliningRate_FixedPrincipal_Cents());
-            _loanProducts.Add("REAL", Get_REAL());
         }
 
         public LoanProduct this[string key]
@@ -150,26 +149,6 @@ namespace OpenCBS.AcceptanceTest
                 AnticipatedPartialRepaymentPenaltiesBase = OAnticipatedRepaymentPenaltiesBases.RemainingOLB,
                 NonRepaymentPenalties = new NonRepaymentPenaltiesNullableValues(0, 0, 0.01, 0),
                 Currency = new Currency { UseCents = true },
-            };
-        }
-
-        private LoanProduct Get_REAL()
-        {
-            return new LoanProduct
-            {
-                Name = "REAL",
-                InstallmentType = new InstallmentType { Name = "Monthly", NbOfDays = 0, NbOfMonths = 1 },
-                InterestRateMin = 0,
-                InterestRateMax = 100,
-                GracePeriodMin = 0,
-                GracePeriodMax = 10,
-                LoanType = OLoanTypes.DecliningFixedPrincipalWithRealInterest,
-                ChargeInterestWithinGracePeriod = true,
-                KeepExpectedInstallment = true,
-                AnticipatedTotalRepaymentPenaltiesBase = OAnticipatedRepaymentPenaltiesBases.RemainingOLB,
-                AnticipatedPartialRepaymentPenaltiesBase = OAnticipatedRepaymentPenaltiesBases.RemainingOLB,
-                NonRepaymentPenalties = new NonRepaymentPenaltiesNullableValues(0, 0, 0.01, 0),
-                Currency = new Currency { UseCents = false },
             };
         }
     }

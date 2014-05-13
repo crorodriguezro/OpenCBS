@@ -67,34 +67,6 @@ namespace OpenCBS.GUI.Contracts
                     var result = new KeyValuePair<Loan, RepaymentEvent>();
                     Installment installment = loan.GetFirstUnpaidInstallment();
 
-                    if (loan.Product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest)
-                    {
-                        OCurrency amountForToday = loan.CalculateMaximumAmountToRegradingLoan(installment.Number,
-                                                                                              TimeProvider.Now.Date,
-                                                                                              false,
-                                                                                              0,
-                                                                                              0,
-                                                                                              false,
-                                                                                              0,
-                                                                                              true);
-
-                        result = ServicesProvider.GetInstance().GetContractServices().ShowNewContract(loan,
-                                                                                                      installment.Number,
-                                                                                                      TimeProvider.Now,
-                                                                                                      amountForToday,
-                                                                                                      false,
-                                                                                                      0,
-                                                                                                      0,
-                                                                                                      false,
-                                                                                                      0,
-                                                                                                      true,
-                                                                                                      false,
-                                                                                                      paymentMethod,
-                                                                                                      false,
-                                                                                                      false);
-                    }
-
-
                     if (null == installment) continue;
 
                     loans++;
@@ -344,34 +316,6 @@ namespace OpenCBS.GUI.Contracts
                 Installment i = loan.GetFirstUnpaidInstallment();
                 bool disableFees = false;
                 var result = new KeyValuePair<Loan, RepaymentEvent>();
-
-                if (loan.Product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest)
-                {
-                    OCurrency amountForToday = loan.CalculateMaximumAmountToRegradingLoan(i.Number,
-                                                                                          TimeProvider.Now,
-                                                                                          false,
-                                                                                          0,
-                                                                                          0,
-                                                                                          false,
-                                                                                          0,
-                                                                                          true);
-                    PaymentMethod paymentMethod =
-                        ServicesProvider.GetInstance().GetPaymentMethodServices().GetPaymentMethodById(1);
-                    result = ServicesProvider.GetInstance().GetContractServices().ShowNewContract(loan,
-                                                                                                  i.Number,
-                                                                                                  TimeProvider.Now.Date,
-                                                                                                  amountForToday,
-                                                                                                  false,
-                                                                                                  0,
-                                                                                                  0,
-                                                                                                  false,
-                                                                                                  0,
-                                                                                                  true,
-                                                                                                  false,
-                                                                                                  paymentMethod,
-                                                                                                  false,
-                                                                                                  false);
-                }
 
                 OCurrency penalties = (OCurrency)e.Item.SubItems[4].Tag;
                 OCurrency principal = result.Value == null ? i.PrincipalHasToPay : result.Value.Principal;

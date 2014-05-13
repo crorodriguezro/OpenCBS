@@ -215,58 +215,33 @@ namespace OpenCBS.GUI.Contracts
                 Loan.InstallmentList[i].OLB = Loan.InstallmentList[i - 1].OLB -
                                                Loan.InstallmentList[i - 1].CapitalRepayment;
             if (Loan.Product.LoanType == OLoanTypes.Flat) return;
-            if (Loan.Product.LoanType == OLoanTypes.DecliningFixedPrincipalWithRealInterest)
+
+            for (var i = indexOfChangedItem; i < Loan.InstallmentList.Count; i++)
             {
-                int daysInTheYear = 0;
-                for (int i = 1; i <= 12; i++)
-                    daysInTheYear += DateTime.DaysInMonth(Loan.AlignDisbursementDate.Date.Year, i);
+                int daysInTheYear = Loan.Product.InterestScheme == OInterestScheme.Actual360 ||
+                                    Loan.Product.InterestScheme == OInterestScheme.Thirty360
+                    ? 360
+                    : DateTime.IsLeapYear(Loan.StartDate.Year) ? 366 : 365;
+
+                decimal period = Loan.InstallmentType.NbOfMonths == 1 && Loan.InstallmentType.NbOfDays == 0 ? 12.0m : 
+                    Convert.ToDecimal(daysInTheYear/(Loan.InstallmentType.NbOfMonths*30 + Loan.InstallmentType.NbOfDays));
 
                 int days;
-                if (indexOfChangedItem == 0)
-                    days = (Loan.InstallmentList[0].ExpectedDate - Loan.AlignDisbursementDate).Days;
+                if (i == 0)
+                    days = (Loan.InstallmentList[0].ExpectedDate - Loan.StartDate).Days;
                 else
-                    days =
-                        (Loan.InstallmentList[indexOfChangedItem].ExpectedDate -
-                         Loan.InstallmentList[indexOfChangedItem - 1].ExpectedDate).Days;
+                    days = (Loan.InstallmentList[i].ExpectedDate -
+                        Loan.InstallmentList[i - 1].ExpectedDate).Days;
+                days = Loan.Product.InterestScheme == OInterestScheme.ActualActual ||
+                        Loan.Product.InterestScheme == OInterestScheme.Actual360
+                    ? days
+                    : 30;
 
-                Loan.InstallmentList[indexOfChangedItem].InterestsRepayment =
-                    Math.Round(Loan.InstallmentList[indexOfChangedItem].OLB.Value*Loan.InterestRate/
-                               daysInTheYear*days, _rounding);
-                for (int i = indexOfChangedItem + 1; i < Loan.NbOfInstallments - 1; i++)
-                {
-                    days = (Loan.InstallmentList[i].ExpectedDate - Loan.InstallmentList[i - 1].ExpectedDate).Days;
-                    Loan.InstallmentList[i].InterestsRepayment =
-                        Math.Round(Loan.InstallmentList[i].OLB.Value*Loan.InterestRate/
-                                   daysInTheYear*days, _rounding);
-                }
+                var interest = Math.Round(Loan.InstallmentList[i].OLB.Value * Loan.InterestRate * period /
+                            daysInTheYear * days, _rounding);
+                _total.InterestsRepayment += interest - Loan.InstallmentList[i].InterestsRepayment;
+                Loan.InstallmentList[i].InterestsRepayment = interest;
             }
-            else
-                for (var i = indexOfChangedItem; i < Loan.InstallmentList.Count; i++)
-                {
-                    int daysInTheYear = Loan.Product.InterestScheme == OInterestScheme.Actual360 ||
-                                        Loan.Product.InterestScheme == OInterestScheme.Thirty360
-                        ? 360
-                        : DateTime.IsLeapYear(Loan.StartDate.Year) ? 366 : 365;
-
-                    decimal period = Loan.InstallmentType.NbOfMonths == 1 && Loan.InstallmentType.NbOfDays == 0 ? 12.0m : 
-                        Convert.ToDecimal(daysInTheYear/(Loan.InstallmentType.NbOfMonths*30 + Loan.InstallmentType.NbOfDays));
-
-                    int days;
-                    if (i == 0)
-                        days = (Loan.InstallmentList[0].ExpectedDate - Loan.StartDate).Days;
-                    else
-                        days = (Loan.InstallmentList[i].ExpectedDate -
-                         Loan.InstallmentList[i - 1].ExpectedDate).Days;
-                    days = Loan.Product.InterestScheme == OInterestScheme.ActualActual ||
-                           Loan.Product.InterestScheme == OInterestScheme.Actual360
-                        ? days
-                        : 30;
-
-                    var interest = Math.Round(Loan.InstallmentList[i].OLB.Value * Loan.InterestRate * period /
-                               daysInTheYear * days, _rounding);
-                    _total.InterestsRepayment += interest - Loan.InstallmentList[i].InterestsRepayment;
-                    Loan.InstallmentList[i].InterestsRepayment = interest;
-                }
         }
 
         private bool CheckPrincipal(int indexOfChangedItem)

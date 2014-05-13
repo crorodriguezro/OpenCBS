@@ -26,7 +26,6 @@ using OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.CalculateFeesForAnticipat
 using OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.MaxRepayment;
 using OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment;
 using OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayNextInstallments;
-using OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayRealInterestInstallments;
 using OpenCBS.Enums;
 using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
@@ -40,7 +39,6 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment
     public class CreditContractRepayment
     {
         private readonly Repayment.RepayLateInstallments.CalculateInstallments _calculateInstallments;
-        private readonly CalculateRealInterestInstallments _calculateRealInterestInstallments;
         private readonly CalculateAnticipatedFeesStrategy _feesForAnticipatedRepayment;
         private readonly RepayNextInstallmentsStrategy _repayNextInstallments;
         private readonly CalculateMaximumAmountToRepayStrategy _amountToRepayTotalyLoan;
@@ -76,7 +74,6 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment
             _amountToRepayInstallment = new CalculateAmountToRepaySpecifiedInstallmentStrategy(creditOptions, contract.Copy(), user, _generalSettings, _nWds);
 
             _calculateInstallments = new Repayment.RepayLateInstallments.CalculateInstallments(creditOptions, contract, user, _generalSettings, _nWds);
-            _calculateRealInterestInstallments = new CalculateRealInterestInstallments(creditOptions, _amountToRepayTotalyLoan, contract, _generalSettings, _nWds);
             
             _feesForAnticipatedRepayment = new CalculateAnticipatedFeesStrategy(creditOptions, contract, _generalSettings);
             _repayNextInstallments = new RepayNextInstallmentsStrategy(contract, creditOptions, user, _generalSettings);
@@ -148,27 +145,12 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment
             {
                 case OPaymentType.StandardPayment:
                     {
-                        if (LoanOptions.LoansType == OLoanTypes.DecliningFixedPrincipalWithRealInterest)
-                        {
-                            _calculateRealInterestInstallments.RepayInstallments(_date,
-                                                                                ref amountPaid,
-                                                                                ref interestsEvent,
-                                                                                ref principalEvent,
-                                                                                ref penaltiesEvent,
-                                                                                ref commissionsEvent,
-                                                                                ref paymentType);
-                            PaidIstallments.AddRange(AddInstallments(_calculateRealInterestInstallments.PaidIstallments, PaidIstallments));
-                        }
-                        else
-                        {
-                            _calculateInstallments.RepayInstallments(_date,
-                                                                 ref amountPaid,
-                                                                 ref interestsEvent,
-                                                                 ref principalEvent,
-                                                                 ref penaltiesEvent,
-                                                                 ref commissionsEvent);
-                        }
-
+                        _calculateInstallments.RepayInstallments(_date,
+                                                                ref amountPaid,
+                                                                ref interestsEvent,
+                                                                ref principalEvent,
+                                                                ref penaltiesEvent,
+                                                                ref commissionsEvent);
                         break;
                     }
 
