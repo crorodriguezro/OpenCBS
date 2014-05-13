@@ -740,7 +740,8 @@ namespace OpenCBS.Services
                                     Commissions = listOfRble.Sum(item => item.Commissions.Value),
                                     Penalties = listOfRble.Sum(item => item.Fees.Value),
                                     Id = repayEvent.Id,
-                                    Date = repayEvent.Date
+                                    Date = repayEvent.Date,
+                                    PaymentMethodId = paymentMethod.Id
                                 }
                             },
                             {"SqlTransaction", sqlTransaction}
@@ -757,7 +758,8 @@ namespace OpenCBS.Services
                                 Commissions = listOfRgle.Sum(item => item.Commissions.Value),
                                 Penalties = listOfRgle.Sum(item => item.Fees.Value),
                                 Id = repayEvent.Id,
-                                Date = repayEvent.Date
+                                Date = repayEvent.Date,
+                                PaymentMethodId = paymentMethod.Id
                             }
                         },
                         {"SqlTransaction", sqlTransaction}
@@ -1286,7 +1288,7 @@ namespace OpenCBS.Services
                             DisbursementEventId = trancheEvent.Id,
                             Cancelable = true,
                             User = User.CurrentUser,
-                            Date = trancheEvent.Date
+                            Date = trancheEvent.Date,
                         };
                         _ePs.FireEvent(entryFeeEvent, copyOfLoan, transaction);
                         copyOfLoan.Events.Add(entryFeeEvent);
