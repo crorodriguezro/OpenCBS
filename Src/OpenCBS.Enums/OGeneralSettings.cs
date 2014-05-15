@@ -39,13 +39,11 @@ namespace OpenCBS.Enums
         public static readonly string ALLOWSMULTIPLEGROUPS = "ALLOWS_MULTIPLE_GROUPS";
         public static readonly string OLBBEFOREREPAYMENT = "OLB_BEFORE_REPAYMENT";
         public static readonly string CALCULATIONLATEFEESDURINGPUBLICHOLIDAYS = "CALCULATION_LATE_FEES_DURING_PUBLIC_HOLIDAYS";
-        //public static readonly string NAME_FORMAT = "NAME_FORMAT";
         public static readonly string DONOTSKIPWEEKENDSININSTALLMENTSDATE = "DONOT_SKIP_WEEKENDS_IN_INSTALLMENTS_DATE";
         public static readonly string INCREMENTALDURINGDAYOFF = "INCREMENTAL_DURING_DAYOFFS";
         public static readonly string CONTRACT_CODE_TEMPLATE = "CONTRACT_CODE_TEMPLATE";
         public static readonly string INTERESTS_ALSO_CREDITED_IN_FL = "INTERESTS_ALSO_CREDITED_IN_FL";
         public static readonly string ID_PATTERN = "ID_PATTERN";
-//        public static readonly string ID_WILD_CHAR_CHECK = "ID_WILD_CHAR_CHECK";
         public static readonly string ENFORCE_ID_PATTERN = "ENFORCE_ID_PATTERN";
         public static readonly string SAVINGS_CODE_TEMPLATE = "SAVINGS_CODE_TEMPLATE";
         public static readonly string MAX_NUMBER_INSTALLMENT = "MAX_NUMBER_INSTALLMENT";
@@ -54,7 +52,6 @@ namespace OpenCBS.Enums
         public static readonly string VAT_RATE = "VAT_RATE";
         public static readonly string CEASE_LAIE_DAYS = "CEASE_LAIE_DAYS";
         public static readonly string MFI_NAME = "MFI_NAME";
-        public static readonly string USE_TELLER_MANAGEMENT = "USE_TELLER_MANAGEMENT";
         public static readonly string REAL_EXPECTED_AMOUNT = "REAL_EXPECTED_AMOUNT";
         public static readonly string CLIENT_AGE_MIN = "CLIENT_AGE_MIN";
         public static readonly string CLIENT_AGE_MAX = "CLIENT_AGE_MAX";

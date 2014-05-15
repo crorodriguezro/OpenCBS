@@ -175,10 +175,8 @@ namespace OpenCBS.GUI.Configuration
                         val.Key.ToString() == OGeneralSettings.CALCULATIONLATEFEESDURINGPUBLICHOLIDAYS ||
                         val.Key.ToString() == OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE ||
                         val.Key.ToString() == OGeneralSettings.ENFORCE_ID_PATTERN ||
-                       // val.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
                         val.Key.ToString() == OGeneralSettings.INCREMENTALDURINGDAYOFF ||
                         val.Key.ToString() == OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL ||
-                        val.Key.ToString() == OGeneralSettings.USE_TELLER_MANAGEMENT ||
                         val.Key.ToString() == OGeneralSettings.AUTOMATIC_ID ||
                         val.Key.ToString() == OGeneralSettings.STOP_WRITEOFF_PENALTY ||
                         val.Key.ToString() == OGeneralSettings.MODIFY_ENTRY_FEE ||
@@ -1132,10 +1130,8 @@ namespace OpenCBS.GUI.Configuration
                 entry.Key.ToString() == OGeneralSettings.CALCULATIONLATEFEESDURINGPUBLICHOLIDAYS ||
                 entry.Key.ToString() == OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE ||
                 entry.Key.ToString() == OGeneralSettings.ENFORCE_ID_PATTERN ||
-               // entry.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
                 entry.Key.ToString() == OGeneralSettings.INCREMENTALDURINGDAYOFF ||
                 entry.Key.ToString() == OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL ||
-                entry.Key.ToString() == OGeneralSettings.USE_TELLER_MANAGEMENT ||
                 entry.Key.ToString() == OGeneralSettings.AUTOMATIC_ID ||
                 entry.Key.ToString() == OGeneralSettings.STOP_WRITEOFF_PENALTY ||
                 entry.Key.ToString() == OGeneralSettings.MODIFY_ENTRY_FEE ||
@@ -1223,10 +1219,8 @@ namespace OpenCBS.GUI.Configuration
                      entry.Key.ToString() == OGeneralSettings.CALCULATIONLATEFEESDURINGPUBLICHOLIDAYS ||
                      entry.Key.ToString() == OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE ||
                      entry.Key.ToString() == OGeneralSettings.ENFORCE_ID_PATTERN ||
-                    // entry.Key.ToString() == OGeneralSettings.ID_WILD_CHAR_CHECK ||
                      entry.Key.ToString() == OGeneralSettings.INCREMENTALDURINGDAYOFF ||
                      entry.Key.ToString() == OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL ||
-                     entry.Key.ToString() == OGeneralSettings.USE_TELLER_MANAGEMENT ||
                      entry.Key.ToString() == OGeneralSettings.AUTOMATIC_ID ||
                      entry.Key.ToString() == OGeneralSettings.STOP_WRITEOFF_PENALTY ||
                      entry.Key.ToString() == OGeneralSettings.MODIFY_ENTRY_FEE ||

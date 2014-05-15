@@ -89,7 +89,6 @@ namespace OpenCBS.Shared.Settings
             _defaultParamList.Add(OGeneralSettings.BAD_LOAN_DAYS, "180");
             _defaultParamList.Add(OGeneralSettings.VAT_RATE, 0);
             _defaultParamList.Add(OGeneralSettings.CEASE_LAIE_DAYS, 1000);
-            _defaultParamList.Add(OGeneralSettings.USE_TELLER_MANAGEMENT, 0);
             _defaultParamList.Add(OGeneralSettings.INTEREST_RATE_DECIMAL_PLACES, 2);
             _defaultParamList.Add(OGeneralSettings.STOP_WRITEOFF_PENALTY, 0);
             _defaultParamList.Add(OGeneralSettings.MODIFY_ENTRY_FEE, 0);
@@ -193,7 +192,7 @@ namespace OpenCBS.Shared.Settings
 
         public bool UseTellerManagement
         {
-            get { return GetSpecificParameter(OGeneralSettings.USE_TELLER_MANAGEMENT).ToString() == "1"; }
+            get { return false; }
         }
 
         public string IDPattern
