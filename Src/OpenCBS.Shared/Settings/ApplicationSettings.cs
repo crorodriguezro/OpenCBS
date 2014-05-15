@@ -78,12 +78,10 @@ namespace OpenCBS.Shared.Settings
             _defaultParamList.Add(OGeneralSettings.ALLOWSMULTIPLELOANS, 0);
             _defaultParamList.Add(OGeneralSettings.ALLOWSMULTIPLEGROUPS, 0);
             _defaultParamList.Add(OGeneralSettings.CALCULATIONLATEFEESDURINGPUBLICHOLIDAYS, 1);
-          //  _defaultParamList.Add(OGeneralSettings.NAME_FORMAT, "L U");
             _defaultParamList.Add(OGeneralSettings.DONOTSKIPWEEKENDSININSTALLMENTSDATE, 0);
             _defaultParamList.Add(OGeneralSettings.INCREMENTALDURINGDAYOFF, 1);
             _defaultParamList.Add(OGeneralSettings.CONTRACT_CODE_TEMPLATE, "BC/YY/PC-LC/ID");
             _defaultParamList.Add(OGeneralSettings.ENFORCE_ID_PATTERN, 0);
-        //    _defaultParamList.Add(OGeneralSettings.ID_WILD_CHAR_CHECK, 0);
             _defaultParamList.Add(OGeneralSettings.ID_PATTERN, "[A-Z]{2}[0-9]{7}");
             _defaultParamList.Add(OGeneralSettings.SAVINGS_CODE_TEMPLATE, "IC/BC/CS/ID");
             _defaultParamList.Add(OGeneralSettings.MAX_NUMBER_INSTALLMENT, "MAX_NUMBER_INSTALLMENT");
@@ -399,13 +397,7 @@ namespace OpenCBS.Shared.Settings
                 return GetSpecificParameter(OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL).ToString() == "1";
             }
         }
-        //public bool IDWildCharCheck
-        //{
-        //    get 
-        //    {
-        //        return GetSpecificParameter(OGeneralSettings.ID_WILD_CHAR_CHECK).ToString() == "1";
-        //    }
-        //}
+        
         public bool EnforceIDPattern
         {
             get
@@ -428,42 +420,6 @@ namespace OpenCBS.Shared.Settings
                 return GetSpecificParameter(OGeneralSettings.INCREMENTALDURINGDAYOFF).ToString() == "1";
             }
         }
-
-        //public string FirstNameFormat
-        //{
-        //    get
-        //    {
-        //        var format = (string) GetSpecificParameter(OGeneralSettings.NAME_FORMAT);
-        //        var retval = "L";
-        //        if (!string.IsNullOrEmpty(format))
-        //        {
-        //            var items = format.Trim().Split(' ');
-        //            if (items.Length >= 1)
-        //            {
-        //                retval = items[0];
-        //            }
-        //        }
-        //        return retval;
-        //    }
-        //}
-
-        //public string LastNameFormat
-        //{
-        //    get
-        //    {
-        //        var format = (string) GetSpecificParameter(OGeneralSettings.NAME_FORMAT);
-        //        var retval = "U";
-        //        if (!string.IsNullOrEmpty(format))
-        //        {
-        //            var items = format.Trim().Split();
-        //            if (2 == items.Length)
-        //            {
-        //                retval = items[1];
-        //            }
-        //        }
-        //        return retval;
-        //    }
-        //}
 
         public string ContractCodeTemplate
         {
