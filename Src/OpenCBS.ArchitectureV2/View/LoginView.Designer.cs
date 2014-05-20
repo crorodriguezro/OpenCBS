@@ -51,8 +51,8 @@ namespace OpenCBS.ArchitectureV2.View
             // 
             // _loginButton
             // 
-            resources.ApplyResources(this._loginButton, "_loginButton");
             this._loginButton.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this._loginButton, "_loginButton");
             this._loginButton.Name = "_loginButton";
             this._loginButton.UseVisualStyleBackColor = false;
             // 
@@ -68,27 +68,27 @@ namespace OpenCBS.ArchitectureV2.View
             // 
             // _usernameLabel
             // 
-            resources.ApplyResources(this._usernameLabel, "_usernameLabel");
             this._usernameLabel.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this._usernameLabel, "_usernameLabel");
             this._usernameLabel.Name = "_usernameLabel";
             // 
             // _passwordLabel
             // 
-            resources.ApplyResources(this._passwordLabel, "_passwordLabel");
             this._passwordLabel.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this._passwordLabel, "_passwordLabel");
             this._passwordLabel.Name = "_passwordLabel";
             // 
             // _databaseComboBox
             // 
-            resources.ApplyResources(this._databaseComboBox, "_databaseComboBox");
             this._databaseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._databaseComboBox.FormattingEnabled = true;
+            resources.ApplyResources(this._databaseComboBox, "_databaseComboBox");
             this._databaseComboBox.Name = "_databaseComboBox";
             // 
             // _databaseLabel
             // 
-            resources.ApplyResources(this._databaseLabel, "_databaseLabel");
             this._databaseLabel.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this._databaseLabel, "_databaseLabel");
             this._databaseLabel.Name = "_databaseLabel";
             // 
             // logoPicturebox
