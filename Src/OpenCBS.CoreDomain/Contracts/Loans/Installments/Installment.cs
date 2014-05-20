@@ -38,7 +38,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
         private OCurrency _paidCapital = 0;
         private OCurrency _paidFees = 0;
         private OCurrency _paidCommision = 0;
-        private OCurrency _unpaidCommision = 0;
+        private OCurrency _commission = 0;
         private OCurrency _olbAfterRepayment = 0;
         private bool _pending;
         
@@ -94,10 +94,16 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
             set { _paidCommision = value; }
         }
 
+        public OCurrency Commission
+        {
+            get { return _commission; }
+            set { _commission = value; }
+        }
+
         public OCurrency CommissionsUnpaid
         {
-            get { return _unpaidCommision; }
-            set { _unpaidCommision = value; }
+            get { return _commission - _paidCommision; }
+            set { _commission = value + _paidCommision; }
         }
 
         public OCurrency CapitalRepayment
@@ -156,6 +162,11 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
                            ? 0
                            : _interestsRepayment - _paidInterests;
             }
+        }
+
+        public OCurrency CommissionHasToPay
+        {
+            get { return _commission - _paidCommision; }
         }
 
 

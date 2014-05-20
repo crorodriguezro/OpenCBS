@@ -37,6 +37,8 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
         OCurrency PaidInterests{get;set;}
         OCurrency PaidCapital{get;set;}
         OCurrency PaidFees { get; set; }
+        OCurrency PaidCommissions { get; set; }
+        OCurrency Commission { get; set; }
         DateTime? PaidDate{get;set;}
         int Number{get;set;}
         bool IsRepaid{get;}

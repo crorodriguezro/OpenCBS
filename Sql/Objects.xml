@@ -448,6 +448,8 @@ RETURN
 			, h.paid_capital
 			, h.paid_interest
 			, h.paid_date
+      , h.commission
+      , h.paid_commission
 		FROM dbo.InstallmentHistory AS h
 		LEFT JOIN dbo.ContractEvents AS e ON h.event_id = e.id
 		WHERE e.is_deleted = 0 AND CAST(e.event_date AS DATE) > @date
@@ -462,6 +464,8 @@ RETURN
 			, paid_capital
 			, paid_interest
 			, paid_date
+      , commission
+      , paid_commission
 		FROM dbo.Installments
 	)
 	SELECT i.contract_id
@@ -471,6 +475,8 @@ RETURN
 		, interest_repayment AS interest
 		, paid_capital paid_principal
 		, paid_interest
+    , commission
+    , paid_commission
 		, paid_date
 	FROM [_installments] AS i
 	RIGHT JOIN

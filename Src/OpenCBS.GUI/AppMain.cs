@@ -171,7 +171,8 @@ namespace OpenCBS.GUI
                 .ForMember(dest => dest.PaidDate, opt => opt.MapFrom(src => src.LastPaymentDate))
                 .ForMember(dest => dest.Proportion, opt => opt.UseValue((OCurrency) 0))
                 .ForMember(dest => dest.CalculatedPenalty, opt => opt.UseValue((OCurrency) 0))
-                .ForMember(dest => dest.IsLastToRepay, opt => opt.UseValue(false));
+                .ForMember(dest => dest.IsLastToRepay, opt => opt.UseValue(false))
+                .ForMember(dest => dest.Commission, opt => opt.UseValue((OCurrency) 0));
 
             Mapper.AssertConfigurationIsValid();
         }
