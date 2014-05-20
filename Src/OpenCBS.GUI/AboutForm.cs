@@ -32,6 +32,7 @@ namespace OpenCBS.GUI
     {
         private PictureBox aboutPictureBox;
         private Label versionLabel;
+        private Label developedByLabel;
         private IContainer components;
 
 		public AboutForm()
@@ -65,6 +66,7 @@ namespace OpenCBS.GUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutForm));
             this.aboutPictureBox = new System.Windows.Forms.PictureBox();
             this.versionLabel = new System.Windows.Forms.Label();
+            this.developedByLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.aboutPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,10 +83,16 @@ namespace OpenCBS.GUI
             resources.ApplyResources(this.versionLabel, "versionLabel");
             this.versionLabel.Name = "versionLabel";
             // 
+            // developedByLabel
+            // 
+            resources.ApplyResources(this.developedByLabel, "developedByLabel");
+            this.developedByLabel.Name = "developedByLabel";
+            // 
             // AboutForm
             // 
             resources.ApplyResources(this, "$this");
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.developedByLabel);
             this.Controls.Add(this.versionLabel);
             this.Controls.Add(this.aboutPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -101,7 +109,7 @@ namespace OpenCBS.GUI
 
         private void OnLoad(object sender, System.EventArgs e)
         {
-            versionLabel.Text = "OpenCBS LLC Kyrgyz Republic. v" + TechnicalSettings.GetDisplayVersion();
+            versionLabel.Text = "Version " + TechnicalSettings.GetDisplayVersion();
         }
 	}
 }
