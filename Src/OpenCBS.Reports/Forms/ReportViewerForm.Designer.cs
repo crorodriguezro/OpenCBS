@@ -34,9 +34,10 @@ namespace OpenCBS.Reports.Forms
             // 
             // crvReport
             // 
+            resources.ApplyResources(this.crvReport, "crvReport");
             this.crvReport.ActiveViewIndex = -1;
             this.crvReport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.crvReport, "crvReport");
+            this.crvReport.Cursor = System.Windows.Forms.Cursors.Default;
             this.crvReport.Name = "crvReport";
             // 
             // ReportViewerForm
