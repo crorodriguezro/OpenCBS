@@ -703,7 +703,7 @@
     <value>True</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 0</value>
+    <value>3, 20</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>418, 16</value>
@@ -730,7 +730,7 @@
     <value>True</value>
   </data>
   <data name="_servicesLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 16</value>
+    <value>3, 36</value>
   </data>
   <data name="_servicesLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 16</value>
@@ -757,7 +757,7 @@
     <value>True</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 32</value>
+    <value>3, 52</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>396, 16</value>
@@ -784,7 +784,7 @@
     <value>True</value>
   </data>
   <data name="_userGuideLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>405, 32</value>
+    <value>405, 52</value>
   </data>
   <data name="_userGuideLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 16</value>
@@ -811,7 +811,7 @@
     <value>True</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 48</value>
+    <value>3, 68</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>332, 16</value>
@@ -838,7 +838,7 @@
     <value>True</value>
   </data>
   <data name="_contactLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>341, 48</value>
+    <value>341, 68</value>
   </data>
   <data name="_contactLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 16</value>
@@ -866,6 +866,9 @@
   </data>
   <data name="_infoFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>465, 8</value>
+  </data>
+  <data name="_infoFlowLayoutPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 20, 0, 0</value>
   </data>
   <data name="_infoFlowLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>535, 106</value>
