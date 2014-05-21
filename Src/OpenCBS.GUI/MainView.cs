@@ -1213,5 +1213,17 @@ namespace OpenCBS.GUI
         {
             OpenUrl("http://opencbs.com/buy-additional-module/");
         }
+
+        private void contactMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                const string url = "mailto:contact@opencbs.com?subject=Contact from OpenCBS";
+                Process.Start(url);
+            }
+            catch
+            {
+            }
+        }
     }
 }

@@ -132,6 +132,7 @@ namespace OpenCBS.GUI
             this.miContractCode = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.contactMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.mnuSettings = new System.Windows.Forms.ToolStripMenuItem();
@@ -659,8 +660,15 @@ namespace OpenCBS.GUI
             // 
             resources.ApplyResources(this.mnuHelp, "mnuHelp");
             this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contactMenuItem,
             this.aboutMenuItem});
             this.mnuHelp.Name = "mnuHelp";
+            // 
+            // contactMenuItem
+            // 
+            resources.ApplyResources(this.contactMenuItem, "contactMenuItem");
+            this.contactMenuItem.Name = "contactMenuItem";
+            this.contactMenuItem.Click += new System.EventHandler(this.contactMenuItem_Click);
             // 
             // aboutMenuItem
             // 
@@ -1009,6 +1017,7 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem changePasswordToolStripMenuItem;
         private ToolStripMenuItem _modulesMenuItem;
         private ToolStripMenuItem _aboutModulesMenuItem;
+        private ToolStripMenuItem contactMenuItem;
 
 
     }
