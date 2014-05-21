@@ -122,7 +122,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB0
-        CwAAAk1TRnQBSQFMAgEBBQEAAegBAQHoAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CwAAAk1TRnQBSQFMAgEBBQEAAfgBAQH4AQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -214,12 +214,6 @@
   <data name="colAlerts_BranchName.Text" xml:space="preserve">
     <value>Филиал</value>
   </data>
-  <data name="panelLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 693</value>
-  </data>
-  <data name="splitter6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>400, 24</value>
-  </data>
   <data name="colAlerts_ContractCode.Text" xml:space="preserve">
     <value>Код контракта</value>
   </data>
@@ -246,9 +240,6 @@
   </data>
   <data name="lblTitle.Text" xml:space="preserve">
     <value>Уведомления</value>
-  </data>
-  <data name="tabFilter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 152</value>
   </data>
   <data name="chkPostponedLoans.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 20</value>
@@ -298,23 +289,20 @@
   <data name="chkValidatedLoan.Text" xml:space="preserve">
     <value>Утвержденные займы</value>
   </data>
-  <data name="mnuClients.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 20</value>
+  <data name="tabFilter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 152</value>
   </data>
-  <data name="mnuClients.Text" xml:space="preserve">
-    <value>Клиенты и Контракты</value>
+  <data name="panelLeft.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 693</value>
+  </data>
+  <data name="splitter6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 24</value>
   </data>
   <data name="mnuNewPerson.Size" type="System.Drawing.Size, System.Drawing">
     <value>266, 22</value>
   </data>
   <data name="mnuNewPerson.Text" xml:space="preserve">
     <value>Новый Индивидульный клиент</value>
-  </data>
-  <data name="mnuNewClient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 22</value>
-  </data>
-  <data name="mnuNewClient.Text" xml:space="preserve">
-    <value>Новый Групповой клиент</value>
   </data>
   <data name="mnuNewGroup.Size" type="System.Drawing.Size, System.Drawing">
     <value>351, 22</value>
@@ -333,6 +321,12 @@
   </data>
   <data name="newCorporateToolStripMenuItem.Text" xml:space="preserve">
     <value>Новая организация</value>
+  </data>
+  <data name="mnuNewClient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 22</value>
+  </data>
+  <data name="mnuNewClient.Text" xml:space="preserve">
+    <value>Новый Групповой клиент</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>263, 6</value>
@@ -355,11 +349,11 @@
   <data name="reasignToolStripMenuItem.Text" xml:space="preserve">
     <value>Переназначения контрактов</value>
   </data>
-  <data name="mnuAccounting.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 20</value>
+  <data name="mnuClients.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 20</value>
   </data>
-  <data name="mnuAccounting.Text" xml:space="preserve">
-    <value>Бухгалтерия</value>
+  <data name="mnuClients.Text" xml:space="preserve">
+    <value>Клиенты и Контракты</value>
   </data>
   <data name="mnuChartOfAccounts.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 22</value>
@@ -418,11 +412,11 @@
   <data name="fiscalYearToolStripMenuItem.Text" xml:space="preserve">
     <value>Отчетный год</value>
   </data>
-  <data name="mnuConfiguration.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
+  <data name="mnuAccounting.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 20</value>
   </data>
-  <data name="mnuConfiguration.Text" xml:space="preserve">
-    <value>Конфигурация</value>
+  <data name="mnuAccounting.Text" xml:space="preserve">
+    <value>Бухгалтерия</value>
   </data>
   <data name="branchesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 22</value>
@@ -487,50 +481,35 @@
   <data name="miContractCode.Text" xml:space="preserve">
     <value>Код контракта</value>
   </data>
+  <data name="mnuConfiguration.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <data name="mnuConfiguration.Text" xml:space="preserve">
+    <value>Конфигурация</value>
+  </data>
   <data name="mnuWindow.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 20</value>
   </data>
   <data name="mnuWindow.Text" xml:space="preserve">
     <value>Окно</value>
   </data>
+  <data name="contactMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 22</value>
+  </data>
+  <data name="contactMenuItem.Text" xml:space="preserve">
+    <value>Связаться с нами...</value>
+  </data>
+  <data name="aboutMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 22</value>
+  </data>
+  <data name="aboutMenuItem.Text" xml:space="preserve">
+    <value>О программе</value>
+  </data>
   <data name="mnuHelp.Size" type="System.Drawing.Size, System.Drawing">
     <value>59, 20</value>
   </data>
   <data name="mnuHelp.Text" xml:space="preserve">
     <value>Помощь</value>
-  </data>
-  <data name="contactMenuItem.Text" xml:space="preserve">
-    <value>Контакт</value>
-  </data>
-  <data name="aboutMenuItem.Text" xml:space="preserve">
-    <value>О программе</value>
-  </data>
-  <data name="mnuSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 20</value>
-  </data>
-  <data name="mnuSettings.Text" xml:space="preserve">
-    <value>Настройки</value>
-  </data>
-  <data name="mnuSecurity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 20</value>
-  </data>
-  <data name="mnuSecurity.Text" xml:space="preserve">
-    <value>Безопасность</value>
-  </data>
-  <data name="mnuProducts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 20</value>
-  </data>
-  <data name="mnuProducts.Text" xml:space="preserve">
-    <value>Продукты</value>
-  </data>
-  <data name="_modulesMenuItem.Text" xml:space="preserve">
-    <value>Модули</value>
-  </data>
-  <data name="reportsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 20</value>
-  </data>
-  <data name="reportsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Отчеты</value>
   </data>
   <data name="menuItemSetting.Size" type="System.Drawing.Size, System.Drawing">
     <value>213, 22</value>
@@ -549,12 +528,6 @@
   </data>
   <data name="menuItemApplicationDate.Text" xml:space="preserve">
     <value>Изменение системной даты</value>
-  </data>
-  <data name="languagesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 22</value>
-  </data>
-  <data name="languagesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Язык интерфейса</value>
   </data>
   <data name="frenchToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>151, 22</value>
@@ -586,6 +559,18 @@
   <data name="portugueseToolStripMenuItem.Text" xml:space="preserve">
     <value>Португальский</value>
   </data>
+  <data name="languagesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 22</value>
+  </data>
+  <data name="languagesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Язык интерфейса</value>
+  </data>
+  <data name="mnuSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 20</value>
+  </data>
+  <data name="mnuSettings.Text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
   <data name="rolesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>196, 22</value>
   </data>
@@ -610,6 +595,12 @@
   <data name="changePasswordToolStripMenuItem.Text" xml:space="preserve">
     <value>Изменить пароль</value>
   </data>
+  <data name="mnuSecurity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 20</value>
+  </data>
+  <data name="mnuSecurity.Text" xml:space="preserve">
+    <value>Безопасность</value>
+  </data>
   <data name="mnuPackages.Size" type="System.Drawing.Size, System.Drawing">
     <value>191, 22</value>
   </data>
@@ -628,11 +619,26 @@
   <data name="menuItemCollateralProducts.Text" xml:space="preserve">
     <value>Залоговые продукты</value>
   </data>
+  <data name="mnuProducts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 20</value>
+  </data>
+  <data name="mnuProducts.Text" xml:space="preserve">
+    <value>Продукты</value>
+  </data>
   <data name="_aboutModulesMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 22</value>
   </data>
   <data name="_aboutModulesMenuItem.Text" xml:space="preserve">
     <value>О модулях...</value>
+  </data>
+  <data name="_modulesMenuItem.Text" xml:space="preserve">
+    <value>Модули</value>
+  </data>
+  <data name="reportsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 20</value>
+  </data>
+  <data name="reportsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Отчеты</value>
   </data>
   <data name="mainStatusBarLblUpdateVersion.Size" type="System.Drawing.Size, System.Drawing">
     <value>1026, 20</value>

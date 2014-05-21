@@ -1218,7 +1218,7 @@ namespace OpenCBS.GUI
         {
             try
             {
-                const string url = "mailto:contact@opencbs.com?subject=Contact from OpenCBS";
+                const string url = "mailto:contact@opencbs.com?subject=I have a question about OpenCBS";
                 Process.Start(url);
             }
             catch

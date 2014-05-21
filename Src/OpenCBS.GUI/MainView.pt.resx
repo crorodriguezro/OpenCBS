@@ -470,6 +470,12 @@
   <data name="mnuHelp.Text" xml:space="preserve">
     <value>Ajuda</value>
   </data>
+  <data name="contactMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 22</value>
+  </data>
+  <data name="contactMenuItem.Text" xml:space="preserve">
+    <value>Contate-nos...</value>
+  </data>
   <data name="menuItemSetting.Size" type="System.Drawing.Size, System.Drawing">
     <value>220, 22</value>
   </data>
