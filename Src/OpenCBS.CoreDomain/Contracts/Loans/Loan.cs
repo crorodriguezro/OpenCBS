@@ -2346,12 +2346,13 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                                                                                       current + e.Interest)
                                        .Value;
             var paidInterest = Events.OfType<RepaymentEvent>().ToList()
-                                    .Where(e => !(e is PendingRepaymentEvent) && !e.Deleted && e.Date.Date <= date.Date)
+                                    .Where(e => !(e is PendingRepaymentEvent) && !e.Deleted)
                                     .Aggregate<RepaymentEvent, OCurrency>(0,
                                                                           (current, e) => current + e.Interests)
                                     .Value;
-            var penalty = accruedInterest - paidInterest;
-            return penalty < 0 ? 0 : penalty;
+            var interest = accruedInterest - paidInterest;
+            interest = UseCents ? Math.Round(interest, 2) : Math.Round(interest);
+            return interest < 0 ? 0 : interest;
         }
 
         public string Duration
