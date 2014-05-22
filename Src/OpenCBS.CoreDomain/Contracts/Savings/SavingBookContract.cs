@@ -575,34 +575,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
            
             while (NextMaturity <= date)
             {
-                if (Rollover == OSavingsRollover.None)
-                {
-                    DateTime transferDate = NextMaturity.GetValueOrDefault();
-                    if (NextMaturity.Value.Date == CreationDate.Date)
-                    {
-                        NextMaturity = NextMaturity.Value.AddDays(-1);
-                    }
-                    
-
-                    NextMaturity = DateCalculationStrategy.GetNextMaturity(NextMaturity.Value,
-                                                                           Product.Periodicity,
-                                                                           NumberOfPeriods);
-                    
-
-                    int previousPeriodsCount =
-                                    Events.FindAll(item => 
-                                                        item is SavingInterestsPostingEvent && 
-                                                        item.Deleted == false).Count;
-
-                    if (AccountAtMaturityEvent != null &&
-                        previousPeriodsCount % NumberOfPeriods == 0)
-                    {
-                        AccountAtMaturityEvent(this, transferDate, user);
-                        break;
-                    }
-                }
-
-                else if (Rollover==OSavingsRollover.Principal)
+                if (Rollover==OSavingsRollover.Principal)
                 {
                     DateTime transferDate = NextMaturity.GetValueOrDefault();
                     if (NextMaturity.Value.Date == CreationDate.Date)
@@ -619,7 +592,6 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
                         AccountAtMaturityEvent(this, transferDate, user);
                     }
                 }
-
                 else if (Rollover == OSavingsRollover.PrincipalAndInterests)
                 {
                     if (NextMaturity.Value.Date == CreationDate.Date)
@@ -628,17 +600,9 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
                                                                            Product.Periodicity, 
                                                                            NumberOfPeriods);
                 }
-                    
             }
 
-            if (!(Rollover == OSavingsRollover.None && GetLastPostingDate() != null))
-            {
-                events.AddRange(AddSavingEvent(CalculateInterest(date, user)));
-            }
-            else if (!(Rollover == OSavingsRollover.Principal && GetLastPostingDate()!=null))
-            {
-                events.AddRange(AddSavingEvent(CalculateInterest(date, user)));
-            }
+            events.AddRange(AddSavingEvent(CalculateInterest(date, user)));
             savingEvents.AddRange(events);
             return savingEvents;
         }
@@ -834,12 +798,6 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
 
         public void SavingServicesAccountAtMaturity(ISavingsContract savingContract, DateTime date, User user)
         {
-            if (savingContract.Rollover == OSavingsRollover.None)
-            {
-                CloseAndTransfer(savingContract, savingContract.TransferAccount, date, user,
-                                 savingContract.GetBalance(date), true, Teller.CurrentTeller);
-            }
-            
             if (savingContract.Rollover == OSavingsRollover.Principal)
             {
                 DateTime lastMaturity = DateCalculationStrategy.GetLastMaturity(date,

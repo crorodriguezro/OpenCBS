@@ -1068,16 +1068,6 @@ namespace OpenCBS.Services
 
 	    private void SavingServicesAccountAtMaturity(ISavingsContract savingContract, DateTime date, User user)
         {
-            if (savingContract.Rollover == OSavingsRollover.None)
-                CloseAndTransfer(
-                                    savingContract, 
-                                    savingContract.TransferAccount, 
-                                    date, 
-                                    user, 
-                                    savingContract.GetBalance(date), 
-                                    true, 
-                                    Teller.CurrentTeller);
-            
             if (savingContract.Rollover == OSavingsRollover.Principal)
             {
                 DateTime lastMaturity = DateCalculationStrategy.GetLastMaturity(date,
