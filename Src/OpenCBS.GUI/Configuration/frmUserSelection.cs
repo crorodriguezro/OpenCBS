@@ -29,7 +29,8 @@ using OpenCBS.CoreDomain;
 
 namespace OpenCBS.GUI.Configuration
 {
-    public partial class frmUserSelection : Form
+    public partial class 
+        frmUserSelection : Form
     {
         private List<User> _users;
         private readonly int _userId;

@@ -39,6 +39,7 @@ namespace OpenCBS.GUI.Configuration
             // 
             // cbUsers
             // 
+            this.cbUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUsers.FormattingEnabled = true;
             resources.ApplyResources(this.cbUsers, "cbUsers");
             this.cbUsers.Name = "cbUsers";
@@ -49,16 +50,16 @@ namespace OpenCBS.GUI.Configuration
             this.lbLoanOfficers.Name = "lbLoanOfficers";
             // 
             // btnAssing
-            //
-            resources.ApplyResources(this.btnAssing, "btnAssing");
+            // 
             this.btnAssing.DialogResult = System.Windows.Forms.DialogResult.OK;
+            resources.ApplyResources(this.btnAssing, "btnAssing");
             this.btnAssing.Name = "btnAssing";
             this.btnAssing.Click += new System.EventHandler(this.btnAssing_Click);
             // 
             // btnCancel
-            //
-            resources.ApplyResources(this.btnCancel, "btnCancel");
+            // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
