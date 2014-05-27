@@ -81,15 +81,24 @@ namespace OpenCBS.GUI.Contracts
         private void Setup()
         {
             Load += (sender, args) => LoadForm();
-            interestRateNumericUpDown.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
-            installmentsNumericUpDown.ValueChanged += (sender, args) =>
+            interestRateNumericUpDown.LostFocus += (sender, args) => RecalculateTrancheAndRefreshSchedule();
+            interestRateNumericUpDown.KeyDown += (sender, args) => { if(args.KeyCode == Keys.Return) RecalculateTrancheAndRefreshSchedule(); };
+            installmentsNumericUpDown.LostFocus += (sender, args) =>
             {
                 gracePeriodNumericUpDown.Maximum = installmentsNumericUpDown.Value - 1;
                 RecalculateTrancheAndRefreshSchedule();
             };
-            gracePeriodNumericUpDown.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
-            amountTextbox.TextChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
-            startDateTimePicker.ValueChanged += (sender, args) =>
+            installmentsNumericUpDown.KeyDown += (sender, args) =>
+            {
+                if (args.KeyCode != Keys.Return) return;
+                gracePeriodNumericUpDown.Maximum = installmentsNumericUpDown.Value - 1;
+                RecalculateTrancheAndRefreshSchedule();
+            };
+            gracePeriodNumericUpDown.LostFocus += (sender, args) => RecalculateTrancheAndRefreshSchedule();
+            gracePeriodNumericUpDown.KeyDown += (sender, args) => { if (args.KeyCode == Keys.Return) RecalculateTrancheAndRefreshSchedule(); };
+            amountTextbox.LostFocus += (sender, args) => RecalculateTrancheAndRefreshSchedule();
+            amountTextbox.KeyDown += (sender, args) => { if (args.KeyCode == Keys.Return) RecalculateTrancheAndRefreshSchedule(); };
+            startDateTimePicker.LostFocus += (sender, args) =>
             {
                 firstRepaymentDateTimePicker.Value = startDateTimePicker
                     .Value
@@ -98,7 +107,7 @@ namespace OpenCBS.GUI.Contracts
                     .AddDays(_contract.InstallmentType.NbOfDays);
                 RecalculateTrancheAndRefreshSchedule();
             };
-            firstRepaymentDateTimePicker.ValueChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
+            firstRepaymentDateTimePicker.LostFocus += (sender, args) => RecalculateTrancheAndRefreshSchedule();
             applyToOlbCheckbox.CheckedChanged += (sender, args) => RecalculateTrancheAndRefreshSchedule();
             okButton.Click += (sender, args) => AddTranche();
         }

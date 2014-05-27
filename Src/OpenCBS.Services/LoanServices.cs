@@ -1037,17 +1037,130 @@ namespace OpenCBS.Services
                 (decimal)scheduleConfiguration.PeriodPolicy.GetNumberOfPeriodsInYear(
                     copyOfRescheduleConfiguration.StartDate,
                     scheduleConfiguration.YearPolicy);
-
-            schedule = rescheduleAssembler.AssembleRescheduling(
-                schedule,
-                scheduleConfiguration,
-                copyOfRescheduleConfiguration,
-                scheduleBuilder,
-                loan.CalculateActualOlb().Value).ToList();
+            if (loan.Product.ScriptName == null)
+                schedule = rescheduleAssembler.AssembleRescheduling(
+                    schedule,
+                    scheduleConfiguration,
+                    copyOfRescheduleConfiguration,
+                    scheduleBuilder,
+                    loan.CalculateActualOlb().Value).ToList();
+            else
+                schedule = AssembleRescheduling(loan, rescheduleConfiguration, scheduleConfiguration);
 
             copyOfLoan.InstallmentList = schedule;
             copyOfLoan.NbOfInstallments = schedule.Count();
             return copyOfLoan;
+        }
+
+        private List<Installment> AssembleRescheduling(Loan loan, ScheduleConfiguration rescheduleConfiguration, IScheduleConfiguration scheduleConfiguration)
+        {
+            var copyOfLoan = loan.Copy();;
+            var schedule = copyOfLoan.InstallmentList;
+            // Build a new combined schedule
+
+            // 1. To close all active installments before date of rescheduling.
+
+            // Get the part of the schedule that comes before the rescheduling date...
+            var newSchedule =
+                from installment in schedule
+                where installment.ExpectedDate <= rescheduleConfiguration.StartDate
+                select installment;
+
+            // Get overpaid principal = sum of paid principal after the rescheduling date...
+            var overpaidPrincipal = (
+                from installment in schedule
+                where installment.PaidDate > rescheduleConfiguration.StartDate
+                select installment
+            ).Sum(installment => installment.PaidCapital.Value);
+
+            //Add overpaid principal to paid principal of the last installment before the rescheduling
+            if (newSchedule.Any())
+                newSchedule.Last().PaidCapital += overpaidPrincipal;
+
+            // Close all active installments before date of rescheduling
+            var olbDifference = 0m;
+            foreach (var installment in newSchedule)
+            {
+                installment.OLB += olbDifference;
+                olbDifference += installment.CapitalRepayment.Value - installment.PaidCapital.Value;
+                installment.CapitalRepayment = installment.PaidCapital;
+                installment.InterestsRepayment = installment.PaidInterests;
+            }
+
+            // 2. To store amounts of interest paid, those for installments after date of rescheduling.
+            var overpaidInterest = (
+                from installment in schedule
+                where installment.ExpectedDate > rescheduleConfiguration.StartDate
+                select installment
+            ).Sum(installment => installment.PaidInterests.Value);
+
+
+            // 3. To get total of first calculated interest. It will be interest between last closed installment and date of rescheduling 
+            //    plus interest between date of rescheduling and first repayment date
+
+            //    To calculate extra interest for used days.
+            //    For the case when date of rescheduling < date of first installment
+            var currentOlb = loan.CalculateActualOlb().Value;
+            var usedDays = 0;
+            if (newSchedule.Any())
+            {
+                usedDays = (rescheduleConfiguration.StartDate - newSchedule.Last().ExpectedDate).Days;
+            }
+            var daysInYear = scheduleConfiguration.YearPolicy.GetNumberOfDays(rescheduleConfiguration.StartDate);
+            var extraInterest = currentOlb * scheduleConfiguration.InterestRate / 100 * usedDays / daysInYear;
+
+            // To calculate interest between date of rescheduling and first repayment date.
+            var daysTillRepayment =
+                (rescheduleConfiguration.PreferredFirstInstallmentDate - rescheduleConfiguration.StartDate).Days;
+            decimal firstInterest = 0;
+            if (rescheduleConfiguration.GracePeriod == 0 || rescheduleConfiguration.ChargeInterestDuringGracePeriod)
+                firstInterest = currentOlb*rescheduleConfiguration.InterestRate/100*daysTillRepayment/
+                            scheduleConfiguration.PeriodPolicy.GetNumberOfDays(
+                                rescheduleConfiguration.PreferredFirstInstallmentDate);
+
+            copyOfLoan.Amount = currentOlb;
+            copyOfLoan.InterestRate = rescheduleConfiguration.InterestRate/100;
+            copyOfLoan.NbOfInstallments = rescheduleConfiguration.NumberOfInstallments;
+            copyOfLoan.GracePeriod = rescheduleConfiguration.GracePeriod;
+            copyOfLoan.StartDate = rescheduleConfiguration.StartDate;
+            copyOfLoan.FirstInstallmentDate = rescheduleConfiguration.PreferredFirstInstallmentDate;
+            copyOfLoan.Product.ChargeInterestWithinGracePeriod = rescheduleConfiguration.ChargeInterestDuringGracePeriod;
+            rescheduleConfiguration.RoundingPolicy = scheduleConfiguration.RoundingPolicy;
+
+            var rescheduled = SimulateScheduleCreation(copyOfLoan);
+            // Adjust the new schedule's installment numbers
+            var increment = newSchedule.Count();
+            foreach (var installment in rescheduled)
+            {
+                installment.Number += increment;
+            }
+
+            // Distribute the extra and overpaid interest
+            if (rescheduleConfiguration.GracePeriod > 0 && !rescheduleConfiguration.ChargeInterestDuringGracePeriod)
+                rescheduled[rescheduleConfiguration.GracePeriod].InterestsRepayment +=
+                    rescheduleConfiguration.RoundingPolicy.Round(extraInterest);
+            else
+                rescheduled.First().InterestsRepayment =
+                    rescheduleConfiguration.RoundingPolicy.Round(firstInterest + extraInterest);
+            foreach (var installment in rescheduled)
+            {
+                if (installment.InterestsRepayment < overpaidInterest)
+                {
+                    installment.PaidInterests = installment.InterestsRepayment;
+                    overpaidInterest -= installment.InterestsRepayment.Value;
+                }
+                else
+                {
+                    installment.PaidInterests = overpaidInterest;
+                    break;
+                }
+            }
+
+            var result = new List<Installment>();
+            result.AddRange(newSchedule);
+            result.AddRange(rescheduled);
+
+            return result;
         }
 
         public Loan SimulateTranche(Loan loan, ITrancheConfiguration trancheConfiguration)
@@ -1069,12 +1182,16 @@ namespace OpenCBS.Services
                     copyOfTrancheConfiguration.StartDate,
                     scheduleConfiguration.YearPolicy);
 
-            var newSchedule = trancheAssembler.AssembleTranche(
-                schedule,
-                scheduleConfiguration,
-                copyOfTrancheConfiguration,
-                scheduleBuilder,
-                trancheBuilder).ToList();
+            var newSchedule = new List<Installment>();
+            if (loan.Product.ScriptName == null)
+                newSchedule = trancheAssembler.AssembleTranche(
+                    schedule,
+                    scheduleConfiguration,
+                    copyOfTrancheConfiguration,
+                    scheduleBuilder,
+                    trancheBuilder).ToList();
+            else
+                newSchedule = AssembleTranche(copyOfLoan, scheduleConfiguration, trancheConfiguration);
 
             foreach (var installment in newSchedule)
             {
@@ -1093,6 +1210,145 @@ namespace OpenCBS.Services
             copyOfLoan.NbOfInstallments = newSchedule.Count();
             copyOfLoan.Amount += trancheConfiguration.Amount;
             return copyOfLoan;
+        }
+
+        private List<Installment> AssembleTranche(Loan loan, IScheduleConfiguration scheduleConfiguration, ITrancheConfiguration trancheConfiguration)
+        {
+            var schedule = loan.InstallmentList;
+            var trancheSchedule = BuildTranche(schedule, loan, scheduleConfiguration, trancheConfiguration);
+
+            // Get an interested paid in advance, whereas "in advance" means after the new tranche date
+            var overpaidInterest = (
+                from installment in schedule
+                where installment.ExpectedDate > trancheConfiguration.StartDate
+                select installment
+            ).Sum(installment => installment.PaidInterests.Value);
+
+            // Get the part of the schedule that comes before the tranche date...
+            var newSchedule =
+                from installment in schedule
+                where installment.ExpectedDate <= trancheConfiguration.StartDate
+                select installment;
+
+            // ...and force close it (set expected equal to paid)
+            var olbDifference = 0m;
+            foreach (var installment in newSchedule)
+            {
+                installment.OLB += olbDifference;
+                olbDifference += installment.CapitalRepayment.Value - installment.PaidCapital.Value;
+                if (!(installment.CapitalRepayment == installment.PaidCapital && installment.InterestsRepayment == installment.PaidInterests))
+                {
+                    installment.PaidDate = trancheConfiguration.StartDate;
+                }
+                installment.CapitalRepayment = installment.PaidCapital;
+                installment.InterestsRepayment = installment.PaidInterests;
+            }
+
+            // Adjust the new schedule's installment numbers
+            var increment = newSchedule.Count();
+            foreach (var installment in trancheSchedule)
+            {
+                installment.Number += increment;
+            }
+            var result = new List<Installment>();
+            result.AddRange(newSchedule);
+
+            // Distribute the overpaid interest
+            foreach (var installment in trancheSchedule)
+            {
+                if (installment.InterestsRepayment < overpaidInterest)
+                {
+                    installment.PaidInterests = installment.InterestsRepayment;
+                    overpaidInterest -= installment.InterestsRepayment.Value;
+                }
+                else
+                {
+                    installment.PaidInterests = overpaidInterest;
+                    break;
+                }
+            }
+
+            result.AddRange(trancheSchedule);
+            return result;
+        }
+
+        private IEnumerable<Installment> BuildTranche(IEnumerable<Installment> schedule,Loan loan, IScheduleConfiguration scheduleConfiguration, ITrancheConfiguration trancheConfiguration)
+        {
+            var copyOfLoan = loan.Copy();
+            loan.Amount = trancheConfiguration.Amount;
+            loan.NbOfInstallments = trancheConfiguration.NumberOfInstallments;
+            loan.GracePeriod = trancheConfiguration.GracePeriod;
+            loan.InterestRate = trancheConfiguration.InterestRate/100;
+            loan.StartDate = trancheConfiguration.StartDate;
+            loan.FirstInstallmentDate = trancheConfiguration.PreferredFirstInstallmentDate;
+
+            var rhs = SimulateScheduleCreation(loan);
+
+            loan.Amount = schedule.Sum(i => i.CapitalRepayment.Value - i.PaidCapital.Value);
+            if (!trancheConfiguration.ApplyNewInterestRateToOlb)
+            {
+                loan.InterestRate = copyOfLoan.InterestRate;
+            }
+
+            var lhs = SimulateScheduleCreation(loan);
+
+            var result = new List<Installment>();
+
+            // Merge the two schedules
+            var max = Math.Max(lhs.Count, rhs.Count);
+            for (var i = 0; i < max; i++)
+            {
+                var lhi = i >= lhs.Count ? null : lhs[i];
+                var rhi = i >= rhs.Count ? null : rhs[i];
+
+                Installment installment;
+
+                if (lhi == null)
+                {
+                    installment = rhi;
+                }
+                else if (rhi == null)
+                {
+                    installment = lhi;
+                }
+                else
+                {
+                    installment = new Installment
+                    {
+                        Number = lhi.Number,
+                        StartDate = lhi.StartDate,
+                        ExpectedDate = lhi.ExpectedDate,
+                        //RepaymentDate = lhi.RepaymentDate,
+                        CapitalRepayment = lhi.CapitalRepayment + rhi.CapitalRepayment,
+                        InterestsRepayment = lhi.InterestsRepayment + rhi.InterestsRepayment,
+                        OLB = lhi.OLB + rhi.OLB,
+                    };
+                }
+                result.Add(installment);
+            }
+
+            result[0].InterestsRepayment += GetExtraInterest(schedule, scheduleConfiguration, trancheConfiguration);
+            return result;
+        }
+
+        private DateTime GetLastEndDate(IEnumerable<Installment> schedule, ITrancheConfiguration trancheConfiguration)
+        {
+            var installment = (from i in schedule
+                               where i.ExpectedDate <= trancheConfiguration.StartDate
+                               select i).LastOrDefault();
+            if (installment == null) return schedule.First().StartDate;
+            return installment.ExpectedDate;
+        }
+
+        private decimal GetExtraInterest(IEnumerable<Installment> schedule,
+                                         IScheduleConfiguration scheduleConfiguration,
+                                         ITrancheConfiguration trancheConfiguration)
+        {
+            var days = (trancheConfiguration.StartDate - GetLastEndDate(schedule, trancheConfiguration)).Days;
+            var daysInYear = scheduleConfiguration.YearPolicy.GetNumberOfDays(trancheConfiguration.StartDate);
+            var olb = schedule.Sum(i => i.CapitalRepayment.Value - i.PaidCapital.Value);
+            var interest = olb * scheduleConfiguration.InterestRate / 100 * days / daysInYear;
+            return scheduleConfiguration.RoundingPolicy.Round(interest);
         }
 
         public Loan AddOverdueEvent(Loan loan, OverdueEvent overdueEvent)
