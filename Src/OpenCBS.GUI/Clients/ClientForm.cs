@@ -159,7 +159,6 @@ namespace OpenCBS.GUI.Clients
             contractStatusItems.Add(GetContractStatusItem(OContractStatus.Refused));
             contractStatusItems.Add(GetContractStatusItem(OContractStatus.Abandoned));
             contractStatusItems.Add(GetContractStatusItem(OContractStatus.Deleted));
-            contractStatusItems.Add(GetContractStatusItem(OContractStatus.NonAccrual));
             cmbContractStatus.SelectedItem = firstItem;
 
             ApplicationSettings dataParam = ApplicationSettings.GetInstance(string.Empty);
