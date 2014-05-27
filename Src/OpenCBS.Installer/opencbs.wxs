@@ -188,6 +188,7 @@
                 <File Id="OpenCBS.GUI.resources.dll" Source="SourceDir\fr\OpenCBS.GUI.resources.dll" />
                 <File Id="OpenCBS.MultiLanguageRessources.resources.dll" Source="SourceDir\fr\OpenCBS.MultiLanguageRessources.resources.dll" />
                 <File Id="OpenCBS.Reports.resources.dll" Source="SourceDir\fr\OpenCBS.Reports.resources.dll" />
+                <File Id="OpenCBS.Extension.CustomFields.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.CustomFields.resources.dll"/>
               </Component>
             </Directory>
             <Directory Id="DIR_RESSOURCES_EN" Name="en">
