@@ -1024,7 +1024,7 @@
     <value>btnPrintGuarantors</value>
   </data>
   <data name="&gt;&gt;btnPrintGuarantors.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintGuarantors.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -3004,7 +3004,7 @@
     <value>3, 3</value>
   </data>
   <data name="listViewLoanInstallments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1229, 249</value>
+    <value>1229, 292</value>
   </data>
   <data name="listViewLoanInstallments.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
@@ -3013,7 +3013,7 @@
     <value>listViewLoanInstallments</value>
   </data>
   <data name="&gt;&gt;listViewLoanInstallments.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;listViewLoanInstallments.Parent" xml:space="preserve">
     <value>tabPageInstallments</value>
@@ -3028,7 +3028,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageInstallments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 255</value>
+    <value>1235, 298</value>
   </data>
   <data name="tabPageInstallments.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3052,10 +3052,10 @@
     <value>Fill</value>
   </data>
   <data name="tclLoanDetails.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 278</value>
+    <value>3, 235</value>
   </data>
   <data name="tclLoanDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 284</value>
+    <value>1243, 327</value>
   </data>
   <data name="tclLoanDetails.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3187,7 +3187,7 @@
     <value>btnPrintLoanDetails</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanDetails.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanDetails.Parent" xml:space="preserve">
     <value>loanDetailsButtonsPanel</value>
@@ -3253,7 +3253,7 @@
     <value>Top</value>
   </data>
   <data name="loanDetailsButtonsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 244</value>
+    <value>3, 201</value>
   </data>
   <data name="loanDetailsButtonsPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>1243, 34</value>
@@ -3925,7 +3925,7 @@
     <value>17</value>
   </data>
   <data name="cmbLoanOfficer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 180</value>
+    <value>154, 150</value>
   </data>
   <data name="cmbLoanOfficer.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 24</value>
@@ -3958,10 +3958,10 @@
     <value>NoControl</value>
   </data>
   <data name="labelLoanLoanOfficer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 177</value>
+    <value>3, 147</value>
   </data>
   <data name="labelLoanLoanOfficer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 43</value>
+    <value>78, 30</value>
   </data>
   <data name="labelLoanLoanOfficer.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
@@ -3983,72 +3983,6 @@
   </data>
   <data name="&gt;&gt;labelLoanLoanOfficer.ZOrder" xml:space="preserve">
     <value>19</value>
-  </data>
-  <data name="labelLoanInstallmentType.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelLoanInstallmentType.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="labelLoanInstallmentType.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="labelLoanInstallmentType.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelLoanInstallmentType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 147</value>
-  </data>
-  <data name="labelLoanInstallmentType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 30</value>
-  </data>
-  <data name="labelLoanInstallmentType.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="labelLoanInstallmentType.Text" xml:space="preserve">
-    <value>Installment type:</value>
-  </data>
-  <data name="labelLoanInstallmentType.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;labelLoanInstallmentType.Name" xml:space="preserve">
-    <value>labelLoanInstallmentType</value>
-  </data>
-  <data name="&gt;&gt;labelLoanInstallmentType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelLoanInstallmentType.Parent" xml:space="preserve">
-    <value>tableLayoutPanel4</value>
-  </data>
-  <data name="&gt;&gt;labelLoanInstallmentType.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="comboBoxLoanInstallmentType.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="comboBoxLoanInstallmentType.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="comboBoxLoanInstallmentType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 150</value>
-  </data>
-  <data name="comboBoxLoanInstallmentType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 24</value>
-  </data>
-  <data name="comboBoxLoanInstallmentType.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;comboBoxLoanInstallmentType.Name" xml:space="preserve">
-    <value>comboBoxLoanInstallmentType</value>
-  </data>
-  <data name="&gt;&gt;comboBoxLoanInstallmentType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comboBoxLoanInstallmentType.Parent" xml:space="preserve">
-    <value>tableLayoutPanel4</value>
-  </data>
-  <data name="&gt;&gt;comboBoxLoanInstallmentType.ZOrder" xml:space="preserve">
-    <value>21</value>
   </data>
   <data name="labelLoanFundingLine.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4090,7 +4024,7 @@
     <value>tableLayoutPanel4</value>
   </data>
   <data name="&gt;&gt;labelLoanFundingLine.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>20</value>
   </data>
   <data name="comboBoxLoanFundingLine.ItemHeight" type="System.Int32, mscorlib">
     <value>16</value>
@@ -4114,7 +4048,7 @@
     <value>tableLayoutPanel4</value>
   </data>
   <data name="&gt;&gt;comboBoxLoanFundingLine.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>21</value>
   </data>
   <data name="labelLoanPurpose.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4156,7 +4090,7 @@
     <value>tableLayoutPanel4</value>
   </data>
   <data name="&gt;&gt;labelLoanPurpose.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>22</value>
   </data>
   <data name="textBoxLoanPurpose.Location" type="System.Drawing.Point, System.Drawing">
     <value>568, 122</value>
@@ -4168,7 +4102,7 @@
     <value>Vertical</value>
   </data>
   <data name="textBoxLoanPurpose.Size" type="System.Drawing.Size, System.Drawing">
-    <value>299, 95</value>
+    <value>299, 52</value>
   </data>
   <data name="textBoxLoanPurpose.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -4183,7 +4117,7 @@
     <value>tableLayoutPanel4</value>
   </data>
   <data name="&gt;&gt;textBoxLoanPurpose.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>23</value>
   </data>
   <data name="nudLoanAmount.Location" type="System.Drawing.Point, System.Drawing">
     <value>154, 31</value>
@@ -4210,7 +4144,7 @@
     <value>tableLayoutPanel4</value>
   </data>
   <data name="&gt;&gt;nudLoanAmount.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>24</value>
   </data>
   <data name="nudInterestRate.Location" type="System.Drawing.Point, System.Drawing">
     <value>154, 63</value>
@@ -4234,7 +4168,7 @@
     <value>tableLayoutPanel4</value>
   </data>
   <data name="&gt;&gt;nudInterestRate.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>25</value>
   </data>
   <data name="eacLoan.Location" type="System.Drawing.Point, System.Drawing">
     <value>568, 93</value>
@@ -4249,13 +4183,13 @@
     <value>eacLoan</value>
   </data>
   <data name="&gt;&gt;eacLoan.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.EconomicActivityControl, OpenCBS.GUI, Version=14.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.EconomicActivityControl, OpenCBS.GUI, Version=14.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;eacLoan.Parent" xml:space="preserve">
     <value>tableLayoutPanel4</value>
   </data>
   <data name="&gt;&gt;eacLoan.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>26</value>
   </data>
   <data name="tableLayoutPanel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -4267,10 +4201,10 @@
     <value>3, 18</value>
   </data>
   <data name="tableLayoutPanel4.RowCount" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="tableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1237, 220</value>
+    <value>1237, 177</value>
   </data>
   <data name="tableLayoutPanel4.TabIndex" type="System.Int32, mscorlib">
     <value>79</value>
@@ -4288,7 +4222,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel4.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblEconomicActivity" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="labelDateOffirstInstallment" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanAmountMinMax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanNbOfInstallmentsMinMax" Row="4" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="dtpDateOfFirstInstallment" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanGracePeriodMinMax" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanContractCode" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxLoanContractCode" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="labelLoanAmount" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanInterestRate" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="dateLoanStart" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanNbOfInstallments" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanStartDate" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lbLoanInterestRateMinMax" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanGracePeriod" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="numericUpDownLoanGracePeriod" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudLoanNbOfInstallments" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblDay" Row="1" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="cmbLoanOfficer" Row="6" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="labelLoanLoanOfficer" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanInstallmentType" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="comboBoxLoanInstallmentType" Row="5" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="labelLoanFundingLine" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="comboBoxLoanFundingLine" Row="2" RowSpan="1" Column="4" ColumnSpan="2" /&gt;&lt;Control Name="labelLoanPurpose" Row="4" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="textBoxLoanPurpose" Row="4" RowSpan="3" Column="4" ColumnSpan="3" /&gt;&lt;Control Name="nudLoanAmount" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudInterestRate" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="eacLoan" Row="3" RowSpan="1" Column="4" ColumnSpan="3" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblEconomicActivity" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="labelDateOffirstInstallment" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanAmountMinMax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanNbOfInstallmentsMinMax" Row="4" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="dtpDateOfFirstInstallment" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanGracePeriodMinMax" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanContractCode" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxLoanContractCode" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="labelLoanAmount" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanInterestRate" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="dateLoanStart" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanNbOfInstallments" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanStartDate" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lbLoanInterestRateMinMax" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanGracePeriod" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="numericUpDownLoanGracePeriod" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudLoanNbOfInstallments" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblDay" Row="1" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="cmbLoanOfficer" Row="5" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="labelLoanLoanOfficer" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanFundingLine" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="comboBoxLoanFundingLine" Row="2" RowSpan="1" Column="4" ColumnSpan="2" /&gt;&lt;Control Name="labelLoanPurpose" Row="4" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="textBoxLoanPurpose" Row="4" RowSpan="2" Column="4" ColumnSpan="3" /&gt;&lt;Control Name="nudLoanAmount" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudInterestRate" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="eacLoan" Row="3" RowSpan="1" Column="4" ColumnSpan="3" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="gbxLoanDetails.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -4297,7 +4231,7 @@
     <value>3, 3</value>
   </data>
   <data name="gbxLoanDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 241</value>
+    <value>1243, 198</value>
   </data>
   <data name="gbxLoanDetails.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -5275,7 +5209,7 @@
     <value>lvEntryFees</value>
   </data>
   <data name="&gt;&gt;lvEntryFees.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvEntryFees.Parent" xml:space="preserve">
     <value>groupBoxEntryFees</value>
@@ -6387,7 +6321,7 @@ Max:
     <value>btnPrintCreditCommittee</value>
   </data>
   <data name="&gt;&gt;btnPrintCreditCommittee.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintCreditCommittee.Parent" xml:space="preserve">
     <value>flowLayoutPanel7</value>
@@ -6921,7 +6855,7 @@ Max:
     <value>lvLoansRepayments</value>
   </data>
   <data name="&gt;&gt;lvLoansRepayments.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvLoansRepayments.Parent" xml:space="preserve">
     <value>tabPageRepayments</value>
@@ -7095,7 +7029,7 @@ Max:
     <value>btnPrintLoanRepayment</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanRepayment.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanRepayment.Parent" xml:space="preserve">
     <value>flowLayoutPanel8</value>
@@ -7302,7 +7236,7 @@ Max:
     <value>lvEvents</value>
   </data>
   <data name="&gt;&gt;lvEvents.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvEvents.Parent" xml:space="preserve">
     <value>tabPageEvents</value>
@@ -7335,7 +7269,7 @@ Max:
     <value>btnPrintLoanEvents</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanEvents.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanEvents.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -7462,7 +7396,7 @@ Max:
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        HQAAAk1TRnQBSQFMAgEBBQEAARQBIwEUASMBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAARwBIwEcASMBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -10944,7 +10878,7 @@ Max:
     <value>btnPrintSavings</value>
   </data>
   <data name="&gt;&gt;btnPrintSavings.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintSavings.Parent" xml:space="preserve">
     <value>flowLayoutPanel9</value>
@@ -12872,6 +12806,6 @@ Max:
     <value>ClientForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=14.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=14.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

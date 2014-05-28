@@ -1855,7 +1855,6 @@ namespace OpenCBS.GUI.Clients
             InitLoanDetails(false, pCredit.Disbursed, pCredit.ContractStatus == OContractStatus.Validated);
             InitializeTabPageGuaranteesDetailsButtons(pCredit.Product.UseGuarantorCollateral);
             InitializeFundingLine();
-            InitializeInstallmentTypes();
             InitializeLoanOfficer();
             SetPackageValuesForLoanDetails(pCredit, false);
             DisableContractDetails(pCredit.ContractStatus);
@@ -1908,8 +1907,6 @@ namespace OpenCBS.GUI.Clients
             textBoxLoanLateFeesOnOverduePrincipal.Text = (pCredit.NonRepaymentPenalties.OverDuePrincipal * 100).ToString();
 
             groupBoxLoanLateFees.Text = MultiLanguageStrings.GetString(Ressource.ClientForm, "LateFeesGracePeriod.Text") + @" (" + pCredit.GracePeriodOfLateFees + @")";
-
-            comboBoxLoanInstallmentType.Text = pCredit.InstallmentType.Name;
 
             nudLoanNbOfInstallments.Value = pCredit.NbOfInstallments;
             dateLoanStart.Value = pCredit.StartDate;
@@ -1983,7 +1980,6 @@ namespace OpenCBS.GUI.Clients
             eacLoan.Enabled = isPendingOrPostponed;
             textBoxLoanAnticipatedTotalFees.Enabled = isPendingOrPostponed;
             tbLoanAnticipatedPartialFees.Enabled = isPendingOrPostponed;
-            comboBoxLoanInstallmentType.Enabled = isPendingOrPostponed;
             groupBoxLoanLateFees.Enabled = isPendingOrPostponed;
             dateLoanStart.Enabled = dtpDateOfFirstInstallment.Enabled = isPendingOrPostponed;
 
@@ -2135,7 +2131,6 @@ namespace OpenCBS.GUI.Clients
             pnlCCStatus.Enabled = true;
 
             InitializeFundingLine();
-            InitializeInstallmentTypes();
             InitializeLoanOfficer();
             DisableContractDetails(_credit.ContractStatus);
             SetPackageValuesForLoanDetails(_credit, true);
@@ -2309,23 +2304,6 @@ namespace OpenCBS.GUI.Clients
             comboBoxLoanFundingLine.SelectedIndex = 0;
         }
 
-        private void InitializeGuaranteeCorporate()
-        {
-            List<FundingLine> fundingLines = ServicesProvider.GetInstance().GetFundingLinesServices().SelectFundingLines();
-        }
-
-        private void InitializeInstallmentTypes()
-        {
-            comboBoxLoanInstallmentType.Items.Clear();
-            List<InstallmentType> installmentTypeList = ServicesProvider.GetInstance().GetProductServices().FindAllInstallmentTypes();
-            comboBoxLoanInstallmentType.Items.Insert(0, MultiLanguageStrings.GetString(Ressource.CreditContractForm, "selectInstallmentType.Text"));
-
-            foreach (InstallmentType installmentType in installmentTypeList)
-                comboBoxLoanInstallmentType.Items.Add(installmentType);
-
-            comboBoxLoanInstallmentType.SelectedItem = 0;
-        }
-
         private void InitializeLabelMinMax()
         {
             labelLoanAmountMinMax.Text = String.Empty;
@@ -2362,7 +2340,6 @@ namespace OpenCBS.GUI.Clients
             InitializeAmount(pLoan, pForCreation);
             InitializePackageInterestRate(pLoan, pForCreation);
             InitializePackageFundingLineAndCorporate(pLoan.Product.FundingLine, _credit.FundingLine, pForCreation, comboBoxLoanFundingLine);
-            InitializePackageInstallmentType(pLoan.Product, pForCreation);
             InitializePackageNumberOfInstallments(pLoan, pForCreation);
             InitializePackageAnticipatedTotalRepaymentsPenalties(pLoan.Product, pForCreation);
             InitializePackageAnticipatedPartialRepaymentsPenalties(pLoan.Product, pForCreation);
@@ -2768,21 +2745,6 @@ namespace OpenCBS.GUI.Clients
                 tbLoanAnticipatedPartialFees.Text = pForCreation ? ServicesHelper.ConvertNullableDoubleToString(pPackage.AnticipatedPartialRepaymentPenalties, true) : ServicesHelper.ConvertNullableDoubleToString(_credit.AnticipatedPartialRepaymentPenalties, true);
             }
         }
-
-        private void InitializePackageInstallmentType(LoanProduct pPackage, bool pForCreation)
-        {
-            if (pForCreation)
-            {
-                comboBoxLoanInstallmentType.Text = pPackage.InstallmentType.Name;
-                comboBoxLoanInstallmentType.Tag = pPackage.InstallmentType.Id;
-            }
-            else
-            {
-                comboBoxLoanInstallmentType.Text = _credit.InstallmentType.Name;
-                comboBoxLoanInstallmentType.Tag = _credit.InstallmentType.Id;
-            }
-        }
-
 
         private void InitializePackageInterestRate(Loan credit, bool pForCreation)
         {
@@ -3375,9 +3337,7 @@ namespace OpenCBS.GUI.Clients
             credit.FirstInstallmentDate = dtpDateOfFirstInstallment.Value;
             _toChangeAlignDate = true;
 
-            credit.InstallmentType =
-                ServicesProvider.GetInstance().GetProductServices().FindInstallmentType(
-                    (int)comboBoxLoanInstallmentType.Tag);
+            credit.InstallmentType = _credit.Product.InstallmentType;
 
             _firstInstallmentDate = dtpDateOfFirstInstallment.Value;
 
@@ -3452,7 +3412,7 @@ namespace OpenCBS.GUI.Clients
                 dtpDateOfFirstInstallment.Value = _credit.FirstInstallmentDate;
                 _credit.InterestRate = ServicesHelper.ConvertStringToNullableDecimal(nudInterestRate.Text, true, -1).Value;
                 _credit.NbOfInstallments = Convert.ToInt32(nudLoanNbOfInstallments.Value);
-                _credit.InstallmentType = ServicesProvider.GetInstance().GetProductServices().FindInstallmentType((int)comboBoxLoanInstallmentType.Tag);
+                _credit.InstallmentType = _credit.Product.InstallmentType;
                 _credit.AmountUnderLoc = ServicesHelper.ConvertStringToDecimal(tbLocAmount.Text, _credit.UseCents);
                 if (_credit.ContractStatus == OContractStatus.Pending)
                 {

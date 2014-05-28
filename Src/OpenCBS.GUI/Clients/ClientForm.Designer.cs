@@ -64,8 +64,6 @@ namespace OpenCBS.GUI.Clients
         private DateTimePicker dateLoanStart;
         private Label labelLoanAmount;
         private Label labelLoanInterestRate;
-        private Label labelLoanInstallmentType;
-        private ComboBox comboBoxLoanInstallmentType;
         private Label labelLoanNbOfInstallments;
         private NumericUpDown nudLoanNbOfInstallments;
         private System.Windows.Forms.Button buttonLoanPreview;
@@ -244,8 +242,6 @@ namespace OpenCBS.GUI.Clients
             this.lblDay = new System.Windows.Forms.Label();
             this.cmbLoanOfficer = new System.Windows.Forms.ComboBox();
             this.labelLoanLoanOfficer = new System.Windows.Forms.Label();
-            this.labelLoanInstallmentType = new System.Windows.Forms.Label();
-            this.comboBoxLoanInstallmentType = new System.Windows.Forms.ComboBox();
             this.labelLoanFundingLine = new System.Windows.Forms.Label();
             this.comboBoxLoanFundingLine = new System.Windows.Forms.ComboBox();
             this.labelLoanPurpose = new System.Windows.Forms.Label();
@@ -1602,10 +1598,8 @@ namespace OpenCBS.GUI.Clients
             this.tableLayoutPanel4.Controls.Add(this.numericUpDownLoanGracePeriod, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.nudLoanNbOfInstallments, 1, 4);
             this.tableLayoutPanel4.Controls.Add(this.lblDay, 5, 1);
-            this.tableLayoutPanel4.Controls.Add(this.cmbLoanOfficer, 1, 6);
-            this.tableLayoutPanel4.Controls.Add(this.labelLoanLoanOfficer, 0, 6);
-            this.tableLayoutPanel4.Controls.Add(this.labelLoanInstallmentType, 0, 5);
-            this.tableLayoutPanel4.Controls.Add(this.comboBoxLoanInstallmentType, 1, 5);
+            this.tableLayoutPanel4.Controls.Add(this.cmbLoanOfficer, 1, 5);
+            this.tableLayoutPanel4.Controls.Add(this.labelLoanLoanOfficer, 0, 5);
             this.tableLayoutPanel4.Controls.Add(this.labelLoanFundingLine, 3, 2);
             this.tableLayoutPanel4.Controls.Add(this.comboBoxLoanFundingLine, 4, 2);
             this.tableLayoutPanel4.Controls.Add(this.labelLoanPurpose, 3, 4);
@@ -1741,22 +1735,6 @@ namespace OpenCBS.GUI.Clients
             this.labelLoanLoanOfficer.BackColor = System.Drawing.Color.Transparent;
             this.labelLoanLoanOfficer.Name = "labelLoanLoanOfficer";
             // 
-            // labelLoanInstallmentType
-            // 
-            resources.ApplyResources(this.labelLoanInstallmentType, "labelLoanInstallmentType");
-            this.labelLoanInstallmentType.BackColor = System.Drawing.Color.Transparent;
-            this.labelLoanInstallmentType.Name = "labelLoanInstallmentType";
-            // 
-            // comboBoxLoanInstallmentType
-            // 
-            this.tableLayoutPanel4.SetColumnSpan(this.comboBoxLoanInstallmentType, 2);
-            this.comboBoxLoanInstallmentType.DisplayMember = "installmentType.Name";
-            this.comboBoxLoanInstallmentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.comboBoxLoanInstallmentType, "comboBoxLoanInstallmentType");
-            this.comboBoxLoanInstallmentType.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.comboBoxLoanInstallmentType.Name = "comboBoxLoanInstallmentType";
-            this.comboBoxLoanInstallmentType.SelectedIndexChanged += new System.EventHandler(this.comboBoxLoanInstallmentType_SelectedIndexChanged);
-            // 
             // labelLoanFundingLine
             // 
             resources.ApplyResources(this.labelLoanFundingLine, "labelLoanFundingLine");
@@ -1783,7 +1761,7 @@ namespace OpenCBS.GUI.Clients
             this.tableLayoutPanel4.SetColumnSpan(this.textBoxLoanPurpose, 3);
             resources.ApplyResources(this.textBoxLoanPurpose, "textBoxLoanPurpose");
             this.textBoxLoanPurpose.Name = "textBoxLoanPurpose";
-            this.tableLayoutPanel4.SetRowSpan(this.textBoxLoanPurpose, 3);
+            this.tableLayoutPanel4.SetRowSpan(this.textBoxLoanPurpose, 2);
             // 
             // nudLoanAmount
             // 
