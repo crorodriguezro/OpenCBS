@@ -190,6 +190,7 @@
                 <File Id="OpenCBS.Reports.resources.dll" Source="SourceDir\fr\OpenCBS.Reports.resources.dll" />
                 <File Id="OpenCBS.Extension.CustomFields.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.CustomFields.resources.dll"/>
                 <File Id="OpenCBS.Extension.Events.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.Events.resources.dll"/>
+                <File Id="OpenCBS.Extension.DelinquencyManagementModule.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.DelinquencyManagementModule.resources.dll"/>
               </Component>
             </Directory>
             <Directory Id="DIR_RESSOURCES_EN" Name="en">
