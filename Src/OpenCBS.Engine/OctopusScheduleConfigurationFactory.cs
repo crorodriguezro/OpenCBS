@@ -68,7 +68,7 @@ namespace OpenCBS.Engine
             var numberOfPeriods = (decimal)_scheduleConfiguration
                 .PeriodPolicy
                 .GetNumberOfPeriodsInYear(_loan.StartDate, _scheduleConfiguration.YearPolicy);
-            _scheduleConfiguration.InterestRate = _loan.InterestRate * numberOfPeriods * 100;
+            _scheduleConfiguration.InterestRate = _loan.InterestRate * 100;
             _scheduleConfiguration.StartDate = _loan.StartDate;
             _scheduleConfiguration.PreferredFirstInstallmentDate = _loan.FirstInstallmentDate;
             _scheduleConfiguration.ChargeInterestDuringGracePeriod = _loan.Product.ChargeInterestWithinGracePeriod;

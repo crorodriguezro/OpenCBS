@@ -63,7 +63,7 @@ namespace OpenCBS.Engine.InstallmentCalculationPolicy
                 remainder = installment.OLB.Value;
                 installment.OLB = configuration.Amount;
                 ++counter;
-                annuity += (remainder * configuration.InterestRate * 12 / (decimal)numberOfPeriods / 100 / number);
+                annuity += (remainder * configuration.InterestRate / (decimal)numberOfPeriods / 100 / number);
             } while (Math.Abs(remainder) > 0.01m && counter < 1000);
             return annuity;
         }

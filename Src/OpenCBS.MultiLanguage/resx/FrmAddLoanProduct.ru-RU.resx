@@ -193,7 +193,7 @@
     <value>Колличество погашений</value>
   </data>
   <data name="grBoxIntRatePer.Text" xml:space="preserve">
-    <value>Ставка процента (% за период)*</value>
+    <value>Годовая ставка %*</value>
   </data>
   <data name="grBoxIntRateYear.Text" xml:space="preserve">
     <value>Годовая ставка %*</value>

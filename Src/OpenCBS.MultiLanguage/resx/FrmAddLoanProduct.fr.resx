@@ -193,7 +193,7 @@
     <value>Nombre d'échéances</value>
   </data>
   <data name="grBoxIntRatePer.Text" xml:space="preserve">
-    <value>Taux d'intéret (en % par période)*</value>
+    <value>Taux d'intérêt annuel (%)</value>
   </data>
   <data name="grBoxIntRateYear.Text" xml:space="preserve">
     <value>Taux d'intérêt annuel (%)</value>

@@ -223,9 +223,6 @@ namespace OpenCBS.GUI.Contracts
                     ? 360
                     : DateTime.IsLeapYear(Loan.StartDate.Year) ? 366 : 365;
 
-                decimal period = Loan.InstallmentType.NbOfMonths == 1 && Loan.InstallmentType.NbOfDays == 0 ? 12.0m : 
-                    Convert.ToDecimal(daysInTheYear/(Loan.InstallmentType.NbOfMonths*30 + Loan.InstallmentType.NbOfDays));
-
                 int days;
                 if (i == 0)
                     days = (Loan.InstallmentList[0].ExpectedDate - Loan.StartDate).Days;
@@ -237,7 +234,7 @@ namespace OpenCBS.GUI.Contracts
                     ? days
                     : 30;
 
-                var interest = Math.Round(Loan.InstallmentList[i].OLB.Value * Loan.InterestRate * period /
+                var interest = Math.Round(Loan.InstallmentList[i].OLB.Value * Loan.InterestRate /
                             daysInTheYear * days, _rounding);
                 _total.InterestsRepayment += interest - Loan.InstallmentList[i].InterestsRepayment;
                 Loan.InstallmentList[i].InterestsRepayment = interest;

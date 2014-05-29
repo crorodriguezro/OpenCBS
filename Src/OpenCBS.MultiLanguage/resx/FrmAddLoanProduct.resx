@@ -208,7 +208,7 @@
     <value>The cycle you have input already exists.</value>
   </data>
   <data name="grBoxIntRatePer.Text" xml:space="preserve">
-    <value>Interest rate (% per period)*</value>
+    <value>Annual interest rate %*</value>
   </data>
   <data name="grBoxIntRateYear.Text" xml:space="preserve">
     <value>Annual interest rate %*</value>

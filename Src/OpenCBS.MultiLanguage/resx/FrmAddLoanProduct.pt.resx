@@ -153,7 +153,7 @@ das joías?</value>
     <value>A linha de finanças ...</value>
   </data>
   <data name="grBoxIntRatePer.Text" xml:space="preserve">
-    <value>Taxa de juros (% por período</value>
+    <value>Taxa de juros annual %</value>
   </data>
   <data name="grBoxIntRateYear.Text" xml:space="preserve">
     <value>Taxa de juros annual %</value>

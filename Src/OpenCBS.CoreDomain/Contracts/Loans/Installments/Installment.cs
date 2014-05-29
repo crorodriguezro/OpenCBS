@@ -40,6 +40,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
         private OCurrency _paidCommision = 0;
         private OCurrency _commission = 0;
         private OCurrency _olbAfterRepayment = 0;
+        private OCurrency _unpaidFees = 0;
         private bool _pending;
         
         public Installment()
@@ -65,7 +66,11 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
         public DateTime StartDate { get; set; }
         public DateTime ExpectedDate { get; set; }
 
-        public OCurrency FeesUnpaid { get; set; }
+        public OCurrency FeesUnpaid
+        {
+            get { return _unpaidFees; }
+            set { _unpaidFees = value; }
+        }
 
         public bool NotPaidYet { get; set; }
 

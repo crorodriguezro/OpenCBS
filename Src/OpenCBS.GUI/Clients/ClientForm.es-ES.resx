@@ -112,15 +112,15 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="gBProjectFinancialPlan.Text" xml:space="preserve">
     <value>Plan de financiamiento</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lProjectNbOfNewJobs.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 16</value>
   </data>
@@ -202,7 +202,7 @@
   <data name="lblCollaterals.Text" xml:space="preserve">
     <value>Garantías</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
     <value>277</value>
   </data>
@@ -329,10 +329,10 @@
   </data>
   <data name="imageListTab.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        HQAAAk1TRnQBSQFMAgEBBQEAATwBCgE8AQoBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAAUQBCgFEAQoBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -613,10 +613,10 @@
     <value>MiddleRight</value>
   </data>
   <data name="lblEconomicActivity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>400, 90</value>
+    <value>350, 90</value>
   </data>
   <data name="labelDateOffirstInstallment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>400, 28</value>
+    <value>350, 28</value>
   </data>
   <data name="labelDateOffirstInstallment.Size" type="System.Drawing.Size, System.Drawing">
     <value>149, 32</value>
@@ -625,16 +625,16 @@
     <value>Fecha de primera cuota:</value>
   </data>
   <data name="labelLoanAmountMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>343, 28</value>
+    <value>293, 28</value>
   </data>
   <data name="labelLoanNbOfInstallmentsMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>343, 119</value>
+    <value>293, 119</value>
   </data>
   <data name="dtpDateOfFirstInstallment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>555, 31</value>
+    <value>505, 31</value>
   </data>
   <data name="labelLoanGracePeriodMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>343, 90</value>
+    <value>293, 90</value>
   </data>
   <data name="labelLoanContractCode.Size" type="System.Drawing.Size, System.Drawing">
     <value>103, 28</value>
@@ -643,7 +643,7 @@
     <value>Código contrato:</value>
   </data>
   <data name="textBoxLoanContractCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 3</value>
+    <value>127, 3</value>
   </data>
   <data name="labelLoanAmount.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 32</value>
@@ -652,13 +652,13 @@
     <value>Monto:</value>
   </data>
   <data name="labelLoanInterestRate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 30</value>
+    <value>100, 30</value>
   </data>
   <data name="labelLoanInterestRate.Text" xml:space="preserve">
-    <value>Tasa de interés por periodo:</value>
+    <value>Tasa de interés:</value>
   </data>
   <data name="dateLoanStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>555, 3</value>
+    <value>505, 3</value>
   </data>
   <data name="labelLoanNbOfInstallments.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 28</value>
@@ -667,7 +667,7 @@
     <value>Número de cuotas:</value>
   </data>
   <data name="labelLoanStartDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>400, 0</value>
+    <value>350, 0</value>
   </data>
   <data name="labelLoanStartDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 28</value>
@@ -676,7 +676,7 @@
     <value>Fecha de desembolso:</value>
   </data>
   <data name="lbLoanInterestRateMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>343, 60</value>
+    <value>293, 60</value>
   </data>
   <data name="labelLoanGracePeriod.Size" type="System.Drawing.Size, System.Drawing">
     <value>113, 29</value>
@@ -685,16 +685,16 @@
     <value>Periodo de gracia:</value>
   </data>
   <data name="numericUpDownLoanGracePeriod.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 93</value>
+    <value>127, 93</value>
   </data>
   <data name="nudLoanNbOfInstallments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 122</value>
+    <value>127, 122</value>
   </data>
   <data name="lblDay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>660, 28</value>
+    <value>610, 28</value>
   </data>
   <data name="cmbLoanOfficer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 180</value>
+    <value>127, 180</value>
   </data>
   <data name="labelLoanLoanOfficer.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 43</value>
@@ -709,10 +709,10 @@
     <value>Tipo de cuota:</value>
   </data>
   <data name="comboBoxLoanInstallmentType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 150</value>
+    <value>127, 150</value>
   </data>
   <data name="labelLoanFundingLine.Location" type="System.Drawing.Point, System.Drawing">
-    <value>400, 60</value>
+    <value>350, 60</value>
   </data>
   <data name="labelLoanFundingLine.Size" type="System.Drawing.Size, System.Drawing">
     <value>148, 30</value>
@@ -721,10 +721,10 @@
     <value>Línea de financiamiento:</value>
   </data>
   <data name="comboBoxLoanFundingLine.Location" type="System.Drawing.Point, System.Drawing">
-    <value>555, 63</value>
+    <value>505, 63</value>
   </data>
   <data name="labelLoanPurpose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>400, 119</value>
+    <value>350, 119</value>
   </data>
   <data name="labelLoanPurpose.Size" type="System.Drawing.Size, System.Drawing">
     <value>122, 28</value>
@@ -733,16 +733,16 @@
     <value>Objetivo del crédito:</value>
   </data>
   <data name="textBoxLoanPurpose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>555, 122</value>
+    <value>505, 122</value>
   </data>
   <data name="nudLoanAmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 31</value>
+    <value>127, 31</value>
   </data>
   <data name="nudInterestRate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 63</value>
+    <value>127, 63</value>
   </data>
   <data name="eacLoan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>555, 93</value>
+    <value>505, 93</value>
   </data>
   <data name="flowLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
     <value>748, 93</value>
@@ -1278,9 +1278,6 @@
   <data name="olvColumnCloseDate.Text" xml:space="preserve">
     <value>Fecha Cierre</value>
   </data>
-  <data name="tabPageSavingsCustomizableFields.Text" xml:space="preserve">
-    <value>Campos Personalizables</value>
-  </data>
   <data name="tpTermDeposit.Text" xml:space="preserve">
     <value>Depósito a Plazo</value>
   </data>
@@ -1352,10 +1349,6 @@
   </data>
   <data name="btCancelLastSavingEvent.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnPrintSavings.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
   </data>
   <data name="btnPrintSavings.Text" xml:space="preserve">
     <value>Imprimir</value>
