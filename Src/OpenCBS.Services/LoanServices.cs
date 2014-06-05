@@ -1905,13 +1905,27 @@ namespace OpenCBS.Services
                                                     .Events.OfType<SavingEvent>());
 
                             var debitSavingEvent = listSavingsEvents.First(ev => ev.Id == id);
-                            var creditSavingEvent = listSavingsEvents.First(ev => ev.Amount == debitSavingEvent.Amount && ev.Date == debitSavingEvent.Date);
+                            var creditSavingEvent =
+                                listSavingsEvents.First(
+                                    ev => ev.Amount == debitSavingEvent.Amount && ev.Date == debitSavingEvent.Date);
                             debitSavingEvent.CancelDate = TimeProvider.Today;
                             creditSavingEvent.CancelDate = TimeProvider.Today;
-                                
+
                             var tempService = ServicesProvider.GetInstance().GetSavingServices();
                             tempService.DeleteEvent(debitSavingEvent);
+                            CallInterceptor(new Dictionary<string, object>
+                            {
+                                {"Event", debitSavingEvent},
+                                {"Deleted", true},
+                                {"SqlTransaction", sqlTransaction}
+                            });
                             tempService.DeleteEvent(creditSavingEvent);
+                            CallInterceptor(new Dictionary<string, object>
+                            {
+                                {"Event", creditSavingEvent},
+                                {"Deleted", true},
+                                {"SqlTransaction", sqlTransaction}
+                            });
                         }
                     }
                     evnt.Comment = comment;
