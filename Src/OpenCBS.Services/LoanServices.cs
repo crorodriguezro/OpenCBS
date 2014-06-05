@@ -1510,6 +1510,7 @@ namespace OpenCBS.Services
                             StartedFromInstallment = startInstallment == null ? 0 : startInstallment.Number,
                             User = _user,
                             PaymentMethod = paymentMethod,
+                            PaymentMethodId = paymentMethod.Id,
                             Cancelable = true
                         };
 
