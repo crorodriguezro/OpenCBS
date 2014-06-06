@@ -2180,9 +2180,6 @@
     <EmbeddedResource Include="Login\LoginForm.pt.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainView.fr-FR.resx">
-      <DependentUpon>MainView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainView.pt-PT.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>

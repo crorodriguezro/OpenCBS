@@ -122,7 +122,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB0
-        CwAAAk1TRnQBSQFMAgEBBQEAAegBAQHoAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CwAAAk1TRnQBSQFMAgEBBQEAAfABAQHwAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -214,6 +214,12 @@
   <data name="colAlerts_BranchName.Text" xml:space="preserve">
     <value>Nom de la branche</value>
   </data>
+  <data name="panelLeft.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 693</value>
+  </data>
+  <data name="splitter6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>307, 24</value>
+  </data>
   <data name="colAlerts_ContractCode.Text" xml:space="preserve">
     <value>Code contrat</value>
   </data>
@@ -234,6 +240,9 @@
   </data>
   <data name="lblTitle.Text" xml:space="preserve">
     <value>Alertes</value>
+  </data>
+  <data name="tabFilter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 152</value>
   </data>
   <data name="chkPostponedLoans.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 20</value>
@@ -277,20 +286,23 @@
   <data name="chkValidatedLoan.Text" xml:space="preserve">
     <value>Prets valides</value>
   </data>
-  <data name="tabFilter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 152</value>
+  <data name="mnuClients.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 20</value>
   </data>
-  <data name="panelLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 693</value>
-  </data>
-  <data name="splitter6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>307, 24</value>
+  <data name="mnuClients.Text" xml:space="preserve">
+    <value>Clients et contrats</value>
   </data>
   <data name="mnuNewPerson.Size" type="System.Drawing.Size, System.Drawing">
     <value>205, 22</value>
   </data>
   <data name="mnuNewPerson.Text" xml:space="preserve">
     <value>Nouvelle personne</value>
+  </data>
+  <data name="mnuNewClient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 22</value>
+  </data>
+  <data name="mnuNewClient.Text" xml:space="preserve">
+    <value>Nouveau client</value>
   </data>
   <data name="mnuNewGroup.Size" type="System.Drawing.Size, System.Drawing">
     <value>251, 22</value>
@@ -309,12 +321,6 @@
   </data>
   <data name="newCorporateToolStripMenuItem.Text" xml:space="preserve">
     <value>Nouvelle personne morale</value>
-  </data>
-  <data name="mnuNewClient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 22</value>
-  </data>
-  <data name="mnuNewClient.Text" xml:space="preserve">
-    <value>Nouveau client</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>202, 6</value>
@@ -336,6 +342,12 @@
   </data>
   <data name="reasignToolStripMenuItem.Text" xml:space="preserve">
     <value>Reassigner les contrats</value>
+  </data>
+  <data name="mnuAccounting.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 20</value>
+  </data>
+  <data name="mnuAccounting.Text" xml:space="preserve">
+    <value>Comptabilite</value>
   </data>
   <data name="mnuChartOfAccounts.Size" type="System.Drawing.Size, System.Drawing">
     <value>216, 22</value>
@@ -393,12 +405,6 @@
   </data>
   <data name="fiscalYearToolStripMenuItem.Text" xml:space="preserve">
     <value>Annee fiscale</value>
-  </data>
-  <data name="mnuAccounting.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 20</value>
-  </data>
-  <data name="mnuAccounting.Text" xml:space="preserve">
-    <value>Comptabilite</value>
   </data>
   <data name="branchesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>218, 22</value>
@@ -463,6 +469,9 @@
   <data name="mnuWindow.Text" xml:space="preserve">
     <value>Fenetre</value>
   </data>
+  <data name="mnuHelp.Text" xml:space="preserve">
+    <value>Aide</value>
+  </data>
   <data name="contactMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>173, 22</value>
   </data>
@@ -472,8 +481,26 @@
   <data name="aboutMenuItem.Text" xml:space="preserve">
     <value>A propos d'OpenCBS</value>
   </data>
-  <data name="mnuHelp.Text" xml:space="preserve">
-    <value>Aide</value>
+  <data name="mnuSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 20</value>
+  </data>
+  <data name="mnuSettings.Text" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="mnuSecurity.Text" xml:space="preserve">
+    <value>Sécurité</value>
+  </data>
+  <data name="mnuProducts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 20</value>
+  </data>
+  <data name="mnuProducts.Text" xml:space="preserve">
+    <value>Produits</value>
+  </data>
+  <data name="reportsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 20</value>
+  </data>
+  <data name="reportsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Rapports</value>
   </data>
   <data name="menuItemSetting.Size" type="System.Drawing.Size, System.Drawing">
     <value>224, 22</value>
@@ -492,6 +519,12 @@
   </data>
   <data name="menuItemApplicationDate.Text" xml:space="preserve">
     <value>Changer la date de l'application</value>
+  </data>
+  <data name="languagesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 22</value>
+  </data>
+  <data name="languagesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Langue</value>
   </data>
   <data name="frenchToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 22</value>
@@ -522,12 +555,6 @@
   </data>
   <data name="portugueseToolStripMenuItem.Text" xml:space="preserve">
     <value>Portuguais</value>
-  </data>
-  <data name="languagesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 22</value>
-  </data>
-  <data name="languagesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Langue</value>
   </data>
   <data name="rolesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>193, 22</value>
