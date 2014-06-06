@@ -467,7 +467,7 @@ namespace OpenCBS.GUI
             {
                 { 0, GetString("AllUsers") }
             };
-            var users = User.CurrentUser.Subordinates.ToDictionary(u => u.Id, u => u.Name);
+            var users = User.CurrentUser.Subordinates.Where(i => !i.IsDeleted).ToDictionary(u => u.Id, u => u.Name);
             allUsers = allUsers.Concat(users).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
             _userFilterComboBox.ValueMember = "Key";
             _userFilterComboBox.DisplayMember = "Value";
