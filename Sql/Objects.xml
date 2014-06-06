@@ -4880,32 +4880,6 @@ AS BEGIN
         SELECT @subordinateId
     END
     
-    DECLARE @branches TABLE
-    (
-        id INT
-    )
-    IF @branchId = 0
-    BEGIN
-        INSERT INTO @branches
-        SELECT branch_id
-        FROM dbo.UsersBranches
-        WHERE user_id = @userId
-    END
-    ELSE
-    BEGIN
-        INSERT INTO @branches
-        SELECT @branchId
-    END
-    
-    IF @subordinateId = 0 AND @branchId > 0
-    BEGIN
-        DELETE @users
-        INSERT INTO @users
-        SELECT user_id
-        FROM dbo.UsersBranches
-        WHERE branch_id IN (SELECT id FROM @branches)
-    END
-    
     DECLARE @loanProducts TABLE
     (
         id INT
@@ -4933,7 +4907,7 @@ AS BEGIN
         al.id,
         al.late_days,
         al.olb
-    FROM dbo.ActiveLoans(@date, 0) al
+    FROM dbo.ActiveLoans(@date, @branchId) al
     INNER JOIN dbo.Credit cr ON cr.id = al.id
     WHERE cr.loanofficer_id IN (SELECT id FROM @users)
         AND cr.package_id IN (SELECT id FROM @loanProducts)
