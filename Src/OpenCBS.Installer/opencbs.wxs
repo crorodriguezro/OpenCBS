@@ -14,7 +14,7 @@
   <?define UpgradeCode="be584361-0c04-42c9-8ea8-457cdea8b89e"?>
   <?define ProductCode="152472b1-c43d-44b5-87ab-ac5dbd3c6375"?>
 
-  <Product Id="$(var.ProductCode)" Name="OpenCBS $(var.ProductVersion)" Language="1033"
+  <Product Id="$(var.ProductCode)" Name="OpenCBS $(var.ProductVersion)" Language="1033"``
            Version="$(var.ProductVersion)" Manufacturer="OpenCBS" UpgradeCode="$(var.UpgradeCode)">
     <Package Comments="Open Core Banking System" Compressed="yes" InstallerVersion="200"
              Keywords="OpenCBS" Languages="1033" Manufacturer="Open Octopus"/>
@@ -164,6 +164,8 @@
                 <File Id="OpenCBS.Extension.Events.lic" Source="SourceDir\Extensions\OpenCBS.Extension.Events.lic" />
                 <File Id="OpenCBS.Extension.DelinquencyManagementModule.dll" Source="SourceDir\Extensions\OpenCBS.Extension.DelinquencyManagementModule.dll" />
                 <File Id="OpenCBS.Extension.DelinquencyManagementModule.lic" Source="SourceDir\Extensions\OpenCBS.Extension.DelinquencyManagementModule.lic" />
+                <File Id="OpenCBS.Extension.FastRepayment.dll" Source="SourceDir\Extensions\OpenCBS.Extension.FastRepayment.dll" />
+                <File Id="OpenCBS.Extension.FastRepayment.lic" Source="SourceDir\Extensions\OpenCBS.Extension.FastRepayment.lic" />
               </Component>
             </Directory>
 
