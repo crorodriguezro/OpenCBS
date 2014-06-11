@@ -338,6 +338,8 @@
                         <File Id="Repayments_excel" Name="Repayments.zip" Source="SourceDir\Reports\Excel\Repayments.zip" />
                         <File Id="Collection_Sheet_excel" Name="Collection_Sheet.zip" Source="SourceDir\Reports\Excel\Collection_Sheet.zip" />
                         <File Id="OLB_and_LLP_excel" Name="OLB_and_LLP.zip" Source="SourceDir\Reports\Excel\OLB_and_LLP.zip" />
+                        <File Id="Client_Information_excel" Name="Client_Information.zip" Source="SourceDir\Reports\Excel\Client_Information.zip" />
+                        <File Id="Closed_Contracts_excel" Name="Closed_Contracts.zip" Source="SourceDir\Reports\Excel\Closed_Contracts.zip" />
 	            </Component>
               </Directory>
               <Directory Id="dir_internal" Name="Internal">
