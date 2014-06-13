@@ -308,7 +308,7 @@ namespace OpenCBS.GUI.Contracts
                         loan.AlignDisbursementDate = loan.CalculateAlignDisbursementDate(DateTime.Parse(item.SubItems[3].Text).Date);
                         if (!loan.ScheduleChangedManually)
                         {
-                            loan.InstallmentList = loan.CalculateInstallments(true);
+                            loan.InstallmentList = ServicesProvider.GetInstance().GetContractServices().SimulateScheduleCreation(loan);
                             loan.CalculateStartDates();
                         }
                     }
