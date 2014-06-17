@@ -255,7 +255,7 @@ namespace OpenCBS.GUI.Clients
             bool active = _credit != null && _credit.ContractStatus == OContractStatus.Active;
             //InitializeCustomizableFields(OCustomizableFieldEntities.Loan, pContractId, active);
             LoadLoanDetailsExtensions();
-            LoadLoanDetailsButtons();
+
         }
 
         public ClientForm(
@@ -287,7 +287,7 @@ namespace OpenCBS.GUI.Clients
             bool active = _credit != null && _credit.ContractStatus == OContractStatus.Active;
             //InitializeCustomizableFields(OCustomizableFieldEntities.Loan, pContractId, active);
             LoadLoanDetailsExtensions();
-            LoadLoanDetailsButtons();
+
         }
         #endregion
 
@@ -1466,43 +1466,43 @@ namespace OpenCBS.GUI.Clients
 
         private void AddProject(Project pProject)
         {
-            
-                tabControlPerson.TabPages.Remove(tabPageProject);
 
-                bool IsTabContractsExists = false;
+            tabControlPerson.TabPages.Remove(tabPageProject);
 
-                foreach (TabPage tab in tabControlPerson.TabPages)
+            bool IsTabContractsExists = false;
+
+            foreach (TabPage tab in tabControlPerson.TabPages)
+            {
+                if (tab == tabPageContracts)
+                    IsTabContractsExists = true;
+            }
+
+            if (!IsTabContractsExists && _client != null)
+            {
+                tabControlPerson.TabPages.Add(tabPageContracts);
+                panelLoansContracts.Controls.Add(pnlLoans);
+
+                if (_project != null)
                 {
-                    if (tab == tabPageContracts)
-                        IsTabContractsExists = true;
+                    tabControlPerson.SelectedTab = tabPageContracts;
                 }
 
-                if (!IsTabContractsExists && _client != null)
+                if (_personUserControl != null)
                 {
-                    tabControlPerson.TabPages.Add(tabPageContracts);
-                    panelLoansContracts.Controls.Add(pnlLoans);
-
-                    if (_project != null)
-                    {
-                        tabControlPerson.SelectedTab = tabPageContracts;
-                    }
-
-                    if (_personUserControl != null)
-                    {
-                        FillProjectLoans(_personUserControl.Person.Projects, _personUserControl.Person.FirstName);
-                    }
-
-                    if (_groupUserControl != null)
-                    {
-                        FillProjectLoans(_groupUserControl.Group.Projects, _groupUserControl.Group.Name);
-                    }
-
-                    if (_corporateUserControl != null)
-                    {
-                        FillProjectLoans(_corporateUserControl.Corporate.Projects, _corporateUserControl.Corporate.Name);
-                    }
+                    FillProjectLoans(_personUserControl.Person.Projects, _personUserControl.Person.FirstName);
                 }
-            
+
+                if (_groupUserControl != null)
+                {
+                    FillProjectLoans(_groupUserControl.Group.Projects, _groupUserControl.Group.Name);
+                }
+
+                if (_corporateUserControl != null)
+                {
+                    FillProjectLoans(_corporateUserControl.Corporate.Projects, _corporateUserControl.Corporate.Name);
+                }
+            }
+
         }
 
         private void DisplayContracts(IEnumerable<Loan> loans)
@@ -1691,7 +1691,7 @@ namespace OpenCBS.GUI.Clients
 
             SetGuarantorsEnabled(_product.UseGuarantorCollateral);
             LoadLoanDetailsExtensions();
-            LoadLoanDetailsButtons();
+
         }
 
         private void ViewContract()
@@ -1751,7 +1751,7 @@ namespace OpenCBS.GUI.Clients
                             tabControlPerson.SelectedTab = tabPageCreditCommitee;
                         }
                         LoadLoanDetailsExtensions();
-                        LoadLoanDetailsButtons();
+
                     }
                     if (lvContracts.FocusedItem.Text == @"G")
                     {
@@ -5553,6 +5553,24 @@ namespace OpenCBS.GUI.Clients
         private void InitLoanDetailsPrintButton()
         {
             InitPrintButton(AttachmentPoint.LoanDetails, btnPrintLoanDetails);
+            LoadOfficeReports();
+        }
+
+        private void LoadOfficeReports()
+        {
+            foreach (var loanDetailsButton in LoanDetailsButtons)
+            {
+                var button = loanDetailsButton.GetButton(_client, _credit, _guarantee, _saving);
+                if (button == null) continue;
+
+                var items = button.ContextMenuStrip.Items;
+                var count = items.Count;
+                for (int i = 0; i < count; i++)
+                {
+                    if (items[0] != null)
+                        btnPrintLoanDetails.Menu.Items.Add(items[0]);
+                }
+            }
         }
 
         private void InitLoanEventsPrintButton()
@@ -7002,19 +7020,7 @@ namespace OpenCBS.GUI.Clients
                 foreach (var page in pages) page.Tag = true; // mark as extension
                 tabControlSavingsDetails.TabPages.AddRange(pages);
             }
-        }
 
-        private void LoadLoanDetailsButtons()
-        {
-            foreach (var loanDetailsButton in LoanDetailsButtons)
-            {
-                var button = loanDetailsButton.GetButton(_client, _credit, _guarantee, _saving);
-                if (button == null) continue;
-                // Remove button if exists
-                var controls = loanDetailsButtonsPanel.Controls.Find(button.Name, false);
-                if (controls.Any()) loanDetailsButtonsPanel.Controls.Remove(controls[0]);
-                loanDetailsButtonsPanel.Controls.Add(button);
-            }
         }
 
         private void buttonSavingsOperations_Click(object sender, EventArgs e)
@@ -7075,5 +7081,7 @@ namespace OpenCBS.GUI.Clients
         {
             _credit.ScheduleChangedManually = false;
         }
+
+
     }
 }

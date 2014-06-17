@@ -33,7 +33,7 @@ namespace OpenCBS.GUI.UserControl
 {
     internal partial class PrintButton : Button
     {
-        private ContextMenuStrip Menu;
+        public ContextMenuStrip Menu;
 
         public PrintButton()
         {
