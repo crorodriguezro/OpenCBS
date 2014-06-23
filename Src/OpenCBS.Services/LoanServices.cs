@@ -1883,6 +1883,28 @@ namespace OpenCBS.Services
                     else if (pClient is Village)
                         evnt.ClientType = OClientTypes.Village;
 
+                    evnt.Comment = comment;
+                    evnt.CancelDate = TimeProvider.Now;
+
+                    // if event is loan close event, we delete it first
+                    if (evnt is LoanCloseEvent)
+                    {
+                        _ePs.CancelFireEvent(evnt, sqlTransaction, contract, contract.Product.Currency.Id);
+                        evnt.Deleted = true;
+                        evnt = contract.GetLastNonDeletedEvent();
+                        if (pClient is Person)
+                            evnt.ClientType = OClientTypes.Person;
+                        else if (pClient is Group)
+                            evnt.ClientType = OClientTypes.Group;
+                        else if (pClient is Corporate)
+                            evnt.ClientType = OClientTypes.Corporate;
+                        else if (pClient is Village)
+                            evnt.ClientType = OClientTypes.Village;
+                        evnt.Comment = comment;
+                        evnt.CancelDate = TimeProvider.Now;
+                    }
+                    _ePs.CancelFireEvent(evnt, sqlTransaction, contract, contract.Product.Currency.Id);
+
                     var evntCopy = evnt.Copy();
                     evntCopy.Id = evnt.ParentId ?? evnt.Id;
                     CallInterceptor(new Dictionary<string, object>
@@ -1929,27 +1951,6 @@ namespace OpenCBS.Services
                             });
                         }
                     }
-                    evnt.Comment = comment;
-                    evnt.CancelDate = TimeProvider.Now;
-
-                    // if event is loan close event, we delete it first
-                    if (evnt is LoanCloseEvent)
-                    {
-                        _ePs.CancelFireEvent(evnt, sqlTransaction, contract, contract.Product.Currency.Id);
-                        evnt.Deleted = true;
-                        evnt = contract.GetLastNonDeletedEvent();
-                        if (pClient is Person)
-                            evnt.ClientType = OClientTypes.Person;
-                        else if (pClient is Group)
-                            evnt.ClientType = OClientTypes.Group;
-                        else if (pClient is Corporate)
-                            evnt.ClientType = OClientTypes.Corporate;
-                        else if (pClient is Village)
-                            evnt.ClientType = OClientTypes.Village;
-                        evnt.Comment = comment;
-                        evnt.CancelDate = TimeProvider.Now;
-                    }
-                    _ePs.CancelFireEvent(evnt, sqlTransaction, contract, contract.Product.Currency.Id);
                     _ePs.UpdateCommentForLoanEvent(evnt, sqlTransaction);
 
                     evnt.Deleted = true;
