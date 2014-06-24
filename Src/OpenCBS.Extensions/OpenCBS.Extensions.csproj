@@ -66,6 +66,7 @@
     <Compile Include="IEventInterceptor.cs" />
     <Compile Include="IInitializer.cs" />
     <Compile Include="ILoanDetailsButton.cs" />
+    <Compile Include="ILoanExtension.cs" />
     <Compile Include="ILoanTabs.cs" />
     <Compile Include="IMenu.cs" />
     <Compile Include="INonSolidarityGroupTabs.cs" />

@@ -106,13 +106,16 @@ namespace OpenCBS.GUI.Clients
         private bool _changeDisDateBool;
 
         [ImportMany(typeof(ILoanTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
-        public List<ILoanTabs> LoanExtensions { get; set; }
+        public List<ILoanTabs> LoanTabs { get; set; }
 
         [ImportMany(typeof(ISavingsTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<ISavingsTabs> SavingsExtensions { get; set; }
 
         [ImportMany(typeof(ILoanDetailsButton), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<ILoanDetailsButton> LoanDetailsButtons { get; set; }
+
+        [ImportMany(typeof(ILoanExtension))]
+        public List<ILoanExtension> LoanExtensions { get; set; }
 
         private readonly IApplicationController _applicationController;
 
@@ -3763,6 +3766,7 @@ namespace OpenCBS.GUI.Clients
                                         .GetContractServices()
                                         .SaveLoan(ref credit, _project.Id, ref client, (tx, id) =>
                                         {
+                                            foreach (var tab in LoanTabs) tab.Save(credit, tx);
                                             foreach (var extension in LoanExtensions) extension.Save(credit, tx);
                                         });
                     }
@@ -3798,7 +3802,7 @@ namespace OpenCBS.GUI.Clients
 
                     ServicesProvider.GetInstance().GetContractServices().SaveLoan(ref credit, _project.Id, ref client, (tx, id) =>
                     {
-                        LoanExtensions.ForEach(e => e.Save(credit, tx));
+                        LoanTabs.ForEach(e => e.Save(credit, tx));
                     });
 
                     if (_oClientType == OClientTypes.Group)
@@ -6984,7 +6988,7 @@ namespace OpenCBS.GUI.Clients
                 if (page.Tag != null) tabControlRepayments.TabPages.Remove(page);
             }
 
-            foreach (var extension in LoanExtensions)
+            foreach (var extension in LoanTabs)
             {
                 var pages = extension.GetTabPages(_credit);
                 if (pages != null)
