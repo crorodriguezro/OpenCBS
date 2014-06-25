@@ -4255,6 +4255,10 @@ namespace OpenCBS.GUI.Clients
 
             foreach (Event displayEvent in events)
             {
+                if (!chxSystemEvents.Checked && (displayEvent is AccruedInterestEvent || displayEvent is LoanPenaltyAccrualEvent ||
+                    displayEvent is LoanInterestAccrualEvent || displayEvent is LoanTransitionEvent || displayEvent is CreditInsuranceEvent ||
+                    displayEvent is LoanValidationEvent || displayEvent is LoanCloseEvent)) continue;
+
                 var listViewItem = new ListViewItem(displayEvent.Date.ToString());
                 listViewItem.SubItems.Add(displayEvent.EntryDate.ToShortDateString());
 
@@ -7097,6 +7101,11 @@ namespace OpenCBS.GUI.Clients
         private void comboBoxLoanInstallmentType_SelectedIndexChanged(object sender, EventArgs e)
         {
             _credit.ScheduleChangedManually = false;
+        }
+
+        private void chxSystemEvents_CheckedChanged(object sender, EventArgs e)
+        {
+            DisplayLoanEvents(_credit);
         }
 
 
