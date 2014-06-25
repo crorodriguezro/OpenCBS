@@ -732,7 +732,7 @@ namespace OpenCBS.Services
                         {
                             {"Loan", savedContract},
                             {
-                                "Event", new RepaymentEvent
+                                "Event", new BadLoanRepaymentEvent
                                 {
                                     Code = "RBLE",
                                     Principal = listOfRble.Sum(item => item.Principal.Value),
