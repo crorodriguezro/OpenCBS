@@ -417,13 +417,19 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateIn
         private void CalculateDecliningFixedInstallments(int number, OCurrency interests)
         {
             Installment installment = _contract.GetInstallment(number - 1);
+            decimal numberOfPeriods = GetNumberOfPeriodsInYear();
             OCurrency olb = _contract.CalculateActualOlb();
             OCurrency totalOlb = _contract.CalculateActualOlb();
-            OCurrency installmentVpm = _contract.VPM(olb,_contract.InstallmentList.Count - number + 1).Value;
+            OCurrency installmentVpm = _contract.VPM(olb,_contract.InstallmentList.Count - number + 1,_contract.InterestRate/numberOfPeriods).Value;
             OCurrency interestsRepayment;
             OCurrency capital;
             OCurrency capitalRepayment = olb / (_contract.InstallmentList.Count - number + 1);
             OCurrency _olb = 0;
+
+            int numberOfDaysInYear = _contract.Product.InterestScheme == OInterestScheme.Actual360 ||
+                                     _contract.Product.InterestScheme == OInterestScheme.Thirty360
+                ? 360
+                : 365;
 
             installment.CapitalRepayment = capitalRepayment;
             installment.PaidInterests = 0;
@@ -433,7 +439,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateIn
             for (int i = number + 1; i <= _contract.InstallmentList.Count; i++)
             {
                 installment = _contract.GetInstallment(i - 2);
-                interestsRepayment = olb * _contract.InterestRate;
+                interestsRepayment = olb * _contract.InterestRate/numberOfPeriods;
 
                 installment.InterestsRepayment = Math.Round(Convert.ToDecimal(interestsRepayment.Value), 2);
 
@@ -453,7 +459,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateIn
             installment.InterestsRepayment = interests;
 
             installment = _contract.GetInstallment(_contract.InstallmentList.Count - 1);
-            interestsRepayment = olb * _contract.InterestRate;
+            interestsRepayment = olb * _contract.InterestRate/numberOfPeriods;
             capital = installmentVpm - interestsRepayment;
 
             installment.InterestsRepayment = Math.Round(Convert.ToDecimal(interestsRepayment.Value), 2);
@@ -493,7 +499,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateIn
                 calculatedOlb += _contract.GracePeriod < installment.Number ? Math.Round(capitalRepayment.Value, 2) : 0;
                 installment = _contract.GetInstallment(i - 1);
                 installment.CapitalRepayment = _contract.GracePeriod < installment.Number ? capitalRepayment : 0;
-                installment.InterestsRepayment = olbForInterest * _contract.InterestRate;
+                installment.InterestsRepayment = olbForInterest * _contract.InterestRate / GetNumberOfPeriodsInYear();
                 installment.PaidInterests = 0;
                 installment.PaidCapital = 0;
                 installment.PaidFees = 0;
@@ -510,7 +516,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateIn
             OCurrency olb = totalOlb;       
             OCurrency capitalRepayment = number == 1 ? olb / (_contract.InstallmentList.Count - _contract.GracePeriod.Value) : olb / (_contract.InstallmentList.Count - number + 1);
             OCurrency calculatedOlb = 0;
-
+            decimal numberOfPeriods = GetNumberOfPeriodsInYear();
             installment.CapitalRepayment = _contract.GracePeriod < installment.Number
                                                ? capitalRepayment
                                                : 0; 
@@ -528,7 +534,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateIn
                 installment.CapitalRepayment = _contract.GracePeriod < installment.Number ? capitalRepayment : 0;
 
                 olb -= previousInstallment.CapitalRepayment;
-                installment.InterestsRepayment = olb * _contract.InterestRate;                
+                installment.InterestsRepayment = olb * _contract.InterestRate/numberOfPeriods;
 
                 installment.PaidInterests = 0;
                 installment.PaidCapital = 0;
@@ -539,6 +545,18 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateIn
             calculatedOlb += Math.Round(capitalRepayment.Value, 2);
             installment.CapitalRepayment = installment.CapitalRepayment - (calculatedOlb - totalOlb);
 
+        }
+
+        private decimal GetNumberOfPeriodsInYear()
+        {
+            decimal numberOfPeriods;
+            if (_contract.InstallmentType.NbOfMonths != 0 && _contract.InstallmentType.NbOfDays == 0)
+                numberOfPeriods = 12m / _contract.InstallmentType.NbOfMonths;
+            else if (_contract.InstallmentType.NbOfMonths == 0 && _contract.InstallmentType.NbOfDays != 0)
+                numberOfPeriods = 365m / _contract.InstallmentType.NbOfDays;
+            else
+                numberOfPeriods = 365m / (30 * _contract.InstallmentType.NbOfMonths + _contract.InstallmentType.NbOfDays);
+            return numberOfPeriods;
         }
 
         private void CalculateRemainsInstallmentAfterApr(int number, DateTime date)
@@ -563,7 +581,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateIn
                                                        : (installment.ExpectedDate -
                                                           _contract.GetInstallment(installment.Number - 2).ExpectedDate)
                                                              .Days;
-                
+                decimal numberOfPeriods = GetNumberOfPeriodsInYear();
                 if (preInstallment.ExpectedDate == date || _contract.StartDate == date || spanDays >= numDaysInMonth)
                 {
                     spanDays = numDaysInMonth;
@@ -580,12 +598,12 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateIn
                     //acrrual
                     interests = _contract.EscapedMember != null
                                         ? olb.Value * _contract.InterestRate
-                                        : spanDays / numDaysInMonth * olb.Value * _contract.InterestRate;
+                                        : spanDays / numDaysInMonth * olb.Value * _contract.InterestRate / numberOfPeriods;
                 }
                 else
                 {
                     //cash
-                    interests = olb.Value * _contract.InterestRate;
+                    interests = olb.Value*_contract.InterestRate/numberOfPeriods;
                 }
 
                 installment.InterestsRepayment = interests;
@@ -594,7 +612,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateIn
 
                 if(preInstallment.ExpectedDate == date)
                 {
-                    installment.InterestsRepayment = olb * _contract.InterestRate;
+                    installment.InterestsRepayment = olb * _contract.InterestRate / numberOfPeriods;
                 }
                 
                 switch (_contract.Product.LoanType)
