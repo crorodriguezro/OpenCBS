@@ -32,6 +32,8 @@ namespace OpenCBS.ArchitectureV2.View
             _penaltyNumericUpDown.KeyDown += (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
             _commissionNumericUpDown.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
             _commissionNumericUpDown.KeyDown += (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
+            _bounceFeeNumericUpDown.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
+            _bounceFeeNumericUpDown.KeyDown += (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
             _typeOfRepaymentComboBox.SelectedIndexChanged += (sender, e) => presenterCallbacks.OnRefresh();
             _okButton.Click += (sender, e) => presenterCallbacks.OnRepay();
             _cancelButton.Click += (sender, e) => presenterCallbacks.OnCancel();
@@ -107,6 +109,13 @@ namespace OpenCBS.ArchitectureV2.View
             get { return _commissionNumericUpDown.Value; }
             set { _commissionNumericUpDown.Value = value; }
         }
+
+        public decimal BounceFee
+        {
+            get { return _bounceFeeNumericUpDown.Value; }
+            set { _bounceFeeNumericUpDown.Value = value; }
+        }
+
         public DateTime Date
         {
             get { return _dateTimePicker.Value; }
@@ -115,7 +124,9 @@ namespace OpenCBS.ArchitectureV2.View
         public bool OkButtonEnabled
         {
             get { return _okButton.Enabled; }
-            set { _okButton.Enabled = value;
+            set
+            {
+                _okButton.Enabled = value;
                 _amountNumericUpDown.ForeColor = _okButton.Enabled ? Color.Black : Color.Red;
             }
         }
@@ -137,7 +148,7 @@ namespace OpenCBS.ArchitectureV2.View
 
         public PaymentMethod SelectedPaymentMethod
         {
-            get { return (PaymentMethod) _paymentMethodComboBox.SelectedItem; }
+            get { return (PaymentMethod)_paymentMethodComboBox.SelectedItem; }
             set { _paymentMethodComboBox.SelectedItem = value; }
         }
 

@@ -4270,6 +4270,7 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
                 }
                 else if (displayEvent is LoanEntryFeeEvent)
                 {
@@ -4278,6 +4279,7 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add(e.Fee.GetFormatedValue(pCredit.UseCents));
+                    listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
@@ -4291,6 +4293,7 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
                 }
                 else if (displayEvent is RepaymentEvent)
                 {
@@ -4299,6 +4302,7 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add(_event.Interests.GetFormatedValue(pCredit.UseCents));
                     listViewItem.SubItems.Add(_event.Commissions.GetFormatedValue(pCredit.UseCents));
                     listViewItem.SubItems.Add(_event.Penalties.GetFormatedValue(pCredit.UseCents));
+                    listViewItem.SubItems.Add(_event.BounceFee.GetFormatedValue(pCredit.UseCents));
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                 }
@@ -4311,11 +4315,13 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add(_event.Penalties.GetFormatedValue(pCredit.UseCents));
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
                 }
                 else if (displayEvent is TrancheEvent)
                 {
                     TrancheEvent _event = displayEvent as TrancheEvent;
                     listViewItem.SubItems.Add(_event.Amount.GetFormatedValue(pCredit.UseCents));
+                    listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
@@ -4328,6 +4334,7 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add(_event.OLB.GetFormatedValue(pCredit.UseCents));
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-"); 
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add(_event.OverduePrincipal.GetFormatedValue(pCredit.UseCents));
                     listViewItem.SubItems.Add(_event.OverdueDays.ToString());
@@ -4341,6 +4348,7 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
                 }
                 else if (displayEvent is LoanPenaltyAccrualEvent)
                 {
@@ -4349,6 +4357,7 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add(_event.Penalty.GetFormatedValue(pCredit.UseCents));
+                    listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                 }
@@ -4371,6 +4380,7 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
                 }
                 else if (displayEvent is RegEvent
                          || displayEvent is WriteOffEvent
@@ -4378,6 +4388,7 @@ namespace OpenCBS.GUI.Clients
                          || displayEvent is LoanCloseEvent
                          || displayEvent is ManualScheduleChangeEvent)
                 {
+                    listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
@@ -4394,6 +4405,7 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
                 }
                 else if (displayEvent is CreditInsuranceEvent)
                 {
@@ -4401,6 +4413,7 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add(_event.Principal.GetFormatedValue(pCredit.UseCents));
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add(_event.Commission.GetFormatedValue(pCredit.Product.Currency.UseCents));
+                    listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");

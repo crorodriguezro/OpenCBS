@@ -77,7 +77,8 @@ namespace OpenCBS.ArchitectureV2.Presenter
                 _repaymentService.Settings.Comment == _view.Comment &&
                 _repaymentService.Settings.ScriptName == _view.SelectedScript &&
                 _repaymentService.Settings.Date.Date == _view.Date.Date &&
-                _repaymentService.Settings.Amount == _view.Amount) return;
+                _repaymentService.Settings.Amount == _view.Amount &&
+                _repaymentService.Settings.BounceFee == _view.BounceFee) return;
             if (_repaymentService.Settings.Date.Date != _view.Date.Date)
             {
                 _repaymentService.Settings.DateChanged = true;
@@ -95,6 +96,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
             _repaymentService.Settings.Loan = _loan.Copy();
             _repaymentService.Settings.Comment = _view.Comment;
             _repaymentService.Settings.Commission = _view.Commission;
+            _repaymentService.Settings.BounceFee = _view.BounceFee;
             _repaymentService.Settings.Interest = _view.Interest;
             _repaymentService.Settings.Penalty = _view.Penalty;
             _repaymentService.Settings.Principal = _view.Principal;
@@ -118,10 +120,11 @@ namespace OpenCBS.ArchitectureV2.Presenter
         {
             _view.Loan = _repaymentService.Settings.Loan;
             _view.Commission = _repaymentService.Settings.Commission;
+            _view.BounceFee = _repaymentService.Settings.BounceFee;
             _view.Interest = _repaymentService.Settings.Interest;
             _view.Penalty = _repaymentService.Settings.Penalty;
             _view.Principal = _repaymentService.Settings.Principal;
-            _view.Amount = _repaymentService.Settings.Commission + _repaymentService.Settings.Interest +
+            _view.Amount =  _repaymentService.Settings.BounceFee + _repaymentService.Settings.Commission + _repaymentService.Settings.Interest +
                            _repaymentService.Settings.Penalty + _repaymentService.Settings.Principal;
         }
     }

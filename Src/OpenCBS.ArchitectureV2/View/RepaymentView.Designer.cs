@@ -50,10 +50,12 @@
             this._okButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
             this._repaymentConfigurationPanel = new System.Windows.Forms.Panel();
-            this._descriptionLabel = new System.Windows.Forms.Label();
             this._paymentMethodLabel = new System.Windows.Forms.Label();
             this._paymentMethodComboBox = new System.Windows.Forms.ComboBox();
+            this._bounceFeeNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             this._schedulePanel = new System.Windows.Forms.Panel();
+            this._descriptionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._commissionNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._penaltyNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._interestNumericUpDown)).BeginInit();
@@ -61,24 +63,13 @@
             ((System.ComponentModel.ISupportInitialize)(this._amountNumericUpDown)).BeginInit();
             this.buttonsPanel.SuspendLayout();
             this._repaymentConfigurationPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._bounceFeeNumericUpDown)).BeginInit();
             this._schedulePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // _scheduleControl
             // 
             resources.ApplyResources(this._scheduleControl, "_scheduleControl");
-            this._scheduleControl.Name = "_scheduleControl";
-            // 
-            // _scheduleControl
-            // 
-            this._scheduleControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._scheduleControl.Location = new System.Drawing.Point(0, 0);
-            this._scheduleControl.Name = "_scheduleControl";
-            // 
-            // _scheduleControl
-            // 
-            this._scheduleControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._scheduleControl.Location = new System.Drawing.Point(0, 0);
             this._scheduleControl.Name = "_scheduleControl";
             // 
             // _typeOfRepaymentComboBox
@@ -226,6 +217,8 @@
             this._repaymentConfigurationPanel.Controls.Add(this._commentLabel);
             this._repaymentConfigurationPanel.Controls.Add(this._amountNumericUpDown);
             this._repaymentConfigurationPanel.Controls.Add(this._dateLabel);
+            this._repaymentConfigurationPanel.Controls.Add(this._bounceFeeNumericUpDown);
+            this._repaymentConfigurationPanel.Controls.Add(this.label2);
             this._repaymentConfigurationPanel.Controls.Add(this._commissionNumericUpDown);
             this._repaymentConfigurationPanel.Controls.Add(this._commissionLabel);
             this._repaymentConfigurationPanel.Controls.Add(this._dateTimePicker);
@@ -237,11 +230,6 @@
             this._repaymentConfigurationPanel.Controls.Add(this._interestLabel);
             resources.ApplyResources(this._repaymentConfigurationPanel, "_repaymentConfigurationPanel");
             this._repaymentConfigurationPanel.Name = "_repaymentConfigurationPanel";
-            // 
-            // _descriptionLabel
-            // 
-            resources.ApplyResources(this._descriptionLabel, "_descriptionLabel");
-            this._descriptionLabel.Name = "_descriptionLabel";
             // 
             // _paymentMethodLabel
             // 
@@ -255,11 +243,32 @@
             resources.ApplyResources(this._paymentMethodComboBox, "_paymentMethodComboBox");
             this._paymentMethodComboBox.Name = "_paymentMethodComboBox";
             // 
+            // _bounceFeeNumericUpDown
+            // 
+            this._bounceFeeNumericUpDown.DecimalPlaces = 2;
+            resources.ApplyResources(this._bounceFeeNumericUpDown, "_bounceFeeNumericUpDown");
+            this._bounceFeeNumericUpDown.Maximum = new decimal(new int[] {
+            -727379968,
+            232,
+            0,
+            0});
+            this._bounceFeeNumericUpDown.Name = "_bounceFeeNumericUpDown";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
             // _schedulePanel
             // 
             this._schedulePanel.Controls.Add(this._scheduleControl);
             resources.ApplyResources(this._schedulePanel, "_schedulePanel");
             this._schedulePanel.Name = "_schedulePanel";
+            // 
+            // _descriptionLabel
+            // 
+            resources.ApplyResources(this._descriptionLabel, "_descriptionLabel");
+            this._descriptionLabel.Name = "_descriptionLabel";
             // 
             // RepaymentView
             // 
@@ -280,8 +289,10 @@
             this.buttonsPanel.ResumeLayout(false);
             this._repaymentConfigurationPanel.ResumeLayout(false);
             this._repaymentConfigurationPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._bounceFeeNumericUpDown)).EndInit();
             this._schedulePanel.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -310,6 +321,8 @@
         private System.Windows.Forms.Panel _schedulePanel;
         private System.Windows.Forms.Label _paymentMethodLabel;
         private System.Windows.Forms.ComboBox _paymentMethodComboBox;
+        private System.Windows.Forms.NumericUpDown _bounceFeeNumericUpDown;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label _descriptionLabel;
     }
 }

@@ -13,6 +13,7 @@ namespace OpenCBS.ArchitectureV2.Service
         public decimal Interest { get; set; }
         public decimal Penalty { get; set; }
         public decimal Commission { get; set; }
+        public decimal BounceFee { get; set; }
         public DateTime Date { get; set; }
         public bool DateChanged { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
@@ -34,7 +35,8 @@ namespace OpenCBS.ArchitectureV2.Service
                 DateChanged = DateChanged,
                 PaymentMethod = PaymentMethod,
                 Comment = Comment,
-                ScriptName = ScriptName
+                ScriptName = ScriptName,
+                BounceFee = BounceFee
             };
         }
     }

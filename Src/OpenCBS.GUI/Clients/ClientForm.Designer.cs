@@ -358,6 +358,7 @@ namespace OpenCBS.GUI.Clients
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colCommissions = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPenalties = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colBounceFee = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colOverduePrincipal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colOverdueDays = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -2517,6 +2518,7 @@ namespace OpenCBS.GUI.Clients
             this.columnHeader14,
             this.colCommissions,
             this.colPenalties,
+            this.colBounceFee,
             this.colOverduePrincipal,
             this.colOverdueDays,
             this.columnHeader16,
@@ -2563,6 +2565,10 @@ namespace OpenCBS.GUI.Clients
             // colPenalties
             // 
             resources.ApplyResources(this.colPenalties, "colPenalties");
+            // 
+            // colBounceFee
+            // 
+            resources.ApplyResources(this.colBounceFee, "colBounceFee");
             // 
             // colOverduePrincipal
             // 
@@ -4387,5 +4393,6 @@ namespace OpenCBS.GUI.Clients
         private ColumnHeader columnHeaderLoanPR;
         private ColumnHeader columnHeaderLoanInstallmentTotal;
         private ColumnHeader columnHeaderLoanOLB;
+        private ColumnHeader colBounceFee;
     }
 }

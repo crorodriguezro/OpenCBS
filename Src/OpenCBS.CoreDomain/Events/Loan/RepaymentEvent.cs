@@ -33,6 +33,7 @@ namespace OpenCBS.CoreDomain.Events
         { 
             Penalties = 0; 
             Commissions = 0;
+            BounceFee = 0;
             CalculatedPenalties = 0;
             WrittenOffPenalties = 0;
             UnpaidPenalties = 0;
@@ -85,6 +86,7 @@ namespace OpenCBS.CoreDomain.Events
         public OCurrency CalculatedPenalties { get; set; }
         public OCurrency WrittenOffPenalties { get; set; }
         public OCurrency UnpaidPenalties { get; set; }
+        public OCurrency BounceFee { get; set; }
 
 //        public override PaymentMethod PaymentMethod { get; set; }
         public int? PaymentMethodId { get; set; }

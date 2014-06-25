@@ -139,6 +139,7 @@ namespace OpenCBS.Manager.Events
                         RepaymentEvents.calculated_penalties rpe_calculated_penalties,
                         RepaymentEvents.written_off_penalties rpe_written_off_penalties,
                         RepaymentEvents.unpaid_penalties rpe_unpaid_penalties,
+                        RepaymentEvents.bounce_fee rpe_bounce_fee,
      
                         LoanInterestAccruingEvents.id AS liae_id, 
                         LoanInterestAccruingEvents.interest_prepayment AS liae_interestPrepayment, 
@@ -287,6 +288,7 @@ namespace OpenCBS.Manager.Events
                     RepaymentEvents.calculated_penalties rpe_calculated_penalties,
                     RepaymentEvents.written_off_penalties rpe_written_off_penalties,
                     RepaymentEvents.unpaid_penalties rpe_unpaid_penalties,
+                    RepaymentEvents.bounce_fee rpe_bounce_fee,
 
                     LoanInterestAccruingEvents.id AS liae_id, 
                     LoanInterestAccruingEvents.interest_prepayment AS liae_interestPrepayment, 
@@ -510,6 +512,7 @@ namespace OpenCBS.Manager.Events
                     RepaymentEvents.calculated_penalties rpe_calculated_penalties,
                     RepaymentEvents.written_off_penalties rpe_written_off_penalties,
                     RepaymentEvents.unpaid_penalties rpe_unpaid_penalties,
+                    RepaymentEvents.bounce_fee rpe_bounce_fee,
 
                     LoanInterestAccruingEvents.id AS liae_id, 
                     LoanInterestAccruingEvents.interest_prepayment AS liae_interestPrepayment, 
@@ -893,7 +896,8 @@ namespace OpenCBS.Manager.Events
                                         [payment_method_id],
                                         [calculated_penalties],
                                         [written_off_penalties],
-                                        [unpaid_penalties]) 
+                                        [unpaid_penalties],
+                                        [bounce_fee]) 
                                      VALUES
                                        (@id, 
                                         @pastDueDays, 
@@ -905,7 +909,8 @@ namespace OpenCBS.Manager.Events
                                         @payment_method_id,
                                         @calculated_penalties,
                                         @written_off_penalties,
-                                        @unpaid_penalties)
+                                        @unpaid_penalties,
+                                        @bounce_fee)
                                      ";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
@@ -1365,6 +1370,7 @@ namespace OpenCBS.Manager.Events
             c.AddParam("@calculated_penalties", evnt.CalculatedPenalties);
             c.AddParam("@written_off_penalties", evnt.WrittenOffPenalties);
             c.AddParam("@unpaid_penalties", evnt.UnpaidPenalties);
+            c.AddParam("@bounce_fee", evnt.BounceFee);
         }
 
         private static void GetLoanDisbursmentEvent(LoanDisbursmentEvent evnt, OpenCbsCommand c)
@@ -1792,7 +1798,7 @@ namespace OpenCBS.Manager.Events
             e.CalculatedPenalties = r.GetMoney("rpe_calculated_penalties");
             e.WrittenOffPenalties = r.GetMoney("rpe_written_off_penalties");
             e.UnpaidPenalties = r.GetMoney("rpe_unpaid_penalties");
-
+            e.BounceFee = r.GetMoney("rpe_bounce_fee");
             e.Code = r.GetString("event_type");
 
             if (e.Code != "RBLE")

@@ -21,6 +21,7 @@ namespace OpenCBS.ArchitectureV2.Interface.View
         decimal Interest { get; set; }
         decimal Penalty { get; set; }
         decimal Commission { get; set; }
+        decimal BounceFee { get; set; }
         DateTime Date { get; set; }
         bool OkButtonEnabled { get; set; }
         string Comment { get; set; }
