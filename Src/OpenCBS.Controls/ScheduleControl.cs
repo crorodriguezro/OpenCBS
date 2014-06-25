@@ -49,7 +49,7 @@ namespace OpenCBS.Controls
             paymentDateColumn.AspectToStringConverter = value =>
             {
                 var date = (DateTime?)value;
-                return date.HasValue ? date.Value.ToString("dd.MM.yyyy") : string.Empty;
+                return date.HasValue ? date.Value.ToShortDateString() : string.Empty;
             };
             principalColumn.AspectToStringConverter =
             interestColumn.AspectToStringConverter =

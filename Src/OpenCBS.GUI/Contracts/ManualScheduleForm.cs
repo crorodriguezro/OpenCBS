@@ -91,7 +91,7 @@ namespace OpenCBS.GUI.Contracts
             {
                 var date = (DateTime?)value;
                 return (date.HasValue && date != new DateTime())
-                            ? date.Value.ToString("dd.MM.yyyy")
+                            ? date.Value.ToShortDateString()
                             : string.Empty;
             };
             principalColumn.AspectToStringConverter =
