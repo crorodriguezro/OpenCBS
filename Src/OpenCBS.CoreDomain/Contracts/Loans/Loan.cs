@@ -1708,7 +1708,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                     installment.OLB = CalculateExpectedOlb(installment.Number, keepExpectedInstallment);
             }
             EscapedMember = null;
-            rPe.Penalties = 0;
+//            rPe.Penalties = 0;
             return rPe;
         }
 

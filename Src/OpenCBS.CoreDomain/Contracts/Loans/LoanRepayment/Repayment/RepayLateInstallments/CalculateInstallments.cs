@@ -165,12 +165,12 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment.Repayment.RepayLateIn
                 }
             }
 
-//            if (_cCo.CancelFees && (_cCo.ManualFeesAmount + _cCo.ManualCommissionAmount) >= 0)
+            if (_cCo.CancelFees && (_cCo.ManualFeesAmount + _cCo.ManualCommissionAmount) >= 0)
             {
                 for (int i = 0; i < _contract.NbOfInstallments; i++)
                 {
                     _contract.GetInstallment(i).FeesUnpaid = 0;
-                    _contract.GetInstallment(i).CalculatedPenalty = 0;
+                    //_contract.GetInstallment(i).CalculatedPenalty = 0;
                 }
             }
         }
