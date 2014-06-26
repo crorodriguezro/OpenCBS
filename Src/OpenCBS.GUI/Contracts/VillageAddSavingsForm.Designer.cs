@@ -33,6 +33,8 @@ namespace OpenCBS.GUI.Contracts
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VillageAddSavingsForm));
             this.pnlButtons = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.udInitialAmount = new System.Windows.Forms.NumericUpDown();
             this.udInterestRate = new System.Windows.Forms.NumericUpDown();
             this.udEntryFees = new System.Windows.Forms.NumericUpDown();
@@ -40,23 +42,23 @@ namespace OpenCBS.GUI.Contracts
             this.udTransferFees = new System.Windows.Forms.NumericUpDown();
             this.cbLoan = new System.Windows.Forms.ComboBox();
             this.lvMembers = new OpenCBS.GUI.UserControl.ListViewEx();
-            this.chName = new System.Windows.Forms.ColumnHeader();
-            this.chPassport = new System.Windows.Forms.ColumnHeader();
-            this.chInitialAmount = new System.Windows.Forms.ColumnHeader();
-            this.chCurrency = new System.Windows.Forms.ColumnHeader();
-            this.chInterest = new System.Windows.Forms.ColumnHeader();
-            this.chEntryFees = new System.Windows.Forms.ColumnHeader();
-            this.chWithdrawFees = new System.Windows.Forms.ColumnHeader();
-            this.chTransferFees = new System.Windows.Forms.ColumnHeader();
-            this.colIbtFees = new System.Windows.Forms.ColumnHeader();
-            this.chDepositFees = new System.Windows.Forms.ColumnHeader();
-            this.chChequeDepositFees = new System.Windows.Forms.ColumnHeader();
-            this.chCloseFees = new System.Windows.Forms.ColumnHeader();
-            this.chManagementFees = new System.Windows.Forms.ColumnHeader();
-            this.chOverdraftFees = new System.Windows.Forms.ColumnHeader();
-            this.chAgioFees = new System.Windows.Forms.ColumnHeader();
-            this.chReopenFees = new System.Windows.Forms.ColumnHeader();
-            this.chLoan = new System.Windows.Forms.ColumnHeader();
+            this.chName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chPassport = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chInitialAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chCurrency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chInterest = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chEntryFees = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chWithdrawFees = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chTransferFees = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colIbtFees = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDepositFees = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chChequeDepositFees = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chCloseFees = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chManagementFees = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chOverdraftFees = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chAgioFees = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chReopenFees = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chLoan = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.udDepositFees = new System.Windows.Forms.NumericUpDown();
             this.udCloseFees = new System.Windows.Forms.NumericUpDown();
             this.udManagementFees = new System.Windows.Forms.NumericUpDown();
@@ -65,8 +67,6 @@ namespace OpenCBS.GUI.Contracts
             this.udChequeDepositFees = new System.Windows.Forms.NumericUpDown();
             this.udReopenFees = new System.Windows.Forms.NumericUpDown();
             this.nudIbtFees = new System.Windows.Forms.NumericUpDown();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.pnlButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udInitialAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udInterestRate)).BeginInit();
@@ -85,79 +85,65 @@ namespace OpenCBS.GUI.Contracts
             // 
             // pnlButtons
             // 
-            this.pnlButtons.AccessibleDescription = null;
-            this.pnlButtons.AccessibleName = null;
-            resources.ApplyResources(this.pnlButtons, "pnlButtons");
-            this.pnlButtons.BackgroundImage = null;
             this.pnlButtons.Controls.Add(this.btnCancel);
             this.pnlButtons.Controls.Add(this.btnSave);
-            this.pnlButtons.Font = null;
+            resources.ApplyResources(this.pnlButtons, "pnlButtons");
             this.pnlButtons.Name = "pnlButtons";
+            // 
+            // btnCancel
+            // 
+            resources.ApplyResources(this.btnCancel, "btnCancel");
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnSave
+            // 
+            resources.ApplyResources(this.btnSave, "btnSave");
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // udInitialAmount
             // 
-            this.udInitialAmount.AccessibleDescription = null;
-            this.udInitialAmount.AccessibleName = null;
-            resources.ApplyResources(this.udInitialAmount, "udInitialAmount");
             this.udInitialAmount.DecimalPlaces = 2;
-            this.udInitialAmount.Font = null;
+            resources.ApplyResources(this.udInitialAmount, "udInitialAmount");
             this.udInitialAmount.Name = "udInitialAmount";
             // 
             // udInterestRate
             // 
-            this.udInterestRate.AccessibleDescription = null;
-            this.udInterestRate.AccessibleName = null;
-            resources.ApplyResources(this.udInterestRate, "udInterestRate");
             this.udInterestRate.DecimalPlaces = 2;
-            this.udInterestRate.Font = null;
+            resources.ApplyResources(this.udInterestRate, "udInterestRate");
             this.udInterestRate.Name = "udInterestRate";
             // 
             // udEntryFees
             // 
-            this.udEntryFees.AccessibleDescription = null;
-            this.udEntryFees.AccessibleName = null;
-            resources.ApplyResources(this.udEntryFees, "udEntryFees");
             this.udEntryFees.DecimalPlaces = 2;
-            this.udEntryFees.Font = null;
+            resources.ApplyResources(this.udEntryFees, "udEntryFees");
             this.udEntryFees.Name = "udEntryFees";
             // 
             // udWithdrawFees
             // 
-            this.udWithdrawFees.AccessibleDescription = null;
-            this.udWithdrawFees.AccessibleName = null;
-            resources.ApplyResources(this.udWithdrawFees, "udWithdrawFees");
             this.udWithdrawFees.DecimalPlaces = 2;
-            this.udWithdrawFees.Font = null;
+            resources.ApplyResources(this.udWithdrawFees, "udWithdrawFees");
             this.udWithdrawFees.Name = "udWithdrawFees";
             // 
             // udTransferFees
             // 
-            this.udTransferFees.AccessibleDescription = null;
-            this.udTransferFees.AccessibleName = null;
-            resources.ApplyResources(this.udTransferFees, "udTransferFees");
             this.udTransferFees.DecimalPlaces = 2;
-            this.udTransferFees.Font = null;
+            resources.ApplyResources(this.udTransferFees, "udTransferFees");
             this.udTransferFees.Name = "udTransferFees";
             // 
             // cbLoan
             // 
-            this.cbLoan.AccessibleDescription = null;
-            this.cbLoan.AccessibleName = null;
-            resources.ApplyResources(this.cbLoan, "cbLoan");
-            this.cbLoan.BackgroundImage = null;
-            this.cbLoan.Font = null;
             this.cbLoan.FormattingEnabled = true;
             this.cbLoan.Items.AddRange(new object[] {
             resources.GetString("cbLoan.Items"),
             resources.GetString("cbLoan.Items1")});
+            resources.ApplyResources(this.cbLoan, "cbLoan");
             this.cbLoan.Name = "cbLoan";
             // 
             // lvMembers
             // 
-            this.lvMembers.AccessibleDescription = null;
-            this.lvMembers.AccessibleName = null;
-            resources.ApplyResources(this.lvMembers, "lvMembers");
-            this.lvMembers.BackgroundImage = null;
             this.lvMembers.CheckBoxes = true;
             this.lvMembers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chName,
@@ -177,14 +163,15 @@ namespace OpenCBS.GUI.Contracts
             this.chAgioFees,
             this.chReopenFees,
             this.chLoan});
+            resources.ApplyResources(this.lvMembers, "lvMembers");
             this.lvMembers.DoubleClickActivation = false;
             this.lvMembers.FullRowSelect = true;
             this.lvMembers.GridLines = true;
             this.lvMembers.Name = "lvMembers";
             this.lvMembers.UseCompatibleStateImageBehavior = false;
             this.lvMembers.View = System.Windows.Forms.View.Details;
-            this.lvMembers.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvMembers_ItemChecked);
             this.lvMembers.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lvMembers_ItemCheck);
+            this.lvMembers.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvMembers_ItemChecked);
             this.lvMembers.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvMembers_MouseDown);
             // 
             // chName
@@ -257,97 +244,54 @@ namespace OpenCBS.GUI.Contracts
             // 
             // udDepositFees
             // 
-            this.udDepositFees.AccessibleDescription = null;
-            this.udDepositFees.AccessibleName = null;
-            resources.ApplyResources(this.udDepositFees, "udDepositFees");
             this.udDepositFees.DecimalPlaces = 2;
-            this.udDepositFees.Font = null;
+            resources.ApplyResources(this.udDepositFees, "udDepositFees");
             this.udDepositFees.Name = "udDepositFees";
             // 
             // udCloseFees
             // 
-            this.udCloseFees.AccessibleDescription = null;
-            this.udCloseFees.AccessibleName = null;
-            resources.ApplyResources(this.udCloseFees, "udCloseFees");
             this.udCloseFees.DecimalPlaces = 2;
-            this.udCloseFees.Font = null;
+            resources.ApplyResources(this.udCloseFees, "udCloseFees");
             this.udCloseFees.Name = "udCloseFees";
             // 
             // udManagementFees
             // 
-            this.udManagementFees.AccessibleDescription = null;
-            this.udManagementFees.AccessibleName = null;
-            resources.ApplyResources(this.udManagementFees, "udManagementFees");
             this.udManagementFees.DecimalPlaces = 2;
-            this.udManagementFees.Font = null;
+            resources.ApplyResources(this.udManagementFees, "udManagementFees");
             this.udManagementFees.Name = "udManagementFees";
             // 
             // udOverdraftFees
             // 
-            this.udOverdraftFees.AccessibleDescription = null;
-            this.udOverdraftFees.AccessibleName = null;
-            resources.ApplyResources(this.udOverdraftFees, "udOverdraftFees");
             this.udOverdraftFees.DecimalPlaces = 2;
-            this.udOverdraftFees.Font = null;
+            resources.ApplyResources(this.udOverdraftFees, "udOverdraftFees");
             this.udOverdraftFees.Name = "udOverdraftFees";
             // 
             // udAgioFees
             // 
-            this.udAgioFees.AccessibleDescription = null;
-            this.udAgioFees.AccessibleName = null;
-            resources.ApplyResources(this.udAgioFees, "udAgioFees");
             this.udAgioFees.DecimalPlaces = 2;
-            this.udAgioFees.Font = null;
+            resources.ApplyResources(this.udAgioFees, "udAgioFees");
             this.udAgioFees.Name = "udAgioFees";
             // 
             // udChequeDepositFees
             // 
-            this.udChequeDepositFees.AccessibleDescription = null;
-            this.udChequeDepositFees.AccessibleName = null;
-            resources.ApplyResources(this.udChequeDepositFees, "udChequeDepositFees");
             this.udChequeDepositFees.DecimalPlaces = 2;
-            this.udChequeDepositFees.Font = null;
+            resources.ApplyResources(this.udChequeDepositFees, "udChequeDepositFees");
             this.udChequeDepositFees.Name = "udChequeDepositFees";
             // 
             // udReopenFees
             // 
-            this.udReopenFees.AccessibleDescription = null;
-            this.udReopenFees.AccessibleName = null;
-            resources.ApplyResources(this.udReopenFees, "udReopenFees");
             this.udReopenFees.DecimalPlaces = 2;
-            this.udReopenFees.Font = null;
+            resources.ApplyResources(this.udReopenFees, "udReopenFees");
             this.udReopenFees.Name = "udReopenFees";
             // 
             // nudIbtFees
             // 
-            this.nudIbtFees.AccessibleDescription = null;
-            this.nudIbtFees.AccessibleName = null;
-            resources.ApplyResources(this.nudIbtFees, "nudIbtFees");
             this.nudIbtFees.DecimalPlaces = 2;
-            this.nudIbtFees.Font = null;
+            resources.ApplyResources(this.nudIbtFees, "nudIbtFees");
             this.nudIbtFees.Name = "nudIbtFees";
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.AccessibleDescription = null;
-            this.btnCancel.AccessibleName = null;
-            resources.ApplyResources(this.btnCancel, "btnCancel");
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.AccessibleDescription = null;
-            this.btnSave.AccessibleName = null;
-            resources.ApplyResources(this.btnSave, "btnSave");
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // VillageAddSavingsForm
             // 
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.nudIbtFees);
@@ -366,7 +310,6 @@ namespace OpenCBS.GUI.Contracts
             this.Controls.Add(this.udInitialAmount);
             this.Controls.Add(this.lvMembers);
             this.Controls.Add(this.pnlButtons);
-            this.Font = null;
             this.Name = "VillageAddSavingsForm";
             this.Load += new System.EventHandler(this.VillageAddSavingsForm_Load);
             this.pnlButtons.ResumeLayout(false);

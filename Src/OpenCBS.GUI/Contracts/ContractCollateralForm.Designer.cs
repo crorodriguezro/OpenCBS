@@ -59,31 +59,31 @@ namespace OpenCBS.GUI.Contracts
             this.groupBoxOwnerDetails.TabStop = false;
             // 
             // buttonClearOwner
-            //
+            // 
             resources.ApplyResources(this.buttonClearOwner, "buttonClearOwner");
             this.buttonClearOwner.Name = "buttonClearOwner";
             this.buttonClearOwner.Click += new System.EventHandler(this.buttonClearOwner_Click);
             // 
             // buttonSelectOwner
-            //
+            // 
             resources.ApplyResources(this.buttonSelectOwner, "buttonSelectOwner");
             this.buttonSelectOwner.Name = "buttonSelectOwner";
             this.buttonSelectOwner.Click += new System.EventHandler(this.buttonSelectOwner_Click);
             // 
             // buttonAddOwner
-            //
+            // 
             resources.ApplyResources(this.buttonAddOwner, "buttonAddOwner");
             this.buttonAddOwner.Name = "buttonAddOwner";
             this.buttonAddOwner.Click += new System.EventHandler(this.buttonAddOwner_Click);
             // 
             // buttonCancel
-            //
+            // 
             resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonSave
-            //
+            // 
             resources.ApplyResources(this.buttonSave, "buttonSave");
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);

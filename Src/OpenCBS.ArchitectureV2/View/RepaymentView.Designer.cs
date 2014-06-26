@@ -50,12 +50,12 @@
             this._okButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
             this._repaymentConfigurationPanel = new System.Windows.Forms.Panel();
+            this._descriptionLabel = new System.Windows.Forms.Label();
             this._paymentMethodLabel = new System.Windows.Forms.Label();
             this._paymentMethodComboBox = new System.Windows.Forms.ComboBox();
             this._bounceFeeNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this._schedulePanel = new System.Windows.Forms.Panel();
-            this._descriptionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._commissionNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._penaltyNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._interestNumericUpDown)).BeginInit();
@@ -231,6 +231,11 @@
             resources.ApplyResources(this._repaymentConfigurationPanel, "_repaymentConfigurationPanel");
             this._repaymentConfigurationPanel.Name = "_repaymentConfigurationPanel";
             // 
+            // _descriptionLabel
+            // 
+            resources.ApplyResources(this._descriptionLabel, "_descriptionLabel");
+            this._descriptionLabel.Name = "_descriptionLabel";
+            // 
             // _paymentMethodLabel
             // 
             resources.ApplyResources(this._paymentMethodLabel, "_paymentMethodLabel");
@@ -264,11 +269,6 @@
             this._schedulePanel.Controls.Add(this._scheduleControl);
             resources.ApplyResources(this._schedulePanel, "_schedulePanel");
             this._schedulePanel.Name = "_schedulePanel";
-            // 
-            // _descriptionLabel
-            // 
-            resources.ApplyResources(this._descriptionLabel, "_descriptionLabel");
-            this._descriptionLabel.Name = "_descriptionLabel";
             // 
             // RepaymentView
             // 

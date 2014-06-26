@@ -88,7 +88,7 @@ namespace OpenCBS.GUI.Products
             this.textBoxProductName.Name = "textBoxProductName";
             // 
             // groupBoxPropertyDetails
-            //
+            // 
             this.groupBoxPropertyDetails.Controls.Add(this.buttonAddProperty);
             this.groupBoxPropertyDetails.Controls.Add(this.comboBoxPropertyTypes);
             this.groupBoxPropertyDetails.Controls.Add(this.label1);
@@ -102,7 +102,7 @@ namespace OpenCBS.GUI.Products
             this.groupBoxPropertyDetails.TabStop = false;
             // 
             // buttonAddProperty
-            //
+            // 
             resources.ApplyResources(this.buttonAddProperty, "buttonAddProperty");
             this.buttonAddProperty.Name = "buttonAddProperty";
             this.buttonAddProperty.Click += new System.EventHandler(this.buttonAddProperty_Click);
@@ -145,7 +145,7 @@ namespace OpenCBS.GUI.Products
             this.labelPropertyName.Name = "labelPropertyName";
             // 
             // buttonDeleteProperty
-            //
+            // 
             resources.ApplyResources(this.buttonDeleteProperty, "buttonDeleteProperty");
             this.buttonDeleteProperty.Name = "buttonDeleteProperty";
             this.buttonDeleteProperty.Click += new System.EventHandler(this.buttonDeleteProperty_Click);
@@ -181,13 +181,13 @@ namespace OpenCBS.GUI.Products
             this.label3.Name = "label3";
             // 
             // buttonDeleteListItem
-            //
+            // 
             resources.ApplyResources(this.buttonDeleteListItem, "buttonDeleteListItem");
             this.buttonDeleteListItem.Name = "buttonDeleteListItem";
             this.buttonDeleteListItem.Click += new System.EventHandler(this.buttonDeleteListItem_Click);
             // 
             // buttonAddListItem
-            //
+            // 
             resources.ApplyResources(this.buttonAddListItem, "buttonAddListItem");
             this.buttonAddListItem.Name = "buttonAddListItem";
             this.buttonAddListItem.Click += new System.EventHandler(this.buttonAddListItem_Click);
@@ -199,13 +199,13 @@ namespace OpenCBS.GUI.Products
             this.textBoxListItem.TextChanged += new System.EventHandler(this.textBoxListItem_TextChanged);
             // 
             // buttonCancel
-            //
+            // 
             resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonSave
-            //
+            // 
             resources.ApplyResources(this.buttonSave, "buttonSave");
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);

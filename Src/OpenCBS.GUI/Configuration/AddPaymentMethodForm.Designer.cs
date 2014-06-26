@@ -73,8 +73,8 @@ namespace OpenCBS.GUI.Configuration
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddPaymentMethodForm";
-            this.Load += new System.EventHandler(this.AddPaymentMethodForm_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddPaymentMethodForm_FormClosing);
+            this.Load += new System.EventHandler(this.AddPaymentMethodForm_Load);
             this.Controls.SetChildIndex(this.lblAccount, 0);
             this.Controls.SetChildIndex(this.cmbAccount, 0);
             this.Controls.SetChildIndex(this.lblPaymentMethod, 0);

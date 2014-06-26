@@ -45,121 +45,79 @@ namespace OpenCBS.GUI.TellerManagement
             // 
             // lblBranch
             // 
-            this.lblBranch.AccessibleDescription = null;
-            this.lblBranch.AccessibleName = null;
             resources.ApplyResources(this.lblBranch, "lblBranch");
-            this.lblBranch.Font = null;
             this.lblBranch.Name = "lblBranch";
             // 
             // cmbBranch
             // 
-            this.cmbBranch.AccessibleDescription = null;
-            this.cmbBranch.AccessibleName = null;
-            resources.ApplyResources(this.cmbBranch, "cmbBranch");
-            this.cmbBranch.BackgroundImage = null;
             this.cmbBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBranch.Font = null;
             this.cmbBranch.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbBranch, "cmbBranch");
             this.cmbBranch.Name = "cmbBranch";
             this.cmbBranch.SelectedIndexChanged += new System.EventHandler(this.cmbBranch_SelectedIndexChanged);
             // 
             // rbtnCashIn
             // 
-            this.rbtnCashIn.AccessibleDescription = null;
-            this.rbtnCashIn.AccessibleName = null;
             resources.ApplyResources(this.rbtnCashIn, "rbtnCashIn");
             this.rbtnCashIn.Checked = true;
-            this.rbtnCashIn.Font = null;
             this.rbtnCashIn.Name = "rbtnCashIn";
             this.rbtnCashIn.TabStop = true;
             // 
             // rbtnCashOut
             // 
-            this.rbtnCashOut.AccessibleDescription = null;
-            this.rbtnCashOut.AccessibleName = null;
             resources.ApplyResources(this.rbtnCashOut, "rbtnCashOut");
-            this.rbtnCashOut.Font = null;
             this.rbtnCashOut.Name = "rbtnCashOut";
             // 
             // lblTeller
             // 
-            this.lblTeller.AccessibleDescription = null;
-            this.lblTeller.AccessibleName = null;
             resources.ApplyResources(this.lblTeller, "lblTeller");
-            this.lblTeller.Font = null;
             this.lblTeller.Name = "lblTeller";
             // 
             // cmbTeller
             // 
-            this.cmbTeller.AccessibleDescription = null;
-            this.cmbTeller.AccessibleName = null;
-            resources.ApplyResources(this.cmbTeller, "cmbTeller");
-            this.cmbTeller.BackgroundImage = null;
             this.cmbTeller.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTeller.Font = null;
             this.cmbTeller.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbTeller, "cmbTeller");
             this.cmbTeller.Name = "cmbTeller";
             this.cmbTeller.SelectedIndexChanged += new System.EventHandler(this.cmbTeller_SelectedIndexChanged);
             // 
             // lblAmount
             // 
-            this.lblAmount.AccessibleDescription = null;
-            this.lblAmount.AccessibleName = null;
             resources.ApplyResources(this.lblAmount, "lblAmount");
-            this.lblAmount.Font = null;
             this.lblAmount.Name = "lblAmount";
             // 
             // lblDescription
             // 
-            this.lblDescription.AccessibleDescription = null;
-            this.lblDescription.AccessibleName = null;
             resources.ApplyResources(this.lblDescription, "lblDescription");
-            this.lblDescription.Font = null;
             this.lblDescription.Name = "lblDescription";
             // 
             // tbxAmount
             // 
-            this.tbxAmount.AccessibleDescription = null;
-            this.tbxAmount.AccessibleName = null;
             resources.ApplyResources(this.tbxAmount, "tbxAmount");
-            this.tbxAmount.BackgroundImage = null;
-            this.tbxAmount.Font = null;
             this.tbxAmount.Name = "tbxAmount";
             this.tbxAmount.TextChanged += new System.EventHandler(this.tbxAmount_TextChanged);
             this.tbxAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxAmount_KeyPress);
             // 
             // tbxDescription
             // 
-            this.tbxDescription.AccessibleDescription = null;
-            this.tbxDescription.AccessibleName = null;
             resources.ApplyResources(this.tbxDescription, "tbxDescription");
-            this.tbxDescription.BackgroundImage = null;
-            this.tbxDescription.Font = null;
             this.tbxDescription.Name = "tbxDescription";
             // 
             // btnConfirm
             // 
-            this.btnConfirm.AccessibleDescription = null;
-            this.btnConfirm.AccessibleName = null;
             resources.ApplyResources(this.btnConfirm, "btnConfirm");
-            this.btnConfirm.Font = null;
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.AccessibleDescription = null;
-            this.btnCancel.AccessibleName = null;
             resources.ApplyResources(this.btnCancel, "btnCancel");
-            this.btnCancel.Font = null;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // FrmTellerOperation
             // 
             this.AcceptButton = this.btnConfirm;
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnCancel);

@@ -1313,6 +1313,9 @@
     <EmbeddedResource Include="Accounting\AccountTrialBalance.resx">
       <DependentUpon>AccountTrialBalance.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\TrialBalancePreview.fr.resx">
+      <DependentUpon>TrialBalancePreview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accounting\TrialBalancePreview.resx">
       <DependentUpon>TrialBalancePreview.cs</DependentUpon>
     </EmbeddedResource>
@@ -2151,6 +2154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DashboardForm.pt.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export\StringFieldPropertiesForm.ru-RU.resx">
+      <DependentUpon>StringFieldPropertiesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmShowError.es-ES.resx">
       <DependentUpon>frmShowError.cs</DependentUpon>

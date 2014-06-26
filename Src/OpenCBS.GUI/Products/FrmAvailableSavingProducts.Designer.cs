@@ -55,17 +55,16 @@ namespace OpenCBS.GUI.Products
             // webBrowserPackage
             // 
             resources.ApplyResources(this.webBrowserPackage, "webBrowserPackage");
-            this.webBrowserPackage.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserPackage.Name = "webBrowserPackage";
             this.webBrowserPackage.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowserPackage_DocumentCompleted);
             // 
             // groupBox1
-            //
-            resources.ApplyResources(this.groupBox1, "groupBox1");
+            // 
             this.groupBox1.Controls.Add(this.buttonEditProduct);
             this.groupBox1.Controls.Add(this.checkBoxShowDeletedProduct);
             this.groupBox1.Controls.Add(this.buttonAddProduct);
             this.groupBox1.Controls.Add(this.buttonDeleteProduct);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
@@ -115,7 +114,7 @@ namespace OpenCBS.GUI.Products
             this.savingBookProductToolStripMenuItem.Click += new System.EventHandler(this.savingBookProductToolStripMenuItem_Click);
             // 
             // FrmAvailableSavingProducts
-            //
+            // 
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.pnlSavingsProducts);
             this.Name = "FrmAvailableSavingProducts";

@@ -37,53 +37,36 @@ namespace OpenCBS.GUI.Export
             // 
             // buttonSave
             // 
-            this.buttonSave.AccessibleDescription = null;
-            this.buttonSave.AccessibleName = null;
             resources.ApplyResources(this.buttonSave, "buttonSave");
-            this.buttonSave.BackgroundImage = null;
             this.buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonSave.Font = null;
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.UseVisualStyleBackColor = true;
             // 
             // buttonCancel
             // 
-            this.buttonCancel.AccessibleDescription = null;
-            this.buttonCancel.AccessibleName = null;
             resources.ApplyResources(this.buttonCancel, "buttonCancel");
-            this.buttonCancel.BackgroundImage = null;
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Font = null;
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // checkBoxAlignRight
             // 
-            this.checkBoxAlignRight.AccessibleDescription = null;
-            this.checkBoxAlignRight.AccessibleName = null;
             resources.ApplyResources(this.checkBoxAlignRight, "checkBoxAlignRight");
-            this.checkBoxAlignRight.Font = null;
             this.checkBoxAlignRight.Name = "checkBoxAlignRight";
             // 
             // checkBoxDisplayZero
             // 
-            this.checkBoxDisplayZero.AccessibleDescription = null;
-            this.checkBoxDisplayZero.AccessibleName = null;
             resources.ApplyResources(this.checkBoxDisplayZero, "checkBoxDisplayZero");
-            this.checkBoxDisplayZero.Font = null;
             this.checkBoxDisplayZero.Name = "checkBoxDisplayZero";
             // 
             // IntegerFieldPropertiesForm
             // 
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.checkBoxDisplayZero);
             this.Controls.Add(this.checkBoxAlignRight);
-            this.Font = null;
             this.Name = "IntegerFieldPropertiesForm";
             this.ResumeLayout(false);
             this.PerformLayout();

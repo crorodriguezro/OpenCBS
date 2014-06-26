@@ -71,7 +71,7 @@ namespace OpenCBS.GUI.Export
             this.progressBar.Value = 0;
             // 
             // groupBox1
-            //
+            // 
             this.groupBox1.Controls.Add(this.buttonCancel);
             this.groupBox1.Controls.Add(this.buttonRun);
             resources.ApplyResources(this.groupBox1, "groupBox1");

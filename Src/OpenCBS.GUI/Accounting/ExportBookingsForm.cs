@@ -216,8 +216,8 @@ namespace OpenCBS.GUI.Accounting
             this.listViewTransactionsList.Name = "listViewTransactionsList";
             this.listViewTransactionsList.UseCompatibleStateImageBehavior = false;
             this.listViewTransactionsList.View = System.Windows.Forms.View.Details;
-            this.listViewTransactionsList.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listViewTransactionsList_ItemChecked);
             this.listViewTransactionsList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listViewTransactionsList_ItemCheck);
+            this.listViewTransactionsList.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listViewTransactionsList_ItemChecked);
             // 
             // panel1
             // 
@@ -369,7 +369,7 @@ namespace OpenCBS.GUI.Accounting
             this.clbxFields.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbxFields_ItemCheck);
             // 
             // ExportBookingsForm
-            //
+            // 
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.panel2);
             this.Name = "ExportBookingsForm";

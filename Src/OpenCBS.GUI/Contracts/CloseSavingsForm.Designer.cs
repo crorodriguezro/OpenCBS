@@ -115,18 +115,18 @@ namespace OpenCBS.GUI.Contracts
             this.tbTargetAccount.Name = "tbTargetAccount";
             // 
             // btSearchContract
-            //
+            // 
             resources.ApplyResources(this.btSearchContract, "btSearchContract");
             this.btSearchContract.Name = "btSearchContract";
             this.btSearchContract.Click += new System.EventHandler(this.btSearchContract_Click);
             // 
             // lbTargetSavings
-            //
+            // 
             resources.ApplyResources(this.lbTargetSavings, "lbTargetSavings");
             this.lbTargetSavings.Name = "lbTargetSavings";
             // 
             // lbClientName
-            //
+            // 
             resources.ApplyResources(this.lbClientName, "lbClientName");
             this.lbClientName.Name = "lbClientName";
             // 
@@ -183,7 +183,7 @@ namespace OpenCBS.GUI.Contracts
             this.gbCloseFees.TabStop = false;
             // 
             // lbCloseFeesMinMax
-            //
+            // 
             resources.ApplyResources(this.lbCloseFeesMinMax, "lbCloseFeesMinMax");
             this.lbCloseFeesMinMax.Name = "lbCloseFeesMinMax";
             // 

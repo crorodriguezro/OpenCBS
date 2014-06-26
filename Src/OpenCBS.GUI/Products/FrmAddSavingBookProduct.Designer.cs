@@ -201,6 +201,7 @@ namespace OpenCBS.GUI.Configuration
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btSavingProduct = new System.Windows.Forms.Button();
             this.bClose = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -269,8 +270,7 @@ namespace OpenCBS.GUI.Configuration
             this.tabPageMainParameters.Name = "tabPageMainParameters";
             // 
             // groupBox1
-            //
-            resources.ApplyResources(this.groupBox1, "groupBox1");
+            // 
             this.groupBox1.Controls.Add(this.gbFrequency);
             this.groupBox1.Controls.Add(this.groupBoxCurrency);
             this.groupBox1.Controls.Add(this.lbCodeSavingProduct);
@@ -281,6 +281,7 @@ namespace OpenCBS.GUI.Configuration
             this.groupBox1.Controls.Add(this.gbInitialAmount);
             this.groupBox1.Controls.Add(this.gbBalance);
             this.groupBox1.Controls.Add(this.gbInterestRate);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
@@ -360,7 +361,7 @@ namespace OpenCBS.GUI.Configuration
             this.lbNameSavingProduct.Name = "lbNameSavingProduct";
             // 
             // gbClientType
-            //
+            // 
             this.gbClientType.Controls.Add(this.clientTypeCorpCheckBox);
             this.gbClientType.Controls.Add(this.clientTypeIndivCheckBox);
             this.gbClientType.Controls.Add(this.clientTypeVillageCheckBox);
@@ -398,8 +399,8 @@ namespace OpenCBS.GUI.Configuration
             // 
             resources.ApplyResources(this.clientTypeAllCheckBox, "clientTypeAllCheckBox");
             this.clientTypeAllCheckBox.Name = "clientTypeAllCheckBox";
-            this.clientTypeAllCheckBox.Click += new System.EventHandler(this.clientTypeAllCheckBox_Click);
             this.clientTypeAllCheckBox.CheckedChanged += new System.EventHandler(this.clientTypeAllCheckBox_CheckedChanged);
+            this.clientTypeAllCheckBox.Click += new System.EventHandler(this.clientTypeAllCheckBox_Click);
             // 
             // tbCodeSavingProduct
             // 
@@ -412,7 +413,7 @@ namespace OpenCBS.GUI.Configuration
             this.tbName.Name = "tbName";
             // 
             // gbInitialAmount
-            //
+            // 
             this.gbInitialAmount.Controls.Add(this.tbInitialAmountMax);
             this.gbInitialAmount.Controls.Add(this.tbInitialAmountMin);
             this.gbInitialAmount.Controls.Add(this.lbInitialAmonutMax);
@@ -444,7 +445,7 @@ namespace OpenCBS.GUI.Configuration
             this.lbInitialAmountMin.Name = "lbInitialAmountMin";
             // 
             // gbBalance
-            //
+            // 
             this.gbBalance.Controls.Add(this.tbBalanceMax);
             this.gbBalance.Controls.Add(this.tbBalanceMin);
             this.gbBalance.Controls.Add(this.lbBalanceMax);
@@ -476,7 +477,7 @@ namespace OpenCBS.GUI.Configuration
             this.lbBalanceMin.Name = "lbBalanceMin";
             // 
             // gbInterestRate
-            //
+            // 
             this.gbInterestRate.Controls.Add(this.lbYearlyInterestRate);
             this.gbInterestRate.Controls.Add(this.lbYearlyInterestRateMax);
             this.gbInterestRate.Controls.Add(this.lbYearlyInterestRateMin);
@@ -539,13 +540,13 @@ namespace OpenCBS.GUI.Configuration
             this.lbInterestRateMin.Name = "lbInterestRateMin";
             // 
             // tabPageFees
-            //
-            resources.ApplyResources(this.tabPageFees, "tabPageFees");
+            // 
             this.tabPageFees.Controls.Add(this.groupBox3);
             this.tabPageFees.Controls.Add(this.gbTransferFees);
             this.tabPageFees.Controls.Add(this.gbWithdrawFees);
             this.tabPageFees.Controls.Add(this.gbTransfer);
             this.tabPageFees.Controls.Add(this.gbWithDrawing);
+            resources.ApplyResources(this.tabPageFees, "tabPageFees");
             this.tabPageFees.Name = "tabPageFees";
             // 
             // groupBox3
@@ -572,7 +573,7 @@ namespace OpenCBS.GUI.Configuration
             this.cbTransactionIn.SelectedIndexChanged += new System.EventHandler(this.cbTransactionIn_SelectedIndexChanged);
             // 
             // gbDeposit
-            //
+            // 
             this.gbDeposit.Controls.Add(this.tbDepositMax);
             this.gbDeposit.Controls.Add(this.tbDepositMin);
             this.gbDeposit.Controls.Add(this.lbDepositMax);
@@ -604,7 +605,7 @@ namespace OpenCBS.GUI.Configuration
             this.lbDepositMin.Name = "lbDepositMin";
             // 
             // gtDepositFees
-            //
+            // 
             this.gtDepositFees.Controls.Add(this.rbRateDepositFees);
             this.gtDepositFees.Controls.Add(this.rbFlatDepositFees);
             this.gtDepositFees.Controls.Add(this.lbDepositFeesType);
@@ -669,7 +670,7 @@ namespace OpenCBS.GUI.Configuration
             this.lbDepositFeesMin.Name = "lbDepositFeesMin";
             // 
             // gbTransferFees
-            //
+            // 
             this.gbTransferFees.Controls.Add(this.cbTransferType);
             this.gbTransferFees.Controls.Add(this.rbRateTransferFees);
             this.gbTransferFees.Controls.Add(this.tbTransferFees);
@@ -745,7 +746,7 @@ namespace OpenCBS.GUI.Configuration
             this.lbTransferFeesType.Name = "lbTransferFeesType";
             // 
             // gbWithdrawFees
-            //
+            // 
             this.gbWithdrawFees.Controls.Add(this.rbRateWithdrawFees);
             this.gbWithdrawFees.Controls.Add(this.rbFlatWithdrawFees);
             this.gbWithdrawFees.Controls.Add(this.tbWithdrawFees);
@@ -812,7 +813,7 @@ namespace OpenCBS.GUI.Configuration
             this.lbWithdrawFeesMin.Name = "lbWithdrawFeesMin";
             // 
             // gbTransfer
-            //
+            // 
             this.gbTransfer.Controls.Add(this.tbTransferMax);
             this.gbTransfer.Controls.Add(this.tbTransferMin);
             this.gbTransfer.Controls.Add(this.lbTransferMax);
@@ -844,7 +845,7 @@ namespace OpenCBS.GUI.Configuration
             this.lbTransferMin.Name = "lbTransferMin";
             // 
             // gbWithDrawing
-            //
+            // 
             this.gbWithDrawing.Controls.Add(this.tbDrawingMax);
             this.gbWithDrawing.Controls.Add(this.tbWithDrawingMin);
             this.gbWithDrawing.Controls.Add(this.lbWithDrawingMax);
@@ -876,16 +877,16 @@ namespace OpenCBS.GUI.Configuration
             this.lbWithDrawingMin.Name = "lbWithDrawingMin";
             // 
             // tabPageManagement
-            //
-            resources.ApplyResources(this.tabPageManagement, "tabPageManagement");
+            // 
             this.tabPageManagement.Controls.Add(this.gbReopenFees);
             this.tabPageManagement.Controls.Add(this.gtManagementFees);
             this.tabPageManagement.Controls.Add(this.gtCloseFees);
             this.tabPageManagement.Controls.Add(this.gbEntryFees);
+            resources.ApplyResources(this.tabPageManagement, "tabPageManagement");
             this.tabPageManagement.Name = "tabPageManagement";
             // 
             // gbReopenFees
-            //
+            // 
             this.gbReopenFees.Controls.Add(this.rbRateReopenFees);
             this.gbReopenFees.Controls.Add(this.rbFlatReopenFees);
             this.gbReopenFees.Controls.Add(this.lbReopenFeesType);
@@ -950,7 +951,7 @@ namespace OpenCBS.GUI.Configuration
             this.lbReopenFeesMin.Name = "lbReopenFeesMin";
             // 
             // gtManagementFees
-            //
+            // 
             this.gtManagementFees.Controls.Add(this.cbManagementFeeFreq);
             this.gtManagementFees.Controls.Add(this.rbRateManagementFees);
             this.gtManagementFees.Controls.Add(this.rbFlatManagementFees);
@@ -1023,7 +1024,7 @@ namespace OpenCBS.GUI.Configuration
             this.lbManagementFeesMin.Name = "lbManagementFeesMin";
             // 
             // gtCloseFees
-            //
+            // 
             this.gtCloseFees.Controls.Add(this.rbRateCloseFees);
             this.gtCloseFees.Controls.Add(this.rbFlatCloseFees);
             this.gtCloseFees.Controls.Add(this.lbCloseFeesType);
@@ -1088,7 +1089,7 @@ namespace OpenCBS.GUI.Configuration
             this.lbCloseFeesMin.Name = "lbCloseFeesMin";
             // 
             // gbEntryFees
-            //
+            // 
             this.gbEntryFees.Controls.Add(this.rbRateEntryFees);
             this.gbEntryFees.Controls.Add(this.rbFlatEntryFees);
             this.gbEntryFees.Controls.Add(this.lbEntryFeesType);
@@ -1153,14 +1154,14 @@ namespace OpenCBS.GUI.Configuration
             this.lbEntryFeesMin.Name = "lbEntryFeesMin";
             // 
             // tabPageOverdraft
-            //
-            resources.ApplyResources(this.tabPageOverdraft, "tabPageOverdraft");
+            // 
             this.tabPageOverdraft.Controls.Add(this.gtAgioFees);
             this.tabPageOverdraft.Controls.Add(this.gtOverdraftFees);
+            resources.ApplyResources(this.tabPageOverdraft, "tabPageOverdraft");
             this.tabPageOverdraft.Name = "tabPageOverdraft";
             // 
             // gtAgioFees
-            //
+            // 
             this.gtAgioFees.Controls.Add(this.rbRateAgioFees);
             this.gtAgioFees.Controls.Add(this.rbFlatAgioFees);
             this.gtAgioFees.Controls.Add(this.lbAgioFeesType);
@@ -1235,7 +1236,7 @@ namespace OpenCBS.GUI.Configuration
             this.lbAgioFeesMin.Name = "lbAgioFeesMin";
             // 
             // gtOverdraftFees
-            //
+            // 
             this.gtOverdraftFees.Controls.Add(this.rbRateOverdraftFees);
             this.gtOverdraftFees.Controls.Add(this.rbFlatOverdraftFees);
             this.gtOverdraftFees.Controls.Add(this.lbOverdraftFeesType);
@@ -1300,10 +1301,10 @@ namespace OpenCBS.GUI.Configuration
             this.lbOverdraftFeesMin.Name = "lbOverdraftFeesMin";
             // 
             // tabPageTermDeposit
-            //
-            resources.ApplyResources(this.tabPageTermDeposit, "tabPageTermDeposit");
+            // 
             this.tabPageTermDeposit.Controls.Add(this.termDepositPanel);
             this.tabPageTermDeposit.Controls.Add(this.checkBoxUseTermDeposit);
+            resources.ApplyResources(this.tabPageTermDeposit, "tabPageTermDeposit");
             this.tabPageTermDeposit.Name = "tabPageTermDeposit";
             // 
             // termDepositPanel
@@ -1369,7 +1370,7 @@ namespace OpenCBS.GUI.Configuration
             this.checkBoxUseTermDeposit.CheckedChanged += new System.EventHandler(this.checkBoxUseTermDeposit_CheckedChanged);
             // 
             // groupBox2
-            //
+            // 
             this.groupBox2.Controls.Add(this.btSavingProduct);
             this.groupBox2.Controls.Add(this.bClose);
             resources.ApplyResources(this.groupBox2, "groupBox2");
@@ -1403,6 +1404,7 @@ namespace OpenCBS.GUI.Configuration
             this.Load += new System.EventHandler(this.FrmAddSavingBookProduct_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tabControlSaving.ResumeLayout(false);
             this.tabPageMainParameters.ResumeLayout(false);

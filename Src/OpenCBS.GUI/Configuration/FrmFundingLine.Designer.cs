@@ -38,11 +38,11 @@ namespace OpenCBS.GUI
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBoxEvents = new System.Windows.Forms.GroupBox();
             this.listViewFundingLineEvent = new OpenCBS.GUI.UserControl.ListViewEx();
-            this.columnHeaderCode = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderEventCreationDate = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderDirection = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderEventAmount = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderEventType = new System.Windows.Forms.ColumnHeader();
+            this.columnHeaderCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderEventCreationDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderDirection = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderEventAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderEventType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonDeleteFundingLineEvent = new System.Windows.Forms.Button();
             this.buttonAddFundingLineEvent = new System.Windows.Forms.Button();
@@ -69,12 +69,12 @@ namespace OpenCBS.GUI
             this.tabControlFundingLines = new System.Windows.Forms.TabControl();
             this.tabPageFundingLines = new System.Windows.Forms.TabPage();
             this.listViewFundingLine = new System.Windows.Forms.ListView();
-            this.columnHeaderBeginDate = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderEndDate = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderAmount = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderResiduelAmount = new System.Windows.Forms.ColumnHeader();
-            this.columnFinancial = new System.Windows.Forms.ColumnHeader();
-            this.colCurrency = new System.Windows.Forms.ColumnHeader();
+            this.columnHeaderBeginDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderEndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderResiduelAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnFinancial = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCurrency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -83,20 +83,23 @@ namespace OpenCBS.GUI
             this.groupBoxFundingLines = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.columnHeaderBodyCorporateSecondaryHomePhone = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderCorporateName = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderCorporateAmount = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderCorporateResidualAMount = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderFinancial = new System.Windows.Forms.ColumnHeader();
-            columnHeaderName = new System.Windows.Forms.ColumnHeader();
+            this.columnHeaderBodyCorporateSecondaryHomePhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderCorporateName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderCorporateAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderCorporateResidualAMount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderFinancial = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.groupBoxEvents.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerGraph)).BeginInit();
             this.splitContainerGraph.Panel1.SuspendLayout();
             this.splitContainerGraph.Panel2.SuspendLayout();
             this.splitContainerGraph.SuspendLayout();
@@ -169,10 +172,10 @@ namespace OpenCBS.GUI
             resources.ApplyResources(this.columnHeaderEventType, "columnHeaderEventType");
             // 
             // groupBox3
-            //
-            resources.ApplyResources(this.groupBox3, "groupBox3");
+            // 
             this.groupBox3.Controls.Add(this.buttonDeleteFundingLineEvent);
             this.groupBox3.Controls.Add(this.buttonAddFundingLineEvent);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
@@ -342,17 +345,17 @@ namespace OpenCBS.GUI
             this.zedGraphControlCashPrevision.PanModifierKeys2 = System.Windows.Forms.Keys.None;
             this.zedGraphControlCashPrevision.PointDateFormat = "g";
             this.zedGraphControlCashPrevision.PointValueFormat = "G";
-            this.zedGraphControlCashPrevision.ScrollMaxX = 0;
-            this.zedGraphControlCashPrevision.ScrollMaxY = 0;
-            this.zedGraphControlCashPrevision.ScrollMaxY2 = 0;
-            this.zedGraphControlCashPrevision.ScrollMinX = 0;
-            this.zedGraphControlCashPrevision.ScrollMinY = 0;
-            this.zedGraphControlCashPrevision.ScrollMinY2 = 0;
+            this.zedGraphControlCashPrevision.ScrollMaxX = 0D;
+            this.zedGraphControlCashPrevision.ScrollMaxY = 0D;
+            this.zedGraphControlCashPrevision.ScrollMaxY2 = 0D;
+            this.zedGraphControlCashPrevision.ScrollMinX = 0D;
+            this.zedGraphControlCashPrevision.ScrollMinY = 0D;
+            this.zedGraphControlCashPrevision.ScrollMinY2 = 0D;
             this.zedGraphControlCashPrevision.ZoomButtons = System.Windows.Forms.MouseButtons.Left;
             this.zedGraphControlCashPrevision.ZoomButtons2 = System.Windows.Forms.MouseButtons.None;
             this.zedGraphControlCashPrevision.ZoomModifierKeys = System.Windows.Forms.Keys.None;
             this.zedGraphControlCashPrevision.ZoomModifierKeys2 = System.Windows.Forms.Keys.None;
-            this.zedGraphControlCashPrevision.ZoomStepFraction = 0.1;
+            this.zedGraphControlCashPrevision.ZoomStepFraction = 0.1D;
             this.zedGraphControlCashPrevision.Click += new System.EventHandler(this.zedGraphControlCashPrevision_Click);
             // 
             // checkBoxIncludeLateLoans
@@ -456,9 +459,9 @@ namespace OpenCBS.GUI
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
             // groupBoxFundingLines
-            //
-            resources.ApplyResources(this.groupBoxFundingLines, "groupBoxFundingLines");
+            // 
             this.groupBoxFundingLines.Controls.Add(this.splitContainer3);
+            resources.ApplyResources(this.groupBoxFundingLines, "groupBoxFundingLines");
             this.groupBoxFundingLines.Name = "groupBoxFundingLines";
             this.groupBoxFundingLines.TabStop = false;
             // 
@@ -500,16 +503,19 @@ namespace OpenCBS.GUI
             this.Controls.SetChildIndex(this.tabControlFundingLines, 0);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.groupBoxEvents.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel1.PerformLayout();
             this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
             this.splitContainerGraph.Panel1.ResumeLayout(false);
             this.splitContainerGraph.Panel2.ResumeLayout(false);
             this.splitContainerGraph.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerGraph)).EndInit();
             this.splitContainerGraph.ResumeLayout(false);
             this.tabControlFundingLines.ResumeLayout(false);
             this.tabPageFundingLines.ResumeLayout(false);

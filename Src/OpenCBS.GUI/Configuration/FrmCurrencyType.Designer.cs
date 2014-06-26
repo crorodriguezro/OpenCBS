@@ -33,11 +33,11 @@ namespace OpenCBS.GUI.Configuration
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCurrencyType));
             this.splitContainerVertical = new System.Windows.Forms.SplitContainer();
             this.listViewCurrencies = new System.Windows.Forms.ListView();
-            this.colName = new System.Windows.Forms.ColumnHeader();
-            this.colCode = new System.Windows.Forms.ColumnHeader();
-            this.colIsPivot = new System.Windows.Forms.ColumnHeader();
-            this.colIsSwapped = new System.Windows.Forms.ColumnHeader();
-            this.colUseCents = new System.Windows.Forms.ColumnHeader();
+            this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colIsPivot = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colIsSwapped = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colUseCents = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chkUseCents = new System.Windows.Forms.CheckBox();
             this.groupBoxSwapRate = new System.Windows.Forms.GroupBox();
             this.radioButtonSwappedYes = new System.Windows.Forms.RadioButton();
@@ -54,11 +54,13 @@ namespace OpenCBS.GUI.Configuration
             this.btnAdd = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerVertical)).BeginInit();
             this.splitContainerVertical.Panel1.SuspendLayout();
             this.splitContainerVertical.Panel2.SuspendLayout();
             this.splitContainerVertical.SuspendLayout();
             this.groupBoxSwapRate.SuspendLayout();
             this.groupBoxSetAsPivot.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -129,7 +131,7 @@ namespace OpenCBS.GUI.Configuration
             this.chkUseCents.Name = "chkUseCents";
             // 
             // groupBoxSwapRate
-            //
+            // 
             this.groupBoxSwapRate.Controls.Add(this.radioButtonSwappedYes);
             this.groupBoxSwapRate.Controls.Add(this.radioButtonSwappedNo);
             resources.ApplyResources(this.groupBoxSwapRate, "groupBoxSwapRate");
@@ -149,7 +151,7 @@ namespace OpenCBS.GUI.Configuration
             this.radioButtonSwappedNo.TabStop = true;
             // 
             // groupBoxSetAsPivot
-            //
+            // 
             this.groupBoxSetAsPivot.Controls.Add(this.radioButtonYes);
             this.groupBoxSetAsPivot.Controls.Add(this.radioButtonNo);
             resources.ApplyResources(this.groupBoxSetAsPivot, "groupBoxSetAsPivot");
@@ -205,16 +207,16 @@ namespace OpenCBS.GUI.Configuration
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             // 
             // groupBox1
-            //
-            resources.ApplyResources(this.groupBox1, "groupBox1");
+            // 
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.buttonExit);
             this.groupBox1.Controls.Add(this.btnUpdate);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
             // btnAdd
-            //
+            // 
             resources.ApplyResources(this.btnAdd, "btnAdd");
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Click += new System.EventHandler(this.BtnAddClick);
@@ -226,7 +228,7 @@ namespace OpenCBS.GUI.Configuration
             this.buttonExit.Click += new System.EventHandler(this.ButtonExitClick);
             // 
             // btnUpdate
-            //
+            // 
             resources.ApplyResources(this.btnUpdate, "btnUpdate");
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Click += new System.EventHandler(this.ButtonAddClick);
@@ -244,6 +246,7 @@ namespace OpenCBS.GUI.Configuration
             this.splitContainerVertical.Panel1.ResumeLayout(false);
             this.splitContainerVertical.Panel2.ResumeLayout(false);
             this.splitContainerVertical.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerVertical)).EndInit();
             this.splitContainerVertical.ResumeLayout(false);
             this.groupBoxSwapRate.ResumeLayout(false);
             this.groupBoxSwapRate.PerformLayout();
@@ -251,6 +254,7 @@ namespace OpenCBS.GUI.Configuration
             this.groupBoxSetAsPivot.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

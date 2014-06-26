@@ -44,17 +44,19 @@ namespace OpenCBS.GUI.Export
             this.labelTotalInstallments = new System.Windows.Forms.Label();
             this.btnDeselectAllInstallments = new System.Windows.Forms.Button();
             this.listViewInstallments = new System.Windows.Forms.ListView();
-            this.columnHeaderInstallmentContractCode = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderInstallmentNumber = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderInstallmentDate = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderInstallmentAmount = new System.Windows.Forms.ColumnHeader();
+            this.columnHeaderInstallmentContractCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderInstallmentNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderInstallmentDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderInstallmentAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.openImportFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.openDataFileDialog = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSage)).BeginInit();
             this.splitContainerSage.Panel1.SuspendLayout();
             this.splitContainerSage.Panel2.SuspendLayout();
             this.splitContainerSage.SuspendLayout();
             this.tabControlExportations.SuspendLayout();
             this.tabPageInstallments.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerAccountTiers)).BeginInit();
             this.splitContainerAccountTiers.Panel1.SuspendLayout();
             this.splitContainerAccountTiers.Panel2.SuspendLayout();
             this.splitContainerAccountTiers.SuspendLayout();
@@ -63,37 +65,21 @@ namespace OpenCBS.GUI.Export
             // 
             // splitContainerSage
             // 
-            this.splitContainerSage.AccessibleDescription = null;
-            this.splitContainerSage.AccessibleName = null;
             resources.ApplyResources(this.splitContainerSage, "splitContainerSage");
-            this.splitContainerSage.BackgroundImage = null;
             this.splitContainerSage.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainerSage.Font = null;
             this.splitContainerSage.Name = "splitContainerSage";
             // 
             // splitContainerSage.Panel1
             // 
-            this.splitContainerSage.Panel1.AccessibleDescription = null;
-            this.splitContainerSage.Panel1.AccessibleName = null;
-            resources.ApplyResources(this.splitContainerSage.Panel1, "splitContainerSage.Panel1");
-            this.splitContainerSage.Panel1.BackgroundImage = null;
             this.splitContainerSage.Panel1.Controls.Add(this._buttonExit);
             this.splitContainerSage.Panel1.Controls.Add(this._labelTitle);
-            this.splitContainerSage.Panel1.Font = null;
             // 
             // splitContainerSage.Panel2
             // 
-            this.splitContainerSage.Panel2.AccessibleDescription = null;
-            this.splitContainerSage.Panel2.AccessibleName = null;
-            resources.ApplyResources(this.splitContainerSage.Panel2, "splitContainerSage.Panel2");
-            this.splitContainerSage.Panel2.BackgroundImage = null;
             this.splitContainerSage.Panel2.Controls.Add(this.tabControlExportations);
-            this.splitContainerSage.Panel2.Font = null;
             // 
             // _buttonExit
             // 
-            this._buttonExit.AccessibleDescription = null;
-            this._buttonExit.AccessibleName = null;
             resources.ApplyResources(this._buttonExit, "_buttonExit");
             this._buttonExit.BackColor = System.Drawing.Color.Gainsboro;
             this._buttonExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
@@ -103,67 +89,41 @@ namespace OpenCBS.GUI.Export
             // 
             // _labelTitle
             // 
-            this._labelTitle.AccessibleDescription = null;
-            this._labelTitle.AccessibleName = null;
             resources.ApplyResources(this._labelTitle, "_labelTitle");
             this._labelTitle.Name = "_labelTitle";
             // 
             // tabControlExportations
             // 
-            this.tabControlExportations.AccessibleDescription = null;
-            this.tabControlExportations.AccessibleName = null;
-            resources.ApplyResources(this.tabControlExportations, "tabControlExportations");
-            this.tabControlExportations.BackgroundImage = null;
             this.tabControlExportations.Controls.Add(this.tabPageInstallments);
-            this.tabControlExportations.Font = null;
+            resources.ApplyResources(this.tabControlExportations, "tabControlExportations");
             this.tabControlExportations.Name = "tabControlExportations";
             this.tabControlExportations.SelectedIndex = 0;
             // 
             // tabPageInstallments
             // 
-            this.tabPageInstallments.AccessibleDescription = null;
-            this.tabPageInstallments.AccessibleName = null;
-            resources.ApplyResources(this.tabPageInstallments, "tabPageInstallments");
             this.tabPageInstallments.Controls.Add(this.splitContainerAccountTiers);
-            this.tabPageInstallments.Font = null;
+            resources.ApplyResources(this.tabPageInstallments, "tabPageInstallments");
             this.tabPageInstallments.Name = "tabPageInstallments";
             // 
             // splitContainerAccountTiers
             // 
-            this.splitContainerAccountTiers.AccessibleDescription = null;
-            this.splitContainerAccountTiers.AccessibleName = null;
             resources.ApplyResources(this.splitContainerAccountTiers, "splitContainerAccountTiers");
-            this.splitContainerAccountTiers.BackgroundImage = null;
             this.splitContainerAccountTiers.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainerAccountTiers.Font = null;
             this.splitContainerAccountTiers.Name = "splitContainerAccountTiers";
             // 
             // splitContainerAccountTiers.Panel1
             // 
-            this.splitContainerAccountTiers.Panel1.AccessibleDescription = null;
-            this.splitContainerAccountTiers.Panel1.AccessibleName = null;
-            resources.ApplyResources(this.splitContainerAccountTiers.Panel1, "splitContainerAccountTiers.Panel1");
-            this.splitContainerAccountTiers.Panel1.BackgroundImage = null;
             this.splitContainerAccountTiers.Panel1.Controls.Add(this.buttonOpenData);
-            this.splitContainerAccountTiers.Panel1.Font = null;
             // 
             // splitContainerAccountTiers.Panel2
             // 
-            this.splitContainerAccountTiers.Panel2.AccessibleDescription = null;
-            this.splitContainerAccountTiers.Panel2.AccessibleName = null;
-            resources.ApplyResources(this.splitContainerAccountTiers.Panel2, "splitContainerAccountTiers.Panel2");
-            this.splitContainerAccountTiers.Panel2.BackgroundImage = null;
             this.splitContainerAccountTiers.Panel2.Controls.Add(this.groupBox1);
             this.splitContainerAccountTiers.Panel2.Controls.Add(this.listViewInstallments);
-            this.splitContainerAccountTiers.Panel2.Font = null;
             // 
             // buttonOpenData
             // 
-            this.buttonOpenData.AccessibleDescription = null;
-            this.buttonOpenData.AccessibleName = null;
             resources.ApplyResources(this.buttonOpenData, "buttonOpenData");
             this.buttonOpenData.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonOpenData.Font = null;
             this.buttonOpenData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.buttonOpenData.Name = "buttonOpenData";
             this.buttonOpenData.UseVisualStyleBackColor = false;
@@ -171,8 +131,6 @@ namespace OpenCBS.GUI.Export
             // 
             // groupBox1
             // 
-            this.groupBox1.AccessibleDescription = null;
-            this.groupBox1.AccessibleName = null;
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.labelSlashInstallments);
             this.groupBox1.Controls.Add(this.buttonExportAccountTiers);
@@ -185,19 +143,13 @@ namespace OpenCBS.GUI.Export
             // 
             // labelSlashInstallments
             // 
-            this.labelSlashInstallments.AccessibleDescription = null;
-            this.labelSlashInstallments.AccessibleName = null;
             resources.ApplyResources(this.labelSlashInstallments, "labelSlashInstallments");
-            this.labelSlashInstallments.Font = null;
             this.labelSlashInstallments.Name = "labelSlashInstallments";
             // 
             // buttonExportAccountTiers
             // 
-            this.buttonExportAccountTiers.AccessibleDescription = null;
-            this.buttonExportAccountTiers.AccessibleName = null;
             resources.ApplyResources(this.buttonExportAccountTiers, "buttonExportAccountTiers");
             this.buttonExportAccountTiers.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonExportAccountTiers.Font = null;
             this.buttonExportAccountTiers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.buttonExportAccountTiers.Name = "buttonExportAccountTiers";
             this.buttonExportAccountTiers.UseVisualStyleBackColor = false;
@@ -205,18 +157,12 @@ namespace OpenCBS.GUI.Export
             // 
             // labelSelectedInstallments
             // 
-            this.labelSelectedInstallments.AccessibleDescription = null;
-            this.labelSelectedInstallments.AccessibleName = null;
             resources.ApplyResources(this.labelSelectedInstallments, "labelSelectedInstallments");
-            this.labelSelectedInstallments.Font = null;
             this.labelSelectedInstallments.Name = "labelSelectedInstallments";
             // 
             // btnSelectAllInstallments
             // 
-            this.btnSelectAllInstallments.AccessibleDescription = null;
-            this.btnSelectAllInstallments.AccessibleName = null;
             resources.ApplyResources(this.btnSelectAllInstallments, "btnSelectAllInstallments");
-            this.btnSelectAllInstallments.Font = null;
             this.btnSelectAllInstallments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.btnSelectAllInstallments.Name = "btnSelectAllInstallments";
             this.btnSelectAllInstallments.UseVisualStyleBackColor = true;
@@ -224,18 +170,12 @@ namespace OpenCBS.GUI.Export
             // 
             // labelTotalInstallments
             // 
-            this.labelTotalInstallments.AccessibleDescription = null;
-            this.labelTotalInstallments.AccessibleName = null;
             resources.ApplyResources(this.labelTotalInstallments, "labelTotalInstallments");
-            this.labelTotalInstallments.Font = null;
             this.labelTotalInstallments.Name = "labelTotalInstallments";
             // 
             // btnDeselectAllInstallments
             // 
-            this.btnDeselectAllInstallments.AccessibleDescription = null;
-            this.btnDeselectAllInstallments.AccessibleName = null;
             resources.ApplyResources(this.btnDeselectAllInstallments, "btnDeselectAllInstallments");
-            this.btnDeselectAllInstallments.Font = null;
             this.btnDeselectAllInstallments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.btnDeselectAllInstallments.Name = "btnDeselectAllInstallments";
             this.btnDeselectAllInstallments.UseVisualStyleBackColor = true;
@@ -243,17 +183,13 @@ namespace OpenCBS.GUI.Export
             // 
             // listViewInstallments
             // 
-            this.listViewInstallments.AccessibleDescription = null;
-            this.listViewInstallments.AccessibleName = null;
             resources.ApplyResources(this.listViewInstallments, "listViewInstallments");
-            this.listViewInstallments.BackgroundImage = null;
             this.listViewInstallments.CheckBoxes = true;
             this.listViewInstallments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderInstallmentContractCode,
             this.columnHeaderInstallmentNumber,
             this.columnHeaderInstallmentDate,
             this.columnHeaderInstallmentAmount});
-            this.listViewInstallments.Font = null;
             this.listViewInstallments.FullRowSelect = true;
             this.listViewInstallments.GridLines = true;
             this.listViewInstallments.Name = "listViewInstallments";
@@ -281,26 +217,21 @@ namespace OpenCBS.GUI.Export
             // 
             resources.ApplyResources(this.openImportFileDialog, "openImportFileDialog");
             // 
-            // openDataFileDialog
-            // 
-            resources.ApplyResources(this.openDataFileDialog, "openDataFileDialog");
-            // 
             // CustomizableImportForm
             // 
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainerSage);
-            this.Font = null;
             this.Name = "CustomizableImportForm";
             this.splitContainerSage.Panel1.ResumeLayout(false);
             this.splitContainerSage.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSage)).EndInit();
             this.splitContainerSage.ResumeLayout(false);
             this.tabControlExportations.ResumeLayout(false);
             this.tabPageInstallments.ResumeLayout(false);
             this.splitContainerAccountTiers.Panel1.ResumeLayout(false);
             this.splitContainerAccountTiers.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerAccountTiers)).EndInit();
             this.splitContainerAccountTiers.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

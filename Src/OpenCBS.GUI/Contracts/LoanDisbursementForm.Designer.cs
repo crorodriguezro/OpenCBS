@@ -82,7 +82,6 @@ namespace OpenCBS.GUI.Contracts
             // 
             // splitContainer1.Panel2
             // 
-            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxButton);
             // 
             // tableLayoutPanel1
@@ -115,8 +114,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // tbComment
             // 
-            resources.ApplyResources(this.tbComment, "tbComment");
             this.tbComment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.tbComment, "tbComment");
             this.tbComment.Name = "tbComment";
             // 
             // _lbComment
@@ -186,9 +185,9 @@ namespace OpenCBS.GUI.Contracts
             // 
             // cmbPaymentMethod
             // 
-            resources.ApplyResources(this.cmbPaymentMethod, "cmbPaymentMethod");
             this.cmbPaymentMethod.DisplayMember = "Name";
             this.cmbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cmbPaymentMethod, "cmbPaymentMethod");
             this.cmbPaymentMethod.FormattingEnabled = true;
             this.cmbPaymentMethod.Name = "cmbPaymentMethod";
             this.cmbPaymentMethod.ValueMember = "Id";
@@ -207,11 +206,11 @@ namespace OpenCBS.GUI.Contracts
             // 
             // groupBoxButton
             // 
-            resources.ApplyResources(this.groupBoxButton, "groupBoxButton");
             this.groupBoxButton.Controls.Add(this.btnPrint);
             this.groupBoxButton.Controls.Add(this.buttonAddExchangeRate);
             this.groupBoxButton.Controls.Add(this.buttonCancel);
             this.groupBoxButton.Controls.Add(this.buttonSave);
+            resources.ApplyResources(this.groupBoxButton, "groupBoxButton");
             this.groupBoxButton.Name = "groupBoxButton";
             this.groupBoxButton.TabStop = false;
             // 

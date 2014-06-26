@@ -35,12 +35,13 @@ namespace OpenCBS.GUI.Clients
             this.spcBox = new System.Windows.Forms.SplitContainer();
             this.tbAmount = new System.Windows.Forms.TextBox();
             this.lvLoanShares = new OpenCBS.GUI.UserControl.ListViewEx();
-            this.colMember = new System.Windows.Forms.ColumnHeader();
-            this.colLoanShare = new System.Windows.Forms.ColumnHeader();
+            this.colMember = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colLoanShare = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlButtons = new System.Windows.Forms.Panel();
             this.lblDescription = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.spcBox)).BeginInit();
             this.spcBox.Panel1.SuspendLayout();
             this.spcBox.Panel2.SuspendLayout();
             this.spcBox.SuspendLayout();
@@ -128,6 +129,7 @@ namespace OpenCBS.GUI.Clients
             this.spcBox.Panel1.ResumeLayout(false);
             this.spcBox.Panel1.PerformLayout();
             this.spcBox.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spcBox)).EndInit();
             this.spcBox.ResumeLayout(false);
             this.pnlButtons.ResumeLayout(false);
             this.pnlButtons.PerformLayout();

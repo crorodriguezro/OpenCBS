@@ -28,11 +28,13 @@ namespace OpenCBS.GUI.UserControl
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SweetBaseForm));
             this.SuspendLayout();
             // 
             // SweetBaseForm
             // 
             this.ClientSize = new System.Drawing.Size(282, 255);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SweetBaseForm";
             this.Text = "SweetBaseForm";
             this.ResumeLayout(false);

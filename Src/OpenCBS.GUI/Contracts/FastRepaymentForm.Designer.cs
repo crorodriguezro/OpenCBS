@@ -38,17 +38,17 @@ namespace OpenCBS.GUI.Contracts
             this.btnCancel = new System.Windows.Forms.Button();
             this.cbItem = new System.Windows.Forms.ComboBox();
             this.lvContracts = new OpenCBS.GUI.UserControl.ListViewEx();
-            this.colName = new System.Windows.Forms.ColumnHeader();
-            this.colContract = new System.Windows.Forms.ColumnHeader();
-            this.colPrincipal = new System.Windows.Forms.ColumnHeader();
-            this.colInterest = new System.Windows.Forms.ColumnHeader();
-            this.colPenalties = new System.Windows.Forms.ColumnHeader();
-            this.colTotal = new System.Windows.Forms.ColumnHeader();
-            this.colOLB = new System.Windows.Forms.ColumnHeader();
-            this.colDueInterest = new System.Windows.Forms.ColumnHeader();
-            this.colCurrency = new System.Windows.Forms.ColumnHeader();
-            this.colPaymentOption = new System.Windows.Forms.ColumnHeader();
-            this.colComment = new System.Windows.Forms.ColumnHeader();
+            this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colContract = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPrincipal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colInterest = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPenalties = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTotal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colOLB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDueInterest = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCurrency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPaymentOption = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlButton.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,10 +111,10 @@ namespace OpenCBS.GUI.Contracts
             this.lvContracts.UseCompatibleStateImageBehavior = false;
             this.lvContracts.View = System.Windows.Forms.View.Details;
             this.lvContracts.SubItemClicked += new OpenCBS.GUI.UserControl.SubItemEventHandler(this.lvContracts_SubItemClicked);
-            this.lvContracts.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvContracts_ItemChecked);
-            this.lvContracts.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lvContracts_ItemCheck);
-            this.lvContracts.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvContracts_MouseDown);
             this.lvContracts.SubItemEndEditing += new OpenCBS.GUI.UserControl.SubItemEndEditingEventHandler(this.lvContracts_SubItemEndEditing);
+            this.lvContracts.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lvContracts_ItemCheck);
+            this.lvContracts.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvContracts_ItemChecked);
+            this.lvContracts.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvContracts_MouseDown);
             // 
             // colName
             // 

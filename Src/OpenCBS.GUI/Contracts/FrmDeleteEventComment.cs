@@ -79,24 +79,24 @@ namespace OpenCBS.GUI
             this.SuspendLayout();
             // 
             // buttonCancel
-            //
-            resources.ApplyResources(this.buttonCancel, "buttonCancel");
+            // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonConfirm
-            //
-            resources.ApplyResources(this.buttonConfirm, "buttonConfirm");
+            // 
             this.buttonConfirm.DialogResult = System.Windows.Forms.DialogResult.OK;
+            resources.ApplyResources(this.buttonConfirm, "buttonConfirm");
             this.buttonConfirm.Name = "buttonConfirm";
             this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
             // 
             // groupBox1
-            //
-            resources.ApplyResources(this.groupBox1, "groupBox1");
+            // 
             this.groupBox1.Controls.Add(this.buttonCancel);
             this.groupBox1.Controls.Add(this.buttonConfirm);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 

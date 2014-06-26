@@ -37,42 +37,27 @@ namespace OpenCBS.GUI.Export
             // 
             // labelText
             // 
-            this.labelText.AccessibleDescription = null;
-            this.labelText.AccessibleName = null;
             resources.ApplyResources(this.labelText, "labelText");
-            this.labelText.Font = null;
             this.labelText.Name = "labelText";
             // 
             // buttonCancel
             // 
-            this.buttonCancel.AccessibleDescription = null;
-            this.buttonCancel.AccessibleName = null;
             resources.ApplyResources(this.buttonCancel, "buttonCancel");
-            this.buttonCancel.BackgroundImage = null;
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Font = null;
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // buttonOk
             // 
-            this.buttonOk.AccessibleDescription = null;
-            this.buttonOk.AccessibleName = null;
             resources.ApplyResources(this.buttonOk, "buttonOk");
-            this.buttonOk.BackgroundImage = null;
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOk.Font = null;
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.UseVisualStyleBackColor = true;
             // 
             // comboBoxFile
             // 
-            this.comboBoxFile.AccessibleDescription = null;
-            this.comboBoxFile.AccessibleName = null;
             resources.ApplyResources(this.comboBoxFile, "comboBoxFile");
-            this.comboBoxFile.BackgroundImage = null;
             this.comboBoxFile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFile.Font = null;
             this.comboBoxFile.FormattingEnabled = true;
             this.comboBoxFile.Items.AddRange(new object[] {
             resources.GetString("comboBoxFile.Items")});
@@ -80,15 +65,12 @@ namespace OpenCBS.GUI.Export
             // 
             // CreateCustomizableFileForm
             // 
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.comboBoxFile);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.labelText);
-            this.Font = null;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "CreateCustomizableFileForm";
             this.ResumeLayout(false);

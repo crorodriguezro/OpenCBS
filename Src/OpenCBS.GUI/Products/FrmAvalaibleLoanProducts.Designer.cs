@@ -54,12 +54,11 @@ namespace OpenCBS.GUI.Products
             // webBrowserPackage
             // 
             resources.ApplyResources(this.webBrowserPackage, "webBrowserPackage");
-            this.webBrowserPackage.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserPackage.Name = "webBrowserPackage";
             this.webBrowserPackage.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowserPackage_DocumentCompleted);
             // 
             // buttonEditProduct
-            //
+            // 
             resources.ApplyResources(this.buttonEditProduct, "buttonEditProduct");
             this.buttonEditProduct.Name = "buttonEditProduct";
             this.buttonEditProduct.Click += new System.EventHandler(this.buttonEditProduct_Click);
@@ -71,13 +70,13 @@ namespace OpenCBS.GUI.Products
             this.checkBoxShowDeletedProduct.CheckedChanged += new System.EventHandler(this.checkBoxShowDeletedProduct_CheckedChanged);
             // 
             // buttonAddPackage
-            //
+            // 
             resources.ApplyResources(this.buttonAddPackage, "buttonAddPackage");
             this.buttonAddPackage.Name = "buttonAddPackage";
             this.buttonAddPackage.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonDeletePackage
-            //
+            // 
             resources.ApplyResources(this.buttonDeletePackage, "buttonDeletePackage");
             this.buttonDeletePackage.Name = "buttonDeletePackage";
             this.buttonDeletePackage.Click += new System.EventHandler(this.buttonDeletePackage_Click);
@@ -99,7 +98,7 @@ namespace OpenCBS.GUI.Products
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
             // FrmAvalaibleLoanProducts
-            //
+            // 
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.pnlLoanProducts);
             this.Name = "FrmAvalaibleLoanProducts";

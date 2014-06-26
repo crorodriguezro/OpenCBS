@@ -56,14 +56,13 @@ namespace OpenCBS.GUI.Configuration
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.olvTellers);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // olvTellers
             // 
-            resources.ApplyResources(this.olvTellers, "olvTellers");
             this.olvTellers.AllColumns.Add(this.colName);
             this.olvTellers.AllColumns.Add(this.colAccount);
             this.olvTellers.AllColumns.Add(this.colDesc);
@@ -89,11 +88,11 @@ namespace OpenCBS.GUI.Configuration
             this.colMaxAmountDeposit,
             this.colMinAmountWithdrawal,
             this.colMaxAmountWithdrawal});
+            resources.ApplyResources(this.olvTellers, "olvTellers");
             this.olvTellers.FullRowSelect = true;
             this.olvTellers.GridLines = true;
             this.olvTellers.HideSelection = false;
             this.olvTellers.Name = "olvTellers";
-            this.olvTellers.OverlayText.Text = resources.GetString("resource.Text");
             this.olvTellers.ShowGroups = false;
             this.olvTellers.UseCompatibleStateImageBehavior = false;
             this.olvTellers.View = System.Windows.Forms.View.Details;

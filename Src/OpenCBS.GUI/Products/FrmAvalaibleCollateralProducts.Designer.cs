@@ -56,7 +56,6 @@ namespace OpenCBS.GUI.Products
             // webBrowserPackage
             // 
             resources.ApplyResources(this.webBrowserPackage, "webBrowserPackage");
-            this.webBrowserPackage.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserPackage.Name = "webBrowserPackage";
             this.webBrowserPackage.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowserPackage_DocumentCompleted);
             // 
@@ -68,12 +67,12 @@ namespace OpenCBS.GUI.Products
             this.pnlCollateralProducts.Name = "pnlCollateralProducts";
             // 
             // groupBox
-            //
-            resources.ApplyResources(this.groupBox, "groupBox");
+            // 
             this.groupBox.Controls.Add(this.buttonEditProduct);
             this.groupBox.Controls.Add(this.checkBoxShowDeletedProduct);
             this.groupBox.Controls.Add(this.buttonAddProduct);
             this.groupBox.Controls.Add(this.buttonDeletePackage);
+            resources.ApplyResources(this.groupBox, "groupBox");
             this.groupBox.Name = "groupBox";
             this.groupBox.TabStop = false;
             // 
@@ -102,7 +101,7 @@ namespace OpenCBS.GUI.Products
             this.buttonDeletePackage.Click += new System.EventHandler(this.buttonDeletePackage_Click);
             // 
             // FrmAvalaibleCollateralProducts
-            //
+            // 
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.pnlCollateralProducts);
             this.Name = "FrmAvalaibleCollateralProducts";

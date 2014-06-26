@@ -75,13 +75,13 @@ namespace OpenCBS.GUI.MFI
             this.labelPassword.Name = "labelPassword";
             // 
             // buttonValidate
-            //
+            // 
             resources.ApplyResources(this.buttonValidate, "buttonValidate");
             this.buttonValidate.Name = "buttonValidate";
             this.buttonValidate.Click += new System.EventHandler(this.buttonValidate_Click);
             // 
             // buttonCancel
-            //
+            // 
             resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);

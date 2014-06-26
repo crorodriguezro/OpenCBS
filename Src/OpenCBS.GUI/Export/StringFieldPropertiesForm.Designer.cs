@@ -44,31 +44,21 @@ namespace OpenCBS.GUI.Export
             // 
             // labelStartPosition
             // 
-            this.labelStartPosition.AccessibleDescription = null;
-            this.labelStartPosition.AccessibleName = null;
             resources.ApplyResources(this.labelStartPosition, "labelStartPosition");
-            this.labelStartPosition.Font = null;
             this.labelStartPosition.Name = "labelStartPosition";
             // 
             // checkBoxAlignRight
             // 
-            this.checkBoxAlignRight.AccessibleDescription = null;
-            this.checkBoxAlignRight.AccessibleName = null;
             resources.ApplyResources(this.checkBoxAlignRight, "checkBoxAlignRight");
-            this.checkBoxAlignRight.Font = null;
             this.checkBoxAlignRight.Name = "checkBoxAlignRight";
             // 
             // dgvReplacementList
             // 
-            this.dgvReplacementList.AccessibleDescription = null;
-            this.dgvReplacementList.AccessibleName = null;
             resources.ApplyResources(this.dgvReplacementList, "dgvReplacementList");
-            this.dgvReplacementList.BackgroundImage = null;
             this.dgvReplacementList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReplacementList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnOriginalValue,
             this.ColumnReplacementValue});
-            this.dgvReplacementList.Font = null;
             this.dgvReplacementList.Name = "dgvReplacementList";
             // 
             // ColumnOriginalValue
@@ -83,56 +73,35 @@ namespace OpenCBS.GUI.Export
             // 
             // buttonCancel
             // 
-            this.buttonCancel.AccessibleDescription = null;
-            this.buttonCancel.AccessibleName = null;
             resources.ApplyResources(this.buttonCancel, "buttonCancel");
-            this.buttonCancel.BackgroundImage = null;
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Font = null;
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // buttonSave
             // 
-            this.buttonSave.AccessibleDescription = null;
-            this.buttonSave.AccessibleName = null;
             resources.ApplyResources(this.buttonSave, "buttonSave");
-            this.buttonSave.BackgroundImage = null;
             this.buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonSave.Font = null;
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.UseVisualStyleBackColor = true;
             // 
             // tnStartPosition
             // 
-            this.tnStartPosition.AccessibleDescription = null;
-            this.tnStartPosition.AccessibleName = null;
             resources.ApplyResources(this.tnStartPosition, "tnStartPosition");
-            this.tnStartPosition.BackgroundImage = null;
-            this.tnStartPosition.Font = null;
             this.tnStartPosition.Name = "tnStartPosition";
             // 
             // label1
             // 
-            this.label1.AccessibleDescription = null;
-            this.label1.AccessibleName = null;
             resources.ApplyResources(this.label1, "label1");
-            this.label1.Font = null;
             this.label1.Name = "label1";
             // 
             // textBoxEndPosition
             // 
-            this.textBoxEndPosition.AccessibleDescription = null;
-            this.textBoxEndPosition.AccessibleName = null;
             resources.ApplyResources(this.textBoxEndPosition, "textBoxEndPosition");
-            this.textBoxEndPosition.BackgroundImage = null;
-            this.textBoxEndPosition.Font = null;
             this.textBoxEndPosition.Name = "textBoxEndPosition";
             // 
             // StringFieldPropertiesForm
             // 
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.textBoxEndPosition);
@@ -143,7 +112,6 @@ namespace OpenCBS.GUI.Export
             this.Controls.Add(this.tnStartPosition);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelStartPosition);
-            this.Font = null;
             this.Name = "StringFieldPropertiesForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvReplacementList)).EndInit();
             this.ResumeLayout(false);

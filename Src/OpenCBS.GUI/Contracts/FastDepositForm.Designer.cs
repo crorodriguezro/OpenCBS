@@ -37,29 +37,24 @@ namespace OpenCBS.GUI.Contracts
             this.btnCancel = new System.Windows.Forms.Button();
             this.udAmount = new System.Windows.Forms.NumericUpDown();
             this.lvContracts = new OpenCBS.GUI.UserControl.ListViewEx();
-            this.colContract = new System.Windows.Forms.ColumnHeader();
-            this.colType = new System.Windows.Forms.ColumnHeader();
-            this.colBalance = new System.Windows.Forms.ColumnHeader();
-            this.colAmount = new System.Windows.Forms.ColumnHeader();
-            this.colCurrency = new System.Windows.Forms.ColumnHeader();
+            this.colContract = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colBalance = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCurrency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlButton
             // 
-            this.pnlButton.AccessibleDescription = null;
-            this.pnlButton.AccessibleName = null;
             resources.ApplyResources(this.pnlButton, "pnlButton");
             this.pnlButton.Controls.Add(this.btnOK);
             this.pnlButton.Controls.Add(this.btnCancel);
-            this.pnlButton.Font = null;
             this.pnlButton.Name = "pnlButton";
             // 
             // btnOK
             // 
-            this.btnOK.AccessibleDescription = null;
-            this.btnOK.AccessibleName = null;
             resources.ApplyResources(this.btnOK, "btnOK");
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.Name = "btnOK";
@@ -67,26 +62,17 @@ namespace OpenCBS.GUI.Contracts
             // 
             // btnCancel
             // 
-            this.btnCancel.AccessibleDescription = null;
-            this.btnCancel.AccessibleName = null;
             resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Name = "btnCancel";
             // 
             // udAmount
             // 
-            this.udAmount.AccessibleDescription = null;
-            this.udAmount.AccessibleName = null;
             resources.ApplyResources(this.udAmount, "udAmount");
-            this.udAmount.Font = null;
             this.udAmount.Name = "udAmount";
             // 
             // lvContracts
             // 
-            this.lvContracts.AccessibleDescription = null;
-            this.lvContracts.AccessibleName = null;
-            resources.ApplyResources(this.lvContracts, "lvContracts");
-            this.lvContracts.BackgroundImage = null;
             this.lvContracts.CheckBoxes = true;
             this.lvContracts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colContract,
@@ -94,6 +80,7 @@ namespace OpenCBS.GUI.Contracts
             this.colBalance,
             this.colAmount,
             this.colCurrency});
+            resources.ApplyResources(this.lvContracts, "lvContracts");
             this.lvContracts.DoubleClickActivation = true;
             this.lvContracts.FullRowSelect = true;
             this.lvContracts.GridLines = true;
@@ -102,10 +89,10 @@ namespace OpenCBS.GUI.Contracts
             this.lvContracts.UseCompatibleStateImageBehavior = false;
             this.lvContracts.View = System.Windows.Forms.View.Details;
             this.lvContracts.SubItemClicked += new OpenCBS.GUI.UserControl.SubItemEventHandler(this.lvContracts_SubItemClicked);
-            this.lvContracts.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvContracts_ItemChecked);
-            this.lvContracts.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lvContracts_ItemCheck);
-            this.lvContracts.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvContracts_MouseDown);
             this.lvContracts.SubItemEndEditing += new OpenCBS.GUI.UserControl.SubItemEndEditingEventHandler(this.lvContracts_SubItemEndEditing);
+            this.lvContracts.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lvContracts_ItemCheck);
+            this.lvContracts.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvContracts_ItemChecked);
+            this.lvContracts.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvContracts_MouseDown);
             // 
             // colContract
             // 
@@ -129,14 +116,11 @@ namespace OpenCBS.GUI.Contracts
             // 
             // FastDepositForm
             // 
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.udAmount);
             this.Controls.Add(this.lvContracts);
             this.Controls.Add(this.pnlButton);
-            this.Font = null;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

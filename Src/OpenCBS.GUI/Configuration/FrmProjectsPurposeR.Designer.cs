@@ -30,18 +30,14 @@ namespace OpenCBS.GUI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProjectPurposesR));
             this.listViewProjectPurposes = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listViewProjectPurposes
             // 
-            this.listViewProjectPurposes.AccessibleDescription = null;
-            this.listViewProjectPurposes.AccessibleName = null;
-            resources.ApplyResources(this.listViewProjectPurposes, "listViewProjectPurposes");
-            this.listViewProjectPurposes.BackgroundImage = null;
             this.listViewProjectPurposes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
-            this.listViewProjectPurposes.Font = null;
+            resources.ApplyResources(this.listViewProjectPurposes, "listViewProjectPurposes");
             this.listViewProjectPurposes.FullRowSelect = true;
             this.listViewProjectPurposes.GridLines = true;
             this.listViewProjectPurposes.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
@@ -57,12 +53,9 @@ namespace OpenCBS.GUI
             // 
             // FrmProjectPurposesR
             // 
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.listViewProjectPurposes);
-            this.Font = null;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmProjectPurposesR";
             this.ResumeLayout(false);

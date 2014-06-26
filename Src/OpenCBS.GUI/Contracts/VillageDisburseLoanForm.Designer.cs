@@ -40,19 +40,19 @@ namespace OpenCBS.GUI.Contracts
             this.dtDisbursement = new System.Windows.Forms.DateTimePicker();
             this.dtpRepayment = new System.Windows.Forms.DateTimePicker();
             this.lvMembers = new OpenCBS.GUI.UserControl.ListViewEx();
-            this.colName = new System.Windows.Forms.ColumnHeader();
-            this.colPassport = new System.Windows.Forms.ColumnHeader();
-            this.colDate = new System.Windows.Forms.ColumnHeader();
-            this.colRepaymentDate = new System.Windows.Forms.ColumnHeader();
-            this.colAmount = new System.Windows.Forms.ColumnHeader();
-            this.colCurrency = new System.Windows.Forms.ColumnHeader();
-            this.colInterest = new System.Windows.Forms.ColumnHeader();
-            this.colGracePeriod = new System.Windows.Forms.ColumnHeader();
-            this.colInstallments = new System.Windows.Forms.ColumnHeader();
-            this.colLoanOfficer = new System.Windows.Forms.ColumnHeader();
-            this.colFundingLine = new System.Windows.Forms.ColumnHeader();
-            this.colNewFLAmount = new System.Windows.Forms.ColumnHeader();
-            this.colPaymentMethod = new System.Windows.Forms.ColumnHeader();
+            this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPassport = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colRepaymentDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCurrency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colInterest = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colGracePeriod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colInstallments = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colLoanOfficer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colFundingLine = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colNewFLAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPaymentMethod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cbPaymentMethods = new System.Windows.Forms.ComboBox();
             this.pnlButtons.SuspendLayout();
             this.disburseLoansStatusBar.SuspendLayout();
@@ -132,10 +132,10 @@ namespace OpenCBS.GUI.Contracts
             this.lvMembers.Name = "lvMembers";
             this.lvMembers.UseCompatibleStateImageBehavior = false;
             this.lvMembers.View = System.Windows.Forms.View.Details;
-            this.lvMembers.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvMembers_ItemChecked);
-            this.lvMembers.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lvMembers_ItemCheck);
-            this.lvMembers.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvMembers_MouseDown);
             this.lvMembers.SubItemEndEditing += new OpenCBS.GUI.UserControl.SubItemEndEditingEventHandler(this.lvMembers_SubItemEndEditing);
+            this.lvMembers.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lvMembers_ItemCheck);
+            this.lvMembers.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvMembers_ItemChecked);
+            this.lvMembers.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvMembers_MouseDown);
             // 
             // colName
             // 

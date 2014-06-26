@@ -44,10 +44,10 @@ namespace OpenCBS.GUI.Configuration
             this.tbCode = new System.Windows.Forms.TextBox();
             this.tabPageAddPaymentMethod = new System.Windows.Forms.TabPage();
             this.lvPaymentMethods = new System.Windows.Forms.ListView();
-            this.columnHeaderId = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderPaymentMethod = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderAccount = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderDate = new System.Windows.Forms.ColumnHeader();
+            this.columnHeaderId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderPaymentMethod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderAccount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelPaymentMethods = new System.Windows.Forms.Panel();
             this.btnDeletePaymentMethod = new System.Windows.Forms.Button();
             this.btnEditPaymentMethod = new System.Windows.Forms.Button();
@@ -199,8 +199,8 @@ namespace OpenCBS.GUI.Configuration
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddBranchForm";
-            this.Load += new System.EventHandler(this.AddBranchForm_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddBranchForm_FormClosing);
+            this.Load += new System.EventHandler(this.AddBranchForm_Load);
             this.Controls.SetChildIndex(this.tabControl, 0);
             this.tabControl.ResumeLayout(false);
             this.tabPageAddBranches.ResumeLayout(false);

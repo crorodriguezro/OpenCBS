@@ -41,9 +41,9 @@
             // 
             // buttonsPanel
             // 
-            resources.ApplyResources(this.buttonsPanel, "buttonsPanel");
             this.buttonsPanel.Controls.Add(this.okButton);
             this.buttonsPanel.Controls.Add(this.cancelButton);
+            resources.ApplyResources(this.buttonsPanel, "buttonsPanel");
             this.buttonsPanel.Name = "buttonsPanel";
             // 
             // okButton
@@ -62,20 +62,19 @@
             // 
             // _entryFeesListView
             // 
-            resources.ApplyResources(this._entryFeesListView, "_entryFeesListView");
             this._entryFeesListView.AllColumns.Add(this._nameColumn);
             this._entryFeesListView.AllColumns.Add(this._amountColumn);
             this._entryFeesListView.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.DoubleClick;
             this._entryFeesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this._nameColumn,
             this._amountColumn});
+            resources.ApplyResources(this._entryFeesListView, "_entryFeesListView");
             this._entryFeesListView.FullRowSelect = true;
             this._entryFeesListView.GridLines = true;
             this._entryFeesListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this._entryFeesListView.HeaderWordWrap = true;
             this._entryFeesListView.MultiSelect = false;
             this._entryFeesListView.Name = "_entryFeesListView";
-            this._entryFeesListView.OverlayText.Text = resources.GetString("resource.Text");
             this._entryFeesListView.ShowGroups = false;
             this._entryFeesListView.UseCompatibleStateImageBehavior = false;
             this._entryFeesListView.View = System.Windows.Forms.View.Details;
@@ -83,14 +82,14 @@
             // _nameColumn
             // 
             this._nameColumn.AspectName = "ProductEntryFee.Name";
-            resources.ApplyResources(this._nameColumn, "_nameColumn");
             this._nameColumn.IsEditable = false;
+            resources.ApplyResources(this._nameColumn, "_nameColumn");
             // 
             // _amountColumn
             // 
             this._amountColumn.AspectName = "FeeValue";
-            resources.ApplyResources(this._amountColumn, "_amountColumn");
             this._amountColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            resources.ApplyResources(this._amountColumn, "_amountColumn");
             // 
             // LoanEntryFeesForm
             // 

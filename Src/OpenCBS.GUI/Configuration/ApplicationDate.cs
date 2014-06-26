@@ -106,9 +106,9 @@ namespace OpenCBS.GUI
             resources.ApplyResources(this.mcalCurrentDate, "mcalCurrentDate");
             this.mcalCurrentDate.MaxSelectionCount = 1;
             this.mcalCurrentDate.Name = "mcalCurrentDate";
+            this.mcalCurrentDate.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mcalCurrentDate_DateChanged);
             this.mcalCurrentDate.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.mcalCurrentDate_DateSelected);
             this.mcalCurrentDate.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mcalCurrentDate_MouseUp);
-            this.mcalCurrentDate.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mcalCurrentDate_DateChanged);
             // 
             // lblCurrentDateLabel
             // 

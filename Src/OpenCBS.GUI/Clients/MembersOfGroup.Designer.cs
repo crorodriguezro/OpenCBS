@@ -32,8 +32,8 @@ namespace OpenCBS.GUI.Clients
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembersOfGroup));
             this.listViewMembers = new System.Windows.Forms.ListView();
-            this.columnHeaderMember = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderOLB = new System.Windows.Forms.ColumnHeader();
+            this.columnHeaderMember = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderOLB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlButtons = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();

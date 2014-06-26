@@ -38,5 +38,19 @@ namespace OpenCBS.GUI
                 return GetType().Name;
             }
         }
+
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MultiLanguageForm));
+            this.SuspendLayout();
+            // 
+            // MultiLanguageForm
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "MultiLanguageForm";
+            this.ResumeLayout(false);
+
+        }
     }
 }

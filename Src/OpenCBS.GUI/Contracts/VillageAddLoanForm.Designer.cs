@@ -44,19 +44,19 @@ namespace OpenCBS.GUI.Contracts
             this.cbFundingLine = new System.Windows.Forms.ComboBox();
             this.cbDonor = new System.Windows.Forms.ComboBox();
             this.lvMembers = new OpenCBS.GUI.UserControl.ListViewEx();
-            this.chName = new System.Windows.Forms.ColumnHeader();
-            this.chPassport = new System.Windows.Forms.ColumnHeader();
-            this.chAmount = new System.Windows.Forms.ColumnHeader();
-            this.chCurrency = new System.Windows.Forms.ColumnHeader();
-            this.chInterest = new System.Windows.Forms.ColumnHeader();
-            this.chGracePeriod = new System.Windows.Forms.ColumnHeader();
-            this.chInstallments = new System.Windows.Forms.ColumnHeader();
-            this.chLoanOfficer = new System.Windows.Forms.ColumnHeader();
-            this.chCreationDate = new System.Windows.Forms.ColumnHeader();
-            this.chFundingLine = new System.Windows.Forms.ColumnHeader();
-            this.chAvailableFunds = new System.Windows.Forms.ColumnHeader();
-            this.chCompulsorySavings = new System.Windows.Forms.ColumnHeader();
-            this.chCompulsoryPercentage = new System.Windows.Forms.ColumnHeader();
+            this.chName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chPassport = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chCurrency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chInterest = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chGracePeriod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chInstallments = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chLoanOfficer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chCreationDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chFundingLine = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chAvailableFunds = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chCompulsorySavings = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chCompulsoryPercentage = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cbCompulsorySavings = new System.Windows.Forms.ComboBox();
             this.udCompulsoryPercentage = new System.Windows.Forms.NumericUpDown();
             this.dtCreationDate = new System.Windows.Forms.DateTimePicker();
@@ -68,19 +68,13 @@ namespace OpenCBS.GUI.Contracts
             // 
             // pnlButtons
             // 
-            this.pnlButtons.AccessibleDescription = null;
-            this.pnlButtons.AccessibleName = null;
-            resources.ApplyResources(this.pnlButtons, "pnlButtons");
-            this.pnlButtons.BackgroundImage = null;
             this.pnlButtons.Controls.Add(this.btnCancel);
             this.pnlButtons.Controls.Add(this.btnSave);
-            this.pnlButtons.Font = null;
+            resources.ApplyResources(this.pnlButtons, "pnlButtons");
             this.pnlButtons.Name = "pnlButtons";
             // 
             // btnCancel
             // 
-            this.btnCancel.AccessibleDescription = null;
-            this.btnCancel.AccessibleName = null;
             resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Name = "btnCancel";
@@ -88,93 +82,58 @@ namespace OpenCBS.GUI.Contracts
             // 
             // btnSave
             // 
-            this.btnSave.AccessibleDescription = null;
-            this.btnSave.AccessibleName = null;
             resources.ApplyResources(this.btnSave, "btnSave");
             this.btnSave.Name = "btnSave";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // tbAmount
             // 
-            this.tbAmount.AccessibleDescription = null;
-            this.tbAmount.AccessibleName = null;
             resources.ApplyResources(this.tbAmount, "tbAmount");
-            this.tbAmount.BackgroundImage = null;
             this.tbAmount.Name = "tbAmount";
             // 
             // tbInterest
             // 
-            this.tbInterest.AccessibleDescription = null;
-            this.tbInterest.AccessibleName = null;
             resources.ApplyResources(this.tbInterest, "tbInterest");
-            this.tbInterest.BackgroundImage = null;
-            this.tbInterest.Font = null;
             this.tbInterest.Name = "tbInterest";
             // 
             // udGracePeriod
             // 
-            this.udGracePeriod.AccessibleDescription = null;
-            this.udGracePeriod.AccessibleName = null;
             resources.ApplyResources(this.udGracePeriod, "udGracePeriod");
-            this.udGracePeriod.Font = null;
             this.udGracePeriod.Name = "udGracePeriod";
             // 
             // udInstallments
             // 
-            this.udInstallments.AccessibleDescription = null;
-            this.udInstallments.AccessibleName = null;
             resources.ApplyResources(this.udInstallments, "udInstallments");
-            this.udInstallments.Font = null;
             this.udInstallments.Name = "udInstallments";
             // 
             // cbLoanOfficer
             // 
-            this.cbLoanOfficer.AccessibleDescription = null;
-            this.cbLoanOfficer.AccessibleName = null;
-            resources.ApplyResources(this.cbLoanOfficer, "cbLoanOfficer");
-            this.cbLoanOfficer.BackgroundImage = null;
             this.cbLoanOfficer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLoanOfficer.Font = null;
             this.cbLoanOfficer.FormattingEnabled = true;
+            resources.ApplyResources(this.cbLoanOfficer, "cbLoanOfficer");
             this.cbLoanOfficer.Name = "cbLoanOfficer";
             // 
             // tbEntryFee
             // 
-            this.tbEntryFee.AccessibleDescription = null;
-            this.tbEntryFee.AccessibleName = null;
             resources.ApplyResources(this.tbEntryFee, "tbEntryFee");
-            this.tbEntryFee.BackgroundImage = null;
-            this.tbEntryFee.Font = null;
             this.tbEntryFee.Name = "tbEntryFee";
             // 
             // cbFundingLine
             // 
-            this.cbFundingLine.AccessibleDescription = null;
-            this.cbFundingLine.AccessibleName = null;
-            resources.ApplyResources(this.cbFundingLine, "cbFundingLine");
-            this.cbFundingLine.BackgroundImage = null;
             this.cbFundingLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFundingLine.Font = null;
             this.cbFundingLine.FormattingEnabled = true;
+            resources.ApplyResources(this.cbFundingLine, "cbFundingLine");
             this.cbFundingLine.Name = "cbFundingLine";
             // 
             // cbDonor
             // 
-            this.cbDonor.AccessibleDescription = null;
-            this.cbDonor.AccessibleName = null;
-            resources.ApplyResources(this.cbDonor, "cbDonor");
-            this.cbDonor.BackgroundImage = null;
             this.cbDonor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDonor.Font = null;
             this.cbDonor.FormattingEnabled = true;
+            resources.ApplyResources(this.cbDonor, "cbDonor");
             this.cbDonor.Name = "cbDonor";
             // 
             // lvMembers
             // 
-            this.lvMembers.AccessibleDescription = null;
-            this.lvMembers.AccessibleName = null;
-            resources.ApplyResources(this.lvMembers, "lvMembers");
-            this.lvMembers.BackgroundImage = null;
             this.lvMembers.CheckBoxes = true;
             this.lvMembers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chName,
@@ -190,14 +149,15 @@ namespace OpenCBS.GUI.Contracts
             this.chAvailableFunds,
             this.chCompulsorySavings,
             this.chCompulsoryPercentage});
+            resources.ApplyResources(this.lvMembers, "lvMembers");
             this.lvMembers.DoubleClickActivation = false;
             this.lvMembers.FullRowSelect = true;
             this.lvMembers.GridLines = true;
             this.lvMembers.Name = "lvMembers";
             this.lvMembers.UseCompatibleStateImageBehavior = false;
             this.lvMembers.View = System.Windows.Forms.View.Details;
-            this.lvMembers.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvMembers_ItemChecked);
             this.lvMembers.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lvMembers_ItemCheck);
+            this.lvMembers.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvMembers_ItemChecked);
             this.lvMembers.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvMembers_MouseDown);
             // 
             // chName
@@ -254,40 +214,25 @@ namespace OpenCBS.GUI.Contracts
             // 
             // cbCompulsorySavings
             // 
-            this.cbCompulsorySavings.AccessibleDescription = null;
-            this.cbCompulsorySavings.AccessibleName = null;
-            resources.ApplyResources(this.cbCompulsorySavings, "cbCompulsorySavings");
-            this.cbCompulsorySavings.BackgroundImage = null;
             this.cbCompulsorySavings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCompulsorySavings.Font = null;
             this.cbCompulsorySavings.FormattingEnabled = true;
+            resources.ApplyResources(this.cbCompulsorySavings, "cbCompulsorySavings");
             this.cbCompulsorySavings.Name = "cbCompulsorySavings";
             // 
             // udCompulsoryPercentage
             // 
-            this.udCompulsoryPercentage.AccessibleDescription = null;
-            this.udCompulsoryPercentage.AccessibleName = null;
             resources.ApplyResources(this.udCompulsoryPercentage, "udCompulsoryPercentage");
-            this.udCompulsoryPercentage.Font = null;
             this.udCompulsoryPercentage.Name = "udCompulsoryPercentage";
             // 
             // dtCreationDate
             // 
-            this.dtCreationDate.AccessibleDescription = null;
-            this.dtCreationDate.AccessibleName = null;
-            resources.ApplyResources(this.dtCreationDate, "dtCreationDate");
-            this.dtCreationDate.BackgroundImage = null;
-            this.dtCreationDate.CalendarFont = null;
-            this.dtCreationDate.CustomFormat = null;
-            this.dtCreationDate.Font = null;
             this.dtCreationDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            resources.ApplyResources(this.dtCreationDate, "dtCreationDate");
             this.dtCreationDate.Name = "dtCreationDate";
             this.dtCreationDate.ValueChanged += new System.EventHandler(this.dtCreationDate_ValueChanged);
             // 
             // VillageAddLoanForm
             // 
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dtCreationDate);
@@ -303,7 +248,6 @@ namespace OpenCBS.GUI.Contracts
             this.Controls.Add(this.tbAmount);
             this.Controls.Add(this.lvMembers);
             this.Controls.Add(this.pnlButtons);
-            this.Font = null;
             this.Name = "VillageAddLoanForm";
             this.pnlButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.udGracePeriod)).EndInit();

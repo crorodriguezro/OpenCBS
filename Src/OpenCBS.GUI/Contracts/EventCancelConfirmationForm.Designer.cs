@@ -57,7 +57,6 @@ namespace OpenCBS.GUI
             // 
             // listViewRepayments
             // 
-            resources.ApplyResources(this.listViewRepayments, "listViewRepayments");
             this.listViewRepayments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -66,6 +65,7 @@ namespace OpenCBS.GUI
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader9});
+            resources.ApplyResources(this.listViewRepayments, "listViewRepayments");
             this.listViewRepayments.FullRowSelect = true;
             this.listViewRepayments.GridLines = true;
             this.listViewRepayments.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
@@ -104,14 +104,14 @@ namespace OpenCBS.GUI
             // 
             // buttonCancel
             // 
-            resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.Name = "buttonCancel";
             // 
             // buttonSave
             // 
-            resources.ApplyResources(this.buttonSave, "buttonSave");
             this.buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
+            resources.ApplyResources(this.buttonSave, "buttonSave");
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
@@ -133,7 +133,6 @@ namespace OpenCBS.GUI
             // 
             // listViewEvents
             // 
-            resources.ApplyResources(this.listViewEvents, "listViewEvents");
             this.listViewEvents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderDate,
             this.columnHeaderType,
@@ -143,6 +142,7 @@ namespace OpenCBS.GUI
             this.columnHeader10});
             this.listViewEvents.FullRowSelect = true;
             this.listViewEvents.GridLines = true;
+            resources.ApplyResources(this.listViewEvents, "listViewEvents");
             this.listViewEvents.Name = "listViewEvents";
             this.listViewEvents.UseCompatibleStateImageBehavior = false;
             this.listViewEvents.View = System.Windows.Forms.View.Details;

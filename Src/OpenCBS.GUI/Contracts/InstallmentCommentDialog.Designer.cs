@@ -37,10 +37,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // buttonCancel
             // 
-            this.buttonCancel.AccessibleDescription = null;
-            this.buttonCancel.AccessibleName = null;
-            resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.buttonCancel.Name = "buttonCancel";
@@ -48,10 +46,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // buttonOK
             // 
-            this.buttonOK.AccessibleDescription = null;
-            this.buttonOK.AccessibleName = null;
-            resources.ApplyResources(this.buttonOK, "buttonOK");
             this.buttonOK.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.buttonOK, "buttonOK");
             this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.buttonOK.Name = "buttonOK";
@@ -59,17 +55,11 @@ namespace OpenCBS.GUI.Contracts
             // 
             // textBoxComment
             // 
-            this.textBoxComment.AccessibleDescription = null;
-            this.textBoxComment.AccessibleName = null;
             resources.ApplyResources(this.textBoxComment, "textBoxComment");
-            this.textBoxComment.BackgroundImage = null;
-            this.textBoxComment.Font = null;
             this.textBoxComment.Name = "textBoxComment";
             // 
             // labelComment
             // 
-            this.labelComment.AccessibleDescription = null;
-            this.labelComment.AccessibleName = null;
             resources.ApplyResources(this.labelComment, "labelComment");
             this.labelComment.BackColor = System.Drawing.Color.Transparent;
             this.labelComment.Name = "labelComment";
@@ -77,8 +67,6 @@ namespace OpenCBS.GUI.Contracts
             // InstallmentCommentDialog
             // 
             this.AcceptButton = this.buttonOK;
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
@@ -86,7 +74,6 @@ namespace OpenCBS.GUI.Contracts
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.textBoxComment);
             this.Controls.Add(this.labelComment);
-            this.Font = null;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "InstallmentCommentDialog";
             this.ResumeLayout(false);

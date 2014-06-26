@@ -32,9 +32,9 @@ namespace OpenCBS.GUI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInstallmentTypes));
             this.listViewInstallmentTypes = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
             this.labelNbDays = new System.Windows.Forms.Label();
@@ -114,7 +114,7 @@ namespace OpenCBS.GUI
             this.numericUpDownDays.ValueChanged += new System.EventHandler(this.numericUpDownDays_ValueChanged);
             // 
             // buttonAdd
-            //
+            // 
             resources.ApplyResources(this.buttonAdd, "buttonAdd");
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
@@ -135,19 +135,19 @@ namespace OpenCBS.GUI
             this.groupBox1.TabStop = false;
             // 
             // buttonDelete
-            //
+            // 
             resources.ApplyResources(this.buttonDelete, "buttonDelete");
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonEdit
-            //
+            // 
             resources.ApplyResources(this.buttonEdit, "buttonEdit");
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonExit
-            //
+            // 
             resources.ApplyResources(this.buttonExit, "buttonExit");
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);

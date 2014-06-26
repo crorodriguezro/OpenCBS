@@ -112,20 +112,20 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="splitContainer1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="splitContainer1.IsSplitterFixed" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -145,7 +145,7 @@
     <value>232, 26</value>
   </data>
   <data name="lbCalculAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 16</value>
+    <value>152, 16</value>
   </data>
   <data name="lbCalculAmount.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -157,7 +157,7 @@
     <value>lbCalculAmount</value>
   </data>
   <data name="&gt;&gt;lbCalculAmount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbCalculAmount.Parent" xml:space="preserve">
     <value>gbFrequency</value>
@@ -184,7 +184,7 @@
     <value>cbCalculAmount</value>
   </data>
   <data name="&gt;&gt;cbCalculAmount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbCalculAmount.Parent" xml:space="preserve">
     <value>gbFrequency</value>
@@ -205,7 +205,7 @@
     <value>18, 60</value>
   </data>
   <data name="lbPosting.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 16</value>
+    <value>56, 16</value>
   </data>
   <data name="lbPosting.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -217,7 +217,7 @@
     <value>lbPosting</value>
   </data>
   <data name="&gt;&gt;lbPosting.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbPosting.Parent" xml:space="preserve">
     <value>gbFrequency</value>
@@ -238,7 +238,7 @@
     <value>18, 26</value>
   </data>
   <data name="lbAccrual.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 16</value>
+    <value>56, 16</value>
   </data>
   <data name="lbAccrual.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -250,7 +250,7 @@
     <value>lbAccrual</value>
   </data>
   <data name="&gt;&gt;lbAccrual.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbAccrual.Parent" xml:space="preserve">
     <value>gbFrequency</value>
@@ -274,7 +274,7 @@
     <value>cbPosting</value>
   </data>
   <data name="&gt;&gt;cbPosting.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbPosting.Parent" xml:space="preserve">
     <value>gbFrequency</value>
@@ -298,7 +298,7 @@
     <value>cbAccrual</value>
   </data>
   <data name="&gt;&gt;cbAccrual.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbAccrual.Parent" xml:space="preserve">
     <value>gbFrequency</value>
@@ -325,7 +325,7 @@
     <value>gbFrequency</value>
   </data>
   <data name="&gt;&gt;gbFrequency.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gbFrequency.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -349,7 +349,7 @@
     <value>cbCurrency</value>
   </data>
   <data name="&gt;&gt;cbCurrency.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbCurrency.Parent" xml:space="preserve">
     <value>groupBoxCurrency</value>
@@ -376,7 +376,7 @@
     <value>groupBoxCurrency</value>
   </data>
   <data name="&gt;&gt;groupBoxCurrency.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBoxCurrency.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -397,7 +397,7 @@
     <value>275, 16</value>
   </data>
   <data name="lbCodeSavingProduct.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 16</value>
+    <value>38, 16</value>
   </data>
   <data name="lbCodeSavingProduct.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -409,7 +409,7 @@
     <value>lbCodeSavingProduct</value>
   </data>
   <data name="&gt;&gt;lbCodeSavingProduct.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbCodeSavingProduct.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -430,7 +430,7 @@
     <value>8, 16</value>
   </data>
   <data name="lbNameSavingProduct.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 16</value>
+    <value>42, 16</value>
   </data>
   <data name="lbNameSavingProduct.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -442,7 +442,7 @@
     <value>lbNameSavingProduct</value>
   </data>
   <data name="&gt;&gt;lbNameSavingProduct.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbNameSavingProduct.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -463,7 +463,7 @@
     <value>215, 32</value>
   </data>
   <data name="clientTypeCorpCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
+    <value>58, 20</value>
   </data>
   <data name="clientTypeCorpCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -475,7 +475,7 @@
     <value>clientTypeCorpCheckBox</value>
   </data>
   <data name="&gt;&gt;clientTypeCorpCheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;clientTypeCorpCheckBox.Parent" xml:space="preserve">
     <value>gbClientType</value>
@@ -496,7 +496,7 @@
     <value>161, 32</value>
   </data>
   <data name="clientTypeIndivCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 20</value>
+    <value>48, 20</value>
   </data>
   <data name="clientTypeIndivCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -508,7 +508,7 @@
     <value>clientTypeIndivCheckBox</value>
   </data>
   <data name="&gt;&gt;clientTypeIndivCheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;clientTypeIndivCheckBox.Parent" xml:space="preserve">
     <value>gbClientType</value>
@@ -529,7 +529,7 @@
     <value>280, 32</value>
   </data>
   <data name="clientTypeVillageCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 20</value>
+    <value>111, 20</value>
   </data>
   <data name="clientTypeVillageCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -541,7 +541,7 @@
     <value>clientTypeVillageCheckBox</value>
   </data>
   <data name="&gt;&gt;clientTypeVillageCheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;clientTypeVillageCheckBox.Parent" xml:space="preserve">
     <value>gbClientType</value>
@@ -562,7 +562,7 @@
     <value>67, 32</value>
   </data>
   <data name="clientTypeGroupCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
+    <value>86, 20</value>
   </data>
   <data name="clientTypeGroupCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -574,7 +574,7 @@
     <value>clientTypeGroupCheckBox</value>
   </data>
   <data name="&gt;&gt;clientTypeGroupCheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;clientTypeGroupCheckBox.Parent" xml:space="preserve">
     <value>gbClientType</value>
@@ -592,7 +592,7 @@
     <value>12, 32</value>
   </data>
   <data name="clientTypeAllCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
+    <value>42, 20</value>
   </data>
   <data name="clientTypeAllCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -604,7 +604,7 @@
     <value>clientTypeAllCheckBox</value>
   </data>
   <data name="&gt;&gt;clientTypeAllCheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;clientTypeAllCheckBox.Parent" xml:space="preserve">
     <value>gbClientType</value>
@@ -631,7 +631,7 @@
     <value>gbClientType</value>
   </data>
   <data name="&gt;&gt;gbClientType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gbClientType.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -655,7 +655,7 @@
     <value>tbCodeSavingProduct</value>
   </data>
   <data name="&gt;&gt;tbCodeSavingProduct.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbCodeSavingProduct.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -679,7 +679,7 @@
     <value>tbName</value>
   </data>
   <data name="&gt;&gt;tbName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbName.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -703,7 +703,7 @@
     <value>tbInitialAmountMax</value>
   </data>
   <data name="&gt;&gt;tbInitialAmountMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbInitialAmountMax.Parent" xml:space="preserve">
     <value>gbInitialAmount</value>
@@ -727,7 +727,7 @@
     <value>tbInitialAmountMin</value>
   </data>
   <data name="&gt;&gt;tbInitialAmountMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbInitialAmountMin.Parent" xml:space="preserve">
     <value>gbInitialAmount</value>
@@ -748,7 +748,7 @@
     <value>17, 55</value>
   </data>
   <data name="lbInitialAmonutMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="lbInitialAmonutMax.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -760,7 +760,7 @@
     <value>lbInitialAmonutMax</value>
   </data>
   <data name="&gt;&gt;lbInitialAmonutMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbInitialAmonutMax.Parent" xml:space="preserve">
     <value>gbInitialAmount</value>
@@ -781,7 +781,7 @@
     <value>17, 25</value>
   </data>
   <data name="lbInitialAmountMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+    <value>33, 16</value>
   </data>
   <data name="lbInitialAmountMin.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -793,7 +793,7 @@
     <value>lbInitialAmountMin</value>
   </data>
   <data name="&gt;&gt;lbInitialAmountMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbInitialAmountMin.Parent" xml:space="preserve">
     <value>gbInitialAmount</value>
@@ -820,7 +820,7 @@
     <value>gbInitialAmount</value>
   </data>
   <data name="&gt;&gt;gbInitialAmount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gbInitialAmount.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -844,7 +844,7 @@
     <value>tbBalanceMax</value>
   </data>
   <data name="&gt;&gt;tbBalanceMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbBalanceMax.Parent" xml:space="preserve">
     <value>gbBalance</value>
@@ -868,7 +868,7 @@
     <value>tbBalanceMin</value>
   </data>
   <data name="&gt;&gt;tbBalanceMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbBalanceMin.Parent" xml:space="preserve">
     <value>gbBalance</value>
@@ -889,7 +889,7 @@
     <value>7, 54</value>
   </data>
   <data name="lbBalanceMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="lbBalanceMax.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -901,7 +901,7 @@
     <value>lbBalanceMax</value>
   </data>
   <data name="&gt;&gt;lbBalanceMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbBalanceMax.Parent" xml:space="preserve">
     <value>gbBalance</value>
@@ -922,7 +922,7 @@
     <value>7, 25</value>
   </data>
   <data name="lbBalanceMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+    <value>33, 16</value>
   </data>
   <data name="lbBalanceMin.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -934,7 +934,7 @@
     <value>lbBalanceMin</value>
   </data>
   <data name="&gt;&gt;lbBalanceMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbBalanceMin.Parent" xml:space="preserve">
     <value>gbBalance</value>
@@ -961,7 +961,7 @@
     <value>gbBalance</value>
   </data>
   <data name="&gt;&gt;gbBalance.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gbBalance.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -982,7 +982,7 @@
     <value>507, 42</value>
   </data>
   <data name="lbYearlyInterestRate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 16</value>
+    <value>71, 16</value>
   </data>
   <data name="lbYearlyInterestRate.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -994,7 +994,7 @@
     <value>lbYearlyInterestRate</value>
   </data>
   <data name="&gt;&gt;lbYearlyInterestRate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbYearlyInterestRate.Parent" xml:space="preserve">
     <value>gbInterestRate</value>
@@ -1015,7 +1015,7 @@
     <value>184, 54</value>
   </data>
   <data name="lbYearlyInterestRateMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 16</value>
+    <value>71, 16</value>
   </data>
   <data name="lbYearlyInterestRateMax.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -1027,7 +1027,7 @@
     <value>lbYearlyInterestRateMax</value>
   </data>
   <data name="&gt;&gt;lbYearlyInterestRateMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbYearlyInterestRateMax.Parent" xml:space="preserve">
     <value>gbInterestRate</value>
@@ -1048,7 +1048,7 @@
     <value>184, 25</value>
   </data>
   <data name="lbYearlyInterestRateMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 16</value>
+    <value>71, 16</value>
   </data>
   <data name="lbYearlyInterestRateMin.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -1060,7 +1060,7 @@
     <value>lbYearlyInterestRateMin</value>
   </data>
   <data name="&gt;&gt;lbYearlyInterestRateMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbYearlyInterestRateMin.Parent" xml:space="preserve">
     <value>gbInterestRate</value>
@@ -1084,7 +1084,7 @@
     <value>tbInterestRateValue</value>
   </data>
   <data name="&gt;&gt;tbInterestRateValue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbInterestRateValue.Parent" xml:space="preserve">
     <value>gbInterestRate</value>
@@ -1105,7 +1105,7 @@
     <value>355, 41</value>
   </data>
   <data name="lbInterestRateValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 16</value>
+    <value>56, 16</value>
   </data>
   <data name="lbInterestRateValue.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -1117,7 +1117,7 @@
     <value>lbInterestRateValue</value>
   </data>
   <data name="&gt;&gt;lbInterestRateValue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbInterestRateValue.Parent" xml:space="preserve">
     <value>gbInterestRate</value>
@@ -1141,7 +1141,7 @@
     <value>tbInterestRateMax</value>
   </data>
   <data name="&gt;&gt;tbInterestRateMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbInterestRateMax.Parent" xml:space="preserve">
     <value>gbInterestRate</value>
@@ -1165,7 +1165,7 @@
     <value>tbInterestRateMin</value>
   </data>
   <data name="&gt;&gt;tbInterestRateMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbInterestRateMin.Parent" xml:space="preserve">
     <value>gbInterestRate</value>
@@ -1186,7 +1186,7 @@
     <value>15, 54</value>
   </data>
   <data name="lbInterestRateMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="lbInterestRateMax.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1198,7 +1198,7 @@
     <value>lbInterestRateMax</value>
   </data>
   <data name="&gt;&gt;lbInterestRateMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbInterestRateMax.Parent" xml:space="preserve">
     <value>gbInterestRate</value>
@@ -1219,7 +1219,7 @@
     <value>14, 25</value>
   </data>
   <data name="lbInterestRateMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+    <value>33, 16</value>
   </data>
   <data name="lbInterestRateMin.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1231,7 +1231,7 @@
     <value>lbInterestRateMin</value>
   </data>
   <data name="&gt;&gt;lbInterestRateMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbInterestRateMin.Parent" xml:space="preserve">
     <value>gbInterestRate</value>
@@ -1258,7 +1258,7 @@
     <value>gbInterestRate</value>
   </data>
   <data name="&gt;&gt;gbInterestRate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gbInterestRate.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -1282,7 +1282,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
     <value>tabPageMainParameters</value>
@@ -1312,7 +1312,7 @@
     <value>tabPageMainParameters</value>
   </data>
   <data name="&gt;&gt;tabPageMainParameters.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabPageMainParameters.Parent" xml:space="preserve">
     <value>tabControlSaving</value>
@@ -1330,7 +1330,7 @@
     <value>6, 26</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 16</value>
+    <value>93, 16</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1342,7 +1342,7 @@
     <value>label1</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>groupBox3</value>
@@ -1366,7 +1366,7 @@
     <value>cbTransactionIn</value>
   </data>
   <data name="&gt;&gt;cbTransactionIn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbTransactionIn.Parent" xml:space="preserve">
     <value>groupBox3</value>
@@ -1390,7 +1390,7 @@
     <value>tbDepositMax</value>
   </data>
   <data name="&gt;&gt;tbDepositMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbDepositMax.Parent" xml:space="preserve">
     <value>gbDeposit</value>
@@ -1414,7 +1414,7 @@
     <value>tbDepositMin</value>
   </data>
   <data name="&gt;&gt;tbDepositMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbDepositMin.Parent" xml:space="preserve">
     <value>gbDeposit</value>
@@ -1435,7 +1435,7 @@
     <value>22, 85</value>
   </data>
   <data name="lbDepositMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="lbDepositMax.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1447,7 +1447,7 @@
     <value>lbDepositMax</value>
   </data>
   <data name="&gt;&gt;lbDepositMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbDepositMax.Parent" xml:space="preserve">
     <value>gbDeposit</value>
@@ -1468,7 +1468,7 @@
     <value>22, 56</value>
   </data>
   <data name="lbDepositMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+    <value>33, 16</value>
   </data>
   <data name="lbDepositMin.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1480,7 +1480,7 @@
     <value>lbDepositMin</value>
   </data>
   <data name="&gt;&gt;lbDepositMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbDepositMin.Parent" xml:space="preserve">
     <value>gbDeposit</value>
@@ -1507,7 +1507,7 @@
     <value>gbDeposit</value>
   </data>
   <data name="&gt;&gt;gbDeposit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gbDeposit.Parent" xml:space="preserve">
     <value>groupBox3</value>
@@ -1531,7 +1531,7 @@
     <value>131, 22</value>
   </data>
   <data name="rbRateDepositFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 20</value>
+    <value>53, 20</value>
   </data>
   <data name="rbRateDepositFees.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -1543,7 +1543,7 @@
     <value>rbRateDepositFees</value>
   </data>
   <data name="&gt;&gt;rbRateDepositFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbRateDepositFees.Parent" xml:space="preserve">
     <value>gtDepositFees</value>
@@ -1567,7 +1567,7 @@
     <value>77, 22</value>
   </data>
   <data name="rbFlatDepositFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
+    <value>48, 20</value>
   </data>
   <data name="rbFlatDepositFees.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -1579,7 +1579,7 @@
     <value>rbFlatDepositFees</value>
   </data>
   <data name="&gt;&gt;rbFlatDepositFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbFlatDepositFees.Parent" xml:space="preserve">
     <value>gtDepositFees</value>
@@ -1600,7 +1600,7 @@
     <value>14, 24</value>
   </data>
   <data name="lbDepositFeesType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 16</value>
+    <value>39, 16</value>
   </data>
   <data name="lbDepositFeesType.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -1612,7 +1612,7 @@
     <value>lbDepositFeesType</value>
   </data>
   <data name="&gt;&gt;lbDepositFeesType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbDepositFeesType.Parent" xml:space="preserve">
     <value>gtDepositFees</value>
@@ -1636,7 +1636,7 @@
     <value>tbDepositFees</value>
   </data>
   <data name="&gt;&gt;tbDepositFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbDepositFees.Parent" xml:space="preserve">
     <value>gtDepositFees</value>
@@ -1657,7 +1657,7 @@
     <value>256, 70</value>
   </data>
   <data name="lbDepositFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 16</value>
+    <value>56, 16</value>
   </data>
   <data name="lbDepositFees.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -1669,7 +1669,7 @@
     <value>lbDepositFees</value>
   </data>
   <data name="&gt;&gt;lbDepositFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbDepositFees.Parent" xml:space="preserve">
     <value>gtDepositFees</value>
@@ -1693,7 +1693,7 @@
     <value>tbDepositFeesMax</value>
   </data>
   <data name="&gt;&gt;tbDepositFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbDepositFeesMax.Parent" xml:space="preserve">
     <value>gtDepositFees</value>
@@ -1717,7 +1717,7 @@
     <value>tbDepositFeesMin</value>
   </data>
   <data name="&gt;&gt;tbDepositFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbDepositFeesMin.Parent" xml:space="preserve">
     <value>gtDepositFees</value>
@@ -1738,7 +1738,7 @@
     <value>14, 85</value>
   </data>
   <data name="lbDepositFeesMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="lbDepositFeesMax.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1750,7 +1750,7 @@
     <value>lbDepositFeesMax</value>
   </data>
   <data name="&gt;&gt;lbDepositFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbDepositFeesMax.Parent" xml:space="preserve">
     <value>gtDepositFees</value>
@@ -1771,7 +1771,7 @@
     <value>14, 56</value>
   </data>
   <data name="lbDepositFeesMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+    <value>33, 16</value>
   </data>
   <data name="lbDepositFeesMin.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1783,7 +1783,7 @@
     <value>lbDepositFeesMin</value>
   </data>
   <data name="&gt;&gt;lbDepositFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbDepositFeesMin.Parent" xml:space="preserve">
     <value>gtDepositFees</value>
@@ -1810,7 +1810,7 @@
     <value>gtDepositFees</value>
   </data>
   <data name="&gt;&gt;gtDepositFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gtDepositFees.Parent" xml:space="preserve">
     <value>groupBox3</value>
@@ -1837,7 +1837,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
     <value>tabPageFees</value>
@@ -1861,7 +1861,7 @@
     <value>cbTransferType</value>
   </data>
   <data name="&gt;&gt;cbTransferType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbTransferType.Parent" xml:space="preserve">
     <value>gbTransferFees</value>
@@ -1882,7 +1882,7 @@
     <value>131, 22</value>
   </data>
   <data name="rbRateTransferFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 20</value>
+    <value>53, 20</value>
   </data>
   <data name="rbRateTransferFees.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -1894,7 +1894,7 @@
     <value>rbRateTransferFees</value>
   </data>
   <data name="&gt;&gt;rbRateTransferFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbRateTransferFees.Parent" xml:space="preserve">
     <value>gbTransferFees</value>
@@ -1918,7 +1918,7 @@
     <value>tbTransferFees</value>
   </data>
   <data name="&gt;&gt;tbTransferFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbTransferFees.Parent" xml:space="preserve">
     <value>gbTransferFees</value>
@@ -1939,7 +1939,7 @@
     <value>77, 22</value>
   </data>
   <data name="rbFlatTransferFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
+    <value>48, 20</value>
   </data>
   <data name="rbFlatTransferFees.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -1951,7 +1951,7 @@
     <value>rbFlatTransferFees</value>
   </data>
   <data name="&gt;&gt;rbFlatTransferFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbFlatTransferFees.Parent" xml:space="preserve">
     <value>gbTransferFees</value>
@@ -1972,7 +1972,7 @@
     <value>249, 82</value>
   </data>
   <data name="lbTransferFeesValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 16</value>
+    <value>56, 16</value>
   </data>
   <data name="lbTransferFeesValue.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -1984,7 +1984,7 @@
     <value>lbTransferFeesValue</value>
   </data>
   <data name="&gt;&gt;lbTransferFeesValue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbTransferFeesValue.Parent" xml:space="preserve">
     <value>gbTransferFees</value>
@@ -2008,7 +2008,7 @@
     <value>tbTransferFeesMax</value>
   </data>
   <data name="&gt;&gt;tbTransferFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbTransferFeesMax.Parent" xml:space="preserve">
     <value>gbTransferFees</value>
@@ -2032,7 +2032,7 @@
     <value>tbTransferFeesMin</value>
   </data>
   <data name="&gt;&gt;tbTransferFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbTransferFeesMin.Parent" xml:space="preserve">
     <value>gbTransferFees</value>
@@ -2053,7 +2053,7 @@
     <value>14, 82</value>
   </data>
   <data name="lbTransferFeesMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="lbTransferFeesMax.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -2065,7 +2065,7 @@
     <value>lbTransferFeesMax</value>
   </data>
   <data name="&gt;&gt;lbTransferFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbTransferFeesMax.Parent" xml:space="preserve">
     <value>gbTransferFees</value>
@@ -2086,7 +2086,7 @@
     <value>14, 53</value>
   </data>
   <data name="lbTransferFeesMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+    <value>33, 16</value>
   </data>
   <data name="lbTransferFeesMin.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2098,7 +2098,7 @@
     <value>lbTransferFeesMin</value>
   </data>
   <data name="&gt;&gt;lbTransferFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbTransferFeesMin.Parent" xml:space="preserve">
     <value>gbTransferFees</value>
@@ -2119,7 +2119,7 @@
     <value>14, 24</value>
   </data>
   <data name="lbTransferFeesType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 16</value>
+    <value>39, 16</value>
   </data>
   <data name="lbTransferFeesType.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2131,7 +2131,7 @@
     <value>lbTransferFeesType</value>
   </data>
   <data name="&gt;&gt;lbTransferFeesType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbTransferFeesType.Parent" xml:space="preserve">
     <value>gbTransferFees</value>
@@ -2158,7 +2158,7 @@
     <value>gbTransferFees</value>
   </data>
   <data name="&gt;&gt;gbTransferFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gbTransferFees.Parent" xml:space="preserve">
     <value>tabPageFees</value>
@@ -2179,7 +2179,7 @@
     <value>131, 22</value>
   </data>
   <data name="rbRateWithdrawFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 20</value>
+    <value>53, 20</value>
   </data>
   <data name="rbRateWithdrawFees.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -2191,7 +2191,7 @@
     <value>rbRateWithdrawFees</value>
   </data>
   <data name="&gt;&gt;rbRateWithdrawFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbRateWithdrawFees.Parent" xml:space="preserve">
     <value>gbWithdrawFees</value>
@@ -2212,7 +2212,7 @@
     <value>77, 22</value>
   </data>
   <data name="rbFlatWithdrawFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
+    <value>48, 20</value>
   </data>
   <data name="rbFlatWithdrawFees.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -2224,7 +2224,7 @@
     <value>rbFlatWithdrawFees</value>
   </data>
   <data name="&gt;&gt;rbFlatWithdrawFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbFlatWithdrawFees.Parent" xml:space="preserve">
     <value>gbWithdrawFees</value>
@@ -2248,7 +2248,7 @@
     <value>tbWithdrawFees</value>
   </data>
   <data name="&gt;&gt;tbWithdrawFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbWithdrawFees.Parent" xml:space="preserve">
     <value>gbWithdrawFees</value>
@@ -2269,7 +2269,7 @@
     <value>256, 71</value>
   </data>
   <data name="lbWithdrawFeesValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 16</value>
+    <value>56, 16</value>
   </data>
   <data name="lbWithdrawFeesValue.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -2281,7 +2281,7 @@
     <value>lbWithdrawFeesValue</value>
   </data>
   <data name="&gt;&gt;lbWithdrawFeesValue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbWithdrawFeesValue.Parent" xml:space="preserve">
     <value>gbWithdrawFees</value>
@@ -2305,7 +2305,7 @@
     <value>tbWithdrawFeesMax</value>
   </data>
   <data name="&gt;&gt;tbWithdrawFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbWithdrawFeesMax.Parent" xml:space="preserve">
     <value>gbWithdrawFees</value>
@@ -2329,7 +2329,7 @@
     <value>tbWithdrawFeesMin</value>
   </data>
   <data name="&gt;&gt;tbWithdrawFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbWithdrawFeesMin.Parent" xml:space="preserve">
     <value>gbWithdrawFees</value>
@@ -2350,7 +2350,7 @@
     <value>14, 24</value>
   </data>
   <data name="lbWithdrawFeesType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 16</value>
+    <value>39, 16</value>
   </data>
   <data name="lbWithdrawFeesType.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2362,7 +2362,7 @@
     <value>lbWithdrawFeesType</value>
   </data>
   <data name="&gt;&gt;lbWithdrawFeesType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbWithdrawFeesType.Parent" xml:space="preserve">
     <value>gbWithdrawFees</value>
@@ -2383,7 +2383,7 @@
     <value>14, 86</value>
   </data>
   <data name="lbWithdrawFeesMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="lbWithdrawFeesMax.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -2395,7 +2395,7 @@
     <value>lbWithdrawFeesMax</value>
   </data>
   <data name="&gt;&gt;lbWithdrawFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbWithdrawFeesMax.Parent" xml:space="preserve">
     <value>gbWithdrawFees</value>
@@ -2416,7 +2416,7 @@
     <value>14, 57</value>
   </data>
   <data name="lbWithdrawFeesMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+    <value>33, 16</value>
   </data>
   <data name="lbWithdrawFeesMin.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2428,7 +2428,7 @@
     <value>lbWithdrawFeesMin</value>
   </data>
   <data name="&gt;&gt;lbWithdrawFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbWithdrawFeesMin.Parent" xml:space="preserve">
     <value>gbWithdrawFees</value>
@@ -2455,7 +2455,7 @@
     <value>gbWithdrawFees</value>
   </data>
   <data name="&gt;&gt;gbWithdrawFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gbWithdrawFees.Parent" xml:space="preserve">
     <value>tabPageFees</value>
@@ -2479,7 +2479,7 @@
     <value>tbTransferMax</value>
   </data>
   <data name="&gt;&gt;tbTransferMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbTransferMax.Parent" xml:space="preserve">
     <value>gbTransfer</value>
@@ -2503,7 +2503,7 @@
     <value>tbTransferMin</value>
   </data>
   <data name="&gt;&gt;tbTransferMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbTransferMin.Parent" xml:space="preserve">
     <value>gbTransfer</value>
@@ -2524,7 +2524,7 @@
     <value>15, 82</value>
   </data>
   <data name="lbTransferMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="lbTransferMax.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -2536,7 +2536,7 @@
     <value>lbTransferMax</value>
   </data>
   <data name="&gt;&gt;lbTransferMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbTransferMax.Parent" xml:space="preserve">
     <value>gbTransfer</value>
@@ -2557,7 +2557,7 @@
     <value>15, 53</value>
   </data>
   <data name="lbTransferMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+    <value>33, 16</value>
   </data>
   <data name="lbTransferMin.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2569,7 +2569,7 @@
     <value>lbTransferMin</value>
   </data>
   <data name="&gt;&gt;lbTransferMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbTransferMin.Parent" xml:space="preserve">
     <value>gbTransfer</value>
@@ -2596,7 +2596,7 @@
     <value>gbTransfer</value>
   </data>
   <data name="&gt;&gt;gbTransfer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gbTransfer.Parent" xml:space="preserve">
     <value>tabPageFees</value>
@@ -2620,7 +2620,7 @@
     <value>tbDrawingMax</value>
   </data>
   <data name="&gt;&gt;tbDrawingMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbDrawingMax.Parent" xml:space="preserve">
     <value>gbWithDrawing</value>
@@ -2644,7 +2644,7 @@
     <value>tbWithDrawingMin</value>
   </data>
   <data name="&gt;&gt;tbWithDrawingMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbWithDrawingMin.Parent" xml:space="preserve">
     <value>gbWithDrawing</value>
@@ -2665,7 +2665,7 @@
     <value>14, 84</value>
   </data>
   <data name="lbWithDrawingMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 16</value>
+    <value>41, 16</value>
   </data>
   <data name="lbWithDrawingMax.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -2677,7 +2677,7 @@
     <value>lbWithDrawingMax</value>
   </data>
   <data name="&gt;&gt;lbWithDrawingMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbWithDrawingMax.Parent" xml:space="preserve">
     <value>gbWithDrawing</value>
@@ -2698,7 +2698,7 @@
     <value>15, 57</value>
   </data>
   <data name="lbWithDrawingMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+    <value>33, 16</value>
   </data>
   <data name="lbWithDrawingMin.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2710,7 +2710,7 @@
     <value>lbWithDrawingMin</value>
   </data>
   <data name="&gt;&gt;lbWithDrawingMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbWithDrawingMin.Parent" xml:space="preserve">
     <value>gbWithDrawing</value>
@@ -2737,7 +2737,7 @@
     <value>gbWithDrawing</value>
   </data>
   <data name="&gt;&gt;gbWithDrawing.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gbWithDrawing.Parent" xml:space="preserve">
     <value>tabPageFees</value>
@@ -2767,7 +2767,7 @@
     <value>tabPageFees</value>
   </data>
   <data name="&gt;&gt;tabPageFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabPageFees.Parent" xml:space="preserve">
     <value>tabControlSaving</value>
@@ -2791,7 +2791,7 @@
     <value>132, 22</value>
   </data>
   <data name="rbRateReopenFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 20</value>
+    <value>53, 20</value>
   </data>
   <data name="rbRateReopenFees.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -2803,7 +2803,7 @@
     <value>rbRateReopenFees</value>
   </data>
   <data name="&gt;&gt;rbRateReopenFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbRateReopenFees.Parent" xml:space="preserve">
     <value>gbReopenFees</value>
@@ -2827,7 +2827,7 @@
     <value>78, 22</value>
   </data>
   <data name="rbFlatReopenFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
+    <value>48, 20</value>
   </data>
   <data name="rbFlatReopenFees.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -2839,7 +2839,7 @@
     <value>rbFlatReopenFees</value>
   </data>
   <data name="&gt;&gt;rbFlatReopenFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbFlatReopenFees.Parent" xml:space="preserve">
     <value>gbReopenFees</value>
@@ -2860,7 +2860,7 @@
     <value>14, 24</value>
   </data>
   <data name="lbReopenFeesType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 16</value>
+    <value>39, 16</value>
   </data>
   <data name="lbReopenFeesType.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -2872,7 +2872,7 @@
     <value>lbReopenFeesType</value>
   </data>
   <data name="&gt;&gt;lbReopenFeesType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbReopenFeesType.Parent" xml:space="preserve">
     <value>gbReopenFees</value>
@@ -2896,7 +2896,7 @@
     <value>tbReopenFeesValue</value>
   </data>
   <data name="&gt;&gt;tbReopenFeesValue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbReopenFeesValue.Parent" xml:space="preserve">
     <value>gbReopenFees</value>
@@ -2917,7 +2917,7 @@
     <value>258, 68</value>
   </data>
   <data name="lbReopenFeesValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 16</value>
+    <value>56, 16</value>
   </data>
   <data name="lbReopenFeesValue.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -2929,7 +2929,7 @@
     <value>lbReopenFeesValue</value>
   </data>
   <data name="&gt;&gt;lbReopenFeesValue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbReopenFeesValue.Parent" xml:space="preserve">
     <value>gbReopenFees</value>
@@ -2953,7 +2953,7 @@
     <value>tbReopenFeesMax</value>
   </data>
   <data name="&gt;&gt;tbReopenFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbReopenFeesMax.Parent" xml:space="preserve">
     <value>gbReopenFees</value>
@@ -2977,7 +2977,7 @@
     <value>tbReopenFeesMin</value>
   </data>
   <data name="&gt;&gt;tbReopenFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbReopenFeesMin.Parent" xml:space="preserve">
     <value>gbReopenFees</value>
@@ -2998,7 +2998,7 @@
     <value>15, 83</value>
   </data>
   <data name="lbReopenFeesMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="lbReopenFeesMax.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -3010,7 +3010,7 @@
     <value>lbReopenFeesMax</value>
   </data>
   <data name="&gt;&gt;lbReopenFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbReopenFeesMax.Parent" xml:space="preserve">
     <value>gbReopenFees</value>
@@ -3031,7 +3031,7 @@
     <value>14, 54</value>
   </data>
   <data name="lbReopenFeesMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+    <value>33, 16</value>
   </data>
   <data name="lbReopenFeesMin.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -3043,7 +3043,7 @@
     <value>lbReopenFeesMin</value>
   </data>
   <data name="&gt;&gt;lbReopenFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbReopenFeesMin.Parent" xml:space="preserve">
     <value>gbReopenFees</value>
@@ -3070,7 +3070,7 @@
     <value>gbReopenFees</value>
   </data>
   <data name="&gt;&gt;gbReopenFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gbReopenFees.Parent" xml:space="preserve">
     <value>tabPageManagement</value>
@@ -3100,7 +3100,7 @@
     <value>cbManagementFeeFreq</value>
   </data>
   <data name="&gt;&gt;cbManagementFeeFreq.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbManagementFeeFreq.Parent" xml:space="preserve">
     <value>gtManagementFees</value>
@@ -3124,7 +3124,7 @@
     <value>133, 22</value>
   </data>
   <data name="rbRateManagementFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 20</value>
+    <value>53, 20</value>
   </data>
   <data name="rbRateManagementFees.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -3136,7 +3136,7 @@
     <value>rbRateManagementFees</value>
   </data>
   <data name="&gt;&gt;rbRateManagementFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbRateManagementFees.Parent" xml:space="preserve">
     <value>gtManagementFees</value>
@@ -3160,7 +3160,7 @@
     <value>79, 22</value>
   </data>
   <data name="rbFlatManagementFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
+    <value>48, 20</value>
   </data>
   <data name="rbFlatManagementFees.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -3172,7 +3172,7 @@
     <value>rbFlatManagementFees</value>
   </data>
   <data name="&gt;&gt;rbFlatManagementFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbFlatManagementFees.Parent" xml:space="preserve">
     <value>gtManagementFees</value>
@@ -3193,7 +3193,7 @@
     <value>14, 24</value>
   </data>
   <data name="lbManagementFeesType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 16</value>
+    <value>39, 16</value>
   </data>
   <data name="lbManagementFeesType.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -3205,7 +3205,7 @@
     <value>lbManagementFeesType</value>
   </data>
   <data name="&gt;&gt;lbManagementFeesType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbManagementFeesType.Parent" xml:space="preserve">
     <value>gtManagementFees</value>
@@ -3229,7 +3229,7 @@
     <value>tbManagementFees</value>
   </data>
   <data name="&gt;&gt;tbManagementFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbManagementFees.Parent" xml:space="preserve">
     <value>gtManagementFees</value>
@@ -3250,7 +3250,7 @@
     <value>258, 68</value>
   </data>
   <data name="lbManagementFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 16</value>
+    <value>56, 16</value>
   </data>
   <data name="lbManagementFees.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -3262,7 +3262,7 @@
     <value>lbManagementFees</value>
   </data>
   <data name="&gt;&gt;lbManagementFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbManagementFees.Parent" xml:space="preserve">
     <value>gtManagementFees</value>
@@ -3286,7 +3286,7 @@
     <value>tbManagementFeesMax</value>
   </data>
   <data name="&gt;&gt;tbManagementFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbManagementFeesMax.Parent" xml:space="preserve">
     <value>gtManagementFees</value>
@@ -3310,7 +3310,7 @@
     <value>tbManagementFeesMin</value>
   </data>
   <data name="&gt;&gt;tbManagementFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbManagementFeesMin.Parent" xml:space="preserve">
     <value>gtManagementFees</value>
@@ -3331,7 +3331,7 @@
     <value>14, 83</value>
   </data>
   <data name="lbManagementFeesMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="lbManagementFeesMax.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -3343,7 +3343,7 @@
     <value>lbManagementFeesMax</value>
   </data>
   <data name="&gt;&gt;lbManagementFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbManagementFeesMax.Parent" xml:space="preserve">
     <value>gtManagementFees</value>
@@ -3364,7 +3364,7 @@
     <value>14, 54</value>
   </data>
   <data name="lbManagementFeesMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+    <value>33, 16</value>
   </data>
   <data name="lbManagementFeesMin.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -3376,7 +3376,7 @@
     <value>lbManagementFeesMin</value>
   </data>
   <data name="&gt;&gt;lbManagementFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbManagementFeesMin.Parent" xml:space="preserve">
     <value>gtManagementFees</value>
@@ -3403,7 +3403,7 @@
     <value>gtManagementFees</value>
   </data>
   <data name="&gt;&gt;gtManagementFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gtManagementFees.Parent" xml:space="preserve">
     <value>tabPageManagement</value>
@@ -3427,7 +3427,7 @@
     <value>133, 22</value>
   </data>
   <data name="rbRateCloseFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 20</value>
+    <value>53, 20</value>
   </data>
   <data name="rbRateCloseFees.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -3439,7 +3439,7 @@
     <value>rbRateCloseFees</value>
   </data>
   <data name="&gt;&gt;rbRateCloseFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbRateCloseFees.Parent" xml:space="preserve">
     <value>gtCloseFees</value>
@@ -3463,7 +3463,7 @@
     <value>79, 22</value>
   </data>
   <data name="rbFlatCloseFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
+    <value>48, 20</value>
   </data>
   <data name="rbFlatCloseFees.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -3475,7 +3475,7 @@
     <value>rbFlatCloseFees</value>
   </data>
   <data name="&gt;&gt;rbFlatCloseFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbFlatCloseFees.Parent" xml:space="preserve">
     <value>gtCloseFees</value>
@@ -3496,7 +3496,7 @@
     <value>14, 24</value>
   </data>
   <data name="lbCloseFeesType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 16</value>
+    <value>39, 16</value>
   </data>
   <data name="lbCloseFeesType.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -3508,7 +3508,7 @@
     <value>lbCloseFeesType</value>
   </data>
   <data name="&gt;&gt;lbCloseFeesType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbCloseFeesType.Parent" xml:space="preserve">
     <value>gtCloseFees</value>
@@ -3532,7 +3532,7 @@
     <value>tbCloseFees</value>
   </data>
   <data name="&gt;&gt;tbCloseFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbCloseFees.Parent" xml:space="preserve">
     <value>gtCloseFees</value>
@@ -3553,7 +3553,7 @@
     <value>258, 68</value>
   </data>
   <data name="lbCloseFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 16</value>
+    <value>56, 16</value>
   </data>
   <data name="lbCloseFees.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -3565,7 +3565,7 @@
     <value>lbCloseFees</value>
   </data>
   <data name="&gt;&gt;lbCloseFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbCloseFees.Parent" xml:space="preserve">
     <value>gtCloseFees</value>
@@ -3589,7 +3589,7 @@
     <value>tbCloseFeesMax</value>
   </data>
   <data name="&gt;&gt;tbCloseFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbCloseFeesMax.Parent" xml:space="preserve">
     <value>gtCloseFees</value>
@@ -3613,7 +3613,7 @@
     <value>tbCloseFeesMin</value>
   </data>
   <data name="&gt;&gt;tbCloseFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbCloseFeesMin.Parent" xml:space="preserve">
     <value>gtCloseFees</value>
@@ -3634,7 +3634,7 @@
     <value>14, 83</value>
   </data>
   <data name="lbCloseFeesMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="lbCloseFeesMax.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -3646,7 +3646,7 @@
     <value>lbCloseFeesMax</value>
   </data>
   <data name="&gt;&gt;lbCloseFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbCloseFeesMax.Parent" xml:space="preserve">
     <value>gtCloseFees</value>
@@ -3667,7 +3667,7 @@
     <value>14, 54</value>
   </data>
   <data name="lbCloseFeesMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+    <value>33, 16</value>
   </data>
   <data name="lbCloseFeesMin.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -3679,7 +3679,7 @@
     <value>lbCloseFeesMin</value>
   </data>
   <data name="&gt;&gt;lbCloseFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbCloseFeesMin.Parent" xml:space="preserve">
     <value>gtCloseFees</value>
@@ -3706,7 +3706,7 @@
     <value>gtCloseFees</value>
   </data>
   <data name="&gt;&gt;gtCloseFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gtCloseFees.Parent" xml:space="preserve">
     <value>tabPageManagement</value>
@@ -3730,7 +3730,7 @@
     <value>132, 22</value>
   </data>
   <data name="rbRateEntryFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 20</value>
+    <value>53, 20</value>
   </data>
   <data name="rbRateEntryFees.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -3742,7 +3742,7 @@
     <value>rbRateEntryFees</value>
   </data>
   <data name="&gt;&gt;rbRateEntryFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbRateEntryFees.Parent" xml:space="preserve">
     <value>gbEntryFees</value>
@@ -3766,7 +3766,7 @@
     <value>78, 22</value>
   </data>
   <data name="rbFlatEntryFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
+    <value>48, 20</value>
   </data>
   <data name="rbFlatEntryFees.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -3778,7 +3778,7 @@
     <value>rbFlatEntryFees</value>
   </data>
   <data name="&gt;&gt;rbFlatEntryFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbFlatEntryFees.Parent" xml:space="preserve">
     <value>gbEntryFees</value>
@@ -3799,7 +3799,7 @@
     <value>15, 24</value>
   </data>
   <data name="lbEntryFeesType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 16</value>
+    <value>39, 16</value>
   </data>
   <data name="lbEntryFeesType.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -3811,7 +3811,7 @@
     <value>lbEntryFeesType</value>
   </data>
   <data name="&gt;&gt;lbEntryFeesType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbEntryFeesType.Parent" xml:space="preserve">
     <value>gbEntryFees</value>
@@ -3835,7 +3835,7 @@
     <value>tbEntryFeesValue</value>
   </data>
   <data name="&gt;&gt;tbEntryFeesValue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbEntryFeesValue.Parent" xml:space="preserve">
     <value>gbEntryFees</value>
@@ -3856,7 +3856,7 @@
     <value>258, 68</value>
   </data>
   <data name="lbEntryFeesValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 16</value>
+    <value>56, 16</value>
   </data>
   <data name="lbEntryFeesValue.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -3868,7 +3868,7 @@
     <value>lbEntryFeesValue</value>
   </data>
   <data name="&gt;&gt;lbEntryFeesValue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbEntryFeesValue.Parent" xml:space="preserve">
     <value>gbEntryFees</value>
@@ -3892,7 +3892,7 @@
     <value>tbEntryFeesMax</value>
   </data>
   <data name="&gt;&gt;tbEntryFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbEntryFeesMax.Parent" xml:space="preserve">
     <value>gbEntryFees</value>
@@ -3916,7 +3916,7 @@
     <value>tbEntryFeesMin</value>
   </data>
   <data name="&gt;&gt;tbEntryFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbEntryFeesMin.Parent" xml:space="preserve">
     <value>gbEntryFees</value>
@@ -3937,7 +3937,7 @@
     <value>15, 83</value>
   </data>
   <data name="lbEntryFeesMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="lbEntryFeesMax.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -3949,7 +3949,7 @@
     <value>lbEntryFeesMax</value>
   </data>
   <data name="&gt;&gt;lbEntryFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbEntryFeesMax.Parent" xml:space="preserve">
     <value>gbEntryFees</value>
@@ -3970,7 +3970,7 @@
     <value>14, 54</value>
   </data>
   <data name="lbEntryFeesMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+    <value>33, 16</value>
   </data>
   <data name="lbEntryFeesMin.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -3982,7 +3982,7 @@
     <value>lbEntryFeesMin</value>
   </data>
   <data name="&gt;&gt;lbEntryFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbEntryFeesMin.Parent" xml:space="preserve">
     <value>gbEntryFees</value>
@@ -4009,7 +4009,7 @@
     <value>gbEntryFees</value>
   </data>
   <data name="&gt;&gt;gbEntryFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gbEntryFees.Parent" xml:space="preserve">
     <value>tabPageManagement</value>
@@ -4036,7 +4036,7 @@
     <value>tabPageManagement</value>
   </data>
   <data name="&gt;&gt;tabPageManagement.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabPageManagement.Parent" xml:space="preserve">
     <value>tabControlSaving</value>
@@ -4060,7 +4060,7 @@
     <value>133, 22</value>
   </data>
   <data name="rbRateAgioFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 20</value>
+    <value>53, 20</value>
   </data>
   <data name="rbRateAgioFees.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -4072,7 +4072,7 @@
     <value>rbRateAgioFees</value>
   </data>
   <data name="&gt;&gt;rbRateAgioFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbRateAgioFees.Parent" xml:space="preserve">
     <value>gtAgioFees</value>
@@ -4096,7 +4096,7 @@
     <value>79, 22</value>
   </data>
   <data name="rbFlatAgioFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
+    <value>48, 20</value>
   </data>
   <data name="rbFlatAgioFees.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -4108,7 +4108,7 @@
     <value>rbFlatAgioFees</value>
   </data>
   <data name="&gt;&gt;rbFlatAgioFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbFlatAgioFees.Parent" xml:space="preserve">
     <value>gtAgioFees</value>
@@ -4129,7 +4129,7 @@
     <value>14, 24</value>
   </data>
   <data name="lbAgioFeesType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 16</value>
+    <value>39, 16</value>
   </data>
   <data name="lbAgioFeesType.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -4141,7 +4141,7 @@
     <value>lbAgioFeesType</value>
   </data>
   <data name="&gt;&gt;lbAgioFeesType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbAgioFeesType.Parent" xml:space="preserve">
     <value>gtAgioFees</value>
@@ -4174,7 +4174,7 @@
     <value>cbAgioFeesFreq</value>
   </data>
   <data name="&gt;&gt;cbAgioFeesFreq.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbAgioFeesFreq.Parent" xml:space="preserve">
     <value>gtAgioFees</value>
@@ -4198,7 +4198,7 @@
     <value>tbAgioFees</value>
   </data>
   <data name="&gt;&gt;tbAgioFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbAgioFees.Parent" xml:space="preserve">
     <value>gtAgioFees</value>
@@ -4219,7 +4219,7 @@
     <value>255, 68</value>
   </data>
   <data name="lbAgioFeesValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 16</value>
+    <value>56, 16</value>
   </data>
   <data name="lbAgioFeesValue.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -4231,7 +4231,7 @@
     <value>lbAgioFeesValue</value>
   </data>
   <data name="&gt;&gt;lbAgioFeesValue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbAgioFeesValue.Parent" xml:space="preserve">
     <value>gtAgioFees</value>
@@ -4255,7 +4255,7 @@
     <value>tbAgioFeesMax</value>
   </data>
   <data name="&gt;&gt;tbAgioFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbAgioFeesMax.Parent" xml:space="preserve">
     <value>gtAgioFees</value>
@@ -4279,7 +4279,7 @@
     <value>tbAgioFeesMin</value>
   </data>
   <data name="&gt;&gt;tbAgioFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbAgioFeesMin.Parent" xml:space="preserve">
     <value>gtAgioFees</value>
@@ -4300,7 +4300,7 @@
     <value>14, 83</value>
   </data>
   <data name="lbAgioFeesMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="lbAgioFeesMax.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -4312,7 +4312,7 @@
     <value>lbAgioFeesMax</value>
   </data>
   <data name="&gt;&gt;lbAgioFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbAgioFeesMax.Parent" xml:space="preserve">
     <value>gtAgioFees</value>
@@ -4333,7 +4333,7 @@
     <value>14, 54</value>
   </data>
   <data name="lbAgioFeesMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+    <value>33, 16</value>
   </data>
   <data name="lbAgioFeesMin.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -4345,7 +4345,7 @@
     <value>lbAgioFeesMin</value>
   </data>
   <data name="&gt;&gt;lbAgioFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbAgioFeesMin.Parent" xml:space="preserve">
     <value>gtAgioFees</value>
@@ -4372,7 +4372,7 @@
     <value>gtAgioFees</value>
   </data>
   <data name="&gt;&gt;gtAgioFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gtAgioFees.Parent" xml:space="preserve">
     <value>tabPageOverdraft</value>
@@ -4396,7 +4396,7 @@
     <value>133, 22</value>
   </data>
   <data name="rbRateOverdraftFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 20</value>
+    <value>53, 20</value>
   </data>
   <data name="rbRateOverdraftFees.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -4408,7 +4408,7 @@
     <value>rbRateOverdraftFees</value>
   </data>
   <data name="&gt;&gt;rbRateOverdraftFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbRateOverdraftFees.Parent" xml:space="preserve">
     <value>gtOverdraftFees</value>
@@ -4432,7 +4432,7 @@
     <value>79, 22</value>
   </data>
   <data name="rbFlatOverdraftFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
+    <value>48, 20</value>
   </data>
   <data name="rbFlatOverdraftFees.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -4444,7 +4444,7 @@
     <value>rbFlatOverdraftFees</value>
   </data>
   <data name="&gt;&gt;rbFlatOverdraftFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbFlatOverdraftFees.Parent" xml:space="preserve">
     <value>gtOverdraftFees</value>
@@ -4465,7 +4465,7 @@
     <value>14, 24</value>
   </data>
   <data name="lbOverdraftFeesType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 16</value>
+    <value>39, 16</value>
   </data>
   <data name="lbOverdraftFeesType.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -4477,7 +4477,7 @@
     <value>lbOverdraftFeesType</value>
   </data>
   <data name="&gt;&gt;lbOverdraftFeesType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbOverdraftFeesType.Parent" xml:space="preserve">
     <value>gtOverdraftFees</value>
@@ -4501,7 +4501,7 @@
     <value>tbOverdraftFees</value>
   </data>
   <data name="&gt;&gt;tbOverdraftFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbOverdraftFees.Parent" xml:space="preserve">
     <value>gtOverdraftFees</value>
@@ -4522,7 +4522,7 @@
     <value>255, 68</value>
   </data>
   <data name="lbOverdraftFeesValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 16</value>
+    <value>56, 16</value>
   </data>
   <data name="lbOverdraftFeesValue.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -4534,7 +4534,7 @@
     <value>lbOverdraftFeesValue</value>
   </data>
   <data name="&gt;&gt;lbOverdraftFeesValue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbOverdraftFeesValue.Parent" xml:space="preserve">
     <value>gtOverdraftFees</value>
@@ -4558,7 +4558,7 @@
     <value>tbOverdraftFeesMax</value>
   </data>
   <data name="&gt;&gt;tbOverdraftFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbOverdraftFeesMax.Parent" xml:space="preserve">
     <value>gtOverdraftFees</value>
@@ -4582,7 +4582,7 @@
     <value>tbOverdraftFeesMin</value>
   </data>
   <data name="&gt;&gt;tbOverdraftFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbOverdraftFeesMin.Parent" xml:space="preserve">
     <value>gtOverdraftFees</value>
@@ -4603,7 +4603,7 @@
     <value>14, 83</value>
   </data>
   <data name="lbOverdraftFeesMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="lbOverdraftFeesMax.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -4615,7 +4615,7 @@
     <value>lbOverdraftFeesMax</value>
   </data>
   <data name="&gt;&gt;lbOverdraftFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbOverdraftFeesMax.Parent" xml:space="preserve">
     <value>gtOverdraftFees</value>
@@ -4636,7 +4636,7 @@
     <value>14, 54</value>
   </data>
   <data name="lbOverdraftFeesMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+    <value>33, 16</value>
   </data>
   <data name="lbOverdraftFeesMin.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -4648,7 +4648,7 @@
     <value>lbOverdraftFeesMin</value>
   </data>
   <data name="&gt;&gt;lbOverdraftFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbOverdraftFeesMin.Parent" xml:space="preserve">
     <value>gtOverdraftFees</value>
@@ -4675,7 +4675,7 @@
     <value>gtOverdraftFees</value>
   </data>
   <data name="&gt;&gt;gtOverdraftFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gtOverdraftFees.Parent" xml:space="preserve">
     <value>tabPageOverdraft</value>
@@ -4702,7 +4702,7 @@
     <value>tabPageOverdraft</value>
   </data>
   <data name="&gt;&gt;tabPageOverdraft.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabPageOverdraft.Parent" xml:space="preserve">
     <value>tabControlSaving</value>
@@ -4726,7 +4726,7 @@
     <value>cbxPostingfrequency</value>
   </data>
   <data name="&gt;&gt;cbxPostingfrequency.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbxPostingfrequency.Parent" xml:space="preserve">
     <value>gpPostingFrequency</value>
@@ -4753,7 +4753,7 @@
     <value>gpPostingFrequency</value>
   </data>
   <data name="&gt;&gt;gpPostingFrequency.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gpPostingFrequency.Parent" xml:space="preserve">
     <value>termDepositPanel</value>
@@ -4777,7 +4777,7 @@
     <value>tbTermDepositPeriodMax</value>
   </data>
   <data name="&gt;&gt;tbTermDepositPeriodMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbTermDepositPeriodMax.Parent" xml:space="preserve">
     <value>gbNumberOfPeriods</value>
@@ -4801,7 +4801,7 @@
     <value>tbTermDepositPeriodMin</value>
   </data>
   <data name="&gt;&gt;tbTermDepositPeriodMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbTermDepositPeriodMin.Parent" xml:space="preserve">
     <value>gbNumberOfPeriods</value>
@@ -4822,7 +4822,7 @@
     <value>6, 57</value>
   </data>
   <data name="lblMaxOfTermDepositPeriods.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
+    <value>37, 16</value>
   </data>
   <data name="lblMaxOfTermDepositPeriods.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -4834,7 +4834,7 @@
     <value>lblMaxOfTermDepositPeriods</value>
   </data>
   <data name="&gt;&gt;lblMaxOfTermDepositPeriods.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblMaxOfTermDepositPeriods.Parent" xml:space="preserve">
     <value>gbNumberOfPeriods</value>
@@ -4855,7 +4855,7 @@
     <value>6, 30</value>
   </data>
   <data name="lblMinOfTermDepositPeriods.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+    <value>33, 16</value>
   </data>
   <data name="lblMinOfTermDepositPeriods.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -4867,7 +4867,7 @@
     <value>lblMinOfTermDepositPeriods</value>
   </data>
   <data name="&gt;&gt;lblMinOfTermDepositPeriods.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblMinOfTermDepositPeriods.Parent" xml:space="preserve">
     <value>gbNumberOfPeriods</value>
@@ -4894,7 +4894,7 @@
     <value>gbNumberOfPeriods</value>
   </data>
   <data name="&gt;&gt;gbNumberOfPeriods.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gbNumberOfPeriods.Parent" xml:space="preserve">
     <value>termDepositPanel</value>
@@ -4918,7 +4918,7 @@
     <value>termDepositPanel</value>
   </data>
   <data name="&gt;&gt;termDepositPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;termDepositPanel.Parent" xml:space="preserve">
     <value>tabPageTermDeposit</value>
@@ -4936,7 +4936,7 @@
     <value>20, 6</value>
   </data>
   <data name="checkBoxUseTermDeposit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 20</value>
+    <value>133, 20</value>
   </data>
   <data name="checkBoxUseTermDeposit.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4948,7 +4948,7 @@
     <value>checkBoxUseTermDeposit</value>
   </data>
   <data name="&gt;&gt;checkBoxUseTermDeposit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxUseTermDeposit.Parent" xml:space="preserve">
     <value>tabPageTermDeposit</value>
@@ -4975,7 +4975,7 @@
     <value>tabPageTermDeposit</value>
   </data>
   <data name="&gt;&gt;tabPageTermDeposit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabPageTermDeposit.Parent" xml:space="preserve">
     <value>tabControlSaving</value>
@@ -5005,7 +5005,7 @@
     <value>tabControlSaving</value>
   </data>
   <data name="&gt;&gt;tabControlSaving.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabControlSaving.Parent" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
@@ -5017,7 +5017,7 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel1.Parent" xml:space="preserve">
     <value>splitContainer1</value>
@@ -5050,7 +5050,7 @@
     <value>btSavingProduct</value>
   </data>
   <data name="&gt;&gt;btSavingProduct.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetButton, OpenCBS.GUI, Version=1.1.1.28732, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btSavingProduct.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -5083,7 +5083,7 @@
     <value>bClose</value>
   </data>
   <data name="&gt;&gt;bClose.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetButton, OpenCBS.GUI, Version=1.1.1.28732, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bClose.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -5107,7 +5107,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
     <value>splitContainer1.Panel2</value>
@@ -5119,7 +5119,7 @@
     <value>splitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel2.Parent" xml:space="preserve">
     <value>splitContainer1</value>
@@ -5140,7 +5140,7 @@
     <value>splitContainer1</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -5148,7 +5148,7 @@
   <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
@@ -5156,6 +5156,604 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>674, 600</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAYAAAAAAAEAIADaBwAAZgAAABAQAAABACAAaAQAAEAIAAAgIAAAAQAgAKgQAACoDAAAMDAAAAEA
+        IACoJQAAUB0AAEBAAAABACAAKEIAAPhCAAAAAAAAAQAgABUGAAAghQAAiVBORw0KGgoAAAANSUhEUgAA
+        AIAAAACACAMAAAD04JH5AAAB/lBMVEUel84el84el84el84el84el84el84el84el84el84el84el84e
+        l84el84el84el84el84el84el84el84el84el84el84el84el84el84el84el84el84el84el84el84y
+        oNKKyeW84PDZ7ffL5/Ss2e1muN4gmM4pnNCSzef3+/3////V6/ZBp9YsntFDqNZ0v+Hp9frw+PxFqdYi
+        mc98wuLt9/vc7/dWsdrU6/Ykms9etNza7veDxuQ+ptW43u+IyOW/4vHz+fwxoNKa0On6/f70+v02otMw
+        n9Kh1Ov7/f6n1uyw2u4jmc/x+Pz9/v9MrNj+//9UsNpluN7f8PjO6PQfl84hmM9Jq9fH5fNyvuB7wuI0
+        odOp1+zq9foqndHu9/svn9Imm9CLyeai1Ottu9/l8/n8/v5Iq9dPrtnB4vLJ5vM4o9Sw2+5luN1tvN/i
+        8vklmtDn9PpuvN+MyuZRr9mVzuj4/P1wveCZ0Ok/ptX5/P6f0+qDxeREqdb2+/1CqNbs9vtHqter2O1q
+        ut/N6PS/4fFTr9ozodOYz+mSzOfF5PIrndHD4/LR6vVxveC03O92wOE3otOe0urG5PPo9Ppput4nm9CR
+        zOex2+47pNS43vBctNs1otN4weLY7fdXstp9w+N/xONAptVhtt3r9vsom9B5weLX7fbO6fQr0xbdAAAA
+        H3RSTlMAHYzW9ZAeXPZmZGcc+CWT19v6+dSIjvdb/mFg+4ogJlSy2AAAAAFiS0dEKyS55AgAAAAJcEhZ
+        cwAAAEgAAABIAEbJaz4AAATDSURBVHja7Zv3VxNBEMdPQOy918UKEghGsCIqCKgRBNQEBTEWilEsERQ7
+        9t67Yu/+l4Yk7s3ebZkNT+753n5/ZWfmE2b25ntKLMuyhmRkZpFBV1bm0GwroWHDB796UsNH9Ncf6VX5
+        fo2yrNGeff5+jRlrZXhZn5Bx1nhvASZYE70FmGR5W58QA2AADIABMAAGwAAYAANgAAzAfwKQM2/+goWL
+        Fud6BJC3JN+XUEGhbnp/0cABcpcGfH+1rFirfMnyFStLBgqwarUPaMEajfqla+MRZQMDWLfex2oDunxR
+        eSKgYuMAAPyVVY76vupNuPKbtwRTEVvTBoh30OdWDaZ8bdk2GlBXnyZAooNuNWxX19+xE0aEwukApDrI
+        UUGjovyu3Y6IJn0Au4McNUvL72mpcwbsjWgCwA5ytG+/ON2Bg9WciEo9ALaDHLWKkoXb2rkBwUINAFcH
+        3eo4xM8VDYkiDqMBOB3k6AhvrjuPNogjjuEA+B3k6LgrD11YfJ2IIQBEHeToZJ6j+V0BRUS3GuBUCFU7
+        qdPI5lNVRBQArq0jV08OsvlUZ+QATVWIHLZCUWzzqc7KAc6d1yjf3kZvAXQrcl1QtOA0unz1wQM0mnUr
+        Ul1UAOSdxOWpa9lDY7Xm5pLqFhxHpdm9i0Zy3IosUHkNw0fUWXbuoHF8tyJU72UlADnUoUiyrayWHha4
+        FZGuiF0MeBK2SnMEt2ymJ8Vuhau6FokxBQD790mSlBfRc1K3whGYGzkAaRbmWFtKDynciktgbpQAjQX8
+        HIFm+/VG6VZYwblRA5Ao76Gev8RefQi3AgXnhpDI1UsxBQC55srRcLST/hTnVmyBuSHh6zfiny5485Yc
+        4HaFIwfYOjGsW0kJzA1Y2A13wjIAcpHJAbaObvNXLAevxczCvisFaLxnn4RbR7P5VZV+O6djYXdEZQDk
+        /oPUObh1dJu/fp2d0L2wH+bKAEj40cP4ofzHtvVGW9WUVq8C6XgL+4kUIC5/8VMbUsOqJhRYCj4gf2Ff
+        8SsAoBB+k21+BHwQ0cJ+hgbA+U1+8yULO1iMA8D6TW7zpQv7OQqg9IVWeab5qoX9EgHQpTIojODGQCzs
+        9ldKgMs9GuXhxsAt7NdKgDca9UPw4YZ7Zve8VQDE8L8AuDFIFPvM7lMAXMWWhxtD69q+kwNEcVngxtC8
+        tql/RRYBvEclgX4T/5qYVKBYPoQI48/6zcVa5em1FQJ8UKVw+s2wxtYA11YIUPJRmoL1mwnVo00DvLbi
+        J+EnWQroN6m24soz11a2Cx4LUzB+09ZGzCsLc23lAJ29guZ/Fv03zBdleebaqgBIN7L52LnhvibKAGIn
+        kM3HzY1vJe81UeqIjiGbb0s8N+ybAhKAHMakgBLNDfumgAcoDCJSMOrm14dmUQeAVCJSMOLNDWsW9QAi
+        e9UpWLnmhjWLugCkSZ3CIXZuWLOYBkB8xahSOPQVziFjFtMCIPU1qhROddlLKRRVnv4Xf8Dw7XuyPLt1
+        BhGA/PjZ9+t3TVMMc/Y/+RMOA2AADIABMAAGwAAYAANgAAzAvwQY4239SdZkbwHGW1O8BZhqZXvwtXNb
+        04ZY1vQZHgLM7P/y+Uzvvvw+K/n1++yMzNmDXz1r8py58eJ/AMA32oYZNf8ZAAAAJXRFWHRkYXRlOmNy
+        ZWF0ZQAyMDE0LTA1LTA2VDEyOjE2OjU0KzA4OjAwAxvRswAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNC0w
+        NS0wNlQxMjoxNjo1NCswODowMHJGaQ8AAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8
+        AAAAAElFTkSuQmCCKAAAABAAAAAgAAAAAQAgAAAAAAAABAAAEQsAABELAAAAAAAAAAAAAM6XHkrOlx7n
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce6c6XHk/Olx7m
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7n
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/PmiT/z5ok/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Uozj/7dms/9SjOP/Olx7/zpce/86XHv/PmiT/9+3Z//r16f/hv3T/
+        zpgg/86XHv/Olx7/zpce/86XHv/Olx7/79y0///////9+/f/582S/9CcKf/Olx7/5ciI////////////
+        //////br1P/asVb/zpce/86XHv/Olx7/zpce//z58//////////////////69en/4b90/9y0Xf/37tr/
+        /////////////////vz5/9OhNP/Olx7/zpgg/964Zv/asFX/8eK////////////////////////269T/
+        27Na/+LCfP/79+3//////+jOlf/Olx7/zpce/+PEf////////Pjx/+TGg//dt2P/9+7a////////////
+        ///////////v3rj/2KxM/966af/PmiT/zpce/9GdKv/8+fL/////////////////+PDf/965Z//iwnz/
+        +/ft//////////////////z58//PmSP/zpce/86XHv/Olx7/2a5P//Tozv/////////////////p0Jr/
+        zpce/9GeLP/p0Jr//v36///////y5MX/zpce/86XHv/Olx7/zpce/86XHv/Olx//37tt//nz5f/58+X/
+        0Z0q/86XHv/Olx7/zpce/9WmPv/v3bb/1qlF/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/PmSL/
+        0Jol/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce5s6XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce586XHknOlx7m
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce5s6XHk8AAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        KAAAACAAAABAAAAAAQAgAAAAAAAAEAAAEQsAABELAAAAAAAAAAAAAM6XHgbOlx6Rzpce8c6XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce8c6XHpHOlx4Gzpcekc6XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHpDOlx7m
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce5c6XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        1KM4/9SjOP/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/z5ok/+fMkv/SnzD/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/+LBev////7///79/+zXqf/ToTT/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/lyIj///////z48f/kxoP/z5kj/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Tojb//fr0//////////////////369P/myYv/0Jsm/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/06I2//369P/////////////////48N//3rhl/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/+7asP/////////////////////////////////58+X/37tt/86XH//Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/u2q//////////////////////////////////
+        8+XH/9erSf/Olx7/zpce/86XHv/asFT////+////////////////////////////////////////////
+        9OjO/9muT//Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/z5ok//7+/P//////////////////////
+        //////////////////79/+zXqf/ToTT/zpce/9qvU//37tr/////////////////////////////////
+        ///////////////////+/9+7bP/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/9uvU////////////
+        //////////////////////////////////////369P/myYv/0Jsm/8+ZIv/iwnz/+/ft////////////
+        ///////////////////////////69Of/0Jwp/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Rni7/
+        69Sh//79+//////////////////////////////////////////////////58+X/37tt/86XH//Rniz/
+        6dCa//79+v///////////////////////////9+8bf/Olx7/zpce/86XHv/Olx7/zpce/9CcKf/r1aP/
+        8eG//9+7bf/Olx//1qhD//Hiv///////////////////////////////////////////////////////
+        9OjO/9muT//Olx7/1aY+/+/euP/////////////////z5sn/zpcf/86XHv/Olx7/zpce/86XHv/Olx7/
+        69Si//////////////////Tozv/Zrk//zpce/9y0Xv/37tr/////////////////////////////////
+        ///////////////////+/+7bsP/Uozj/zpce/9qxVv/x4L3/8N64/9SjOP/Olx7/zpce/86XHv/Olx7/
+        zpce/9erSP/+/vz//////////////////////////v/u27D/1KM4/8+ZIv/iwnz/+/ft////////////
+        //////////////////////////////////////379//nzZL/0Jso/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx//8+bJ///////////////////////////////////////9+/f/582S/9CcKf/Rniz/
+        6tOg//79+//////////////////////////////////////////////////06M7/zpgg/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/9erSP/+/fr/////////////////////////////////////////////////
+        +vXp/9+7bP/Olx7/1qhD//Hiv//////////////////////////////////////////////////Tojb/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/9WmPv/v3rj/////////////////////////////////
+        ////////////////4sJ7/86XHv/Olx7/zpce/9y0Xv/37tr/////////////////////////////////
+        9OjN/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/asVb/9uvU////////////
+        //////////////////////br1f/PmCH/zpce/86XHv/Olx7/zpce/8+ZIv/iwnz/+/ft////////////
+        ///////+/f/YrEz/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/OmCD/
+        4b90//r16f////////////////////7/2rBU/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Rniz/
+        6dCa//79+v//////7Nan/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/0Jwp/+fNkv/9+/f//////+rToP/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/1aY+/+7ar//SoDH/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/9KfMP/Vp0D/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7wzpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce7c6XHpDOlx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx6QzpceBs6XHpHOlx7v
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7vzpcekc6XHgYAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAACgAAAAwAAAAYAAAAAEAIAAAAAAAACQAABELAAARCwAAAAAAAAAAAADOlx4azpceuc6XHvvOlx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx77zpceuc6XHhrOlx63
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHrbOlx72zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHvXOlx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        z5ki/9qxVv/asFT/z5gh/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/fvG3/
+        0Jwp/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/SnzD/9+3Z////////////9+7a/9y0Xv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/9qyV///////+vXp/+G/dP/OmCD/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/u2rD////////////////////////////x4r//1qhD/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/z5ki//ft2P/////////////////269T/2rFW/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/9qwVP////7/////////////////////////////////
+        /v37/+vUof/SnzD/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/48R//////////////////////////////////+/euP/Vpj7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/z5gh//br1f//////////////////////
+        ///////////////////////////8+PH/5MaD/8+ZI//Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/SoDH//Pjx////////////////////////////
+        ///////////+/fr/6dCa/9GeLP/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/4sJ7////////////
+        //////////////////////////////////////////////////////jw3//euGX/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/r1aX/////////////////
+        //////////////////////////////////////v37f/iwnz/z5ki/86XHv/Olx7/zpce/86XHv/Sny//
+        +/fu////////////////////////////////////////////////////////////////////////////
+        8+XH/9erSf/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/8+aJP/+/fr/
+        ////////////////////////////////////////////////////////////////9+7a/9y0Xv/Olx7/
+        zpce/86XHv/XqUb/9+7a////////////////////////////////////////////////////////////
+        ///////////////////////+/f/ozpT/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/9CbJv/+/fv/////////////////////////////////////////////////////////////////
+        ///////////x4r//1qhD/86XHv/Olx7/z5ki/+LCfP/79+3/////////////////////////////////
+        ///////////////////////////////////////////fvG3/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/r1aT/////////////////////////////////////////////////
+        /////////////////////////////////v37/+vUof/SnzD/zpce/86XHv/Rniz/6dCa//79+v//////
+        //////////////////////////////////////////////////////Pmyf/Olx//zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/PmCH/5MWD//z48f//////////////////////
+        ///////////////////////////////////////////////////////////8+PH/5MaD/8+ZI//Olx7/
+        zpce/9WmPv/v3rj//////////////////////////////////////////////////v78/9erSP/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx//1adA/9KgMf/Olx7/zpce/9KgMf/s16n/
+        //79////////////////////////////////////////////////////////////////////////////
+        //////jw3//euGX/zpce/86XHv/Olx7/2rFW//br1P//////////////////////////////////////
+        69Si/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/9OiN//27df///////7+/P/u2rD/
+        1KM4/86XHv/Olx7/16tJ//Plx///////////////////////////////////////////////////////
+        ////////////////////////////////8+XH/9erSf/Olx7/zpce/86YIP/hv3T/+vTo////////////
+        ///////////79+7/0p8v/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce//Liwf//////
+        /////////////////fv3/+fNkv/QnCn/zpce/86XHv/euGX/+PDf////////////////////////////
+        ///////////////////////////////////////////////////////+/f/s16n/0p8w/86XHv/Olx7/
+        0Jsm/+bJi//9+vT///////v37v/bsln/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        3bhl///////////////////////////////////////69en/4b90/86YIP/Olx7/z5kj/+TGg//8+PH/
+        ////////////////////////////////////////////////////////////////////////////////
+        /Pjx/+TGg//PmSP/zpce/86XHv/Qmyj/1qlE/9CbJv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/QmiX/+fLi//////////////////////////////////////////////////br1P/asVb/
+        zpce/86XHv/SnzD/69Sh//79+///////////////////////////////////////////////////////
+        ///////////////////////////48N//3rhl/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/myoz/////////////////////////////////////////////////
+        ////////////////7964/9WmPv/Olx7/zpce/9aoQ//x4r//////////////////////////////////
+        /////////////////////////////////////////////////////+nRnP/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/9SjOP/9+/b/////////////////////////////////
+        //////////////////////////////////////79+v/p0Jr/0Z4s/86XHv/Olx7/3LRe//fu2v//////
+        /////////////////////////////////////////////////////////////////////////v/TojX/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/924Zf/9+vT/////////////////
+        ////////////////////////////////////////////////////////////////+/ft/966af/Olx7/
+        zpce/8+ZIv/iwnz/+/ft////////////////////////////////////////////////////////////
+        ///////////Wp0H/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/ToTT/
+        7Nep///+/f//////////////////////////////////////////////////////////////////////
+        /////9qyV//Olx7/zpce/86XHv/Olx7/0Z4s/+nQmv/+/fr/////////////////////////////////
+        //////////////////////bs1v/Olx//zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/9erSf/z5cf/////////////////////////////////////////////////
+        ////////////////79y0/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Vpj7/7964////////////
+        /////////////////////////////////////9qyV//Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/3rhl//jw3///////////////////////
+        ///////////////////////////9+/b/1KM4/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/9qxVv/269T/////////////////////////////////79y0/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/8+ZI//kxoP/
+        /Pjx///////////////////////////////////////myoz/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/OmCD/4b90//r16f/////////////////9+/b/1KM4/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/0p8w/+vUof/+/fv///////////////////////ny4v/QmiX/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/9CcKf/nzZL//fv3///////myoz/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/WqEP/8eK//////////////Pjx/9mvUf/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        1KM4/+rTn//QmiX/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/9apRf/ctV//
+        0Z0r/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx72zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHvXOlx6z
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHrfOlx4Zzpcets6XHvvOlx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx77zpceuM6XHhoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAAAQAAAAIAAAAABACAA
+        AAAAAABAAAARCwAAEQsAAAAAAAAAAAAAzpceAM6XHlzOlx7Xzpce/c6XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/c6XHtfOlx5azpceAM6XHlzOlx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHlrOlx7W
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7Vzpce/M6XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce+86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/06I1/+C9b//fvG3/0qAx/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/YrEz/z5kj/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/4sF5//79+/////////////379//nzZL/0Jwp/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/ToTP/
+        /Pnz//jw3//euGX/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/2q9T//7+/P//////////////////////
+        //////r16f/hv3T/zpgg/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/7dir//////////////////Plx//Xq0n/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/z5gh//br1f//////
+        //////////////////////////////////////br1P/asVb/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/2a5P/////v////////////////////////79/+zXqf/ToTT/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/+LCe////////////////////////////////////////////////////////////+/euP/Vpj7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpgg//Xq0f//////////////////////
+        /////////////////fr0/+bJi//Qmyb/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/9KfL//79+7/////////////////////////////////////////////////
+        /////////////////v36/+nQmv/Rniz/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/+HAdv//////
+        ////////////////////////////////////////////////+fPl/9+7bf/Olx//zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/r1KL/////////////////////////////////
+        ////////////////////////////////////////////////+/ft/+LCfP/PmSP/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/9GeLP/79uz/////////////////////////////////////////////////////////////////
+        9OjO/9muT//Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Xq0j//v78////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        +PDf/964Zf/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/p0Zr/////////////////////////////////////////////////
+        //////////////////////////////7/7tuw/9SjOP/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx//
+        8+bJ////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////8+XH/9erSf/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/PmSL//fr0////////////////////////////
+        ///////////////////////////////////////////////////////////9+/f/582S/9CcKf/Olx7/
+        zpce/86XHv/Olx7/0qAx//br1P//////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////v3/7Nep/9CbJ//Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/0qAy////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////69en/4b90/86YIP/Olx7/zpce/86XHv/OmCD/4b90//r16f//////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        //////Pmyf/Olx//zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86YIP/69en/////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////269T/2rFW/86XHv/Olx7/zpce/86XHv/QnCn/
+        582S//379///////////////////////////////////////////////////////////////////////
+        //////////////////////7+/P/Xq0j/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/4L1x/////v//////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////v3rj/
+        1aY+/86XHv/Olx7/zpce/86XHv/Uozj/7tuw/////v//////////////////////////////////////
+        ///////////////////////////////////////////r1KL/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/dt2P/+fPl////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        //////////////////////79+v/p0Jr/0Z4s/86XHv/Olx7/zpce/86XHv/Zrk//9OjO////////////
+        ///////////////////////////////////////////////////////////79+7/0p8v/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/9CbJv/myYv//fr0////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////v37f/iwnz/z5ki/86XHv/Olx7/
+        zpce/86XH//fu23/+fPl////////////////////////////////////////////////////////////
+        4sJ7/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/SoDH/
+        5MWC/+rSnf/hwHb/0Jwp/86XHv/Olx7/zpce/9OhNP/s16n///79////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        //////fu2v/bsln/zpce/86XHv/Olx7/zpce/9CbJv/myYv//fr0////////////////////////////
+        ////////////////9uvV/8+YIf/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Yq0r/+/ft//////////////////r16f/hv3T/zpgg/86XHv/Olx7/zpce/9erSf/z5cf/
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////+/euP/Vpj7/zpce/86XHv/Olx7/zpce/9OhNP/s16n/
+        //79///////////////////////////////+/9qwVP/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/PmiT/+PDe//////////////////////////////////br1P/asVb/
+        zpce/86XHv/Olx7/zpce/964Zf/48N//////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////v36/+nQmv/Rniz/
+        zpce/86XHv/Olx7/zpce/9erSf/z5cf////////////////////+/+XJiv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/5ciI////////////////////////////
+        /////////////////////+/euP/Vpj7/zpce/86XHv/Olx7/z5kj/+TGg//8+PH/////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////+/ft/+LCfP/PmSL/zpce/86XHv/Olx7/zpce/9uzWv/p0Jr/6M6V/9itTf/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/06I2//369P//////
+        /////////////////////////////////////////////////v36/+nQmv/Rniz/zpce/86XHv/Olx7/
+        0p8w/+vUof/+/fv/////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////9+7a/9y0Xv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/+7asP//////////////////////////////////////////////////////////////////////
+        +/ft/+LCfP/PmSL/zpce/86XHv/Olx7/1qhD//Hiv///////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        8eK//9aoQv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/9qwVP////7/////////////////////////////////////////////////
+        ////////////////////////////////9+7a/9y0Xv/Olx7/zpce/86XHv/Olx7/3LRe//fu2v//////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////+/Pn/3rhm/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/8+YIf/269X/////////////////////////////////
+        ////////////////////////////////////////////////////////////////8eK//9aoQ//Olx7/
+        zpce/86XHv/PmSL/4sJ8//v37f//////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////z47//Qmyb/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/iwnv/////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////+/fv/69Sh/9KfMP/Olx7/zpce/86XHv/Rniz/6dCa//79+v//////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        2rBU/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        4L5y//v37f//////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////8+PH/3bdk/86XHv/Olx7/zpce/86XHv/Vpj7/
+        7964////////////////////////////////////////////////////////////////////////////
+        /////////////////////9isTP/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Rniz/6dCa//79+v//////////////////////////////////////
+        /////////////////////////////////////////////////////////////////vz5/9WmP//Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/asVb/9uvU////////////////////////////////////////////
+        //////////////////////////////////////jv3f/OmCD/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Vpj7/7964////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////+jOlf/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86YIP/hv3X/+/ft////////////
+        ///////////////////////////////////////////////////////////ctmD/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/asVb/9uvU////////////////////////////////////////////////////////////
+        //////////////////////r05//QnCn/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/9GeLP/p0Jr//v36///////////////////////////////////////////////////////x4L3/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86YIP/hv3T/+vXp////////////////////////////
+        ///////////////////////////////////////////fvG3/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/9WmPv/v3rj/////////////////////////////////
+        ///////////+/Pn/1aY//86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/9CcKf/nzZL/
+        /fv3///////////////////////////////////////////////////////z5sn/zpcf/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/9qxVv/269T/
+        ////////////////////////////////6M6V/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/9SjOP/u27D////+///////////////////////////////////////+/fv/
+        16pH/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpgg/+G/dP/69en/////////////////+vTn/9CcKf/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/9muT//06M7/////////////////
+        ////////////////6dGc/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/0Jwp/+fNkv/9+/f//////9+8bf/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpcf/9+7bf/58+X/////////////////8eC9/9CaJf/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        1KM4/+bLjv/Olx//zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/z5ki/9y0Xv/hwHb/2a5P/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/c6XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce+86XHtnOlx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHtbOlx5d
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx5bzpceAM6XHlrOlx7Xzpce/c6XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/zpce/86XHv/Olx7/
+        zpce/86XHv/Olx7/zpce/c6XHtbOlx5ZzpceAIAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAB
+        iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAABrVBMVEUel84el84el84el84el84el84e
+        l84el84el84el84el84el84el84el84el84el84el84el84el84el85HqtePy+ep1+yWzuhWsdofl85D
+        qNa/4vH////L5/Q0odNluN0wn9Kh1Ov7/f7X7fYmm9CLyeb0+v34/P07pNQjmc+DxuTx+PyRzOdtu9/l
+        8/m13e9luN7f8PhPrtnO6PRXstpJq9fH5fO43vA4o9Sw2+7+///Y7fcimc/9/v9ctNuOy+b3+/1/xOPc
+        7/ckms8xoNKIyOWn1uw2otNMrNiw2u4pnNCSzedUsNogmM50v+Hp9fpyvuDV6/YhmM/U6/b6/f5Qrtk+
+        ptW43u8untEsntGa0Ol2wOF8wuLt9/tput7e8PhetNza7vdgttyg0+q94PE/ptX5/P5zvuCVzujn9PrC
+        4/JtvN9NrdhuvN9AptXJ5vNIq9eBxeS84PDs9vslmtBas9t1v+Fkt90rndGq2O3D4/Inm9CZ0Ol7wuLu
+        9/svn9Ka0emy3O6KyeXi8vlnud7G5PNFqdae0urR6vWQzOer2O1oud7w+PwtntEom9B2CTjvAAAAE3RS
+        TlMAO7Ptsjds/GU4ru7p/uyvsDk2wtU5PQAAAAFiS0dEHJwEQQcAAAAJcEhZcwAAAEgAAABIAEbJaz4A
+        AANbSURBVGje7ZrpUxNBEMVHEBFFREeRwBg5wx055IoBo4AKmICCIPflibfgiXgr3n+zCbs7u5t09yxl
+        zRfd9ymp9Ovf5s1OemorjLFdWdlci7J357Ck9uTqaZ9S7t7k9WvsnyTksSyd/Tnfx/brBeQzvf35Ad0A
+        7gN8gA/wAT7ABygBR44WHSsOaAOUlIqUjgc9tAme2DGgrLxCGKqsUrWvqg7V1O4MUFffIKQa6faBpnCy
+        6OSOAM0twiH06rbV2mZUnfIOaO8QbnXi7bu6I2bR6ahHQLCoR6SrFwv/TMwuOusJkFwvkalzfXj4Ug39
+        akCaxdYAEb7UeSUgwyIVuoCHL9VzkQYAFluDbtvQcAwoagsQANgiFbnkMMUTI3DVKApALVKXr0hP8RhW
+        FI4iANwiNX7VdExMElXFMOBaSNl/csKon5oep8pmkG8woGg/Zl5ZdHaOLpxHAH0LlGskETeKF5dUOfYj
+        AL6Mm2LDQ0aNOR8oreC36XXEEunuMgrs+UAsVB0OuHETtLS1Gh+75gOW5C1ousqNdhuwhJtMi3s+0Emi
+        O/lOuiVUbc7KklVle5kkDuB33ZaeoqD38K0keeBe4v4DBBB46LR0tHsPXybJFytT71e7QAB/ZF9pSzP3
+        HL5M0r6Pw/0ggD82P2+oN2+3jOGcKZmkK8onMIAn1lJXtFJmvIOGc7qsJNOjXIYBfP3ps+cvjJfwcHZL
+        JpkR5UIfDLBXHBvODskkoSgHaAA+nKUqys0k4SjlEIcAQy8jyv6vSjgd5SAO2FCPNxk+HqU1xAHAa+/h
+        U1GaQzwTEFVsXTt88pwjxCYCqKX7l1rhK845Qrx5CwMmKNPSolmlPucI8Q4GxNdQx9ysPPe8V7Yfn55C
+        FvkD7TDUq+pvnXMAwPpH0mGqk2w/Jk9g0Eb7RDqse6EGby/POQiAf6Yclhqx9u7pDAK+VBAOSxvwHk6f
+        zvCP3RbhkJqH+svpTAOm1nAHkaRjOisAfAZ3oEk6prMaEP+6Hf43+imCM0nHdPYC4K0R4jAFJGlPZ48A
+        /p0IX+qH9XNqT2fPgA1Pz4kS2+PsZ30dWvG3T7x+bZZvjf4mCv7xZ3Y+wAf4AB/gA/4fQIHe/vnsoF5A
+        ITuk968nh/X/eYaxvEJN61BQmMPYH4F4O84J9IxVAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE0LTA1LTA2
+        VDEyOjE2OjU0KzA4OjAwAxvRswAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNC0wNS0wNlQxMjoxNjo1NCsw
+        ODowMHJGaQ8AAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAAElFTkSuQmCC
+</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -5167,6 +5765,6 @@
     <value>FrmAddSavingBookProduct</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=1.1.1.28732, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

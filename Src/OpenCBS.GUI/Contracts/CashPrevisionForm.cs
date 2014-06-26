@@ -118,31 +118,19 @@ namespace OpenCBS.GUI
             // 
             // splitter1
             // 
-            this.splitter1.AccessibleDescription = null;
-            this.splitter1.AccessibleName = null;
             resources.ApplyResources(this.splitter1, "splitter1");
-            this.splitter1.BackgroundImage = null;
-            this.splitter1.Font = null;
             this.splitter1.Name = "splitter1";
             this.splitter1.TabStop = false;
             // 
             // panel1
             // 
-            this.panel1.AccessibleDescription = null;
-            this.panel1.AccessibleName = null;
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.BackgroundImage = null;
             this.panel1.Controls.Add(this.zedGraphControlCashPrevision);
-            this.panel1.Font = null;
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // zedGraphControlCashPrevision
             // 
-            this.zedGraphControlCashPrevision.AccessibleDescription = null;
-            this.zedGraphControlCashPrevision.AccessibleName = null;
             resources.ApplyResources(this.zedGraphControlCashPrevision, "zedGraphControlCashPrevision");
-            this.zedGraphControlCashPrevision.BackgroundImage = null;
-            this.zedGraphControlCashPrevision.Font = null;
             this.zedGraphControlCashPrevision.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.zedGraphControlCashPrevision.IsAutoScrollRange = false;
             this.zedGraphControlCashPrevision.IsEnableHPan = false;
@@ -162,45 +150,38 @@ namespace OpenCBS.GUI
             this.zedGraphControlCashPrevision.PanModifierKeys2 = System.Windows.Forms.Keys.None;
             this.zedGraphControlCashPrevision.PointDateFormat = "g";
             this.zedGraphControlCashPrevision.PointValueFormat = "G";
-            this.zedGraphControlCashPrevision.ScrollMaxX = 0;
-            this.zedGraphControlCashPrevision.ScrollMaxY = 0;
-            this.zedGraphControlCashPrevision.ScrollMaxY2 = 0;
-            this.zedGraphControlCashPrevision.ScrollMinX = 0;
-            this.zedGraphControlCashPrevision.ScrollMinY = 0;
-            this.zedGraphControlCashPrevision.ScrollMinY2 = 0;
+            this.zedGraphControlCashPrevision.ScrollMaxX = 0D;
+            this.zedGraphControlCashPrevision.ScrollMaxY = 0D;
+            this.zedGraphControlCashPrevision.ScrollMaxY2 = 0D;
+            this.zedGraphControlCashPrevision.ScrollMinX = 0D;
+            this.zedGraphControlCashPrevision.ScrollMinY = 0D;
+            this.zedGraphControlCashPrevision.ScrollMinY2 = 0D;
             this.zedGraphControlCashPrevision.ZoomButtons = System.Windows.Forms.MouseButtons.Left;
             this.zedGraphControlCashPrevision.ZoomButtons2 = System.Windows.Forms.MouseButtons.None;
             this.zedGraphControlCashPrevision.ZoomModifierKeys = System.Windows.Forms.Keys.None;
             this.zedGraphControlCashPrevision.ZoomModifierKeys2 = System.Windows.Forms.Keys.None;
-            this.zedGraphControlCashPrevision.ZoomStepFraction = 0.1;
+            this.zedGraphControlCashPrevision.ZoomStepFraction = 0.1D;
             // 
             // groupBoxButton
             // 
-            this.groupBoxButton.AccessibleDescription = null;
-            this.groupBoxButton.AccessibleName = null;
-            resources.ApplyResources(this.groupBoxButton, "groupBoxButton");
             this.groupBoxButton.Controls.Add(this.checkBoxIncludeLateLoans);
             this.groupBoxButton.Controls.Add(this.buttonRepaymentExit);
             this.groupBoxButton.Controls.Add(this.buttonPreview);
             this.groupBoxButton.Controls.Add(this.buttonNext);
             this.groupBoxButton.Controls.Add(this.labelPrevision);
             this.groupBoxButton.Controls.Add(this.comboBoxForecastDays);
-            this.groupBoxButton.Font = null;
+            resources.ApplyResources(this.groupBoxButton, "groupBoxButton");
             this.groupBoxButton.Name = "groupBoxButton";
             this.groupBoxButton.TabStop = false;
             // 
             // checkBoxIncludeLateLoans
             // 
-            this.checkBoxIncludeLateLoans.AccessibleDescription = null;
-            this.checkBoxIncludeLateLoans.AccessibleName = null;
             resources.ApplyResources(this.checkBoxIncludeLateLoans, "checkBoxIncludeLateLoans");
             this.checkBoxIncludeLateLoans.Name = "checkBoxIncludeLateLoans";
             this.checkBoxIncludeLateLoans.CheckedChanged += new System.EventHandler(this.checkBoxIncludeLateLoans_CheckedChanged);
             // 
             // buttonRepaymentExit
             // 
-            this.buttonRepaymentExit.AccessibleDescription = null;
-            this.buttonRepaymentExit.AccessibleName = null;
             resources.ApplyResources(this.buttonRepaymentExit, "buttonRepaymentExit");
             this.buttonRepaymentExit.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonRepaymentExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
@@ -210,8 +191,6 @@ namespace OpenCBS.GUI
             // 
             // buttonPreview
             // 
-            this.buttonPreview.AccessibleDescription = null;
-            this.buttonPreview.AccessibleName = null;
             resources.ApplyResources(this.buttonPreview, "buttonPreview");
             this.buttonPreview.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonPreview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
@@ -221,8 +200,6 @@ namespace OpenCBS.GUI
             // 
             // buttonNext
             // 
-            this.buttonNext.AccessibleDescription = null;
-            this.buttonNext.AccessibleName = null;
             resources.ApplyResources(this.buttonNext, "buttonNext");
             this.buttonNext.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
@@ -232,19 +209,13 @@ namespace OpenCBS.GUI
             // 
             // labelPrevision
             // 
-            this.labelPrevision.AccessibleDescription = null;
-            this.labelPrevision.AccessibleName = null;
-            resources.ApplyResources(this.labelPrevision, "labelPrevision");
             this.labelPrevision.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.labelPrevision, "labelPrevision");
             this.labelPrevision.Name = "labelPrevision";
             // 
             // comboBoxForecastDays
             // 
-            this.comboBoxForecastDays.AccessibleDescription = null;
-            this.comboBoxForecastDays.AccessibleName = null;
             resources.ApplyResources(this.comboBoxForecastDays, "comboBoxForecastDays");
-            this.comboBoxForecastDays.BackgroundImage = null;
-            this.comboBoxForecastDays.Font = null;
             this.comboBoxForecastDays.Items.AddRange(new object[] {
             resources.GetString("comboBoxForecastDays.Items"),
             resources.GetString("comboBoxForecastDays.Items1"),
@@ -257,13 +228,10 @@ namespace OpenCBS.GUI
             // 
             // CashPrevisionForm
             // 
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.groupBoxButton);
-            this.Font = null;
             this.Name = "CashPrevisionForm";
             this.panel1.ResumeLayout(false);
             this.groupBoxButton.ResumeLayout(false);

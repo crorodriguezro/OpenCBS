@@ -29,16 +29,16 @@ namespace OpenCBS.GUI.Configuration
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditUserForm));
-            this.olvColumn1 = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn2 = new BrightIdeasSoftware.OLVColumn();
+            this.olvColumn1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn2 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.pageBranches = new System.Windows.Forms.TabPage();
-            this.chkSelectAllBranches = new System.Windows.Forms.CheckBox();
             this.olvBranches = new BrightIdeasSoftware.ObjectListView();
-            this.colBranchName = new BrightIdeasSoftware.OLVColumn();
+            this.colBranchName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.chkSelectAllBranches = new System.Windows.Forms.CheckBox();
             this.pageSubordinates = new System.Windows.Forms.TabPage();
-            this.chkSelectAll = new System.Windows.Forms.CheckBox();
             this.olvUsers = new BrightIdeasSoftware.ObjectListView();
-            this.colUsers_User = new BrightIdeasSoftware.OLVColumn();
+            this.colUsers_User = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.chkSelectAll = new System.Windows.Forms.CheckBox();
             this.tabUser = new System.Windows.Forms.TabControl();
             this.pageBranches.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olvBranches)).BeginInit();
@@ -64,12 +64,6 @@ namespace OpenCBS.GUI.Configuration
             resources.ApplyResources(this.pageBranches, "pageBranches");
             this.pageBranches.Name = "pageBranches";
             // 
-            // chkSelectAllBranches
-            // 
-            resources.ApplyResources(this.chkSelectAllBranches, "chkSelectAllBranches");
-            this.chkSelectAllBranches.Name = "chkSelectAllBranches";
-            this.chkSelectAllBranches.Click += new System.EventHandler(this.OnSelectAllClick);
-            // 
             // olvBranches
             // 
             this.olvBranches.AllColumns.Add(this.colBranchName);
@@ -91,19 +85,18 @@ namespace OpenCBS.GUI.Configuration
             this.colBranchName.AspectName = "Name";
             resources.ApplyResources(this.colBranchName, "colBranchName");
             // 
+            // chkSelectAllBranches
+            // 
+            resources.ApplyResources(this.chkSelectAllBranches, "chkSelectAllBranches");
+            this.chkSelectAllBranches.Name = "chkSelectAllBranches";
+            this.chkSelectAllBranches.Click += new System.EventHandler(this.OnSelectAllClick);
+            // 
             // pageSubordinates
             // 
             this.pageSubordinates.Controls.Add(this.olvUsers);
             this.pageSubordinates.Controls.Add(this.chkSelectAll);
             resources.ApplyResources(this.pageSubordinates, "pageSubordinates");
             this.pageSubordinates.Name = "pageSubordinates";
-            // 
-            // chkSelectAll
-            // 
-            resources.ApplyResources(this.chkSelectAll, "chkSelectAll");
-            this.chkSelectAll.Name = "chkSelectAll";
-            this.chkSelectAll.ThreeState = true;
-            this.chkSelectAll.Click += new System.EventHandler(this.OnSelectAllClick);
             // 
             // olvUsers
             // 
@@ -125,6 +118,13 @@ namespace OpenCBS.GUI.Configuration
             // 
             this.colUsers_User.AspectName = "Name";
             resources.ApplyResources(this.colUsers_User, "colUsers_User");
+            // 
+            // chkSelectAll
+            // 
+            resources.ApplyResources(this.chkSelectAll, "chkSelectAll");
+            this.chkSelectAll.Name = "chkSelectAll";
+            this.chkSelectAll.ThreeState = true;
+            this.chkSelectAll.Click += new System.EventHandler(this.OnSelectAllClick);
             // 
             // tabUser
             // 

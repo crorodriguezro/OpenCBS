@@ -114,7 +114,7 @@ namespace OpenCBS.GUI
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // groupBox1
-            //
+            // 
             this.groupBox1.Controls.Add(this.comboBoxActivity);
             this.groupBox1.Controls.Add(this.comboBoxPersonalSituation);
             this.groupBox1.Controls.Add(this.numericUpDownJobs1);

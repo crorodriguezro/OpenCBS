@@ -57,9 +57,11 @@ namespace OpenCBS.GUI.Accounting
             this.dateTimePickerEndDate = new System.Windows.Forms.DateTimePicker();
             this.lblBeginDate = new System.Windows.Forms.Label();
             this.lblEndDate = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spconDesk)).BeginInit();
             this.spconDesk.Panel1.SuspendLayout();
             this.spconDesk.Panel2.SuspendLayout();
             this.spconDesk.SuspendLayout();
@@ -265,10 +267,12 @@ namespace OpenCBS.GUI.Accounting
             this.Load += new System.EventHandler(this.AccountView_Load);
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
             this.spconDesk.Panel1.ResumeLayout(false);
             this.spconDesk.Panel2.ResumeLayout(false);
             this.spconDesk.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spconDesk)).EndInit();
             this.spconDesk.ResumeLayout(false);
             this.gbBalance.ResumeLayout(false);
             this.gbBalance.PerformLayout();

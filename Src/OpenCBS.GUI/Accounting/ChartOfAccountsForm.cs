@@ -275,6 +275,7 @@ namespace OpenCBS.GUI.Accounting
             this._labelTitle = new System.Windows.Forms.Label();
             this._tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.fileDialog = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -421,6 +422,7 @@ namespace OpenCBS.GUI.Accounting
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tlvAccounts)).EndInit();
             this.groupBoxActions.ResumeLayout(false);

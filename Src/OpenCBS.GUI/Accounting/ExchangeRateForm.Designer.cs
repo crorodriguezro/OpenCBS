@@ -59,7 +59,7 @@ namespace OpenCBS.GUI.Accounting
             this.labelInternalCurrency = new System.Windows.Forms.Label();
             this.lbRateDetails = new System.Windows.Forms.Label();
             this.lvExchangeRate = new System.Windows.Forms.ListView();
-            this.chDate = new System.Windows.Forms.ColumnHeader();
+            this.chDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.zedGraphControlExchangeRateEvolution = new ZedGraph.ZedGraphControl();
             this.lbRateEvolution = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
@@ -72,13 +72,13 @@ namespace OpenCBS.GUI.Accounting
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // buttonCancel
-            //
+            // 
             resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // groupBox2
-            //
+            // 
             this.groupBox2.Controls.Add(this.labelSwapped);
             this.groupBox2.Controls.Add(this.comboBoxCurrencies);
             this.groupBox2.Controls.Add(this.labelExternalCurrency);
@@ -169,17 +169,17 @@ namespace OpenCBS.GUI.Accounting
             this.zedGraphControlExchangeRateEvolution.PanModifierKeys2 = System.Windows.Forms.Keys.None;
             this.zedGraphControlExchangeRateEvolution.PointDateFormat = "g";
             this.zedGraphControlExchangeRateEvolution.PointValueFormat = "G";
-            this.zedGraphControlExchangeRateEvolution.ScrollMaxX = 0;
-            this.zedGraphControlExchangeRateEvolution.ScrollMaxY = 0;
-            this.zedGraphControlExchangeRateEvolution.ScrollMaxY2 = 0;
-            this.zedGraphControlExchangeRateEvolution.ScrollMinX = 0;
-            this.zedGraphControlExchangeRateEvolution.ScrollMinY = 0;
-            this.zedGraphControlExchangeRateEvolution.ScrollMinY2 = 0;
+            this.zedGraphControlExchangeRateEvolution.ScrollMaxX = 0D;
+            this.zedGraphControlExchangeRateEvolution.ScrollMaxY = 0D;
+            this.zedGraphControlExchangeRateEvolution.ScrollMaxY2 = 0D;
+            this.zedGraphControlExchangeRateEvolution.ScrollMinX = 0D;
+            this.zedGraphControlExchangeRateEvolution.ScrollMinY = 0D;
+            this.zedGraphControlExchangeRateEvolution.ScrollMinY2 = 0D;
             this.zedGraphControlExchangeRateEvolution.ZoomButtons = System.Windows.Forms.MouseButtons.Left;
             this.zedGraphControlExchangeRateEvolution.ZoomButtons2 = System.Windows.Forms.MouseButtons.None;
             this.zedGraphControlExchangeRateEvolution.ZoomModifierKeys = System.Windows.Forms.Keys.None;
             this.zedGraphControlExchangeRateEvolution.ZoomModifierKeys2 = System.Windows.Forms.Keys.None;
-            this.zedGraphControlExchangeRateEvolution.ZoomStepFraction = 0.1;
+            this.zedGraphControlExchangeRateEvolution.ZoomStepFraction = 0.1D;
             // 
             // lbRateEvolution
             // 

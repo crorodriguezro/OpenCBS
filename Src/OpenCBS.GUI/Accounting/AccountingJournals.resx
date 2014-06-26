@@ -117,9 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblBeginDate.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+  <data name="&gt;&gt;tbcMain.Name" xml:space="preserve">
+    <value>tbcMain</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="olvBookings.Size" type="System.Drawing.Size, System.Drawing">
@@ -131,15 +130,16 @@
   <data name="olvColumn_CreditAccount.Text" xml:space="preserve">
     <value>Credit Account</value>
   </data>
-  <data name="&gt;&gt;dateTimePickerEndDate.Name" xml:space="preserve">
-    <value>dateTimePickerEndDate</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="olvBookings.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="cbAllEvents.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
   <data name="clbxFields.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
-  </data>
-  <data name="clbxFields.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
   </data>
   <data name="&gt;&gt;olvBookings.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -168,13 +168,13 @@
   <data name="btnPost.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 23</value>
   </data>
-  <data name="dateTimePickerEndDate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
   <data name="&gt;&gt;btnPreview.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
   <data name="lblEndDate.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbxAllBookings.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;btnPost.Type" xml:space="preserve">
@@ -189,9 +189,6 @@
   <data name="btnPreview.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 395</value>
   </data>
-  <data name="&gt;&gt;cmbBranches.Name" xml:space="preserve">
-    <value>cmbBranches</value>
-  </data>
   <data name="cbxAllBookings.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 541</value>
   </data>
@@ -201,17 +198,11 @@
   <data name="&gt;&gt;cmbBranches.Parent" xml:space="preserve">
     <value>pnlRight</value>
   </data>
-  <data name="lblBeginDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="&gt;&gt;btnPost.Name" xml:space="preserve">
     <value>btnPost</value>
   </data>
   <data name="&gt;&gt;olvColumn_Amnt.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
-  </data>
-  <data name="&gt;&gt;olvColumn_Amount.Name" xml:space="preserve">
-    <value>olvColumn_Amount</value>
   </data>
   <data name="cbAllEvents.TabIndex" type="System.Int32, mscorlib">
     <value>45</value>
@@ -237,14 +228,17 @@
   <data name="tbpEvents.Size" type="System.Drawing.Size, System.Drawing">
     <value>814, 561</value>
   </data>
+  <data name="&gt;&gt;olvColumn_Amount.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
   <data name="&gt;&gt;olvColumn_CreditAccount.Name" xml:space="preserve">
     <value>olvColumn_CreditAccount</value>
   </data>
   <data name="btnView.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 23</value>
   </data>
-  <data name="&gt;&gt;tbpEvents.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
   <data name="&gt;&gt;pnlRight.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -261,6 +255,9 @@
   <data name="dateTimePickerBeginDate.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
+  <data name="&gt;&gt;bwRun.Name" xml:space="preserve">
+    <value>bwRun</value>
+  </data>
   <data name="cbAllEvents.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -269,6 +266,9 @@
   </data>
   <data name="dateTimePickerBeginDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>129, 20</value>
+  </data>
+  <data name="cmbBranches.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="&gt;&gt;olvBookings.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.ObjectListView, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
@@ -312,11 +312,11 @@
   <data name="&gt;&gt;btnView.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;tbcMain.Name" xml:space="preserve">
-    <value>tbcMain</value>
+  <data name="&gt;&gt;cmbBranches.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;lblEndDate.Name" xml:space="preserve">
-    <value>lblEndDate</value>
+  <data name="btnView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 453</value>
   </data>
   <data name="olvColumn_OverduePrincipal.Text" xml:space="preserve">
     <value>Overdue Principal</value>
@@ -333,11 +333,17 @@
   <data name="olvColumn_OverdueDays.Text" xml:space="preserve">
     <value>Overdue Days</value>
   </data>
+  <data name="lblBranch.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="lblBeginDate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="tbcMain.TabIndex" type="System.Int32, mscorlib">
     <value>44</value>
+  </data>
+  <data name="&gt;&gt;tbpEvents.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnView.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -354,20 +360,11 @@
   <data name="&gt;&gt;olvColumn_OverduePrincipal.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
-  <data name="cbAllEvents.Text" xml:space="preserve">
-    <value>All</value>
-  </data>
-  <data name="&gt;&gt;olvColumn_DebitAccount.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
-  </data>
   <data name="&gt;&gt;tbpMovements.Parent" xml:space="preserve">
     <value>tbcMain</value>
   </data>
   <data name="&gt;&gt;tbpMovements.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbxAllBookings.Name" xml:space="preserve">
-    <value>cbxAllBookings</value>
   </data>
   <data name="olvColumn_Date.Width" type="System.Int32, mscorlib">
     <value>83</value>
@@ -396,8 +393,11 @@
   <data name="&gt;&gt;bwPostBookings.Name" xml:space="preserve">
     <value>bwPostBookings</value>
   </data>
-  <data name="btnView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 453</value>
+  <data name="dateTimePickerBeginDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 15</value>
+  </data>
+  <data name="olvColumn_OverdueDays.Width" type="System.Int32, mscorlib">
+    <value>80</value>
   </data>
   <data name="olvColumn_EventId.Text" xml:space="preserve">
     <value>Event Id</value>
@@ -408,11 +408,11 @@
   <data name="btnView.Text" xml:space="preserve">
     <value>View balance</value>
   </data>
-  <data name="&gt;&gt;bwPostEvents.Name" xml:space="preserve">
-    <value>bwPostEvents</value>
-  </data>
   <data name="tbcMain.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
+  </data>
+  <data name="pnlRight.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="&gt;&gt;cbAllEvents.Parent" xml:space="preserve">
     <value>tbpEvents</value>
@@ -423,8 +423,8 @@
   <data name="lblBeginDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
-  <data name="&gt;&gt;clbxFields.Name" xml:space="preserve">
-    <value>clbxFields</value>
+  <data name="&gt;&gt;dateTimePickerEndDate.Parent" xml:space="preserve">
+    <value>pnlRight</value>
   </data>
   <data name="&gt;&gt;olvEvents.Parent" xml:space="preserve">
     <value>tbpEvents</value>
@@ -435,8 +435,8 @@
   <data name="btnPost.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 424</value>
   </data>
-  <data name="&gt;&gt;dateTimePickerEndDate.Parent" xml:space="preserve">
-    <value>pnlRight</value>
+  <data name="cbxAllBookings.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
   </data>
   <data name="tbpMovements.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -456,9 +456,6 @@
   <data name="lblEndDate.Text" xml:space="preserve">
     <value>End date</value>
   </data>
-  <data name="pnlRight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 587</value>
-  </data>
   <data name="&gt;&gt;lblBeginDate.Parent" xml:space="preserve">
     <value>pnlRight</value>
   </data>
@@ -471,26 +468,20 @@
   <data name="&gt;&gt;olvColumn_Description.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
-  <data name="olvBookings.TabIndex" type="System.Int32, mscorlib">
-    <value>43</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
   </data>
   <data name="&gt;&gt;lblBranch.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;olvColumn_TransactionDate.Name" xml:space="preserve">
-    <value>olvColumn_TransactionDate</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterParent</value>
+  <data name="lblBeginDate.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
   </data>
   <data name="olvBookings.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
   <data name="&gt;&gt;tbpEvents.Name" xml:space="preserve">
     <value>tbpEvents</value>
-  </data>
-  <data name="&gt;&gt;tbpMovements.Name" xml:space="preserve">
-    <value>tbpMovements</value>
   </data>
   <data name="clbxFields.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 272</value>
@@ -513,6 +504,9 @@
   <data name="&gt;&gt;olvColumn_OverdueDays.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
+  <data name="&gt;&gt;dateTimePickerBeginDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="tbpMovements.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
@@ -522,8 +516,8 @@
   <data name="&gt;&gt;olvColumn_Code.Name" xml:space="preserve">
     <value>olvColumn_Code</value>
   </data>
-  <data name="cbxAllBookings.TabIndex" type="System.Int32, mscorlib">
-    <value>44</value>
+  <data name="dateTimePickerEndDate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="&gt;&gt;pnlRight.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -539,9 +533,6 @@
   </data>
   <data name="&gt;&gt;olvColumn_Code.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
-  </data>
-  <data name="tbcMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>822, 587</value>
   </data>
   <data name="&gt;&gt;lblBranch.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -567,6 +558,9 @@
   <data name="olvColumn_OverduePrincipal.Width" type="System.Int32, mscorlib">
     <value>99</value>
   </data>
+  <data name="&gt;&gt;olvColumn_Fee.Name" xml:space="preserve">
+    <value>olvColumn_Fee</value>
+  </data>
   <data name="&gt;&gt;bwRun.Type" xml:space="preserve">
     <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -591,6 +585,9 @@
   <data name="&gt;&gt;clbxFields.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="olvEvents.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
   <data name="olvColumn_Description.Width" type="System.Int32, mscorlib">
     <value>149</value>
   </data>
@@ -600,8 +597,8 @@
   <data name="lblEndDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;cmbBranches.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;tbpEvents.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;lblEndDate.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -630,11 +627,11 @@
   <data name="&gt;&gt;btnPreview.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bwRun.Name" xml:space="preserve">
-    <value>bwRun</value>
+  <data name="&gt;&gt;clbxFields.Name" xml:space="preserve">
+    <value>clbxFields</value>
   </data>
-  <data name="&gt;&gt;dateTimePickerBeginDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cbxAllBookings.Name" xml:space="preserve">
+    <value>cbxAllBookings</value>
   </data>
   <data name="olvColumn_EventType.Width" type="System.Int32, mscorlib">
     <value>87</value>
@@ -645,23 +642,20 @@
   <data name="&gt;&gt;btnPost.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;olvColumn_Fee.Name" xml:space="preserve">
-    <value>olvColumn_Fee</value>
+  <data name="cbAllEvents.Text" xml:space="preserve">
+    <value>All</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.4.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="olvBookings.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 5, 3, 5</value>
   </data>
-  <data name="lblBranch.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="lblBeginDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;clbxFields.Parent" xml:space="preserve">
     <value>pnlRight</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerEndDate.ZOrder" xml:space="preserve">
-    <value>6</value>
   </data>
   <data name="&gt;&gt;btnPreview.Name" xml:space="preserve">
     <value>btnPreview</value>
@@ -669,17 +663,20 @@
   <data name="&gt;&gt;olvColumn_OLB.Name" xml:space="preserve">
     <value>olvColumn_OLB</value>
   </data>
+  <data name="&gt;&gt;tbcMain.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="olvColumn_EventType.Text" xml:space="preserve">
     <value>Event Type</value>
   </data>
   <data name="&gt;&gt;olvColumn_Description.Name" xml:space="preserve">
     <value>olvColumn_Description</value>
   </data>
-  <data name="tbcMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
   <data name="&gt;&gt;cbAllEvents.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bwPostBookings.Type" xml:space="preserve">
+    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblEndDate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -693,11 +690,8 @@
   <data name="&gt;&gt;lblBeginDate.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="lblBranch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="cbxAllBookings.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="pnlRight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 587</value>
   </data>
   <data name="cbAllEvents.Size" type="System.Drawing.Size, System.Drawing">
     <value>808, 17</value>
@@ -720,14 +714,14 @@
   <data name="&gt;&gt;btnView.Parent" xml:space="preserve">
     <value>pnlRight</value>
   </data>
-  <data name="olvColumn_OverdueDays.Width" type="System.Int32, mscorlib">
-    <value>80</value>
+  <data name="&gt;&gt;olvColumn_Amount.Name" xml:space="preserve">
+    <value>olvColumn_Amount</value>
   </data>
   <data name="olvColumn_Date.Text" xml:space="preserve">
     <value>Date</value>
   </data>
-  <data name="olvEvents.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+  <data name="&gt;&gt;olvColumn_TransactionDate.Name" xml:space="preserve">
+    <value>olvColumn_TransactionDate</value>
   </data>
   <data name="&gt;&gt;pnlRight.Parent" xml:space="preserve">
     <value>$this</value>
@@ -777,14 +771,20 @@
   <data name="&gt;&gt;olvColumn_OverdueDays.Name" xml:space="preserve">
     <value>olvColumn_OverdueDays</value>
   </data>
-  <data name="&gt;&gt;olvColumn_Amount.Type" xml:space="preserve">
+  <data name="&gt;&gt;olvColumn_OLB.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="resource.Text1" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;olvColumn_DebitAccount.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;cbxAllBookings.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="&gt;&gt;dateTimePickerEndDate.Name" xml:space="preserve">
+    <value>dateTimePickerEndDate</value>
   </data>
   <data name="&gt;&gt;pnlRight.Name" xml:space="preserve">
     <value>pnlRight</value>
@@ -795,8 +795,8 @@
   <data name="dateTimePickerEndDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>73, 41</value>
   </data>
-  <data name="cbAllEvents.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
+  <data name="lblBranch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;olvColumn_Date.Name" xml:space="preserve">
     <value>olvColumn_Date</value>
@@ -804,14 +804,14 @@
   <data name="lblBranch.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
-  <data name="&gt;&gt;olvColumn_OLB.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  <data name="tbcMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>822, 587</value>
   </data>
-  <data name="&gt;&gt;bwPostBookings.Type" xml:space="preserve">
-    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cmbBranches.Name" xml:space="preserve">
+    <value>cmbBranches</value>
   </data>
-  <data name="pnlRight.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
+  <data name="&gt;&gt;bwPostEvents.Name" xml:space="preserve">
+    <value>bwPostEvents</value>
   </data>
   <data name="&gt;&gt;dateTimePickerEndDate.Type" xml:space="preserve">
     <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -831,8 +831,8 @@
   <data name="&gt;&gt;lblBranch.Name" xml:space="preserve">
     <value>lblBranch</value>
   </data>
-  <data name="cmbBranches.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="&gt;&gt;tbpMovements.Name" xml:space="preserve">
+    <value>tbpMovements</value>
   </data>
   <data name="&gt;&gt;olvBookings.Parent" xml:space="preserve">
     <value>tbpMovements</value>
@@ -840,29 +840,29 @@
   <data name="cmbBranches.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
   </data>
-  <data name="dateTimePickerBeginDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 15</value>
+  <data name="&gt;&gt;dateTimePickerEndDate.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
-  <data name="&gt;&gt;tbcMain.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="clbxFields.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
   </data>
-  <data name="&gt;&gt;tbpEvents.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblEndDate.Name" xml:space="preserve">
+    <value>lblEndDate</value>
   </data>
-  <data name="resource.Text1" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="tbcMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;tbpEvents.Parent" xml:space="preserve">
     <value>tbcMain</value>
   </data>
+  <metadata name="bwPostEvents.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>222, 17</value>
+  </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>pt</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="bwRun.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
   </metadata>
   <metadata name="bwPostBookings.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>348, 17</value>
@@ -870,7 +870,7 @@
   <metadata name="timerClosure.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>101, 17</value>
   </metadata>
-  <metadata name="bwPostEvents.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>222, 17</value>
+  <metadata name="bwRun.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
 </root>

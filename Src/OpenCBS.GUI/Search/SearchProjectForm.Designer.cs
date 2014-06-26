@@ -39,12 +39,12 @@ namespace OpenCBS.GUI.Projets
             this.buttonNext = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.listViewClient = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderCode = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderProjectName = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderClient = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderAim = new System.Windows.Forms.ColumnHeader();
-            this.columnHeadeStatus = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderProjectName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderClient = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderAim = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeadeStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imageListSort = new System.Windows.Forms.ImageList(this.components);
             this.groupBoxSearchParameters = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -69,12 +69,12 @@ namespace OpenCBS.GUI.Projets
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
             // groupBoxButtonBottom
-            //
-            resources.ApplyResources(this.groupBoxButtonBottom, "groupBoxButtonBottom");
+            // 
             this.groupBoxButtonBottom.Controls.Add(this.textBoxCurrentlyPage);
             this.groupBoxButtonBottom.Controls.Add(this.buttonPreview);
             this.groupBoxButtonBottom.Controls.Add(this.buttonNext);
             this.groupBoxButtonBottom.Controls.Add(this.buttonCancel);
+            resources.ApplyResources(this.groupBoxButtonBottom, "groupBoxButtonBottom");
             this.groupBoxButtonBottom.Name = "groupBoxButtonBottom";
             this.groupBoxButtonBottom.TabStop = false;
             // 
@@ -127,8 +127,8 @@ namespace OpenCBS.GUI.Projets
             this.listViewClient.SmallImageList = this.imageListSort;
             this.listViewClient.UseCompatibleStateImageBehavior = false;
             this.listViewClient.View = System.Windows.Forms.View.Details;
-            this.listViewClient.DoubleClick += new System.EventHandler(this.listViewClient_DoubleClick);
             this.listViewClient.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewClient_ColumnClick);
+            this.listViewClient.DoubleClick += new System.EventHandler(this.listViewClient_DoubleClick);
             // 
             // columnHeader1
             // 
@@ -164,7 +164,7 @@ namespace OpenCBS.GUI.Projets
             this.imageListSort.Images.SetKeyName(3, "theme1.1_bouton_up_small.png");
             // 
             // groupBoxSearchParameters
-            //
+            // 
             this.groupBoxSearchParameters.Controls.Add(this.btnSearch);
             this.groupBoxSearchParameters.Controls.Add(this.buttonPrintReport);
             this.groupBoxSearchParameters.Controls.Add(this.textBoxQuery);

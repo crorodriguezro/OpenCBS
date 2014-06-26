@@ -53,15 +53,15 @@ namespace OpenCBS.GUI.Tools
             this.tbPath.TextChanged += new System.EventHandler(this.tbPath_TextChanged);
             // 
             // btnCancel
-            //
-            resources.ApplyResources(this.btnCancel, "btnCancel");
+            // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.Name = "btnCancel";
             // 
             // btnSave
-            //
-            resources.ApplyResources(this.btnSave, "btnSave");
+            // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
+            resources.ApplyResources(this.btnSave, "btnSave");
             this.btnSave.Name = "btnSave";
             this.btnSave.Click += new System.EventHandler(this.butSave_Click);
             // 
@@ -72,7 +72,7 @@ namespace OpenCBS.GUI.Tools
             this.label3.Name = "label3";
             // 
             // btnBrowse
-            //
+            // 
             resources.ApplyResources(this.btnBrowse, "btnBrowse");
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Click += new System.EventHandler(this.button2_Click);
@@ -107,7 +107,7 @@ namespace OpenCBS.GUI.Tools
             this.lblWarning.Name = "lblWarning";
             // 
             // btnDefault
-            //
+            // 
             resources.ApplyResources(this.btnDefault, "btnDefault");
             this.btnDefault.Name = "btnDefault";
             // 

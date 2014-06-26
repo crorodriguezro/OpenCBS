@@ -66,10 +66,10 @@ namespace OpenCBS.GUI.Configuration
             this.cbPackages.CheckedChanged += new System.EventHandler(this.cbPackages_CheckedChanged);
             // 
             // groupBox1
-            //
-            resources.ApplyResources(this.groupBox1, "groupBox1");
+            // 
             this.groupBox1.Controls.Add(this.btnOk);
             this.groupBox1.Controls.Add(this.btnCancel);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 

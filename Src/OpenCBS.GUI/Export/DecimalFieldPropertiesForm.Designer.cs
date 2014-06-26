@@ -44,106 +44,68 @@ namespace OpenCBS.GUI.Export
             // 
             // labelDecimalNumber
             // 
-            this.labelDecimalNumber.AccessibleDescription = null;
-            this.labelDecimalNumber.AccessibleName = null;
             resources.ApplyResources(this.labelDecimalNumber, "labelDecimalNumber");
-            this.labelDecimalNumber.Font = null;
             this.labelDecimalNumber.Name = "labelDecimalNumber";
             // 
             // tnDecimalNumber
             // 
-            this.tnDecimalNumber.AccessibleDescription = null;
-            this.tnDecimalNumber.AccessibleName = null;
             resources.ApplyResources(this.tnDecimalNumber, "tnDecimalNumber");
-            this.tnDecimalNumber.BackgroundImage = null;
-            this.tnDecimalNumber.Font = null;
             this.tnDecimalNumber.Name = "tnDecimalNumber";
             this.tnDecimalNumber.NumberChanged += new System.EventHandler(this.tnDecimalNumber_NumberChanged);
             // 
             // labelDecimalSeparator
             // 
-            this.labelDecimalSeparator.AccessibleDescription = null;
-            this.labelDecimalSeparator.AccessibleName = null;
             resources.ApplyResources(this.labelDecimalSeparator, "labelDecimalSeparator");
-            this.labelDecimalSeparator.Font = null;
             this.labelDecimalSeparator.Name = "labelDecimalSeparator";
             // 
             // textBoxDecimalSeparator
             // 
-            this.textBoxDecimalSeparator.AccessibleDescription = null;
-            this.textBoxDecimalSeparator.AccessibleName = null;
             resources.ApplyResources(this.textBoxDecimalSeparator, "textBoxDecimalSeparator");
-            this.textBoxDecimalSeparator.BackgroundImage = null;
-            this.textBoxDecimalSeparator.Font = null;
             this.textBoxDecimalSeparator.Name = "textBoxDecimalSeparator";
             this.textBoxDecimalSeparator.TextChanged += new System.EventHandler(this.textBoxDecimalSeparator_TextChanged);
             // 
             // labelGroupSeparator
             // 
-            this.labelGroupSeparator.AccessibleDescription = null;
-            this.labelGroupSeparator.AccessibleName = null;
             resources.ApplyResources(this.labelGroupSeparator, "labelGroupSeparator");
-            this.labelGroupSeparator.Font = null;
             this.labelGroupSeparator.Name = "labelGroupSeparator";
             // 
             // textBoxGroupSeparator
             // 
-            this.textBoxGroupSeparator.AccessibleDescription = null;
-            this.textBoxGroupSeparator.AccessibleName = null;
             resources.ApplyResources(this.textBoxGroupSeparator, "textBoxGroupSeparator");
-            this.textBoxGroupSeparator.BackgroundImage = null;
-            this.textBoxGroupSeparator.Font = null;
             this.textBoxGroupSeparator.Name = "textBoxGroupSeparator";
             this.textBoxGroupSeparator.TextChanged += new System.EventHandler(this.textBoxGroupSeparator_TextChanged);
             // 
             // buttonSave
             // 
-            this.buttonSave.AccessibleDescription = null;
-            this.buttonSave.AccessibleName = null;
             resources.ApplyResources(this.buttonSave, "buttonSave");
-            this.buttonSave.BackgroundImage = null;
             this.buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonSave.Font = null;
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.UseVisualStyleBackColor = true;
             // 
             // buttonCancel
             // 
-            this.buttonCancel.AccessibleDescription = null;
-            this.buttonCancel.AccessibleName = null;
             resources.ApplyResources(this.buttonCancel, "buttonCancel");
-            this.buttonCancel.BackgroundImage = null;
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Font = null;
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // checkBoxAlignRight
             // 
-            this.checkBoxAlignRight.AccessibleDescription = null;
-            this.checkBoxAlignRight.AccessibleName = null;
             resources.ApplyResources(this.checkBoxAlignRight, "checkBoxAlignRight");
-            this.checkBoxAlignRight.Font = null;
             this.checkBoxAlignRight.Name = "checkBoxAlignRight";
             // 
             // labelSampleValue
             // 
-            this.labelSampleValue.AccessibleDescription = null;
-            this.labelSampleValue.AccessibleName = null;
             resources.ApplyResources(this.labelSampleValue, "labelSampleValue");
             this.labelSampleValue.Name = "labelSampleValue";
             // 
             // labelSampleLabel
             // 
-            this.labelSampleLabel.AccessibleDescription = null;
-            this.labelSampleLabel.AccessibleName = null;
             resources.ApplyResources(this.labelSampleLabel, "labelSampleLabel");
             this.labelSampleLabel.Name = "labelSampleLabel";
             // 
             // DecimalFieldPropertiesForm
             // 
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.labelSampleValue);
@@ -157,7 +119,6 @@ namespace OpenCBS.GUI.Export
             this.Controls.Add(this.labelDecimalSeparator);
             this.Controls.Add(this.tnDecimalNumber);
             this.Controls.Add(this.labelDecimalNumber);
-            this.Font = null;
             this.Name = "DecimalFieldPropertiesForm";
             this.ResumeLayout(false);
             this.PerformLayout();

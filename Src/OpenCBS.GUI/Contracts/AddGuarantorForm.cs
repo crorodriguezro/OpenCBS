@@ -146,7 +146,7 @@ namespace OpenCBS.GUI
             this.SuspendLayout();
             // 
             // groupBoxAmount
-            //
+            // 
             this.groupBoxAmount.Controls.Add(this.nudAmount);
             this.groupBoxAmount.Controls.Add(this.textBoxDesc);
             this.groupBoxAmount.Controls.Add(this.labelAmount);
@@ -179,7 +179,7 @@ namespace OpenCBS.GUI
             this.labelDesc.Name = "labelDesc";
             // 
             // groupBoxName
-            //
+            // 
             this.groupBoxName.Controls.Add(this.labelNameOfLeader);
             this.groupBoxName.Controls.Add(this.textBoxName);
             this.groupBoxName.Controls.Add(this.buttonAddMembres);
@@ -200,25 +200,25 @@ namespace OpenCBS.GUI
             this.textBoxName.ReadOnly = true;
             // 
             // buttonAddMembres
-            //
+            // 
             resources.ApplyResources(this.buttonAddMembres, "buttonAddMembres");
             this.buttonAddMembres.Name = "buttonAddMembres";
             this.buttonAddMembres.Click += new System.EventHandler(this.buttonAddMembres_Click);
             // 
             // buttonSelectAMember
-            //
+            // 
             resources.ApplyResources(this.buttonSelectAMember, "buttonSelectAMember");
             this.buttonSelectAMember.Name = "buttonSelectAMember";
             this.buttonSelectAMember.Click += new System.EventHandler(this.buttonSelectAMember_Click);
             // 
             // buttonCancel
-            //
+            // 
             resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonSave
-            //
+            // 
             resources.ApplyResources(this.buttonSave, "buttonSave");
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);

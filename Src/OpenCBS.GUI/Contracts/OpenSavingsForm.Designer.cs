@@ -111,12 +111,12 @@ namespace OpenCBS.GUI.Contracts
             this.udEntryFees.ValueChanged += new System.EventHandler(this.udEntryFees_ValueChanged);
             // 
             // lbInitialAmountMinMax
-            //
+            // 
             resources.ApplyResources(this.lbInitialAmountMinMax, "lbInitialAmountMinMax");
             this.lbInitialAmountMinMax.Name = "lbInitialAmountMinMax";
             // 
             // lbEntryFeesMinMax
-            //
+            // 
             resources.ApplyResources(this.lbEntryFeesMinMax, "lbEntryFeesMinMax");
             this.lbEntryFeesMinMax.Name = "lbEntryFeesMinMax";
             // 

@@ -83,8 +83,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // startDateTimePicker
             // 
-            resources.ApplyResources(this.startDateTimePicker, "startDateTimePicker");
             this.startDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            resources.ApplyResources(this.startDateTimePicker, "startDateTimePicker");
             this.startDateTimePicker.Name = "startDateTimePicker";
             // 
             // startDateLabel
@@ -101,13 +101,13 @@ namespace OpenCBS.GUI.Contracts
             // 
             // interestRateNumericUpDown
             // 
-            resources.ApplyResources(this.interestRateNumericUpDown, "interestRateNumericUpDown");
             this.interestRateNumericUpDown.DecimalPlaces = 2;
             this.interestRateNumericUpDown.Increment = new decimal(new int[] {
             5,
             0,
             0,
             131072});
+            resources.ApplyResources(this.interestRateNumericUpDown, "interestRateNumericUpDown");
             this.interestRateNumericUpDown.Name = "interestRateNumericUpDown";
             // 
             // installmentsNumericUpDown
@@ -122,14 +122,13 @@ namespace OpenCBS.GUI.Contracts
             // 
             // buttonsPanel
             // 
-            resources.ApplyResources(this.buttonsPanel, "buttonsPanel");
             this.buttonsPanel.Controls.Add(this.okButton);
             this.buttonsPanel.Controls.Add(this.cancelButton);
+            resources.ApplyResources(this.buttonsPanel, "buttonsPanel");
             this.buttonsPanel.Name = "buttonsPanel";
             // 
             // trancheConfigurationPanel
             // 
-            resources.ApplyResources(this.trancheConfigurationPanel, "trancheConfigurationPanel");
             this.trancheConfigurationPanel.Controls.Add(this.cmbPaymentMethod);
             this.trancheConfigurationPanel.Controls.Add(this._lbPaymentMethod);
             this.trancheConfigurationPanel.Controls.Add(this.firstRepaymentDateTimePicker);
@@ -145,13 +144,14 @@ namespace OpenCBS.GUI.Contracts
             this.trancheConfigurationPanel.Controls.Add(this.startDateLabel);
             this.trancheConfigurationPanel.Controls.Add(this.amountTextbox);
             this.trancheConfigurationPanel.Controls.Add(this.interestRateNumericUpDown);
+            resources.ApplyResources(this.trancheConfigurationPanel, "trancheConfigurationPanel");
             this.trancheConfigurationPanel.Name = "trancheConfigurationPanel";
             // 
             // cmbPaymentMethod
             // 
-            resources.ApplyResources(this.cmbPaymentMethod, "cmbPaymentMethod");
             this.cmbPaymentMethod.DisplayMember = "Name";
             this.cmbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cmbPaymentMethod, "cmbPaymentMethod");
             this.cmbPaymentMethod.FormattingEnabled = true;
             this.cmbPaymentMethod.Name = "cmbPaymentMethod";
             this.cmbPaymentMethod.ValueMember = "Id";
@@ -163,8 +163,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // firstRepaymentDateTimePicker
             // 
-            resources.ApplyResources(this.firstRepaymentDateTimePicker, "firstRepaymentDateTimePicker");
             this.firstRepaymentDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            resources.ApplyResources(this.firstRepaymentDateTimePicker, "firstRepaymentDateTimePicker");
             this.firstRepaymentDateTimePicker.Name = "firstRepaymentDateTimePicker";
             // 
             // firstRepaymentOnLabel

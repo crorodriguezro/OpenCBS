@@ -68,15 +68,14 @@ namespace OpenCBS.GUI.Configuration
             // 
             // tabctrlAddTeller
             // 
-            resources.ApplyResources(this.tabctrlAddTeller, "tabctrlAddTeller");
             this.tabctrlAddTeller.Controls.Add(this.tabBasicTeller);
             this.tabctrlAddTeller.Controls.Add(this.tabAdvancedTeller);
+            resources.ApplyResources(this.tabctrlAddTeller, "tabctrlAddTeller");
             this.tabctrlAddTeller.Name = "tabctrlAddTeller";
             this.tabctrlAddTeller.SelectedIndex = 0;
             // 
             // tabBasicTeller
             // 
-            resources.ApplyResources(this.tabBasicTeller, "tabBasicTeller");
             this.tabBasicTeller.Controls.Add(this.chxIsVault);
             this.tabBasicTeller.Controls.Add(this.cmbBranch);
             this.tabBasicTeller.Controls.Add(this.cmbUser);
@@ -90,6 +89,7 @@ namespace OpenCBS.GUI.Configuration
             this.tabBasicTeller.Controls.Add(this.tbDesc);
             this.tabBasicTeller.Controls.Add(this.lblName);
             this.tabBasicTeller.Controls.Add(this.tbName);
+            resources.ApplyResources(this.tabBasicTeller, "tabBasicTeller");
             this.tabBasicTeller.Name = "tabBasicTeller";
             // 
             // chxIsVault
@@ -100,24 +100,24 @@ namespace OpenCBS.GUI.Configuration
             // 
             // cmbBranch
             // 
-            resources.ApplyResources(this.cmbBranch, "cmbBranch");
             this.cmbBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cmbBranch, "cmbBranch");
             this.cmbBranch.FormattingEnabled = true;
             this.cmbBranch.Name = "cmbBranch";
             this.cmbBranch.SelectedIndexChanged += new System.EventHandler(this.cmbBranch_SelectedIndexChanged);
             // 
             // cmbUser
             // 
-            resources.ApplyResources(this.cmbUser, "cmbUser");
             this.cmbUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cmbUser, "cmbUser");
             this.cmbUser.FormattingEnabled = true;
             this.cmbUser.Name = "cmbUser";
             this.cmbUser.SelectedIndexChanged += new System.EventHandler(this.cmbUser_SelectedIndexChanged);
             // 
             // cmbCurrency
             // 
-            resources.ApplyResources(this.cmbCurrency, "cmbCurrency");
             this.cmbCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cmbCurrency, "cmbCurrency");
             this.cmbCurrency.FormattingEnabled = true;
             this.cmbCurrency.Name = "cmbCurrency";
             this.cmbCurrency.SelectedIndexChanged += new System.EventHandler(this.cmbCurrency_SelectedIndexChanged);
@@ -129,8 +129,8 @@ namespace OpenCBS.GUI.Configuration
             // 
             // cmbAccount
             // 
-            resources.ApplyResources(this.cmbAccount, "cmbAccount");
             this.cmbAccount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cmbAccount, "cmbAccount");
             this.cmbAccount.FormattingEnabled = true;
             this.cmbAccount.Name = "cmbAccount";
             this.cmbAccount.SelectedIndexChanged += new System.EventHandler(this.cmbAccount_SelectedIndexChanged);
@@ -172,7 +172,6 @@ namespace OpenCBS.GUI.Configuration
             // 
             // tabAdvancedTeller
             // 
-            resources.ApplyResources(this.tabAdvancedTeller, "tabAdvancedTeller");
             this.tabAdvancedTeller.Controls.Add(this.lblMaxAmountWithdrawal);
             this.tabAdvancedTeller.Controls.Add(this.lblMinAmountWithdrawal);
             this.tabAdvancedTeller.Controls.Add(this.label1);
@@ -187,6 +186,7 @@ namespace OpenCBS.GUI.Configuration
             this.tabAdvancedTeller.Controls.Add(this.lblMinAmountTeller);
             this.tabAdvancedTeller.Controls.Add(this.tbMaxAmountTeller);
             this.tabAdvancedTeller.Controls.Add(this.tbMinAmountTeller);
+            resources.ApplyResources(this.tabAdvancedTeller, "tabAdvancedTeller");
             this.tabAdvancedTeller.Name = "tabAdvancedTeller";
             // 
             // lblMaxAmountWithdrawal

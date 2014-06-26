@@ -30,17 +30,17 @@ namespace OpenCBS.GUI.Accounting
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClosureBookings));
             this.olvBookings = new BrightIdeasSoftware.ObjectListView();
-            this.olvColumn_Id = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_Date = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_Amount = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_DebitAccount = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_CreditAccount = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_EventId = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_EventType = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_Currency = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_ExchangeRate = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_Description = new BrightIdeasSoftware.OLVColumn();
-            this.olvColumn_Branch = new BrightIdeasSoftware.OLVColumn();
+            this.olvColumn_Id = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_Date = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_Amount = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_DebitAccount = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_CreditAccount = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_EventId = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_EventType = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_Currency = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_ExchangeRate = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_Description = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn_Branch = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             ((System.ComponentModel.ISupportInitialize)(this.olvBookings)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,94 +69,76 @@ namespace OpenCBS.GUI.Accounting
             this.olvColumn_ExchangeRate,
             this.olvColumn_Description,
             this.olvColumn_Branch});
-            this.olvBookings.Dock = System.Windows.Forms.DockStyle.Fill;
+            resources.ApplyResources(this.olvBookings, "olvBookings");
             this.olvBookings.FullRowSelect = true;
             this.olvBookings.GridLines = true;
             this.olvBookings.HasCollapsibleGroups = false;
-            this.olvBookings.Location = new System.Drawing.Point(0, 0);
-            this.olvBookings.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.olvBookings.Name = "olvBookings";
             this.olvBookings.ShowGroups = false;
-            this.olvBookings.Size = new System.Drawing.Size(879, 300);
-            this.olvBookings.TabIndex = 45;
             this.olvBookings.UseCompatibleStateImageBehavior = false;
             this.olvBookings.View = System.Windows.Forms.View.Details;
             // 
             // olvColumn_Id
             // 
             this.olvColumn_Id.AspectName = "Id";
-            this.olvColumn_Id.Text = "Id";
-            this.olvColumn_Id.Width = 61;
+            resources.ApplyResources(this.olvColumn_Id, "olvColumn_Id");
             // 
             // olvColumn_Date
             // 
             this.olvColumn_Date.AspectName = "Date";
-            this.olvColumn_Date.Text = "Date";
-            this.olvColumn_Date.Width = 97;
+            resources.ApplyResources(this.olvColumn_Date, "olvColumn_Date");
             // 
             // olvColumn_Amount
             // 
             this.olvColumn_Amount.AspectName = "Amount";
-            this.olvColumn_Amount.Text = "Amount";
-            this.olvColumn_Amount.Width = 80;
+            resources.ApplyResources(this.olvColumn_Amount, "olvColumn_Amount");
             // 
             // olvColumn_DebitAccount
             // 
             this.olvColumn_DebitAccount.AspectName = "DebitAccount";
-            this.olvColumn_DebitAccount.Text = "Debit Account";
-            this.olvColumn_DebitAccount.Width = 80;
+            resources.ApplyResources(this.olvColumn_DebitAccount, "olvColumn_DebitAccount");
             // 
             // olvColumn_CreditAccount
             // 
             this.olvColumn_CreditAccount.AspectName = "CreditAccount";
-            this.olvColumn_CreditAccount.Text = "Credit Account";
-            this.olvColumn_CreditAccount.Width = 80;
+            resources.ApplyResources(this.olvColumn_CreditAccount, "olvColumn_CreditAccount");
             // 
             // olvColumn_EventId
             // 
             this.olvColumn_EventId.AspectName = "EventId";
-            this.olvColumn_EventId.Text = "Event Id";
-            this.olvColumn_EventId.Width = 80;
+            resources.ApplyResources(this.olvColumn_EventId, "olvColumn_EventId");
             // 
             // olvColumn_EventType
             // 
             this.olvColumn_EventType.AspectName = "EventType";
-            this.olvColumn_EventType.Text = "Event Type";
-            this.olvColumn_EventType.Width = 80;
+            resources.ApplyResources(this.olvColumn_EventType, "olvColumn_EventType");
             // 
             // olvColumn_Currency
             // 
             this.olvColumn_Currency.AspectName = "Currency";
-            this.olvColumn_Currency.Text = "Currency";
-            this.olvColumn_Currency.Width = 80;
+            resources.ApplyResources(this.olvColumn_Currency, "olvColumn_Currency");
             // 
             // olvColumn_ExchangeRate
             // 
             this.olvColumn_ExchangeRate.AspectName = "ExchangeRate";
-            this.olvColumn_ExchangeRate.Text = "Exchange Rate";
-            this.olvColumn_ExchangeRate.Width = 80;
+            resources.ApplyResources(this.olvColumn_ExchangeRate, "olvColumn_ExchangeRate");
             // 
             // olvColumn_Description
             // 
             this.olvColumn_Description.AspectName = "Description";
-            this.olvColumn_Description.Text = "Description";
-            this.olvColumn_Description.Width = 80;
+            resources.ApplyResources(this.olvColumn_Description, "olvColumn_Description");
             // 
             // olvColumn_Branch
             // 
             this.olvColumn_Branch.AspectName = "Branch";
-            this.olvColumn_Branch.Text = "Branch";
-            this.olvColumn_Branch.Width = 80;
+            resources.ApplyResources(this.olvColumn_Branch, "olvColumn_Branch");
             // 
             // ClosureBookings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(879, 300);
             this.Controls.Add(this.olvBookings);
             this.Name = "ClosureBookings";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Bookings";
             ((System.ComponentModel.ISupportInitialize)(this.olvBookings)).EndInit();
             this.ResumeLayout(false);
 
