@@ -29,10 +29,6 @@ left join Credit cr on cr.id = ce.contract_id
 left join InstallmentTypes it on it.id = cr.installment_type
 GO
 
-alter table RepaymentEvents
-add bounce_fee money not null default(0)
-GO
-
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v14.8.0.0'
 WHERE   [name] = 'VERSION'
