@@ -47,7 +47,6 @@
   <ItemGroup>
     <Compile Include="AutoincrementedContractCodeGenerator.cs" />
     <Compile Include="CorporateTabsSample.cs" />
-    <Compile Include="LoanExtension.cs" />
     <Compile Include="LoanTabsSample.cs" />
     <Compile Include="MenuSample.cs" />
     <Compile Include="NonSolidarityGroupTabsSample.cs" />
