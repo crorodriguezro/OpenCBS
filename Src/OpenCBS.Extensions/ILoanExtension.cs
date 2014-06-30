@@ -1,6 +1,5 @@
 ﻿using System.Data.SqlClient;
 using OpenCBS.CoreDomain.Contracts.Loans;
-using OpenCBS.Extension.Tasks;
 
 namespace OpenCBS.Extensions
 {
