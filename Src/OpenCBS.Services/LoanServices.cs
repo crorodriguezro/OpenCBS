@@ -3158,7 +3158,7 @@ namespace OpenCBS.Services
                                            select item).ToList();
                     var listOfRble = (from item in repaymentEvents where item.Code == "RBLE" select item).ToList();
                     var listOfRgle = repaymentEvents.Except(listOfRble).ToList();
-                    if (repayEvent.Code == "RBLE")
+                    if (listOfRble.Count > 0)
                         CallInterceptor(new Dictionary<string, object>
                         {
                             {"Loan", loan},
@@ -3176,23 +3176,24 @@ namespace OpenCBS.Services
                             },
                             {"SqlTransaction", sqlTransaction}
                         });
-                    CallInterceptor(new Dictionary<string, object>
-                    {
-                        {"Loan", loan},
+                    if (listOfRgle.Count > 0)
+                        CallInterceptor(new Dictionary<string, object>
                         {
-                            "Event", new RepaymentEvent
+                            {"Loan", loan},
                             {
-                                Code = "RGLE",
-                                Principal = listOfRgle.Sum(item => item.Principal.Value),
-                                Interests = listOfRgle.Sum(item => item.Interests.Value),
-                                Commissions = listOfRgle.Sum(item => item.Commissions.Value),
-                                Penalties = listOfRgle.Sum(item => item.Fees.Value),
-                                Id = repayEvent.Id,
-                                Date = repayEvent.Date
-                            }
-                        },
-                        {"SqlTransaction", sqlTransaction}
-                    });
+                                "Event", new RepaymentEvent
+                                {
+                                    Code = "RGLE",
+                                    Principal = listOfRgle.Sum(item => item.Principal.Value),
+                                    Interests = listOfRgle.Sum(item => item.Interests.Value),
+                                    Commissions = listOfRgle.Sum(item => item.Commissions.Value),
+                                    Penalties = listOfRgle.Sum(item => item.Fees.Value),
+                                    Id = repayEvent.Id,
+                                    Date = repayEvent.Date
+                                }
+                            },
+                            {"SqlTransaction", sqlTransaction}
+                        });
                     sqlTransaction.Commit();
                 }
                 catch (Exception)
