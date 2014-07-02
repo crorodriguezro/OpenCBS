@@ -2966,6 +2966,17 @@
     <None Include="Reports\Internal\Village_Repayment_Schedule.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Reports\Office\Client_Personal_Information.zip" />
+    <None Include="Reports\Office\Committee_Appraisal.zip" />
+    <None Include="Reports\Office\Contract_History.zip" />
+    <None Include="Reports\Office\Disbursement_Cash_Receipt.zip" />
+    <None Include="Reports\Office\Individual_Loan_Agreement.zip" />
+    <None Include="Reports\Office\Loan_Events.zip" />
+    <None Include="Reports\Office\Repayment_Cash_Receipt.zip" />
+    <None Include="Reports\Office\Repayment_Schedule.zip" />
+    <None Include="Reports\Office\SavingsBook_Agreement.zip" />
+    <None Include="Reports\Office\SavingsBook_Cash_Receipt.zip" />
+    <None Include="Reports\Office\SavingsBook_Contract_Status.zip" />
     <None Include="Reports\Standard\Active_Loans.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
