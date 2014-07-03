@@ -140,6 +140,7 @@ namespace OpenCBS.GUI
             // frmShowError
             // 
             resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonOK;
             this.ControlBox = false;
             this.Controls.Add(this.richTextBoxExceptionDetail);
