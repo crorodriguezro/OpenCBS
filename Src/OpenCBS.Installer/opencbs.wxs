@@ -349,9 +349,6 @@
                         <File Id="Loan_Events_Word" Name="Loan_Events.zip" Source="SourceDir\Reports\Office\Loan_Events.zip" />
                         <File Id="Repayment_Cash_Receipt_Word" Name="Repayment_Cash_Receipt.zip" Source="SourceDir\Reports\Office\Repayment_Cash_Receipt.zip" />
                         <File Id="Repayment_Schedule_Word" Name="Repayment_Schedule.zip" Source="SourceDir\Reports\Office\Repayment_Schedule.zip" />
-                        <File Id="SavingsBook_Agreement_Word" Name="SavingsBook_Agreement.zip" Source="SourceDir\Reports\Office\SavingsBook_Agreement.zip" />
-                        <File Id="SavingsBook_Cash_Receipt_Word" Name="SavingsBook_Cash_Receipt.zip" Source="SourceDir\Reports\Office\SavingsBook_Cash_Receipt.zip" />
-                        <File Id="SavingsBook_Contract_Status_Word" Name="SavingsBook_Contract_Status.zip" Source="SourceDir\Reports\Office\SavingsBook_Contract_Status.zip" />
 	            </Component>
               </Directory>
               <Directory Id="dir_internal" Name="Internal">
