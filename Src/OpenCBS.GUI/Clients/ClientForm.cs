@@ -4338,7 +4338,7 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add(_event.OLB.GetFormatedValue(pCredit.UseCents));
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
-                    listViewItem.SubItems.Add("-"); 
+                    listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add(_event.OverduePrincipal.GetFormatedValue(pCredit.UseCents));
                     listViewItem.SubItems.Add(_event.OverdueDays.ToString());
@@ -5574,25 +5574,36 @@ namespace OpenCBS.GUI.Clients
         private void InitLoanDetailsPrintButton()
         {
             InitPrintButton(AttachmentPoint.LoanDetails, btnPrintLoanDetails);
-            LoadOfficeReports();
+            LoadLoanDetailsButtons();
         }
 
-        private void LoadOfficeReports()
+        private void LoadLoanDetailsButtons()
         {
             foreach (var loanDetailsButton in LoanDetailsButtons)
             {
                 var button = loanDetailsButton.GetButton(_client, _credit, _guarantee, _saving);
                 if (button == null) continue;
 
-                var items = button.ContextMenuStrip.Items;
-                var count = items.Count;
-                for (int i = 0; i < count; i++)
+                if (button.ContextMenuStrip != null)
                 {
-                    if (items[0] != null)
-                        btnPrintLoanDetails.Menu.Items.Add(items[0]);
+                    var items = button.ContextMenuStrip.Items;
+                    var count = items.Count;
+                    for (int i = 0; i < count; i++)
+                    {
+                        if (items[0] != null)
+                            btnPrintLoanDetails.Menu.Items.Add(items[0]);
+                    }
+                }
+                else
+                {
+                    var controls = loanDetailsButtonsPanel.Controls.Find(button.Name, false);
+                    if (controls.Any()) loanDetailsButtonsPanel.Controls.Remove(controls[0]);
+                    loanDetailsButtonsPanel.Controls.Add(button);
                 }
             }
         }
+
+
 
         private void InitLoanEventsPrintButton()
         {
