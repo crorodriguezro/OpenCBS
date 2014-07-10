@@ -284,7 +284,7 @@ namespace OpenCBS.GUI.Configuration
             EditUserForm frm = new EditUserForm
             {
                 Boss = boss
-                , AllUsers = us.FindAllExcept(boss, true)
+                , AllUsers = us.FindAllExcept(boss, false)
                 , AllBranches = bs.FindAllNonDeleted()
             };
 
