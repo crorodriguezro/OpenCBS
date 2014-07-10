@@ -181,7 +181,8 @@ namespace OpenCBS.GUI.Configuration
                         val.Key.ToString() == OGeneralSettings.STOP_WRITEOFF_PENALTY ||
                         val.Key.ToString() == OGeneralSettings.MODIFY_ENTRY_FEE ||
                         val.Key.ToString() == OGeneralSettings.USE_MANDATORY_SAVING_ACCOUNT ||
-                        val.Key.ToString() == OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY)
+                        val.Key.ToString() == OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY ||
+                        val.Key.ToString() == OGeneralSettings.USE_EXTERNAL_ACCOUNTING)
                     {
                         listViewItem.SubItems.Add(val.Value.ToString().Trim() == "1" ? "True" : "False");
                     }
@@ -229,7 +230,7 @@ namespace OpenCBS.GUI.Configuration
                     listViewItem.Tag = provisioningRate;
                     listViewItem.SubItems.Add("rescheduled");
                     listViewItem.SubItems.Add("-");
-                    
+
                     //listViewItem.SubItems.Add((Math.Round(provisioningRate.Rate, 2) * 100).ToString());
                     listViewItem.SubItems.Add((provisioningRate.ProvisioningValue * 100).ToString());
                     listViewItem.SubItems.Add((provisioningRate.ProvisioningInterest * 100).ToString());
@@ -256,11 +257,11 @@ namespace OpenCBS.GUI.Configuration
         private void InitializeListViewLoanScaleTables()
         {
             listViewLoanScale.Items.Clear();
-            
+
             foreach (LoanScaleRate lR in CoreDomainProvider.GetInstance().GetLoanScaleTable().LoanScaleRates)
             {
                 ListViewItem listViewItem = new ListViewItem(lR.Number.ToString());
-                
+
                 listViewItem.Tag = lR;
                 listViewItem.SubItems.Add(lR.ScaleMin.ToString());
                 listViewItem.SubItems.Add(lR.ScaleMax.ToString());
@@ -1010,7 +1011,7 @@ namespace OpenCBS.GUI.Configuration
             }
         }
 
-     
+
         #endregion
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -1033,7 +1034,7 @@ namespace OpenCBS.GUI.Configuration
 
         private void textBoxProvisioning_KeyPress(object sender, KeyPressEventArgs e)
         {
-            const char Delete = (char) 8;
+            const char Delete = (char)8;
             char decimalSeparator = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
             e.Handled = !Char.IsDigit(e.KeyChar) && e.KeyChar != Delete && e.KeyChar != decimalSeparator;
         }
@@ -1042,7 +1043,7 @@ namespace OpenCBS.GUI.Configuration
         {
             try
             {
-                pR = (ProvisioningRate) listViewProvisioningRules.SelectedItems[0].Tag;
+                pR = (ProvisioningRate)listViewProvisioningRules.SelectedItems[0].Tag;
                 if (pR.NbOfDaysMin == -1)
                 {
                     textBoxNbOfDaysMin.Enabled = false;
@@ -1054,12 +1055,13 @@ namespace OpenCBS.GUI.Configuration
                     textBoxNbOfDaysMax.Enabled = true;
                 }
                 InitializeProvisioningRate();
-            } catch
+            }
+            catch
             {
                 MessageBox.Show(@"Please, select proper row from the list.");
             }
         }
-       
+
         private void InitializeProvisioningRate()
         {
             groupBoxAddUser.Enabled = true;
@@ -1091,17 +1093,17 @@ namespace OpenCBS.GUI.Configuration
                 ServicesProvider.GetInstance().GetChartOfAccountsServices().UpdateLoanScaleTableInstance();
                 InitializeListViewLoanScaleTables();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
             }
         }
-        
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
             try
             {
-                if (pR.Number == 0) 
+                if (pR.Number == 0)
                     ServicesProvider.GetInstance().GetChartOfAccountsServices().AddProvisioningRate(pR);
 
                 ServicesProvider.GetInstance().GetChartOfAccountsServices().UpdateProvisioningTableInstance();
@@ -1136,7 +1138,8 @@ namespace OpenCBS.GUI.Configuration
                 entry.Key.ToString() == OGeneralSettings.STOP_WRITEOFF_PENALTY ||
                 entry.Key.ToString() == OGeneralSettings.MODIFY_ENTRY_FEE ||
                 entry.Key.ToString() == OGeneralSettings.USE_MANDATORY_SAVING_ACCOUNT ||
-                entry.Key.ToString() == OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY)
+                entry.Key.ToString() == OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY ||
+                entry.Key.ToString() == OGeneralSettings.USE_EXTERNAL_ACCOUNTING)
             {
                 groupBoxValue.Visible = true;
                 cbxValue.Visible = false;
@@ -1225,7 +1228,8 @@ namespace OpenCBS.GUI.Configuration
                      entry.Key.ToString() == OGeneralSettings.STOP_WRITEOFF_PENALTY ||
                      entry.Key.ToString() == OGeneralSettings.MODIFY_ENTRY_FEE ||
                      entry.Key.ToString() == OGeneralSettings.USE_MANDATORY_SAVING_ACCOUNT ||
-                     entry.Key.ToString() == OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY)
+                     entry.Key.ToString() == OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY ||
+                     entry.Key.ToString() == OGeneralSettings.USE_EXTERNAL_ACCOUNTING)
             {
                 radioButtonYes.Checked = entry.Value.ToString() == "1";
                 radioButtonNo.Checked = entry.Value.ToString() == "0";
@@ -1280,7 +1284,7 @@ namespace OpenCBS.GUI.Configuration
                          entryKey == OGeneralSettings.VILLAGEMINMEMBERS ||
                          entryKey == OGeneralSettings.VILLAGEMAXMEMBERS ||
                          entryKey == OGeneralSettings.WEEKENDDAY1 ||
-                         entryKey == OGeneralSettings.WEEKENDDAY2 || 
+                         entryKey == OGeneralSettings.WEEKENDDAY2 ||
                          entryKey == OGeneralSettings.CEASE_LAIE_DAYS ||
                          entryKey == OGeneralSettings.CLIENT_AGE_MIN ||
                          entryKey == OGeneralSettings.CLIENT_AGE_MAX ||
@@ -1337,11 +1341,6 @@ namespace OpenCBS.GUI.Configuration
             }
         }
 
-        private void radioButtonNo_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void InitializeHoliday()
         {
             groupBox4.Enabled = true;
@@ -1352,7 +1351,7 @@ namespace OpenCBS.GUI.Configuration
 
         private void listViewPublicHolidays_Click(object sender, EventArgs e)
         {
-            KeyValuePair<DateTime, string> valuePair = (KeyValuePair<DateTime, string>) listViewPublicHolidays.SelectedItems[0].Tag;
+            KeyValuePair<DateTime, string> valuePair = (KeyValuePair<DateTime, string>)listViewPublicHolidays.SelectedItems[0].Tag;
             entry = new DictionaryEntry(valuePair.Key, valuePair.Value); ;
             InitializeHoliday();
         }
@@ -1409,7 +1408,7 @@ namespace OpenCBS.GUI.Configuration
                 MessageBox.Show(MultiLanguageStrings.GetString(Ressource.GeneralSettings, "emptyPHDescription.Text"), "",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
-            } 
+            }
         }
 
         private void buttonPublicHolidayDelete_Click(object sender, EventArgs e)
@@ -1418,9 +1417,9 @@ namespace OpenCBS.GUI.Configuration
             {
                 ServicesProvider.GetInstance().GetNonWorkingDate().PublicHolidays.Remove((DateTime)entry.Key);
                 ServicesProvider.GetInstance().GetApplicationSettingsServices().DeleteNonWorkingDate(entry);
-               
+
                 PublicHolidaysWaitingForm waitingForm;
-               
+
                 DialogResult result;
 
                 if (entry.Value != null)
@@ -1472,7 +1471,7 @@ namespace OpenCBS.GUI.Configuration
 
         private void comboBoxValue_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            entry.Value = cbxValue.SelectedItem.ToString() == "Cash" ? 1: 2;
+            entry.Value = cbxValue.SelectedItem.ToString() == "Cash" ? 1 : 2;
         }
 
         private void FrmGeneralSettings_Load(object sender, EventArgs e)

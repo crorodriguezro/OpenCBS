@@ -66,7 +66,7 @@ namespace OpenCBS.Enums
         public static readonly string USE_DAILY_ACCRUAL_OF_PENALTY = "USE_DAILY_ACCRUAL_OF_PENALTY";
         public static readonly string NUMBER_GROUP_SEPARATOR = "NUMBER_GROUP_SEPARATOR";
         public static readonly string NUMBER_DECIMAL_SEPARATOR = "NUMBER_DECIMAL_SEPARATOR";
-
+        public static readonly string USE_EXTERNAL_ACCOUNTING = "USE_EXTERNAL_ACCOUNTING";
     }
 }
 

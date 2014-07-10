@@ -866,7 +866,7 @@ namespace OpenCBS.GUI
         private void LotrasmicMainWindowForm_Load(object sender, EventArgs e)
         {
             InitExtensions();
-             UserSettings.Language = UserSettings.GetUserLanguage();
+            UserSettings.Language = UserSettings.GetUserLanguage();
             if (InitializeTellerManagement())
             {
                 Ping();
@@ -983,6 +983,9 @@ namespace OpenCBS.GUI
                 var index = items.IndexOf(anchor);
                 items.Insert(index + 1, temp.GetItem());
             }
+            if (mainMenu.Items["mnuAccountancy"] != null)
+                mainMenu.Items["mnuAccountancy"].Visible = ApplicationSettings.GetInstance(User.CurrentUser.Md5).UseExternalAccounting;
+
         }
 
         private static void bwReportLoader_DoWork(object sender, DoWorkEventArgs e)

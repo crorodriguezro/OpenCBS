@@ -96,6 +96,7 @@ namespace OpenCBS.Shared.Settings
             _defaultParamList.Add(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, 0);
             _defaultParamList.Add(OGeneralSettings.NUMBER_GROUP_SEPARATOR, " ");
             _defaultParamList.Add(OGeneralSettings.NUMBER_DECIMAL_SEPARATOR, ",");
+            _defaultParamList.Add(OGeneralSettings.USE_EXTERNAL_ACCOUNTING, 0);
         }
 
         #region Internal stuff
@@ -103,7 +104,7 @@ namespace OpenCBS.Shared.Settings
         //private static ApplicationSettings _theUniqueInstance;
         private Hashtable _dbParamList;
         private readonly Hashtable _defaultParamList;
-        
+
         public static void SuppressRemotingInfos(string pMd5)
         {
             if (_generalsSettings.ContainsKey(pMd5))
@@ -151,7 +152,7 @@ namespace OpenCBS.Shared.Settings
                 if (((bool)value))
                 {
                     _dbParamList[key] = "1";
-                } 
+                }
                 else
                 {
                     _dbParamList[key] = "0";
@@ -199,7 +200,7 @@ namespace OpenCBS.Shared.Settings
         {
             get
             {
-                 return (string)GetSpecificParameter(OGeneralSettings.ID_PATTERN);
+                return (string)GetSpecificParameter(OGeneralSettings.ID_PATTERN);
             }
         }
         public bool IsAllowMultipleLoans
@@ -218,7 +219,7 @@ namespace OpenCBS.Shared.Settings
             }
         }
 
-     
+
 
         public bool IsCalculationLateFeesDuringHolidays
         {
@@ -227,10 +228,11 @@ namespace OpenCBS.Shared.Settings
                 return GetSpecificParameter(OGeneralSettings.CALCULATIONLATEFEESDURINGPUBLICHOLIDAYS).ToString() == "1";
             }
         }
- 
+
         public int? LateDaysAfterAccrualCeases
         {
-            get {
+            get
+            {
                 return GetSpecificParameter(OGeneralSettings.LATEDAYSAFTERACCRUALCEASES) == null || Convert.ToString(GetSpecificParameter(OGeneralSettings.LATEDAYSAFTERACCRUALCEASES)) == ""
                            ? 0
                            : Convert.ToInt32(GetSpecificParameter(OGeneralSettings.LATEDAYSAFTERACCRUALCEASES));
@@ -247,7 +249,7 @@ namespace OpenCBS.Shared.Settings
             get { return Convert.ToInt32(GetSpecificParameter(OGeneralSettings.GROUPMAXMEMBERS)); }
         }
 
-        public  int ClientAgeMin
+        public int ClientAgeMin
         {
             get { return Convert.ToInt32(GetSpecificParameter(OGeneralSettings.CLIENT_AGE_MIN)); }
         }
@@ -262,9 +264,9 @@ namespace OpenCBS.Shared.Settings
             get { return Convert.ToInt32(GetSpecificParameter(OGeneralSettings.MAX_LOANS_COVERED)); }
         }
 
-        public  int MaxGuarantorAmount
+        public int MaxGuarantorAmount
         {
-            get { return Convert.ToInt32(GetSpecificParameter(OGeneralSettings.MAX_GUARANTOR_AMOUNT)); }    
+            get { return Convert.ToInt32(GetSpecificParameter(OGeneralSettings.MAX_GUARANTOR_AMOUNT)); }
         }
 
         public int VillageMinMembers
@@ -313,7 +315,7 @@ namespace OpenCBS.Shared.Settings
             }
         }
 
-       
+
 
         public bool IsOlbBeforeRepayment
         {
@@ -396,7 +398,7 @@ namespace OpenCBS.Shared.Settings
                 return GetSpecificParameter(OGeneralSettings.INTERESTS_ALSO_CREDITED_IN_FL).ToString() == "1";
             }
         }
-        
+
         public bool EnforceIDPattern
         {
             get
@@ -459,10 +461,15 @@ namespace OpenCBS.Shared.Settings
             return days;
         }
 
-       
+
         public bool UseMandatorySavingAccount
         {
             get { return GetSpecificParameter(OGeneralSettings.USE_MANDATORY_SAVING_ACCOUNT).ToString() == "1"; }
+        }
+
+        public bool UseExternalAccounting
+        {
+            get { return GetSpecificParameter(OGeneralSettings.USE_EXTERNAL_ACCOUNTING).ToString() == "1"; }
         }
 
         public bool UseDailyAccrualOfPenalty
@@ -472,12 +479,12 @@ namespace OpenCBS.Shared.Settings
 
         public string NumberGroupSeparator
         {
-            get { return (string) GetSpecificParameter(OGeneralSettings.NUMBER_GROUP_SEPARATOR); }
+            get { return (string)GetSpecificParameter(OGeneralSettings.NUMBER_GROUP_SEPARATOR); }
         }
 
         public string NumberDecimalSeparator
         {
-            get { return (string) GetSpecificParameter(OGeneralSettings.NUMBER_DECIMAL_SEPARATOR); }
+            get { return (string)GetSpecificParameter(OGeneralSettings.NUMBER_DECIMAL_SEPARATOR); }
         }
     }
 }

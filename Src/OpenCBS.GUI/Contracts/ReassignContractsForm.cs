@@ -64,10 +64,10 @@ namespace OpenCBS.GUI.Contracts
             contractsObjectListView.CheckBoxes = true;
             olbColumn.AspectToStringConverter =
             amountColumn.AspectToStringConverter = value =>
-            {
-                var amount = (decimal)value;
-                return amount.ToString("N2");
-            };
+                {
+                    var amount = value == null ? 0 : (decimal)value;
+                    return amount.ToString("N2");
+                };
             startDateColumn.AspectToStringConverter =
             closeDateColumn.AspectToStringConverter = value =>
             {
@@ -91,7 +91,7 @@ namespace OpenCBS.GUI.Contracts
             {
                 fromCombobox.Items.Add(user);
 
-                if (!user.IsDeleted )
+                if (!user.IsDeleted)
                 {
                     toCombobox.Items.Add(user);
                 }
@@ -107,8 +107,8 @@ namespace OpenCBS.GUI.Contracts
 
             var selectedContracts =
                 (from contract in contractsObjectListView.FilteredObjects.Cast<ReassignContractItem>()
-                where contract.CanReassign
-                select contract.ContractId).ToArray();
+                 where contract.CanReassign
+                 select contract.ContractId).ToArray();
             if (!selectedContracts.Any()) return;
 
             if (!Confirm("Do you confirm the operation?")) return;

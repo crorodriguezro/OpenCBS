@@ -232,10 +232,10 @@ namespace OpenCBS.Manager.Contracts
             using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
             {
                 c.AddParam("@id", pClientId);
-                c.AddParam("@status1", (int) OContractStatus.Active);
-                c.AddParam("@status2", (int) OContractStatus.Validated);
-                c.AddParam("@status3", (int) OContractStatus.Pending);
-                c.AddParam("@status4", (int) OContractStatus.Postponed);
+                c.AddParam("@status1", (int)OContractStatus.Active);
+                c.AddParam("@status2", (int)OContractStatus.Validated);
+                c.AddParam("@status3", (int)OContractStatus.Pending);
+                c.AddParam("@status4", (int)OContractStatus.Postponed);
 
                 using (OpenCbsReader r = c.ExecuteReader())
                 {
@@ -302,8 +302,8 @@ namespace OpenCBS.Manager.Contracts
 
         public List<CreditSearchResult> SearchCreditContractByCriteres(int pageNumber, string pQuery, out int count)
         {
-            int startRow = 20*(pageNumber - 1) + 1;
-            int endRow = 20*pageNumber;
+            int startRow = 20 * (pageNumber - 1) + 1;
+            int endRow = 20 * pageNumber;
             const string query = @"
                 SELECT * FROM (			
 		                SELECT ROW_NUMBER() OVER (ORDER BY [user_id]) row, COUNT(1) OVER(PARTITION BY [user_id]) row_count, * FROM (
@@ -391,8 +391,8 @@ namespace OpenCBS.Manager.Contracts
                                 ClientName = reader.GetString("client_name"),
                                 ContractStartDate = reader.GetDateTime("start_date").ToShortDateString(),
                                 ContractEndDate = reader.GetDateTime("close_date").ToShortDateString(),
-                                ContractStatus = ((OContractStatus) reader.GetSmallInt("status")).ToString(),
-                                LoanOfficer = new User {Id = reader.GetInt("loanofficer_id")}
+                                ContractStatus = ((OContractStatus)reader.GetSmallInt("status")).ToString(),
+                                LoanOfficer = new User { Id = reader.GetInt("loanofficer_id") }
                             };
 
                         list.Add(result);
@@ -448,7 +448,7 @@ namespace OpenCBS.Manager.Contracts
                                 };
                         }
                         else
-                            guarantor.Tiers = new Group {Name = r.GetString("name")};
+                            guarantor.Tiers = new Group { Name = r.GetString("name") };
 
                         guarantor.Tiers.Id = r.GetInt("tiers_id");
                         list.Add(guarantor);
@@ -490,7 +490,7 @@ namespace OpenCBS.Manager.Contracts
             using (OpenCbsCommand c = new OpenCbsCommand(sqlTextContract, pSqlTransac.Connection, pSqlTransac))
             {
                 c.AddParam("@id", pLoanId);
-                c.AddParam("@status", (int) OContractStatus.WrittenOff);
+                c.AddParam("@status", (int)OContractStatus.WrittenOff);
                 c.ExecuteNonQuery();
             }
         }
@@ -793,8 +793,8 @@ namespace OpenCBS.Manager.Contracts
             c.AddParam("@AmountUnderLoc", pLoan.AmountUnderLoc);
             c.AddParam("@MaturityLoc", pLoan.MaturityLoc);
 
-            c.AddParam("@AnticipatedTotalRepaymentPenaltiesBase", (int) pLoan.AnticipatedTotalRepaymentPenaltiesBase);
-            c.AddParam("@AnticipatedPartialRepaymentPenaltiesBase", (int) pLoan.AnticipatedPartialRepaymentPenaltiesBase);
+            c.AddParam("@AnticipatedTotalRepaymentPenaltiesBase", (int)pLoan.AnticipatedTotalRepaymentPenaltiesBase);
+            c.AddParam("@AnticipatedPartialRepaymentPenaltiesBase", (int)pLoan.AnticipatedPartialRepaymentPenaltiesBase);
             c.AddParam("@insurance", pLoan.Insurance);
         }
 
@@ -849,10 +849,27 @@ namespace OpenCBS.Manager.Contracts
 
         public void ReassignLoans(int[] ids, int loanOfficerId, SqlTransaction transaction)
         {
+            var list = new List<int>();
             var query = ReadQuery("LoanManager.ReassignLoansHistory.sql");
-            transaction.Connection.Execute(query, new {To = loanOfficerId, Ids = ids}, transaction);
+            var max = 2000;
+
+            for (int i = 0; i < ids.Length; i++)
+            {
+                list.Add(ids[i]);
+                if (i > max)
+                {
+                    transaction.Connection.Execute(query, new { To = loanOfficerId, Ids = list.ToArray() }, transaction);
+                    query = ReadQuery("LoanManager.ReassignLoans.sql");
+                    transaction.Connection.Execute(query, new { To = loanOfficerId, Ids = list.ToArray() }, transaction);
+                    list.Clear();
+                    max += 2000;
+                }
+            }
+
+            transaction.Connection.Execute(query, new { To = loanOfficerId, Ids = list.ToArray() }, transaction);
             query = ReadQuery("LoanManager.ReassignLoans.sql");
-            transaction.Connection.Execute(query, new {To = loanOfficerId, Ids = ids}, transaction);
+            transaction.Connection.Execute(query, new { To = loanOfficerId, Ids = list.ToArray() }, transaction);
+            list.Clear();
         }
 
         public void UpdateLoanLoanOfficer(int pLoanId, int pOfficerToId, int pOfficerFromId, SqlTransaction pTransac)
@@ -966,7 +983,7 @@ namespace OpenCBS.Manager.Contracts
             var query = ReadQuery("LoanManager.GetReassignContractItems.sql");
             using (var connection = GetConnection())
             {
-                return connection.Query<ReassignContractItem>(query, new {Id = id});
+                return connection.Query<ReassignContractItem>(query, new { Id = id });
             }
         }
 
@@ -1170,7 +1187,7 @@ namespace OpenCBS.Manager.Contracts
             using (OpenCbsCommand c = new OpenCbsCommand(q, pTransaction.Connection, pTransaction))
             {
                 c.AddParam("@id", pLoan.Id);
-                c.AddParam("@status", (int) pLoan.ContractStatus);
+                c.AddParam("@status", (int)pLoan.ContractStatus);
                 c.AddParam("@date", pLoan.CreditCommiteeDate);
                 c.AddParam("@comment", pLoan.CreditCommiteeComment);
                 c.AddParam("@credit_commitee_code", pLoan.CreditCommitteeCode);
@@ -1375,7 +1392,7 @@ namespace OpenCBS.Manager.Contracts
             {
 
                 c.AddParam("@code", "fake_code");
-                c.AddParam("@status", (int) pContract.ContractStatus);
+                c.AddParam("@status", (int)pContract.ContractStatus);
                 c.AddParam("@creditCommiteeDate", pContract.CreditCommiteeDate);
                 c.AddParam("@creditCommiteeComment", pContract.CreditCommiteeComment);
                 c.AddParam("@creditCommiteeCode", pContract.CreditCommitteeCode);
@@ -1837,20 +1854,20 @@ namespace OpenCBS.Manager.Contracts
                 {
                     if (loanEvent is LoanDisbursmentEvent)
                     {
-                        if (((LoanDisbursmentEvent) loanEvent).PaymentMethodId == null) continue;
-                        int paymentMethodId = (int) ((LoanDisbursmentEvent) loanEvent).PaymentMethodId;
+                        if (((LoanDisbursmentEvent)loanEvent).PaymentMethodId == null) continue;
+                        int paymentMethodId = (int)((LoanDisbursmentEvent)loanEvent).PaymentMethodId;
                         loanEvent.PaymentMethod = _paymentMethodManager.SelectPaymentMethodById(paymentMethodId);
                     }
                     if (loanEvent is RepaymentEvent)
                     {
-                        if (((RepaymentEvent) loanEvent).PaymentMethodId == null) continue;
-                        int paymentMethodId = (int) ((RepaymentEvent) loanEvent).PaymentMethodId;
+                        if (((RepaymentEvent)loanEvent).PaymentMethodId == null) continue;
+                        int paymentMethodId = (int)((RepaymentEvent)loanEvent).PaymentMethodId;
                         loanEvent.PaymentMethod = _paymentMethodManager.SelectPaymentMethodById(paymentMethodId);
                     }
                     if (loanEvent is TrancheEvent)
                     {
-                        if (((TrancheEvent) loanEvent).PaymentMethodId == null) continue;
-                        int paymentMethodId = (int)((TrancheEvent) loanEvent).PaymentMethodId;
+                        if (((TrancheEvent)loanEvent).PaymentMethodId == null) continue;
+                        int paymentMethodId = (int)((TrancheEvent)loanEvent).PaymentMethodId;
                         loanEvent.PaymentMethod = _paymentMethodManager.SelectPaymentMethodById(paymentMethodId);
                     }
                 }
@@ -1902,8 +1919,8 @@ namespace OpenCBS.Manager.Contracts
             c.AddParam("@AmountUnderLoc", pLoan.AmountUnderLoc);
             c.AddParam("@MaturityLoc", pLoan.MaturityLoc);
 
-            c.AddParam("@AnticipatedTotalRepaymentPenaltiesBase", (int) pLoan.AnticipatedTotalRepaymentPenaltiesBase);
-            c.AddParam("@AnticipatedPartialRepaymentPenaltiesBase", (int) pLoan.AnticipatedPartialRepaymentPenaltiesBase);
+            c.AddParam("@AnticipatedTotalRepaymentPenaltiesBase", (int)pLoan.AnticipatedTotalRepaymentPenaltiesBase);
+            c.AddParam("@AnticipatedPartialRepaymentPenaltiesBase", (int)pLoan.AnticipatedPartialRepaymentPenaltiesBase);
 
             if (pLoan.FundingLine != null)
                 c.AddParam("@fundingLine_id", pLoan.FundingLine.Id);
@@ -1957,7 +1974,7 @@ namespace OpenCBS.Manager.Contracts
                                      : r.GetChar("client_type_code") == 'G'
                                            ? OClientTypes.Group
                                            : OClientTypes.Corporate,
-                    ContractStatus = (OContractStatus) r.GetSmallInt("status"),
+                    ContractStatus = (OContractStatus)r.GetSmallInt("status"),
                     CreditCommiteeDate = r.GetNullDateTime("credit_commitee_date"),
                     CreditCommiteeComment = r.GetString("credit_commitee_comment"),
                     CreditCommitteeCode = r.GetString("credit_commitee_code"),
@@ -2084,7 +2101,7 @@ namespace OpenCBS.Manager.Contracts
                             CollateralPropertyValue propertyValue = new CollateralPropertyValue
                                 {
                                     Id = collateralId,
-                                    Property = new CollateralProperty {Id = r.GetInt("property_id")},
+                                    Property = new CollateralProperty { Id = r.GetInt("property_id") },
                                     //Property. = _collateralProductManager.SelectCollateralProperty(r.GetInt("property_id")),
                                     Value = r.GetString("value")
                                 };
@@ -2273,15 +2290,15 @@ namespace OpenCBS.Manager.Contracts
                                 ,
                                 LateDays = r.GetInt("late_days")
                                 ,
-                                LoanOfficer = new User {Id = r.GetInt("loan_officer_id")}
+                                LoanOfficer = new User { Id = r.GetInt("loan_officer_id") }
                                 ,
                                 Phone = r.GetString("phone")
                                 ,
-                                Status = (OContractStatus) r.GetInt("status")
+                                Status = (OContractStatus)r.GetInt("status")
                                 ,
                                 UseCents = r.GetBool("use_cents")
                                 ,
-                                Kind = (AlertKind) r.GetInt("kind")
+                                Kind = (AlertKind)r.GetInt("kind")
                                 ,
                                 BranchName = r.GetString("branch_name")
                             };
@@ -2347,7 +2364,7 @@ namespace OpenCBS.Manager.Contracts
                 return result != null && Convert.ToBoolean(result);
             }
         }
-        
+
         public List<int> GetLoanIdForRepayment(DateTime date)
         {
             var listLoanId = new List<int>();
