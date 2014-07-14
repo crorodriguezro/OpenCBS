@@ -20,6 +20,7 @@
 // Contact: contact@opencbs.com
 
 using System.Collections.Generic;
+using System.Data;
 using OpenCBS.CoreDomain;
 using System.Data.SqlClient;
 using OpenCBS.CoreDomain.Dashboard;
@@ -471,13 +472,13 @@ namespace OpenCBS.Manager
             {
                 while (reader.Read())
                 {
-                  
+
                     var portfolioLine = new PortfolioLine
                     {
                         Name = reader.GetString("name"),
                         Amount = reader.GetDecimal("amount"),
                         Quantity = reader.GetInt("quantity"),
-                          Color = reader.GetString("color")
+                        Color = reader.GetString("color")
                     };
                     dashboard.PortfolioLines.Add(portfolioLine);
                 }
@@ -496,6 +497,38 @@ namespace OpenCBS.Manager
                 }
             }
             return dashboard;
+        }
+
+        public List<User> GetSubordinate(int idUser)
+        {
+            var listUsers = new List<User>();
+
+            using (var conn = GetConnection())
+            {
+                using (var coman = new OpenCbsCommand { Connection = conn })
+                {
+                    coman.CommandText = "select * from dbo.GetSubordinates(@id)";
+                    coman.AddParam("@id", idUser);
+                    var reader = coman.ExecuteReader(CommandBehavior.CloseConnection);
+
+                    while (reader.Read())
+                    {
+                        listUsers.Add(new User
+                            {
+                                Id = reader.GetInt("id"),
+                                FirstName = reader.GetString("first_name"),
+                                LastName = reader.GetString("last_name"),
+                                IsDeleted = reader.GetBool("deleted"),
+                                UserName = reader.GetString("user_name"),
+                                Password = reader.GetString("user_pass"),
+                                Mail = reader.GetString("mail"),
+                                Sex = reader.GetChar("sex"),
+                                HasContract = reader.GetInt("num_contracts") > 0
+                            });
+                    }
+                }
+            }
+            return listUsers;
         }
     }
 }

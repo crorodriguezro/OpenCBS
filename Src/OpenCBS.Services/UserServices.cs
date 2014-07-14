@@ -184,6 +184,7 @@ namespace OpenCBS.Services
             return _users.Find(item => item.Id == id);
         }
 
+
         public User Find(int id, bool toUpdateUsers)
         {
             if (toUpdateUsers)
@@ -321,5 +322,11 @@ namespace OpenCBS.Services
         {
             _users = null;
         }
+
+        public List<User> GetSubordinates(int userId)
+        {
+            return _userManager.GetSubordinate(userId);
+        }
+
     }
 }

@@ -2251,13 +2251,12 @@ namespace OpenCBS.GUI.Clients
             cmbLoanOfficer.Items.Clear();
             _subordinates = new List<User>();
             _subordinates.Add(User.CurrentUser);
-            _subordinates.AddRange(User.CurrentUser.Subordinates);
+            _subordinates.AddRange(ServicesProvider.GetInstance().GetUserServices().GetSubordinates(User.CurrentUser.Id));
             _subordinates.Sort();
 
             foreach (User user in _subordinates)
             {
-                if (!user.IsDeleted)
-                    cmbLoanOfficer.Items.Add(user);
+                cmbLoanOfficer.Items.Add(user);
             }
             // set favoutite loan officer
             if (_credit.LoanOfficer != null)
