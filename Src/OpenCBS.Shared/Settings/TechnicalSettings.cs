@@ -77,7 +77,7 @@ namespace OpenCBS.Shared.Settings
 
         public static bool UseDemoDatabase
         {
-            get { return Convert.ToBoolean(GetValue("UseDemoDatabase", "False")); }
+            get { return Convert.ToBoolean(GetValue("USE_DEMO_DATABASE", "False")); }
         }
 
         public static string DatabaseServerName
