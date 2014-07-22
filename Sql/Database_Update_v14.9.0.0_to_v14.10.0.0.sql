@@ -11,6 +11,9 @@ AS RETURN
 )
 GO
 
+DElETE FROM GeneralParameters WHERE [key] ='USE_EXTERNAL_ACCOUNTING'
+GO
+
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v14.10.0.0'
 WHERE   [name] = 'VERSION'
