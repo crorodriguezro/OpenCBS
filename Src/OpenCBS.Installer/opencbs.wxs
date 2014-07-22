@@ -56,6 +56,10 @@
       <RegistrySearch Id='FindDatabaseList' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_LIST" />
     </Property>
 	
+	<Property Id="UseDemoDatabase" Value="true">
+      <RegistrySearch Id='FindUseDemoDatabase' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="UseDemoDatabase" />
+    </Property>
+	
 	<Property Id="DEMODIRECTORY">C:\Users\Public</Property>
 
     <Directory Id="TARGETDIR" Name="SourceDir">
@@ -138,6 +142,7 @@
                 <RegistryValue Id="DATABASE_PASSWORD" Type="string" Name="DATABASE_PASSWORD" Value="[PASSWORD]"/>
                 <RegistryValue Id="DATABASE_TIMEOUT" Type="string" Name="DATABASE_TIMEOUT" Value="[TIMEOUT]"/>
                 <RegistryValue Id="DATABASE_LIST" Type="string" Name="DATABASE_LIST" Value="[DATABASELIST]"/>
+				<RegistryValue Id="UseDemoDatabase" Type="string" Name="UseDemoDatabase" Value="[UseDemoDatabase]"/>
               </RegistryKey>
             </Component>
             <Directory Id="DIR_TEMPLATE" Name="Template">
