@@ -332,8 +332,13 @@ namespace OpenCBS.DatabaseConnection
 
         public static bool CheckSQLServerConnection()
         {
-            string sqlConnection = String.Format(@"user id={0};password={1};data source={2};persist security info=False;initial catalog=MASTER;connection timeout=10",
-                TechnicalSettings.DatabaseLoginName, TechnicalSettings.DatabasePassword, TechnicalSettings.DatabaseServerName);
+            string sqlConnection =
+                TechnicalSettings.UseDemoDatabase
+                    ? @"data source=(LocalDB)\v11.0;Integrated Security=True;"
+                    : String.Format(
+                        @"user id={0};password={1};data source={2};persist security info=False;initial catalog=MASTER;connection timeout=10",
+                        TechnicalSettings.DatabaseLoginName, TechnicalSettings.DatabasePassword,
+                        TechnicalSettings.DatabaseServerName);
             SqlConnection connection = new SqlConnection(sqlConnection);
             try
             {
@@ -349,8 +354,13 @@ namespace OpenCBS.DatabaseConnection
 
         public static bool CheckSQLDatabaseConnection()
         {
-            string sqlConnection = String.Format(@"user id={0};password={1};data source={2};persist security info=False;initial catalog={3};connection timeout=10",
-                TechnicalSettings.DatabaseLoginName, TechnicalSettings.DatabasePassword, TechnicalSettings.DatabaseServerName,TechnicalSettings.DatabaseName);
+            string sqlConnection =
+                TechnicalSettings.UseDemoDatabase
+                    ? @"data source=(LocalDB)\v11.0;Integrated Security=True;"
+                    : String.Format(
+                        @"user id={0};password={1};data source={2};persist security info=False;initial catalog={3};connection timeout=10",
+                        TechnicalSettings.DatabaseLoginName, TechnicalSettings.DatabasePassword,
+                        TechnicalSettings.DatabaseServerName, TechnicalSettings.DatabaseName);
             SqlConnection connection = new SqlConnection(sqlConnection);
             try
             {
