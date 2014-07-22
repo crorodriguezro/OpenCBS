@@ -17,7 +17,7 @@
   <Product Id="$(var.ProductCode)" Name="OpenCBS $(var.ProductVersion)" Language="1033"
            Version="$(var.ProductVersion)" Manufacturer="OpenCBS" UpgradeCode="$(var.UpgradeCode)">
     <Package Comments="Open Core Banking System" Compressed="yes" InstallerVersion="200"
-             Keywords="OpenCBS" Languages="1033" Manufacturer="Open Octopus"/>
+             Keywords="OpenCBS" Languages="1033" Manufacturer="Open Octopus" InstallScope="perMachine"/>
 
     <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" CompressionLevel="high"/>
 
