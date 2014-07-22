@@ -111,7 +111,6 @@ namespace OpenCBS.GUI
         private void DisplayWinFormDetails()
         {
             _DisplayDetails();
-            InitializeContractCurrencies();
             InitAlerts();
         }
 
@@ -157,10 +156,7 @@ namespace OpenCBS.GUI
             return true;
         }
 
-        private void InitializeContractCurrencies()
-        {
-            mnuChartOfAccounts.Click += mnuChartOfAccounts_Click;
-        }
+      
 
         private void _DisplayDetails()
         {
@@ -1032,7 +1028,6 @@ namespace OpenCBS.GUI
         {
             FrmCurrencyType _frmCurrency = new FrmCurrencyType();
             _frmCurrency.Show();
-            InitializeContractCurrencies();
         }
 
         private void eventsToolStripMenuItem_Click(object sender, EventArgs e)

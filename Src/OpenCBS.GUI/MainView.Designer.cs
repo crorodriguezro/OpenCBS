@@ -13,7 +13,6 @@ namespace OpenCBS.GUI
         private System.Windows.Forms.ToolStripMenuItem mnuAccounting;
         private System.Windows.Forms.ToolStripMenuItem mnuNewClient;
         private System.Windows.Forms.ToolStripMenuItem mnuSearchClient;
-        private System.Windows.Forms.ToolStripMenuItem mnuChartOfAccounts;
         private System.ComponentModel.IContainer components;
         private System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.ToolStripMenuItem mnuWindow;
@@ -107,7 +106,6 @@ namespace OpenCBS.GUI
             this.mnuSearchContract = new System.Windows.Forms.ToolStripMenuItem();
             this.reasignToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAccounting = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuChartOfAccounts = new System.Windows.Forms.ToolStripMenuItem();
             this.accountingRulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trialBalanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAccountView = new System.Windows.Forms.ToolStripMenuItem();
@@ -489,7 +487,6 @@ namespace OpenCBS.GUI
             // mnuAccounting
             // 
             this.mnuAccounting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuChartOfAccounts,
             this.accountingRulesToolStripMenuItem,
             this.trialBalanceToolStripMenuItem,
             this.toolStripMenuItemAccountView,
@@ -501,12 +498,6 @@ namespace OpenCBS.GUI
             this.fiscalYearToolStripMenuItem});
             this.mnuAccounting.Name = "mnuAccounting";
             resources.ApplyResources(this.mnuAccounting, "mnuAccounting");
-            // 
-            // mnuChartOfAccounts
-            // 
-            this.mnuChartOfAccounts.Image = global::OpenCBS.GUI.Properties.Resources.page;
-            resources.ApplyResources(this.mnuChartOfAccounts, "mnuChartOfAccounts");
-            this.mnuChartOfAccounts.Name = "mnuChartOfAccounts";
             // 
             // accountingRulesToolStripMenuItem
             // 
