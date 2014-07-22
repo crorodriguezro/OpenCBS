@@ -3614,6 +3614,8 @@ xcopy "$(SolutionDir)..\Sql\DropAndCreateFunctions.sql" "$(TargetDir)Update" /y
 xcopy "$(SolutionDir)..\Sql\DropAndCreateUDF.sql" "$(TargetDir)Update" /y
 xcopy "$(SolutionDir)..\Sql\AccountingRules.sql" "$(TargetDir)Update" /y
 xcopy "$(SolutionDir)..\Sql\Objects.xml" "$(TargetDir)Update" /y
+xcopy "$(SolutionDir)..\Sql\*.mdf" "$(TargetDir)" /y
+xcopy "$(SolutionDir)..\Sql\*.ldf" "$(TargetDir)" /y
 
 xcopy "$(TargetDir)*.dll" "c:\OpenCBSLibs" /y
 xcopy "$(TargetDir)OpenCBS.GUI.exe" "c:\OpenCBSLibs" /y

@@ -177,9 +177,11 @@ namespace OpenCBS.GUI.Database
 
         private void InitializeTabPageSqlDatabaseSettings(SqlDatabaseSettings pSqlDatabaseSettings)
         {
-            lblSQLServerSettings.Text = string.Format(" {0}: {1}     {2}:  {3}     {4}:  ****", 
-                MultiLanguageStrings.GetString(Ressource.FrmDatabaseSettings, "Server.Text"), TechnicalSettings.DatabaseServerName,
-                MultiLanguageStrings.GetString(Ressource.FrmDatabaseSettings, "Login.Text"), TechnicalSettings.DatabaseLoginName,
+            lblSQLServerSettings.Text = string.Format(" {0}: {1}     {2}:  {3}     {4}:  ****",
+                MultiLanguageStrings.GetString(Ressource.FrmDatabaseSettings, "Server.Text"), 
+                TechnicalSettings.UseDemoDatabase ? @"(LocalDB)\v11.0" : TechnicalSettings.DatabaseServerName,
+                MultiLanguageStrings.GetString(Ressource.FrmDatabaseSettings, "Login.Text"), 
+                TechnicalSettings.UseDemoDatabase ? "" : TechnicalSettings.DatabaseLoginName,
                 MultiLanguageStrings.GetString(Ressource.FrmDatabaseSettings, "Password.Text"));
 
             lblSQLDatabaseSettingsName.Text = string.Format("{0}:  {1}            {2}:  {3}            {4}:  {5}", 
@@ -234,12 +236,12 @@ namespace OpenCBS.GUI.Database
 
         private void InitializeTabPageSqlServerSettings()
         {
-            lblSQLServerSettings.Text = string.Format("{0}:  {1}     {2}:  {3}     {4}:  ****", 
-                MultiLanguageStrings.GetString(
-                    Ressource.FrmDatabaseSettings, "Server.Text"), TechnicalSettings.DatabaseServerName,
-                    MultiLanguageStrings.GetString(Ressource.FrmDatabaseSettings, "Login.Text"),TechnicalSettings.DatabaseLoginName,
-                    MultiLanguageStrings.GetString(
-                    Ressource.FrmDatabaseSettings, "Password.Text"));
+            lblSQLServerSettings.Text = string.Format(" {0}: {1}     {2}:  {3}     {4}:  ****",
+                MultiLanguageStrings.GetString(Ressource.FrmDatabaseSettings, "Server.Text"),
+                TechnicalSettings.UseDemoDatabase ? @"(LocalDB)\v11.0" : TechnicalSettings.DatabaseServerName,
+                MultiLanguageStrings.GetString(Ressource.FrmDatabaseSettings, "Login.Text"),
+                TechnicalSettings.UseDemoDatabase ? "" : TechnicalSettings.DatabaseLoginName,
+                MultiLanguageStrings.GetString(Ressource.FrmDatabaseSettings, "Password.Text"));
             tableLayoutPanelSQLSettings.Controls.Add(groupBoxSQLSettings, 0, 0);
             tableLayoutPanelSQLSettings.Controls.Add(groupBoxSaveSettings, 0, 2);
             lblResultMessage.Text = string.Empty;
@@ -508,7 +510,7 @@ namespace OpenCBS.GUI.Database
         {
             if (e.Error != null)
                 throw e.Error;
-            btnSQLServerChangeSettings.Enabled = true;
+            btnSQLServerChangeSettings.Enabled = !TechnicalSettings.UseDemoDatabase;
             groupBoxDatabaseManagement.Enabled = true;
             lblDetectDatabasesInProgress.Visible = false;
             DisplayDatabases();

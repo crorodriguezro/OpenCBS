@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
 using Moletrator.SQLDocumentor;
@@ -47,6 +48,24 @@ namespace OpenCBS.Services
 
         public bool CheckSQLServerConnection()
         {
+            const string path = "C:\\Users\\Public";
+#if Debug
+            path =  AppDomain.CurrentDomain.BaseDirectory;
+#endif
+            if (TechnicalSettings.UseDemoDatabase &&
+                File.Exists(path + "\\DemoDB.mdf") &&
+                File.Exists(path + "\\DemoDB.ldf") &&
+                File.Exists(path + "\\DemoDB_attachments.mdf") &&
+                File.Exists(path + "\\DemoDB_attachments.ldf"))
+            {
+                using (var connection = ConnectionManager.GeneralSqlConnection)
+                {
+                    connection.Open();
+                    var databases = DatabaseManager.GetOpenCbsDatabases(connection);
+                    if (databases.FirstOrDefault(database => database.Name == "DemoDB") == null)
+                        DatabaseManager.AttachDemoDatabase(connection, path);
+                }
+            }
             return ConnectionManager.CheckSQLServerConnection();
         }
 

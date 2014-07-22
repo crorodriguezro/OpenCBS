@@ -27,6 +27,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Runtime.InteropServices;
 using Ionic.Zip;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.Manager.Database
 {
@@ -139,28 +140,36 @@ namespace OpenCBS.Manager.Database
 
         private static string BackupToFile(string fileName, string database, SqlConnection connection)
         {
-            // To perform a backup we first need to get the appropriate backup folder, which is a bit tricky.
-            // First, we need to get the service name.
-            const string query = "SELECT @@SERVICENAME AS name";
-            OpenCbsCommand cmd = new OpenCbsCommand(query, connection);
-            string serviceName = string.Empty;
-            using (OpenCbsReader reader = cmd.ExecuteReader())
+            string backupDirectory;
+            if (TechnicalSettings.UseDemoDatabase)
             {
-                if (reader.Empty) return null;
-                reader.Read();
-                serviceName = reader.GetString("name");
+                backupDirectory = @"C:\Users\Public";
             }
-            
-            // Then get the instance name from the registry
-            const string sqlServerKey = @"SOFTWARE\Microsoft\Microsoft SQL Server";
-            string key = string.Format(@"{0}\Instance Names\SQL", sqlServerKey);
-            string instanceName = ExtendedRegistry.GetKeyValue(key, serviceName);
-            if (string.IsNullOrEmpty(instanceName)) return null;
-            
-            // Finally, get the backup directory
-            key = string.Format(@"{0}\{1}\MSSQLServer", sqlServerKey, instanceName);
-            string backupDirectory = ExtendedRegistry.GetKeyValue(key, "BackupDirectory");
-            if (string.IsNullOrEmpty(backupDirectory)) return null;
+            else
+            {
+                // To perform a backup we first need to get the appropriate backup folder, which is a bit tricky.
+                // First, we need to get the service name.
+                const string query = "SELECT @@SERVICENAME AS name";
+                OpenCbsCommand cmd = new OpenCbsCommand(query, connection);
+                string serviceName = string.Empty;
+                using (OpenCbsReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Empty) return null;
+                    reader.Read();
+                    serviceName = reader.GetString("name");
+                }
+
+                // Then get the instance name from the registry
+                const string sqlServerKey = @"SOFTWARE\Microsoft\Microsoft SQL Server";
+                string key = string.Format(@"{0}\Instance Names\SQL", sqlServerKey);
+                string instanceName = ExtendedRegistry.GetKeyValue(key, serviceName);
+                if (string.IsNullOrEmpty(instanceName)) return null;
+
+                // Finally, get the backup directory
+                key = string.Format(@"{0}\{1}\MSSQLServer", sqlServerKey, instanceName);
+                backupDirectory = ExtendedRegistry.GetKeyValue(key, "BackupDirectory");
+                if (string.IsNullOrEmpty(backupDirectory)) return null;
+            }
 
             string path = Path.Combine(backupDirectory, fileName);
             BackupToFileImpl(path, database, connection);

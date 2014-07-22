@@ -75,6 +75,11 @@ namespace OpenCBS.Shared.Settings
             get { return Convert.ToBoolean(GetValue("NewRepaymentWindow", "False")); }
         }
 
+        public static bool UseDemoDatabase
+        {
+            get { return Convert.ToBoolean(GetValue("UseDemoDatabase", "False")); }
+        }
+
         public static string DatabaseServerName
         {
             get { return GetValue("DATABASE_SERVER_NAME", "localhost"); }
