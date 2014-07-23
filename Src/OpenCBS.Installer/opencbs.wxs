@@ -234,7 +234,7 @@
                 <File Id="OpenCBS.GUI.resources_1" Name="OpenCBS.GUI.resources.dll" Source="SourceDir\ru-RU\OpenCBS.GUI.resources.dll" />
                 <File Id="OpenCBS.MultiLanguageRessources.resources_1" Name="OpenCBS.MultiLanguageRessources.resources.dll" Source="SourceDir\ru-RU\OpenCBS.MultiLanguageRessources.resources.dll" />
                 <File Id="OpenCBS.Reports.resources_1" Name="OpenCBS.Reports.resources.dll" Source="SourceDir\ru-RU\OpenCBS.Reports.resources.dll" />
-				        <File Id="OpenCBS.Extension.EventInterceptor.resources.dll" Source="SourceDir\ru-RU\OpenCBS.Extension.EventInterceptor.resources.dll"/>
+				        <File Id="OpenCBS.Extension.EventInterceptor.resources.dll_1" Source="SourceDir\ru-RU\OpenCBS.Extension.EventInterceptor.resources.dll"/>
               </Component>
             </Directory>
             <Directory Id="DIR_RESSOURCES_ES" Name="es-ES">
