@@ -472,6 +472,7 @@
       <ComponentRef Id="ApplicationShortcut" />
       <ComponentRef Id="extensions" />
       <ComponentRef Id="Languages"/>
+      <ComponentRef Id="AccountingScripts"/>
 	  <ComponentRef Id="DemoDbDirectory" />
     </Feature>
 
