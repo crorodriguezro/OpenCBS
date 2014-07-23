@@ -56,11 +56,11 @@
       <RegistrySearch Id='FindDatabaseList' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_LIST" />
     </Property>
 	
-	<Property Id="USEDEMODATABASE" Value="true">
+	  <Property Id="USEDEMODATABASE" Value="true">
       <RegistrySearch Id='FindUseDemoDatabase' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="USE_DEMO_DATABASE" />
     </Property>
 	
-	<Property Id="DEMODIRECTORY">C:\Users\Public</Property>
+	  <Property Id="DEMODIRECTORY">C:\Users\Public</Property>
 
     <Directory Id="TARGETDIR" Name="SourceDir">
 
@@ -76,14 +76,14 @@
         </Component>
       </Directory>
 	  
-	  <Directory Id="DEMODIRECTORY" Name="DemoDb">
-		<Component Id="DemoDbDirectory" Guid="fefa597c-f9df-4073-8128-d2c7fc92775a">
-			<File Id="DemoDB.mdf" Source="SourceDir\DemoDB.mdf" />
-			<File Id="DemoDB.ldf" Source="SourceDir\DemoDB.ldf" />
-			<File Id="DemoDB_attachments.mdf" Source="SourceDir\DemoDB_attachments.mdf" />
-			<File Id="DemoDB_attachments.ldf" Source="SourceDir\DemoDB_attachments.ldf" />
-		</Component>
-	  </Directory>
+	    <Directory Id="DEMODIRECTORY" Name="DemoDb">
+		    <Component Id="DemoDbDirectory" Guid="fefa597c-f9df-4073-8128-d2c7fc92775a">
+			    <File Id="DemoDB.mdf" Source="SourceDir\DemoDB.mdf" />
+			    <File Id="DemoDB.ldf" Source="SourceDir\DemoDB.ldf" />
+			    <File Id="DemoDB_attachments.mdf" Source="SourceDir\DemoDB_attachments.mdf" />
+			    <File Id="DemoDB_attachments.ldf" Source="SourceDir\DemoDB_attachments.ldf" />
+		    </Component>
+	    </Directory>
 
       <Directory Id="$(var.PlatformProgramFilesFolder)" SourceName="User's Programs Menu">
         <Directory Id="DIR_ROOT" Name="OpenCBS" >
@@ -142,7 +142,7 @@
                 <RegistryValue Id="DATABASE_PASSWORD" Type="string" Name="DATABASE_PASSWORD" Value="[PASSWORD]"/>
                 <RegistryValue Id="DATABASE_TIMEOUT" Type="string" Name="DATABASE_TIMEOUT" Value="[TIMEOUT]"/>
                 <RegistryValue Id="DATABASE_LIST" Type="string" Name="DATABASE_LIST" Value="[DATABASELIST]"/>
-				<RegistryValue Id="USE_DEMO_DATABASE" Type="string" Name="USE_DEMO_DATABASE" Value="[USEDEMODATABASE]"/>
+				        <RegistryValue Id="USE_DEMO_DATABASE" Type="string" Name="USE_DEMO_DATABASE" Value="[USEDEMODATABASE]"/>
               </RegistryKey>
             </Component>
             <Directory Id="DIR_TEMPLATE" Name="Template">
@@ -178,7 +178,22 @@
                 <File Id="OpenCBS.Extension.Events.dll" Source="SourceDir\Extensions\OpenCBS.Extension.Events.dll" />
                 <File Id="OpenCBS.Extension.DelinquencyManagementModule.dll" Source="SourceDir\Extensions\OpenCBS.Extension.DelinquencyManagementModule.dll" />
                 <File Id="OpenCBS.Extension.FastRepayment.dll" Source="SourceDir\Extensions\OpenCBS.Extension.FastRepayment.dll" />
+				        <File Id="OpenCBS.Extension.EventInterceptor.dll" Source="SourceDir\Extensions\OpenCBS.Extension.EventInterceptor.dll" />
               </Component>
+				      <Directory Id="DIR_ACCOUNTING_SCRIPTS" Name="AccountingScripts">
+				        <Component Id="AccountingScripts" Guid="53e39962-5472-462e-b178-9dcbb65839ec">
+					        <File Id="Accounts.py" Source="SourceDir\Extensions\AccountingScripts\Accounts.py" />
+					        <File Id="Export.py" Source="SourceDir\Extensions\AccountingScripts\Export.py" />
+					        <File Id="GetAccrualInterestEntries.py" Source="SourceDir\Extensions\AccountingScripts\GetAccrualInterestEntries.py" />
+					        <File Id="GetDepositEntries.py" Source="SourceDir\Extensions\AccountingScripts\GetDepositEntries.py" />
+					        <File Id="GetDisbursementEntries.py" Source="SourceDir\Extensions\AccountingScripts\GetDisbursementEntries.py" />
+					        <File Id="GetEntryFeeEntries.py" Source="SourceDir\Extensions\AccountingScripts\GetEntryFeeEntries.py" />
+					        <File Id="GetRepaymentEntries.py" Source="SourceDir\Extensions\AccountingScripts\GetRepaymentEntries.py" />
+					        <File Id="GetTransitionEntries.py" Source="SourceDir\Extensions\AccountingScripts\GetTransitionEntries.py" />
+					        <File Id="GetWriteOffEntries.py" Source="SourceDir\Extensions\AccountingScripts\GetWriteOffEntries.py" />
+					        <File Id="Main.py" Source="SourceDir\Extensions\AccountingScripts\Main.py" />
+				        </Component>
+				      </Directory>
             </Directory>
 
             <Directory Id="DIR_LANGUAGES" Name="Languages">
@@ -206,6 +221,7 @@
                 <File Id="OpenCBS.Extension.Events.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.Events.resources.dll"/>
                 <File Id="OpenCBS.Extension.DelinquencyManagementModule.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.DelinquencyManagementModule.resources.dll"/>
                 <File Id="OpenCBS.Extension.FastRepayment.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.FastRepayment.resources.dll"/>
+				        <File Id="OpenCBS.Extension.EventInterceptor.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.EventInterceptor.resources.dll"/>
               </Component>
             </Directory>
             <Directory Id="DIR_RESSOURCES_EN" Name="en">
@@ -218,6 +234,7 @@
                 <File Id="OpenCBS.GUI.resources_1" Name="OpenCBS.GUI.resources.dll" Source="SourceDir\ru-RU\OpenCBS.GUI.resources.dll" />
                 <File Id="OpenCBS.MultiLanguageRessources.resources_1" Name="OpenCBS.MultiLanguageRessources.resources.dll" Source="SourceDir\ru-RU\OpenCBS.MultiLanguageRessources.resources.dll" />
                 <File Id="OpenCBS.Reports.resources_1" Name="OpenCBS.Reports.resources.dll" Source="SourceDir\ru-RU\OpenCBS.Reports.resources.dll" />
+				        <File Id="OpenCBS.Extension.EventInterceptor.resources.dll" Source="SourceDir\ru-RU\OpenCBS.Extension.EventInterceptor.resources.dll"/>
               </Component>
             </Directory>
             <Directory Id="DIR_RESSOURCES_ES" Name="es-ES">
