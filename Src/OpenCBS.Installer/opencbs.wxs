@@ -56,7 +56,7 @@
       <RegistrySearch Id='FindDatabaseList' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\[PREVIOUSINSTALLEDVERSION]" Name="DATABASE_LIST" />
     </Property>
 	  
-	  <Property Id="USEDEMODATABASE" Value="[NEVERINSTALLEDBEFORE]">
+	  <Property Id="USEDEMODATABASE">
       <RegistrySearch Id='FindUseDemoDatabase' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\[PREVIOUSINSTALLEDVERSION]" Name="USE_DEMO_DATABASE" />
     </Property>
 	
