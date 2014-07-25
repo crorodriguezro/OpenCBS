@@ -68,6 +68,7 @@
     <Compile Include="IHost.cs" />
     <Compile Include="IEventInterceptor.cs" />
     <Compile Include="IInitializer.cs" />
+    <Compile Include="ILoanApprovalControl.cs" />
     <Compile Include="ILoanDetailsButton.cs" />
     <Compile Include="ILoanExtension.cs" />
     <Compile Include="ILoanTabs.cs" />
@@ -76,6 +77,12 @@
     <Compile Include="IPersonTabs.cs" />
     <Compile Include="ISavingsTabs.cs" />
     <Compile Include="ISolidarityGroupTabs.cs" />
+    <Compile Include="LoanApprovalUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LoanApprovalUserControl.Designer.cs">
+      <DependentUpon>LoanApprovalUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MefContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -92,6 +99,11 @@
       <Project>{b3288e21-e5a9-4620-bef3-afb0b207655c}</Project>
       <Name>OpenCBS.Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LoanApprovalUserControl.resx">
+      <DependentUpon>LoanApprovalUserControl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

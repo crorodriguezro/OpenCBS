@@ -313,20 +313,6 @@ namespace OpenCBS.GUI.Clients
             this.lblLocCurrencyMin = new System.Windows.Forms.Label();
             this.lblLocCurrencyMax = new System.Windows.Forms.Label();
             this.tabPageCreditCommitee = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnPrintCreditCommittee = new OpenCBS.GUI.UserControl.PrintButton();
-            this.buttonCreditCommiteeSaveDecision = new System.Windows.Forms.Button();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblCCStatus = new System.Windows.Forms.Label();
-            this.pnlCCStatus = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.cmbContractStatus = new System.Windows.Forms.ComboBox();
-            this.labelCreditCommiteeDate = new System.Windows.Forms.Label();
-            this.dateTimePickerCreditCommitee = new System.Windows.Forms.DateTimePicker();
-            this.labelCreditCommiteeComment = new System.Windows.Forms.Label();
-            this.labelCreditCommiteeCode = new System.Windows.Forms.Label();
-            this.textBoxCreditCommiteeComment = new System.Windows.Forms.TextBox();
-            this.tBCreditCommitteeCode = new System.Windows.Forms.TextBox();
             this.tabPageLoanRepayment = new System.Windows.Forms.TabPage();
             this.tabControlRepayments = new System.Windows.Forms.TabControl();
             this.tabPageRepayments = new System.Windows.Forms.TabPage();
@@ -608,11 +594,6 @@ namespace OpenCBS.GUI.Clients
             this.tableLayoutPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCompulsoryAmountPercent)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
-            this.tabPageCreditCommitee.SuspendLayout();
-            this.flowLayoutPanel7.SuspendLayout();
-            this.tableLayoutPanel11.SuspendLayout();
-            this.pnlCCStatus.SuspendLayout();
-            this.flowLayoutPanel6.SuspendLayout();
             this.tabPageLoanRepayment.SuspendLayout();
             this.tabControlRepayments.SuspendLayout();
             this.tabPageRepayments.SuspendLayout();
@@ -2259,106 +2240,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabPageCreditCommitee
             // 
-            this.tabPageCreditCommitee.Controls.Add(this.flowLayoutPanel7);
-            this.tabPageCreditCommitee.Controls.Add(this.tableLayoutPanel11);
             resources.ApplyResources(this.tabPageCreditCommitee, "tabPageCreditCommitee");
             this.tabPageCreditCommitee.Name = "tabPageCreditCommitee";
-            // 
-            // flowLayoutPanel7
-            // 
-            resources.ApplyResources(this.flowLayoutPanel7, "flowLayoutPanel7");
-            this.flowLayoutPanel7.Controls.Add(this.btnPrintCreditCommittee);
-            this.flowLayoutPanel7.Controls.Add(this.buttonCreditCommiteeSaveDecision);
-            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            // 
-            // btnPrintCreditCommittee
-            // 
-            this.btnPrintCreditCommittee.AttachmentPoint = OpenCBS.Reports.AttachmentPoint.CreditCommittee;
-            this.btnPrintCreditCommittee.Image = global::OpenCBS.GUI.Properties.Resources.bullet_arrow_down;
-            resources.ApplyResources(this.btnPrintCreditCommittee, "btnPrintCreditCommittee");
-            this.btnPrintCreditCommittee.Name = "btnPrintCreditCommittee";
-            this.btnPrintCreditCommittee.ReportInitializer = null;
-            this.btnPrintCreditCommittee.UseVisualStyleBackColor = true;
-            // 
-            // buttonCreditCommiteeSaveDecision
-            // 
-            resources.ApplyResources(this.buttonCreditCommiteeSaveDecision, "buttonCreditCommiteeSaveDecision");
-            this.buttonCreditCommiteeSaveDecision.Name = "buttonCreditCommiteeSaveDecision";
-            this.buttonCreditCommiteeSaveDecision.Click += new System.EventHandler(this.buttonCreditCommiteeSaveDecision_Click);
-            // 
-            // tableLayoutPanel11
-            // 
-            resources.ApplyResources(this.tableLayoutPanel11, "tableLayoutPanel11");
-            this.tableLayoutPanel11.Controls.Add(this.lblCCStatus, 0, 0);
-            this.tableLayoutPanel11.Controls.Add(this.pnlCCStatus, 1, 0);
-            this.tableLayoutPanel11.Controls.Add(this.labelCreditCommiteeDate, 0, 1);
-            this.tableLayoutPanel11.Controls.Add(this.dateTimePickerCreditCommitee, 1, 1);
-            this.tableLayoutPanel11.Controls.Add(this.labelCreditCommiteeComment, 0, 3);
-            this.tableLayoutPanel11.Controls.Add(this.labelCreditCommiteeCode, 0, 2);
-            this.tableLayoutPanel11.Controls.Add(this.textBoxCreditCommiteeComment, 1, 3);
-            this.tableLayoutPanel11.Controls.Add(this.tBCreditCommitteeCode, 1, 2);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            // 
-            // lblCCStatus
-            // 
-            resources.ApplyResources(this.lblCCStatus, "lblCCStatus");
-            this.lblCCStatus.BackColor = System.Drawing.Color.Transparent;
-            this.lblCCStatus.Name = "lblCCStatus";
-            // 
-            // pnlCCStatus
-            // 
-            resources.ApplyResources(this.pnlCCStatus, "pnlCCStatus");
-            this.pnlCCStatus.Controls.Add(this.flowLayoutPanel6);
-            this.pnlCCStatus.Name = "pnlCCStatus";
-            // 
-            // flowLayoutPanel6
-            // 
-            resources.ApplyResources(this.flowLayoutPanel6, "flowLayoutPanel6");
-            this.flowLayoutPanel6.Controls.Add(this.cmbContractStatus);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            // 
-            // cmbContractStatus
-            // 
-            this.cmbContractStatus.DisplayMember = "Value";
-            this.cmbContractStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbContractStatus.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbContractStatus, "cmbContractStatus");
-            this.cmbContractStatus.Name = "cmbContractStatus";
-            this.cmbContractStatus.ValueMember = "Key";
-            // 
-            // labelCreditCommiteeDate
-            // 
-            resources.ApplyResources(this.labelCreditCommiteeDate, "labelCreditCommiteeDate");
-            this.labelCreditCommiteeDate.BackColor = System.Drawing.Color.Transparent;
-            this.labelCreditCommiteeDate.Name = "labelCreditCommiteeDate";
-            // 
-            // dateTimePickerCreditCommitee
-            // 
-            this.dateTimePickerCreditCommitee.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            resources.ApplyResources(this.dateTimePickerCreditCommitee, "dateTimePickerCreditCommitee");
-            this.dateTimePickerCreditCommitee.Name = "dateTimePickerCreditCommitee";
-            // 
-            // labelCreditCommiteeComment
-            // 
-            resources.ApplyResources(this.labelCreditCommiteeComment, "labelCreditCommiteeComment");
-            this.labelCreditCommiteeComment.BackColor = System.Drawing.Color.Transparent;
-            this.labelCreditCommiteeComment.Name = "labelCreditCommiteeComment";
-            // 
-            // labelCreditCommiteeCode
-            // 
-            resources.ApplyResources(this.labelCreditCommiteeCode, "labelCreditCommiteeCode");
-            this.labelCreditCommiteeCode.BackColor = System.Drawing.Color.Transparent;
-            this.labelCreditCommiteeCode.Name = "labelCreditCommiteeCode";
-            // 
-            // textBoxCreditCommiteeComment
-            // 
-            resources.ApplyResources(this.textBoxCreditCommiteeComment, "textBoxCreditCommiteeComment");
-            this.textBoxCreditCommiteeComment.Name = "textBoxCreditCommiteeComment";
-            // 
-            // tBCreditCommitteeCode
-            // 
-            resources.ApplyResources(this.tBCreditCommitteeCode, "tBCreditCommitteeCode");
-            this.tBCreditCommitteeCode.Name = "tBCreditCommitteeCode";
             // 
             // tabPageLoanRepayment
             // 
@@ -3882,14 +3765,6 @@ namespace OpenCBS.GUI.Clients
             ((System.ComponentModel.ISupportInitialize)(this.numCompulsoryAmountPercent)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
-            this.tabPageCreditCommitee.ResumeLayout(false);
-            this.tabPageCreditCommitee.PerformLayout();
-            this.flowLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel11.ResumeLayout(false);
-            this.tableLayoutPanel11.PerformLayout();
-            this.pnlCCStatus.ResumeLayout(false);
-            this.pnlCCStatus.PerformLayout();
-            this.flowLayoutPanel6.ResumeLayout(false);
             this.tabPageLoanRepayment.ResumeLayout(false);
             this.tabControlRepayments.ResumeLayout(false);
             this.tabPageRepayments.ResumeLayout(false);
@@ -4026,11 +3901,6 @@ namespace OpenCBS.GUI.Clients
         private Label labelProjectConcurrence;
         private Label labelProjectMarket;
         private TabPage tabPageCreditCommitee;
-        private DateTimePicker dateTimePickerCreditCommitee;
-        private Label labelCreditCommiteeComment;
-        private TextBox textBoxCreditCommiteeComment;
-        private Label labelCreditCommiteeDate;
-        private System.Windows.Forms.Button buttonCreditCommiteeSaveDecision;
         private ColumnHeader columnHeaderStatus;
         private ColumnHeader columnProductType;
         private TextBox textBoxLoanContractCode;
@@ -4069,8 +3939,6 @@ namespace OpenCBS.GUI.Clients
         private GroupBox gBProjectFollowUp;
         private System.Windows.Forms.Button buttonProjectAddFollowUp;
         private NumericUpDown numericUpDownProjectJobs;
-        private TextBox tBCreditCommitteeCode;
-        private Label labelCreditCommiteeCode;
         private TabPage tabPageSavingDetails;
         private TabPage tabPageLoanGuarantees;
         private SplitContainer splitContainer1;
@@ -4241,11 +4109,6 @@ namespace OpenCBS.GUI.Clients
         private TextBox textBoxLoanLateFeesOnOverdueInterest;
         private Label labelLoanLateFeesOnOverdueInterestMinMax;
         private TableLayoutPanel tableLayoutPanel9;
-        private FlowLayoutPanel flowLayoutPanel6;
-        private TableLayoutPanel tableLayoutPanel11;
-        private Label lblCCStatus;
-        private Panel pnlCCStatus;
-        private FlowLayoutPanel flowLayoutPanel7;
         private FlowLayoutPanel flowLayoutPanel9;
         private FlowLayoutPanel pnlSavingsButtons;
         private TableLayoutPanel tableLayoutPanel5;
@@ -4338,11 +4201,9 @@ namespace OpenCBS.GUI.Clients
         private ComboBox cmbRollover2;
         private Label lblLimitOfTermDepositPeriod;
         private ComboBox cmbCompulsorySaving;
-        private ComboBox cmbContractStatus;
         private TableLayoutPanel tlpSBDetails;
         private ColumnHeader colCancelDate;
         private PrintButton btnPrintLoanDetails;
-        private PrintButton btnPrintCreditCommittee;
         private PrintButton btnPrintGuarantors;
         private PrintButton btnPrintSavings;
         private EconomicActivityControl eacLoan;

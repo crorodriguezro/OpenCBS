@@ -1021,7 +1021,7 @@
     <value>btnPrintGuarantors</value>
   </data>
   <data name="&gt;&gt;btnPrintGuarantors.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintGuarantors.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -3001,7 +3001,7 @@
     <value>listViewLoanInstallments</value>
   </data>
   <data name="&gt;&gt;listViewLoanInstallments.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;listViewLoanInstallments.Parent" xml:space="preserve">
     <value>tabPageInstallments</value>
@@ -3175,7 +3175,7 @@
     <value>btnPrintLoanDetails</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanDetails.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanDetails.Parent" xml:space="preserve">
     <value>loanDetailsButtonsPanel</value>
@@ -4162,7 +4162,7 @@
     <value>eacLoan</value>
   </data>
   <data name="&gt;&gt;eacLoan.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.EconomicActivityControl, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.EconomicActivityControl, OpenCBS.GUI, Version=14.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;eacLoan.Parent" xml:space="preserve">
     <value>tableLayoutPanel4</value>
@@ -5185,7 +5185,7 @@
     <value>lvEntryFees</value>
   </data>
   <data name="&gt;&gt;lvEntryFees.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvEntryFees.Parent" xml:space="preserve">
     <value>groupBoxEntryFees</value>
@@ -6269,423 +6269,6 @@ Max:
   <data name="&gt;&gt;tabPageAdvancedSettings.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="flowLayoutPanel7.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="flowLayoutPanel7.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
-  <data name="btnPrintCreditCommittee.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="btnPrintCreditCommittee.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 13</value>
-  </data>
-  <data name="btnPrintCreditCommittee.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 28</value>
-  </data>
-  <data name="btnPrintCreditCommittee.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="btnPrintCreditCommittee.Text" xml:space="preserve">
-    <value>Print</value>
-  </data>
-  <data name="&gt;&gt;btnPrintCreditCommittee.Name" xml:space="preserve">
-    <value>btnPrintCreditCommittee</value>
-  </data>
-  <data name="&gt;&gt;btnPrintCreditCommittee.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;btnPrintCreditCommittee.Parent" xml:space="preserve">
-    <value>flowLayoutPanel7</value>
-  </data>
-  <data name="&gt;&gt;btnPrintCreditCommittee.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="buttonCreditCommiteeSaveDecision.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonCreditCommiteeSaveDecision.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 13</value>
-  </data>
-  <data name="buttonCreditCommiteeSaveDecision.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 28</value>
-  </data>
-  <data name="buttonCreditCommiteeSaveDecision.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="buttonCreditCommiteeSaveDecision.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="&gt;&gt;buttonCreditCommiteeSaveDecision.Name" xml:space="preserve">
-    <value>buttonCreditCommiteeSaveDecision</value>
-  </data>
-  <data name="&gt;&gt;buttonCreditCommiteeSaveDecision.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonCreditCommiteeSaveDecision.Parent" xml:space="preserve">
-    <value>flowLayoutPanel7</value>
-  </data>
-  <data name="&gt;&gt;buttonCreditCommiteeSaveDecision.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="flowLayoutPanel7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="flowLayoutPanel7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 298</value>
-  </data>
-  <data name="flowLayoutPanel7.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 10, 0, 0</value>
-  </data>
-  <data name="flowLayoutPanel7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 44</value>
-  </data>
-  <data name="flowLayoutPanel7.TabIndex" type="System.Int32, mscorlib">
-    <value>69</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel7.Name" xml:space="preserve">
-    <value>flowLayoutPanel7</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel7.Parent" xml:space="preserve">
-    <value>tabPageCreditCommitee</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel7.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tableLayoutPanel11.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="tableLayoutPanel11.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
-  <data name="tableLayoutPanel11.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lblCCStatus.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblCCStatus.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="lblCCStatus.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lblCCStatus.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblCCStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 0</value>
-  </data>
-  <data name="lblCCStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 39</value>
-  </data>
-  <data name="lblCCStatus.TabIndex" type="System.Int32, mscorlib">
-    <value>37</value>
-  </data>
-  <data name="lblCCStatus.Text" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="lblCCStatus.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lblCCStatus.Name" xml:space="preserve">
-    <value>lblCCStatus</value>
-  </data>
-  <data name="&gt;&gt;lblCCStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblCCStatus.Parent" xml:space="preserve">
-    <value>tableLayoutPanel11</value>
-  </data>
-  <data name="&gt;&gt;lblCCStatus.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="pnlCCStatus.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="flowLayoutPanel6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="flowLayoutPanel6.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
-  <data name="cmbContractStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="cmbContractStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 24</value>
-  </data>
-  <data name="cmbContractStatus.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;cmbContractStatus.Name" xml:space="preserve">
-    <value>cmbContractStatus</value>
-  </data>
-  <data name="&gt;&gt;cmbContractStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbContractStatus.Parent" xml:space="preserve">
-    <value>flowLayoutPanel6</value>
-  </data>
-  <data name="&gt;&gt;cmbContractStatus.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="flowLayoutPanel6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="flowLayoutPanel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>263, 30</value>
-  </data>
-  <data name="flowLayoutPanel6.TabIndex" type="System.Int32, mscorlib">
-    <value>68</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel6.Name" xml:space="preserve">
-    <value>flowLayoutPanel6</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel6.Parent" xml:space="preserve">
-    <value>pnlCCStatus</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel6.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="pnlCCStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 3</value>
-  </data>
-  <data name="pnlCCStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 33</value>
-  </data>
-  <data name="pnlCCStatus.TabIndex" type="System.Int32, mscorlib">
-    <value>69</value>
-  </data>
-  <data name="&gt;&gt;pnlCCStatus.Name" xml:space="preserve">
-    <value>pnlCCStatus</value>
-  </data>
-  <data name="&gt;&gt;pnlCCStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlCCStatus.Parent" xml:space="preserve">
-    <value>tableLayoutPanel11</value>
-  </data>
-  <data name="&gt;&gt;pnlCCStatus.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="labelCreditCommiteeDate.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelCreditCommiteeDate.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="labelCreditCommiteeDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelCreditCommiteeDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 39</value>
-  </data>
-  <data name="labelCreditCommiteeDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
-  </data>
-  <data name="labelCreditCommiteeDate.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="labelCreditCommiteeDate.Text" xml:space="preserve">
-    <value>Date</value>
-  </data>
-  <data name="labelCreditCommiteeDate.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;labelCreditCommiteeDate.Name" xml:space="preserve">
-    <value>labelCreditCommiteeDate</value>
-  </data>
-  <data name="&gt;&gt;labelCreditCommiteeDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelCreditCommiteeDate.Parent" xml:space="preserve">
-    <value>tableLayoutPanel11</value>
-  </data>
-  <data name="&gt;&gt;labelCreditCommiteeDate.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="dateTimePickerCreditCommitee.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 42</value>
-  </data>
-  <data name="dateTimePickerCreditCommitee.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="dateTimePickerCreditCommitee.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerCreditCommitee.Name" xml:space="preserve">
-    <value>dateTimePickerCreditCommitee</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerCreditCommitee.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerCreditCommitee.Parent" xml:space="preserve">
-    <value>tableLayoutPanel11</value>
-  </data>
-  <data name="&gt;&gt;dateTimePickerCreditCommitee.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="labelCreditCommiteeComment.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelCreditCommiteeComment.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="labelCreditCommiteeComment.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelCreditCommiteeComment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 95</value>
-  </data>
-  <data name="labelCreditCommiteeComment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 16</value>
-  </data>
-  <data name="labelCreditCommiteeComment.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="labelCreditCommiteeComment.Text" xml:space="preserve">
-    <value>Comment</value>
-  </data>
-  <data name="labelCreditCommiteeComment.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;labelCreditCommiteeComment.Name" xml:space="preserve">
-    <value>labelCreditCommiteeComment</value>
-  </data>
-  <data name="&gt;&gt;labelCreditCommiteeComment.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelCreditCommiteeComment.Parent" xml:space="preserve">
-    <value>tableLayoutPanel11</value>
-  </data>
-  <data name="&gt;&gt;labelCreditCommiteeComment.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="labelCreditCommiteeCode.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelCreditCommiteeCode.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="labelCreditCommiteeCode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelCreditCommiteeCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 67</value>
-  </data>
-  <data name="labelCreditCommiteeCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 16</value>
-  </data>
-  <data name="labelCreditCommiteeCode.TabIndex" type="System.Int32, mscorlib">
-    <value>35</value>
-  </data>
-  <data name="labelCreditCommiteeCode.Text" xml:space="preserve">
-    <value>Code</value>
-  </data>
-  <data name="labelCreditCommiteeCode.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;labelCreditCommiteeCode.Name" xml:space="preserve">
-    <value>labelCreditCommiteeCode</value>
-  </data>
-  <data name="&gt;&gt;labelCreditCommiteeCode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelCreditCommiteeCode.Parent" xml:space="preserve">
-    <value>tableLayoutPanel11</value>
-  </data>
-  <data name="&gt;&gt;labelCreditCommiteeCode.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="textBoxCreditCommiteeComment.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="textBoxCreditCommiteeComment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 98</value>
-  </data>
-  <data name="textBoxCreditCommiteeComment.MaxLength" type="System.Int32, mscorlib">
-    <value>4000</value>
-  </data>
-  <data name="textBoxCreditCommiteeComment.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="textBoxCreditCommiteeComment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1167, 194</value>
-  </data>
-  <data name="textBoxCreditCommiteeComment.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;textBoxCreditCommiteeComment.Name" xml:space="preserve">
-    <value>textBoxCreditCommiteeComment</value>
-  </data>
-  <data name="&gt;&gt;textBoxCreditCommiteeComment.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxCreditCommiteeComment.Parent" xml:space="preserve">
-    <value>tableLayoutPanel11</value>
-  </data>
-  <data name="&gt;&gt;textBoxCreditCommiteeComment.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="tBCreditCommitteeCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 70</value>
-  </data>
-  <data name="tBCreditCommitteeCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 22</value>
-  </data>
-  <data name="tBCreditCommitteeCode.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;tBCreditCommitteeCode.Name" xml:space="preserve">
-    <value>tBCreditCommitteeCode</value>
-  </data>
-  <data name="&gt;&gt;tBCreditCommitteeCode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tBCreditCommitteeCode.Parent" xml:space="preserve">
-    <value>tableLayoutPanel11</value>
-  </data>
-  <data name="&gt;&gt;tBCreditCommitteeCode.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="tableLayoutPanel11.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="tableLayoutPanel11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="tableLayoutPanel11.RowCount" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="tableLayoutPanel11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 295</value>
-  </data>
-  <data name="tableLayoutPanel11.TabIndex" type="System.Int32, mscorlib">
-    <value>68</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel11.Name" xml:space="preserve">
-    <value>tableLayoutPanel11</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel11.Parent" xml:space="preserve">
-    <value>tabPageCreditCommitee</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel11.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tableLayoutPanel11.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblCCStatus" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="pnlCCStatus" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCreditCommiteeDate" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="dateTimePickerCreditCommitee" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCreditCommiteeComment" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelCreditCommiteeCode" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxCreditCommiteeComment" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tBCreditCommitteeCode" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
   <data name="tabPageCreditCommitee.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 36</value>
   </data>
@@ -6822,7 +6405,7 @@ Max:
     <value>lvLoansRepayments</value>
   </data>
   <data name="&gt;&gt;lvLoansRepayments.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvLoansRepayments.Parent" xml:space="preserve">
     <value>tabPageRepayments</value>
@@ -6996,7 +6579,7 @@ Max:
     <value>btnPrintLoanRepayment</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanRepayment.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanRepayment.Parent" xml:space="preserve">
     <value>flowLayoutPanel8</value>
@@ -7209,7 +6792,7 @@ Max:
     <value>lvEvents</value>
   </data>
   <data name="&gt;&gt;lvEvents.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvEvents.Parent" xml:space="preserve">
     <value>tabPageEvents</value>
@@ -7269,7 +6852,7 @@ Max:
     <value>btnPrintLoanEvents</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanEvents.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanEvents.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -7396,7 +6979,7 @@ Max:
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        HQAAAk1TRnQBSQFMAgEBBQEAAZABIwGQASMBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAAZgBIwGYASMBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -10887,7 +10470,7 @@ Max:
     <value>btnPrintSavings</value>
   </data>
   <data name="&gt;&gt;btnPrintSavings.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintSavings.Parent" xml:space="preserve">
     <value>flowLayoutPanel9</value>
@@ -11712,31 +11295,31 @@ Max:
     <value>392, 13</value>
   </metadata>
   <data name="savingDepositToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 22</value>
+    <value>158, 22</value>
   </data>
   <data name="savingDepositToolStripMenuItem.Text" xml:space="preserve">
     <value>Deposit</value>
   </data>
   <data name="savingWithdrawToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 22</value>
+    <value>158, 22</value>
   </data>
   <data name="savingWithdrawToolStripMenuItem.Text" xml:space="preserve">
     <value>Withdrawal</value>
   </data>
   <data name="savingTransferToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 22</value>
+    <value>158, 22</value>
   </data>
   <data name="savingTransferToolStripMenuItem.Text" xml:space="preserve">
     <value>Transfer</value>
   </data>
   <data name="specialOperationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 22</value>
+    <value>158, 22</value>
   </data>
   <data name="specialOperationToolStripMenuItem.Text" xml:space="preserve">
     <value>Special Operation</value>
   </data>
   <data name="menuBtnAddSavingOperation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 92</value>
+    <value>159, 92</value>
   </data>
   <data name="&gt;&gt;menuBtnAddSavingOperation.Name" xml:space="preserve">
     <value>menuBtnAddSavingOperation</value>
@@ -11828,17 +11411,16 @@ Max:
   <data name="buttonPrintSchedule.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAADECAIAAAAdy+YyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACQ0lEQVRoQ+3US0hUYRyG8TeIiKBF25Zt
-        27Vq66IICioIJLoHXQUjwTAYCkMsShARi0ySMjHMEhFNNEvGbMrUhrxfJhl1dJqLo446zkXt7Gcx+CwE
-        4/v4bZ/Ny/8craMnVK2bLGk3M4mZJPXHZK7EXIm5ktQLmCtJvZH5l5grMVeSegFzJak30hp6JkuazUyy
-        RSdZXVsFBBorMVnS2kqsJgDFEwngP8/i8cSGWZNsuLGSTc5i8RigaDwGbHK2EosCAo2V0CwSWwEEGivR
-        cjQCaGklAmyNLBxZAgQaK9HC8iKwydn8UhhQaDEM0Gw2PA8oGJ4DaBZYCAHyz4cAmvnmgoD+hgKAZkIB
-        gGbTs35AnqAP0FTAC2jC7wWsbAaQ2+cBNO7zAHJ5JwGNzUwANBuZdgMa9owDGpz6A2hg0gWozz0KqNc9
-        Asg5PgSoxzUAqNvVD6hrrA9Q52gvIMewE9C3ISeg9sEeQPb+LkBfejsBtf7+DqjF6QDU9KsDUGNPO6CG
-        bjug+p9tgGp/tAJ67/gE6F1HM6C3Xz8CqrQ3AKpoqwdU/rkOUFnLB0ClzTWAnjVVAypurAJUWP8GUEHd
-        a0APa8sB5dWUAcqtLgVkq3oK6G5lMaA7FUWAsl4VAsp8+QTQzRePAF15ng/oYskDQGeL7wNKL7IBOlGQ
-        A+jY42xAh/NvA0rLuwXoYG4GoAP3rgPab7sKaF/OJUB7s88D2pN1BtDuzHRAuzJOAdp54ySgHdeOA9p+
-        +SigbReOANK5Q4ROpwH/AMauF1q5qdMQAAAAAElFTkSuQmCC
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACH0lEQVRoQ+3LS0gTcADH8V8QEUGHrh27
+        duvU1UMRFFQQiPQOegpGgmEghSEWJYiIRSZJmRhmiYgmmiWarUxt5PuxZOrc2sM555xu0+r+P/U9CMb/
+        y+f61W+U3YzsZmQ3I7sZ2c3IbkZ2M7Kbkd2M7GZkNyO6raPsZmQ3o82xra2vAXYz0C21lgKUTKWA/3xL
+        AptjSyQTgFaTCWCDt5XEKrDBWzyxAtBteTUOKLYSBzbHFo3HALotLi8BG7xFYlFA4aUoQLf5aARQKLoA
+        0C24GAYUiIQBuvkXQoB+hYOAvOEgQLe5+QAgT8gPaDboAzQd8AF/Ny8gt98DaMrvAeTyzQCa9E4DdBuf
+        cwMa80wBGpn9CWh4xgVo0D0BaMA9Dsg5NQqo3zUMqM81BKh3chBQz8QAIMeYE9DnUSegrpF+QJ1DvYA+
+        DvQAav/xBVCb0wGo5Xs3oOb+LkBNfZ2AGr91AKr/2g7ojeM9oNfdrYBefXoHqLqzCVBVRyOgyg8NgCra
+        3gIqb60D9LilFlBpcw2g4saXgIoaXgC6V18JqKCuAlB+bTmgvJpHgG5VlwK6WVUCKPt5MaCsZw8BXXt6
+        H9DFJ4WAzpXdBXSq9A6g9JI8QMeKcgEdeZAD6GDhDUBpBdcB7c/PBLTv9hVAe/MuAdqTex7Q7pwzgHZl
+        nwS0Mysd0I7ME4C2Xz0OaNvlo4C2XjgMaMvZQ4B0+gChjLR/lpH2B8auF1qedkGxAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="buttonPrintSchedule.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
@@ -11877,17 +11459,16 @@ Max:
   <data name="buttonReschedule.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAADECAIAAAAdy+YyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACQ0lEQVRoQ+3US0hUYRyG8TeIiKBF25Zt
-        27Vq66IICioIJLoHXQUjwTAYCkMsShARi0ySMjHMEhFNNEvGbMrUhrxfJhl1dJqLo446zkXt7Gcx+CwE
-        4/v4bZ/Ny/8craMnVK2bLGk3M4mZJPXHZK7EXIm5ktQLmCtJvZH5l5grMVeSegFzJak30hp6JkuazUyy
-        RSdZXVsFBBorMVnS2kqsJgDFEwngP8/i8cSGWZNsuLGSTc5i8RigaDwGbHK2EosCAo2V0CwSWwEEGivR
-        cjQCaGklAmyNLBxZAgQaK9HC8iKwydn8UhhQaDEM0Gw2PA8oGJ4DaBZYCAHyz4cAmvnmgoD+hgKAZkIB
-        gGbTs35AnqAP0FTAC2jC7wWsbAaQ2+cBNO7zAHJ5JwGNzUwANBuZdgMa9owDGpz6A2hg0gWozz0KqNc9
-        Asg5PgSoxzUAqNvVD6hrrA9Q52gvIMewE9C3ISeg9sEeQPb+LkBfejsBtf7+DqjF6QDU9KsDUGNPO6CG
-        bjug+p9tgGp/tAJ67/gE6F1HM6C3Xz8CqrQ3AKpoqwdU/rkOUFnLB0ClzTWAnjVVAypurAJUWP8GUEHd
-        a0APa8sB5dWUAcqtLgVkq3oK6G5lMaA7FUWAsl4VAsp8+QTQzRePAF15ng/oYskDQGeL7wNKL7IBOlGQ
-        A+jY42xAh/NvA0rLuwXoYG4GoAP3rgPab7sKaF/OJUB7s88D2pN1BtDuzHRAuzJOAdp54ySgHdeOA9p+
-        +SigbReOANK5Q4ROpwH/AMauF1q5qdMQAAAAAElFTkSuQmCC
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACH0lEQVRoQ+3LS0gTcADH8V8QEUGHrh27
+        duvU1UMRFFQQiPQOegpGgmEghSEWJYiIRSZJmRhmiYgmmiWarUxt5PuxZOrc2sM555xu0+r+P/U9CMb/
+        y+f61W+U3YzsZmQ3I7sZ2c3IbkZ2M7Kbkd2M7GZkNyO6raPsZmQ3o82xra2vAXYz0C21lgKUTKWA/3xL
+        AptjSyQTgFaTCWCDt5XEKrDBWzyxAtBteTUOKLYSBzbHFo3HALotLi8BG7xFYlFA4aUoQLf5aARQKLoA
+        0C24GAYUiIQBuvkXQoB+hYOAvOEgQLe5+QAgT8gPaDboAzQd8AF/Ny8gt98DaMrvAeTyzQCa9E4DdBuf
+        cwMa80wBGpn9CWh4xgVo0D0BaMA9Dsg5NQqo3zUMqM81BKh3chBQz8QAIMeYE9DnUSegrpF+QJ1DvYA+
+        DvQAav/xBVCb0wGo5Xs3oOb+LkBNfZ2AGr91AKr/2g7ojeM9oNfdrYBefXoHqLqzCVBVRyOgyg8NgCra
+        3gIqb60D9LilFlBpcw2g4saXgIoaXgC6V18JqKCuAlB+bTmgvJpHgG5VlwK6WVUCKPt5MaCsZw8BXXt6
+        H9DFJ4WAzpXdBXSq9A6g9JI8QMeKcgEdeZAD6GDhDUBpBdcB7c/PBLTv9hVAe/MuAdqTex7Q7pwzgHZl
+        nwS0Mysd0I7ME4C2Xz0OaNvlo4C2XjgMaMvZQ4B0+gChjLR/lpH2B8auF1qedkGxAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="buttonReschedule.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
@@ -11902,15 +11483,15 @@ Max:
   <data name="buttonReschedule.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABvElEQVQ4T62TrZeCQBTFPRv3D9ho2LjB
-        YCQYDASCgWAgEAgEA4FoIBAMBoJhA4FAMGwwGAwGg4FgMBAMBoPBQDAQCATvvjcIfp7jhuWcewYeb37z
-        7sybWu387HY73GtPsXtxTjlHjPv9Hnme48Q6nSrlpxwZxS7K6D0T/znftu0CxIBy4nKzhjcJxfc0WqDd
-        0yBbOsmARGN/NKxyPc+7AHi12SpC3ejgTarD8T0wOAgD+L6PcRjCGrpQ9C6yNBWQwWBwAaRZBnfkQTK7
-        aKgyNEPHer2+sTShijqmhvQZQFggX8Fsgm7PwDFJqsTS3ng5fwEgSLCYQiXA/YYy5G+AeQHIydL1ifwb
-        QDE0HI/Hx00sVwteVCAAh0QAXNd97AMBMPUbCxnZ4cYRp0D9wMfLMcdxngM0y3zw74bfaNoaPjQZMlWx
-        WC6fA/z5BF+6Au8nFHLHPkI62nizEfH3xicsy0Icx+j3+0UFh8OhWnG1iaFTBWyjaxro6Bp6toWE+oIb
-        i7sviiLxXQE4cH2Z2B93W0q7zQ3Fnlm80Ha7FeIKVFW93EpJkiDLMtrtthhlRSnGc6zVaoFzSjWbzWry
-        L+E99IEOthJjAAAAAElFTkSuQmCC
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABs0lEQVQ4T62ToZOCQBTGnYv3B1w0XLxg
+        IBIMhA0EA4FAIBAIBgLRYCAYDIQLFwgEguGCwWAwGAgEg4FgMBgMBIOBQCD43b5F8M7h5m5ubme+2X2P
+        t799b/fRqcfhcMC9ji0i/3VLNY7HI8qyxIV0uTQqLyUK7rupEBLfuO26bgUiQL0p3m3hzyOxXiRrKEMD
+        zDG5LMh8Hr1Om1jf928AOm25SdC1BniQuxgHPsgfRiGCIMAsiuBMPaimjiLPBWAymdwAeVHAe/Uh2zp6
+        GoNhmdhut81ppDnPaGAbyNsAIojXFS7n0IcWzqdTE1hrFq9+AHCF6wU0Dri/UNLvAKsKUPKSal+tfwGo
+        loHz+SzsvwOyk7A9z/sGYJtfAAVfU+OIV+D9QPHkG4/H7QDDsRu7lhe9QXINPBkMjGexjuN2QLCa48VU
+        4b9HQt4sQMSfNt3thP+x9wzHcZCmKUajUQXIsqwBbHYpTJ4BlaHbFgamgaHr4MT7ghqLLi5JEmE3AHJ8
+        /pmoPnqqnN82NRRlSKKD9vu9EGWgaVoFoCHLMhhjUBRFzExVq/nq6/f7oJhakiRdN3c6H+E99IGmE8LH
+        AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="buttonReschedule.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
@@ -11940,17 +11521,16 @@ Max:
   <data name="buttonRepay.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAADECAIAAAAdy+YyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACQ0lEQVRoQ+3US0hUYRyG8TeIiKBF25Zt
-        27Vq66IICioIJLoHXQUjwTAYCkMsShARi0ySMjHMEhFNNEvGbMrUhrxfJhl1dJqLo446zkXt7Gcx+CwE
-        4/v4bZ/Ny/8craMnVK2bLGk3M4mZJPXHZK7EXIm5ktQLmCtJvZH5l5grMVeSegFzJak30hp6JkuazUyy
-        RSdZXVsFBBorMVnS2kqsJgDFEwngP8/i8cSGWZNsuLGSTc5i8RigaDwGbHK2EosCAo2V0CwSWwEEGivR
-        cjQCaGklAmyNLBxZAgQaK9HC8iKwydn8UhhQaDEM0Gw2PA8oGJ4DaBZYCAHyz4cAmvnmgoD+hgKAZkIB
-        gGbTs35AnqAP0FTAC2jC7wWsbAaQ2+cBNO7zAHJ5JwGNzUwANBuZdgMa9owDGpz6A2hg0gWozz0KqNc9
-        Asg5PgSoxzUAqNvVD6hrrA9Q52gvIMewE9C3ISeg9sEeQPb+LkBfejsBtf7+DqjF6QDU9KsDUGNPO6CG
-        bjug+p9tgGp/tAJ67/gE6F1HM6C3Xz8CqrQ3AKpoqwdU/rkOUFnLB0ClzTWAnjVVAypurAJUWP8GUEHd
-        a0APa8sB5dWUAcqtLgVkq3oK6G5lMaA7FUWAsl4VAsp8+QTQzRePAF15ng/oYskDQGeL7wNKL7IBOlGQ
-        A+jY42xAh/NvA0rLuwXoYG4GoAP3rgPab7sKaF/OJUB7s88D2pN1BtDuzHRAuzJOAdp54ySgHdeOA9p+
-        +SigbReOANK5Q4ROpwH/AMauF1q5qdMQAAAAAElFTkSuQmCC
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACH0lEQVRoQ+3LS0gTcADH8V8QEUGHrh27
+        duvU1UMRFFQQiPQOegpGgmEghSEWJYiIRSZJmRhmiYgmmiWarUxt5PuxZOrc2sM555xu0+r+P/U9CMb/
+        y+f61W+U3YzsZmQ3I7sZ2c3IbkZ2M7Kbkd2M7GZkNyO6raPsZmQ3o82xra2vAXYz0C21lgKUTKWA/3xL
+        AptjSyQTgFaTCWCDt5XEKrDBWzyxAtBteTUOKLYSBzbHFo3HALotLi8BG7xFYlFA4aUoQLf5aARQKLoA
+        0C24GAYUiIQBuvkXQoB+hYOAvOEgQLe5+QAgT8gPaDboAzQd8AF/Ny8gt98DaMrvAeTyzQCa9E4DdBuf
+        cwMa80wBGpn9CWh4xgVo0D0BaMA9Dsg5NQqo3zUMqM81BKh3chBQz8QAIMeYE9DnUSegrpF+QJ1DvYA+
+        DvQAav/xBVCb0wGo5Xs3oOb+LkBNfZ2AGr91AKr/2g7ojeM9oNfdrYBefXoHqLqzCVBVRyOgyg8NgCra
+        3gIqb60D9LilFlBpcw2g4saXgIoaXgC6V18JqKCuAlB+bTmgvJpHgG5VlwK6WVUCKPt5MaCsZw8BXXt6
+        H9DFJ4WAzpXdBXSq9A6g9JI8QMeKcgEdeZAD6GDhDUBpBdcB7c/PBLTv9hVAe/MuAdqTex7Q7pwzgHZl
+        nwS0Mysd0I7ME4C2Xz0OaNvlo4C2XjgMaMvZQ4B0+gChjLR/lpH2B8auF1qedkGxAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="buttonRepay.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
@@ -11965,16 +11545,16 @@ Max:
   <data name="buttonRepay.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB90lEQVQ4T42TEZjjQBTH9zs8WDgoHh4E
-        DgKFQCAQCAQCC4XAQWGhECgEAoFAIFAIFA4ChYWFQKGwUAgEAoGFQCAQGAgsFAr977zpJde0hZ3ve18m
-        M/N+8/7vvXl4+DfqusZXrfcR37ZpcDwecTqdBqP/3i7X+zntOY4DAWg4oN9gH90I1K8XTYVlskJZV8N+
-        FEZjQM1amM4cl0AC+EmM3zMDE1PFxFIRbNYCEgbBGFC1DaYzE2VZDrfsyhySoSJer/HsuwjWK/xQJFRV
-        hSi6iqBiDRTbwvsFIHzdiNtrLnPOAZSvNE3PgGsJ9wB5VeLRmMKOPDx5DmoeZZ+X4EbCnQjo8PZtB+WP
-        he+mAsk2sEo3AnIDaDoGlUuoeXjXpSMJT84zFlzGoy4jy/OxBErgtsygLGwkO66RNxVBdkWOl7ctusMH
-        Zu5C5EBfzuGFwf8IWMuwzfeYzDR8M2T8VGUkm0QAPF6yCQ+9qN6xCH3xpUqFvAK+74/L+Dd9wS/uTNoY
-        YwLQcllTrl+yTUx5dFQlzTSw3+/he95tJ5ZFMTj3eaCwgziCZGpw3aUoI11A8/NbaNu77UuA/j10XYdV
-        HKPIC9B5ku267hmQZdlw8PIR0fxwOICc6cambkQDkVG3WpZ1BtBQFAW6ro9M0zT0pqoqyOgcmSzLg/Mn
-        62HpgV8XXBQAAAAASUVORK5CYII=
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB7ElEQVQ4T42TEZisUBTH53v4YOHB4MMH
+        wYNgIAiCIAiChYHgwcDCQDAQBEEQBAPBwEIwsPAgGBhYGAiCIFgIgiAIgoWBgfnvPbetV7MD737f/6vu
+        PefX+Z9Ts36VZYn/1WdKt+qqwuVywfV6HUTPvcb743PLsjpQxQD9QfPeTgJ7ZVWBTbRFXhbDXuAHU0DZ
+        1NCtFcZAkhuF+L3UMNdlzA0Z3n7H933PmwKKusJiqSPP8yH5mKcQNBnhbocn14a32+KHJKAoCgTBTQVF
+        U0EyDbyNAP7fPX97yWJWDED9iuO4A9xauAdIixwP2gJm4ODRsVCyKvsz74uFOwDS4fUI6Y+B77oEwdSw
+        jff3AVXbQGaAkpU3BpDIwqP1hDWz8aCKSNJ0aoEaeMgTSGsT0ZF5ZB8LJR6zFC+vB7TndyztNe+BulnB
+        8b1/FTR1g0N6wnyp4Jsm4qcsItpHHOCwkc1Z6VnxhrXv8itNymcTcF13auE5fsEvlkzkpmn4Xs1sLZh/
+        wdSxYNVRjxRdw+l0gus4UwApz7IhuReV7YUBBF2BbW/4GCmG7jmgrutJwlj9/9C2LbZhiCzNQPFk27bt
+        DpAkyRB4q/P5zJPpjVXJms0mRKKv1TCMDkBLkiSoqjqRoiiDZFnmojiSKIqfybPZB+th6YE9n8WnAAAA
+        AElFTkSuQmCC
 </value>
   </data>
   <data name="buttonRepay.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
@@ -12158,19 +11738,19 @@ Max:
     <value>186, 17</value>
   </metadata>
   <data name="menuItemConfirmPendingSavingEvent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 22</value>
+    <value>183, 22</value>
   </data>
   <data name="menuItemConfirmPendingSavingEvent.Text" xml:space="preserve">
     <value>Confirm pending event</value>
   </data>
   <data name="menuItemCancelPendingSavingEvent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 22</value>
+    <value>183, 22</value>
   </data>
   <data name="menuItemCancelPendingSavingEvent.Text" xml:space="preserve">
     <value>Cancel pending event</value>
   </data>
   <data name="menuPendingSavingEvents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 48</value>
+    <value>184, 48</value>
   </data>
   <data name="&gt;&gt;menuPendingSavingEvents.Name" xml:space="preserve">
     <value>menuPendingSavingEvents</value>
@@ -13416,6 +12996,6 @@ Max:
     <value>ClientForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=14.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

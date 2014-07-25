@@ -17,7 +17,6 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
-using System;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
@@ -55,7 +54,6 @@ namespace OpenCBS.Extensions
                 catalog.Catalogs.Add(new AssemblyCatalog(samples));
 #endif
             _container = new CompositionContainer(catalog);
-            
         }
 
         public void Bind(object host)
