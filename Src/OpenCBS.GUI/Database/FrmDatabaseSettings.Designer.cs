@@ -35,7 +35,6 @@ namespace OpenCBS.GUI.Database
             this._useDemoCheckBox = new System.Windows.Forms.CheckBox();
             this.btnDefault = new System.Windows.Forms.Button();
             this.btnGetServersList = new System.Windows.Forms.Button();
-            this.lblInstallInstructionSQLServer = new System.Windows.Forms.Label();
             this.lblHelpServerName = new System.Windows.Forms.Label();
             this.cbServerName = new System.Windows.Forms.ComboBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -105,10 +104,10 @@ namespace OpenCBS.GUI.Database
             // 
             // groupBoxSQLServerConnection
             // 
+            resources.ApplyResources(this.groupBoxSQLServerConnection, "groupBoxSQLServerConnection");
             this.groupBoxSQLServerConnection.Controls.Add(this._useDemoCheckBox);
             this.groupBoxSQLServerConnection.Controls.Add(this.btnDefault);
             this.groupBoxSQLServerConnection.Controls.Add(this.btnGetServersList);
-            this.groupBoxSQLServerConnection.Controls.Add(this.lblInstallInstructionSQLServer);
             this.groupBoxSQLServerConnection.Controls.Add(this.lblHelpServerName);
             this.groupBoxSQLServerConnection.Controls.Add(this.cbServerName);
             this.groupBoxSQLServerConnection.Controls.Add(this.txtPassword);
@@ -117,7 +116,6 @@ namespace OpenCBS.GUI.Database
             this.groupBoxSQLServerConnection.Controls.Add(this.lblLoginName);
             this.groupBoxSQLServerConnection.Controls.Add(this.lblServerName);
             this.groupBoxSQLServerConnection.Controls.Add(this.lblFindDBInfo);
-            resources.ApplyResources(this.groupBoxSQLServerConnection, "groupBoxSQLServerConnection");
             this.groupBoxSQLServerConnection.Name = "groupBoxSQLServerConnection";
             this.groupBoxSQLServerConnection.TabStop = false;
             // 
@@ -140,11 +138,6 @@ namespace OpenCBS.GUI.Database
             this.btnGetServersList.Name = "btnGetServersList";
             this.btnGetServersList.Click += new System.EventHandler(this.buttonGetServersList_Click);
             // 
-            // lblInstallInstructionSQLServer
-            // 
-            resources.ApplyResources(this.lblInstallInstructionSQLServer, "lblInstallInstructionSQLServer");
-            this.lblInstallInstructionSQLServer.Name = "lblInstallInstructionSQLServer";
-            // 
             // lblHelpServerName
             // 
             resources.ApplyResources(this.lblHelpServerName, "lblHelpServerName");
@@ -152,8 +145,8 @@ namespace OpenCBS.GUI.Database
             // 
             // cbServerName
             // 
-            this.cbServerName.FormattingEnabled = true;
             resources.ApplyResources(this.cbServerName, "cbServerName");
+            this.cbServerName.FormattingEnabled = true;
             this.cbServerName.Name = "cbServerName";
             this.cbServerName.TextChanged += new System.EventHandler(this.cbServerName_TextChanged);
             // 
@@ -191,9 +184,9 @@ namespace OpenCBS.GUI.Database
             // 
             // groupBoxSQLSettings
             // 
+            resources.ApplyResources(this.groupBoxSQLSettings, "groupBoxSQLSettings");
             this.groupBoxSQLSettings.Controls.Add(this.btnSQLServerChangeSettings);
             this.groupBoxSQLSettings.Controls.Add(this.lblSQLServerSettings);
-            resources.ApplyResources(this.groupBoxSQLSettings, "groupBoxSQLSettings");
             this.groupBoxSQLSettings.Name = "groupBoxSQLSettings";
             this.groupBoxSQLSettings.TabStop = false;
             // 
@@ -210,6 +203,7 @@ namespace OpenCBS.GUI.Database
             // 
             // groupBoxDatabaseManagement
             // 
+            resources.ApplyResources(this.groupBoxDatabaseManagement, "groupBoxDatabaseManagement");
             this.groupBoxDatabaseManagement.Controls.Add(this.lblDetectDatabasesInProgress);
             this.groupBoxDatabaseManagement.Controls.Add(this.btnSQLServerSettingsShowDetails);
             this.groupBoxDatabaseManagement.Controls.Add(this.btnRestore);
@@ -218,7 +212,6 @@ namespace OpenCBS.GUI.Database
             this.groupBoxDatabaseManagement.Controls.Add(this.btnCreateNewDatabase);
             this.groupBoxDatabaseManagement.Controls.Add(this.lblDatabases);
             this.groupBoxDatabaseManagement.Controls.Add(this.listViewDatabases);
-            resources.ApplyResources(this.groupBoxDatabaseManagement, "groupBoxDatabaseManagement");
             this.groupBoxDatabaseManagement.Name = "groupBoxDatabaseManagement";
             this.groupBoxDatabaseManagement.TabStop = false;
             // 
@@ -265,6 +258,7 @@ namespace OpenCBS.GUI.Database
             // 
             // listViewDatabases
             // 
+            resources.ApplyResources(this.listViewDatabases, "listViewDatabases");
             this.listViewDatabases.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listViewDatabases.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderName,
@@ -275,7 +269,6 @@ namespace OpenCBS.GUI.Database
             this.listViewDatabases.GridLines = true;
             this.listViewDatabases.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listViewDatabases.HideSelection = false;
-            resources.ApplyResources(this.listViewDatabases, "listViewDatabases");
             this.listViewDatabases.Name = "listViewDatabases";
             this.listViewDatabases.UseCompatibleStateImageBehavior = false;
             this.listViewDatabases.View = System.Windows.Forms.View.Details;
@@ -299,11 +292,11 @@ namespace OpenCBS.GUI.Database
             // 
             // groupBoxSaveSettings
             // 
+            resources.ApplyResources(this.groupBoxSaveSettings, "groupBoxSaveSettings");
             this.groupBoxSaveSettings.Controls.Add(this.btnDatabaseConnection);
             this.groupBoxSaveSettings.Controls.Add(this.btnExit);
             this.groupBoxSaveSettings.Controls.Add(this.lblResultMessage);
             this.groupBoxSaveSettings.Controls.Add(this.btnSave);
-            resources.ApplyResources(this.groupBoxSaveSettings, "groupBoxSaveSettings");
             this.groupBoxSaveSettings.Name = "groupBoxSaveSettings";
             this.groupBoxSaveSettings.TabStop = false;
             // 
@@ -315,8 +308,8 @@ namespace OpenCBS.GUI.Database
             // 
             // btnExit
             // 
-            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             resources.ApplyResources(this.btnExit, "btnExit");
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Name = "btnExit";
             // 
             // lblResultMessage
@@ -332,17 +325,17 @@ namespace OpenCBS.GUI.Database
             // 
             // tabControlDatabase
             // 
+            resources.ApplyResources(this.tabControlDatabase, "tabControlDatabase");
             this.tabControlDatabase.Controls.Add(this.tabPageSQLServerConnection);
             this.tabControlDatabase.Controls.Add(this.tabPageSQLServerSettings);
             this.tabControlDatabase.Controls.Add(this.tabPageSqlDatabaseSettings);
-            resources.ApplyResources(this.tabControlDatabase, "tabControlDatabase");
             this.tabControlDatabase.Name = "tabControlDatabase";
             this.tabControlDatabase.SelectedIndex = 0;
             // 
             // tabPageSQLServerConnection
             // 
-            this.tabPageSQLServerConnection.Controls.Add(this.tableLayoutPanelServerSettings);
             resources.ApplyResources(this.tabPageSQLServerConnection, "tabPageSQLServerConnection");
+            this.tabPageSQLServerConnection.Controls.Add(this.tableLayoutPanelServerSettings);
             this.tabPageSQLServerConnection.Name = "tabPageSQLServerConnection";
             // 
             // tableLayoutPanelServerSettings
@@ -353,8 +346,8 @@ namespace OpenCBS.GUI.Database
             // 
             // tabPageSQLServerSettings
             // 
-            this.tabPageSQLServerSettings.Controls.Add(this.tableLayoutPanelSQLSettings);
             resources.ApplyResources(this.tabPageSQLServerSettings, "tabPageSQLServerSettings");
+            this.tabPageSQLServerSettings.Controls.Add(this.tableLayoutPanelSQLSettings);
             this.tabPageSQLServerSettings.Name = "tabPageSQLServerSettings";
             // 
             // tableLayoutPanelSQLSettings
@@ -367,8 +360,8 @@ namespace OpenCBS.GUI.Database
             // 
             // tabPageSqlDatabaseSettings
             // 
-            this.tabPageSqlDatabaseSettings.Controls.Add(this.tableLayoutPanelDatabaseSettings);
             resources.ApplyResources(this.tabPageSqlDatabaseSettings, "tabPageSqlDatabaseSettings");
+            this.tabPageSqlDatabaseSettings.Controls.Add(this.tableLayoutPanelDatabaseSettings);
             this.tabPageSqlDatabaseSettings.Name = "tabPageSqlDatabaseSettings";
             // 
             // tableLayoutPanelDatabaseSettings
@@ -380,11 +373,11 @@ namespace OpenCBS.GUI.Database
             // 
             // groupBoxSQLDatabaseSettings
             // 
+            resources.ApplyResources(this.groupBoxSQLDatabaseSettings, "groupBoxSQLDatabaseSettings");
             this.groupBoxSQLDatabaseSettings.Controls.Add(this.btnSQLDatabaseSettingsUpgrade);
             this.groupBoxSQLDatabaseSettings.Controls.Add(this.btnSQLDatabaseSettingsChangeName);
             this.groupBoxSQLDatabaseSettings.Controls.Add(this.lblSQLDatabaseSettingsVersion);
             this.groupBoxSQLDatabaseSettings.Controls.Add(this.lblSQLDatabaseSettingsName);
-            resources.ApplyResources(this.groupBoxSQLDatabaseSettings, "groupBoxSQLDatabaseSettings");
             this.groupBoxSQLDatabaseSettings.Name = "groupBoxSQLDatabaseSettings";
             this.groupBoxSQLDatabaseSettings.TabStop = false;
             // 
@@ -412,10 +405,10 @@ namespace OpenCBS.GUI.Database
             // 
             // groupBoxSQLDatabaseStructure
             // 
+            resources.ApplyResources(this.groupBoxSQLDatabaseStructure, "groupBoxSQLDatabaseStructure");
             this.groupBoxSQLDatabaseStructure.Controls.Add(this.btnContinue);
             this.groupBoxSQLDatabaseStructure.Controls.Add(this.lblDatabaseSettingsMessage);
             this.groupBoxSQLDatabaseStructure.Controls.Add(this.tBDatabaseSettingsSchemaResult);
-            resources.ApplyResources(this.groupBoxSQLDatabaseStructure, "groupBoxSQLDatabaseStructure");
             this.groupBoxSQLDatabaseStructure.Name = "groupBoxSQLDatabaseStructure";
             this.groupBoxSQLDatabaseStructure.TabStop = false;
             // 
@@ -432,8 +425,8 @@ namespace OpenCBS.GUI.Database
             // 
             // tBDatabaseSettingsSchemaResult
             // 
-            this.tBDatabaseSettingsSchemaResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.tBDatabaseSettingsSchemaResult, "tBDatabaseSettingsSchemaResult");
+            this.tBDatabaseSettingsSchemaResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tBDatabaseSettingsSchemaResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.tBDatabaseSettingsSchemaResult.Name = "tBDatabaseSettingsSchemaResult";
             // 
@@ -471,6 +464,10 @@ namespace OpenCBS.GUI.Database
             this.bWDatabaseUpdate.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWDatabaseUpdate_DoWork);
             this.bWDatabaseUpdate.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bWDatabaseUpdate_ProgressChanged);
             this.bWDatabaseUpdate.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWDatabaseUpdate_RunWorkerCompleted);
+            // 
+            // folderBrowserDialog
+            // 
+            resources.ApplyResources(this.folderBrowserDialog, "folderBrowserDialog");
             // 
             // FrmDatabaseSettings
             // 
@@ -560,7 +557,6 @@ namespace OpenCBS.GUI.Database
         private System.Windows.Forms.Button btnDatabaseConnection;
         private System.Windows.Forms.Button btnContinue;
         private System.Windows.Forms.Label lblHelpServerName;
-        private System.Windows.Forms.Label lblInstallInstructionSQLServer;
         private System.Windows.Forms.Button btnGetServersList;
         private System.Windows.Forms.Button btnDefault;
         private System.Windows.Forms.CheckBox _useDemoCheckBox;
