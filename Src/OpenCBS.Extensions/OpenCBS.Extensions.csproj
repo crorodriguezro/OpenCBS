@@ -104,6 +104,10 @@
     <EmbeddedResource Include="LoanApprovalUserControl.resx">
       <DependentUpon>LoanApprovalUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Extensions.fr.resx" />
+    <EmbeddedResource Include="Resources\Extensions.pt.resx" />
+    <EmbeddedResource Include="Resources\Extensions.resx" />
+    <EmbeddedResource Include="Resources\Extensions.ru-RU.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

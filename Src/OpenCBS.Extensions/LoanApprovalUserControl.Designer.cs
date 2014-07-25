@@ -198,7 +198,7 @@
             this.Controls.Add(this.tableLayoutPanel11);
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Name = "LoanApprovalUserControl";
-            this.Size = new System.Drawing.Size(757, 422);
+            this.Size = new System.Drawing.Size(757, 398);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel11.PerformLayout();
             this.pnlCCStatus.ResumeLayout(false);

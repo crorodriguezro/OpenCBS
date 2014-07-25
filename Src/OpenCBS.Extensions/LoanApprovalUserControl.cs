@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Composition;
 using System.Linq;
+using System.Resources;
 using System.Windows.Forms;
 using OpenCBS.Enums;
 
@@ -23,7 +24,8 @@ namespace OpenCBS.Extensions
                 OContractStatus.Abandoned,
                 OContractStatus.Deleted
             };
-            var dict = statuses.ToDictionary(x => x, x => x);
+            var resourceManager = new ResourceManager("OpenCBS.Extensions.Resources.Extensions", GetType().Assembly);
+            var dict = statuses.ToDictionary(x => x, x => resourceManager.GetString(x.ToString()));
             _statusComboBox.DisplayMember = "Value";
             _statusComboBox.ValueMember = "Key";
             _statusComboBox.DataSource = new BindingSource(dict, null);
