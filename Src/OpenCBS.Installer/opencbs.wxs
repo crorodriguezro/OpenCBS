@@ -485,7 +485,7 @@
     <InstallExecuteSequence>
       <Custom Action="PreventDowngrading" After="FindRelatedProducts">NEWERPRODUCTFOUND</Custom>
       <RemoveExistingProducts Before="InstallInitialize" />
-      <Custom Action="SetPreviousInstalledVersionProperty" Before="InstallInitialize" />
+      <Custom Action="SetPreviousInstalledVersionProperty" After="InstallInitialize" />
     </InstallExecuteSequence>
 
     <InstallUISequence>
