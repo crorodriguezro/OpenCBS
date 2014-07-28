@@ -3465,6 +3465,9 @@ namespace OpenCBS.GUI.Clients
             }
 
             _credit = Preview();
+            _loanApprovalControl.Status = OContractStatus.Pending;
+            _loanApprovalControl.Date = _credit.StartDate;
+            _loanApprovalControl.Comment = "";
 
             // Compulsory savings
             if (_credit != null)
