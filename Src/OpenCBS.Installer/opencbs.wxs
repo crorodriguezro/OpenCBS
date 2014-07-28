@@ -32,33 +32,13 @@
                       Language="1033" Property="UPGRADEFOUND" />
     </Upgrade>
 
-    <Property Id="LOGINNAME">
-      <RegistrySearch Id='FindLoginName' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_LOGIN_NAME" />
-    </Property>
-
-    <Property Id="DATABASENAME">
-      <RegistrySearch Id='FindDatabaseName' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_NAME" />
-    </Property>
-
-    <Property Id="SERVERNAME">
-      <RegistrySearch Id='FindServerName' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_SERVER_NAME" />
-    </Property>
-
-    <Property Id="PASSWORD">
-      <RegistrySearch Id='FindPassword' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_PASSWORD" />
-    </Property>
-
-    <Property Id="TIMEOUT">
-      <RegistrySearch Id='FindDatabaseTimeout' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_TIMEOUT" />
-    </Property>
-
-    <Property Id="DATABASELIST">
-      <RegistrySearch Id='FindDatabaseList' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="DATABASE_LIST" />
-    </Property>
-	  
-	  <Property Id="USEDEMODATABASE">
-      <RegistrySearch Id='FindUseDemoDatabase' Type='raw' Root='HKLM' Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.PreviousVersion)" Name="USE_DEMO_DATABASE" />
-    </Property>
+    <Property Id="LOGINNAME" />
+    <Property Id="DATABASENAME" />
+    <Property Id="SERVERNAME" />
+    <Property Id="PASSWORD" />
+    <Property Id="TIMEOUT" />
+    <Property Id="DATABASELIST" />
+    <Property Id="USEDEMODATABASE" />
 	
 	  <Property Id="DEMODIRECTORY">C:\Users\Public</Property>
 
