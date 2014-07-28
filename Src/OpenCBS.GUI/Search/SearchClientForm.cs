@@ -121,7 +121,7 @@ namespace OpenCBS.GUI
                 if (includeOnlyActive)
                 {
                     checkBoxActive.Enabled = false;
-                    checkBoxActive.Checked = false;
+                    checkBoxActive.Checked = true;
                     checkBoxNotactive.Enabled = false;
                     checkBoxNotactive.Checked = true;
                 }
