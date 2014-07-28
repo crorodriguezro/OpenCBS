@@ -67,6 +67,12 @@ IF not exists (SELECT * FROM sys.tables WHERE name = 'Categories')
 END  
 GO
 
+IF exists (SELECT * FROM sys.tables WHERE name = 'CustomFieldsValues')
+BEGIN
+DELETE FROM CustomFieldsValues where owner_id=0
+END
+GO
+
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v14.10.0.0'
 WHERE   [name] = 'VERSION'
