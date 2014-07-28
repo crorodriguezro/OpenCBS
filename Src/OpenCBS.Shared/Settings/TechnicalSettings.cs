@@ -77,7 +77,11 @@ namespace OpenCBS.Shared.Settings
 
         public static bool UseDemoDatabase
         {
-            get { return Convert.ToBoolean(GetValue("USE_DEMO_DATABASE", "False")); }
+            get
+            {
+                bool ret;
+                return bool.TryParse(GetValue("USE_DEMO_DATABASE", "False"), out ret) && ret;
+            }
             set { SetValue("USE_DEMO_DATABASE", value.ToString()); }
         }
 
