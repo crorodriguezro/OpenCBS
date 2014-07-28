@@ -175,7 +175,7 @@
 				        </Component>
                 <Directory Id ="DIR_OPERATIONS" Name="Operations">
                   <Component Id="Operations" Guid="988e9441-a262-4328-ac4a-b6d0a47391a0">
-                    <File Id="Demo_operation(example).py" Source="SourceDir\Extensions\AccountingScripts\Demo operation(example).py" />
+                    <File Id="Demo.py" Source="SourceDir\Extensions\AccountingScripts\Operations\Demo.py" />
                   </Component>
                 </Directory>
 				      </Directory>
