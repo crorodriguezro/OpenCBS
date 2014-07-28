@@ -173,6 +173,11 @@
 					        <File Id="GetWriteOffEntries.py" Source="SourceDir\Extensions\AccountingScripts\GetWriteOffEntries.py" />
 					        <File Id="Main.py" Source="SourceDir\Extensions\AccountingScripts\Main.py" />
 				        </Component>
+                <Directory Id ="DIR_OPERATIONS" Name="Operations">
+                  <Component Id="Operations" Guid="988e9441-a262-4328-ac4a-b6d0a47391a0">
+                    <File Id="Demo_operation(example).py" Source="SourceDir\Extensions\AccountingScripts\Demo operation(example).py" />
+                  </Component>
+                </Directory>
 				      </Directory>
             </Directory>
 
@@ -454,6 +459,7 @@
       <ComponentRef Id="Languages"/>
       <ComponentRef Id="AccountingScripts"/>
 	    <ComponentRef Id="DemoDbDirectory" />
+      <ComponentRef Id="Operations" />
     </Feature>
     
     <Binary Id="CustomActionsId" SourceFile="d:\build\Src\OpenCBS.Installer\Resources\CustomActions.CA.dll" />
