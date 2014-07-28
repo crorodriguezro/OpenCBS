@@ -477,7 +477,7 @@
     </Feature>
     
     <Binary Id="CustomActionsId" SourceFile="d:\build\Src\OpenCBS.Installer\Resources\CustomActions.CA.dll" />
-    <CustomAction Id="SetPreviousInstalledVersionProperty" BinaryKey="CustomActionsId" DllEntry="FindInstalledVersion" Execute="deferred" />
+    <CustomAction Id="SetPreviousInstalledVersionProperty" BinaryKey="CustomActionsId" DllEntry="FindInstalledVersion" Execute="immediate" />
     <CustomAction Id="PreventDowngrading" Error="Newer version already installed." />
 
     <Icon Id="opencbs.ico" SourceFile="d:\build\Src\OpenCBS.Installer\Bitmaps\opencbs.ico"/>
@@ -485,7 +485,7 @@
     <InstallExecuteSequence>
       <Custom Action="PreventDowngrading" After="FindRelatedProducts">NEWERPRODUCTFOUND</Custom>
       <RemoveExistingProducts Before="InstallInitialize" />
-      <Custom Action="SetPreviousInstalledVersionProperty" After="InstallInitialize" />
+      <Custom Action="SetPreviousInstalledVersionProperty" Before="InstallInitialize" />
     </InstallExecuteSequence>
 
     <InstallUISequence>
