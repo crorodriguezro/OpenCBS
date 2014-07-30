@@ -25,6 +25,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain.Database;
@@ -292,7 +293,6 @@ namespace OpenCBS.GUI.Database
                     else
                         listViewDatabases.Items.Add(item);
                 }
-
             }
             Cursor = Cursors.Default;
             listViewDatabases.Focus();
@@ -516,6 +516,11 @@ namespace OpenCBS.GUI.Database
             btnSQLServerChangeSettings.Enabled = true;
             groupBoxDatabaseManagement.Enabled = true;
             lblDetectDatabasesInProgress.Visible = false;
+            if (_sqlDatabases != null && !_sqlDatabases.Select(i => i.Name).Contains(TechnicalSettings.DatabaseName))
+            {
+                TechnicalSettings.DatabaseName = _sqlDatabases.First().Name;
+                _exitApplicationIfClose = true;
+            }
             DisplayDatabases();
         }
 
