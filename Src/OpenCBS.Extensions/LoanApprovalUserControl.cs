@@ -3,7 +3,9 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Resources;
 using System.Windows.Forms;
+using OpenCBS.CoreDomain;
 using OpenCBS.Enums;
+using OpenCBS.Reports;
 
 namespace OpenCBS.Extensions
 {
@@ -41,6 +43,39 @@ namespace OpenCBS.Extensions
         public Control GetControl()
         {
             return this;
+        }
+
+        public void Init(int? loanId, OClientTypes clientType)
+        {
+            _printButton.AttachmentPoint = AttachmentPoint.CreditCommittee;
+            Visibility visibility;
+            switch (clientType)
+            {
+                case OClientTypes.Person:
+                    visibility = Visibility.Individual;
+                    break;
+
+                case OClientTypes.Group:
+                    visibility = Visibility.Group;
+                    break;
+
+                case OClientTypes.Corporate:
+                    visibility = Visibility.Corporate;
+                    break;
+
+                default:
+                    visibility = Visibility.All;
+                    break;
+            }
+            _printButton.Visibility = visibility;
+
+            _printButton.ReportInitializer =
+                report =>
+                {
+                    report.SetParamValue("user_id", User.CurrentUser.Id);
+                    if (loanId != null) report.SetParamValue("contract_id", loanId);
+                };
+            _printButton.LoadReports();
         }
 
         public string Comment

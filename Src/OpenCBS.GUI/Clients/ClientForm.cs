@@ -1917,6 +1917,7 @@ namespace OpenCBS.GUI.Clients
             _loanApprovalControl.Comment = pCredit.CreditCommiteeComment;
             _loanApprovalControl.Code = pCredit.CreditCommitteeCode;
             _loanApprovalControl.Date = pCredit.CreditCommiteeDate ?? TimeProvider.Now;
+            _loanApprovalControl.Init(pCredit.Id, _oClientType);
 
             if (pCredit.Code != null)
                 textBoxLoanContractCode.Text = pCredit.Code;
@@ -3465,9 +3466,6 @@ namespace OpenCBS.GUI.Clients
             }
 
             _credit = Preview();
-            _loanApprovalControl.Status = OContractStatus.Pending;
-            _loanApprovalControl.Date = _credit.StartDate;
-            _loanApprovalControl.Comment = "";
 
             // Compulsory savings
             if (_credit != null)
@@ -3503,6 +3501,11 @@ namespace OpenCBS.GUI.Clients
 
             if (_credit != null)
                 SaveContract();
+
+            _loanApprovalControl.Status = OContractStatus.Pending;
+            _loanApprovalControl.Date = _credit.StartDate;
+            _loanApprovalControl.Comment = "";
+            _loanApprovalControl.Init(_credit.Id, _oClientType);
         }
 
         private void DisplayListViewLoanRepayments(Loan credit)

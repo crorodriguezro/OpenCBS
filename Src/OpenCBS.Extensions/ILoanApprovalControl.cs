@@ -7,6 +7,7 @@ namespace OpenCBS.Extensions
     public interface ILoanApprovalControl
     {
         Control GetControl();
+        void Init(int? loanId, OClientTypes clientType);
 
         string Comment { get; set; }
         string Code { get; set; }

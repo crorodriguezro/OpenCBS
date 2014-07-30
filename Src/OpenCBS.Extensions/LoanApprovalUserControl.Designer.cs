@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.lblCCStatus = new System.Windows.Forms.Label();
             this.pnlCCStatus = new System.Windows.Forms.Panel();
@@ -40,6 +41,7 @@
             this._codeTextBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this._saveButton = new System.Windows.Forms.Button();
+            this._printButton = new OpenCBS.Controls.PrintButton();
             this.tableLayoutPanel11.SuspendLayout();
             this.pnlCCStatus.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
@@ -174,11 +176,12 @@
             this.flowLayoutPanel7.AutoSize = true;
             this.flowLayoutPanel7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel7.Controls.Add(this._saveButton);
+            this.flowLayoutPanel7.Controls.Add(this._printButton);
             this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel7.Location = new System.Drawing.Point(0, 333);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
             this.flowLayoutPanel7.Padding = new System.Windows.Forms.Padding(0, 13, 0, 0);
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(757, 53);
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(757, 47);
             this.flowLayoutPanel7.TabIndex = 70;
             // 
             // _saveButton
@@ -186,9 +189,21 @@
             this._saveButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this._saveButton.Location = new System.Drawing.Point(3, 16);
             this._saveButton.Name = "_saveButton";
-            this._saveButton.Size = new System.Drawing.Size(163, 34);
+            this._saveButton.Size = new System.Drawing.Size(140, 28);
             this._saveButton.TabIndex = 1;
             this._saveButton.Text = "Save";
+            // 
+            // _printButton
+            // 
+            this._printButton.Image = global::OpenCBS.Extensions.Properties.Resources.bullet_arrow_down;
+            this._printButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this._printButton.Location = new System.Drawing.Point(149, 16);
+            this._printButton.Name = "_printButton";
+            this._printButton.ReportInitializer = null;
+            this._printButton.Size = new System.Drawing.Size(140, 28);
+            this._printButton.TabIndex = 2;
+            this._printButton.Text = "Print";
+            this._printButton.UseVisualStyleBackColor = true;
             // 
             // LoanApprovalUserControl
             // 
@@ -222,5 +237,6 @@
         private System.Windows.Forms.TextBox _codeTextBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
         private System.Windows.Forms.Button _saveButton;
+        private Controls.PrintButton _printButton;
     }
 }
