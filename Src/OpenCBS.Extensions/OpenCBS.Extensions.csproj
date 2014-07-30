@@ -44,12 +44,6 @@
     <Reference Include="OpenCBS.ExceptionsHandler">
       <HintPath>..\OpenCBS.ExceptionsHandler\bin\Debug\OpenCBS.ExceptionsHandler.dll</HintPath>
     </Reference>
-    <Reference Include="OpenCBS.Extension.Tasks">
-      <HintPath>..\OpenCBS.GUI\bin\Debug\Extensions\OpenCBS.Extension.Tasks.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenCBS.Reports">
-      <HintPath>..\OpenCBS.Reports\bin\Debug\OpenCBS.Reports.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core">
@@ -113,6 +107,10 @@
     <ProjectReference Include="..\OpenCBS.Enums\OpenCBS.Enums.csproj">
       <Project>{8AFC1E87-3856-4F05-8280-5360D33C200B}</Project>
       <Name>OpenCBS.Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCBS.Reports\OpenCBS.Reports.csproj">
+      <Project>{a2e4e382-5796-446c-85b1-8ef306ad50de}</Project>
+      <Name>OpenCBS.Reports</Name>
     </ProjectReference>
     <ProjectReference Include="..\OpenCBS.Shared\OpenCBS.Shared.csproj">
       <Project>{b3288e21-e5a9-4620-bef3-afb0b207655c}</Project>
