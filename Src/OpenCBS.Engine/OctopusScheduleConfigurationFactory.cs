@@ -123,7 +123,7 @@ namespace OpenCBS.Engine
                 return GetPolicy<IPeriodPolicy>("Monthly");
             }
             var policy = (CustomPeriodPolicy)GetPolicy<IPeriodPolicy>("Custom");
-            policy.SetNumberOfDays(_loan.InstallmentType.NbOfDays);
+            policy.SetNumberOfDays(_loan.InstallmentType.NbOfMonths*30 + _loan.InstallmentType.NbOfDays);
             return policy;
         }
 
