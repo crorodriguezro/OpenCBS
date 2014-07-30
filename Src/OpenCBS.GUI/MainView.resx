@@ -125,7 +125,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB0
-        CwAAAk1TRnQBSQFMAgEBBQEAAUQBEQFEAREBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CwAAAk1TRnQBSQFMAgEBBQEAAVwBEQFcAREBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -264,6 +264,96 @@
   <data name="panelLeft.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
+  <data name="&gt;&gt;olvAlerts.Name" xml:space="preserve">
+    <value>olvAlerts</value>
+  </data>
+  <data name="&gt;&gt;olvAlerts.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.ObjectListView, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;olvAlerts.Parent" xml:space="preserve">
+    <value>panelLeft</value>
+  </data>
+  <data name="&gt;&gt;olvAlerts.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblTitle.Name" xml:space="preserve">
+    <value>lblTitle</value>
+  </data>
+  <data name="&gt;&gt;lblTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTitle.Parent" xml:space="preserve">
+    <value>panelLeft</value>
+  </data>
+  <data name="&gt;&gt;lblTitle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tabFilter.Name" xml:space="preserve">
+    <value>tabFilter</value>
+  </data>
+  <data name="&gt;&gt;tabFilter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabFilter.Parent" xml:space="preserve">
+    <value>panelLeft</value>
+  </data>
+  <data name="&gt;&gt;tabFilter.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabFilter.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="chkPostponedLoans" Row="3" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="tbFilter" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblFilter" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="chkLateLoans" Row="1" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkPendingLoans" Row="2" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkPendingSavings" Row="5" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkOverdraftSavings" Row="6" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkValidatedLoan" Row="4" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="panelLeft.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="panelLeft.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 24</value>
+  </data>
+  <data name="panelLeft.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="panelLeft.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 693</value>
+  </data>
+  <data name="panelLeft.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;panelLeft.Name" xml:space="preserve">
+    <value>panelLeft</value>
+  </data>
+  <data name="&gt;&gt;panelLeft.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelLeft.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelLeft.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitter6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="splitter6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>250, 24</value>
+  </data>
+  <data name="splitter6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="splitter6.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;splitter6.Name" xml:space="preserve">
+    <value>splitter6</value>
+  </data>
+  <data name="&gt;&gt;splitter6.Type" xml:space="preserve">
+    <value>OpenCBS.GUI.UserControl.CollapsibleSplitter, OpenCBS.GUI, Version=14.10.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;splitter6.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;splitter6.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="colAlerts_ContractCode.Text" xml:space="preserve">
     <value>Contract code</value>
   </data>
@@ -356,6 +446,135 @@
   </data>
   <data name="tabFilter.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;chkPostponedLoans.Name" xml:space="preserve">
+    <value>chkPostponedLoans</value>
+  </data>
+  <data name="&gt;&gt;chkPostponedLoans.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkPostponedLoans.Parent" xml:space="preserve">
+    <value>tabFilter</value>
+  </data>
+  <data name="&gt;&gt;chkPostponedLoans.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tbFilter.Name" xml:space="preserve">
+    <value>tbFilter</value>
+  </data>
+  <data name="&gt;&gt;tbFilter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbFilter.Parent" xml:space="preserve">
+    <value>tabFilter</value>
+  </data>
+  <data name="&gt;&gt;tbFilter.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblFilter.Name" xml:space="preserve">
+    <value>lblFilter</value>
+  </data>
+  <data name="&gt;&gt;lblFilter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblFilter.Parent" xml:space="preserve">
+    <value>tabFilter</value>
+  </data>
+  <data name="&gt;&gt;lblFilter.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;chkLateLoans.Name" xml:space="preserve">
+    <value>chkLateLoans</value>
+  </data>
+  <data name="&gt;&gt;chkLateLoans.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkLateLoans.Parent" xml:space="preserve">
+    <value>tabFilter</value>
+  </data>
+  <data name="&gt;&gt;chkLateLoans.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;chkPendingLoans.Name" xml:space="preserve">
+    <value>chkPendingLoans</value>
+  </data>
+  <data name="&gt;&gt;chkPendingLoans.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkPendingLoans.Parent" xml:space="preserve">
+    <value>tabFilter</value>
+  </data>
+  <data name="&gt;&gt;chkPendingLoans.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;chkPendingSavings.Name" xml:space="preserve">
+    <value>chkPendingSavings</value>
+  </data>
+  <data name="&gt;&gt;chkPendingSavings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkPendingSavings.Parent" xml:space="preserve">
+    <value>tabFilter</value>
+  </data>
+  <data name="&gt;&gt;chkPendingSavings.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;chkOverdraftSavings.Name" xml:space="preserve">
+    <value>chkOverdraftSavings</value>
+  </data>
+  <data name="&gt;&gt;chkOverdraftSavings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkOverdraftSavings.Parent" xml:space="preserve">
+    <value>tabFilter</value>
+  </data>
+  <data name="&gt;&gt;chkOverdraftSavings.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;chkValidatedLoan.Name" xml:space="preserve">
+    <value>chkValidatedLoan</value>
+  </data>
+  <data name="&gt;&gt;chkValidatedLoan.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkValidatedLoan.Parent" xml:space="preserve">
+    <value>tabFilter</value>
+  </data>
+  <data name="&gt;&gt;chkValidatedLoan.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="tabFilter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="tabFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 541</value>
+  </data>
+  <data name="tabFilter.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="tabFilter.RowCount" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="tabFilter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 152</value>
+  </data>
+  <data name="tabFilter.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;tabFilter.Name" xml:space="preserve">
+    <value>tabFilter</value>
+  </data>
+  <data name="&gt;&gt;tabFilter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabFilter.Parent" xml:space="preserve">
+    <value>panelLeft</value>
+  </data>
+  <data name="&gt;&gt;tabFilter.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabFilter.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="chkPostponedLoans" Row="3" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="tbFilter" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblFilter" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="chkLateLoans" Row="1" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkPendingLoans" Row="2" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkPendingSavings" Row="5" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkOverdraftSavings" Row="6" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkValidatedLoan" Row="4" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="chkPostponedLoans.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -618,89 +837,11 @@
   <data name="&gt;&gt;chkValidatedLoan.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="tabFilter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
+  <data name="mnuClients.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 20</value>
   </data>
-  <data name="tabFilter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 541</value>
-  </data>
-  <data name="tabFilter.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 5, 3, 5</value>
-  </data>
-  <data name="tabFilter.RowCount" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="tabFilter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 152</value>
-  </data>
-  <data name="tabFilter.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="&gt;&gt;tabFilter.Name" xml:space="preserve">
-    <value>tabFilter</value>
-  </data>
-  <data name="&gt;&gt;tabFilter.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabFilter.Parent" xml:space="preserve">
-    <value>panelLeft</value>
-  </data>
-  <data name="&gt;&gt;tabFilter.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tabFilter.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="chkPostponedLoans" Row="3" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="tbFilter" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblFilter" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="chkLateLoans" Row="1" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkPendingLoans" Row="2" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkPendingSavings" Row="5" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkOverdraftSavings" Row="6" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkValidatedLoan" Row="4" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="panelLeft.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="panelLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 24</value>
-  </data>
-  <data name="panelLeft.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="panelLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 693</value>
-  </data>
-  <data name="panelLeft.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;panelLeft.Name" xml:space="preserve">
-    <value>panelLeft</value>
-  </data>
-  <data name="&gt;&gt;panelLeft.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelLeft.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panelLeft.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="splitter6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="splitter6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>250, 24</value>
-  </data>
-  <data name="splitter6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 5, 3, 5</value>
-  </data>
-  <data name="splitter6.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="&gt;&gt;splitter6.Name" xml:space="preserve">
-    <value>splitter6</value>
-  </data>
-  <data name="&gt;&gt;splitter6.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.CollapsibleSplitter, OpenCBS.GUI, Version=14.10.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;splitter6.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;splitter6.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="mnuClients.Text" xml:space="preserve">
+    <value>Client and Contract</value>
   </data>
   <data name="mnuNewPerson.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
@@ -713,6 +854,15 @@
   </data>
   <data name="mnuNewPerson.Text" xml:space="preserve">
     <value>Create Individual Client</value>
+  </data>
+  <data name="mnuNewClient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="mnuNewClient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 22</value>
+  </data>
+  <data name="mnuNewClient.Text" xml:space="preserve">
+    <value>Create Group or Corporate Client</value>
   </data>
   <data name="mnuNewGroup.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
@@ -743,15 +893,6 @@
   </data>
   <data name="newCorporateToolStripMenuItem.Text" xml:space="preserve">
     <value>New corporate client</value>
-  </data>
-  <data name="mnuNewClient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="mnuNewClient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 22</value>
-  </data>
-  <data name="mnuNewClient.Text" xml:space="preserve">
-    <value>Create Group or Corporate Client</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>245, 6</value>
@@ -786,11 +927,11 @@
   <data name="reasignToolStripMenuItem.Text" xml:space="preserve">
     <value>Reassign contracts</value>
   </data>
-  <data name="mnuClients.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 20</value>
+  <data name="mnuChartOfAccounts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 22</value>
   </data>
-  <data name="mnuClients.Text" xml:space="preserve">
-    <value>Client and Contract</value>
+  <data name="mnuChartOfAccounts.Text" xml:space="preserve">
+    <value>Chart of accounts</value>
   </data>
   <data name="accountingRulesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 22</value>
@@ -857,6 +998,12 @@
   </data>
   <data name="mnuAccounting.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="mnuConfiguration.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <data name="mnuConfiguration.Text" xml:space="preserve">
+    <value>Configuration</value>
   </data>
   <data name="branchesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 22</value>
@@ -936,17 +1083,17 @@
   <data name="miContractCode.Text" xml:space="preserve">
     <value>Contract code</value>
   </data>
-  <data name="mnuConfiguration.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
-  </data>
-  <data name="mnuConfiguration.Text" xml:space="preserve">
-    <value>Configuration</value>
-  </data>
   <data name="mnuWindow.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 20</value>
   </data>
   <data name="mnuWindow.Text" xml:space="preserve">
     <value>Window</value>
+  </data>
+  <data name="mnuHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="mnuHelp.Text" xml:space="preserve">
+    <value>Help</value>
   </data>
   <data name="contactMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 22</value>
@@ -960,15 +1107,63 @@
   <data name="aboutMenuItem.Text" xml:space="preserve">
     <value>About</value>
   </data>
-  <data name="mnuHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="mnuHelp.Text" xml:space="preserve">
-    <value>Help</value>
-  </data>
   <metadata name="mainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>5, 0</value>
   </metadata>
+  <data name="mnuSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
+  </data>
+  <data name="mnuSettings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="mnuSecurity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
+  </data>
+  <data name="mnuSecurity.Text" xml:space="preserve">
+    <value>Security</value>
+  </data>
+  <data name="mnuProducts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 20</value>
+  </data>
+  <data name="mnuProducts.Text" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="_modulesMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 20</value>
+  </data>
+  <data name="_modulesMenuItem.Text" xml:space="preserve">
+    <value>Modules</value>
+  </data>
+  <data name="reportsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 20</value>
+  </data>
+  <data name="reportsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="mainMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="mainMenu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 2, 0, 2</value>
+  </data>
+  <data name="mainMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1284, 24</value>
+  </data>
+  <data name="mainMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;mainMenu.Name" xml:space="preserve">
+    <value>mainMenu</value>
+  </data>
+  <data name="&gt;&gt;mainMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mainMenu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;mainMenu.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="menuItemSetting.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -992,6 +1187,12 @@
   </data>
   <data name="menuItemApplicationDate.Text" xml:space="preserve">
     <value>Change application date</value>
+  </data>
+  <data name="languagesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 22</value>
+  </data>
+  <data name="languagesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Language</value>
   </data>
   <data name="frenchToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
@@ -1038,18 +1239,6 @@
   <data name="portugueseToolStripMenuItem.Text" xml:space="preserve">
     <value>Portuguese</value>
   </data>
-  <data name="languagesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
-  </data>
-  <data name="languagesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="mnuSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
-  </data>
-  <data name="mnuSettings.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
   <data name="rolesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 22</value>
   </data>
@@ -1077,12 +1266,6 @@
   <data name="changePasswordToolStripMenuItem.Text" xml:space="preserve">
     <value>Change password</value>
   </data>
-  <data name="mnuSecurity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
-  </data>
-  <data name="mnuSecurity.Text" xml:space="preserve">
-    <value>Security</value>
-  </data>
   <data name="mnuPackages.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -1107,83 +1290,17 @@
   <data name="menuItemCollateralProducts.Text" xml:space="preserve">
     <value>Collateral products</value>
   </data>
-  <data name="mnuProducts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 20</value>
-  </data>
-  <data name="mnuProducts.Text" xml:space="preserve">
-    <value>Products</value>
-  </data>
   <data name="_aboutModulesMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>165, 22</value>
   </data>
   <data name="_aboutModulesMenuItem.Text" xml:space="preserve">
     <value>About modules...</value>
   </data>
-  <data name="_modulesMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 20</value>
-  </data>
-  <data name="_modulesMenuItem.Text" xml:space="preserve">
-    <value>Modules</value>
-  </data>
-  <data name="reportsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 20</value>
-  </data>
-  <data name="reportsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reports</value>
-  </data>
-  <data name="mainMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="mainMenu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>7, 2, 0, 2</value>
-  </data>
-  <data name="mainMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1284, 24</value>
-  </data>
-  <data name="mainMenu.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;mainMenu.Name" xml:space="preserve">
-    <value>mainMenu</value>
-  </data>
-  <data name="&gt;&gt;mainMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mainMenu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;mainMenu.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <metadata name="mainStatusBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>39, 477</value>
   </metadata>
   <data name="mainStatusBar.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>None</value>
-  </data>
-  <data name="mainStatusBarLblUpdateVersion.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
-  </data>
-  <data name="mainStatusBarLblUpdateVersion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1043, 20</value>
-  </data>
-  <data name="mainStatusBarLblUserName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 20</value>
-  </data>
-  <data name="mainStatusBarLblUserName.Text" xml:space="preserve">
-    <value>UserName</value>
-  </data>
-  <data name="mainStatusBarLblDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 20</value>
-  </data>
-  <data name="mainStatusBarLblDate.Text" xml:space="preserve">
-    <value>00/00/00 00:00:00</value>
-  </data>
-  <data name="toolStripStatusLblBranchCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>4, 20</value>
-  </data>
-  <data name="toolStripStatusLblDB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
   </data>
   <data name="mainStatusBar.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 717</value>
@@ -1208,6 +1325,30 @@
   </data>
   <data name="&gt;&gt;mainStatusBar.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="mainStatusBarLblUpdateVersion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
+  </data>
+  <data name="mainStatusBarLblUpdateVersion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1043, 20</value>
+  </data>
+  <data name="mainStatusBarLblUserName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 20</value>
+  </data>
+  <data name="mainStatusBarLblUserName.Text" xml:space="preserve">
+    <value>UserName</value>
+  </data>
+  <data name="mainStatusBarLblDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 20</value>
+  </data>
+  <data name="mainStatusBarLblDate.Text" xml:space="preserve">
+    <value>00/00/00 00:00:00</value>
+  </data>
+  <data name="toolStripStatusLblBranchCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>4, 20</value>
+  </data>
+  <data name="toolStripStatusLblDB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 20</value>
   </data>
   <metadata name="alertBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>908, 17</value>
@@ -2319,6 +2460,12 @@
   </data>
   <data name="&gt;&gt;alertBindingSource.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuChartOfAccounts.Name" xml:space="preserve">
+    <value>mnuChartOfAccounts</value>
+  </data>
+  <data name="&gt;&gt;mnuChartOfAccounts.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainView</value>

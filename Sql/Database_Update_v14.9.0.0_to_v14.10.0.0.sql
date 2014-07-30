@@ -11,9 +11,6 @@ AS RETURN
 )
 GO
 
-DElETE FROM GeneralParameters WHERE [key] ='USE_EXTERNAL_ACCOUNTING'
-GO
-
 
 IF not exists (SELECT * FROM sys.tables WHERE name = 'Booking')
 BEGIN
@@ -165,6 +162,12 @@ Insert into dbo.Accounts VALUES (500, 'Equity', 0,5,0)
 Insert into dbo.Accounts VALUES (5001, 'Common Shares', 0,0,49)
 Insert into dbo.Accounts VALUES (5002, 'Paid in Capital',0,0,49)
 end
+GO
+
+IF not exists (Select * from dbo.GeneralParameters WHERE [key] = 'USE_EXTERNAL_ACCOUNNING')
+BEGIN
+INSERT INTO [GeneralParameters]([key], [value]) VALUES('USE_EXTERNAL_ACCOUNTING', 1)
+END
 GO
 
 UPDATE  [TechnicalParameters]

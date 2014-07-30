@@ -162,6 +162,7 @@ namespace OpenCBS.GUI
             this.toolStripStatusLblBranchCode = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLblDB = new System.Windows.Forms.ToolStripStatusLabel();
             this.alertBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mnuChartOfAccounts = new System.Windows.Forms.ToolStripMenuItem();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olvAlerts)).BeginInit();
             this.tabFilter.SuspendLayout();
@@ -487,6 +488,7 @@ namespace OpenCBS.GUI
             // mnuAccounting
             // 
             this.mnuAccounting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuChartOfAccounts,
             this.accountingRulesToolStripMenuItem,
             this.trialBalanceToolStripMenuItem,
             this.toolStripMenuItemAccountView,
@@ -911,6 +913,12 @@ namespace OpenCBS.GUI
             // 
             this.alertBindingSource.DataSource = typeof(OpenCBS.CoreDomain.Alert);
             // 
+            // mnuChartOfAccounts
+            // 
+            this.mnuChartOfAccounts.Image = global::OpenCBS.GUI.Properties.Resources.page;
+            this.mnuChartOfAccounts.Name = "mnuChartOfAccounts";
+            resources.ApplyResources(this.mnuChartOfAccounts, "mnuChartOfAccounts");
+            // 
             // MainView
             // 
             resources.ApplyResources(this, "$this");
@@ -1008,6 +1016,7 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem _modulesMenuItem;
         private ToolStripMenuItem _aboutModulesMenuItem;
         private ToolStripMenuItem contactMenuItem;
+        private ToolStripMenuItem mnuChartOfAccounts;
 
 
     }

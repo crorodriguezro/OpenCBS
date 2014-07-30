@@ -96,6 +96,7 @@ namespace OpenCBS.Shared.Settings
             _defaultParamList.Add(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY, 0);
             _defaultParamList.Add(OGeneralSettings.NUMBER_GROUP_SEPARATOR, " ");
             _defaultParamList.Add(OGeneralSettings.NUMBER_DECIMAL_SEPARATOR, ",");
+            _defaultParamList.Add(OGeneralSettings.USE_EXTERNAL_ACCOUNTING, 1);
         }
 
         #region Internal stuff
@@ -460,6 +461,10 @@ namespace OpenCBS.Shared.Settings
             return days;
         }
 
+        public bool UseExternalAccounting
+        {
+            get { return GetSpecificParameter(OGeneralSettings.USE_EXTERNAL_ACCOUNTING).ToString() == "1"; }
+        }
 
         public bool UseMandatorySavingAccount
         {

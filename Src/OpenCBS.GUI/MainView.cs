@@ -111,7 +111,13 @@ namespace OpenCBS.GUI
         private void DisplayWinFormDetails()
         {
             _DisplayDetails();
+            InitializeContractCurrencies();
             InitAlerts();
+        }
+
+        private void InitializeContractCurrencies()
+        {
+            mnuChartOfAccounts.Click += mnuChartOfAccounts_Click;
         }
 
         private void InitExtensions()
@@ -156,7 +162,7 @@ namespace OpenCBS.GUI
             return true;
         }
 
-      
+
 
         private void _DisplayDetails()
         {
@@ -966,6 +972,7 @@ namespace OpenCBS.GUI
 
         private void InitializeMainMenu()
         {
+            InitializeCoreMenu();
             foreach (var extensionItem in ExtensionMenuItems)
             {
                 var anchor = mainMenu.Items.Find(extensionItem.InsertAfter, true).FirstOrDefault();
@@ -977,9 +984,19 @@ namespace OpenCBS.GUI
 
                 var items = owner == null ? mainMenu.Items : owner.DropDownItems;
                 var index = items.IndexOf(anchor);
+
+                if (extensionItem.GetItem().Name == "mnuAccountancy" && !ServicesProvider.GetInstance().GetGeneralSettings().UseExternalAccounting)
+                    continue;
+
+
                 items.Insert(index + 1, temp.GetItem());
             }
 
+        }
+
+        private void InitializeCoreMenu()
+        {
+            mainMenu.Items["mnuAccounting"].Visible = !ServicesProvider.GetInstance().GetGeneralSettings().UseExternalAccounting;
         }
 
         private static void bwReportLoader_DoWork(object sender, DoWorkEventArgs e)
