@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Resources;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain;
+using OpenCBS.CoreDomain.Clients;
+using OpenCBS.CoreDomain.Contracts.Guarantees;
+using OpenCBS.CoreDomain.Contracts.Loans;
+using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.Enums;
 using OpenCBS.Reports;
 
@@ -45,11 +50,11 @@ namespace OpenCBS.Extensions
             return this;
         }
 
-        public void Init(int? loanId, OClientTypes clientType)
+        public void Init(IClient client, Loan loan, Guarantee guarantee, SavingBookContract savings, IList<IPrintButtonContextMenuStrip> printMenus)
         {
             _printButton.AttachmentPoint = AttachmentPoint.CreditCommittee;
             Visibility visibility;
-            switch (clientType)
+            switch (client.Type)
             {
                 case OClientTypes.Person:
                     visibility = Visibility.Individual;
@@ -73,9 +78,22 @@ namespace OpenCBS.Extensions
                 report =>
                 {
                     report.SetParamValue("user_id", User.CurrentUser.Id);
-                    if (loanId != null) report.SetParamValue("contract_id", loanId);
+                    if (loan != null) report.SetParamValue("contract_id", loan.Id);
                 };
             _printButton.LoadReports();
+
+            foreach (var item in printMenus)
+            {
+                var menu = item.GetContextMenuStrip(client, loan, guarantee, savings, AttachmentPoint.CreditCommittee.ToString());
+                if (menu == null) continue;
+
+                var items = menu.Items;
+                for (var i = 0; i < items.Count; i++)
+                {
+                    if (items[0] != null)
+                        _printButton.Menu.Items.Add(items[0]);
+                }
+            }
         }
 
         public string Comment

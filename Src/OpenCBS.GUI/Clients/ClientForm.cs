@@ -114,6 +114,9 @@ namespace OpenCBS.GUI.Clients
         [ImportMany(typeof(ILoanDetailsButton), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<ILoanDetailsButton> LoanDetailsButtons { get; set; }
 
+        [ImportMany(typeof(IPrintButtonContextMenuStrip), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<IPrintButtonContextMenuStrip> PrintButtonContextMenuStrips { get; set; }
+
         [ImportMany(typeof(ILoanExtension))]
         public List<ILoanExtension> LoanExtensions { get; set; }
 
@@ -1917,7 +1920,7 @@ namespace OpenCBS.GUI.Clients
             _loanApprovalControl.Comment = pCredit.CreditCommiteeComment;
             _loanApprovalControl.Code = pCredit.CreditCommitteeCode;
             _loanApprovalControl.Date = pCredit.CreditCommiteeDate ?? TimeProvider.Now;
-            _loanApprovalControl.Init(pCredit.Id, _oClientType);
+            _loanApprovalControl.Init(_client, _credit, _guarantee, _saving, PrintButtonContextMenuStrips);
 
             if (pCredit.Code != null)
                 textBoxLoanContractCode.Text = pCredit.Code;
@@ -3505,7 +3508,7 @@ namespace OpenCBS.GUI.Clients
             _loanApprovalControl.Status = OContractStatus.Pending;
             _loanApprovalControl.Date = _credit.StartDate;
             _loanApprovalControl.Comment = "";
-            _loanApprovalControl.Init(_credit.Id, _oClientType);
+            _loanApprovalControl.Init(_client, _credit, _guarantee, _saving, PrintButtonContextMenuStrips);
         }
 
         private void DisplayListViewLoanRepayments(Loan credit)
@@ -5422,6 +5425,20 @@ namespace OpenCBS.GUI.Clients
                     if (_guarantee != null) report.SetParamValue("guarantee_id", _guarantee.Id);
                 };
             button.LoadReports();
+
+            //from extension
+            foreach (var item in PrintButtonContextMenuStrips)
+            {
+                var menu = item.GetContextMenuStrip(_client, _credit, _guarantee, _saving, attachmentPoint.ToString());
+                if (menu == null) continue;
+
+                var items = menu.Items;
+                for (var i = 0; i < items.Count; i++)
+                {
+                    if (items[0] != null)
+                        button.Menu.Items.Add(items[0]);
+                }
+            }
         }
 
         private void InitLoanDetailsPrintButton()
@@ -5437,27 +5454,12 @@ namespace OpenCBS.GUI.Clients
                 var button = loanDetailsButton.GetButton(_client, _credit, _guarantee, _saving);
                 if (button == null) continue;
 
-                if (button.ContextMenuStrip != null)
-                {
-                    var items = button.ContextMenuStrip.Items;
-                    var count = items.Count;
-                    for (int i = 0; i < count; i++)
-                    {
-                        if (items[0] != null)
-                            btnPrintLoanDetails.Menu.Items.Add(items[0]);
-                    }
-                }
-                else
-                {
-                    var controls = loanDetailsButtonsPanel.Controls.Find(button.Name, false);
-                    if (controls.Any()) loanDetailsButtonsPanel.Controls.Remove(controls[0]);
-                    loanDetailsButtonsPanel.Controls.Add(button);
-                }
+                var controls = loanDetailsButtonsPanel.Controls.Find(button.Name, false);
+                if (controls.Any()) loanDetailsButtonsPanel.Controls.Remove(controls[0]);
+                loanDetailsButtonsPanel.Controls.Add(button);
             }
         }
-
-
-
+        
         private void InitLoanEventsPrintButton()
         {
             InitPrintButton(AttachmentPoint.LoanEvents, btnPrintLoanEvents);
@@ -5466,13 +5468,14 @@ namespace OpenCBS.GUI.Clients
         private void InitLoanRepaymentPrintButton()
         {
             InitPrintButton(AttachmentPoint.LoanRepayment, btnPrintLoanRepayment);
+
         }
 
 //        private void InitCreditCommitteePrintButton()
 //        {
 //            InitPrintButton(AttachmentPoint.CreditCommittee, btnPrintCreditCommittee);
 //        }
-
+        
         private void InitSavingsBookPrintButton()
         {
             InitPrintButton(AttachmentPoint.SavingsBook, btnPrintSavings);
