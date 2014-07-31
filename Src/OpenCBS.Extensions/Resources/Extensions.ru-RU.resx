@@ -129,6 +129,9 @@
   <data name="Pending" xml:space="preserve">
     <value>Не закончен</value>
   </data>
+  <data name="Postponed" xml:space="preserve">
+    <value>Отложено</value>
+  </data>
   <data name="Refused" xml:space="preserve">
     <value>Отказано</value>
   </data>

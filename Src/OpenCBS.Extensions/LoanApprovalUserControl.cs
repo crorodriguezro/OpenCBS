@@ -29,7 +29,8 @@ namespace OpenCBS.Extensions
                 OContractStatus.Validated,
                 OContractStatus.Refused,
                 OContractStatus.Abandoned,
-                OContractStatus.Deleted
+                OContractStatus.Deleted,
+                OContractStatus.Postponed
             };
             var resourceManager = new ResourceManager("OpenCBS.Extensions.Resources.Extensions", GetType().Assembly);
             var dict = statuses.ToDictionary(x => x, x => resourceManager.GetString(x.ToString()));
@@ -118,7 +119,7 @@ namespace OpenCBS.Extensions
 
         public OContractStatus Status
         {
-            get { return (OContractStatus) _statusComboBox.SelectedValue; }
+            get { return (OContractStatus)_statusComboBox.SelectedValue; }
             set
             {
                 switch (value)

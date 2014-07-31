@@ -129,6 +129,9 @@
   <data name="Pending" xml:space="preserve">
     <value>Pending</value>
   </data>
+  <data name="Postponed" xml:space="preserve">
+    <value>Postponed</value>
+  </data>
   <data name="Refused" xml:space="preserve">
     <value>Refused</value>
   </data>
