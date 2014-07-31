@@ -349,15 +349,16 @@
                 </Component>
               </Directory>
               <Directory Id="dir_excel" Name="Excel">
-	            <Component Id="dir_excel" Guid="84dec70c-70c8-4b06-8a0f-f8f0cfa5e445" KeyPath="yes">
-                        <File Id="Active_Loans_excel" Name="Active_Loans.zip" Source="SourceDir\Reports\Excel\Active_Loans.zip" />
-                        <File Id="Disbursements_excel" Name="Disbursements.zip" Source="SourceDir\Reports\Excel\Disbursements.zip" />
-                        <File Id="Repayments_excel" Name="Repayments.zip" Source="SourceDir\Reports\Excel\Repayments.zip" />
-                        <File Id="Collection_Sheet_excel" Name="Collection_Sheet.zip" Source="SourceDir\Reports\Excel\Collection_Sheet.zip" />
-                        <File Id="OLB_and_LLP_excel" Name="OLB_and_LLP.zip" Source="SourceDir\Reports\Excel\OLB_and_LLP.zip" />
-                        <File Id="Client_Information_excel" Name="Client_Information.zip" Source="SourceDir\Reports\Excel\Client_Information.zip" />
-                        <File Id="Closed_Contracts_excel" Name="Closed_Contracts.zip" Source="SourceDir\Reports\Excel\Closed_Contracts.zip" />
-	            </Component>
+                <Component Id="dir_excel" Guid="84dec70c-70c8-4b06-8a0f-f8f0cfa5e445" KeyPath="yes">
+                  <File Id="Active_Loans_excel" Name="Active_Loans.zip" Source="SourceDir\Reports\Excel\Active_Loans.zip" />
+                  <File Id="Disbursements_excel" Name="Disbursements.zip" Source="SourceDir\Reports\Excel\Disbursements.zip" />
+                  <File Id="Repayments_excel" Name="Repayments.zip" Source="SourceDir\Reports\Excel\Repayments.zip" />
+                  <File Id="Collection_Sheet_excel" Name="Collection_Sheet.zip" Source="SourceDir\Reports\Excel\Collection_Sheet.zip" />
+                  <File Id="OLB_and_LLP_excel" Name="OLB_and_LLP.zip" Source="SourceDir\Reports\Excel\OLB_and_LLP.zip" />
+                  <File Id="Client_Information_excel" Name="Client_Information.zip" Source="SourceDir\Reports\Excel\Client_Information.zip" />
+                  <File Id="Closed_Contracts_excel" Name="Closed_Contracts.zip" Source="SourceDir\Reports\Excel\Closed_Contracts.zip" />
+                  <File Id="PAR_Analysis_excel" Name="PAR_Analysis.zip" Source="SourceDir\Reports\Excel\PAR_Analysis.zip" />
+	              </Component>
               </Directory>
               <Directory Id="dir_word" Name="Office">
 	            <Component Id="dir_word" Guid="6ebf0ad4-1ba5-4807-8c30-d492c3454d26" KeyPath="yes">
