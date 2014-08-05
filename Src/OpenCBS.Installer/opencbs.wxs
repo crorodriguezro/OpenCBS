@@ -430,6 +430,14 @@
         <RegistryValue Root="HKCU" Key="Software\Microsoft\OpenCBS\$(var.ProductVersion)" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
       </Component>
     </DirectoryRef>
+    
+    <DirectoryRef Id="DIR_ROOT_VERSION">
+      <Component Id="PermissionsOfRootDirectory" Guid="b1015c26-afcc-4334-851c-b36ad555fa5f">
+        <CreateFolder>
+          <util:PermissionEx User="Everyone" GenericAll="yes" ChangePermission="yes"/>
+        </CreateFolder>
+      </Component>
+    </DirectoryRef>
 
     <Feature Id="ProductFeature" Title="OpenCBS" Level="1">
       <ComponentRef Id="dir_excel" />
@@ -461,6 +469,7 @@
       <ComponentRef Id="AccountingScripts"/>
 	    <ComponentRef Id="DemoDbDirectory" />
       <ComponentRef Id="Operations" />
+      <ComponentRef Id="PermissionsOfRootDirectory"/>
     </Feature>
     
     <Binary Id="CustomActionsId" SourceFile="d:\build\Src\OpenCBS.Installer\Resources\CustomActions.CA.dll" />
