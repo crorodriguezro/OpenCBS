@@ -312,6 +312,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
            
 
             //with this constructor, installment are directly calculated when a new CreditContract is instanciated
+            if (Product.ScriptName != null) return;//can't calculate installment in case of scripts, it must be called outside of coredomain
             _installmentList = CalculateInstallments(true);
             CalculateStartDates();
         }
