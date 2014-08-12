@@ -8,11 +8,11 @@
   	<?define PlatformProgramFilesFolder="ProgramFiles64Folder"?>
   <?endif?>
 
-  <?define PreviousVersion="14.9.0.0" ?>
-  <?define ProductVersion="14.10.0.0" ?>
-  <?define ProductVersionReduced="14.10" ?>
+  <?define PreviousVersion="14.10.0.0" ?>
+  <?define ProductVersion="14.11.0.0" ?>
+  <?define ProductVersionReduced="14.11" ?>
   <?define UpgradeCode="be584361-0c04-42c9-8ea8-457cdea8b89e"?>
-  <?define ProductCode="578447ba-53fa-4b32-ab83-b909c39d6394"?>
+  <?define ProductCode="c599ebbd-9be3-4906-bf3a-50c68f6fb3e5"?>
 
   <Product Id="$(var.ProductCode)" Name="OpenCBS $(var.ProductVersion)" Language="1033"
            Version="$(var.ProductVersion)" Manufacturer="OpenCBS" UpgradeCode="$(var.UpgradeCode)">
