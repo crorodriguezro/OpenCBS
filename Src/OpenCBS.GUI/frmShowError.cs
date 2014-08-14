@@ -82,9 +82,9 @@ namespace OpenCBS.GUI
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.richTextBoxExceptionDetail = new System.Windows.Forms.RichTextBox();
-            this.buttonOK = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonShowDetail = new System.Windows.Forms.Button();
+            this.buttonOK = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,15 +112,6 @@ namespace OpenCBS.GUI
             this.richTextBoxExceptionDetail.ForeColor = System.Drawing.Color.White;
             this.richTextBoxExceptionDetail.Name = "richTextBoxExceptionDetail";
             // 
-            // buttonOK
-            // 
-            this.buttonOK.BackColor = System.Drawing.Color.Gainsboro;
-            resources.ApplyResources(this.buttonOK, "buttonOK");
-            this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.UseVisualStyleBackColor = false;
-            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.buttonShowDetail);
@@ -137,6 +128,15 @@ namespace OpenCBS.GUI
             this.buttonShowDetail.UseVisualStyleBackColor = false;
             this.buttonShowDetail.Click += new System.EventHandler(this.buttonShowDetail_Click);
             // 
+            // buttonOK
+            // 
+            this.buttonOK.BackColor = System.Drawing.Color.Gainsboro;
+            resources.ApplyResources(this.buttonOK, "buttonOK");
+            this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.UseVisualStyleBackColor = false;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            // 
             // frmShowError
             // 
             resources.ApplyResources(this, "$this");
@@ -148,7 +148,7 @@ namespace OpenCBS.GUI
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.splitter2);
             this.Controls.Add(this.labelExceptionText);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "frmShowError";
             this.Load += new System.EventHandler(this.frmShowError_Load);
             this.groupBox1.ResumeLayout(false);

@@ -51,7 +51,7 @@ namespace OpenCBS.Controls
 			InitializeComponent();
 			_expectionStatus = pExceptionStatus;
 		}
-
+        
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
@@ -90,6 +90,7 @@ namespace OpenCBS.Controls
             // 
             resources.ApplyResources(this.labelExceptionText, "labelExceptionText");
             this.labelExceptionText.Name = "labelExceptionText";
+            this.labelExceptionText.Click += new System.EventHandler(this.labelExceptionText_Click);
             // 
             // splitter2
             // 
@@ -198,5 +199,10 @@ namespace OpenCBS.Controls
 		{
 			Close();
 		}
+
+        private void labelExceptionText_Click(object sender, EventArgs e)
+        {
+
+        }
 	}
 }
