@@ -516,7 +516,7 @@ namespace OpenCBS.GUI.Database
             btnSQLServerChangeSettings.Enabled = true;
             groupBoxDatabaseManagement.Enabled = true;
             lblDetectDatabasesInProgress.Visible = false;
-            if (_sqlDatabases != null && !_sqlDatabases.Select(i => i.Name).Contains(TechnicalSettings.DatabaseName))
+            if (_sqlDatabases != null && _sqlDatabases.Any() && !_sqlDatabases.Select(i => i.Name).Contains(TechnicalSettings.DatabaseName))
             {
                 TechnicalSettings.DatabaseName = _sqlDatabases.First().Name;
                 _exitApplicationIfClose = true;
