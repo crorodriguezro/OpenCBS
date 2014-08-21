@@ -462,7 +462,7 @@ namespace OpenCBS.GUI.Clients
             Person person = (Person)member.Tiers;
             ApplicationSettings dataParam = ApplicationSettings.GetInstance(string.Empty);
             int decimalPlaces = dataParam.InterestRateDecimalPlaces;
-            ListViewItem item = new ListViewItem(person.Name) { Tag = member };
+            ListViewItem item = new ListViewItem(person.Name) { Tag = loan };
             if (loan == null || _village.EstablishmentDate == null) return;
             if (_village.Id == loan.NsgID)
             {
@@ -791,53 +791,19 @@ namespace OpenCBS.GUI.Clients
         private void listViewLoans_DoubleClick(object sender, EventArgs e)
         {
 
-            VillageMember member = (VillageMember)listViewLoans.SelectedItems[0].Tag;
+            var loan = (Loan) listViewLoans.SelectedItems[0].Tag;
 
-            var mem = member.ActiveLoans[0];
+            if (loan == null) return;
+            var client = ServicesProvider.GetInstance().GetClientServices().FindTiersByContractId(loan.Id);
+            if (client.Projects != null)
+                foreach (var credit in client.Projects.Where(project => project.Credits != null).SelectMany(project => project.Credits))
+                    credit.CompulsorySavings =
+                        ServicesProvider.GetInstance().GetSavingServices().GetSavingForLoan(credit.Id, true);
+            var frm = new ClientForm(client, loan.Id, MdiParent, "tabPageLoansDetails");
+            frm.ShowDialog();
 
-            if (member != null)
-            {
-                ClientForm frm;
-                if (member.ActiveLoans != null)
-                {
-                    if (member.ActiveLoans.Count > 0)
-                    {
-                        IClient client = ServicesProvider.GetInstance().GetClientServices().FindTiersByContractId(member.ActiveLoans[0].Id);
-                        if (client.Projects != null)
-                            foreach (Project project in client.Projects)
-                                if (project.Credits != null)
-                                    foreach (Loan loan in project.Credits)
-                                        loan.CompulsorySavings = ServicesProvider.GetInstance().GetSavingServices().GetSavingForLoan(loan.Id, true);
-                        frm = new ClientForm(client, member.ActiveLoans[0].Id, MdiParent, "tabPageLoansDetails");
-                    }
-                    else
-                    {
-                        frm = new ClientForm((Person)member.Tiers, MdiParent);
-                    }
-                }
-                else
-                {
-                    frm = new ClientForm((Person)member.Tiers, MdiParent);
-                }
-                frm.ShowDialog();
-
-
-                if (_village.Members != null)
-                    if (_village.Members.Count != 0)
-                    {
-                        for (int i = 0; i < _village.Members.Count; i++)
-                        {
-                            if (_village.Members[i] == member)
-                            {
-                                _village.Members[i].ActiveLoans =
-                                    ServicesProvider.GetInstance().GetContractServices().FindActiveContracts(member.Tiers.Id);
-                            }
-                        }
-                    }
-
-                DisplayLoans();
-                ((MainView)MdiParent).ReloadAlerts();
-            }
+            DisplayLoans();
+            ((MainView) MdiParent).ReloadAlerts();
         }
 
         private void cbMeetingDay_CheckedChanged(object sender, EventArgs e)
