@@ -5429,14 +5429,12 @@ namespace OpenCBS.GUI.Clients
             //from extension
             foreach (var item in PrintButtonContextMenuStrips)
             {
-                var menu = item.GetContextMenuStrip(_client, _credit, _guarantee, _saving, attachmentPoint.ToString());
-                if (menu == null) continue;
+                var menuItems = item.GetContextMenuStrip(_client, _credit, _guarantee, _saving, attachmentPoint.ToString());
+                if (menuItems == null) continue;
 
-                var items = menu.Items;
-                for (var i = 0; i < items.Count; i++)
+                foreach (var menuItem in menuItems)
                 {
-                    if (items[0] != null)
-                        button.Menu.Items.Add(items[0]);
+                    button.Menu.Items.Add(menuItem);
                 }
             }
         }

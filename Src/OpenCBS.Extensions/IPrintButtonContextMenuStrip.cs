@@ -17,6 +17,7 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
+using System.Collections.Generic;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Guarantees;
@@ -27,6 +28,6 @@ namespace OpenCBS.Extensions
 {
     public interface IPrintButtonContextMenuStrip
     {
-        ContextMenuStrip GetContextMenuStrip(IClient client, Loan loan, Guarantee guarantee, SavingBookContract savings, string attachmentPiont);
+        IList<ToolStripMenuItem> GetContextMenuStrip(IClient client, Loan loan, Guarantee guarantee, SavingBookContract savings, string attachmentPiont);
     }
 }

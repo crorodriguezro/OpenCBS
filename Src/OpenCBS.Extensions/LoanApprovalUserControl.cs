@@ -85,14 +85,12 @@ namespace OpenCBS.Extensions
 
             foreach (var item in printMenus)
             {
-                var menu = item.GetContextMenuStrip(client, loan, guarantee, savings, AttachmentPoint.CreditCommittee.ToString());
-                if (menu == null) continue;
+                var menuItems = item.GetContextMenuStrip(client, loan, guarantee, savings, AttachmentPoint.CreditCommittee.ToString());
+                if (menuItems == null) continue;
 
-                var items = menu.Items;
-                for (var i = 0; i < items.Count; i++)
+                foreach (var menuItem in menuItems)
                 {
-                    if (items[0] != null)
-                        _printButton.Menu.Items.Add(items[0]);
+                    _printButton.Menu.Items.Add(menuItem);
                 }
             }
         }
