@@ -391,6 +391,7 @@ namespace OpenCBS.GUI.UserControl
                     _tempPerson.FatherName = _tempPerson.FatherName.Trim();
                 if (_tempPerson.IdentificationData != null)
                     _tempPerson.IdentificationData = _tempPerson.IdentificationData.Trim();
+                _tempPerson.Nationality = textBoxNationality.Text;
 
                 string result = ServicesProvider
                     .GetInstance()
