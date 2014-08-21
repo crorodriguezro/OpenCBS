@@ -131,7 +131,7 @@ namespace OpenCBS.GUI.UserControl
             addressUserControlFirst.Dock = DockStyle.Fill;
             groupBoxFirstAddress.Controls.Add(addressUserControlFirst);
 
-            addressUserControlSecondaryAddress = new AddressUserControl();
+            addressUserControlSecondaryAddress = new AddressUserControl(false);
             addressUserControlSecondaryAddress.TextBoxHomePhoneText =
                 MultiLanguageStrings.GetString(Ressource.PersonUserControl, "Businesscellphone.Text");
             addressUserControlSecondaryAddress.TextBoxPersonalPhoneText =

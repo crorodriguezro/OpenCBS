@@ -20,7 +20,6 @@
 // Contact: contact@opencbs.com
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text.RegularExpressions;
@@ -46,11 +45,16 @@ namespace OpenCBS.GUI
         private string _zipCode;
         private string _homeType;
 
-        public AddressUserControl()
+        public AddressUserControl(bool mandatory = true)
         {
             _Initialization();
+
+            if (mandatory) return;
+            labelProvince.Text = ConvertTextToNonMandatory(labelProvince.Text);
+            labelDistrict.Text = ConvertTextToNonMandatory(labelDistrict.Text);
+            labelCity.Text = ConvertTextToNonMandatory(labelCity.Text);
         }
-        
+
         public District District
         {
             get { return _district; }
@@ -381,5 +385,9 @@ namespace OpenCBS.GUI
             }
         }
         
+        private string ConvertTextToNonMandatory(string text)
+        {
+            return text.Replace("*", "");
+        }
     }
 }

@@ -862,7 +862,7 @@ namespace OpenCBS.GUI.UserControl
                                               TextBoxHomePhoneText = MultiLanguageStrings.GetString(Ressource.GroupUserControl, "Homephone.Text"),
                                               TextBoxPersonalPhoneText = MultiLanguageStrings.GetString(Ressource.GroupUserControl, "Personalphone.Text")
                                           };
-            addressUserControlSecondaryAddress = new AddressUserControl
+            addressUserControlSecondaryAddress = new AddressUserControl(false)
                                                      {
                                                          TextBoxHomePhoneText = MultiLanguageStrings.GetString(Ressource.GroupUserControl, "Businessphone.Text"),
                                                          TextBoxPersonalPhoneText = MultiLanguageStrings.GetString(Ressource.GroupUserControl, "Businesscellphone.Text")
