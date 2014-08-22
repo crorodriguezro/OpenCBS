@@ -49,6 +49,9 @@ namespace OpenCBS.GUI.UserControl
         [ImportMany(typeof(IPersonTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<IPersonTabs> Extensions { get; set; }
 
+        [ImportMany(typeof(IPrintButtonContextMenuStrip), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<IPrintButtonContextMenuStrip> PrintButtonContextMenuStrips { get; set; }
+
         public event EventHandler AddSelectedSaving;
         public event EventHandler ViewSelectedSaving;
 
@@ -722,6 +725,17 @@ namespace OpenCBS.GUI.UserControl
         {
             btnPrint.ReportInitializer = report => report.SetParamValue("person_id", _tempPerson.Id);
             btnPrint.LoadReports();
+
+            foreach (var item in PrintButtonContextMenuStrips)
+            {
+                var menuItems = item.GetContextMenuStrip(_tempPerson, null, null, null, "PersonDetails");
+                if (menuItems == null) continue;
+
+                foreach (var menuItem in menuItems)
+                {
+                    btnPrint.Menu.Items.Add(menuItem);
+                }
+            }
         }
 
         private void EacPersonActivityChange(object sender, EconomicActivtyEventArgs e)
