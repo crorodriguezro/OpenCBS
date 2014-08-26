@@ -1939,7 +1939,7 @@ namespace OpenCBS.GUI.Clients
 
             nudLoanAmount.Enabled = isPendingOrPostponed;
             nudInterestRate.Enabled = isPendingOrPostponed;
-            numericUpDownLoanGracePeriod.Enabled = isPendingOrPostponed;
+            numericUpDownLoanGracePeriod.Enabled = isPendingOrPostponed && !_credit.Product.GracePeriod.HasValue;
             nudLoanNbOfInstallments.Enabled = isPendingOrPostponed;
             eacLoan.Enabled = isPendingOrPostponed;
             textBoxLoanAnticipatedTotalFees.Enabled = isPendingOrPostponed;

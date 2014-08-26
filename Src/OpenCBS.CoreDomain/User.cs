@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using OpenCBS.Enums;
 
 namespace OpenCBS.CoreDomain
@@ -161,7 +162,8 @@ namespace OpenCBS.CoreDomain
 
         public bool HasAsSubordinate(User user)
         {
-            return _subordinates.IndexOf(user) > -1;
+            var subordinate = _subordinates.FindAll(u => u.Id == user.Id).FirstOrDefault();
+            return subordinate != null;
         }
 
         public IEnumerable<User> Subordinates
