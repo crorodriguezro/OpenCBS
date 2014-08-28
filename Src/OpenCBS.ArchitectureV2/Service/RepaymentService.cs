@@ -25,11 +25,7 @@ namespace OpenCBS.ArchitectureV2.Service
         {
             var newSettings = (RepaymentSettings)Settings.Clone();
             var script = RunScript(newSettings.ScriptName);
-            if (newSettings.DateChanged)
-                script.GetInitAmounts(newSettings);
-            if (newSettings.AmountChanged)
-                script.GetAmounts(newSettings);
-            script.Repay(newSettings);
+            script.Main(newSettings);
             Settings = newSettings;
             return Settings.Loan;
         }
