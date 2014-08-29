@@ -105,8 +105,14 @@ namespace OpenCBS.ArchitectureV2.Presenter
             _repaymentService.Repay();
             _repaymentService.Settings.DateChanged = false;
             _repaymentService.Settings.AmountChanged = false;
+            _repaymentService.Settings.Amount = _repaymentService.Settings.BounceFee +
+                                                _repaymentService.Settings.Commission +
+                                                _repaymentService.Settings.Interest +
+                                                _repaymentService.Settings.Penalty +
+                                                _repaymentService.Settings.Principal;
             if (_saving != null)
                 _view.OkButtonEnabled = _repaymentService.Settings.Amount <= _saving.GetBalance(_view.Date).Value;
+            else _view.OkButtonEnabled = _repaymentService.Settings.Amount > 0;
             RefreshAmounts();
         }
 
@@ -124,8 +130,8 @@ namespace OpenCBS.ArchitectureV2.Presenter
             _view.Interest = _repaymentService.Settings.Interest;
             _view.Penalty = _repaymentService.Settings.Penalty;
             _view.Principal = _repaymentService.Settings.Principal;
-            _view.Amount =  _repaymentService.Settings.BounceFee + _repaymentService.Settings.Commission + _repaymentService.Settings.Interest +
-                           _repaymentService.Settings.Penalty + _repaymentService.Settings.Principal;
+            _view.Amount = _repaymentService.Settings.Amount;
+            _view.Loan = _repaymentService.Settings.Loan;
         }
     }
 }
