@@ -31,7 +31,6 @@ using OpenCBS.ExceptionsHandler;
 using OpenCBS.ExceptionsHandler.Exceptions.SavingExceptions;
 using OpenCBS.GUI.Accounting;
 using OpenCBS.GUI.UserControl;
-using OpenCBS.Reports;
 using OpenCBS.Services;
 using OpenCBS.Shared;
 using OpenCBS.Enums;
@@ -111,40 +110,7 @@ namespace OpenCBS.GUI.Contracts
             CheckDateChange();
             InitializeLoanDisburseEvent();
             FillComboBoxPaymentMethods();
-            InitPrintButton();
             tbEntryFee.Enabled = ServicesProvider.GetInstance().GetGeneralSettings().ModifyEntryFee;
-        }
-
-        private void InitPrintButton()
-        {
-            Visibility visibility;
-            switch (_loan.ClientType)
-            {
-                case OClientTypes.Person:
-                    visibility = Visibility.Individual;
-                    break;
-
-                case OClientTypes.Group:
-                    visibility = Visibility.Group;
-                    break;
-
-                case OClientTypes.Corporate:
-                    visibility = Visibility.Corporate;
-                    break;
-
-                default:
-                    visibility = Visibility.All;
-                    break;
-            }
-
-            btnPrint.Visibility = visibility;
-            btnPrint.ReportInitializer
-                = report =>
-                      {
-                          report.SetParamValue("user_id", User.CurrentUser.Id);
-                          report.SetParamValue("contract_id", _loan.Id);
-                      };
-            btnPrint.LoadReports();
         }
 
         private void InitializeDate()

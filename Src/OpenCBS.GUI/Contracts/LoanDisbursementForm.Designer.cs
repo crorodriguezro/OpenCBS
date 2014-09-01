@@ -35,7 +35,6 @@ namespace OpenCBS.GUI.Contracts
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoanDisbursementForm));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -57,7 +56,6 @@ namespace OpenCBS.GUI.Contracts
             this.tbEntryFee = new System.Windows.Forms.TextBox();
             this.lblPivotCurrency = new System.Windows.Forms.Label();
             this.groupBoxButton = new System.Windows.Forms.GroupBox();
-            this.btnPrint = new OpenCBS.GUI.UserControl.PrintButton();
             this.buttonAddExchangeRate = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
@@ -206,21 +204,12 @@ namespace OpenCBS.GUI.Contracts
             // 
             // groupBoxButton
             // 
-            this.groupBoxButton.Controls.Add(this.btnPrint);
             this.groupBoxButton.Controls.Add(this.buttonAddExchangeRate);
             this.groupBoxButton.Controls.Add(this.buttonCancel);
             this.groupBoxButton.Controls.Add(this.buttonSave);
             resources.ApplyResources(this.groupBoxButton, "groupBoxButton");
             this.groupBoxButton.Name = "groupBoxButton";
             this.groupBoxButton.TabStop = false;
-            // 
-            // btnPrint
-            // 
-            resources.ApplyResources(this.btnPrint, "btnPrint");
-            this.btnPrint.AttachmentPoint = OpenCBS.Reports.AttachmentPoint.LoanDetails;
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.ReportInitializer = null;
-            this.btnPrint.UseVisualStyleBackColor = false;
             // 
             // buttonAddExchangeRate
             // 
@@ -263,7 +252,6 @@ namespace OpenCBS.GUI.Contracts
         #endregion
 
         private SplitContainer splitContainer1;
-        private PrintButton btnPrint;
         private TableLayoutPanel tableLayoutPanel1;
         private Label _lbAmountValue;
         private Label lblPivotCurrency;
