@@ -3406,17 +3406,6 @@ namespace OpenCBS.GUI.Clients
                 pCredit.Product = _product;
             }
 
-            if (!pCredit.Disbursed)
-            {
-                if (!pCredit.ScheduleChangedManually)
-                {
-                    pCredit.InstallmentList = pCredit.Product.IsExotic
-                        ? pCredit.CalculateInstallments(true) : ServiceProvider.GetContractServices().SimulateScheduleCreation(pCredit);
-                    pCredit.CalculateStartDates();
-                }
-            }
-
-
             OCurrency interestTotal = 0;
             OCurrency principalTotal = 0;
 
@@ -3468,7 +3457,7 @@ namespace OpenCBS.GUI.Clients
                 return;
             }
 
-            _credit = Preview();
+            if (!_credit.ScheduleChangedManually) _credit = Preview();
 
             // Compulsory savings
             if (_credit != null)
@@ -3683,6 +3672,11 @@ namespace OpenCBS.GUI.Clients
                         return null;
 
                     credit.ClientType = _oClientType;
+                    if (_credit.ScheduleChangedManually)
+                    {
+                        credit.ScheduleChangedManually = _credit.ScheduleChangedManually;
+                        credit.InstallmentList = _credit.InstallmentList;
+                    }
                     try
                     {
                         ServicesProvider.GetInstance()
@@ -3723,7 +3717,11 @@ namespace OpenCBS.GUI.Clients
                 else
                 {
                     credit = Preview();
-
+                    if (_credit.ScheduleChangedManually)
+                    {
+                        credit.ScheduleChangedManually = _credit.ScheduleChangedManually;
+                        credit.InstallmentList = _credit.InstallmentList;
+                    }
                     ServicesProvider.GetInstance().GetContractServices().SaveLoan(ref credit, _project.Id, ref client, (tx, id) =>
                     {
                         LoanTabs.ForEach(e => e.Save(credit, tx));
