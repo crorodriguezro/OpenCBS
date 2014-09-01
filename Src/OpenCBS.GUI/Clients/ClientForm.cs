@@ -4770,6 +4770,11 @@ namespace OpenCBS.GUI.Clients
                     {
                         nudInterestRate.Enabled = false;
                     }
+
+                    if (newStatus == OContractStatus.Validated)
+                    {
+                        tabControlPerson.SelectTab(tabPageLoansDetails);
+                    }
                 }
 
                 ((MainView)_mdiParent).ReloadAlertsSync();
