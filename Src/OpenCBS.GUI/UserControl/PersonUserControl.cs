@@ -81,6 +81,7 @@ namespace OpenCBS.GUI.UserControl
             _mdiParent = pMdiParent;
             Initialization();
             _tempPerson = person;
+            InitPrintButton();
             InitializePerson();
             InitializeGroup();
             DisplayProjects(person.Projects);
@@ -159,7 +160,6 @@ namespace OpenCBS.GUI.UserControl
             dateTimePickerDateOfBirth.Value = DateTime.Now;
             _tempPerson.DateOfBirth = DateTime.Now;
             _tempPerson.LoanCycle = 0;
-            InitPrintButton();
 
             foreach (Branch branch in User.CurrentUser.Branches)
             {
