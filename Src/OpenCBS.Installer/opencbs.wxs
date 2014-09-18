@@ -348,6 +348,8 @@
                   <File Id="Repayments" Name="Repayments.zip" Source="SourceDir\Reports\Standard\Repayments.zip" />
                   <File Id="Client_Information" Name="Client_Information.zip" Source="SourceDir\Reports\Standard\Client_Information.zip" />
                   <File Id="Collection_Sheet_Standard" Name="Collection_Sheet.zip" Source="SourceDir\Reports\Standard\Collection_Sheet.zip" />
+                  <File Id="Active_Savings" Name="Active_Savings.zip" Source="SourceDir\Reports\Standard\Active_Savings.zip" />
+                  <File Id="Savings_Contracts" Name="Savings_Contracts.zip" Source="SourceDir\Reports\Standard\Savings_Contracts.zip" />
                 </Component>
               </Directory>
               <Directory Id="dir_excel" Name="Excel">

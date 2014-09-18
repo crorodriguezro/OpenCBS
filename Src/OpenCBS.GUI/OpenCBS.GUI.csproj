@@ -3002,6 +3002,9 @@
     <None Include="Reports\Standard\Active_Loans.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Reports\Standard\Active_Savings.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Reports\Standard\Client_Information.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -3025,6 +3028,9 @@
     </None>
     <None Include="Reports\Standard\Repayments.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\Standard\Savings_Contracts.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\dowarrow.png" />
     <None Include="Resources\Admin_Background.png" />
