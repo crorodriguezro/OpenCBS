@@ -222,6 +222,7 @@ namespace OpenCBS.GUI.Clients
             this.btnEditSchedule = new System.Windows.Forms.Button();
             this.gbxLoanDetails = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this._annualLabel = new System.Windows.Forms.Label();
             this.lblEconomicActivity = new System.Windows.Forms.Label();
             this.labelDateOffirstInstallment = new System.Windows.Forms.Label();
             this.labelLoanAmountMinMax = new System.Windows.Forms.Label();
@@ -655,6 +656,7 @@ namespace OpenCBS.GUI.Clients
             // 
             // splitContainer10.Panel1
             // 
+            resources.ApplyResources(this.splitContainer10.Panel1, "splitContainer10.Panel1");
             this.splitContainer10.Panel1.Controls.Add(this.numericUpDownProjectJobs);
             this.splitContainer10.Panel1.Controls.Add(this.gBProjectFinancialPlan);
             this.splitContainer10.Panel1.Controls.Add(this.lProjectNbOfNewJobs);
@@ -673,6 +675,7 @@ namespace OpenCBS.GUI.Clients
             // 
             // splitContainer10.Panel2
             // 
+            resources.ApplyResources(this.splitContainer10.Panel2, "splitContainer10.Panel2");
             this.splitContainer10.Panel2.Controls.Add(this.gBProjectAddress);
             // 
             // numericUpDownProjectJobs
@@ -682,13 +685,13 @@ namespace OpenCBS.GUI.Clients
             // 
             // gBProjectFinancialPlan
             // 
+            resources.ApplyResources(this.gBProjectFinancialPlan, "gBProjectFinancialPlan");
             this.gBProjectFinancialPlan.Controls.Add(this.lProjectFinancialPlanType);
             this.gBProjectFinancialPlan.Controls.Add(this.lProjectFinancialPlanAmount);
             this.gBProjectFinancialPlan.Controls.Add(this.tBProjectFinancialPlanTotal);
             this.gBProjectFinancialPlan.Controls.Add(this.tBProjectFinancialPlanAmount);
             this.gBProjectFinancialPlan.Controls.Add(this.cBProjectFinancialPlanType);
             this.gBProjectFinancialPlan.Controls.Add(this.lProjectFinancialPlanTotalAmount);
-            resources.ApplyResources(this.gBProjectFinancialPlan, "gBProjectFinancialPlan");
             this.gBProjectFinancialPlan.Name = "gBProjectFinancialPlan";
             this.gBProjectFinancialPlan.TabStop = false;
             // 
@@ -704,21 +707,21 @@ namespace OpenCBS.GUI.Clients
             // 
             // tBProjectFinancialPlanTotal
             // 
-            this.tBProjectFinancialPlanTotal.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.tBProjectFinancialPlanTotal, "tBProjectFinancialPlanTotal");
+            this.tBProjectFinancialPlanTotal.BackColor = System.Drawing.SystemColors.Window;
             this.tBProjectFinancialPlanTotal.Name = "tBProjectFinancialPlanTotal";
             // 
             // tBProjectFinancialPlanAmount
             // 
-            this.tBProjectFinancialPlanAmount.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.tBProjectFinancialPlanAmount, "tBProjectFinancialPlanAmount");
+            this.tBProjectFinancialPlanAmount.BackColor = System.Drawing.SystemColors.Window;
             this.tBProjectFinancialPlanAmount.Name = "tBProjectFinancialPlanAmount";
             // 
             // cBProjectFinancialPlanType
             // 
+            resources.ApplyResources(this.cBProjectFinancialPlanType, "cBProjectFinancialPlanType");
             this.cBProjectFinancialPlanType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBProjectFinancialPlanType.FormattingEnabled = true;
-            resources.ApplyResources(this.cBProjectFinancialPlanType, "cBProjectFinancialPlanType");
             this.cBProjectFinancialPlanType.Name = "cBProjectFinancialPlanType";
             // 
             // lProjectFinancialPlanTotalAmount
@@ -733,8 +736,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // tBProjectCA
             // 
-            this.tBProjectCA.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.tBProjectCA, "tBProjectCA");
+            this.tBProjectCA.BackColor = System.Drawing.SystemColors.Window;
             this.tBProjectCA.Name = "tBProjectCA";
             // 
             // lProjectCA
@@ -749,29 +752,29 @@ namespace OpenCBS.GUI.Clients
             // 
             // cBProjectAffiliation
             // 
+            resources.ApplyResources(this.cBProjectAffiliation, "cBProjectAffiliation");
             this.cBProjectAffiliation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBProjectAffiliation.FormattingEnabled = true;
-            resources.ApplyResources(this.cBProjectAffiliation, "cBProjectAffiliation");
             this.cBProjectAffiliation.Name = "cBProjectAffiliation";
             // 
             // cBProjectFiscalStatus
             // 
+            resources.ApplyResources(this.cBProjectFiscalStatus, "cBProjectFiscalStatus");
             this.cBProjectFiscalStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBProjectFiscalStatus.FormattingEnabled = true;
-            resources.ApplyResources(this.cBProjectFiscalStatus, "cBProjectFiscalStatus");
             this.cBProjectFiscalStatus.Name = "cBProjectFiscalStatus";
             // 
             // tBProjectCorporateName
             // 
-            this.tBProjectCorporateName.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.tBProjectCorporateName, "tBProjectCorporateName");
+            this.tBProjectCorporateName.BackColor = System.Drawing.SystemColors.Window;
             this.tBProjectCorporateName.Name = "tBProjectCorporateName";
             // 
             // cBProjectJuridicStatus
             // 
+            resources.ApplyResources(this.cBProjectJuridicStatus, "cBProjectJuridicStatus");
             this.cBProjectJuridicStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBProjectJuridicStatus.FormattingEnabled = true;
-            resources.ApplyResources(this.cBProjectJuridicStatus, "cBProjectJuridicStatus");
             this.cBProjectJuridicStatus.Name = "cBProjectJuridicStatus";
             // 
             // lProjectCorporateSIRET
@@ -786,8 +789,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // tBProjectCorporateSIRET
             // 
-            this.tBProjectCorporateSIRET.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.tBProjectCorporateSIRET, "tBProjectCorporateSIRET");
+            this.tBProjectCorporateSIRET.BackColor = System.Drawing.SystemColors.Window;
             this.tBProjectCorporateSIRET.Name = "tBProjectCorporateSIRET";
             // 
             // lProjectAffiliation
@@ -814,14 +817,17 @@ namespace OpenCBS.GUI.Clients
             // 
             // splitContainer11.Panel1
             // 
+            resources.ApplyResources(this.splitContainer11.Panel1, "splitContainer11.Panel1");
             this.splitContainer11.Panel1.Controls.Add(this.listViewProjectFollowUp);
             // 
             // splitContainer11.Panel2
             // 
+            resources.ApplyResources(this.splitContainer11.Panel2, "splitContainer11.Panel2");
             this.splitContainer11.Panel2.Controls.Add(this.gBProjectFollowUp);
             // 
             // listViewProjectFollowUp
             // 
+            resources.ApplyResources(this.listViewProjectFollowUp, "listViewProjectFollowUp");
             this.listViewProjectFollowUp.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderProjectYear,
             this.columnHeaderProjectJobs1,
@@ -830,7 +836,6 @@ namespace OpenCBS.GUI.Clients
             this.columnHeaderprojectPersonalSituation,
             this.columnHeaderProjectActivity,
             this.columnHeaderProjectComment});
-            resources.ApplyResources(this.listViewProjectFollowUp, "listViewProjectFollowUp");
             this.listViewProjectFollowUp.FullRowSelect = true;
             this.listViewProjectFollowUp.GridLines = true;
             this.listViewProjectFollowUp.Name = "listViewProjectFollowUp";
@@ -868,8 +873,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // gBProjectFollowUp
             // 
-            this.gBProjectFollowUp.Controls.Add(this.buttonProjectAddFollowUp);
             resources.ApplyResources(this.gBProjectFollowUp, "gBProjectFollowUp");
+            this.gBProjectFollowUp.Controls.Add(this.buttonProjectAddFollowUp);
             this.gBProjectFollowUp.Name = "gBProjectFollowUp";
             this.gBProjectFollowUp.TabStop = false;
             // 
@@ -886,24 +891,26 @@ namespace OpenCBS.GUI.Clients
             // 
             // splitContainer1.Panel1
             // 
+            resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
             this.splitContainer1.Panel1.Controls.Add(this.listViewGuarantors);
             this.splitContainer1.Panel1.Controls.Add(this.panel3);
             this.splitContainer1.Panel1.Controls.Add(this.lblGuarantorsList);
             // 
             // splitContainer1.Panel2
             // 
+            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
             this.splitContainer1.Panel2.Controls.Add(this.listViewCollaterals);
             this.splitContainer1.Panel2.Controls.Add(this.pnlCollateralButtons);
             this.splitContainer1.Panel2.Controls.Add(this.lblCollaterals);
             // 
             // listViewGuarantors
             // 
+            resources.ApplyResources(this.listViewGuarantors, "listViewGuarantors");
             this.listViewGuarantors.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderName,
             this.columnHeader17,
             this.columnHeaderPercentage,
             this.columnHeaderDesc});
-            resources.ApplyResources(this.listViewGuarantors, "listViewGuarantors");
             this.listViewGuarantors.FullRowSelect = true;
             this.listViewGuarantors.GridLines = true;
             this.listViewGuarantors.MultiSelect = false;
@@ -984,19 +991,19 @@ namespace OpenCBS.GUI.Clients
             // 
             // lblGuarantorsList
             // 
-            this.lblGuarantorsList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
             resources.ApplyResources(this.lblGuarantorsList, "lblGuarantorsList");
+            this.lblGuarantorsList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
             this.lblGuarantorsList.ForeColor = System.Drawing.Color.White;
             this.lblGuarantorsList.Name = "lblGuarantorsList";
             // 
             // listViewCollaterals
             // 
+            resources.ApplyResources(this.listViewCollaterals, "listViewCollaterals");
             this.listViewCollaterals.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader19,
             this.columnHeader20,
             this.columnHeader25,
             this.columnHeaderColDesc});
-            resources.ApplyResources(this.listViewCollaterals, "listViewCollaterals");
             this.listViewCollaterals.FullRowSelect = true;
             this.listViewCollaterals.GridLines = true;
             this.listViewCollaterals.MultiSelect = false;
@@ -1055,8 +1062,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // lblCollaterals
             // 
-            this.lblCollaterals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
             resources.ApplyResources(this.lblCollaterals, "lblCollaterals");
+            this.lblCollaterals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
             this.lblCollaterals.ForeColor = System.Drawing.Color.White;
             this.lblCollaterals.Name = "lblCollaterals";
             // 
@@ -1067,11 +1074,13 @@ namespace OpenCBS.GUI.Clients
             // 
             // splitContainerContracts.Panel1
             // 
+            resources.ApplyResources(this.splitContainerContracts.Panel1, "splitContainerContracts.Panel1");
             this.splitContainerContracts.Panel1.Controls.Add(this.panelLoansContracts);
             this.splitContainerContracts.Panel1.Controls.Add(this.labelLoansContracts);
             // 
             // splitContainerContracts.Panel2
             // 
+            resources.ApplyResources(this.splitContainerContracts.Panel2, "splitContainerContracts.Panel2");
             this.splitContainerContracts.Panel2.Controls.Add(this.panelSavingsContracts);
             this.splitContainerContracts.Panel2.Controls.Add(this.labelSavingsContracts);
             // 
@@ -1082,8 +1091,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // labelLoansContracts
             // 
-            this.labelLoansContracts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
             resources.ApplyResources(this.labelLoansContracts, "labelLoansContracts");
+            this.labelLoansContracts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
             this.labelLoansContracts.ForeColor = System.Drawing.Color.White;
             this.labelLoansContracts.Name = "labelLoansContracts";
             // 
@@ -1094,8 +1103,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // labelSavingsContracts
             // 
-            this.labelSavingsContracts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
             resources.ApplyResources(this.labelSavingsContracts, "labelSavingsContracts");
+            this.labelSavingsContracts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
             this.labelSavingsContracts.ForeColor = System.Drawing.Color.White;
             this.labelSavingsContracts.Name = "labelSavingsContracts";
             // 
@@ -1104,8 +1113,13 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.splitContainer3, "splitContainer3");
             this.splitContainer3.Name = "splitContainer3";
             // 
+            // splitContainer3.Panel1
+            // 
+            resources.ApplyResources(this.splitContainer3.Panel1, "splitContainer3.Panel1");
+            // 
             // splitContainer3.Panel2
             // 
+            resources.ApplyResources(this.splitContainer3.Panel2, "splitContainer3.Panel2");
             this.splitContainer3.Panel2.Controls.Add(this.panelUserControl);
             // 
             // panelUserControl
@@ -1118,13 +1132,30 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.splitContainer4, "splitContainer4");
             this.splitContainer4.Name = "splitContainer4";
             // 
+            // splitContainer4.Panel1
+            // 
+            resources.ApplyResources(this.splitContainer4.Panel1, "splitContainer4.Panel1");
+            // 
+            // splitContainer4.Panel2
+            // 
+            resources.ApplyResources(this.splitContainer4.Panel2, "splitContainer4.Panel2");
+            // 
             // splitContainer6
             // 
             resources.ApplyResources(this.splitContainer6, "splitContainer6");
             this.splitContainer6.Name = "splitContainer6";
             // 
+            // splitContainer6.Panel1
+            // 
+            resources.ApplyResources(this.splitContainer6.Panel1, "splitContainer6.Panel1");
+            // 
+            // splitContainer6.Panel2
+            // 
+            resources.ApplyResources(this.splitContainer6.Panel2, "splitContainer6.Panel2");
+            // 
             // tabControlPerson
             // 
+            resources.ApplyResources(this.tabControlPerson, "tabControlPerson");
             this.tabControlPerson.Controls.Add(this.tabPageDetails);
             this.tabControlPerson.Controls.Add(this.tabPageProject);
             this.tabControlPerson.Controls.Add(this.tabPageLoansDetails);
@@ -1134,7 +1165,6 @@ namespace OpenCBS.GUI.Clients
             this.tabControlPerson.Controls.Add(this.tabPageLoanGuarantees);
             this.tabControlPerson.Controls.Add(this.tabPageSavingDetails);
             this.tabControlPerson.Controls.Add(this.tabPageContracts);
-            resources.ApplyResources(this.tabControlPerson, "tabControlPerson");
             this.tabControlPerson.ImageList = this.imageListTab;
             this.tabControlPerson.Name = "tabControlPerson";
             this.tabControlPerson.SelectedIndex = 0;
@@ -1147,8 +1177,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabPageProject
             // 
-            this.tabPageProject.Controls.Add(this.tableLayoutPanel1);
             resources.ApplyResources(this.tabPageProject, "tabPageProject");
+            this.tabPageProject.Controls.Add(this.tableLayoutPanel1);
             this.tabPageProject.Name = "tabPageProject";
             // 
             // tableLayoutPanel1
@@ -1161,6 +1191,7 @@ namespace OpenCBS.GUI.Clients
             // 
             // groupBoxProjectDetails
             // 
+            resources.ApplyResources(this.groupBoxProjectDetails, "groupBoxProjectDetails");
             this.groupBoxProjectDetails.Controls.Add(this.dateTimePickerProjectBeginDate);
             this.groupBoxProjectDetails.Controls.Add(this.labelProjectDate);
             this.groupBoxProjectDetails.Controls.Add(this.buttonProjectSelectPurpose);
@@ -1172,14 +1203,13 @@ namespace OpenCBS.GUI.Clients
             this.groupBoxProjectDetails.Controls.Add(this.textBoxProjectCode);
             this.groupBoxProjectDetails.Controls.Add(this.labelFirstProjectName);
             this.groupBoxProjectDetails.Controls.Add(this.textBoxProjectAim);
-            resources.ApplyResources(this.groupBoxProjectDetails, "groupBoxProjectDetails");
             this.groupBoxProjectDetails.Name = "groupBoxProjectDetails";
             this.groupBoxProjectDetails.TabStop = false;
             // 
             // dateTimePickerProjectBeginDate
             // 
-            this.dateTimePickerProjectBeginDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.dateTimePickerProjectBeginDate, "dateTimePickerProjectBeginDate");
+            this.dateTimePickerProjectBeginDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerProjectBeginDate.Name = "dateTimePickerProjectBeginDate";
             // 
             // labelProjectDate
@@ -1196,8 +1226,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // textBoxProjectPurpose
             // 
-            this.textBoxProjectPurpose.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.textBoxProjectPurpose, "textBoxProjectPurpose");
+            this.textBoxProjectPurpose.BackColor = System.Drawing.SystemColors.Control;
             this.textBoxProjectPurpose.Name = "textBoxProjectPurpose";
             this.textBoxProjectPurpose.ReadOnly = true;
             // 
@@ -1215,8 +1245,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // textBoxProjectName
             // 
-            this.textBoxProjectName.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.textBoxProjectName, "textBoxProjectName");
+            this.textBoxProjectName.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxProjectName.Name = "textBoxProjectName";
             // 
             // labelProjectCode
@@ -1227,8 +1257,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // textBoxProjectCode
             // 
-            this.textBoxProjectCode.BackColor = System.Drawing.SystemColors.ControlLight;
             resources.ApplyResources(this.textBoxProjectCode, "textBoxProjectCode");
+            this.textBoxProjectCode.BackColor = System.Drawing.SystemColors.ControlLight;
             this.textBoxProjectCode.Name = "textBoxProjectCode";
             this.textBoxProjectCode.ReadOnly = true;
             // 
@@ -1240,14 +1270,14 @@ namespace OpenCBS.GUI.Clients
             // 
             // textBoxProjectAim
             // 
-            this.textBoxProjectAim.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.textBoxProjectAim, "textBoxProjectAim");
+            this.textBoxProjectAim.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxProjectAim.Name = "textBoxProjectAim";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.buttonProjectSave);
             resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.buttonProjectSave);
             this.panel1.Name = "panel1";
             // 
             // buttonProjectSave
@@ -1258,29 +1288,30 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabControlProject
             // 
+            resources.ApplyResources(this.tabControlProject, "tabControlProject");
             this.tabControlProject.Controls.Add(this.tabPageProjectLoans);
             this.tabControlProject.Controls.Add(this.tabPageProjectAnalyses);
             this.tabControlProject.Controls.Add(this.tabPageCorporate);
             this.tabControlProject.Controls.Add(this.tabPageFollowUp);
-            resources.ApplyResources(this.tabControlProject, "tabControlProject");
             this.tabControlProject.Name = "tabControlProject";
             this.tabControlProject.SelectedIndex = 0;
             // 
             // tabPageProjectLoans
             // 
-            this.tabPageProjectLoans.Controls.Add(this.pnlLoans);
             resources.ApplyResources(this.tabPageProjectLoans, "tabPageProjectLoans");
+            this.tabPageProjectLoans.Controls.Add(this.pnlLoans);
             this.tabPageProjectLoans.Name = "tabPageProjectLoans";
             // 
             // pnlLoans
             // 
+            resources.ApplyResources(this.pnlLoans, "pnlLoans");
             this.pnlLoans.Controls.Add(this.lvContracts);
             this.pnlLoans.Controls.Add(this.flowLayoutPanel1);
-            resources.ApplyResources(this.pnlLoans, "pnlLoans");
             this.pnlLoans.Name = "pnlLoans";
             // 
             // lvContracts
             // 
+            resources.ApplyResources(this.lvContracts, "lvContracts");
             this.lvContracts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnProductType,
             this.columnHeaderId,
@@ -1294,7 +1325,6 @@ namespace OpenCBS.GUI.Clients
             this.columnHeaderCreationDate,
             this.columnHeaderStartDate,
             this.columnHeaderCloseDate});
-            resources.ApplyResources(this.lvContracts, "lvContracts");
             this.lvContracts.FullRowSelect = true;
             this.lvContracts.GridLines = true;
             this.lvContracts.MultiSelect = false;
@@ -1373,6 +1403,7 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabPageProjectAnalyses
             // 
+            resources.ApplyResources(this.tabPageProjectAnalyses, "tabPageProjectAnalyses");
             this.tabPageProjectAnalyses.Controls.Add(this.textBoxProjectConcurrence);
             this.tabPageProjectAnalyses.Controls.Add(this.textBoxProjectMarket);
             this.tabPageProjectAnalyses.Controls.Add(this.labelProjectConcurrence);
@@ -1381,7 +1412,6 @@ namespace OpenCBS.GUI.Clients
             this.tabPageProjectAnalyses.Controls.Add(this.textBoxProjectExperience);
             this.tabPageProjectAnalyses.Controls.Add(this.labelProjectExperience);
             this.tabPageProjectAnalyses.Controls.Add(this.labelProjectAbilities);
-            resources.ApplyResources(this.tabPageProjectAnalyses, "tabPageProjectAnalyses");
             this.tabPageProjectAnalyses.Name = "tabPageProjectAnalyses";
             // 
             // textBoxProjectConcurrence
@@ -1430,39 +1460,40 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabPageCorporate
             // 
-            this.tabPageCorporate.Controls.Add(this.splitContainer10);
             resources.ApplyResources(this.tabPageCorporate, "tabPageCorporate");
+            this.tabPageCorporate.Controls.Add(this.splitContainer10);
             this.tabPageCorporate.Name = "tabPageCorporate";
             // 
             // tabPageFollowUp
             // 
-            this.tabPageFollowUp.Controls.Add(this.splitContainer11);
             resources.ApplyResources(this.tabPageFollowUp, "tabPageFollowUp");
+            this.tabPageFollowUp.Controls.Add(this.splitContainer11);
             this.tabPageFollowUp.Name = "tabPageFollowUp";
             // 
             // tabPageLoansDetails
             // 
+            resources.ApplyResources(this.tabPageLoansDetails, "tabPageLoansDetails");
             this.tabPageLoansDetails.Controls.Add(this.tclLoanDetails);
             this.tabPageLoansDetails.Controls.Add(this.loanDetailsButtonsPanel);
             this.tabPageLoansDetails.Controls.Add(this.gbxLoanDetails);
-            resources.ApplyResources(this.tabPageLoansDetails, "tabPageLoansDetails");
             this.tabPageLoansDetails.Name = "tabPageLoansDetails";
             // 
             // tclLoanDetails
             // 
-            this.tclLoanDetails.Controls.Add(this.tabPageInstallments);
             resources.ApplyResources(this.tclLoanDetails, "tclLoanDetails");
+            this.tclLoanDetails.Controls.Add(this.tabPageInstallments);
             this.tclLoanDetails.Name = "tclLoanDetails";
             this.tclLoanDetails.SelectedIndex = 0;
             // 
             // tabPageInstallments
             // 
-            this.tabPageInstallments.Controls.Add(this.listViewLoanInstallments);
             resources.ApplyResources(this.tabPageInstallments, "tabPageInstallments");
+            this.tabPageInstallments.Controls.Add(this.listViewLoanInstallments);
             this.tabPageInstallments.Name = "tabPageInstallments";
             // 
             // listViewLoanInstallments
             // 
+            resources.ApplyResources(this.listViewLoanInstallments, "listViewLoanInstallments");
             this.listViewLoanInstallments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderLoanN,
             this.columnHeaderLoanDate,
@@ -1470,7 +1501,6 @@ namespace OpenCBS.GUI.Clients
             this.columnHeaderLoanPR,
             this.columnHeaderLoanInstallmentTotal,
             this.columnHeaderLoanOLB});
-            resources.ApplyResources(this.listViewLoanInstallments, "listViewLoanInstallments");
             this.listViewLoanInstallments.DoubleClickActivation = false;
             this.listViewLoanInstallments.GridLines = true;
             this.listViewLoanInstallments.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
@@ -1534,8 +1564,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // btnPrintLoanDetails
             // 
-            this.btnPrintLoanDetails.AttachmentPoint = OpenCBS.Reports.AttachmentPoint.LoanDetails;
             resources.ApplyResources(this.btnPrintLoanDetails, "btnPrintLoanDetails");
+            this.btnPrintLoanDetails.AttachmentPoint = OpenCBS.Reports.AttachmentPoint.LoanDetails;
             this.btnPrintLoanDetails.Image = global::OpenCBS.GUI.Properties.Resources.bullet_arrow_down;
             this.btnPrintLoanDetails.Name = "btnPrintLoanDetails";
             this.btnPrintLoanDetails.ReportInitializer = null;
@@ -1563,6 +1593,7 @@ namespace OpenCBS.GUI.Clients
             // tableLayoutPanel4
             // 
             resources.ApplyResources(this.tableLayoutPanel4, "tableLayoutPanel4");
+            this.tableLayoutPanel4.Controls.Add(this._annualLabel, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.lblEconomicActivity, 3, 3);
             this.tableLayoutPanel4.Controls.Add(this.labelDateOffirstInstallment, 3, 1);
             this.tableLayoutPanel4.Controls.Add(this.labelLoanAmountMinMax, 2, 1);
@@ -1591,6 +1622,12 @@ namespace OpenCBS.GUI.Clients
             this.tableLayoutPanel4.Controls.Add(this.nudInterestRate, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.eacLoan, 4, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            // 
+            // _annualLabel
+            // 
+            resources.ApplyResources(this._annualLabel, "_annualLabel");
+            this._annualLabel.BackColor = System.Drawing.Color.Transparent;
+            this._annualLabel.Name = "_annualLabel";
             // 
             // lblEconomicActivity
             // 
@@ -1636,8 +1673,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // textBoxLoanContractCode
             // 
-            this.tableLayoutPanel4.SetColumnSpan(this.textBoxLoanContractCode, 2);
             resources.ApplyResources(this.textBoxLoanContractCode, "textBoxLoanContractCode");
+            this.tableLayoutPanel4.SetColumnSpan(this.textBoxLoanContractCode, 2);
             this.textBoxLoanContractCode.Name = "textBoxLoanContractCode";
             this.textBoxLoanContractCode.ReadOnly = true;
             // 
@@ -1662,8 +1699,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // labelLoanNbOfInstallments
             // 
-            this.labelLoanNbOfInstallments.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.labelLoanNbOfInstallments, "labelLoanNbOfInstallments");
+            this.labelLoanNbOfInstallments.BackColor = System.Drawing.Color.Transparent;
             this.labelLoanNbOfInstallments.Name = "labelLoanNbOfInstallments";
             // 
             // labelLoanStartDate
@@ -1703,11 +1740,11 @@ namespace OpenCBS.GUI.Clients
             // 
             // cmbLoanOfficer
             // 
+            resources.ApplyResources(this.cmbLoanOfficer, "cmbLoanOfficer");
             this.tableLayoutPanel4.SetColumnSpan(this.cmbLoanOfficer, 2);
             this.cmbLoanOfficer.DisplayMember = "Name";
             this.cmbLoanOfficer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLoanOfficer.ForeColor = System.Drawing.SystemColors.WindowText;
-            resources.ApplyResources(this.cmbLoanOfficer, "cmbLoanOfficer");
             this.cmbLoanOfficer.Name = "cmbLoanOfficer";
             this.cmbLoanOfficer.ValueMember = "Id";
             this.cmbLoanOfficer.SelectedIndexChanged += new System.EventHandler(this.comboBoxLoanOfficer_SelectedIndexChanged);
@@ -1726,10 +1763,10 @@ namespace OpenCBS.GUI.Clients
             // 
             // comboBoxLoanFundingLine
             // 
+            resources.ApplyResources(this.comboBoxLoanFundingLine, "comboBoxLoanFundingLine");
             this.tableLayoutPanel4.SetColumnSpan(this.comboBoxLoanFundingLine, 2);
             this.comboBoxLoanFundingLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxLoanFundingLine.ForeColor = System.Drawing.SystemColors.WindowText;
-            resources.ApplyResources(this.comboBoxLoanFundingLine, "comboBoxLoanFundingLine");
             this.comboBoxLoanFundingLine.Name = "comboBoxLoanFundingLine";
             this.comboBoxLoanFundingLine.SelectedIndexChanged += new System.EventHandler(this.comboBoxLoanFundingLine_SelectedIndexChanged);
             // 
@@ -1741,8 +1778,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // textBoxLoanPurpose
             // 
-            this.tableLayoutPanel4.SetColumnSpan(this.textBoxLoanPurpose, 3);
             resources.ApplyResources(this.textBoxLoanPurpose, "textBoxLoanPurpose");
+            this.tableLayoutPanel4.SetColumnSpan(this.textBoxLoanPurpose, 3);
             this.textBoxLoanPurpose.Name = "textBoxLoanPurpose";
             this.tableLayoutPanel4.SetRowSpan(this.textBoxLoanPurpose, 2);
             // 
@@ -1756,29 +1793,29 @@ namespace OpenCBS.GUI.Clients
             // 
             // nudInterestRate
             // 
+            resources.ApplyResources(this.nudInterestRate, "nudInterestRate");
             this.nudInterestRate.DecimalPlaces = 10;
             this.nudInterestRate.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            resources.ApplyResources(this.nudInterestRate, "nudInterestRate");
             this.nudInterestRate.Name = "nudInterestRate";
             this.nudInterestRate.ValueChanged += new System.EventHandler(this.nudInterestRate_ValueChanged);
             this.nudInterestRate.EnabledChanged += new System.EventHandler(this.nudLoanAmount_EnabledChanged);
             // 
             // eacLoan
             // 
+            resources.ApplyResources(this.eacLoan, "eacLoan");
             this.eacLoan.Activity = null;
             this.tableLayoutPanel4.SetColumnSpan(this.eacLoan, 3);
-            resources.ApplyResources(this.eacLoan, "eacLoan");
             this.eacLoan.Name = "eacLoan";
             // 
             // tabPageAdvancedSettings
             // 
+            resources.ApplyResources(this.tabPageAdvancedSettings, "tabPageAdvancedSettings");
             this.tabPageAdvancedSettings.Controls.Add(this.tableLayoutPanel6);
             this.tabPageAdvancedSettings.Controls.Add(this.tableLayoutPanel9);
-            resources.ApplyResources(this.tabPageAdvancedSettings, "tabPageAdvancedSettings");
             this.tabPageAdvancedSettings.Name = "tabPageAdvancedSettings";
             // 
             // tableLayoutPanel6
@@ -1983,22 +2020,22 @@ namespace OpenCBS.GUI.Clients
             // 
             // groupBoxEntryFees
             // 
+            resources.ApplyResources(this.groupBoxEntryFees, "groupBoxEntryFees");
             this.tableLayoutPanel6.SetColumnSpan(this.groupBoxEntryFees, 5);
             this.groupBoxEntryFees.Controls.Add(this.lvEntryFees);
             this.groupBoxEntryFees.Controls.Add(this.lblMinMaxEntryFees);
             this.groupBoxEntryFees.Controls.Add(this.numEntryFees);
-            resources.ApplyResources(this.groupBoxEntryFees, "groupBoxEntryFees");
             this.groupBoxEntryFees.Name = "groupBoxEntryFees";
             this.groupBoxEntryFees.TabStop = false;
             // 
             // lvEntryFees
             // 
+            resources.ApplyResources(this.lvEntryFees, "lvEntryFees");
             this.lvEntryFees.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colName,
             this.colValue,
             this.colType,
             this.colAmount});
-            resources.ApplyResources(this.lvEntryFees, "lvEntryFees");
             this.lvEntryFees.DoubleClickActivation = true;
             this.lvEntryFees.FullRowSelect = true;
             this.lvEntryFees.GridLines = true;
@@ -2044,9 +2081,9 @@ namespace OpenCBS.GUI.Clients
             // 
             // groupBox2
             // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.tableLayoutPanel6.SetColumnSpan(this.groupBox2, 5);
             this.groupBox2.Controls.Add(this.tableLayoutPanel10);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
@@ -2083,18 +2120,18 @@ namespace OpenCBS.GUI.Clients
             // 
             // cmbCompulsorySaving
             // 
+            resources.ApplyResources(this.cmbCompulsorySaving, "cmbCompulsorySaving");
             this.cmbCompulsorySaving.DisplayMember = "Value";
             this.cmbCompulsorySaving.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCompulsorySaving.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbCompulsorySaving, "cmbCompulsorySaving");
             this.cmbCompulsorySaving.Name = "cmbCompulsorySaving";
             this.cmbCompulsorySaving.ValueMember = "Key";
             this.cmbCompulsorySaving.SelectedIndexChanged += new System.EventHandler(this.cmbCompulsorySaving_SelectedIndexChanged);
             // 
             // linkCompulsorySavings
             // 
-            this.linkCompulsorySavings.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.linkCompulsorySavings, "linkCompulsorySavings");
+            this.linkCompulsorySavings.BackColor = System.Drawing.Color.Transparent;
             this.linkCompulsorySavings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.linkCompulsorySavings.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.linkCompulsorySavings.Name = "linkCompulsorySavings";
@@ -2114,8 +2151,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // textBoxComments
             // 
-            this.tableLayoutPanel6.SetColumnSpan(this.textBoxComments, 3);
             resources.ApplyResources(this.textBoxComments, "textBoxComments");
+            this.tableLayoutPanel6.SetColumnSpan(this.textBoxComments, 3);
             this.textBoxComments.Name = "textBoxComments";
             // 
             // tableLayoutPanel9
@@ -2245,30 +2282,31 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabPageLoanRepayment
             // 
+            resources.ApplyResources(this.tabPageLoanRepayment, "tabPageLoanRepayment");
             this.tabPageLoanRepayment.Controls.Add(this.tabControlRepayments);
             this.tabPageLoanRepayment.Controls.Add(this.richTextBoxStatus);
             this.tabPageLoanRepayment.Controls.Add(this.lblLoanStatus);
-            resources.ApplyResources(this.tabPageLoanRepayment, "tabPageLoanRepayment");
             this.tabPageLoanRepayment.Name = "tabPageLoanRepayment";
             // 
             // tabControlRepayments
             // 
+            resources.ApplyResources(this.tabControlRepayments, "tabControlRepayments");
             this.tabControlRepayments.Controls.Add(this.tabPageRepayments);
             this.tabControlRepayments.Controls.Add(this.tabPageEvents);
-            resources.ApplyResources(this.tabControlRepayments, "tabControlRepayments");
             this.tabControlRepayments.ImageList = this.imageListTab;
             this.tabControlRepayments.Name = "tabControlRepayments";
             this.tabControlRepayments.SelectedIndex = 0;
             // 
             // tabPageRepayments
             // 
+            resources.ApplyResources(this.tabPageRepayments, "tabPageRepayments");
             this.tabPageRepayments.Controls.Add(this.lvLoansRepayments);
             this.tabPageRepayments.Controls.Add(this.flowLayoutPanel8);
-            resources.ApplyResources(this.tabPageRepayments, "tabPageRepayments");
             this.tabPageRepayments.Name = "tabPageRepayments";
             // 
             // lvLoansRepayments
             // 
+            resources.ApplyResources(this.lvLoansRepayments, "lvLoansRepayments");
             this.lvLoansRepayments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -2281,7 +2319,6 @@ namespace OpenCBS.GUI.Clients
             this.columnHeader9,
             this.columnHeaderLateDays,
             this.columnHeaderComment});
-            resources.ApplyResources(this.lvLoansRepayments, "lvLoansRepayments");
             this.lvLoansRepayments.DoubleClickActivation = false;
             this.lvLoansRepayments.FullRowSelect = true;
             this.lvLoansRepayments.GridLines = true;
@@ -2387,13 +2424,14 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabPageEvents
             // 
+            resources.ApplyResources(this.tabPageEvents, "tabPageEvents");
             this.tabPageEvents.Controls.Add(this.lvEvents);
             this.tabPageEvents.Controls.Add(this.groupBox1);
-            resources.ApplyResources(this.tabPageEvents, "tabPageEvents");
             this.tabPageEvents.Name = "tabPageEvents";
             // 
             // lvEvents
             // 
+            resources.ApplyResources(this.lvEvents, "lvEvents");
             this.lvEvents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader11,
             this.EntryDate,
@@ -2414,7 +2452,6 @@ namespace OpenCBS.GUI.Clients
             this.colPaymentMethod,
             this.colCancelDate1,
             this.colIsDeleted});
-            resources.ApplyResources(this.lvEvents, "lvEvents");
             this.lvEvents.DoubleClickActivation = false;
             this.lvEvents.FullRowSelect = true;
             this.lvEvents.GridLines = true;
@@ -2500,11 +2537,11 @@ namespace OpenCBS.GUI.Clients
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.chxSystemEvents);
             this.groupBox1.Controls.Add(this.btnPrintLoanEvents);
             this.groupBox1.Controls.Add(this.btnWaiveFee);
             this.groupBox1.Controls.Add(this.btnDeleteEvent);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
@@ -2517,8 +2554,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // btnPrintLoanEvents
             // 
-            this.btnPrintLoanEvents.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.btnPrintLoanEvents, "btnPrintLoanEvents");
+            this.btnPrintLoanEvents.BackColor = System.Drawing.SystemColors.Control;
             this.btnPrintLoanEvents.Name = "btnPrintLoanEvents";
             this.btnPrintLoanEvents.ReportInitializer = null;
             this.btnPrintLoanEvents.UseVisualStyleBackColor = false;
@@ -2559,33 +2596,33 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabPageLoanGuarantees
             // 
-            this.tabPageLoanGuarantees.Controls.Add(this.splitContainer1);
             resources.ApplyResources(this.tabPageLoanGuarantees, "tabPageLoanGuarantees");
+            this.tabPageLoanGuarantees.Controls.Add(this.splitContainer1);
             this.tabPageLoanGuarantees.Name = "tabPageLoanGuarantees";
             // 
             // tabPageSavingDetails
             // 
+            resources.ApplyResources(this.tabPageSavingDetails, "tabPageSavingDetails");
             this.tabPageSavingDetails.Controls.Add(this.tabControlSavingsDetails);
             this.tabPageSavingDetails.Controls.Add(this.flowLayoutPanel9);
             this.tabPageSavingDetails.Controls.Add(this.groupBoxSaving);
-            resources.ApplyResources(this.tabPageSavingDetails, "tabPageSavingDetails");
             this.tabPageSavingDetails.Name = "tabPageSavingDetails";
             // 
             // tabControlSavingsDetails
             // 
+            resources.ApplyResources(this.tabControlSavingsDetails, "tabControlSavingsDetails");
             this.tabControlSavingsDetails.Controls.Add(this.tabPageSavingsAmountsAndFees);
             this.tabControlSavingsDetails.Controls.Add(this.tabPageSavingsEvents);
             this.tabControlSavingsDetails.Controls.Add(this.tabPageLoans);
             this.tabControlSavingsDetails.Controls.Add(this.tpTermDeposit);
-            resources.ApplyResources(this.tabControlSavingsDetails, "tabControlSavingsDetails");
             this.tabControlSavingsDetails.Name = "tabControlSavingsDetails";
             this.tabControlSavingsDetails.SelectedIndex = 0;
             // 
             // tabPageSavingsAmountsAndFees
             // 
+            resources.ApplyResources(this.tabPageSavingsAmountsAndFees, "tabPageSavingsAmountsAndFees");
             this.tabPageSavingsAmountsAndFees.Controls.Add(this.flowLayoutPanel10);
             this.tabPageSavingsAmountsAndFees.Controls.Add(this.tlpSBDetails);
-            resources.ApplyResources(this.tabPageSavingsAmountsAndFees, "tabPageSavingsAmountsAndFees");
             this.tabPageSavingsAmountsAndFees.Name = "tabPageSavingsAmountsAndFees";
             // 
             // flowLayoutPanel10
@@ -2861,8 +2898,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // lblIbtFeeMinMax
             // 
-            this.lblIbtFeeMinMax.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lblIbtFeeMinMax, "lblIbtFeeMinMax");
+            this.lblIbtFeeMinMax.BackColor = System.Drawing.Color.Transparent;
             this.lblIbtFeeMinMax.Name = "lblIbtFeeMinMax";
             // 
             // lbTransferFees
@@ -2967,8 +3004,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // lblChequeDepositFeesMinMax
             // 
-            this.lblChequeDepositFeesMinMax.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lblChequeDepositFeesMinMax, "lblChequeDepositFeesMinMax");
+            this.lblChequeDepositFeesMinMax.BackColor = System.Drawing.Color.Transparent;
             this.lblChequeDepositFeesMinMax.Name = "lblChequeDepositFeesMinMax";
             // 
             // lbCloseFees
@@ -3044,12 +3081,13 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabPageSavingsEvents
             // 
-            this.tabPageSavingsEvents.Controls.Add(this.lvSavingEvent);
             resources.ApplyResources(this.tabPageSavingsEvents, "tabPageSavingsEvents");
+            this.tabPageSavingsEvents.Controls.Add(this.lvSavingEvent);
             this.tabPageSavingsEvents.Name = "tabPageSavingsEvents";
             // 
             // lvSavingEvent
             // 
+            resources.ApplyResources(this.lvSavingEvent, "lvSavingEvent");
             this.lvSavingEvent.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader21,
             this.columnHeader26,
@@ -3061,7 +3099,6 @@ namespace OpenCBS.GUI.Clients
             this.columnHeader29,
             this.columnHeader24,
             this.colCancelDate});
-            resources.ApplyResources(this.lvSavingEvent, "lvSavingEvent");
             this.lvSavingEvent.FullRowSelect = true;
             this.lvSavingEvent.GridLines = true;
             this.lvSavingEvent.Name = "lvSavingEvent";
@@ -3111,12 +3148,13 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabPageLoans
             // 
-            this.tabPageLoans.Controls.Add(this.olvLoans);
             resources.ApplyResources(this.tabPageLoans, "tabPageLoans");
+            this.tabPageLoans.Controls.Add(this.olvLoans);
             this.tabPageLoans.Name = "tabPageLoans";
             // 
             // olvLoans
             // 
+            resources.ApplyResources(this.olvLoans, "olvLoans");
             this.olvLoans.AllColumns.Add(this.olvColumnContractCode);
             this.olvLoans.AllColumns.Add(this.olvColumnStatus);
             this.olvLoans.AllColumns.Add(this.olvColumnAmount);
@@ -3132,11 +3170,11 @@ namespace OpenCBS.GUI.Clients
             this.olvColumnCreationDate,
             this.olvColumnStratDate,
             this.olvColumnCloseDate});
-            resources.ApplyResources(this.olvLoans, "olvLoans");
             this.olvLoans.FullRowSelect = true;
             this.olvLoans.GridLines = true;
             this.olvLoans.HideSelection = false;
             this.olvLoans.Name = "olvLoans";
+            this.olvLoans.OverlayText.Text = resources.GetString("resource.Text");
             this.olvLoans.SelectedColumnTint = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.olvLoans.ShowGroups = false;
             this.olvLoans.UseCompatibleStateImageBehavior = false;
@@ -3155,14 +3193,14 @@ namespace OpenCBS.GUI.Clients
             // olvColumnAmount
             // 
             this.olvColumnAmount.AspectName = "Amount";
-            this.olvColumnAmount.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             resources.ApplyResources(this.olvColumnAmount, "olvColumnAmount");
+            this.olvColumnAmount.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // olvColumnOLB
             // 
             this.olvColumnOLB.AspectName = "OLB";
-            this.olvColumnOLB.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             resources.ApplyResources(this.olvColumnOLB, "olvColumnOLB");
+            this.olvColumnOLB.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // olvColumnCreationDate
             // 
@@ -3181,8 +3219,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // tpTermDeposit
             // 
-            this.tpTermDeposit.Controls.Add(this.tlpTermDeposit);
             resources.ApplyResources(this.tpTermDeposit, "tpTermDeposit");
+            this.tpTermDeposit.Controls.Add(this.tlpTermDeposit);
             this.tpTermDeposit.Name = "tpTermDeposit";
             // 
             // tlpTermDeposit
@@ -3220,10 +3258,10 @@ namespace OpenCBS.GUI.Clients
             // 
             // cmbRollover2
             // 
+            resources.ApplyResources(this.cmbRollover2, "cmbRollover2");
             this.cmbRollover2.DisplayMember = "id";
             this.cmbRollover2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRollover2.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbRollover2, "cmbRollover2");
             this.cmbRollover2.Name = "cmbRollover2";
             this.cmbRollover2.ValueMember = "rollover";
             this.cmbRollover2.SelectedIndexChanged += new System.EventHandler(this.cmbRollover2_SelectedIndexChanged);
@@ -3297,8 +3335,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // buttonSavingsOperations
             // 
-            this.buttonSavingsOperations.Image = global::OpenCBS.GUI.Properties.Resources.bullet_arrow_down;
             resources.ApplyResources(this.buttonSavingsOperations, "buttonSavingsOperations");
+            this.buttonSavingsOperations.Image = global::OpenCBS.GUI.Properties.Resources.bullet_arrow_down;
             this.buttonSavingsOperations.Name = "buttonSavingsOperations";
             this.buttonSavingsOperations.Click += new System.EventHandler(this.buttonSavingsOperations_Click);
             // 
@@ -3423,17 +3461,17 @@ namespace OpenCBS.GUI.Clients
             // 
             // tBSavingCode
             // 
-            this.tableLayoutPanel5.SetColumnSpan(this.tBSavingCode, 2);
             resources.ApplyResources(this.tBSavingCode, "tBSavingCode");
+            this.tableLayoutPanel5.SetColumnSpan(this.tBSavingCode, 2);
             this.tBSavingCode.Name = "tBSavingCode";
             this.tBSavingCode.ReadOnly = true;
             // 
             // cmbSavingsOfficer
             // 
+            resources.ApplyResources(this.cmbSavingsOfficer, "cmbSavingsOfficer");
             this.tableLayoutPanel5.SetColumnSpan(this.cmbSavingsOfficer, 2);
             this.cmbSavingsOfficer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSavingsOfficer.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbSavingsOfficer, "cmbSavingsOfficer");
             this.cmbSavingsOfficer.Name = "cmbSavingsOfficer";
             // 
             // labelInterestRate
@@ -3444,13 +3482,13 @@ namespace OpenCBS.GUI.Clients
             // 
             // nudDownInterestRate
             // 
+            resources.ApplyResources(this.nudDownInterestRate, "nudDownInterestRate");
             this.nudDownInterestRate.DecimalPlaces = 4;
             this.nudDownInterestRate.Increment = new decimal(new int[] {
             1,
             0,
             0,
             262144});
-            resources.ApplyResources(this.nudDownInterestRate, "nudDownInterestRate");
             this.nudDownInterestRate.Maximum = new decimal(new int[] {
             3,
             0,
@@ -3485,64 +3523,64 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabPageContracts
             // 
-            this.tabPageContracts.Controls.Add(this.splitContainerContracts);
             resources.ApplyResources(this.tabPageContracts, "tabPageContracts");
+            this.tabPageContracts.Controls.Add(this.splitContainerContracts);
             this.tabPageContracts.Name = "tabPageContracts";
             // 
             // menuBtnAddSavingOperation
             // 
+            resources.ApplyResources(this.menuBtnAddSavingOperation, "menuBtnAddSavingOperation");
             this.menuBtnAddSavingOperation.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.savingDepositToolStripMenuItem,
             this.savingWithdrawToolStripMenuItem,
             this.savingTransferToolStripMenuItem,
             this.specialOperationToolStripMenuItem});
             this.menuBtnAddSavingOperation.Name = "contextMenuStrip1";
-            resources.ApplyResources(this.menuBtnAddSavingOperation, "menuBtnAddSavingOperation");
             // 
             // savingDepositToolStripMenuItem
             // 
+            resources.ApplyResources(this.savingDepositToolStripMenuItem, "savingDepositToolStripMenuItem");
             this.savingDepositToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.savingDepositToolStripMenuItem.Name = "savingDepositToolStripMenuItem";
-            resources.ApplyResources(this.savingDepositToolStripMenuItem, "savingDepositToolStripMenuItem");
             this.savingDepositToolStripMenuItem.Click += new System.EventHandler(this.buttonSavingDeposit_Click);
             // 
             // savingWithdrawToolStripMenuItem
             // 
+            resources.ApplyResources(this.savingWithdrawToolStripMenuItem, "savingWithdrawToolStripMenuItem");
             this.savingWithdrawToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.savingWithdrawToolStripMenuItem.Name = "savingWithdrawToolStripMenuItem";
-            resources.ApplyResources(this.savingWithdrawToolStripMenuItem, "savingWithdrawToolStripMenuItem");
             this.savingWithdrawToolStripMenuItem.Click += new System.EventHandler(this.buttonSavingWithDraw_Click);
             // 
             // savingTransferToolStripMenuItem
             // 
+            resources.ApplyResources(this.savingTransferToolStripMenuItem, "savingTransferToolStripMenuItem");
             this.savingTransferToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.savingTransferToolStripMenuItem.Name = "savingTransferToolStripMenuItem";
-            resources.ApplyResources(this.savingTransferToolStripMenuItem, "savingTransferToolStripMenuItem");
             this.savingTransferToolStripMenuItem.Click += new System.EventHandler(this.savingTransferToolStripMenuItem_Click);
             // 
             // specialOperationToolStripMenuItem
             // 
+            resources.ApplyResources(this.specialOperationToolStripMenuItem, "specialOperationToolStripMenuItem");
             this.specialOperationToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.specialOperationToolStripMenuItem.Name = "specialOperationToolStripMenuItem";
-            resources.ApplyResources(this.specialOperationToolStripMenuItem, "specialOperationToolStripMenuItem");
             this.specialOperationToolStripMenuItem.Click += new System.EventHandler(this.specialOperationToolStripMenuItem_Click);
             // 
             // olvColumnSACExportedBalance
             // 
             this.olvColumnSACExportedBalance.AspectName = "Id";
-            this.olvColumnSACExportedBalance.IsVisible = false;
             resources.ApplyResources(this.olvColumnSACExportedBalance, "olvColumnSACExportedBalance");
+            this.olvColumnSACExportedBalance.IsVisible = false;
             // 
             // olvColumnLACExportedBalance
             // 
             this.olvColumnLACExportedBalance.AspectName = "Id";
-            this.olvColumnLACExportedBalance.IsVisible = false;
             resources.ApplyResources(this.olvColumnLACExportedBalance, "olvColumnLACExportedBalance");
+            this.olvColumnLACExportedBalance.IsVisible = false;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.tableLayoutPanel2);
             resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Controls.Add(this.tableLayoutPanel2);
             this.panel2.Name = "panel2";
             // 
             // tableLayoutPanel2
@@ -3557,24 +3595,24 @@ namespace OpenCBS.GUI.Clients
             // 
             // buttonPrintSchedule
             // 
-            this.buttonPrintSchedule.BackColor = System.Drawing.Color.Gainsboro;
             resources.ApplyResources(this.buttonPrintSchedule, "buttonPrintSchedule");
+            this.buttonPrintSchedule.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonPrintSchedule.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.buttonPrintSchedule.Name = "buttonPrintSchedule";
             this.buttonPrintSchedule.UseVisualStyleBackColor = false;
             // 
             // buttonReschedule
             // 
-            this.buttonReschedule.BackColor = System.Drawing.Color.Gainsboro;
             resources.ApplyResources(this.buttonReschedule, "buttonReschedule");
+            this.buttonReschedule.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonReschedule.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.buttonReschedule.Name = "buttonReschedule";
             this.buttonReschedule.UseVisualStyleBackColor = false;
             // 
             // buttonRepay
             // 
-            this.buttonRepay.BackColor = System.Drawing.Color.Gainsboro;
             resources.ApplyResources(this.buttonRepay, "buttonRepay");
+            this.buttonRepay.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonRepay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.buttonRepay.Name = "buttonRepay";
             this.buttonRepay.UseVisualStyleBackColor = false;
@@ -3620,56 +3658,56 @@ namespace OpenCBS.GUI.Clients
             // 
             // contextMenuStripPackage
             // 
+            resources.ApplyResources(this.contextMenuStripPackage, "contextMenuStripPackage");
             this.contextMenuStripPackage.Name = "contextMenuStrip1";
             this.contextMenuStripPackage.ShowImageMargin = false;
-            resources.ApplyResources(this.contextMenuStripPackage, "contextMenuStripPackage");
             // 
             // toolStripSeparatorCopy
             // 
-            this.toolStripSeparatorCopy.Name = "toolStripSeparatorCopy";
             resources.ApplyResources(this.toolStripSeparatorCopy, "toolStripSeparatorCopy");
+            this.toolStripSeparatorCopy.Name = "toolStripSeparatorCopy";
             // 
             // toolStripMenuItemEditComment
             // 
-            this.toolStripMenuItemEditComment.Name = "toolStripMenuItemEditComment";
             resources.ApplyResources(this.toolStripMenuItemEditComment, "toolStripMenuItemEditComment");
+            this.toolStripMenuItemEditComment.Name = "toolStripMenuItemEditComment";
             this.toolStripMenuItemEditComment.Click += new System.EventHandler(this.toolStripMenuItemEditComment_Click);
             // 
             // toolStripMenuItemCancelPending
             // 
-            this.toolStripMenuItemCancelPending.Name = "toolStripMenuItemCancelPending";
             resources.ApplyResources(this.toolStripMenuItemCancelPending, "toolStripMenuItemCancelPending");
+            this.toolStripMenuItemCancelPending.Name = "toolStripMenuItemCancelPending";
             this.toolStripMenuItemCancelPending.Click += new System.EventHandler(this.toolStripMenuItemCancelPending_Click);
             // 
             // toolStripMenuItemConfirmPending
             // 
-            this.toolStripMenuItemConfirmPending.Name = "toolStripMenuItemConfirmPending";
             resources.ApplyResources(this.toolStripMenuItemConfirmPending, "toolStripMenuItemConfirmPending");
+            this.toolStripMenuItemConfirmPending.Name = "toolStripMenuItemConfirmPending";
             this.toolStripMenuItemConfirmPending.Click += new System.EventHandler(this.toolStripMenuItemConfirmPending_Click);
             // 
             // menuCollateralProducts
             // 
-            this.menuCollateralProducts.Name = "menuCollateralProducts";
             resources.ApplyResources(this.menuCollateralProducts, "menuCollateralProducts");
+            this.menuCollateralProducts.Name = "menuCollateralProducts";
             // 
             // menuPendingSavingEvents
             // 
+            resources.ApplyResources(this.menuPendingSavingEvents, "menuPendingSavingEvents");
             this.menuPendingSavingEvents.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemConfirmPendingSavingEvent,
             this.menuItemCancelPendingSavingEvent});
             this.menuPendingSavingEvents.Name = "menuPendingSavingEvents";
-            resources.ApplyResources(this.menuPendingSavingEvents, "menuPendingSavingEvents");
             // 
             // menuItemConfirmPendingSavingEvent
             // 
-            this.menuItemConfirmPendingSavingEvent.Name = "menuItemConfirmPendingSavingEvent";
             resources.ApplyResources(this.menuItemConfirmPendingSavingEvent, "menuItemConfirmPendingSavingEvent");
+            this.menuItemConfirmPendingSavingEvent.Name = "menuItemConfirmPendingSavingEvent";
             this.menuItemConfirmPendingSavingEvent.Click += new System.EventHandler(this.menuItemConfirmPendingSavingEvent_Click);
             // 
             // menuItemCancelPendingSavingEvent
             // 
-            this.menuItemCancelPendingSavingEvent.Name = "menuItemCancelPendingSavingEvent";
             resources.ApplyResources(this.menuItemCancelPendingSavingEvent, "menuItemCancelPendingSavingEvent");
+            this.menuItemCancelPendingSavingEvent.Name = "menuItemCancelPendingSavingEvent";
             this.menuItemCancelPendingSavingEvent.Click += new System.EventHandler(this.menuItemCancelPendingSavingEvent_Click);
             // 
             // ClientForm
@@ -3762,6 +3800,7 @@ namespace OpenCBS.GUI.Clients
             ((System.ComponentModel.ISupportInitialize)(this.numEntryFees)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
+            this.tableLayoutPanel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCompulsoryAmountPercent)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
@@ -4266,5 +4305,6 @@ namespace OpenCBS.GUI.Clients
         private ColumnHeader columnHeaderLoanOLB;
         private ColumnHeader colBounceFee;
         private CheckBox chxSystemEvents;
+        private Label _annualLabel;
     }
 }
