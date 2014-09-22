@@ -4290,6 +4290,7 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
                 }
                 else if (displayEvent is LoanTransitionEvent)
                 {
