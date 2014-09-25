@@ -366,9 +366,6 @@
               </Directory>
               <Directory Id="dir_word" Name="Office">
 	            <Component Id="dir_word" Guid="6ebf0ad4-1ba5-4807-8c30-d492c3454d26" KeyPath="yes">
-	            		<!--
-                        <File Id="Client_Personal_Information_Word" Name="Client_Personal_Information.zip" Source="SourceDir\Reports\Office\Client_Personal_Information.zip" />
-	                    -->
                         <File Id="Committee_Appraisal_Word" Name="Committee_Appraisal.zip" Source="SourceDir\Reports\Office\Committee_Appraisal.zip" />
                         <File Id="Contract_History_Word" Name="Contract_History.zip" Source="SourceDir\Reports\Office\Contract_History.zip" />
                         <File Id="Disbursement_Cash_Receipt_Word" Name="Disbursement_Cash_Receipt.zip" Source="SourceDir\Reports\Office\Disbursement_Cash_Receipt.zip" />
@@ -376,6 +373,9 @@
                         <File Id="Loan_Events_Word" Name="Loan_Events.zip" Source="SourceDir\Reports\Office\Loan_Events.zip" />
                         <File Id="Repayment_Cash_Receipt_Word" Name="Repayment_Cash_Receipt.zip" Source="SourceDir\Reports\Office\Repayment_Cash_Receipt.zip" />
                         <File Id="Repayment_Schedule_Word" Name="Repayment_Schedule.zip" Source="SourceDir\Reports\Office\Repayment_Schedule.zip" />
+                        <File Id="SavingsBook_Agreement_Word" Name="SavingsBook_Agreement.zip" Source="SourceDir\Reports\Office\SavingsBook_Agreement.zip" />
+                        <File Id="SavingsBook_Cash_Receipt_Word" Name="SavingsBook_Cash_Receipt.zip" Source="SourceDir\Reports\Office\SavingsBook_Cash_Receipt.zip" />
+                        <File Id="SavingsBook_Contract_Status_Word" Name="SavingsBook_Contract_Status.zip" Source="SourceDir\Reports\Office\SavingsBook_Contract_Status.zip" />
 	            </Component>
               </Directory>
               <Directory Id="dir_internal" Name="Internal">
