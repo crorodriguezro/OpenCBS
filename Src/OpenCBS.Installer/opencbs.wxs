@@ -156,9 +156,10 @@
                 <File Id="OpenCBS.Extension.CustomFields.dll" Source="SourceDir\Extensions\OpenCBS.Extension.CustomFields.dll" />
                 <File Id="OpenCBS.Extension.Maps.dll" Source="SourceDir\Extensions\OpenCBS.Extension.Maps.dll" />
                 <File Id="OpenCBS.Extension.Events.dll" Source="SourceDir\Extensions\OpenCBS.Extension.Events.dll" />
+                <File Id="OpenCBS.Extension.TaskManagement.dll" Source="SourceDir\Extensions\OpenCBS.Extension.TaskManagement.dll" />
                 <File Id="OpenCBS.Extension.DelinquencyManagementModule.dll" Source="SourceDir\Extensions\OpenCBS.Extension.DelinquencyManagementModule.dll" />
                 <File Id="OpenCBS.Extension.FastRepayment.dll" Source="SourceDir\Extensions\OpenCBS.Extension.FastRepayment.dll" />
-				        <File Id="OpenCBS.Extension.EventInterceptor.dll" Source="SourceDir\Extensions\OpenCBS.Extension.EventInterceptor.dll" />
+		        <File Id="OpenCBS.Extension.EventInterceptor.dll" Source="SourceDir\Extensions\OpenCBS.Extension.EventInterceptor.dll" />
               </Component>
 				      <Directory Id="DIR_ACCOUNTING_SCRIPTS" Name="AccountingScripts">
 				        <Component Id="AccountingScripts" Guid="53e39962-5472-462e-b178-9dcbb65839ec">
