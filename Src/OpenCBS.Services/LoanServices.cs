@@ -3147,7 +3147,7 @@ namespace OpenCBS.Services
                         _instalmentManager.UpdateInstallment(installment, loan.Id, repayEvent.Id, sqlTransaction);
                     if (newInstallments.All(installment => installment.IsRepaid))
                     {
-                        _ePs.FireEvent(loan.GetCloseEvent(TimeProvider.Now), loan, sqlTransaction);
+                        _ePs.FireEvent(loan.GetCloseEvent(repayEvent.Date), loan, sqlTransaction);
                         loan.Closed = true;
                         loan.ContractStatus = OContractStatus.Closed;
                         _loanManager.UpdateLoan(loan, sqlTransaction);

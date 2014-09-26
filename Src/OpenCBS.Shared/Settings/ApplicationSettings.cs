@@ -97,6 +97,7 @@ namespace OpenCBS.Shared.Settings
             _defaultParamList.Add(OGeneralSettings.NUMBER_GROUP_SEPARATOR, " ");
             _defaultParamList.Add(OGeneralSettings.NUMBER_DECIMAL_SEPARATOR, ",");
             _defaultParamList.Add(OGeneralSettings.USE_EXTERNAL_ACCOUNTING, 1);
+            _defaultParamList.Add(OGeneralSettings.SHOW_EXTRA_INTEREST_COLUMN, 0);
         }
 
         #region Internal stuff
@@ -475,6 +476,11 @@ namespace OpenCBS.Shared.Settings
         public bool UseDailyAccrualOfPenalty
         {
             get { return GetSpecificParameter(OGeneralSettings.USE_DAILY_ACCRUAL_OF_PENALTY).ToString() == "1"; }
+        }
+
+        public bool ShowExtraInterestColumn
+        {
+            get { return GetSpecificParameter(OGeneralSettings.SHOW_EXTRA_INTEREST_COLUMN).ToString() == "1"; }
         }
 
         public string NumberGroupSeparator
