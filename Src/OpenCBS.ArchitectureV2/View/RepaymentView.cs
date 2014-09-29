@@ -22,18 +22,24 @@ namespace OpenCBS.ArchitectureV2.View
         public void Attach(IRepaymentPresenterCallbacks presenterCallbacks)
         {
             _amountNumericUpDown.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
-            _amountNumericUpDown.KeyDown += (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
+            _amountNumericUpDown.KeyDown +=
+                (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
             _dateTimePicker.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
             _principalNumericUpDown.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
-            _principalNumericUpDown.KeyDown += (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
+            _principalNumericUpDown.KeyDown +=
+                (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
             _interestNumericUpDown.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
-            _interestNumericUpDown.KeyDown += (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
+            _interestNumericUpDown.KeyDown +=
+                (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
             _penaltyNumericUpDown.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
-            _penaltyNumericUpDown.KeyDown += (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
+            _penaltyNumericUpDown.KeyDown +=
+                (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
             _commissionNumericUpDown.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
-            _commissionNumericUpDown.KeyDown += (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
+            _commissionNumericUpDown.KeyDown +=
+                (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
             _bounceFeeNumericUpDown.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
-            _bounceFeeNumericUpDown.KeyDown += (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
+            _bounceFeeNumericUpDown.KeyDown +=
+                (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
             _typeOfRepaymentComboBox.SelectedIndexChanged += (sender, e) => presenterCallbacks.OnRefresh();
             _okButton.Click += (sender, e) => presenterCallbacks.OnRepay();
             _cancelButton.Click += (sender, e) => presenterCallbacks.OnCancel();
@@ -47,6 +53,11 @@ namespace OpenCBS.ArchitectureV2.View
         public void Stop()
         {
             Close();
+        }
+
+        public void ShowExtraColumn()
+        {
+            _scheduleControl.ShowExtraColumn();
         }
 
         public Loan Loan
@@ -121,6 +132,7 @@ namespace OpenCBS.ArchitectureV2.View
             get { return _dateTimePicker.Value; }
             set { _dateTimePicker.Value = value; }
         }
+
         public bool OkButtonEnabled
         {
             get { return _okButton.Enabled; }
@@ -130,6 +142,7 @@ namespace OpenCBS.ArchitectureV2.View
                 _amountNumericUpDown.ForeColor = _okButton.Enabled ? Color.Black : Color.Red;
             }
         }
+
         public string Comment
         {
             get { return _commentRichTextBox.Text; }
@@ -148,7 +161,7 @@ namespace OpenCBS.ArchitectureV2.View
 
         public PaymentMethod SelectedPaymentMethod
         {
-            get { return (PaymentMethod)_paymentMethodComboBox.SelectedItem; }
+            get { return (PaymentMethod) _paymentMethodComboBox.SelectedItem; }
             set { _paymentMethodComboBox.SelectedItem = value; }
         }
 

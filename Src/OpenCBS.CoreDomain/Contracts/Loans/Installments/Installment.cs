@@ -174,7 +174,17 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
             get { return _commission - _paidCommision; }
         }
 
-
+        public int LateDays
+        {
+            get
+            {
+                var lateDays = PaidDate.HasValue
+                           ? (PaidDate.Value.Date - ExpectedDate.Date).Days
+                           : (TimeProvider.Today - ExpectedDate.Date).Days;
+                if (lateDays < 0) lateDays = 0;
+                return lateDays;
+            }
+        }
         /// <summary>
         /// OLB is the OLB before installment repayment
         /// </summary>

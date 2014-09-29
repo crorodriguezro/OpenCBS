@@ -199,6 +199,8 @@ namespace OpenCBS.GUI.Clients
             for (int exp = 0; exp < decimalPlaces; exp++)
                 increment = decimal.Divide(increment, 10m);
             nudInterestRate.Increment = increment;
+            if(ApplicationSettings.GetInstance(User.CurrentUser.Md5).ShowExtraInterestColumn)
+                _repaymentScheduleControl.ShowExtraColumn();
         }
 
 
@@ -3502,124 +3504,16 @@ namespace OpenCBS.GUI.Clients
 
         private void DisplayListViewLoanRepayments(Loan credit)
         {
-            lvLoansRepayments.Items.Clear();
-            OCurrency OLBDue = 0;
-            OCurrency interestsDue = 0;
-
-            foreach (Installment installment in credit.InstallmentList)
-            {
-                var listViewItem = new ListViewItem(installment.Number.ToString());
-
-                // late installation mark as red
-                if ((installment.CapitalRepayment + installment.InterestsRepayment >
-                    installment.PaidCapital + installment.PaidInterests) || !installment.IsRepaid)
-                {
-                    if (installment.PaidDate.HasValue)
-                    {
-                        int lateDays = Convert.ToInt32(installment.PaidDate.Value.Subtract(installment.ExpectedDate).TotalDays);
-                        if (Math.Abs(lateDays) > 0)
-                        {
-                            listViewItem.BackColor = Color.White;
-                            listViewItem.ForeColor = Color.Red;
-                        }
-                    }
-                    else
-                    {
-                        DateTime now = TimeProvider.Now;
-                        //DateTime dt = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0, 0);
-                        int lateDays = (now.Date - installment.ExpectedDate).Days;
-                        if (lateDays > 0)
-                        {
-                            listViewItem.BackColor = Color.White;
-                            listViewItem.ForeColor = Color.Red;
-                        }
-                    }
-                }
-
-                if (installment.IsRepaid)
-                {
-                    listViewItem.BackColor = Color.FromArgb(61, 153, 57);
-                    listViewItem.ForeColor = Color.White;
-                }
-                else
-                {
-                    if (!installment.IsRepaid && OLBDue.Value == 0)
-                        OLBDue = installment.OLB;
-
-                    interestsDue += installment.InterestsRepayment - installment.PaidInterests;
-                }
-
-                if (installment.IsPending)
-                {
-                    listViewItem.BackColor = Color.Orange;
-                    listViewItem.ForeColor = Color.White;
-                }
-
-                listViewItem.Tag = installment;
-                listViewItem.SubItems.Add(installment.ExpectedDate.ToShortDateString());
-                listViewItem.SubItems.Add(installment.InterestsRepayment.GetFormatedValue(_credit.UseCents));
-                listViewItem.SubItems.Add(installment.CapitalRepayment.GetFormatedValue(_credit.UseCents));
-                listViewItem.SubItems.Add(installment.AmountHasToPayWithInterest.GetFormatedValue(_credit.UseCents));
-
-                if (ServicesProvider.GetInstance().GetGeneralSettings().IsOlbBeforeRepayment)
-                    listViewItem.SubItems.Add(installment.OLB.GetFormatedValue(_credit.UseCents));
-                else
-                    listViewItem.SubItems.Add(installment.OLBAfterRepayment.GetFormatedValue(_credit.UseCents));
-
-
-                if (installment.PaidInterests == 0)
-                    listViewItem.SubItems.Add("-");
-                else
-                    listViewItem.SubItems.Add(installment.PaidInterests.GetFormatedValue(_credit.UseCents));
-
-                if (installment.PaidCapital == 0)
-                    listViewItem.SubItems.Add("-");
-                else
-                    listViewItem.SubItems.Add(installment.PaidCapital.GetFormatedValue(_credit.UseCents));
-
-                if (installment.PaidDate.HasValue)
-                {
-                    listViewItem.SubItems.Add(installment.PaidDate.Value.ToShortDateString());
-                    int lateDays = (Convert.ToDateTime(installment.PaidDate) - installment.ExpectedDate).Days;
-                    if (lateDays > 0)
-                    {
-                        listViewItem.SubItems.Add(lateDays.ToString());
-                    }
-                    else
-                    {
-                        listViewItem.SubItems.Add("-");
-                    }
-                }
-                else
-                {
-                    listViewItem.SubItems.Add("-");
-
-                    if (installment.Number <= credit.GracePeriod)
-                    {
-                        listViewItem.SubItems.Add("-");
-                    }
-                    else
-                    {
-                        DateTime now = TimeProvider.Now;
-                        //DateTime dt = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0, 0);
-                        int lateDays = (now.Date - installment.ExpectedDate).Days;
-                        if (lateDays > 0) listViewItem.SubItems.Add(lateDays.ToString());
-                        else listViewItem.SubItems.Add("-");
-                    }
-                }
-
-                listViewItem.SubItems.Add(installment.Comment);
-
-                lvLoansRepayments.Items.Add(listViewItem);
-            }
-
+            _repaymentScheduleControl.SetScheduleFor(credit);
             richTextBoxStatus.Clear();
 
             String statusText = MultiLanguageStrings.GetString(Ressource.ClientForm, "Status.Text") + "\n" +
-                               MultiLanguageStrings.GetString(Ressource.ClientForm, "Currency.Text") + "   " + _credit.Product.Currency.Name + "\n" +
-                               MultiLanguageStrings.GetString(Ressource.ClientForm, "CapitalDue.Text") + "   "
-                               + _credit.CalculateActualOlb().GetFormatedValue(credit.UseCents) + "\n" +
-                               MultiLanguageStrings.GetString(Ressource.ClientForm, "PercentsDue.Text") + "   " + interestsDue.GetFormatedValue(credit.UseCents);
+                                MultiLanguageStrings.GetString(Ressource.ClientForm, "Currency.Text") + "   " +
+                                _credit.Product.Currency.Name + "\n" +
+                                MultiLanguageStrings.GetString(Ressource.ClientForm, "CapitalDue.Text") + "   "
+                                + _credit.CalculateActualOlb().GetFormatedValue(credit.UseCents) + "\n" +
+                                MultiLanguageStrings.GetString(Ressource.ClientForm, "PercentsDue.Text") + "   " +
+                                _credit.CalculateActualInterestsToPay().GetFormatedValue(credit.UseCents);
             richTextBoxStatus.Text = statusText;
         }
 
@@ -5887,40 +5781,16 @@ namespace OpenCBS.GUI.Clients
             }
         }
 
-        private void listViewLoansRepayments_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lvLoansRepayments.ContextMenuStrip.Items.Remove(toolStripSeparatorCopy);
-            lvLoansRepayments.ContextMenuStrip.Items.Remove(toolStripMenuItemEditComment);
-            lvLoansRepayments.ContextMenuStrip.Items.Remove(toolStripMenuItemCancelPending);
-            lvLoansRepayments.ContextMenuStrip.Items.Remove(toolStripMenuItemConfirmPending);
-
-            if (lvLoansRepayments.SelectedItems.Count > 0)
-            {
-                var installment = lvLoansRepayments.SelectedItems[0].Tag as Installment;
-                if (!installment.IsRepaid)
-                {
-                    lvLoansRepayments.ContextMenuStrip.Items.Add(toolStripSeparatorCopy);
-                    lvLoansRepayments.ContextMenuStrip.Items.Add(toolStripMenuItemEditComment);
-                }
-                if (installment.IsPending)
-                {
-                    lvLoansRepayments.ContextMenuStrip.Items.Add(toolStripSeparatorCopy);
-                    lvLoansRepayments.ContextMenuStrip.Items.Add(toolStripMenuItemConfirmPending);
-                    lvLoansRepayments.ContextMenuStrip.Items.Add(toolStripMenuItemCancelPending);
-                }
-            }
-        }
-
         private void toolStripMenuItemEditComment_Click(object sender, EventArgs e)
         {
-            var installment = (Installment)lvLoansRepayments.SelectedItems[0].Tag;
-            var editCommentDialog = new InstallmentCommentDialog() { Comment = installment.Comment };
-            if (editCommentDialog.ShowDialog() == DialogResult.OK)
-            {
-                ServicesProvider.GetInstance().GetContractServices().UpdateInstallmentComment(editCommentDialog.Comment, _credit.Id, installment.Number);
-                _credit.InstallmentList.FirstOrDefault(item => item.Number == installment.Number).Comment = editCommentDialog.Comment;
-                DisplayListViewLoanRepayments(_credit);
-            }
+            //var installment = (Installment)lvLoansRepayments.SelectedItems[0].Tag;
+            //var editCommentDialog = new InstallmentCommentDialog() { Comment = installment.Comment };
+            //if (editCommentDialog.ShowDialog() == DialogResult.OK)
+            //{
+            //    ServicesProvider.GetInstance().GetContractServices().UpdateInstallmentComment(editCommentDialog.Comment, _credit.Id, installment.Number);
+            //    _credit.InstallmentList.FirstOrDefault(item => item.Number == installment.Number).Comment = editCommentDialog.Comment;
+            //    DisplayListViewLoanRepayments(_credit);
+            //}
         }
 
         private void toolStripMenuItemCancelPending_Click(object sender, EventArgs e)

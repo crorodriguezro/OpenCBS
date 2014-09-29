@@ -11,6 +11,7 @@ namespace OpenCBS.ArchitectureV2.Interface.View
     {
         void Run();
         void Stop();
+        void ShowExtraColumn();
 
         Loan Loan { set; }
         Dictionary<string, string> RepaymentScripts { set; }

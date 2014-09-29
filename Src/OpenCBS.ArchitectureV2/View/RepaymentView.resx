@@ -126,7 +126,7 @@
     <value>0, 0</value>
   </data>
   <data name="_scheduleControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>864, 316</value>
+    <value>1027, 326</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="_scheduleControl.TabIndex" type="System.Int32, mscorlib">
@@ -550,7 +550,7 @@
     <value>NoControl</value>
   </data>
   <data name="_okButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>581, 11</value>
+    <value>744, 11</value>
   </data>
   <data name="_okButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -595,7 +595,7 @@
     <value>NoControl</value>
   </data>
   <data name="_cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>719, 11</value>
+    <value>882, 11</value>
   </data>
   <data name="_cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -625,13 +625,13 @@
     <value>Bottom</value>
   </data>
   <data name="buttonsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 478</value>
+    <value>0, 488</value>
   </data>
   <data name="buttonsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
   <data name="buttonsPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>864, 50</value>
+    <value>1027, 50</value>
   </data>
   <data name="buttonsPanel.TabIndex" type="System.Int32, mscorlib">
     <value>37</value>
@@ -781,7 +781,7 @@
     <value>0, 0</value>
   </data>
   <data name="_repaymentConfigurationPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>864, 162</value>
+    <value>1027, 162</value>
   </data>
   <data name="_repaymentConfigurationPanel.TabIndex" type="System.Int32, mscorlib">
     <value>38</value>
@@ -805,7 +805,7 @@
     <value>0, 162</value>
   </data>
   <data name="_schedulePanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>864, 316</value>
+    <value>1027, 326</value>
   </data>
   <data name="_schedulePanel.TabIndex" type="System.Int32, mscorlib">
     <value>39</value>
@@ -829,7 +829,7 @@
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>864, 528</value>
+    <value>1027, 538</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

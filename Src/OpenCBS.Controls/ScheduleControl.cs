@@ -19,10 +19,14 @@
 
 using System;
 using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
 using BrightIdeasSoftware;
+using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.Shared;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.Controls
 {
@@ -53,14 +57,17 @@ namespace OpenCBS.Controls
             };
             principalColumn.AspectToStringConverter =
             interestColumn.AspectToStringConverter =
+            extraColumn.AspectToStringConverter =
             paidPrincipalColumn.AspectToStringConverter =
             paidInterestColumn.AspectToStringConverter =
+            paidExtraColumn.AspectToStringConverter =
             totalColumn.AspectToStringConverter =
             olbColumn.AspectToStringConverter = value =>
             {
                 var amount = (OCurrency)value;
                 return amount.Value.ToString(_amountFormatString);
             };
+            _scheduleContextMenuStrip.Click += (sender, e) => _CopyData();
         }
 
         private static void FormatRow(OLVListItem item)
@@ -70,6 +77,37 @@ namespace OpenCBS.Controls
             if (installment.IsPending) item.BackColor = Color.Orange;
             if (installment.IsRepaid) item.BackColor = Color.FromArgb(61, 153, 57);
             if (installment.IsPending || installment.IsRepaid) item.ForeColor = Color.White;
+        }
+
+        public void ShowExtraColumn()
+        {
+            extraColumn.IsVisible = true;
+            paidExtraColumn.IsVisible = true;
+            scheduleObjectListView.RebuildColumns();
+        }
+
+        private void _CopyData()
+        {
+            var buffer = new StringBuilder();
+            for (var i = 0; i < scheduleObjectListView.Columns.Count; i++)
+            {
+                buffer.Append(scheduleObjectListView.Columns[i].Text);
+                buffer.Append("\t");
+            }
+            buffer.Append("\n");
+
+            for (int i = 0; i < scheduleObjectListView.Items.Count; i++)
+            {
+                for (int j = 0; j < scheduleObjectListView.Items[i].SubItems.Count; j++)
+                {
+                    buffer.Append(scheduleObjectListView.Items[i].SubItems[j].Text);
+                    buffer.Append("\t");
+                }
+                buffer.Append("\n");
+            }
+
+            Clipboard.SetText(buffer.ToString());
+            _scheduleContextMenuStrip.Visible = false;
         }
     }
 }

@@ -36,6 +36,8 @@ namespace OpenCBS.ArchitectureV2.Presenter
             _view.Title = _loan.Project.Client.Name + " " + _loan.Code;
             _repaymentService.Settings.ScriptName = _view.SelectedScript;
             _balanceString = _translationService.Translate("Available balance: ");
+            if(ApplicationSettings.GetInstance(User.CurrentUser.Md5).ShowExtraInterestColumn)
+                _view.ShowExtraColumn();
             if (!ApplicationSettings.GetInstance(User.CurrentUser.Md5).UseMandatorySavingAccount) return;
             _saving =
                 (from item in _loan.Project.Client.Savings where item.Product.Code == "default" select item)

@@ -316,18 +316,7 @@ namespace OpenCBS.GUI.Clients
             this.tabPageLoanRepayment = new System.Windows.Forms.TabPage();
             this.tabControlRepayments = new System.Windows.Forms.TabControl();
             this.tabPageRepayments = new System.Windows.Forms.TabPage();
-            this.lvLoansRepayments = new OpenCBS.GUI.UserControl.ListViewEx();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderLateDays = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this._repaymentScheduleControl = new OpenCBS.Controls.ScheduleControl();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonLoanRepaymentRepay = new System.Windows.Forms.Button();
             this.buttonLoanReschedule = new System.Windows.Forms.Button();
@@ -2262,79 +2251,15 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabPageRepayments
             // 
-            this.tabPageRepayments.Controls.Add(this.lvLoansRepayments);
+            this.tabPageRepayments.Controls.Add(this._repaymentScheduleControl);
             this.tabPageRepayments.Controls.Add(this.flowLayoutPanel8);
             resources.ApplyResources(this.tabPageRepayments, "tabPageRepayments");
             this.tabPageRepayments.Name = "tabPageRepayments";
             // 
-            // lvLoansRepayments
+            // _repaymentScheduleControl
             // 
-            this.lvLoansRepayments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeaderLateDays,
-            this.columnHeaderComment});
-            resources.ApplyResources(this.lvLoansRepayments, "lvLoansRepayments");
-            this.lvLoansRepayments.DoubleClickActivation = false;
-            this.lvLoansRepayments.FullRowSelect = true;
-            this.lvLoansRepayments.GridLines = true;
-            this.lvLoansRepayments.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lvLoansRepayments.MultiSelect = false;
-            this.lvLoansRepayments.Name = "lvLoansRepayments";
-            this.lvLoansRepayments.UseCompatibleStateImageBehavior = false;
-            this.lvLoansRepayments.View = System.Windows.Forms.View.Details;
-            this.lvLoansRepayments.SelectedIndexChanged += new System.EventHandler(this.listViewLoansRepayments_SelectedIndexChanged);
-            // 
-            // columnHeader1
-            // 
-            resources.ApplyResources(this.columnHeader1, "columnHeader1");
-            // 
-            // columnHeader2
-            // 
-            resources.ApplyResources(this.columnHeader2, "columnHeader2");
-            // 
-            // columnHeader3
-            // 
-            resources.ApplyResources(this.columnHeader3, "columnHeader3");
-            // 
-            // columnHeader4
-            // 
-            resources.ApplyResources(this.columnHeader4, "columnHeader4");
-            // 
-            // columnHeader5
-            // 
-            resources.ApplyResources(this.columnHeader5, "columnHeader5");
-            // 
-            // columnHeader6
-            // 
-            resources.ApplyResources(this.columnHeader6, "columnHeader6");
-            // 
-            // columnHeader7
-            // 
-            resources.ApplyResources(this.columnHeader7, "columnHeader7");
-            // 
-            // columnHeader8
-            // 
-            resources.ApplyResources(this.columnHeader8, "columnHeader8");
-            // 
-            // columnHeader9
-            // 
-            resources.ApplyResources(this.columnHeader9, "columnHeader9");
-            // 
-            // columnHeaderLateDays
-            // 
-            resources.ApplyResources(this.columnHeaderLateDays, "columnHeaderLateDays");
-            // 
-            // columnHeaderComment
-            // 
-            resources.ApplyResources(this.columnHeaderComment, "columnHeaderComment");
+            resources.ApplyResources(this._repaymentScheduleControl, "_repaymentScheduleControl");
+            this._repaymentScheduleControl.Name = "_repaymentScheduleControl";
             // 
             // flowLayoutPanel8
             // 
@@ -4212,18 +4137,6 @@ namespace OpenCBS.GUI.Clients
         private Label lblEconomicActivity;
         private TabControl tabControlRepayments;
         private TabPage tabPageRepayments;
-        private ListViewEx lvLoansRepayments;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
-        private ColumnHeader columnHeader5;
-        private ColumnHeader columnHeader6;
-        private ColumnHeader columnHeader7;
-        private ColumnHeader columnHeader8;
-        private ColumnHeader columnHeader9;
-        private ColumnHeader columnHeaderLateDays;
-        private ColumnHeader columnHeaderComment;
         private FlowLayoutPanel flowLayoutPanel8;
         private System.Windows.Forms.Button buttonLoanRepaymentRepay;
         private System.Windows.Forms.Button buttonLoanReschedule;
@@ -4266,5 +4179,6 @@ namespace OpenCBS.GUI.Clients
         private ColumnHeader columnHeaderLoanOLB;
         private ColumnHeader colBounceFee;
         private CheckBox chxSystemEvents;
+        private Controls.ScheduleControl _repaymentScheduleControl;
     }
 }
