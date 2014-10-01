@@ -60,6 +60,9 @@ namespace OpenCBS.GUI
             try
             {
                 _ParseApplicationSettings(pArgs);
+#if DEBUG
+                TechnicalSettings.EnsureKeyExists();
+#endif
 
                 Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(UserSettings.Language);
                 Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture;

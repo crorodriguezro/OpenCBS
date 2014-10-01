@@ -252,5 +252,24 @@ namespace OpenCBS.Shared.Settings
             }
         }
 
+        public static void EnsureKeyExists()
+        {
+            var path = GetRegistryPath();
+            using (var key = Registry.CurrentUser.OpenSubKey(path) ?? Registry.LocalMachine.OpenSubKey(path))
+            {
+                if (key != null) return;
+            }
+
+            using (var key = Registry.CurrentUser.CreateSubKey(path))
+            {
+                key.SetValue("DATABASE_LIST", string.Empty);
+                key.SetValue("DATABASE_LOGIN_NAME", string.Empty);
+                key.SetValue("DATABASE_NAME", string.Empty);
+                key.SetValue("DATABASE_PASSWORD", string.Empty);
+                key.SetValue("DATABASE_SERVER_NAME", string.Empty);
+                key.SetValue("DATABASE_TIMEOUT", "");
+                key.SetValue("USE_DEMO_DATABASE", "False");
+            }
+        }
     }
 }
