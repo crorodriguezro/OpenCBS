@@ -29,6 +29,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using IronPython.Hosting;
+using IronPython.Runtime;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Alerts;
@@ -3085,9 +3086,32 @@ namespace OpenCBS.Services
             var configuration = new Dictionary<string, object>();
             var nonWorkingDate = NonWorkingDateSingleton.GetInstance(string.Empty);
             configuration.Add("Holidays", nonWorkingDate);
-            
-            var res = script.Main(loan, configuration);
-            return (List<Installment>)res;
+
+            var loanData = new Dictionary<string, object>();
+            loanData["Amount"] = loan.Amount.Value;
+            loanData["InterestRate"] = loan.InterestRate;
+            loanData["NumberOfInstallments"] = loan.NbOfInstallments;
+            loanData["GracePeriod"] = loan.GracePeriod;
+            loanData["ChargeInterestDuringGracePeriod"] = loan.Product.ChargeInterestWithinGracePeriod;
+            loanData["DisbursementDate"] = loan.StartDate;
+            loanData["FirstInstallmentDate"] = loan.FirstInstallmentDate;
+
+            var items = (List<Dictionary<string, object>>) script.Main(loanData, configuration);
+            var installments = new List<Installment>();
+
+            foreach (var item in items)
+            {
+                var installment = new Installment();
+                installment.Number = (int) item["Number"];
+                installment.CapitalRepayment = (decimal) item["Principal"];
+                installment.OLB = (decimal) item["OLB"];
+                installment.InterestsRepayment = (decimal) item["Interest"];
+                installment.StartDate = (DateTime) item["StartDate"];
+                installment.ExpectedDate = (DateTime) item["ExpectedDate"];
+                installments.Add(installment);
+            }
+
+            return installments;
         }
 
         private static dynamic RunScript(string file)
@@ -3095,8 +3119,8 @@ namespace OpenCBS.Services
             var options = new Dictionary<string, object>();
             options["Debug"] = true;
             var engine = Python.CreateEngine(options);
-            var assemby = typeof (Installment).Assembly;
-            engine.Runtime.LoadAssembly(assemby);
+            engine.Runtime.LoadAssembly(typeof(Installment).Assembly);
+            engine.Runtime.LoadAssembly(typeof(OCurrency).Assembly);
             return engine.ExecuteFile(file);
         }
 
