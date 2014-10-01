@@ -63,6 +63,7 @@ namespace OpenCBS.GUI.Contracts
                 foreach (Loan loan in member.ActiveLoans)
                 {
                     if (null == loan || loan.ContractStatus != OContractStatus.Active) continue;
+                    if (loan.NsgID != _village.Id) continue;
                     
                     var result = new KeyValuePair<Loan, RepaymentEvent>();
                     Installment installment = loan.GetFirstUnpaidInstallment();
