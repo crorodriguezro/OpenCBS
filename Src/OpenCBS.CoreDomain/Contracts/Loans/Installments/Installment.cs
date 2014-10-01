@@ -141,13 +141,15 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
             }
         }
 
-        public OCurrency   AmountHasToPayWithInterest
+        public OCurrency AmountHasToPayWithInterest
         {
-            get 
-            { 
-                return AmountComparer.Compare(_interestsRepayment + _capitalRepayment - _paidCapital - _paidInterests, 0) == 0
+            get
+            {
+                return AmountComparer.Compare(_interestsRepayment + _capitalRepayment + _commission -
+                                              _paidCapital - _paidInterests - _paidCommision, 0) == 0
                            ? 0
-                           : _interestsRepayment + _capitalRepayment - _paidCapital - _paidInterests;
+                           : _interestsRepayment + _capitalRepayment + _commission - _paidCapital - _paidInterests -
+                             _paidCommision;
             }
         }
 
@@ -204,7 +206,10 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
         {
             get
             {
-                return AmountComparer.Equals(_interestsRepayment, _paidInterests) && AmountComparer.Equals(Math.Round(_capitalRepayment.Value, 2, MidpointRounding.AwayFromZero), _paidCapital) ? true : false;
+                return AmountComparer.Equals(_interestsRepayment, _paidInterests) &&
+                       AmountComparer.Equals(Math.Round(_capitalRepayment.Value, 2, MidpointRounding.AwayFromZero),
+                                             _paidCapital) &&
+                       AmountComparer.Equals(_commission, _paidCommision);
             }
         }
 

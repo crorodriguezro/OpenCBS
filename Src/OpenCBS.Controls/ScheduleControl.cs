@@ -68,6 +68,9 @@ namespace OpenCBS.Controls
                 return amount.Value.ToString(_amountFormatString);
             };
             _scheduleContextMenuStrip.Click += (sender, e) => _CopyData();
+            extraColumn.IsVisible = false;
+            paidExtraColumn.IsVisible = false;
+            scheduleObjectListView.RebuildColumns();
         }
 
         private static void FormatRow(OLVListItem item)

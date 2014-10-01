@@ -69,10 +69,12 @@
             this.numberColumn,
             this.dateColumn,
             this.interestColumn,
+            this.extraColumn,
             this.principalColumn,
             this.totalColumn,
             this.olbColumn,
             this.paidInterestColumn,
+            this.paidExtraColumn,
             this.paidPrincipalColumn,
             this.paymentDateColumn,
             this.lateDaysColumn,
@@ -110,9 +112,8 @@
             // extraColumn
             // 
             this.extraColumn.AspectName = "Commission";
-            resources.ApplyResources(this.extraColumn, "extraColumn");
             this.extraColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.extraColumn.IsVisible = false;
+            resources.ApplyResources(this.extraColumn, "extraColumn");
             // 
             // principalColumn
             // 
@@ -141,9 +142,8 @@
             // paidExtraColumn
             // 
             this.paidExtraColumn.AspectName = "PaidCommissions";
-            resources.ApplyResources(this.paidExtraColumn, "paidExtraColumn");
             this.paidExtraColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.paidExtraColumn.IsVisible = false;
+            resources.ApplyResources(this.paidExtraColumn, "paidExtraColumn");
             // 
             // paidPrincipalColumn
             // 

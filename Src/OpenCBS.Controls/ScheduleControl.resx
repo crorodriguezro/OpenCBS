@@ -143,9 +143,6 @@
   <data name="interestColumn.Width" type="System.Int32, mscorlib">
     <value>100</value>
   </data>
-  <data name="extraColumn.DisplayIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
   <data name="extraColumn.Text" xml:space="preserve">
     <value>Extra</value>
   </data>
@@ -190,9 +187,6 @@
   </data>
   <data name="paidInterestColumn.Width" type="System.Int32, mscorlib">
     <value>100</value>
-  </data>
-  <data name="paidExtraColumn.DisplayIndex" type="System.Int32, mscorlib">
-    <value>8</value>
   </data>
   <data name="paidExtraColumn.Text" xml:space="preserve">
     <value>Paid extra</value>
