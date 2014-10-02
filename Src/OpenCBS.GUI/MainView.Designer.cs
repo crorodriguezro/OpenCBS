@@ -106,6 +106,7 @@ namespace OpenCBS.GUI
             this.mnuSearchContract = new System.Windows.Forms.ToolStripMenuItem();
             this.reasignToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAccounting = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuChartOfAccounts = new System.Windows.Forms.ToolStripMenuItem();
             this.accountingRulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trialBalanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAccountView = new System.Windows.Forms.ToolStripMenuItem();
@@ -162,7 +163,6 @@ namespace OpenCBS.GUI
             this.toolStripStatusLblBranchCode = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLblDB = new System.Windows.Forms.ToolStripStatusLabel();
             this.alertBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mnuChartOfAccounts = new System.Windows.Forms.ToolStripMenuItem();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olvAlerts)).BeginInit();
             this.tabFilter.SuspendLayout();
@@ -500,6 +500,12 @@ namespace OpenCBS.GUI
             this.fiscalYearToolStripMenuItem});
             this.mnuAccounting.Name = "mnuAccounting";
             resources.ApplyResources(this.mnuAccounting, "mnuAccounting");
+            // 
+            // mnuChartOfAccounts
+            // 
+            this.mnuChartOfAccounts.Image = global::OpenCBS.GUI.Properties.Resources.page;
+            this.mnuChartOfAccounts.Name = "mnuChartOfAccounts";
+            resources.ApplyResources(this.mnuChartOfAccounts, "mnuChartOfAccounts");
             // 
             // accountingRulesToolStripMenuItem
             // 
@@ -912,12 +918,6 @@ namespace OpenCBS.GUI
             // alertBindingSource
             // 
             this.alertBindingSource.DataSource = typeof(OpenCBS.CoreDomain.Alert);
-            // 
-            // mnuChartOfAccounts
-            // 
-            this.mnuChartOfAccounts.Image = global::OpenCBS.GUI.Properties.Resources.page;
-            this.mnuChartOfAccounts.Name = "mnuChartOfAccounts";
-            resources.ApplyResources(this.mnuChartOfAccounts, "mnuChartOfAccounts");
             // 
             // MainView
             // 
