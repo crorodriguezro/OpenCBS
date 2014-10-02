@@ -14,21 +14,20 @@ namespace OpenCBS.ArchitectureV2.Interface.View
         void ShowExtraColumn();
 
         Loan Loan { set; }
-        Dictionary<string, string> RepaymentScripts { set; }
         List<PaymentMethod> PaymentMethods { set; }
+        Dictionary<int, string> PaymentTypes { set; }
         decimal Amount { get; set; }
         decimal Principal { get; set; }
         decimal PrincipalMax { get; set; }
         decimal Interest { get; set; }
         decimal Penalty { get; set; }
-        decimal Commission { get; set; }
         decimal BounceFee { get; set; }
         DateTime Date { get; set; }
         bool OkButtonEnabled { get; set; }
         string Comment { get; set; }
         string Title { set; }
-        string SelectedScript { get; }
         PaymentMethod SelectedPaymentMethod { get; set; }
+        int SelectedPaymentTypeId { get; set; }
         string Description { set; }
         DialogResult DialogResult { get; set; }
     }

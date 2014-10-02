@@ -23,8 +23,8 @@ namespace OpenCBS.ArchitectureV2.Service
 
         public Loan Repay()
         {
-            var newSettings = (RepaymentSettings)Settings.Clone();
-            var script = RunScript(newSettings.ScriptName);
+            var newSettings = (RepaymentSettings) Settings.Clone();
+            var script = RunScript();
             script.Main(newSettings);
             Settings = newSettings;
             return Settings.Loan;
@@ -32,42 +32,28 @@ namespace OpenCBS.ArchitectureV2.Service
 
         public decimal GetRepaymentAmount(DateTime date)
         {
-            var newSettings = (RepaymentSettings)Settings.Clone();
+            var newSettings = (RepaymentSettings) Settings.Clone();
             newSettings.Date = date;
-            var script = RunScript(newSettings.ScriptName);
+            var script = RunScript();
             script.GetInitAmounts(newSettings);
             return
-                Math.Round(newSettings.Penalty + newSettings.Commission + newSettings.Interest + newSettings.Principal,
+                Math.Round(newSettings.Penalty + newSettings.Interest + newSettings.Principal,
                            2);
         }
 
-        public Dictionary<string, string> GetAllRepaymentScriptsWithTypes()
-        {
-            var scripts = new Dictionary<string, string>();
-            var files = Directory
-                .EnumerateFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Scripts\\Repayment\\"), "*.py",
-                                SearchOption.AllDirectories)
-                .Select(Path.GetFileName);
-            foreach (var file in files)
-            {
-                var script = RunScript(file);
-                scripts.Add(file, script.GetType());
-            }
-            return scripts;
-        }
-
-        private static dynamic RunScript(string scriptName)
+        private static dynamic RunScript()
         {
             var options = new Dictionary<string, object>();
 #if DEBUG
             options["Debug"] = true;
 #endif
             ScriptEngine engine = Python.CreateEngine(options);
-            var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Scripts\\Repayment\\" + scriptName);
-            
-            var assemby = typeof(ServicesProvider).Assembly;
+            var file = Directory
+                .EnumerateFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Scripts\\Repayment\\"), "*.py",
+                                SearchOption.TopDirectoryOnly).FirstOrDefault();
+            var assemby = typeof (ServicesProvider).Assembly;
             engine.Runtime.LoadAssembly(assemby);
-            assemby = typeof(Installment).Assembly;
+            assemby = typeof (Installment).Assembly;
             engine.Runtime.LoadAssembly(assemby);
             assemby = typeof (OPaymentType).Assembly;
             engine.Runtime.LoadAssembly(assemby);

@@ -1,4 +1,5 @@
-﻿﻿﻿﻿﻿﻿﻿using System.Linq;
+﻿﻿﻿﻿﻿﻿﻿using System.Collections.Generic;
+﻿﻿﻿﻿﻿﻿using System.Linq;
 ﻿﻿﻿﻿﻿﻿﻿using System.Windows.Forms;
 ﻿﻿﻿﻿﻿﻿﻿using OpenCBS.ArchitectureV2.Interface.Presenter;
 using OpenCBS.ArchitectureV2.Interface.Service;
@@ -31,10 +32,13 @@ namespace OpenCBS.ArchitectureV2.Presenter
         {
             _repaymentService.Settings.Loan = _loan.Copy();
             _view.PrincipalMax = _loan.OLB;
-            _view.RepaymentScripts = _repaymentService.GetAllRepaymentScriptsWithTypes();
             _view.PaymentMethods = ServicesProvider.GetInstance().GetPaymentMethodServices().GetAllPaymentMethods();
+            _view.PaymentTypes = new Dictionary<int, string>
+                {
+                    {0, _translationService.Translate("Normal")},
+                    {1, _translationService.Translate("Early")}
+                };
             _view.Title = _loan.Project.Client.Name + " " + _loan.Code;
-            _repaymentService.Settings.ScriptName = _view.SelectedScript;
             _balanceString = _translationService.Translate("Available balance: ");
             if(ApplicationSettings.GetInstance(User.CurrentUser.Md5).ShowExtraInterestColumn)
                 _view.ShowExtraColumn();
@@ -75,12 +79,11 @@ namespace OpenCBS.ArchitectureV2.Presenter
             if (_repaymentService.Settings.Principal == _view.Principal &&
                 _repaymentService.Settings.Interest == _view.Interest &&
                 _repaymentService.Settings.Penalty == _view.Penalty &&
-                _repaymentService.Settings.Commission == _view.Commission &&
                 _repaymentService.Settings.Comment == _view.Comment &&
-                _repaymentService.Settings.ScriptName == _view.SelectedScript &&
                 _repaymentService.Settings.Date.Date == _view.Date.Date &&
                 _repaymentService.Settings.Amount == _view.Amount &&
-                _repaymentService.Settings.BounceFee == _view.BounceFee) return;
+                _repaymentService.Settings.BounceFee == _view.BounceFee &&
+                _repaymentService.Settings.PaymentTypeId == _view.SelectedPaymentTypeId) return;
             if (_repaymentService.Settings.Date.Date != _view.Date.Date)
             {
                 _repaymentService.Settings.DateChanged = true;
@@ -93,22 +96,18 @@ namespace OpenCBS.ArchitectureV2.Presenter
                 _repaymentService.Settings.AmountChanged = true;
                 _repaymentService.Settings.Amount = _view.Amount;
             }
-            if (_repaymentService.Settings.ScriptName != _view.SelectedScript)
-                _repaymentService.Settings.AmountChanged = true;
             _repaymentService.Settings.Loan = _loan.Copy();
             _repaymentService.Settings.Comment = _view.Comment;
-            _repaymentService.Settings.Commission = _view.Commission;
             _repaymentService.Settings.BounceFee = _view.BounceFee;
             _repaymentService.Settings.Interest = _view.Interest;
             _repaymentService.Settings.Penalty = _view.Penalty;
             _repaymentService.Settings.Principal = _view.Principal;
-            _repaymentService.Settings.ScriptName = _view.SelectedScript;
             _repaymentService.Settings.PaymentMethod = _view.SelectedPaymentMethod;
+            _repaymentService.Settings.PaymentTypeId = _view.SelectedPaymentTypeId;
             _repaymentService.Repay();
             _repaymentService.Settings.DateChanged = false;
             _repaymentService.Settings.AmountChanged = false;
             _repaymentService.Settings.Amount = _repaymentService.Settings.BounceFee +
-                                                _repaymentService.Settings.Commission +
                                                 _repaymentService.Settings.Interest +
                                                 _repaymentService.Settings.Penalty +
                                                 _repaymentService.Settings.Principal;
@@ -127,7 +126,6 @@ namespace OpenCBS.ArchitectureV2.Presenter
         private void RefreshAmounts()
         {
             _view.Loan = _repaymentService.Settings.Loan;
-            _view.Commission = _repaymentService.Settings.Commission;
             _view.BounceFee = _repaymentService.Settings.BounceFee;
             _view.Interest = _repaymentService.Settings.Interest;
             _view.Penalty = _repaymentService.Settings.Penalty;

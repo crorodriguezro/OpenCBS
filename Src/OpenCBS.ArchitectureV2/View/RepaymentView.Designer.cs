@@ -30,12 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RepaymentView));
             this._scheduleControl = new OpenCBS.Controls.ScheduleControl();
-            this._typeOfRepaymentComboBox = new System.Windows.Forms.ComboBox();
-            this._typeOfRepaymentLabel = new System.Windows.Forms.Label();
             this._commentRichTextBox = new System.Windows.Forms.RichTextBox();
             this._commentLabel = new System.Windows.Forms.Label();
-            this._commissionNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this._commissionLabel = new System.Windows.Forms.Label();
             this._penaltyNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this._penaltyLabel = new System.Windows.Forms.Label();
             this._interestNumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -50,13 +46,14 @@
             this._okButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
             this._repaymentConfigurationPanel = new System.Windows.Forms.Panel();
+            this._paymentTypeLabel = new System.Windows.Forms.Label();
+            this._paymentTypeComboBox = new System.Windows.Forms.ComboBox();
             this._descriptionLabel = new System.Windows.Forms.Label();
             this._paymentMethodLabel = new System.Windows.Forms.Label();
             this._paymentMethodComboBox = new System.Windows.Forms.ComboBox();
             this._bounceFeeNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
+            this._bounceFeeLabel = new System.Windows.Forms.Label();
             this._schedulePanel = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this._commissionNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._penaltyNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._interestNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._principalNumericUpDown)).BeginInit();
@@ -72,18 +69,6 @@
             resources.ApplyResources(this._scheduleControl, "_scheduleControl");
             this._scheduleControl.Name = "_scheduleControl";
             // 
-            // _typeOfRepaymentComboBox
-            // 
-            this._typeOfRepaymentComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._typeOfRepaymentComboBox.FormattingEnabled = true;
-            resources.ApplyResources(this._typeOfRepaymentComboBox, "_typeOfRepaymentComboBox");
-            this._typeOfRepaymentComboBox.Name = "_typeOfRepaymentComboBox";
-            // 
-            // _typeOfRepaymentLabel
-            // 
-            resources.ApplyResources(this._typeOfRepaymentLabel, "_typeOfRepaymentLabel");
-            this._typeOfRepaymentLabel.Name = "_typeOfRepaymentLabel";
-            // 
             // _commentRichTextBox
             // 
             resources.ApplyResources(this._commentRichTextBox, "_commentRichTextBox");
@@ -93,22 +78,6 @@
             // 
             resources.ApplyResources(this._commentLabel, "_commentLabel");
             this._commentLabel.Name = "_commentLabel";
-            // 
-            // _commissionNumericUpDown
-            // 
-            this._commissionNumericUpDown.DecimalPlaces = 2;
-            resources.ApplyResources(this._commissionNumericUpDown, "_commissionNumericUpDown");
-            this._commissionNumericUpDown.Maximum = new decimal(new int[] {
-            -727379968,
-            232,
-            0,
-            0});
-            this._commissionNumericUpDown.Name = "_commissionNumericUpDown";
-            // 
-            // _commissionLabel
-            // 
-            resources.ApplyResources(this._commissionLabel, "_commissionLabel");
-            this._commissionLabel.Name = "_commissionLabel";
             // 
             // _penaltyNumericUpDown
             // 
@@ -207,20 +176,18 @@
             // 
             // _repaymentConfigurationPanel
             // 
+            this._repaymentConfigurationPanel.Controls.Add(this._paymentTypeLabel);
+            this._repaymentConfigurationPanel.Controls.Add(this._paymentTypeComboBox);
             this._repaymentConfigurationPanel.Controls.Add(this._descriptionLabel);
             this._repaymentConfigurationPanel.Controls.Add(this._paymentMethodLabel);
             this._repaymentConfigurationPanel.Controls.Add(this._paymentMethodComboBox);
-            this._repaymentConfigurationPanel.Controls.Add(this._typeOfRepaymentLabel);
-            this._repaymentConfigurationPanel.Controls.Add(this._typeOfRepaymentComboBox);
             this._repaymentConfigurationPanel.Controls.Add(this._amountLabel);
             this._repaymentConfigurationPanel.Controls.Add(this._commentRichTextBox);
             this._repaymentConfigurationPanel.Controls.Add(this._commentLabel);
             this._repaymentConfigurationPanel.Controls.Add(this._amountNumericUpDown);
             this._repaymentConfigurationPanel.Controls.Add(this._dateLabel);
             this._repaymentConfigurationPanel.Controls.Add(this._bounceFeeNumericUpDown);
-            this._repaymentConfigurationPanel.Controls.Add(this.label2);
-            this._repaymentConfigurationPanel.Controls.Add(this._commissionNumericUpDown);
-            this._repaymentConfigurationPanel.Controls.Add(this._commissionLabel);
+            this._repaymentConfigurationPanel.Controls.Add(this._bounceFeeLabel);
             this._repaymentConfigurationPanel.Controls.Add(this._dateTimePicker);
             this._repaymentConfigurationPanel.Controls.Add(this._penaltyNumericUpDown);
             this._repaymentConfigurationPanel.Controls.Add(this._principalLabel);
@@ -230,6 +197,18 @@
             this._repaymentConfigurationPanel.Controls.Add(this._interestLabel);
             resources.ApplyResources(this._repaymentConfigurationPanel, "_repaymentConfigurationPanel");
             this._repaymentConfigurationPanel.Name = "_repaymentConfigurationPanel";
+            // 
+            // _paymentTypeLabel
+            // 
+            resources.ApplyResources(this._paymentTypeLabel, "_paymentTypeLabel");
+            this._paymentTypeLabel.Name = "_paymentTypeLabel";
+            // 
+            // _paymentTypeComboBox
+            // 
+            this._paymentTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._paymentTypeComboBox.FormattingEnabled = true;
+            resources.ApplyResources(this._paymentTypeComboBox, "_paymentTypeComboBox");
+            this._paymentTypeComboBox.Name = "_paymentTypeComboBox";
             // 
             // _descriptionLabel
             // 
@@ -259,10 +238,10 @@
             0});
             this._bounceFeeNumericUpDown.Name = "_bounceFeeNumericUpDown";
             // 
-            // label2
+            // _bounceFeeLabel
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(this._bounceFeeLabel, "_bounceFeeLabel");
+            this._bounceFeeLabel.Name = "_bounceFeeLabel";
             // 
             // _schedulePanel
             // 
@@ -278,10 +257,8 @@
             this.Controls.Add(this._repaymentConfigurationPanel);
             this.Controls.Add(this.buttonsPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RepaymentView";
-            ((System.ComponentModel.ISupportInitialize)(this._commissionNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._penaltyNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._interestNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._principalNumericUpDown)).EndInit();
@@ -298,12 +275,8 @@
         #endregion
 
         private Controls.ScheduleControl _scheduleControl;
-        private System.Windows.Forms.ComboBox _typeOfRepaymentComboBox;
-        private System.Windows.Forms.Label _typeOfRepaymentLabel;
         private System.Windows.Forms.RichTextBox _commentRichTextBox;
         private System.Windows.Forms.Label _commentLabel;
-        private System.Windows.Forms.NumericUpDown _commissionNumericUpDown;
-        private System.Windows.Forms.Label _commissionLabel;
         private System.Windows.Forms.NumericUpDown _penaltyNumericUpDown;
         private System.Windows.Forms.Label _penaltyLabel;
         private System.Windows.Forms.NumericUpDown _interestNumericUpDown;
@@ -322,7 +295,9 @@
         private System.Windows.Forms.Label _paymentMethodLabel;
         private System.Windows.Forms.ComboBox _paymentMethodComboBox;
         private System.Windows.Forms.NumericUpDown _bounceFeeNumericUpDown;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label _bounceFeeLabel;
         private System.Windows.Forms.Label _descriptionLabel;
+        private System.Windows.Forms.Label _paymentTypeLabel;
+        private System.Windows.Forms.ComboBox _paymentTypeComboBox;
     }
 }

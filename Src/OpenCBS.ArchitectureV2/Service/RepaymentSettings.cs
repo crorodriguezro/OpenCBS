@@ -12,13 +12,12 @@ namespace OpenCBS.ArchitectureV2.Service
         public decimal Principal { get; set; }
         public decimal Interest { get; set; }
         public decimal Penalty { get; set; }
-        public decimal Commission { get; set; }
         public decimal BounceFee { get; set; }
         public DateTime Date { get; set; }
         public bool DateChanged { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
         public string Comment { get; set; }
-        public string ScriptName { get; set; }
+        public int PaymentTypeId { get; set; }
 
         public object Clone()
         {
@@ -30,13 +29,12 @@ namespace OpenCBS.ArchitectureV2.Service
                 Principal = Principal,
                 Interest = Interest,
                 Penalty = Penalty,
-                Commission = Commission,
                 Date = Date,
                 DateChanged = DateChanged,
                 PaymentMethod = PaymentMethod,
                 Comment = Comment,
-                ScriptName = ScriptName,
-                BounceFee = BounceFee
+                BounceFee = BounceFee,
+                PaymentTypeId = PaymentTypeId
             };
         }
     }

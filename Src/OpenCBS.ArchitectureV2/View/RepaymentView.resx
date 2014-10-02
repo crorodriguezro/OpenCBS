@@ -126,7 +126,7 @@
     <value>0, 0</value>
   </data>
   <data name="_scheduleControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1027, 326</value>
+    <value>1037, 353</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="_scheduleControl.TabIndex" type="System.Int32, mscorlib">
@@ -144,59 +144,11 @@
   <data name="&gt;&gt;_scheduleControl.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="_typeOfRepaymentComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>677, 69</value>
-  </data>
-  <data name="_typeOfRepaymentComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 23</value>
-  </data>
-  <data name="_typeOfRepaymentComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="&gt;&gt;_typeOfRepaymentComboBox.Name" xml:space="preserve">
-    <value>_typeOfRepaymentComboBox</value>
-  </data>
-  <data name="&gt;&gt;_typeOfRepaymentComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_typeOfRepaymentComboBox.Parent" xml:space="preserve">
-    <value>_repaymentConfigurationPanel</value>
-  </data>
-  <data name="&gt;&gt;_typeOfRepaymentComboBox.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="_typeOfRepaymentLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="_typeOfRepaymentLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>539, 72</value>
-  </data>
-  <data name="_typeOfRepaymentLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 15</value>
-  </data>
-  <data name="_typeOfRepaymentLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>35</value>
-  </data>
-  <data name="_typeOfRepaymentLabel.Text" xml:space="preserve">
-    <value>Type of repayment</value>
-  </data>
-  <data name="&gt;&gt;_typeOfRepaymentLabel.Name" xml:space="preserve">
-    <value>_typeOfRepaymentLabel</value>
-  </data>
-  <data name="&gt;&gt;_typeOfRepaymentLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_typeOfRepaymentLabel.Parent" xml:space="preserve">
-    <value>_repaymentConfigurationPanel</value>
-  </data>
-  <data name="&gt;&gt;_typeOfRepaymentLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="_commentRichTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>631, 11</value>
+    <value>727, 12</value>
   </data>
   <data name="_commentRichTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 52</value>
+    <value>189, 53</value>
   </data>
   <data name="_commentRichTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -220,7 +172,7 @@
     <value>True</value>
   </data>
   <data name="_commentLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>539, 14</value>
+    <value>622, 18</value>
   </data>
   <data name="_commentLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 15</value>
@@ -243,56 +195,8 @@
   <data name="&gt;&gt;_commentLabel.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="_commissionNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>362, 99</value>
-  </data>
-  <data name="_commissionNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 23</value>
-  </data>
-  <data name="_commissionNumericUpDown.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;_commissionNumericUpDown.Name" xml:space="preserve">
-    <value>_commissionNumericUpDown</value>
-  </data>
-  <data name="&gt;&gt;_commissionNumericUpDown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_commissionNumericUpDown.Parent" xml:space="preserve">
-    <value>_repaymentConfigurationPanel</value>
-  </data>
-  <data name="&gt;&gt;_commissionNumericUpDown.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="_commissionLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="_commissionLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>263, 101</value>
-  </data>
-  <data name="_commissionLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 15</value>
-  </data>
-  <data name="_commissionLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
-  </data>
-  <data name="_commissionLabel.Text" xml:space="preserve">
-    <value>Commission</value>
-  </data>
-  <data name="&gt;&gt;_commissionLabel.Name" xml:space="preserve">
-    <value>_commissionLabel</value>
-  </data>
-  <data name="&gt;&gt;_commissionLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_commissionLabel.Parent" xml:space="preserve">
-    <value>_repaymentConfigurationPanel</value>
-  </data>
-  <data name="&gt;&gt;_commissionLabel.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
   <data name="_penaltyNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>362, 70</value>
+    <value>453, 77</value>
   </data>
   <data name="_penaltyNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 23</value>
@@ -310,13 +214,13 @@
     <value>_repaymentConfigurationPanel</value>
   </data>
   <data name="&gt;&gt;_penaltyNumericUpDown.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>13</value>
   </data>
   <data name="_penaltyLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="_penaltyLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>263, 72</value>
+    <value>354, 79</value>
   </data>
   <data name="_penaltyLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 15</value>
@@ -337,10 +241,10 @@
     <value>_repaymentConfigurationPanel</value>
   </data>
   <data name="&gt;&gt;_penaltyLabel.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>15</value>
   </data>
   <data name="_interestNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>362, 41</value>
+    <value>453, 48</value>
   </data>
   <data name="_interestNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 23</value>
@@ -358,13 +262,13 @@
     <value>_repaymentConfigurationPanel</value>
   </data>
   <data name="&gt;&gt;_interestNumericUpDown.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>17</value>
   </data>
   <data name="_interestLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="_interestLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>263, 43</value>
+    <value>354, 50</value>
   </data>
   <data name="_interestLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 15</value>
@@ -385,10 +289,10 @@
     <value>_repaymentConfigurationPanel</value>
   </data>
   <data name="&gt;&gt;_interestLabel.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>18</value>
   </data>
   <data name="_principalNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>362, 12</value>
+    <value>453, 19</value>
   </data>
   <data name="_principalNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 23</value>
@@ -406,13 +310,13 @@
     <value>_repaymentConfigurationPanel</value>
   </data>
   <data name="&gt;&gt;_principalNumericUpDown.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>16</value>
   </data>
   <data name="_principalLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="_principalLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>263, 14</value>
+    <value>354, 21</value>
   </data>
   <data name="_principalLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 15</value>
@@ -433,10 +337,10 @@
     <value>_repaymentConfigurationPanel</value>
   </data>
   <data name="&gt;&gt;_principalLabel.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>14</value>
   </data>
   <data name="_amountNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 41</value>
+    <value>109, 75</value>
   </data>
   <data name="_amountNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 23</value>
@@ -460,7 +364,7 @@
     <value>True</value>
   </data>
   <data name="_amountLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 43</value>
+    <value>11, 77</value>
   </data>
   <data name="_amountLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 15</value>
@@ -487,7 +391,7 @@
     <value>True</value>
   </data>
   <data name="_dateLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 14</value>
+    <value>11, 14</value>
   </data>
   <data name="_dateLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>31, 15</value>
@@ -511,7 +415,7 @@
     <value>9</value>
   </data>
   <data name="_dateTimePicker.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 12</value>
+    <value>109, 12</value>
   </data>
   <data name="_dateTimePicker.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 23</value>
@@ -529,7 +433,7 @@
     <value>_repaymentConfigurationPanel</value>
   </data>
   <data name="&gt;&gt;_dateTimePicker.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>12</value>
   </data>
   <data name="_okButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -550,7 +454,7 @@
     <value>NoControl</value>
   </data>
   <data name="_okButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>744, 11</value>
+    <value>754, 11</value>
   </data>
   <data name="_okButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -595,7 +499,7 @@
     <value>NoControl</value>
   </data>
   <data name="_cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>882, 11</value>
+    <value>892, 11</value>
   </data>
   <data name="_cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -625,13 +529,13 @@
     <value>Bottom</value>
   </data>
   <data name="buttonsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 488</value>
+    <value>0, 496</value>
   </data>
   <data name="buttonsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
   <data name="buttonsPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1027, 50</value>
+    <value>1037, 50</value>
   </data>
   <data name="buttonsPanel.TabIndex" type="System.Int32, mscorlib">
     <value>37</value>
@@ -648,6 +552,57 @@
   <data name="&gt;&gt;buttonsPanel.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="_paymentTypeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_paymentTypeLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_paymentTypeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 44</value>
+  </data>
+  <data name="_paymentTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 15</value>
+  </data>
+  <data name="_paymentTypeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="_paymentTypeLabel.Text" xml:space="preserve">
+    <value>Payment type</value>
+  </data>
+  <data name="&gt;&gt;_paymentTypeLabel.Name" xml:space="preserve">
+    <value>_paymentTypeLabel</value>
+  </data>
+  <data name="&gt;&gt;_paymentTypeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_paymentTypeLabel.Parent" xml:space="preserve">
+    <value>_repaymentConfigurationPanel</value>
+  </data>
+  <data name="&gt;&gt;_paymentTypeLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_paymentTypeComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 41</value>
+  </data>
+  <data name="_paymentTypeComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 23</value>
+  </data>
+  <data name="_paymentTypeComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="&gt;&gt;_paymentTypeComboBox.Name" xml:space="preserve">
+    <value>_paymentTypeComboBox</value>
+  </data>
+  <data name="&gt;&gt;_paymentTypeComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_paymentTypeComboBox.Parent" xml:space="preserve">
+    <value>_repaymentConfigurationPanel</value>
+  </data>
+  <data name="&gt;&gt;_paymentTypeComboBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="_descriptionLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -655,7 +610,7 @@
     <value>NoControl</value>
   </data>
   <data name="_descriptionLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 72</value>
+    <value>12, 108</value>
   </data>
   <data name="_descriptionLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 15</value>
@@ -673,13 +628,13 @@
     <value>_repaymentConfigurationPanel</value>
   </data>
   <data name="&gt;&gt;_descriptionLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="_paymentMethodLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="_paymentMethodLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>539, 101</value>
+    <value>622, 79</value>
   </data>
   <data name="_paymentMethodLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 15</value>
@@ -700,13 +655,13 @@
     <value>_repaymentConfigurationPanel</value>
   </data>
   <data name="&gt;&gt;_paymentMethodLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="_paymentMethodComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>677, 98</value>
+    <value>727, 76</value>
   </data>
   <data name="_paymentMethodComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 23</value>
+    <value>189, 23</value>
   </data>
   <data name="_paymentMethodComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
@@ -721,10 +676,10 @@
     <value>_repaymentConfigurationPanel</value>
   </data>
   <data name="&gt;&gt;_paymentMethodComboBox.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="_bounceFeeNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>362, 128</value>
+    <value>453, 106</value>
   </data>
   <data name="_bounceFeeNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 23</value>
@@ -744,34 +699,34 @@
   <data name="&gt;&gt;_bounceFeeNumericUpDown.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+  <data name="_bounceFeeLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="_bounceFeeLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>263, 130</value>
+  <data name="_bounceFeeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>354, 108</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_bounceFeeLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 15</value>
   </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+  <data name="_bounceFeeLabel.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
+  <data name="_bounceFeeLabel.Text" xml:space="preserve">
     <value>Bounce fee</value>
   </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
+  <data name="&gt;&gt;_bounceFeeLabel.Name" xml:space="preserve">
+    <value>_bounceFeeLabel</value>
   </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+  <data name="&gt;&gt;_bounceFeeLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_bounceFeeLabel.Parent" xml:space="preserve">
     <value>_repaymentConfigurationPanel</value>
   </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_bounceFeeLabel.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
   <data name="_repaymentConfigurationPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -781,7 +736,7 @@
     <value>0, 0</value>
   </data>
   <data name="_repaymentConfigurationPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1027, 162</value>
+    <value>1037, 143</value>
   </data>
   <data name="_repaymentConfigurationPanel.TabIndex" type="System.Int32, mscorlib">
     <value>38</value>
@@ -802,10 +757,10 @@
     <value>Fill</value>
   </data>
   <data name="_schedulePanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 162</value>
+    <value>0, 143</value>
   </data>
   <data name="_schedulePanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1027, 326</value>
+    <value>1037, 353</value>
   </data>
   <data name="_schedulePanel.TabIndex" type="System.Int32, mscorlib">
     <value>39</value>
@@ -829,7 +784,7 @@
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1027, 538</value>
+    <value>1037, 546</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

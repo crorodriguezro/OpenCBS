@@ -34,13 +34,10 @@ namespace OpenCBS.ArchitectureV2.View
             _penaltyNumericUpDown.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
             _penaltyNumericUpDown.KeyDown +=
                 (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
-            _commissionNumericUpDown.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
-            _commissionNumericUpDown.KeyDown +=
-                (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
             _bounceFeeNumericUpDown.LostFocus += (sender, e) => presenterCallbacks.OnRefresh();
             _bounceFeeNumericUpDown.KeyDown +=
                 (sender, e) => { if (e.KeyCode == Keys.Return) presenterCallbacks.OnRefresh(); };
-            _typeOfRepaymentComboBox.SelectedIndexChanged += (sender, e) => presenterCallbacks.OnRefresh();
+            _paymentTypeComboBox.SelectedIndexChanged += (sender, e) => presenterCallbacks.OnRefresh();
             _okButton.Click += (sender, e) => presenterCallbacks.OnRepay();
             _cancelButton.Click += (sender, e) => presenterCallbacks.OnCancel();
         }
@@ -64,17 +61,7 @@ namespace OpenCBS.ArchitectureV2.View
         {
             set { _scheduleControl.SetScheduleFor(value); }
         }
-
-        public Dictionary<string, string> RepaymentScripts
-        {
-            set
-            {
-                _typeOfRepaymentComboBox.DataSource = value.ToList();
-                _typeOfRepaymentComboBox.ValueMember = "Key";
-                _typeOfRepaymentComboBox.DisplayMember = "Value";
-            }
-        }
-
+        
         public List<PaymentMethod> PaymentMethods
         {
             set
@@ -82,6 +69,16 @@ namespace OpenCBS.ArchitectureV2.View
                 _paymentMethodComboBox.DataSource = value;
                 _paymentMethodComboBox.ValueMember = "Id";
                 _paymentMethodComboBox.DisplayMember = "Name";
+            }
+        }
+
+        public Dictionary<int, string> PaymentTypes
+        {
+            set
+            {
+                _paymentTypeComboBox.DataSource = value.ToList();
+                _paymentTypeComboBox.ValueMember = "Key";
+                _paymentTypeComboBox.DisplayMember = "Value";
             }
         }
 
@@ -113,12 +110,6 @@ namespace OpenCBS.ArchitectureV2.View
         {
             get { return _penaltyNumericUpDown.Value; }
             set { _penaltyNumericUpDown.Value = value; }
-        }
-
-        public decimal Commission
-        {
-            get { return _commissionNumericUpDown.Value; }
-            set { _commissionNumericUpDown.Value = value; }
         }
 
         public decimal BounceFee
@@ -154,15 +145,16 @@ namespace OpenCBS.ArchitectureV2.View
             set { Text = value; }
         }
 
-        public string SelectedScript
-        {
-            get { return _typeOfRepaymentComboBox.SelectedValue.ToString(); }
-        }
-
         public PaymentMethod SelectedPaymentMethod
         {
             get { return (PaymentMethod) _paymentMethodComboBox.SelectedItem; }
             set { _paymentMethodComboBox.SelectedItem = value; }
+        }
+
+        public int SelectedPaymentTypeId
+        {
+            get { return _paymentTypeComboBox.SelectedIndex; }
+            set { _paymentTypeComboBox.SelectedIndex = value; }
         }
 
         public string Description
