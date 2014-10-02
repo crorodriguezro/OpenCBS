@@ -364,6 +364,7 @@
                   <File Id="Client_Information_excel" Name="Client_Information.zip" Source="SourceDir\Reports\Excel\Client_Information.zip" />
                   <File Id="Closed_Contracts_excel" Name="Closed_Contracts.zip" Source="SourceDir\Reports\Excel\Closed_Contracts.zip" />
                   <File Id="PAR_Analysis_excel" Name="PAR_Analysis.zip" Source="SourceDir\Reports\Excel\PAR_Analysis.zip" />
+                  <File Id="Turnover_Balance_Sheet_excel" Name="Turnover_Balance_Sheet.zip" Source="SourceDir\Reports\Excel\Turnover_Balance_Sheet.zip" />
 	              </Component>
               </Directory>
               <Directory Id="dir_word" Name="Office">
