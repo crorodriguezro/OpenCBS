@@ -173,7 +173,7 @@ namespace OpenCBS.AcceptanceTest
         {
             var date = DateTime.Parse(dateString, _cultureInfo, DateTimeStyles.AssumeLocal);
             var amount = Convert.ToDecimal(amountString, _cultureInfo);
-            var re = new RepaymentService()
+            var re = new RepaymentService
             {
                 Settings = new RepaymentSettings
                     {
@@ -181,7 +181,6 @@ namespace OpenCBS.AcceptanceTest
                         Amount = amount,
                         AmountChanged = true,
                         Date = date,
-                        ScriptName = "1_NormalRepayment.py"
                     }
             };
             _loan = re.Repay();
@@ -217,11 +216,9 @@ namespace OpenCBS.AcceptanceTest
                     Loan = _loan,
                     Amount = amount,
                     Date = date,
-                    Commission = commission,
                     Penalty = penalty,
                     Interest = interest,
                     Principal = amount - commission - penalty - interest,
-                    ScriptName = "1_NormalRepayment.py"
                 }
             };
             _loan = re.Repay();
