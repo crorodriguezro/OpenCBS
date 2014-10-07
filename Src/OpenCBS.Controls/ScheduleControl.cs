@@ -75,11 +75,13 @@ namespace OpenCBS.Controls
 
         private static void FormatRow(OLVListItem item)
         {
-            var installment = (Installment)item.RowObject;
+            var installment = (Installment) item.RowObject;
             if (installment == null) return;
             if (installment.IsPending) item.BackColor = Color.Orange;
             if (installment.IsRepaid) item.BackColor = Color.FromArgb(61, 153, 57);
             if (installment.IsPending || installment.IsRepaid) item.ForeColor = Color.White;
+            if (installment.LateDays > 0 && !(installment.IsPending || installment.IsRepaid))
+                item.ForeColor = Color.Red;
         }
 
         public void ShowExtraColumn()
