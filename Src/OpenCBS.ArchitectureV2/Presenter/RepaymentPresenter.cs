@@ -91,7 +91,8 @@ namespace OpenCBS.ArchitectureV2.Presenter
                 if (_saving != null)
                     _view.Description = _balanceString + _saving.GetBalance(_view.Date).Value.ToString("N2");
             }
-            if (_repaymentService.Settings.Amount != _view.Amount)
+            if (_repaymentService.Settings.Amount != _view.Amount ||
+                _repaymentService.Settings.PaymentTypeId != _view.SelectedPaymentTypeId)
             {
                 _repaymentService.Settings.AmountChanged = true;
                 _repaymentService.Settings.Amount = _view.Amount;
