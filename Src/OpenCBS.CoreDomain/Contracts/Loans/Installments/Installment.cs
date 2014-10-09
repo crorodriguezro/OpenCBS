@@ -180,7 +180,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
         {
             get
             {
-                var lateDays = PaidDate.HasValue
+                var lateDays = PaidDate.HasValue && IsRepaid
                            ? (PaidDate.Value.Date - ExpectedDate.Date).Days
                            : (TimeProvider.Today - ExpectedDate.Date).Days;
                 if (lateDays < 0) lateDays = 0;
