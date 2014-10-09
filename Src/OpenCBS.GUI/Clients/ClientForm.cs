@@ -3526,6 +3526,10 @@ namespace OpenCBS.GUI.Clients
             }
             try
             {
+                if (_credit.StartDate.Date < TimeProvider.Now)
+                    ServicesProvider.GetInstance().GetContractServices().PerformBackDateOperations();
+                else if (_credit.StartDate.Date > TimeProvider.Now)
+                    ServicesProvider.GetInstance().GetContractServices().PerformFutureDateOperations();
                 IClient client = null;
                 switch (_oClientType)
                 {
