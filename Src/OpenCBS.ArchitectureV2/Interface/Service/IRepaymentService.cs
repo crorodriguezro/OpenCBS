@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using OpenCBS.ArchitectureV2.Service;
 using OpenCBS.CoreDomain.Contracts.Loans;
 

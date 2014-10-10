@@ -35,7 +35,7 @@ namespace OpenCBS.ArchitectureV2.Service
             var newSettings = (RepaymentSettings) Settings.Clone();
             newSettings.Date = date;
             var script = RunScript();
-            script.GetInitAmounts(newSettings);
+            script.Main(newSettings);
             return
                 Math.Round(newSettings.Penalty + newSettings.Interest + newSettings.Principal,
                            2);
