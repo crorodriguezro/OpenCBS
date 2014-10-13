@@ -34,11 +34,11 @@ namespace OpenCBS.ArchitectureV2.Service
         {
             var newSettings = (RepaymentSettings) Settings.Clone();
             newSettings.Date = date;
+            newSettings.DateChanged = true;
             var script = RunScript();
             script.Main(newSettings);
             return
-                Math.Round(newSettings.Penalty + newSettings.Interest + newSettings.Principal,
-                           2);
+                Math.Round(newSettings.Penalty + newSettings.Interest + newSettings.Principal, 2);
         }
 
         private static dynamic RunScript()

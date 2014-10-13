@@ -3021,54 +3021,6 @@ namespace OpenCBS.Services
                          config.IsPending);
         }
 
-        public void RepayAllExpectedInstallments(DateTime date)
-        {
-            var loanIdList = GetLoanIdsForRepayment(date);
-            foreach (var id in loanIdList)
-            {
-                var client = ServicesProvider.GetInstance()
-                                             .GetClientServices()
-                                             .FindTiersByContractId(id);
-                if (!(from item in client.Savings where item.Product.Code == "default" select item).Any())
-                    continue;
-                var repaymentConfiguration = new RepaymentConfiguration
-                {
-                    Loan = SelectLoan(id, true, true, false),
-                    Client = client,
-                    Saving = (from item in client.Savings where item.Product.Code == "default" select item).First(),
-                    KeepExpectedInstallment = !false,
-                    Date = date,
-                    DisableFees = false,
-                    ManualFeesAmount = 0,
-                    DisableInterests = false,
-                    ManualInterestsAmount = 0,
-                    ManualCommission = 0,
-                    ProportionPayment = false,
-                    IsPending = false
-                };
-                RepayLoanFromTransitAccount(repaymentConfiguration);
-            }
-        }
-
-        public List<int> GetLoanIdsForRepayment(DateTime date)
-        {
-            return _loanManager.GetLoanIdForRepayment(date);
-        }
-
-        public DateTime GetRepaymentModuleLastStartupDate()
-        {
-            var repaymentDate = _loanManager.GetRepaymentModuleLastStartupDate();
-            if (repaymentDate != "")
-                return Convert.ToDateTime(repaymentDate);
-            _loanManager.CreateRepaymentModuleLastStartupDateRecord();
-            return DateTime.Now;
-        }
-
-        public void SetRepaymentModuleLastStartupDate(DateTime date)
-        {
-            _loanManager.SetRepaymentModuleLastStartupDate(date);
-        }
-
         public IList<WriteOffOption> GetWriteOffOptions()
         {
             return _loanManager.GetWriteOffOptions();
