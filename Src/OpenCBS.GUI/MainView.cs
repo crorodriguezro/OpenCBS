@@ -1224,7 +1224,7 @@ namespace OpenCBS.GUI
 
         private void _aboutModulesMenuItem_Click(object sender, EventArgs e)
         {
-            OpenUrl("http://opencbs.com/buy-additional-module/");
+            OpenUrl("http://opencbs.com/en/Additional-Modules/");
         }
 
         private void contactMenuItem_Click(object sender, EventArgs e)
