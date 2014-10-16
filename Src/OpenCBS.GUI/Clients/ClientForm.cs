@@ -4618,7 +4618,7 @@ namespace OpenCBS.GUI.Clients
                     }
 
                     _credit = ServicesProvider.GetInstance().GetContractServices().
-                        UpdateContractStatus(_credit, _project, client, currentCreditStatus == OContractStatus.Validated);
+                        UpdateContractStatus(_credit, _project, client, _credit.ContractStatus != OContractStatus.Validated);
 
                     if (_credit.ContractStatus != OContractStatus.Validated)
                     {
