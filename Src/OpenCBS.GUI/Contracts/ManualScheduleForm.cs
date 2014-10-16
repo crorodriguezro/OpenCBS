@@ -18,15 +18,15 @@
 // // Contact: contact@opencbs.com
 // 
 using System;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
+using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
-using OpenCBS.CoreDomain.Contracts.Savings.CalculateInterests.Accrual.MinimalAmount;
 using OpenCBS.Enums;
 using OpenCBS.Shared;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Contracts
 {
@@ -63,13 +63,20 @@ namespace OpenCBS.GUI.Contracts
 
         private void InitTotal()
         {
-            decimal totalInterest = 0, totalPrincipal = 0, totalPaidInterests = 0, totalPaidCapital = 0;
+            decimal totalInterest = 0,
+                    totalExtra = 0,
+                    totalPrincipal = 0,
+                    totalPaidInterests = 0,
+                    totalPaidExtra = 0,
+                    totalPaidCapital = 0;
             foreach (var installment in Loan.InstallmentList)
             {
                 totalInterest += installment.InterestsRepayment.Value;
+                totalExtra += installment.Commission.Value;
                 totalPrincipal += installment.CapitalRepayment.Value;
                 totalPaidCapital += installment.PaidCapital.Value;
                 totalPaidInterests += installment.PaidInterests.Value;
+                totalPaidExtra += installment.PaidCommissions.Value;
             }
             var empty = new OCurrency();
             var date = new DateTime();
@@ -81,7 +88,7 @@ namespace OpenCBS.GUI.Contracts
                 totalPaidInterests,
                 empty,
                 null,
-                -1);
+                -1) {Commission = totalExtra, PaidCommissions = totalPaidExtra};
         }
 
         private void Setup()
@@ -96,8 +103,10 @@ namespace OpenCBS.GUI.Contracts
             };
             principalColumn.AspectToStringConverter =
             interestColumn.AspectToStringConverter =
+            extraColumn.AspectToStringConverter =
             paidPrincipalColumn.AspectToStringConverter =
             paidInterestColumn.AspectToStringConverter =
+            paidExtraColumn.AspectToStringConverter =
             totalColumn.AspectToStringConverter =
             olbColumn.AspectToStringConverter = value =>
             {
@@ -114,6 +123,10 @@ namespace OpenCBS.GUI.Contracts
             olvSchedule.CellEditActivation = ObjectListView.CellEditActivateMode.SingleClick;
             olvSchedule.CellEditEnterChangesRows = true;
             olvSchedule.CellEditTabChangesRows = true;
+            if (ApplicationSettings.GetInstance(User.CurrentUser.Md5).ShowExtraInterestColumn) return;
+            extraColumn.IsVisible = false;
+            paidExtraColumn.IsVisible = false;
+            olvSchedule.RebuildColumns();
         }
 
         private static void FormatRow(OLVListItem item)
@@ -143,6 +156,12 @@ namespace OpenCBS.GUI.Contracts
                 decimal newInterest;
                 return decimal.TryParse(e.NewValue.ToString(), out newInterest) &&
                        newInterest >= Loan.InstallmentList[index].PaidInterests.Value;
+            }
+            else if (e.Column == extraColumn)
+            {
+                decimal newInterest;
+                return decimal.TryParse(e.NewValue.ToString(), out newInterest) &&
+                       newInterest >= Loan.InstallmentList[index].PaidCommissions.Value;
             }
             else if (e.Column == principalColumn)
             {
@@ -182,6 +201,16 @@ namespace OpenCBS.GUI.Contracts
                 {
                     _total.InterestsRepayment += amount - installment.InterestsRepayment;
                     installment.InterestsRepayment = amount;
+                }
+            }
+            if (e.Column == extraColumn)
+            {
+                var installment = (Installment)e.RowObject;
+                decimal amount;
+                if (decimal.TryParse(e.NewValue.ToString(), out amount))
+                {
+                    _total.Commission += amount - installment.Commission;
+                    installment.Commission = amount;
                 }
             }
             if (e.Column == principalColumn)
@@ -246,7 +275,7 @@ namespace OpenCBS.GUI.Contracts
             decimal capital = 0;
             for (var i = indexOfChangedItem; i < Loan.InstallmentList.Count; i++)
                 capital += Loan.InstallmentList[i].CapitalRepayment.Value;
-            return capital == Loan.InstallmentList[indexOfChangedItem].OLB.Value ? true : false;
+            return capital == Loan.InstallmentList[indexOfChangedItem].OLB.Value;
         }
     }
 }

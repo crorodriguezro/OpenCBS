@@ -42,6 +42,8 @@
             this.paidInterestColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.paidPrincipalColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.paymentDateColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.extraColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.paidExtraColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.pnlButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olvSchedule)).BeginInit();
             this.SuspendLayout();
@@ -71,20 +73,24 @@
             this.olvSchedule.AllColumns.Add(this.numberColumn);
             this.olvSchedule.AllColumns.Add(this.dateColumn);
             this.olvSchedule.AllColumns.Add(this.interestColumn);
+            this.olvSchedule.AllColumns.Add(this.extraColumn);
             this.olvSchedule.AllColumns.Add(this.principalColumn);
             this.olvSchedule.AllColumns.Add(this.totalColumn);
             this.olvSchedule.AllColumns.Add(this.olbColumn);
             this.olvSchedule.AllColumns.Add(this.paidInterestColumn);
+            this.olvSchedule.AllColumns.Add(this.paidExtraColumn);
             this.olvSchedule.AllColumns.Add(this.paidPrincipalColumn);
             this.olvSchedule.AllColumns.Add(this.paymentDateColumn);
             this.olvSchedule.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.numberColumn,
             this.dateColumn,
             this.interestColumn,
+            this.extraColumn,
             this.principalColumn,
             this.totalColumn,
             this.olbColumn,
             this.paidInterestColumn,
+            this.paidExtraColumn,
             this.paidPrincipalColumn,
             this.paymentDateColumn});
             this.olvSchedule.FullRowSelect = true;
@@ -159,6 +165,19 @@
             this.paymentDateColumn.IsEditable = false;
             resources.ApplyResources(this.paymentDateColumn, "paymentDateColumn");
             // 
+            // extraColumn
+            // 
+            this.extraColumn.AspectName = "Commission";
+            this.extraColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            resources.ApplyResources(this.extraColumn, "extraColumn");
+            // 
+            // paidExtraColumn
+            // 
+            this.paidExtraColumn.AspectName = "PaidCommissions";
+            this.paidExtraColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.paidExtraColumn.IsEditable = false;
+            resources.ApplyResources(this.paidExtraColumn, "paidExtraColumn");
+            // 
             // ManualScheduleForm
             // 
             resources.ApplyResources(this, "$this");
@@ -189,5 +208,7 @@
         private BrightIdeasSoftware.OLVColumn paidInterestColumn;
         private BrightIdeasSoftware.OLVColumn paidPrincipalColumn;
         private BrightIdeasSoftware.OLVColumn paymentDateColumn;
+        private BrightIdeasSoftware.OLVColumn extraColumn;
+        private BrightIdeasSoftware.OLVColumn paidExtraColumn;
     }
 }
