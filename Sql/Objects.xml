@@ -5037,7 +5037,7 @@ BEGIN
     DECLARE @pval FLOAT
     DECLARE @i INT
     SET @i = 0
-    WHILE @i < 10
+    WHILE @i < 10 and @amount > 0
     BEGIN
 	    SELECT @val = SUM(amount * POWER(1 + @rate, n)) FROM @cashflows
 	    SELECT @pval = SUM(amount * n * POWER(1 + @rate, n - 1)) FROM @cashflows
