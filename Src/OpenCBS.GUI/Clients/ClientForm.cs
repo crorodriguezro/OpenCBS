@@ -3376,6 +3376,7 @@ namespace OpenCBS.GUI.Clients
                     }
                 }
                 _credit.EconomicActivity = eacLoan.Activity;
+                _credit.InstallmentList = ServicesProvider.GetInstance().GetContractServices().SimulateScheduleCreation(_credit);
             }
 
             return _credit;
