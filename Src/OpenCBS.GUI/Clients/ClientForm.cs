@@ -3376,7 +3376,7 @@ namespace OpenCBS.GUI.Clients
                     }
                 }
                 _credit.EconomicActivity = eacLoan.Activity;
-                if (_credit.Amount == _credit.OLB)
+                if (!_credit.Disbursed && !_credit.ScheduleChangedManually)
                     _credit.InstallmentList =
                         ServicesProvider.GetInstance().GetContractServices().SimulateScheduleCreation(_credit);
             }
