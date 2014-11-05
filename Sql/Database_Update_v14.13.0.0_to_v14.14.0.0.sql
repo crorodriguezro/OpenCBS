@@ -4,7 +4,7 @@ GO
 alter table Accounts add constraint account_number_primary_key primary key(account_number)
 GO
 
-alter table Accounts add parent varchar(32)
+alter table Accounts add is_balance_account bit default(0), parent varchar(32)
 GO
 
 update a
