@@ -2930,12 +2930,14 @@
     <None Include="Reports\Excel\Client_Information.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Reports\Excel\Client_Information_Active_Inactive.zip" />
     <None Include="Reports\Excel\Closed_Contracts.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Reports\Excel\Collection_Sheet.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Reports\Excel\Delinquent_Loans.zip" />
     <None Include="Reports\Excel\Disbursements.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
