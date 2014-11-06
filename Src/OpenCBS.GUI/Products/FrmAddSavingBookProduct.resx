@@ -1306,7 +1306,7 @@
     <value>0</value>
   </data>
   <data name="tabPageMainParameters.Text" xml:space="preserve">
-    <value>Main Parameters</value>
+    <value>Main options</value>
   </data>
   <data name="&gt;&gt;tabPageMainParameters.Name" xml:space="preserve">
     <value>tabPageMainParameters</value>
@@ -1831,7 +1831,7 @@
     <value>11</value>
   </data>
   <data name="groupBox3.Text" xml:space="preserve">
-    <value>Deposit parameters</value>
+    <value>Deposit options</value>
   </data>
   <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
     <value>groupBox3</value>
@@ -5765,6 +5765,6 @@
     <value>FrmAddSavingBookProduct</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.13.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
