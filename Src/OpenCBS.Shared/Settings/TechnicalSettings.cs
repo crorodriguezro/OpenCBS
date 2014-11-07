@@ -132,11 +132,7 @@ namespace OpenCBS.Shared.Settings
         public static void AddAvailableDatabase(string database)
         {
             string val = GetValue("DATABASE_LIST", string.Empty);
-            if (string.IsNullOrEmpty(val))
-            {
-                val = database;
-            }
-            else
+            if (!string.IsNullOrEmpty(val))
             {
                 val += "," + database;
             }
