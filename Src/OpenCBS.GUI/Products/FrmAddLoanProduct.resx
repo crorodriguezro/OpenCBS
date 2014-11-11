@@ -1066,7 +1066,7 @@
     <value>listViewLoanCycles</value>
   </data>
   <data name="&gt;&gt;listViewLoanCycles.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.13.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.14.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;listViewLoanCycles.Parent" xml:space="preserve">
     <value>panelAmountCycles</value>
@@ -4333,7 +4333,7 @@
     <value>lvEntryFees</value>
   </data>
   <data name="&gt;&gt;lvEntryFees.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.13.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.14.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvEntryFees.Parent" xml:space="preserve">
     <value>groupBoxEntryFees</value>
@@ -6220,13 +6220,13 @@
     <value>20, 279</value>
   </data>
   <data name="cbUseCompulsorySavings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 20</value>
+    <value>162, 20</value>
   </data>
   <data name="cbUseCompulsorySavings.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="cbUseCompulsorySavings.Text" xml:space="preserve">
-    <value>Use compulsory savings</value>
+    <value>Use mandatory savings</value>
   </data>
   <data name="&gt;&gt;cbUseCompulsorySavings.Name" xml:space="preserve">
     <value>cbUseCompulsorySavings</value>
@@ -8378,6 +8378,6 @@
     <value>FrmAddLoanProduct</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.13.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.14.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

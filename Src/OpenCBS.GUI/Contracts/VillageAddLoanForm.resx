@@ -159,17 +159,17 @@
   <data name="btnSave.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAADECAIAAAAdy+YyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAkNJREFUaEPt1EtI
-        VGEchvE3iIigRduWbdu1auuiCAoqCCS6B10FI8EwGApDLEoQEYtMkjIxzBIRTTRLxmzK1Ia8XyYZdXSa
-        i6OOOs5F7exnMfgsBOP7+G2fzcv/HK2jJ1StmyxpNzOJmST1x2SuxFyJuZLUC5grSb2R+ZeYKzFXknoB
-        cyWpN9IaeiZLms1MskUnWV1bBQQaKzFZ0tpKrCYAxRMJ4D/P4vHEhlmTbLixkk3OYvEYoGg8BmxythKL
-        AgKNldAsElsBBBor0XI0AmhpJQJsjSwcWQIEGivRwvIisMnZ/FIYUGgxDNBsNjwPKBieA2gWWAgB8s+H
-        AJr55oKA/oYCgGZCAYBm07N+QJ6gD9BUwAtowu8FrGwGkNvnATTu8wByeScBjc1MADQbmXYDGvaMAxqc
-        +gNoYNIFqM89CqjXPQLIOT4EqMc1AKjb1Q+oa6wPUOdoLyDHsBPQtyEnoPbBHkD2/i5AX3o7AbX+/g6o
-        xekA1PSrA1BjTzughm47oPqfbYBqf7QCeu/4BOhdRzOgt18/Aqq0NwCqaKsHVP65DlBZywdApc01gJ41
-        VQMqbqwCVFj/BlBB3WtAD2vLAeXVlAHKrS4FZKt6CuhuZTGgOxVFgLJeFQLKfPkE0M0XjwBdeZ4P6GLJ
-        A0Bni+8DSi+yATpRkAPo2ONsQIfzbwNKy7sF6GBuBqAD964D2m+7CmhfziVAe7PPA9qTdQbQ7sx0QLsy
-        TgHaeeMkoB3XjgPafvkooG0XjgDSuUOETqcB/wDGrhdauanTEAAAAABJRU5ErkJggg==
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAh9JREFUaEPty0tI
+        E3AAx/FfEBFBh64du3br1NVDERRUEIj0DnoKRoJhIIUhFiWIiEUmSZkYZomIJpolmq1MbeT7sWTq3NrD
+        OeecbtPq/j/1PQjG/8vn+tVvlN2M7GZkNyO7GdnNyG5GdjOym5HdjOxmZDcjuq2j7GZkN6PNsa2trwF2
+        M9AttZYClEylgP98SwKbY0skE4BWkwlgg7eVxCqwwVs8sQLQbXk1Dii2Egc2xxaNxwC6LS4vARu8RWJR
+        QOGlKEC3+WgEUCi6ANAtuBgGFIiEAbr5F0KAfoWDgLzhIEC3ufkAIE/ID2g26AM0HfABfzcvILffA2jK
+        7wHk8s0AmvROA3Qbn3MDGvNMARqZ/QloeMYFaNA9AWjAPQ7IOTUKqN81DKjPNQSod3IQUM/EACDHmBPQ
+        51EnoK6RfkCdQ72APg70AGr/8QVQm9MBqOV7N6Dm/i5ATX2dgBq/dQCq/9oO6I3jPaDX3a2AXn16B6i6
+        swlQVUcjoMoPDYAq2t4CKm+tA/S4pRZQaXMNoOLGl4CKGl4AuldfCaigrgJQfm05oLyaR4BuVZcCullV
+        Aij7eTGgrGcPAV17eh/QxSeFgM6V3QV0qvQOoPSSPEDHinIBHXmQA+hg4Q1AaQXXAe3PzwS07/YVQHvz
+        LgHak3se0O6cM4B2ZZ8EtDMrHdCOzBOAtl89Dmjb5aOAtl44DGjL2UOAdPoAoYy0f5aR9gfGrhdannZB
+        sQAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btnSave.Font" type="System.Drawing.Font, System.Drawing">
@@ -491,7 +491,7 @@
     <value>91</value>
   </data>
   <data name="chCompulsorySavings.Text" xml:space="preserve">
-    <value>Compulsory savings</value>
+    <value>Mandatory savings</value>
   </data>
   <data name="chCompulsorySavings.Width" type="System.Int32, mscorlib">
     <value>109</value>
@@ -521,7 +521,7 @@
     <value>lvMembers</value>
   </data>
   <data name="&gt;&gt;lvMembers.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.14.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvMembers.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1296,6 +1296,6 @@
     <value>VillageAddLoanForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.14.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
