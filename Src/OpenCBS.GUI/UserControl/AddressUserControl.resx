@@ -112,16 +112,16 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="comboBoxDistrict.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 8.25pt</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="comboBoxDistrict.ItemHeight" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
@@ -138,7 +138,7 @@
     <value>comboBoxDistrict</value>
   </data>
   <data name="&gt;&gt;comboBoxDistrict.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;comboBoxDistrict.Parent" xml:space="preserve">
     <value>$this</value>
@@ -152,7 +152,7 @@
   <data name="labelDistrict.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="labelDistrict.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -172,7 +172,7 @@
     <value>labelDistrict</value>
   </data>
   <data name="&gt;&gt;labelDistrict.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelDistrict.Parent" xml:space="preserve">
     <value>$this</value>
@@ -205,7 +205,7 @@
     <value>labelComments</value>
   </data>
   <data name="&gt;&gt;labelComments.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelComments.Parent" xml:space="preserve">
     <value>$this</value>
@@ -238,7 +238,7 @@
     <value>labelCity</value>
   </data>
   <data name="&gt;&gt;labelCity.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelCity.Parent" xml:space="preserve">
     <value>$this</value>
@@ -259,19 +259,19 @@
     <value>3, 4</value>
   </data>
   <data name="labelProvince.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 16</value>
+    <value>64, 16</value>
   </data>
   <data name="labelProvince.TabIndex" type="System.Int32, mscorlib">
     <value>52</value>
   </data>
   <data name="labelProvince.Text" xml:space="preserve">
-    <value>Province*:</value>
+    <value>Regions*:</value>
   </data>
   <data name="&gt;&gt;labelProvince.Name" xml:space="preserve">
     <value>labelProvince</value>
   </data>
   <data name="&gt;&gt;labelProvince.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelProvince.Parent" xml:space="preserve">
     <value>$this</value>
@@ -298,7 +298,7 @@
     <value>comboBoxProvince</value>
   </data>
   <data name="&gt;&gt;comboBoxProvince.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;comboBoxProvince.Parent" xml:space="preserve">
     <value>$this</value>
@@ -331,7 +331,7 @@
     <value>buttonSave</value>
   </data>
   <data name="&gt;&gt;buttonSave.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;buttonSave.Parent" xml:space="preserve">
     <value>$this</value>
@@ -364,7 +364,7 @@
     <value>labelHomePhone</value>
   </data>
   <data name="&gt;&gt;labelHomePhone.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelHomePhone.Parent" xml:space="preserve">
     <value>$this</value>
@@ -397,7 +397,7 @@
     <value>labelPersonalPhone</value>
   </data>
   <data name="&gt;&gt;labelPersonalPhone.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelPersonalPhone.Parent" xml:space="preserve">
     <value>$this</value>
@@ -430,7 +430,7 @@
     <value>labelEMail</value>
   </data>
   <data name="&gt;&gt;labelEMail.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelEMail.Parent" xml:space="preserve">
     <value>$this</value>
@@ -463,7 +463,7 @@
     <value>labelZipCode</value>
   </data>
   <data name="&gt;&gt;labelZipCode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelZipCode.Parent" xml:space="preserve">
     <value>$this</value>
@@ -496,7 +496,7 @@
     <value>label1</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -523,7 +523,7 @@
     <value>comboBoxHomeType</value>
   </data>
   <data name="&gt;&gt;comboBoxHomeType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;comboBoxHomeType.Parent" xml:space="preserve">
     <value>$this</value>
@@ -550,7 +550,7 @@
     <value>tbZipCode</value>
   </data>
   <data name="&gt;&gt;tbZipCode.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=13.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=14.14.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tbZipCode.Parent" xml:space="preserve">
     <value>$this</value>
@@ -577,7 +577,7 @@
     <value>textBoxEMail</value>
   </data>
   <data name="&gt;&gt;textBoxEMail.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=13.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=14.14.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxEMail.Parent" xml:space="preserve">
     <value>$this</value>
@@ -604,7 +604,7 @@
     <value>textBoxPersonalPhone</value>
   </data>
   <data name="&gt;&gt;textBoxPersonalPhone.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=13.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=14.14.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxPersonalPhone.Parent" xml:space="preserve">
     <value>$this</value>
@@ -631,7 +631,7 @@
     <value>textBoxHomePhone</value>
   </data>
   <data name="&gt;&gt;textBoxHomePhone.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=13.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=14.14.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxHomePhone.Parent" xml:space="preserve">
     <value>$this</value>
@@ -658,7 +658,7 @@
     <value>textBoxCity</value>
   </data>
   <data name="&gt;&gt;textBoxCity.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxCity, OpenCBS.GUI, Version=13.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.CityTextBox, OpenCBS.GUI, Version=14.14.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxCity.Parent" xml:space="preserve">
     <value>$this</value>
@@ -691,7 +691,7 @@
     <value>tbAddress</value>
   </data>
   <data name="&gt;&gt;tbAddress.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=13.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=14.14.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tbAddress.Parent" xml:space="preserve">
     <value>$this</value>
@@ -699,7 +699,7 @@
   <data name="&gt;&gt;tbAddress.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
@@ -712,6 +712,6 @@
     <value>AddressUserControl</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
