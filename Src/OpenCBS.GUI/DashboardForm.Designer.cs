@@ -60,27 +60,6 @@ namespace OpenCBS.GUI
             this._userGuideLinkLabel = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
             this._contactLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.quickLinksPanel = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.operateLabel = new System.Windows.Forms.Label();
-            this.searchClientLabel = new System.Windows.Forms.LinkLabel();
-            this.searchContractLabel = new System.Windows.Forms.LinkLabel();
-            this.newIndividualClientLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.newSolidarityGroupLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.newNonSolidairtyGroupLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.newCorporateClientLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.configureLabel = new System.Windows.Forms.Label();
-            this.configureLoanProductsLabel = new System.Windows.Forms.LinkLabel();
-            this.configureSavingsProductsLabel = new System.Windows.Forms.LinkLabel();
-            this.configureCollateralProducts = new System.Windows.Forms.LinkLabel();
-            this.configureSettingsLabel = new System.Windows.Forms.LinkLabel();
-            this.configurePermissionsLabel = new System.Windows.Forms.LinkLabel();
-            this.controlLabel = new System.Windows.Forms.Label();
-            this.auditTrailLabel = new System.Windows.Forms.LinkLabel();
-            this.activeLoansLink = new System.Windows.Forms.LinkLabel();
-            this.parAnalysisLink = new System.Windows.Forms.LinkLabel();
-            this.delinquentLoansLink = new System.Windows.Forms.LinkLabel();
-            this.disbursementsLink = new System.Windows.Forms.LinkLabel();
             this.generalInfoPanel.SuspendLayout();
             this.infoPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -92,14 +71,11 @@ namespace OpenCBS.GUI
             this.topBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.smallLogoPictureBox)).BeginInit();
             this._infoFlowLayoutPanel.SuspendLayout();
-            this.quickLinksPanel.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // generalInfoPanel
             // 
             this.generalInfoPanel.Controls.Add(this.infoPanel);
-            this.generalInfoPanel.Controls.Add(this.quickLinksPanel);
             resources.ApplyResources(this.generalInfoPanel, "generalInfoPanel");
             this.generalInfoPanel.Name = "generalInfoPanel";
             // 
@@ -323,212 +299,6 @@ namespace OpenCBS.GUI
             this._contactLinkLabel.Name = "_contactLinkLabel";
             this._contactLinkLabel.TabStop = true;
             // 
-            // quickLinksPanel
-            // 
-            this.quickLinksPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.quickLinksPanel.Controls.Add(this.flowLayoutPanel1);
-            resources.ApplyResources(this.quickLinksPanel, "quickLinksPanel");
-            this.quickLinksPanel.Name = "quickLinksPanel";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.operateLabel);
-            this.flowLayoutPanel1.Controls.Add(this.searchClientLabel);
-            this.flowLayoutPanel1.Controls.Add(this.searchContractLabel);
-            this.flowLayoutPanel1.Controls.Add(this.newIndividualClientLinkLabel);
-            this.flowLayoutPanel1.Controls.Add(this.newSolidarityGroupLinkLabel);
-            this.flowLayoutPanel1.Controls.Add(this.newNonSolidairtyGroupLinkLabel);
-            this.flowLayoutPanel1.Controls.Add(this.newCorporateClientLinkLabel);
-            this.flowLayoutPanel1.Controls.Add(this.configureLabel);
-            this.flowLayoutPanel1.Controls.Add(this.configureLoanProductsLabel);
-            this.flowLayoutPanel1.Controls.Add(this.configureSavingsProductsLabel);
-            this.flowLayoutPanel1.Controls.Add(this.configureCollateralProducts);
-            this.flowLayoutPanel1.Controls.Add(this.configureSettingsLabel);
-            this.flowLayoutPanel1.Controls.Add(this.configurePermissionsLabel);
-            this.flowLayoutPanel1.Controls.Add(this.controlLabel);
-            this.flowLayoutPanel1.Controls.Add(this.auditTrailLabel);
-            this.flowLayoutPanel1.Controls.Add(this.activeLoansLink);
-            this.flowLayoutPanel1.Controls.Add(this.parAnalysisLink);
-            this.flowLayoutPanel1.Controls.Add(this.delinquentLoansLink);
-            this.flowLayoutPanel1.Controls.Add(this.disbursementsLink);
-            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            // 
-            // operateLabel
-            // 
-            resources.ApplyResources(this.operateLabel, "operateLabel");
-            this.operateLabel.ForeColor = System.Drawing.Color.White;
-            this.operateLabel.Name = "operateLabel";
-            this.operateLabel.Tag = "123";
-            // 
-            // searchClientLabel
-            // 
-            this.searchClientLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.searchClientLabel, "searchClientLabel");
-            this.searchClientLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            this.searchClientLabel.Name = "searchClientLabel";
-            this.searchClientLabel.TabStop = true;
-            this.searchClientLabel.Tag = "mnuSearchClient";
-            this.searchClientLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnSearchClientClick);
-            // 
-            // searchContractLabel
-            // 
-            this.searchContractLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.searchContractLabel, "searchContractLabel");
-            this.searchContractLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            this.searchContractLabel.Name = "searchContractLabel";
-            this.searchContractLabel.TabStop = true;
-            this.searchContractLabel.Tag = "mnuSearchContract";
-            this.searchContractLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnSearchContractClick);
-            // 
-            // newIndividualClientLinkLabel
-            // 
-            this.newIndividualClientLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.newIndividualClientLinkLabel, "newIndividualClientLinkLabel");
-            this.newIndividualClientLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            this.newIndividualClientLinkLabel.Name = "newIndividualClientLinkLabel";
-            this.newIndividualClientLinkLabel.TabStop = true;
-            this.newIndividualClientLinkLabel.Tag = "mnuNewPerson";
-            this.newIndividualClientLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnNewIndividualClientLinkLabelClick);
-            // 
-            // newSolidarityGroupLinkLabel
-            // 
-            this.newSolidarityGroupLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.newSolidarityGroupLinkLabel, "newSolidarityGroupLinkLabel");
-            this.newSolidarityGroupLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            this.newSolidarityGroupLinkLabel.Name = "newSolidarityGroupLinkLabel";
-            this.newSolidarityGroupLinkLabel.TabStop = true;
-            this.newSolidarityGroupLinkLabel.Tag = "mnuNewGroup";
-            this.newSolidarityGroupLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnNewSolidarityGroupLinkLabelLinkClick);
-            // 
-            // newNonSolidairtyGroupLinkLabel
-            // 
-            this.newNonSolidairtyGroupLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.newNonSolidairtyGroupLinkLabel, "newNonSolidairtyGroupLinkLabel");
-            this.newNonSolidairtyGroupLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            this.newNonSolidairtyGroupLinkLabel.Name = "newNonSolidairtyGroupLinkLabel";
-            this.newNonSolidairtyGroupLinkLabel.TabStop = true;
-            this.newNonSolidairtyGroupLinkLabel.Tag = "mnuNewVillage";
-            this.newNonSolidairtyGroupLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnNewNonSolidairtyGroupLinkLabelLinkClick);
-            // 
-            // newCorporateClientLinkLabel
-            // 
-            this.newCorporateClientLinkLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.newCorporateClientLinkLabel, "newCorporateClientLinkLabel");
-            this.newCorporateClientLinkLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            this.newCorporateClientLinkLabel.Name = "newCorporateClientLinkLabel";
-            this.newCorporateClientLinkLabel.TabStop = true;
-            this.newCorporateClientLinkLabel.Tag = "newCorporateToolStripMenuItem";
-            this.newCorporateClientLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnCorporateClientLinkLabelLinkClick);
-            // 
-            // configureLabel
-            // 
-            resources.ApplyResources(this.configureLabel, "configureLabel");
-            this.configureLabel.ForeColor = System.Drawing.Color.White;
-            this.configureLabel.Name = "configureLabel";
-            // 
-            // configureLoanProductsLabel
-            // 
-            this.configureLoanProductsLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.configureLoanProductsLabel, "configureLoanProductsLabel");
-            this.configureLoanProductsLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            this.configureLoanProductsLabel.Name = "configureLoanProductsLabel";
-            this.configureLoanProductsLabel.TabStop = true;
-            this.configureLoanProductsLabel.Tag = "mnuPackages";
-            this.configureLoanProductsLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnConfigureLoanProductsClick);
-            // 
-            // configureSavingsProductsLabel
-            // 
-            this.configureSavingsProductsLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.configureSavingsProductsLabel, "configureSavingsProductsLabel");
-            this.configureSavingsProductsLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            this.configureSavingsProductsLabel.Name = "configureSavingsProductsLabel";
-            this.configureSavingsProductsLabel.TabStop = true;
-            this.configureSavingsProductsLabel.Tag = "savingProductsToolStripMenuItem";
-            this.configureSavingsProductsLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnConfigureSavingsProductsClick);
-            // 
-            // configureCollateralProducts
-            // 
-            this.configureCollateralProducts.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.configureCollateralProducts, "configureCollateralProducts");
-            this.configureCollateralProducts.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            this.configureCollateralProducts.Name = "configureCollateralProducts";
-            this.configureCollateralProducts.TabStop = true;
-            this.configureCollateralProducts.Tag = "menuItemCollateralProducts";
-            this.configureCollateralProducts.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnConfigureCollateralProducts);
-            // 
-            // configureSettingsLabel
-            // 
-            this.configureSettingsLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.configureSettingsLabel, "configureSettingsLabel");
-            this.configureSettingsLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            this.configureSettingsLabel.Name = "configureSettingsLabel";
-            this.configureSettingsLabel.TabStop = true;
-            this.configureSettingsLabel.Tag = "menuItemSetting";
-            this.configureSettingsLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnConfigureSettingsClick);
-            // 
-            // configurePermissionsLabel
-            // 
-            this.configurePermissionsLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.configurePermissionsLabel, "configurePermissionsLabel");
-            this.configurePermissionsLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            this.configurePermissionsLabel.Name = "configurePermissionsLabel";
-            this.configurePermissionsLabel.TabStop = true;
-            this.configurePermissionsLabel.Tag = "rolesToolStripMenuItem";
-            this.configurePermissionsLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnConfigurePermissionsClick);
-            // 
-            // controlLabel
-            // 
-            resources.ApplyResources(this.controlLabel, "controlLabel");
-            this.controlLabel.ForeColor = System.Drawing.Color.White;
-            this.controlLabel.Name = "controlLabel";
-            // 
-            // auditTrailLabel
-            // 
-            this.auditTrailLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.auditTrailLabel, "auditTrailLabel");
-            this.auditTrailLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            this.auditTrailLabel.Name = "auditTrailLabel";
-            this.auditTrailLabel.TabStop = true;
-            this.auditTrailLabel.Tag = "miAuditTrail";
-            this.auditTrailLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnAuditTrailClick);
-            // 
-            // activeLoansLink
-            // 
-            this.activeLoansLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.activeLoansLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            resources.ApplyResources(this.activeLoansLink, "activeLoansLink");
-            this.activeLoansLink.Name = "activeLoansLink";
-            this.activeLoansLink.Tag = "Active_Loans.zip";
-            this.activeLoansLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnReportsClick);
-            // 
-            // parAnalysisLink
-            // 
-            this.parAnalysisLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.parAnalysisLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            resources.ApplyResources(this.parAnalysisLink, "parAnalysisLink");
-            this.parAnalysisLink.Name = "parAnalysisLink";
-            this.parAnalysisLink.Tag = "PAR_Analysis.zip";
-            this.parAnalysisLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnReportsClick);
-            // 
-            // delinquentLoansLink
-            // 
-            this.delinquentLoansLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.delinquentLoansLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            resources.ApplyResources(this.delinquentLoansLink, "delinquentLoansLink");
-            this.delinquentLoansLink.Name = "delinquentLoansLink";
-            this.delinquentLoansLink.Tag = "Delinquent_Loans.zip";
-            this.delinquentLoansLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnReportsClick);
-            // 
-            // disbursementsLink
-            // 
-            this.disbursementsLink.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.disbursementsLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(151)))), ((int)(((byte)(234)))));
-            resources.ApplyResources(this.disbursementsLink, "disbursementsLink");
-            this.disbursementsLink.Name = "disbursementsLink";
-            this.disbursementsLink.Tag = "Disbursments.zip";
-            this.disbursementsLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnReportsClick);
-            // 
             // DashboardForm
             // 
             resources.ApplyResources(this, "$this");
@@ -553,22 +323,13 @@ namespace OpenCBS.GUI
             ((System.ComponentModel.ISupportInitialize)(this.smallLogoPictureBox)).EndInit();
             this._infoFlowLayoutPanel.ResumeLayout(false);
             this._infoFlowLayoutPanel.PerformLayout();
-            this.quickLinksPanel.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
         #endregion
 
         private System.Windows.Forms.Panel generalInfoPanel;
-        private System.Windows.Forms.Panel quickLinksPanel;
         private System.Windows.Forms.Panel infoPanel;
-        private System.Windows.Forms.Label operateLabel;
-        private System.Windows.Forms.LinkLabel newIndividualClientLinkLabel;
-        private System.Windows.Forms.LinkLabel newNonSolidairtyGroupLinkLabel;
-        private System.Windows.Forms.LinkLabel newSolidarityGroupLinkLabel;
-        private System.Windows.Forms.LinkLabel newCorporateClientLinkLabel;
         private System.Windows.Forms.TableLayoutPanel riskTableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel portfolioPanel;
@@ -579,23 +340,8 @@ namespace OpenCBS.GUI
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel disbursementsPanel;
         private System.Windows.Forms.Panel olbTrendPanel;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.LinkLabel searchClientLabel;
-        private System.Windows.Forms.LinkLabel searchContractLabel;
-        private System.Windows.Forms.Label configureLabel;
-        private System.Windows.Forms.LinkLabel configureLoanProductsLabel;
-        private System.Windows.Forms.LinkLabel configureSavingsProductsLabel;
-        private System.Windows.Forms.LinkLabel configureCollateralProducts;
-        private System.Windows.Forms.LinkLabel configureSettingsLabel;
-        private System.Windows.Forms.LinkLabel configurePermissionsLabel;
-        private System.Windows.Forms.Label controlLabel;
-        private System.Windows.Forms.LinkLabel auditTrailLabel;
-        private System.Windows.Forms.LinkLabel activeLoansLink;
         private System.Windows.Forms.TableLayoutPanel topBarPanel;
         private System.Windows.Forms.PictureBox smallLogoPictureBox;
-        private System.Windows.Forms.LinkLabel parAnalysisLink;
-        private System.Windows.Forms.LinkLabel delinquentLoansLink;
-        private System.Windows.Forms.LinkLabel disbursementsLink;
         private System.Windows.Forms.Panel _filterPanel;
         private System.Windows.Forms.Label _branchFilterLabel;
         private System.Windows.Forms.ComboBox _branchFilterComboBox;

@@ -29,14 +29,7 @@ using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Dashboard;
 using OpenCBS.Enums;
-using OpenCBS.GUI.AuditTrail;
-using OpenCBS.GUI.Clients;
-using OpenCBS.GUI.Configuration;
-using OpenCBS.GUI.Products;
-using OpenCBS.GUI.Report_Browser;
 using OpenCBS.GUI.UserControl;
-using OpenCBS.Reports;
-using OpenCBS.Reports.Forms;
 using OpenCBS.Services;
 
 namespace OpenCBS.GUI
@@ -59,11 +52,6 @@ namespace OpenCBS.GUI
 
         private void OnLoad(object sender, EventArgs e)
         {
-            activeLoansLink.Text = ReportService.GetInstance().GetReportByName((string)activeLoansLink.Tag).Title;
-            parAnalysisLink.Text = ReportService.GetInstance().GetReportByName((string)parAnalysisLink.Tag).Title;
-            delinquentLoansLink.Text = ReportService.GetInstance().GetReportByName((string)delinquentLoansLink.Tag).Title;
-            disbursementsLink.Text = ReportService.GetInstance().GetReportByName((string)disbursementsLink.Tag).Title;
-
             var numberFormatInfo = new NumberFormatInfo
             {
                 NumberGroupSeparator = " ",
@@ -89,26 +77,8 @@ namespace OpenCBS.GUI
                     listViewItem.Font = new Font(font.Name, font.Size, FontStyle.Bold);
                 }
             };
-            Authorize();
             InitFilter();
             RefreshDashboard();
-        }
-
-        private void Authorize()
-        {
-            List<MenuObject> _menuItems;
-            _menuItems = Services.GetMenuItemServices().GetMenuList(OSecurityObjectTypes.MenuItem);
-            var role = User.CurrentUser.UserRole;
-            foreach (Control label in flowLayoutPanel1.Controls)
-            {
-                if (label is LinkLabel)
-                {
-                    var menuObject = _menuItems.Find(item => item == label.Tag.ToString().Trim());
-
-                    if (menuObject != null)
-                        label.Enabled = role.IsMenuAllowed(menuObject);
-                }
-            }
         }
 
         private void RefreshPortfolioPieChart(Dashboard dashboard)
@@ -292,34 +262,6 @@ namespace OpenCBS.GUI
             chart.Titles.Add(title);
         }
 
-        private void OpenClientForm(OClientTypes clientType)
-        {
-            var parent = Application.OpenForms[0];
-            var form = new ClientForm(clientType, parent, false, _applicationController) { MdiParent = parent };
-            form.Show();
-        }
-
-        private void OnNewIndividualClientLinkLabelClick(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            OpenClientForm(OClientTypes.Person);
-        }
-
-        private void OnNewSolidarityGroupLinkLabelLinkClick(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            OpenClientForm(OClientTypes.Group);
-        }
-
-        private void OnNewNonSolidairtyGroupLinkLabelLinkClick(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            var form = new NonSolidaryGroupForm(_applicationController) { MdiParent = Application.OpenForms[0] };
-            form.Show();
-        }
-
-        private void OnCorporateClientLinkLabelLinkClick(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            OpenClientForm(OClientTypes.Corporate);
-        }
-
         private void RefreshParTable(Dashboard dashboard)
         {
             parListView.SetObjects(dashboard.PortfolioLines);
@@ -349,105 +291,6 @@ namespace OpenCBS.GUI
                 _userFilterComboBox.Enabled = true;
                 _loanProductFilterComboBox.Enabled = true;
                 _refreshButton.Enabled = true;
-            }
-        }
-
-        private void OnSearchClientClick(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            var searchForm = SearchClientForm.GetInstance(this);
-            searchForm.BringToFront();
-            searchForm.WindowState = FormWindowState.Normal;
-            searchForm.Show();
-        }
-
-        private void OnSearchContractClick(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            var searchForm = SearchCreditContractForm.GetInstance(this);
-            searchForm.BringToFront();
-            searchForm.WindowState = FormWindowState.Normal;
-            searchForm.Show();
-        }
-
-        private void OnConfigureLoanProductsClick(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            var loanProductsForm = new FrmAvalaibleLoanProducts { MdiParent = Application.OpenForms[0] };
-            loanProductsForm.Show();
-        }
-
-        private void OnConfigureSavingsProductsClick(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            var savingsProductsForm = new FrmAvailableSavingProducts { MdiParent = Application.OpenForms[0] };
-            savingsProductsForm.Show();
-        }
-
-        private void OnConfigureCollateralProducts(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            var collateralProductsForm = new FrmAvalaibleCollateralProducts { MdiParent = Application.OpenForms[0] };
-            collateralProductsForm.Show();
-        }
-
-        private void OnConfigureSettingsClick(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            var settingsForm = new FrmGeneralSettings();
-            settingsForm.ShowDialog();
-        }
-
-        private void OnConfigurePermissionsClick(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            var rolesForm = new FrmRoles(Application.OpenForms[0]) { MdiParent = Application.OpenForms[0] };
-            rolesForm.Show();
-
-        }
-
-        private void OnAuditTrailClick(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            var auditTrailForm = new AuditTrailForm { MdiParent = Application.OpenForms[0] };
-            auditTrailForm.Show();
-        }
-
-        private void OnReportsClick(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            try
-            {
-                var reportName = (sender as LinkLabel).Tag.ToString();
-                var report = ReportService.GetInstance().GetReportByName(reportName);
-                var reportParamsForm = new ReportParamsForm(report.Params, report.Title);
-
-                if (reportParamsForm.ShowDialog() != DialogResult.OK) return;
-
-                var progressForm = new ReportLoadingProgressForm();
-                progressForm.Show();
-
-                var bw = new BackgroundWorker
-                {
-                    WorkerReportsProgress = true,
-                    WorkerSupportsCancellation = true,
-                };
-                bw.DoWork += (obj, args) =>
-                {
-                    ReportService.GetInstance().LoadReport(report);
-                    bw.ReportProgress(100);
-                };
-                bw.RunWorkerCompleted += (obj, args) =>
-                {
-                    progressForm.Close();
-                    if (args.Error != null)
-                    {
-                        Fail(args.Error.Message);
-                        return;
-                    }
-                    if (args.Cancelled) return;
-
-                    report.OpenCount++;
-                    report.SaveOpenCount();
-                    var reportViewer = new ReportViewerForm(report);
-                    reportViewer.Show();
-                };
-                bw.RunWorkerAsync(report);
-            }
-            catch (Exception ex)
-            {
-                Fail(ex.Message);
             }
         }
 
