@@ -259,13 +259,13 @@
     <value>3, 4</value>
   </data>
   <data name="labelProvince.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 16</value>
+    <value>57, 16</value>
   </data>
   <data name="labelProvince.TabIndex" type="System.Int32, mscorlib">
     <value>52</value>
   </data>
   <data name="labelProvince.Text" xml:space="preserve">
-    <value>Regions*:</value>
+    <value>Region*:</value>
   </data>
   <data name="&gt;&gt;labelProvince.Name" xml:space="preserve">
     <value>labelProvince</value>
