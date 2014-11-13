@@ -53,13 +53,6 @@ namespace OpenCBS.GUI
             this._branchFilterLabel = new System.Windows.Forms.Label();
             this.topBarPanel = new System.Windows.Forms.TableLayoutPanel();
             this.smallLogoPictureBox = new System.Windows.Forms.PictureBox();
-            this._infoFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this._servicesLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.label4 = new System.Windows.Forms.Label();
-            this._userGuideLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.label5 = new System.Windows.Forms.Label();
-            this._contactLinkLabel = new System.Windows.Forms.LinkLabel();
             this.generalInfoPanel.SuspendLayout();
             this.infoPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -70,7 +63,6 @@ namespace OpenCBS.GUI
             this._filterPanel.SuspendLayout();
             this.topBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.smallLogoPictureBox)).BeginInit();
-            this._infoFlowLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // generalInfoPanel
@@ -243,7 +235,6 @@ namespace OpenCBS.GUI
             // 
             resources.ApplyResources(this.topBarPanel, "topBarPanel");
             this.topBarPanel.Controls.Add(this.smallLogoPictureBox, 0, 0);
-            this.topBarPanel.Controls.Add(this._infoFlowLayoutPanel, 1, 0);
             this.topBarPanel.Name = "topBarPanel";
             // 
             // smallLogoPictureBox
@@ -252,52 +243,6 @@ namespace OpenCBS.GUI
             this.smallLogoPictureBox.Image = global::OpenCBS.GUI.Properties.Resources.LOGO;
             this.smallLogoPictureBox.Name = "smallLogoPictureBox";
             this.smallLogoPictureBox.TabStop = false;
-            // 
-            // _infoFlowLayoutPanel
-            // 
-            this._infoFlowLayoutPanel.Controls.Add(this.label3);
-            this._infoFlowLayoutPanel.Controls.Add(this._servicesLinkLabel);
-            this._infoFlowLayoutPanel.Controls.Add(this.label4);
-            this._infoFlowLayoutPanel.Controls.Add(this._userGuideLinkLabel);
-            this._infoFlowLayoutPanel.Controls.Add(this.label5);
-            this._infoFlowLayoutPanel.Controls.Add(this._contactLinkLabel);
-            resources.ApplyResources(this._infoFlowLayoutPanel, "_infoFlowLayoutPanel");
-            this._infoFlowLayoutPanel.Name = "_infoFlowLayoutPanel";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
-            // _servicesLinkLabel
-            // 
-            resources.ApplyResources(this._servicesLinkLabel, "_servicesLinkLabel");
-            this._servicesLinkLabel.Name = "_servicesLinkLabel";
-            this._servicesLinkLabel.TabStop = true;
-            this._servicesLinkLabel.Tag = "";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
-            // 
-            // _userGuideLinkLabel
-            // 
-            resources.ApplyResources(this._userGuideLinkLabel, "_userGuideLinkLabel");
-            this._userGuideLinkLabel.Name = "_userGuideLinkLabel";
-            this._userGuideLinkLabel.TabStop = true;
-            this._userGuideLinkLabel.Tag = "";
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
-            // 
-            // _contactLinkLabel
-            // 
-            resources.ApplyResources(this._contactLinkLabel, "_contactLinkLabel");
-            this._contactLinkLabel.Name = "_contactLinkLabel";
-            this._contactLinkLabel.TabStop = true;
             // 
             // DashboardForm
             // 
@@ -321,8 +266,6 @@ namespace OpenCBS.GUI
             this._filterPanel.PerformLayout();
             this.topBarPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.smallLogoPictureBox)).EndInit();
-            this._infoFlowLayoutPanel.ResumeLayout(false);
-            this._infoFlowLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -350,13 +293,6 @@ namespace OpenCBS.GUI
         private System.Windows.Forms.ComboBox _loanProductFilterComboBox;
         private System.Windows.Forms.Label _loanProductFilterLabel;
         private System.Windows.Forms.Button _refreshButton;
-        private System.Windows.Forms.FlowLayoutPanel _infoFlowLayoutPanel;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.LinkLabel _servicesLinkLabel;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.LinkLabel _userGuideLinkLabel;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.LinkLabel _contactLinkLabel;
         private BrightIdeasSoftware.ObjectListView parListView;
         private BrightIdeasSoftware.OLVColumn parNameColumn;
         private BrightIdeasSoftware.OLVColumn parAmountColumn;
