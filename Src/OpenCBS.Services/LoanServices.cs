@@ -86,6 +86,9 @@ namespace OpenCBS.Services
         [ImportMany(typeof(IEventInterceptor))]
         private Lazy<IEventInterceptor, IDictionary<string, object>>[] EventInterceptors { get; set; }
 
+        [ImportMany(typeof (ILoanInterceptor))]
+        private Lazy<ILoanInterceptor, IDictionary<string, object>>[] LoanInterceptors { get; set; }
+
         public LoanServices(User pUser)
             : base(pUser)
         {
@@ -216,12 +219,22 @@ namespace OpenCBS.Services
                         List<LoanEntryFee> loanEntryFees = pLoan.LoanEntryFeesList;
                         AddLoan(ref pLoan, pProjectId, ref pClient, transaction);
                         _loanManager.InsertLoanEntryFees(loanEntryFees, pLoan.Id, transaction);
+                        LoanInterceptorSave(new Dictionary<string, object>
+                            {
+                                {"Loan", pLoan},
+                                {"SqlTransaction", transaction}
+                            });
                     }
                     else
                     {
                         List<LoanEntryFee> loanEntryFees = pLoan.LoanEntryFeesList;
                         UpdateLoan(ref pLoan, transaction);
                         _loanManager.UpdateLoanEntryFees(loanEntryFees, pLoan.Id, transaction);
+                        LoanInterceptorUpdate(new Dictionary<string, object>
+                            {
+                                {"Loan", pLoan},
+                                {"SqlTransaction", transaction}
+                            });
                     }
 
                     ClientServices clientServices = ServicesProvider.GetInstance().GetClientServices();
@@ -2955,12 +2968,11 @@ namespace OpenCBS.Services
         public void CallInterceptor(IDictionary<string, object> interceptorParams)
         {
             // Find non-default implementation
-            var creator = (
-                                from item in EventInterceptors
-                                where
-                                    item.Metadata.ContainsKey("Implementation") &&
-                                    item.Metadata["Implementation"].ToString() != "Default"
-                                select item.Value).FirstOrDefault();
+            var creator = (from item in EventInterceptors
+                           where
+                               item.Metadata.ContainsKey("Implementation") &&
+                               item.Metadata["Implementation"].ToString() != "Default"
+                           select item.Value).FirstOrDefault();
             if (creator != null)
             {
                 creator.CallInterceptor(interceptorParams);
@@ -2968,13 +2980,58 @@ namespace OpenCBS.Services
             }
 
             // Otherwise, find the default one
-            creator = (
-                            from item in EventInterceptors
-                            where
-                                item.Metadata.ContainsKey("Implementation") &&
-                                item.Metadata["Implementation"].ToString() == "Default"
-                            select item.Value).FirstOrDefault();
+            creator = (from item in EventInterceptors
+                       where
+                           item.Metadata.ContainsKey("Implementation") &&
+                           item.Metadata["Implementation"].ToString() == "Default"
+                       select item.Value).FirstOrDefault();
             if (creator != null) creator.CallInterceptor(interceptorParams);
+        }
+
+        public void LoanInterceptorSave(IDictionary<string, object> interceptorParams)
+        {
+            // Find non-default implementation
+            var creator = (from item in LoanInterceptors
+                           where
+                               item.Metadata.ContainsKey("Implementation") &&
+                               item.Metadata["Implementation"].ToString() != "Default"
+                           select item.Value).FirstOrDefault();
+            if (creator != null)
+            {
+                creator.Save(interceptorParams);
+                return;
+            }
+
+            // Otherwise, find the default one
+            creator = (from item in LoanInterceptors
+                       where
+                           item.Metadata.ContainsKey("Implementation") &&
+                           item.Metadata["Implementation"].ToString() == "Default"
+                       select item.Value).FirstOrDefault();
+            if (creator != null) creator.Save(interceptorParams);
+        }
+
+        public void LoanInterceptorUpdate(IDictionary<string, object> interceptorParams)
+        {
+            // Find non-default implementation
+            var creator = (from item in LoanInterceptors
+                           where
+                               item.Metadata.ContainsKey("Implementation") &&
+                               item.Metadata["Implementation"].ToString() != "Default"
+                           select item.Value).FirstOrDefault();
+            if (creator != null)
+            {
+                creator.Update(interceptorParams);
+                return;
+            }
+
+            // Otherwise, find the default one
+            creator = (from item in LoanInterceptors
+                       where
+                           item.Metadata.ContainsKey("Implementation") &&
+                           item.Metadata["Implementation"].ToString() == "Default"
+                       select item.Value).FirstOrDefault();
+            if (creator != null) creator.Update(interceptorParams);
         }
 
         public void ManualScheduleBeforeDisbursement()
