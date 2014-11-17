@@ -8,11 +8,11 @@
   	<?define PlatformProgramFilesFolder="ProgramFiles64Folder"?>
   <?endif?>
 
-  <?define PreviousVersion="14.13.0.0" ?>
-  <?define ProductVersion="14.14.0.0" ?>
-  <?define ProductVersionReduced="14.14" ?>
+  <?define PreviousVersion="14.14.0.0" ?>
+  <?define ProductVersion="14.15.0.0" ?>
+  <?define ProductVersionReduced="14.15" ?>
   <?define UpgradeCode="be584361-0c04-42c9-8ea8-457cdea8b89e"?>
-  <?define ProductCode="7aedc088-458e-4e1f-b19a-85d7dacf7b1e"?>
+  <?define ProductCode="25fed35d-ea3d-4c03-96fd-5956bfe09fe5"?>
 
   <Product Id="$(var.ProductCode)" Name="OpenCBS $(var.ProductVersion)" Language="1033"
            Version="$(var.ProductVersion)" Manufacturer="OpenCBS" UpgradeCode="$(var.UpgradeCode)">
@@ -245,7 +245,7 @@
                 <File Id="DropAndCreateUDF.sql" Source="SourceDir\Update\DropAndCreateUDF.sql" />
               </Component>
               <Component Id="sql_create_database" Guid="6A36DFA4-83F5-FC67-DDB2-0AD22AB03E72">
-                <File Id="CreateDatabase_v14.14.0.0.sql" Source="SourceDir\Update\CreateDatabase_v14.14.0.0.sql" />
+                <File Id="CreateDatabase_v14.15.0.0.sql" Source="SourceDir\Update\CreateDatabase_v14.15.0.0.sql" />
               </Component>
               <Component Id="sql_update_database" Guid="BDBEE7A0-23E5-2E7D-BD1B-E58C5CFA0E65">
                 <File Id="Database_Update_v1.1.0_to_v1.1.1.sql" Source="SourceDir\Update\Database_Update_v1.1.0_to_v1.1.1.sql" />
@@ -334,9 +334,10 @@
                 <File Id="Database_Update_v14.11.0.0_to_v14.12.0.0.sql" Source="SourceDir\Update\Database_Update_v14.11.0.0_to_v14.12.0.0.sql" />
                 <File Id="Database_Update_v14.12.0.0_to_v14.13.0.0.sql" Source="SourceDir\Update\Database_Update_v14.12.0.0_to_v14.13.0.0.sql" />
                 <File Id="Database_Update_v14.13.0.0_to_v14.14.0.0.sql" Source="SourceDir\Update\Database_Update_v14.13.0.0_to_v14.14.0.0.sql" />
+                <File Id="Database_Update_v14.14.0.0_to_v14.15.0.0.sql" Source="SourceDir\Update\Database_Update_v14.14.0.0_to_v14.15.0.0.sql" />
               </Component>
               <Component Id="xml_data_schema" Guid="CB26138B-9031-2360-D666-DD5F20038ED9">
-                <File Id="OCTOPUS_Data_Schema_v14.14.0.0.xml" Name="OCTOPUS_Data_Schema_(v14.14.0.0).xml" Source="SourceDir\Update\OCTOPUS_Data_Schema_(v14.14.0.0).xml" />
+                <File Id="OCTOPUS_Data_Schema_v14.15.0.0.xml" Name="OCTOPUS_Data_Schema_(v14.15.0.0).xml" Source="SourceDir\Update\OCTOPUS_Data_Schema_(v14.15.0.0).xml" />
                 <File Id="OCTOPUS_Upgrade_Schema.xml" Source="SourceDir\Update\OCTOPUS_Upgrade_Schema.xml" />
                 <File Id="Objects.xml" Source="SourceDir\Update\Objects.xml" />
               </Component>

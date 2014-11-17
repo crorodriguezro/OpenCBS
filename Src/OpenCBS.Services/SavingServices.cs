@@ -1467,7 +1467,7 @@ namespace OpenCBS.Services
         {
             var productList = ServicesProvider.GetInstance()
                                                .GetSavingProductServices()
-                                               .FindAllSavingsProducts(false, OClientTypes.All);
+                                               .FindAllSavingsProducts(true, OClientTypes.All);
             var products = from item in productList where item.Code == "default" select item;
             if (!products.Any()) return null;
             var saving = new SavingBookContract(
