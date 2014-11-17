@@ -99,6 +99,6 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
         OSavingsRollover Rollover { get; set; }
         ISavingsContract TransferAccount { get; set; }
         int NumberOfPeriods { get; set; }
-
+        int? LoanId { get; set; }
     }
 }

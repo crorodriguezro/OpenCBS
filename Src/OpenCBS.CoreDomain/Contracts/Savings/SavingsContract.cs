@@ -547,7 +547,8 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
         public InstallmentType Periodicity { get { return Product.Periodicity; } }
 
         public int NumberOfPeriods { get; set; }
-       
+        public int? LoanId { get; set; }
+
         #endregion
 
 

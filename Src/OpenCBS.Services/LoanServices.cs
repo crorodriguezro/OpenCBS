@@ -3145,7 +3145,7 @@ namespace OpenCBS.Services
                     if (ApplicationSettings.GetInstance(User.CurrentUser.Md5).UseMandatorySavingAccount)
                     {
                         var saving =
-                            (from item in loan.Project.Client.Savings where item.Product.Code == "default" select item)
+                            (from item in loan.Project.Client.Savings where item.LoanId == loan.Id select item)
                                 .FirstOrDefault();
                         if (saving == null)
                         {

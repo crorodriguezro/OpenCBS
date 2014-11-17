@@ -841,6 +841,7 @@ namespace OpenCBS.Manager.Contracts
                                               ,SavingContracts.[initial_amount]
                                               ,SavingContracts.[entry_fees]
                                               ,SavingContracts.[nsg_id]
+                                              ,SavingContracts.[loan_id]
                                               ,u2.first_name AS so_first_name
                                               ,u2.last_name AS so_last_name
                                               ,SavingProducts.product_type
@@ -988,6 +989,7 @@ namespace OpenCBS.Manager.Contracts
             savingContract.InitialAmount = pReader.GetMoney("initial_amount");
             savingContract.EntryFees = pReader.GetMoney("entry_fees");
             savingContract.NsgID = pReader.GetNullInt("nsg_id");
+            savingContract.LoanId = pReader.GetNullInt("loan_id");
 
             return savingContract;
         }

@@ -44,7 +44,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
                 _view.ShowExtraColumn();
             if (!ApplicationSettings.GetInstance(User.CurrentUser.Md5).UseMandatorySavingAccount) return;
             _saving =
-                (from item in _loan.Project.Client.Savings where item.Product.Code == "default" select item)
+                (from item in _loan.Project.Client.Savings where item.LoanId == _loan.Id select item)
                     .FirstOrDefault();
             if (_saving != null)
                 _saving = ServicesProvider.GetInstance().GetSavingServices().GetSaving(_saving.Id);
