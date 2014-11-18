@@ -1895,6 +1895,7 @@ namespace OpenCBS.Services
                     else if (pClient is Village)
                         evnt.ClientType = OClientTypes.Village;
 
+                    var oldComment = evnt.Comment;
                     evnt.Comment = comment;
                     evnt.CancelDate = TimeProvider.Now;
 
@@ -1929,38 +1930,29 @@ namespace OpenCBS.Services
                     if (ApplicationSettings.GetInstance(User.CurrentUser.Md5).UseMandatorySavingAccount)
                     {
                         var id = 0;
-                        if (int.TryParse(evnt.Comment, out id))
+                        if (int.TryParse(oldComment, out id))
                         {
-                            var listSavingsEvents = new List<SavingEvent>();
-                            foreach (var saving in pClient.Savings)
-                                listSavingsEvents.AddRange(
-                                    ServicesProvider.GetInstance()
-                                                    .GetSavingServices()
-                                                    .GetSaving(saving.Id)
-                                                    .Events.OfType<SavingEvent>());
-
-                            var debitSavingEvent = listSavingsEvents.First(ev => ev.Id == id);
-                            var creditSavingEvent =
-                                listSavingsEvents.First(
-                                    ev => ev.Amount == debitSavingEvent.Amount && ev.Date == debitSavingEvent.Date);
-                            debitSavingEvent.CancelDate = TimeProvider.Today;
-                            creditSavingEvent.CancelDate = TimeProvider.Today;
-
-                            var tempService = ServicesProvider.GetInstance().GetSavingServices();
-                            tempService.DeleteEvent(debitSavingEvent);
-                            CallInterceptor(new Dictionary<string, object>
+                            var saving =
+                                ServicesProvider.GetInstance()
+                                                .GetSavingServices()
+                                                .GetSavingsByClientId(pClient.Id)
+                                                .FirstOrDefault(i => i.LoanId == contract.Id);
+                            if (saving != null)
                             {
-                                {"Event", debitSavingEvent},
-                                {"Deleted", true},
-                                {"SqlTransaction", sqlTransaction}
-                            });
-                            tempService.DeleteEvent(creditSavingEvent);
-                            CallInterceptor(new Dictionary<string, object>
-                            {
-                                {"Event", creditSavingEvent},
-                                {"Deleted", true},
-                                {"SqlTransaction", sqlTransaction}
-                            });
+                                var tempService = ServicesProvider.GetInstance().GetSavingServices();
+                                var savingEvent = saving.Events.FirstOrDefault(ev => ev.Id == id);
+                                if (savingEvent != null)
+                                {
+                                    savingEvent.CancelDate = TimeProvider.Today;
+                                    tempService.DeleteEvent(savingEvent);
+                                    CallInterceptor(new Dictionary<string, object>
+                                        {
+                                            {"Event", savingEvent},
+                                            {"Deleted", true},
+                                            {"SqlTransaction", sqlTransaction}
+                                        });
+                                }
+                            }
                         }
                     }
                     _ePs.UpdateCommentForLoanEvent(evnt, sqlTransaction);
@@ -3161,14 +3153,14 @@ namespace OpenCBS.Services
                         }
                         if (amount <= 0)
                             return loan;
-                        ServicesProvider.GetInstance()
-                                        .GetSavingServices()
-                                        .Withdraw(saving, repayEvent.Date, amount,
-                                                  "Withdraw for loan repayment " + loan.Code, User.CurrentUser,
-                                                  new Teller(),
-                                                  sqlTransaction);
-                        eventStock.GetRepaymentEvents().First(i => !i.IsFired).Comment =
-                            saving.Events.Last().Id.ToString(CultureInfo.InvariantCulture);
+                        var withdrowEvent = ServicesProvider.GetInstance()
+                                                            .GetSavingServices()
+                                                            .Withdraw(saving, repayEvent.Date, amount,
+                                                                      "Withdraw for loan repayment " + loan.Code,
+                                                                      User.CurrentUser,
+                                                                      new Teller(),
+                                                                      sqlTransaction).First();
+                        eventStock.GetRepaymentEvents().First(i => !i.IsFired).Comment = withdrowEvent.Id.ToString(CultureInfo.InvariantCulture);
                     }
                     loan.Events = eventStock;
                     _ePs.FireEvent(repayEvent, loan, sqlTransaction);
