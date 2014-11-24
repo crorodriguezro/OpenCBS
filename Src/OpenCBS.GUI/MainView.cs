@@ -708,7 +708,6 @@ namespace OpenCBS.GUI
             chkPendingSavings.Checked = UserSettings.GetShowPendingSavings();
             chkOverdraftSavings.Checked = UserSettings.GetShowOverdraftSavings();
             chkValidatedLoan.Checked = UserSettings.GetValidatedLoans();
-            chkPostponedLoans.Checked = UserSettings.GetPostponedLoans();
             _triggerAlertsUpdate = true;
         }
 
@@ -728,8 +727,8 @@ namespace OpenCBS.GUI
             lblTitle.Text = GetString("AlertsLoading");
             tabFilter.Enabled = false;
 
-            List<Alert_v2> alerts = ls.FindAlerts(chkLateLoans.Checked, chkPendingLoans.Checked,
-                                                  chkPostponedLoans.Checked, chkOverdraftSavings.Checked, chkPendingSavings.Checked, chkValidatedLoan.Checked);
+            List<Alert_v2> alerts = ls.FindAlerts(chkLateLoans.Checked, chkPendingLoans.Checked
+                                                  ,chkOverdraftSavings.Checked, chkPendingSavings.Checked, chkValidatedLoan.Checked);
             LoadAlerts(alerts);
             tabFilter.Enabled = true;
         }
@@ -824,7 +823,7 @@ namespace OpenCBS.GUI
         {
             LoanServices ls = ServicesProvider.GetInstance().GetContractServices();
             List<Alert_v2> alerts = ls.FindAlerts(chkLateLoans.Checked, chkPendingLoans.Checked,
-                                                  chkPostponedLoans.Checked, chkOverdraftSavings.Checked,
+                                                  chkOverdraftSavings.Checked,
                                                   chkPendingSavings.Checked, chkValidatedLoan.Checked);
             LoadAlerts(alerts);
         }
@@ -848,7 +847,6 @@ namespace OpenCBS.GUI
             UserSettings.SetShowPendingSavings(chkPendingSavings.Checked);
             UserSettings.SetShowOverdraftSavings(chkOverdraftSavings.Checked);
             UserSettings.SetShowValidatedLoans(chkValidatedLoan.Checked);
-            UserSettings.SetShowPostponedLoans(chkPostponedLoans.Checked);
             ReloadAlerts(false);
         }
 
