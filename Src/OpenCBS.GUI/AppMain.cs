@@ -76,8 +76,6 @@ namespace OpenCBS.GUI
             }
             catch (Exception ex)
             {
-                //new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
-                //System.Diagnostics.Debugger.Break();
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
