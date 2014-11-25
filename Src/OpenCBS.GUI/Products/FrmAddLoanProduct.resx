@@ -1066,7 +1066,7 @@
     <value>listViewLoanCycles</value>
   </data>
   <data name="&gt;&gt;listViewLoanCycles.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.14.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.15.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;listViewLoanCycles.Parent" xml:space="preserve">
     <value>panelAmountCycles</value>
@@ -4333,7 +4333,7 @@
     <value>lvEntryFees</value>
   </data>
   <data name="&gt;&gt;lvEntryFees.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.14.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.15.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvEntryFees.Parent" xml:space="preserve">
     <value>groupBoxEntryFees</value>
@@ -6577,7 +6577,7 @@
     <value>6</value>
   </data>
   <data name="gbCSAmount.Text" xml:space="preserve">
-    <value>Compulsory saving amount</value>
+    <value>Mandatory saving amount</value>
   </data>
   <data name="&gt;&gt;gbCSAmount.Name" xml:space="preserve">
     <value>gbCSAmount</value>
@@ -8378,6 +8378,6 @@
     <value>FrmAddLoanProduct</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.14.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.15.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
