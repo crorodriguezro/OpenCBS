@@ -405,6 +405,12 @@ namespace OpenCBS.GUI.Clients
 
         private void DisplayLoans()
         {
+            foreach (VillageMember member in _village.Members)
+            {
+                member.IsSaved = true;
+                member.ActiveLoans = ServicesProvider.GetInstance().GetContractServices().FindActiveContracts(member.Tiers.Id);
+            }
+
             listViewLoans.Items.Clear();
             if (!cbxDisplayAllLoans.Checked)
             {

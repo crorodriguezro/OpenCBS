@@ -4379,7 +4379,6 @@ namespace OpenCBS.GUI.Clients
                                 loan.Disbursed = _credit.Disbursed;
 
 
-
                     if (_event is LoanDisbursmentEvent)
                     {
                         tabControlPerson.TabPages.Remove(tabPageLoanRepayment);
