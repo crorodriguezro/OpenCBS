@@ -112,40 +112,24 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="columnHeaderName.Text" xml:space="preserve">
     <value>Nom</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lvContacts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>653, 380</value>
+  <data name="btnAddContact.Text" xml:space="preserve">
+    <value>Ajouter</value>
   </data>
-  <data name="buttonDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>27, 65</value>
+  <data name="btnSelectContact.Text" xml:space="preserve">
+    <value>Chercher</value>
   </data>
   <data name="buttonDelete.Text" xml:space="preserve">
     <value>Supprimer</value>
   </data>
-  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 380</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>653</value>
-  </data>
-  <data name="tabPageAddress.Text" xml:space="preserve">
-    <value>Adresse</value>
-  </data>
-  <data name="tabPageSavings.Text" xml:space="preserve">
-    <value>Epargne</value>
-  </data>
-  <data name="tabPageCustomizableFields.Text" xml:space="preserve">
-    <value>Champs personnalisables</value>
-  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="labelLastname.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 16</value>
   </data>
@@ -209,13 +193,13 @@
   <data name="buttonSave.Text" xml:space="preserve">
     <value>Sauvegarder</value>
   </data>
-  <data name="btnPrint.Location" type="System.Drawing.Point, System.Drawing">
-    <value>425, 13</value>
-  </data>
-  <data name="btnPrint.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 25</value>
-  </data>
   <data name="btnPrint.Text" xml:space="preserve">
     <value>Imprimer</value>
+  </data>
+  <data name="tabPageSavings.Text" xml:space="preserve">
+    <value>Epargne</value>
+  </data>
+  <data name="tabPageAddress.Text" xml:space="preserve">
+    <value>Adresse</value>
   </data>
 </root>

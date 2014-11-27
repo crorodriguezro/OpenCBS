@@ -104,18 +104,20 @@ namespace OpenCBS.GUI.UserControl
             // 
             // splitContainer1.Panel1
             // 
+            resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
             this.splitContainer1.Panel1.Controls.Add(this.lvContacts);
             // 
             // splitContainer1.Panel2
             // 
+            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
             this.splitContainer1.Panel2.Controls.Add(this.groupBox3);
             // 
             // lvContacts
             // 
+            resources.ApplyResources(this.lvContacts, "lvContacts");
             this.lvContacts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderName,
             this.columnHeaderPhone});
-            resources.ApplyResources(this.lvContacts, "lvContacts");
             this.lvContacts.FullRowSelect = true;
             this.lvContacts.GridLines = true;
             this.lvContacts.MultiSelect = false;
@@ -134,10 +136,10 @@ namespace OpenCBS.GUI.UserControl
             // 
             // groupBox3
             // 
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Controls.Add(this.btnAddContact);
             this.groupBox3.Controls.Add(this.btnSelectContact);
             this.groupBox3.Controls.Add(this.buttonDelete);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
@@ -168,12 +170,12 @@ namespace OpenCBS.GUI.UserControl
             // 
             // groupBoxCorporate
             // 
+            resources.ApplyResources(this.groupBoxCorporate, "groupBoxCorporate");
             this.groupBoxCorporate.Controls.Add(this.tableLayoutPanel1);
             this.groupBoxCorporate.Controls.Add(this.linkLabelChangePhoto2);
             this.groupBoxCorporate.Controls.Add(this.linkLabelChangePhoto);
             this.groupBoxCorporate.Controls.Add(this.pictureBox2);
             this.groupBoxCorporate.Controls.Add(this.pictureBox1);
-            resources.ApplyResources(this.groupBoxCorporate, "groupBoxCorporate");
             this.groupBoxCorporate.Name = "groupBoxCorporate";
             this.groupBoxCorporate.TabStop = false;
             // 
@@ -204,8 +206,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // eacCorporate
             // 
-            this.eacCorporate.Activity = null;
             resources.ApplyResources(this.eacCorporate, "eacCorporate");
+            this.eacCorporate.Activity = null;
             this.eacCorporate.Name = "eacCorporate";
             this.eacCorporate.EconomicActivityChange += new System.EventHandler<OpenCBS.GUI.UserControl.EconomicActivtyEventArgs>(this.EacCorporateEconomicActivityChange);
             // 
@@ -246,8 +248,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // textBoxLastNameCorporate
             // 
-            this.textBoxLastNameCorporate.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBoxLastNameCorporate, "textBoxLastNameCorporate");
+            this.textBoxLastNameCorporate.BackColor = System.Drawing.Color.White;
             this.textBoxLastNameCorporate.Name = "textBoxLastNameCorporate";
             // 
             // dateTimePickerDateOfCreate
@@ -259,8 +261,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // textBoxSigle
             // 
-            this.textBoxSigle.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBoxSigle, "textBoxSigle");
+            this.textBoxSigle.BackColor = System.Drawing.Color.White;
             this.textBoxSigle.Name = "textBoxSigle";
             // 
             // textBoxSmallNameCorporate
@@ -344,9 +346,9 @@ namespace OpenCBS.GUI.UserControl
             // 
             // savingsListUserControl1
             // 
+            resources.ApplyResources(this.savingsListUserControl1, "savingsListUserControl1");
             this.savingsListUserControl1.ButtonAddSavingsEnabled = true;
             this.savingsListUserControl1.ClientType = OpenCBS.Enums.OClientTypes.Corporate;
-            resources.ApplyResources(this.savingsListUserControl1, "savingsListUserControl1");
             this.savingsListUserControl1.Name = "savingsListUserControl1";
             this.savingsListUserControl1.AddSelectedSaving += new System.EventHandler(this.SavingsListUserControl1AddSelectedSaving);
             this.savingsListUserControl1.ViewSelectedSaving += new System.EventHandler(this.SavingsListUserControl1ViewSelectedSaving);
@@ -377,10 +379,10 @@ namespace OpenCBS.GUI.UserControl
             // 
             // tabControlCorporate
             // 
+            resources.ApplyResources(this.tabControlCorporate, "tabControlCorporate");
             this.tabControlCorporate.Controls.Add(this.tabPageAddress);
             this.tabControlCorporate.Controls.Add(this.tabPageContacts);
             this.tabControlCorporate.Controls.Add(this.tabPageSavings);
-            resources.ApplyResources(this.tabControlCorporate, "tabControlCorporate");
             this.tabControlCorporate.Multiline = true;
             this.tabControlCorporate.Name = "tabControlCorporate";
             this.tabControlCorporate.SelectedIndex = 0;
@@ -388,12 +390,12 @@ namespace OpenCBS.GUI.UserControl
             // 
             // CorporateUserControl
             // 
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.tabControlCorporate);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBoxCorporate);
             this.Name = "CorporateUserControl";
-            resources.ApplyResources(this, "$this");
             this.Load += new System.EventHandler(this.CorporateUserControlLoad);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
