@@ -373,9 +373,5 @@ namespace OpenCBS.GUI.Contracts
         {
             _CreditCommitteeDate = dtCreditCommittee.Value;
         }
-
-
-
-
     }
 }

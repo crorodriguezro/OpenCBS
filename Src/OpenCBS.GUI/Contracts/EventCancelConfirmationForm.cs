@@ -27,6 +27,7 @@ using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.CoreDomain.Events;
 using OpenCBS.CoreDomain.Events.Loan;
+using OpenCBS.GUI.Clients;
 using OpenCBS.GUI.UserControl;
 
 namespace OpenCBS.GUI
@@ -172,6 +173,8 @@ namespace OpenCBS.GUI
             string caption = GetString("Confirm");
             DialogResult res = MessageBox.Show(message, caption, MessageBoxButtons.YesNo);
             DialogResult = res == DialogResult.Yes ? DialogResult.OK : DialogResult.Cancel;
+            
+
         }
 
         private void textBoxComments_TextChanged(object sender, EventArgs e)
