@@ -2735,7 +2735,7 @@ namespace OpenCBS.Services
             return _alerts;
         }
 
-        public List<Alert_v2> FindAlerts(bool late, bool pending, bool overdraft, bool savingsPending,
+        public List<Alert_v2> FindAlerts(bool late, bool pending, bool postponed, bool overdraft, bool savingsPending,
                                          bool validated)
         {
             LoadAlerts();
@@ -2744,6 +2744,7 @@ namespace OpenCBS.Services
                      || (late && i.IsLateLoan)
                      || (pending && i.IsLoan && i.Status == OContractStatus.Pending)
                      || (validated && i.IsLoan && i.Status == OContractStatus.Validated)
+                     || (postponed && i.IsLoan && i.Status == OContractStatus.Postponed)
                      || (overdraft && i.IsSaving && i.Amount < 0)
                      || (savingsPending && i.IsSaving && i.Status == OContractStatus.Pending)
                 // Pending savings! (not loan)

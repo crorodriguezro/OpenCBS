@@ -793,9 +793,6 @@
   <data name="toolStripMenuItemFundingLines.Text" xml:space="preserve">
     <value>Funding Lines</value>
   </data>
-  <data name="&gt;&gt;spanishToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="mnuSettings.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 20</value>
   </data>
@@ -813,6 +810,9 @@
   </data>
   <data name="accountingRulesToolStripMenuItem.Text" xml:space="preserve">
     <value>Accounting Rules</value>
+  </data>
+  <data name="newCorporateToolStripMenuItem.Text" xml:space="preserve">
+    <value>New corporate client</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemInstallmentTypes.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -835,8 +835,11 @@
   <data name="&gt;&gt;menuItemLocations.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;colAlerts_BranchName.Name" xml:space="preserve">
+    <value>colAlerts_BranchName</value>
+  </data>
   <data name="&gt;&gt;chkValidatedLoan.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItemFundingLines.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -850,9 +853,6 @@
   <data name="&gt;&gt;mnuAccounting.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="menuItemCollateralProducts.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
   <data name="mnuSearchClient.Size" type="System.Drawing.Size, System.Drawing">
     <value>234, 22</value>
   </data>
@@ -861,6 +861,9 @@
   </data>
   <data name="savingProductsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>164, 22</value>
+  </data>
+  <data name="&gt;&gt;chkPostponedLoans.Name" xml:space="preserve">
+    <value>chkPostponedLoans</value>
   </data>
   <data name="tabFilter.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 5, 3, 5</value>
@@ -877,11 +880,11 @@
   <data name="colAlerts_Address.Text" xml:space="preserve">
     <value>Address</value>
   </data>
+  <data name="chkPostponedLoans.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="&gt;&gt;olvAlerts.Parent" xml:space="preserve">
     <value>panelLeft</value>
-  </data>
-  <data name="&gt;&gt;mnuClients.Name" xml:space="preserve">
-    <value>mnuClients</value>
   </data>
   <data name="&gt;&gt;toolBarLblVersion.Name" xml:space="preserve">
     <value>toolBarLblVersion</value>
@@ -893,7 +896,7 @@
     <value>French</value>
   </data>
   <data name="tabFilter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 561</value>
+    <value>0, 541</value>
   </data>
   <data name="&gt;&gt;mnuHelp.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -931,6 +934,9 @@
   <data name="menuItemApplicationDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>190, 22</value>
   </data>
+  <data name="chkPostponedLoans.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 20</value>
+  </data>
   <data name="menuItemDatabaseControlPanel.Text" xml:space="preserve">
     <value>Database control panel</value>
   </data>
@@ -960,6 +966,9 @@
   </data>
   <data name="colAlerts_Phone.Text" xml:space="preserve">
     <value>Phone</value>
+  </data>
+  <data name="&gt;&gt;bwUserInformation.Type" xml:space="preserve">
+    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;chkPendingSavings.Name" xml:space="preserve">
     <value>chkPendingSavings</value>
@@ -1001,8 +1010,8 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
-  <data name="chkOverdraftSavings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;mnuClients.Name" xml:space="preserve">
+    <value>mnuClients</value>
   </data>
   <data name="changePasswordToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
@@ -1014,7 +1023,7 @@
     <value>tabFilter</value>
   </data>
   <data name="chkPendingSavings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 92</value>
+    <value>5, 112</value>
   </data>
   <data name="_modulesMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 20</value>
@@ -1068,7 +1077,7 @@
     <value>tabFilter</value>
   </data>
   <data name="olvAlerts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 521</value>
+    <value>250, 501</value>
   </data>
   <data name="chkPendingSavings.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 0, 0, 0</value>
@@ -1094,8 +1103,8 @@
   <data name="_modulesMenuItem.Text" xml:space="preserve">
     <value>Extensions</value>
   </data>
-  <data name="mnuAccounting.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 20</value>
+  <data name="tabFilter.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="chkPostponedLoans" Row="4" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="tbFilter" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblFilter" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="chkLateLoans" Row="1" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkPendingLoans" Row="2" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkPendingSavings" Row="5" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkOverdraftSavings" Row="6" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkValidatedLoan" Row="4" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="&gt;&gt;imageListAlert.Name" xml:space="preserve">
     <value>imageListAlert</value>
@@ -1148,8 +1157,8 @@
   <data name="colAlerts_Status.Text" xml:space="preserve">
     <value>Status</value>
   </data>
-  <data name="menuItemExportTransaction.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
+  <data name="&gt;&gt;frenchToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="toolBarLblVersion.Text" xml:space="preserve">
     <value>OpenCBS</value>
@@ -1307,8 +1316,8 @@
   <data name="&gt;&gt;mnuChartOfAccounts.Name" xml:space="preserve">
     <value>mnuChartOfAccounts</value>
   </data>
-  <data name="menuItemCollateralProducts.Text" xml:space="preserve">
-    <value>Collateral products</value>
+  <data name="&gt;&gt;chkPendingLoans.Name" xml:space="preserve">
+    <value>chkPendingLoans</value>
   </data>
   <data name="mnuNewGroup.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Alt+G</value>
@@ -1328,8 +1337,8 @@
   <data name="panelLeft.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 24</value>
   </data>
-  <data name="olvAlerts.TabIndex" type="System.Int32, mscorlib">
-    <value>41</value>
+  <data name="&gt;&gt;chkPostponedLoans.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripStatusLblDB.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1449,10 +1458,10 @@
     <value>fiscalYearToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;chkPendingSavings.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
-  <data name="newCorporateToolStripMenuItem.Text" xml:space="preserve">
-    <value>New corporate client</value>
+  <data name="lblTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt</value>
   </data>
   <data name="menuItemSetting.Text" xml:space="preserve">
     <value>General settings</value>
@@ -1463,14 +1472,14 @@
   <data name="&gt;&gt;mnuNewclosure.Name" xml:space="preserve">
     <value>mnuNewclosure</value>
   </data>
+  <data name="chkPostponedLoans.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 0, 0</value>
+  </data>
   <data name="englishToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblFilter.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;mainStatusBarLblDate.Name" xml:space="preserve">
     <value>mainStatusBarLblDate</value>
@@ -1486,6 +1495,9 @@
   </data>
   <data name="russianToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>129, 22</value>
+  </data>
+  <data name="newCorporateToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+M</value>
   </data>
   <data name="&gt;&gt;lblFilter.Name" xml:space="preserve">
     <value>lblFilter</value>
@@ -1524,16 +1536,16 @@
     <value>3</value>
   </data>
   <data name="&gt;&gt;chkOverdraftSavings.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;chkPendingLoans.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="resource.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
-  <data name="&gt;&gt;chkPendingLoans.Name" xml:space="preserve">
-    <value>chkPendingLoans</value>
+  <data name="mnuWindow.Text" xml:space="preserve">
+    <value>Window</value>
   </data>
   <data name="&gt;&gt;chkLateLoans.Name" xml:space="preserve">
     <value>chkLateLoans</value>
@@ -1556,6 +1568,12 @@
   <data name="colAlerts_City.Text" xml:space="preserve">
     <value>City</value>
   </data>
+  <data name="&gt;&gt;chkPostponedLoans.Parent" xml:space="preserve">
+    <value>tabFilter</value>
+  </data>
+  <data name="frenchToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 22</value>
+  </data>
   <data name="&gt;&gt;menuItemSetting.Name" xml:space="preserve">
     <value>menuItemSetting</value>
   </data>
@@ -1575,16 +1593,19 @@
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbFilter.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="panelLeft.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
   </data>
-  <data name="mainMenu.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+  <data name="chkOverdraftSavings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkPostponedLoans.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;chkLateLoans.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="contactMenuItem.Text" xml:space="preserve">
     <value>Contact us...</value>
@@ -1601,8 +1622,8 @@
   <data name="&gt;&gt;timer.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;colAlerts_BranchName.Name" xml:space="preserve">
-    <value>colAlerts_BranchName</value>
+  <data name="&gt;&gt;reasignToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="colAlerts_Amount.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -1622,8 +1643,8 @@
   <data name="toolStripSeparatorConfig3.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 6</value>
   </data>
-  <data name="mnuWindow.Text" xml:space="preserve">
-    <value>Window</value>
+  <data name="menuItemCollateralProducts.Text" xml:space="preserve">
+    <value>Collateral products</value>
   </data>
   <data name="tellersToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>183, 22</value>
@@ -1637,14 +1658,20 @@
   <data name="&gt;&gt;userGuideToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tabFilter.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tbFilter" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblFilter" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="chkLateLoans" Row="1" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkPendingLoans" Row="2" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkPendingSavings" Row="5" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkOverdraftSavings" Row="6" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="chkValidatedLoan" Row="4" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  <data name="mnuAccounting.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 20</value>
+  </data>
+  <data name="chkPostponedLoans.Text" xml:space="preserve">
+    <value>Postponed loans</value>
   </data>
   <data name="&gt;&gt;aboutMenuItem.Name" xml:space="preserve">
     <value>aboutMenuItem</value>
   </data>
-  <data name="&gt;&gt;bwUserInformation.Type" xml:space="preserve">
-    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="menuItemExportTransaction.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;mainStatusBarLblUserName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripStatusLblDB.Name" xml:space="preserve">
     <value>toolStripStatusLblDB</value>
@@ -1670,8 +1697,8 @@
   <data name="menuItemExchangeRate.Text" xml:space="preserve">
     <value>Exchange rate</value>
   </data>
-  <data name="newCorporateToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+M</value>
+  <data name="olvAlerts.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
   </data>
   <data name="lblTitle.Text" xml:space="preserve">
     <value>Alerts</value>
@@ -1730,6 +1757,9 @@
   <data name="&gt;&gt;toolStripMenuItemAccountView.Name" xml:space="preserve">
     <value>toolStripMenuItemAccountView</value>
   </data>
+  <data name="&gt;&gt;menuItemApplicationDate.Name" xml:space="preserve">
+    <value>menuItemApplicationDate</value>
+  </data>
   <data name="menuItemExportTransaction.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 22</value>
   </data>
@@ -1750,6 +1780,9 @@
   </data>
   <data name="&gt;&gt;mnuNewClient.Name" xml:space="preserve">
     <value>mnuNewClient</value>
+  </data>
+  <data name="chkPostponedLoans.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
   <data name="chkPendingLoans.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1775,8 +1808,8 @@
   <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mainStatusBarLblUserName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="mainMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
   </data>
   <data name="mnuNewclosure.Text" xml:space="preserve">
     <value>Accounting Closure</value>
@@ -1787,8 +1820,8 @@
   <data name="&gt;&gt;accountingRulesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblTitle.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
+  <data name="chkPostponedLoans.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 72</value>
   </data>
   <data name="&gt;&gt;colAlerts_ContractCode.Name" xml:space="preserve">
     <value>colAlerts_ContractCode</value>
@@ -1833,7 +1866,7 @@
     <value>newCorporateToolStripMenuItem</value>
   </data>
   <data name="tabFilter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 132</value>
+    <value>250, 152</value>
   </data>
   <data name="&gt;&gt;menuItemExportTransaction.Name" xml:space="preserve">
     <value>menuItemExportTransaction</value>
@@ -1846,7 +1879,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB2
-        CwAAAk1TRnQBSQFMAgEBBQEAAagBEQG4AREBEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CwAAAk1TRnQBSQFMAgEBBQEAAdQBEQHkAREBEAEAARABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -1940,10 +1973,7 @@
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="chkOverdraftSavings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 112</value>
-  </data>
-  <data name="&gt;&gt;frenchToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>5, 132</value>
   </data>
   <data name="mnuSearchContract.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
@@ -2026,8 +2056,8 @@
   <data name="&gt;&gt;mainStatusBarLblUpdateVersion.Name" xml:space="preserve">
     <value>mainStatusBarLblUpdateVersion</value>
   </data>
-  <data name="frenchToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 22</value>
+  <data name="menuItemCollateralProducts.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="&gt;&gt;changePasswordToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2056,8 +2086,8 @@
   <data name="chkLateLoans.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 32</value>
   </data>
-  <data name="&gt;&gt;menuItemApplicationDate.Name" xml:space="preserve">
-    <value>menuItemApplicationDate</value>
+  <data name="&gt;&gt;spanishToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparatorConfig1.Name" xml:space="preserve">
     <value>toolStripSeparatorConfig1</value>
@@ -2066,7 +2096,7 @@
     <value>$this</value>
   </data>
   <data name="chkValidatedLoan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 72</value>
+    <value>5, 92</value>
   </data>
   <data name="mnuHelp.Text" xml:space="preserve">
     <value>Help</value>
@@ -2113,8 +2143,8 @@
   <data name="mnuSearchClient.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Alt+C</value>
   </data>
-  <data name="&gt;&gt;reasignToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblFilter.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>OpenCBS</value>
@@ -2214,6 +2244,9 @@
   </data>
   <data name="&gt;&gt;toolStripMenuItem1.Name" xml:space="preserve">
     <value>toolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;chkPostponedLoans.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;currenciesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

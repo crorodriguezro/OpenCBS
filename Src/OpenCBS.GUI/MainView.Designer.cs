@@ -87,6 +87,7 @@ namespace OpenCBS.GUI
             this.colAlerts_Amount = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.lblTitle = new System.Windows.Forms.Label();
             this.tabFilter = new System.Windows.Forms.TableLayoutPanel();
+            this.chkPostponedLoans = new System.Windows.Forms.CheckBox();
             this.tbFilter = new System.Windows.Forms.TextBox();
             this.lblFilter = new System.Windows.Forms.Label();
             this.chkLateLoans = new System.Windows.Forms.CheckBox();
@@ -340,6 +341,7 @@ namespace OpenCBS.GUI
             // tabFilter
             // 
             resources.ApplyResources(this.tabFilter, "tabFilter");
+            this.tabFilter.Controls.Add(this.chkPostponedLoans, 0, 4);
             this.tabFilter.Controls.Add(this.tbFilter, 1, 0);
             this.tabFilter.Controls.Add(this.lblFilter, 0, 0);
             this.tabFilter.Controls.Add(this.chkLateLoans, 0, 1);
@@ -348,6 +350,15 @@ namespace OpenCBS.GUI
             this.tabFilter.Controls.Add(this.chkOverdraftSavings, 0, 6);
             this.tabFilter.Controls.Add(this.chkValidatedLoan, 0, 4);
             this.tabFilter.Name = "tabFilter";
+            // 
+            // chkPostponedLoans
+            // 
+            resources.ApplyResources(this.chkPostponedLoans, "chkPostponedLoans");
+            this.chkPostponedLoans.Checked = true;
+            this.chkPostponedLoans.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tabFilter.SetColumnSpan(this.chkPostponedLoans, 2);
+            this.chkPostponedLoans.Name = "chkPostponedLoans";
+            this.chkPostponedLoans.CheckedChanged += new System.EventHandler(this.OnAlertCheckChanged);
             // 
             // tbFilter
             // 
@@ -1015,6 +1026,7 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem contactMenuItem;
         private ToolStripMenuItem mnuChartOfAccounts;
         private ToolStripMenuItem userGuideToolStripMenuItem;
+        private CheckBox chkPostponedLoans;
 
 
     }
