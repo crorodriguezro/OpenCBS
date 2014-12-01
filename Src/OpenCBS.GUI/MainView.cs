@@ -1236,5 +1236,16 @@ namespace OpenCBS.GUI
             {
             }
         }
+
+        private void OpenUserGuid(object sender, EventArgs e)
+        {
+            try
+            {
+                const string url = "http://opencbs.com/uploads/User%20guide%20OpenCBS%2014.11.pdf";
+                Process.Start(url);
+            }
+            catch
+            {}
+        }
     }
 }
