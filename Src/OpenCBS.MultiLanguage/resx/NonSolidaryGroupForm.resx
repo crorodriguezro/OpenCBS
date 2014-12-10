@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="cbLoanOfficers.Select" xml:space="preserve">
     <value>Please select...</value>
@@ -130,10 +130,10 @@
     <value>Update</value>
   </data>
   <data name="RemoveConfirm.Text" xml:space="preserve">
-    <value>Are you sure you wan to remove this member from the village?</value>
+    <value>Are you sure you wan to remove this member from the village bank?</value>
   </data>
   <data name="RemoveProhibited.Text" xml:space="preserve">
-    <value>You cannot remove this member from the non solidary group because of an active loan.</value>
+    <value>You cannot remove this member from the village bank because of an active loan.</value>
   </data>
   <data name="MoneyNotEnoughForAll.Text" xml:space="preserve">
     <value>There is not enough money in the funding line for all members you want to disburse loans to. If you continue, some loans will not be disbursed. Do you still want to continue?</value>
@@ -145,7 +145,7 @@
     <value>Inactive</value>
   </data>
   <data name="UserHasActiveContract" xml:space="preserve">
-    <value>You can not add this person to a non solidary group because they have an active contract.</value>
+    <value>You can not add this person to a village bank because they have an active contract.</value>
   </data>
   <data name="ConfirmSave.Text" xml:space="preserve">
     <value>All unsaved clients will be erased. Do you want to save before continuing?</value>

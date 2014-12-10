@@ -31,7 +31,7 @@
     <ManifestCertificateThumbprint>81F28D69687BA61ADBF98CDDEABC3A596A1E5246</ManifestCertificateThumbprint>
     <ManifestKeyFile>
     </ManifestKeyFile>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
     <OldToolsVersion>3.5</OldToolsVersion>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetZone>Custom</TargetZone>
