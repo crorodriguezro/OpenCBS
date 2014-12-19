@@ -23,6 +23,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
@@ -123,10 +124,18 @@ namespace OpenCBS.GUI.UserControl
             foreach (Branch branch in User.CurrentUser.Branches)
                 cbBranch.Items.Add(branch);
 
-            if (_corporate.Id != 0) 
+            if (_corporate.Id != 0)
+            {
                 cbBranch.SelectedItem = _corporate.Branch;
-            else if (cbBranch.Items.Count > 0) 
-                cbBranch.SelectedIndex = 0;
+            }
+            else
+            {
+                var defaultBranch = User.CurrentUser.Branches.FirstOrDefault(x => x.IsDefault);
+                if (defaultBranch != null)
+                {
+                    cbBranch.SelectedItem = defaultBranch;
+                }
+            }
         }
 
         private readonly FundingLine _fundingLine;

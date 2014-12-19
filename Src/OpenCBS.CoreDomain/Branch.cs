@@ -29,6 +29,7 @@ namespace OpenCBS.CoreDomain
         public string Address;
         public string Code;
         public string Description;
+        public bool IsDefault { get; set; }
         
         public override string ToString()
         {

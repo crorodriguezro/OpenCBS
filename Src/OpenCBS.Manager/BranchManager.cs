@@ -28,11 +28,13 @@ namespace OpenCBS.Manager
 {
     public class BranchManager : Manager
     {
-        public BranchManager(User user) : base(user)
+        public BranchManager(User user)
+            : base(user)
         {
         }
 
-        public BranchManager(string pTestDb) : base(pTestDb)
+        public BranchManager(string pTestDb)
+            : base(pTestDb)
         {
 
         }
@@ -45,7 +47,8 @@ namespace OpenCBS.Manager
                     id, 
                     name, 
                     deleted
-                    , code, address, description
+                    , code, address, description,
+                    is_default
             FROM dbo.Branches";
             using (SqlConnection conn = GetConnection())
             using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
@@ -55,20 +58,16 @@ namespace OpenCBS.Manager
 
                 while (r.Read())
                 {
-                    Branch b = new Branch
-                                   {
-                                       Id = r.GetInt("id")
-                                       ,
-                                       Name = r.GetString("name")
-                                       ,
-                                       Deleted = r.GetBool("deleted")
-                                       ,
-                                       Code = r.GetString("code")
-                                       ,
-                                       Address = r.GetString("address")
-                                       ,
-                                       Description = r.GetString("description")
-                                   };
+                    var b = new Branch
+                    {
+                        Id = r.GetInt("id"),
+                        Name = r.GetString("name"),
+                        Deleted = r.GetBool("deleted"),
+                        Code = r.GetString("code"),
+                        Address = r.GetString("address"),
+                        Description = r.GetString("description"),
+                        IsDefault = r.GetBool("is_default")
+                    };
                     branches.Add(b);
                 }
             }
@@ -85,7 +84,8 @@ namespace OpenCBS.Manager
                     deleted, 
                     code,
                     address,
-                    description
+                    description,
+                    is_default
                     FROM dbo.Branches
                     WHERE id IN (SELECT branch_id FROM Tellers WHERE user_id = 0 AND deleted = 0)";
             using (SqlConnection conn = GetConnection())
@@ -103,7 +103,8 @@ namespace OpenCBS.Manager
                         Deleted = r.GetBool("deleted"),
                         Code = r.GetString("code"),
                         Address = r.GetString("address"),
-                        Description = r.GetString("description")
+                        Description = r.GetString("description"),
+                        IsDefault = r.GetBool("is_default")
                     };
                     branches.Add(b);
                 }
@@ -114,8 +115,8 @@ namespace OpenCBS.Manager
         public Branch Add(Branch branch, SqlTransaction t)
         {
             const string q = @"INSERT INTO dbo.Branches
-                              (name, code, address, description)
-                              VALUES (@name, @code, @address, @description)
+                              (name, code, address, description, is_default)
+                              VALUES (@name, @code, @address, @description, @is_default)
                               SELECT SCOPE_IDENTITY()";
             using (OpenCbsCommand c = new OpenCbsCommand(q, t.Connection, t))
             {
@@ -123,6 +124,7 @@ namespace OpenCBS.Manager
                 c.AddParam("@code", branch.Code);
                 c.AddParam("@address", branch.Address);
                 c.AddParam("@description", branch.Description);
+                c.AddParam("@is_default", branch.IsDefault);
                 branch.Id = Convert.ToInt32(c.ExecuteScalar());
                 return branch;
             }
@@ -134,15 +136,17 @@ namespace OpenCBS.Manager
                                 SET name = @name
                                 , code = @code
                                 , description = @description
-                                , address = @address
+                                , address = @address,
+                                is_default = @is_default
                                 WHERE id = @id";
             using (OpenCbsCommand c = new OpenCbsCommand(q, t.Connection, t))
-            {   
+            {
                 c.AddParam("@id", branch.Id);
                 c.AddParam("@name", branch.Name);
                 c.AddParam("@code", branch.Code);
                 c.AddParam("@description", branch.Description);
                 c.AddParam("@address", branch.Address);
+                c.AddParam("@is_default", branch.IsDefault);
                 c.ExecuteNonQuery();
             }
         }
@@ -206,7 +210,7 @@ namespace OpenCBS.Manager
                         code = r.GetString("code");
                 }
                 return code;
-            }            
+            }
         }
 
         public string GetBranchCodeByClientId(int clientId, SqlTransaction sqlTransaction)
@@ -256,7 +260,8 @@ namespace OpenCBS.Manager
                                        deleted,
                                        code, 
                                        address,
-                                       description
+                                       description,
+                                        is_default
                                      FROM [Branches] 
                                      WHERE id = @id";
 
@@ -269,14 +274,15 @@ namespace OpenCBS.Manager
 
                     r.Read();
                     Branch branch = new Branch
-                                        {
-                                            Id = r.GetInt("id"),
-                                            Name = r.GetString("name"),
-                                            Deleted = r.GetBool("deleted"),
-                                            Code = r.GetString("code"),
-                                            Address = r.GetString("address"),
-                                            Description = r.GetString("description")
-                                        };
+                    {
+                        Id = r.GetInt("id"),
+                        Name = r.GetString("name"),
+                        Deleted = r.GetBool("deleted"),
+                        Code = r.GetString("code"),
+                        Address = r.GetString("address"),
+                        Description = r.GetString("description"),
+                        IsDefault = r.GetBool("is_default")
+                    };
                     return branch;
                 }
             }
@@ -289,7 +295,8 @@ namespace OpenCBS.Manager
                 , deleted
                 , code
                 , address
-                , description
+                , description,
+                is_default
             FROM dbo.Branches
             WHERE name LIKE '%{0}%'";
             query = string.Format(query, name);
@@ -305,10 +312,10 @@ namespace OpenCBS.Manager
                     Code = r.GetString("code"),
                     Name = r.GetString("name"),
                     Deleted = r.GetBool("deleted"),
-                    Description = r.GetString("description")
+                    Description = r.GetString("description"),
+                    IsDefault = r.GetBool("is_default")
                 };
             }
         }
     }
 }
- 
