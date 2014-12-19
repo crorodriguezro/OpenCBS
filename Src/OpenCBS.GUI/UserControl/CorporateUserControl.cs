@@ -103,6 +103,7 @@ namespace OpenCBS.GUI.UserControl
                 addressUserControlFirst.City = _corporate.City;
                 addressUserControlFirst.District = _corporate.District;
                 addressUserControlFirst.HomePhone = _corporate.HomePhone;
+                addressUserControlFirst.HomeType = _corporate.HomeType;
                 addressUserControlFirst.PersonalPhone = _corporate.PersonalPhone;
                 addressUserControlFirst.Email = _corporate.Email;
                 addressUserControlFirst.Comments = _corporate.Address;
