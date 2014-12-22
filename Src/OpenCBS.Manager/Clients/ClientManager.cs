@@ -2893,6 +2893,7 @@ namespace OpenCBS.Manager.Clients
                                  SELECT Persons.id, 
                                         Persons.first_name,
                                         Persons.last_name,
+                                        Tiers.home_phone,
                                         Tiers.personal_phone,
                                         CorporatePersonBelonging.position 
                                  FROM Tiers
@@ -2920,7 +2921,8 @@ namespace OpenCBS.Manager.Clients
                                              Id = r.GetInt("id"),
                                              FirstName = r.GetString("first_name"),
                                              LastName = r.GetString("last_name"),
-                                             PersonalPhone = r.GetString("personal_phone")
+                                             PersonalPhone = r.GetString("personal_phone"),
+                                             HomePhone = r.GetString("home_phone")
                                          };
 
                             contact = new Contact()

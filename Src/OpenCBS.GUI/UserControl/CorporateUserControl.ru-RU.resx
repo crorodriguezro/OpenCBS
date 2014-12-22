@@ -112,33 +112,27 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="columnHeaderName.Text" xml:space="preserve">
     <value>Имя</value>
   </data>
+  <data name="columnHeaderPhone.Text" xml:space="preserve">
+    <value>Тел 1</value>
+  </data>
+  <data name="columnHeaderPhone2.Text" xml:space="preserve">
+    <value>Тел 2</value>
+  </data>
   <data name="buttonDelete.Text" xml:space="preserve">
     <value>Удалить</value>
-  </data>
-  <data name="tabPageAddress.Text" xml:space="preserve">
-    <value>Адрес</value>
-  </data>
-  <data name="tabPageContacts.Text" xml:space="preserve">
-    <value>Контакты</value>
-  </data>
-  <data name="tabPageSavings.Text" xml:space="preserve">
-    <value>Депозиты</value>
-  </data>
-  <data name="tabPageCustomizableFields.Text" xml:space="preserve">
-    <value>Настраиваемые поля</value>
   </data>
   <data name="groupBoxCorporate.Text" xml:space="preserve">
     <value>Организация</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="labelLastname.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 16</value>
   </data>
@@ -207,5 +201,14 @@
   </data>
   <data name="btnPrint.Text" xml:space="preserve">
     <value>Печать</value>
+  </data>
+  <data name="tabPageSavings.Text" xml:space="preserve">
+    <value>Депозиты</value>
+  </data>
+  <data name="tabPageContacts.Text" xml:space="preserve">
+    <value>Контакты</value>
+  </data>
+  <data name="tabPageAddress.Text" xml:space="preserve">
+    <value>Адрес</value>
   </data>
 </root>

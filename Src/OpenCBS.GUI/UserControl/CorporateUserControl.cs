@@ -265,6 +265,7 @@ namespace OpenCBS.GUI.UserControl
             foreach (Contact contact in contacts)
             {
                 var listViewItem = new ListViewItem(((Person)contact.Tiers).Name) {Tag = contact};
+                listViewItem.SubItems.Add(((Person)contact.Tiers).HomePhone);
                 listViewItem.SubItems.Add(((Person)contact.Tiers).PersonalPhone);
                 lvContacts.Items.Add(listViewItem);
             }

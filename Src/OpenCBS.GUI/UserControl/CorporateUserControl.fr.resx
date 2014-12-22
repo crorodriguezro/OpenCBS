@@ -120,6 +120,9 @@
   <data name="columnHeaderName.Text" xml:space="preserve">
     <value>Nom</value>
   </data>
+  <data name="columnHeaderPhone.Text" xml:space="preserve">
+    <value>Tel 1</value>
+  </data>
   <data name="btnAddContact.Text" xml:space="preserve">
     <value>Ajouter</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="buttonDelete.Text" xml:space="preserve">
     <value>Supprimer</value>
+  </data>
+  <data name="groupBoxCorporate.Text" xml:space="preserve">
+    <value>Entreprise</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="labelLastname.Size" type="System.Drawing.Size, System.Drawing">
@@ -184,9 +190,6 @@
   <data name="linkLabelChangePhoto.Text" xml:space="preserve">
     <value>Changer la photo</value>
   </data>
-  <data name="groupBoxCorporate.Text" xml:space="preserve">
-    <value>Entreprise</value>
-  </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Annuler</value>
   </data>
@@ -201,5 +204,12 @@
   </data>
   <data name="tabPageAddress.Text" xml:space="preserve">
     <value>Adresse</value>
+  </data>
+  <data name="columnHeaderPhone2.Text" xml:space="preserve">
+    <value>Tel 2</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="columnHeaderPhone2.Width" type="System.Int32, mscorlib">
+    <value>148</value>
   </data>
 </root>

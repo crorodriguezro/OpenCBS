@@ -150,11 +150,14 @@
   <data name="textBoxSmallNameCorporate.Location" type="System.Drawing.Point, System.Drawing">
     <value>239, 84</value>
   </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+  <data name="columnHeaderPhone2.Text" xml:space="preserve">
+    <value>Tel 2</value>
   </data>
   <data name="&gt;&gt;groupBoxAddress.Name" xml:space="preserve">
     <value>groupBoxAddress</value>
+  </data>
+  <data name="columnHeaderPhone2.Width" type="System.Int32, mscorlib">
+    <value>148</value>
   </data>
   <data name="buttonCancel.TabIndex" type="System.Int32, mscorlib">
     <value>52</value>
@@ -306,8 +309,11 @@
   <data name="tableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
     <value>63</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cbBranch.TabIndex" type="System.Int32, mscorlib">
+    <value>95</value>
+  </data>
+  <data name="&gt;&gt;columnHeaderPhone2.Name" xml:space="preserve">
+    <value>columnHeaderPhone2</value>
   </data>
   <data name="tabPageContacts.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 36</value>
@@ -352,7 +358,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="labelLastname" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="eacCorporate" Row="6" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblEconomicActivity" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelDateCrate" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelSigle" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="cbBranch" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCorpCycle" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxCorpLoanCycle" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxLastNameCorporate" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="dateTimePickerDateOfCreate" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxSigle" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxSmallNameCorporate" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelSmallNameCorporate" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,14.14141,Percent,14.14141,Percent,14.14141,Percent,14.14141,Percent,14.14141,Percent,16.66667,Percent,15.15152,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="labelLastname" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="eacCorporate" Row="6" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblEconomicActivity" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelDateCrate" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelSigle" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="cbBranch" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCorpCycle" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxCorpLoanCycle" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxLastNameCorporate" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="dateTimePickerDateOfCreate" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxSigle" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxSmallNameCorporate" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelSmallNameCorporate" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,14,14141,Percent,14,14141,Percent,14,14141,Percent,14,14141,Percent,14,14141,Percent,16,66667,Percent,15,15152,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>101</value>
@@ -388,10 +394,13 @@
     <value>74, 13</value>
   </data>
   <data name="&gt;&gt;btnPrint.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.15.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=14.16.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="labelLastname.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 16</value>
+  </data>
+  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <data name="textBoxCorpLoanCycle.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 22</value>
@@ -444,20 +453,20 @@
   <data name="&gt;&gt;flowLayoutPanel1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="dateTimePickerDateOfCreate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 20</value>
-  </data>
   <data name="pictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="flowLayoutPanel1.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
     <value>RightToLeft</value>
   </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Parent" xml:space="preserve">
+    <value>splitContainer1</value>
+  </data>
   <data name="&gt;&gt;splitContainer1.Parent" xml:space="preserve">
     <value>tableLayoutPanel3</value>
   </data>
-  <data name="lblEconomicActivity.TabIndex" type="System.Int32, mscorlib">
-    <value>100</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>OpenCBS.GUI.UserControl.ClientControl, OpenCBS.GUI, Version=14.16.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;columnHeaderPhone.Name" xml:space="preserve">
     <value>columnHeaderPhone</value>
@@ -469,13 +478,10 @@
     <value>230, 20</value>
   </data>
   <data name="&gt;&gt;savingsListUserControl1.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SavingsListUserControl, OpenCBS.GUI, Version=14.15.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SavingsListUserControl, OpenCBS.GUI, Version=14.16.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 380</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ClientControl, OpenCBS.GUI, Version=14.15.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxLastNameCorporate.Name" xml:space="preserve">
     <value>textBoxLastNameCorporate</value>
@@ -491,9 +497,6 @@
   </data>
   <data name="lblEconomicActivity.AccessibleName" xml:space="preserve">
     <value />
-  </data>
-  <data name="cbBranch.TabIndex" type="System.Int32, mscorlib">
-    <value>95</value>
   </data>
   <data name="labelSigle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -582,8 +585,8 @@
   <data name="tableLayoutPanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;textBoxCorpLoanCycle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="columnHeaderName.Width" type="System.Int32, mscorlib">
+    <value>238</value>
   </data>
   <data name="labelSigle.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 16</value>
@@ -606,8 +609,8 @@
   <data name="labelDateCrate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="cbBranch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>239, 138</value>
+  <data name="textBoxCorpLoanCycle.TabIndex" type="System.Int32, mscorlib">
+    <value>98</value>
   </data>
   <data name="pictureBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -648,8 +651,11 @@
   <data name="lvContacts.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="btnPrint.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 25</value>
+  <data name="lblEconomicActivity.TabIndex" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="btnSelectContact.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 25</value>
   </data>
   <data name="labelCorpCycle.Text" xml:space="preserve">
     <value>Corporate cycle: </value>
@@ -681,8 +687,8 @@
   <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;eacCorporate.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+  <data name="cbBranch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>239, 138</value>
   </data>
   <data name="eacCorporate.Location" type="System.Drawing.Point, System.Drawing">
     <value>236, 167</value>
@@ -696,8 +702,8 @@
   <data name="labelSigle.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
-  <data name="columnHeaderName.Width" type="System.Int32, mscorlib">
-    <value>238</value>
+  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;buttonSave.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -711,8 +717,8 @@
   <data name="labelSmallNameCorporate.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 81</value>
   </data>
-  <data name="&gt;&gt;textBoxLastNameCorporate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tabPageSavings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelCorpCycle.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -720,8 +726,11 @@
   <data name="tabPageContacts.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;tabPageAddress.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="linkLabelChangePhoto2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dateTimePickerDateOfCreate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 20</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -786,8 +795,8 @@
   <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
     <value>splitContainer1.Panel2</value>
   </data>
-  <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>558, 13</value>
+  <data name="btnPrint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 25</value>
   </data>
   <data name="&gt;&gt;buttonCancel.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -819,8 +828,8 @@
   <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
     <value>pictureBox1</value>
   </data>
-  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="&gt;&gt;pictureBox2.Name" xml:space="preserve">
+    <value>pictureBox2</value>
   </data>
   <data name="&gt;&gt;linkLabelChangePhoto.Type" xml:space="preserve">
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -846,6 +855,9 @@
   <data name="btnSelectContact.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="&gt;&gt;eacCorporate.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
   <data name="labelSmallNameCorporate.Text" xml:space="preserve">
     <value>Short name:</value>
   </data>
@@ -855,14 +867,14 @@
   <data name="&gt;&gt;lvContacts.Parent" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
   </data>
-  <data name="&gt;&gt;pictureBox2.Name" xml:space="preserve">
-    <value>pictureBox2</value>
-  </data>
   <data name="&gt;&gt;lvContacts.Type" xml:space="preserve">
     <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="labelSigle.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 54</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
   </data>
   <data name="labelSigle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -872,6 +884,9 @@
   </data>
   <data name="&gt;&gt;linkLabelChangePhoto.Name" xml:space="preserve">
     <value>linkLabelChangePhoto</value>
+  </data>
+  <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>558, 13</value>
   </data>
   <data name="textBoxSigle.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 20</value>
@@ -970,7 +985,7 @@
     <value>59</value>
   </data>
   <data name="&gt;&gt;eacCorporate.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.EconomicActivityControl, OpenCBS.GUI, Version=14.15.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.EconomicActivityControl, OpenCBS.GUI, Version=14.16.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;columnHeaderName.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1008,8 +1023,8 @@
   <data name="&gt;&gt;textBoxSmallNameCorporate.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="linkLabelChangePhoto2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;textBoxLastNameCorporate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="groupBoxAddress.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -1062,9 +1077,6 @@
   <data name="lblEconomicActivity.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnPrint.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
   <data name="&gt;&gt;buttonCancel.Name" xml:space="preserve">
     <value>buttonCancel</value>
   </data>
@@ -1098,8 +1110,8 @@
   <data name="labelSmallNameCorporate.TabIndex" type="System.Int32, mscorlib">
     <value>53</value>
   </data>
-  <data name="btnSelectContact.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 25</value>
+  <data name="btnPrint.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
     <value>837, 642</value>
@@ -1107,11 +1119,8 @@
   <data name="tabPageContacts.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;tabPageSavings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.Parent" xml:space="preserve">
-    <value>splitContainer1</value>
+  <data name="&gt;&gt;textBoxCorpLoanCycle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBoxLastNameCorporate.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1173,11 +1182,17 @@
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>558, 13</value>
   </data>
+  <data name="&gt;&gt;tabPageAddress.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="groupBoxAddress.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="&gt;&gt;groupBoxCorporate.Name" xml:space="preserve">
     <value>groupBoxCorporate</value>
+  </data>
+  <data name="&gt;&gt;columnHeaderPhone2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="textBoxSigle.TabIndex" type="System.Int32, mscorlib">
     <value>64</value>
@@ -1230,9 +1245,6 @@
   <data name="tabPageAddress.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="textBoxCorpLoanCycle.TabIndex" type="System.Int32, mscorlib">
-    <value>98</value>
-  </data>
   <data name="&gt;&gt;columnHeaderPhone.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1255,7 +1267,7 @@
     <value>tabPageSavings</value>
   </data>
   <data name="columnHeaderPhone.Text" xml:space="preserve">
-    <value>Phone</value>
+    <value>Tel 1</value>
   </data>
   <data name="&gt;&gt;btnSelectContact.Parent" xml:space="preserve">
     <value>groupBox3</value>
@@ -1300,6 +1312,6 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
+    <value>pt</value>
   </metadata>
 </root>

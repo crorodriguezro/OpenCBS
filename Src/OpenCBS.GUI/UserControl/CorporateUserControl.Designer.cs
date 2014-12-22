@@ -45,6 +45,7 @@ namespace OpenCBS.GUI.UserControl
             this.lvContacts = new System.Windows.Forms.ListView();
             this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderPhone2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnAddContact = new System.Windows.Forms.Button();
             this.btnSelectContact = new System.Windows.Forms.Button();
@@ -117,7 +118,8 @@ namespace OpenCBS.GUI.UserControl
             resources.ApplyResources(this.lvContacts, "lvContacts");
             this.lvContacts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderName,
-            this.columnHeaderPhone});
+            this.columnHeaderPhone,
+            this.columnHeaderPhone2});
             this.lvContacts.FullRowSelect = true;
             this.lvContacts.GridLines = true;
             this.lvContacts.MultiSelect = false;
@@ -133,6 +135,10 @@ namespace OpenCBS.GUI.UserControl
             // columnHeaderPhone
             // 
             resources.ApplyResources(this.columnHeaderPhone, "columnHeaderPhone");
+            // 
+            // columnHeaderPhone2
+            // 
+            resources.ApplyResources(this.columnHeaderPhone2, "columnHeaderPhone2");
             // 
             // groupBox3
             // 
@@ -460,6 +466,7 @@ namespace OpenCBS.GUI.UserControl
         private TabPage tabPageAddress;
         private GroupBox groupBoxAddress;
         protected TabControl tabControlCorporate;
+        private ColumnHeader columnHeaderPhone2;
 
     }
 }
