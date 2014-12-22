@@ -3129,7 +3129,7 @@ namespace OpenCBS.Services
             var amount =
                 eventStock.GetRepaymentEvents()
                     .Where(i => !i.IsFired)
-                    .Sum(i => i.Commissions.Value + i.Penalties.Value + i.Interests.Value + i.Principal.Value);
+                    .Sum(i => i.Commissions.Value + i.Penalties.Value + i.Interests.Value + i.Principal.Value + i.BounceFee.Value);
             using (var sqlTransaction = _loanManager.GetConnection().BeginTransaction())
             {
                 try

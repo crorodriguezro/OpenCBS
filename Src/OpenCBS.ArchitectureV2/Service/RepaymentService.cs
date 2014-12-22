@@ -38,7 +38,7 @@ namespace OpenCBS.ArchitectureV2.Service
             var script = RunScript();
             script.Main(newSettings);
             return
-                Math.Round(newSettings.Penalty + newSettings.Interest + newSettings.Principal, 2);
+                Math.Round(newSettings.Penalty + newSettings.Interest + newSettings.Principal + newSettings.BounceFee, 2);
         }
 
         private static dynamic RunScript()
