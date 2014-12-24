@@ -170,11 +170,11 @@ namespace OpenCBS.GUI.UserControl
             addressUserControlFirst = new AddressUserControl
                                           {
                                               TextBoxHomePhoneText =
-                                                  MultiLanguageStrings.GetString(Ressource.PersonUserControl,
-                                                                                 "Businesscellphone.Text"),
-                                              TextBoxPersonalPhoneText =
-                                                  MultiLanguageStrings.GetString(Ressource.PersonUserControl,
+                                                  MultiLanguageStrings.GetString(Ressource.CorporateUserControl,
                                                                                  "Businessphone.Text"),
+                                              TextBoxPersonalPhoneText =
+                                                  MultiLanguageStrings.GetString(Ressource.CorporateUserControl,
+                                                                                 "Cellphone.Text"),
                                               Dock = DockStyle.Fill
                                           };
             groupBoxAddress.Controls.Add(addressUserControlFirst);
