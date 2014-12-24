@@ -121,8 +121,11 @@ namespace OpenCBS.GUI.UserControl
                 _corporate.LoanCycle = 0;
             }
 
-            foreach (Branch branch in User.CurrentUser.Branches)
+            var branches = User.CurrentUser.Branches.OrderBy(x => x.Id);
+            foreach (var branch in branches)
+            {
                 cbBranch.Items.Add(branch);
+            }
 
             if (_corporate.Id != 0)
             {
@@ -130,11 +133,7 @@ namespace OpenCBS.GUI.UserControl
             }
             else
             {
-                var defaultBranch = User.CurrentUser.Branches.FirstOrDefault(x => x.IsDefault);
-                if (defaultBranch != null)
-                {
-                    cbBranch.SelectedItem = defaultBranch;
-                }
+                cbBranch.SelectedIndex = 0;
             }
         }
 
