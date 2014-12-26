@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="PackageExceptionExoticProductNameAlreadyExist" xml:space="preserve">
     <value>Exotic product name already exist!!</value>
@@ -670,7 +670,7 @@
     <value>Reopen fees min values are not correct.</value>
   </data>
   <data name="LoanHasNoCompulsorySavingsError.Text" xml:space="preserve">
-    <value>A compulsory savings account is necessary for this loan, please set it manually.</value>
+    <value>A mandatory savings account is necessary for this loan, please set it manually.</value>
   </data>
   <data name="SavingsEventCannotBeCanceled.Text" xml:space="preserve">
     <value>This savings event cannot be canceled!</value>
@@ -694,7 +694,7 @@
     <value>Some fields are not unique and value already exists!</value>
   </data>
   <data name="CompulsorySavingsContractIsNotActive.Text" xml:space="preserve">
-    <value>Compulsory savings account is not active!</value>
+    <value>Mandatory savings account is not active!</value>
   </data>
   <data name="PostingFrequencyIsInvalid.Text" xml:space="preserve">
     <value>Term deposit period is wrong. Please check it and try again.</value>

@@ -1226,7 +1226,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                 SavingBlockCompulsarySavingsEvent savingBlockEvent = new SavingBlockCompulsarySavingsEvent();
                 Debug.Assert(CompulsorySavingsPercentage != null,
                              string.Format(
-                                 "Loan with code {0}, should be cheked for compulsory existance, before adding saving block event",
+                                 "Loan with code {0}, should be cheked for mandatory existance, before adding saving block event",
                                  Code)
                     );
                 OCurrency csAmount = (Amount.Value * CompulsorySavingsPercentage.Value) / 100m;

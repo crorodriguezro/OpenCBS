@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="PackageExceptionExoticProductNameAlreadyExist" xml:space="preserve">
     <value>Exotic product name already exist!!</value>
@@ -900,7 +900,7 @@ You must complete "min" and "max". Initial amount cannot be null (Main Parameter
     <value>Loan is invalid</value>
   </data>
   <data name="SavingContractLoanHasNotSameClient.Text" xml:space="preserve">
-    <value>The loan client isn't the same that compulsory savings client</value>
+    <value>The loan client isn't the same that mandatory savings client</value>
   </data>
   <data name="SavingContractLoanHasNotSameCurrency.Text" xml:space="preserve">
     <value>The loan currency isn't the same that compulosry savings currency</value>
@@ -936,16 +936,16 @@ You must complete either "min" and "max" or "value". If you do not want to use t
     <value>Transfer fees is invalid</value>
   </data>
   <data name="SavingContractCompulsorySavingsLinkedToLoan.Text" xml:space="preserve">
-    <value>The compulsory savings contract is already linked to a loan</value>
+    <value>The mandatory savings contract is already linked to a loan</value>
   </data>
   <data name="SavingContractLoanDoesNotAcceptSavings.Text" xml:space="preserve">
-    <value>The loan contract doesn't accept compulsory savings</value>
+    <value>The loan contract doesn't accept mandatory savings</value>
   </data>
   <data name="SavingContractAmountOnCompulsorySavingsIsInvalid.Text" xml:space="preserve">
-    <value>Balance of the compulsory savings is invalid</value>
+    <value>Balance of the mandatory savings is invalid</value>
   </data>
   <data name="SavingContractNoCompulsorySavings.Text" xml:space="preserve">
-    <value>No compulsory savings for this Loan</value>
+    <value>No mandatory savings for this Loan</value>
   </data>
   <data name="SavingContractRolloverTransferAccountHasNotSameClient.Text" xml:space="preserve">
     <value>The transfer account has not the same client</value>
@@ -957,7 +957,7 @@ You must complete either "min" and "max" or "value". If you do not want to use t
     <value>The transfer account is invalid</value>
   </data>
   <data name="SavingContractRolloverTransferAccountIsSavingDepositOrCompulsorySavings.Text" xml:space="preserve">
-    <value>The transfer account is a Savings Deposit account or a Compulsory Savings account</value>
+    <value>The transfer account is a Savings Deposit account or a Mandatory Savings account</value>
   </data>
   <data name="RepaymentBeforeDisburse.Text" xml:space="preserve">
     <value>Can not make a repayment before disburse date</value>
@@ -1116,11 +1116,11 @@ You must complete either "min" and "max" or "value". If you do not want to use r
     <value>Accounts are equal</value>
   </data>
   <data name="LoanHasNoCompulsorySavingsError.Text" xml:space="preserve">
-    <value>A compulsory savings account is necessary for this loan, please set it manually.</value>
+    <value>A mandatory savings account is necessary for this loan, please set it manually.</value>
   </data>
   <data name="CompulsorySavingSettingsEmpty.Text" xml:space="preserve">
-    <value>Compulsory saving settings are empty or incorrect
-You must complete either "min" and "max" or "value". If you do not want to use compulsory savings, set "value" to 0 (tab Guarantees)</value>
+    <value>Mandatory saving settings are empty or incorrect
+You must complete either "min" and "max" or "value". If you do not want to use mandatory savings, set "value" to 0 (tab Guarantees)</value>
   </data>
   <data name="SavingsEventCannotBeCanceled.Text" xml:space="preserve">
     <value>This savings event cannot be canceled!</value>
@@ -1225,7 +1225,7 @@ You must complete either "min" and "max" or "value". (tab Line of Credit)</value
 You must complete either "min" and "max" or "value". (tab Line of Credit)</value>
   </data>
   <data name="CompulsorySavingsContractIsNotActive.Text" xml:space="preserve">
-    <value>Compulsory savings account is not active!</value>
+    <value>Mandatory savings account is not active!</value>
   </data>
   <data name="AddEntryFeeCycleError.Text" xml:space="preserve">
     <value>The cycle you have input already exists.</value>

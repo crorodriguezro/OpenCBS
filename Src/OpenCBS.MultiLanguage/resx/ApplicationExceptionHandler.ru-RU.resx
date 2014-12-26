@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="PackageExceptionExoticProductNameAlreadyExist" xml:space="preserve">
     <value>Имя не типичного продукта уже существует</value>
@@ -811,10 +811,10 @@
     <value>Контракт не использует вынужденные сбережения</value>
   </data>
   <data name="SavingContractLoanHasNotSameClient.Text" xml:space="preserve">
-    <value>The loan client isn't the same that compulsory savings client</value>
+    <value>The loan client isn't the same that mandatory savings client</value>
   </data>
   <data name="SavingContractLoanHasNotSameCurrency.Text" xml:space="preserve">
-    <value>The loan currency isn't the same that compulosry savings currency</value>
+    <value>The loan currency isn't the same that mandatory savings currency</value>
   </data>
   <data name="SavingContractLoanIsClosed.Text" xml:space="preserve">
     <value>Займ закрыт</value>
@@ -838,7 +838,7 @@
     <value>Трансферный счёт недействительный</value>
   </data>
   <data name="SavingContractRolloverTransferAccountIsSavingDepositOrCompulsorySavings.Text" xml:space="preserve">
-    <value>The transfer account is a Savings Deposit account or a Compulsory Savings account</value>
+    <value>The transfer account is a Savings Deposit account or a Mandatory Savings account</value>
   </data>
   <data name="SavingContractTransferFeesIsInvalid.Text" xml:space="preserve">
     <value>Комиссия за перевод недействителен</value>
