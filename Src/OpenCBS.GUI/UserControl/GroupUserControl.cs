@@ -699,7 +699,8 @@ namespace OpenCBS.GUI.UserControl
             // dateTimePickerDateOfEstablishment
             // 
             resources.ApplyResources(this.dateTimePickerDateOfEstablishment, "dateTimePickerDateOfEstablishment");
-            this.dateTimePickerDateOfEstablishment.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerDateOfEstablishment.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerDateOfEstablishment.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             this.dateTimePickerDateOfEstablishment.Name = "dateTimePickerDateOfEstablishment";
             this.dateTimePickerDateOfEstablishment.Value = new System.DateTime(2006, 5, 19, 0, 0, 0, 0);
             this.dateTimePickerDateOfEstablishment.ValueChanged += new System.EventHandler(this.dateTimePickerDateOfEstablishment_ValueChanged);

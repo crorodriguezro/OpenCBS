@@ -1,4 +1,5 @@
 using OpenCBS.Controls;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Contracts
 {
@@ -75,7 +76,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // startDateTimePicker
             // 
-            this.startDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.startDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.startDateTimePicker.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.startDateTimePicker, "startDateTimePicker");
             this.startDateTimePicker.Name = "startDateTimePicker";
             // 

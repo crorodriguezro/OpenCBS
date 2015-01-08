@@ -1,4 +1,6 @@
-﻿namespace OpenCBS.Extensions
+﻿using OpenCBS.Shared.Settings;
+
+namespace OpenCBS.Extensions
 {
     partial class LoanApprovalUserControl
     {
@@ -122,7 +124,8 @@
             // 
             // _dateTimePicker
             // 
-            this._dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this._dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this._dateTimePicker.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             this._dateTimePicker.Location = new System.Drawing.Point(73, 36);
             this._dateTimePicker.Name = "_dateTimePicker";
             this._dateTimePicker.Size = new System.Drawing.Size(125, 22);

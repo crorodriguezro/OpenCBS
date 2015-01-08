@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using OpenCBS.GUI.UserControl;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Contracts
 {
@@ -424,7 +425,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // dtpRepaymentDate
             // 
-            this.dtpRepaymentDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpRepaymentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpRepaymentDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dtpRepaymentDate, "dtpRepaymentDate");
             this.dtpRepaymentDate.Name = "dtpRepaymentDate";
             this.dtpRepaymentDate.CloseUp += new System.EventHandler(this._dateTimePicker_CloseUp);

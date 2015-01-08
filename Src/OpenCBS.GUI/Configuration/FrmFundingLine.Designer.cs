@@ -1,5 +1,6 @@
 using System.Windows.Forms;
 using OpenCBS.GUI.UserControl;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI
 {
@@ -245,7 +246,8 @@ namespace OpenCBS.GUI
             // 
             // dateTimePickerFundingLineEndDate
             // 
-            this.dateTimePickerFundingLineEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerFundingLineEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerFundingLineBeginDate.CustomFormat=ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dateTimePickerFundingLineEndDate, "dateTimePickerFundingLineEndDate");
             this.dateTimePickerFundingLineEndDate.Name = "dateTimePickerFundingLineEndDate";
             // 
@@ -271,7 +273,8 @@ namespace OpenCBS.GUI
             // 
             // dateTimePickerFundingLineBeginDate
             // 
-            this.dateTimePickerFundingLineBeginDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerFundingLineBeginDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerFundingLineBeginDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dateTimePickerFundingLineBeginDate, "dateTimePickerFundingLineBeginDate");
             this.dateTimePickerFundingLineBeginDate.Name = "dateTimePickerFundingLineBeginDate";
             // 

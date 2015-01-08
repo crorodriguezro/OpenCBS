@@ -1,4 +1,5 @@
 using OpenCBS.GUI.UserControl;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Contracts
 {
@@ -226,7 +227,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // dtCreationDate
             // 
-            this.dtCreationDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtCreationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtCreationDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dtCreationDate, "dtCreationDate");
             this.dtCreationDate.Name = "dtCreationDate";
             this.dtCreationDate.ValueChanged += new System.EventHandler(this.dtCreationDate_ValueChanged);

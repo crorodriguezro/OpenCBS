@@ -1,3 +1,5 @@
+using OpenCBS.Shared.Settings;
+
 namespace OpenCBS.GUI.Accounting
 {
     partial class EditFiscalYear
@@ -46,7 +48,8 @@ namespace OpenCBS.GUI.Accounting
             // 
             // dpkOpenDate
             // 
-            this.dpkOpenDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpkOpenDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpkOpenDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dpkOpenDate, "dpkOpenDate");
             this.dpkOpenDate.Name = "dpkOpenDate";
             // 
@@ -62,7 +65,8 @@ namespace OpenCBS.GUI.Accounting
             // 
             // dpkCloseDate
             // 
-            this.dpkCloseDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpkCloseDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpkCloseDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dpkCloseDate, "dpkCloseDate");
             this.dpkCloseDate.Name = "dpkCloseDate";
             // 

@@ -1,3 +1,6 @@
+using System.Windows.Forms;
+using OpenCBS.Shared.Settings;
+
 namespace OpenCBS.GUI.Export
 {
     partial class CustomizableExportForm
@@ -142,11 +145,16 @@ namespace OpenCBS.GUI.Export
             // 
             resources.ApplyResources(this.dateTimePickerEndDateInstallments, "dateTimePickerEndDateInstallments");
             this.dateTimePickerEndDateInstallments.Name = "dateTimePickerEndDateInstallments";
+            this.dateTimePickerEndDateInstallments.Format=DateTimePickerFormat.Custom;
+            this.dateTimePickerEndDateInstallments.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             // 
             // dateTimePickerBeginDateInstallments
             // 
             resources.ApplyResources(this.dateTimePickerBeginDateInstallments, "dateTimePickerBeginDateInstallments");
             this.dateTimePickerBeginDateInstallments.Name = "dateTimePickerBeginDateInstallments";
+            this.dateTimePickerBeginDateInstallments.Format = DateTimePickerFormat.Custom;
+            this.dateTimePickerBeginDateInstallments.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+
             // 
             // labelBeginDateInstallments
             // 

@@ -161,6 +161,9 @@ namespace OpenCBS.GUI.UserControl
             _tempPerson.DateOfBirth = DateTime.Now;
             _tempPerson.LoanCycle = 0;
 
+            dateTimePickerDateOfBirth.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+                //"dd_MM-yyyy";
+
             foreach (Branch branch in User.CurrentUser.Branches)
             {
                 cbBranch.Items.Add(branch);
@@ -273,7 +276,11 @@ namespace OpenCBS.GUI.UserControl
                 textBoxFirstName.Text = _tempPerson.FirstName;
                 textBoxIdentificationData.Text = _tempPerson.IdentificationData;
                 dateTimePickerFirstContact.Text = ServicesHelper.ConvertNullableDateTimeToString(_tempPerson.FirstContact);
+                dateTimePickerFirstContact.Format = DateTimePickerFormat.Custom;
+                dateTimePickerFirstContact.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
                 dateTimePickerFirstAppointment.Text = ServicesHelper.ConvertNullableDateTimeToString(_tempPerson.FirstAppointment);
+                dateTimePickerFirstAppointment.Format = DateTimePickerFormat.Custom;
+                dateTimePickerFirstAppointment.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
                 dateTimePickerDateOfBirth.Text = ServicesHelper.ConvertNullableDateTimeToString(_tempPerson.DateOfBirth);
                 checkBoxHeadOfHousehold.Checked = _tempPerson.HouseHoldHead;
                 textBoxLoanCycle.Text = _tempPerson.LoanCycle.ToString();
@@ -336,7 +343,6 @@ namespace OpenCBS.GUI.UserControl
             dateTimePickerDateOfBirth.Value = new DateTime(1980, 1, 1);
             dateTimePickerFirstContact.Value = TimeProvider.Today;
             textBoxIdentificationData.Text = string.Empty;
-
             checkBoxHeadOfHousehold.Checked = false;
             richTextBoxCommentsActivity.Text = string.Empty;
 

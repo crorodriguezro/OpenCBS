@@ -2,6 +2,8 @@ using System.Globalization;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain.FundingLines;
 using OpenCBS.GUI.UserControl;
+using OpenCBS.Services;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Clients
 {
@@ -1167,7 +1169,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // dateTimePickerProjectBeginDate
             // 
-            this.dateTimePickerProjectBeginDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerProjectBeginDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerProjectBeginDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dateTimePickerProjectBeginDate, "dateTimePickerProjectBeginDate");
             this.dateTimePickerProjectBeginDate.Name = "dateTimePickerProjectBeginDate";
             // 
@@ -1608,7 +1611,8 @@ namespace OpenCBS.GUI.Clients
             // dtpDateOfFirstInstallment
             // 
             resources.ApplyResources(this.dtpDateOfFirstInstallment, "dtpDateOfFirstInstallment");
-            this.dtpDateOfFirstInstallment.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDateOfFirstInstallment.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDateOfFirstInstallment.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             this.dtpDateOfFirstInstallment.Name = "dtpDateOfFirstInstallment";
             // 
             // labelLoanGracePeriodMinMax
@@ -1645,7 +1649,8 @@ namespace OpenCBS.GUI.Clients
             // dateLoanStart
             // 
             resources.ApplyResources(this.dateLoanStart, "dateLoanStart");
-            this.dateLoanStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateLoanStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateLoanStart.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             this.dateLoanStart.Name = "dateLoanStart";
             this.dateLoanStart.ValueChanged += new System.EventHandler(this.dateLoanStart_ValueChanged);
             // 

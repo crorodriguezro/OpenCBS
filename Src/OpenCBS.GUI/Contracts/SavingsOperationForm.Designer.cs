@@ -1,3 +1,5 @@
+using OpenCBS.Shared.Settings;
+
 namespace OpenCBS.GUI.Contracts
 {
     using OpenCBS.GUI.UserControl;
@@ -196,7 +198,8 @@ namespace OpenCBS.GUI.Contracts
             // dtpDate
             // 
             resources.ApplyResources(this.dtpDate, "dtpDate");
-            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             this.dtpDate.Name = "dtpDate";
             // 
             // lblDate

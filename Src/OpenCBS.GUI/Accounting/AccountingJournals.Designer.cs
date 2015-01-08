@@ -1,4 +1,5 @@
 using OpenCBS.GUI.UserControl;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Accounting
 {
@@ -128,13 +129,15 @@ namespace OpenCBS.GUI.Accounting
             // dateTimePickerBeginDate
             // 
             resources.ApplyResources(this.dateTimePickerBeginDate, "dateTimePickerBeginDate");
-            this.dateTimePickerBeginDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerBeginDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerBeginDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             this.dateTimePickerBeginDate.Name = "dateTimePickerBeginDate";
             // 
             // dateTimePickerEndDate
             // 
             resources.ApplyResources(this.dateTimePickerEndDate, "dateTimePickerEndDate");
-            this.dateTimePickerEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerEndDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
             // 
             // lblBeginDate

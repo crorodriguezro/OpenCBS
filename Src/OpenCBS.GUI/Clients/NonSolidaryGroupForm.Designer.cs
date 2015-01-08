@@ -1,4 +1,6 @@
+using OpenCBS.Enums;
 using OpenCBS.GUI.UserControl;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Clients
 {
@@ -203,7 +205,8 @@ namespace OpenCBS.GUI.Clients
             // 
             this.panelNSGDetails.SetColumnSpan(this.dtDate, 2);
             resources.ApplyResources(this.dtDate, "dtDate");
-            this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             this.dtDate.Name = "dtDate";
             // 
             // lblLoanOfficer

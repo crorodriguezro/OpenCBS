@@ -26,6 +26,7 @@ using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
 using OpenCBS.Shared;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI
 {
@@ -102,7 +103,8 @@ namespace OpenCBS.GUI
             // 
             resources.ApplyResources(this.dateTimePickerDate, "dateTimePickerDate");
             this.dateTimePickerDate.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
-            this.dateTimePickerDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+		    this.dateTimePickerDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             this.dateTimePickerDate.Name = "dateTimePickerDate";
             // 
             // checkBoxDate

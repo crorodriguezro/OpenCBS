@@ -40,5 +40,11 @@ namespace OpenCBS.ArchitectureV2.Service
         {
             return ApplicationSettings.GetInstance("").NumberDecimalSeparator;
         }
+
+        public string GetShortDateFormat()
+        {
+            return ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            //return "yyyy-MM-dd";
+            }
     }
 }

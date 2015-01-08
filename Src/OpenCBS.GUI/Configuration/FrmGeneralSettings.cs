@@ -36,6 +36,7 @@ using OpenCBS.Shared;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.CoreDomain.Accounting;
 using System.Linq;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Configuration
 {
@@ -780,7 +781,8 @@ namespace OpenCBS.GUI.Configuration
             // 
             // dateTimePickerPublicHoliday
             // 
-            this.dateTimePickerPublicHoliday.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerPublicHoliday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerPublicHoliday.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dateTimePickerPublicHoliday, "dateTimePickerPublicHoliday");
             this.dateTimePickerPublicHoliday.Name = "dateTimePickerPublicHoliday";
             this.dateTimePickerPublicHoliday.Value = new System.DateTime(2008, 10, 7, 0, 0, 0, 0);

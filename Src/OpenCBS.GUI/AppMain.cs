@@ -66,13 +66,13 @@ namespace OpenCBS.GUI
 
                 Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(UserSettings.Language);
                 Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture;
-
                 Application.EnableVisualStyles();
                 Application.DoEvents();
 
                 ConfigureAutoMapper();
                 var bootstrapper = new Bootstrapper(new Container());
                 Application.Run(bootstrapper.GetAppContext());
+                
             }
             catch (Exception ex)
             {

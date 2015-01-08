@@ -1,3 +1,6 @@
+using System.Net.Mime;
+using OpenCBS.Shared.Settings;
+
 namespace OpenCBS.GUI.Report_Browser
 {
     partial class RepaymentCollectionSheetForm
@@ -60,7 +63,8 @@ namespace OpenCBS.GUI.Report_Browser
             // 
             // dtFrom
             // 
-            this.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtFrom.CustomFormat = ((OpenCBS.Shared.Settings.ApplicationSettings)(resources.GetObject("resource1"))).SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dtFrom, "dtFrom");
             this.dtFrom.Name = "dtFrom";
             // 
@@ -78,7 +82,8 @@ namespace OpenCBS.GUI.Report_Browser
             // 
             // dtTo
             // 
-            this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtTo.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dtTo, "dtTo");
             this.dtTo.Name = "dtTo";
             // 

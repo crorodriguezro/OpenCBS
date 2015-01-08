@@ -19,6 +19,8 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
+using System.Net.NetworkInformation;
+
 namespace OpenCBS.Enums
 {
     public static class OGeneralSettings
@@ -68,6 +70,7 @@ namespace OpenCBS.Enums
         public static readonly string NUMBER_DECIMAL_SEPARATOR = "NUMBER_DECIMAL_SEPARATOR";
         public static readonly string USE_EXTERNAL_ACCOUNTING = "USE_EXTERNAL_ACCOUNTING";
         public static readonly string SHOW_EXTRA_INTEREST_COLUMN = "SHOW_EXTRA_INTEREST_COLUMN";
+        public static readonly string SHORT_DATE_FORMAT = "SHORT_DATE_FORMAT";
     }
 }
 

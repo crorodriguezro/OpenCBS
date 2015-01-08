@@ -31,18 +31,23 @@ namespace OpenCBS.ArchitectureV2
         {
             var presenter = _container.GetInstance<ILoginPresenter>();
             presenter.Run();
-            return (Form) presenter.View;
+            return (Form)presenter.View;
         }
 
         private Form GetMainForm()
         {
             var settingsService = _container.GetInstance<ISettingsService>();
             settingsService.Init();
-            Thread.CurrentThread.CurrentCulture.NumberFormat = new NumberFormatInfo
+
+            var culture = (CultureInfo) CultureInfo.CurrentCulture.Clone();
+            culture.DateTimeFormat.ShortDatePattern = settingsService.GetShortDateFormat();
+            culture.NumberFormat = new NumberFormatInfo
             {
                 NumberGroupSeparator = settingsService.GetNumberGroupSeparator(),
                 NumberDecimalSeparator = settingsService.GetNumberDecimalSeparator(),
             };
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
 
             var mainView = _container.GetInstance<IMainView>();
             mainView.Run();
@@ -53,14 +58,14 @@ namespace OpenCBS.ArchitectureV2
         {
             var presenter = _container.GetInstance<IUpgradePresenter>();
             presenter.Run();
-            return (Form) presenter.View;
+            return (Form)presenter.View;
         }
 
         private Form GetSqlServerConnectionForm()
         {
             var presenter = _container.GetInstance<ISqlServerConnectionPresenter>();
             presenter.Run();
-            return (Form) presenter.View;
+            return (Form)presenter.View;
         }
 
         protected override void OnMainFormClosed(object sender, EventArgs e)
@@ -87,7 +92,7 @@ namespace OpenCBS.ArchitectureV2
             }
             else if (sender is IUpgradeView)
             {
-                var view = (IUpgradeView) sender;
+                var view = (IUpgradeView)sender;
                 if (view.Upgraded)
                 {
                     MainForm = GetMainForm();

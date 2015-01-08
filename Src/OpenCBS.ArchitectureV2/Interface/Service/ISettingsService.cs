@@ -8,6 +8,7 @@
         string GetUpdatePath();
         string GetNumberGroupSeparator();
         string GetNumberDecimalSeparator();
+        string GetShortDateFormat();
         void Init();
     }
 }

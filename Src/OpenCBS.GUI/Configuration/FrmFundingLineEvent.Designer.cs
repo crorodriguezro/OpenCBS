@@ -1,3 +1,5 @@
+using OpenCBS.Shared.Settings;
+
 namespace OpenCBS.GUI.Configuration
 {
    partial class FrmFundingLineEvent
@@ -83,7 +85,8 @@ namespace OpenCBS.GUI.Configuration
             // 
             // dateTimePickerEvent
             // 
-            this.dateTimePickerEvent.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerEvent.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerEvent.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dateTimePickerEvent, "dateTimePickerEvent");
             this.dateTimePickerEvent.Name = "dateTimePickerEvent";
             this.dateTimePickerEvent.ValueChanged += new System.EventHandler(this.dateTimePickerEvent_ValueChanged);

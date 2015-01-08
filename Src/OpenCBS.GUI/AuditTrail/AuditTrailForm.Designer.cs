@@ -1,4 +1,5 @@
 using OpenCBS.GUI.UserControl;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.AuditTrail
 {
@@ -154,13 +155,15 @@ namespace OpenCBS.GUI.AuditTrail
             // 
             // dtFrom
             // 
-            this.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.dtFrom, "dtFrom");
+            this.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtFrom.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             this.dtFrom.Name = "dtFrom";
             // 
             // dtTo
             // 
-            this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtTo.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dtTo, "dtTo");
             this.dtTo.Name = "dtTo";
             // 
