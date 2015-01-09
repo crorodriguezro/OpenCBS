@@ -1355,4 +1355,13 @@ Enter another account number.
   <data name="TellerVaultExists.Text" xml:space="preserve">
     <value>Vault for this branch is already exists</value>
   </data>
+  <data name="IncorrectZipCodeFormat.Text" xml:space="preserve">
+    <value>Please enter the zip code in a valid format.</value>
+  </data>
+  <data name="IncorrectCityPhoneFormat.Text" xml:space="preserve">
+    <value>Please enter the home phone number in a valid format.</value>
+  </data>
+  <data name="IncorrectMobilePhoneFormat.Text" xml:space="preserve">
+    <value>Please enter the mobile phone number in a valid format.</value>
+  </data>
 </root>

@@ -262,6 +262,18 @@ namespace OpenCBS.ExceptionsHandler
                 case OpenCbsTiersSaveExceptionEnum.GuarantorMaxLoansCoveredExceed:
 			        returned = "GuarantorMaxLoansCoveredExceed.Text";
                     break;
+
+                case OpenCbsTiersSaveExceptionEnum.IncorrectZipCodeFormat:
+			        returned = "IncorrectZipCodeFormat.Text";
+                    break;
+
+                case OpenCbsTiersSaveExceptionEnum.IncorrectCityPhoneFormat:
+			        returned = "IncorrectCityPhoneFormat.Text";
+                    break;
+
+                case OpenCbsTiersSaveExceptionEnum.IncorrectMobilePhoneFormat:
+                    returned = "IncorrectMobilePhoneFormat.Text";
+                    break;
 			}
 			return returned;
 		}
@@ -321,7 +333,10 @@ namespace OpenCBS.ExceptionsHandler
         PersonIsInTheGroup,
         BranchIsEmpty,
         AgeIsNotInRange,
-        GuarantorMaxLoansCoveredExceed
+        GuarantorMaxLoansCoveredExceed,
+        IncorrectZipCodeFormat,
+        IncorrectCityPhoneFormat,
+        IncorrectMobilePhoneFormat
     }
     
 }

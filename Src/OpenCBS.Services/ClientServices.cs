@@ -32,12 +32,14 @@ using OpenCBS.CoreDomain.SearchResult;
 using OpenCBS.DatabaseConnection;
 using OpenCBS.Enums;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.Manager.Clients;
 using OpenCBS.Shared;
 using OpenCBS.ExceptionsHandler.Exceptions.FundingLineExceptions;
 using OpenCBS.Shared.Settings;
 using OpenCBS.Services.Rules;
+using Group = OpenCBS.CoreDomain.Clients.Group;
 
 namespace OpenCBS.Services
 {
@@ -397,8 +399,102 @@ namespace OpenCBS.Services
                 else
                     result = true;
             }
+            
+            //For all the regexes: If a particular regex is set, only then the following validation takes place
+            //(ZipCode checking according to a regex setting (which is set in the db used) 
+            if (string.IsNullOrEmpty(ApplicationSettings.GetInstance("").StandardZipCode)) { }
+            else
+            {
+                Regex regex = new Regex(ApplicationSettings.GetInstance("").StandardZipCode);
+                if (string.IsNullOrEmpty(client.SecondaryZipCode))
+                {
+                }
+                else
+                {
+                    if (!regex.IsMatch(client.SecondaryZipCode))
+                        throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IncorrectZipCodeFormat);
+                }
+            }
+
+            //CityPhoneNumberChecking (static, that has a cable line connection)
+            //according to a regex setting (which is set in the db used)
+            if (string.IsNullOrEmpty(ApplicationSettings.GetInstance("").StandardZipCode)) { }
+            else
+            {
+                Regex cityPhoneRegex = new Regex(ApplicationSettings.GetInstance("").StandardCityPhoneFormat);
+                if (string.IsNullOrEmpty(client.SecondaryHomePhone)) { }
+                else
+                {
+                    if (!cityPhoneRegex.IsMatch(client.SecondaryHomePhone))
+                        throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IncorrectCityPhoneFormat);
+                }
+            }
+
+
+            //MobilePhoneNumberChecking (as opposed to cityPhone) 
+            //according to a regex setting (which is set in the db used)
+            if (string.IsNullOrEmpty(ApplicationSettings.GetInstance("").StandardZipCode)) { }
+            else
+            {
+                Regex mobilePhoneRegex = new Regex(ApplicationSettings.GetInstance("").StandardMobilePhoneFormat);
+                if (string.IsNullOrEmpty(client.SecondaryPersonalPhone)) { }
+                else
+                {
+                    if (!mobilePhoneRegex.IsMatch(client.SecondaryPersonalPhone))
+                        throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IncorrectMobilePhoneFormat);
+                }
+            }
             return result;
         }
+
+        private static void checkStandardFormats(Client client)
+        {
+            //For all the regexes: If a particular regex is set, only then the following validation takes place
+            
+            //ZipCode checking according to a regex setting (which is set in the db used)
+            if (string.IsNullOrEmpty(ApplicationSettings.GetInstance("").StandardZipCode)) { }
+            else
+            {
+                Regex regex = new Regex(ApplicationSettings.GetInstance("").StandardZipCode);
+                if (string.IsNullOrEmpty(client.ZipCode))
+                {
+                }
+                else
+                {
+                    if (!regex.IsMatch(client.ZipCode))
+                        throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IncorrectZipCodeFormat);
+                }
+            }
+
+            //CityPhoneNumberChecking (static, that has a cable line connection)
+            //according to a regex setting (which is set in the db used)
+            if (string.IsNullOrEmpty(ApplicationSettings.GetInstance("").StandardZipCode)) { }
+            else
+            {
+                Regex cityPhoneRegex = new Regex(ApplicationSettings.GetInstance("").StandardCityPhoneFormat);
+                if (string.IsNullOrEmpty(client.HomePhone)) { }
+                else
+                {
+                    if (!cityPhoneRegex.IsMatch(client.HomePhone))
+                        throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IncorrectCityPhoneFormat);
+                }
+            }
+            
+
+            //MobilePhoneNumberChecking (as opposed to cityPhone) 
+            //according to a regex setting (which is set in the db used)
+            if (string.IsNullOrEmpty(ApplicationSettings.GetInstance("").StandardZipCode)) { }
+            else
+            {
+                Regex mobilePhoneRegex = new Regex(ApplicationSettings.GetInstance("").StandardMobilePhoneFormat);
+                if (string.IsNullOrEmpty(client.PersonalPhone)) { }
+                else
+                {
+                    if (!mobilePhoneRegex.IsMatch(client.PersonalPhone))
+                        throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IncorrectMobilePhoneFormat);
+                }
+            }
+            }
         public void ModifyBadClient()
         {
             return;
@@ -531,6 +627,8 @@ namespace OpenCBS.Services
 
             if (null == person.Branch)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.BranchIsEmpty);
+
+            checkStandardFormats(person);
         }
 
         private void SavePicture(Person person)
@@ -930,7 +1028,13 @@ namespace OpenCBS.Services
 
             if (group.Id != 0 && !group.Leader.CurrentlyIn)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.LeaderIsEmpty);
+
+            checkStandardFormats(group);
+
+
+
             return status;
+
         }
 
         private bool IsGroupNameAlreadyUsedInDistrict(string pName, District pDistrict)
@@ -993,11 +1097,18 @@ namespace OpenCBS.Services
 
         public int SaveCorporate(Corporate client, FundingLine fundingLine, Action<SqlTransaction> action)
         {
+            checkCorporateFilling(client);
+            
             if (client.Id == 0)
                 client.Id = AddBodyCorporate(client, fundingLine, action);
             else
                 UpdateBodyCorporate(client, action);
             return client.Id;
+        }
+
+        private void checkCorporateFilling(Corporate client)
+        {
+            checkStandardFormats(client);
         }
 
         public int AddBodyCorporate(Corporate body, FundingLine pFundingLine, Action<SqlTransaction> action)
@@ -1149,6 +1260,51 @@ namespace OpenCBS.Services
                 List<string> L = new List<string>();
                 L.Add(_dataParam.VillageMaxMembers.ToString());
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.TooMuchPersonsInThisGroup, L);
+            }
+
+            //For all the regexes: If a particular regex is set, only then the following validation takes place
+            //ZipCode checking according to a regex setting (which is set in the db used)
+            if (string.IsNullOrEmpty(ApplicationSettings.GetInstance("").StandardZipCode)) { }
+            else
+            {
+                Regex regex = new Regex(ApplicationSettings.GetInstance("").StandardZipCode);
+                if (string.IsNullOrEmpty(village.ZipCode))
+                {
+                }
+                else
+                {
+                    if (!regex.IsMatch(village.ZipCode))
+                        throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IncorrectZipCodeFormat);
+                }
+            }
+
+            //CityPhoneNumberChecking (static, that has a cable line connection)
+            //according to a regex setting (which is set in the db used)
+            if (string.IsNullOrEmpty(ApplicationSettings.GetInstance("").StandardZipCode)) { }
+            else
+            {
+                Regex cityPhoneRegex = new Regex(ApplicationSettings.GetInstance("").StandardCityPhoneFormat);
+                if (string.IsNullOrEmpty(village.HomePhone)) { }
+                else
+                {
+                    if (!cityPhoneRegex.IsMatch(village.HomePhone))
+                        throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IncorrectCityPhoneFormat);
+                }
+            }
+
+
+            //MobilePhoneNumberChecking (as opposed to cityPhone) 
+            //according to a regex setting (which is set in the db used)
+            if (string.IsNullOrEmpty(ApplicationSettings.GetInstance("").StandardZipCode)) { }
+            else
+            {
+                Regex mobilePhoneRegex = new Regex(ApplicationSettings.GetInstance("").StandardMobilePhoneFormat);
+                if (string.IsNullOrEmpty(village.PersonalPhone)) { }
+                else
+                {
+                    if (!mobilePhoneRegex.IsMatch(village.PersonalPhone))
+                        throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IncorrectMobilePhoneFormat);
+                }
             }
         }
 

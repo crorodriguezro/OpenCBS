@@ -499,6 +499,19 @@ namespace OpenCBS.Shared.Settings
             get { return (string)GetSpecificParameter(OGeneralSettings.SHORT_DATE_FORMAT); }
         }
 
-        
+        public string StandardZipCode
+        {
+            get { return (string)GetSpecificParameter(OGeneralSettings.STANDARD_ZIP_CODE); }
+        }
+
+        public string StandardCityPhoneFormat
+        {
+            get { return (string)GetSpecificParameter(OGeneralSettings.STANDARD_CITY_PHONE_FORMAT); }
+        }
+
+        public string StandardMobilePhoneFormat
+        {
+            get { return (string)GetSpecificParameter(OGeneralSettings.STANDARD_MOBILE_PHONE_FORMAT); }
+        }
     }
 }

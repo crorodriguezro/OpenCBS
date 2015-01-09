@@ -71,6 +71,9 @@ namespace OpenCBS.Enums
         public static readonly string USE_EXTERNAL_ACCOUNTING = "USE_EXTERNAL_ACCOUNTING";
         public static readonly string SHOW_EXTRA_INTEREST_COLUMN = "SHOW_EXTRA_INTEREST_COLUMN";
         public static readonly string SHORT_DATE_FORMAT = "SHORT_DATE_FORMAT";
+        public static readonly string STANDARD_ZIP_CODE = "STANDARD_ZIP_CODE";
+        public static readonly string STANDARD_CITY_PHONE_FORMAT = "STANDARD_CITY_PHONE_FORMAT";
+        public static readonly string STANDARD_MOBILE_PHONE_FORMAT = "STANDARD_MOBILE_PHONE_FORMAT";
     }
 }
 
