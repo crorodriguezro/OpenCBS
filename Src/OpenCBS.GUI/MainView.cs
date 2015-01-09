@@ -1258,5 +1258,27 @@ namespace OpenCBS.GUI
             catch
             {}
         }
+
+        private void getHelpFromForumToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                const string url = "http://opencbs.freeforums.net/";
+                Process.Start(url);
+            }
+            catch
+            { }
+        }
+
+        private void visitOpenCBScomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                const string url = "http://opencbs.com";
+                Process.Start(url);
+            }
+            catch
+            { }
+        }
     }
 }

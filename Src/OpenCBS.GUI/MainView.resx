@@ -125,7 +125,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB0
-        CwAAAk1TRnQBSQFMAgEBBQEAAewBEQHsAREBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CwAAAk1TRnQBSQFMAgEBBQEAAfwBEQH8AREBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -694,7 +694,7 @@
     <value>splitter6</value>
   </data>
   <data name="&gt;&gt;splitter6.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.CollapsibleSplitter, OpenCBS.GUI, Version=14.16.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.CollapsibleSplitter, OpenCBS.GUI, Version=15.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;splitter6.Parent" xml:space="preserve">
     <value>$this</value>
@@ -955,22 +955,34 @@
     <value>Window</value>
   </data>
   <data name="userGuideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
+    <value>185, 22</value>
   </data>
   <data name="userGuideToolStripMenuItem.Text" xml:space="preserve">
     <value>User guide</value>
   </data>
   <data name="contactMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
+    <value>185, 22</value>
   </data>
   <data name="contactMenuItem.Text" xml:space="preserve">
     <value>Contact us...</value>
   </data>
   <data name="aboutMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
+    <value>185, 22</value>
   </data>
   <data name="aboutMenuItem.Text" xml:space="preserve">
     <value>About</value>
+  </data>
+  <data name="getHelpFromForumToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 22</value>
+  </data>
+  <data name="getHelpFromForumToolStripMenuItem.Text" xml:space="preserve">
+    <value>Get help from Forum</value>
+  </data>
+  <data name="visitOpenCBScomToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 22</value>
+  </data>
+  <data name="visitOpenCBScomToolStripMenuItem.Text" xml:space="preserve">
+    <value>Visit OpenCBS.com</value>
   </data>
   <data name="mnuHelp.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 20</value>
@@ -2176,6 +2188,18 @@
   <data name="&gt;&gt;aboutMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;getHelpFromForumToolStripMenuItem.Name" xml:space="preserve">
+    <value>getHelpFromForumToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;getHelpFromForumToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;visitOpenCBScomToolStripMenuItem.Name" xml:space="preserve">
+    <value>visitOpenCBScomToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;visitOpenCBScomToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;mnuSettings.Name" xml:space="preserve">
     <value>mnuSettings</value>
   </data>
@@ -2348,6 +2372,6 @@
     <value>MainView</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.16.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

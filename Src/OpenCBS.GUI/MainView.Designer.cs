@@ -134,6 +134,8 @@ namespace OpenCBS.GUI
             this.userGuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.getHelpFromForumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.visitOpenCBScomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.mnuSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemSetting = new System.Windows.Forms.ToolStripMenuItem();
@@ -660,7 +662,9 @@ namespace OpenCBS.GUI
             this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userGuideToolStripMenuItem,
             this.contactMenuItem,
-            this.aboutMenuItem});
+            this.aboutMenuItem,
+            this.getHelpFromForumToolStripMenuItem,
+            this.visitOpenCBScomToolStripMenuItem});
             this.mnuHelp.Name = "mnuHelp";
             resources.ApplyResources(this.mnuHelp, "mnuHelp");
             // 
@@ -681,6 +685,18 @@ namespace OpenCBS.GUI
             this.aboutMenuItem.Name = "aboutMenuItem";
             resources.ApplyResources(this.aboutMenuItem, "aboutMenuItem");
             this.aboutMenuItem.Click += new System.EventHandler(this.OnAboutMenuItemClick);
+            // 
+            // getHelpFromForumToolStripMenuItem
+            // 
+            this.getHelpFromForumToolStripMenuItem.Name = "getHelpFromForumToolStripMenuItem";
+            resources.ApplyResources(this.getHelpFromForumToolStripMenuItem, "getHelpFromForumToolStripMenuItem");
+            this.getHelpFromForumToolStripMenuItem.Click += new System.EventHandler(this.getHelpFromForumToolStripMenuItem_Click);
+            // 
+            // visitOpenCBScomToolStripMenuItem
+            // 
+            this.visitOpenCBScomToolStripMenuItem.Name = "visitOpenCBScomToolStripMenuItem";
+            resources.ApplyResources(this.visitOpenCBScomToolStripMenuItem, "visitOpenCBScomToolStripMenuItem");
+            this.visitOpenCBScomToolStripMenuItem.Click += new System.EventHandler(this.visitOpenCBScomToolStripMenuItem_Click);
             // 
             // mainMenu
             // 
@@ -1026,6 +1042,8 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem mnuChartOfAccounts;
         private ToolStripMenuItem userGuideToolStripMenuItem;
         private CheckBox chkPostponedLoans;
+        private ToolStripMenuItem getHelpFromForumToolStripMenuItem;
+        private ToolStripMenuItem visitOpenCBScomToolStripMenuItem;
 
 
     }
