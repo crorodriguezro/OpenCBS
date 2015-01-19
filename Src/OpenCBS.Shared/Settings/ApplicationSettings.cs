@@ -98,7 +98,7 @@ namespace OpenCBS.Shared.Settings
             _defaultParamList.Add(OGeneralSettings.NUMBER_DECIMAL_SEPARATOR, ",");
             _defaultParamList.Add(OGeneralSettings.USE_EXTERNAL_ACCOUNTING, 1);
             _defaultParamList.Add(OGeneralSettings.SHOW_EXTRA_INTEREST_COLUMN, 0);
-            _defaultParamList.Add(OGeneralSettings.SHORT_DATE_FORMAT, 1);
+            _defaultParamList.Add(OGeneralSettings.SHORT_DATE_FORMAT, "dd-MM-yyyy");
         }
 
         #region Internal stuff
