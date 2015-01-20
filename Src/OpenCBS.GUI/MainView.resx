@@ -125,7 +125,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB0
-        CwAAAk1TRnQBSQFMAgEBBQEAAfwBEQH8AREBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CwAAAk1TRnQBSQFMAgEBBQEAAQwBEgEMARIBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -942,6 +942,12 @@
   <data name="miContractCode.Text" xml:space="preserve">
     <value>Contract code</value>
   </data>
+  <data name="collateralProductsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 22</value>
+  </data>
+  <data name="collateralProductsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Collateral Products</value>
+  </data>
   <data name="mnuConfiguration.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 20</value>
   </data>
@@ -1111,25 +1117,16 @@
     <value>None</value>
   </data>
   <data name="mnuPackages.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>164, 22</value>
   </data>
   <data name="mnuPackages.Text" xml:space="preserve">
     <value>Loan products</value>
   </data>
   <data name="savingProductsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>164, 22</value>
   </data>
   <data name="savingProductsToolStripMenuItem.Text" xml:space="preserve">
     <value>Savings products</value>
-  </data>
-  <data name="menuItemCollateralProducts.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="menuItemCollateralProducts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
-  </data>
-  <data name="menuItemCollateralProducts.Text" xml:space="preserve">
-    <value>Collateral products</value>
   </data>
   <data name="mnuProducts.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 20</value>
@@ -2158,6 +2155,12 @@
   <data name="&gt;&gt;miContractCode.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;collateralProductsToolStripMenuItem.Name" xml:space="preserve">
+    <value>collateralProductsToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;collateralProductsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;mnuWindow.Name" xml:space="preserve">
     <value>mnuWindow</value>
   </data>
@@ -2306,12 +2309,6 @@
     <value>savingProductsToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;savingProductsToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemCollateralProducts.Name" xml:space="preserve">
-    <value>menuItemCollateralProducts</value>
-  </data>
-  <data name="&gt;&gt;menuItemCollateralProducts.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_modulesMenuItem.Name" xml:space="preserve">

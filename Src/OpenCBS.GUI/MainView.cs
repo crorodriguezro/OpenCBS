@@ -1096,10 +1096,10 @@ namespace OpenCBS.GUI
             rolesForm.Show();
         }
 
-        private void menuItemCollateralProducts_Click(object sender, EventArgs e)
-        {
-            InitializeCollateralProductsForm();
-        }
+        //private void menuItemCollateralProducts_Click(object sender, EventArgs e)
+        //{
+        //    InitializeCollateralProductsForm();
+        //}
 
         private void trialBalanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1279,6 +1279,11 @@ namespace OpenCBS.GUI
             }
             catch
             { }
+        }
+
+        private void collateralProductsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InitializeCollateralProductsForm();
         }
     }
 }

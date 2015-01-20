@@ -129,6 +129,7 @@ namespace OpenCBS.GUI
             this.currenciesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorConfig3 = new System.Windows.Forms.ToolStripSeparator();
             this.miContractCode = new System.Windows.Forms.ToolStripMenuItem();
+            this.collateralProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.userGuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -155,7 +156,6 @@ namespace OpenCBS.GUI
             this.mnuProducts = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPackages = new System.Windows.Forms.ToolStripMenuItem();
             this.savingProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemCollateralProducts = new System.Windows.Forms.ToolStripMenuItem();
             this._modulesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._aboutModulesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -578,7 +578,8 @@ namespace OpenCBS.GUI
             this.menuItemExchangeRate,
             this.currenciesToolStripMenuItem,
             this.toolStripSeparatorConfig3,
-            this.miContractCode});
+            this.miContractCode,
+            this.collateralProductsToolStripMenuItem});
             this.mnuConfiguration.Name = "mnuConfiguration";
             resources.ApplyResources(this.mnuConfiguration, "mnuConfiguration");
             // 
@@ -651,6 +652,12 @@ namespace OpenCBS.GUI
             this.miContractCode.Name = "miContractCode";
             resources.ApplyResources(this.miContractCode, "miContractCode");
             this.miContractCode.Click += new System.EventHandler(this.miContractCode_Click);
+            // 
+            // collateralProductsToolStripMenuItem
+            // 
+            this.collateralProductsToolStripMenuItem.Name = "collateralProductsToolStripMenuItem";
+            resources.ApplyResources(this.collateralProductsToolStripMenuItem, "collateralProductsToolStripMenuItem");
+            this.collateralProductsToolStripMenuItem.Click += new System.EventHandler(this.collateralProductsToolStripMenuItem_Click);
             // 
             // mnuWindow
             // 
@@ -836,8 +843,7 @@ namespace OpenCBS.GUI
             // 
             this.mnuProducts.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuPackages,
-            this.savingProductsToolStripMenuItem,
-            this.menuItemCollateralProducts});
+            this.savingProductsToolStripMenuItem});
             this.mnuProducts.Name = "mnuProducts";
             resources.ApplyResources(this.mnuProducts, "mnuProducts");
             // 
@@ -854,13 +860,6 @@ namespace OpenCBS.GUI
             this.savingProductsToolStripMenuItem.Name = "savingProductsToolStripMenuItem";
             resources.ApplyResources(this.savingProductsToolStripMenuItem, "savingProductsToolStripMenuItem");
             this.savingProductsToolStripMenuItem.Click += new System.EventHandler(this.savingProductsToolStripMenuItem_Click);
-            // 
-            // menuItemCollateralProducts
-            // 
-            this.menuItemCollateralProducts.Image = global::OpenCBS.GUI.Properties.Resources.package;
-            resources.ApplyResources(this.menuItemCollateralProducts, "menuItemCollateralProducts");
-            this.menuItemCollateralProducts.Name = "menuItemCollateralProducts";
-            this.menuItemCollateralProducts.Click += new System.EventHandler(this.menuItemCollateralProducts_Click);
             // 
             // _modulesMenuItem
             // 
@@ -1028,7 +1027,6 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem mnuProducts;
         private ToolStripMenuItem mnuPackages;
         private ToolStripMenuItem savingProductsToolStripMenuItem;
-        private ToolStripMenuItem menuItemCollateralProducts;
         private ToolStripMenuItem languagesToolStripMenuItem;
         private ToolStripMenuItem frenchToolStripMenuItem;
         private ToolStripMenuItem englishToolStripMenuItem;
@@ -1044,6 +1042,7 @@ namespace OpenCBS.GUI
         private CheckBox chkPostponedLoans;
         private ToolStripMenuItem getHelpFromForumToolStripMenuItem;
         private ToolStripMenuItem visitOpenCBScomToolStripMenuItem;
+        private ToolStripMenuItem collateralProductsToolStripMenuItem;
 
 
     }
