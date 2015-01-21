@@ -157,13 +157,13 @@
     <value>17, 14</value>
   </data>
   <data name="labelProductName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 16</value>
+    <value>131, 16</value>
   </data>
   <data name="labelProductName.TabIndex" type="System.Int32, mscorlib">
     <value>55</value>
   </data>
   <data name="labelProductName.Text" xml:space="preserve">
-    <value>Product name:</value>
+    <value>Collateral type name:</value>
   </data>
   <data name="labelProductName.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -217,13 +217,13 @@
     <value>17, 43</value>
   </data>
   <data name="labelProductDesc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 16</value>
+    <value>162, 16</value>
   </data>
   <data name="labelProductDesc.TabIndex" type="System.Int32, mscorlib">
     <value>57</value>
   </data>
   <data name="labelProductDesc.Text" xml:space="preserve">
-    <value>Product description:</value>
+    <value>Collateral type description:</value>
   </data>
   <data name="labelProductDesc.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -1409,12 +1409,12 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Add collateral product</value>
+    <value>Add collateral type</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmAddCollateralProduct</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

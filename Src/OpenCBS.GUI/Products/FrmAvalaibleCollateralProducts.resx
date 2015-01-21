@@ -129,7 +129,7 @@
     <value>20, 20</value>
   </data>
   <data name="webBrowserPackage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>594, 418</value>
+    <value>579, 418</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="webBrowserPackage.TabIndex" type="System.Int32, mscorlib">
@@ -157,7 +157,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonEditProduct.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 76</value>
+    <value>24, 76</value>
   </data>
   <data name="buttonEditProduct.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 28</value>
@@ -166,7 +166,7 @@
     <value>9</value>
   </data>
   <data name="buttonEditProduct.Text" xml:space="preserve">
-    <value>Edit product</value>
+    <value>Edit collateral type</value>
   </data>
   <data name="buttonEditProduct.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -193,16 +193,16 @@
     <value>Arial, 9.75pt</value>
   </data>
   <data name="checkBoxShowDeletedProduct.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 19</value>
+    <value>1, 19</value>
   </data>
   <data name="checkBoxShowDeletedProduct.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 20</value>
+    <value>163, 20</value>
   </data>
   <data name="checkBoxShowDeletedProduct.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
   <data name="checkBoxShowDeletedProduct.Text" xml:space="preserve">
-    <value>Deleted products</value>
+    <value>Deleted collateral types</value>
   </data>
   <data name="&gt;&gt;checkBoxShowDeletedProduct.Name" xml:space="preserve">
     <value>checkBoxShowDeletedProduct</value>
@@ -226,7 +226,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonAddProduct.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 42</value>
+    <value>24, 42</value>
   </data>
   <data name="buttonAddProduct.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 28</value>
@@ -235,7 +235,7 @@
     <value>7</value>
   </data>
   <data name="buttonAddProduct.Text" xml:space="preserve">
-    <value>Add product</value>
+    <value>Add collateral type</value>
   </data>
   <data name="buttonAddProduct.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -265,7 +265,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonDeletePackage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 110</value>
+    <value>24, 110</value>
   </data>
   <data name="buttonDeletePackage.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 28</value>
@@ -274,7 +274,7 @@
     <value>6</value>
   </data>
   <data name="buttonDeletePackage.Text" xml:space="preserve">
-    <value>Delete product</value>
+    <value>Delete collateral type</value>
   </data>
   <data name="buttonDeletePackage.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -295,10 +295,10 @@
     <value>Right</value>
   </data>
   <data name="groupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>594, 0</value>
+    <value>579, 0</value>
   </data>
   <data name="groupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 418</value>
+    <value>170, 418</value>
   </data>
   <data name="groupBox.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -947,12 +947,12 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Collateral products</value>
+    <value>Collateral Types</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmAvalaibleCollateralProducts</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

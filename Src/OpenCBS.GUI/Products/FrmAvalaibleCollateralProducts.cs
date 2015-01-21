@@ -198,7 +198,7 @@ namespace OpenCBS.GUI.Products
             FrmAddCollateralProduct addCollateralProductForm = new FrmAddCollateralProduct();
             addCollateralProductForm.ShowDialog();
             InitializePackages();
-            ((MainView)MdiParent).SetInfoMessage("Collateral product saved");
+            ((MainView)MdiParent).SetInfoMessage("Collateral type saved");
         }
     }
 }

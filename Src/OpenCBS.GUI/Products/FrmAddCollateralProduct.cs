@@ -208,12 +208,12 @@ namespace OpenCBS.GUI.Products
         {
             if (textBoxProductName.Text.Length == 0)
             {
-                MessageBox.Show("Please, enter collateral product name!");
+                MessageBox.Show("Please, enter collateral type name!");
                 return;
             }
             if (textBoxProductDesc.Text.Length == 0)
             {
-                MessageBox.Show("Please, enter collateral product description!");
+                MessageBox.Show("Please, enter collateral type description!");
                 return;
             }
             if (myProperties.GetSize() == 0)
