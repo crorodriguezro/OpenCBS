@@ -117,42 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="webBrowserPackage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="webBrowserPackage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="webBrowserPackage.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
-  </data>
-  <data name="webBrowserPackage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>670, 536</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="webBrowserPackage.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;webBrowserPackage.Name" xml:space="preserve">
-    <value>webBrowserPackage</value>
-  </data>
-  <data name="&gt;&gt;webBrowserPackage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.WebBrowser, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;webBrowserPackage.Parent" xml:space="preserve">
-    <value>pnlSavingsProducts</value>
-  </data>
-  <data name="&gt;&gt;webBrowserPackage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="groupBox1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buttonEditProduct.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="buttonEditProduct.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9pt</value>
   </data>
@@ -165,6 +137,7 @@
   <data name="buttonEditProduct.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 28</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buttonEditProduct.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
@@ -317,6 +290,57 @@
   </data>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="columnHeaderName.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="columnHeaderName.Width" type="System.Int32, mscorlib">
+    <value>166</value>
+  </data>
+  <data name="columnHeaderClientType.Text" xml:space="preserve">
+    <value>Client Type</value>
+  </data>
+  <data name="columnHeaderClientType.Width" type="System.Int32, mscorlib">
+    <value>166</value>
+  </data>
+  <data name="columnHeaderInterestRate.Text" xml:space="preserve">
+    <value>Interest Rate</value>
+  </data>
+  <data name="columnHeaderInterestRate.Width" type="System.Int32, mscorlib">
+    <value>166</value>
+  </data>
+  <data name="columnHeaderTermDeposit.Text" xml:space="preserve">
+    <value>Term Deposit</value>
+  </data>
+  <data name="columnHeaderTermDeposit.Width" type="System.Int32, mscorlib">
+    <value>166</value>
+  </data>
+  <data name="descriptionListView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="descriptionListView.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="descriptionListView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="descriptionListView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>670, 536</value>
+  </data>
+  <data name="descriptionListView.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;descriptionListView.Name" xml:space="preserve">
+    <value>descriptionListView</value>
+  </data>
+  <data name="&gt;&gt;descriptionListView.Type" xml:space="preserve">
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;descriptionListView.Parent" xml:space="preserve">
+    <value>pnlSavingsProducts</value>
+  </data>
+  <data name="&gt;&gt;descriptionListView.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="pnlSavingsProducts.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -973,6 +997,30 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Savings products</value>
   </data>
+  <data name="&gt;&gt;columnHeaderName.Name" xml:space="preserve">
+    <value>columnHeaderName</value>
+  </data>
+  <data name="&gt;&gt;columnHeaderName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;columnHeaderClientType.Name" xml:space="preserve">
+    <value>columnHeaderClientType</value>
+  </data>
+  <data name="&gt;&gt;columnHeaderClientType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;columnHeaderInterestRate.Name" xml:space="preserve">
+    <value>columnHeaderInterestRate</value>
+  </data>
+  <data name="&gt;&gt;columnHeaderInterestRate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;columnHeaderTermDeposit.Name" xml:space="preserve">
+    <value>columnHeaderTermDeposit</value>
+  </data>
+  <data name="&gt;&gt;columnHeaderTermDeposit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;savingBookProductToolStripMenuItem.Name" xml:space="preserve">
     <value>savingBookProductToolStripMenuItem</value>
   </data>
@@ -983,6 +1031,6 @@
     <value>FrmAvailableSavingProducts</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

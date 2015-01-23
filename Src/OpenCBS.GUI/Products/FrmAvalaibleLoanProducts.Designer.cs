@@ -16,7 +16,6 @@ namespace OpenCBS.GUI.Products
         private Container components = null;
         private Panel pnlLoanProducts;
         private CheckBox checkBoxShowDeletedProduct;
-        private WebBrowser webBrowserPackage;
 
         /// <summary>
         /// Nettoyage des ressources utilisées.
@@ -40,22 +39,20 @@ namespace OpenCBS.GUI.Products
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAvalaibleLoanProducts));
-            this.webBrowserPackage = new System.Windows.Forms.WebBrowser();
             this.buttonEditProduct = new System.Windows.Forms.Button();
             this.checkBoxShowDeletedProduct = new System.Windows.Forms.CheckBox();
             this.buttonAddPackage = new System.Windows.Forms.Button();
             this.buttonDeletePackage = new System.Windows.Forms.Button();
             this.pnlLoanProducts = new System.Windows.Forms.Panel();
+            this.descriptionListView = new System.Windows.Forms.ListView();
+            this.nameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.installmentTypeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.interestRateHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.frequencyHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlLoanProducts.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // webBrowserPackage
-            // 
-            resources.ApplyResources(this.webBrowserPackage, "webBrowserPackage");
-            this.webBrowserPackage.Name = "webBrowserPackage";
-            this.webBrowserPackage.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowserPackage_DocumentCompleted);
             // 
             // buttonEditProduct
             // 
@@ -73,7 +70,7 @@ namespace OpenCBS.GUI.Products
             // 
             resources.ApplyResources(this.buttonAddPackage, "buttonAddPackage");
             this.buttonAddPackage.Name = "buttonAddPackage";
-            this.buttonAddPackage.Click += new System.EventHandler(this.buttonSave_Click);
+            this.buttonAddPackage.Click += new System.EventHandler(this.buttonAddPackage_Click);
             // 
             // buttonDeletePackage
             // 
@@ -83,10 +80,43 @@ namespace OpenCBS.GUI.Products
             // 
             // pnlLoanProducts
             // 
-            this.pnlLoanProducts.Controls.Add(this.webBrowserPackage);
+            this.pnlLoanProducts.Controls.Add(this.descriptionListView);
             this.pnlLoanProducts.Controls.Add(this.flowLayoutPanel1);
             resources.ApplyResources(this.pnlLoanProducts, "pnlLoanProducts");
             this.pnlLoanProducts.Name = "pnlLoanProducts";
+            // 
+            // descriptionListView
+            // 
+            this.descriptionListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.nameHeader,
+            this.installmentTypeHeader,
+            this.interestRateHeader,
+            this.frequencyHeader});
+            resources.ApplyResources(this.descriptionListView, "descriptionListView");
+            this.descriptionListView.FullRowSelect = true;
+            this.descriptionListView.GridLines = true;
+            this.descriptionListView.MultiSelect = false;
+            this.descriptionListView.Name = "descriptionListView";
+            this.descriptionListView.UseCompatibleStateImageBehavior = false;
+            this.descriptionListView.View = System.Windows.Forms.View.Details;
+            this.descriptionListView.Click += new System.EventHandler(this.descriptionListView_Click);
+            this.descriptionListView.DoubleClick += new System.EventHandler(this.descriptionListView_DoubleClick);
+            // 
+            // nameHeader
+            // 
+            resources.ApplyResources(this.nameHeader, "nameHeader");
+            // 
+            // installmentTypeHeader
+            // 
+            resources.ApplyResources(this.installmentTypeHeader, "installmentTypeHeader");
+            // 
+            // interestRateHeader
+            // 
+            resources.ApplyResources(this.interestRateHeader, "interestRateHeader");
+            // 
+            // frequencyHeader
+            // 
+            resources.ApplyResources(this.frequencyHeader, "frequencyHeader");
             // 
             // flowLayoutPanel1
             // 
@@ -114,5 +144,10 @@ namespace OpenCBS.GUI.Products
         }
 
         private FlowLayoutPanel flowLayoutPanel1;
+        private ListView descriptionListView;
+        private ColumnHeader nameHeader;
+        private ColumnHeader installmentTypeHeader;
+        private ColumnHeader interestRateHeader;
+        private ColumnHeader frequencyHeader;
     }
 }

@@ -13,7 +13,6 @@ namespace OpenCBS.GUI.Products
         private Panel pnlSavingsProducts;
         private CheckBox checkBoxShowDeletedProduct;
         private System.Windows.Forms.Button buttonEditProduct;
-        private WebBrowser webBrowserPackage;
 
         /// <summary>
         /// Nettoyage des ressources utilisées.
@@ -38,25 +37,23 @@ namespace OpenCBS.GUI.Products
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAvailableSavingProducts));
-            this.webBrowserPackage = new System.Windows.Forms.WebBrowser();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonEditProduct = new System.Windows.Forms.Button();
             this.checkBoxShowDeletedProduct = new System.Windows.Forms.CheckBox();
             this.buttonAddProduct = new System.Windows.Forms.Button();
             this.buttonDeleteProduct = new System.Windows.Forms.Button();
             this.pnlSavingsProducts = new System.Windows.Forms.Panel();
+            this.descriptionListView = new OpenCBS.GUI.UserControl.ListViewEx();
+            this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderClientType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderInterestRate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderTermDeposit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuBtnAddProduct = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.savingBookProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.pnlSavingsProducts.SuspendLayout();
             this.menuBtnAddProduct.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // webBrowserPackage
-            // 
-            resources.ApplyResources(this.webBrowserPackage, "webBrowserPackage");
-            this.webBrowserPackage.Name = "webBrowserPackage";
-            this.webBrowserPackage.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowserPackage_DocumentCompleted);
             // 
             // groupBox1
             // 
@@ -84,7 +81,7 @@ namespace OpenCBS.GUI.Products
             // 
             resources.ApplyResources(this.buttonAddProduct, "buttonAddProduct");
             this.buttonAddProduct.Name = "buttonAddProduct";
-            this.buttonAddProduct.Click += new System.EventHandler(this.buttonAddPackage_Click);
+            this.buttonAddProduct.Click += new System.EventHandler(this.buttonAddProduct_Click);
             // 
             // buttonDeleteProduct
             // 
@@ -94,10 +91,44 @@ namespace OpenCBS.GUI.Products
             // 
             // pnlSavingsProducts
             // 
-            this.pnlSavingsProducts.Controls.Add(this.webBrowserPackage);
+            this.pnlSavingsProducts.Controls.Add(this.descriptionListView);
             this.pnlSavingsProducts.Controls.Add(this.groupBox1);
             resources.ApplyResources(this.pnlSavingsProducts, "pnlSavingsProducts");
             this.pnlSavingsProducts.Name = "pnlSavingsProducts";
+            // 
+            // descriptionListView
+            // 
+            this.descriptionListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderName,
+            this.columnHeaderClientType,
+            this.columnHeaderInterestRate,
+            this.columnHeaderTermDeposit});
+            resources.ApplyResources(this.descriptionListView, "descriptionListView");
+            this.descriptionListView.DoubleClickActivation = false;
+            this.descriptionListView.FullRowSelect = true;
+            this.descriptionListView.GridLines = true;
+            this.descriptionListView.MultiSelect = false;
+            this.descriptionListView.Name = "descriptionListView";
+            this.descriptionListView.UseCompatibleStateImageBehavior = false;
+            this.descriptionListView.View = System.Windows.Forms.View.Details;
+            this.descriptionListView.Click += new System.EventHandler(this.descriptionListView_Click);
+            this.descriptionListView.DoubleClick += new System.EventHandler(this.descriptionListView_DoubleClick);
+            // 
+            // columnHeaderName
+            // 
+            resources.ApplyResources(this.columnHeaderName, "columnHeaderName");
+            // 
+            // columnHeaderClientType
+            // 
+            resources.ApplyResources(this.columnHeaderClientType, "columnHeaderClientType");
+            // 
+            // columnHeaderInterestRate
+            // 
+            resources.ApplyResources(this.columnHeaderInterestRate, "columnHeaderInterestRate");
+            // 
+            // columnHeaderTermDeposit
+            // 
+            resources.ApplyResources(this.columnHeaderTermDeposit, "columnHeaderTermDeposit");
             // 
             // menuBtnAddProduct
             // 
@@ -111,14 +142,12 @@ namespace OpenCBS.GUI.Products
             this.savingBookProductToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.savingBookProductToolStripMenuItem.Name = "savingBookProductToolStripMenuItem";
             resources.ApplyResources(this.savingBookProductToolStripMenuItem, "savingBookProductToolStripMenuItem");
-            this.savingBookProductToolStripMenuItem.Click += new System.EventHandler(this.savingBookProductToolStripMenuItem_Click);
             // 
             // FrmAvailableSavingProducts
             // 
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.pnlSavingsProducts);
             this.Name = "FrmAvailableSavingProducts";
-            this.Load += new System.EventHandler(this.PackagesForm_Load);
             this.Controls.SetChildIndex(this.pnlSavingsProducts, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -131,5 +160,10 @@ namespace OpenCBS.GUI.Products
         private IContainer components;
         private ContextMenuStrip menuBtnAddProduct;
         private ToolStripMenuItem savingBookProductToolStripMenuItem;
+        private ListViewEx descriptionListView;
+        private ColumnHeader columnHeaderName;
+        private ColumnHeader columnHeaderClientType;
+        private ColumnHeader columnHeaderInterestRate;
+        private ColumnHeader columnHeaderTermDeposit;
     }
 }

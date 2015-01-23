@@ -118,44 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="webBrowserPackage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="webBrowserPackage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="webBrowserPackage.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
-  </data>
-  <data name="webBrowserPackage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>603, 418</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="webBrowserPackage.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;webBrowserPackage.Name" xml:space="preserve">
-    <value>webBrowserPackage</value>
-  </data>
-  <data name="&gt;&gt;webBrowserPackage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.WebBrowser, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;webBrowserPackage.Parent" xml:space="preserve">
-    <value>pnlLoanProducts</value>
-  </data>
-  <data name="&gt;&gt;webBrowserPackage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="buttonEditProduct.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="buttonEditProduct.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 117</value>
   </data>
   <data name="buttonEditProduct.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 28</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buttonEditProduct.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
@@ -267,6 +240,54 @@
   <data name="&gt;&gt;buttonDeletePackage.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="nameHeader.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="nameHeader.Width" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="installmentTypeHeader.Text" xml:space="preserve">
+    <value>Installment Type</value>
+  </data>
+  <data name="installmentTypeHeader.Width" type="System.Int32, mscorlib">
+    <value>180</value>
+  </data>
+  <data name="interestRateHeader.Text" xml:space="preserve">
+    <value>Interest Rate</value>
+  </data>
+  <data name="interestRateHeader.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
+  <data name="frequencyHeader.Text" xml:space="preserve">
+    <value>Frequency</value>
+  </data>
+  <data name="frequencyHeader.Width" type="System.Int32, mscorlib">
+    <value>149</value>
+  </data>
+  <data name="descriptionListView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="descriptionListView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="descriptionListView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>687, 418</value>
+  </data>
+  <data name="descriptionListView.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;descriptionListView.Name" xml:space="preserve">
+    <value>descriptionListView</value>
+  </data>
+  <data name="&gt;&gt;descriptionListView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;descriptionListView.Parent" xml:space="preserve">
+    <value>pnlLoanProducts</value>
+  </data>
+  <data name="&gt;&gt;descriptionListView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="flowLayoutPanel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -280,7 +301,7 @@
     <value>TopDown</value>
   </data>
   <data name="flowLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>603, 0</value>
+    <value>687, 0</value>
   </data>
   <data name="flowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>146, 418</value>
@@ -307,7 +328,7 @@
     <value>0, 36</value>
   </data>
   <data name="pnlLoanProducts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>749, 418</value>
+    <value>833, 418</value>
   </data>
   <data name="pnlLoanProducts.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -328,7 +349,7 @@
     <value>True</value>
   </metadata>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>749, 454</value>
+    <value>833, 454</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -934,10 +955,34 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Loan products</value>
   </data>
+  <data name="&gt;&gt;nameHeader.Name" xml:space="preserve">
+    <value>nameHeader</value>
+  </data>
+  <data name="&gt;&gt;nameHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;installmentTypeHeader.Name" xml:space="preserve">
+    <value>installmentTypeHeader</value>
+  </data>
+  <data name="&gt;&gt;installmentTypeHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;interestRateHeader.Name" xml:space="preserve">
+    <value>interestRateHeader</value>
+  </data>
+  <data name="&gt;&gt;interestRateHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;frequencyHeader.Name" xml:space="preserve">
+    <value>frequencyHeader</value>
+  </data>
+  <data name="&gt;&gt;frequencyHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmAvalaibleLoanProducts</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
