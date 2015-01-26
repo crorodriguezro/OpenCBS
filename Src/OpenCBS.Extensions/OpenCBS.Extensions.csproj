@@ -120,7 +120,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="LoanApprovalUserControl.es.resx">
+      <DependentUpon>LoanApprovalUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoanApprovalUserControl.fr.resx">
+      <DependentUpon>LoanApprovalUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoanApprovalUserControl.pt.resx">
+      <DependentUpon>LoanApprovalUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoanApprovalUserControl.resx">
+      <DependentUpon>LoanApprovalUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoanApprovalUserControl.ru.resx">
       <DependentUpon>LoanApprovalUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
