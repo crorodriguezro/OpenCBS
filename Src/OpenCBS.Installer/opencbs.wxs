@@ -159,27 +159,7 @@
                 <File Id="OpenCBS.Extension.TaskManagement.dll" Source="SourceDir\Extensions\OpenCBS.Extension.TaskManagement.dll" />
                 <File Id="OpenCBS.Extension.DelinquencyManagementModule.dll" Source="SourceDir\Extensions\OpenCBS.Extension.DelinquencyManagementModule.dll" />
                 <File Id="OpenCBS.Extension.FastRepayment.dll" Source="SourceDir\Extensions\OpenCBS.Extension.FastRepayment.dll" />
-		        <File Id="OpenCBS.Extension.EventInterceptor.dll" Source="SourceDir\Extensions\OpenCBS.Extension.EventInterceptor.dll" />
               </Component>
-				      <Directory Id="DIR_ACCOUNTING_SCRIPTS" Name="AccountingScripts">
-				        <Component Id="AccountingScripts" Guid="53e39962-5472-462e-b178-9dcbb65839ec">
-					        <File Id="Accounts.py" Source="SourceDir\Extensions\AccountingScripts\Accounts.py" />
-					        <File Id="Export.py" Source="SourceDir\Extensions\AccountingScripts\Export.py" />
-					        <File Id="GetAccrualInterestEntries.py" Source="SourceDir\Extensions\AccountingScripts\GetAccrualInterestEntries.py" />
-					        <File Id="GetDepositEntries.py" Source="SourceDir\Extensions\AccountingScripts\GetDepositEntries.py" />
-					        <File Id="GetDisbursementEntries.py" Source="SourceDir\Extensions\AccountingScripts\GetDisbursementEntries.py" />
-					        <File Id="GetEntryFeeEntries.py" Source="SourceDir\Extensions\AccountingScripts\GetEntryFeeEntries.py" />
-					        <File Id="GetRepaymentEntries.py" Source="SourceDir\Extensions\AccountingScripts\GetRepaymentEntries.py" />
-					        <File Id="GetTransitionEntries.py" Source="SourceDir\Extensions\AccountingScripts\GetTransitionEntries.py" />
-					        <File Id="GetWriteOffEntries.py" Source="SourceDir\Extensions\AccountingScripts\GetWriteOffEntries.py" />
-					        <File Id="Main.py" Source="SourceDir\Extensions\AccountingScripts\Main.py" />
-				        </Component>
-                <Directory Id ="DIR_OPERATIONS" Name="Operations">
-                  <Component Id="Operations" Guid="988e9441-a262-4328-ac4a-b6d0a47391a0">
-                    <File Id="Demo.py" Source="SourceDir\Extensions\AccountingScripts\Operations\Demo.py" />
-                  </Component>
-                </Directory>
-				      </Directory>
             </Directory>
 
             <Directory Id="DIR_LANGUAGES" Name="Languages">
@@ -207,7 +187,6 @@
                 <File Id="OpenCBS.Extension.Events.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.Events.resources.dll"/>
                 <File Id="OpenCBS.Extension.DelinquencyManagementModule.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.DelinquencyManagementModule.resources.dll"/>
                 <File Id="OpenCBS.Extension.FastRepayment.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.FastRepayment.resources.dll"/>
-				        <File Id="OpenCBS.Extension.EventInterceptor.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.EventInterceptor.resources.dll"/>
                 <File Id="OpenCBS.Controls.resources.dll" Source="SourceDir\fr\OpenCBS.Controls.resources.dll"/>
               </Component>
             </Directory>
@@ -221,7 +200,6 @@
                 <File Id="OpenCBS.GUI.resources_1" Name="OpenCBS.GUI.resources.dll" Source="SourceDir\ru-RU\OpenCBS.GUI.resources.dll" />
                 <File Id="OpenCBS.MultiLanguageRessources.resources_1" Name="OpenCBS.MultiLanguageRessources.resources.dll" Source="SourceDir\ru-RU\OpenCBS.MultiLanguageRessources.resources.dll" />
                 <File Id="OpenCBS.Reports.resources_1" Name="OpenCBS.Reports.resources.dll" Source="SourceDir\ru-RU\OpenCBS.Reports.resources.dll" />
-				        <File Id="OpenCBS.Extension.EventInterceptor.resources.dll_1" Source="SourceDir\ru-RU\OpenCBS.Extension.EventInterceptor.resources.dll"/>
                 <File Id="OpenCBS.Controls.resources_1.dll" Source="SourceDir\ru-RU\OpenCBS.Controls.resources.dll"/>
               </Component>
             </Directory>
@@ -369,7 +347,6 @@
                   <File Id="OLB_and_LLP_excel" Name="OLB_and_LLP.zip" Source="SourceDir\Reports\Excel\OLB_and_LLP.zip" />
                   <File Id="Closed_Contracts_excel" Name="Closed_Contracts.zip" Source="SourceDir\Reports\Excel\Closed_Contracts.zip" />
                   <File Id="PAR_Analysis_excel" Name="PAR_Analysis.zip" Source="SourceDir\Reports\Excel\PAR_Analysis.zip" />
-                  <File Id="Turnover_Balance_Sheet_excel" Name="Turnover_Balance_Sheet.zip" Source="SourceDir\Reports\Excel\Turnover_Balance_Sheet.zip" />
                   <File Id="Personal_Information_excel" Name="Personal_Information.zip" Source="SourceDir\Reports\Excel\Personal_Information.zip" />
                   <File Id="Delinquent_Loans_excel" Name="Delinquent_Loans.zip" Source="SourceDir\Reports\Excel\Delinquent_Loans.zip" />
 	              </Component>
@@ -482,9 +459,7 @@
       <ComponentRef Id="ApplicationShortcut" />
       <ComponentRef Id="extensions" />
       <ComponentRef Id="Languages"/>
-      <ComponentRef Id="AccountingScripts"/>
 	    <ComponentRef Id="DemoDbDirectory" />
-      <ComponentRef Id="Operations" />
       <ComponentRef Id="PermissionsOfRootDirectory"/>
     </Feature>
     
