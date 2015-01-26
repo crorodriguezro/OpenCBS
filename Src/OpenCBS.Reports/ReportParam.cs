@@ -308,7 +308,8 @@ namespace OpenCBS.Reports
 
             _control = new DateTimePicker();
             _control.Name = Name + "_control";
-            _control.Format = DateTimePickerFormat.Short;
+            _control.Format = DateTimePickerFormat.Custom;
+            _control.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             _control.Font = ControlFont;
             _control.Size = new Size(100, 20);
             _control.Value = _value;
