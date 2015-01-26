@@ -147,7 +147,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // firstRepaymentDateTimePicker
             // 
-            this.firstRepaymentDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.firstRepaymentDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.firstRepaymentDateTimePicker.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.firstRepaymentDateTimePicker, "firstRepaymentDateTimePicker");
             this.firstRepaymentDateTimePicker.Name = "firstRepaymentDateTimePicker";
             // 
