@@ -188,6 +188,7 @@
                 <File Id="OpenCBS.Extension.DelinquencyManagementModule.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.DelinquencyManagementModule.resources.dll"/>
                 <File Id="OpenCBS.Extension.FastRepayment.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.FastRepayment.resources.dll"/>
                 <File Id="OpenCBS.Controls.resources.dll" Source="SourceDir\fr\OpenCBS.Controls.resources.dll"/>
+				<File Id="OpenCBS.Extensions.resources.dll" Source="SourceDir\fr\OpenCBS.Extensions.resources.dll"/>
               </Component>
             </Directory>
             <Directory Id="DIR_RESSOURCES_EN" Name="en">
@@ -201,18 +202,21 @@
                 <File Id="OpenCBS.MultiLanguageRessources.resources_1" Name="OpenCBS.MultiLanguageRessources.resources.dll" Source="SourceDir\ru-RU\OpenCBS.MultiLanguageRessources.resources.dll" />
                 <File Id="OpenCBS.Reports.resources_1" Name="OpenCBS.Reports.resources.dll" Source="SourceDir\ru-RU\OpenCBS.Reports.resources.dll" />
                 <File Id="OpenCBS.Controls.resources_1.dll" Source="SourceDir\ru-RU\OpenCBS.Controls.resources.dll"/>
+				<File Id="OpenCBS.Extensions.resources_1.dll" Source="SourceDir\ru-RU\OpenCBS.Extensions.resources.dll"/>
               </Component>
             </Directory>
             <Directory Id="DIR_RESSOURCES_ES" Name="es-ES">
               <Component Id="es" Guid="F0AA0279-AA60-E9A6-F4D2-F52EC785F220">
                 <File Id="OpenCBS.GUI.resources.dll_3" Source="SourceDir\es-ES\OpenCBS.GUI.resources.dll" />
                 <File Id="OpenCBS.MultiLanguageRessources.resources.dll_3" Source="SourceDir\es-ES\OpenCBS.MultiLanguageRessources.resources.dll" />
+				<File Id="OpenCBS.Extensions.resources.dll_3" Source="SourceDir\es-ES\OpenCBS.Extensions.resources.dll" />
               </Component>
             </Directory>
             <Directory Id="DIR_RESSOURCES_PT" Name="pt">
               <Component Id="pt" Guid="a0740dd0-6697-11e0-ae3e-0800200c9a66">
                 <File Id="OpenCBS.GUI.resources.dll_4" Source="SourceDir\pt\OpenCBS.GUI.resources.dll" />
                 <File Id="OpenCBS.MultiLanguageRessources.resources.dll_4" Source="SourceDir\pt\OpenCBS.MultiLanguageRessources.resources.dll" />
+				<File Id="OpenCBS.Extensions.resources.dll_4" Source="SourceDir\pt\OpenCBS.Extensions.resources.dll" />
               </Component>
             </Directory>
             <Directory Id="DIR_UPDATE" Name="Update">
