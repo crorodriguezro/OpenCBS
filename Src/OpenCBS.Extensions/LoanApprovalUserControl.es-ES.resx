@@ -117,50 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblCCStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 33</value>
-  </data>
-  <data name="lblCCStatus.Text" xml:space="preserve">
-    <value>Estado </value>
-  </data>
-  <data name="pnlCCStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 3</value>
-  </data>
-  <data name="labelCreditCommiteeDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 16</value>
-  </data>
-  <data name="labelCreditCommiteeDate.Text" xml:space="preserve">
-    <value>Fecha</value>
-  </data>
-  <data name="_dateTimePicker.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 36</value>
-  </data>
-  <data name="labelCreditCommiteeComment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 16</value>
+  <data name="labelCreditCommiteeCode.Text" xml:space="preserve">
+    <value>Codigo </value>
   </data>
   <data name="labelCreditCommiteeComment.Text" xml:space="preserve">
     <value>Comentario </value>
   </data>
-  <data name="labelCreditCommiteeCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 16</value>
+  <data name="labelCreditCommiteeDate.Text" xml:space="preserve">
+    <value>Fecha</value>
   </data>
-  <data name="labelCreditCommiteeCode.Text" xml:space="preserve">
-    <value>Codigo </value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblCCStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 33</value>
   </data>
-  <data name="_commentTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 92</value>
-  </data>
-  <data name="_commentTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>667, 238</value>
-  </data>
-  <data name="_codeTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 64</value>
-  </data>
-  <data name="_saveButton.Text" xml:space="preserve">
-    <value>Guardar</value>
+  <data name="lblCCStatus.Text" xml:space="preserve">
+    <value>Estado </value>
   </data>
   <data name="_printButton.Text" xml:space="preserve">
     <value>Imprimir </value>
+  </data>
+  <data name="_saveButton.Text" xml:space="preserve">
+    <value>Guardar</value>
   </data>
 </root>
