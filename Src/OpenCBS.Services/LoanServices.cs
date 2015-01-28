@@ -1917,15 +1917,6 @@ namespace OpenCBS.Services
                     }
                     _ePs.CancelFireEvent(evnt, sqlTransaction, contract, contract.Product.Currency.Id);
 
-                    var evntCopy = evnt.Copy();
-                    evntCopy.Id = evnt.ParentId ?? evnt.Id;
-                    CallInterceptor(new Dictionary<string, object>
-                    {
-                        {"Loan", contract},
-                        {"Event", evntCopy},
-                        {"Deleted", true},
-                        {"SqlTransaction", sqlTransaction}
-                    });
                     if (ApplicationSettings.GetInstance(User.CurrentUser.Md5).UseMandatorySavingAccount)
                     {
                         var id = 0;
@@ -2200,6 +2191,15 @@ namespace OpenCBS.Services
                     }
 
                     CancelSavingsEvent(cancelledEvent, sqlTransaction);
+
+                    CallInterceptor(new Dictionary<string, object>
+                    {
+                        {"Loan", contract},
+                        {"Event", cancelledEvent},
+                        {"Deleted", true},
+                        {"SqlTransaction", sqlTransaction}
+                    });
+                    
                     sqlTransaction.Commit();
                     sqlTransaction.Dispose();
                     SetClientStatus(contract, pClient);
