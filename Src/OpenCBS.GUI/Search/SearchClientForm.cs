@@ -104,6 +104,8 @@ namespace OpenCBS.GUI
 
             Sorter = new ListViewSorter();
             listViewClient.ListViewItemSorter = Sorter;
+            ReInitializeSearchParameters();
+            DisplayTiers();
         }
 
         public void WatchCorporate(OClientTypes pClientTypes, bool includeOnlyActive)
@@ -390,6 +392,7 @@ namespace OpenCBS.GUI
             this.checkBoxNotactive.Checked = true;
             this.checkBoxNotactive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxNotactive.Name = "checkBoxNotactive";
+            this.checkBoxNotactive.CheckedChanged += new System.EventHandler(this.checkBoxNotactive_CheckedChanged);
             // 
             // checkBoxActive
             // 
@@ -397,6 +400,7 @@ namespace OpenCBS.GUI
             this.checkBoxActive.Checked = true;
             this.checkBoxActive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxActive.Name = "checkBoxActive";
+            this.checkBoxActive.CheckedChanged += new System.EventHandler(this.checkBoxActive_CheckedChanged);
             // 
             // groupBoxCorporates
             // 
@@ -415,6 +419,7 @@ namespace OpenCBS.GUI
             this.checkBoxVillages.Checked = true;
             this.checkBoxVillages.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxVillages.Name = "checkBoxVillages";
+            this.checkBoxVillages.CheckedChanged += new System.EventHandler(this.checkBoxVillages_CheckedChanged);
             // 
             // checkBoxGroups
             // 
@@ -422,6 +427,7 @@ namespace OpenCBS.GUI
             this.checkBoxGroups.Checked = true;
             this.checkBoxGroups.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxGroups.Name = "checkBoxGroups";
+            this.checkBoxGroups.CheckedChanged += new System.EventHandler(this.checkBoxGroups_CheckedChanged);
             // 
             // checkBoxPersons
             // 
@@ -429,6 +435,7 @@ namespace OpenCBS.GUI
             this.checkBoxPersons.Checked = true;
             this.checkBoxPersons.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxPersons.Name = "checkBoxPersons";
+            this.checkBoxPersons.CheckedChanged += new System.EventHandler(this.checkBoxPersons_CheckedChanged);
             // 
             // radioButtonCorporate
             // 
@@ -704,6 +711,8 @@ namespace OpenCBS.GUI
                 checkBoxGroups.Enabled = true;
                 checkBoxVillages.Enabled = true;
             }
+            ReInitializeSearchParameters();
+            DisplayTiers();
         }
         private void radioButtonCorporate_CheckedChanged(object sender, EventArgs e)
         {
@@ -717,6 +726,8 @@ namespace OpenCBS.GUI
                 checkBoxGroups.Enabled = false;
                 checkBoxVillages.Enabled = false;
             }
+            ReInitializeSearchParameters();
+            DisplayTiers();
         }
 
         private void listViewClient_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -740,6 +751,36 @@ namespace OpenCBS.GUI
                 listViewClient.Columns[Sorter.ByColumn].ImageIndex = listViewClient.Sorting == SortOrder.Ascending ? 2 : 3;
 
             listViewClient.Sort();
+        }
+
+        private void checkBoxPersons_CheckedChanged(object sender, EventArgs e)
+        {
+            ReInitializeSearchParameters();
+            DisplayTiers();
+        }
+
+        private void checkBoxGroups_CheckedChanged(object sender, EventArgs e)
+        {
+            ReInitializeSearchParameters();
+            DisplayTiers();
+        }
+
+        private void checkBoxVillages_CheckedChanged(object sender, EventArgs e)
+        {
+            ReInitializeSearchParameters();
+            DisplayTiers();
+        }
+
+        private void checkBoxActive_CheckedChanged(object sender, EventArgs e)
+        {
+            ReInitializeSearchParameters();
+            DisplayTiers();
+        }
+
+        private void checkBoxNotactive_CheckedChanged(object sender, EventArgs e)
+        {
+            ReInitializeSearchParameters();
+            DisplayTiers();
         }
     }
 }

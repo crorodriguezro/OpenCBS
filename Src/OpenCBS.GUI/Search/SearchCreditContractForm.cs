@@ -98,6 +98,8 @@ namespace OpenCBS.GUI
 
             Sorter = new ListViewSorter();
             listViewContracts.ListViewItemSorter = Sorter;
+
+            initialContractsDisplay();
         }
 
         public DialogResult ShowForSearchSavingsContract()
@@ -401,6 +403,7 @@ namespace OpenCBS.GUI
             // 
             resources.ApplyResources(this.radioButtonSavingContract, "radioButtonSavingContract");
             this.radioButtonSavingContract.Name = "radioButtonSavingContract";
+            this.radioButtonSavingContract.CheckedChanged += new System.EventHandler(this.radioButtonSavingContract_CheckedChanged);
             // 
             // radioButtonCreditContract
             // 
@@ -408,6 +411,7 @@ namespace OpenCBS.GUI
             this.radioButtonCreditContract.Checked = true;
             this.radioButtonCreditContract.Name = "radioButtonCreditContract";
             this.radioButtonCreditContract.TabStop = true;
+            this.radioButtonCreditContract.CheckedChanged += new System.EventHandler(this.radioButtonCreditContract_CheckedChanged);
             // 
             // textBoxQuery
             // 
@@ -664,5 +668,26 @@ namespace OpenCBS.GUI
             
             listViewContracts.Sort();
         }
+
+        private void radioButtonCreditContract_CheckedChanged(object sender, EventArgs e)
+        {
+            initialContractsDisplay();
+        }
+
+        private void radioButtonSavingContract_CheckedChanged(object sender, EventArgs e)
+        {
+            initialContractsDisplay();
+        }
+
+        private void initialContractsDisplay()
+        {
+            ReInitializeSearchParameters();
+            DisplayContracts();
+            Sorter.ByColumn = 2;
+            Sorter.reset = true;
+            listViewContracts.Sorting = SortOrder.Descending;
+            listViewContracts.Sort();
+        }
+
     }
 }
