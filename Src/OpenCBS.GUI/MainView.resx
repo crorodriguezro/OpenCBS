@@ -125,7 +125,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB0
-        CwAAAk1TRnQBSQFMAgEBBQEAARQBEgEUARIBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CwAAAk1TRnQBSQFMAgEBBQEAARwBEgEcARIBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -784,7 +784,7 @@
     <value>248, 22</value>
   </data>
   <data name="reasignToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reassign contracts</value>
+    <value>Reassign Contracts</value>
   </data>
   <data name="mnuClients.Size" type="System.Drawing.Size, System.Drawing">
     <value>122, 20</value>
@@ -796,7 +796,7 @@
     <value>179, 22</value>
   </data>
   <data name="mnuChartOfAccounts.Text" xml:space="preserve">
-    <value>Chart of accounts</value>
+    <value>Chart of Accounts</value>
   </data>
   <data name="accountingRulesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 22</value>
@@ -910,7 +910,7 @@
     <value>192, 22</value>
   </data>
   <data name="toolStripMenuItemInstallmentTypes.Text" xml:space="preserve">
-    <value>Installment periodicity</value>
+    <value>Installment Periodicity</value>
   </data>
   <data name="toolStripSeparatorConfig2.Size" type="System.Drawing.Size, System.Drawing">
     <value>189, 6</value>
@@ -925,7 +925,7 @@
     <value>192, 22</value>
   </data>
   <data name="menuItemExchangeRate.Text" xml:space="preserve">
-    <value>Exchange rate</value>
+    <value>Exchange Rate</value>
   </data>
   <data name="currenciesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 22</value>
@@ -940,7 +940,7 @@
     <value>192, 22</value>
   </data>
   <data name="miContractCode.Text" xml:space="preserve">
-    <value>Contract code</value>
+    <value>Contract Code</value>
   </data>
   <data name="collateralProductsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 22</value>
@@ -961,31 +961,31 @@
     <value>Window</value>
   </data>
   <data name="userGuideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 22</value>
+    <value>189, 22</value>
   </data>
   <data name="userGuideToolStripMenuItem.Text" xml:space="preserve">
-    <value>User guide</value>
+    <value>User Guide</value>
   </data>
   <data name="contactMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 22</value>
+    <value>189, 22</value>
   </data>
   <data name="contactMenuItem.Text" xml:space="preserve">
-    <value>Contact us...</value>
+    <value>Contact Us...</value>
   </data>
   <data name="aboutMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 22</value>
+    <value>189, 22</value>
   </data>
   <data name="aboutMenuItem.Text" xml:space="preserve">
     <value>About</value>
   </data>
   <data name="getHelpFromForumToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 22</value>
+    <value>189, 22</value>
   </data>
   <data name="getHelpFromForumToolStripMenuItem.Text" xml:space="preserve">
-    <value>Get help from Forum</value>
+    <value>Get Help From Forum</value>
   </data>
   <data name="visitOpenCBScomToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 22</value>
+    <value>189, 22</value>
   </data>
   <data name="visitOpenCBScomToolStripMenuItem.Text" xml:space="preserve">
     <value>Visit OpenCBS.com</value>
@@ -1003,25 +1003,25 @@
     <value>None</value>
   </data>
   <data name="menuItemSetting.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>206, 22</value>
   </data>
   <data name="menuItemSetting.Text" xml:space="preserve">
-    <value>General settings</value>
+    <value>General Settings</value>
   </data>
   <data name="menuItemDatabaseControlPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>206, 22</value>
   </data>
   <data name="menuItemDatabaseControlPanel.Text" xml:space="preserve">
-    <value>Database control panel</value>
+    <value>Database Control Panel</value>
   </data>
   <data name="menuItemApplicationDate.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
   <data name="menuItemApplicationDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>206, 22</value>
   </data>
   <data name="menuItemApplicationDate.Text" xml:space="preserve">
-    <value>Change application date</value>
+    <value>Change Application Date</value>
   </data>
   <data name="frenchToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
@@ -1069,7 +1069,7 @@
     <value>Portuguese</value>
   </data>
   <data name="languagesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>206, 22</value>
   </data>
   <data name="languagesToolStripMenuItem.Text" xml:space="preserve">
     <value>Language</value>
@@ -1099,7 +1099,7 @@
     <value>168, 22</value>
   </data>
   <data name="miAuditTrail.Text" xml:space="preserve">
-    <value>Audit trail...</value>
+    <value>Audit Trail...</value>
   </data>
   <data name="changePasswordToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 22</value>
@@ -1120,13 +1120,13 @@
     <value>164, 22</value>
   </data>
   <data name="mnuPackages.Text" xml:space="preserve">
-    <value>Loan products</value>
+    <value>Loan Products</value>
   </data>
   <data name="savingProductsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>164, 22</value>
   </data>
   <data name="savingProductsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Savings products</value>
+    <value>Savings Products</value>
   </data>
   <data name="mnuProducts.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 20</value>
@@ -1138,7 +1138,7 @@
     <value>174, 22</value>
   </data>
   <data name="_aboutModulesMenuItem.Text" xml:space="preserve">
-    <value>About extensions...</value>
+    <value>About Extensions...</value>
   </data>
   <data name="_modulesMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 20</value>
