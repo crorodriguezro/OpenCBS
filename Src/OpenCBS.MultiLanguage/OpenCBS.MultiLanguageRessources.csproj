@@ -133,6 +133,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientControl.ru-RU.resx</DependentUpon>
     </Compile>
+    <Compile Include="resx\FrmAvalaibleCollateralProducts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FrmAvalaibleCollateralProducts.resx</DependentUpon>
+    </Compile>
     <Compile Include="resx\FrmFundingLineEvent.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -219,6 +224,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="resx\AddTrancheForm.es-ES.resx" />
     <EmbeddedResource Include="resx\DashboardForm.resx" />
+    <EmbeddedResource Include="resx\FrmAvalaibleCollateralProducts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FrmAvalaibleCollateralProducts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="resx\ReschedulingForm.es-ES.resx" />
     <EmbeddedResource Include="resx\ReschedulingForm.fr.resx" />
     <EmbeddedResource Include="resx\ReschedulingForm.pt.resx" />

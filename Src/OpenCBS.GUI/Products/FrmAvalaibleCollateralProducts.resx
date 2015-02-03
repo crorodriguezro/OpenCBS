@@ -117,34 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="nameHeader.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="nameHeader.Width" type="System.Int32, mscorlib">
+    <value>250</value>
+  </data>
+  <data name="descriptionHeader.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="descriptionHeader.Width" type="System.Int32, mscorlib">
+    <value>512</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="webBrowserPackage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="descriptionListView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="webBrowserPackage.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="descriptionListView.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="webBrowserPackage.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+  <data name="descriptionListView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>766, 477</value>
   </data>
-  <data name="webBrowserPackage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>579, 418</value>
+  <data name="descriptionListView.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="webBrowserPackage.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;descriptionListView.Name" xml:space="preserve">
+    <value>descriptionListView</value>
   </data>
-  <data name="&gt;&gt;webBrowserPackage.Name" xml:space="preserve">
-    <value>webBrowserPackage</value>
+  <data name="&gt;&gt;descriptionListView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;webBrowserPackage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.WebBrowser, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;webBrowserPackage.Parent" xml:space="preserve">
+  <data name="&gt;&gt;descriptionListView.Parent" xml:space="preserve">
     <value>pnlCollateralProducts</value>
   </data>
-  <data name="&gt;&gt;webBrowserPackage.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;descriptionListView.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="buttonEditProduct.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -295,10 +304,10 @@
     <value>Right</value>
   </data>
   <data name="groupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>579, 0</value>
+    <value>766, 0</value>
   </data>
   <data name="groupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 418</value>
+    <value>170, 477</value>
   </data>
   <data name="groupBox.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -322,7 +331,7 @@
     <value>0, 36</value>
   </data>
   <data name="pnlCollateralProducts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>749, 418</value>
+    <value>936, 477</value>
   </data>
   <data name="pnlCollateralProducts.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -343,10 +352,10 @@
     <value>True</value>
   </metadata>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>749, 454</value>
+    <value>936, 513</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
+    <value>Arial, 9.75pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -948,6 +957,18 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Collateral Types</value>
+  </data>
+  <data name="&gt;&gt;nameHeader.Name" xml:space="preserve">
+    <value>nameHeader</value>
+  </data>
+  <data name="&gt;&gt;nameHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;descriptionHeader.Name" xml:space="preserve">
+    <value>descriptionHeader</value>
+  </data>
+  <data name="&gt;&gt;descriptionHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmAvalaibleCollateralProducts</value>

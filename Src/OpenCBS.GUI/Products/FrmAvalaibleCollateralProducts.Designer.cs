@@ -18,7 +18,6 @@ namespace OpenCBS.GUI.Products
         private GroupBox groupBox;
         private Panel pnlCollateralProducts;
         private CheckBox checkBoxShowDeletedProduct;
-        private WebBrowser webBrowserPackage;
 
         /// <summary>
         /// Nettoyage des ressources utilisées.
@@ -42,8 +41,10 @@ namespace OpenCBS.GUI.Products
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAvalaibleCollateralProducts));
-            this.webBrowserPackage = new System.Windows.Forms.WebBrowser();
             this.pnlCollateralProducts = new System.Windows.Forms.Panel();
+            this.descriptionListView = new System.Windows.Forms.ListView();
+            this.nameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.descriptionHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.buttonEditProduct = new System.Windows.Forms.Button();
             this.checkBoxShowDeletedProduct = new System.Windows.Forms.CheckBox();
@@ -53,18 +54,34 @@ namespace OpenCBS.GUI.Products
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // webBrowserPackage
-            // 
-            resources.ApplyResources(this.webBrowserPackage, "webBrowserPackage");
-            this.webBrowserPackage.Name = "webBrowserPackage";
-            this.webBrowserPackage.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowserPackage_DocumentCompleted);
-            // 
             // pnlCollateralProducts
             // 
-            this.pnlCollateralProducts.Controls.Add(this.webBrowserPackage);
+            this.pnlCollateralProducts.Controls.Add(this.descriptionListView);
             this.pnlCollateralProducts.Controls.Add(this.groupBox);
             resources.ApplyResources(this.pnlCollateralProducts, "pnlCollateralProducts");
             this.pnlCollateralProducts.Name = "pnlCollateralProducts";
+            // 
+            // descriptionListView
+            // 
+            this.descriptionListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.nameHeader,
+            this.descriptionHeader});
+            resources.ApplyResources(this.descriptionListView, "descriptionListView");
+            this.descriptionListView.FullRowSelect = true;
+            this.descriptionListView.GridLines = true;
+            this.descriptionListView.Name = "descriptionListView";
+            this.descriptionListView.UseCompatibleStateImageBehavior = false;
+            this.descriptionListView.View = System.Windows.Forms.View.Details;
+            this.descriptionListView.Click += new System.EventHandler(this.descriptionListView_Click);
+            this.descriptionListView.DoubleClick += new System.EventHandler(this.descriptionListView_DoubleClick);
+            // 
+            // nameHeader
+            // 
+            resources.ApplyResources(this.nameHeader, "nameHeader");
+            // 
+            // descriptionHeader
+            // 
+            resources.ApplyResources(this.descriptionHeader, "descriptionHeader");
             // 
             // groupBox
             // 
@@ -114,5 +131,9 @@ namespace OpenCBS.GUI.Products
             this.PerformLayout();
 
         }
+
+        private ListView descriptionListView;
+        private ColumnHeader nameHeader;
+        private ColumnHeader descriptionHeader;
     }
 }

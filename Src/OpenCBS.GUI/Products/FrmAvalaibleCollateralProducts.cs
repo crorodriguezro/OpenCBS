@@ -40,13 +40,17 @@ namespace OpenCBS.GUI.Products
     {
         private int idPackage;
         private CollateralProduct product;
+        private bool _showDeletedPackage = false;
+        private CollateralProduct _package;
+        private CollateralProduct _selectedPackage;
 
         public FrmAvalaibleCollateralProducts()
         {
             InitializeComponent();
             product = new CollateralProduct();
-            InitializePackages();
-            webBrowserPackage.ObjectForScripting = this;
+            refreshListView();
+            _package = new CollateralProduct();
+            _selectedPackage = new CollateralProduct();
         }
 
         private int PackageFormId
@@ -57,39 +61,62 @@ namespace OpenCBS.GUI.Products
 
         private void InitializePackages()
         {
-            string templatePath = UserSettings.GetTemplatePath;
-
-            string text = string.Format(
-                @"<html>
-                  <head>
-                  <link href='{0}\cover.css' type='text/css' rel='stylesheet'/>
-                  <meta http-equiv='pragma' content='no-cache'/>
-                  <title>Covers list</title>
-                  </head>
-                  <script type='text/javascript' src='{0}\cover.js'></script>
-                  <body>", templatePath);
-
             List<CollateralProduct> productList = ServicesProvider.GetInstance().GetCollateralProductServices().SelectAllCollateralProducts(_showDeletedPackage);
             productList.Sort(new CollateralProductComparer<CollateralProduct>());
-            foreach (CollateralProduct collateralProduct in productList)
+            foreach (CollateralProduct cP in productList)
             {
-                text += _CreateHtmlForShowingPackage(collateralProduct);
+                ListViewItem lvi = new ListViewItem(cP.Name);
+                lvi.SubItems.Add(cP.Description);
+                lvi.Tag = cP;
+                determineRowColor(cP, lvi);
+                descriptionListView.Items.Add(lvi);
+            }            
+        }
+
+        private void determineRowColor(CollateralProduct cP, ListViewItem lvi)
+        {
+            if (cP.Delete == true)
+                lvi.BackColor = System.Drawing.Color.LightGray;
+            else
+                lvi.BackColor = System.Drawing.Color.White;
+        }
+
+        private void buttonAddProduct_Click(object sender, EventArgs e)
+        {
+            FrmAddCollateralProduct addCollateralProductForm = new FrmAddCollateralProduct();
+            addCollateralProductForm.ShowDialog();
+            refreshListView();
+            ((MainView)MdiParent).SetInfoMessage("Collateral type saved");
+        }
+
+        private void refreshListView()
+        {
+            descriptionListView.Items.Clear();
+            InitializePackages();
+        }
+
+        private void buttonDeletePackage_Click(object sender, EventArgs e)
+        {
+            if (descriptionListView.SelectedItems.Count != 0)
+            {
+                string msg = GetString("DeleteConfirmation.Text");
+                if (DialogResult.Yes == MessageBox.Show(msg, "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+                    DeletePackage();
             }
-            text += "</body></html>";
-
-            var tempPath = Path.GetTempPath();
-            tempPath = Path.Combine(tempPath, "packages_list.html");
-            File.WriteAllText(tempPath, text, Encoding.UTF8);
-
-            webBrowserPackage.Url = new Uri(tempPath, UriKind.Absolute);
+            else
+            {
+                MessageBox.Show(GetString("messageSelection.Text"),
+                                GetString("title.Text"),
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } 
         }
 
         private void DeletePackage()
         {
             try
             {
-                ServicesProvider.GetInstance().GetCollateralProductServices().DeleteCollateralProduct(product.Id);
-                InitializePackages();
+                ServicesProvider.GetInstance().GetCollateralProductServices().DeleteCollateralProduct(retrieveSelectedPackage().Id);
+                refreshListView();
                 product = null;
                 buttonDeletePackage.Enabled = false;
                 buttonEditProduct.Enabled = false;
@@ -100,85 +127,13 @@ namespace OpenCBS.GUI.Products
             }
         }
 
-        private void buttonDeletePackage_Click(object sender, EventArgs e)
-        {
-            DeletePackage();
-        }
-
-        private static string _CreateHtmlForShowingPackage(CollateralProduct collateralProduct)
-        {
-            string img = "package.png";
-            if (collateralProduct.Delete) img = "package_delete.png";
-
-            string text = string.Format(@"
-                            <form id='{1}' name='package{1}'>
-                            <table id={1} cellpadding='0' cellspacing='0' border='0' class='list_content' onclick='click_book(this,{1});' onmouseenter='mouse_enter_book(this);' onmouseleave='mouse_leave_book(this);'>
-	                        <tr>
-		                        <td>
-                                    <table class='book_list' cellpadding='0' cellspacing='0' border='0'>
-	                                <tr>
-		                                <td>
-			                                <table cellpadding='0' cellspacing='0' border='0'>
-				                                <tr>
-					                                <td><img id='{1}' src='{0}'/></td>
-                                                </tr>                                                
-			                                </table>
-		                                </td>
-	                                </tr>
-                                    </table>
-		                        </td>
-		                        <td style='width:100%'>
-		                            <span >
-		                                <span class='title_popup'>{2} ({3})</span>
-                                    </span>
-                                </td>
-                            </tr>
-                            </table></form>", Path.Combine(UserSettings.GetTemplatePath, img), collateralProduct.Id, collateralProduct.Name, collateralProduct.Description);
-
-            return text;
-        }
-
-        private bool _showDeletedPackage = false;
-        private void checkBoxShowDeletedProduct_CheckedChanged(object sender, EventArgs e)
-        {
-            _showDeletedPackage = checkBoxShowDeletedProduct.Checked;
-            InitializePackages();
-        }
-
-        public void Package_DoubleClick(object sender, HtmlElementEventArgs e)
-        {
-            string sID = webBrowserPackage.Document.GetElementFromPoint(e.MousePosition).Id;
-            CollateralProduct selectedProduct = ServicesProvider.GetInstance().GetCollateralProductServices().SelectCollateralProduct(Convert.ToInt32(sID));
-            FrmAddCollateralProduct addCollateralProduct = new FrmAddCollateralProduct(selectedProduct);
-            addCollateralProduct.ShowDialog();
-        }
-
-        private void webBrowserPackage_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-            foreach (HtmlElement image in webBrowserPackage.Document.Images)
-                image.DoubleClick += Package_DoubleClick;
-
-            foreach (HtmlElement form in webBrowserPackage.Document.Forms)
-                form.Click += Package_Click;
-        }
-
-        public void Package_Click(object sender, HtmlElementEventArgs e)
-        {
-            var tag = (HtmlElement)(sender);
-            PackageFormId = Convert.ToInt32(tag.Id);
-            product = ServicesProvider.GetInstance().GetCollateralProductServices().SelectCollateralProduct(PackageFormId);
-
-            buttonDeletePackage.Enabled = true;
-            buttonEditProduct.Enabled = true;
-        }
-
         private void buttonEditProduct_Click(object sender, EventArgs e)
         {
-            if (PackageFormId != 0)
+            if (descriptionListView.SelectedItems.Count != 0)
             {
-                CollateralProduct selectedProduct = ServicesProvider.GetInstance().GetCollateralProductServices().SelectCollateralProduct(PackageFormId);
-                FrmAddCollateralProduct addCollateralProduct = new FrmAddCollateralProduct(selectedProduct);
+                FrmAddCollateralProduct addCollateralProduct = new FrmAddCollateralProduct(retrieveSelectedPackage());
                 addCollateralProduct.ShowDialog();
+                refreshListView();
             }
             else
             {
@@ -187,18 +142,41 @@ namespace OpenCBS.GUI.Products
             }
         }
 
+        private void checkBoxShowDeletedProduct_CheckedChanged(object sender, EventArgs e)
+        {
+            _showDeletedPackage = checkBoxShowDeletedProduct.Checked;
+            refreshListView();
+        }
+
+        private void descriptionListView_Click(object sender, EventArgs e)
+        {
+            buttonDeletePackage.Enabled = true;
+            buttonEditProduct.Enabled = true;
+        }
+
+        private void descriptionListView_DoubleClick(object sender, EventArgs e)
+        {
+            FrmAddCollateralProduct addCollateralProduct = new FrmAddCollateralProduct(retrieveSelectedPackage());
+            addCollateralProduct.ShowDialog();
+        }      
+
+        private CollateralProduct retrieveSelectedPackage()
+        {
+            _package = (CollateralProduct)descriptionListView.SelectedItems[0].Tag;
+            _selectedPackage = ServicesProvider.GetInstance().GetCollateralProductServices().SelectCollateralProduct(_package.Id);
+            return _selectedPackage;
+        }
+
         private void PackagesForm_Load(object sender, EventArgs e)
         {
             buttonDeletePackage.Enabled = true;
             buttonEditProduct.Enabled = true;
         }
 
-        private void buttonAddProduct_Click(object sender, EventArgs e)
-        {
-            FrmAddCollateralProduct addCollateralProductForm = new FrmAddCollateralProduct();
-            addCollateralProductForm.ShowDialog();
-            InitializePackages();
-            ((MainView)MdiParent).SetInfoMessage("Collateral type saved");
-        }
+
+
+
+
+
     }
 }
