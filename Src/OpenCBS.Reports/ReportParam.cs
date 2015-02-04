@@ -441,6 +441,7 @@ namespace OpenCBS.Reports
             get
             {
                 if (null == _control) return string.Empty;
+                if (!Visible) _control.SelectedIndex = 0;
                 if (0 == _control.SelectedItems.Count) return string.Empty;
                 var list = new List<string>();
                 foreach (var item in _control.SelectedItems)
@@ -449,11 +450,6 @@ namespace OpenCBS.Reports
                 }
                 return string.Join(",", list.ToArray());
             }
-        }
-
-        public override bool Visible
-        {
-            get { return _control != null; }
         }
 
         public override Control Control
