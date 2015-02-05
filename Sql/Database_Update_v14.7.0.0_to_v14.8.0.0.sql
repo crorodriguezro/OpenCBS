@@ -10,6 +10,7 @@ set interest_rate = p.interest_rate * FLOOR(365 / (it.nb_of_months*30 + it.nb_of
 	interest_rate_max = p.interest_rate_max * FLOOR(365 / (it.nb_of_months*30 + it.nb_of_days))
 from Packages p
 left join InstallmentTypes it on it.id = p.installment_type
+where it.nb_of_months > 0 and it.nb_of_days > 0
 GO
 
 update ReschedulingOfALoanEvents
