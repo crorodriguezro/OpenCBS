@@ -4136,7 +4136,7 @@ namespace OpenCBS.GUI.Clients
         private void DisplayLoanEvents(Loan pCredit)
         {
             lvEvents.Items.Clear();
-            List<Event> events = pCredit.Events.GetSortedEvents();
+            List<Event> events = pCredit.Events.GetSortedEvents().OrderBy(x => x.Date).ToList();
             LoanServices contractServices = ServicesProvider.GetInstance().GetContractServices();
 
             for (int i = events.Count - 1; i >= 0; i--)
