@@ -28,6 +28,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using OpenCBS.ArchitectureV2.CommandData;
+using OpenCBS.ArchitectureV2.Event;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Accounting;
@@ -48,7 +49,6 @@ using OpenCBS.CoreDomain.Products;
 using OpenCBS.CoreDomain.Products.Collaterals;
 using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
-using OpenCBS.ExceptionsHandler.Exceptions.SavingExceptions;
 using OpenCBS.Extensions;
 using OpenCBS.GUI.Contracts;
 using OpenCBS.GUI.Tools;
@@ -63,7 +63,7 @@ using Group = OpenCBS.CoreDomain.Clients.Group;
 namespace OpenCBS.GUI.Clients
 {
     using ML = MultiLanguageStrings;
-    public partial class ClientForm : SweetForm
+    public partial class ClientForm : SweetForm, IEventHandler<RepaymentNotification>
     {
         #region *** Fields ***
         private LoanProduct _product;
@@ -3986,36 +3986,41 @@ namespace OpenCBS.GUI.Clients
             }
         }
 
+        public void Handle(RepaymentNotification notification)
+        {
+            if (_credit.Id != notification.LoanId) return;
+
+            DisplayListViewLoanRepayments(_credit);
+            DisplayLoanEvents(_credit);
+
+            InitializeContractStatus(_credit);
+            if (_credit.Closed)
+            {
+                buttonRepay.Enabled = false;
+                //we are sure that the last credit is closed, so we force here to make the last credit closed...
+                int count = _project.Credits.Count;
+                _project.Credits[count - 1].Closed = true;
+                DisplayContracts(_project.Credits);
+            }
+
+            if (_credit.InstallmentList[_credit.InstallmentList.Count - 1].IsRepaid)
+            {
+                buttonLoanRepaymentRepay.Enabled = false;
+                buttonLoanReschedule.Enabled = false;
+                buttonReschedule.Enabled = false;
+                btnWriteOff.Enabled = false;
+                buttonManualSchedule.Enabled = false;
+            }
+            DisplaySavings(_client.Savings);
+            if (MdiParent != null)
+                ((MainView) MdiParent).ReloadAlertsSync();
+        }
+
         private void buttonLoanRepaymentRepay_Click(object sender, EventArgs e)
         {
             if (TechnicalSettings.NewRepaymentWindow)
             {
                 _applicationController.Execute(new ShowRepaymentViewCommandData { Loan = _credit });
-
-                DisplayListViewLoanRepayments(_credit);
-                DisplayLoanEvents(_credit);
-
-                InitializeContractStatus(_credit);
-                if (_credit.Closed)
-                {
-                    buttonRepay.Enabled = false;
-                    //we are sure that the last credit is closed, so we force here to make the last credit closed...
-                    int count = _project.Credits.Count;
-                    _project.Credits[count - 1].Closed = true;
-                    DisplayContracts(_project.Credits);
-                }
-
-                if (_credit.InstallmentList[_credit.InstallmentList.Count - 1].IsRepaid)
-                {
-                    buttonLoanRepaymentRepay.Enabled = false;
-                    buttonLoanReschedule.Enabled = false;
-                    buttonReschedule.Enabled = false;
-                    btnWriteOff.Enabled = false;
-                    buttonManualSchedule.Enabled = false;
-                }
-                DisplaySavings(_client.Savings);
-                if (MdiParent != null)
-                    ((MainView)MdiParent).ReloadAlertsSync();
             }
             else
             {
@@ -5771,6 +5776,7 @@ namespace OpenCBS.GUI.Clients
         private void ClientForm_Load(object sender, EventArgs e)
         {
             _toChangeAlignDate = true;
+            _applicationController.Subscribe(this);
         }
 
         private void btSearchContract_Click(object sender, EventArgs e)
@@ -6740,7 +6746,7 @@ namespace OpenCBS.GUI.Clients
 
         private void ClientForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            GC.Collect();
+            _applicationController.Unsubscribe(this);
         }
 
         private void WaiveFee()

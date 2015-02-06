@@ -25,7 +25,7 @@ namespace OpenCBS.ArchitectureV2.Command
             var result = _presenter.Run(commandData.Loan);
             if (result == DialogResult.OK)
             {
-                _appController.Raise(new RepaymentEvent {LoanId = commandData.Loan.Id});
+                _appController.Raise(new RepaymentNotification {LoanId = commandData.Loan.Id});
             }
         }
     }

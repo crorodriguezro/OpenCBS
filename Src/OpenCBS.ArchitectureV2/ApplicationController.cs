@@ -38,6 +38,11 @@ namespace OpenCBS.ArchitectureV2
             _eventPublisher.Publish(eventData);
         }
 
+        public void Subscribe(object eventHandlers)
+        {
+            _eventPublisher.Subscribe(eventHandlers);
+        }
+
         public void Unsubscribe(object eventHandlers)
         {
             _eventPublisher.Unsubscribe(eventHandlers);
