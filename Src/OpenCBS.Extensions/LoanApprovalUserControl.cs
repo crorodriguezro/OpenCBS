@@ -11,6 +11,7 @@ using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.Enums;
 using OpenCBS.Reports;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.Extensions
 {
@@ -44,6 +45,9 @@ namespace OpenCBS.Extensions
                 if (SaveLoanApproval == null) return;
                 SaveLoanApproval();
             };
+
+            this._dateTimePicker.Format = DateTimePickerFormat.Custom;
+            this._dateTimePicker.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
         }
 
         public Control GetControl()

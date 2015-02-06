@@ -164,6 +164,13 @@ namespace OpenCBS.GUI.Clients
             var control = _loanApprovalControl.GetControl();
             control.Dock = DockStyle.Fill;
             tabPageCreditCommitee.Controls.Add(control);
+
+            this.dateTimePickerProjectBeginDate.Format = DateTimePickerFormat.Custom;
+            this.dateTimePickerProjectBeginDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            this.dtpDateOfFirstInstallment.Format = DateTimePickerFormat.Custom;
+            this.dtpDateOfFirstInstallment.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            this.dateLoanStart.Format = DateTimePickerFormat.Custom;
+            this.dateLoanStart.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
         }
 
         public ClientForm(
@@ -6849,6 +6856,11 @@ namespace OpenCBS.GUI.Clients
         private void chxSystemEvents_CheckedChanged(object sender, EventArgs e)
         {
             DisplayLoanEvents(_credit);
+        }
+
+        private void cmbCompulsorySaving_DropDown(object sender, EventArgs e)
+        {
+            LoadClientSavings();
         }
 
 

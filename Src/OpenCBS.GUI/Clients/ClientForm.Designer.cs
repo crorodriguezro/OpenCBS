@@ -1170,7 +1170,6 @@ namespace OpenCBS.GUI.Clients
             // dateTimePickerProjectBeginDate
             // 
             this.dateTimePickerProjectBeginDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerProjectBeginDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dateTimePickerProjectBeginDate, "dateTimePickerProjectBeginDate");
             this.dateTimePickerProjectBeginDate.Name = "dateTimePickerProjectBeginDate";
             // 
@@ -1612,7 +1611,6 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.dtpDateOfFirstInstallment, "dtpDateOfFirstInstallment");
             this.dtpDateOfFirstInstallment.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateOfFirstInstallment.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             this.dtpDateOfFirstInstallment.Name = "dtpDateOfFirstInstallment";
             // 
             // labelLoanGracePeriodMinMax
@@ -1650,7 +1648,6 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.dateLoanStart, "dateLoanStart");
             this.dateLoanStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateLoanStart.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             this.dateLoanStart.Name = "dateLoanStart";
             this.dateLoanStart.ValueChanged += new System.EventHandler(this.dateLoanStart_ValueChanged);
             // 
@@ -2083,6 +2080,7 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.cmbCompulsorySaving, "cmbCompulsorySaving");
             this.cmbCompulsorySaving.Name = "cmbCompulsorySaving";
             this.cmbCompulsorySaving.ValueMember = "Key";
+            this.cmbCompulsorySaving.DropDown += new System.EventHandler(this.cmbCompulsorySaving_DropDown);
             this.cmbCompulsorySaving.SelectedIndexChanged += new System.EventHandler(this.cmbCompulsorySaving_SelectedIndexChanged);
             // 
             // linkCompulsorySavings
