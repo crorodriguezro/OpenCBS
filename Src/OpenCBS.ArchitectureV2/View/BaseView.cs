@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using BrightIdeasSoftware;
 using OpenCBS.ArchitectureV2.Interface.Service;
 
 namespace OpenCBS.ArchitectureV2.View
@@ -58,20 +59,20 @@ namespace OpenCBS.ArchitectureV2.View
                 typeof (CheckBox),
                 typeof (RadioButton),
                 typeof (GroupBox),
-                //typeof (ObjectListView),
+                typeof (ObjectListView),
             };
             foreach (var control in GetControls(this).Where(c => validTypes.Contains(c.GetType())))
             {
-//                if (control is ObjectListView)
-//                {
-//                    var listView = control as ObjectListView;
-//                    for (var i = 0; i < listView.Columns.Count; i++)
-//                    {
-//                        var column = listView.Columns[i];
-//                        _map.Add(column, column.Text);
-//                    }
-//                }
-//                else
+                if (control is ObjectListView)
+                {
+                    var listView = control as ObjectListView;
+                    for (var i = 0; i < listView.Columns.Count; i++)
+                    {
+                        var column = listView.Columns[i];
+                        _map.Add(column, column.Text);
+                    }
+                }
+                else
                 {
                     _map.Add(control, control.Text);
                 }
