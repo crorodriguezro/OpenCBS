@@ -452,6 +452,15 @@ namespace OpenCBS.Reports
             }
         }
 
+        public override bool Visible
+        {
+            get
+            {
+                if (null == _control) return false;
+                return HideIfrows != _control.Items.Count;
+            }
+        }
+
         public override Control Control
         {
             get { return _control; }
