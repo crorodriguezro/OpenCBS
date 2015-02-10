@@ -67,6 +67,8 @@ namespace OpenCBS.GUI.Clients
             _village = new Village { CreationDate = TimeProvider.Now };
             InitializeControls();
             InitializeTitle();
+            this.dtDate.Format = DateTimePickerFormat.Custom;
+            this.dtDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
         }
 
         public NonSolidaryGroupForm(Village village, IApplicationController applicationController)
