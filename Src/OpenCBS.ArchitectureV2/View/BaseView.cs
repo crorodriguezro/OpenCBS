@@ -56,6 +56,7 @@ namespace OpenCBS.ArchitectureV2.View
             {
                 typeof (Label),
                 typeof (Button),
+                typeof (ToolStripButton),
                 typeof (CheckBox),
                 typeof (RadioButton),
                 typeof (GroupBox),
