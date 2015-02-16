@@ -302,6 +302,11 @@ namespace OpenCBS.Reports
             return Manager.GetQueryResult(query);
         }
 
+        public List<TreeViewItem> GetTreeViewItems(string sql)
+        {
+            return Manager.GetTreeViewItems(sql);
+        }
+
         public void SetStarred(string name, bool starred)
         {
             Manager.SetStarred(name, starred);

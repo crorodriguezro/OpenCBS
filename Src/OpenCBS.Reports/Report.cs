@@ -314,6 +314,11 @@ namespace OpenCBS.Reports
                     param = qp;
                     break;
 
+                case "treeview":
+                    var rootNodeText = node.Attributes["rootNodeText"];
+                    param = new TreeViewParam(node.InnerText, rootNodeText == null ? "All" : rootNodeText.Value);
+                    break;
+
                 case "currency":
                     a = node.Attributes["includeAll"];
                     bool includeAll = a != null && "yes" == a.Value;

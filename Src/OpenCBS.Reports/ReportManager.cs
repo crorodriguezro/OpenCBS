@@ -28,6 +28,8 @@ using System.Text;
 using OpenCBS.CoreDomain;
 using OpenCBS.Shared.Settings;
 using System;
+using System.Linq;
+using Dapper;
 
 namespace OpenCBS.Reports
 {
@@ -290,6 +292,22 @@ namespace OpenCBS.Reports
                 }
                 if (retval.Count == 0) retval.Add(new KeyValuePair<object, object>(null, "Empty"));
                 return retval;
+            }
+        }
+
+        public List<TreeViewItem> GetTreeViewItems(string sql)
+        {
+            try
+            {
+                using (var connection = GetConnection())
+                {
+                    return connection.Query<TreeViewItem>(sql).ToList();
+                }
+            }
+            catch (Exception error)
+            {
+                System.Diagnostics.Debug.WriteLine(error.Message);
+                return null;
             }
         }
 

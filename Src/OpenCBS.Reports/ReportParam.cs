@@ -326,6 +326,81 @@ namespace OpenCBS.Reports
         }
     }
 
+    public class TreeViewParam : ReportParamV2
+    {
+        private readonly string _rootNodeText;
+        private readonly string _sql;
+        private TreeView _control;
+
+        public TreeViewParam(string sql, string rootNodeText)
+        {
+            _sql = sql;
+            _rootNodeText = rootNodeText;
+            if (string.IsNullOrEmpty(_rootNodeText)) _rootNodeText = "All";
+        }
+
+        public override Control Control
+        {
+            get { return _control; }
+        }
+
+        public override object Value
+        {
+            get
+            {
+                var node = _control.SelectedNode;
+                if (node == null) return "0,0";
+
+                var item = (TreeViewItem) node.Tag;
+                return string.Format("{0},{1}", item.Id, node.Level);
+            }
+        }
+
+        private TreeNode FindNode(int id, TreeNode rootNode)
+        {
+            foreach (TreeNode node in rootNode.Nodes)
+            {
+                if (((TreeViewItem) node.Tag).Id == id) return node;
+                var next = FindNode(id, node);
+                if (next != null) return next;
+            }
+            return null;
+        }
+
+        public override void InitControl()
+        {
+            if (_control == null)
+            {
+                _control = new TreeView
+                {
+                    Name = Name + "_control",
+                    Font = ControlFont,
+                    Size = new Size(330, 200)
+                };
+
+                var items = ReportService.GetInstance().GetTreeViewItems(_sql);
+                var rootNode = new TreeNode(_rootNodeText);
+                rootNode.Tag = new TreeViewItem { Id = 0, Name = _rootNodeText, ParentId = -1 };
+                _control.Nodes.Add(rootNode);
+                foreach (var item in items)
+                {
+                    var node = new TreeNode(item.Name) { Tag = item };
+                    TreeNode addToNode;
+                    if (item.ParentId == 0)
+                    {
+                        addToNode = rootNode;
+                    }
+                    else
+                    {
+                        addToNode = FindNode(item.ParentId, rootNode);
+                    }
+                    if (addToNode != null) addToNode.Nodes.Add(node);
+                }
+                _control.ExpandAll();
+            }
+        }
+    }
+
     public class QueryParam : ReportParamV2
     {
         protected class Item
@@ -446,7 +521,7 @@ namespace OpenCBS.Reports
                 var list = new List<string>();
                 foreach (var item in _control.SelectedItems)
                 {
-                    list.Add(((Item)item).Key.ToString());
+                    list.Add(((Item) item).Key.ToString());
                 }
                 return string.Join(",", list.ToArray());
             }
