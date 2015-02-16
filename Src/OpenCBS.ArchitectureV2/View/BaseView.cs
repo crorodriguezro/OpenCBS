@@ -33,6 +33,8 @@ namespace OpenCBS.ArchitectureV2.View
                     (pair.Key as Control).Text = _translationService.Translate(pair.Value);
                 else if (pair.Key is ColumnHeader)
                     (pair.Key as ColumnHeader).Text = _translationService.Translate(pair.Value);
+                else if (pair.Key is ToolStripButton)
+                    (pair.Key as ToolStripButton).Text = _translationService.Translate(pair.Value);
             }
             Invalidate(true);
         }
@@ -56,11 +58,11 @@ namespace OpenCBS.ArchitectureV2.View
             {
                 typeof (Label),
                 typeof (Button),
-                typeof (ToolStripButton),
                 typeof (CheckBox),
                 typeof (RadioButton),
                 typeof (GroupBox),
                 typeof (ObjectListView),
+                typeof (ToolStrip)
             };
             foreach (var control in GetControls(this).Where(c => validTypes.Contains(c.GetType())))
             {
@@ -71,6 +73,14 @@ namespace OpenCBS.ArchitectureV2.View
                     {
                         var column = listView.Columns[i];
                         _map.Add(column, column.Text);
+                    }
+                }
+                else if (control is ToolStrip)
+                {
+                    var toolStrip = control as ToolStrip;
+                    foreach (var button in toolStrip.Items.OfType<ToolStripButton>())
+                    {
+                        _map.Add(button, button.Text);
                     }
                 }
                 else
