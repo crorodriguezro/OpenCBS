@@ -618,7 +618,8 @@ namespace OpenCBS.GUI
         private void textBoxQuery_TextChanged(object sender, EventArgs e)
         {
             _query = textBoxQuery.Text;
-            ReInitializeValues();
+            lblTitle.Text = MultiLanguageStrings.GetString(Ressource.SearchCreditContractForm, "result.Text");
+            textBoxCurrentlyPage.Text = String.Empty;
         }
 
         private void listViewContracts_DoubleClick(object sender, EventArgs e)

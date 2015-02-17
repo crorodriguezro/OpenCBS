@@ -178,7 +178,7 @@ namespace OpenCBS.GUI
         private void ReinitializeValues()
         {
             labelTitleResult.Text = MultiLanguageStrings.GetString(Ressource.SearchClientForm, "result.Text");
-            listViewClient.Items.Clear();
+            //listViewClient.Items.Clear();
             textBoxCurrentlyPage.Text = String.Empty;
             buttonPrintReport.Enabled = false;
         }
