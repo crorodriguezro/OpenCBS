@@ -8,11 +8,11 @@
   	<?define PlatformProgramFilesFolder="ProgramFiles64Folder"?>
   <?endif?>
 
-  <?define PreviousVersion="14.16.0.0" ?>
-  <?define ProductVersion="15.1.0.0" ?>
-  <?define ProductVersionReduced="15.1" ?>
+  <?define PreviousVersion="15.1.0.0" ?>
+  <?define ProductVersion="15.2.0.0" ?>
+  <?define ProductVersionReduced="15.2" ?>
   <?define UpgradeCode="be584361-0c04-42c9-8ea8-457cdea8b89e"?>
-  <?define ProductCode="4d2ab6de-5ad3-41a5-8974-05fb3b1c0a42"?>
+  <?define ProductCode="5d7b8325-6139-4265-b52f-11096ede156c"?>
 
   <Product Id="$(var.ProductCode)" Name="OpenCBS $(var.ProductVersion)" Language="1033"
            Version="$(var.ProductVersion)" Manufacturer="OpenCBS" UpgradeCode="$(var.UpgradeCode)">
@@ -319,9 +319,10 @@
                 <File Id="Database_Update_v14.14.0.0_to_v14.15.0.0.sql" Source="SourceDir\Update\Database_Update_v14.14.0.0_to_v14.15.0.0.sql" />
                 <File Id="Database_Update_v14.15.0.0_to_v14.16.0.0.sql" Source="SourceDir\Update\Database_Update_v14.15.0.0_to_v14.16.0.0.sql" />
                 <File Id="Database_Update_v14.16.0.0_to_v15.1.0.0.sql" Source="SourceDir\Update\Database_Update_v14.16.0.0_to_v15.1.0.0.sql" />
+                <File Id="Database_Update_v15.1.0.0_to_v15.2.0.0.sql" Source="SourceDir\Update\Database_Update_v15.1.0.0_to_v15.2.0.0.sql" />
               </Component>
               <Component Id="xml_data_schema" Guid="CB26138B-9031-2360-D666-DD5F20038ED9">
-                <File Id="OCTOPUS_Data_Schema_v15.1.0.0.xml" Name="OCTOPUS_Data_Schema_(v15.1.0.0).xml" Source="SourceDir\Update\OCTOPUS_Data_Schema_(v15.1.0.0).xml" />
+                <File Id="OCTOPUS_Data_Schema_v15.2.0.0.xml" Name="OCTOPUS_Data_Schema_(v15.2.0.0).xml" Source="SourceDir\Update\OCTOPUS_Data_Schema_(v15.2.0.0).xml" />
                 <File Id="OCTOPUS_Upgrade_Schema.xml" Source="SourceDir\Update\OCTOPUS_Upgrade_Schema.xml" />
                 <File Id="Objects.xml" Source="SourceDir\Update\Objects.xml" />
               </Component>
