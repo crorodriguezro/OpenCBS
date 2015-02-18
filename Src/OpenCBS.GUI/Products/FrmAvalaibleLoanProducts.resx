@@ -247,13 +247,13 @@
     <value>200</value>
   </data>
   <data name="installmentTypeHeader.Text" xml:space="preserve">
-    <value>Installment Type</value>
+    <value>Installment type</value>
   </data>
   <data name="installmentTypeHeader.Width" type="System.Int32, mscorlib">
     <value>180</value>
   </data>
   <data name="interestRateHeader.Text" xml:space="preserve">
-    <value>Interest Rate</value>
+    <value>Interest rate</value>
   </data>
   <data name="interestRateHeader.Width" type="System.Int32, mscorlib">
     <value>150</value>
@@ -983,6 +983,6 @@
     <value>FrmAvalaibleLoanProducts</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
