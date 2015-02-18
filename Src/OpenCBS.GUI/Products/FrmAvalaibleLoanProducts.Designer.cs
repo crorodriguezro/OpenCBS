@@ -80,19 +80,19 @@ namespace OpenCBS.GUI.Products
             // 
             // pnlLoanProducts
             // 
+            resources.ApplyResources(this.pnlLoanProducts, "pnlLoanProducts");
             this.pnlLoanProducts.Controls.Add(this.descriptionListView);
             this.pnlLoanProducts.Controls.Add(this.flowLayoutPanel1);
-            resources.ApplyResources(this.pnlLoanProducts, "pnlLoanProducts");
             this.pnlLoanProducts.Name = "pnlLoanProducts";
             // 
             // descriptionListView
             // 
+            resources.ApplyResources(this.descriptionListView, "descriptionListView");
             this.descriptionListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.nameHeader,
             this.installmentTypeHeader,
             this.interestRateHeader,
             this.frequencyHeader});
-            resources.ApplyResources(this.descriptionListView, "descriptionListView");
             this.descriptionListView.FullRowSelect = true;
             this.descriptionListView.GridLines = true;
             this.descriptionListView.MultiSelect = false;
