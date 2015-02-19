@@ -192,10 +192,6 @@ namespace OpenCBS.GUI
             this.buttonAddFundingLineEvent.Name = "buttonAddFundingLineEvent";
             this.buttonAddFundingLineEvent.Click += new System.EventHandler(this.buttonAddFundingLineEvent_Click);
             // 
-            // columnHeaderName
-            // 
-            resources.ApplyResources(columnHeaderName, "columnHeaderName");
-            // 
             // splitContainer3
             // 
             resources.ApplyResources(this.splitContainer3, "splitContainer3");
@@ -272,9 +268,8 @@ namespace OpenCBS.GUI
             // 
             // dateTimePickerFundingLineBeginDate
             // 
-            resources.ApplyResources(this.splitContainer3.Panel1, "splitContainer3.Panel1");
-            resources.ApplyResources(this.dateTimePickerFundingLineBeginDate, "dateTimePickerFundingLineBeginDate");
             this.dateTimePickerFundingLineBeginDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            resources.ApplyResources(this.dateTimePickerFundingLineBeginDate, "dateTimePickerFundingLineBeginDate");
             this.dateTimePickerFundingLineBeginDate.Name = "dateTimePickerFundingLineBeginDate";
             // 
             // tbAnticipatedAmt
@@ -367,6 +362,10 @@ namespace OpenCBS.GUI
             this.checkBoxIncludeLateLoans.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxIncludeLateLoans.Name = "checkBoxIncludeLateLoans";
             this.checkBoxIncludeLateLoans.CheckedChanged += new System.EventHandler(this.checkBoxIncludeLateLoans_CheckedChanged);
+            // 
+            // columnHeaderName
+            // 
+            resources.ApplyResources(columnHeaderName, "columnHeaderName");
             // 
             // tabControlFundingLines
             // 

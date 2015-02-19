@@ -327,46 +327,6 @@
   <data name="&gt;&gt;lblDate.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="panelNSGDetails.Controls" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAEZPcGVuQ0JTLlNoYXJlZCwgVmVyc2lvbj0xNS4xLjAuMCwgQ3Vs
-        dHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAArT3BlbkNCUy5TaGFyZWQuU2V0dGlu
-        Z3MuQXBwbGljYXRpb25TZXR0aW5ncwMAAAAMUGFyYW1DaGFuZ2VkDF9kYlBhcmFtTGlzdBFfZGVmYXVs
-        dFBhcmFtTGlzdAQDAzBPcGVuQ0JTLlNoYXJlZC5TZXR0aW5ncy5QYXJhbUNoYW5nZWRFdmVudEhhbmRs
-        ZXICAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5IYXNodGFibGUcU3lzdGVtLkNvbGxlY3Rpb25zLkhhc2h0
-        YWJsZQIAAAAKCQMAAAAJBAAAAAQDAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5IYXNodGFibGUHAAAACkxv
-        YWRGYWN0b3IHVmVyc2lvbghDb21wYXJlchBIYXNoQ29kZVByb3ZpZGVyCEhhc2hTaXplBEtleXMGVmFs
-        dWVzAAADAwAFBQsIHFN5c3RlbS5Db2xsZWN0aW9ucy5JQ29tcGFyZXIkU3lzdGVtLkNvbGxlY3Rpb25z
-        LklIYXNoQ29kZVByb3ZpZGVyCOxROD8AAAAACgoDAAAACQUAAAAJBgAAAAEEAAAAAwAAAOxROD8sAAAA
-        CgpZAAAACQcAAAAJCAAAABAFAAAAAAAAABAGAAAAAAAAABAHAAAAKAAAAAYJAAAAFk1BWF9OVU1CRVJf
-        SU5TVEFMTE1FTlQGCgAAABZOVU1CRVJfR1JPVVBfU0VQQVJBVE9SBgsAAAANQkFEX0xPQU5fREFZUwYM
-        AAAAFFBFTkRJTkdfU0FWSU5HU19NT0RFBg0AAAAOQ0lUWV9NQU5EQVRPUlkGDgAAACxDQUxDVUxBVElP
-        Tl9MQVRFX0ZFRVNfRFVSSU5HX1BVQkxJQ19IT0xJREFZUwYPAAAADVdFRUtfRU5EX0RBWTIGEAAAAA1X
-        RUVLX0VORF9EQVkxBhEAAAAcSU5URVJFU1RfUkFURV9ERUNJTUFMX1BMQUNFUwYSAAAAD05TR19NSU5f
-        TUVNQkVSUwYTAAAAEUdST1VQX01JTl9NRU1CRVJTBhQAAAAXVVNFX0VYVEVSTkFMX0FDQ09VTlRJTkcG
-        FQAAAA5DTElFTlRfQUdFX01BWAYWAAAAEkFDQ09VTlRJTkdfUFJPQ0VTUwYXAAAAKERPTk9UX1NLSVBf
-        V0VFS0VORFNfSU5fSU5TVEFMTE1FTlRTX0RBVEUGGAAAABZDT05UUkFDVF9DT0RFX1RFTVBMQVRFBhkA
-        AAAQTU9ESUZZX0VOVFJZX0ZFRQYaAAAACFZBVF9SQVRFBhsAAAAPTlNHX01BWF9NRU1CRVJTBhwAAAAS
-        RU5GT1JDRV9JRF9QQVRURVJOBh0AAAAHQ09VTlRSWQYeAAAAHFVTRV9EQUlMWV9BQ0NSVUFMX09GX1BF
-        TkFMVFkGHwAAABVTQVZJTkdTX0NPREVfVEVNUExBVEUGIAAAACBQQVlfRklSU1RfSU5TVEFMTE1FTlRf
-        UkVBTF9WQUxVRQYhAAAAFE1BWF9HVUFSQU5UT1JfQU1PVU5UBiIAAAAaSU5DUkVNRU5UQUxfRFVSSU5H
-        X0RBWU9GRlMGIwAAABFNQVhfTE9BTlNfQ09WRVJFRAYkAAAAEUdST1VQX01BWF9NRU1CRVJTBiUAAAAK
-        SURfUEFUVEVSTgYmAAAAGE5VTUJFUl9ERUNJTUFMX1NFUEFSQVRPUgYnAAAAFUFMTE9XU19NVUxUSVBM
-        RV9MT0FOUwYoAAAAD0NFQVNFX0xBSUVfREFZUwYpAAAADEFVVE9NQVRJQ19JRAYqAAAAGlNIT1dfRVhU
-        UkFfSU5URVJFU1RfQ09MVU1OBisAAAARU0hPUlRfREFURV9GT1JNQVQGLAAAAB5MQVRFX0RBWVNfQUZU
-        RVJfQUNDUlVBTF9DRUFTRVMGLQAAABVTVE9QX1dSSVRFT0ZGX1BFTkFMVFkGLgAAABZBTExPV1NfTVVM
-        VElQTEVfR1JPVVBTBi8AAAAOQ0xJRU5UX0FHRV9NSU4GMAAAABxVU0VfTUFOREFUT1JZX1NBVklOR19B
-        Q0NPVU5UEAgAAAAoAAAACQkAAAAGMgAAAAEgBjMAAAADMTgwBjQAAAAETk9ORQgIAQAAAAgIAQAAAAgI
-        AAAAAAgIBgAAAAgIAgAAAAgIAAAAAAgIAgAAAAgIAQAAAAgIZAAAAAgIAQAAAAgIAAAAAAY1AAAADkJD
-        L1lZL1BDLUxDL0lECAgAAAAACAgAAAAACAgKAAAACAgAAAAABjYAAAAHTm90IHNldAgIAAAAAAY3AAAA
-        C0lDL0JDL0NTL0lECAgBAAAACAgAlDV3CAgBAAAACAgBAAAACAgKAAAABjgAAAAQW0EtWl17Mn1bMC05
-        XXs3fQY5AAAAASwICAAAAAAICOgDAAAICAAAAAAICAAAAAAGOgAAAApkZC1NTS15eXl5CggIAAAAAAgI
-        AAAAAAgIEgAAAAgIAAAAAAs=
-</value>
-  </data>
-  <data name="dtDate.CustomFormat" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
   <data name="dtDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
@@ -737,7 +697,7 @@
     <value>btnPrint</value>
   </data>
   <data name="&gt;&gt;btnPrint.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrint.Parent" xml:space="preserve">
     <value>panelNSGControls</value>
@@ -920,13 +880,13 @@
     <value>80</value>
   </data>
   <data name="colJoinDate.Text" xml:space="preserve">
-    <value>Join date</value>
+    <value>Join Date</value>
   </data>
   <data name="colJoinDate.Width" type="System.Int32, mscorlib">
     <value>100</value>
   </data>
   <data name="colLeftDate.Text" xml:space="preserve">
-    <value>Left date</value>
+    <value>Left Date</value>
   </data>
   <data name="colLeftDate.Width" type="System.Int32, mscorlib">
     <value>100</value>
@@ -1073,7 +1033,7 @@
     <value>7</value>
   </data>
   <data name="btnSetAsLeader.Text" xml:space="preserve">
-    <value>Set as leader</value>
+    <value>Set as Leader</value>
   </data>
   <data name="&gt;&gt;btnSetAsLeader.Name" xml:space="preserve">
     <value>btnSetAsLeader</value>
@@ -1173,13 +1133,13 @@ members</value>
     <value>1</value>
   </data>
   <data name="clientName.Text" xml:space="preserve">
-    <value>Client's name</value>
+    <value>Client's Name</value>
   </data>
   <data name="clientName.Width" type="System.Int32, mscorlib">
     <value>112</value>
   </data>
   <data name="loanProduct.Text" xml:space="preserve">
-    <value>Loan product</value>
+    <value>Loan Product</value>
   </data>
   <data name="loanProduct.Width" type="System.Int32, mscorlib">
     <value>94</value>
@@ -1224,43 +1184,43 @@ members</value>
     <value>90</value>
   </data>
   <data name="installmentType.Text" xml:space="preserve">
-    <value>Installment type</value>
+    <value>Installment Type</value>
   </data>
   <data name="installmentType.Width" type="System.Int32, mscorlib">
     <value>108</value>
   </data>
   <data name="numbOfInstallments.Text" xml:space="preserve">
-    <value>Number of installments</value>
+    <value>Number of Installments</value>
   </data>
   <data name="numbOfInstallments.Width" type="System.Int32, mscorlib">
     <value>138</value>
   </data>
   <data name="disbursedDate.Text" xml:space="preserve">
-    <value>Disbursed date</value>
+    <value>Disbursed Date</value>
   </data>
   <data name="disbursedDate.Width" type="System.Int32, mscorlib">
     <value>138</value>
   </data>
   <data name="lastEventDate.Text" xml:space="preserve">
-    <value>Last event date</value>
+    <value>Last Event Date</value>
   </data>
   <data name="lastEventDate.Width" type="System.Int32, mscorlib">
     <value>138</value>
   </data>
   <data name="nextEventDate.Text" xml:space="preserve">
-    <value>Next event date</value>
+    <value>Next Event Date</value>
   </data>
   <data name="nextEventDate.Width" type="System.Int32, mscorlib">
     <value>138</value>
   </data>
   <data name="nextAmountToRepay.Text" xml:space="preserve">
-    <value>Next amount to repay</value>
+    <value>Next Amount to Repay</value>
   </data>
   <data name="nextAmountToRepay.Width" type="System.Int32, mscorlib">
     <value>138</value>
   </data>
   <data name="closeDate.Text" xml:space="preserve">
-    <value>Close date</value>
+    <value>Close Date</value>
   </data>
   <data name="closeDate.Width" type="System.Int32, mscorlib">
     <value>100</value>
@@ -1311,7 +1271,7 @@ members</value>
     <value>37</value>
   </data>
   <data name="btnAddLoan.Text" xml:space="preserve">
-    <value>Add loans</value>
+    <value>Add Loans</value>
   </data>
   <data name="&gt;&gt;btnAddLoan.Name" xml:space="preserve">
     <value>btnAddLoan</value>
@@ -1341,7 +1301,7 @@ members</value>
     <value>37</value>
   </data>
   <data name="btnValidateLoans.Text" xml:space="preserve">
-    <value>Validate loans</value>
+    <value>Validate Loans</value>
   </data>
   <data name="&gt;&gt;btnValidateLoans.Name" xml:space="preserve">
     <value>btnValidateLoans</value>
@@ -1371,7 +1331,7 @@ members</value>
     <value>38</value>
   </data>
   <data name="btnDisburse.Text" xml:space="preserve">
-    <value>Disburse loans</value>
+    <value>Disburse Loans</value>
   </data>
   <data name="&gt;&gt;btnDisburse.Name" xml:space="preserve">
     <value>btnDisburse</value>
@@ -1401,7 +1361,7 @@ members</value>
     <value>39</value>
   </data>
   <data name="btnRepay.Text" xml:space="preserve">
-    <value>Repay loans</value>
+    <value>Repay Loans</value>
   </data>
   <data name="&gt;&gt;btnRepay.Name" xml:space="preserve">
     <value>btnRepay</value>
@@ -1503,7 +1463,7 @@ members</value>
     <value>2</value>
   </data>
   <data name="columnHeaderClientName.Text" xml:space="preserve">
-    <value>Client's name</value>
+    <value>Client's Name</value>
   </data>
   <data name="columnHeaderClientName.Width" type="System.Int32, mscorlib">
     <value>100</value>
@@ -1542,13 +1502,13 @@ members</value>
     <value>70</value>
   </data>
   <data name="columnHeaderCreationDate.Text" xml:space="preserve">
-    <value>Creation date</value>
+    <value>Creation Date</value>
   </data>
   <data name="columnHeaderCreationDate.Width" type="System.Int32, mscorlib">
     <value>100</value>
   </data>
   <data name="columnHeaderLastEventDate.Text" xml:space="preserve">
-    <value>Last event date</value>
+    <value>Last Event Date</value>
   </data>
   <data name="columnHeaderLastEventDate.Width" type="System.Int32, mscorlib">
     <value>100</value>
@@ -1560,7 +1520,7 @@ members</value>
     <value>80</value>
   </data>
   <data name="columnHeaderCloseDate.Text" xml:space="preserve">
-    <value>Close date</value>
+    <value>Close Date</value>
   </data>
   <data name="columnHeaderCloseDate.Width" type="System.Int32, mscorlib">
     <value>80</value>
@@ -1671,7 +1631,7 @@ members</value>
     <value>11</value>
   </data>
   <data name="buttonFastDeposit.Text" xml:space="preserve">
-    <value>Fast deposit</value>
+    <value>Fast Deposit</value>
   </data>
   <data name="&gt;&gt;buttonFastDeposit.Name" xml:space="preserve">
     <value>buttonFastDeposit</value>
@@ -1752,7 +1712,7 @@ members</value>
     <value>0</value>
   </data>
   <data name="olvAttendeeNameColumn.Text" xml:space="preserve">
-    <value>Attendee name</value>
+    <value>Attendee Name</value>
   </data>
   <data name="olvAttendeeNameColumn.Width" type="System.Int32, mscorlib">
     <value>250</value>
@@ -2809,6 +2769,6 @@ members</value>
     <value>NonSolidaryGroupForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

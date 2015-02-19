@@ -451,7 +451,7 @@
     <value>0</value>
   </data>
   <data name="columnHeaderPaymentMethod.Text" xml:space="preserve">
-    <value>Payment method</value>
+    <value>Payment Method</value>
   </data>
   <data name="columnHeaderPaymentMethod.Width" type="System.Int32, mscorlib">
     <value>208</value>

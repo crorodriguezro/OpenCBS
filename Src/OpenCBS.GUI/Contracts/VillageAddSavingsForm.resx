@@ -204,7 +204,7 @@
     <value>32</value>
   </data>
   <data name="btnSave.Text" xml:space="preserve">
-    <value>Confirm creation</value>
+    <value>Confirm Creation</value>
   </data>
   <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
     <value>btnSave</value>

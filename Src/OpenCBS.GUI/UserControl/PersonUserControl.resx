@@ -490,13 +490,13 @@
     <value>103</value>
   </data>
   <data name="columnHeaderNbOfCredits.Text" xml:space="preserve">
-    <value>Number of credits</value>
+    <value>Number of Credits</value>
   </data>
   <data name="columnHeaderNbOfCredits.Width" type="System.Int32, mscorlib">
     <value>132</value>
   </data>
   <data name="columnHeaderNbOfGuarantees.Text" xml:space="preserve">
-    <value>Number of guarantees</value>
+    <value>Number of Guarantees</value>
   </data>
   <data name="columnHeaderNbOfGuarantees.Width" type="System.Int32, mscorlib">
     <value>165</value>
@@ -1270,25 +1270,25 @@
     <value>150</value>
   </data>
   <data name="columnHeader10.Text" xml:space="preserve">
-    <value>Group type</value>
+    <value>Group Type</value>
   </data>
   <data name="columnHeader10.Width" type="System.Int32, mscorlib">
     <value>100</value>
   </data>
   <data name="columnHeader2.Text" xml:space="preserve">
-    <value>Establishment date</value>
+    <value>Establishment Date</value>
   </data>
   <data name="columnHeader2.Width" type="System.Int32, mscorlib">
     <value>150</value>
   </data>
   <data name="columnHeader11.Text" xml:space="preserve">
-    <value>Joined date</value>
+    <value>Joined Date</value>
   </data>
   <data name="columnHeader11.Width" type="System.Int32, mscorlib">
     <value>150</value>
   </data>
   <data name="columnHeader12.Text" xml:space="preserve">
-    <value>Left date</value>
+    <value>Left Date</value>
   </data>
   <data name="columnHeader12.Width" type="System.Int32, mscorlib">
     <value>150</value>
@@ -1355,7 +1355,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACC
-        UQAAAk1TRnQBSQFMAgEBBwEAAagBBwGoAQcBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
+        UQAAAk1TRnQBSQFMAgEBBwEAAbABBwGwAQcBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
         AwABQAMAAQEBAAEgBgABgP8AHgABAQMJAQwDFAEbAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMW
         AR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMU
         ARsDBwEJnwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMA

@@ -227,7 +227,6 @@ namespace OpenCBS.GUI.Contracts
             // 
             // dtCreationDate
             // 
-            this.dtCreationDate.CustomFormat = ((OpenCBS.Shared.Settings.ApplicationSettings)(resources.GetObject("resource1"))).SHORT_DATE_FORMAT;
             this.dtCreationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             resources.ApplyResources(this.dtCreationDate, "dtCreationDate");
             this.dtCreationDate.Name = "dtCreationDate";

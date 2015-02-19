@@ -181,7 +181,7 @@
     <value>1</value>
   </data>
   <data name="chkSelectAllBranches.Text" xml:space="preserve">
-    <value>Select / deselect all</value>
+    <value>Select / Deselect all</value>
   </data>
   <data name="&gt;&gt;chkSelectAllBranches.Name" xml:space="preserve">
     <value>chkSelectAllBranches</value>
@@ -274,7 +274,7 @@
     <value>36</value>
   </data>
   <data name="chkSelectAll.Text" xml:space="preserve">
-    <value>Select / deselect all</value>
+    <value>Select / Deselect all</value>
   </data>
   <data name="&gt;&gt;chkSelectAll.Name" xml:space="preserve">
     <value>chkSelectAll</value>

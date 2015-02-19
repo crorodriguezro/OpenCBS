@@ -144,17 +144,15 @@ namespace OpenCBS.GUI.Export
             // dateTimePickerEndDateInstallments
             // 
             resources.ApplyResources(this.dateTimePickerEndDateInstallments, "dateTimePickerEndDateInstallments");
+            resources.ApplyResources(this.splitContainerAccountTiers.Panel1, "splitContainerAccountTiers.Panel1");
+            this.dateTimePickerEndDateInstallments.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerEndDateInstallments.Name = "dateTimePickerEndDateInstallments";
-            this.dateTimePickerEndDateInstallments.Format=DateTimePickerFormat.Custom;
-            this.dateTimePickerEndDateInstallments.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             // 
             // dateTimePickerBeginDateInstallments
             // 
             resources.ApplyResources(this.dateTimePickerBeginDateInstallments, "dateTimePickerBeginDateInstallments");
+            this.dateTimePickerBeginDateInstallments.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerBeginDateInstallments.Name = "dateTimePickerBeginDateInstallments";
-            this.dateTimePickerBeginDateInstallments.Format = DateTimePickerFormat.Custom;
-            this.dateTimePickerBeginDateInstallments.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
-
             // 
             // labelBeginDateInstallments
             // 

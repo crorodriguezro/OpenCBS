@@ -343,13 +343,13 @@
     <value>0, 5, 0, 5</value>
   </data>
   <data name="_lbLoanCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 26</value>
+    <value>93, 26</value>
   </data>
   <data name="_lbLoanCode.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
   <data name="_lbLoanCode.Text" xml:space="preserve">
-    <value>Contract Code:</value>
+    <value>Contract code:</value>
   </data>
   <data name="_lbLoanCode.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -817,7 +817,7 @@
     <value>55</value>
   </data>
   <data name="buttonAddExchangeRate.Text" xml:space="preserve">
-    <value>Add exchange rate</value>
+    <value>Add Exchange Rate</value>
   </data>
   <data name="&gt;&gt;buttonAddExchangeRate.Name" xml:space="preserve">
     <value>buttonAddExchangeRate</value>
@@ -1562,6 +1562,6 @@
     <value>LoanDisbursementForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.12.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

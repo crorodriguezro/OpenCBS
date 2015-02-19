@@ -126,13 +126,13 @@
     <value>12, 9</value>
   </data>
   <data name="labelDecimalNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 13</value>
+    <value>83, 13</value>
   </data>
   <data name="labelDecimalNumber.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="labelDecimalNumber.Text" xml:space="preserve">
-    <value>Decimal Number</value>
+    <value>Decimal number</value>
   </data>
   <data name="&gt;&gt;labelDecimalNumber.Name" xml:space="preserve">
     <value>labelDecimalNumber</value>
@@ -159,7 +159,7 @@
     <value>tnDecimalNumber</value>
   </data>
   <data name="&gt;&gt;tnDecimalNumber.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextNumericUserControl, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextNumericUserControl, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tnDecimalNumber.Parent" xml:space="preserve">
     <value>$this</value>
@@ -174,13 +174,13 @@
     <value>12, 37</value>
   </data>
   <data name="labelDecimalSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 13</value>
+    <value>92, 13</value>
   </data>
   <data name="labelDecimalSeparator.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="labelDecimalSeparator.Text" xml:space="preserve">
-    <value>Decimal Separator</value>
+    <value>Decimal separator</value>
   </data>
   <data name="&gt;&gt;labelDecimalSeparator.Name" xml:space="preserve">
     <value>labelDecimalSeparator</value>
@@ -222,13 +222,13 @@
     <value>12, 63</value>
   </data>
   <data name="labelGroupSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 13</value>
+    <value>83, 13</value>
   </data>
   <data name="labelGroupSeparator.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="labelGroupSeparator.Text" xml:space="preserve">
-    <value>Group Separator</value>
+    <value>Group separator</value>
   </data>
   <data name="&gt;&gt;labelGroupSeparator.Name" xml:space="preserve">
     <value>labelGroupSeparator</value>
@@ -328,13 +328,13 @@
     <value>12, 131</value>
   </data>
   <data name="checkBoxAlignRight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 17</value>
+    <value>72, 17</value>
   </data>
   <data name="checkBoxAlignRight.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="checkBoxAlignRight.Text" xml:space="preserve">
-    <value>Align Right</value>
+    <value>Align right</value>
   </data>
   <data name="&gt;&gt;checkBoxAlignRight.Name" xml:space="preserve">
     <value>checkBoxAlignRight</value>

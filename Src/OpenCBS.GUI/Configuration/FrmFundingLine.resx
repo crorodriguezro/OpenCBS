@@ -136,7 +136,7 @@
     <value>86</value>
   </data>
   <data name="columnHeaderEventCreationDate.Text" xml:space="preserve">
-    <value>Creation date</value>
+    <value>Creation Date</value>
   </data>
   <data name="columnHeaderEventCreationDate.Width" type="System.Int32, mscorlib">
     <value>98</value>
@@ -175,7 +175,7 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="listViewFundingLineEvent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>910, 244</value>
+    <value>909, 244</value>
   </data>
   <data name="listViewFundingLineEvent.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -205,7 +205,7 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="groupBoxEvents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>916, 267</value>
+    <value>915, 267</value>
   </data>
   <data name="groupBoxEvents.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -253,13 +253,13 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="buttonDeleteFundingLineEvent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 31</value>
+    <value>186, 31</value>
   </data>
   <data name="buttonDeleteFundingLineEvent.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="buttonDeleteFundingLineEvent.Text" xml:space="preserve">
-    <value>Delete entry</value>
+    <value>Delete Entry</value>
   </data>
   <data name="&gt;&gt;buttonDeleteFundingLineEvent.Name" xml:space="preserve">
     <value>buttonDeleteFundingLineEvent</value>
@@ -289,13 +289,13 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="buttonAddFundingLineEvent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 31</value>
+    <value>186, 31</value>
   </data>
   <data name="buttonAddFundingLineEvent.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="buttonAddFundingLineEvent.Text" xml:space="preserve">
-    <value>Add entry</value>
+    <value>Add Entry</value>
   </data>
   <data name="&gt;&gt;buttonAddFundingLineEvent.Name" xml:space="preserve">
     <value>buttonAddFundingLineEvent</value>
@@ -322,7 +322,7 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 267</value>
+    <value>217, 267</value>
   </data>
   <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -361,7 +361,7 @@
     <value>1137, 267</value>
   </data>
   <data name="splitContainer2.SplitterDistance" type="System.Int32, mscorlib">
-    <value>916</value>
+    <value>915</value>
   </data>
   <data name="splitContainer2.SplitterWidth" type="System.Int32, mscorlib">
     <value>5</value>
@@ -380,15 +380,6 @@
   </data>
   <data name="&gt;&gt;splitContainer2.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <metadata name="columnHeaderName.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <data name="columnHeaderName.Text" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="columnHeaderName.Width" type="System.Int32, mscorlib">
-    <value>100</value>
   </data>
   <data name="splitContainer3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -644,46 +635,6 @@
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>7</value>
-  </data>
-  <data name="splitContainer3.Panel1.Controls" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAEZPcGVuQ0JTLlNoYXJlZCwgVmVyc2lvbj0xNS4yLjAuMCwgQ3Vs
-        dHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAArT3BlbkNCUy5TaGFyZWQuU2V0dGlu
-        Z3MuQXBwbGljYXRpb25TZXR0aW5ncwMAAAAMUGFyYW1DaGFuZ2VkDF9kYlBhcmFtTGlzdBFfZGVmYXVs
-        dFBhcmFtTGlzdAQDAzBPcGVuQ0JTLlNoYXJlZC5TZXR0aW5ncy5QYXJhbUNoYW5nZWRFdmVudEhhbmRs
-        ZXICAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5IYXNodGFibGUcU3lzdGVtLkNvbGxlY3Rpb25zLkhhc2h0
-        YWJsZQIAAAAKCQMAAAAJBAAAAAQDAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5IYXNodGFibGUHAAAACkxv
-        YWRGYWN0b3IHVmVyc2lvbghDb21wYXJlchBIYXNoQ29kZVByb3ZpZGVyCEhhc2hTaXplBEtleXMGVmFs
-        dWVzAAADAwAFBQsIHFN5c3RlbS5Db2xsZWN0aW9ucy5JQ29tcGFyZXIkU3lzdGVtLkNvbGxlY3Rpb25z
-        LklIYXNoQ29kZVByb3ZpZGVyCOxROD8AAAAACgoDAAAACQUAAAAJBgAAAAEEAAAAAwAAAOxROD8sAAAA
-        CgpZAAAACQcAAAAJCAAAABAFAAAAAAAAABAGAAAAAAAAABAHAAAAKAAAAAYJAAAAFk1BWF9OVU1CRVJf
-        SU5TVEFMTE1FTlQGCgAAABZOVU1CRVJfR1JPVVBfU0VQQVJBVE9SBgsAAAANQkFEX0xPQU5fREFZUwYM
-        AAAAFFBFTkRJTkdfU0FWSU5HU19NT0RFBg0AAAAOQ0lUWV9NQU5EQVRPUlkGDgAAACxDQUxDVUxBVElP
-        Tl9MQVRFX0ZFRVNfRFVSSU5HX1BVQkxJQ19IT0xJREFZUwYPAAAADVdFRUtfRU5EX0RBWTIGEAAAAA1X
-        RUVLX0VORF9EQVkxBhEAAAAcSU5URVJFU1RfUkFURV9ERUNJTUFMX1BMQUNFUwYSAAAAD05TR19NSU5f
-        TUVNQkVSUwYTAAAAEUdST1VQX01JTl9NRU1CRVJTBhQAAAAXVVNFX0VYVEVSTkFMX0FDQ09VTlRJTkcG
-        FQAAAA5DTElFTlRfQUdFX01BWAYWAAAAEkFDQ09VTlRJTkdfUFJPQ0VTUwYXAAAAKERPTk9UX1NLSVBf
-        V0VFS0VORFNfSU5fSU5TVEFMTE1FTlRTX0RBVEUGGAAAABZDT05UUkFDVF9DT0RFX1RFTVBMQVRFBhkA
-        AAAQTU9ESUZZX0VOVFJZX0ZFRQYaAAAACFZBVF9SQVRFBhsAAAAPTlNHX01BWF9NRU1CRVJTBhwAAAAS
-        RU5GT1JDRV9JRF9QQVRURVJOBh0AAAAHQ09VTlRSWQYeAAAAHFVTRV9EQUlMWV9BQ0NSVUFMX09GX1BF
-        TkFMVFkGHwAAABVTQVZJTkdTX0NPREVfVEVNUExBVEUGIAAAACBQQVlfRklSU1RfSU5TVEFMTE1FTlRf
-        UkVBTF9WQUxVRQYhAAAAFE1BWF9HVUFSQU5UT1JfQU1PVU5UBiIAAAAaSU5DUkVNRU5UQUxfRFVSSU5H
-        X0RBWU9GRlMGIwAAABFNQVhfTE9BTlNfQ09WRVJFRAYkAAAAEUdST1VQX01BWF9NRU1CRVJTBiUAAAAK
-        SURfUEFUVEVSTgYmAAAAGE5VTUJFUl9ERUNJTUFMX1NFUEFSQVRPUgYnAAAAFUFMTE9XU19NVUxUSVBM
-        RV9MT0FOUwYoAAAAD0NFQVNFX0xBSUVfREFZUwYpAAAADEFVVE9NQVRJQ19JRAYqAAAAGlNIT1dfRVhU
-        UkFfSU5URVJFU1RfQ09MVU1OBisAAAARU0hPUlRfREFURV9GT1JNQVQGLAAAAB5MQVRFX0RBWVNfQUZU
-        RVJfQUNDUlVBTF9DRUFTRVMGLQAAABVTVE9QX1dSSVRFT0ZGX1BFTkFMVFkGLgAAABZBTExPV1NfTVVM
-        VElQTEVfR1JPVVBTBi8AAAAOQ0xJRU5UX0FHRV9NSU4GMAAAABxVU0VfTUFOREFUT1JZX1NBVklOR19B
-        Q0NPVU5UEAgAAAAoAAAACQkAAAAGMgAAAAEgBjMAAAADMTgwBjQAAAAETk9ORQgIAQAAAAgIAQAAAAgI
-        AAAAAAgIBgAAAAgIAgAAAAgIAAAAAAgIAgAAAAgIAQAAAAgIZAAAAAgIAQAAAAgIAAAAAAY1AAAADkJD
-        L1lZL1BDLUxDL0lECAgAAAAACAgAAAAACAgKAAAACAgAAAAABjYAAAAHTm90IHNldAgIAAAAAAY3AAAA
-        C0lDL0JDL0NTL0lECAgBAAAACAgAlDV3CAgBAAAACAgBAAAACAgKAAAABjgAAAAQW0EtWl17Mn1bMC05
-        XXs3fQY5AAAAASwICAAAAAAICOgDAAAICAAAAAAICAAAAAAGOgAAAApkZC1NTS15eXl5CggIAAAAAAgI
-        AAAAAAgIEgAAAAgIAAAAAAs=
-</value>
-  </data>
-  <data name="dateTimePickerFundingLineBeginDate.CustomFormat" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
   </data>
   <data name="dateTimePickerFundingLineBeginDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>197, 111</value>
@@ -1087,14 +1038,23 @@
   <data name="&gt;&gt;splitContainer3.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="columnHeaderName.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="columnHeaderName.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="columnHeaderName.Width" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
   <data name="columnHeaderBeginDate.Text" xml:space="preserve">
-    <value>Start date</value>
+    <value>Start Date</value>
   </data>
   <data name="columnHeaderBeginDate.Width" type="System.Int32, mscorlib">
     <value>84</value>
   </data>
   <data name="columnHeaderEndDate.Text" xml:space="preserve">
-    <value>End date</value>
+    <value>End Date</value>
   </data>
   <data name="columnHeaderEndDate.Width" type="System.Int32, mscorlib">
     <value>81</value>
@@ -1106,13 +1066,13 @@
     <value>82</value>
   </data>
   <data name="columnHeaderResiduelAmount.Text" xml:space="preserve">
-    <value>Real remaining amount (without loans approved but not disbursed)</value>
+    <value>Real Remaining Amount (Without Loans Approved But Not Disbursed)</value>
   </data>
   <data name="columnHeaderResiduelAmount.Width" type="System.Int32, mscorlib">
     <value>144</value>
   </data>
   <data name="columnFinancial.Text" xml:space="preserve">
-    <value>Anticipated remaining amount (with loans approved but not disbursed)</value>
+    <value>Anticipated Remaining Amount (With Loans Approved But Not Disbursed)</value>
   </data>
   <data name="columnFinancial.Width" type="System.Int32, mscorlib">
     <value>165</value>

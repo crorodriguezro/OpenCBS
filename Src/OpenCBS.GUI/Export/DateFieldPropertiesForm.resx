@@ -261,13 +261,13 @@
     <value>15, 62</value>
   </data>
   <data name="checkBoxAlignRight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 17</value>
+    <value>72, 17</value>
   </data>
   <data name="checkBoxAlignRight.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="checkBoxAlignRight.Text" xml:space="preserve">
-    <value>Align Right</value>
+    <value>Align right</value>
   </data>
   <data name="&gt;&gt;checkBoxAlignRight.Name" xml:space="preserve">
     <value>checkBoxAlignRight</value>

@@ -278,6 +278,7 @@ namespace OpenCBS.GUI.Contracts
             this.groupBoxDetails.Controls.Add(this.labelCommentOptional);
             this.groupBoxDetails.Controls.Add(this.labelComment);
             this.groupBoxDetails.Controls.Add(this._lbLoanCode);
+            resources.ApplyResources(this.groupBoxDetails, "groupBoxDetails");
             this.groupBoxDetails.Name = "groupBoxDetails";
             this.groupBoxDetails.TabStop = false;
             // 
@@ -424,9 +425,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // dtpRepaymentDate
             // 
-            resources.ApplyResources(this.groupBoxDetails, "groupBoxDetails");
-            resources.ApplyResources(this.dtpRepaymentDate, "dtpRepaymentDate");
             this.dtpRepaymentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            resources.ApplyResources(this.dtpRepaymentDate, "dtpRepaymentDate");
             this.dtpRepaymentDate.Name = "dtpRepaymentDate";
             this.dtpRepaymentDate.CloseUp += new System.EventHandler(this._dateTimePicker_CloseUp);
             this.dtpRepaymentDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this._dateTimePicker_KeyUp);

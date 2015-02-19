@@ -31,6 +31,7 @@ using OpenCBS.Services.Events;
 using OpenCBS.Shared;
 using OpenCBS.Services;
 using OpenCBS.CoreDomain.Events;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.AuditTrail
 {
@@ -105,6 +106,11 @@ namespace OpenCBS.GUI.AuditTrail
         {
             dtTo.Value = TimeProvider.Today;
             dtFrom.Value = dtTo.Value.AddMonths(-1);
+
+            dtTo.Format = DateTimePickerFormat.Custom;
+            dtTo.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            dtFrom.Format = DateTimePickerFormat.Custom;
+            dtFrom.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
         }
 
         private void OnLoad(object sender, EventArgs e)

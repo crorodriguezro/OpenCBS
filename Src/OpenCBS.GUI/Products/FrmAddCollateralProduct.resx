@@ -283,7 +283,7 @@
     <value>75</value>
   </data>
   <data name="buttonAddProperty.Text" xml:space="preserve">
-    <value>Add property</value>
+    <value>Add Property</value>
   </data>
   <data name="&gt;&gt;buttonAddProperty.Name" xml:space="preserve">
     <value>buttonAddProperty</value>
@@ -484,7 +484,7 @@
     <value>70</value>
   </data>
   <data name="buttonDeleteProperty.Text" xml:space="preserve">
-    <value>Delete property</value>
+    <value>Delete Property</value>
   </data>
   <data name="&gt;&gt;buttonDeleteProperty.Name" xml:space="preserve">
     <value>buttonDeleteProperty</value>
@@ -637,7 +637,7 @@
     <value>80</value>
   </data>
   <data name="buttonDeleteListItem.Text" xml:space="preserve">
-    <value>Delete item</value>
+    <value>Delete Item</value>
   </data>
   <data name="&gt;&gt;buttonDeleteListItem.Name" xml:space="preserve">
     <value>buttonDeleteListItem</value>
@@ -670,7 +670,7 @@
     <value>78</value>
   </data>
   <data name="buttonAddListItem.Text" xml:space="preserve">
-    <value>Add item</value>
+    <value>Add Item</value>
   </data>
   <data name="&gt;&gt;buttonAddListItem.Name" xml:space="preserve">
     <value>buttonAddListItem</value>
