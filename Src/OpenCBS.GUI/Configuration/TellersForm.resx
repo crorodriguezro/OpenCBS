@@ -155,37 +155,37 @@
     <value>98</value>
   </data>
   <data name="colMinAmount.Text" xml:space="preserve">
-    <value>Minimal amount</value>
+    <value>Minimal Amount</value>
   </data>
   <data name="colMinAmount.Width" type="System.Int32, mscorlib">
     <value>107</value>
   </data>
   <data name="colMaxAmount.Text" xml:space="preserve">
-    <value>Maximal amount</value>
+    <value>Maximal Amount</value>
   </data>
   <data name="colMaxAmount.Width" type="System.Int32, mscorlib">
     <value>107</value>
   </data>
   <data name="colMinAmountDeposit.Text" xml:space="preserve">
-    <value>Minimum amount per deposits</value>
+    <value>Minimum Amount Per Deposits</value>
   </data>
   <data name="colMinAmountDeposit.Width" type="System.Int32, mscorlib">
     <value>140</value>
   </data>
   <data name="colMaxAmountDeposit.Text" xml:space="preserve">
-    <value>Maximum amount per deposits</value>
+    <value>Maximum Amount Per Deposits</value>
   </data>
   <data name="colMaxAmountDeposit.Width" type="System.Int32, mscorlib">
     <value>140</value>
   </data>
   <data name="colMinAmountWithdrawal.Text" xml:space="preserve">
-    <value>Minimum amount per withdrawal</value>
+    <value>Minimum Amount Per Withdrawal</value>
   </data>
   <data name="colMinAmountWithdrawal.Width" type="System.Int32, mscorlib">
     <value>140</value>
   </data>
   <data name="colMaxAmountWithdrawal.Text" xml:space="preserve">
-    <value>Maximum amount per withdrawal</value>
+    <value>Maximum Amount Per Withdrawal</value>
   </data>
   <data name="colMaxAmountWithdrawal.Width" type="System.Int32, mscorlib">
     <value>140</value>
@@ -1043,6 +1043,6 @@
     <value>TellersForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

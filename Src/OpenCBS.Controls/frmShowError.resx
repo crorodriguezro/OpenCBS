@@ -131,11 +131,8 @@
   <data name="labelExceptionText.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="labelExceptionText.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
   <data name="labelExceptionText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 79</value>
+    <value>438, 64</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="labelExceptionText.TabIndex" type="System.Int32, mscorlib">
@@ -163,13 +160,10 @@
     <value>NoControl</value>
   </data>
   <data name="splitter2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 79</value>
-  </data>
-  <data name="splitter2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>0, 64</value>
   </data>
   <data name="splitter2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 4</value>
+    <value>438, 3</value>
   </data>
   <data name="splitter2.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -193,13 +187,10 @@
     <value>NoControl</value>
   </data>
   <data name="splitter1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 158</value>
-  </data>
-  <data name="splitter1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>0, 128</value>
   </data>
   <data name="splitter1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 4</value>
+    <value>438, 3</value>
   </data>
   <data name="splitter1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -220,13 +211,10 @@
     <value>Fill</value>
   </data>
   <data name="richTextBoxExceptionDetail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 162</value>
-  </data>
-  <data name="richTextBoxExceptionDetail.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>0, 131</value>
   </data>
   <data name="richTextBoxExceptionDetail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 303</value>
+    <value>438, 247</value>
   </data>
   <data name="richTextBoxExceptionDetail.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -285,13 +273,10 @@
     <value>NoControl</value>
   </data>
   <data name="buttonOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>403, 25</value>
-  </data>
-  <data name="buttonOK.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>302, 20</value>
   </data>
   <data name="buttonOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 28</value>
+    <value>121, 23</value>
   </data>
   <data name="buttonOK.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -350,13 +335,10 @@
     <value>NoControl</value>
   </data>
   <data name="buttonShowDetail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 23</value>
-  </data>
-  <data name="buttonShowDetail.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>12, 19</value>
   </data>
   <data name="buttonShowDetail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 28</value>
+    <value>150, 23</value>
   </data>
   <data name="buttonShowDetail.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -383,16 +365,10 @@
     <value>Top</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 83</value>
-  </data>
-  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>0, 67</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 75</value>
+    <value>438, 61</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -413,10 +389,10 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
+    <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>584, 465</value>
+    <value>438, 378</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1016,14 +992,11 @@
         ODowMHJGaQ8AAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Error occured</value>
+    <value>Error Occured</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmShowError</value>

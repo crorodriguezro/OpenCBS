@@ -32,6 +32,7 @@ using OpenCBS.ExceptionsHandler;
 using OpenCBS.GUI.UserControl;
 using OpenCBS.Services;
 using OpenCBS.Shared;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Contracts
 {
@@ -55,6 +56,10 @@ namespace OpenCBS.GUI.Contracts
             }
             InitializeTrancheComponents();
             FillComboBoxPaymentMethods();
+            startDateTimePicker.Format = DateTimePickerFormat.Custom;
+            startDateTimePicker.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            firstRepaymentDateTimePicker.Format = DateTimePickerFormat.Custom;
+            firstRepaymentDateTimePicker.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
         }
 
         public void InitializeTrancheComponents()

@@ -1577,12 +1577,12 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Add teller</value>
+    <value>Add Teller</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AddTellerForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetOkCancelForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetOkCancelForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

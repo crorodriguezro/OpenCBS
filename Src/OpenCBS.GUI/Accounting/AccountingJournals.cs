@@ -82,6 +82,7 @@ namespace OpenCBS.GUI.Accounting
         {
             InitializeComponent();
             _accountingClosure = new AccountingClosure();
+            initializeDateTimePickersFormatting();
         }
 
         public AccountingJournals(int mode)
@@ -89,6 +90,15 @@ namespace OpenCBS.GUI.Accounting
             InitializeComponent();
             _accountingClosure = new AccountingClosure();
             _mode = mode;
+            initializeDateTimePickersFormatting();
+        }
+
+        private void initializeDateTimePickersFormatting()
+        {
+            dateTimePickerBeginDate.Format = DateTimePickerFormat.Custom;
+            dateTimePickerBeginDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            dateTimePickerEndDate.Format = DateTimePickerFormat.Custom;
+            dateTimePickerEndDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
         }
 
         private static void SortBookingsByDate(List<Booking> list)

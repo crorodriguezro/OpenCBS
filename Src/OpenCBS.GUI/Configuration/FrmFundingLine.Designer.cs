@@ -247,7 +247,6 @@ namespace OpenCBS.GUI
             // dateTimePickerFundingLineEndDate
             // 
             this.dateTimePickerFundingLineEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerFundingLineBeginDate.CustomFormat=ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dateTimePickerFundingLineEndDate, "dateTimePickerFundingLineEndDate");
             this.dateTimePickerFundingLineEndDate.Name = "dateTimePickerFundingLineEndDate";
             // 
@@ -273,9 +272,9 @@ namespace OpenCBS.GUI
             // 
             // dateTimePickerFundingLineBeginDate
             // 
-            this.dateTimePickerFundingLineBeginDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerFundingLineBeginDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            resources.ApplyResources(this.splitContainer3.Panel1, "splitContainer3.Panel1");
             resources.ApplyResources(this.dateTimePickerFundingLineBeginDate, "dateTimePickerFundingLineBeginDate");
+            this.dateTimePickerFundingLineBeginDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerFundingLineBeginDate.Name = "dateTimePickerFundingLineBeginDate";
             // 
             // tbAnticipatedAmt

@@ -842,7 +842,7 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Please reassign contracts</value>
+    <value>Please Reassign Contracts</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmUserSelection</value>

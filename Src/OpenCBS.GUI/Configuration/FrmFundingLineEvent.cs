@@ -32,6 +32,7 @@ using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
 using OpenCBS.Shared;
 using OpenCBS.CoreDomain.FundingLines;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Configuration
 {
@@ -49,6 +50,8 @@ namespace OpenCBS.GUI.Configuration
             _fundingLineEvent = new FundingLineEvent();
             InitializeComboBoxDirections();
             dateTimePickerEvent.Value = TimeProvider.Now;
+            dateTimePickerEvent.Format = DateTimePickerFormat.Custom;
+            dateTimePickerEvent.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
         }
 
         public FrmFundingLineEvent(FundingLine pFundingLine, FundingLineEvent pFundingLineEvent)

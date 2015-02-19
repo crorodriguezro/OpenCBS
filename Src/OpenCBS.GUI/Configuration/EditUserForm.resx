@@ -145,7 +145,7 @@
     <value>3, 3</value>
   </data>
   <data name="olvBranches.Size" type="System.Drawing.Size, System.Drawing">
-    <value>529, 451</value>
+    <value>529, 398</value>
   </data>
   <data name="olvBranches.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -172,7 +172,7 @@
     <value>NoControl</value>
   </data>
   <data name="chkSelectAllBranches.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 454</value>
+    <value>3, 401</value>
   </data>
   <data name="chkSelectAllBranches.Size" type="System.Drawing.Size, System.Drawing">
     <value>529, 20</value>
@@ -202,7 +202,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="pageBranches.Size" type="System.Drawing.Size, System.Drawing">
-    <value>535, 477</value>
+    <value>535, 424</value>
   </data>
   <data name="pageBranches.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -950,7 +950,7 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Edit user</value>
+    <value>Edit User</value>
   </data>
   <data name="&gt;&gt;olvColumn1.Name" xml:space="preserve">
     <value>olvColumn1</value>
@@ -980,6 +980,6 @@
     <value>EditUserForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetOkCancelForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetOkCancelForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

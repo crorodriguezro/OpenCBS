@@ -1154,7 +1154,7 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Contract code</value>
+    <value>Contract Code</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ContractCodeForm</value>

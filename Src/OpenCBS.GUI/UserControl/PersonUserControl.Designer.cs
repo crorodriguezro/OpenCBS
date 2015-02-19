@@ -565,14 +565,12 @@ namespace OpenCBS.GUI.UserControl
             // dateTimePickerFirstAppointment
             // 
             this.dateTimePickerFirstAppointment.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-        		    this.dateTimePickerFirstAppointment.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dateTimePickerFirstAppointment, "dateTimePickerFirstAppointment");
             this.dateTimePickerFirstAppointment.Name = "dateTimePickerFirstAppointment";
             // 
             // dateTimePickerFirstContact
             // 
             this.dateTimePickerFirstContact.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerFirstContact.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dateTimePickerFirstContact, "dateTimePickerFirstContact");
             this.dateTimePickerFirstContact.Name = "dateTimePickerFirstContact";
             // 
@@ -863,7 +861,6 @@ namespace OpenCBS.GUI.UserControl
             // 
             resources.ApplyResources(this.dateTimePickerDateOfBirth, "dateTimePickerDateOfBirth");
             this.dateTimePickerDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-        		    this.dateTimePickerDateOfBirth.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             this.dateTimePickerDateOfBirth.Name = "dateTimePickerDateOfBirth";
             this.dateTimePickerDateOfBirth.Value = new System.DateTime(2009, 10, 7, 0, 0, 0, 0);
             this.dateTimePickerDateOfBirth.ValueChanged += new System.EventHandler(this.dateTimePickerDateOfBirth_ValueChanged);

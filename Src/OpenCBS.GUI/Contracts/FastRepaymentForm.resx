@@ -379,7 +379,7 @@
     <value>lvContracts</value>
   </data>
   <data name="&gt;&gt;lvContracts.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvContracts.Parent" xml:space="preserve">
     <value>$this</value>
@@ -998,7 +998,7 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Fast repayment</value>
+    <value>Fast Repayment</value>
   </data>
   <data name="&gt;&gt;colName.Name" xml:space="preserve">
     <value>colName</value>

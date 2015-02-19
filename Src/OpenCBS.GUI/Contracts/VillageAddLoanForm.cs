@@ -90,6 +90,9 @@ namespace OpenCBS.GUI.Contracts
             Color fc = Color.Black;
             Color bc = Color.White;
             _fLServices.EmptyTemporaryFLAmountsStorage();
+
+            dtCreationDate.Format = DateTimePickerFormat.Custom;
+            dtCreationDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
            
             ApplicationSettings generalParameters = ApplicationSettings.GetInstance("");
             decimalPlaces = generalParameters.InterestRateDecimalPlaces;

@@ -39,6 +39,7 @@ using OpenCBS.Services;
 using OpenCBS.Services.Events;
 using OpenCBS.Shared;
 using OpenCBS.CoreDomain.Contracts.Savings;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.UserControl
 {
@@ -87,6 +88,9 @@ namespace OpenCBS.GUI.UserControl
         private void InitializeCorporate()
         {
             dateTimePickerDateOfCreate.Value = TimeProvider.Today;
+            dateTimePickerDateOfCreate.Format = DateTimePickerFormat.Custom;
+            dateTimePickerDateOfCreate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+
             if (_corporate.Id != 0)
             {
                 buttonSave.Text = MultiLanguageStrings.GetString(Ressource.CorporateUserControl, "buttonUpdate.Text");

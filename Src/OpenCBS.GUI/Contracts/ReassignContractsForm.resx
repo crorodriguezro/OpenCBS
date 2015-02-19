@@ -388,19 +388,19 @@
     <value>1</value>
   </data>
   <data name="clientLastNameColumn.Text" xml:space="preserve">
-    <value>Last name</value>
+    <value>Last Name</value>
   </data>
   <data name="clientLastNameColumn.Width" type="System.Int32, mscorlib">
     <value>150</value>
   </data>
   <data name="clientFirstNameColumn.Text" xml:space="preserve">
-    <value>First name</value>
+    <value>First Name</value>
   </data>
   <data name="clientFirstNameColumn.Width" type="System.Int32, mscorlib">
     <value>150</value>
   </data>
   <data name="clientFatherNameColumn.Text" xml:space="preserve">
-    <value>Father name</value>
+    <value>Father's Name</value>
   </data>
   <data name="clientFatherNameColumn.Width" type="System.Int32, mscorlib">
     <value>150</value>
@@ -412,7 +412,7 @@
     <value>100</value>
   </data>
   <data name="contractCodeColumn.Text" xml:space="preserve">
-    <value>Contract code</value>
+    <value>Contract Code</value>
   </data>
   <data name="contractCodeColumn.Width" type="System.Int32, mscorlib">
     <value>200</value>
@@ -445,7 +445,7 @@
     <value>100</value>
   </data>
   <data name="startDateColumn.Text" xml:space="preserve">
-    <value>Start date</value>
+    <value>Start Date</value>
   </data>
   <data name="startDateColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
@@ -454,7 +454,7 @@
     <value>80</value>
   </data>
   <data name="closeDateColumn.Text" xml:space="preserve">
-    <value>Close date</value>
+    <value>Close Date</value>
   </data>
   <data name="closeDateColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
@@ -463,7 +463,7 @@
     <value>80</value>
   </data>
   <data name="numberOfInstallmentsColumn.Text" xml:space="preserve">
-    <value>Number of installments</value>
+    <value>Number of Installments</value>
   </data>
   <data name="numberOfInstallmentsColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
@@ -472,7 +472,7 @@
     <value>100</value>
   </data>
   <data name="interestRateColumn.Text" xml:space="preserve">
-    <value>Interest rate</value>
+    <value>Interest Rate</value>
   </data>
   <data name="interestRateColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -481,13 +481,13 @@
     <value>80</value>
   </data>
   <data name="loanProductNameColumn.Text" xml:space="preserve">
-    <value>Loan product</value>
+    <value>Loan Product</value>
   </data>
   <data name="loanProductNameColumn.Width" type="System.Int32, mscorlib">
     <value>200</value>
   </data>
   <data name="installmentTypeColumn.Text" xml:space="preserve">
-    <value>Installment type</value>
+    <value>Installment Type</value>
   </data>
   <data name="installmentTypeColumn.Width" type="System.Int32, mscorlib">
     <value>100</value>
@@ -1166,7 +1166,7 @@
     <value>3, 6, 3, 6</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Reassign contracts</value>
+    <value>Reassign Contracts</value>
   </data>
   <data name="&gt;&gt;clientLastNameColumn.Name" xml:space="preserve">
     <value>clientLastNameColumn</value>
@@ -1256,6 +1256,6 @@
     <value>ReassignContractsForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

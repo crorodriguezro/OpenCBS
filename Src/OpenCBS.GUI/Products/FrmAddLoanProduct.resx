@@ -1066,7 +1066,7 @@
     <value>listViewLoanCycles</value>
   </data>
   <data name="&gt;&gt;listViewLoanCycles.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.16.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;listViewLoanCycles.Parent" xml:space="preserve">
     <value>panelAmountCycles</value>
@@ -1138,7 +1138,7 @@
     <value>36</value>
   </data>
   <data name="buttonAmountCyclesSave.Text" xml:space="preserve">
-    <value>Save cycle settings</value>
+    <value>Save Cycle Settings</value>
   </data>
   <data name="buttonAmountCyclesSave.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -1744,13 +1744,13 @@
     <value>258, 25</value>
   </data>
   <data name="clientTypeVillageCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+    <value>98, 20</value>
   </data>
   <data name="clientTypeVillageCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="clientTypeVillageCheckBox.Text" xml:space="preserve">
-    <value>Village Bank</value>
+    <value>Village bank</value>
   </data>
   <data name="&gt;&gt;clientTypeVillageCheckBox.Name" xml:space="preserve">
     <value>clientTypeVillageCheckBox</value>
@@ -2308,7 +2308,7 @@
     <value>0</value>
   </data>
   <data name="tabPageMainParameters.Text" xml:space="preserve">
-    <value>Main options</value>
+    <value>Main Options</value>
   </data>
   <data name="&gt;&gt;tabPageMainParameters.Name" xml:space="preserve">
     <value>tabPageMainParameters</value>
@@ -4126,7 +4126,7 @@
     <value>12</value>
   </data>
   <data name="swbtnEntryFeesRemoveCycle.Text" xml:space="preserve">
-    <value>Remove cycle</value>
+    <value>Remove Cycle</value>
   </data>
   <data name="swbtnEntryFeesRemoveCycle.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -4156,7 +4156,7 @@
     <value>11</value>
   </data>
   <data name="swbtnEntryFeesAddCycle.Text" xml:space="preserve">
-    <value>Add cycle</value>
+    <value>Add Cycle</value>
   </data>
   <data name="swbtnEntryFeesAddCycle.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -4333,7 +4333,7 @@
     <value>lvEntryFees</value>
   </data>
   <data name="&gt;&gt;lvEntryFees.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.16.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvEntryFees.Parent" xml:space="preserve">
     <value>groupBoxEntryFees</value>
@@ -5221,7 +5221,7 @@
     <value>1</value>
   </data>
   <data name="buttonNewExoticProduct.Text" xml:space="preserve">
-    <value>New exotic schedule</value>
+    <value>New Exotic Schedule</value>
   </data>
   <data name="buttonNewExoticProduct.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -5455,7 +5455,7 @@
     <value>1</value>
   </data>
   <data name="tabPageOptionalParameters.Text" xml:space="preserve">
-    <value>Exotic installments</value>
+    <value>Exotic Installments</value>
   </data>
   <data name="&gt;&gt;tabPageOptionalParameters.Name" xml:space="preserve">
     <value>tabPageOptionalParameters</value>
@@ -6193,7 +6193,7 @@
     <value>3</value>
   </data>
   <data name="tabLOC.Text" xml:space="preserve">
-    <value>Line of credit</value>
+    <value>Line of Credit</value>
   </data>
   <data name="&gt;&gt;tabLOC.Name" xml:space="preserve">
     <value>tabLOC</value>
@@ -7288,7 +7288,7 @@
     <value>5</value>
   </data>
   <data name="tabPage1.Text" xml:space="preserve">
-    <value>Credit insurance</value>
+    <value>Credit Insurance</value>
   </data>
   <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
     <value>tabPage1</value>
@@ -8252,7 +8252,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Add loan product</value>
+    <value>Add Loan Product</value>
   </data>
   <data name="&gt;&gt;colCycle.Name" xml:space="preserve">
     <value>colCycle</value>
@@ -8378,6 +8378,6 @@
     <value>FrmAddLoanProduct</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.16.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

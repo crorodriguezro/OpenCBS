@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="colUsername.Text" xml:space="preserve">
-    <value>User name</value>
+    <value>User Name</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="colUsername.Width" type="System.Int32, mscorlib">
@@ -131,13 +131,13 @@
     <value>82</value>
   </data>
   <data name="colFirstname.Text" xml:space="preserve">
-    <value>First name</value>
+    <value>First Name</value>
   </data>
   <data name="colFirstname.Width" type="System.Int32, mscorlib">
     <value>106</value>
   </data>
   <data name="colLastname.Text" xml:space="preserve">
-    <value>Last name</value>
+    <value>Last Name</value>
   </data>
   <data name="colLastname.Width" type="System.Int32, mscorlib">
     <value>105</value>
@@ -1583,6 +1583,6 @@
     <value>UserForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

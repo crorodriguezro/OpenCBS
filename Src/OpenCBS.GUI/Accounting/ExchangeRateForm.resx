@@ -307,7 +307,7 @@
     <value>textBoxRateValue</value>
   </data>
   <data name="&gt;&gt;textBoxRateValue.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextDecimalNumericUserControl, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextDecimalNumericUserControl, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxRateValue.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -1091,7 +1091,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Exchange rate</value>
+    <value>Exchange Rate</value>
   </data>
   <data name="&gt;&gt;chDate.Name" xml:space="preserve">
     <value>chDate</value>

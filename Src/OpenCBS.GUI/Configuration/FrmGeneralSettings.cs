@@ -136,6 +136,8 @@ namespace OpenCBS.GUI.Configuration
             InitializeListViewPublicHolidays();
             InitializeListViewLoanScaleTables();
             InitializeListBoxPendingSavings();
+            dateTimePickerPublicHoliday.Format = DateTimePickerFormat.Custom;
+            dateTimePickerPublicHoliday.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
         }
 
         private void InitializeListViewPublicHolidays()
@@ -775,15 +777,14 @@ namespace OpenCBS.GUI.Configuration
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.buttonPublicHolidaysSave);
-            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
             // 
             // dateTimePickerPublicHoliday
             // 
-            this.dateTimePickerPublicHoliday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerPublicHoliday.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            resources.ApplyResources(this.groupBox4, "groupBox4");
             resources.ApplyResources(this.dateTimePickerPublicHoliday, "dateTimePickerPublicHoliday");
+            this.dateTimePickerPublicHoliday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerPublicHoliday.Name = "dateTimePickerPublicHoliday";
             this.dateTimePickerPublicHoliday.Value = new System.DateTime(2008, 10, 7, 0, 0, 0, 0);
             this.dateTimePickerPublicHoliday.ValueChanged += new System.EventHandler(this.dateTimePickerPublicHoliday_ValueChanged);

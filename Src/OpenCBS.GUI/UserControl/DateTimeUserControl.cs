@@ -46,6 +46,8 @@ namespace OpenCBS.GUI
 		{
 			InitializeComponent();
 			this.dateTimePickerDate.Value = TimeProvider.Today;
+            this.dateTimePickerDate.Format = DateTimePickerFormat.Custom;
+            this.dateTimePickerDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
 		}
 
 		public DateTime? Date

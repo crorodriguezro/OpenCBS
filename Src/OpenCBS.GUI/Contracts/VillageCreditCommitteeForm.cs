@@ -33,6 +33,7 @@ using OpenCBS.GUI.UserControl;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
 using OpenCBS.Shared;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Contracts
 {
@@ -66,6 +67,9 @@ namespace OpenCBS.GUI.Contracts
             Color dfc = Color.Gray;
             Color fc = Color.Black;
             Color bc = Color.White;
+
+            dtCreditCommittee.Format = DateTimePickerFormat.Custom;
+            dtCreditCommittee.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
 
             foreach (VillageMember member in _village.Members)
             {

@@ -32,6 +32,7 @@ using OpenCBS.Services;
 using OpenCBS.Shared;
 using OpenCBS.ExceptionsHandler;
 using ZedGraph;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI
 {
@@ -45,6 +46,10 @@ namespace OpenCBS.GUI
             InitializeFundingLines();
 
             tabControlFundingLines.TabPages.Remove(tabPageFundingLineDetails);
+            dateTimePickerFundingLineBeginDate.Format = DateTimePickerFormat.Custom;
+            dateTimePickerFundingLineBeginDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            dateTimePickerFundingLineEndDate.Format = DateTimePickerFormat.Custom;
+            dateTimePickerFundingLineEndDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
         }
 
         public void InitializeFundingLines()

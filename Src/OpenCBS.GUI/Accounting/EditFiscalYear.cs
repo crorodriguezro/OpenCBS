@@ -22,6 +22,7 @@
 using System;
 using System.Windows.Forms;
 using OpenCBS.Services;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Accounting
 {
@@ -43,11 +44,13 @@ namespace OpenCBS.GUI.Accounting
         public EditFiscalYear()
         {
             InitializeComponent();
+            initializeDateTimePickersFormatting();
         }
 
         public EditFiscalYear(bool isNameActive, bool isOpenDateActive, bool isCloseDateActive, CoreDomain.Accounting.FiscalYear fiscalYear)
         {
             InitializeComponent();
+            initializeDateTimePickersFormatting();
             tbxName.Enabled = isNameActive;
             dpkOpenDate.Enabled = isOpenDateActive;
             dpkCloseDate.Enabled = isCloseDateActive;
@@ -59,6 +62,14 @@ namespace OpenCBS.GUI.Accounting
 
             if (fiscalYear.CloseDate != null)
                 dpkCloseDate.Value = (DateTime) fiscalYear.CloseDate;
+        }
+
+        private void initializeDateTimePickersFormatting()
+        {
+            dpkOpenDate.Format = DateTimePickerFormat.Custom;
+            dpkOpenDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            dpkCloseDate.Format = DateTimePickerFormat.Custom;
+            dpkCloseDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
         }
 
         private void BtnOkClick(object sender, EventArgs e)

@@ -142,7 +142,7 @@
     <value>9</value>
   </data>
   <data name="buttonEditProduct.Text" xml:space="preserve">
-    <value>Edit product</value>
+    <value>Edit Product</value>
   </data>
   <data name="buttonEditProduct.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -211,7 +211,7 @@
     <value>7</value>
   </data>
   <data name="buttonAddProduct.Text" xml:space="preserve">
-    <value>Add product</value>
+    <value>Add Product</value>
   </data>
   <data name="buttonAddProduct.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -250,7 +250,7 @@
     <value>6</value>
   </data>
   <data name="buttonDeleteProduct.Text" xml:space="preserve">
-    <value>Delete product</value>
+    <value>Delete Product</value>
   </data>
   <data name="buttonDeleteProduct.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -334,7 +334,7 @@
     <value>descriptionListView</value>
   </data>
   <data name="&gt;&gt;descriptionListView.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;descriptionListView.Parent" xml:space="preserve">
     <value>pnlSavingsProducts</value>
@@ -995,7 +995,7 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Savings products</value>
+    <value>Savings Products</value>
   </data>
   <data name="&gt;&gt;columnHeaderName.Name" xml:space="preserve">
     <value>columnHeaderName</value>
@@ -1031,6 +1031,6 @@
     <value>FrmAvailableSavingProducts</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

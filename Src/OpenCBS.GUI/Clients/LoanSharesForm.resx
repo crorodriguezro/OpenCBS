@@ -163,7 +163,7 @@
     <value>150</value>
   </data>
   <data name="colLoanShare.Text" xml:space="preserve">
-    <value>Loan share *</value>
+    <value>Loan Share *</value>
   </data>
   <data name="colLoanShare.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -190,7 +190,7 @@
     <value>lvLoanShares</value>
   </data>
   <data name="&gt;&gt;lvLoanShares.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvLoanShares.Parent" xml:space="preserve">
     <value>spcBox.Panel1</value>
@@ -977,7 +977,7 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Loan shares</value>
+    <value>Loan Shares</value>
   </data>
   <data name="&gt;&gt;colMember.Name" xml:space="preserve">
     <value>colMember</value>

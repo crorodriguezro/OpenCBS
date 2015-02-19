@@ -26,6 +26,7 @@ using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Report_Browser
 {
@@ -45,6 +46,10 @@ namespace OpenCBS.GUI.Report_Browser
             DateTime now = DateTime.Now;
             dtFrom.Value = now.AddDays(-1*Convert.ToInt16(now.DayOfWeek) + 1);
             dtTo.Value = dtFrom.Value.AddDays(4);
+            dtFrom.Format = DateTimePickerFormat.Custom;
+            dtFrom.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            dtTo.Format = DateTimePickerFormat.Custom;
+            dtTo.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
         }
 
         private void GetCurrencies()

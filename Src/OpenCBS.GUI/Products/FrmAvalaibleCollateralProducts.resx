@@ -175,7 +175,7 @@
     <value>9</value>
   </data>
   <data name="buttonEditProduct.Text" xml:space="preserve">
-    <value>Edit collateral type</value>
+    <value>Edit Collateral Type</value>
   </data>
   <data name="buttonEditProduct.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -244,7 +244,7 @@
     <value>7</value>
   </data>
   <data name="buttonAddProduct.Text" xml:space="preserve">
-    <value>Add collateral type</value>
+    <value>Add Collateral Type</value>
   </data>
   <data name="buttonAddProduct.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -283,7 +283,7 @@
     <value>6</value>
   </data>
   <data name="buttonDeletePackage.Text" xml:space="preserve">
-    <value>Delete collateral type</value>
+    <value>Delete Collateral Type</value>
   </data>
   <data name="buttonDeletePackage.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -974,6 +974,6 @@
     <value>FrmAvalaibleCollateralProducts</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

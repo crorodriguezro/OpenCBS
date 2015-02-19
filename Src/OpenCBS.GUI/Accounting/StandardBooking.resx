@@ -125,13 +125,13 @@
     <value>143</value>
   </data>
   <data name="columnDebit.Text" xml:space="preserve">
-    <value>Debit account</value>
+    <value>Debit Account</value>
   </data>
   <data name="columnDebit.Width" type="System.Int32, mscorlib">
     <value>157</value>
   </data>
   <data name="columnCredit.Text" xml:space="preserve">
-    <value>Credit account</value>
+    <value>Credit Account</value>
   </data>
   <data name="columnCredit.Width" type="System.Int32, mscorlib">
     <value>174</value>
@@ -298,7 +298,7 @@
     <value>45</value>
   </data>
   <data name="lblCaption.Text" xml:space="preserve">
-    <value>Standard bookings</value>
+    <value>Standard Bookings</value>
   </data>
   <data name="lblCaption.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -1025,7 +1025,7 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Standard bookings</value>
+    <value>Standard Bookings</value>
   </data>
   <data name="&gt;&gt;columnName.Name" xml:space="preserve">
     <value>columnName</value>
@@ -1049,6 +1049,6 @@
     <value>StandardBooking</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.MultiLanguageForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.MultiLanguageForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

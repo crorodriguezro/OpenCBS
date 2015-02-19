@@ -177,8 +177,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // dtCreditCommittee
             // 
+            this.dtCreditCommittee.CustomFormat = ((OpenCBS.Shared.Settings.ApplicationSettings)(resources.GetObject("resource1"))).SHORT_DATE_FORMAT;
             this.dtCreditCommittee.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtCreditCommittee.CustomFormat =ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dtCreditCommittee, "dtCreditCommittee");
             this.dtCreditCommittee.Name = "dtCreditCommittee";
             this.dtCreditCommittee.ValueChanged += new System.EventHandler(this.dtCreditCommittee_ValueChanged);

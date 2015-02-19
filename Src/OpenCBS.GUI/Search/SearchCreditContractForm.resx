@@ -163,13 +163,13 @@
     <value>7, 22</value>
   </data>
   <data name="radioButtonCreditContract.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 20</value>
+    <value>118, 20</value>
   </data>
   <data name="radioButtonCreditContract.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="radioButtonCreditContract.Text" xml:space="preserve">
-    <value>Credit Contracts</value>
+    <value>Credit contracts</value>
   </data>
   <data name="&gt;&gt;radioButtonCreditContract.Name" xml:space="preserve">
     <value>radioButtonCreditContract</value>
@@ -496,19 +496,19 @@
     <value>123</value>
   </data>
   <data name="columnHeaderClientType.Text" xml:space="preserve">
-    <value>Client type</value>
+    <value>Client Type</value>
   </data>
   <data name="columnHeaderClientType.Width" type="System.Int32, mscorlib">
     <value>71</value>
   </data>
   <data name="columnHeaderClientName.Text" xml:space="preserve">
-    <value>Client's name</value>
+    <value>Client's Name</value>
   </data>
   <data name="columnHeaderClientName.Width" type="System.Int32, mscorlib">
     <value>112</value>
   </data>
   <data name="columnHeaderLoanOfficer.Text" xml:space="preserve">
-    <value>Loan officer's name</value>
+    <value>Loan Officer's Name</value>
   </data>
   <data name="columnHeaderLoanOfficer.Width" type="System.Int32, mscorlib">
     <value>163</value>
@@ -517,7 +517,7 @@
     <value>6</value>
   </data>
   <data name="columnHeaderStartDate.Text" xml:space="preserve">
-    <value>Start date</value>
+    <value>Start Date</value>
   </data>
   <data name="columnHeaderStartDate.Width" type="System.Int32, mscorlib">
     <value>102</value>
@@ -526,7 +526,7 @@
     <value>7</value>
   </data>
   <data name="columnHeaderCloseDate.Text" xml:space="preserve">
-    <value>Close date</value>
+    <value>Close Date</value>
   </data>
   <data name="columnHeaderCloseDate.Width" type="System.Int32, mscorlib">
     <value>100</value>
@@ -563,7 +563,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        CQAAAk1TRnQBSQFMAgEBBAEAARgBAQEYAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CQAAAk1TRnQBSQFMAgEBBAEAASgBAQEoAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -657,7 +657,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACE
-        CQAAAk1TRnQBSQFMAgEBAgEAAUABAQFAAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CQAAAk1TRnQBSQFMAgEBAgEAAVABAQFQAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -1311,7 +1311,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Search contract</value>
+    <value>Search Contract</value>
   </data>
   <data name="&gt;&gt;columnHeaderImage.Name" xml:space="preserve">
     <value>columnHeaderImage</value>
@@ -1383,6 +1383,6 @@
     <value>SearchCreditContractForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

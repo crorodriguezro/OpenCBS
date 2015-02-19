@@ -36,14 +36,14 @@
             this.numberColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.dateColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.interestColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.extraColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.principalColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.totalColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olbColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.paidInterestColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.paidExtraColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.paidPrincipalColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.paymentDateColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.extraColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.paidExtraColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.pnlButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olvSchedule)).BeginInit();
             this.SuspendLayout();
@@ -124,6 +124,12 @@
             this.interestColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             resources.ApplyResources(this.interestColumn, "interestColumn");
             // 
+            // extraColumn
+            // 
+            this.extraColumn.AspectName = "Commission";
+            this.extraColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            resources.ApplyResources(this.extraColumn, "extraColumn");
+            // 
             // principalColumn
             // 
             this.principalColumn.AspectName = "CapitalRepayment";
@@ -151,6 +157,13 @@
             this.paidInterestColumn.IsEditable = false;
             resources.ApplyResources(this.paidInterestColumn, "paidInterestColumn");
             // 
+            // paidExtraColumn
+            // 
+            this.paidExtraColumn.AspectName = "PaidCommissions";
+            this.paidExtraColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.paidExtraColumn.IsEditable = false;
+            resources.ApplyResources(this.paidExtraColumn, "paidExtraColumn");
+            // 
             // paidPrincipalColumn
             // 
             this.paidPrincipalColumn.AspectName = "PaidCapital";
@@ -164,19 +177,6 @@
             this.paymentDateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.paymentDateColumn.IsEditable = false;
             resources.ApplyResources(this.paymentDateColumn, "paymentDateColumn");
-            // 
-            // extraColumn
-            // 
-            this.extraColumn.AspectName = "Commission";
-            this.extraColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            resources.ApplyResources(this.extraColumn, "extraColumn");
-            // 
-            // paidExtraColumn
-            // 
-            this.paidExtraColumn.AspectName = "PaidCommissions";
-            this.paidExtraColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.paidExtraColumn.IsEditable = false;
-            resources.ApplyResources(this.paidExtraColumn, "paidExtraColumn");
             // 
             // ManualScheduleForm
             // 

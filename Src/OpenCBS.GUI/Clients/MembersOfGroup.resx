@@ -860,7 +860,7 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Total payment for member</value>
+    <value>Total Payment for Member</value>
   </data>
   <data name="&gt;&gt;columnHeaderMember.Name" xml:space="preserve">
     <value>columnHeaderMember</value>

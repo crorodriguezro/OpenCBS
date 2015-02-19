@@ -36,6 +36,7 @@ using OpenCBS.GUI.UserControl;
 using OpenCBS.GUI.Tools;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.GUI.UserControl;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Contracts
 {
@@ -69,6 +70,10 @@ namespace OpenCBS.GUI.Contracts
             _saving = pSaving;
             SwitchBookingDirection();
             Initialize();
+
+            dtpDate.Format = DateTimePickerFormat.Custom;
+            dtpDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+
         }
 
         private void SwitchBookingDirection()

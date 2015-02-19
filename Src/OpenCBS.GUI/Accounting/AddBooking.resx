@@ -139,7 +139,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageEntry.Size" type="System.Drawing.Size, System.Drawing">
-    <value>595, 173</value>
+    <value>595, 176</value>
   </data>
   <data name="tabPageEntry.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -448,7 +448,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageStandardBooking.Size" type="System.Drawing.Size, System.Drawing">
-    <value>595, 173</value>
+    <value>595, 176</value>
   </data>
   <data name="tabPageStandardBooking.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -475,7 +475,7 @@
     <value>0, 0</value>
   </data>
   <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>603, 199</value>
+    <value>603, 202</value>
   </data>
   <data name="tabControl.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -550,7 +550,7 @@
     <value>343, 19</value>
   </data>
   <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 25</value>
+    <value>125, 22</value>
   </data>
   <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
     <value>86</value>
@@ -577,7 +577,7 @@
     <value>0, 0</value>
   </data>
   <data name="gbPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>603, 55</value>
+    <value>603, 52</value>
   </data>
   <data name="gbPanel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -610,7 +610,7 @@
     <value>603, 255</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>199</value>
+    <value>202</value>
   </data>
   <data name="splitContainer1.SplitterWidth" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1241,7 +1241,7 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Add entry</value>
+    <value>Add Entry</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AddBooking</value>

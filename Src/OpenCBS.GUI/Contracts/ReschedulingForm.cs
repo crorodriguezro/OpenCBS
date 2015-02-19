@@ -28,6 +28,7 @@ using OpenCBS.ExceptionsHandler;
 using OpenCBS.GUI.UserControl;
 using OpenCBS.Services;
 using OpenCBS.Shared;
+using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Contracts
 {
@@ -58,6 +59,11 @@ namespace OpenCBS.GUI.Contracts
             _interestRateTextBox.Amount = Contract.InterestRate * 100;
             installmentsNumericUpDown.Minimum = 1;
             installmentsNumericUpDown.Value = 1;
+
+            startDateTimePicker.Format = DateTimePickerFormat.Custom;
+            startDateTimePicker.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            firstRepaymentDateTimePicker.Format = DateTimePickerFormat.Custom;
+            firstRepaymentDateTimePicker.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
         }
 
         private void LoadForm()

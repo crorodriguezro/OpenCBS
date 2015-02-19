@@ -135,7 +135,7 @@
     <value>99</value>
   </data>
   <data name="columnHeader3.Text" xml:space="preserve">
-    <value>Interest repayment</value>
+    <value>Interest Repayment</value>
   </data>
   <data name="columnHeader3.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -144,7 +144,7 @@
     <value>137</value>
   </data>
   <data name="columnHeader4.Text" xml:space="preserve">
-    <value>Principal repayment</value>
+    <value>Principal Repayment</value>
   </data>
   <data name="columnHeader4.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -153,7 +153,7 @@
     <value>149</value>
   </data>
   <data name="columnHeader5.Text" xml:space="preserve">
-    <value>Installment total</value>
+    <value>Installment Total</value>
   </data>
   <data name="columnHeader5.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -171,7 +171,7 @@
     <value>100</value>
   </data>
   <data name="columnHeader7.Text" xml:space="preserve">
-    <value>Paid interest</value>
+    <value>Paid Interest</value>
   </data>
   <data name="columnHeader7.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -180,7 +180,7 @@
     <value>100</value>
   </data>
   <data name="columnHeader8.Text" xml:space="preserve">
-    <value>Paid principal</value>
+    <value>Paid Principal</value>
   </data>
   <data name="columnHeader8.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -189,7 +189,7 @@
     <value>100</value>
   </data>
   <data name="columnHeader9.Text" xml:space="preserve">
-    <value>Paid date</value>
+    <value>Paid Date</value>
   </data>
   <data name="columnHeader9.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
@@ -971,6 +971,46 @@
   </data>
   <data name="&gt;&gt;gbTypeOfRepayment.ZOrder" xml:space="preserve">
     <value>8</value>
+  </data>
+  <data name="groupBoxDetails.Controls" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAEZPcGVuQ0JTLlNoYXJlZCwgVmVyc2lvbj0xNS4yLjAuMCwgQ3Vs
+        dHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAArT3BlbkNCUy5TaGFyZWQuU2V0dGlu
+        Z3MuQXBwbGljYXRpb25TZXR0aW5ncwMAAAAMUGFyYW1DaGFuZ2VkDF9kYlBhcmFtTGlzdBFfZGVmYXVs
+        dFBhcmFtTGlzdAQDAzBPcGVuQ0JTLlNoYXJlZC5TZXR0aW5ncy5QYXJhbUNoYW5nZWRFdmVudEhhbmRs
+        ZXICAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5IYXNodGFibGUcU3lzdGVtLkNvbGxlY3Rpb25zLkhhc2h0
+        YWJsZQIAAAAKCQMAAAAJBAAAAAQDAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5IYXNodGFibGUHAAAACkxv
+        YWRGYWN0b3IHVmVyc2lvbghDb21wYXJlchBIYXNoQ29kZVByb3ZpZGVyCEhhc2hTaXplBEtleXMGVmFs
+        dWVzAAADAwAFBQsIHFN5c3RlbS5Db2xsZWN0aW9ucy5JQ29tcGFyZXIkU3lzdGVtLkNvbGxlY3Rpb25z
+        LklIYXNoQ29kZVByb3ZpZGVyCOxROD8AAAAACgoDAAAACQUAAAAJBgAAAAEEAAAAAwAAAOxROD8sAAAA
+        CgpZAAAACQcAAAAJCAAAABAFAAAAAAAAABAGAAAAAAAAABAHAAAAKAAAAAYJAAAAFk1BWF9OVU1CRVJf
+        SU5TVEFMTE1FTlQGCgAAABZOVU1CRVJfR1JPVVBfU0VQQVJBVE9SBgsAAAANQkFEX0xPQU5fREFZUwYM
+        AAAAFFBFTkRJTkdfU0FWSU5HU19NT0RFBg0AAAAOQ0lUWV9NQU5EQVRPUlkGDgAAACxDQUxDVUxBVElP
+        Tl9MQVRFX0ZFRVNfRFVSSU5HX1BVQkxJQ19IT0xJREFZUwYPAAAADVdFRUtfRU5EX0RBWTIGEAAAAA1X
+        RUVLX0VORF9EQVkxBhEAAAAcSU5URVJFU1RfUkFURV9ERUNJTUFMX1BMQUNFUwYSAAAAD05TR19NSU5f
+        TUVNQkVSUwYTAAAAEUdST1VQX01JTl9NRU1CRVJTBhQAAAAXVVNFX0VYVEVSTkFMX0FDQ09VTlRJTkcG
+        FQAAAA5DTElFTlRfQUdFX01BWAYWAAAAEkFDQ09VTlRJTkdfUFJPQ0VTUwYXAAAAKERPTk9UX1NLSVBf
+        V0VFS0VORFNfSU5fSU5TVEFMTE1FTlRTX0RBVEUGGAAAABZDT05UUkFDVF9DT0RFX1RFTVBMQVRFBhkA
+        AAAQTU9ESUZZX0VOVFJZX0ZFRQYaAAAACFZBVF9SQVRFBhsAAAAPTlNHX01BWF9NRU1CRVJTBhwAAAAS
+        RU5GT1JDRV9JRF9QQVRURVJOBh0AAAAHQ09VTlRSWQYeAAAAHFVTRV9EQUlMWV9BQ0NSVUFMX09GX1BF
+        TkFMVFkGHwAAABVTQVZJTkdTX0NPREVfVEVNUExBVEUGIAAAACBQQVlfRklSU1RfSU5TVEFMTE1FTlRf
+        UkVBTF9WQUxVRQYhAAAAFE1BWF9HVUFSQU5UT1JfQU1PVU5UBiIAAAAaSU5DUkVNRU5UQUxfRFVSSU5H
+        X0RBWU9GRlMGIwAAABFNQVhfTE9BTlNfQ09WRVJFRAYkAAAAEUdST1VQX01BWF9NRU1CRVJTBiUAAAAK
+        SURfUEFUVEVSTgYmAAAAGE5VTUJFUl9ERUNJTUFMX1NFUEFSQVRPUgYnAAAAFUFMTE9XU19NVUxUSVBM
+        RV9MT0FOUwYoAAAAD0NFQVNFX0xBSUVfREFZUwYpAAAADEFVVE9NQVRJQ19JRAYqAAAAGlNIT1dfRVhU
+        UkFfSU5URVJFU1RfQ09MVU1OBisAAAARU0hPUlRfREFURV9GT1JNQVQGLAAAAB5MQVRFX0RBWVNfQUZU
+        RVJfQUNDUlVBTF9DRUFTRVMGLQAAABVTVE9QX1dSSVRFT0ZGX1BFTkFMVFkGLgAAABZBTExPV1NfTVVM
+        VElQTEVfR1JPVVBTBi8AAAAOQ0xJRU5UX0FHRV9NSU4GMAAAABxVU0VfTUFOREFUT1JZX1NBVklOR19B
+        Q0NPVU5UEAgAAAAoAAAACQkAAAAGMgAAAAEgBjMAAAADMTgwBjQAAAAETk9ORQgIAQAAAAgIAQAAAAgI
+        AAAAAAgIBgAAAAgIAgAAAAgIAAAAAAgIAgAAAAgIAQAAAAgIZAAAAAgIAQAAAAgIAAAAAAY1AAAADkJD
+        L1lZL1BDLUxDL0lECAgAAAAACAgAAAAACAgKAAAACAgAAAAABjYAAAAHTm90IHNldAgIAAAAAAY3AAAA
+        C0lDL0JDL0NTL0lECAgBAAAACAgAlDV3CAgBAAAACAgBAAAACAgKAAAABjgAAAAQW0EtWl17Mn1bMC05
+        XXs3fQY5AAAAASwICAAAAAAICOgDAAAICAAAAAAICAAAAAAGOgAAAApkZC1NTS15eXl5CggIAAAAAAgI
+        AAAAAAgIEgAAAAgIAAAAAAs=
+</value>
+  </data>
+  <data name="dtpRepaymentDate.CustomFormat" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
   <data name="dtpRepaymentDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>152, 115</value>
@@ -2624,6 +2664,6 @@
     <value>CreditContractRepayForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

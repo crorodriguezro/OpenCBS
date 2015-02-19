@@ -125,7 +125,7 @@
     <value>250</value>
   </data>
   <data name="columnHeader2.Text" xml:space="preserve">
-    <value>Number of months</value>
+    <value>Number of Months</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="columnHeader2.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
@@ -135,7 +135,7 @@
     <value>120</value>
   </data>
   <data name="columnHeader3.Text" xml:space="preserve">
-    <value>Number of days</value>
+    <value>Number of Days</value>
   </data>
   <data name="columnHeader3.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
@@ -1118,7 +1118,7 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Installment types</value>
+    <value>Installment Types</value>
   </data>
   <data name="&gt;&gt;columnHeader1.Name" xml:space="preserve">
     <value>columnHeader1</value>
@@ -1142,6 +1142,6 @@
     <value>FrmInstallmentTypes</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

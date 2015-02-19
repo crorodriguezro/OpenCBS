@@ -225,10 +225,12 @@ namespace OpenCBS.GUI.UserControl
             this.linkLabelChangePhoto = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -700,7 +702,6 @@ namespace OpenCBS.GUI.UserControl
             // 
             resources.ApplyResources(this.dateTimePickerDateOfEstablishment, "dateTimePickerDateOfEstablishment");
             this.dateTimePickerDateOfEstablishment.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerDateOfEstablishment.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             this.dateTimePickerDateOfEstablishment.Name = "dateTimePickerDateOfEstablishment";
             this.dateTimePickerDateOfEstablishment.Value = new System.DateTime(2006, 5, 19, 0, 0, 0, 0);
             this.dateTimePickerDateOfEstablishment.ValueChanged += new System.EventHandler(this.dateTimePickerDateOfEstablishment_ValueChanged);
@@ -772,10 +773,12 @@ namespace OpenCBS.GUI.UserControl
             this.Load += new System.EventHandler(this.GroupUserControl_Load);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBoxProjects.ResumeLayout(false);
             this.tabControlGroupInfo.ResumeLayout(false);
@@ -854,6 +857,9 @@ namespace OpenCBS.GUI.UserControl
             {
                 cbBranch.Items.Add(branch);
             }
+
+            dateTimePickerDateOfEstablishment.Format = DateTimePickerFormat.Custom;
+            dateTimePickerDateOfEstablishment.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
         }
 
         private void InitializeUserControlsAddress()

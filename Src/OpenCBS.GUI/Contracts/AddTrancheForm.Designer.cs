@@ -85,11 +85,10 @@ namespace OpenCBS.GUI.Contracts
             // 
             // startDateTimePicker
             // 
+            this.startDateTimePicker.CustomFormat = ((OpenCBS.Shared.Settings.ApplicationSettings)(resources.GetObject("resource1"))).SHORT_DATE_FORMAT;
             this.startDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.startDateTimePicker.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.startDateTimePicker, "startDateTimePicker");
             this.startDateTimePicker.Name = "startDateTimePicker";
-            
             // 
             // startDateLabel
             // 
@@ -148,7 +147,6 @@ namespace OpenCBS.GUI.Contracts
             this.trancheConfigurationPanel.Controls.Add(this.startDateLabel);
             this.trancheConfigurationPanel.Controls.Add(this.amountTextbox);
             this.trancheConfigurationPanel.Controls.Add(this.interestRateNumericUpDown);
-            resources.ApplyResources(this.trancheConfigurationPanel, "trancheConfigurationPanel");
             this.trancheConfigurationPanel.Name = "trancheConfigurationPanel";
             // 
             // cmbPaymentMethod
@@ -167,11 +165,10 @@ namespace OpenCBS.GUI.Contracts
             // 
             // firstRepaymentDateTimePicker
             // 
-            this.firstRepaymentDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.firstRepaymentDateTimePicker.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            resources.ApplyResources(this.trancheConfigurationPanel, "trancheConfigurationPanel");
             resources.ApplyResources(this.firstRepaymentDateTimePicker, "firstRepaymentDateTimePicker");
+            this.firstRepaymentDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.firstRepaymentDateTimePicker.Name = "firstRepaymentDateTimePicker";
-
             // 
             // firstRepaymentOnLabel
             // 

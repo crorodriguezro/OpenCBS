@@ -133,13 +133,13 @@
     <value>42</value>
   </data>
   <data name="clhDebitAccount.Text" xml:space="preserve">
-    <value>Debit account</value>
+    <value>Debit Account</value>
   </data>
   <data name="clhDebitAccount.Width" type="System.Int32, mscorlib">
     <value>132</value>
   </data>
   <data name="clhCreditAccount.Text" xml:space="preserve">
-    <value>Credit account</value>
+    <value>Credit Account</value>
   </data>
   <data name="clhCreditAccount.Width" type="System.Int32, mscorlib">
     <value>105</value>
@@ -172,7 +172,7 @@
     <value>92</value>
   </data>
   <data name="clhExchangeRate.Text" xml:space="preserve">
-    <value>Exchange rate</value>
+    <value>Exchange Rate</value>
   </data>
   <data name="clhExchangeRate.Width" type="System.Int32, mscorlib">
     <value>100</value>
@@ -200,7 +200,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADM
-        BwAAAk1TRnQBSQFMAgEBAgEAAdgBAQHYAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        BwAAAk1TRnQBSQFMAgEBAgEAAeABAQHgAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -441,7 +441,7 @@
     <value>2</value>
   </data>
   <data name="lblTitle.Text" xml:space="preserve">
-    <value>Manual entries</value>
+    <value>Manual Entries</value>
   </data>
   <data name="lblTitle.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -1123,7 +1123,7 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Manual entries</value>
+    <value>Manual Entries</value>
   </data>
   <data name="&gt;&gt;clhId.Name" xml:space="preserve">
     <value>clhId</value>

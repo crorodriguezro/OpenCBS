@@ -430,7 +430,7 @@
     <value>0</value>
   </data>
   <data name="tabPageAddBranches.Text" xml:space="preserve">
-    <value>Add branch</value>
+    <value>Add Branch</value>
   </data>
   <data name="&gt;&gt;tabPageAddBranches.Name" xml:space="preserve">
     <value>tabPageAddBranches</value>
@@ -622,7 +622,7 @@
     <value>2</value>
   </data>
   <data name="tabPageAddPaymentMethod.Text" xml:space="preserve">
-    <value>Add payment method</value>
+    <value>Add Payment Method</value>
   </data>
   <data name="&gt;&gt;tabPageAddPaymentMethod.Name" xml:space="preserve">
     <value>tabPageAddPaymentMethod</value>
@@ -1274,7 +1274,7 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Add branch</value>
+    <value>Add Branch</value>
   </data>
   <data name="&gt;&gt;columnHeaderId.Name" xml:space="preserve">
     <value>columnHeaderId</value>
@@ -1304,6 +1304,6 @@
     <value>AddBranchForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetOkCancelForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetOkCancelForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

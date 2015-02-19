@@ -161,8 +161,9 @@ namespace OpenCBS.GUI.UserControl
             _tempPerson.DateOfBirth = DateTime.Now;
             _tempPerson.LoanCycle = 0;
 
+            dateTimePickerDateOfBirth.Format = DateTimePickerFormat.Custom;
             dateTimePickerDateOfBirth.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
-                //"dd_MM-yyyy";
+            
 
             foreach (Branch branch in User.CurrentUser.Branches)
             {

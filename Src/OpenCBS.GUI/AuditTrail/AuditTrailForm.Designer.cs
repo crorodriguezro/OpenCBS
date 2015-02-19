@@ -157,14 +157,12 @@ namespace OpenCBS.GUI.AuditTrail
             // 
             resources.ApplyResources(this.dtFrom, "dtFrom");
             this.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFrom.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             this.dtFrom.Name = "dtFrom";
             // 
             // dtTo
             // 
-            this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtTo.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dtTo, "dtTo");
+            this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtTo.Name = "dtTo";
             // 
             // lblMdash

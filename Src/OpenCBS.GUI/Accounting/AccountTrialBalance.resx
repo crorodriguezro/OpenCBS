@@ -1190,7 +1190,7 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Trial balance</value>
+    <value>Trial Balance</value>
   </data>
   <data name="&gt;&gt;olvColumnLACNumber.Name" xml:space="preserve">
     <value>olvColumnLACNumber</value>
@@ -1220,6 +1220,6 @@
     <value>AccountTrialBalance</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

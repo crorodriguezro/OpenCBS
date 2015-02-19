@@ -64,7 +64,6 @@ namespace OpenCBS.GUI.Report_Browser
             // dtFrom
             // 
             this.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFrom.CustomFormat = ((OpenCBS.Shared.Settings.ApplicationSettings)(resources.GetObject("resource1"))).SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dtFrom, "dtFrom");
             this.dtFrom.Name = "dtFrom";
             // 
@@ -82,8 +81,8 @@ namespace OpenCBS.GUI.Report_Browser
             // 
             // dtTo
             // 
+            this.dtTo.CustomFormat = ((OpenCBS.Shared.Settings.ApplicationSettings)(resources.GetObject("resource1"))).SHORT_DATE_FORMAT;
             this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtTo.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             resources.ApplyResources(this.dtTo, "dtTo");
             this.dtTo.Name = "dtTo";
             // 

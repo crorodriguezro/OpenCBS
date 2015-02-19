@@ -160,7 +160,7 @@
     <value>81</value>
   </data>
   <data name="buttonClearOwner.Text" xml:space="preserve">
-    <value>Clear owner</value>
+    <value>Clear Owner</value>
   </data>
   <data name="&gt;&gt;buttonClearOwner.Name" xml:space="preserve">
     <value>buttonClearOwner</value>
@@ -190,7 +190,7 @@
     <value>80</value>
   </data>
   <data name="buttonSelectOwner.Text" xml:space="preserve">
-    <value>Select owner</value>
+    <value>Select Owner</value>
   </data>
   <data name="&gt;&gt;buttonSelectOwner.Name" xml:space="preserve">
     <value>buttonSelectOwner</value>
@@ -220,7 +220,7 @@
     <value>78</value>
   </data>
   <data name="buttonAddOwner.Text" xml:space="preserve">
-    <value>Add owner</value>
+    <value>Add Owner</value>
   </data>
   <data name="&gt;&gt;buttonAddOwner.Name" xml:space="preserve">
     <value>buttonAddOwner</value>
@@ -935,12 +935,12 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Add new collateral</value>
+    <value>Add New Collateral</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ContractCollateralForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=14.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

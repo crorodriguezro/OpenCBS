@@ -1043,7 +1043,7 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Save file</value>
+    <value>Save File</value>
   </data>
   <data name="&gt;&gt;timerInput.Name" xml:space="preserve">
     <value>timerInput</value>

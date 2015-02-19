@@ -180,7 +180,7 @@
     <value>100</value>
   </data>
   <data name="paidInterestColumn.Text" xml:space="preserve">
-    <value>Paid interest</value>
+    <value>Paid Interest</value>
   </data>
   <data name="paidInterestColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -189,7 +189,7 @@
     <value>100</value>
   </data>
   <data name="paidExtraColumn.Text" xml:space="preserve">
-    <value>Paid extra</value>
+    <value>Paid Extra</value>
   </data>
   <data name="paidExtraColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -198,7 +198,7 @@
     <value>100</value>
   </data>
   <data name="paidPrincipalColumn.Text" xml:space="preserve">
-    <value>Paid principal</value>
+    <value>Paid Principal</value>
   </data>
   <data name="paidPrincipalColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -207,7 +207,7 @@
     <value>100</value>
   </data>
   <data name="paymentDateColumn.Text" xml:space="preserve">
-    <value>Payment date</value>
+    <value>Payment Date</value>
   </data>
   <data name="paymentDateColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
@@ -216,7 +216,7 @@
     <value>80</value>
   </data>
   <data name="lateDaysColumn.Text" xml:space="preserve">
-    <value>Late days</value>
+    <value>Late Days</value>
   </data>
   <data name="lateDaysColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>

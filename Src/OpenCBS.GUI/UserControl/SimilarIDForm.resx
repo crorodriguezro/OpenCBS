@@ -184,7 +184,7 @@
     <value>Horizontal</value>
   </data>
   <data name="chID.Text" xml:space="preserve">
-    <value>ID data</value>
+    <value>ID Data</value>
   </data>
   <data name="chID.Width" type="System.Int32, mscorlib">
     <value>120</value>
@@ -953,7 +953,7 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Similar IDs already exist</value>
+    <value>Similar IDs Already Exist</value>
   </data>
   <data name="&gt;&gt;chID.Name" xml:space="preserve">
     <value>chID</value>
