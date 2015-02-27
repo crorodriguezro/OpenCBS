@@ -189,6 +189,7 @@ namespace OpenCBS.GUI.Products
             _product = new LoanProduct();
             InitializeTextBox();
             InitializeComboBoxInstallmentType();
+            _product.InstallmentType = (InstallmentType) comboBoxInstallmentType.SelectedItem;
             _product.LoanType = OLoanTypes.Flat;
             InitializeComboBoxInterestRateType(_product);
             InitializeComboBoxExoticProduct();
@@ -217,6 +218,7 @@ namespace OpenCBS.GUI.Products
         {
             var index = (int) pack.LoanType - 1;
             cmbInterestRateType.Items.Clear();
+            cmbInterestRateType.Items.Add(GetString("allScheduleTypes"));
             cmbInterestRateType.Items.Add(GetString("Flat.Text"));
             cmbInterestRateType.Items.Add(GetString("DecliningFixedPrincipal.Text"));
             cmbInterestRateType.Items.Add(GetString("DecliningFixedInstallments.Text"));
@@ -225,7 +227,7 @@ namespace OpenCBS.GUI.Products
             {
                 cmbInterestRateType.Items.Add(script);
             }
-            if (index < 3)
+            if (index < 4)
             {
                 cmbInterestRateType.SelectedIndex = index;
             }
@@ -292,7 +294,9 @@ namespace OpenCBS.GUI.Products
         private void InitializeComboBoxInstallmentType()
         {
             comboBoxInstallmentType.Items.Clear();
-            List<InstallmentType> installmentTypeList = ServicesProvider.GetInstance().GetProductServices().FindAllInstallmentTypes();
+            var allTypes = new InstallmentType { Id = 0, Name = GetString("allInstallmentTypes") };
+            comboBoxInstallmentType.Items.Add(allTypes);
+            var installmentTypeList = ServicesProvider.GetInstance().GetProductServices().FindAllInstallmentTypes();
             if (installmentTypeList != null)
             {
                 foreach (InstallmentType installmentType in installmentTypeList)
@@ -300,13 +304,7 @@ namespace OpenCBS.GUI.Products
                     comboBoxInstallmentType.Items.Add(installmentType);
                 }
             }
-            _selectInstallmentType = new InstallmentType
-            {
-                Name = MultiLanguageStrings.GetString(
-                   Ressource.FrmAddLoanProduct, "messageBoxDefaultInstallmentType.Text")
-            };
-            comboBoxInstallmentType.Items.Add(_selectInstallmentType);
-            comboBoxInstallmentType.SelectedItem = _selectInstallmentType;
+            comboBoxInstallmentType.SelectedIndex = 0;
         }
 
         private void InitializeComboBoxLoanCycles()

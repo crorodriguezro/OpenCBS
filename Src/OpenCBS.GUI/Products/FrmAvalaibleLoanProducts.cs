@@ -64,7 +64,14 @@ namespace OpenCBS.GUI.Products
                 ListViewItem lvi = new ListViewItem(p.Name);
                 lvi.SubItems.Add(Convert.ToString(p.LoanType));
                 lvi.SubItems.Add(p.InterestRate == null ? String.Format("{0:N2}% - {1:N2}%", p.InterestRateMin * 100, p.InterestRateMax * 100) : String.Format("{0:N2}%", p.InterestRate * 100));
-                lvi.SubItems.Add(Convert.ToString(p.InstallmentType));
+                if (p.InstallmentType.Id == 0)
+                {
+                    lvi.SubItems.Add(GetString("FrmAddLoanProduct", "allInstallmentTypes"));
+                }
+                else
+                {
+                    lvi.SubItems.Add(Convert.ToString(p.InstallmentType));
+                }
                 lvi.Tag = p;
                 determineRowColor(p, lvi);
                 descriptionListView.Items.Add(lvi);

@@ -26,6 +26,7 @@ namespace OpenCBS.Enums
     [Serializable]
     public enum OLoanTypes
     {
+        All = 0,
         Flat = 1,
         DecliningFixedPrincipal = 2,
         DecliningFixedInstallments = 3,

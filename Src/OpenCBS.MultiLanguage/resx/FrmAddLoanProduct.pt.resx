@@ -230,4 +230,10 @@ das joías?</value>
   <data name="Flat.Text" xml:space="preserve">
     <value>Plano</value>
   </data>
+  <data name="allInstallmentTypes" xml:space="preserve">
+    <value>Todos os tipos</value>
+  </data>
+  <data name="allScheduleTypes" xml:space="preserve">
+    <value>Todos os tipos</value>
+  </data>
 </root>

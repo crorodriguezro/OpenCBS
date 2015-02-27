@@ -1015,7 +1015,7 @@ namespace OpenCBS.Services
         {
             try
             {
-                if (loan.Product.ScriptName != null) return SimulateScriptSchedule(loan);
+                if (loan.ScriptName != null) return SimulateScriptSchedule(loan);
                 var scheduleConfiguration = _configurationFactory
                     .Init()
                     .WithLoan(loan)
@@ -1024,7 +1024,6 @@ namespace OpenCBS.Services
 
                 var scheduleBuilder = new ScheduleBuilder();
                 var installmentList = scheduleBuilder.BuildSchedule(scheduleConfiguration);
-                //var schedule = Mapper.Map<IEnumerable<IInstallment>, List<Installment>>(installmentList);
                 return installmentList;
             }
             catch (Exception ex)
@@ -3078,9 +3077,9 @@ namespace OpenCBS.Services
             string dir = TechnicalSettings.ScriptPath;
             if (string.IsNullOrEmpty(dir)) dir = AppDomain.CurrentDomain.BaseDirectory;
             dir = Path.Combine(dir, "Scripts\\Schedule\\");
-            var file = Path.Combine(dir, loan.Product.ScriptName);
+            var file = Path.Combine(dir, loan.ScriptName);
             if (!File.Exists(file))
-                throw new Exception("Couldn't load the file " + loan.Product.ScriptName);
+                throw new Exception("Couldn't load the file " + loan.ScriptName);
             var script = RunScript(file);
             var configuration = new Dictionary<string, object>();
             var nonWorkingDate = NonWorkingDateSingleton.GetInstance(string.Empty);

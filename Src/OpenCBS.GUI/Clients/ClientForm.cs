@@ -1853,6 +1853,8 @@ namespace OpenCBS.GUI.Clients
             InitializeTabPageGuaranteesDetailsButtons(pCredit.Product.UseGuarantorCollateral);
             InitializeFundingLine();
             InitializeLoanOfficer();
+            InitInstallmentType(pCredit.InstallmentType);
+            InitScheduleType(pCredit.ScheduleType, pCredit.ScriptName);
             SetPackageValuesForLoanDetails(pCredit, false);
             DisableContractDetails(pCredit.ContractStatus);
 
@@ -1909,7 +1911,7 @@ namespace OpenCBS.GUI.Clients
             dateLoanStart.Value = pCredit.StartDate;
             _oldDisbursmentDate = dateLoanStart.Value;
             _oldFirstInstalmentDate = dtpDateOfFirstInstallment.Value;
-            cmbLoanOfficer.Text = pCredit.LoanOfficer != null ? pCredit.LoanOfficer.Name : string.Empty;
+            _loanOfficerComboBox.Text = pCredit.LoanOfficer != null ? pCredit.LoanOfficer.Name : string.Empty;
 
             textBoxLoanPurpose.Text = pCredit.LoanPurpose ?? string.Empty;
             textBoxComments.Text = pCredit.Comments ?? string.Empty;
@@ -1950,6 +1952,8 @@ namespace OpenCBS.GUI.Clients
             nudInterestRate.Enabled = isPendingOrPostponed;
             numericUpDownLoanGracePeriod.Enabled = isPendingOrPostponed && !_credit.Product.GracePeriod.HasValue;
             nudLoanNbOfInstallments.Enabled = isPendingOrPostponed;
+            _installmentTypeComboBox.Enabled = isPendingOrPostponed;
+            _scheduleTypeComboBox.Enabled = isPendingOrPostponed;
             eacLoan.Enabled = isPendingOrPostponed;
             textBoxLoanAnticipatedTotalFees.Enabled = isPendingOrPostponed;
             tbLoanAnticipatedPartialFees.Enabled = isPendingOrPostponed;
@@ -1957,7 +1961,7 @@ namespace OpenCBS.GUI.Clients
             dateLoanStart.Enabled = dtpDateOfFirstInstallment.Enabled = isPendingOrPostponed;
 
             comboBoxLoanFundingLine.Enabled = isPendingOrPostponed;
-            cmbLoanOfficer.Enabled = isPendingOrPostponed;
+            _loanOfficerComboBox.Enabled = isPendingOrPostponed;
             textBoxLoanPurpose.ReadOnly = !isPendingOrPostponed;
             textBoxComments.Enabled = isPendingOrPostponed;
             comboBoxLoanFundingLine.Enabled = isPendingOrPostponed;
@@ -2062,16 +2066,17 @@ namespace OpenCBS.GUI.Clients
             nudLoanAmount.Text = string.Empty;
             textBoxLoanContractCode.Text = string.Empty;
             ReInitializeListViewInstallment();
-//            pnlCCStatus.Enabled = true;
 
             InitializeFundingLine();
             InitializeLoanOfficer();
+            InitInstallmentType(pPackage.InstallmentType);
+            InitScheduleType(pPackage.LoanType, pPackage.ScriptName);
             DisableContractDetails(_credit.ContractStatus);
             SetPackageValuesForLoanDetails(_credit, true);
             SetSecurityForTabPageLoansDetails(true);
             InitLoanDetails(true, false, false);
             InitializeTabPageGuaranteesDetailsButtons(_credit.Product.UseGuarantorCollateral);
-            cmbLoanOfficer.Enabled = true;
+            _loanOfficerComboBox.Enabled = true;
             textBoxLoanPurpose.Enabled = true;
             textBoxComments.Enabled = true;
             listViewLoanInstallments.Items.Clear();
@@ -2150,14 +2155,14 @@ namespace OpenCBS.GUI.Clients
             if (_group != null && _group.FavouriteLoanOfficer != null) return;
             if (_corporate != null && _corporate.FavouriteLoanOfficer != null) return;
 
-            foreach (object item in cmbLoanOfficer.Items)
+            foreach (object item in _loanOfficerComboBox.Items)
             {
                 if (item is User)
                 {
                     User user = (User)item;
                     if (user.ToString() == pUser.ToString())
                     {
-                        cmbLoanOfficer.SelectedItem = user;
+                        _loanOfficerComboBox.SelectedItem = user;
                     }
                 }
             }
@@ -2174,9 +2179,72 @@ namespace OpenCBS.GUI.Clients
             }
         }
 
+        private void InitInstallmentType(InstallmentType installmentType)
+        {
+            _installmentTypeComboBox.Items.Clear();
+            var items = ServicesProvider.GetInstance().GetProductServices().FindAllInstallmentTypes();
+            var selectedIndex = 0;
+            var i = 0;
+            foreach (var item in items)
+            {
+                _installmentTypeComboBox.Items.Add(item);
+                if (item.Id == installmentType.Id)
+                {
+                    selectedIndex = i;
+                }
+                i++;
+            }
+            _installmentTypeComboBox.SelectedIndex = selectedIndex;
+            _installmentTypeComboBox.Enabled = installmentType.Id == 0;
+
+            if (_credit.InstallmentType == null)
+            {
+                _credit.InstallmentType = (InstallmentType) _installmentTypeComboBox.SelectedItem;
+            }
+        }
+
+        private void InitScheduleType(OLoanTypes loanType, string scriptName)
+        {
+            _scheduleTypeComboBox.Items.Clear();
+            _scheduleTypeComboBox.Items.Add(GetString("FrmAddLoanProduct", "Flat.Text"));
+            _scheduleTypeComboBox.Items.Add(GetString("FrmAddLoanProduct", "DecliningFixedPrincipal.Text"));
+            _scheduleTypeComboBox.Items.Add(GetString("FrmAddLoanProduct", "DecliningFixedInstallments.Text"));
+
+            var scripts = ServicesProvider.GetInstance().GetProductServices().SelectLoanProuctTypeScripts();
+            foreach (var script in scripts)
+            {
+                _scheduleTypeComboBox.Items.Add(script);
+            }
+
+            switch (loanType)
+            {
+                case OLoanTypes.All:
+                    _scheduleTypeComboBox.SelectedIndex = 0;
+                    break;
+
+                case OLoanTypes.Flat:
+                    _scheduleTypeComboBox.SelectedIndex = 0;
+                    break;
+
+                case OLoanTypes.DecliningFixedPrincipal:
+                    _scheduleTypeComboBox.SelectedIndex = 1;
+                    break;
+
+                case OLoanTypes.DecliningFixedInstallments:
+                    _scheduleTypeComboBox.SelectedIndex = 2;
+                    break;
+
+                case OLoanTypes.CustomLoanType:
+                    _scheduleTypeComboBox.Text = scriptName;
+                    break;
+            }
+
+            _scheduleTypeComboBox.Enabled = loanType == OLoanTypes.All;
+        }
+
         private void InitializeLoanOfficer()
         {
-            cmbLoanOfficer.Items.Clear();
+            _loanOfficerComboBox.Items.Clear();
             _subordinates = new List<User>();
             _subordinates.Add(User.CurrentUser);
             _subordinates.AddRange(ServicesProvider.GetInstance().GetUserServices().GetSubordinates(User.CurrentUser.Id));
@@ -2184,12 +2252,12 @@ namespace OpenCBS.GUI.Clients
 
             foreach (User user in _subordinates)
             {
-                cmbLoanOfficer.Items.Add(user);
+                _loanOfficerComboBox.Items.Add(user);
             }
             // set favoutite loan officer
             if (_credit.LoanOfficer != null)
             {
-                cmbLoanOfficer.Text = _credit.LoanOfficer.Name;
+                _loanOfficerComboBox.Text = _credit.LoanOfficer.Name;
             }
             else
             {
@@ -2198,26 +2266,26 @@ namespace OpenCBS.GUI.Clients
                     _person = ServicesProvider.GetInstance().GetClientServices().FindPersonById(_person.Id);
                     if (_person.FavouriteLoanOfficer != null)
                         if (!_person.FavouriteLoanOfficer.IsDeleted)
-                            cmbLoanOfficer.Text = _person.FavouriteLoanOfficer.Name;
+                            _loanOfficerComboBox.Text = _person.FavouriteLoanOfficer.Name;
                         else
-                            cmbLoanOfficer.SelectedIndex = 0;
+                            _loanOfficerComboBox.SelectedIndex = 0;
                 }
                 else if (_group != null)
                 {
                     if (_group.FavouriteLoanOfficer != null)
                         if (!_group.FavouriteLoanOfficer.IsDeleted)
-                            cmbLoanOfficer.Text = _group.FavouriteLoanOfficer.Name;
-                        else cmbLoanOfficer.SelectedIndex = 0;
+                            _loanOfficerComboBox.Text = _group.FavouriteLoanOfficer.Name;
+                        else _loanOfficerComboBox.SelectedIndex = 0;
 
                 }
                 else if (_corporate != null)
                 {
                     if (_corporate.FavouriteLoanOfficer != null)
                         if (!_corporate.FavouriteLoanOfficer.IsDeleted)
-                            cmbLoanOfficer.Text = _corporate.FavouriteLoanOfficer.Name;
+                            _loanOfficerComboBox.Text = _corporate.FavouriteLoanOfficer.Name;
                 }
                 else
-                    cmbLoanOfficer.SelectedIndex = 0;
+                    _loanOfficerComboBox.SelectedIndex = 0;
             }
         }
 
@@ -3238,6 +3306,33 @@ namespace OpenCBS.GUI.Clients
             Preview();
         }
 
+        private OLoanTypes GetScheduleType()
+        {
+            switch (_scheduleTypeComboBox.SelectedIndex)
+            {
+                case 0:
+                    return OLoanTypes.Flat;
+
+                case 1:
+                    return OLoanTypes.DecliningFixedPrincipal;
+
+                case 2:
+                    return OLoanTypes.DecliningFixedInstallments;
+
+                default:
+                    return OLoanTypes.CustomLoanType;
+            }
+        }
+
+        private string GetScriptName()
+        {
+            if (_scheduleTypeComboBox.SelectedIndex >= 3)
+            {
+                return _scheduleTypeComboBox.Text;
+            }
+            return null;
+        }
+
         private Loan CreateLoan()
         {
             var credit = new Loan(_product,
@@ -3255,7 +3350,10 @@ namespace OpenCBS.GUI.Clients
                               {
                                   Guarantors = _listGuarantors,
                                   Collaterals = _collaterals,
-                                  LoanShares = _loanShares
+                                  LoanShares = _loanShares,
+                                  InstallmentType = (InstallmentType) _installmentTypeComboBox.SelectedItem,
+                                  ScheduleType = GetScheduleType(),
+                                  ScriptName = GetScriptName()
                               };
             credit.InstallmentList = ServicesProvider.GetInstance().GetContractServices().SimulateScheduleCreation(credit);
             if (!string.IsNullOrEmpty(tbLocAmount.Text))
@@ -3266,8 +3364,6 @@ namespace OpenCBS.GUI.Clients
             _toChangeAlignDate = false;
             credit.FirstInstallmentDate = dtpDateOfFirstInstallment.Value;
             _toChangeAlignDate = true;
-
-            credit.InstallmentType = _credit.Product.InstallmentType;
 
             _firstInstallmentDate = dtpDateOfFirstInstallment.Value;
 
@@ -3284,7 +3380,7 @@ namespace OpenCBS.GUI.Clients
 
             credit.FundingLine = comboBoxLoanFundingLine.Tag != null ? (FundingLine)comboBoxLoanFundingLine.Tag : null;
 
-            credit.LoanOfficer = (User)cmbLoanOfficer.SelectedItem;
+            credit.LoanOfficer = (User)_loanOfficerComboBox.SelectedItem;
 
             credit.LoanPurpose = textBoxLoanPurpose.Text;
             credit.Comments = textBoxComments.Text;
@@ -3342,7 +3438,9 @@ namespace OpenCBS.GUI.Clients
                 dtpDateOfFirstInstallment.Value = _credit.FirstInstallmentDate;
                 _credit.InterestRate = ServicesHelper.ConvertStringToNullableDecimal(nudInterestRate.Text, true, -1).Value;
                 _credit.NbOfInstallments = Convert.ToInt32(nudLoanNbOfInstallments.Value);
-                _credit.InstallmentType = _credit.Product.InstallmentType;
+                _credit.InstallmentType = (InstallmentType) _installmentTypeComboBox.SelectedItem;
+                _credit.ScheduleType = GetScheduleType();
+                _credit.ScriptName = GetScriptName();
                 _credit.AmountUnderLoc = ServicesHelper.ConvertStringToDecimal(tbLocAmount.Text, _credit.UseCents);
                 if (_credit.ContractStatus == OContractStatus.Pending)
                 {
@@ -3358,7 +3456,7 @@ namespace OpenCBS.GUI.Clients
                 _credit.GracePeriod = Convert.ToInt32(numericUpDownLoanGracePeriod.Value);
                 _credit.GracePeriodOfLateFees = _gracePeriodOfLateFees;
 
-                _credit.LoanOfficer = (User)cmbLoanOfficer.SelectedItem;
+                _credit.LoanOfficer = (User)_loanOfficerComboBox.SelectedItem;
 
                 _credit.FundingLine = comboBoxLoanFundingLine.Tag != null
                                          ? (FundingLine)comboBoxLoanFundingLine.Tag
@@ -4527,7 +4625,7 @@ namespace OpenCBS.GUI.Clients
         {
             List<User> users = ServicesProvider.GetInstance().GetUserServices().FindAll(true);
 
-            List<User> myUser = users.FindAll(loanOfficer => loanOfficer.Name == cmbLoanOfficer.Text);
+            List<User> myUser = users.FindAll(loanOfficer => loanOfficer.Name == _loanOfficerComboBox.Text);
 
             myUser.ForEach(delegate(User loanOfficer)
             {
@@ -4654,7 +4752,7 @@ namespace OpenCBS.GUI.Clients
                         InitializePackageInterestRate(_credit, false);
                         InitializePackageGracePeriod(_credit.Product, false);
                         InitializePackageNumberOfInstallments(_credit, false);
-                        cmbLoanOfficer.Enabled = true;
+                        _loanOfficerComboBox.Enabled = true;
                         textBoxLoanPurpose.Enabled = true;
                         textBoxComments.Enabled = true;
                         comboBoxLoanFundingLine.Enabled = true;
@@ -6862,7 +6960,5 @@ namespace OpenCBS.GUI.Clients
         {
             LoadClientSavings();
         }
-
-
     }
 }

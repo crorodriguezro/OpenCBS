@@ -169,7 +169,9 @@ namespace OpenCBS.Manager.Contracts
                         [nmb_of_inst_max],
                         [loan_cycle], 
                         [insurance],
-                        [effective_interest_rate]) 
+                        [effective_interest_rate],
+                        schedule_type,
+                        script_name) 
                         VALUES(@id, 
                         @packageId, 
                         @fundingLine_id, 
@@ -198,7 +200,9 @@ namespace OpenCBS.Manager.Contracts
                         @nmb_of_inst_max,
                         @loan_cycle,
                         @insurance,
-                        ISNULL(dbo.GetXIRR(@id),0)
+                        ISNULL(dbo.GetXIRR(@id),0),
+                        @schedule_type,
+                        @script_name
                         )";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
@@ -616,7 +620,9 @@ namespace OpenCBS.Manager.Contracts
                                 [schedule_changed] = @schedule_changed,
                                 [written_off] = @written_off,
                                 [insurance]=@insurance,
-                                [effective_interest_rate] =  ISNULL(dbo.GetXIRR(@id),0)
+                                [effective_interest_rate] =  ISNULL(dbo.GetXIRR(@id),0),
+                                schedule_type = @schedule_type,
+                                script_name = @script_name
                               WHERE id = @id";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
@@ -796,6 +802,8 @@ namespace OpenCBS.Manager.Contracts
             c.AddParam("@AnticipatedTotalRepaymentPenaltiesBase", (int)pLoan.AnticipatedTotalRepaymentPenaltiesBase);
             c.AddParam("@AnticipatedPartialRepaymentPenaltiesBase", (int)pLoan.AnticipatedPartialRepaymentPenaltiesBase);
             c.AddParam("@insurance", pLoan.Insurance);
+            c.AddParam("@schedule_type", (int) pLoan.ScheduleType);
+            c.AddParam("@script_name", pLoan.ScriptName);
         }
 
         private void _DeleteGuarantorsFromLoan(int pLoanId, SqlTransaction pSqlTransac)
@@ -1815,7 +1823,9 @@ namespace OpenCBS.Manager.Contracts
                                         Credit.[nmb_of_inst_min],
                                         Credit.[nmb_of_inst_max],
                                         Credit.[loan_cycle],
-                                        Credit.insurance
+                                        Credit.insurance,
+                                        Credit.schedule_type,
+                                        Credit.script_name
                                         FROM Contracts 
                                         INNER JOIN Credit ON Contracts.id = Credit.id 
                                         INNER JOIN Projects ON Contracts.project_id = Projects.id 
@@ -1935,6 +1945,8 @@ namespace OpenCBS.Manager.Contracts
             c.AddParam("@nmb_of_inst_max", pLoan.NmbOfInstallmentsMax);
             c.AddParam("@loan_cycle", pLoan.LoanCycle);
             c.AddParam("@insurance", pLoan.Insurance);
+            c.AddParam("@schedule_type", (int) pLoan.ScheduleType);
+            c.AddParam("@script_name", pLoan.ScriptName);
         }
 
         public Dictionary<int, int> GetListOfInstallmentsOnDate(DateTime date)
@@ -2027,6 +2039,8 @@ namespace OpenCBS.Manager.Contracts
                     NsgID = r.GetNullInt("nsg_id"),
                     EconomicActivityId = r.GetInt("activity_id"),
                     FirstInstallmentDate = r.GetDateTime("preferred_first_installment_date"),
+                    ScheduleType = (OLoanTypes) r.GetInt("schedule_type"),
+                    ScriptName = r.GetString("script_name")
                 };
         }
 

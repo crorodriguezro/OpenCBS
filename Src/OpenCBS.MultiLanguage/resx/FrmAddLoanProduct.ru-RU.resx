@@ -240,4 +240,7 @@
   <data name="Flat.Text" xml:space="preserve">
     <value>Фиксированный</value>
   </data>
+  <data name="allInstallmentTypes" xml:space="preserve">
+    <value>Все типы</value>
+  </data>
 </root>

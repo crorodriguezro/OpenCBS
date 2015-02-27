@@ -109,7 +109,7 @@ namespace OpenCBS.Engine
                 { OLoanTypes.DecliningFixedInstallments, "Annuity" },
                 { OLoanTypes.DecliningFixedPrincipal, "Fixed principal" },
             };
-            return map.ContainsKey(_loan.Product.LoanType) ? map[_loan.Product.LoanType] : string.Empty;
+            return map.ContainsKey(_loan.ScheduleType) ? map[_loan.ScheduleType] : string.Empty;
         }
 
         private IPeriodPolicy GetPeriodPolicy()

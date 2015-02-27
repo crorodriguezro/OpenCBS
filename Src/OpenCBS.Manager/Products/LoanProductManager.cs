@@ -1160,7 +1160,14 @@ namespace OpenCBS.Manager.Products
                     exoticProductId = r.GetNullInt("exotic_id");
                 }
             }
-            if(installmentTypeId.HasValue) package.InstallmentType = installmentTypeManagement.SelectInstallmentType(installmentTypeId.Value);
+            if (installmentTypeId.HasValue && installmentTypeId > 0)
+            {
+                package.InstallmentType = installmentTypeManagement.SelectInstallmentType(installmentTypeId.Value);
+            }
+            else
+            {
+                package.InstallmentType = new InstallmentType { Id = 0, Name = "All" };
+            }
             if(exoticProductId.HasValue) package.ExoticProduct = SelectExoticProductById(exoticProductId.Value);
             FireProductLoaded(package);
 
@@ -1205,7 +1212,14 @@ namespace OpenCBS.Manager.Products
                     exoticProductId = r.GetNullInt("exotic_id");
                 }
             }
-            if (installmentTypeId.HasValue) package.InstallmentType = installmentTypeManagement.SelectInstallmentType(installmentTypeId.Value);
+            if (installmentTypeId.HasValue && installmentTypeId > 0)
+            {
+                package.InstallmentType = installmentTypeManagement.SelectInstallmentType(installmentTypeId.Value);
+            }
+            else
+            {
+                package.InstallmentType = new InstallmentType { Id = 0, Name = "All" };
+            }
             if (exoticProductId.HasValue) package.ExoticProduct = SelectExoticProductById(exoticProductId.Value);
             if (amountCycleStockId.HasValue) package.CycleId = amountCycleStockId.Value;
 
@@ -1246,7 +1260,14 @@ namespace OpenCBS.Manager.Products
                     exoticProductId = r.GetNullInt("exotic_id");
                 }
             }
-            if(installmentTypeId.HasValue) package.InstallmentType = installmentTypeManagement.SelectInstallmentType(installmentTypeId.Value);
+            if (installmentTypeId.HasValue && installmentTypeId > 0)
+            {
+                package.InstallmentType = installmentTypeManagement.SelectInstallmentType(installmentTypeId.Value);
+            }
+            else
+            {
+                package.InstallmentType = new InstallmentType { Id = 0, Name = "All" };
+            }
             if(exoticProductId.HasValue) package.ExoticProduct = SelectExoticProductById(exoticProductId.Value);
 //            if(amountCycleStockId.HasValue) package.AmountCycles = _SelectAmountCycleStockById(amountCycleStockId.Value);
 

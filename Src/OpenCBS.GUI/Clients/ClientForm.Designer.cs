@@ -57,7 +57,7 @@ namespace OpenCBS.GUI.Clients
         private ComboBox comboBoxLoanFundingLine;
         private Label lbLoanInterestRateMinMax;
         private Label labelLoanAmountMinMax;
-        private ComboBox cmbLoanOfficer;
+        private ComboBox _loanOfficerComboBox;
         private Label labelLoanLoanOfficer;
         private Label labelLoanFundingLine;
         private NumericUpDown numericUpDownLoanGracePeriod;
@@ -224,6 +224,9 @@ namespace OpenCBS.GUI.Clients
             this.btnEditSchedule = new System.Windows.Forms.Button();
             this.gbxLoanDetails = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this._scheduleTypeComboBox = new System.Windows.Forms.ComboBox();
+            this._installmentTypeComboBox = new System.Windows.Forms.ComboBox();
+            this._installmentTypeLabel = new System.Windows.Forms.Label();
             this.lblEconomicActivity = new System.Windows.Forms.Label();
             this.labelDateOffirstInstallment = new System.Windows.Forms.Label();
             this.labelLoanAmountMinMax = new System.Windows.Forms.Label();
@@ -242,7 +245,7 @@ namespace OpenCBS.GUI.Clients
             this.numericUpDownLoanGracePeriod = new System.Windows.Forms.NumericUpDown();
             this.nudLoanNbOfInstallments = new System.Windows.Forms.NumericUpDown();
             this.lblDay = new System.Windows.Forms.Label();
-            this.cmbLoanOfficer = new System.Windows.Forms.ComboBox();
+            this._loanOfficerComboBox = new System.Windows.Forms.ComboBox();
             this.labelLoanLoanOfficer = new System.Windows.Forms.Label();
             this.labelLoanFundingLine = new System.Windows.Forms.Label();
             this.comboBoxLoanFundingLine = new System.Windows.Forms.ComboBox();
@@ -251,6 +254,7 @@ namespace OpenCBS.GUI.Clients
             this.nudLoanAmount = new System.Windows.Forms.NumericUpDown();
             this.nudInterestRate = new System.Windows.Forms.NumericUpDown();
             this.eacLoan = new OpenCBS.GUI.UserControl.EconomicActivityControl();
+            this._scheduleTypeLabel = new System.Windows.Forms.Label();
             this.tabPageAdvancedSettings = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
@@ -1554,34 +1558,64 @@ namespace OpenCBS.GUI.Clients
             // tableLayoutPanel4
             // 
             resources.ApplyResources(this.tableLayoutPanel4, "tableLayoutPanel4");
-            this.tableLayoutPanel4.Controls.Add(this.lblEconomicActivity, 3, 3);
-            this.tableLayoutPanel4.Controls.Add(this.labelDateOffirstInstallment, 3, 1);
+            this.tableLayoutPanel4.Controls.Add(this._scheduleTypeComboBox, 1, 6);
+            this.tableLayoutPanel4.Controls.Add(this._installmentTypeComboBox, 1, 5);
+            this.tableLayoutPanel4.Controls.Add(this._installmentTypeLabel, 0, 5);
+            this.tableLayoutPanel4.Controls.Add(this.lblEconomicActivity, 3, 4);
+            this.tableLayoutPanel4.Controls.Add(this.labelDateOffirstInstallment, 3, 2);
             this.tableLayoutPanel4.Controls.Add(this.labelLoanAmountMinMax, 2, 1);
             this.tableLayoutPanel4.Controls.Add(this.labelLoanNbOfInstallmentsMinMax, 2, 4);
-            this.tableLayoutPanel4.Controls.Add(this.dtpDateOfFirstInstallment, 4, 1);
+            this.tableLayoutPanel4.Controls.Add(this.dtpDateOfFirstInstallment, 4, 2);
             this.tableLayoutPanel4.Controls.Add(this.labelLoanGracePeriodMinMax, 2, 3);
             this.tableLayoutPanel4.Controls.Add(this.labelLoanContractCode, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.textBoxLoanContractCode, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.labelLoanAmount, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.labelLoanInterestRate, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.dateLoanStart, 4, 0);
+            this.tableLayoutPanel4.Controls.Add(this.dateLoanStart, 4, 1);
             this.tableLayoutPanel4.Controls.Add(this.labelLoanNbOfInstallments, 0, 4);
-            this.tableLayoutPanel4.Controls.Add(this.labelLoanStartDate, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.labelLoanStartDate, 3, 1);
             this.tableLayoutPanel4.Controls.Add(this.lbLoanInterestRateMinMax, 2, 2);
             this.tableLayoutPanel4.Controls.Add(this.labelLoanGracePeriod, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.numericUpDownLoanGracePeriod, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.nudLoanNbOfInstallments, 1, 4);
-            this.tableLayoutPanel4.Controls.Add(this.lblDay, 5, 1);
-            this.tableLayoutPanel4.Controls.Add(this.cmbLoanOfficer, 1, 5);
-            this.tableLayoutPanel4.Controls.Add(this.labelLoanLoanOfficer, 0, 5);
-            this.tableLayoutPanel4.Controls.Add(this.labelLoanFundingLine, 3, 2);
-            this.tableLayoutPanel4.Controls.Add(this.comboBoxLoanFundingLine, 4, 2);
-            this.tableLayoutPanel4.Controls.Add(this.labelLoanPurpose, 3, 4);
-            this.tableLayoutPanel4.Controls.Add(this.textBoxLoanPurpose, 4, 4);
+            this.tableLayoutPanel4.Controls.Add(this.lblDay, 5, 2);
+            this.tableLayoutPanel4.Controls.Add(this._loanOfficerComboBox, 4, 0);
+            this.tableLayoutPanel4.Controls.Add(this.labelLoanLoanOfficer, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.labelLoanFundingLine, 3, 3);
+            this.tableLayoutPanel4.Controls.Add(this.comboBoxLoanFundingLine, 4, 3);
+            this.tableLayoutPanel4.Controls.Add(this.labelLoanPurpose, 3, 5);
+            this.tableLayoutPanel4.Controls.Add(this.textBoxLoanPurpose, 4, 5);
             this.tableLayoutPanel4.Controls.Add(this.nudLoanAmount, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.nudInterestRate, 1, 2);
-            this.tableLayoutPanel4.Controls.Add(this.eacLoan, 4, 3);
+            this.tableLayoutPanel4.Controls.Add(this.eacLoan, 4, 4);
+            this.tableLayoutPanel4.Controls.Add(this._scheduleTypeLabel, 0, 6);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            // 
+            // _scheduleTypeComboBox
+            // 
+            this.tableLayoutPanel4.SetColumnSpan(this._scheduleTypeComboBox, 2);
+            this._scheduleTypeComboBox.DisplayMember = "Name";
+            this._scheduleTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._scheduleTypeComboBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            resources.ApplyResources(this._scheduleTypeComboBox, "_scheduleTypeComboBox");
+            this._scheduleTypeComboBox.Name = "_scheduleTypeComboBox";
+            this._scheduleTypeComboBox.ValueMember = "Id";
+            // 
+            // _installmentTypeComboBox
+            // 
+            this.tableLayoutPanel4.SetColumnSpan(this._installmentTypeComboBox, 2);
+            this._installmentTypeComboBox.DisplayMember = "Name";
+            this._installmentTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._installmentTypeComboBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            resources.ApplyResources(this._installmentTypeComboBox, "_installmentTypeComboBox");
+            this._installmentTypeComboBox.Name = "_installmentTypeComboBox";
+            this._installmentTypeComboBox.ValueMember = "Id";
+            // 
+            // _installmentTypeLabel
+            // 
+            resources.ApplyResources(this._installmentTypeLabel, "_installmentTypeLabel");
+            this._installmentTypeLabel.BackColor = System.Drawing.Color.Transparent;
+            this._installmentTypeLabel.Name = "_installmentTypeLabel";
             // 
             // lblEconomicActivity
             // 
@@ -1692,16 +1726,16 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.lblDay, "lblDay");
             this.lblDay.Name = "lblDay";
             // 
-            // cmbLoanOfficer
+            // _loanOfficerComboBox
             // 
-            this.tableLayoutPanel4.SetColumnSpan(this.cmbLoanOfficer, 2);
-            this.cmbLoanOfficer.DisplayMember = "Name";
-            this.cmbLoanOfficer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLoanOfficer.ForeColor = System.Drawing.SystemColors.WindowText;
-            resources.ApplyResources(this.cmbLoanOfficer, "cmbLoanOfficer");
-            this.cmbLoanOfficer.Name = "cmbLoanOfficer";
-            this.cmbLoanOfficer.ValueMember = "Id";
-            this.cmbLoanOfficer.SelectedIndexChanged += new System.EventHandler(this.comboBoxLoanOfficer_SelectedIndexChanged);
+            this.tableLayoutPanel4.SetColumnSpan(this._loanOfficerComboBox, 2);
+            this._loanOfficerComboBox.DisplayMember = "Name";
+            this._loanOfficerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._loanOfficerComboBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            resources.ApplyResources(this._loanOfficerComboBox, "_loanOfficerComboBox");
+            this._loanOfficerComboBox.Name = "_loanOfficerComboBox";
+            this._loanOfficerComboBox.ValueMember = "Id";
+            this._loanOfficerComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBoxLoanOfficer_SelectedIndexChanged);
             // 
             // labelLoanLoanOfficer
             // 
@@ -1764,6 +1798,11 @@ namespace OpenCBS.GUI.Clients
             this.tableLayoutPanel4.SetColumnSpan(this.eacLoan, 3);
             resources.ApplyResources(this.eacLoan, "eacLoan");
             this.eacLoan.Name = "eacLoan";
+            // 
+            // _scheduleTypeLabel
+            // 
+            resources.ApplyResources(this._scheduleTypeLabel, "_scheduleTypeLabel");
+            this._scheduleTypeLabel.Name = "_scheduleTypeLabel";
             // 
             // tabPageAdvancedSettings
             // 
@@ -4183,5 +4222,9 @@ namespace OpenCBS.GUI.Clients
         private ColumnHeader colBounceFee;
         private CheckBox chxSystemEvents;
         private Controls.ScheduleControl _repaymentScheduleControl;
+        private ComboBox _installmentTypeComboBox;
+        private Label _installmentTypeLabel;
+        private Label _scheduleTypeLabel;
+        private ComboBox _scheduleTypeComboBox;
     }
 }

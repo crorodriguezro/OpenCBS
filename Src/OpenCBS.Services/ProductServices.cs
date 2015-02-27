@@ -637,9 +637,6 @@ namespace OpenCBS.Services
 		{
             if (pInstallmentType == null)
 				throw new OpenCbsPackageSaveException(OpenCbsPackageSaveExceptionEnum.InstallmentTypeIsNull);
-            
-            if (pInstallmentType.Id == 0)
-				throw new OpenCbsPackageSaveException(OpenCbsPackageSaveExceptionEnum.InstallmentTypeIsBad);
 		}
 
         private static void CheckValueForPackageInterestRate(LoanProduct pPackage)

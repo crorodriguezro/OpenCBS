@@ -222,4 +222,10 @@
   <data name="Flat.Text" xml:space="preserve">
     <value>Sur capital initial - intérêts fixes</value>
   </data>
+  <data name="allInstallmentTypes" xml:space="preserve">
+    <value>Tous les types</value>
+  </data>
+  <data name="allScheduleTypes" xml:space="preserve">
+    <value>Toutes les méthodes</value>
+  </data>
 </root>

@@ -240,4 +240,10 @@
   <data name="Flat.Text" xml:space="preserve">
     <value>Flat (fixed principal, fixed interest)</value>
   </data>
+  <data name="allInstallmentTypes" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="allScheduleTypes" xml:space="preserve">
+    <value>All</value>
+  </data>
 </root>

@@ -2917,6 +2917,9 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
 
         private bool disposed;
 
+        public OLoanTypes ScheduleType { get; set; }
+        public string ScriptName { get; set; }
+
         public void Dispose()
         {
             Dispose(true);
