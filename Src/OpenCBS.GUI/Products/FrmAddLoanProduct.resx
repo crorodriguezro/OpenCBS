@@ -1138,7 +1138,7 @@
     <value>36</value>
   </data>
   <data name="buttonAmountCyclesSave.Text" xml:space="preserve">
-    <value>Save cycle settings</value>
+    <value>Save Cycle Settings</value>
   </data>
   <data name="buttonAmountCyclesSave.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -1930,7 +1930,7 @@
     <value>5</value>
   </data>
   <data name="groupBoxInterestRateType.Text" xml:space="preserve">
-    <value>Interest rate type*</value>
+    <value>Interest Rate Type*</value>
   </data>
   <data name="&gt;&gt;groupBoxInterestRateType.Name" xml:space="preserve">
     <value>groupBoxInterestRateType</value>
@@ -2137,7 +2137,7 @@
     <value>8</value>
   </data>
   <data name="groupBoxGracePeriod.Text" xml:space="preserve">
-    <value>Grace period*</value>
+    <value>Grace Period*</value>
   </data>
   <data name="&gt;&gt;groupBoxGracePeriod.Name" xml:space="preserve">
     <value>groupBoxGracePeriod</value>
@@ -2332,7 +2332,7 @@
     <value>NoControl</value>
   </data>
   <data name="label43.Location" type="System.Drawing.Point, System.Drawing">
-    <value>196, 41</value>
+    <value>192, 41</value>
   </data>
   <data name="label43.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 16</value>
@@ -2494,7 +2494,7 @@
     <value>Tahoma, 9.75pt</value>
   </data>
   <data name="textBoxAnticipatedPartialRepaiment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>252, 38</value>
+    <value>248, 38</value>
   </data>
   <data name="textBoxAnticipatedPartialRepaiment.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 23</value>
@@ -2797,7 +2797,7 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>196, 37</value>
+    <value>200, 37</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 16</value>
@@ -2959,7 +2959,7 @@
     <value>Tahoma, 9.75pt</value>
   </data>
   <data name="textBoxAnticipatedRepaymentPenalties.Location" type="System.Drawing.Point, System.Drawing">
-    <value>252, 34</value>
+    <value>256, 34</value>
   </data>
   <data name="textBoxAnticipatedRepaymentPenalties.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 23</value>
@@ -3043,7 +3043,7 @@
     <value>3</value>
   </data>
   <data name="gbAnticipatedRepayment.Text" xml:space="preserve">
-    <value>Anticipated Total Repayment (ATR) and Anticipated Partial Repayment (APR) fees</value>
+    <value>Anticipated Total Repayment (ATR) and Anticipated Partial Repayment (APR) Fees</value>
   </data>
   <data name="&gt;&gt;gbAnticipatedRepayment.Name" xml:space="preserve">
     <value>gbAnticipatedRepayment</value>
@@ -3349,7 +3349,7 @@
     <value>1</value>
   </data>
   <data name="groupBox8.Text" xml:space="preserve">
-    <value>On total loan amount*</value>
+    <value>on total loan amount*</value>
   </data>
   <data name="&gt;&gt;groupBox8.Name" xml:space="preserve">
     <value>groupBox8</value>
@@ -3373,7 +3373,7 @@
     <value>NoControl</value>
   </data>
   <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>198, 39</value>
+    <value>200, 39</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 16</value>
@@ -3535,7 +3535,7 @@
     <value>Tahoma, 9.75pt</value>
   </data>
   <data name="tBOverduePrincipalValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>254, 36</value>
+    <value>256, 36</value>
   </data>
   <data name="tBOverduePrincipalValue.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 23</value>
@@ -3592,7 +3592,7 @@
     <value>3</value>
   </data>
   <data name="groupBox5.Text" xml:space="preserve">
-    <value>On overdue principal*</value>
+    <value>on Overdue principal*</value>
   </data>
   <data name="&gt;&gt;groupBox5.Name" xml:space="preserve">
     <value>groupBox5</value>
@@ -3832,7 +3832,7 @@
     <value>2</value>
   </data>
   <data name="groupBox7.Text" xml:space="preserve">
-    <value>On OLB*</value>
+    <value>on OLB*</value>
   </data>
   <data name="&gt;&gt;groupBox7.Name" xml:space="preserve">
     <value>groupBox7</value>
@@ -4075,7 +4075,7 @@
     <value>4</value>
   </data>
   <data name="groupBox6.Text" xml:space="preserve">
-    <value>On Overdue interest*</value>
+    <value>on Overdue interest*</value>
   </data>
   <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
     <value>groupBox6</value>
@@ -5575,7 +5575,7 @@
     <value>1</value>
   </data>
   <data name="useLOCCheckBox.Text" xml:space="preserve">
-    <value>Use Line of Credit</value>
+    <value>Use line of credit</value>
   </data>
   <data name="&gt;&gt;useLOCCheckBox.Name" xml:space="preserve">
     <value>useLOCCheckBox</value>
@@ -6358,13 +6358,13 @@
     <value>264, 68</value>
   </data>
   <data name="lbCompulsoryAmountValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 16</value>
+    <value>45, 16</value>
   </data>
   <data name="lbCompulsoryAmountValue.TabIndex" type="System.Int32, mscorlib">
     <value>40</value>
   </data>
   <data name="lbCompulsoryAmountValue.Text" xml:space="preserve">
-    <value>Value :</value>
+    <value>value :</value>
   </data>
   <data name="lbCompulsoryAmountValue.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
