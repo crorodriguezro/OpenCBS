@@ -61,12 +61,23 @@ namespace OpenCBS.ArchitectureV2.View
                 typeof (CheckBox),
                 typeof (RadioButton),
                 typeof (GroupBox),
+                typeof (TreeListView),
                 typeof (ObjectListView),
-                typeof (ToolStrip)
+                typeof (ToolStrip),
+                typeof (TabControl)
             };
             foreach (var control in GetControls(this).Where(c => validTypes.Contains(c.GetType())))
             {
-                if (control is ObjectListView)
+                if (control is TreeListView)
+                {
+                    var listView = control as TreeListView;
+                    for (var i = 0; i < listView.Columns.Count; i++)
+                    {
+                        var column = listView.Columns[i];
+                        _map.Add(column, column.Text);
+                    }
+                }
+                else if (control is ObjectListView)
                 {
                     var listView = control as ObjectListView;
                     for (var i = 0; i < listView.Columns.Count; i++)
@@ -81,6 +92,14 @@ namespace OpenCBS.ArchitectureV2.View
                     foreach (var button in toolStrip.Items.OfType<ToolStripButton>())
                     {
                         _map.Add(button, button.Text);
+                    }
+                }
+                else if (control is TabControl)
+                {
+                    var tabControl = control as TabControl;
+                    foreach (var tabPage in tabControl.TabPages.OfType<TabPage>())
+                    {
+                        _map.Add(tabPage, tabPage.Text);
                     }
                 }
                 else
