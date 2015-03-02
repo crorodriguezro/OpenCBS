@@ -754,6 +754,7 @@ namespace OpenCBS.GUI.UserControl
             // 
             this.eacPerson.Activity = null;
             resources.ApplyResources(this.eacPerson, "eacPerson");
+            this.eacPerson.IsLoanPurpose = false;
             this.eacPerson.Name = "eacPerson";
             this.eacPerson.EconomicActivityChange += new System.EventHandler<OpenCBS.GUI.UserControl.EconomicActivtyEventArgs>(this.EacPersonActivityChange);
             // 

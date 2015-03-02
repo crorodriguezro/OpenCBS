@@ -475,7 +475,7 @@
     <value>3, 3</value>
   </data>
   <data name="columnHeaderId.Text" xml:space="preserve">
-    <value>Id</value>
+    <value>ID</value>
   </data>
   <data name="columnHeaderCode.Text" xml:space="preserve">
     <value>Code</value>
@@ -1228,7 +1228,7 @@
     <value>clSavingList</value>
   </data>
   <data name="&gt;&gt;clSavingList.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SavingsListUserControl, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SavingsListUserControl, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;clSavingList.Parent" xml:space="preserve">
     <value>tabPageSavings</value>
@@ -1282,7 +1282,7 @@
     <value>150</value>
   </data>
   <data name="columnHeader11.Text" xml:space="preserve">
-    <value>Joined Date</value>
+    <value>Member Since</value>
   </data>
   <data name="columnHeader11.Width" type="System.Int32, mscorlib">
     <value>150</value>
@@ -1355,7 +1355,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACC
-        UQAAAk1TRnQBSQFMAgEBBwEAAbABBwGwAQcBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
+        UQAAAk1TRnQBSQFMAgEBBwEAAbgBBwG4AQcBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
         AwABQAMAAQEBAAEgBgABgP8AHgABAQMJAQwDFAEbAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMW
         AR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMU
         ARsDBwEJnwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMA
@@ -1790,7 +1790,7 @@
     <value>btnPrint</value>
   </data>
   <data name="&gt;&gt;btnPrint.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrint.Parent" xml:space="preserve">
     <value>panelEconomicActivity</value>
@@ -1976,7 +1976,7 @@
     <value>eacPerson</value>
   </data>
   <data name="&gt;&gt;eacPerson.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.EconomicActivityControl, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.EconomicActivityControl, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;eacPerson.Parent" xml:space="preserve">
     <value>groupBoxCivilities</value>
@@ -2021,7 +2021,7 @@
     <value>textBoxNationality</value>
   </data>
   <data name="&gt;&gt;textBoxNationality.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxNationality.Parent" xml:space="preserve">
     <value>groupBoxCivilities</value>
@@ -2102,7 +2102,7 @@
     <value>textBoxBirthPlace</value>
   </data>
   <data name="&gt;&gt;textBoxBirthPlace.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxBirthPlace.Parent" xml:space="preserve">
     <value>groupBoxCivilities</value>
@@ -2219,7 +2219,7 @@
     <value>textBoxFatherName</value>
   </data>
   <data name="&gt;&gt;textBoxFatherName.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxFatherName.Parent" xml:space="preserve">
     <value>groupBoxCivilities</value>
@@ -2483,7 +2483,7 @@
     <value>textBoxLastname</value>
   </data>
   <data name="&gt;&gt;textBoxLastname.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxLastname.Parent" xml:space="preserve">
     <value>groupBoxCivilities</value>
@@ -2540,7 +2540,7 @@
     <value>textBoxIdentificationData</value>
   </data>
   <data name="&gt;&gt;textBoxIdentificationData.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxIdentificationData.Parent" xml:space="preserve">
     <value>groupBoxCivilities</value>
@@ -2561,13 +2561,13 @@
     <value>16, 117</value>
   </data>
   <data name="labelPassport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 16</value>
+    <value>76, 16</value>
   </data>
   <data name="labelPassport.TabIndex" type="System.Int32, mscorlib">
     <value>44</value>
   </data>
   <data name="labelPassport.Text" xml:space="preserve">
-    <value>Id number*:</value>
+    <value>ID number*:</value>
   </data>
   <data name="&gt;&gt;labelPassport.Name" xml:space="preserve">
     <value>labelPassport</value>
@@ -2687,7 +2687,7 @@
     <value>textBoxFirstName</value>
   </data>
   <data name="&gt;&gt;textBoxFirstName.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxFirstName.Parent" xml:space="preserve">
     <value>groupBoxCivilities</value>
@@ -4248,6 +4248,6 @@
     <value>PersonUserControl</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ClientControl, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ClientControl, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
