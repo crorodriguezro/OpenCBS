@@ -4937,7 +4937,15 @@ AS BEGIN
         ISNULL(de.number, 0) number_disbursed,
         ISNULL(de.amount, 0) amount_disbursed,
         ISNULL(re.number, 0) number_repaid,
-        ISNULL(re.amount, 0) amount_repaid
+        ISNULL(re.amount, 0) amount_repaid,
+		(
+			SELECT
+				sum(al.olb)
+			FROM dbo.ActiveLoans(d.date, @branchId) al
+			INNER JOIN dbo.Credit cr ON cr.id = al.id
+			WHERE cr.loanofficer_id IN (SELECT id FROM @users)
+				AND cr.package_id IN (SELECT id FROM @loanProducts)
+		) olb
     FROM dates d
     LEFT JOIN
     (

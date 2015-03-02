@@ -488,10 +488,9 @@ namespace OpenCBS.Manager
                     var stat = new ActionStat
                     {
                         Date = reader.GetDateTime("date"),
-                        AmountDisbursed = reader.GetDecimal("amount_disbursed"),
                         NumberDisbursed = reader.GetInt("number_disbursed"),
-                        AmountRepaid = reader.GetDecimal("amount_repaid"),
                         NumberRepaid = reader.GetInt("number_repaid"),
+                        Olb = reader.GetDecimal("olb")
                     };
                     dashboard.ActionStats.Add(stat);
                 }

@@ -226,7 +226,7 @@ namespace OpenCBS.GUI
             point.AxisLabel = dashboard.ActionStats[0].Date.AddDays(-1).ToString("dd.MM");
             foreach (var actionStat in dashboard.ActionStats)
             {
-                value += Convert.ToDouble(actionStat.OlbGrowth);
+                value = Convert.ToDouble(actionStat.Olb);
                 point = series.Points.Add(value);
                 point.AxisLabel = actionStat.Date.ToString("dd.MM");
             }
