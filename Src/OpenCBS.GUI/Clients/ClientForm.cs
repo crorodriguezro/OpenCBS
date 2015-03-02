@@ -114,6 +114,9 @@ namespace OpenCBS.GUI.Clients
         [ImportMany(typeof(ILoanDetailsButton), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<ILoanDetailsButton> LoanDetailsButtons { get; set; }
 
+        [ImportMany(typeof(ILoanRepaymentButton))]
+        public List<ILoanRepaymentButton> LoanRepaymentButtons { get; set; }
+
         [ImportMany(typeof(IPrintButtonContextMenuStrip), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<IPrintButtonContextMenuStrip> PrintButtonContextMenuStrips { get; set; }
 
@@ -1799,6 +1802,7 @@ namespace OpenCBS.GUI.Clients
             SetAddTrancheButton(pCredit);
             buttonLoanRepaymentRepay.Enabled = !pCredit.Closed;
             btnWriteOff.Enabled = !pCredit.Closed && !pCredit.WrittenOff;
+            InitLoanRepaymentButtons();
         }
 
         private void InitLoanDetails(bool isNew, bool disbursed, bool validated)
@@ -5470,6 +5474,22 @@ namespace OpenCBS.GUI.Clients
                 var controls = loanDetailsButtonsPanel.Controls.Find(button.Name, false);
                 if (controls.Any()) loanDetailsButtonsPanel.Controls.Remove(controls[0]);
                 loanDetailsButtonsPanel.Controls.Add(button);
+            }
+        }
+
+        private void InitLoanRepaymentButtons()
+        {
+            foreach (var loanRepaymentButton in LoanRepaymentButtons)
+            {
+                var button = loanRepaymentButton.GetButton(_client, _credit);
+                if (button == null) continue;
+
+                var controls = flowLayoutPanel8.Controls.Find(button.Name, false);
+                if (controls.Any())
+                {
+                    flowLayoutPanel8.Controls.Remove(controls[0]);
+                }
+                flowLayoutPanel8.Controls.Add(button);
             }
         }
         

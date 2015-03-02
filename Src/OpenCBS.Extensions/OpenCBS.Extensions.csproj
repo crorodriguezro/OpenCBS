@@ -75,6 +75,7 @@
     <Compile Include="IInitializer.cs" />
     <Compile Include="ILoanApprovalControl.cs" />
     <Compile Include="ILoanDetailsButton.cs" />
+    <Compile Include="ILoanRepaymentButton.cs" />
     <Compile Include="IPrintButtonContextMenuStrip.cs" />
     <Compile Include="ILoanExtension.cs" />
     <Compile Include="ILoanTabs.cs" />
