@@ -29,6 +29,7 @@ namespace OpenCBS.GUI.UserControl
     {
         private EconomicActivity _economicActivity; 
         public event EventHandler<EconomicActivtyEventArgs> EconomicActivityChange;
+        public bool IsLoanPurpose { get; set; }
 
         public EconomicActivity Activity
         {
@@ -48,7 +49,7 @@ namespace OpenCBS.GUI.UserControl
 
         private void BtnSelectClick(object sender, EventArgs e)
         {
-            frmActivity frmActivity = new frmActivity();
+            frmActivity frmActivity = new frmActivity(IsLoanPurpose);
             frmActivity.ShowDialog();
 
             txbActivity.Clear();
@@ -78,7 +79,8 @@ namespace OpenCBS.GUI.UserControl
     {
         private readonly EconomicActivity _economicActivity;
 
-        public EconomicActivtyEventArgs(EconomicActivity economicActivity) {
+        public EconomicActivtyEventArgs(EconomicActivity economicActivity) 
+        {
             _economicActivity = economicActivity;
         }
 

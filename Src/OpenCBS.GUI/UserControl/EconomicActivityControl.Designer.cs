@@ -41,7 +41,7 @@ namespace OpenCBS.GUI.UserControl
             this.txbActivity.Click += new System.EventHandler(this.BtnSelectClick);
             // 
             // btnSelect
-            //
+            // 
             resources.ApplyResources(this.btnSelect, "btnSelect");
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Click += new System.EventHandler(this.BtnSelectClick);

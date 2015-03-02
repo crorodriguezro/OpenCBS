@@ -1852,7 +1852,7 @@ namespace OpenCBS.Manager.Contracts
 
             loan.InstallmentType = _installmentTypeManagement.SelectInstallmentType(installmentTypeId);
             loan.InstallmentList = _installmentManagement.SelectInstallments(loan.Id);
-            loan.EconomicActivity = _economicActivityManager.SelectEconomicActivity(loan.EconomicActivityId);
+            loan.EconomicActivity = _economicActivityManager.SelectLoanPurpose(loan.EconomicActivityId);
             loan.GivenTranches = SelectTranches(loan.Id);
 
             if (pAddGeneralInformation)

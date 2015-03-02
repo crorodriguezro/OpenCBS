@@ -117,10 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lProjectFinancialPlanType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 16</value>
+  </data>
+  <data name="lProjectFinancialPlanType.Text" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="lProjectFinancialPlanAmount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 16</value>
+  </data>
+  <data name="lProjectFinancialPlanAmount.Text" xml:space="preserve">
+    <value>Сумма</value>
+  </data>
+  <data name="lProjectFinancialPlanTotalAmount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 16</value>
+  </data>
+  <data name="lProjectFinancialPlanTotalAmount.Text" xml:space="preserve">
+    <value>Всего</value>
+  </data>
   <data name="gBProjectFinancialPlan.Text" xml:space="preserve">
     <value>Финансовый план</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lProjectNbOfNewJobs.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 16</value>
   </data>
@@ -154,42 +172,8 @@
   <data name="lProjectFiscalStatus.Text" xml:space="preserve">
     <value>Фискальный статус</value>
   </data>
-  <data name="gBProjectAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>849, 291</value>
-  </data>
   <data name="gBProjectAddress.Text" xml:space="preserve">
     <value>Адрес</value>
-  </data>
-  <data name="splitContainer10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1229, 291</value>
-  </data>
-  <data name="lProjectFinancialPlanType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 16</value>
-  </data>
-  <data name="lProjectFinancialPlanType.Text" xml:space="preserve">
-    <value>Тип</value>
-  </data>
-  <data name="lProjectFinancialPlanAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 16</value>
-  </data>
-  <data name="lProjectFinancialPlanAmount.Text" xml:space="preserve">
-    <value>Сумма</value>
-  </data>
-  <data name="lProjectFinancialPlanTotalAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 16</value>
-  </data>
-  <data name="lProjectFinancialPlanTotalAmount.Text" xml:space="preserve">
-    <value>Всего</value>
-  </data>
-  <data name="listViewProjectFollowUp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1223, 224</value>
-  </data>
-  <data name="splitContainer11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1223, 285</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="splitContainer11.SplitterDistance" type="System.Int32, mscorlib">
-    <value>224</value>
   </data>
   <data name="columnHeaderProjectYear.Text" xml:space="preserve">
     <value>Год</value>
@@ -212,30 +196,6 @@
   <data name="buttonProjectAddFollowUp.Text" xml:space="preserve">
     <value>Добавить план</value>
   </data>
-  <data name="listViewGuarantors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1097, 211</value>
-  </data>
-  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 211</value>
-  </data>
-  <data name="lblGuarantorsList.Text" xml:space="preserve">
-    <value>Поручители</value>
-  </data>
-  <data name="listViewCollaterals.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1097, 274</value>
-  </data>
-  <data name="pnlCollateralButtons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 274</value>
-  </data>
-  <data name="lblCollaterals.Text" xml:space="preserve">
-    <value>Заложенное имущество</value>
-  </data>
-  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 559</value>
-  </data>
-  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>246</value>
-  </data>
   <data name="columnHeaderName.Text" xml:space="preserve">
     <value>Имя</value>
   </data>
@@ -248,14 +208,14 @@
   <data name="columnHeaderDesc.Text" xml:space="preserve">
     <value>Описание</value>
   </data>
+  <data name="listViewGuarantors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1097, 211</value>
+  </data>
   <data name="btnPrintGuarantors.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 180</value>
   </data>
   <data name="btnPrintGuarantors.Text" xml:space="preserve">
     <value>Печать</value>
-  </data>
-  <data name="pnlGuarantorButtons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 205</value>
   </data>
   <data name="buttonSelectAGarantors.Text" xml:space="preserve">
     <value>Добавить</value>
@@ -275,6 +235,15 @@
   <data name="lblCreditCurrency.Text" xml:space="preserve">
     <value>Валюта: ......</value>
   </data>
+  <data name="pnlGuarantorButtons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 205</value>
+  </data>
+  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 211</value>
+  </data>
+  <data name="lblGuarantorsList.Text" xml:space="preserve">
+    <value>Поручители</value>
+  </data>
   <data name="columnHeader19.Text" xml:space="preserve">
     <value>Название</value>
   </data>
@@ -286,6 +255,9 @@
   </data>
   <data name="columnHeaderColDesc.Text" xml:space="preserve">
     <value>Описание</value>
+  </data>
+  <data name="listViewCollaterals.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1097, 274</value>
   </data>
   <data name="buttonAddCollateral.Text" xml:space="preserve">
     <value>Добавить</value>
@@ -299,6 +271,16 @@
   <data name="buttonDelCollateral.Text" xml:space="preserve">
     <value>Удалить</value>
   </data>
+  <data name="pnlCollateralButtons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 274</value>
+  </data>
+  <data name="lblCollaterals.Text" xml:space="preserve">
+    <value>Заложенное имущество</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
+    <value>246</value>
+  </data>
   <data name="panelLoansContracts.Size" type="System.Drawing.Size, System.Drawing">
     <value>1249, 220</value>
   </data>
@@ -311,66 +293,672 @@
   <data name="labelSavingsContracts.Text" xml:space="preserve">
     <value>Накопления</value>
   </data>
-  <data name="splitContainerContracts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 565</value>
-  </data>
   <data name="splitContainerContracts.SplitterDistance" type="System.Int32, mscorlib">
     <value>220</value>
   </data>
   <data name="tabPageDetails.Text" xml:space="preserve">
     <value>Детали</value>
   </data>
-  <data name="tabPageProject.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 565</value>
+  <data name="labelProjectDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 16</value>
+  </data>
+  <data name="labelProjectDate.Text" xml:space="preserve">
+    <value>Дата:</value>
+  </data>
+  <data name="buttonProjectSelectPurpose.Text" xml:space="preserve">
+    <value>Выбор</value>
+  </data>
+  <data name="labelProjectPurpose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 16</value>
+  </data>
+  <data name="labelProjectPurpose.Text" xml:space="preserve">
+    <value>Тип:</value>
+  </data>
+  <data name="labelProjectName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 16</value>
+  </data>
+  <data name="labelProjectName.Text" xml:space="preserve">
+    <value>Имя:</value>
+  </data>
+  <data name="labelProjectCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 16</value>
+  </data>
+  <data name="labelProjectCode.Text" xml:space="preserve">
+    <value>Код:</value>
+  </data>
+  <data name="labelFirstProjectName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 16</value>
+  </data>
+  <data name="labelFirstProjectName.Text" xml:space="preserve">
+    <value>Цель:</value>
+  </data>
+  <data name="buttonProjectSave.Text" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="columnProductType.Text" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="columnHeaderId.Text" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="columnHeaderStatus.Text" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="columnHeaderAmount.Text" xml:space="preserve">
+    <value>Сумма</value>
+  </data>
+  <data name="columnHeaderOLB.Text" xml:space="preserve">
+    <value>КП</value>
+  </data>
+  <data name="columnHeaderCurrency.Text" xml:space="preserve">
+    <value>Валюта</value>
+  </data>
+  <data name="columnHeaderInterestRate.Text" xml:space="preserve">
+    <value>Процент</value>
+  </data>
+  <data name="columnHeaderInstallmentType.Text" xml:space="preserve">
+    <value>Тип погашения</value>
+  </data>
+  <data name="columnHeaderNbOfInstallments.Text" xml:space="preserve">
+    <value>Кол. погашений</value>
+  </data>
+  <data name="columnHeaderCreationDate.Text" xml:space="preserve">
+    <value>Дата создания</value>
+  </data>
+  <data name="columnHeaderStartDate.Text" xml:space="preserve">
+    <value>Дата начала</value>
+  </data>
+  <data name="columnHeaderCloseDate.Text" xml:space="preserve">
+    <value>Дата закрытия</value>
+  </data>
+  <data name="buttonProjectAddContract.Text" xml:space="preserve">
+    <value>Добавить кредит</value>
+  </data>
+  <data name="buttonProjectViewContract.Text" xml:space="preserve">
+    <value>Просмотр контракта</value>
+  </data>
+  <data name="tabPageProjectLoans.Text" xml:space="preserve">
+    <value>Контракты</value>
+  </data>
+  <data name="labelProjectConcurrence.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 16</value>
+  </data>
+  <data name="labelProjectConcurrence.Text" xml:space="preserve">
+    <value>Конкуренция</value>
+  </data>
+  <data name="labelProjectMarket.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 16</value>
+  </data>
+  <data name="labelProjectMarket.Text" xml:space="preserve">
+    <value>Рынок</value>
+  </data>
+  <data name="labelProjectExperience.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 16</value>
+  </data>
+  <data name="labelProjectExperience.Text" xml:space="preserve">
+    <value>Опыт</value>
+  </data>
+  <data name="labelProjectAbilities.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 16</value>
+  </data>
+  <data name="labelProjectAbilities.Text" xml:space="preserve">
+    <value>Возможности</value>
+  </data>
+  <data name="tabPageProjectAnalyses.Text" xml:space="preserve">
+    <value>Анализ</value>
+  </data>
+  <data name="tabPageCorporate.Text" xml:space="preserve">
+    <value>Объединение</value>
+  </data>
+  <data name="tabPageFollowUp.Text" xml:space="preserve">
+    <value>Мониторинг</value>
   </data>
   <data name="tabPageProject.Text" xml:space="preserve">
     <value>Проект</value>
   </data>
+  <data name="columnHeaderLoanN.Text" xml:space="preserve">
+    <value>№</value>
+  </data>
+  <data name="columnHeaderLoanDate.Text" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="columnHeaderLoanIP.Text" xml:space="preserve">
+    <value>Процент</value>
+  </data>
+  <data name="columnHeaderLoanPR.Text" xml:space="preserve">
+    <value>Основная сумма</value>
+  </data>
+  <data name="columnHeaderLoanInstallmentTotal.Text" xml:space="preserve">
+    <value>Общая сумма</value>
+  </data>
+  <data name="columnHeaderLoanOLB.Text" xml:space="preserve">
+    <value>КП</value>
+  </data>
+  <data name="tabPageInstallments.Text" xml:space="preserve">
+    <value>Инсталяции</value>
+  </data>
+  <data name="btnSaveLoan.Text" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="buttonLoanPreview.Text" xml:space="preserve">
+    <value>Просмотр</value>
+  </data>
+  <data name="buttonLoanDisbursment.Text" xml:space="preserve">
+    <value>Выдать</value>
+  </data>
+  <data name="btnPrintLoanDetails.Text" xml:space="preserve">
+    <value>Печать</value>
+  </data>
+  <data name="btnLoanShares.Text" xml:space="preserve">
+    <value>Доли кредита</value>
+  </data>
+  <data name="btnEditSchedule.Text" xml:space="preserve">
+    <value>Изменить график</value>
+  </data>
+  <data name="_scheduleTypeComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>134, 182</value>
+  </data>
+  <data name="_installmentTypeComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>134, 152</value>
+  </data>
+  <data name="_installmentTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 30</value>
+  </data>
+  <data name="_installmentTypeLabel.Text" xml:space="preserve">
+    <value>Тип погашений:</value>
+  </data>
+  <data name="lblEconomicActivity.Location" type="System.Drawing.Point, System.Drawing">
+    <value>357, 120</value>
+  </data>
+  <data name="lblEconomicActivity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 29</value>
+  </data>
+  <data name="lblEconomicActivity.Text" xml:space="preserve">
+    <value>Цель кредита*:</value>
+  </data>
+  <data name="labelDateOffirstInstallment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>357, 58</value>
+  </data>
+  <data name="labelDateOffirstInstallment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 32</value>
+  </data>
+  <data name="labelDateOffirstInstallment.Text" xml:space="preserve">
+    <value>Дата первого погашения:</value>
+  </data>
+  <data name="labelLoanAmountMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>300, 30</value>
+  </data>
+  <data name="labelLoanNbOfInstallmentsMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>300, 120</value>
+  </data>
+  <data name="dtpDateOfFirstInstallment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>523, 61</value>
+  </data>
+  <data name="labelLoanGracePeriodMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>300, 90</value>
+  </data>
+  <data name="labelLoanContractCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 30</value>
+  </data>
+  <data name="labelLoanContractCode.Text" xml:space="preserve">
+    <value>Код контракта:</value>
+  </data>
+  <data name="textBoxLoanContractCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>134, 3</value>
+  </data>
+  <data name="labelLoanAmount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 28</value>
+  </data>
+  <data name="labelLoanAmount.Text" xml:space="preserve">
+    <value>Сумма:</value>
+  </data>
+  <data name="labelLoanInterestRate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 32</value>
+  </data>
+  <data name="labelLoanInterestRate.Text" xml:space="preserve">
+    <value>Процентная ставка:</value>
+  </data>
+  <data name="dateLoanStart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>523, 33</value>
+  </data>
+  <data name="labelLoanNbOfInstallments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 29</value>
+  </data>
+  <data name="labelLoanNbOfInstallments.Text" xml:space="preserve">
+    <value>Кол-во погашений:</value>
+  </data>
+  <data name="labelLoanStartDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>357, 30</value>
+  </data>
+  <data name="labelLoanStartDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 28</value>
+  </data>
+  <data name="labelLoanStartDate.Text" xml:space="preserve">
+    <value>Дата выдачи денег:</value>
+  </data>
+  <data name="lbLoanInterestRateMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>300, 58</value>
+  </data>
+  <data name="labelLoanGracePeriod.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 30</value>
+  </data>
+  <data name="labelLoanGracePeriod.Text" xml:space="preserve">
+    <value>Льготный период:</value>
+  </data>
+  <data name="numericUpDownLoanGracePeriod.Location" type="System.Drawing.Point, System.Drawing">
+    <value>134, 93</value>
+  </data>
+  <data name="nudLoanNbOfInstallments.Location" type="System.Drawing.Point, System.Drawing">
+    <value>134, 123</value>
+  </data>
+  <data name="lblDay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>628, 58</value>
+  </data>
+  <data name="_loanOfficerComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>523, 3</value>
+  </data>
+  <data name="labelLoanLoanOfficer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>357, 0</value>
+  </data>
+  <data name="labelLoanLoanOfficer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 16</value>
+  </data>
+  <data name="labelLoanLoanOfficer.Text" xml:space="preserve">
+    <value>Кредитный специалист:</value>
+  </data>
+  <data name="labelLoanFundingLine.Location" type="System.Drawing.Point, System.Drawing">
+    <value>357, 90</value>
+  </data>
+  <data name="labelLoanFundingLine.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 30</value>
+  </data>
+  <data name="labelLoanFundingLine.Text" xml:space="preserve">
+    <value>Фондовая линия:</value>
+  </data>
+  <data name="comboBoxLoanFundingLine.Location" type="System.Drawing.Point, System.Drawing">
+    <value>523, 93</value>
+  </data>
+  <data name="labelLoanPurpose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>357, 149</value>
+  </data>
+  <data name="labelLoanPurpose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 30</value>
+  </data>
+  <data name="labelLoanPurpose.Text" xml:space="preserve">
+    <value>Комментарии:</value>
+  </data>
+  <data name="textBoxLoanPurpose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>523, 152</value>
+  </data>
+  <data name="nudLoanAmount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>134, 33</value>
+  </data>
+  <data name="nudInterestRate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>134, 61</value>
+  </data>
+  <data name="eacLoan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>523, 123</value>
+  </data>
+  <data name="_scheduleTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 31</value>
+  </data>
+  <data name="_scheduleTypeLabel.Text" xml:space="preserve">
+    <value>Тип графика:</value>
+  </data>
   <data name="tabPageLoansDetails.Text" xml:space="preserve">
     <value>Детали кредита</value>
   </data>
-  <data name="tabPageAdvancedSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 565</value>
+  <data name="lblEarlyPartialRepaimentBase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 28</value>
+  </data>
+  <data name="lblEarlyTotalRepaimentBase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 0</value>
+  </data>
+  <data name="lblLoanAnticipatedPartialFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>131, 28</value>
+  </data>
+  <data name="lbATR.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 28</value>
+  </data>
+  <data name="lbATR.Text" xml:space="preserve">
+    <value>ДПП :</value>
+  </data>
+  <data name="tbLoanAnticipatedPartialFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>52, 31</value>
+  </data>
+  <data name="textBoxLoanAnticipatedTotalFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>52, 3</value>
+  </data>
+  <data name="lbAPR.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 28</value>
+  </data>
+  <data name="lbAPR.Text" xml:space="preserve">
+    <value>ДЧП :</value>
+  </data>
+  <data name="labelLoanAnticipatedTotalFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>131, 0</value>
+  </data>
+  <data name="groupBoxAnticipatedRepaymentPenalties.Text" xml:space="preserve">
+    <value>Пеня за досрочное погашение</value>
+  </data>
+  <data name="labelLoanLateFeesOnOverduePrincipalMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>188, 28</value>
+  </data>
+  <data name="labelLoanLateFeesOnAmountMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>188, 0</value>
+  </data>
+  <data name="labelLoanLateFeesOnAmount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 28</value>
+  </data>
+  <data name="labelLoanLateFeesOnAmount.Text" xml:space="preserve">
+    <value>Сумма кредита</value>
+  </data>
+  <data name="textBoxLoanLateFeesOnAmount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>139, 3</value>
+  </data>
+  <data name="textBoxLoanLateFeesOnOverduePrincipal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>139, 31</value>
+  </data>
+  <data name="labelLoanLateFeesOnOverduePrincipal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 28</value>
+  </data>
+  <data name="labelLoanLateFeesOnOverduePrincipal.Text" xml:space="preserve">
+    <value>Просроченая сумма</value>
+  </data>
+  <data name="labelLoanLateFeesOnOLB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>246, 0</value>
+  </data>
+  <data name="labelLoanLateFeesOnOLB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 28</value>
+  </data>
+  <data name="labelLoanLateFeesOnOLB.Text" xml:space="preserve">
+    <value>КП</value>
+  </data>
+  <data name="textBoxLoanLateFeesOnOLB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>392, 3</value>
+  </data>
+  <data name="labelLoanLateFeesOnOLBMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>441, 0</value>
+  </data>
+  <data name="labelLoanLateFeesOnOverdueInterest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>246, 28</value>
+  </data>
+  <data name="labelLoanLateFeesOnOverdueInterest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 28</value>
+  </data>
+  <data name="labelLoanLateFeesOnOverdueInterest.Text" xml:space="preserve">
+    <value>Просроченый процент</value>
+  </data>
+  <data name="textBoxLoanLateFeesOnOverdueInterest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>392, 31</value>
+  </data>
+  <data name="labelLoanLateFeesOnOverdueInterestMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>441, 28</value>
+  </data>
+  <data name="tableLayoutPanel8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>469, 56</value>
+  </data>
+  <data name="groupBoxLoanLateFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>475, 77</value>
+  </data>
+  <data name="groupBoxLoanLateFees.Text" xml:space="preserve">
+    <value>Пеня</value>
+  </data>
+  <data name="flowLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>737, 93</value>
+  </data>
+  <data name="colName.Text" xml:space="preserve">
+    <value>Наименование</value>
+  </data>
+  <data name="colValue.Text" xml:space="preserve">
+    <value>Значение</value>
+  </data>
+  <data name="colAmount.Text" xml:space="preserve">
+    <value>Сумма</value>
+  </data>
+  <data name="groupBoxEntryFees.Text" xml:space="preserve">
+    <value>Административные взносы</value>
+  </data>
+  <data name="btnUpdateSettings.Text" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="lbCompulsorySavingsAmount.Text" xml:space="preserve">
+    <value>Сумма</value>
+  </data>
+  <data name="lbCompulsorySavings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>274, 33</value>
+  </data>
+  <data name="lbCompulsorySavings.Text" xml:space="preserve">
+    <value>Привязать к депозитному счету</value>
+  </data>
+  <data name="linkCompulsorySavings.Text" xml:space="preserve">
+    <value>детали</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Обязательне накопления</value>
+  </data>
+  <data name="labelComments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 90</value>
+  </data>
+  <data name="labelComments.Text" xml:space="preserve">
+    <value>Комментарии</value>
+  </data>
+  <data name="textBoxComments.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 360</value>
+  </data>
+  <data name="labelLocAmount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 32</value>
+  </data>
+  <data name="labelLocAmount.Text" xml:space="preserve">
+    <value>Сумма КЛ:</value>
+  </data>
+  <data name="tbLocAmount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 3</value>
+  </data>
+  <data name="labelLocMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>210, 0</value>
+  </data>
+  <data name="labelLocMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 13</value>
+  </data>
+  <data name="labelLocMin.Text" xml:space="preserve">
+    <value>Мин:</value>
+  </data>
+  <data name="labelLocMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>210, 13</value>
+  </data>
+  <data name="labelLocMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 19</value>
+  </data>
+  <data name="labelLocMax.Text" xml:space="preserve">
+    <value>Макс:</value>
+  </data>
+  <data name="labelLocMinAmount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>252, 0</value>
+  </data>
+  <data name="labelLocMaxAmount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>252, 13</value>
+  </data>
+  <data name="lblInsuranceMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>621, 0</value>
+  </data>
+  <data name="lblInsuranceMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>621, 13</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>585, 13</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>585, 0</value>
+  </data>
+  <data name="tbInsurance.Location" type="System.Drawing.Point, System.Drawing">
+    <value>493, 3</value>
+  </data>
+  <data name="lblCreditInsurance.Location" type="System.Drawing.Point, System.Drawing">
+    <value>347, 0</value>
+  </data>
+  <data name="lblCreditInsurance.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 32</value>
+  </data>
+  <data name="lblCreditInsurance.Text" xml:space="preserve">
+    <value>Страхование кредита:</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>640, 0</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>640, 13</value>
+  </data>
+  <data name="lblLocCurrencyMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>271, 0</value>
+  </data>
+  <data name="lblLocCurrencyMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
+  </data>
+  <data name="lblLocCurrencyMin.Text" xml:space="preserve">
+    <value>Валюта</value>
+  </data>
+  <data name="lblLocCurrencyMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>271, 13</value>
+  </data>
+  <data name="lblLocCurrencyMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 19</value>
+  </data>
+  <data name="lblLocCurrencyMax.Text" xml:space="preserve">
+    <value>Валюта</value>
   </data>
   <data name="tabPageAdvancedSettings.Text" xml:space="preserve">
     <value>Дополнительные параметры</value>
   </data>
-  <data name="tabPageCreditCommitee.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 565</value>
-  </data>
   <data name="tabPageCreditCommitee.Text" xml:space="preserve">
     <value>Кредитный комитет</value>
   </data>
-  <data name="tabPageLoanRepayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 565</value>
+  <data name="buttonLoanRepaymentRepay.Text" xml:space="preserve">
+    <value>Оплатить</value>
   </data>
-  <data name="tabPageLoanRepayment.Text" xml:space="preserve">
-    <value>Выплаты</value>
+  <data name="buttonLoanReschedule.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 28</value>
   </data>
-  <data name="tabPageLoanGuarantees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 565</value>
+  <data name="buttonLoanReschedule.Text" xml:space="preserve">
+    <value>Изменить график</value>
   </data>
-  <data name="tabPageLoanGuarantees.Text" xml:space="preserve">
-    <value>Поручители</value>
+  <data name="buttonManualSchedule.Location" type="System.Drawing.Point, System.Drawing">
+    <value>315, 3</value>
   </data>
-  <data name="tabPageSavingDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 565</value>
+  <data name="buttonManualSchedule.Text" xml:space="preserve">
+    <value>Правка в ручную</value>
   </data>
-  <data name="tabPageSavingDetails.Text" xml:space="preserve">
-    <value>Детали депозита</value>
+  <data name="buttonAddTranche.Location" type="System.Drawing.Point, System.Drawing">
+    <value>461, 3</value>
   </data>
-  <data name="tabPageContracts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 565</value>
+  <data name="buttonAddTranche.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 28</value>
   </data>
-  <data name="tabPageContracts.Text" xml:space="preserve">
-    <value>Контракты</value>
+  <data name="buttonAddTranche.Text" xml:space="preserve">
+    <value>Добавить транш</value>
+  </data>
+  <data name="btnWriteOff.Location" type="System.Drawing.Point, System.Drawing">
+    <value>627, 3</value>
+  </data>
+  <data name="btnWriteOff.Text" xml:space="preserve">
+    <value>Списать</value>
+  </data>
+  <data name="btnPrintLoanRepayment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>773, 3</value>
+  </data>
+  <data name="btnPrintLoanRepayment.Text" xml:space="preserve">
+    <value>Печать</value>
+  </data>
+  <data name="tabPageRepayments.Text" xml:space="preserve">
+    <value>График погашения</value>
+  </data>
+  <data name="columnHeader11.Text" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="EntryDate.Text" xml:space="preserve">
+    <value>Дата ввода</value>
+  </data>
+  <data name="columnHeader12.Text" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="columnHeader13.Text" xml:space="preserve">
+    <value>Основная сумма</value>
+  </data>
+  <data name="columnHeader13.Width" type="System.Int32, mscorlib">
+    <value>124</value>
+  </data>
+  <data name="columnHeader14.Text" xml:space="preserve">
+    <value>Процент</value>
+  </data>
+  <data name="colCommissions.Text" xml:space="preserve">
+    <value>Комиссия</value>
+  </data>
+  <data name="colCommissions.Width" type="System.Int32, mscorlib">
+    <value>78</value>
+  </data>
+  <data name="colPenalties.Text" xml:space="preserve">
+    <value>Пеня</value>
+  </data>
+  <data name="colOverduePrincipal.Text" xml:space="preserve">
+    <value>Просроченная основная сумма</value>
+  </data>
+  <data name="colOverdueDays.Text" xml:space="preserve">
+    <value>Дни просрочки</value>
+  </data>
+  <data name="columnHeader16.Text" xml:space="preserve">
+    <value>Отменяемый</value>
+  </data>
+  <data name="columnHeader18.Text" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="ExportedDate.Text" xml:space="preserve">
+    <value>Дата экспорта</value>
+  </data>
+  <data name="colNumber.Text" xml:space="preserve">
+    <value>Номер погашения</value>
+  </data>
+  <data name="columnHeader30.Text" xml:space="preserve">
+    <value>Комментарий</value>
+  </data>
+  <data name="colPaymentMethod.Text" xml:space="preserve">
+    <value>Метод оплаты</value>
+  </data>
+  <data name="colCancelDate1.Text" xml:space="preserve">
+    <value>Дата отмены</value>
+  </data>
+  <data name="colIsDeleted.Text" xml:space="preserve">
+    <value>Удалено</value>
+  </data>
+  <data name="chxSystemEvents.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 20</value>
+  </data>
+  <data name="chxSystemEvents.Text" xml:space="preserve">
+    <value>Показать системные события</value>
+  </data>
+  <data name="btnPrintLoanEvents.Text" xml:space="preserve">
+    <value>Печать</value>
+  </data>
+  <data name="btnWaiveFee.Text" xml:space="preserve">
+    <value>Аннулировать пеню просрочки</value>
+  </data>
+  <data name="btnWaiveFee.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="btnDeleteEvent.Text" xml:space="preserve">
+    <value>Удалить предыдущее событие</value>
+  </data>
+  <data name="btnDeleteEvent.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="tabPageEvents.Text" xml:space="preserve">
+    <value>События</value>
   </data>
   <data name="imageListTab.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        HQAAAk1TRnQBSQFMAgEBBQEAAbgBDAG4AQwBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAAcgBDAHIAQwBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -497,758 +1085,17 @@
         AcACAAEPCw==
 </value>
   </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 559</value>
-  </data>
-  <data name="labelProjectDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 16</value>
-  </data>
-  <data name="labelProjectDate.Text" xml:space="preserve">
-    <value>Дата:</value>
-  </data>
-  <data name="buttonProjectSelectPurpose.Text" xml:space="preserve">
-    <value>Выбор</value>
-  </data>
-  <data name="labelProjectPurpose.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 16</value>
-  </data>
-  <data name="labelProjectPurpose.Text" xml:space="preserve">
-    <value>Тип:</value>
-  </data>
-  <data name="labelProjectName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
-  </data>
-  <data name="labelProjectName.Text" xml:space="preserve">
-    <value>Имя:</value>
-  </data>
-  <data name="labelProjectCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
-  </data>
-  <data name="labelProjectCode.Text" xml:space="preserve">
-    <value>Код:</value>
-  </data>
-  <data name="labelFirstProjectName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 16</value>
-  </data>
-  <data name="labelFirstProjectName.Text" xml:space="preserve">
-    <value>Цель:</value>
-  </data>
-  <data name="buttonProjectSave.Text" xml:space="preserve">
-    <value>Сохранить</value>
-  </data>
-  <data name="tabControlProject.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1237, 295</value>
-  </data>
-  <data name="tabPageProjectLoans.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1229, 255</value>
-  </data>
-  <data name="tabPageProjectLoans.Text" xml:space="preserve">
-    <value>Контракты</value>
-  </data>
-  <data name="pnlLoans.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1229, 255</value>
-  </data>
-  <data name="lvContracts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1043, 255</value>
-  </data>
-  <data name="columnProductType.Text" xml:space="preserve">
-    <value>Тип</value>
-  </data>
-  <data name="columnHeaderId.Text" xml:space="preserve">
-    <value>Код</value>
-  </data>
-  <data name="columnHeaderStatus.Text" xml:space="preserve">
-    <value>Статус</value>
-  </data>
-  <data name="columnHeaderAmount.Text" xml:space="preserve">
-    <value>Сумма</value>
-  </data>
-  <data name="columnHeaderOLB.Text" xml:space="preserve">
-    <value>КП</value>
-  </data>
-  <data name="columnHeaderCurrency.Text" xml:space="preserve">
-    <value>Валюта</value>
-  </data>
-  <data name="columnHeaderInterestRate.Text" xml:space="preserve">
-    <value>Процент</value>
-  </data>
-  <data name="columnHeaderInstallmentType.Text" xml:space="preserve">
-    <value>Тип погашения</value>
-  </data>
-  <data name="columnHeaderNbOfInstallments.Text" xml:space="preserve">
-    <value>Кол. погашений</value>
-  </data>
-  <data name="columnHeaderCreationDate.Text" xml:space="preserve">
-    <value>Дата создания</value>
-  </data>
-  <data name="columnHeaderStartDate.Text" xml:space="preserve">
-    <value>Дата начала</value>
-  </data>
-  <data name="columnHeaderCloseDate.Text" xml:space="preserve">
-    <value>Дата закрытия</value>
-  </data>
-  <data name="flowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 255</value>
-  </data>
-  <data name="buttonProjectAddContract.Text" xml:space="preserve">
-    <value>Добавить кредит</value>
-  </data>
-  <data name="buttonProjectViewContract.Text" xml:space="preserve">
-    <value>Просмотр контракта</value>
-  </data>
-  <data name="tabPageProjectAnalyses.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1229, 291</value>
-  </data>
-  <data name="tabPageProjectAnalyses.Text" xml:space="preserve">
-    <value>Анализ</value>
-  </data>
-  <data name="labelProjectConcurrence.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 16</value>
-  </data>
-  <data name="labelProjectConcurrence.Text" xml:space="preserve">
-    <value>Конкуренция</value>
-  </data>
-  <data name="labelProjectMarket.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 16</value>
-  </data>
-  <data name="labelProjectMarket.Text" xml:space="preserve">
-    <value>Рынок</value>
-  </data>
-  <data name="labelProjectExperience.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 16</value>
-  </data>
-  <data name="labelProjectExperience.Text" xml:space="preserve">
-    <value>Опыт</value>
-  </data>
-  <data name="labelProjectAbilities.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 16</value>
-  </data>
-  <data name="labelProjectAbilities.Text" xml:space="preserve">
-    <value>Возможности</value>
-  </data>
-  <data name="tabPageCorporate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1229, 291</value>
-  </data>
-  <data name="tabPageCorporate.Text" xml:space="preserve">
-    <value>Объединение</value>
-  </data>
-  <data name="tabPageFollowUp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1229, 291</value>
-  </data>
-  <data name="tabPageFollowUp.Text" xml:space="preserve">
-    <value>Мониторинг</value>
-  </data>
-  <data name="tclLoanDetails.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 264</value>
-  </data>
-  <data name="tclLoanDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 298</value>
-  </data>
-  <data name="tabPageInstallments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 269</value>
-  </data>
-  <data name="tabPageInstallments.Text" xml:space="preserve">
-    <value>Инсталяции</value>
-  </data>
-  <data name="columnHeaderLoanN.Text" xml:space="preserve">
-    <value>№</value>
-  </data>
-  <data name="columnHeaderLoanDate.Text" xml:space="preserve">
-    <value>Дата</value>
-  </data>
-  <data name="columnHeaderLoanIP.Text" xml:space="preserve">
-    <value>Процент</value>
-  </data>
-  <data name="columnHeaderLoanPR.Text" xml:space="preserve">
-    <value>Основная сумма</value>
-  </data>
-  <data name="columnHeaderLoanInstallmentTotal.Text" xml:space="preserve">
-    <value>Общая сумма</value>
-  </data>
-  <data name="columnHeaderLoanOLB.Text" xml:space="preserve">
-    <value>КП</value>
-  </data>
-  <data name="listViewLoanInstallments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1229, 263</value>
-  </data>
-  <data name="loanDetailsButtonsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 230</value>
-  </data>
-  <data name="btnSaveLoan.Text" xml:space="preserve">
-    <value>Сохранить</value>
-  </data>
-  <data name="buttonLoanPreview.Text" xml:space="preserve">
-    <value>Просмотр</value>
-  </data>
-  <data name="buttonLoanDisbursment.Text" xml:space="preserve">
-    <value>Выдать</value>
-  </data>
-  <data name="btnPrintLoanDetails.Text" xml:space="preserve">
-    <value>Печать</value>
-  </data>
-  <data name="btnLoanShares.Text" xml:space="preserve">
-    <value>Доли кредита</value>
-  </data>
-  <data name="btnEditSchedule.Text" xml:space="preserve">
-    <value>Изменить график</value>
-  </data>
-  <data name="gbxLoanDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 227</value>
-  </data>
-  <data name="tableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1237, 206</value>
-  </data>
-  <data name="_scheduleTypeComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 175</value>
-  </data>
-  <data name="_installmentTypeComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 148</value>
-  </data>
-  <data name="_installmentTypeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 145</value>
-  </data>
-  <data name="_installmentTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 27</value>
-  </data>
-  <data name="_installmentTypeLabel.Text" xml:space="preserve">
-    <value>Тип погашений:</value>
-  </data>
-  <data name="lblEconomicActivity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>357, 116</value>
-  </data>
-  <data name="lblEconomicActivity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 29</value>
-  </data>
-  <data name="lblEconomicActivity.Text" xml:space="preserve">
-    <value>Вид деятельности*:</value>
-  </data>
-  <data name="labelDateOffirstInstallment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>357, 56</value>
-  </data>
-  <data name="labelDateOffirstInstallment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 32</value>
-  </data>
-  <data name="labelDateOffirstInstallment.Text" xml:space="preserve">
-    <value>Дата первого погашения:</value>
-  </data>
-  <data name="labelLoanAmountMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>300, 28</value>
-  </data>
-  <data name="labelLoanNbOfInstallmentsMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>300, 116</value>
-  </data>
-  <data name="dtpDateOfFirstInstallment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>523, 59</value>
-  </data>
-  <data name="labelLoanGracePeriodMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>300, 88</value>
-  </data>
-  <data name="labelLoanGracePeriodMinMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 28</value>
-  </data>
-  <data name="labelLoanContractCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 28</value>
-  </data>
-  <data name="labelLoanContractCode.Text" xml:space="preserve">
-    <value>Код контракта:</value>
-  </data>
-  <data name="textBoxLoanContractCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 3</value>
-  </data>
-  <data name="labelLoanAmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 28</value>
-  </data>
-  <data name="labelLoanAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 28</value>
-  </data>
-  <data name="labelLoanAmount.Text" xml:space="preserve">
-    <value>Сумма:</value>
-  </data>
-  <data name="labelLoanInterestRate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 56</value>
-  </data>
-  <data name="labelLoanInterestRate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 32</value>
-  </data>
-  <data name="labelLoanInterestRate.Text" xml:space="preserve">
-    <value>Процентная ставка:</value>
-  </data>
-  <data name="dateLoanStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>523, 31</value>
-  </data>
-  <data name="labelLoanNbOfInstallments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 116</value>
-  </data>
-  <data name="labelLoanNbOfInstallments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 29</value>
-  </data>
-  <data name="labelLoanNbOfInstallments.Text" xml:space="preserve">
-    <value>Кол-во погашений:</value>
-  </data>
-  <data name="labelLoanStartDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>357, 28</value>
-  </data>
-  <data name="labelLoanStartDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 28</value>
-  </data>
-  <data name="labelLoanStartDate.Text" xml:space="preserve">
-    <value>Дата выдачи денег:</value>
-  </data>
-  <data name="lbLoanInterestRateMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>300, 56</value>
-  </data>
-  <data name="labelLoanGracePeriod.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 88</value>
-  </data>
-  <data name="labelLoanGracePeriod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 28</value>
-  </data>
-  <data name="labelLoanGracePeriod.Text" xml:space="preserve">
-    <value>Льготный период:</value>
-  </data>
-  <data name="numericUpDownLoanGracePeriod.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 91</value>
-  </data>
-  <data name="nudLoanNbOfInstallments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 119</value>
-  </data>
-  <data name="lblDay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>628, 56</value>
-  </data>
-  <data name="_loanOfficerComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>523, 3</value>
-  </data>
-  <data name="labelLoanLoanOfficer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>357, 0</value>
-  </data>
-  <data name="labelLoanLoanOfficer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 16</value>
-  </data>
-  <data name="labelLoanLoanOfficer.Text" xml:space="preserve">
-    <value>Кредитный специалист:</value>
-  </data>
-  <data name="labelLoanFundingLine.Location" type="System.Drawing.Point, System.Drawing">
-    <value>357, 88</value>
-  </data>
-  <data name="labelLoanFundingLine.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 28</value>
-  </data>
-  <data name="labelLoanFundingLine.Text" xml:space="preserve">
-    <value>Фондовая линия:</value>
-  </data>
-  <data name="comboBoxLoanFundingLine.Location" type="System.Drawing.Point, System.Drawing">
-    <value>523, 91</value>
-  </data>
-  <data name="labelLoanPurpose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>357, 145</value>
-  </data>
-  <data name="labelLoanPurpose.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 27</value>
-  </data>
-  <data name="labelLoanPurpose.Text" xml:space="preserve">
-    <value>Цель кредита:</value>
-  </data>
-  <data name="textBoxLoanPurpose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>523, 148</value>
-  </data>
-  <data name="nudLoanAmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 31</value>
-  </data>
-  <data name="nudInterestRate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 59</value>
-  </data>
-  <data name="eacLoan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>523, 119</value>
-  </data>
-  <data name="_scheduleTypeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 172</value>
-  </data>
-  <data name="_scheduleTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 34</value>
-  </data>
-  <data name="_scheduleTypeLabel.Text" xml:space="preserve">
-    <value>Тип графика:</value>
-  </data>
-  <data name="flowLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>737, 93</value>
-  </data>
-  <data name="groupBoxAnticipatedRepaymentPenalties.Text" xml:space="preserve">
-    <value>Пеня за досрочное погашение</value>
-  </data>
-  <data name="lblEarlyPartialRepaimentBase.Location" type="System.Drawing.Point, System.Drawing">
-    <value>162, 28</value>
-  </data>
-  <data name="lblEarlyTotalRepaimentBase.Location" type="System.Drawing.Point, System.Drawing">
-    <value>162, 0</value>
-  </data>
-  <data name="lblLoanAnticipatedPartialFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 28</value>
-  </data>
-  <data name="lbATR.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 28</value>
-  </data>
-  <data name="lbATR.Text" xml:space="preserve">
-    <value>ДПП :</value>
-  </data>
-  <data name="tbLoanAnticipatedPartialFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>52, 31</value>
-  </data>
-  <data name="textBoxLoanAnticipatedTotalFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>52, 3</value>
-  </data>
-  <data name="lbAPR.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 28</value>
-  </data>
-  <data name="lbAPR.Text" xml:space="preserve">
-    <value>ДЧП :</value>
-  </data>
-  <data name="labelLoanAnticipatedTotalFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 0</value>
-  </data>
-  <data name="groupBoxLoanLateFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>475, 77</value>
-  </data>
-  <data name="groupBoxLoanLateFees.Text" xml:space="preserve">
-    <value>Пеня</value>
-  </data>
-  <data name="tableLayoutPanel8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>469, 56</value>
-  </data>
-  <data name="labelLoanLateFeesOnOverduePrincipalMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>188, 28</value>
-  </data>
-  <data name="labelLoanLateFeesOnAmountMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>188, 0</value>
-  </data>
-  <data name="labelLoanLateFeesOnAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
-  </data>
-  <data name="labelLoanLateFeesOnAmount.Text" xml:space="preserve">
-    <value>Сумма кредита</value>
-  </data>
-  <data name="textBoxLoanLateFeesOnAmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>139, 3</value>
-  </data>
-  <data name="textBoxLoanLateFeesOnOverduePrincipal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>139, 31</value>
-  </data>
-  <data name="labelLoanLateFeesOnOverduePrincipal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 28</value>
-  </data>
-  <data name="labelLoanLateFeesOnOverduePrincipal.Text" xml:space="preserve">
-    <value>Просроченая сумма</value>
-  </data>
-  <data name="labelLoanLateFeesOnOLB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>246, 0</value>
-  </data>
-  <data name="labelLoanLateFeesOnOLB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 28</value>
-  </data>
-  <data name="labelLoanLateFeesOnOLB.Text" xml:space="preserve">
-    <value>КП</value>
-  </data>
-  <data name="textBoxLoanLateFeesOnOLB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>392, 3</value>
-  </data>
-  <data name="labelLoanLateFeesOnOLBMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>441, 0</value>
-  </data>
-  <data name="labelLoanLateFeesOnOverdueInterest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>246, 28</value>
-  </data>
-  <data name="labelLoanLateFeesOnOverdueInterest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 28</value>
-  </data>
-  <data name="labelLoanLateFeesOnOverdueInterest.Text" xml:space="preserve">
-    <value>Просроченый процент</value>
-  </data>
-  <data name="textBoxLoanLateFeesOnOverdueInterest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>392, 31</value>
-  </data>
-  <data name="labelLoanLateFeesOnOverdueInterestMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>441, 28</value>
-  </data>
-  <data name="groupBoxEntryFees.Text" xml:space="preserve">
-    <value>Административные взносы</value>
-  </data>
-  <data name="colName.Text" xml:space="preserve">
-    <value>Наименование</value>
-  </data>
-  <data name="colValue.Text" xml:space="preserve">
-    <value>Значение</value>
-  </data>
-  <data name="colAmount.Text" xml:space="preserve">
-    <value>Сумма</value>
-  </data>
-  <data name="btnUpdateSettings.Text" xml:space="preserve">
-    <value>Сохранить</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Обязательне накопления</value>
-  </data>
-  <data name="lbCompulsorySavingsAmount.Text" xml:space="preserve">
-    <value>Сумма</value>
-  </data>
-  <data name="lbCompulsorySavings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 33</value>
-  </data>
-  <data name="lbCompulsorySavings.Text" xml:space="preserve">
-    <value>Привязать к депозитному счету</value>
-  </data>
-  <data name="linkCompulsorySavings.Text" xml:space="preserve">
-    <value>детали</value>
-  </data>
-  <data name="labelComments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 90</value>
-  </data>
-  <data name="labelComments.Text" xml:space="preserve">
-    <value>Комментарии</value>
-  </data>
-  <data name="textBoxComments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>150, 360</value>
-  </data>
-  <data name="labelLocAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 32</value>
-  </data>
-  <data name="labelLocAmount.Text" xml:space="preserve">
-    <value>Сумма КЛ:</value>
-  </data>
-  <data name="tbLocAmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 3</value>
-  </data>
-  <data name="labelLocMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>210, 0</value>
-  </data>
-  <data name="labelLocMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 13</value>
-  </data>
-  <data name="labelLocMin.Text" xml:space="preserve">
-    <value>Мин:</value>
-  </data>
-  <data name="labelLocMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>210, 13</value>
-  </data>
-  <data name="labelLocMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 19</value>
-  </data>
-  <data name="labelLocMax.Text" xml:space="preserve">
-    <value>Макс:</value>
-  </data>
-  <data name="labelLocMinAmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>252, 0</value>
-  </data>
-  <data name="labelLocMaxAmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>252, 13</value>
-  </data>
-  <data name="lblInsuranceMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>621, 0</value>
-  </data>
-  <data name="lblInsuranceMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>621, 13</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>585, 13</value>
-  </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>585, 0</value>
-  </data>
-  <data name="tbInsurance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>493, 3</value>
-  </data>
-  <data name="lblCreditInsurance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>347, 0</value>
-  </data>
-  <data name="lblCreditInsurance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 32</value>
-  </data>
-  <data name="lblCreditInsurance.Text" xml:space="preserve">
-    <value>Страхование кредита:</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>640, 0</value>
-  </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>640, 13</value>
-  </data>
-  <data name="lblLocCurrencyMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>271, 0</value>
-  </data>
-  <data name="lblLocCurrencyMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 13</value>
-  </data>
-  <data name="lblLocCurrencyMin.Text" xml:space="preserve">
-    <value>Валюта</value>
-  </data>
-  <data name="lblLocCurrencyMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>271, 13</value>
-  </data>
-  <data name="lblLocCurrencyMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 19</value>
-  </data>
-  <data name="lblLocCurrencyMax.Text" xml:space="preserve">
-    <value>Валюта</value>
-  </data>
-  <data name="tabPageRepayments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1241, 368</value>
-  </data>
-  <data name="tabPageRepayments.Text" xml:space="preserve">
-    <value>График погашения</value>
-  </data>
-  <data name="tabPageEvents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1241, 404</value>
-  </data>
-  <data name="tabPageEvents.Text" xml:space="preserve">
-    <value>События</value>
-  </data>
-  <data name="tabControlRepayments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 408</value>
-  </data>
-  <data name="_repaymentScheduleControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1241, 334</value>
-  </data>
-  <data name="flowLayoutPanel8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 334</value>
-  </data>
-  <data name="buttonLoanRepaymentRepay.Text" xml:space="preserve">
-    <value>Оплатить</value>
-  </data>
-  <data name="buttonLoanReschedule.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 28</value>
-  </data>
-  <data name="buttonLoanReschedule.Text" xml:space="preserve">
-    <value>Изменить график</value>
-  </data>
-  <data name="buttonManualSchedule.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 3</value>
-  </data>
-  <data name="buttonManualSchedule.Text" xml:space="preserve">
-    <value>Правка в ручную</value>
-  </data>
-  <data name="buttonAddTranche.Location" type="System.Drawing.Point, System.Drawing">
-    <value>461, 3</value>
-  </data>
-  <data name="buttonAddTranche.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 28</value>
-  </data>
-  <data name="buttonAddTranche.Text" xml:space="preserve">
-    <value>Добавить транш</value>
-  </data>
-  <data name="btnWriteOff.Location" type="System.Drawing.Point, System.Drawing">
-    <value>627, 3</value>
-  </data>
-  <data name="btnWriteOff.Text" xml:space="preserve">
-    <value>Списать</value>
-  </data>
-  <data name="btnPrintLoanRepayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>773, 3</value>
-  </data>
-  <data name="btnPrintLoanRepayment.Text" xml:space="preserve">
-    <value>Печать</value>
-  </data>
-  <data name="columnHeader11.Text" xml:space="preserve">
-    <value>Дата</value>
-  </data>
-  <data name="EntryDate.Text" xml:space="preserve">
-    <value>Дата ввода</value>
-  </data>
-  <data name="columnHeader12.Text" xml:space="preserve">
-    <value>Тип</value>
-  </data>
-  <data name="columnHeader13.Text" xml:space="preserve">
-    <value>Основная сумма</value>
-  </data>
-  <data name="columnHeader13.Width" type="System.Int32, mscorlib">
-    <value>124</value>
-  </data>
-  <data name="columnHeader14.Text" xml:space="preserve">
-    <value>Процент</value>
-  </data>
-  <data name="colCommissions.Text" xml:space="preserve">
-    <value>Комиссия</value>
-  </data>
-  <data name="colCommissions.Width" type="System.Int32, mscorlib">
-    <value>78</value>
-  </data>
-  <data name="colPenalties.Text" xml:space="preserve">
-    <value>Пеня</value>
-  </data>
-  <data name="colOverduePrincipal.Text" xml:space="preserve">
-    <value>Просроченная основная сумма</value>
-  </data>
-  <data name="colOverdueDays.Text" xml:space="preserve">
-    <value>Дни просрочки</value>
-  </data>
-  <data name="columnHeader16.Text" xml:space="preserve">
-    <value>Отменяемый</value>
-  </data>
-  <data name="columnHeader18.Text" xml:space="preserve">
-    <value>Пользователь</value>
-  </data>
-  <data name="ExportedDate.Text" xml:space="preserve">
-    <value>Дата экспорта</value>
-  </data>
-  <data name="colNumber.Text" xml:space="preserve">
-    <value>Номер погашения</value>
-  </data>
-  <data name="columnHeader30.Text" xml:space="preserve">
-    <value>Комментарий</value>
-  </data>
-  <data name="colPaymentMethod.Text" xml:space="preserve">
-    <value>Метод оплаты</value>
-  </data>
-  <data name="colCancelDate1.Text" xml:space="preserve">
-    <value>Дата отмены</value>
-  </data>
-  <data name="colIsDeleted.Text" xml:space="preserve">
-    <value>Удалено</value>
-  </data>
-  <data name="lvEvents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1000, 404</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 404</value>
-  </data>
-  <data name="chxSystemEvents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 20</value>
-  </data>
-  <data name="chxSystemEvents.Text" xml:space="preserve">
-    <value>Показать системные события</value>
-  </data>
-  <data name="btnPrintLoanEvents.Text" xml:space="preserve">
-    <value>Печать</value>
-  </data>
-  <data name="btnWaiveFee.Text" xml:space="preserve">
-    <value>Аннулировать пеню просрочки</value>
-  </data>
-  <data name="btnWaiveFee.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="btnDeleteEvent.Text" xml:space="preserve">
-    <value>Удалить предыдущее событие</value>
-  </data>
-  <data name="btnDeleteEvent.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
   <data name="richTextBoxStatus.Text" xml:space="preserve">
     <value>Статус:</value>
   </data>
   <data name="lblLoanStatus.Text" xml:space="preserve">
     <value>Статус оплаты контракта</value>
   </data>
-  <data name="tabControlSavingsDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 336</value>
+  <data name="tabPageLoanRepayment.Text" xml:space="preserve">
+    <value>Выплаты</value>
   </data>
-  <data name="tabPageSavingsAmountsAndFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 303</value>
-  </data>
-  <data name="tabPageSavingsAmountsAndFees.Text" xml:space="preserve">
-    <value>Пеня и ограничения</value>
-  </data>
-  <data name="flowLayoutPanel10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>773, 297</value>
-  </data>
-  <data name="groupBoxSavingBalance.Text" xml:space="preserve">
-    <value>Баланс</value>
+  <data name="tabPageLoanGuarantees.Text" xml:space="preserve">
+    <value>Поручители</value>
   </data>
   <data name="lbBalanceMaxValue.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 22</value>
@@ -1268,8 +1115,8 @@
   <data name="lbBalanceMinValue.Text" xml:space="preserve">
     <value>Значение</value>
   </data>
-  <data name="groupBoxSavingDeposit.Text" xml:space="preserve">
-    <value>Сумма депозита</value>
+  <data name="groupBoxSavingBalance.Text" xml:space="preserve">
+    <value>Баланс</value>
   </data>
   <data name="lbDepositMaxValue.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 22</value>
@@ -1289,8 +1136,8 @@
   <data name="lbDepositMinValue.Text" xml:space="preserve">
     <value>Значение</value>
   </data>
-  <data name="groupBoxSavingWithdraw.Text" xml:space="preserve">
-    <value>Сумма снятия</value>
+  <data name="groupBoxSavingDeposit.Text" xml:space="preserve">
+    <value>Сумма депозита</value>
   </data>
   <data name="lbWithdrawMaxValue.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 22</value>
@@ -1310,8 +1157,8 @@
   <data name="lbWithdrawMinValue.Text" xml:space="preserve">
     <value>Значение</value>
   </data>
-  <data name="groupBoxSavingTransfer.Text" xml:space="preserve">
-    <value>Трансфер</value>
+  <data name="groupBoxSavingWithdraw.Text" xml:space="preserve">
+    <value>Сумма снятия</value>
   </data>
   <data name="labelSavingTransferMaxValue.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 22</value>
@@ -1331,8 +1178,8 @@
   <data name="labelSavingTransferMinValue.Text" xml:space="preserve">
     <value>Значение</value>
   </data>
-  <data name="gbInterest.Text" xml:space="preserve">
-    <value>Процент</value>
+  <data name="groupBoxSavingTransfer.Text" xml:space="preserve">
+    <value>Трансфер</value>
   </data>
   <data name="lbInterestBasedOnValue.Location" type="System.Drawing.Point, System.Drawing">
     <value>86, 41</value>
@@ -1379,14 +1226,8 @@
   <data name="lbInterestPosting.Text" xml:space="preserve">
     <value>Постинг:</value>
   </data>
-  <data name="gbDepositInterest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 62</value>
-  </data>
-  <data name="gbDepositInterest.Text" xml:space="preserve">
+  <data name="gbInterest.Text" xml:space="preserve">
     <value>Процент</value>
-  </data>
-  <data name="tableLayoutPanel17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 41</value>
   </data>
   <data name="lbPeriodicityValue.Location" type="System.Drawing.Point, System.Drawing">
     <value>113, 22</value>
@@ -1418,8 +1259,14 @@
   <data name="lbPeriodicity.Text" xml:space="preserve">
     <value>Периодичность:</value>
   </data>
-  <data name="tlpSBDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>456, 297</value>
+  <data name="tableLayoutPanel17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 41</value>
+  </data>
+  <data name="gbDepositInterest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 62</value>
+  </data>
+  <data name="gbDepositInterest.Text" xml:space="preserve">
+    <value>Процент</value>
   </data>
   <data name="lbTransferFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>138, 16</value>
@@ -1478,14 +1325,8 @@
   <data name="lblInterBranchTransfer.Text" xml:space="preserve">
     <value>Комиссия за перевод</value>
   </data>
-  <data name="tabPageSavingsEvents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 341</value>
-  </data>
-  <data name="tabPageSavingsEvents.Text" xml:space="preserve">
-    <value>События</value>
-  </data>
-  <data name="lvSavingEvent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1229, 335</value>
+  <data name="tabPageSavingsAmountsAndFees.Text" xml:space="preserve">
+    <value>Пеня и ограничения</value>
   </data>
   <data name="columnHeader21.Text" xml:space="preserve">
     <value>Дата</value>
@@ -1517,14 +1358,8 @@
   <data name="colCancelDate.Text" xml:space="preserve">
     <value>Дата отмены</value>
   </data>
-  <data name="tabPageLoans.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 341</value>
-  </data>
-  <data name="tabPageLoans.Text" xml:space="preserve">
-    <value>Кредиты</value>
-  </data>
-  <data name="olvLoans.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 341</value>
+  <data name="tabPageSavingsEvents.Text" xml:space="preserve">
+    <value>События</value>
   </data>
   <data name="olvColumnContractCode.Text" xml:space="preserve">
     <value>Код</value>
@@ -1547,11 +1382,8 @@
   <data name="olvColumnCloseDate.Text" xml:space="preserve">
     <value>Дата закрытия</value>
   </data>
-  <data name="tpTermDeposit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 341</value>
-  </data>
-  <data name="tpTermDeposit.Text" xml:space="preserve">
-    <value>Срочный депозит</value>
+  <data name="tabPageLoans.Text" xml:space="preserve">
+    <value>Кредиты</value>
   </data>
   <data name="lblNumberOfPeriods.Size" type="System.Drawing.Size, System.Drawing">
     <value>113, 28</value>
@@ -1595,6 +1427,9 @@
   <data name="lblTermTransferToAccount.Text" xml:space="preserve">
     <value>Трансфер на счет</value>
   </data>
+  <data name="tpTermDeposit.Text" xml:space="preserve">
+    <value>Срочный депозит</value>
+  </data>
   <data name="btSavingsUpdate.Text" xml:space="preserve">
     <value>Обновить</value>
   </data>
@@ -1622,12 +1457,6 @@
   <data name="buttonReopenSaving.Text" xml:space="preserve">
     <value>Переоткрыть</value>
   </data>
-  <data name="pnlSavingsButtons.Location" type="System.Drawing.Point, System.Drawing">
-    <value>691, 10</value>
-  </data>
-  <data name="pnlSavingsButtons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>406, 34</value>
-  </data>
   <data name="buttonSavingsOperations.Text" xml:space="preserve">
     <value>Операции</value>
   </data>
@@ -1637,14 +1466,17 @@
   <data name="btCancelLastSavingEvent.Text" xml:space="preserve">
     <value>Отменить последнюю операцию</value>
   </data>
+  <data name="pnlSavingsButtons.Location" type="System.Drawing.Point, System.Drawing">
+    <value>691, 10</value>
+  </data>
+  <data name="pnlSavingsButtons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>406, 34</value>
+  </data>
   <data name="btnPrintSavings.Location" type="System.Drawing.Point, System.Drawing">
     <value>1100, 13</value>
   </data>
   <data name="btnPrintSavings.Text" xml:space="preserve">
     <value>Печать</value>
-  </data>
-  <data name="groupBoxSaving.Text" xml:space="preserve">
-    <value>Депозиты</value>
   </data>
   <data name="lbSavingAvBalanceValue.Location" type="System.Drawing.Point, System.Drawing">
     <value>776, 42</value>
@@ -1736,32 +1568,41 @@
   <data name="lbWithdrawFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
     <value>776, 106</value>
   </data>
-  <data name="menuBtnAddSavingOperation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 92</value>
+  <data name="groupBoxSaving.Text" xml:space="preserve">
+    <value>Депозиты</value>
+  </data>
+  <data name="tabPageSavingDetails.Text" xml:space="preserve">
+    <value>Детали депозита</value>
+  </data>
+  <data name="tabPageContracts.Text" xml:space="preserve">
+    <value>Контракты</value>
   </data>
   <data name="savingDepositToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
+    <value>161, 22</value>
   </data>
   <data name="savingDepositToolStripMenuItem.Text" xml:space="preserve">
     <value>Депозит</value>
   </data>
   <data name="savingWithdrawToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
+    <value>161, 22</value>
   </data>
   <data name="savingWithdrawToolStripMenuItem.Text" xml:space="preserve">
     <value>Снятие</value>
   </data>
   <data name="savingTransferToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
+    <value>161, 22</value>
   </data>
   <data name="savingTransferToolStripMenuItem.Text" xml:space="preserve">
     <value>Перевод</value>
   </data>
   <data name="specialOperationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
+    <value>161, 22</value>
   </data>
   <data name="specialOperationToolStripMenuItem.Text" xml:space="preserve">
     <value>Спец. операция</value>
+  </data>
+  <data name="menuBtnAddSavingOperation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 92</value>
   </data>
   <data name="olvColumnSACExportedBalance.Text" xml:space="preserve">
     <value>Экспортированный баланс</value>
@@ -1888,20 +1729,20 @@
   <data name="toolStripMenuItemConfirmPending.Text" xml:space="preserve">
     <value>Подтвердить ожидаемый платеж</value>
   </data>
-  <data name="menuPendingSavingEvents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 48</value>
-  </data>
   <data name="menuItemConfirmPendingSavingEvent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 22</value>
+    <value>194, 22</value>
   </data>
   <data name="menuItemConfirmPendingSavingEvent.Text" xml:space="preserve">
     <value>Подтвердить событие</value>
   </data>
   <data name="menuItemCancelPendingSavingEvent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 22</value>
+    <value>194, 22</value>
   </data>
   <data name="menuItemCancelPendingSavingEvent.Text" xml:space="preserve">
     <value>Отменить событие</value>
+  </data>
+  <data name="menuPendingSavingEvents.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 48</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

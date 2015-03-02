@@ -56,6 +56,11 @@ namespace OpenCBS.Services
             return _doam.SelectAllEconomicActivities();
         }
 
+        public List<EconomicActivity> FindAllEconomicActivities(bool isLoanPurpose)
+        {
+            return isLoanPurpose ? _doam.SelectAllLoanPurposes() : _doam.SelectAllEconomicActivities();
+        }
+
         public int AddEconomicActivity(EconomicActivity pEconomicActivity)
         {
             if (pEconomicActivity.Name == String.Empty)

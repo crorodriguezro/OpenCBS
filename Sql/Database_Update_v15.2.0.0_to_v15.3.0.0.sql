@@ -13,6 +13,55 @@ left join
 	dbo.Packages t2 on t2.id = t1.package_id
 GO
 
+begin
+create table 
+	LoanPurpose
+	(
+		id int identity(1,1) not null,
+		name nvarchar(255) not null,
+		parent_id int null,
+		deleted bit not null,
+		constraint PK_LoanPurpose primary key clustered
+		(
+			[id] asc
+		) with (pad_index  = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [PRIMARY]
+	) on [PRIMARY]
+end
+go
+
+begin 
+set identity_insert LoanPurpose on 
+insert into
+	LoanPurpose (id, name, parent_id, deleted)
+select 
+	id, name, parent_id, deleted
+from
+	EconomicActivities
+set identity_insert LoanPurpose off
+end
+go
+
+begin
+alter table 
+	contracts
+drop constraint 
+	FK_Contracts_EconomicActivities
+end
+go
+
+begin
+alter table 
+	contracts
+add constraint 
+	FK_Contracts_LoanPurpose
+foreign key 
+	(activity_id)
+references 
+	loanpurpose(id)
+end
+go
+
+
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v15.3.0.0'
 WHERE   [name] = 'VERSION'

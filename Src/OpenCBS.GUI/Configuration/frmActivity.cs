@@ -32,17 +32,21 @@ namespace OpenCBS.GUI
     public partial class frmActivity : Form
     {
         private List<EconomicActivity> _domainList;
+        private bool isLoanPurpose;
 
-        public frmActivity()
+        public frmActivity(bool _isLoanPurpose)
         {
+            isLoanPurpose = _isLoanPurpose;
             InitializeComponent();
             _Initialization();
+            if (_isLoanPurpose)
+                this.Text = MultiLanguageStrings.GetString(Ressource.FrmActivity, "LP.Text");
         }
 
         private void _Initialization()
         {
             TreeNode root = new TreeNode(MultiLanguageStrings.GetString(Ressource.FrmActivity, "doa.Text"));
-            _domainList = ServicesProvider.GetInstance().GetEconomicActivityServices().FindAllEconomicActivities();
+            _domainList = ServicesProvider.GetInstance().GetEconomicActivityServices().FindAllEconomicActivities(isLoanPurpose);
             treeViewActivities.Nodes.Add(root);
             _DisplayAllChildrensNodes(root,_domainList);
             treeViewActivities.EndUpdate();

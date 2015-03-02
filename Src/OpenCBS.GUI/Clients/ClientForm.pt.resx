@@ -355,7 +355,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        HQAAAk1TRnQBSQFMAgEBBQEAAeQBAAHkAQABIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAAewBAAHsAQABIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -590,15 +590,6 @@
   <data name="tabPageFollowUp.Text" xml:space="preserve">
     <value>Seguimento</value>
   </data>
-  <data name="tclLoanDetails.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 266</value>
-  </data>
-  <data name="tclLoanDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 296</value>
-  </data>
-  <data name="tabPageInstallments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 267</value>
-  </data>
   <data name="tabPageInstallments.Text" xml:space="preserve">
     <value>Prestações</value>
   </data>
@@ -616,12 +607,6 @@
   </data>
   <data name="columnHeaderLoanOLB.Text" xml:space="preserve">
     <value>SEP</value>
-  </data>
-  <data name="listViewLoanInstallments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1229, 261</value>
-  </data>
-  <data name="loanDetailsButtonsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 232</value>
   </data>
   <data name="btnSaveLoan.Text" xml:space="preserve">
     <value>Gravar</value>
@@ -641,20 +626,11 @@
   <data name="btnEditSchedule.Text" xml:space="preserve">
     <value>Editar tabela</value>
   </data>
-  <data name="gbxLoanDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 229</value>
-  </data>
-  <data name="tableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1237, 208</value>
-  </data>
   <data name="_scheduleTypeComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 180</value>
+    <value>148, 182</value>
   </data>
   <data name="_installmentTypeComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 150</value>
-  </data>
-  <data name="_installmentTypeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 147</value>
+    <value>148, 152</value>
   </data>
   <data name="_installmentTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 30</value>
@@ -663,13 +639,13 @@
     <value>Tipo de prestação:</value>
   </data>
   <data name="lblEconomicActivity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>371, 118</value>
+    <value>371, 120</value>
   </data>
   <data name="lblEconomicActivity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 29</value>
+    <value>160, 29</value>
   </data>
   <data name="lblEconomicActivity.Text" xml:space="preserve">
-    <value>Actividades económicas*:</value>
+    <value>Objectivo do empréstimo*:</value>
   </data>
   <data name="labelDateOffirstInstallment.Location" type="System.Drawing.Point, System.Drawing">
     <value>371, 58</value>
@@ -684,16 +660,13 @@
     <value>314, 30</value>
   </data>
   <data name="labelLoanNbOfInstallmentsMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 118</value>
+    <value>314, 120</value>
   </data>
   <data name="dtpDateOfFirstInstallment.Location" type="System.Drawing.Point, System.Drawing">
     <value>590, 61</value>
   </data>
   <data name="labelLoanGracePeriodMinMax.Location" type="System.Drawing.Point, System.Drawing">
     <value>314, 90</value>
-  </data>
-  <data name="labelLoanGracePeriodMinMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 28</value>
   </data>
   <data name="labelLoanContractCode.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 30</value>
@@ -716,9 +689,6 @@
   <data name="dateLoanStart.Location" type="System.Drawing.Point, System.Drawing">
     <value>590, 33</value>
   </data>
-  <data name="labelLoanNbOfInstallments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 118</value>
-  </data>
   <data name="labelLoanNbOfInstallments.Size" type="System.Drawing.Size, System.Drawing">
     <value>139, 29</value>
   </data>
@@ -738,7 +708,7 @@
     <value>314, 58</value>
   </data>
   <data name="labelLoanGracePeriod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 28</value>
+    <value>127, 30</value>
   </data>
   <data name="labelLoanGracePeriod.Text" xml:space="preserve">
     <value>Período de carencia:</value>
@@ -747,7 +717,7 @@
     <value>148, 93</value>
   </data>
   <data name="nudLoanNbOfInstallments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 121</value>
+    <value>148, 123</value>
   </data>
   <data name="lblDay.Location" type="System.Drawing.Point, System.Drawing">
     <value>695, 58</value>
@@ -768,7 +738,7 @@
     <value>371, 90</value>
   </data>
   <data name="labelLoanFundingLine.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 28</value>
+    <value>109, 30</value>
   </data>
   <data name="labelLoanFundingLine.Text" xml:space="preserve">
     <value>Linha de finanças</value>
@@ -777,16 +747,16 @@
     <value>590, 93</value>
   </data>
   <data name="labelLoanPurpose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>371, 147</value>
+    <value>371, 149</value>
   </data>
   <data name="labelLoanPurpose.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 30</value>
+    <value>78, 30</value>
   </data>
   <data name="labelLoanPurpose.Text" xml:space="preserve">
-    <value>Objectivo do empréstimo:</value>
+    <value>Comentário:</value>
   </data>
   <data name="textBoxLoanPurpose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>590, 150</value>
+    <value>590, 152</value>
   </data>
   <data name="nudLoanAmount.Location" type="System.Drawing.Point, System.Drawing">
     <value>148, 33</value>
@@ -795,10 +765,7 @@
     <value>148, 61</value>
   </data>
   <data name="eacLoan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>590, 121</value>
-  </data>
-  <data name="_scheduleTypeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 177</value>
+    <value>590, 123</value>
   </data>
   <data name="_scheduleTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 31</value>
@@ -1572,28 +1539,28 @@
     <value>880, 106</value>
   </data>
   <data name="menuBtnAddSavingOperation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 92</value>
+    <value>171, 92</value>
   </data>
   <data name="savingDepositToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+    <value>170, 22</value>
   </data>
   <data name="savingDepositToolStripMenuItem.Text" xml:space="preserve">
     <value>Depósito</value>
   </data>
   <data name="savingWithdrawToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+    <value>170, 22</value>
   </data>
   <data name="savingWithdrawToolStripMenuItem.Text" xml:space="preserve">
     <value>Levantamento</value>
   </data>
   <data name="savingTransferToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+    <value>170, 22</value>
   </data>
   <data name="savingTransferToolStripMenuItem.Text" xml:space="preserve">
     <value>Transferencia</value>
   </data>
   <data name="specialOperationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+    <value>170, 22</value>
   </data>
   <data name="specialOperationToolStripMenuItem.Text" xml:space="preserve">
     <value>Operação Especial</value>
@@ -1721,16 +1688,16 @@
     <value>Confirme prestção pendente</value>
   </data>
   <data name="menuPendingSavingEvents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 48</value>
+    <value>243, 48</value>
   </data>
   <data name="menuItemConfirmPendingSavingEvent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 22</value>
+    <value>242, 22</value>
   </data>
   <data name="menuItemConfirmPendingSavingEvent.Text" xml:space="preserve">
     <value>Confirme movimento pendente</value>
   </data>
   <data name="menuItemCancelPendingSavingEvent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 22</value>
+    <value>242, 22</value>
   </data>
   <data name="menuItemCancelPendingSavingEvent.Text" xml:space="preserve">
     <value>Cancele movimento pendente</value>
