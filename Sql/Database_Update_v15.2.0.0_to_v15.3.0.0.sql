@@ -13,7 +13,6 @@ left join
 	dbo.Packages t2 on t2.id = t1.package_id
 GO
 
-begin
 create table 
 	LoanPurpose
 	(
@@ -26,10 +25,8 @@ create table
 			[id] asc
 		) with (pad_index  = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on) on [PRIMARY]
 	) on [PRIMARY]
-end
-go
+GO
 
-begin 
 set identity_insert LoanPurpose on 
 insert into
 	LoanPurpose (id, name, parent_id, deleted)
@@ -38,18 +35,14 @@ select
 from
 	EconomicActivities
 set identity_insert LoanPurpose off
-end
-go
+GO
 
-begin
 alter table 
 	contracts
 drop constraint 
 	FK_Contracts_EconomicActivities
-end
-go
+GO
 
-begin
 alter table 
 	contracts
 add constraint 
@@ -58,8 +51,7 @@ foreign key
 	(activity_id)
 references 
 	loanpurpose(id)
-end
-go
+GO
 
 
 UPDATE  [TechnicalParameters]
