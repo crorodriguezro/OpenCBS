@@ -4242,17 +4242,6 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                 }
-                else if (displayEvent is BadLoanRepaymentEvent)
-                {
-                    BadLoanRepaymentEvent _event = displayEvent as BadLoanRepaymentEvent;
-                    listViewItem.SubItems.Add(_event.Principal.GetFormatedValue(pCredit.UseCents));
-                    listViewItem.SubItems.Add(_event.Interests.GetFormatedValue(pCredit.UseCents));
-                    listViewItem.SubItems.Add(_event.Commissions.GetFormatedValue(pCredit.UseCents));
-                    listViewItem.SubItems.Add(_event.Penalties.GetFormatedValue(pCredit.UseCents));
-                    listViewItem.SubItems.Add("-");
-                    listViewItem.SubItems.Add("-");
-                    listViewItem.SubItems.Add("-");
-                }
                 else if (displayEvent is TrancheEvent)
                 {
                     TrancheEvent _event = displayEvent as TrancheEvent;
@@ -4293,6 +4282,17 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add(_event.Penalty.GetFormatedValue(pCredit.UseCents));
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
+                }
+                else if (displayEvent is PenaltyWriteOffEvent)
+                {
+                    var penaltyWriteOffEvent = displayEvent as PenaltyWriteOffEvent;
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add(penaltyWriteOffEvent.Amount.GetFormatedValue(pCredit.UseCents));
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
