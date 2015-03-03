@@ -535,7 +535,7 @@
     <value>NoControl</value>
   </data>
   <data name="linkLabelChangePhoto2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>824, 149</value>
+    <value>844, 149</value>
   </data>
   <data name="linkLabelChangePhoto2.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 13</value>
@@ -568,7 +568,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="linkLabelChangePhoto.Location" type="System.Drawing.Point, System.Drawing">
-    <value>678, 149</value>
+    <value>698, 149</value>
   </data>
   <data name="linkLabelChangePhoto.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 13</value>
@@ -598,7 +598,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>824, 14</value>
+    <value>844, 14</value>
   </data>
   <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 128</value>
@@ -622,7 +622,7 @@
     <value>Top, Right</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>678, 14</value>
+    <value>698, 14</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 128</value>
@@ -652,7 +652,7 @@
     <value>0, 36</value>
   </data>
   <data name="gbDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>964, 176</value>
+    <value>984, 176</value>
   </data>
   <data name="gbDetails.TabIndex" type="System.Int32, mscorlib">
     <value>46</value>
@@ -682,7 +682,7 @@
     <value>MiddleRight</value>
   </data>
   <data name="btnPrint.Location" type="System.Drawing.Point, System.Drawing">
-    <value>529, 8</value>
+    <value>549, 8</value>
   </data>
   <data name="btnPrint.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 25</value>
@@ -697,7 +697,7 @@
     <value>btnPrint</value>
   </data>
   <data name="&gt;&gt;btnPrint.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrint.Parent" xml:space="preserve">
     <value>panelNSGControls</value>
@@ -715,7 +715,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>678, 8</value>
+    <value>698, 8</value>
   </data>
   <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 25</value>
@@ -748,7 +748,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnCancel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>824, 8</value>
+    <value>844, 8</value>
   </data>
   <data name="btnCancel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 25</value>
@@ -778,7 +778,7 @@
     <value>0, 212</value>
   </data>
   <data name="panelNSGControls.Size" type="System.Drawing.Size, System.Drawing">
-    <value>964, 39</value>
+    <value>984, 39</value>
   </data>
   <data name="panelNSGControls.TabIndex" type="System.Int32, mscorlib">
     <value>47</value>
@@ -805,7 +805,7 @@
     <value>3, 3</value>
   </data>
   <data name="gbAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 292</value>
+    <value>368, 325</value>
   </data>
   <data name="gbAddress.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -832,7 +832,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tpAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>956, 298</value>
+    <value>976, 331</value>
   </data>
   <data name="tpAddress.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1913,7 +1913,7 @@ members</value>
     <value>0, 251</value>
   </data>
   <data name="tabVillage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>964, 338</value>
+    <value>984, 371</value>
   </data>
   <data name="tabVillage.TabIndex" type="System.Int32, mscorlib">
     <value>48</value>
@@ -1936,8 +1936,14 @@ members</value>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>50</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 16</value>
+  </data>
+  <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>964, 589</value>
+    <value>984, 622</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -2540,6 +2546,9 @@ members</value>
         ODowMHJGaQ8AAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1000, 660</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value />
   </data>
@@ -2769,6 +2778,6 @@ members</value>
     <value>NonSolidaryGroupForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

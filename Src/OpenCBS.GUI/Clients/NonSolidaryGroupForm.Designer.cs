@@ -748,8 +748,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // NonSolidaryGroupForm
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabVillage);
             this.Controls.Add(this.panelNSGControls);
             this.Controls.Add(this.gbDetails);

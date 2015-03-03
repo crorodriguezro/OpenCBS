@@ -766,8 +766,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // GroupUserControl
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel4);
             this.Name = "GroupUserControl";
             this.Load += new System.EventHandler(this.GroupUserControl_Load);
