@@ -103,6 +103,7 @@ namespace OpenCBS.GUI.Configuration
             this.listViewCurrencies.Name = "listViewCurrencies";
             this.listViewCurrencies.UseCompatibleStateImageBehavior = false;
             this.listViewCurrencies.View = System.Windows.Forms.View.Details;
+            this.listViewCurrencies.SelectedIndexChanged += new System.EventHandler(this.listViewCurrencies_SelectedIndexChanged);
             this.listViewCurrencies.Click += new System.EventHandler(this.ListViewCurrenciesClick);
             // 
             // colName

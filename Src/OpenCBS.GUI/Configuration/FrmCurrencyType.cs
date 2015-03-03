@@ -206,5 +206,22 @@ namespace OpenCBS.GUI.Configuration
             btnUpdate.Enabled = false;
             btnAdd.Enabled = false;
         }
+
+        private void listViewCurrencies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewCurrencies.SelectedItems.Count == 0)
+            {
+                textBoxName.Text = "";
+                textBoxCode.Text = "";
+                
+                _currency = null;
+                
+                btnUpdate.Enabled = false;
+                btnAdd.Enabled = true;
+                
+                radioButtonYes.Checked = false; //Setting as non-pivot, 
+                radioButtonNo.Checked = true; //since the first curr. is pivot
+            }
+        }
     }
 }
