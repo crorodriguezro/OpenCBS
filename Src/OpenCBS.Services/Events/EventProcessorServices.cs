@@ -395,11 +395,6 @@ namespace OpenCBS.Services.Events
             //_movementSetManagement.AddTransaction(mS, sqlTransac);
         }
 
-        public EventStock SelectEvents(string eventType, int userId, DateTime beginDate, DateTime endDate)
-        {
-            return _eventManagement.SelectEvents(eventType, userId, beginDate, endDate);
-        }
-
         public void LogUser(string eventCode, string eventDescription, int userId)
         {
             _eventManagement.WriteLog(eventCode, eventDescription, userId);

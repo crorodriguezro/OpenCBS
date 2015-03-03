@@ -89,153 +89,6 @@ namespace OpenCBS.Manager.Events
             return retval;
         }
 
-	    public EventStock SelectEvents(string eventType, int userId, DateTime beginDate, DateTime endDate)
-        {
-            EventStock list = new EventStock();
-            string q =
-                string.Format(
-                    @"SELECT 
-                        ISNULL(Contracts.contract_code, SavingContracts.code) as contract_code,
-                        ContractEvents.contract_id,
-                        ContractEvents.parent_id,
-                        union_events.id AS event_id, 
-                        union_events.event_type AS code, 
-                        union_events.entry_date,
-                        union_events.event_date AS event_date, 
-                        union_events.event_type AS event_type, 
-                        union_events.is_deleted AS event_deleted,
-                        union_events.cancel_date,
- 
-                        LoanDisbursmentEvents.id AS lde_id,
-                        LoanDisbursmentEvents.amount AS lde_amount, 
-                        LoanDisbursmentEvents.fees AS lde_fees,
-                        LoanDisbursmentEvents.payment_method_id AS lde_pm,
-
-                        LoanEntryFeeEvents.id AS ef_id,
-                        LoanEntryFeeEvents.fee AS ef_fee,
-                        LoanEntryFeeEvents.disbursement_event_id,
-
-                        WriteOffEvents.id AS woe_id, 
-                        WriteOffEvents.olb AS woe_olb, 
-                        WriteOffEvents.accrued_interests AS woe_accrued_interests, 
-                        WriteOffEvents.accrued_penalties AS woe_accrued_penalties, 
-                        WriteOffEvents.past_due_days AS woe_past_due_days, 
-                        WriteOffEvents.overdue_principal AS woe_overdue_principal, 
-
-                        ReschedulingOfALoanEvents.id AS rle_id, 
-                        ReschedulingOfALoanEvents.amount AS rle_amount, 
-                        ReschedulingOfALoanEvents.nb_of_maturity AS rle_maturity, 
-                        ReschedulingOfALoanEvents.preferred_first_installment_date AS rle_preferred_first_installment_date,
-                        ReschedulingOfALoanEvents.previous_interest_rate AS rle_previous_interest_rate, 
-
-                        RepaymentEvents.id AS rpe_id, 
-                        RepaymentEvents.principal AS rpe_principal, 
-                        RepaymentEvents.interests AS rpe_interests, 
-                        RepaymentEvents.penalties AS rpe_penalties,
-                        RepaymentEvents.commissions AS rpe_commissions,
-                        RepaymentEvents.past_due_days AS rpe_past_due_days, 
-                        RepaymentEvents.installment_number AS rpe_installment_number, 
-                        RepaymentEvents.payment_method_id AS rpe_pm,
-                        RepaymentEvents.calculated_penalties rpe_calculated_penalties,
-                        RepaymentEvents.written_off_penalties rpe_written_off_penalties,
-                        RepaymentEvents.unpaid_penalties rpe_unpaid_penalties,
-                        RepaymentEvents.bounce_fee rpe_bounce_fee,
-     
-                        LoanInterestAccruingEvents.id AS liae_id, 
-                        LoanInterestAccruingEvents.interest_prepayment AS liae_interestPrepayment, 
-                        LoanInterestAccruingEvents.accrued_interest AS liae_accruedInterest, 
-                        LoanInterestAccruingEvents.rescheduled AS liae_rescheduled, 
-                        LoanInterestAccruingEvents.installment_number AS liae_installmentNumber,
-
-                        TrancheEvents.amount AS tranche_amount,
-                        TrancheEvents.interest_rate AS tranche_interest_rate,
-                        TrancheEvents.maturity AS tranche_maturity,
-                        TrancheEvents.start_date AS tranche_start_date,
-                        TrancheEvents.id AS tranche_id,
-                        TrancheEvents.grace_period AS tranche_grace_period,
-                        TrancheEvents.first_repayment_date AS tranche_first_repayment_date,
-                        TrancheEvents.payment_method_id as tranche_pm,
-
-                        OverdueEvents.id AS ov_id,
-                        OverdueEvents.olb AS ov_olb,
-                        OverdueEvents.overdue_days AS ov_overdue_days,
-                        OverdueEvents.overdue_principal AS ov_overdue_principal,
-     
-                        ProvisionEvents.id AS pe_id,
-                        ProvisionEvents.amount AS pe_amount,
-                        ProvisionEvents.overdue_days AS pe_overdue_days,
-
-                        SavingEvents.amount AS se_amount,
-                        SavingEvents.fees AS se_fees,
-                        SavingEvents.related_contract_code AS se_transfer_code,
-                        Users.id AS user_id, 
-                        Users.deleted AS user_deleted, 
-                        Users.user_name AS user_username, 
-                        Users.user_pass AS user_password, 
-                        Users.role_code AS user_role, 
-                        Users.first_name AS user_firstname, 
-                        Users.last_name AS user_lastname,
-                        0 AS currency_id,
-                        '' AS client_type_code,
-                        0 AS branch_id,
-                        '' AS contract_code
-                    FROM (SELECT id, 
-                                event_type, 
-                                entry_date, 
-                                event_date, 
-                                is_deleted, 
-                                user_id,
-                                cancel_date
-						  FROM ContractEvents 
-                          UNION ALL 
-						  SELECT id, 
-                                code AS event_type, 
-                                creation_date AS entry_date, 
-                                creation_date AS event_date, 
-                                deleted AS is_deleted, 
-                                user_id,
-                                cancel_date
-						  FROM SavingEvents WHERE code NOT IN('SIAE', 'SIPE')                         
-                          )
-					AS union_events 
-                    LEFT JOIN ContractEvents ON union_events.ID = ContractEvents.id
-                    LEFT JOIN SavingEvents ON union_events.ID = SavingEvents.id
-                    LEFT JOIN Contracts ON Contracts.id = ContractEvents.contract_id 
-                    LEFT JOIN SavingContracts ON SavingContracts.id = SavingEvents.contract_id
-                    LEFT OUTER JOIN Users ON union_events.user_id = Users.id 
-                    LEFT OUTER JOIN LoanDisbursmentEvents ON ContractEvents.id = LoanDisbursmentEvents.id 
-                    LEFT OUTER JOIN LoanEntryFeeEvents ON ContractEvents.id = LoanEntryFeeEvents.id                    
-                    LEFT OUTER JOIN LoanInterestAccruingEvents ON ContractEvents.id = LoanInterestAccruingEvents.id 
-                    LEFT OUTER JOIN RepaymentEvents ON ContractEvents.id = RepaymentEvents.id 
-                    LEFT OUTER JOIN ReschedulingOfALoanEvents ON ContractEvents.id = ReschedulingOfALoanEvents.id 
-                    LEFT OUTER JOIN WriteOffEvents ON ContractEvents.id = WriteOffEvents.id 
-                    LEFT OUTER JOIN TrancheEvents ON ContractEvents.id = TrancheEvents.id
-                    LEFT OUTER JOIN OverdueEvents ON ContractEvents.id = OverdueEvents.id
-                    LEFT OUTER JOIN ProvisionEvents ON ContractEvents.id = ProvisionEvents.id
-                    WHERE union_events.event_date BETWEEN @beginDate AND @endDate 
-                    AND union_events.event_type LIKE @eventType {0}",
-                    userId > 0 ? "AND ContractEvents.user_id = @userId ORDER BY union_events.event_date" : "ORDER BY union_events.event_date");
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            {
-                c.AddParam("@beginDate", beginDate);
-                c.AddParam("@endDate", endDate);
-                c.AddParam("@userId", userId);
-                c.AddParam("@eventType", string.Format("%{0}%", eventType) );
-                
-                using (OpenCbsReader r = c.ExecuteReader())
-                {
-                    if (!(r == null || r.Empty)) 
-                    
-                    while (r.Read())
-                    {
-                        list.Add(ReadEvent(r));
-                    }
-                }
-            }
-            return list;
-        }
-
 	    public EventStock SelectEvents(int pContractId)
 		{
             const string q = @"SELECT 
@@ -322,6 +175,8 @@ namespace OpenCBS.Manager.Events
 
                     LoanTransitionEvents.id AS glll_id,
                     LoanTransitionEvents.amount AS glll_amount,
+                    pwoe.id pwoe_id,
+                    pwoe.amount pwoe_amount,
 
                     Users.id AS user_id, 
                     Users.deleted AS user_deleted, 
@@ -353,6 +208,7 @@ namespace OpenCBS.Manager.Events
                     LEFT OUTER JOIN LoanPenaltyAccrualEvents ON ContractEvents.id = LoanPenaltyAccrualEvents.id
                     LEFT OUTER JOIN AccrualInterestLoanEvents ON ContractEvents.id = AccrualInterestLoanEvents.id
                     LEFT OUTER JOIN LoanTransitionEvents ON ContractEvents.id = LoanTransitionEvents.id
+                    left join dbo.PenaltyWriteOffEvents pwoe on pwoe.id = ContractEvents.id
                     WHERE (ContractEvents.contract_id = @id)
                     ORDER BY ContractEvents.id";
             using (SqlConnection conn = GetConnection())
@@ -1481,6 +1337,10 @@ namespace OpenCBS.Manager.Events
             {
                 e = GetLoanTransitionEvent(r);
             }
+            else if (r.GetNullInt("pwoe_id").HasValue)
+            {
+                e = GetPenaltyWriteOffEvent(r);
+            }
             else
             {
                 if (r.GetString("code").Equals("LOVE"))
@@ -1496,6 +1356,14 @@ namespace OpenCBS.Manager.Events
             GetEvent(r, e);
             return e;
         }
+
+	    private static Event GetPenaltyWriteOffEvent(OpenCbsReader r)
+	    {
+	        var result = new PenaltyWriteOffEvent();
+	        result.Id = r.GetInt("pwoe_id");
+	        result.Amount = r.GetDecimal("pwoe_amount");
+	        return result;
+	    }
 
 	    private static Event GetCreditInsuranceEvent(OpenCbsReader r)
 	    {
