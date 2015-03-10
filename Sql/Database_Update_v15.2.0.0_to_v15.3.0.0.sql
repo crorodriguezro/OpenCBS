@@ -53,6 +53,16 @@ references
 	loanpurpose(id)
 GO
 
+create table dbo.PenaltyWriteOffEvents
+(
+	id int not null,
+	amount money not null
+)
+GO
+
+alter table dbo.PenaltyWriteOffEvents
+add constraint FK_PenaltyWriteOffEvents foreign key (id) references dbo.ContractEvents(id)
+GO
 
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v15.3.0.0'
