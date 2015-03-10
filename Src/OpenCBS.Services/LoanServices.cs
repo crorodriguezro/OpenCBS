@@ -3194,7 +3194,8 @@ namespace OpenCBS.Services
                                     Penalties = listOfRble.Sum(item => item.Fees.Value),
                                     BounceFee = listOfRble.Sum(item=>item.BounceFee.Value),
                                     Id = repayEvent.Id,
-                                    Date = repayEvent.Date
+                                    Date = repayEvent.Date,
+                                    PaymentMethodId = repayEvent.PaymentMethod.Id
                                 }
                             },
                             {"SqlTransaction", sqlTransaction}
@@ -3213,7 +3214,8 @@ namespace OpenCBS.Services
                                     Penalties = listOfRgle.Sum(item => item.Fees.Value),
                                     BounceFee = listOfRble.Sum(item=>item.BounceFee.Value),
                                     Id = repayEvent.Id,
-                                    Date = repayEvent.Date
+                                    Date = repayEvent.Date,
+                                    PaymentMethodId = repayEvent.PaymentMethod.Id
                                 }
                             },
                             {"SqlTransaction", sqlTransaction}
