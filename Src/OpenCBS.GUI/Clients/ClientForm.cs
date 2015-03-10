@@ -1814,20 +1814,20 @@ namespace OpenCBS.GUI.Clients
             if (isNew)
             {
                 EconomicActivity newActivity = null;
-                switch (_client.Type)
-                {
-                    case OClientTypes.Person:
-                        newActivity = ((Person)_client).Activity;
-                        break;
-                    case OClientTypes.Group:
-                        var group = (Group)_client;
-                        var leader = @group.Leader;
-                        newActivity = leader == null ? null : ((Person)leader.Tiers).Activity;
-                        break;
-                    case OClientTypes.Corporate:
-                        newActivity = ((Corporate)_client).Activity;
-                        break;
-                }
+                //switch (_client.Type)
+                //{
+                //    case OClientTypes.Person:
+                //        newActivity = ((Person)_client).Activity;
+                //        break;
+                //    case OClientTypes.Group:
+                //        var group = (Group)_client;
+                //        var leader = @group.Leader;
+                //        newActivity = leader == null ? null : ((Person)leader.Tiers).Activity;
+                //        break;
+                //    case OClientTypes.Corporate:
+                //        newActivity = ((Corporate)_client).Activity;
+                //        break;
+                //}
                 eacLoan.Activity = newActivity;
             }
             else

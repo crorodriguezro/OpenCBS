@@ -1324,7 +1324,7 @@ You must complete either "min" and "max" or "value". (tab Line of Credit)</value
     <value>User has teller, please delete or reassign teller first</value>
   </data>
   <data name="EconomicActivityNotSet.Text" xml:space="preserve">
-    <value>Loan economic activity of not set.</value>
+    <value>Loan purpose is not set.</value>
   </data>
   <data name="CurrentInstallmentIsNotFullyRepaid.Text" xml:space="preserve">
     <value>Current installment is not fully repaid</value>
