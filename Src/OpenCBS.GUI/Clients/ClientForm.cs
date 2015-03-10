@@ -114,9 +114,6 @@ namespace OpenCBS.GUI.Clients
         [ImportMany(typeof(ILoanDetailsButton), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<ILoanDetailsButton> LoanDetailsButtons { get; set; }
 
-        [ImportMany(typeof(ILoanRepaymentButton))]
-        public List<ILoanRepaymentButton> LoanRepaymentButtons { get; set; }
-
         [ImportMany(typeof(IPrintButtonContextMenuStrip), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<IPrintButtonContextMenuStrip> PrintButtonContextMenuStrips { get; set; }
 
@@ -5479,7 +5476,7 @@ namespace OpenCBS.GUI.Clients
 
         private void InitLoanRepaymentButtons()
         {
-            foreach (var loanRepaymentButton in LoanRepaymentButtons)
+            foreach (var loanRepaymentButton in _applicationController.GetAllInstances<ILoanRepaymentButton>())
             {
                 var button = loanRepaymentButton.GetButton(_client, _credit);
                 if (button == null) continue;

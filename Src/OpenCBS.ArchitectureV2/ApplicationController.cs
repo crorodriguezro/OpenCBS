@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.View;
 using StructureMap;
@@ -46,6 +47,11 @@ namespace OpenCBS.ArchitectureV2
         public void Unsubscribe(object eventHandlers)
         {
             _eventPublisher.Unsubscribe(eventHandlers);
+        }
+
+        public IList<T> GetAllInstances<T>()
+        {
+            return _container.GetAllInstances<T>();
         }
     }
 }

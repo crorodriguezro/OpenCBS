@@ -1,4 +1,6 @@
-﻿namespace OpenCBS.ArchitectureV2.Interface
+﻿using System.Collections.Generic;
+
+namespace OpenCBS.ArchitectureV2.Interface
 {
     public interface IApplicationController
     {
@@ -6,5 +8,6 @@
         void Raise<T>(T eventData);
         void Subscribe(object eventHandlers);
         void Unsubscribe(object eventHandlers);
+        IList<T> GetAllInstances<T>();
     }
 }
