@@ -22,11 +22,10 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using Dapper;
 using OpenCBS.CoreDomain;
 using System.Collections;
 using OpenCBS.CoreDomain.Clients;
-using OpenCBS.CoreDomain.Contracts;
+using Dapper;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.FundingLines;
 using OpenCBS.CoreDomain.SearchResult;

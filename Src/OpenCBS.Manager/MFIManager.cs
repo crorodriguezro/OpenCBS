@@ -127,7 +127,7 @@ namespace OpenCBS.Manager
             ";
             var result = new PingInfo();
             using (var connection = GetConnection())
-            using (var multi = connection.QueryMultiple(sql, null, CommandType.Text))
+            using (var multi = connection.QueryMultiple(sql, null, null, null, CommandType.Text))
             {
                 result.Olb = multi.Read<decimal>().Single();
                 result.NumberOfIndividualClients = multi.Read<int>().Single();
