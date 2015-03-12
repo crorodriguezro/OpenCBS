@@ -856,7 +856,11 @@ namespace OpenCBS.GUI.Contracts
                     }
                     var person = client as Person;
                     if (person == null) throw new ApplicationException("Member can not be other than person.");
-                    loan.EconomicActivity = person.Activity;
+                    loan.EconomicActivity =
+                        ServicesProvider.GetInstance()
+                                        .GetEconomicActivityServices()
+                                        .FindAllEconomicActivities(true)
+                                        .FirstOrDefault();
 
                     ServicesProvider.GetInstance().GetContractServices().CheckLoanFilling(loan);
                     loan.NsgID = _village.Id;
