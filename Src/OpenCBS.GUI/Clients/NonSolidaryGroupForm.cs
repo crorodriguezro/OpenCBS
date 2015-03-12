@@ -636,11 +636,11 @@ namespace OpenCBS.GUI.Clients
                             if (project.Credits != null)
                                 foreach (Loan loan in project.Credits)
                                     loan.CompulsorySavings = ServicesProvider.GetInstance().GetSavingServices().GetSavingForLoan(loan.Id, true);
-                    frm = new ClientForm(client, member.ActiveLoans[0].Id, MdiParent, "tabPageDetails");
+                    frm = new ClientForm(client, member.ActiveLoans[0].Id, MdiParent, "tabPageDetails", _applicationController);
                 }
                 else
                 {
-                    frm = new ClientForm((Person)member.Tiers, MdiParent);
+                    frm = new ClientForm((Person)member.Tiers, MdiParent, _applicationController);
                 }
                 frm.ShowDialog();
             }
@@ -807,7 +807,7 @@ namespace OpenCBS.GUI.Clients
                 foreach (var credit in client.Projects.Where(project => project.Credits != null).SelectMany(project => project.Credits))
                     credit.CompulsorySavings =
                         ServicesProvider.GetInstance().GetSavingServices().GetSavingForLoan(credit.Id, true);
-            var frm = new ClientForm(client, loan.Id, MdiParent, "tabPageLoansDetails");
+            var frm = new ClientForm(client, loan.Id, MdiParent, "tabPageLoansDetails", _applicationController);
             frm.ShowDialog();
 
             DisplayLoans();

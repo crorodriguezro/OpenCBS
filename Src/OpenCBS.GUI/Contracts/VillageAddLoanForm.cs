@@ -817,7 +817,8 @@ namespace OpenCBS.GUI.Contracts
                         InterestRateMax = member.Product.InterestRateMax,
                         NmbOfInstallmentsMin = member.Product.NbOfInstallmentsMin,
                         NmbOfInstallmentsMax = member.Product.NbOfInstallmentsMax,
-                        ScheduleType = member.Product.LoanType
+                        ScheduleType = member.Product.LoanType,
+                        ScriptName = member.Product.ScriptName
                     };
                     loan.InstallmentList =
                         ServicesProvider.GetInstance().GetContractServices().SimulateScheduleCreation(loan);
