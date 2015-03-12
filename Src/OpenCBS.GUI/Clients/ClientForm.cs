@@ -1813,22 +1813,10 @@ namespace OpenCBS.GUI.Clients
             buttonLoanDisbursment.Enabled = !disbursed && validated && !isNew;
             if (isNew)
             {
-                EconomicActivity newActivity = null;
-                //switch (_client.Type)
-                //{
-                //    case OClientTypes.Person:
-                //        newActivity = ((Person)_client).Activity;
-                //        break;
-                //    case OClientTypes.Group:
-                //        var group = (Group)_client;
-                //        var leader = @group.Leader;
-                //        newActivity = leader == null ? null : ((Person)leader.Tiers).Activity;
-                //        break;
-                //    case OClientTypes.Corporate:
-                //        newActivity = ((Corporate)_client).Activity;
-                //        break;
-                //}
-                eacLoan.Activity = newActivity;
+                eacLoan.Activity = ServicesProvider.GetInstance()
+                                                   .GetEconomicActivityServices()
+                                                   .FindAllEconomicActivities(true)
+                                                   .FirstOrDefault(i => !i.HasChildrens);
             }
             else
             {
