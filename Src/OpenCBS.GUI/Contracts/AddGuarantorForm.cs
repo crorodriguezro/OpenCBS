@@ -59,6 +59,7 @@ namespace OpenCBS.GUI
 
         public AddGuarantorForm(Form pMdiParent, Currency tcode, IApplicationController applicationController)
         {
+            _applicationController = applicationController;
             _mdiParent = pMdiParent;
             _guarantor = new Guarantor();
             _guarantor.Amount = 0;
@@ -68,6 +69,7 @@ namespace OpenCBS.GUI
 
         public AddGuarantorForm(Guarantor guarantor, Form pMdiParent, bool isView, Currency tcode, IApplicationController applicationController)
         {
+            _applicationController = applicationController;
             _mdiParent = pMdiParent;
             _guarantor = guarantor;
             code = tcode;
