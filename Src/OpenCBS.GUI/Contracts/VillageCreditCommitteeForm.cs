@@ -333,7 +333,7 @@ namespace OpenCBS.GUI.Contracts
 
                     IClient client = activeMember.Tiers;
 
-                    loan.CreditCommiteeDate = date;
+                    loan.CreditCommiteeDate = date + DateTime.Now.TimeOfDay;
                     loan.ContractStatus = status;
                     loan.CreditCommitteeCode = code;
                     loan.CreditCommiteeComment = comment;

@@ -335,6 +335,7 @@ namespace OpenCBS.GUI.Contracts
                         }
                     }
 
+                    date += DateTime.Now.TimeOfDay;
                     PaymentMethod method = 
                         ServicesProvider.GetInstance().GetPaymentMethodServices().GetPaymentMethodByName(item.SubItems[IdxPaymentMethod].Text);
                     activeMember.ActiveLoans[index] = ServicesProvider.GetInstance().GetContractServices().Disburse(loan, date, true, false, method);
