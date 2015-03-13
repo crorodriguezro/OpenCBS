@@ -599,7 +599,7 @@ namespace OpenCBS.GUI.Clients
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ClientForm frm = new ClientForm(OClientTypes.Person, MdiParent, true);
+            ClientForm frm = new ClientForm(OClientTypes.Person, MdiParent, true, _applicationController);
             if (frm.ShowDialog() != DialogResult.OK) return;
             try
             {
