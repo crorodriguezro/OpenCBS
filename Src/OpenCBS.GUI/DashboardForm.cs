@@ -215,19 +215,19 @@ namespace OpenCBS.GUI
             var chartArea = new ChartArea();
             chartArea.AxisX.LabelStyle.Font = chartArea.AxisY.LabelStyle.Font = new Font("Arial", 7f);
             chartArea.AxisX.IsLabelAutoFit = chartArea.AxisY.IsLabelAutoFit = false;
+
+            var min = dashboard.ActionStats.Min(x => x.Olb);
+            chartArea.AxisY.Minimum = Convert.ToDouble(min);
             _olbTrendChart.ChartAreas.Add(chartArea);
 
             var series = new Series();
             series.ChartType = SeriesChartType.Line;
             series.BorderWidth = 3;
             series.MarkerStyle = MarkerStyle.Circle;
-            double value = 0;
-            var point = series.Points.Add(value);
-            point.AxisLabel = dashboard.ActionStats[0].Date.AddDays(-1).ToString("dd.MM");
             foreach (var actionStat in dashboard.ActionStats)
             {
-                value = Convert.ToDouble(actionStat.Olb);
-                point = series.Points.Add(value);
+                var value = Convert.ToDouble(actionStat.Olb);
+                var point = series.Points.Add(value);
                 point.AxisLabel = actionStat.Date.ToString("dd.MM");
             }
 
