@@ -145,10 +145,10 @@
     <value>String</value>
   </data>
   <data name="titleAdd" xml:space="preserve">
-    <value>Add collateral type</value>
+    <value>Add Collateral Type</value>
   </data>
   <data name="titleEdit" xml:space="preserve">
-    <value>Edit collateral type</value>
+    <value>Edit Collateral Type</value>
   </data>
   <data name="typeCollection" xml:space="preserve">
     <value>Collection</value>
