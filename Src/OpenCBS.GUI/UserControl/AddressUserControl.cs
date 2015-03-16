@@ -195,13 +195,14 @@ namespace OpenCBS.GUI
         private void _InitializeProvince()
         {
             comboBoxProvince.Items.Clear();
-            List<Province> provinceList = ServicesProvider.GetInstance().GetLocationServices().GetProvinces();
-            foreach (Province pro in provinceList)
+            var selectProvince = new Province { Name = MultiLanguageStrings.GetString(Ressource.AddressUserControl, "all.Text") };
+            comboBoxProvince.Items.Add(selectProvince);
+
+            var provinceList = ServicesProvider.GetInstance().GetLocationServices().GetProvinces();
+            foreach (var pro in provinceList)
             {
                 comboBoxProvince.Items.Add(pro);
             }
-            Province selectProvince = new Province{Name =MultiLanguageStrings.GetString(Ressource.AddressUserControl,"all.Text")};
-            comboBoxProvince.Items.Add(selectProvince);
             comboBoxProvince.SelectedItem = selectProvince;
         }
 
