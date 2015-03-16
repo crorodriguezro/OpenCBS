@@ -550,7 +550,7 @@
     <value>tbZipCode</value>
   </data>
   <data name="&gt;&gt;tbZipCode.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tbZipCode.Parent" xml:space="preserve">
     <value>$this</value>
@@ -577,7 +577,7 @@
     <value>textBoxEMail</value>
   </data>
   <data name="&gt;&gt;textBoxEMail.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxEMail.Parent" xml:space="preserve">
     <value>$this</value>
@@ -604,7 +604,7 @@
     <value>textBoxPersonalPhone</value>
   </data>
   <data name="&gt;&gt;textBoxPersonalPhone.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxPersonalPhone.Parent" xml:space="preserve">
     <value>$this</value>
@@ -631,7 +631,7 @@
     <value>textBoxHomePhone</value>
   </data>
   <data name="&gt;&gt;textBoxHomePhone.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxHomePhone.Parent" xml:space="preserve">
     <value>$this</value>
@@ -658,7 +658,7 @@
     <value>textBoxCity</value>
   </data>
   <data name="&gt;&gt;textBoxCity.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.CityTextBox, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.CityTextBox, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxCity.Parent" xml:space="preserve">
     <value>$this</value>
@@ -691,7 +691,7 @@
     <value>tbAddress</value>
   </data>
   <data name="&gt;&gt;tbAddress.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tbAddress.Parent" xml:space="preserve">
     <value>$this</value>

@@ -106,7 +106,6 @@ namespace OpenCBS.GUI
             this.comboBoxProvince.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.comboBoxProvince, "comboBoxProvince");
             this.comboBoxProvince.Name = "comboBoxProvince";
-            this.comboBoxProvince.Sorted = true;
             this.comboBoxProvince.SelectionChangeCommitted += new System.EventHandler(this.comboBoxProvince_SelectionChangeCommitted);
             // 
             // buttonSave
