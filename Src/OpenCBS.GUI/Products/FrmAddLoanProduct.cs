@@ -216,7 +216,7 @@ namespace OpenCBS.GUI.Products
 
         private void InitializeComboBoxInterestRateType(LoanProduct pack)
         {
-            var index = (int) pack.LoanType - 1;
+            var index = (int) pack.LoanType;
             cmbInterestRateType.Items.Clear();
             cmbInterestRateType.Items.Add(GetString("allScheduleTypes"));
             cmbInterestRateType.Items.Add(GetString("Flat.Text"));
@@ -1426,16 +1426,20 @@ namespace OpenCBS.GUI.Products
             checkBoxUseExceptionalInstallmen.Checked = false;
             if (cmbInterestRateType.SelectedIndex == 0)
             {
+                _product.LoanType = OLoanTypes.All;
+            }
+            else if (cmbInterestRateType.SelectedIndex == 1)
+            {
                 _product.LoanType = OLoanTypes.Flat;
                 checkBoxUseExceptionalInstallmen.Enabled = true;
             }
-            else if (cmbInterestRateType.SelectedIndex == 1)
+            else if (cmbInterestRateType.SelectedIndex == 2)
             {
                 _product.LoanType = OLoanTypes.DecliningFixedPrincipal;
                 checkBoxUseExceptionalInstallmen.Enabled = false;
                 checkBoxUseExceptionalInstallmen.Checked = false;
             }
-            else if (cmbInterestRateType.SelectedIndex == 2)
+            else if (cmbInterestRateType.SelectedIndex == 3)
             {
                 _product.LoanType = OLoanTypes.DecliningFixedInstallments;
                 checkBoxUseExceptionalInstallmen.Enabled = true;
