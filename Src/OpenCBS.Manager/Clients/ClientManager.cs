@@ -3085,6 +3085,7 @@ namespace OpenCBS.Manager.Clients
 
         public List<string> SelectAllSetUpFields(string pFieldsType)
         {
+            return new List<string>();
             List<string> list = new List<string>();
             string q = string.Format("SELECT * FROM {0}", pFieldsType);
             using (SqlConnection conn = GetConnection())
