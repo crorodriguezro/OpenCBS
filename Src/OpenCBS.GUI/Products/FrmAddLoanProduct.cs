@@ -40,9 +40,6 @@ using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Products
 {
-	/// <summary>
-	/// Description r�sum�e de AddPackage.
-	/// </summary>
 	public partial class FrmAddLoanProduct :SweetBaseForm
 	{
         private LoanProduct _product;
@@ -226,6 +223,12 @@ namespace OpenCBS.GUI.Products
             foreach (var script in list)
             {
                 cmbInterestRateType.Items.Add(script);
+            }
+            var scheduleGeneratorNames =
+                ServicesProvider.GetInstance().GetContractServices().GetScheduleGeneratorNames();
+            foreach (var name in scheduleGeneratorNames)
+            {
+                cmbInterestRateType.Items.Add(name);
             }
             if (index < 4)
             {

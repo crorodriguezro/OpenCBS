@@ -2211,6 +2211,13 @@ namespace OpenCBS.GUI.Clients
                 _scheduleTypeComboBox.Items.Add(script);
             }
 
+            var scheduleGeneratorNames =
+                ServicesProvider.GetInstance().GetContractServices().GetScheduleGeneratorNames();
+            foreach (var name in scheduleGeneratorNames)
+            {
+                _scheduleTypeComboBox.Items.Add(name);
+            }
+
             switch (loanType)
             {
                 case OLoanTypes.All:

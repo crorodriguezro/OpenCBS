@@ -83,6 +83,7 @@
     <Compile Include="INonSolidarityGroupTabs.cs" />
     <Compile Include="IPersonTabs.cs" />
     <Compile Include="ISavingsTabs.cs" />
+    <Compile Include="IScheduleGenerator.cs" />
     <Compile Include="ISolidarityGroupTabs.cs" />
     <Compile Include="LoanApprovalUserControl.cs">
       <SubType>UserControl</SubType>

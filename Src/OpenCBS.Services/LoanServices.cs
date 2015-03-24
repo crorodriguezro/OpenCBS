@@ -29,7 +29,6 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using IronPython.Hosting;
-using IronPython.Runtime;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Alerts;
@@ -88,6 +87,9 @@ namespace OpenCBS.Services
 
         [ImportMany(typeof (ILoanInterceptor))]
         private Lazy<ILoanInterceptor, IDictionary<string, object>>[] LoanInterceptors { get; set; }
+
+        [ImportMany(typeof(IScheduleGenerator))]
+        private Lazy<IScheduleGenerator, IDictionary<string, object>>[] ScheduleGenerators { get; set; }
 
         public LoanServices(User pUser)
             : base(pUser)
@@ -1011,11 +1013,26 @@ namespace OpenCBS.Services
             }
         }
 
+        public IList<string> GetScheduleGeneratorNames()
+        {
+            return ScheduleGenerators
+                .Where(x => x.Metadata.ContainsKey("Implementation"))
+                .Select(x => x.Metadata["Implementation"].ToString())
+                .ToList();
+        }
+
         public List<Installment> SimulateScheduleCreation(Loan loan)
         {
             try
             {
-                if (loan.ScriptName != null) return SimulateScriptSchedule(loan);
+                if (loan.ScriptName != null)
+                {
+                    var scheduleGenerator = ScheduleGenerators
+                        .Where(x => x.Metadata.ContainsKey("Implementation") && x.Metadata["Implementation"].ToString() == loan.ScriptName)
+                        .Select(x => x.Value)
+                        .FirstOrDefault();
+                    return scheduleGenerator != null ? scheduleGenerator.GetSchedule(loan) : SimulateScriptSchedule(loan);
+                }
                 var scheduleConfiguration = _configurationFactory
                     .Init()
                     .WithLoan(loan)
