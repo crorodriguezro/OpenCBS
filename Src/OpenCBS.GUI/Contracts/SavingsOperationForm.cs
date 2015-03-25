@@ -335,12 +335,11 @@ namespace OpenCBS.GUI.Contracts
         {
             nudAmount_ValueChanged(sender, e);
             bool pending = cbxPending.Visible && cbxPending.Checked;
-            OSavingsMethods savingsMethod =
-                (OSavingsMethods) Enum.Parse(typeof (OSavingsMethods), ((PaymentMethod)cbSavingsMethod.SelectedItem).Name);
+           
             try
             {
                 _date = new DateTime(dtpDate.Value.Year, dtpDate.Value.Month, dtpDate.Value.Day, TimeProvider.Now.Hour,
-                    TimeProvider.Now.Minute, TimeProvider.Now.Second);
+                                     TimeProvider.Now.Minute, TimeProvider.Now.Second);
 
                 SavingServices savingServices = ServicesProvider.GetInstance().GetSavingServices();
 
@@ -353,8 +352,7 @@ namespace OpenCBS.GUI.Contracts
                     if (!savingServices.AllowOperationsDuringPendingDeposit())
                         return;
 
-                if ((_flatFees.HasValue && updAmountFees.Value != _flatFees) ||
-                    (_rateFees.HasValue && updAmountFees.Value != (decimal) (_rateFees*100)))
+                if ((_flatFees.HasValue && updAmountFees.Value != _flatFees) || (_rateFees.HasValue && updAmountFees.Value != (decimal)(_rateFees * 100)))
                     if (!savingServices.AllowSettingSavingsOperationsFeesManually())
                         return;
 
@@ -362,6 +360,10 @@ namespace OpenCBS.GUI.Contracts
                 {
                     case OSavingsOperation.Credit:
                     {
+                        OSavingsMethods savingsMethod =
+                            (OSavingsMethods)
+                                Enum.Parse(typeof (OSavingsMethods),"Cash");
+                        var paymethod = (PaymentMethod)cbSavingsMethod.SelectedItem;
                         if (_saving is SavingBookContract)
                         {
                             if (savingsMethod == OSavingsMethods.Cheque)
@@ -370,7 +372,7 @@ namespace OpenCBS.GUI.Contracts
                         }
 
                         savingServices.Deposit(_saving, _date, _amount, _description, User.CurrentUser, pending,
-                            savingsMethod, null, Teller.CurrentTeller);
+                            savingsMethod, paymethod, null, Teller.CurrentTeller);
                         break;
                     }
                     case OSavingsOperation.Debit:
@@ -402,6 +404,9 @@ namespace OpenCBS.GUI.Contracts
 
                     case OSavingsOperation.SpecialOperation:
                     {
+                        OSavingsMethods savingsMethod =
+                            (OSavingsMethods)
+                                Enum.Parse(typeof (OSavingsMethods), cbSavingsMethod.SelectedValue.ToString());
                         if (cbBookings.SelectedItem != null)
                         {
                             Booking booking = (Booking) cbBookings.SelectedItem;

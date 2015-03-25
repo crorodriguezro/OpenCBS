@@ -215,7 +215,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
             savingEvent.Cancelable = true;
             savingEvent.IsPending = isPending;
             savingEvent.SavingsMethod = savingsMethod;
-            savingEvent.PaymentMethod = paymentMethod;
+            savingEvent.PaymentsMethod = paymentMethod;
             savingEvent.PendingEventId = pendingEventId;
             savingEvent.TellerId = tellerId;
             savingEvent.ProductType = typeof(SavingsBookProduct);

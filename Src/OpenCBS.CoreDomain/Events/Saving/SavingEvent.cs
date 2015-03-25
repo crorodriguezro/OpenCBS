@@ -39,7 +39,7 @@ namespace OpenCBS.CoreDomain.Events.Saving
         public Type ProductType { get; set; }
 //        public OPaymentMethods? SavingsMethod { get; set; }
         public OSavingsMethods? SavingsMethod { get; set; }
-        public PaymentMethod PaymentMethod { get; set; }
+        public PaymentMethod PaymentsMethod { get; set; }
         public bool IsPending { get; set; }
         public int? PendingEventId { get; set; }
         public int? LoanEventId { get; set; }

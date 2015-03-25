@@ -1212,7 +1212,7 @@ namespace OpenCBS.Test.Services
             
 	        ServicesProvider.GetInstance().GetSavingServices().SaveContract(savingContract, (Client) client);
 	        ServicesProvider.GetInstance().GetSavingServices().Deposit(savingContract, DateTime.Now, 4000, string.Empty,
-	                                                                   user, false, OSavingsMethods.Cash, null,
+	                                                                   user, false, OSavingsMethods.Cash,new PaymentMethod(),  null,
 	                                                                   new Teller());
 	        return savingContract;
 	    }

@@ -6388,7 +6388,7 @@ namespace OpenCBS.GUI.Clients
                 if (savEvent == null) throw new NullReferenceException();
 
                 SavingServices.Deposit(_saving, TimeProvider.Now,
-                    savEvent.Amount, savEvent.Description, User.CurrentUser, false, (OSavingsMethods)savEvent.SavingsMethod, savEvent.Id, Teller.CurrentTeller);
+                    savEvent.Amount, savEvent.Description, User.CurrentUser, false, (OSavingsMethods)savEvent.SavingsMethod, new PaymentMethod(), savEvent.Id, Teller.CurrentTeller);
 
                 SavingServices.ChangePendingEventStatus(savEvent.Id, false);
                 savEvent.IsPending = false;

@@ -223,7 +223,7 @@ namespace OpenCBS.GUI.Contracts
 //                ServicesProvider.GetInstance().GetSavingServices().Deposit(saving, TimeProvider.Today, amount, 
 //                    "", User.CurrentUser, false, OPaymentMethods.Cash, null, null);
                 ServicesProvider.GetInstance().GetSavingServices().Deposit(saving, TimeProvider.Now, amount, 
-                    "", User.CurrentUser, false, OSavingsMethods.Cash, null, null);
+                    "", User.CurrentUser, false, OSavingsMethods.Cash, new PaymentMethod(), null, null);
             }
         }
     }
