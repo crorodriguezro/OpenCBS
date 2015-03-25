@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.Products;
 using OpenCBS.Shared;
@@ -70,7 +71,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
         List<SavingEvent> Withdraw(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees, Teller teller);
  
         List<SavingEvent> Deposit(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees, 
-            bool isPending, OSavingsMethods savingsMethod, int? pendingEventId, Teller teller);
+            bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod, int? pendingEventId, Teller teller);
         
         List<SavingEvent> LoanDisbursement(Loan loan, DateTime date, string description, User user, 
             bool isDesactivateFees, bool isPending, OSavingsMethods savingsMethod, int? pendingEventId, Teller teller);

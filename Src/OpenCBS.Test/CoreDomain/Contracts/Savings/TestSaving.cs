@@ -275,7 +275,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             saving.FirstDeposit(1000, new DateTime(2009, 01, 01), null, new User(), Teller.CurrentTeller);
 
 //            saving.Deposit(100, new DateTime(2009, 02, 01), "depot", new User(), false, false, OPaymentMethods.Cash, null, null);
-            saving.Deposit(100, new DateTime(2009, 02, 01), "depot", new User(), false, false, OSavingsMethods.Cash, null, null);
+            saving.Deposit(100, new DateTime(2009, 02, 01), "depot", new User(), false, false, OSavingsMethods.Cash, new PaymentMethod(), null, null);
             saving.Withdraw(230, new DateTime(2009, 02, 03), "retrait", new User(), false, null);
 
             Assert.AreEqual(saving.GetBalance(new DateTime(2009, 01, 31)), 1000);
@@ -298,7 +298,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
 
             saving.Withdraw(100, new DateTime(2009, 02, 02), "retrait", new User(), false, null);
 //            saving.Deposit(230, new DateTime(2009, 02, 02), "depot", new User(), false, false, OPaymentMethods.Cash, null, null);
-            saving.Deposit(230, new DateTime(2009, 02, 02), "depot", new User(), false, false, OSavingsMethods.Cash, null, null);
+            saving.Deposit(230, new DateTime(2009, 02, 02), "depot", new User(), false, false, OSavingsMethods.Cash, new PaymentMethod(),  null, null);
 
             Assert.AreEqual(saving.GetBalanceMin(new DateTime(2009, 01, 01)), 1000);
             Assert.AreEqual(saving.GetBalanceMin(new DateTime(2009, 02, 01)), 1000);
@@ -334,7 +334,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
 
             saving.Closure(new DateTime(2009, 01, 02), new User());
 //            saving.Deposit(50, new DateTime(2009, 01, 02), "depot", new User(), false, false, OPaymentMethods.Cash, null, null);
-            saving.Deposit(50, new DateTime(2009, 01, 02), "depot", new User(), false, false, OSavingsMethods.Cash, null, null);
+            saving.Deposit(50, new DateTime(2009, 01, 02), "depot", new User(), false, false, OSavingsMethods.Cash, new PaymentMethod(), null, null);
 
             Assert.AreEqual(saving.GetBalance(), 150);
            
@@ -1941,7 +1941,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
         {
             Assert.AreEqual(_saving.HasCancelableEvents(), false);
 //            _saving.Deposit(500m, new DateTime(2008, 09, 01), "deposit", new User(), false, false, OPaymentMethods.Cash, null, null);
-            _saving.Deposit(500m, new DateTime(2008, 09, 01), "deposit", new User(), false, false, OSavingsMethods.Cash, null, null);
+            _saving.Deposit(500m, new DateTime(2008, 09, 01), "deposit", new User(), false, false, OSavingsMethods.Cash, new PaymentMethod(), null, null);
             Assert.AreEqual(_saving.HasCancelableEvents(), true);
         }
 
@@ -2021,7 +2021,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             Assert.AreEqual(saving.GetBalance(), -194.88);
 
 //            saving.Deposit(200, new DateTime(2009, 01, 08), "depot", new User(), false, false, OPaymentMethods.Cash, null, null);
-            saving.Deposit(200, new DateTime(2009, 01, 08), "depot", new User(), false, false, OSavingsMethods.Cash, null, null);
+            saving.Deposit(200, new DateTime(2009, 01, 08), "depot", new User(), false, false, OSavingsMethods.Cash, new PaymentMethod(), null, null);
             //saving.Withdraw(230, new DateTime(2009, 02, 03), "retrait", new User(), false);
 
             saving.Closure(new DateTime(2009, 01, 15), new User() { Id = 1 });

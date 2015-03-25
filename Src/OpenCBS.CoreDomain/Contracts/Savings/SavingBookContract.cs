@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.CoreDomain.Events.Saving;
@@ -189,7 +190,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
         }
 
         public override List<SavingEvent> Deposit(OCurrency pAmount, DateTime pDate, string pDescription, User pUser,
-                bool pIsDesactivateFees, bool isPending, OSavingsMethods savingsMethod, int? pendingEventId, Teller teller)
+                bool pIsDesactivateFees, bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod, int? pendingEventId, Teller teller)
         {
             List<SavingEvent> events = new List<SavingEvent>();
 
@@ -214,6 +215,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
             savingEvent.Cancelable = true;
             savingEvent.IsPending = isPending;
             savingEvent.SavingsMethod = savingsMethod;
+            savingEvent.PaymentMethod = paymentMethod;
             savingEvent.PendingEventId = pendingEventId;
             savingEvent.TellerId = tellerId;
             savingEvent.ProductType = typeof(SavingsBookProduct);

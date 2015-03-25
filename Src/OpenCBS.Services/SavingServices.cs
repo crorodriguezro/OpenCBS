@@ -409,14 +409,14 @@ namespace OpenCBS.Services
 
                     // Do deposit to the fake Saving object
                     savingSimulation.Deposit(depositAmount, dateTime, description, user, false, isPending, savingsMethod,
-                                             pendingEventId, teller);
+                                             new PaymentMethod(), pendingEventId, teller);
 
                     if (!IsSavingBalanceCorrect(savingSimulation)) // Check balance simulation
                         throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
 
                     List<SavingEvent> events = saving.Deposit(depositAmount, dateTime, description, user, false,
                                                               isPending,
-                                                              savingsMethod, pendingEventId, teller);
+                                                              savingsMethod, new PaymentMethod(), pendingEventId, teller);
 
                     foreach (SavingEvent savingEvent in events)
                     {

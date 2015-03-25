@@ -20,6 +20,7 @@
 // Contact: contact@opencbs.com
 
 using System;
+using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.CoreDomain.Events.Loan;
 using OpenCBS.CoreDomain.Products;
@@ -38,6 +39,7 @@ namespace OpenCBS.CoreDomain.Events.Saving
         public Type ProductType { get; set; }
 //        public OPaymentMethods? SavingsMethod { get; set; }
         public OSavingsMethods? SavingsMethod { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
         public bool IsPending { get; set; }
         public int? PendingEventId { get; set; }
         public int? LoanEventId { get; set; }
