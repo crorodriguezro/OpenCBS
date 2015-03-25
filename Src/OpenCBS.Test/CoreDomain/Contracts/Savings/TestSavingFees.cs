@@ -215,11 +215,11 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
 //            List<SavingEvent> cashDepositEvents = saving.Deposit(100, new DateTime(2009, 1, 2), "cash deposit", new User(), false,
 //                                                             false, OPaymentMethods.Cash, null, null);
             List<SavingEvent> cashDepositEvents = saving.Deposit(100, new DateTime(2009, 1, 2), "cash deposit", new User(), false,
-                                                             false, OSavingsMethods.Cash, null, null);
+                                                             false, OSavingsMethods.Cash, new PaymentMethod(), null, null);
 //            List<SavingEvent> chequeDepositEvents = saving.Deposit(100, new DateTime(2009, 1, 2), "cheque deposit", new User(), false,
 //                                                             false, OPaymentMethods.Cheque, null, null);
             List<SavingEvent> chequeDepositEvents = saving.Deposit(100, new DateTime(2009, 1, 2), "cheque deposit", new User(), false,
-                                                             false, OSavingsMethods.Cheque, null, null);
+                                                             false, OSavingsMethods.Cheque, new PaymentMethod(), null, null);
             foreach (SavingEvent cashEvent in cashDepositEvents)
             {
                 Assert.AreEqual(cashEvent.Fee, saving.DepositFees);
@@ -363,7 +363,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             Assert.AreEqual(saving.GetBalance(), -170);
 
 //            saving.Deposit(200, new DateTime(2009, 01, 08), "depot", new User(), false, false, OPaymentMethods.Cash, null, null);
-            saving.Deposit(200, new DateTime(2009, 01, 08), "depot", new User(), false, false, OSavingsMethods.Cash, null, null);
+            saving.Deposit(200, new DateTime(2009, 01, 08), "depot", new User(), false, false, OSavingsMethods.Cash, new PaymentMethod(), null, null);
             //saving.Withdraw(230, new DateTime(2009, 02, 03), "retrait", new User(), false);
 
             saving.Closure(new DateTime(2009, 01, 15), new User() { Id = 1 });

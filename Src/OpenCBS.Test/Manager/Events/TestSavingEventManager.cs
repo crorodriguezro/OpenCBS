@@ -141,7 +141,7 @@ namespace OpenCBS.Test.EventsManager
         [Test]
         public void TestDepositEvent()
         {
-            List<SavingEvent> savingEventList = _saving.Deposit(100, TimeProvider.Today, "testDepot", _user, false, false, OSavingsMethods.Cash, null, null);
+            List<SavingEvent> savingEventList = _saving.Deposit(100, TimeProvider.Today, "testDepot", _user, false, false, OSavingsMethods.Cash, new PaymentMethod(), null, null);
             foreach (SavingEvent savingEvent in savingEventList)
             {
                 savingEvent.Id = _savingEventManager.Add(savingEvent, _saving.Id);
@@ -196,7 +196,7 @@ namespace OpenCBS.Test.EventsManager
         {
             //SavingEvent savingEvent = _saving.Deposit(100, new DateTime(2009, 02, 01), "testDepot", _user, false);
 //            List<SavingEvent> savingEventList = _saving.Deposit(100, new DateTime(2009, 02, 01), "testDepot", _user, false, false, OPaymentMethods.Cash, null, null);
-            List<SavingEvent> savingEventList = _saving.Deposit(100, new DateTime(2009, 02, 01), "testDepot", _user, false, false, OSavingsMethods.Cash, null, null);
+            List<SavingEvent> savingEventList = _saving.Deposit(100, new DateTime(2009, 02, 01), "testDepot", _user, false, false, OSavingsMethods.Cash, new PaymentMethod(), null, null);
             foreach (var savingEvent in savingEventList)
             {
                 savingEvent.Id = _savingEventManager.Add(savingEvent, _saving.Id);

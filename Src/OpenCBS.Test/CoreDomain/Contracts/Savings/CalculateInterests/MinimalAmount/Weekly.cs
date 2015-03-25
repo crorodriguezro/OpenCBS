@@ -182,7 +182,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings.CalculateInterests
 
             saving.Withdraw(250, new DateTime(2009, 01, 02), "retrait", new User(), false, null);
 //            saving.Deposit(100, new DateTime(2009, 02, 01), "depot", new User(), true, false, OPaymentMethods.Cash, null, null);
-            saving.Deposit(100, new DateTime(2009, 02, 01), "depot", new User(), true, false, OSavingsMethods.Cash, null, null);
+            saving.Deposit(100, new DateTime(2009, 02, 01), "depot", new User(), true, false, OSavingsMethods.Cash, new PaymentMethod(),  null, null);
 
             List<SavingInterestsAccrualEvent> list = new List<SavingInterestsAccrualEvent>();
             list = saving.CalculateInterest(new DateTime(2009, 01, 08), new User { Id = 1 });
@@ -206,7 +206,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings.CalculateInterests
             saving.FirstDeposit(1000, new DateTime(2009, 01, 01), null, new User(), Teller.CurrentTeller);
 
 //            saving.Deposit(100, new DateTime(2009, 02, 01), "depot", new User(), true, false, OPaymentMethods.Cash, null, null);
-            saving.Deposit(100, new DateTime(2009, 02, 01), "depot", new User(), true, false, OSavingsMethods.Cash, null, null);
+            saving.Deposit(100, new DateTime(2009, 02, 01), "depot", new User(), true, false, OSavingsMethods.Cash, new PaymentMethod(), null, null);
 
             List<SavingInterestsAccrualEvent> list = new List<SavingInterestsAccrualEvent>();
             list = saving.CalculateInterest(new DateTime(2009, 02, 01), new User { Id = 1 });
