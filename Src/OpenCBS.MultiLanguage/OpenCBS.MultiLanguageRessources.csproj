@@ -220,6 +220,7 @@
     <EmbeddedResource Include="resx\AddTrancheForm.es-ES.resx" />
     <EmbeddedResource Include="resx\DashboardForm.resx" />
     <EmbeddedResource Include="resx\FrmAvalaibleCollateralProducts.resx" />
+    <EmbeddedResource Include="resx\OpenSavingsForm.resx" />
     <EmbeddedResource Include="resx\ReschedulingForm.es-ES.resx" />
     <EmbeddedResource Include="resx\ReschedulingForm.fr.resx" />
     <EmbeddedResource Include="resx\ReschedulingForm.pt.resx" />
