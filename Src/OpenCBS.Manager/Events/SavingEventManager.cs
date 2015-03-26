@@ -127,7 +127,7 @@ namespace OpenCBS.Manager.Events
 	        c.AddParam("@related_contract_code", pSavingEvent is SavingTransferEvent ?
 	                                                                                                                           ((SavingTransferEvent)pSavingEvent).RelatedContractCode : null);
 	        c.AddParam("@fees", pSavingEvent is ISavingsFees ? ((ISavingsFees)pSavingEvent).Fee : null);
-            if (pSavingEvent.PaymentsMethod.Id != 0)
+            if (pSavingEvent.PaymentMethod != null && pSavingEvent.PaymentsMethod.Id != 0)
             {
                 c.AddParam("@savings_method", pSavingEvent.PaymentsMethod.Id);
             }
