@@ -757,7 +757,7 @@ namespace OpenCBS.GUI.Clients
                 IClient member = (IClient)listViewSavings.SelectedItems[0].Group.Tag;
                 if (member != null)
                 {
-                    ClientForm personForm = new ClientForm((Person)member, MdiParent);
+                    ClientForm personForm = new ClientForm((Person)member, MdiParent, _applicationController);
                     personForm.DisplaySaving(((ISavingsContract)listViewSavings.SelectedItems[0].Tag).Id, member);
                     personForm.ShowDialog();
                     DisplaySavings();
