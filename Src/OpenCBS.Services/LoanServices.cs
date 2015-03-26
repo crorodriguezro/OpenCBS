@@ -2374,6 +2374,12 @@ namespace OpenCBS.Services
                             lve.TellerId = Teller.CurrentTeller.Id;
 
                         _ePs.FireEvent(lve, tempLoan, sqlTransaction);
+                        CallInterceptor(new Dictionary<string, object>
+                            {
+                                {"Loan", tempLoan},
+                                {"Event", lve},
+                                {"SqlTransaction", sqlTransaction}
+                            });
                         tempLoan.Events.Add(lve);
                     }
                     _loanManager.UpdateLoanStatus(tempLoan, sqlTransaction);
