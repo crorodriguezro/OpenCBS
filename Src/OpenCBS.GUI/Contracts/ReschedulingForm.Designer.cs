@@ -76,7 +76,6 @@ namespace OpenCBS.GUI.Contracts
             // 
             // startDateTimePicker
             // 
-            this.startDateTimePicker.CustomFormat = ((OpenCBS.Shared.Settings.ApplicationSettings)(resources.GetObject("resource1"))).SHORT_DATE_FORMAT;
             this.startDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             resources.ApplyResources(this.startDateTimePicker, "startDateTimePicker");
             this.startDateTimePicker.Name = "startDateTimePicker";
@@ -118,6 +117,7 @@ namespace OpenCBS.GUI.Contracts
             this.trancheConfigurationPanel.Controls.Add(this.startDateTimePicker);
             this.trancheConfigurationPanel.Controls.Add(this.installmentsNumericUpDown);
             this.trancheConfigurationPanel.Controls.Add(this.startDateLabel);
+            resources.ApplyResources(this.trancheConfigurationPanel, "trancheConfigurationPanel");
             this.trancheConfigurationPanel.Name = "trancheConfigurationPanel";
             // 
             // _interestRateTextBox
@@ -146,9 +146,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // firstRepaymentDateTimePicker
             // 
-            resources.ApplyResources(this.trancheConfigurationPanel, "trancheConfigurationPanel");
-            resources.ApplyResources(this.firstRepaymentDateTimePicker, "firstRepaymentDateTimePicker");
             this.firstRepaymentDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            resources.ApplyResources(this.firstRepaymentDateTimePicker, "firstRepaymentDateTimePicker");
             this.firstRepaymentDateTimePicker.Name = "firstRepaymentDateTimePicker";
             // 
             // firstRepaymentOnLabel

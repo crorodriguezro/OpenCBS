@@ -176,6 +176,7 @@ namespace OpenCBS.GUI
             resources.ApplyResources(this.textBoxCity, "textBoxCity");
             this.textBoxCity.MyAutoCompleteSource = null;
             this.textBoxCity.Name = "textBoxCity";
+            this.textBoxCity.ReadOnly = true;
             this.textBoxCity.TextChanged += new System.EventHandler(this.textBoxCity_TextChanged);
             // 
             // tbAddress
