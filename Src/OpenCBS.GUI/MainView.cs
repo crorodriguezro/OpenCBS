@@ -1000,7 +1000,20 @@ namespace OpenCBS.GUI
 
                 items.Insert(index + 1, temp.GetItem());
             }
+            foreach (var menu in _applicationController.GetAllInstances<IMenu>())
+            {
+                var anchor = mainMenu.Items.Find(menu.InsertAfter, true).FirstOrDefault();
+                if (anchor == null) continue;
 
+                var owner = (ToolStripMenuItem) anchor.OwnerItem;
+
+                var temp = menu;
+
+                var items = owner == null ? mainMenu.Items : owner.DropDownItems;
+                var index = items.IndexOf(anchor);
+
+                items.Insert(index + 1, temp.GetItem());
+            }
         }
 
         private void InitializeCoreMenu()
