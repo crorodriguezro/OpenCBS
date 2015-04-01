@@ -230,6 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="opencbs.ico" />
+    <None Include="Resources\logo_with_tagline.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
