@@ -3712,15 +3712,10 @@ namespace OpenCBS.GUI.Clients
 
                     tabControlPerson.TabPages.Add(tabPageCreditCommitee);
 
-//                    EnableBoxCreditCommitteeComponents(true);
-//
-//                    SetCcEnabled(true);
-//                    textBoxCreditCommiteeComment.Text = "";
-
                     tabControlPerson.SelectedTab = _product.UseGuarantorCollateral ? tabPageLoanGuarantees : tabPageCreditCommitee;
 
                     Text = string.Format("{0} - {1}", _title, _credit.Code);
-                    ((MainView)_mdiParent).ReloadAlertsSync();
+                    //((MainView)_mdiParent).ReloadAlertsSync();
                 }
                 else
                 {
@@ -3938,7 +3933,7 @@ namespace OpenCBS.GUI.Clients
                     tabControlPerson.TabPages.Add(tabPageLoanRepayment);
                     tabControlPerson.SelectedTab = tabPageLoanRepayment;
                     buttonLoanDisbursment.Enabled = false;
-                    ((MainView)_mdiParent).ReloadAlertsSync();
+                    //((MainView)_mdiParent).ReloadAlertsSync();
                     InitializeTabPageLoanRepayment(_credit);
                     DisplayInstallments(ref _credit);
                     _loanApprovalControl.Status = _credit.ContractStatus;
@@ -4015,8 +4010,8 @@ namespace OpenCBS.GUI.Clients
                 buttonAddTranche.Enabled = false;
             }
             DisplaySavings(_client.Savings);
-            if (MdiParent != null)
-                ((MainView) MdiParent).ReloadAlertsSync();
+//            if (MdiParent != null)
+//                ((MainView) MdiParent).ReloadAlertsSync();
         }
 
         private void buttonLoanRepaymentRepay_Click(object sender, EventArgs e)
@@ -4094,8 +4089,8 @@ namespace OpenCBS.GUI.Clients
                         buttonManualSchedule.Enabled = false;
                     }
 
-                    if (MdiParent != null)
-                        ((MainView)MdiParent).ReloadAlertsSync();
+//                    if (MdiParent != null)
+//                        ((MainView)MdiParent).ReloadAlertsSync();
                 }
                 SetAddTrancheButton(_credit);
             }
@@ -4509,7 +4504,7 @@ namespace OpenCBS.GUI.Clients
                         tabControlPerson.TabPages.Remove(tabPageSavingDetails);
                         tabControlPerson.SelectedTab = tabPageLoansDetails;
 
-                        ((MainView)_mdiParent).ReloadAlertsSync();
+//                        ((MainView)_mdiParent).ReloadAlertsSync();
 
                         buttonLoanDisbursment.Enabled = true;
                         _loanApprovalControl.Status = _credit.ContractStatus;
@@ -4800,7 +4795,7 @@ namespace OpenCBS.GUI.Clients
                     }
                 }
 
-                ((MainView)_mdiParent).ReloadAlertsSync();
+                //((MainView)_mdiParent).ReloadAlertsSync();
 
             }
             catch (Exception ex)
@@ -5316,7 +5311,7 @@ namespace OpenCBS.GUI.Clients
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
             DisplaySavings(_client.Savings);
-            ((MainView)_mdiParent).ReloadAlertsSync();
+//            ((MainView)_mdiParent).ReloadAlertsSync();
         }
 
         private void buttonSavingWithDraw_Click(object sender, EventArgs e)
@@ -5327,7 +5322,7 @@ namespace OpenCBS.GUI.Clients
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
             DisplaySavings(_client.Savings);
-            ((MainView)_mdiParent).ReloadAlertsSync();
+//            ((MainView)_mdiParent).ReloadAlertsSync();
         }
 
         private List<User> _subordinates;
@@ -5599,7 +5594,7 @@ namespace OpenCBS.GUI.Clients
                         new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
                     }
 
-                    ((MainView)_mdiParent).ReloadAlertsSync();
+//                    ((MainView)_mdiParent).ReloadAlertsSync();
 
                     DisplaySavingEvent(_saving);
 
@@ -5706,7 +5701,7 @@ namespace OpenCBS.GUI.Clients
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
             DisplaySavings(_client.Savings);
-            ((MainView)_mdiParent).ReloadAlertsSync();
+//            ((MainView)_mdiParent).ReloadAlertsSync();
         }
 
         private void OnFirstInstallmentDateChanged(object sender, EventArgs e)
@@ -6378,7 +6373,7 @@ namespace OpenCBS.GUI.Clients
                     savEvent.IsPending = false;
                     lvSavingEvent.SelectedItems[0].Tag = savEvent;
 
-                    ((MainView)_mdiParent).ReloadAlertsSync();
+//                    ((MainView)_mdiParent).ReloadAlertsSync();
 
                     DisplaySavingEvent(_saving);
                     if (_person != null) DisplaySavings(_person.Savings);
@@ -6405,7 +6400,7 @@ namespace OpenCBS.GUI.Clients
                 savEvent.IsPending = false;
                 lvSavingEvent.SelectedItems[0].Tag = savEvent;
 
-                ((MainView)_mdiParent).ReloadAlertsSync();
+//                ((MainView)_mdiParent).ReloadAlertsSync();
 
                 DisplaySavingEvent(_saving);
                 if (_person != null) DisplaySavings(_person.Savings);
@@ -6483,7 +6478,7 @@ namespace OpenCBS.GUI.Clients
             InitializeContractStatus(_credit);
             if (MdiParent != null)
             {
-                ((MainView)MdiParent).ReloadAlertsSync();
+//                ((MainView)MdiParent).ReloadAlertsSync();
             }
         }
 
@@ -6586,7 +6581,7 @@ namespace OpenCBS.GUI.Clients
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
             DisplaySavings(_client.Savings);
-            ((MainView)MdiParent).ReloadAlertsSync();
+//            ((MainView)MdiParent).ReloadAlertsSync();
         }
 
         private void ShowTotalFeesInListView(ListViewItem item)

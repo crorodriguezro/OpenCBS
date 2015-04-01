@@ -17,7 +17,6 @@ namespace OpenCBS.GUI
         private System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.ToolStripMenuItem mnuWindow;
         private System.Windows.Forms.ToolStripMenuItem mnuNewGroup;
-        private System.Windows.Forms.ImageList imageListAlert;
         private System.Windows.Forms.ToolStripMenuItem mnuConfiguration;
         private System.Windows.Forms.ToolStripMenuItem mnuDomainOfApplication;
         private System.Windows.Forms.ToolStripMenuItem menuItemExportTransaction;
@@ -28,7 +27,6 @@ namespace OpenCBS.GUI
         private ToolStripSeparator toolStripSeparatorConfig2;
         private ToolStripSeparator toolStripSeparatorConfig3;
         private StatusStrip mainStatusBar;
-        private CollapsibleSplitter splitter6;
         private ToolStripLabel toolBarLblVersion;
         private ToolStripStatusLabel mainStatusBarLblUserName;
         private ToolStripStatusLabel mainStatusBarLblDate;
@@ -65,10 +63,8 @@ namespace OpenCBS.GUI
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
-            this.imageListAlert = new System.Windows.Forms.ImageList(this.components);
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.toolBarLblVersion = new System.Windows.Forms.ToolStripLabel();
-            this.bwAlerts = new System.ComponentModel.BackgroundWorker();
             this.nIUpdateAvailable = new System.Windows.Forms.NotifyIcon(this.components);
             this.openCustomizableFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.colAlerts_Address = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -76,25 +72,6 @@ namespace OpenCBS.GUI
             this.colAlerts_Phone = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.colAlerts_BranchName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.bwUserInformation = new System.ComponentModel.BackgroundWorker();
-            this.splitter6 = new OpenCBS.GUI.UserControl.CollapsibleSplitter();
-            this.panelLeft = new System.Windows.Forms.Panel();
-            this.olvAlerts = new BrightIdeasSoftware.ObjectListView();
-            this.colAlerts_ContractCode = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.colAlerts_Status = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.colAlerts_Client = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.colAlerts_LoanOfficer = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.colAlerts_Date = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.colAlerts_Amount = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.tabFilter = new System.Windows.Forms.TableLayoutPanel();
-            this.chkPostponedLoans = new System.Windows.Forms.CheckBox();
-            this.tbFilter = new System.Windows.Forms.TextBox();
-            this.lblFilter = new System.Windows.Forms.Label();
-            this.chkLateLoans = new System.Windows.Forms.CheckBox();
-            this.chkPendingLoans = new System.Windows.Forms.CheckBox();
-            this.chkPendingSavings = new System.Windows.Forms.CheckBox();
-            this.chkOverdraftSavings = new System.Windows.Forms.CheckBox();
-            this.chkValidatedLoan = new System.Windows.Forms.CheckBox();
             this.mnuClients = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNewPerson = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNewClient = new System.Windows.Forms.ToolStripMenuItem();
@@ -165,25 +142,9 @@ namespace OpenCBS.GUI
             this.mainStatusBarLblDate = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLblBranchCode = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLblDB = new System.Windows.Forms.ToolStripStatusLabel();
-            this.alertBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.loanPurposeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelLeft.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.olvAlerts)).BeginInit();
-            this.tabFilter.SuspendLayout();
             this.mainMenu.SuspendLayout();
             this.mainStatusBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.alertBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // imageListAlert
-            // 
-            this.imageListAlert.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListAlert.ImageStream")));
-            this.imageListAlert.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListAlert.Images.SetKeyName(0, "money.png");
-            this.imageListAlert.Images.SetKeyName(1, "time.png");
-            this.imageListAlert.Images.SetKeyName(2, "");
-            this.imageListAlert.Images.SetKeyName(3, "");
-            this.imageListAlert.Images.SetKeyName(4, "money_dollar.png");
             // 
             // timer
             // 
@@ -197,12 +158,6 @@ namespace OpenCBS.GUI
             resources.ApplyResources(this.toolBarLblVersion, "toolBarLblVersion");
             this.toolBarLblVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(156)))));
             this.toolBarLblVersion.Name = "toolBarLblVersion";
-            // 
-            // bwAlerts
-            // 
-            this.bwAlerts.WorkerSupportsCancellation = true;
-            this.bwAlerts.DoWork += new System.ComponentModel.DoWorkEventHandler(this.OnAlertsLoading);
-            this.bwAlerts.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.OnAlertsLoaded);
             // 
             // nIUpdateAvailable
             // 
@@ -241,183 +196,6 @@ namespace OpenCBS.GUI
             resources.ApplyResources(this.colAlerts_BranchName, "colAlerts_BranchName");
             this.colAlerts_BranchName.IsEditable = false;
             this.colAlerts_BranchName.IsVisible = false;
-            // 
-            // splitter6
-            // 
-            this.splitter6.AnimationDelay = 20;
-            this.splitter6.AnimationStep = 20;
-            this.splitter6.BorderStyle3D = System.Windows.Forms.Border3DStyle.Flat;
-            this.splitter6.ControlToHide = this.panelLeft;
-            this.splitter6.ExpandParentForm = false;
-            resources.ApplyResources(this.splitter6, "splitter6");
-            this.splitter6.Name = "splitter6";
-            this.splitter6.TabStop = false;
-            this.splitter6.UseAnimations = false;
-            this.splitter6.VisualStyle = OpenCBS.GUI.UserControl.VisualStyles.Mozilla;
-            // 
-            // panelLeft
-            // 
-            this.panelLeft.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.panelLeft, "panelLeft");
-            this.panelLeft.Controls.Add(this.olvAlerts);
-            this.panelLeft.Controls.Add(this.lblTitle);
-            this.panelLeft.Controls.Add(this.tabFilter);
-            this.panelLeft.Name = "panelLeft";
-            // 
-            // olvAlerts
-            // 
-            this.olvAlerts.AllColumns.Add(this.colAlerts_ContractCode);
-            this.olvAlerts.AllColumns.Add(this.colAlerts_Status);
-            this.olvAlerts.AllColumns.Add(this.colAlerts_Client);
-            this.olvAlerts.AllColumns.Add(this.colAlerts_LoanOfficer);
-            this.olvAlerts.AllColumns.Add(this.colAlerts_Date);
-            this.olvAlerts.AllColumns.Add(this.colAlerts_Amount);
-            this.olvAlerts.AllColumns.Add(this.colAlerts_Address);
-            this.olvAlerts.AllColumns.Add(this.colAlerts_City);
-            this.olvAlerts.AllColumns.Add(this.colAlerts_Phone);
-            this.olvAlerts.AllColumns.Add(this.colAlerts_BranchName);
-            this.olvAlerts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colAlerts_ContractCode,
-            this.colAlerts_Status,
-            this.colAlerts_Client,
-            this.colAlerts_LoanOfficer,
-            this.colAlerts_Date,
-            this.colAlerts_Amount});
-            resources.ApplyResources(this.olvAlerts, "olvAlerts");
-            this.olvAlerts.FullRowSelect = true;
-            this.olvAlerts.GridLines = true;
-            this.olvAlerts.HasCollapsibleGroups = false;
-            this.olvAlerts.Name = "olvAlerts";
-            this.olvAlerts.ShowGroups = false;
-            this.olvAlerts.SmallImageList = this.imageListAlert;
-            this.olvAlerts.UseCompatibleStateImageBehavior = false;
-            this.olvAlerts.View = System.Windows.Forms.View.Details;
-            this.olvAlerts.FormatRow += new System.EventHandler<BrightIdeasSoftware.FormatRowEventArgs>(this.OnFormatAlertRow);
-            this.olvAlerts.ItemsChanged += new System.EventHandler<BrightIdeasSoftware.ItemsChangedEventArgs>(this.OnAlertItemsChanged);
-            this.olvAlerts.DoubleClick += new System.EventHandler(this.OnAlertDoubleClicked);
-            // 
-            // colAlerts_ContractCode
-            // 
-            this.colAlerts_ContractCode.AspectName = "ContractCode";
-            this.colAlerts_ContractCode.IsEditable = false;
-            resources.ApplyResources(this.colAlerts_ContractCode, "colAlerts_ContractCode");
-            // 
-            // colAlerts_Status
-            // 
-            this.colAlerts_Status.AspectName = "Status";
-            this.colAlerts_Status.IsEditable = false;
-            resources.ApplyResources(this.colAlerts_Status, "colAlerts_Status");
-            // 
-            // colAlerts_Client
-            // 
-            this.colAlerts_Client.AspectName = "ClientName";
-            this.colAlerts_Client.IsEditable = false;
-            resources.ApplyResources(this.colAlerts_Client, "colAlerts_Client");
-            // 
-            // colAlerts_LoanOfficer
-            // 
-            this.colAlerts_LoanOfficer.AspectName = "LoanOfficer";
-            this.colAlerts_LoanOfficer.IsEditable = false;
-            resources.ApplyResources(this.colAlerts_LoanOfficer, "colAlerts_LoanOfficer");
-            // 
-            // colAlerts_Date
-            // 
-            this.colAlerts_Date.AspectName = "Date";
-            this.colAlerts_Date.IsEditable = false;
-            resources.ApplyResources(this.colAlerts_Date, "colAlerts_Date");
-            // 
-            // colAlerts_Amount
-            // 
-            this.colAlerts_Amount.AspectName = "Amount";
-            this.colAlerts_Amount.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.colAlerts_Amount.IsEditable = false;
-            resources.ApplyResources(this.colAlerts_Amount, "colAlerts_Amount");
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
-            resources.ApplyResources(this.lblTitle, "lblTitle");
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Name = "lblTitle";
-            // 
-            // tabFilter
-            // 
-            resources.ApplyResources(this.tabFilter, "tabFilter");
-            this.tabFilter.Controls.Add(this.chkPostponedLoans, 0, 4);
-            this.tabFilter.Controls.Add(this.tbFilter, 1, 0);
-            this.tabFilter.Controls.Add(this.lblFilter, 0, 0);
-            this.tabFilter.Controls.Add(this.chkLateLoans, 0, 1);
-            this.tabFilter.Controls.Add(this.chkPendingLoans, 0, 2);
-            this.tabFilter.Controls.Add(this.chkPendingSavings, 0, 5);
-            this.tabFilter.Controls.Add(this.chkOverdraftSavings, 0, 6);
-            this.tabFilter.Controls.Add(this.chkValidatedLoan, 0, 4);
-            this.tabFilter.Name = "tabFilter";
-            // 
-            // chkPostponedLoans
-            // 
-            resources.ApplyResources(this.chkPostponedLoans, "chkPostponedLoans");
-            this.chkPostponedLoans.Checked = true;
-            this.chkPostponedLoans.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tabFilter.SetColumnSpan(this.chkPostponedLoans, 2);
-            this.chkPostponedLoans.Name = "chkPostponedLoans";
-            this.chkPostponedLoans.CheckedChanged += new System.EventHandler(this.OnAlertCheckChanged);
-            // 
-            // tbFilter
-            // 
-            this.tbFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
-            resources.ApplyResources(this.tbFilter, "tbFilter");
-            this.tbFilter.Name = "tbFilter";
-            this.tbFilter.TextChanged += new System.EventHandler(this.OnFilterChanged);
-            // 
-            // lblFilter
-            // 
-            resources.ApplyResources(this.lblFilter, "lblFilter");
-            this.lblFilter.Name = "lblFilter";
-            // 
-            // chkLateLoans
-            // 
-            resources.ApplyResources(this.chkLateLoans, "chkLateLoans");
-            this.chkLateLoans.Checked = true;
-            this.chkLateLoans.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tabFilter.SetColumnSpan(this.chkLateLoans, 2);
-            this.chkLateLoans.Name = "chkLateLoans";
-            this.chkLateLoans.CheckedChanged += new System.EventHandler(this.OnAlertCheckChanged);
-            // 
-            // chkPendingLoans
-            // 
-            resources.ApplyResources(this.chkPendingLoans, "chkPendingLoans");
-            this.chkPendingLoans.Checked = true;
-            this.chkPendingLoans.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tabFilter.SetColumnSpan(this.chkPendingLoans, 2);
-            this.chkPendingLoans.Name = "chkPendingLoans";
-            this.chkPendingLoans.CheckedChanged += new System.EventHandler(this.OnAlertCheckChanged);
-            // 
-            // chkPendingSavings
-            // 
-            resources.ApplyResources(this.chkPendingSavings, "chkPendingSavings");
-            this.chkPendingSavings.Checked = true;
-            this.chkPendingSavings.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tabFilter.SetColumnSpan(this.chkPendingSavings, 2);
-            this.chkPendingSavings.Name = "chkPendingSavings";
-            this.chkPendingSavings.CheckedChanged += new System.EventHandler(this.OnAlertCheckChanged);
-            // 
-            // chkOverdraftSavings
-            // 
-            resources.ApplyResources(this.chkOverdraftSavings, "chkOverdraftSavings");
-            this.chkOverdraftSavings.Checked = true;
-            this.chkOverdraftSavings.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tabFilter.SetColumnSpan(this.chkOverdraftSavings, 2);
-            this.chkOverdraftSavings.Name = "chkOverdraftSavings";
-            this.chkOverdraftSavings.CheckedChanged += new System.EventHandler(this.OnAlertCheckChanged);
-            // 
-            // chkValidatedLoan
-            // 
-            resources.ApplyResources(this.chkValidatedLoan, "chkValidatedLoan");
-            this.chkValidatedLoan.Checked = true;
-            this.chkValidatedLoan.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tabFilter.SetColumnSpan(this.chkValidatedLoan, 2);
-            this.chkValidatedLoan.Name = "chkValidatedLoan";
-            this.chkValidatedLoan.CheckedChanged += new System.EventHandler(this.OnAlertCheckChanged);
             // 
             // mnuClients
             // 
@@ -940,21 +718,9 @@ namespace OpenCBS.GUI
             this.toolStripStatusLblDB.Name = "toolStripStatusLblDB";
             resources.ApplyResources(this.toolStripStatusLblDB, "toolStripStatusLblDB");
             // 
-            // alertBindingSource
-            // 
-            this.alertBindingSource.DataSource = typeof(OpenCBS.CoreDomain.Alert);
-            // 
-            // loanPurposeToolStripMenuItem
-            // 
-            this.loanPurposeToolStripMenuItem.Name = "loanPurposeToolStripMenuItem";
-            resources.ApplyResources(this.loanPurposeToolStripMenuItem, "loanPurposeToolStripMenuItem");
-            this.loanPurposeToolStripMenuItem.Click += new System.EventHandler(this.loanPurposeToolStripMenuItem_Click);
-            // 
             // MainView
             // 
             resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.splitter6);
-            this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.mainStatusBar);
             this.Controls.Add(this.mainMenu);
             this.IsMdiContainer = true;
@@ -963,16 +729,10 @@ namespace OpenCBS.GUI
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LotrasmicMainWindowForm_FormClosing);
             this.Load += new System.EventHandler(this.LotrasmicMainWindowForm_Load);
-            this.panelLeft.ResumeLayout(false);
-            this.panelLeft.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.olvAlerts)).EndInit();
-            this.tabFilter.ResumeLayout(false);
-            this.tabFilter.PerformLayout();
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             this.mainStatusBar.ResumeLayout(false);
             this.mainStatusBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.alertBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -982,38 +742,19 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem newCorporateToolStripMenuItem;
         private ToolStripMenuItem mnuNewVillage;
         private ToolStripMenuItem miContractCode;
-        private System.ComponentModel.BackgroundWorker bwAlerts;
         private ToolStripMenuItem standardToolStripMenuItem;
         private ToolStripMenuItem currenciesToolStripMenuItem;
-        private Panel panelLeft;
-        private Label lblTitle;
         private ToolStripMenuItem accountingRulesToolStripMenuItem;
         private NotifyIcon nIUpdateAvailable;
         private OpenFileDialog openCustomizableFileDialog;
-        private BindingSource alertBindingSource;
         private ToolStripMenuItem trialBalanceToolStripMenuItem;
-        private BrightIdeasSoftware.ObjectListView olvAlerts;
-        private BrightIdeasSoftware.OLVColumn colAlerts_ContractCode;
-        private BrightIdeasSoftware.OLVColumn colAlerts_Status;
-        private BrightIdeasSoftware.OLVColumn colAlerts_Client;
-        private BrightIdeasSoftware.OLVColumn colAlerts_LoanOfficer;
-        private BrightIdeasSoftware.OLVColumn colAlerts_Date;
-        private BrightIdeasSoftware.OLVColumn colAlerts_Amount;
         private BrightIdeasSoftware.OLVColumn colAlerts_Address;
         private BrightIdeasSoftware.OLVColumn colAlerts_City;
         private BrightIdeasSoftware.OLVColumn colAlerts_Phone;
-        private Label lblFilter;
-        private TextBox tbFilter;
-        private CheckBox chkLateLoans;
-        private TableLayoutPanel tabFilter;
-        private CheckBox chkPendingLoans;
         private ToolStripMenuItem manualEntriesToolStripMenuItem;
         private ToolStripMenuItem branchesToolStripMenuItem;
         private ToolStripStatusLabel toolStripStatusLblDB;
         private BrightIdeasSoftware.OLVColumn colAlerts_BranchName;
-        private CheckBox chkOverdraftSavings;
-        private CheckBox chkPendingSavings;
-        private CheckBox chkValidatedLoan;
         private ToolStripMenuItem mnuNewclosure;
         private System.ComponentModel.BackgroundWorker bwUserInformation;
         private ToolStripMenuItem fiscalYearToolStripMenuItem;
@@ -1047,7 +788,6 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem contactMenuItem;
         private ToolStripMenuItem mnuChartOfAccounts;
         private ToolStripMenuItem userGuideToolStripMenuItem;
-        private CheckBox chkPostponedLoans;
         private ToolStripMenuItem getHelpFromForumToolStripMenuItem;
         private ToolStripMenuItem visitOpenCBScomToolStripMenuItem;
         private ToolStripMenuItem collateralProductsToolStripMenuItem;

@@ -668,10 +668,10 @@ namespace OpenCBS.GUI.Clients
             if (null == product) return;
             VillageAddLoanForm frm = new VillageAddLoanForm(_village, product, this);
 
-            if (DialogResult.OK == frm.ShowDialog())
-            {
-                ((MainView)MdiParent).ReloadAlerts();
-            }
+//            if (DialogResult.OK == frm.ShowDialog())
+//            {
+//                ((MainView)MdiParent).ReloadAlerts();
+//            }
             DisplayMembers();
             DisplayLoans();
         }
@@ -684,7 +684,7 @@ namespace OpenCBS.GUI.Clients
                 DisplayMembers();
                 DisplayLoans();
                 LoadMeetingDates();
-                ((MainView)MdiParent).ReloadAlerts();
+//                ((MainView)MdiParent).ReloadAlerts();
             }
         }
 
@@ -695,7 +695,7 @@ namespace OpenCBS.GUI.Clients
             {
                 DisplayMembers();
                 DisplayLoans();
-                ((MainView)MdiParent).ReloadAlerts();
+//                ((MainView)MdiParent).ReloadAlerts();
             }
         }
         private bool CheckDataInOpenFiscalYear()
@@ -811,7 +811,7 @@ namespace OpenCBS.GUI.Clients
             frm.ShowDialog();
 
             DisplayLoans();
-            ((MainView) MdiParent).ReloadAlerts();
+//            ((MainView) MdiParent).ReloadAlerts();
         }
 
         private void cbMeetingDay_CheckedChanged(object sender, EventArgs e)
@@ -903,7 +903,7 @@ namespace OpenCBS.GUI.Clients
             {
                 DisplayLoans();
                 LoadMeetingDates();
-                ((MainView)MdiParent).ReloadAlerts();
+//                ((MainView)MdiParent).ReloadAlerts();
             }
         }
 

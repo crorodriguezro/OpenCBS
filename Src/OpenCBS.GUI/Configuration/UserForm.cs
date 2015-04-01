@@ -213,7 +213,7 @@ namespace OpenCBS.GUI.Configuration
 
                 if (canErase)
                 {
-                    ((MainView)MdiParent).ReloadAlerts();
+//                    ((MainView)MdiParent).ReloadAlerts();
                     ServicesProvider.GetInstance().GetUserServices().Delete(_user);
                     InitUsers();
                     EraseUser();
@@ -299,7 +299,7 @@ namespace OpenCBS.GUI.Configuration
 
             if (boss.Id != User.CurrentUser.Id) return;
 
-            ((MainView)MdiParent).ReloadAlerts();
+//            ((MainView)MdiParent).ReloadAlerts();
         }
 
         private void RefreshUser(User user)
