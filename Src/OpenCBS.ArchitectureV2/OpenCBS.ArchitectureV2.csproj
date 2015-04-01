@@ -72,7 +72,9 @@
     <Compile Include="BackgroundTaskFactory.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="CommandData\ShowRepaymentViewCommandData.cs" />
+    <Compile Include="CommandData\ShowStartPageCommandData.cs" />
     <Compile Include="Command\ShowRepaymentViewCommand.cs" />
+    <Compile Include="Command\ShowStartPageCommand.cs" />
     <Compile Include="DefaultRegistry.cs" />
     <Compile Include="EventAggregatorInterceptor.cs" />
     <Compile Include="EventPublisher.cs" />
@@ -86,6 +88,8 @@
     <Compile Include="Interface\Presenter\IRepaymentPresenter.cs" />
     <Compile Include="Interface\Presenter\IRepaymentPresenterCallbacks.cs" />
     <Compile Include="Interface\Presenter\ISqlServerConnectionPresenter.cs" />
+    <Compile Include="Interface\Presenter\IStartPagePresenter.cs" />
+    <Compile Include="Interface\Presenter\IStartPagePresenterCallbacks.cs" />
     <Compile Include="Interface\Presenter\IUpgradePresenter.cs" />
     <Compile Include="Interface\Service\IRepaymentService.cs" />
     <Compile Include="Interface\Service\ISettingsService.cs" />
@@ -99,10 +103,13 @@
     <Compile Include="Interface\View\ILoginView.cs" />
     <Compile Include="Interface\View\IMainView.cs" />
     <Compile Include="Interface\View\IRepaymentView.cs" />
+    <Compile Include="Interface\View\IStartPageView.cs" />
     <Compile Include="Interface\View\IUpgradeView.cs" />
     <Compile Include="Interface\View\IView.cs" />
+    <Compile Include="Message\ShowViewMessage.cs" />
     <Compile Include="Presenter\LoginPresenter.cs" />
     <Compile Include="Presenter\RepaymentPresenter.cs" />
+    <Compile Include="Presenter\StartPagePresenter.cs" />
     <Compile Include="Presenter\TranslationService.cs" />
     <Compile Include="Presenter\UpgradePresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,6 +123,7 @@
     <Compile Include="Service\RepaymentSettings.cs" />
     <Compile Include="Service\RepaymentService.cs" />
     <Compile Include="Service\SettingsService.cs" />
+    <Compile Include="TinyMessenger.cs" />
     <Compile Include="View\BaseView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +135,12 @@
     </Compile>
     <Compile Include="View\RepaymentView.Designer.cs">
       <DependentUpon>RepaymentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StartPageView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StartPageView.Designer.cs">
+      <DependentUpon>StartPageView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UpgradeView.cs">
       <SubType>Form</SubType>
@@ -173,6 +187,9 @@
     <EmbeddedResource Include="View\RepaymentView.resx">
       <DependentUpon>RepaymentView.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StartPageView.resx">
+      <DependentUpon>StartPageView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UpgradeView.resx">
       <DependentUpon>UpgradeView.cs</DependentUpon>

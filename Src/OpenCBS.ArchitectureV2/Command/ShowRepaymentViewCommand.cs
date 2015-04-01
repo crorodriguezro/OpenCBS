@@ -10,13 +10,11 @@ namespace OpenCBS.ArchitectureV2.Command
     public class ShowRepaymentViewCommand : ICommand<ShowRepaymentViewCommandData>
     {
         private readonly IRepaymentPresenter _presenter;
-        private readonly IRepaymentService _service;
         private readonly IApplicationController _appController;
 
-        public ShowRepaymentViewCommand(IRepaymentPresenter presenter, IRepaymentService service, IApplicationController appController)
+        public ShowRepaymentViewCommand(IRepaymentPresenter presenter, IApplicationController appController)
         {
             _presenter = presenter;
-            _service = service;
             _appController = appController;
         }
 
@@ -25,7 +23,7 @@ namespace OpenCBS.ArchitectureV2.Command
             var result = _presenter.Run(commandData.Loan);
             if (result == DialogResult.OK)
             {
-                _appController.Raise(new RepaymentNotification {LoanId = commandData.Loan.Id});
+                _appController.Publish(new RepaymentNotification(this, commandData.Loan.Id));
             }
         }
     }

@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.View;
 using StructureMap;
+using TinyMessenger;
 
 namespace OpenCBS.ArchitectureV2
 {
     public class ApplicationController : IApplicationController
     {
         private readonly IContainer _container;
-        private readonly IEventPublisher _eventPublisher;
+        private readonly ITinyMessengerHub _messengerHub;
+        private readonly Dictionary<object, List<TinyMessageSubscriptionToken>> _subscriptions = new Dictionary<object, List<TinyMessageSubscriptionToken>>();
 
-        public ApplicationController(IContainer container, IEventPublisher eventPublisher)
+        public ApplicationController(IContainer container, ITinyMessengerHub messengerHub)
         {
             _container = container;
-            _eventPublisher = eventPublisher;
+            _messengerHub = messengerHub;
         }
 
         public void Execute<T>(T commandData)
@@ -34,24 +36,37 @@ namespace OpenCBS.ArchitectureV2
             }
         }
 
-        public void Raise<T>(T eventData)
-        {
-            _eventPublisher.Publish(eventData);
-        }
-
-        public void Subscribe(object eventHandlers)
-        {
-            _eventPublisher.Subscribe(eventHandlers);
-        }
-
-        public void Unsubscribe(object eventHandlers)
-        {
-            _eventPublisher.Unsubscribe(eventHandlers);
-        }
-
         public IList<T> GetAllInstances<T>()
         {
             return _container.GetAllInstances<T>();
+        }
+
+        public void Subscribe<T>(object receiver, Action<T> action) where T : class, ITinyMessage
+        {
+            if (!_subscriptions.ContainsKey(receiver))
+            {
+                _subscriptions[receiver] = new List<TinyMessageSubscriptionToken>();
+            }
+            var token = _messengerHub.Subscribe(action);
+            _subscriptions[receiver].Add(token);
+        }
+
+        public void Unsubscribe(object receiver)
+        {
+            if (!_subscriptions.ContainsKey(receiver))
+            {
+                return;
+            }
+            foreach (var token in _subscriptions[receiver])
+            {
+                token.Dispose();
+            }
+            _subscriptions.Remove(receiver);
+        }
+
+        public void Publish<T>(T message) where T : class, ITinyMessage
+        {
+            _messengerHub.Publish(message);
         }
     }
 }

@@ -39,7 +39,6 @@ using OpenCBS.CoreDomain.Contracts.Guarantees;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.CoreDomain.Contracts.Savings;
-using OpenCBS.CoreDomain.EconomicActivities;
 using OpenCBS.CoreDomain.Events;
 using OpenCBS.CoreDomain.Events.Loan;
 using OpenCBS.CoreDomain.Events.Saving;
@@ -63,7 +62,7 @@ using Group = OpenCBS.CoreDomain.Clients.Group;
 namespace OpenCBS.GUI.Clients
 {
     using ML = MultiLanguageStrings;
-    public partial class ClientForm : SweetForm, IEventHandler<RepaymentNotification>
+    public partial class ClientForm : SweetForm
     {
         #region *** Fields ***
         private LoanProduct _product;
@@ -3983,7 +3982,7 @@ namespace OpenCBS.GUI.Clients
             }
         }
 
-        public void Handle(RepaymentNotification notification)
+        public void OnRepaymentNotification(RepaymentNotification notification)
         {
             if (_credit.Id != notification.LoanId) return;
 
@@ -5801,7 +5800,7 @@ namespace OpenCBS.GUI.Clients
         private void ClientForm_Load(object sender, EventArgs e)
         {
             _toChangeAlignDate = true;
-            _applicationController.Subscribe(this);
+            _applicationController.Subscribe<RepaymentNotification>(this, OnRepaymentNotification);
         }
 
         private void btSearchContract_Click(object sender, EventArgs e)

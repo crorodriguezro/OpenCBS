@@ -31,8 +31,10 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.CommandData;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.View;
+using OpenCBS.ArchitectureV2.Message;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Alerts;
 using OpenCBS.CoreDomain.Clients;
@@ -57,6 +59,7 @@ using OpenCBS.Reports.Forms;
 using OpenCBS.Services;
 using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
+using TinyMessenger;
 
 namespace OpenCBS.GUI
 {
@@ -74,12 +77,15 @@ namespace OpenCBS.GUI
         private bool _triggerAlertsUpdate;
         private readonly IApplicationController _applicationController;
 
+        private TinyMessageSubscriptionToken _showViewToken;
+
         public MainView(IApplicationController applicationController)
         {
             InitializeComponent();
             try
             {
                 _applicationController = applicationController;
+                _applicationController.Subscribe<ShowViewMessage>(this, OnShowView);
                 MefContainer.Current.Bind(this);
                 _menuItems = new List<MenuObject>();
                 _menuItems = Services.GetMenuItemServices().GetMenuList(OSecurityObjectTypes.MenuItem);
@@ -93,6 +99,14 @@ namespace OpenCBS.GUI
             {
                 MessageBox.Show(error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void OnShowView(ShowViewMessage message)
+        {
+            var form = (Form) message.View;
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
         }
 
         private void InitMenu()
@@ -111,7 +125,6 @@ namespace OpenCBS.GUI
         {
             _DisplayDetails();
             InitializeContractCurrencies();
-            //InitAlerts();
         }
 
         private void InitializeContractCurrencies()
@@ -160,8 +173,6 @@ namespace OpenCBS.GUI
             }
             return true;
         }
-
-
 
         private void _DisplayDetails()
         {
@@ -241,20 +252,13 @@ namespace OpenCBS.GUI
             }
         }
 
-
         private void DisplayFastChoiceForm()
         {
-//            DashboardForm fastChoiceForm = new DashboardForm(_applicationController) { MdiParent = this };
-//            fastChoiceForm.Show();
-
-            foreach (Object tsmi in MainMenuStrip.Items)
+            foreach (var item in MainMenuStrip.Items.OfType<ToolStripMenuItem>())
             {
-                if (!(tsmi is ToolStripMenuItem))
-                    continue;
-                ToolStripMenuItem tsmi_menu = (ToolStripMenuItem)tsmi;
-                SetActiveMenuItem(tsmi_menu);
+                SetActiveMenuItem(item);
             }
-
+            _applicationController.Execute(new ShowStartPageCommandData());
         }
 
         public void InitializePersonForm()
@@ -1083,6 +1087,7 @@ namespace OpenCBS.GUI
 
         private void LotrasmicMainWindowForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            _applicationController.Unsubscribe(this);
             if (ServicesProvider.GetInstance().GetGeneralSettings().UseTellerManagement)
             {
                 if (_showTellerFormOnClose)
