@@ -62,5 +62,15 @@ namespace OpenCBS.ArchitectureV2.Presenter
         {
             _applicationController.Publish(new RestartApplicationMessage(this, language));
         }
+
+        public void OpenUrl(string url)
+        {
+            _applicationController.Execute(new OpenUrlCommandData { Url = url });
+        }
+
+        public void OpenEmail(string to, string subject)
+        {
+            _applicationController.Execute(new OpenEmailCommandData { To = to, Subject = subject });
+        }
     }
 }

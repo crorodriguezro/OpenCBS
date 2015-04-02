@@ -75,6 +75,8 @@
     <Compile Include="CommandData\AddGroupCommandData.cs" />
     <Compile Include="CommandData\AddPersonCommandData.cs" />
     <Compile Include="CommandData\AddVillageBankCommandData.cs" />
+    <Compile Include="CommandData\OpenEmailCommandData.cs" />
+    <Compile Include="CommandData\OpenUrlCommandData.cs" />
     <Compile Include="CommandData\SearchClientCommandData.cs" />
     <Compile Include="CommandData\SearchLoanCommandData.cs" />
     <Compile Include="CommandData\ShowRepaymentViewCommandData.cs" />
@@ -83,6 +85,8 @@
     <Compile Include="Command\AddGroupCommand.cs" />
     <Compile Include="Command\AddPersonCommand.cs" />
     <Compile Include="Command\AddVillageBankCommand.cs" />
+    <Compile Include="Command\OpenEmailCommand.cs" />
+    <Compile Include="Command\OpenUrlCommand.cs" />
     <Compile Include="Command\SearchClientCommand.cs" />
     <Compile Include="Command\SearchLoanCommand.cs" />
     <Compile Include="Command\ShowRepaymentViewCommand.cs" />

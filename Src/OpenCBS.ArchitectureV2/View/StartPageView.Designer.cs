@@ -43,9 +43,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this._userGuideLink = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this._forumLink = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this._contactLink = new System.Windows.Forms.LinkLabel();
             this._languagePanel = new System.Windows.Forms.FlowLayoutPanel();
             this._englishPictureBox = new System.Windows.Forms.PictureBox();
             this._frenchPictureBox = new System.Windows.Forms.PictureBox();
@@ -152,9 +152,9 @@
             this._linkPanel.Controls.Add(this.label1);
             this._linkPanel.Controls.Add(this._userGuideLink);
             this._linkPanel.Controls.Add(this.label2);
-            this._linkPanel.Controls.Add(this.linkLabel1);
+            this._linkPanel.Controls.Add(this._forumLink);
             this._linkPanel.Controls.Add(this.label3);
-            this._linkPanel.Controls.Add(this.linkLabel2);
+            this._linkPanel.Controls.Add(this._contactLink);
             this._linkPanel.Location = new System.Drawing.Point(219, 340);
             this._linkPanel.Name = "_linkPanel";
             this._linkPanel.Size = new System.Drawing.Size(334, 15);
@@ -200,15 +200,15 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "●";
             // 
-            // linkLabel1
+            // _forumLink
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(198, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(42, 15);
-            this.linkLabel1.TabIndex = 4;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Forum";
+            this._forumLink.AutoSize = true;
+            this._forumLink.Location = new System.Drawing.Point(198, 0);
+            this._forumLink.Name = "_forumLink";
+            this._forumLink.Size = new System.Drawing.Size(42, 15);
+            this._forumLink.TabIndex = 4;
+            this._forumLink.TabStop = true;
+            this._forumLink.Text = "Forum";
             // 
             // label3
             // 
@@ -220,15 +220,15 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "●";
             // 
-            // linkLabel2
+            // _contactLink
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(266, 0);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(65, 15);
-            this.linkLabel2.TabIndex = 6;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Contact Us";
+            this._contactLink.AutoSize = true;
+            this._contactLink.Location = new System.Drawing.Point(266, 0);
+            this._contactLink.Name = "_contactLink";
+            this._contactLink.Size = new System.Drawing.Size(65, 15);
+            this._contactLink.TabIndex = 6;
+            this._contactLink.TabStop = true;
+            this._contactLink.Text = "Contact Us";
             // 
             // _languagePanel
             // 
@@ -350,9 +350,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel _userGuideLink;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel _forumLink;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel _contactLink;
         private System.Windows.Forms.FlowLayoutPanel _languagePanel;
         private System.Windows.Forms.PictureBox _englishPictureBox;
         private System.Windows.Forms.PictureBox _frenchPictureBox;

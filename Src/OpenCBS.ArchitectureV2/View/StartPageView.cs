@@ -32,6 +32,11 @@ namespace OpenCBS.ArchitectureV2.View
             _russianPictureBox.Click += (sender, e) => presenterCallbacks.ChangeLanguage("ru-RU");
             _spanishPictureBox.Click += (sender, e) => presenterCallbacks.ChangeLanguage("es-ES");
             _portuguesePictureBox.Click += (sender, e) => presenterCallbacks.ChangeLanguage("pt");
+
+            _siteLink.Click += (sender, e) => presenterCallbacks.OpenUrl("http://www.opencbs.com");
+            _userGuideLink.Click +=(sender, e) => presenterCallbacks.OpenUrl("http://opencbs.com/uploads/User%20guide%20OpenCBS%2014.11.pdf");
+            _forumLink.Click += (sender, e) => presenterCallbacks.OpenUrl("http://opencbs.freeforums.net/");
+            _contactLink.Click += (sender, e) => presenterCallbacks.OpenEmail("contact@opencbs.com", "I have a question about OPENCBS");
         }
 
         private void OnResize()

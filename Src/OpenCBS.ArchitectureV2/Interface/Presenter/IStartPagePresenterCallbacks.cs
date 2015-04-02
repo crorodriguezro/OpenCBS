@@ -9,5 +9,7 @@
         void SearchClient();
         void SearchLoan();
         void ChangeLanguage(string language);
+        void OpenUrl(string url);
+        void OpenEmail(string to, string subject);
     }
 }
