@@ -34,6 +34,7 @@ namespace OpenCBS.GUI.Configuration
         private TreeNode _selectedNode;
         private EconomicActivity _economicActivity;
         private string _isSame;
+        private bool _isLoanPurpose;
 
         public FrmEconomicActivity()
         {
@@ -41,12 +42,34 @@ namespace OpenCBS.GUI.Configuration
             Initialization();
         }
 
+        public FrmEconomicActivity(bool isLoanPurpose)
+        {
+            _isLoanPurpose = isLoanPurpose;
+            InitializeComponent();
+            Initialization();
+            TitleControl();
+        }
+
+        private void TitleControl()
+        {
+            if (_isLoanPurpose)
+                this.Text = GetString("LoanPurposeTitle.Text");
+        }
+
         private void Initialization()
         {
             var root = new TreeNode(GetString("doa.Text"));
+            if (_isLoanPurpose)
+                root = new TreeNode(GetString("LoanPurposeTitle.Text"));
+                
             tvEconomicActivity.Nodes.Add(root);
+            List<EconomicActivity> doaList;
 
-            List<EconomicActivity> doaList = ServicesProvider.GetInstance().GetEconomicActivityServices().FindAllEconomicActivities();
+            if (_isLoanPurpose)
+                doaList = ServicesProvider.GetInstance().GetEconomicActivityServices().FindAllEconomicActivities(_isLoanPurpose);
+            else
+                doaList = ServicesProvider.GetInstance().GetEconomicActivityServices().FindAllEconomicActivities();
+
             tvEconomicActivity.BeginUpdate();
             foreach (EconomicActivity domainOfApplication in doaList)
             {
@@ -97,12 +120,25 @@ namespace OpenCBS.GUI.Configuration
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            if (buttonEdit.Text.Equals(GetString("buttonSave")))
-                EditDomain();
+            if(_isLoanPurpose) //do u wanna build a snowman? ^_^
+            {
+                if (buttonEdit.Text.Equals(GetString("buttonSave")))
+                    EditDomain();
+                else
+                {
+                    if (tvEconomicActivity.SelectedNode != null) EditDomain();
+                    else MessageBox.Show(GetString("messageBoxNoSelectionLoanPurpose.Text"), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
             else
             {
-                if (tvEconomicActivity.SelectedNode != null) EditDomain();
-                else MessageBox.Show(GetString("messageBoxNoSelection.Text"), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (buttonEdit.Text.Equals(GetString("buttonSave")))
+                    EditDomain();
+                else
+                {
+                    if (tvEconomicActivity.SelectedNode != null) EditDomain();
+                    else MessageBox.Show(GetString("messageBoxNoSelection.Text"), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -162,7 +198,11 @@ namespace OpenCBS.GUI.Configuration
                     parent = (EconomicActivity)_selectedNode.Tag;
                     doa.Parent = parent;
                 }
-                doa.Id = ServicesProvider.GetInstance().GetEconomicActivityServices().AddEconomicActivity(doa);
+
+                doa.Id = _isLoanPurpose ? 
+                    ServicesProvider.GetInstance().GetEconomicActivityServices().AddEconomicActivity(doa, _isLoanPurpose) 
+                    : ServicesProvider.GetInstance().GetEconomicActivityServices().AddEconomicActivity(doa);
+
                 var node = new TreeNode(doa.Name) { Tag = doa };
                 _selectedNode.Nodes.Add(node);
 
@@ -211,15 +251,28 @@ namespace OpenCBS.GUI.Configuration
                     {
                         if (_selectedNode.Level == 1)
                             _economicActivity.Parent = new EconomicActivity(); // no parent
-
-                        if (_isSame != textBoxName.Text)
-                            if (ServicesProvider.GetInstance().GetEconomicActivityServices().ChangeDomainOfApplicationName(_economicActivity, textBoxName.Text))
-                            {
-                                tvEconomicActivity.BeginUpdate();
-                                _selectedNode.Tag = _economicActivity;
-                                _selectedNode.Text = textBoxName.Text;
-                                tvEconomicActivity.EndUpdate();
-                            }
+                        if (_isLoanPurpose)
+                        {
+                            if (_isSame != textBoxName.Text)
+                                if (ServicesProvider.GetInstance().GetEconomicActivityServices().ChangeDomainOfApplicationName(_economicActivity, textBoxName.Text, _isLoanPurpose))
+                                {
+                                    tvEconomicActivity.BeginUpdate();
+                                    _selectedNode.Tag = _economicActivity;
+                                    _selectedNode.Text = textBoxName.Text;
+                                    tvEconomicActivity.EndUpdate();
+                                }
+                        }
+                        else
+                        {
+                            if (_isSame != textBoxName.Text)
+                                if (ServicesProvider.GetInstance().GetEconomicActivityServices().ChangeDomainOfApplicationName(_economicActivity, textBoxName.Text))
+                                {
+                                    tvEconomicActivity.BeginUpdate();
+                                    _selectedNode.Tag = _economicActivity;
+                                    _selectedNode.Text = textBoxName.Text;
+                                    tvEconomicActivity.EndUpdate();
+                                }
+                        }
                     }
 
                     buttonExit.Enabled = true;
@@ -244,7 +297,10 @@ namespace OpenCBS.GUI.Configuration
         private void DeleteEconomicActivity(EconomicActivity economicActivity)
         {
             _economicActivity = economicActivity;
-            ServicesProvider.GetInstance().GetEconomicActivityServices().DeleteEconomicActivity(_economicActivity);
+            if (_isLoanPurpose)
+                ServicesProvider.GetInstance().GetEconomicActivityServices().DeleteEconomicActivity(_economicActivity, _isLoanPurpose);
+            else
+                ServicesProvider.GetInstance().GetEconomicActivityServices().DeleteEconomicActivity(_economicActivity);
 
             var parent = (EconomicActivity)_selectedNode.Parent.Tag;
             if (parent != null) parent.RemoveChildren(_economicActivity);

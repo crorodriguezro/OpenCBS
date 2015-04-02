@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="areYouSureMessage.Text" xml:space="preserve">
     <value>Tem a certeza?</value>
@@ -129,6 +129,9 @@
   <data name="doa.Text" xml:space="preserve">
     <value>A actividade econômica</value>
   </data>
+  <data name="LoanPurposeTitle.Text" xml:space="preserve">
+    <value>Finalidade do Empréstimo</value>
+  </data>
   <data name="messageBoxAlreadyUsed.Text" xml:space="preserve">
     <value>Este domínio de actividade já existe</value>
   </data>
@@ -137,5 +140,8 @@
   </data>
   <data name="messageBoxNoSelection.Text" xml:space="preserve">
     <value>Deve selecionar um domínio de actividade antes</value>
+  </data>
+  <data name="messageBoxNoSelectionLoanPurpose.Text" xml:space="preserve">
+    <value>Por favor seleccione um produto de empréstimo primeira</value>
   </data>
 </root>

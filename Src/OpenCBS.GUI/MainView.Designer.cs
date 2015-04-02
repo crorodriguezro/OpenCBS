@@ -166,6 +166,7 @@ namespace OpenCBS.GUI
             this.toolStripStatusLblBranchCode = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLblDB = new System.Windows.Forms.ToolStripStatusLabel();
             this.alertBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.loanPurposeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olvAlerts)).BeginInit();
             this.tabFilter.SuspendLayout();
@@ -571,6 +572,7 @@ namespace OpenCBS.GUI
             this.tellersToolStripMenuItem,
             this.toolStripSeparatorConfig1,
             this.mnuDomainOfApplication,
+            this.loanPurposeToolStripMenuItem,
             this.menuItemLocations,
             this.toolStripMenuItemFundingLines,
             this.toolStripMenuItemInstallmentTypes,
@@ -942,6 +944,12 @@ namespace OpenCBS.GUI
             // 
             this.alertBindingSource.DataSource = typeof(OpenCBS.CoreDomain.Alert);
             // 
+            // loanPurposeToolStripMenuItem
+            // 
+            this.loanPurposeToolStripMenuItem.Name = "loanPurposeToolStripMenuItem";
+            resources.ApplyResources(this.loanPurposeToolStripMenuItem, "loanPurposeToolStripMenuItem");
+            this.loanPurposeToolStripMenuItem.Click += new System.EventHandler(this.loanPurposeToolStripMenuItem_Click);
+            // 
             // MainView
             // 
             resources.ApplyResources(this, "$this");
@@ -1043,6 +1051,7 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem getHelpFromForumToolStripMenuItem;
         private ToolStripMenuItem visitOpenCBScomToolStripMenuItem;
         private ToolStripMenuItem collateralProductsToolStripMenuItem;
+        private ToolStripMenuItem loanPurposeToolStripMenuItem;
 
 
     }

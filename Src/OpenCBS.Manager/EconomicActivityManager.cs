@@ -57,7 +57,29 @@ namespace OpenCBS.Manager
                 return int.Parse(insert.ExecuteScalar().ToString());
             }
 		}
-		
+
+        public int AddEconomicActivity(EconomicActivity loanPurpose, bool isLoanPurpose)
+        {
+            string sqlText = "";
+
+            if (isLoanPurpose)
+            {
+                sqlText = @"INSERT INTO LoanPurpose ([name] , [parent_id] , [deleted]) 
+                        VALUES (@name,@parentId,@deleted) SELECT SCOPE_IDENTITY()";
+            }
+            using (SqlConnection connection = GetConnection())
+            using (OpenCbsCommand insert = new OpenCbsCommand(sqlText, connection))
+            {
+                insert.AddParam("@name", loanPurpose.Name);
+                insert.AddParam("@deleted", loanPurpose.Deleted);
+                if (loanPurpose.Parent != null)
+                    insert.AddParam("@parentId", loanPurpose.Parent.Id);
+                else
+                    insert.AddParam("@parentId", null);
+                return int.Parse(insert.ExecuteScalar().ToString());
+            }
+            
+        }
 		/// <summary>
 		/// This methods allows us to find all domains of application
 		/// </summary>
@@ -131,6 +153,20 @@ namespace OpenCBS.Manager
 		        update.ExecuteNonQuery();
 		    }
 		}
+
+        public void UpdateEconomicActivity(EconomicActivity pEconomicActivity, bool isLoanPurpose)
+        {
+            const string sqlText = "UPDATE LoanPurpose SET name = @name,deleted = @wasDeleted WHERE id = @id";
+
+            using (SqlConnection connection = GetConnection())
+            using (OpenCbsCommand update = new OpenCbsCommand(sqlText, connection))
+            {
+                update.AddParam("@id", pEconomicActivity.Id);
+                update.AddParam("@name", pEconomicActivity.Name);
+                update.AddParam("@wasDeleted", pEconomicActivity.Deleted);
+                update.ExecuteNonQuery();
+            }
+        }
 
 	    private List<EconomicActivity> SelectChildren(int pParentId)
 		{
@@ -212,6 +248,35 @@ namespace OpenCBS.Manager
                     }
                 }
             }
+            return id != 0;
+        }
+
+        public bool ThisActivityAlreadyExist(string pName, int pParentId, bool isLoanPurpose)
+        {
+            int id = 0;
+            if (isLoanPurpose)
+            {
+                const string sqlText = @"SELECT id, name, deleted FROM LoanPurpose WHERE parent_id = @id 
+                    AND name = @name AND deleted = 0";
+                using (SqlConnection connection = GetConnection())
+                using (OpenCbsCommand sqlCommand = new OpenCbsCommand(sqlText, connection))
+                {
+                    sqlCommand.AddParam("@name", pName);
+                    sqlCommand.AddParam("@id", pParentId);
+
+                    using (OpenCbsReader reader = sqlCommand.ExecuteReader())
+                    {
+                        if (!reader.Empty)
+                        {
+                            reader.Read();
+                            id = reader.GetInt("id");
+                        }
+                    }
+                }
+            }
+            else
+                ThisActivityAlreadyExist(pName, pParentId);
+            
             return id != 0;
         }
 

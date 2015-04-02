@@ -447,6 +447,13 @@ namespace OpenCBS.GUI
             doaf.ShowDialog();
         }
 
+        private static void InitializeDomainOfApplicationForm(bool isLoanPurpose)
+        {
+            var doaf = new FrmEconomicActivity(isLoanPurpose);
+            //doaf.Show();
+            doaf.ShowDialog();
+        }
+
         public void SetInfoMessage(string pMessage)
         {
         }
@@ -1297,6 +1304,11 @@ namespace OpenCBS.GUI
         private void collateralProductsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             InitializeCollateralProductsForm();
+        }
+
+        private void loanPurposeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InitializeDomainOfApplicationForm(true);
         }
     }
 }

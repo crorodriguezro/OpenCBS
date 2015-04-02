@@ -74,6 +74,20 @@ namespace OpenCBS.Services
             return _doam.AddEconomicActivity(pEconomicActivity);
         }
 
+
+        public int AddEconomicActivity(EconomicActivity loanPurpose, bool isLoanPurpose)
+        {
+            if (loanPurpose.Name == String.Empty)
+                throw new OpenCbsDoaSaveException(OpenCbsDOASaveExceptionEnum.NameIsNull);
+
+            if (_doam.ThisActivityAlreadyExist(loanPurpose.Name, loanPurpose.Parent.Id, isLoanPurpose))
+                throw new OpenCbsDoaSaveException(OpenCbsDOASaveExceptionEnum.AlreadyExist);
+
+            if (loanPurpose.Parent.Id == 0) loanPurpose.Parent = null;
+
+            return _doam.AddEconomicActivity(loanPurpose, isLoanPurpose);
+        }
+
 	    public bool NodeEditable(Object pEconomicActivity)
         {
             if (pEconomicActivity == null)
@@ -101,6 +115,24 @@ namespace OpenCBS.Services
             return true;
         }
 
+        public bool ChangeDomainOfApplicationName(EconomicActivity pEconomicActivity, string newName, bool isLoanPurpose)
+        {
+            if (newName == String.Empty)
+                throw new OpenCbsDoaUpdateException(OpenCbsDOAUpdateExceptionEnum.NewNameIsNull);
+
+            if (_doam.ThisActivityAlreadyExist(newName, pEconomicActivity.Parent.Id, isLoanPurpose))
+                throw new OpenCbsDoaSaveException(OpenCbsDOASaveExceptionEnum.AlreadyExist);
+
+            EconomicActivity activity = pEconomicActivity;
+            activity.Name = newName;
+            if (isLoanPurpose)
+                _doam.UpdateEconomicActivity(activity, isLoanPurpose);
+            else
+                _doam.UpdateEconomicActivity(activity);
+
+            return true;
+        }
+
 	    public EconomicActivity FindEconomicActivity(int doaId)
 		{
 			return _doam.SelectEconomicActivity(doaId);
@@ -118,6 +150,15 @@ namespace OpenCBS.Services
 
             pEconomicActivity.Deleted = true;
             _doam.UpdateEconomicActivity(pEconomicActivity);
+        }
+
+        public void DeleteEconomicActivity(EconomicActivity pEconomicActivity, bool isLoanPurpose)
+        {
+            if (pEconomicActivity.HasChildrens)
+                throw new OpenCbsDoaDeleteException(OpenCbsDOADeleteExceptionEnum.HasChildrens);
+
+            pEconomicActivity.Deleted = true;
+            _doam.UpdateEconomicActivity(pEconomicActivity, isLoanPurpose);
         }
 
         public void AddEconomicActivityLoanHistory(EconomicActivityLoanHistory activityLoanHistory, SqlTransaction sqlTransaction)
@@ -140,5 +181,5 @@ namespace OpenCBS.Services
         {
             _doam.UpdateDeletedEconomicActivityLoanHistory(contractId, personId, economicActivityId, sqlTransaction, deleted);
         }
-	}
+    }
 }
