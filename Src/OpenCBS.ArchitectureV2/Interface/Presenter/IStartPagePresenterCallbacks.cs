@@ -2,5 +2,11 @@
 {
     public interface IStartPagePresenterCallbacks
     {
+        void AddPerson();
+        void AddGroup();
+        void AddVillageBank();
+        void AddCompany();
+        void SearchClient();
+        void SearchLoan();
     }
 }

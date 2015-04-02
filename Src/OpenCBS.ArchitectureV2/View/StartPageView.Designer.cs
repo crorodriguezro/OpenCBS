@@ -32,12 +32,12 @@
             this._logoPictureBox = new System.Windows.Forms.PictureBox();
             this._searchClientButton = new System.Windows.Forms.Button();
             this._newClientButton = new OpenCBS.Controls.SplitButton();
-            this.button1 = new System.Windows.Forms.Button();
             this._newClientMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this._newPersonItem = new System.Windows.Forms.ToolStripMenuItem();
             this._newGroupItem = new System.Windows.Forms.ToolStripMenuItem();
             this._newVillageBankItem = new System.Windows.Forms.ToolStripMenuItem();
             this._newCompanyItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._searchLoanButton = new System.Windows.Forms.Button();
             this._buttonPanel = new System.Windows.Forms.FlowLayoutPanel();
             this._linkPanel = new System.Windows.Forms.FlowLayoutPanel();
             this._siteLink = new System.Windows.Forms.LinkLabel();
@@ -84,16 +84,6 @@
             this._newClientButton.Text = "New Client";
             this._newClientButton.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.button1.Location = new System.Drawing.Point(375, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 35);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "Search Loan";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // _newClientMenu
             // 
             this._newClientMenu.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -129,13 +119,23 @@
             this._newCompanyItem.Size = new System.Drawing.Size(165, 26);
             this._newCompanyItem.Text = "Company";
             // 
+            // _searchLoanButton
+            // 
+            this._searchLoanButton.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this._searchLoanButton.Location = new System.Drawing.Point(375, 3);
+            this._searchLoanButton.Name = "_searchLoanButton";
+            this._searchLoanButton.Size = new System.Drawing.Size(180, 35);
+            this._searchLoanButton.TabIndex = 30;
+            this._searchLoanButton.Text = "Search Loan";
+            this._searchLoanButton.UseVisualStyleBackColor = true;
+            // 
             // _buttonPanel
             // 
             this._buttonPanel.AutoSize = true;
             this._buttonPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this._buttonPanel.Controls.Add(this._newClientButton);
             this._buttonPanel.Controls.Add(this._searchClientButton);
-            this._buttonPanel.Controls.Add(this.button1);
+            this._buttonPanel.Controls.Add(this._searchLoanButton);
             this._buttonPanel.Location = new System.Drawing.Point(107, 178);
             this._buttonPanel.Name = "_buttonPanel";
             this._buttonPanel.Size = new System.Drawing.Size(558, 41);
@@ -255,7 +255,7 @@
         private System.Windows.Forms.PictureBox _logoPictureBox;
         private System.Windows.Forms.Button _searchClientButton;
         private Controls.SplitButton _newClientButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button _searchLoanButton;
         private System.Windows.Forms.ContextMenuStrip _newClientMenu;
         private System.Windows.Forms.ToolStripMenuItem _newPersonItem;
         private System.Windows.Forms.ToolStripMenuItem _newGroupItem;

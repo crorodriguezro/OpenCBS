@@ -1,30 +1,61 @@
-﻿using OpenCBS.ArchitectureV2.Interface.Presenter;
+﻿using OpenCBS.ArchitectureV2.CommandData;
+using OpenCBS.ArchitectureV2.Interface;
+using OpenCBS.ArchitectureV2.Interface.Presenter;
 using OpenCBS.ArchitectureV2.Interface.View;
 using OpenCBS.ArchitectureV2.Message;
-using TinyMessenger;
 
 namespace OpenCBS.ArchitectureV2.Presenter
 {
     public class StartPagePresenter : IStartPagePresenter, IStartPagePresenterCallbacks
     {
         private readonly IStartPageView _view;
-        private readonly ITinyMessengerHub _messengerHub;
+        private readonly IApplicationController _applicationController;
 
-        public StartPagePresenter(IStartPageView view, ITinyMessengerHub messengerHub)
+        public StartPagePresenter(IStartPageView view, IApplicationController applicationController)
         {
             _view = view;
-            _messengerHub = messengerHub;
+            _applicationController = applicationController;
         }
 
         public void Run()
         {
             _view.Attach(this);
-            _messengerHub.Publish(new ShowViewMessage(this, _view));
+            _applicationController.Publish(new ShowViewMessage(this, _view));
         }
 
         public object View
         {
             get { return _view; }
+        }
+
+        public void AddPerson()
+        {
+            _applicationController.Execute(new AddPersonCommandData());
+        }
+
+        public void AddGroup()
+        {
+            _applicationController.Execute(new AddGroupCommandData());
+        }
+
+        public void AddVillageBank()
+        {
+            _applicationController.Execute(new AddVillageBankCommandData());
+        }
+
+        public void AddCompany()
+        {
+            _applicationController.Execute(new AddCompanyCommandData());
+        }
+
+        public void SearchClient()
+        {
+            _applicationController.Execute(new SearchClientCommandData());
+        }
+
+        public void SearchLoan()
+        {
+            _applicationController.Execute(new SearchLoanCommandData());
         }
     }
 }

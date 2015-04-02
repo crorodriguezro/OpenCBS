@@ -15,6 +15,12 @@ namespace OpenCBS.ArchitectureV2.View
 
         public void Attach(IStartPagePresenterCallbacks presenterCallbacks)
         {
+            _newPersonItem.Click += (sender, e) => presenterCallbacks.AddPerson();
+            _newGroupItem.Click += (sender, e) => presenterCallbacks.AddGroup();
+            _newVillageBankItem.Click += (sender, e) => presenterCallbacks.AddVillageBank();
+            _newCompanyItem.Click += (sender, e) => presenterCallbacks.AddCompany();
+            _searchClientButton.Click += (sender, e) => presenterCallbacks.SearchClient();
+            _searchLoanButton.Click += (sender, e) => presenterCallbacks.SearchLoan();
         }
 
         private void OnResize()
