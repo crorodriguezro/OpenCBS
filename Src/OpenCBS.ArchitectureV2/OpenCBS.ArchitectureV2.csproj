@@ -52,8 +52,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\OpenCbsLibs\ObjectListView.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap">
-      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    <Reference Include="StructureMap, Version=3.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.3.1.4.143\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.3.1.4.143\lib\net40\StructureMap.Net4.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -85,6 +90,7 @@
     <Compile Include="Command\AddGroupCommand.cs" />
     <Compile Include="Command\AddPersonCommand.cs" />
     <Compile Include="Command\AddVillageBankCommand.cs" />
+    <Compile Include="Command\Command.cs" />
     <Compile Include="Command\OpenEmailCommand.cs" />
     <Compile Include="Command\OpenUrlCommand.cs" />
     <Compile Include="Command\SearchClientCommand.cs" />
@@ -92,8 +98,6 @@
     <Compile Include="Command\ShowRepaymentViewCommand.cs" />
     <Compile Include="Command\ShowStartPageCommand.cs" />
     <Compile Include="DefaultRegistry.cs" />
-    <Compile Include="EventAggregatorInterceptor.cs" />
-    <Compile Include="EventPublisher.cs" />
     <Compile Include="Event\RepaymentNotification.cs" />
     <Compile Include="Interface\IApplicationController.cs" />
     <Compile Include="Interface\IBackgroundTask.cs" />
@@ -122,8 +126,11 @@
     <Compile Include="Interface\View\IStartPageView.cs" />
     <Compile Include="Interface\View\IUpgradeView.cs" />
     <Compile Include="Interface\View\IView.cs" />
+    <Compile Include="Message\ActivateViewMessage.cs" />
     <Compile Include="Message\RestartApplicationMessage.cs" />
     <Compile Include="Message\ShowViewMessage.cs" />
+    <Compile Include="Message\StartPageHiddenMessage.cs" />
+    <Compile Include="Message\StartPageShownMessage.cs" />
     <Compile Include="Presenter\LoginPresenter.cs" />
     <Compile Include="Presenter\RepaymentPresenter.cs" />
     <Compile Include="Presenter\StartPagePresenter.cs" />

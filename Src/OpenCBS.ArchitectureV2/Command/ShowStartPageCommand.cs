@@ -1,21 +1,26 @@
-﻿using OpenCBS.ArchitectureV2.CommandData;
+﻿using System;
+using OpenCBS.ArchitectureV2.CommandData;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.Presenter;
 
 namespace OpenCBS.ArchitectureV2.Command
 {
-    public class ShowStartPageCommand : ICommand<ShowStartPageCommandData>
+    public class ShowStartPageCommand : Command, ICommand<ShowStartPageCommandData>
     {
-        private readonly IStartPagePresenter _presenter;
+        private readonly Lazy<IStartPagePresenter> _presenter;
 
-        public ShowStartPageCommand(IStartPagePresenter presenter)
+        public ShowStartPageCommand(IApplicationController applicationController, Lazy<IStartPagePresenter> presenter) : base(applicationController)
         {
             _presenter = presenter;
         }
 
         public void Execute(ShowStartPageCommandData commandData)
         {
-            _presenter.Run();
+            if (ActivateViewIfExists("StartPageView"))
+            {
+                return;
+            }
+            _presenter.Value.Run();
         }
     }
 }

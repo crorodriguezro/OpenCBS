@@ -133,6 +133,10 @@ namespace OpenCBS.GUI
             this.mnuProducts = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPackages = new System.Windows.Forms.ToolStripMenuItem();
             this.savingProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._viewItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._startPageItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._alertsItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._dashboardItem = new System.Windows.Forms.ToolStripMenuItem();
             this._modulesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._aboutModulesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -494,6 +498,7 @@ namespace OpenCBS.GUI
             this.mnuSecurity,
             this.mnuProducts,
             this.mnuClients,
+            this._viewItem,
             this._modulesMenuItem,
             this.mnuAccounting,
             this.reportsToolStripMenuItem,
@@ -640,6 +645,30 @@ namespace OpenCBS.GUI
             this.savingProductsToolStripMenuItem.Name = "savingProductsToolStripMenuItem";
             resources.ApplyResources(this.savingProductsToolStripMenuItem, "savingProductsToolStripMenuItem");
             this.savingProductsToolStripMenuItem.Click += new System.EventHandler(this.savingProductsToolStripMenuItem_Click);
+            // 
+            // _viewItem
+            // 
+            this._viewItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._startPageItem,
+            this._alertsItem,
+            this._dashboardItem});
+            this._viewItem.Name = "_viewItem";
+            resources.ApplyResources(this._viewItem, "_viewItem");
+            // 
+            // _startPageItem
+            // 
+            this._startPageItem.Name = "_startPageItem";
+            resources.ApplyResources(this._startPageItem, "_startPageItem");
+            // 
+            // _alertsItem
+            // 
+            this._alertsItem.Name = "_alertsItem";
+            resources.ApplyResources(this._alertsItem, "_alertsItem");
+            // 
+            // _dashboardItem
+            // 
+            this._dashboardItem.Name = "_dashboardItem";
+            resources.ApplyResources(this._dashboardItem, "_dashboardItem");
             // 
             // _modulesMenuItem
             // 
@@ -791,7 +820,10 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem getHelpFromForumToolStripMenuItem;
         private ToolStripMenuItem visitOpenCBScomToolStripMenuItem;
         private ToolStripMenuItem collateralProductsToolStripMenuItem;
-        private ToolStripMenuItem loanPurposeToolStripMenuItem;
+        private ToolStripMenuItem _viewItem;
+        private ToolStripMenuItem _startPageItem;
+        private ToolStripMenuItem _alertsItem;
+        private ToolStripMenuItem _dashboardItem;
 
 
     }

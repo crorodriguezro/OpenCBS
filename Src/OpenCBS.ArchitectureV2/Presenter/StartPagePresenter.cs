@@ -21,6 +21,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
         {
             _view.Attach(this);
             _applicationController.Publish(new ShowViewMessage(this, _view));
+            _applicationController.Publish(new StartPageShownMessage(this));
         }
 
         public object View
@@ -71,6 +72,11 @@ namespace OpenCBS.ArchitectureV2.Presenter
         public void OpenEmail(string to, string subject)
         {
             _applicationController.Execute(new OpenEmailCommandData { To = to, Subject = subject });
+        }
+
+        public void DetachView()
+        {
+            _applicationController.Publish(new StartPageHiddenMessage(this));
         }
     }
 }

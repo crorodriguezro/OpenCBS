@@ -83,10 +83,14 @@ namespace OpenCBS.GUI
             {
                 _applicationController = applicationController;
                 _applicationController.Subscribe<ShowViewMessage>(this, OnShowView);
+                _applicationController.Subscribe<ActivateViewMessage>(this, OnActivateView);
+                _applicationController.Subscribe<StartPageShownMessage>(this, OnStartPageShown);
+                _applicationController.Subscribe<StartPageHiddenMessage>(this, OnStartPageHidden);
                 _applicationController.Subscribe<RestartApplicationMessage>(this, m =>
                 {
                     RestartApplication(m.Language);
                 });
+                SetUp();
                 MefContainer.Current.Bind(this);
                 _menuItems = new List<MenuObject>();
                 _menuItems = Services.GetMenuItemServices().GetMenuList(OSecurityObjectTypes.MenuItem);
@@ -102,12 +106,33 @@ namespace OpenCBS.GUI
             }
         }
 
+        private void SetUp()
+        {
+            _startPageItem.Click += (sender, e) => _applicationController.Execute(new ShowStartPageCommandData());
+        }
+
         private void OnShowView(ShowViewMessage message)
         {
             var form = (Form) message.View;
             form.MdiParent = this;
             form.WindowState = FormWindowState.Maximized;
             form.Show();
+        }
+
+        private static void OnActivateView(ActivateViewMessage message)
+        {
+            var form = (Form) message.View;
+            form.BringToFront();
+        }
+
+        private void OnStartPageShown(StartPageShownMessage message)
+        {
+            _startPageItem.Checked = true;
+        }
+
+        private void OnStartPageHidden(StartPageHiddenMessage message)
+        {
+            _startPageItem.Checked = false;
         }
 
         private void InitMenu()

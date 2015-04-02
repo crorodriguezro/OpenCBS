@@ -2,6 +2,7 @@
 using OpenCBS.ArchitectureV2.Interface.Service;
 using OpenCBS.ArchitectureV2.Presenter;
 using StructureMap.Configuration.DSL;
+using StructureMap.Graph;
 using TinyMessenger;
 
 namespace OpenCBS.ArchitectureV2
@@ -22,11 +23,7 @@ namespace OpenCBS.ArchitectureV2
 
             For<ITranslationService>().Singleton().Use<TranslationService>();
             For<IApplicationController>().Singleton().Use<ApplicationController>();
-            For<IEventPublisher>().Singleton().Use<EventPublisher>();
-
             For<ITinyMessengerHub>().Singleton().Use<TinyMessengerHub>();
-
-            RegisterInterceptor(new EventAggregatorInterceptor());
         }
     }
 }

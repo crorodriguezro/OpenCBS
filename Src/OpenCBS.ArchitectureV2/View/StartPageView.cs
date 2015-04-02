@@ -37,6 +37,8 @@ namespace OpenCBS.ArchitectureV2.View
             _userGuideLink.Click +=(sender, e) => presenterCallbacks.OpenUrl("http://opencbs.com/uploads/User%20guide%20OpenCBS%2014.11.pdf");
             _forumLink.Click += (sender, e) => presenterCallbacks.OpenUrl("http://opencbs.freeforums.net/");
             _contactLink.Click += (sender, e) => presenterCallbacks.OpenEmail("contact@opencbs.com", "I have a question about OPENCBS");
+
+            FormClosing += (sender, e) => presenterCallbacks.DetachView();
         }
 
         private void OnResize()
