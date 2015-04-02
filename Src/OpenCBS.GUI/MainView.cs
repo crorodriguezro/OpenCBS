@@ -59,7 +59,6 @@ using OpenCBS.Reports.Forms;
 using OpenCBS.Services;
 using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
-using TinyMessenger;
 
 namespace OpenCBS.GUI
 {
@@ -77,8 +76,6 @@ namespace OpenCBS.GUI
         private bool _triggerAlertsUpdate;
         private readonly IApplicationController _applicationController;
 
-        private TinyMessageSubscriptionToken _showViewToken;
-
         public MainView(IApplicationController applicationController)
         {
             InitializeComponent();
@@ -86,6 +83,10 @@ namespace OpenCBS.GUI
             {
                 _applicationController = applicationController;
                 _applicationController.Subscribe<ShowViewMessage>(this, OnShowView);
+                _applicationController.Subscribe<RestartApplicationMessage>(this, m =>
+                {
+                    RestartApplication(m.Language);
+                });
                 MefContainer.Current.Bind(this);
                 _menuItems = new List<MenuObject>();
                 _menuItems = Services.GetMenuItemServices().GetMenuList(OSecurityObjectTypes.MenuItem);

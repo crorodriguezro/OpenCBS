@@ -8,5 +8,6 @@
         void AddCompany();
         void SearchClient();
         void SearchLoan();
+        void ChangeLanguage(string language);
     }
 }

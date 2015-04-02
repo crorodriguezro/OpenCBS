@@ -118,6 +118,7 @@
     <Compile Include="Interface\View\IStartPageView.cs" />
     <Compile Include="Interface\View\IUpgradeView.cs" />
     <Compile Include="Interface\View\IView.cs" />
+    <Compile Include="Message\RestartApplicationMessage.cs" />
     <Compile Include="Message\ShowViewMessage.cs" />
     <Compile Include="Presenter\LoginPresenter.cs" />
     <Compile Include="Presenter\RepaymentPresenter.cs" />
@@ -242,6 +243,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="opencbs.ico" />
+    <None Include="Resources\pt.png" />
+    <None Include="Resources\es.png" />
+    <None Include="Resources\ru.png" />
+    <None Include="Resources\fr.png" />
+    <None Include="Resources\gb.png" />
     <None Include="Resources\logo_with_tagline.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

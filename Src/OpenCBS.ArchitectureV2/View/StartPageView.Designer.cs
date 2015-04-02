@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this._logoPictureBox = new System.Windows.Forms.PictureBox();
             this._searchClientButton = new System.Windows.Forms.Button();
             this._newClientButton = new OpenCBS.Controls.SplitButton();
             this._newClientMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -47,20 +46,24 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            ((System.ComponentModel.ISupportInitialize)(this._logoPictureBox)).BeginInit();
+            this._languagePanel = new System.Windows.Forms.FlowLayoutPanel();
+            this._englishPictureBox = new System.Windows.Forms.PictureBox();
+            this._frenchPictureBox = new System.Windows.Forms.PictureBox();
+            this._russianPictureBox = new System.Windows.Forms.PictureBox();
+            this._spanishPictureBox = new System.Windows.Forms.PictureBox();
+            this._portuguesePictureBox = new System.Windows.Forms.PictureBox();
+            this._logoPictureBox = new System.Windows.Forms.PictureBox();
             this._newClientMenu.SuspendLayout();
             this._buttonPanel.SuspendLayout();
             this._linkPanel.SuspendLayout();
+            this._languagePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._englishPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._frenchPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._russianPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._spanishPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._portuguesePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._logoPictureBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // _logoPictureBox
-            // 
-            this._logoPictureBox.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.logo_with_tagline;
-            this._logoPictureBox.Location = new System.Drawing.Point(244, 59);
-            this._logoPictureBox.Name = "_logoPictureBox";
-            this._logoPictureBox.Size = new System.Drawing.Size(285, 88);
-            this._logoPictureBox.TabIndex = 0;
-            this._logoPictureBox.TabStop = false;
             // 
             // _searchClientButton
             // 
@@ -227,12 +230,86 @@
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Contact Us";
             // 
+            // _languagePanel
+            // 
+            this._languagePanel.AutoSize = true;
+            this._languagePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this._languagePanel.Controls.Add(this._englishPictureBox);
+            this._languagePanel.Controls.Add(this._frenchPictureBox);
+            this._languagePanel.Controls.Add(this._russianPictureBox);
+            this._languagePanel.Controls.Add(this._spanishPictureBox);
+            this._languagePanel.Controls.Add(this._portuguesePictureBox);
+            this._languagePanel.Location = new System.Drawing.Point(331, 384);
+            this._languagePanel.Name = "_languagePanel";
+            this._languagePanel.Size = new System.Drawing.Size(110, 17);
+            this._languagePanel.TabIndex = 33;
+            // 
+            // _englishPictureBox
+            // 
+            this._englishPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._englishPictureBox.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.gb;
+            this._englishPictureBox.Location = new System.Drawing.Point(3, 3);
+            this._englishPictureBox.Name = "_englishPictureBox";
+            this._englishPictureBox.Size = new System.Drawing.Size(16, 11);
+            this._englishPictureBox.TabIndex = 0;
+            this._englishPictureBox.TabStop = false;
+            // 
+            // _frenchPictureBox
+            // 
+            this._frenchPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._frenchPictureBox.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.fr;
+            this._frenchPictureBox.Location = new System.Drawing.Point(25, 3);
+            this._frenchPictureBox.Name = "_frenchPictureBox";
+            this._frenchPictureBox.Size = new System.Drawing.Size(16, 11);
+            this._frenchPictureBox.TabIndex = 1;
+            this._frenchPictureBox.TabStop = false;
+            // 
+            // _russianPictureBox
+            // 
+            this._russianPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._russianPictureBox.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.ru;
+            this._russianPictureBox.Location = new System.Drawing.Point(47, 3);
+            this._russianPictureBox.Name = "_russianPictureBox";
+            this._russianPictureBox.Size = new System.Drawing.Size(16, 11);
+            this._russianPictureBox.TabIndex = 2;
+            this._russianPictureBox.TabStop = false;
+            // 
+            // _spanishPictureBox
+            // 
+            this._spanishPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._spanishPictureBox.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.es;
+            this._spanishPictureBox.Location = new System.Drawing.Point(69, 3);
+            this._spanishPictureBox.Name = "_spanishPictureBox";
+            this._spanishPictureBox.Size = new System.Drawing.Size(16, 11);
+            this._spanishPictureBox.TabIndex = 3;
+            this._spanishPictureBox.TabStop = false;
+            // 
+            // _portuguesePictureBox
+            // 
+            this._portuguesePictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._portuguesePictureBox.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.pt;
+            this._portuguesePictureBox.Location = new System.Drawing.Point(91, 3);
+            this._portuguesePictureBox.Name = "_portuguesePictureBox";
+            this._portuguesePictureBox.Size = new System.Drawing.Size(16, 11);
+            this._portuguesePictureBox.TabIndex = 4;
+            this._portuguesePictureBox.TabStop = false;
+            // 
+            // _logoPictureBox
+            // 
+            this._logoPictureBox.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.logo_with_tagline;
+            this._logoPictureBox.Location = new System.Drawing.Point(244, 59);
+            this._logoPictureBox.Name = "_logoPictureBox";
+            this._logoPictureBox.Size = new System.Drawing.Size(285, 88);
+            this._logoPictureBox.TabIndex = 0;
+            this._logoPictureBox.TabStop = false;
+            // 
             // StartPageView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(772, 379);
+            this.ClientSize = new System.Drawing.Size(772, 413);
+            this.Controls.Add(this._languagePanel);
             this.Controls.Add(this._linkPanel);
             this.Controls.Add(this._buttonPanel);
             this.Controls.Add(this._logoPictureBox);
@@ -240,11 +317,17 @@
             this.Name = "StartPageView";
             this.ShowIcon = false;
             this.Text = "Start Page";
-            ((System.ComponentModel.ISupportInitialize)(this._logoPictureBox)).EndInit();
             this._newClientMenu.ResumeLayout(false);
             this._buttonPanel.ResumeLayout(false);
             this._linkPanel.ResumeLayout(false);
             this._linkPanel.PerformLayout();
+            this._languagePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._englishPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._frenchPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._russianPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._spanishPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._portuguesePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._logoPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,5 +353,11 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.FlowLayoutPanel _languagePanel;
+        private System.Windows.Forms.PictureBox _englishPictureBox;
+        private System.Windows.Forms.PictureBox _frenchPictureBox;
+        private System.Windows.Forms.PictureBox _russianPictureBox;
+        private System.Windows.Forms.PictureBox _spanishPictureBox;
+        private System.Windows.Forms.PictureBox _portuguesePictureBox;
     }
 }

@@ -11,6 +11,11 @@ namespace OpenCBS.ArchitectureV2.View
         {
             InitializeComponent();
             SizeChanged += (sender, e) => OnResize();
+            new ToolTip().SetToolTip(_englishPictureBox, "English");
+            new ToolTip().SetToolTip(_frenchPictureBox, "Français");
+            new ToolTip().SetToolTip(_russianPictureBox, "Русский");
+            new ToolTip().SetToolTip(_spanishPictureBox, "Español");
+            new ToolTip().SetToolTip(_portuguesePictureBox, "Português");
         }
 
         public void Attach(IStartPagePresenterCallbacks presenterCallbacks)
@@ -21,6 +26,12 @@ namespace OpenCBS.ArchitectureV2.View
             _newCompanyItem.Click += (sender, e) => presenterCallbacks.AddCompany();
             _searchClientButton.Click += (sender, e) => presenterCallbacks.SearchClient();
             _searchLoanButton.Click += (sender, e) => presenterCallbacks.SearchLoan();
+
+            _englishPictureBox.Click += (sender, e) => presenterCallbacks.ChangeLanguage("en-US");
+            _frenchPictureBox.Click += (sender, e) => presenterCallbacks.ChangeLanguage("fr");
+            _russianPictureBox.Click += (sender, e) => presenterCallbacks.ChangeLanguage("ru-RU");
+            _spanishPictureBox.Click += (sender, e) => presenterCallbacks.ChangeLanguage("es-ES");
+            _portuguesePictureBox.Click += (sender, e) => presenterCallbacks.ChangeLanguage("pt");
         }
 
         private void OnResize()
@@ -30,17 +41,25 @@ namespace OpenCBS.ArchitectureV2.View
             var centerX = Size.Width / 2;
             var centerY = Size.Height / 2;
 
+            // Logo
             var x = centerX - _logoPictureBox.Width / 2;
-            var y = centerY - _logoPictureBox.Height - 50;
+            var y = centerY - _logoPictureBox.Height - 150;
             _logoPictureBox.Location = new Point(x, y);
 
+            // Buttons
             x = centerX - _buttonPanel.Width / 2;
             y = centerY - _buttonPanel.Height / 2;
             _buttonPanel.Location = new Point(x, y);
 
+            // Links
             x = centerX - _linkPanel.Width / 2;
             y = Size.Height - _linkPanel.Height - 100;
             _linkPanel.Location = new Point(x, y);
+
+            // Languages (Flags)
+            x = centerX - _languagePanel.Width / 2;
+            y = Size.Height - _languagePanel.Height - 50;
+            _languagePanel.Location = new Point(x, y);
 
             ResumeLayout();
         }
