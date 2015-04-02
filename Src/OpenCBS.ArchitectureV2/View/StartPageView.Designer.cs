@@ -297,9 +297,9 @@
             // _logoPictureBox
             // 
             this._logoPictureBox.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.logo_with_tagline;
-            this._logoPictureBox.Location = new System.Drawing.Point(244, 59);
+            this._logoPictureBox.Location = new System.Drawing.Point(211, 39);
             this._logoPictureBox.Name = "_logoPictureBox";
-            this._logoPictureBox.Size = new System.Drawing.Size(285, 88);
+            this._logoPictureBox.Size = new System.Drawing.Size(350, 120);
             this._logoPictureBox.TabIndex = 0;
             this._logoPictureBox.TabStop = false;
             // 
