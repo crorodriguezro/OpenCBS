@@ -105,6 +105,7 @@
     <Compile Include="Command\ShowRepaymentViewCommand.cs" />
     <Compile Include="Command\ShowStartPageCommand.cs" />
     <Compile Include="ConnectionProvider.cs" />
+    <Compile Include="ControlExtensions.cs" />
     <Compile Include="DefaultRegistry.cs" />
     <Compile Include="Event\RepaymentNotification.cs" />
     <Compile Include="Interface\IApplicationController.cs" />

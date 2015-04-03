@@ -13,6 +13,10 @@ namespace OpenCBS.ArchitectureV2.View
         public AlertsView()
         {
             InitializeComponent();
+            ShowLateLoans = true;
+            ShowPerformingLoans = true;
+            _lateLoansItem.Checked = true;
+            _performingLoansItem.Checked = true;
             SetUp();
         }
 
@@ -96,6 +100,9 @@ namespace OpenCBS.ArchitectureV2.View
                 return amount.ToString("N2");
             };
             _alertsListView.FormatRow += OnFormatAlertRow;
+
+            _searchTextBox.TextChanged += (sender, e) => OnSearchTextChanged();
+            (_searchTextBox.Control as TextBox).SetHint("Search");
         }
 
         public void StartProgress()
@@ -126,5 +133,24 @@ namespace OpenCBS.ArchitectureV2.View
         public bool ShowPendingSavings { get; private set; }
 
         public bool ShowOverdraftSavings { get; private set; }
+
+        private void OnSearchTextChanged()
+        {
+            var filter = _searchTextBox.Text.ToLower();
+            if (string.IsNullOrEmpty(filter))
+            {
+                _alertsListView.UseFiltering = false;
+                return;
+            }
+
+            _alertsListView.UseFiltering = true;
+            _alertsListView.ModelFilter = new ModelFilter(delegate(object x)
+            {
+                var alert = (Alert) x;
+                return alert.ContractCode.ToLower().Contains(filter)
+                       || alert.ClientName.ToLower().Contains(filter)
+                       || alert.LoanOfficer.ToLower().Contains(filter);
+            });
+        }
     }
 }
