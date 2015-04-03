@@ -26,12 +26,10 @@ using System.Linq;
 using Dapper;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Accounting;
-using OpenCBS.CoreDomain.Alerts;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts;
 using OpenCBS.CoreDomain.Contracts.Collaterals;
 using OpenCBS.CoreDomain.Contracts.Loans;
-using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.CoreDomain.Contracts.Loans.LoanRepayment;
 using OpenCBS.CoreDomain.Events;
 using OpenCBS.CoreDomain.Events.Loan;
@@ -2264,63 +2262,6 @@ namespace OpenCBS.Manager.Contracts
                     }
                     return trancheList;
                 }
-            }
-        }
-
-        public List<Alert_v2> SelectAllAlerts(DateTime date, int userId)
-        {
-            List<Alert_v2> alerts = new List<Alert_v2>();
-            string q = "SELECT * FROM dbo.Alerts(@date, @user_id, @branch_id)";
-
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            {
-                c.CommandTimeout = 600;
-                c.AddParam("@date", date);
-                c.AddParam("@user_id", userId);
-                c.AddParam("@branch_id", 1);
-
-                using (OpenCbsReader r = c.ExecuteReader())
-                {
-                    if (r.Empty) return alerts;
-
-                    while (r.Read())
-                    {
-                        Alert_v2 alert = new Alert_v2
-                            {
-                                Address = r.GetString("address")
-                                ,
-                                Amount = r.GetMoney("amount")
-                                ,
-                                City = r.GetString("city")
-                                ,
-                                ClientName = r.GetString("client_name")
-                                ,
-                                ContractCode = r.GetString("contract_code")
-                                ,
-                                Date = r.GetDateTime("date")
-                                ,
-                                Id = r.GetInt("id")
-                                ,
-                                LateDays = r.GetInt("late_days")
-                                ,
-                                LoanOfficer = new User { Id = r.GetInt("loan_officer_id") }
-                                ,
-                                Phone = r.GetString("phone")
-                                ,
-                                Status = (OContractStatus)r.GetInt("status")
-                                ,
-                                UseCents = r.GetBool("use_cents")
-                                ,
-                                Kind = (AlertKind)r.GetInt("kind")
-                                ,
-                                BranchName = r.GetString("branch_name")
-                            };
-                        alerts.Add(alert);
-                    }
-                }
-
-                return alerts;
             }
         }
 

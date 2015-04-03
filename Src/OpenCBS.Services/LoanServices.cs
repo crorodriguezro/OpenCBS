@@ -31,7 +31,6 @@ using System.Windows.Forms;
 using IronPython.Hosting;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Accounting;
-using OpenCBS.CoreDomain.Alerts;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts;
 using OpenCBS.CoreDomain.Contracts.Loans;
@@ -75,7 +74,6 @@ namespace OpenCBS.Services
         private readonly SavingServices _savingServices;
         private ProductServices _productServices;
         private readonly User _user;
-        private static List<Alert_v2> _alerts;
 
         private readonly OctopusScheduleConfigurationFactory _configurationFactory;
 
@@ -2741,51 +2739,6 @@ namespace OpenCBS.Services
                 var fakeInstallment = fakeLoan.InstallmentList.Find(item => item.Number == installment.Number);
                 _instalmentManager.UpdateInstallment(fakeInstallment, pLoan.Id, null, null);
             }
-        }
-
-        private void LoadAlerts()
-        {
-            if (_alerts != null) return;
-
-            DateTime now = TimeProvider.Now;
-            int userId = User.CurrentUser.Id;
-            _alerts = _loanManager.SelectAllAlerts(now, userId);
-
-            UserServices us = ServicesProvider.GetInstance().GetUserServices();
-            foreach (Alert_v2 alert in _alerts)
-            {
-                Debug.Assert(alert.LoanOfficer != null, "Loan officer is null");
-                alert.LoanOfficer = us.Find(alert.LoanOfficer.Id);
-            }
-        }
-
-        public List<Alert_v2> FindAlerts()
-        {
-            LoadAlerts();
-            return _alerts;
-        }
-
-        public List<Alert_v2> FindAlerts(bool late, bool pending, bool postponed, bool overdraft, bool savingsPending,
-                                         bool validated)
-        {
-            LoadAlerts();
-            return _alerts.FindAll(
-                i => i.IsPerformingLoan
-                     || (late && i.IsLateLoan)
-                     || (pending && i.IsLoan && i.Status == OContractStatus.Pending)
-                     || (validated && i.IsLoan && i.Status == OContractStatus.Validated)
-                     || (postponed && i.IsLoan && i.Status == OContractStatus.Postponed)
-                     || (overdraft && i.IsSaving && i.Amount < 0)
-                     || (savingsPending && i.IsSaving && i.Status == OContractStatus.Pending)
-                // Pending savings! (not loan)
-
-                );
-        }
-
-        public void ClearAlerts()
-        {
-            if (_alerts != null)
-                _alerts = null;
         }
 
         public List<Loan> GetActiveLoans(int clientId)

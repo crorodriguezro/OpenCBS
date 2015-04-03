@@ -220,7 +220,6 @@
     <Compile Include="CoreDomain\Contracts\LoanRepayment\RepayNextInstallments\TestRepayNextInstallmentsWithNoCents.cs" />
     <Compile Include="CoreDomain\Contracts\Savings\TestSaving.cs" />
     <Compile Include="CoreDomain\Contracts\Savings\TestSavingEvent.cs" />
-    <Compile Include="CoreDomain\TestAlert.cs" />
     <Compile Include="CoreDomain\TestAmountCycle.cs" />
     <Compile Include="CoreDomain\TestAmountCycleStock.cs" />
     <Compile Include="CoreDomain\Contracts\CalculateInstallments\TestCalculateInstallmentsDecliningRateWithCents.cs" />

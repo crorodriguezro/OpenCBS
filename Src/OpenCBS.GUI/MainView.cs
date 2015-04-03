@@ -36,7 +36,6 @@ using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.View;
 using OpenCBS.ArchitectureV2.Message;
 using OpenCBS.CoreDomain;
-using OpenCBS.CoreDomain.Alerts;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.Enums;
@@ -70,10 +69,8 @@ namespace OpenCBS.GUI
         [ImportMany(typeof(IInitializer))]
         public List<IInitializer> ExtensionInitalizers { get; set; }
 
-        private delegate void LoadAlertsDelegate(List<Alert_v2> alerts);
         private List<MenuObject> _menuItems;
         private bool _showTellerFormOnClose = true;
-        private bool _triggerAlertsUpdate;
         private readonly IApplicationController _applicationController;
 
         public MainView(IApplicationController applicationController)
@@ -220,8 +217,6 @@ namespace OpenCBS.GUI
                 String.Format(" {0}", TechnicalSettings.DatabaseName) :
                 "Online";
 
-            //mainStatusBarLblUserName.ForeColor = Color.Red;
-
             toolBarLblVersion.Text = String.Format("OpenCBS {0}", TechnicalSettings.SoftwareVersion);
             if (TechnicalSettings.UseOnlineMode)
                 menuItemDatabaseControlPanel.Visible = false;
@@ -271,10 +266,6 @@ namespace OpenCBS.GUI
             return foundObject;
         }
 
-        private void _CheckMenu(string mnuName, bool mnuAct)
-        {
-        }
-
         private void SetActiveMenuItem(ToolStripMenuItem tsmi_menu)
         {
             if (!tsmi_menu.HasDropDownItems)
@@ -285,7 +276,6 @@ namespace OpenCBS.GUI
             {
                 if (mnu is ToolStripMenuItem)
                 {
-                    _CheckMenu(((ToolStripMenuItem)mnu).Name, ((ToolStripMenuItem)mnu).Enabled);
                     SetActiveMenuItem((ToolStripMenuItem)mnu);
                 }
             }
@@ -381,14 +371,6 @@ namespace OpenCBS.GUI
             searchCreditContractForm.BringToFront();
             searchCreditContractForm.WindowState = FormWindowState.Normal;
             searchCreditContractForm.Show();
-        }
-
-        private void InitializeSearchProject()
-        {
-            SearchProjectForm searchProjectForm = SearchProjectForm.GetInstance(this);
-            searchProjectForm.BringToFront();
-            searchProjectForm.WindowState = FormWindowState.Normal;
-            searchProjectForm.Show();
         }
 
         public void InitializeCreditContractForm(IClient pClient, int pContractId)
@@ -588,7 +570,6 @@ namespace OpenCBS.GUI
             if (TimeProvider.Today == frm.Today) return;
 
             TimeProvider.SetToday(frm.Today);
-            //ReloadAlerts();
         }
 
 
@@ -678,11 +659,6 @@ namespace OpenCBS.GUI
             else RestartApplication(language);
         }
 
-        private void languagesToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
-        {
-            FillDropDownMenuWithLanguages();
-        }
-
         private void toolStripMenuItemInstallmentTypes_Click(object sender, EventArgs e)
         {
             FrmInstallmentTypes frmInstallmentTypes = new FrmInstallmentTypes();
@@ -719,210 +695,6 @@ namespace OpenCBS.GUI
             }
         }
 
-//        #region Alerts
-//        private void InitAlerts()
-//        {
-//            colAlerts_Status.AspectToStringConverter = delegate(object value)
-//            {
-//                OContractStatus status = (OContractStatus)value;
-//                string key = string.Format("Status{0}", status);
-//                return GetString(key);
-//            };
-//
-//            colAlerts_Date.AspectToStringConverter = delegate(object value)
-//            {
-//                DateTime date = (DateTime)value;
-//                return date.ToShortDateString();
-//            };
-//
-//            colAlerts_Amount.AspectToStringConverter = delegate(object value)
-//            {
-//                OCurrency amount = (OCurrency)value;
-//                return amount.GetFormatedValue(true);
-//            };
-//
-//            colAlerts_ContractCode.ImageGetter = delegate(object value)
-//            {
-//                Alert_v2 alert = (Alert_v2)value;
-//                return alert.ImageIndex;
-//            };
-//
-//            byte[] state = UserSettings.GetAlertState();
-//            if (state != null)
-//                olvAlerts.RestoreState(state);
-//
-//            _triggerAlertsUpdate = false;
-//            chkLateLoans.Checked = UserSettings.GetShowLateLoans();
-//            chkPendingLoans.Checked = UserSettings.GetShowPendingLoans();
-//            chkPendingSavings.Checked = UserSettings.GetShowPendingSavings();
-//            chkOverdraftSavings.Checked = UserSettings.GetShowOverdraftSavings();
-//            chkValidatedLoan.Checked = UserSettings.GetValidatedLoans();
-//            chkPostponedLoans.Checked = UserSettings.GetPostponedLoans();
-//            _triggerAlertsUpdate = true;
-//        }
-//
-//        private void UpdateAlertsTitle()
-//        {
-//            string t = GetString("Alerts");
-//            lblTitle.Text = string.Format(t, olvAlerts.Items.Count);
-//        }
-//
-//        public void ReloadAlertsSync()
-//        {
-//            if (!UserSettings.GetLoadAlerts()) return;
-//
-//            LoanServices ls = ServicesProvider.GetInstance().GetContractServices();
-//            ls.ClearAlerts();
-//            olvAlerts.SetObjects(null);
-//            lblTitle.Text = GetString("AlertsLoading");
-//            tabFilter.Enabled = false;
-//
-//            List<Alert_v2> alerts = ls.FindAlerts(
-//                chkLateLoans.Checked, 
-//                chkPendingLoans.Checked,
-//                chkPostponedLoans.Checked,
-//                chkOverdraftSavings.Checked, 
-//                chkPendingSavings.Checked, 
-//                chkValidatedLoan.Checked);
-//            LoadAlerts(alerts);
-//            tabFilter.Enabled = true;
-//        }
-//
-//        public void ReloadAlerts()
-//        {
-//            ReloadAlerts(true);
-//        }
-//
-//        public void ReloadAlerts(bool clear)
-//        {
-//            if (!UserSettings.GetLoadAlerts()) return;
-//
-//            LoanServices ls = ServicesProvider.GetInstance().GetContractServices();
-//            if (clear)
-//                ls.ClearAlerts();
-//            olvAlerts.SetObjects(null);
-//            lblTitle.Text = GetString("AlertsLoading");
-//            tabFilter.Enabled = false;
-//            bwAlerts.RunWorkerAsync();
-//        }
-//
-//        private void LoadAlerts(List<Alert_v2> alerts)
-//        {
-//            if (InvokeRequired)
-//            {
-//                Invoke(new LoadAlertsDelegate(LoadAlerts), new object[] { alerts });
-//                return;
-//            }
-//
-//            olvAlerts.SetObjects(alerts);
-//        }
-//
-//        private void OnFilterChanged(object sender, EventArgs e)
-//        {
-////            string filter = tbFilter.Text.ToLower();
-////            if (string.IsNullOrEmpty(filter))
-////            {
-////                olvAlerts.UseFiltering = false;
-////                UpdateAlertsTitle();
-////                return;
-////            }
-////
-////            olvAlerts.UseFiltering = true;
-////            olvAlerts.ModelFilter = new ModelFilter(delegate(object x)
-////            {
-////                Alert_v2 alert = (Alert_v2)x;
-////                return alert.ContractCode.ToLower().Contains(filter)
-////                       || alert.ClientName.ToLower().Contains(filter)
-////                       || alert.LoanOfficer.Name.ToLower().Contains(filter);
-////            });
-////            UpdateAlertsTitle();
-//        }
-//
-//        private void OnFormatAlertRow(object sender, FormatRowEventArgs e)
-//        {
-//            Alert_v2 alert = (Alert_v2)e.Model;
-//            e.Item.BackColor = alert.BackColor;
-//        }
-//
-//        private void OnAlertItemsChanged(object sender, ItemsChangedEventArgs e)
-//        {
-//            UpdateAlertsTitle();
-//        }
-//
-//        private void OnAlertDoubleClicked(object sender, EventArgs e)
-//        {
-//            if (null == olvAlerts.SelectedObject) return;
-//
-//            Alert_v2 alert = (Alert_v2)olvAlerts.SelectedObject;
-//
-//            IClient client;
-//            switch (alert.Kind)
-//            {
-//                case AlertKind.Loan:
-//                    client = ServicesProvider.GetInstance().GetClientServices().FindTiersByContractId(alert.Id);
-//                    InitializeCreditContractForm(client, alert.Id);
-//                    break;
-//
-//                case AlertKind.Saving:
-//                    client = ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(alert.Id);
-//                    InitializeSavingContractForm(client, alert.Id);
-//                    break;
-//
-//                default:
-//                    Debug.Fail("Cannot be here.");
-//                    break;
-//            }
-//        }
-//
-//        private void OnAlertsLoading(object sender, DoWorkEventArgs e)
-//        {
-//            LoanServices ls = ServicesProvider.GetInstance().GetContractServices();
-//            List<Alert_v2> alerts = ls.FindAlerts(
-//                chkLateLoans.Checked, 
-//                chkPendingLoans.Checked,
-//                chkPostponedLoans.Checked,
-//                chkOverdraftSavings.Checked,
-//                chkPendingSavings.Checked, 
-//                chkValidatedLoan.Checked);
-//            LoadAlerts(alerts);
-//        }
-//
-//
-//        private void OnAlertsLoaded(object sender, RunWorkerCompletedEventArgs e)
-//        {
-//            if (e.Error != null)
-//            {
-//                Debug.WriteLine(e.Error.Message);
-//            }
-//            tabFilter.Enabled = true;
-//        }
-//
-//
-//        private void OnAlertCheckChanged(object sender, EventArgs e)
-//        {
-//            if (!_triggerAlertsUpdate) return;
-//            UserSettings.SetShowLateLoans(chkLateLoans.Checked);
-//            UserSettings.SetShowPendingLoans(chkPendingLoans.Checked);
-//            UserSettings.SetShowPendingSavings(chkPendingSavings.Checked);
-//            UserSettings.SetShowOverdraftSavings(chkOverdraftSavings.Checked);
-//            UserSettings.SetShowValidatedLoans(chkValidatedLoan.Checked);
-//            UserSettings.SetShowPostponedLoans(chkPostponedLoans.Checked);
-//            ReloadAlerts(false);
-//        }
-//
-//
-//        private void OnAlertsVisibleChanged(object sender, EventArgs e)
-//        {
-//            UserSettings.SetLoadAlerts(panelLeft.Visible);
-//            ReloadAlerts();
-//        }
-//
-//        private void OnAlertsSizeChanged(object sender, EventArgs e)
-//        {
-//            UserSettings.SetAlertsWidth(panelLeft.Width);
-//        }
-//        #endregion Alerts
-
         private void LotrasmicMainWindowForm_Load(object sender, EventArgs e)
         {
             InitExtensions();
@@ -931,12 +703,6 @@ namespace OpenCBS.GUI
             {
                 Ping();
                 LogUser();
-//                panelLeft.Visible = UserSettings.GetLoadAlerts();
-//                panelLeft.Width = UserSettings.GetAlertsWidth();
-//                if (panelLeft.Visible) ReloadAlerts();
-//                panelLeft.VisibleChanged += OnAlertsVisibleChanged;
-//                panelLeft.SizeChanged += OnAlertsSizeChanged;
-//
                 InitializeMainMenu();
                 _InitializeUserRights();
                 DisplayFastChoiceForm();
@@ -1138,7 +904,6 @@ namespace OpenCBS.GUI
                             e.Cancel = true;
                 }
             }
-            //UserSettings.SetAlertState(olvAlerts.SaveState());
             try
             {
                 ServicesProvider.GetInstance().GetEventProcessorServices().LogUser(OUserEvents.UserLogOutEvent,
@@ -1158,11 +923,6 @@ namespace OpenCBS.GUI
             FrmRoles rolesForm = new FrmRoles(this) { MdiParent = this };
             rolesForm.Show();
         }
-
-        //private void menuItemCollateralProducts_Click(object sender, EventArgs e)
-        //{
-        //    InitializeCollateralProductsForm();
-        //}
 
         private void trialBalanceToolStripMenuItem_Click(object sender, EventArgs e)
         {

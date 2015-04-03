@@ -199,7 +199,6 @@
     <Compile Include="Contracts\FlatRoundingSchedule.cs" />
     <Compile Include="Contracts\Loans\LoanRepayment\RepaymentConfiguration.cs" />
     <Compile Include="Contracts\ReassignContractItem.cs" />
-    <Compile Include="Alerts\Alert_v2.cs" />
     <Compile Include="Branch.cs" />
     <Compile Include="Clients\VillageAttendee.cs" />
     <Compile Include="Contracts\Collaterals\CollateralPropertyValue.cs" />
