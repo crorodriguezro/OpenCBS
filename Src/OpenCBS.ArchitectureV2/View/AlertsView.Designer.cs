@@ -55,6 +55,7 @@
             this._searchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this._reloadButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this._clearSearchButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this._alertsListView)).BeginInit();
             this._toolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -180,7 +181,8 @@
             this._loansDropDownButton,
             this._savingsDropDownButton,
             this.toolStripSeparator1,
-            this._searchTextBox});
+            this._searchTextBox,
+            this._clearSearchButton});
             this._toolStrip.Location = new System.Drawing.Point(0, 0);
             this._toolStrip.Name = "_toolStrip";
             this._toolStrip.Size = new System.Drawing.Size(715, 25);
@@ -280,6 +282,15 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // _clearSearchButton
+            // 
+            this._clearSearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._clearSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("_clearSearchButton.Image")));
+            this._clearSearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._clearSearchButton.Name = "_clearSearchButton";
+            this._clearSearchButton.Size = new System.Drawing.Size(23, 22);
+            this._clearSearchButton.Text = "Clear Search";
+            // 
             // AlertsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -326,5 +337,6 @@
         private System.Windows.Forms.ToolStripTextBox _searchTextBox;
         private System.Windows.Forms.ToolStripButton _reloadButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton _clearSearchButton;
     }
 }

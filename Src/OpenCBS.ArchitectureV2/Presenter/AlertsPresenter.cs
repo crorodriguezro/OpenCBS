@@ -62,7 +62,6 @@ namespace OpenCBS.ArchitectureV2.Presenter
                 _view.ShowPendingSavings && x.IsSaving && x.Status == OContractStatus.Pending ||
                 _view.ShowOverdraftSavings && x.IsSaving && x.Amount < 0);
             _view.SetAlerts(alerts);
-            _view.SetTitle(string.Format("Alerts ({0})", alerts.Count));
         }
 
         public void Reload()
@@ -84,7 +83,6 @@ namespace OpenCBS.ArchitectureV2.Presenter
                 Refresh();
             };
             _view.StartProgress();
-            _view.SetTitle("Alerts (loading...)");
             bw.RunWorkerAsync();
         }
     }

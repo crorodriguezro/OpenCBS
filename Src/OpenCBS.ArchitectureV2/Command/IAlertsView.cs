@@ -10,7 +10,6 @@ namespace OpenCBS.ArchitectureV2.Command
         void SetAlerts(List<Alert> alerts);
         void StartProgress();
         void StopProgress();
-        void SetTitle(string title);
 
         bool ShowPerformingLoans { get; }
         bool ShowLateLoans { get; }

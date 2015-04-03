@@ -17,6 +17,7 @@ namespace OpenCBS.ArchitectureV2.View
             ShowPerformingLoans = true;
             _lateLoansItem.Checked = true;
             _performingLoansItem.Checked = true;
+            _clearSearchButton.Visible = false;
             SetUp();
         }
 
@@ -75,10 +76,16 @@ namespace OpenCBS.ArchitectureV2.View
             };
         }
 
+        private void UpdateTitle()
+        {
+            Text = string.Format("Alerts ({0})", _alertsListView.Items.Count);
+        }
+
         public void SetAlerts(List<Alert> alerts)
         {
             _alertsListView.SetObjects(alerts);
             _alertsListView.Sort(_lateDaysColumn, SortOrder.Descending);
+            UpdateTitle();
         }
 
         private static void OnFormatAlertRow(object sender, FormatRowEventArgs e)
@@ -104,21 +111,20 @@ namespace OpenCBS.ArchitectureV2.View
 
             _searchTextBox.TextChanged += (sender, e) => OnSearchTextChanged();
             (_searchTextBox.Control as TextBox).SetHint("Search");
+            _clearSearchButton.Click += (sender, e) => _searchTextBox.Text = string.Empty;
         }
 
         public void StartProgress()
         {
             Cursor = Cursors.WaitCursor;
+            _toolStrip.Enabled = false;
+            Text = "Alerts (loading...)";
         }
 
         public void StopProgress()
         {
             Cursor = Cursors.Default;
-        }
-
-        public void SetTitle(string title)
-        {
-            Text = title;
+            _toolStrip.Enabled = true;
         }
 
         public bool ShowPerformingLoans { get; private set; }
@@ -141,6 +147,8 @@ namespace OpenCBS.ArchitectureV2.View
             if (string.IsNullOrEmpty(filter))
             {
                 _alertsListView.UseFiltering = false;
+                _clearSearchButton.Visible = false;
+                UpdateTitle();
                 return;
             }
 
@@ -152,6 +160,8 @@ namespace OpenCBS.ArchitectureV2.View
                        || alert.ClientName.ToLower().Contains(filter)
                        || alert.LoanOfficer.ToLower().Contains(filter);
             });
+            _clearSearchButton.Visible = true;
+            UpdateTitle();
         }
     }
 }
