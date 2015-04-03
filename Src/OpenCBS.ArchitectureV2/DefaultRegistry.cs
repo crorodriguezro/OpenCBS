@@ -24,6 +24,7 @@ namespace OpenCBS.ArchitectureV2
             For<ITranslationService>().Singleton().Use<TranslationService>();
             For<IApplicationController>().Singleton().Use<ApplicationController>();
             For<ITinyMessengerHub>().Singleton().Use<TinyMessengerHub>();
+            For<IConnectionProvider>().Singleton().Use<ConnectionProvider>();
         }
     }
 }

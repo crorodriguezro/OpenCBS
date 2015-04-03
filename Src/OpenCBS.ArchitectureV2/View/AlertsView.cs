@@ -1,0 +1,130 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using BrightIdeasSoftware;
+using OpenCBS.ArchitectureV2.Command;
+using OpenCBS.ArchitectureV2.Interface.Presenter;
+using OpenCBS.ArchitectureV2.Model;
+
+namespace OpenCBS.ArchitectureV2.View
+{
+    public partial class AlertsView : Form, IAlertsView
+    {
+        public AlertsView()
+        {
+            InitializeComponent();
+            SetUp();
+        }
+
+        public void Attach(IAlertsPresenterCallbacks presenterCallbacks)
+        {
+            FormClosing += (sender, e) => presenterCallbacks.DetachView();
+
+            _performingLoansItem.Click += (sender, e) =>
+            {
+                ShowPerformingLoans = !ShowPerformingLoans;
+                _performingLoansItem.Checked = ShowPerformingLoans;
+                presenterCallbacks.Refresh();
+            };
+
+            _lateLoansItem.Click += (sender, e) =>
+            {
+                ShowLateLoans = !ShowLateLoans;
+                _lateLoansItem.Checked = ShowLateLoans;
+                presenterCallbacks.Refresh();
+            };
+
+            _pendingLoansItem.Click += (sender, e) =>
+            {
+                ShowPendingLoans = !ShowPendingLoans;
+                _pendingLoansItem.Checked = ShowPendingLoans;
+                presenterCallbacks.Refresh();
+            };
+
+            _validatedLoansItem.Click += (sender, e) =>
+            {
+                ShowValidatedLoans = !ShowValidatedLoans;
+                _validatedLoansItem.Checked = ShowValidatedLoans;
+                presenterCallbacks.Refresh();
+            };
+
+            _postponedLoansItem.Click += (sender, e) =>
+            {
+                ShowPostponedLoans = !ShowPostponedLoans;
+                _postponedLoansItem.Checked = ShowPostponedLoans;
+                presenterCallbacks.Refresh();
+            };
+
+            _pendingSavingsItem.Click += (sender, e) =>
+            {
+                ShowPendingSavings = !ShowPendingSavings;
+                _pendingSavingsItem.Checked = ShowPendingSavings;
+                presenterCallbacks.Refresh();
+            };
+
+            _overdraftSavingsItem.Click += (sender, e) =>
+            {
+                ShowOverdraftSavings = !ShowOverdraftSavings;
+                _overdraftSavingsItem.Checked = ShowOverdraftSavings;
+                presenterCallbacks.Refresh();
+            };
+        }
+
+        public void SetAlerts(List<Alert> alerts)
+        {
+            _alertsListView.SetObjects(alerts);
+            _alertsListView.Sort(_lateDaysColumn, SortOrder.Descending);
+        }
+
+        private static void OnFormatAlertRow(object sender, FormatRowEventArgs e)
+        {
+            var alert = (Alert) e.Model;
+            e.Item.BackColor = alert.BackColor;
+            e.Item.ForeColor = alert.ForeColor;
+        }
+
+        private void SetUp()
+        {
+            _dateColumn.AspectToStringConverter = delegate(object value)
+            {
+                var date = (DateTime) value;
+                return date.ToShortDateString();
+            };
+            _amountColumn.AspectToStringConverter = delegate(object value)
+            {
+                var amount = (decimal) value;
+                return amount.ToString("N2");
+            };
+            _alertsListView.FormatRow += OnFormatAlertRow;
+        }
+
+        public void StartProgress()
+        {
+            Cursor = Cursors.WaitCursor;
+        }
+
+        public void StopProgress()
+        {
+            Cursor = Cursors.Default;
+        }
+
+        public void SetTitle(string title)
+        {
+            Text = title;
+        }
+
+        public bool ShowPerformingLoans { get; private set; }
+
+        public bool ShowLateLoans { get; private set; }
+
+        public bool ShowPendingLoans { get; private set; }
+
+        public bool ShowValidatedLoans { get; private set; }
+
+        public bool ShowPostponedLoans { get; private set; }
+
+        public bool ShowPendingSavings { get; private set; }
+
+        public bool ShowOverdraftSavings { get; private set; }
+    }
+}

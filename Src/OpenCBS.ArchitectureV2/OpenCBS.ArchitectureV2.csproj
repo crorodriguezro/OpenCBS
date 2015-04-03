@@ -36,6 +36,10 @@
     <ApplicationIcon>opencbs.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.12.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Dapper.1.13\lib\net40\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="IronPython">
       <HintPath>..\packages\IronPython.2.7.4\lib\Net40\IronPython.dll</HintPath>
     </Reference>
@@ -84,6 +88,7 @@
     <Compile Include="CommandData\OpenUrlCommandData.cs" />
     <Compile Include="CommandData\SearchClientCommandData.cs" />
     <Compile Include="CommandData\SearchLoanCommandData.cs" />
+    <Compile Include="CommandData\ShowAlertsCommandData.cs" />
     <Compile Include="CommandData\ShowRepaymentViewCommandData.cs" />
     <Compile Include="CommandData\ShowStartPageCommandData.cs" />
     <Compile Include="Command\AddCompanyCommand.cs" />
@@ -91,26 +96,33 @@
     <Compile Include="Command\AddPersonCommand.cs" />
     <Compile Include="Command\AddVillageBankCommand.cs" />
     <Compile Include="Command\Command.cs" />
+    <Compile Include="Command\IAlertsView.cs" />
     <Compile Include="Command\OpenEmailCommand.cs" />
     <Compile Include="Command\OpenUrlCommand.cs" />
     <Compile Include="Command\SearchClientCommand.cs" />
     <Compile Include="Command\SearchLoanCommand.cs" />
+    <Compile Include="Command\ShowAlertsCommand.cs" />
     <Compile Include="Command\ShowRepaymentViewCommand.cs" />
     <Compile Include="Command\ShowStartPageCommand.cs" />
+    <Compile Include="ConnectionProvider.cs" />
     <Compile Include="DefaultRegistry.cs" />
     <Compile Include="Event\RepaymentNotification.cs" />
     <Compile Include="Interface\IApplicationController.cs" />
     <Compile Include="Interface\IBackgroundTask.cs" />
     <Compile Include="Interface\IBackgroundTaskFactory.cs" />
     <Compile Include="Interface\ICommand.cs" />
+    <Compile Include="Interface\IConnectionProvider.cs" />
     <Compile Include="Interface\IEventHandler.cs" />
     <Compile Include="Interface\IEventPublisher.cs" />
+    <Compile Include="Interface\Presenter\IAlertsPresenter.cs" />
+    <Compile Include="Interface\Presenter\IAlertsPresenterCallbacks.cs" />
     <Compile Include="Interface\Presenter\IRepaymentPresenter.cs" />
     <Compile Include="Interface\Presenter\IRepaymentPresenterCallbacks.cs" />
     <Compile Include="Interface\Presenter\ISqlServerConnectionPresenter.cs" />
     <Compile Include="Interface\Presenter\IStartPagePresenter.cs" />
     <Compile Include="Interface\Presenter\IStartPagePresenterCallbacks.cs" />
     <Compile Include="Interface\Presenter\IUpgradePresenter.cs" />
+    <Compile Include="Interface\Repository\ILoanRepository.cs" />
     <Compile Include="Interface\Service\IRepaymentService.cs" />
     <Compile Include="Interface\Service\ISettingsService.cs" />
     <Compile Include="Interface\Presenter\ILoginPresenter.cs" />
@@ -127,10 +139,14 @@
     <Compile Include="Interface\View\IUpgradeView.cs" />
     <Compile Include="Interface\View\IView.cs" />
     <Compile Include="Message\ActivateViewMessage.cs" />
+    <Compile Include="Message\AlertsHiddenMessage.cs" />
+    <Compile Include="Message\AlertsShownMessage.cs" />
     <Compile Include="Message\RestartApplicationMessage.cs" />
     <Compile Include="Message\ShowViewMessage.cs" />
     <Compile Include="Message\StartPageHiddenMessage.cs" />
     <Compile Include="Message\StartPageShownMessage.cs" />
+    <Compile Include="Model\Alert.cs" />
+    <Compile Include="Presenter\AlertsPresenter.cs" />
     <Compile Include="Presenter\LoginPresenter.cs" />
     <Compile Include="Presenter\RepaymentPresenter.cs" />
     <Compile Include="Presenter\StartPagePresenter.cs" />
@@ -142,12 +158,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Repository\LoanRepository.cs" />
     <Compile Include="Service\AuthService.cs" />
     <Compile Include="Service\DatabaseService.cs" />
     <Compile Include="Service\RepaymentSettings.cs" />
     <Compile Include="Service\RepaymentService.cs" />
     <Compile Include="Service\SettingsService.cs" />
     <Compile Include="TinyMessenger.cs" />
+    <Compile Include="View\AlertsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AlertsView.Designer.cs">
+      <DependentUpon>AlertsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\BaseView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +228,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="View\AlertsView.resx">
+      <DependentUpon>AlertsView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\BaseView.resx">
       <DependentUpon>BaseView.cs</DependentUpon>
     </EmbeddedResource>

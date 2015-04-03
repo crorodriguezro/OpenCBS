@@ -86,6 +86,8 @@ namespace OpenCBS.GUI
                 _applicationController.Subscribe<ActivateViewMessage>(this, OnActivateView);
                 _applicationController.Subscribe<StartPageShownMessage>(this, OnStartPageShown);
                 _applicationController.Subscribe<StartPageHiddenMessage>(this, OnStartPageHidden);
+                _applicationController.Subscribe<AlertsShownMessage>(this, OnAlertsShown);
+                _applicationController.Subscribe<AlertsHiddenMessage>(this, OnAlertsHidden);
                 _applicationController.Subscribe<RestartApplicationMessage>(this, m =>
                 {
                     RestartApplication(m.Language);
@@ -109,6 +111,7 @@ namespace OpenCBS.GUI
         private void SetUp()
         {
             _startPageItem.Click += (sender, e) => _applicationController.Execute(new ShowStartPageCommandData());
+            _alertsItem.Click += (sender, e) => _applicationController.Execute(new ShowAlertsCommandData());
         }
 
         private void OnShowView(ShowViewMessage message)
@@ -133,6 +136,16 @@ namespace OpenCBS.GUI
         private void OnStartPageHidden(StartPageHiddenMessage message)
         {
             _startPageItem.Checked = false;
+        }
+
+        private void OnAlertsShown(AlertsShownMessage message)
+        {
+            _alertsItem.Checked = true;
+        }
+
+        private void OnAlertsHidden(AlertsHiddenMessage message)
+        {
+            _alertsItem.Checked = false;
         }
 
         private void InitMenu()
