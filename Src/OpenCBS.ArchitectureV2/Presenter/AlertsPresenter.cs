@@ -38,7 +38,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
             _view.Attach(this);
             _applicationController.Publish(new ShowViewMessage(this, _view));
             _applicationController.Publish(new AlertsShownMessage(this));
-            ReloadAlerts();
+            Reload();
         }
 
         public object View
@@ -65,7 +65,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
             _view.SetTitle(string.Format("Alerts ({0})", alerts.Count));
         }
 
-        private void ReloadAlerts()
+        public void Reload()
         {
             var bw = new BackgroundWorker();
             bw.DoWork += (sender, e) =>

@@ -23,6 +23,7 @@ namespace OpenCBS.ArchitectureV2.View
         public void Attach(IAlertsPresenterCallbacks presenterCallbacks)
         {
             FormClosing += (sender, e) => presenterCallbacks.DetachView();
+            _reloadButton.Click += (sender, e) => presenterCallbacks.Reload();
 
             _performingLoansItem.Click += (sender, e) =>
             {

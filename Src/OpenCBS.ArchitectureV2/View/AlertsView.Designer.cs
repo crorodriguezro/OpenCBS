@@ -53,6 +53,8 @@
             this._overdraftSavingsItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this._searchTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this._reloadButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this._alertsListView)).BeginInit();
             this._toolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +72,6 @@
             this._alertsListView.AllColumns.Add(this._addressColumn);
             this._alertsListView.AllColumns.Add(this._phoneColumn);
             this._alertsListView.AllColumns.Add(this._branchColumn);
-            this._alertsListView.CheckBoxes = false;
             this._alertsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this._contractCodeColumn,
             this._statusColumn,
@@ -174,6 +175,8 @@
             // _toolStrip
             // 
             this._toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._reloadButton,
+            this.toolStripSeparator2,
             this._loansDropDownButton,
             this._savingsDropDownButton,
             this.toolStripSeparator1,
@@ -263,6 +266,20 @@
             this._searchTextBox.Name = "_searchTextBox";
             this._searchTextBox.Size = new System.Drawing.Size(200, 25);
             // 
+            // _reloadButton
+            // 
+            this._reloadButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._reloadButton.Image = ((System.Drawing.Image)(resources.GetObject("_reloadButton.Image")));
+            this._reloadButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._reloadButton.Name = "_reloadButton";
+            this._reloadButton.Size = new System.Drawing.Size(23, 22);
+            this._reloadButton.Text = "toolStripButton1";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // AlertsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -307,5 +324,7 @@
         private System.Windows.Forms.ToolStripMenuItem _overdraftSavingsItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripTextBox _searchTextBox;
+        private System.Windows.Forms.ToolStripButton _reloadButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

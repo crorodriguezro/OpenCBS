@@ -3,6 +3,7 @@
     public interface IAlertsPresenterCallbacks
     {
         void Refresh();
+        void Reload();
         void DetachView();
     }
 }
