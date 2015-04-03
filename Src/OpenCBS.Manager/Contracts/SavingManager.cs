@@ -716,9 +716,9 @@ namespace OpenCBS.Manager.Contracts
                                 Persons.identification_data as identification_data, 
                                 Tiers.client_type_code, 
                                 Tiers.id AS client_id,
-                                ISNULL(Users.first_name + SPACE(1) + Users.last_name, Users.user_name) AS user_name, 
-                                ISNULL(Persons.first_name + SPACE(1) + Persons.last_name, ISNULL(Groups.name, Corporates.name)) AS client_name,
-                                ISNULL(Users.first_name + SPACE(1) + Users.last_name, Users.user_name) AS loanofficer_name,
+                                ISNULL(Users.last_name + SPACE(1) + Users.first_name, Users.user_name) AS user_name, 
+                                ISNULL(Persons.last_name + SPACE(1) + Persons.first_name, ISNULL(Groups.name, Corporates.name)) AS client_name,
+                                ISNULL(Users.last_name + SPACE(1) + Users.first_name, Users.user_name) AS loanofficer_name,
                                 SavingContracts.user_id AS loan_officer_id,
                                 SavingProducts.currency_id
                                 FROM SavingContracts 

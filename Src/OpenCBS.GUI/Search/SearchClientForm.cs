@@ -51,7 +51,6 @@ namespace OpenCBS.GUI
         private int _currentPageNumber;
         private int _numbersTotalPage;
         private int _numberOfRecords;
-        private System.Windows.Forms.Button buttonPrintReport;
         private Control _mdiForm;
         private bool _closeAfterSelect;
         private string _query;
@@ -104,8 +103,6 @@ namespace OpenCBS.GUI
 
             Sorter = new ListViewSorter();
             listViewClient.ListViewItemSorter = Sorter;
-            ReInitializeSearchParameters();
-            DisplayTiers();
         }
 
         public void WatchCorporate(OClientTypes pClientTypes, bool includeOnlyActive)
@@ -180,7 +177,6 @@ namespace OpenCBS.GUI
             labelTitleResult.Text = MultiLanguageStrings.GetString(Ressource.SearchClientForm, "result.Text");
             //listViewClient.Items.Clear();
             textBoxCurrentlyPage.Text = String.Empty;
-            buttonPrintReport.Enabled = false;
         }
         private void InitializeSearchParameters()
         {
@@ -236,8 +232,6 @@ namespace OpenCBS.GUI
                     string.Format("{0} ({1})", MultiLanguageStrings.GetString(Ressource.SearchClientForm, "result.Text"), _numberOfRecords);
                 textBoxCurrentlyPage.Text = 
                     MultiLanguageStrings.GetString(Ressource.SearchClientForm, "nbOfPages.Text") + _currentPageNumber + " / " + _numbersTotalPage;
-                
-                buttonPrintReport.Enabled = _numberOfRecords != 0;
             }
             catch (Exception ex)
             {
@@ -326,7 +320,6 @@ namespace OpenCBS.GUI
             this.checkBoxPersons = new System.Windows.Forms.CheckBox();
             this.radioButtonCorporate = new System.Windows.Forms.RadioButton();
             this.radioButtonPerson = new System.Windows.Forms.RadioButton();
-            this.buttonPrintReport = new System.Windows.Forms.Button();
             this.textBoxQuery = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.groupBoxButtonBottom = new System.Windows.Forms.GroupBox();
@@ -371,7 +364,6 @@ namespace OpenCBS.GUI
             // 
             this.groupBoxSearchParameters.Controls.Add(this.groupBoxActive);
             this.groupBoxSearchParameters.Controls.Add(this.groupBoxCorporates);
-            this.groupBoxSearchParameters.Controls.Add(this.buttonPrintReport);
             this.groupBoxSearchParameters.Controls.Add(this.textBoxQuery);
             this.groupBoxSearchParameters.Controls.Add(this.buttonSearch);
             resources.ApplyResources(this.groupBoxSearchParameters, "groupBoxSearchParameters");
@@ -392,7 +384,6 @@ namespace OpenCBS.GUI
             this.checkBoxNotactive.Checked = true;
             this.checkBoxNotactive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxNotactive.Name = "checkBoxNotactive";
-            this.checkBoxNotactive.CheckedChanged += new System.EventHandler(this.checkBoxNotactive_CheckedChanged);
             // 
             // checkBoxActive
             // 
@@ -400,7 +391,6 @@ namespace OpenCBS.GUI
             this.checkBoxActive.Checked = true;
             this.checkBoxActive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxActive.Name = "checkBoxActive";
-            this.checkBoxActive.CheckedChanged += new System.EventHandler(this.checkBoxActive_CheckedChanged);
             // 
             // groupBoxCorporates
             // 
@@ -419,7 +409,6 @@ namespace OpenCBS.GUI
             this.checkBoxVillages.Checked = true;
             this.checkBoxVillages.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxVillages.Name = "checkBoxVillages";
-            this.checkBoxVillages.CheckedChanged += new System.EventHandler(this.checkBoxVillages_CheckedChanged);
             // 
             // checkBoxGroups
             // 
@@ -427,7 +416,6 @@ namespace OpenCBS.GUI
             this.checkBoxGroups.Checked = true;
             this.checkBoxGroups.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxGroups.Name = "checkBoxGroups";
-            this.checkBoxGroups.CheckedChanged += new System.EventHandler(this.checkBoxGroups_CheckedChanged);
             // 
             // checkBoxPersons
             // 
@@ -435,7 +423,6 @@ namespace OpenCBS.GUI
             this.checkBoxPersons.Checked = true;
             this.checkBoxPersons.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxPersons.Name = "checkBoxPersons";
-            this.checkBoxPersons.CheckedChanged += new System.EventHandler(this.checkBoxPersons_CheckedChanged);
             // 
             // radioButtonCorporate
             // 
@@ -450,12 +437,6 @@ namespace OpenCBS.GUI
             this.radioButtonPerson.Name = "radioButtonPerson";
             this.radioButtonPerson.TabStop = true;
             this.radioButtonPerson.CheckedChanged += new System.EventHandler(this.radioButtonPerson_CheckedChanged);
-            // 
-            // buttonPrintReport
-            // 
-            resources.ApplyResources(this.buttonPrintReport, "buttonPrintReport");
-            this.buttonPrintReport.Name = "buttonPrintReport";
-            this.buttonPrintReport.Click += new System.EventHandler(this.buttonPrintReport_Click);
             // 
             // textBoxQuery
             // 
@@ -619,31 +600,6 @@ namespace OpenCBS.GUI
             DisplayTiers();
         }
 
-        private void buttonPrintReport_Click(object sender, EventArgs e)
-        {
-            InitializeClientListReport();
-        }
-
-        public void InitializeClientListReport()
-        {
-            //List<ClientSearchResult> allClient =  ServicesProvider.GetInstance().GetClientServices().FindAllTiers(out _numberOfRecords, _query);
-            //DataSet dsTiers = new DataSet();
-            //DataTable dsTable = dsTiers.Tables.Add();
-            //dsTable.Columns.Add("Name");
-            //dsTable.Columns.Add("Active");
-            //dsTable.Columns.Add("passport_number");
-            //dsTable.Columns.Add("loan_cycle");
-            //dsTable.Columns.Add("District");
-            //dsTable.Columns.Add("City");
-            //dsTable.Columns.Add("MemberOf");
-            //foreach (ClientSearchResult client in allClient)
-            //{
-            //    dsTable.Rows.Add(client.Name,client.Active, client.PassportNumber, client.LoanCycle, client.District, client.City, client.MemberOf);
-            //}
-            //FrmReportViewer viewer = new FrmReportViewer("ClientList.rpt", null, dsTiers, OInternalReports.ClientList);
-            //viewer.Show();
-        }
-
         private void textBoxQuery_TextChanged(object sender, EventArgs e)
         {
             _query = textBoxQuery.Text;
@@ -711,8 +667,6 @@ namespace OpenCBS.GUI
                 checkBoxGroups.Enabled = true;
                 checkBoxVillages.Enabled = true;
             }
-            ReInitializeSearchParameters();
-            DisplayTiers();
         }
         private void radioButtonCorporate_CheckedChanged(object sender, EventArgs e)
         {
@@ -726,8 +680,6 @@ namespace OpenCBS.GUI
                 checkBoxGroups.Enabled = false;
                 checkBoxVillages.Enabled = false;
             }
-            ReInitializeSearchParameters();
-            DisplayTiers();
         }
 
         private void listViewClient_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -751,36 +703,6 @@ namespace OpenCBS.GUI
                 listViewClient.Columns[Sorter.ByColumn].ImageIndex = listViewClient.Sorting == SortOrder.Ascending ? 2 : 3;
 
             listViewClient.Sort();
-        }
-
-        private void checkBoxPersons_CheckedChanged(object sender, EventArgs e)
-        {
-            ReInitializeSearchParameters();
-            DisplayTiers();
-        }
-
-        private void checkBoxGroups_CheckedChanged(object sender, EventArgs e)
-        {
-            ReInitializeSearchParameters();
-            DisplayTiers();
-        }
-
-        private void checkBoxVillages_CheckedChanged(object sender, EventArgs e)
-        {
-            ReInitializeSearchParameters();
-            DisplayTiers();
-        }
-
-        private void checkBoxActive_CheckedChanged(object sender, EventArgs e)
-        {
-            ReInitializeSearchParameters();
-            DisplayTiers();
-        }
-
-        private void checkBoxNotactive_CheckedChanged(object sender, EventArgs e)
-        {
-            ReInitializeSearchParameters();
-            DisplayTiers();
         }
     }
 }

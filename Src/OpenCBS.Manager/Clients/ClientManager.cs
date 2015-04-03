@@ -2118,7 +2118,7 @@ namespace OpenCBS.Manager.Clients
                                            INNER JOIN Tiers ON Corporates.id = Tiers.id 
                                            INNER JOIN Districts ON Districts.id = Tiers.district_id 
                                            WHERE active {0} {1}
-                                           ORDER BY Corporates.id 
+                                           ORDER BY Corporates.name 
                                            ) maTable", sign, onlyActive);
 
             string CloseWhere = @" WHERE ( siret LIKE @siret OR name LIKE @name OR district LIKE @district OR city LIKE @city )) maTable";
@@ -2419,7 +2419,7 @@ namespace OpenCBS.Manager.Clients
                                 @"	SELECT count(id) FROM " :
                                 @" SELECT * 
                                 FROM (
-                                        SELECT Row_Number() over (order by id) _rowNum, * 
+                                        SELECT Row_Number() over (order by name) _rowNum, * 
                                         FROM ";
 
 
@@ -2427,7 +2427,7 @@ namespace OpenCBS.Manager.Clients
 		         ( 
 			         SELECT pers.id as id
                             ,Tiers.client_type_code AS type
-                            ,pers.first_name + SPACE(1) + pers.last_name AS name
+                            ,pers.last_name + SPACE(1) + pers.first_name AS name
                             ,Tiers.active
                             ,Tiers.loan_cycle AS loan_cycle
                             ,dis.name AS district

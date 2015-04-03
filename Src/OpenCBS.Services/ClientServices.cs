@@ -141,14 +141,7 @@ namespace OpenCBS.Services
             List<ClientSearchResult> result = new List<ClientSearchResult>();
 
             numberOfRecords = _clientManagement.GetFoundRecordsNumber(query, isActive, includePersons, includeGroups, includeVillages);
-            //numberOfRecords = _ClientManagement.GetNumberVillages(query);
             result.AddRange(_clientManagement.SearchAllByCriteres(query, isActive, currentlyPage, includePersons, includeGroups, includeVillages));
-
-            //numberOfRecords += _ClientManagement.GetNumberGroup(query);
-            //result.AddRange(_ClientManagement.SearchGroupByCriteres(currentlyPage, query));
-
-            //numberOfRecords += _ClientManagement.GetNumberPerson(query, isActive);
-            //result.AddRange(_ClientManagement.SearchPersonByCriteres(currentlyPage, query));
 
             numbersTotalPage = numberOfRecords / 20;
             numbersTotalPage += numberOfRecords % 20 > 0 ? 1 : 0;
