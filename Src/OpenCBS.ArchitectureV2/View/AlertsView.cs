@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using BrightIdeasSoftware;
 using OpenCBS.ArchitectureV2.Command;
 using OpenCBS.ArchitectureV2.Interface.Presenter;
+using OpenCBS.ArchitectureV2.Interface.View;
 using OpenCBS.ArchitectureV2.Model;
 
 namespace OpenCBS.ArchitectureV2.View

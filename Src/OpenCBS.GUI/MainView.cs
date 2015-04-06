@@ -47,7 +47,6 @@ using OpenCBS.GUI.Configuration;
 using OpenCBS.GUI.Contracts;
 using OpenCBS.GUI.Database;
 using OpenCBS.GUI.Products;
-using OpenCBS.GUI.Projets;
 using OpenCBS.GUI.Report_Browser;
 using OpenCBS.GUI.TellerManagement;
 using OpenCBS.GUI.Tools;

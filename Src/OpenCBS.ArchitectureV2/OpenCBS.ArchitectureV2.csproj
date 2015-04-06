@@ -96,7 +96,7 @@
     <Compile Include="Command\AddPersonCommand.cs" />
     <Compile Include="Command\AddVillageBankCommand.cs" />
     <Compile Include="Command\Command.cs" />
-    <Compile Include="Command\IAlertsView.cs" />
+    <Compile Include="Interface\View\IAlertsView.cs" />
     <Compile Include="Command\OpenEmailCommand.cs" />
     <Compile Include="Command\OpenUrlCommand.cs" />
     <Compile Include="Command\SearchClientCommand.cs" />
