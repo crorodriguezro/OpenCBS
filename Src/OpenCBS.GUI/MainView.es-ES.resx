@@ -275,6 +275,12 @@
   <data name="mnuDomainOfApplication.Text" xml:space="preserve">
     <value>Actividad economica</value>
   </data>
+  <data name="loanPurposeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>242, 22</value>
+  </data>
+  <data name="loanPurposeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Propósito del Préstamo</value>
+  </data>
   <data name="menuItemLocations.Size" type="System.Drawing.Size, System.Drawing">
     <value>242, 22</value>
   </data>

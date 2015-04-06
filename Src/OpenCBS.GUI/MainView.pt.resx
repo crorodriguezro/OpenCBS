@@ -302,6 +302,12 @@
   <data name="mnuDomainOfApplication.Text" xml:space="preserve">
     <value>Actividades economicas</value>
   </data>
+  <data name="loanPurposeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>226, 22</value>
+  </data>
+  <data name="loanPurposeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Finalidade do Empréstimo</value>
+  </data>
   <data name="menuItemLocations.Size" type="System.Drawing.Size, System.Drawing">
     <value>226, 22</value>
   </data>
@@ -519,19 +525,19 @@
     <value>Poupancas, seguros e emolumentos</value>
   </data>
   <data name="_startPageItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>144, 22</value>
   </data>
   <data name="_startPageItem.Text" xml:space="preserve">
     <value>Página inicial</value>
   </data>
   <data name="_alertsItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>144, 22</value>
   </data>
   <data name="_alertsItem.Text" xml:space="preserve">
     <value>Alertas</value>
   </data>
   <data name="_dashboardItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>144, 22</value>
   </data>
   <data name="_dashboardItem.Text" xml:space="preserve">
     <value>Gráficos</value>
