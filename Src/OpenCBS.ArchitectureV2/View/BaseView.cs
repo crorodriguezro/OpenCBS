@@ -10,7 +10,7 @@ namespace OpenCBS.ArchitectureV2.View
 {
     public partial class BaseView : Form
     {
-        private readonly ITranslationService _translationService;
+        protected readonly ITranslationService TranslationService;
 
         public BaseView() : this(null)
         {
@@ -18,13 +18,14 @@ namespace OpenCBS.ArchitectureV2.View
 
         public BaseView(ITranslationService translationService)
         {
-            _translationService = translationService;
+            TranslationService = translationService;
             Font = SystemFonts.MessageBoxFont;
             InitializeComponent();
         }
 
         public void Translate()
         {
+            if (TranslationService == null) return;
             var validTypes = new[]
             {
                 typeof (Label),
@@ -35,6 +36,8 @@ namespace OpenCBS.ArchitectureV2.View
                 typeof (GroupBox),
                 typeof (TabControl),
                 typeof (ToolStripMenuItem),
+                typeof (ToolStripDropDownButton),
+                typeof (ToolStripButton),
                 typeof (LinkLabel),
                 typeof (OLVColumn)
             };
@@ -48,10 +51,10 @@ namespace OpenCBS.ArchitectureV2.View
             foreach (var field in fields)
             {
                 var text = (string) field.GetType().GetProperty("Text").GetValue(field, null);
-                text = _translationService.Translate(text);
+                text = TranslationService.Translate(text);
                 field.GetType().GetProperty("Text").SetValue(field, text, null);
             }
-            Text = _translationService.Translate(Text);
+            Text = TranslationService.Translate(Text);
 
             Invalidate(true);
         }

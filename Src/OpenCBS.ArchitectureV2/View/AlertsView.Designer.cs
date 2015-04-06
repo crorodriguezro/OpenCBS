@@ -42,6 +42,8 @@
             this._phoneColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._branchColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._toolStrip = new System.Windows.Forms.ToolStrip();
+            this._reloadButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this._loansDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this._performingLoansItem = new System.Windows.Forms.ToolStripMenuItem();
             this._lateLoansItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,8 +55,6 @@
             this._overdraftSavingsItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this._searchTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this._reloadButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this._clearSearchButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this._alertsListView)).BeginInit();
             this._toolStrip.SuspendLayout();
@@ -189,6 +189,20 @@
             this._toolStrip.TabIndex = 4;
             this._toolStrip.Text = "toolStrip1";
             // 
+            // _reloadButton
+            // 
+            this._reloadButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._reloadButton.Image = ((System.Drawing.Image)(resources.GetObject("_reloadButton.Image")));
+            this._reloadButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._reloadButton.Name = "_reloadButton";
+            this._reloadButton.Size = new System.Drawing.Size(23, 22);
+            this._reloadButton.Text = "Refresh";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // _loansDropDownButton
             // 
             this._loansDropDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -201,37 +215,37 @@
             this._loansDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("_loansDropDownButton.Image")));
             this._loansDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._loansDropDownButton.Name = "_loansDropDownButton";
-            this._loansDropDownButton.Size = new System.Drawing.Size(83, 22);
-            this._loansDropDownButton.Text = "Show Loans";
+            this._loansDropDownButton.Size = new System.Drawing.Size(51, 22);
+            this._loansDropDownButton.Text = "Loans";
             // 
             // _performingLoansItem
             // 
             this._performingLoansItem.Name = "_performingLoansItem";
-            this._performingLoansItem.Size = new System.Drawing.Size(152, 22);
+            this._performingLoansItem.Size = new System.Drawing.Size(134, 22);
             this._performingLoansItem.Text = "Performing";
             // 
             // _lateLoansItem
             // 
             this._lateLoansItem.Name = "_lateLoansItem";
-            this._lateLoansItem.Size = new System.Drawing.Size(152, 22);
+            this._lateLoansItem.Size = new System.Drawing.Size(134, 22);
             this._lateLoansItem.Text = "Late";
             // 
             // _pendingLoansItem
             // 
             this._pendingLoansItem.Name = "_pendingLoansItem";
-            this._pendingLoansItem.Size = new System.Drawing.Size(152, 22);
+            this._pendingLoansItem.Size = new System.Drawing.Size(134, 22);
             this._pendingLoansItem.Text = "Pending";
             // 
             // _validatedLoansItem
             // 
             this._validatedLoansItem.Name = "_validatedLoansItem";
-            this._validatedLoansItem.Size = new System.Drawing.Size(152, 22);
+            this._validatedLoansItem.Size = new System.Drawing.Size(134, 22);
             this._validatedLoansItem.Text = "Validated";
             // 
             // _postponedLoansItem
             // 
             this._postponedLoansItem.Name = "_postponedLoansItem";
-            this._postponedLoansItem.Size = new System.Drawing.Size(152, 22);
+            this._postponedLoansItem.Size = new System.Drawing.Size(134, 22);
             this._postponedLoansItem.Text = "Postponed";
             // 
             // _savingsDropDownButton
@@ -243,19 +257,19 @@
             this._savingsDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("_savingsDropDownButton.Image")));
             this._savingsDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._savingsDropDownButton.Name = "_savingsDropDownButton";
-            this._savingsDropDownButton.Size = new System.Drawing.Size(92, 22);
-            this._savingsDropDownButton.Text = "Show Savings";
+            this._savingsDropDownButton.Size = new System.Drawing.Size(60, 22);
+            this._savingsDropDownButton.Text = "Savings";
             // 
             // _pendingSavingsItem
             // 
             this._pendingSavingsItem.Name = "_pendingSavingsItem";
-            this._pendingSavingsItem.Size = new System.Drawing.Size(152, 22);
+            this._pendingSavingsItem.Size = new System.Drawing.Size(124, 22);
             this._pendingSavingsItem.Text = "Pending";
             // 
             // _overdraftSavingsItem
             // 
             this._overdraftSavingsItem.Name = "_overdraftSavingsItem";
-            this._overdraftSavingsItem.Size = new System.Drawing.Size(152, 22);
+            this._overdraftSavingsItem.Size = new System.Drawing.Size(124, 22);
             this._overdraftSavingsItem.Text = "Overdraft";
             // 
             // toolStripSeparator1
@@ -267,20 +281,6 @@
             // 
             this._searchTextBox.Name = "_searchTextBox";
             this._searchTextBox.Size = new System.Drawing.Size(200, 25);
-            // 
-            // _reloadButton
-            // 
-            this._reloadButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this._reloadButton.Image = ((System.Drawing.Image)(resources.GetObject("_reloadButton.Image")));
-            this._reloadButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this._reloadButton.Name = "_reloadButton";
-            this._reloadButton.Size = new System.Drawing.Size(23, 22);
-            this._reloadButton.Text = "toolStripButton1";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // _clearSearchButton
             // 
@@ -298,7 +298,6 @@
             this.ClientSize = new System.Drawing.Size(715, 296);
             this.Controls.Add(this._alertsListView);
             this.Controls.Add(this._toolStrip);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Name = "AlertsView";
             this.Text = "Alerts";
             ((System.ComponentModel.ISupportInitialize)(this._alertsListView)).EndInit();
