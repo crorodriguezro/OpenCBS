@@ -229,7 +229,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
             return events;
         }
 
-        public override List<SavingEvent> Withdraw(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees, Teller teller)
+        public override List<SavingEvent> Withdraw(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees, Teller teller, PaymentMethod paymentMethod)
         {
             List<SavingEvent> events = new List<SavingEvent>();
 

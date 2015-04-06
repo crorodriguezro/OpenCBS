@@ -276,7 +276,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
 
 //            saving.Deposit(100, new DateTime(2009, 02, 01), "depot", new User(), false, false, OPaymentMethods.Cash, null, null);
             saving.Deposit(100, new DateTime(2009, 02, 01), "depot", new User(), false, false, OSavingsMethods.Cash, new PaymentMethod(), null, null);
-            saving.Withdraw(230, new DateTime(2009, 02, 03), "retrait", new User(), false, null);
+            saving.Withdraw(230, new DateTime(2009, 02, 03), "retrait", new User(), false, null, new PaymentMethod());
 
             Assert.AreEqual(saving.GetBalance(new DateTime(2009, 01, 31)), 1000);
             Assert.AreEqual(saving.GetBalance(new DateTime(2009, 02, 01)), 1100);
@@ -296,7 +296,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
                 product, null) { FlatWithdrawFees = 0, DepositFees = 5, CloseFees = 6, ManagementFees = 7 };
             saving.FirstDeposit(1000, new DateTime(2009, 01, 01), null, new User(), Teller.CurrentTeller);
 
-            saving.Withdraw(100, new DateTime(2009, 02, 02), "retrait", new User(), false, null);
+            saving.Withdraw(100, new DateTime(2009, 02, 02), "retrait", new User(), false, null, new PaymentMethod());
 //            saving.Deposit(230, new DateTime(2009, 02, 02), "depot", new User(), false, false, OPaymentMethods.Cash, null, null);
             saving.Deposit(230, new DateTime(2009, 02, 02), "depot", new User(), false, false, OSavingsMethods.Cash, new PaymentMethod(),  null, null);
 
@@ -353,7 +353,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             saving.FirstDeposit(100, new DateTime(2009, 01, 01), null, new User(), Teller.CurrentTeller);
             
             saving.Closure(new DateTime(2009, 01, 02), new User());
-            saving.Withdraw(50, new DateTime(2009, 01, 02), "retrait", new User(), false, null);
+            saving.Withdraw(50, new DateTime(2009, 01, 02), "retrait", new User(), false, null, new PaymentMethod());
 
             Assert.AreEqual(saving.GetBalance(), 50);
 

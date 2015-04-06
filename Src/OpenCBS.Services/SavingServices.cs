@@ -50,31 +50,31 @@ namespace OpenCBS.Services
 {
     public delegate void GeneralClosureHandler(int current, int totalSavings);
 
-	/// <summary>
-	/// Description r�sum�e de SavingServices.
-	/// </summary>
+    /// <summary>
+    /// Description r�sum�e de SavingServices.
+    /// </summary>
     [Security()]
     public class SavingServices : Services
-	{
+    {
         public event GeneralClosureHandler OnSavingClosureFinished;
         private EventProcessorServices _ePS;
         private readonly SavingManager _savingManager;
-		private readonly SavingEventManager _savingEventManager;
-		private readonly User _user = new User();
+        private readonly SavingEventManager _savingEventManager;
+        private readonly User _user = new User();
 
-		public SavingServices(User pUser)
-		{
-			_user = pUser;
-			_savingManager = new SavingManager(pUser);
-			_savingEventManager = new SavingEventManager(pUser);
+        public SavingServices(User pUser)
+        {
+            _user = pUser;
+            _savingManager = new SavingManager(pUser);
+            _savingEventManager = new SavingEventManager(pUser);
             _ePS = new EventProcessorServices(pUser);
-		}
+        }
 
-		public SavingServices(string pTestDB)
-		{
-			_savingManager = new SavingManager(pTestDB);
-			_savingEventManager = new SavingEventManager(pTestDB);
-		}
+        public SavingServices(string pTestDB)
+        {
+            _savingManager = new SavingManager(pTestDB);
+            _savingEventManager = new SavingEventManager(pTestDB);
+        }
 
         public SavingServices(string pTestDB, User pUser)
         {
@@ -84,12 +84,12 @@ namespace OpenCBS.Services
             _ePS = new EventProcessorServices(pUser, pTestDB);
         }
 
-		public SavingServices(SavingManager pSavingManager, SavingEventManager pSavingEventManager,  User pUser)
-		{
+        public SavingServices(SavingManager pSavingManager, SavingEventManager pSavingEventManager, User pUser)
+        {
             _user = pUser;
-			_savingManager = pSavingManager;
+            _savingManager = pSavingManager;
             _savingEventManager = pSavingEventManager;
-		}
+        }
 
         public SavingServices(SavingManager pSavingManager, SavingEventManager pSavingEventManager, LoanManager pLoanManager, User pUser)
         {
@@ -104,17 +104,17 @@ namespace OpenCBS.Services
         }
 
         private static bool IsInterestRateCorrect(ISavingsContract pSaving)
-		{
-			if (pSaving.Product.InterestRate.HasValue)
-				return pSaving.InterestRate == pSaving.Product.InterestRate.Value;
-            
+        {
+            if (pSaving.Product.InterestRate.HasValue)
+                return pSaving.InterestRate == pSaving.Product.InterestRate.Value;
+
             return ServicesHelper.CheckIfValueBetweenMinAndMax(pSaving.Product.InterestRateMin, pSaving.Product.InterestRateMax, pSaving.InterestRate);
-		}
+        }
 
         private static bool IsEntryFeesCorrect(ISavingsContract pSaving, OCurrency entryFees)
         {
             if (pSaving.Product.EntryFees.HasValue) return pSaving.Product.EntryFees.Value == entryFees;
-            
+
             return ServicesHelper.CheckIfValueBetweenMinAndMax(pSaving.Product.EntryFeesMin, pSaving.Product.EntryFeesMax, entryFees);
         }
 
@@ -144,14 +144,14 @@ namespace OpenCBS.Services
 
         }
 
-	    private static bool IsDepositFeesCorrect(SavingBookContract pSaving)
+        private static bool IsDepositFeesCorrect(SavingBookContract pSaving)
         {
             if (!pSaving.DepositFees.HasValue)
                 return false;
 
             if (pSaving.Product.DepositFees.HasValue)
                 return pSaving.DepositFees.Value == pSaving.Product.DepositFees;
-            
+
             return ServicesHelper.CheckIfValueBetweenMinAndMax(pSaving.Product.DepositFeesMin, pSaving.Product.DepositFeesMax, pSaving.DepositFees);
         }
 
@@ -205,11 +205,11 @@ namespace OpenCBS.Services
                                                                    pSaving.FlatTransferFees);
             }
 
-                if (!pSaving.RateTransferFees.HasValue)
-                    return false;
+            if (!pSaving.RateTransferFees.HasValue)
+                return false;
 
-                if (pSaving.Product.RateTransferFees.HasValue)
-                    return pSaving.RateTransferFees.Value == pSaving.Product.RateTransferFees.Value;
+            if (pSaving.Product.RateTransferFees.HasValue)
+                return pSaving.RateTransferFees.Value == pSaving.Product.RateTransferFees.Value;
 
             return ServicesHelper.CheckIfValueBetweenMinAndMax(pSaving.Product.RateTransferFeesMin,
                                                                pSaving.Product.RateTransferFeesMax,
@@ -228,22 +228,22 @@ namespace OpenCBS.Services
         }
 
         private static bool IsSavingBalanceCorrect(ISavingsContract pSaving)
-		{
-			// Check balance simulation
-			return ServicesHelper.CheckIfValueBetweenMinAndMax(pSaving.Product.BalanceMin, pSaving.Product.BalanceMax, pSaving.GetBalance());
-		}
+        {
+            // Check balance simulation
+            return ServicesHelper.CheckIfValueBetweenMinAndMax(pSaving.Product.BalanceMin, pSaving.Product.BalanceMax, pSaving.GetBalance());
+        }
 
         private static bool IsDepositAmountCorrect(OCurrency pDepositAmount, ISavingsContract pSaving, OSavingsMethods savingsMethod)
-		{
-			// Check Deposit event amount
+        {
+            // Check Deposit event amount
             if (savingsMethod == OSavingsMethods.Cheque)
             {
-                SavingsBookProduct sbp = (SavingsBookProduct) pSaving.Product;
+                SavingsBookProduct sbp = (SavingsBookProduct)pSaving.Product;
                 return ServicesHelper.CheckIfValueBetweenMinAndMax(sbp.ChequeDepositMin, sbp.ChequeDepositMax, pDepositAmount);
             }
-            
+
             return (ServicesHelper.CheckIfValueBetweenMinAndMax(pSaving.Product.DepositMin, pSaving.Product.DepositMax, pDepositAmount));
-		}
+        }
 
         private static decimal CheckVirtualBalance(SavingBookContract saving, OCurrency totalAmount)
         {
@@ -274,10 +274,10 @@ namespace OpenCBS.Services
         }
 
         private static bool IsWithdrawAmountCorrect(OCurrency pWithdrawAmount, ISavingsContract pSaving)
-		{
-			// Check Withdraw event amount
-			return (ServicesHelper.CheckIfValueBetweenMinAndMax(pSaving.Product.WithdrawingMin, pSaving.Product.WithdrawingMax, pWithdrawAmount));
-		}
+        {
+            // Check Withdraw event amount
+            return (ServicesHelper.CheckIfValueBetweenMinAndMax(pSaving.Product.WithdrawingMin, pSaving.Product.WithdrawingMax, pWithdrawAmount));
+        }
 
         private static bool IsTransferAmountCorrect(OCurrency pTransferAmount, ISavingsContract pSaving)
         {
@@ -292,26 +292,26 @@ namespace OpenCBS.Services
 
             //if (saving.Id == 0) 
             if (new ClientServices(_user).FindTiersByContractId(pLoan.Id).Id != pClient.Id)
-                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.LoanHasNotSameClient);
+                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.LoanHasNotSameClient);
 
             //if (loan.Id == 0) 
             if (new ClientServices(_user).FindTiersBySavingsId(pSaving.Id).Id != pClient.Id)
-                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.LoanHasNotSameClient);
+                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.LoanHasNotSameClient);
 
             return true;
         }
 
         public List<SavingEvent> RepayLoanFromSaving(Loan loan,
-                                                     RepaymentEvent repaymentEvent, 
-                                                     ISavingsContract savingsContract, 
-                                                     DateTime date, 
-                                                     OCurrency amount, 
-                                                     string description, 
+                                                     RepaymentEvent repaymentEvent,
+                                                     ISavingsContract savingsContract,
+                                                     DateTime date,
+                                                     OCurrency amount,
+                                                     string description,
                                                      SqlTransaction sqlTransaction)
         {
             if (savingsContract.GetBalance() - amount < 0)
                 throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.WithdrawAmountIsInvalid);
-            
+
             User user = User.CurrentUser;
             Teller teller = Teller.CurrentTeller;
 
@@ -323,7 +323,7 @@ namespace OpenCBS.Services
                                     TimeProvider.Now.Second);
             }
 
-            ISavingsContract savingSimulation = (ISavingsContract) savingsContract.Clone();
+            ISavingsContract savingSimulation = (ISavingsContract)savingsContract.Clone();
             savingSimulation.RepayLoanFromSaving(loan, repaymentEvent.Id, date, amount, description, user, teller);
 
             List<SavingEvent> events = savingsContract.RepayLoanFromSaving(loan, repaymentEvent.Id, date, amount,
@@ -332,13 +332,13 @@ namespace OpenCBS.Services
             {
                 _ePS.FireEvent(savingEvent, savingsContract, sqlTransaction);
             }
-            
+
             return events;
         }
 
         public List<SavingEvent> LoanDisbursement(ISavingsContract savings, Loan loan, DateTime date, string description, User user, bool disableFees)
         {
-            using(SqlConnection conn =  _savingManager.GetConnection())
+            using (SqlConnection conn = _savingManager.GetConnection())
             using (SqlTransaction sqlTransaction = conn.BeginTransaction())
             {
                 try
@@ -354,7 +354,7 @@ namespace OpenCBS.Services
                                             TimeProvider.Now.Minute,
                                             TimeProvider.Now.Second);
 
-                    ISavingsContract savingSimulation = (ISavingsContract) savings.Clone();
+                    ISavingsContract savingSimulation = (ISavingsContract)savings.Clone();
 
                     savingSimulation.LoanDisbursement(loan, date, description, user, disableFees, isPending,
                                                       savingsMethod,
@@ -374,7 +374,7 @@ namespace OpenCBS.Services
                     {
                         if (savings.GetBalance() > 0)
                         {
-                            ((SavingBookContract) savings).InOverdraft = false;
+                            ((SavingBookContract)savings).InOverdraft = false;
                             UpdateOverdraftStatus(savings.Id, false);
                         }
                     }
@@ -391,7 +391,7 @@ namespace OpenCBS.Services
         }
 
         public List<SavingEvent> Deposit(ISavingsContract saving, DateTime dateTime, OCurrency depositAmount,
-            string description, User user, bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod,int? pendingEventId, Teller teller)
+            string description, User user, bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod, int? pendingEventId, Teller teller)
         {
             using (SqlConnection conn = _savingManager.GetConnection())
             using (SqlTransaction sqlTransaction = conn.BeginTransaction())
@@ -401,8 +401,8 @@ namespace OpenCBS.Services
                     if (!IsDepositAmountCorrect(depositAmount, saving, savingsMethod))
                         throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.DepositAmountIsInvalid);
 
-                    ISavingsContract savingSimulation = (ISavingsContract) saving.Clone();
-                        // Create a fake Saving object
+                    ISavingsContract savingSimulation = (ISavingsContract)saving.Clone();
+                    // Create a fake Saving object
                     if (saving.Client == null)
                         saving.Client =
                             ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(saving.Id);
@@ -436,7 +436,7 @@ namespace OpenCBS.Services
                     {
                         if (saving.GetBalance() > 0)
                         {
-                            ((SavingBookContract) saving).InOverdraft = false;
+                            ((SavingBookContract)saving).InOverdraft = false;
                             UpdateOverdraftStatus(saving.Id, false);
                         }
                     }
@@ -451,82 +451,82 @@ namespace OpenCBS.Services
             }
         }
 
-          public void SpecialOperation(ISavingsContract saving, DateTime pDate, OCurrency amount,
-              string description, User pUser, OSavingsMethods savingsMethod, bool isCredit, Booking booking)
-       {
-           if (booking == null)
-               throw new OpenCbsBookingException(OpenCbsBookingExceptionsEnum.BookingIsEmpty);
+        public void SpecialOperation(ISavingsContract saving, DateTime pDate, OCurrency amount,
+            string description, User pUser, OSavingsMethods savingsMethod, bool isCredit, Booking booking)
+        {
+            if (booking == null)
+                throw new OpenCbsBookingException(OpenCbsBookingExceptionsEnum.BookingIsEmpty);
 
-           booking.Amount = amount;
-           booking.Description = description;
-           booking.ExchangeRate = 1;
-           booking.Date = TimeProvider.Now;
-           booking.Currency = saving.Product.Currency;
-           booking.User = User.CurrentUser;
-           
-           SavingEvent e;
+            booking.Amount = amount;
+            booking.Description = description;
+            booking.ExchangeRate = 1;
+            booking.Date = TimeProvider.Now;
+            booking.Currency = saving.Product.Currency;
+            booking.User = User.CurrentUser;
 
-           if (isCredit)
-           {
-               e = SpecialOperationCredit(saving, pDate, amount, description,
-                                   User.CurrentUser, savingsMethod);
-           }
-           else
-           {
-               e = SpecialOperationDebit(saving, pDate, amount, description,
-                                   User.CurrentUser, savingsMethod);
-           }
+            SavingEvent e;
 
-           booking.EventId = e.Id;
-           ServicesProvider.GetInstance().GetAccountingServices().BookManualEntry(booking, User.CurrentUser);
-       }
+            if (isCredit)
+            {
+                e = SpecialOperationCredit(saving, pDate, amount, description,
+                                    User.CurrentUser, savingsMethod);
+            }
+            else
+            {
+                e = SpecialOperationDebit(saving, pDate, amount, description,
+                                    User.CurrentUser, savingsMethod);
+            }
 
-          private SavingCreditOperationEvent SpecialOperationCredit(ISavingsContract pSaving, DateTime pDate, OCurrency creditAmount,
-           string pDescription, User pUser, OSavingsMethods savingsMethod)
-          {
-              using (SqlConnection conn = _savingManager.GetConnection())
-              using (SqlTransaction sqlTransaction = conn.BeginTransaction())
-              {
-                  try
-                  {
-                      //// Create a fake Saving object
-                      ISavingsContract savingSimulation = (ISavingsContract) pSaving.Clone();
-                      // Do deposit to the fake Saving object
-                      savingSimulation.SpecialOperationCredit(creditAmount, pDate, pDescription, pUser);
-                      // Check balance simulation
-                      if (!IsSavingBalanceCorrect(savingSimulation))
-                          throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
+            booking.EventId = e.Id;
+            ServicesProvider.GetInstance().GetAccountingServices().BookManualEntry(booking, User.CurrentUser);
+        }
 
-                      SavingCreditOperationEvent events = pSaving.SpecialOperationCredit(creditAmount, pDate,
-                                                                                         pDescription, pUser);
+        private SavingCreditOperationEvent SpecialOperationCredit(ISavingsContract pSaving, DateTime pDate, OCurrency creditAmount,
+         string pDescription, User pUser, OSavingsMethods savingsMethod)
+        {
+            using (SqlConnection conn = _savingManager.GetConnection())
+            using (SqlTransaction sqlTransaction = conn.BeginTransaction())
+            {
+                try
+                {
+                    //// Create a fake Saving object
+                    ISavingsContract savingSimulation = (ISavingsContract)pSaving.Clone();
+                    // Do deposit to the fake Saving object
+                    savingSimulation.SpecialOperationCredit(creditAmount, pDate, pDescription, pUser);
+                    // Check balance simulation
+                    if (!IsSavingBalanceCorrect(savingSimulation))
+                        throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
 
-                      _ePS.FireEvent(events, pSaving, sqlTransaction);
-                      sqlTransaction.Commit();
-                      return events;
-                  }
-                  catch (Exception)
-                  {
-                      sqlTransaction.Rollback();
-                      throw;
-                  }
-              }
-          }
+                    SavingCreditOperationEvent events = pSaving.SpecialOperationCredit(creditAmount, pDate,
+                                                                                       pDescription, pUser);
 
-          public SavingDebitOperationEvent SpecialOperationDebit(ISavingsContract pSaving, DateTime pDate, OCurrency debitAmount,
-                string pDescription, User pUser, OSavingsMethods savingsMethod)
-          {
-              using (SqlConnection conn = _savingManager.GetConnection())
-              using (SqlTransaction sqlTransaction = conn.BeginTransaction())
-              {
-                  try
-                  {
-                      if (pSaving is SavingBookContract)
-                      {
-                          decimal vBalance = CheckVirtualBalance((SavingBookContract) pSaving, debitAmount);
+                    _ePS.FireEvent(events, pSaving, sqlTransaction);
+                    sqlTransaction.Commit();
+                    return events;
+                }
+                catch (Exception)
+                {
+                    sqlTransaction.Rollback();
+                    throw;
+                }
+            }
+        }
 
-                          if (vBalance > 0)
-                          {
-                              List<string> messages = new List<string>
+        public SavingDebitOperationEvent SpecialOperationDebit(ISavingsContract pSaving, DateTime pDate, OCurrency debitAmount,
+              string pDescription, User pUser, OSavingsMethods savingsMethod)
+        {
+            using (SqlConnection conn = _savingManager.GetConnection())
+            using (SqlTransaction sqlTransaction = conn.BeginTransaction())
+            {
+                try
+                {
+                    if (pSaving is SavingBookContract)
+                    {
+                        decimal vBalance = CheckVirtualBalance((SavingBookContract)pSaving, debitAmount);
+
+                        if (vBalance > 0)
+                        {
+                            List<string> messages = new List<string>
                                                           {
                                                               ServicesHelper.ConvertDecimalToString(
                                                                   ((SavingBookContract) pSaving).GetBalance().Value),
@@ -536,144 +536,161 @@ namespace OpenCBS.Services
                                                                   ((SavingBookContract) pSaving).GetBalance().Value -
                                                                   vBalance)
                                                           };
-                              throw new OpenCbsSavingException(
-                                  OpenCbsSavingExceptionEnum.BalanceOnCurrentSavingAccountForTransfer, messages);
-                          }
-                      }
+                            throw new OpenCbsSavingException(
+                                OpenCbsSavingExceptionEnum.BalanceOnCurrentSavingAccountForTransfer, messages);
+                        }
+                    }
 
-                      //// Create a fake Saving object
-                      ISavingsContract savingSimulation = (ISavingsContract) pSaving.Clone();
-                      // Do deposit to the fake Saving object
-                      savingSimulation.SpecialOperationDebit(debitAmount, pDate, pDescription, pUser);
-                      // Check balance simulation
-                      if (!IsSavingBalanceCorrect(savingSimulation))
-                          throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
+                    //// Create a fake Saving object
+                    ISavingsContract savingSimulation = (ISavingsContract)pSaving.Clone();
+                    // Do deposit to the fake Saving object
+                    savingSimulation.SpecialOperationDebit(debitAmount, pDate, pDescription, pUser);
+                    // Check balance simulation
+                    if (!IsSavingBalanceCorrect(savingSimulation))
+                        throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
 
-                      SavingDebitOperationEvent events = pSaving.SpecialOperationDebit(debitAmount, pDate, pDescription,
-                                                                                        pUser);
+                    SavingDebitOperationEvent events = pSaving.SpecialOperationDebit(debitAmount, pDate, pDescription,
+                                                                                      pUser);
 
-                      _ePS.FireEvent(events, pSaving, sqlTransaction);
+                    _ePS.FireEvent(events, pSaving, sqlTransaction);
 
-                      // Change overdraft state
-                      if (pSaving is SavingBookContract)
-                      {
-                          if (pSaving.GetBalance() > 0)
-                          {
-                              ((SavingBookContract) pSaving).InOverdraft = false;
-                              UpdateOverdraftStatus(pSaving.Id, false);
-                          }
-                      }
-                      sqlTransaction.Commit();
-                      return events;
-                  }
-                  catch (Exception)
-                  {
-                      sqlTransaction.Rollback();
-                      throw;
-                  }
-              }
-          }
+                    // Change overdraft state
+                    if (pSaving is SavingBookContract)
+                    {
+                        if (pSaving.GetBalance() > 0)
+                        {
+                            ((SavingBookContract)pSaving).InOverdraft = false;
+                            UpdateOverdraftStatus(pSaving.Id, false);
+                        }
+                    }
+                    sqlTransaction.Commit();
+                    return events;
+                }
+                catch (Exception)
+                {
+                    sqlTransaction.Rollback();
+                    throw;
+                }
+            }
+        }
 
-	    /// <summary>
-	    /// Checks DepositAmount and balance simulation
-	    /// </summary>
-	    /// <param name="pSaving"></param>
-	    /// <param name="pDate"></param>
-	    /// <param name="pWithdrawAmount"></param>
-	    /// <param name="pDescription"></param>
-	    /// <param name="pUser"></param>
-	    /// <returns></returns>
-        public List<SavingEvent> Withdraw(ISavingsContract pSaving, DateTime pDate, OCurrency pWithdrawAmount, string pDescription, User pUser, Teller teller)
-	    {
-	        ValidateWithdrawal(pWithdrawAmount, pSaving, pDate, pDescription, pUser, teller);
-
-	        List<SavingEvent> events = pSaving.Withdraw(pWithdrawAmount, pDate, pDescription, pUser, false, teller);
+        /// <summary>
+        /// Checks DepositAmount and balance simulation
+        /// </summary>
+        /// <param name="pSaving"></param>
+        /// <param name="pDate"></param>
+        /// <param name="pWithdrawAmount"></param>
+        /// <param name="pDescription"></param>
+        /// <param name="pUser"></param>
+        /// <returns></returns>
+        public List<SavingEvent> Withdraw(ISavingsContract pSaving, DateTime pDate, OCurrency pWithdrawAmount, string pDescription, User pUser, Teller teller, PaymentMethod paymentMethod)
+        {
+            ValidateWithdrawal(pWithdrawAmount, pSaving, pDate, pDescription, pUser, teller, paymentMethod);
+            if (pSaving.Client == null)
+                pSaving.Client =
+                    ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(pSaving.Id);
+            List<SavingEvent> events = pSaving.Withdraw(pWithdrawAmount, pDate, pDescription, pUser, false, teller, paymentMethod);
             using (SqlConnection conn = _savingManager.GetConnection())
             using (SqlTransaction sqlTransaction = conn.BeginTransaction())
-	        {
-	            try
-	            {
-	                foreach (SavingEvent savingEvent in events)
-	                {
-	                    _ePS.FireEvent(savingEvent, pSaving, sqlTransaction);
-	                }
+            {
+                try
+                {
+                    foreach (SavingEvent savingEvent in events)
+                    {
+                        _ePS.FireEvent(savingEvent, pSaving, sqlTransaction);
+                        ServicesProvider.GetInstance()
+                            .GetContractServices()
+                            .CallInterceptor(new Dictionary<string, object>
+                            {
+                                {"Saving", pSaving},
+                                {"Event", new SavingWithdrawEvent
+                                {
+                                    Id = savingEvent.Id,
+                                    Code = savingEvent.Code,
+                                    Amount = savingEvent.Amount,
+                                    Description = savingEvent.Description,
+                                    PaymentsMethod = paymentMethod
+                                   }},
+                                {"SqlTransaction", sqlTransaction}
+                            });
+                    }
 
-	                // Charge overdraft fees if the balance is negative
-	                if (pSaving is SavingBookContract)
-	                {
-	                    if (pSaving.GetBalance() < 0 && !((SavingBookContract) pSaving).InOverdraft)
-	                    {
-	                        SavingEvent overdraftFeeEvent = pSaving.ChargeOverdraftFee(pDate, pUser);
-	                        _ePS.FireEvent(overdraftFeeEvent, pSaving, sqlTransaction);
+                    // Charge overdraft fees if the balance is negative
+                    if (pSaving is SavingBookContract)
+                    {
+                        if (pSaving.GetBalance() < 0 && !((SavingBookContract)pSaving).InOverdraft)
+                        {
+                            SavingEvent overdraftFeeEvent = pSaving.ChargeOverdraftFee(pDate, pUser);
+                            _ePS.FireEvent(overdraftFeeEvent, pSaving, sqlTransaction);
 
-	                        ((SavingBookContract) pSaving).InOverdraft = true;
-	                        UpdateOverdraftStatus(pSaving.Id, true);
-	                    }
-	                }
+                            ((SavingBookContract)pSaving).InOverdraft = true;
+                            UpdateOverdraftStatus(pSaving.Id, true);
+                        }
+                    }
 
-	                sqlTransaction.Commit();
-	                return events;
-	            }
-	            catch (Exception)
-	            {
-	                sqlTransaction.Rollback();
-	                throw;
-	            }
-	        }
-	    }
+                    sqlTransaction.Commit();
+                    return events;
+                }
+                catch (Exception)
+                {
+                    sqlTransaction.Rollback();
+                    throw;
+                }
+            }
+        }
 
-	    public List<SavingEvent> Withdraw(ISavingsContract pSaving, DateTime pDate, OCurrency pWithdrawAmount,
-	                                      string pDescription, User pUser, Teller teller, SqlTransaction sqlTransaction)
-	    {
-	        ValidateWithdrawal(pWithdrawAmount, pSaving, pDate, pDescription, pUser, teller);
+        public List<SavingEvent> Withdraw(ISavingsContract pSaving, DateTime pDate, OCurrency pWithdrawAmount,
+                                          string pDescription, User pUser, Teller teller, SqlTransaction sqlTransaction, PaymentMethod paymentMethod)
+        {
+            ValidateWithdrawal(pWithdrawAmount, pSaving, pDate, pDescription, pUser, teller, paymentMethod);
 
-	        List<SavingEvent> events = pSaving.Withdraw(pWithdrawAmount, pDate, pDescription, pUser, false, teller);
-	        foreach (SavingEvent savingEvent in events)
-	        {
-	            _ePS.FireEvent(savingEvent, pSaving, sqlTransaction);
-	        }
+            List<SavingEvent> events = pSaving.Withdraw(pWithdrawAmount, pDate, pDescription, pUser, false, teller, paymentMethod);
+            foreach (SavingEvent savingEvent in events)
+            {
+                _ePS.FireEvent(savingEvent, pSaving, sqlTransaction);
+            }
 
-	        // Charge overdraft fees if the balance is negative
-	        if (pSaving is SavingBookContract)
-	        {
-	            if (pSaving.GetBalance() < 0 && !((SavingBookContract) pSaving).InOverdraft)
-	            {
-	                SavingEvent overdraftFeeEvent = pSaving.ChargeOverdraftFee(pDate, pUser);
-	                _ePS.FireEvent(overdraftFeeEvent, pSaving, sqlTransaction);
+            // Charge overdraft fees if the balance is negative
+            if (pSaving is SavingBookContract)
+            {
+                if (pSaving.GetBalance() < 0 && !((SavingBookContract)pSaving).InOverdraft)
+                {
+                    SavingEvent overdraftFeeEvent = pSaving.ChargeOverdraftFee(pDate, pUser);
+                    _ePS.FireEvent(overdraftFeeEvent, pSaving, sqlTransaction);
 
-	                ((SavingBookContract) pSaving).InOverdraft = true;
-	                UpdateOverdraftStatus(pSaving.Id, true);
-	            }
-	        }
+                    ((SavingBookContract)pSaving).InOverdraft = true;
+                    UpdateOverdraftStatus(pSaving.Id, true);
+                }
+            }
 
-	        return events;
-	    }
+            return events;
+        }
 
-	    private void ValidateWithdrawal(OCurrency pWithdrawAmount, ISavingsContract pSaving, DateTime pDate, string pDescription, User pUser, Teller teller)
-	    {
-	        if (!IsWithdrawAmountCorrect(pWithdrawAmount, pSaving))
-	            throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.WithdrawAmountIsInvalid);
+        private void ValidateWithdrawal(OCurrency pWithdrawAmount, ISavingsContract pSaving, DateTime pDate, string pDescription, User pUser, Teller teller, PaymentMethod paymentMethod)
+        {
+            if (!IsWithdrawAmountCorrect(pWithdrawAmount, pSaving))
+                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.WithdrawAmountIsInvalid);
 
-	        if (pSaving is SavingBookContract)
-	        {
-	            OCurrency fee;
-	            if(((SavingBookContract) pSaving).RateWithdrawFees.HasValue)
-	            {
-	                fee = ((SavingBookContract) pSaving).RateWithdrawFees.Value*pWithdrawAmount;
-	            }
-	            else
-	            {
-	                fee = ((SavingBookContract) pSaving).FlatWithdrawFees;
-	            }
-	            OCurrency totalAmount = pWithdrawAmount + fee;
+            if (pSaving is SavingBookContract)
+            {
+                OCurrency fee;
+                if (((SavingBookContract)pSaving).RateWithdrawFees.HasValue)
+                {
+                    fee = ((SavingBookContract)pSaving).RateWithdrawFees.Value * pWithdrawAmount;
+                }
+                else
+                {
+                    fee = ((SavingBookContract)pSaving).FlatWithdrawFees;
+                }
+                OCurrency totalAmount = pWithdrawAmount + fee;
 
-	            if (((SavingBookContract)pSaving).GetBalance() - totalAmount < 0)
-	                CanUserMakeBalanceNegative();//Check if current user is allowed to make balance negative
+                if (((SavingBookContract)pSaving).GetBalance() - totalAmount < 0)
+                    CanUserMakeBalanceNegative();//Check if current user is allowed to make balance negative
 
-	            decimal vBalance = CheckVirtualBalance((SavingBookContract) pSaving, totalAmount);
-	            if (vBalance > 0)
-	            {
-	                List<string> messages = new List<string>
+                decimal vBalance = CheckVirtualBalance((SavingBookContract)pSaving, totalAmount);
+                if (vBalance > 0)
+                {
+                    List<string> messages = new List<string>
 	                                            {
 	                                                ServicesHelper.ConvertDecimalToString(((SavingBookContract) pSaving).GetBalance().Value),
 	                                                ServicesHelper.ConvertDecimalToString(vBalance),
@@ -681,72 +698,72 @@ namespace OpenCBS.Services
 	                                                ServicesHelper.ConvertDecimalToString(((SavingBookContract) pSaving).GetBalance().Value - vBalance)
 	                                            };
 
-	                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceOnCurrentSavingAccount, messages);
-	            }
-	        }
+                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceOnCurrentSavingAccount, messages);
+                }
+            }
 
-	        // Create a fake Saving object
-	        ISavingsContract savingSimulation = (ISavingsContract)pSaving.Clone();
-	        // Do withdraw in the fake Saving object
-	        savingSimulation.Withdraw(pWithdrawAmount, pDate, pDescription, pUser, false, teller);
-	        // Check balance simulation
-	        if (!IsSavingBalanceCorrect(savingSimulation))
-	            throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
-	    }
+            // Create a fake Saving object
+            ISavingsContract savingSimulation = (ISavingsContract)pSaving.Clone();
+            // Do withdraw in the fake Saving object
+            savingSimulation.Withdraw(pWithdrawAmount, pDate, pDescription, pUser, false, teller, paymentMethod);
+            // Check balance simulation
+            if (!IsSavingBalanceCorrect(savingSimulation))
+                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
+        }
 
-	    public List<SavingEvent> Transfer(ISavingsContract from, ISavingsContract to, DateTime date, OCurrency amount, OCurrency fee, string description, User user, bool noFee)
+        public List<SavingEvent> Transfer(ISavingsContract from, ISavingsContract to, DateTime date, OCurrency amount, OCurrency fee, string description, User user, bool noFee)
         {
             CheckTransfer(to, from, amount, fee, date, description);
             List<SavingEvent> events = from.Transfer(to, amount, fee, date, description);
-            foreach (SavingEvent e in events) 
+            foreach (SavingEvent e in events)
                 _ePS.FireEvent(e);
 
             return events;
         }
 
-	    private void CheckTransfer(ISavingsContract to, ISavingsContract from, OCurrency amount, OCurrency fee, DateTime date, string description)
-	    {
-	        if (to == null)
-	            throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.TransferAccountIsInvalid);
+        private void CheckTransfer(ISavingsContract to, ISavingsContract from, OCurrency amount, OCurrency fee, DateTime date, string description)
+        {
+            if (to == null)
+                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.TransferAccountIsInvalid);
 
-	        if (to.Status == OSavingsStatus.Closed)
-	            throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.CreditTransferAccountInvalid);
+            if (to.Status == OSavingsStatus.Closed)
+                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.CreditTransferAccountInvalid);
 
-	        if (from is SavingBookContract)
-	        {
-	            decimal vBalance = CheckVirtualBalance((SavingBookContract)from, amount + fee);
+            if (from is SavingBookContract)
+            {
+                decimal vBalance = CheckVirtualBalance((SavingBookContract)from, amount + fee);
 
-	            if (vBalance > 0)
-	            {
-	                List<string> messages = new List<string>
+                if (vBalance > 0)
+                {
+                    List<string> messages = new List<string>
 	                                            {
 	                                                ServicesHelper.ConvertDecimalToString(((SavingBookContract) from).GetBalance().Value),
 	                                                ServicesHelper.ConvertDecimalToString(vBalance),
 	                                                ((SavingBookContract) from).Loans.Count.ToString(),
 	                                                ServicesHelper.ConvertDecimalToString(((SavingBookContract) from).GetBalance().Value - vBalance)
 	                                            };
-	                throw new OpenCbsSavingException(
-	                    OpenCbsSavingExceptionEnum.BalanceOnCurrentSavingAccountForTransfer, messages);
-	            }
-	        }
+                    throw new OpenCbsSavingException(
+                        OpenCbsSavingExceptionEnum.BalanceOnCurrentSavingAccountForTransfer, messages);
+                }
+            }
 
-	        if (from.Id == to.Id)
-	            throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.SavingsContractForTransferIdenticals);
+            if (from.Id == to.Id)
+                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.SavingsContractForTransferIdenticals);
 
-	        if (from.Product.Currency.Id != to.Product.Currency.Id)
-	            throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.SavingsContractForTransferNotSameCurrncy);
+            if (from.Product.Currency.Id != to.Product.Currency.Id)
+                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.SavingsContractForTransferNotSameCurrncy);
 
-	        if (!IsTransferAmountCorrect(amount, from))
-	                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.TransferAmountIsInvalid);
-            
+            if (!IsTransferAmountCorrect(amount, from))
+                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.TransferAmountIsInvalid);
+
             ISavingsContract fromCopy = (ISavingsContract)from.Clone();
             ISavingsContract toCopy = (ISavingsContract)to.Clone();
             fromCopy.Transfer(toCopy, amount, fee, date, description);
             if (!IsSavingBalanceCorrect(fromCopy))
                 throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
-	    }
+        }
 
-	    private static bool IsCompulsorySavingBalanceOk(ISavingsContract saving, OCurrency amount)
+        private static bool IsCompulsorySavingBalanceOk(ISavingsContract saving, OCurrency amount)
         {
             decimal totalLoansAmount = 0;
             decimal balance = saving.GetBalance().Value;
@@ -756,13 +773,13 @@ namespace OpenCBS.Services
                 if (assosiatedLoan.ContractStatus == OContractStatus.Active)
                 {
                     if (assosiatedLoan.CompulsorySavingsPercentage != null)
-                        totalLoansAmount += (assosiatedLoan.Amount.Value*
-                                             ((decimal) assosiatedLoan.CompulsorySavingsPercentage/100));
+                        totalLoansAmount += (assosiatedLoan.Amount.Value *
+                                             ((decimal)assosiatedLoan.CompulsorySavingsPercentage / 100));
                 }
             }
 
             if ((balance - amount) < totalLoansAmount)
-                 return false;
+                return false;
             return true;
         }
 
@@ -770,10 +787,10 @@ namespace OpenCBS.Services
         {
             if (string.IsNullOrEmpty(pDescription))
                 throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.SavingsEventCommentIsEmpty);
-            
+
             Debug.Assert(_ePS != null, "Event processor is null");
             SavingEvent lastSavingEvent = saving.GetCancelableEvent();
-            
+
             if (null == lastSavingEvent) return null;
 
             // check for compulsory
@@ -800,18 +817,18 @@ namespace OpenCBS.Services
 
                 Booking booking = ServicesProvider.GetInstance().GetAccountingServices().SelectBookingByEventId(lastSavingEvent.Id);
                 Booking reversalBooking = new Booking
-                                              {
-                                                  Currency = booking.Currency,
-                                                  User = User.CurrentUser,
-                                                  Amount = booking.Amount,
-                                                  Description = booking.Description,
-                                                  DebitAccount = booking.CreditAccount,
-                                                  CreditAccount = booking.DebitAccount,
-                                                  Date = TimeProvider.Now,
-                                                  EventId = lastSavingEvent.Id,
-                                                  ExchangeRate = booking.ExchangeRate,
-                                                  Branch = saving.Branch
-                                              };
+                {
+                    Currency = booking.Currency,
+                    User = User.CurrentUser,
+                    Amount = booking.Amount,
+                    Description = booking.Description,
+                    DebitAccount = booking.CreditAccount,
+                    CreditAccount = booking.DebitAccount,
+                    Date = TimeProvider.Now,
+                    EventId = lastSavingEvent.Id,
+                    ExchangeRate = booking.ExchangeRate,
+                    Branch = saving.Branch
+                };
                 ServicesProvider.GetInstance().GetAccountingServices().BookManualEntry(reversalBooking, User.CurrentUser);
             }
 
@@ -826,7 +843,7 @@ namespace OpenCBS.Services
                                                         TimeProvider.Now.Hour,
                                                         TimeProvider.Now.Minute,
                                                         TimeProvider.Now.Second
-                                                      ); 
+                                                      );
             _ePS.CancelFireEvent(lastSavingEvent, saving.Product.Currency.Id);
 
             SavingEvent savingEvent = lastSavingEvent;
@@ -893,66 +910,66 @@ namespace OpenCBS.Services
             }
         }
 
-	    public List<SavingEvent> Reopen(OCurrency pReopenAmount, ISavingsContract pSaving, DateTime pDate, User pUser, Client pClient)
-	    {
-            using (SqlConnection conn = _savingManager.GetConnection())
-	        using (SqlTransaction sqlTransaction = conn.BeginTransaction())
-	        {
-	            try
-	            {
-	                List<SavingEvent> events = pSaving.Reopen(pReopenAmount, pDate, pUser, "Reopen savings account", false);
-
-	                foreach (SavingEvent savingEvent in events)
-	                    _ePS.FireEvent(savingEvent, pSaving, sqlTransaction);
-
-	                _savingManager.UpdateStatus(pSaving.Id, pSaving.Status, pSaving.ClosedDate);
-	                sqlTransaction.Commit();
-	                return events;
-	            }
-	            catch (Exception)
-	            {
-	                sqlTransaction.Rollback();
-	                throw;
-	            }
-	        }
-	    }
-
-	    public List<SavingEvent> CloseAndWithdraw(ISavingsContract saving, DateTime date, User user, OCurrency withdrawAmount, 
-                                                 bool isDesactivateFees, Teller teller)
-	    {
-	        OCurrency balance = SimulateCloseAccount(saving, date, user, isDesactivateFees, teller).GetBalance(date);
-	       
-	        if (balance != withdrawAmount)
-	        {
-	            throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.WithdrawAmountIsInvalid);
-	        }
-
-	        List<SavingEvent> events = saving.Withdraw(withdrawAmount, date, "Withdraw savings", user, true,
-	                                                    Teller.CurrentTeller);
-	        events.AddRange(saving.Close(date, user, "Close savings contract", isDesactivateFees, teller, false));
+        public List<SavingEvent> Reopen(OCurrency pReopenAmount, ISavingsContract pSaving, DateTime pDate, User pUser, Client pClient)
+        {
             using (SqlConnection conn = _savingManager.GetConnection())
             using (SqlTransaction sqlTransaction = conn.BeginTransaction())
-	        {
-	            try
-	            {
-	                foreach (SavingEvent savingEvent in events)
-	                    _ePS.FireEvent(savingEvent, saving, sqlTransaction);
+            {
+                try
+                {
+                    List<SavingEvent> events = pSaving.Reopen(pReopenAmount, pDate, pUser, "Reopen savings account", false);
 
-	                if (saving.ClosedDate != null)
-	                    _savingManager.UpdateStatus(saving.Id, saving.Status, saving.ClosedDate.Value);
+                    foreach (SavingEvent savingEvent in events)
+                        _ePS.FireEvent(savingEvent, pSaving, sqlTransaction);
 
-	                sqlTransaction.Commit();
-	                return events;
-	            }
-	            catch (Exception)
-	            {
-	                sqlTransaction.Rollback();
-	                throw;
-	            }
-	        }
-	    }
+                    _savingManager.UpdateStatus(pSaving.Id, pSaving.Status, pSaving.ClosedDate);
+                    sqlTransaction.Commit();
+                    return events;
+                }
+                catch (Exception)
+                {
+                    sqlTransaction.Rollback();
+                    throw;
+                }
+            }
+        }
 
-	    public List<SavingEvent> CloseAndTransfer(ISavingsContract from, ISavingsContract to, DateTime date, User pUser,
+        public List<SavingEvent> CloseAndWithdraw(ISavingsContract saving, DateTime date, User user, OCurrency withdrawAmount,
+                                                 bool isDesactivateFees, Teller teller, PaymentMethod paymentMethod)
+        {
+            OCurrency balance = SimulateCloseAccount(saving, date, user, isDesactivateFees, teller).GetBalance(date);
+
+            if (balance != withdrawAmount)
+            {
+                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.WithdrawAmountIsInvalid);
+            }
+
+            List<SavingEvent> events = saving.Withdraw(withdrawAmount, date, "Withdraw savings", user, true,
+                                                        Teller.CurrentTeller, paymentMethod);
+            events.AddRange(saving.Close(date, user, "Close savings contract", isDesactivateFees, teller, false));
+            using (SqlConnection conn = _savingManager.GetConnection())
+            using (SqlTransaction sqlTransaction = conn.BeginTransaction())
+            {
+                try
+                {
+                    foreach (SavingEvent savingEvent in events)
+                        _ePS.FireEvent(savingEvent, saving, sqlTransaction);
+
+                    if (saving.ClosedDate != null)
+                        _savingManager.UpdateStatus(saving.Id, saving.Status, saving.ClosedDate.Value);
+
+                    sqlTransaction.Commit();
+                    return events;
+                }
+                catch (Exception)
+                {
+                    sqlTransaction.Rollback();
+                    throw;
+                }
+            }
+        }
+
+        public List<SavingEvent> CloseAndTransfer(ISavingsContract from, ISavingsContract to, DateTime date, User pUser,
             OCurrency amount, bool pIsDesactivateFees, Teller teller)
         {
             if (to.Status == OSavingsStatus.Closed)
@@ -975,7 +992,7 @@ namespace OpenCBS.Services
             events.AddRange(from.Close(date, pUser, "Close savings contract", pIsDesactivateFees, teller, false));
             foreach (SavingEvent e in events)
                 _ePS.FireEvent(e);
-            
+
             if (from.ClosedDate != null)
                 _savingManager.UpdateStatus(from.Id, from.Status, from.ClosedDate.Value);
 
@@ -992,9 +1009,9 @@ namespace OpenCBS.Services
             if (closureEvent != null && closureEvent.Date == dateTime)
                 return null;
 
-            bool inOverdraft = ((SavingBookContract) saving).InOverdraft;
+            bool inOverdraft = ((SavingBookContract)saving).InOverdraft;
 
-            ((SavingBookContract) saving).AccountAtMaturityEvent += SavingServicesAccountAtMaturity;
+            ((SavingBookContract)saving).AccountAtMaturityEvent += SavingServicesAccountAtMaturity;
 
             List<SavingEvent> savingEvents = saving.Closure(dateTime, user);
             using (SqlConnection conn = _savingManager.GetConnection())
@@ -1004,15 +1021,15 @@ namespace OpenCBS.Services
                 {
                     foreach (SavingEvent savingEvent in savingEvents)
                     {
-                        if (((SavingBookContract) saving).InOverdraft != inOverdraft)
+                        if (((SavingBookContract)saving).InOverdraft != inOverdraft)
                         {
-                            ((SavingBookContract) saving).InOverdraft = inOverdraft;
+                            ((SavingBookContract)saving).InOverdraft = inOverdraft;
                             UpdateOverdraftStatus(saving.Id, inOverdraft);
                         }
                         _ePS.FireEvent(savingEvent, saving, sqlTransaction);
                     }
 
-                    _savingManager.UpdateNextMaturityForSavingBook(saving.Id, ((SavingBookContract) saving).NextMaturity);
+                    _savingManager.UpdateNextMaturityForSavingBook(saving.Id, ((SavingBookContract)saving).NextMaturity);
                     sqlTransaction.Commit();
                     return events;
                 }
@@ -1024,49 +1041,49 @@ namespace OpenCBS.Services
             }
         }
 
-	    public void PostEvents(List<ISavingsContract> savings, List<SavingEvent> savingEvents)
-	    {
-	        // Check if closure has been already run today
+        public void PostEvents(List<ISavingsContract> savings, List<SavingEvent> savingEvents)
+        {
+            // Check if closure has been already run today
             using (SqlConnection conn = _savingManager.GetConnection())
             using (SqlTransaction sqlTransaction = conn.BeginTransaction())
-	        {
-	            try
-	            {
-	                if (savingEvents.Count > 0)
-	                {
-	                    foreach (ISavingsContract saving in savings)
-	                    {
-	                        bool inOverdraft = ((SavingBookContract) saving).InOverdraft;
+            {
+                try
+                {
+                    if (savingEvents.Count > 0)
+                    {
+                        foreach (ISavingsContract saving in savings)
+                        {
+                            bool inOverdraft = ((SavingBookContract)saving).InOverdraft;
 
-	                        ((SavingBookContract) saving).AccountAtMaturityEvent += SavingServicesAccountAtMaturity;
+                            ((SavingBookContract)saving).AccountAtMaturityEvent += SavingServicesAccountAtMaturity;
 
-	                        foreach (SavingEvent savingEvent in savingEvents)
-	                        {
-	                            if (((SavingBookContract) saving).InOverdraft != inOverdraft)
-	                            {
-	                                ((SavingBookContract) saving).InOverdraft = inOverdraft;
-	                                UpdateOverdraftStatus(saving.Id, inOverdraft);
-	                            }
+                            foreach (SavingEvent savingEvent in savingEvents)
+                            {
+                                if (((SavingBookContract)saving).InOverdraft != inOverdraft)
+                                {
+                                    ((SavingBookContract)saving).InOverdraft = inOverdraft;
+                                    UpdateOverdraftStatus(saving.Id, inOverdraft);
+                                }
 
-	                            if (savingEvent.ContracId == saving.Id)
-	                                _ePS.FireEvent(savingEvent, saving, sqlTransaction);
-	                        }
+                                if (savingEvent.ContracId == saving.Id)
+                                    _ePS.FireEvent(savingEvent, saving, sqlTransaction);
+                            }
 
-	                        _savingManager.UpdateNextMaturityForSavingBook(saving.Id,
-	                                                                       ((SavingBookContract) saving).NextMaturity);
-	                    }
-	                }
-	                sqlTransaction.Commit();
-	            }
-	            catch (Exception)
-	            {
-	                sqlTransaction.Rollback();
-	                throw;
-	            }
-	        }
-	    }
+                            _savingManager.UpdateNextMaturityForSavingBook(saving.Id,
+                                                                           ((SavingBookContract)saving).NextMaturity);
+                        }
+                    }
+                    sqlTransaction.Commit();
+                }
+                catch (Exception)
+                {
+                    sqlTransaction.Rollback();
+                    throw;
+                }
+            }
+        }
 
-	    private void SavingServicesAccountAtMaturity(ISavingsContract savingContract, DateTime date, User user)
+        private void SavingServicesAccountAtMaturity(ISavingsContract savingContract, DateTime date, User user)
         {
             if (savingContract.Rollover == OSavingsRollover.Principal)
             {
@@ -1080,7 +1097,7 @@ namespace OpenCBS.Services
                     return;
 
                 // TODO: replace the fee of zero with a meaningful value
-                
+
                 savingContract.Events.AddRange(
                     Transfer(savingContract, savingContract.TransferAccount, date, interests, 0, "Transfer interests", user, true));
             }
@@ -1177,7 +1194,7 @@ namespace OpenCBS.Services
         {
             _savingEventManager.ChangePendingEventStatus(savingEventId, isPending);
         }
-        
+
         public SavingBookContract GetSaving(int savingId)
         {
             SavingBookContract saving = _savingManager.Select(savingId);
@@ -1213,7 +1230,7 @@ namespace OpenCBS.Services
 
         public ISavingsContract SimulateCloseAccount(ISavingsContract saving, DateTime date, User user, bool isDesactivateFees, Teller teller)
         {
-            ISavingsContract savingSimulation = (ISavingsContract) saving.Clone();
+            ISavingsContract savingSimulation = (ISavingsContract)saving.Clone();
             savingSimulation.SimulateClose(date, user, "Close savings contract", isDesactivateFees, teller);
 
             return savingSimulation;
@@ -1235,10 +1252,10 @@ namespace OpenCBS.Services
             return _savingManager.SelectSavings(clientId);
         }
 
-	    public int GetSavingCount(Client pClient)
+        public int GetSavingCount(Client pClient)
         {
             if (pClient == null) throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.TiersIsNull);
-            
+
             return _savingManager.GetNumberOfSavings(pClient.Id);
         }
 
@@ -1292,11 +1309,11 @@ namespace OpenCBS.Services
                 }
 
             }
-            
+
             return true;
         }
 
-        public void FirstDeposit(ISavingsContract saving, OCurrency initialAmount, DateTime creationDate, 
+        public void FirstDeposit(ISavingsContract saving, OCurrency initialAmount, DateTime creationDate,
                                  OCurrency entryFees, User user, Teller teller)
         {
             if (!IsEntryFeesCorrect(saving, entryFees))
@@ -1304,7 +1321,7 @@ namespace OpenCBS.Services
 
             if (!IsSavingBalanceCorrect(saving, initialAmount))
                 throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
-            using(SqlConnection conn = _savingManager.GetConnection())
+            using (SqlConnection conn = _savingManager.GetConnection())
             using (SqlTransaction sqlTransaction = conn.BeginTransaction())
             {
                 try
@@ -1332,7 +1349,7 @@ namespace OpenCBS.Services
         }
 
 
-	    public void CheckIfTransferAccountHasWrongCurrency(ISavingsContract currentContract, SavingSearchResult transferAccount)
+        public void CheckIfTransferAccountHasWrongCurrency(ISavingsContract currentContract, SavingSearchResult transferAccount)
         {
             if (currentContract.Product.Currency.Id != transferAccount.CurrencyId)
                 throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.TransferAccountHasWrongCurrency);
@@ -1361,13 +1378,13 @@ namespace OpenCBS.Services
 
             saving.Status = OSavingsStatus.Pending;
 
-            if (((SavingBookContract) saving).UseTermDeposit)
+            if (((SavingBookContract)saving).UseTermDeposit)
             {
-                ((SavingBookContract) saving).NextMaturity =
+                ((SavingBookContract)saving).NextMaturity =
                     DateCalculationStrategy.GetNextMaturity(
                         saving.CreationDate,
-                        ((SavingBookContract) saving).Product.Periodicity,
-                        ((SavingBookContract) saving).NumberOfPeriods);
+                        ((SavingBookContract)saving).Product.Periodicity,
+                        ((SavingBookContract)saving).NumberOfPeriods);
             }
 
             using (SqlConnection connection = _savingManager.GetConnection())
@@ -1392,7 +1409,7 @@ namespace OpenCBS.Services
             }
         }
 
-	    public int GetLastSavingsId()
+        public int GetLastSavingsId()
         {
             return _savingManager.GetLastSavingsId();
         }
@@ -1412,9 +1429,9 @@ namespace OpenCBS.Services
             }
         }
 
-        public List<SavingSearchResult> FindContracts(int pCurrentlyPage, out int pNumbersTotalPage, 
-                                                        out int pNumberOfRecords, 
-                                                        string pQuery, 
+        public List<SavingSearchResult> FindContracts(int pCurrentlyPage, out int pNumbersTotalPage,
+                                                        out int pNumberOfRecords,
+                                                        string pQuery,
                                                         bool all,
                                                         bool activeContractsOnly)
         {
@@ -1439,7 +1456,7 @@ namespace OpenCBS.Services
         {
             _savingManager.UpdateOverdraftStatus(pSavingId, inOverdraft);
         }
-        
+
         public void UpdateInitialData(int pSavingId, OCurrency initialAmount, OCurrency entryFees)
         {
             _savingManager.UpdateInitialData(pSavingId, initialAmount, entryFees);
@@ -1474,30 +1491,30 @@ namespace OpenCBS.Services
                 ServicesProvider.GetInstance().GetGeneralSettings(),
                 User.CurrentUser,
                 TimeProvider.Today,
-                (SavingsBookProduct) products.First(),
+                (SavingsBookProduct)products.First(),
                 client)
-                {
-                    InterestRate = 0,
-                    InitialAmount = 0,
-                    EntryFees = 0,
-                    DepositFees = 0,
-                    ChequeDepositFees = 0,
-                    CloseFees = 0,
-                    ManagementFees = 0,
-                    OverdraftFees = 0,
-                    AgioFees = 0,
-                    ReopenFees = 0,
-                    FlatInterBranchTransferFee = 0,
-                    RateInterBranchTransferFee = 0,
-                    FlatWithdrawFees = 0,
-                    RateWithdrawFees = 0,
-                    FlatTransferFees = 0,
-                    RateTransferFees = 0,
-                    Code = client.Id.ToString(CultureInfo.InvariantCulture),
-                    SavingsOfficer = User.CurrentUser
-                };
+            {
+                InterestRate = 0,
+                InitialAmount = 0,
+                EntryFees = 0,
+                DepositFees = 0,
+                ChequeDepositFees = 0,
+                CloseFees = 0,
+                ManagementFees = 0,
+                OverdraftFees = 0,
+                AgioFees = 0,
+                ReopenFees = 0,
+                FlatInterBranchTransferFee = 0,
+                RateInterBranchTransferFee = 0,
+                FlatWithdrawFees = 0,
+                RateWithdrawFees = 0,
+                FlatTransferFees = 0,
+                RateTransferFees = 0,
+                Code = client.Id.ToString(CultureInfo.InvariantCulture),
+                SavingsOfficer = User.CurrentUser
+            };
 
-            saving.Id = SaveContract(saving, (Client) client);
+            saving.Id = SaveContract(saving, (Client)client);
 
             FirstDeposit(saving, 0, TimeProvider.Today, saving.EntryFees, User.CurrentUser, Teller.CurrentTeller);
 

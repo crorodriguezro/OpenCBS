@@ -46,11 +46,11 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
 
         OCurrency InitialAmount { get; set; }
         OCurrency EntryFees { get; set; }
-        
+
         IClient Client { get; set; }
         User SavingsOfficer { get; set; }
         Branch Branch { get; set; }
-        
+
         OCurrency GetBalance();
         OCurrency GetBalance(DateTime date);
         string GetFmtBalance(bool showCurrency);
@@ -63,19 +63,19 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
         SavingEvent GetCancelableEvent();
         SavingEvent CancelLastEvent();
         void CancelEvent(SavingEvent pSavingEvent);
-        
+
 
         List<SavingEvent> FirstDeposit(OCurrency pInitialAmount, DateTime pCreationDate, OCurrency pEntryFees, User pUser, Teller teller);
 
         OCurrency GetBalanceMin(DateTime pDate);
-        List<SavingEvent> Withdraw(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees, Teller teller);
- 
-        List<SavingEvent> Deposit(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees, 
+        List<SavingEvent> Withdraw(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees, Teller teller, PaymentMethod paymentMethod);
+
+        List<SavingEvent> Deposit(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees,
             bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod, int? pendingEventId, Teller teller);
-        
-        List<SavingEvent> LoanDisbursement(Loan loan, DateTime date, string description, User user, 
+
+        List<SavingEvent> LoanDisbursement(Loan loan, DateTime date, string description, User user,
             bool isDesactivateFees, bool isPending, OSavingsMethods savingsMethod, int? pendingEventId, Teller teller);
-        
+
         SavingCreditOperationEvent SpecialOperationCredit(OCurrency amount, DateTime date, string description, User user);
         SavingDebitOperationEvent SpecialOperationDebit(OCurrency amount, DateTime date, string description, User user);
 
@@ -89,7 +89,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
         List<SavingEvent> Close(DateTime pDate, User pUser, string pDescription, bool pIsDesactivateFees, Teller teller, bool isFromClosure);
         List<SavingEvent> Reopen(OCurrency pAmount, DateTime pDate, User pUser, string pDescription, bool pIsDesactivateFees);
         List<SavingEvent> RefusePendingDeposit(OCurrency pAmount, DateTime pDate, User pUser, string pDescription, OSavingsMethods method, int? pendingEventId);
-        
+
         DateTime GetLastPostingDate();
         DateTime GetLastAccrualDate();
         List<SavingInterestsAccrualEvent> CalculateInterest(DateTime pDate, User pUser);

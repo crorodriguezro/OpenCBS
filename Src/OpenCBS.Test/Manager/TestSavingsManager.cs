@@ -134,7 +134,7 @@ namespace OpenCBS.Test.Manager
             saving = (SavingBookContract)_savingManager.Select(saving.Id);
 
             saving.Closure(new DateTime(2009, 02, 01), new User { Id = 1 });
-            saving.Withdraw(50, new DateTime(2009, 02, 01), "testWithdraw", new User { Id = 1 }, false, null);
+            saving.Withdraw(50, new DateTime(2009, 02, 01), "testWithdraw", new User { Id = 1 }, false, null, new PaymentMethod());
             saving.Closure(new DateTime(2010, 01, 01), new User { Id = 1 });
 
             SavingBookContract retrievedSaving = (SavingBookContract)_savingManager.Select(saving.Id);

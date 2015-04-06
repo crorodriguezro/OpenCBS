@@ -154,7 +154,7 @@ namespace OpenCBS.Test.EventsManager
         public void TestWithdrawEvent()
         {
             _saving.FlatWithdrawFees = 10;
-            List<SavingEvent> savingEvents = _saving.Withdraw(100, TimeProvider.Today, "testDepot", _user, false, null);
+            List<SavingEvent> savingEvents = _saving.Withdraw(100, TimeProvider.Today, "testDepot", _user, false, null, new PaymentMethod());
             savingEvents[0].Id = 100;
             _savingEventManager.Add(savingEvents[0], _saving.Id);
             SavingEvent retrievedSavingEvent = _savingEventManager.SelectEvents(_saving.Id, _saving.Product).Find(item => item.Id == savingEvents[0].Id);
@@ -210,7 +210,7 @@ namespace OpenCBS.Test.EventsManager
         public void TestDeleteEvent()
         {
             _saving.FlatWithdrawFees = 0;
-            List<SavingEvent> savingEvents = _saving.Withdraw(100, new DateTime(2009, 02, 01), "testRetrait", _user, false, null);
+            List<SavingEvent> savingEvents = _saving.Withdraw(100, new DateTime(2009, 02, 01), "testRetrait", _user, false, null, new PaymentMethod());
             savingEvents[0].Id = _savingEventManager.Add(savingEvents[0], _saving.Id);
             savingEvents[0].CancelDate = DateTime.Now;
 

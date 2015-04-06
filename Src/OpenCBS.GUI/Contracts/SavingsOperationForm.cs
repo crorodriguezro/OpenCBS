@@ -54,7 +54,7 @@ namespace OpenCBS.GUI.Contracts
         private OCurrency _amountMax;
         private OCurrency _chequeAmountMin;
         private OCurrency _chequeAmountMax;
-        
+
         private OCurrency _flatFees = null;
         private double? _rateFees;
 
@@ -90,15 +90,15 @@ namespace OpenCBS.GUI.Contracts
 
                         if (_saving.Product is SavingsBookProduct)
                         {
-                            if (((SavingsBookProduct) _saving.Product).DepositFees.HasValue)
+                            if (((SavingsBookProduct)_saving.Product).DepositFees.HasValue)
                             {
-                                _feesMin = ((SavingsBookProduct) _saving.Product).DepositFees;
-                                _feesMax = ((SavingsBookProduct) _saving.Product).DepositFees;
+                                _feesMin = ((SavingsBookProduct)_saving.Product).DepositFees;
+                                _feesMax = ((SavingsBookProduct)_saving.Product).DepositFees;
                             }
                             else
                             {
-                                _feesMin = ((SavingsBookProduct) _saving.Product).DepositFeesMin;
-                                _feesMax = ((SavingsBookProduct) _saving.Product).DepositFeesMax;
+                                _feesMin = ((SavingsBookProduct)_saving.Product).DepositFeesMin;
+                                _feesMax = ((SavingsBookProduct)_saving.Product).DepositFeesMax;
                             }
                         }
                         break;
@@ -112,31 +112,31 @@ namespace OpenCBS.GUI.Contracts
 
                         if (_saving.Product is SavingsBookProduct)
                         {
-                            if (((SavingsBookProduct) _saving.Product).FlatWithdrawFees.HasValue ||
-                                ((SavingsBookProduct) _saving.Product).FlatWithdrawFeesMin.HasValue)
+                            if (((SavingsBookProduct)_saving.Product).FlatWithdrawFees.HasValue ||
+                                ((SavingsBookProduct)_saving.Product).FlatWithdrawFeesMin.HasValue)
                             {
-                                if (((SavingsBookProduct) _saving.Product).FlatWithdrawFees.HasValue)
+                                if (((SavingsBookProduct)_saving.Product).FlatWithdrawFees.HasValue)
                                 {
-                                    _feesMin = ((SavingsBookProduct) _saving.Product).FlatWithdrawFees;
-                                    _feesMax = ((SavingsBookProduct) _saving.Product).FlatWithdrawFees;
+                                    _feesMin = ((SavingsBookProduct)_saving.Product).FlatWithdrawFees;
+                                    _feesMax = ((SavingsBookProduct)_saving.Product).FlatWithdrawFees;
                                 }
                                 else
                                 {
-                                    _feesMin = ((SavingsBookProduct) _saving.Product).FlatWithdrawFeesMin;
-                                    _feesMax = ((SavingsBookProduct) _saving.Product).FlatWithdrawFeesMax;
+                                    _feesMin = ((SavingsBookProduct)_saving.Product).FlatWithdrawFeesMin;
+                                    _feesMax = ((SavingsBookProduct)_saving.Product).FlatWithdrawFeesMax;
                                 }
                             }
                             else
                             {
-                                if (((SavingsBookProduct) _saving.Product).RateWithdrawFees.HasValue)
+                                if (((SavingsBookProduct)_saving.Product).RateWithdrawFees.HasValue)
                                 {
-                                    _feesMin = (decimal) ((SavingsBookProduct) _saving.Product).RateWithdrawFees*100;
-                                    _feesMax = (decimal) ((SavingsBookProduct) _saving.Product).RateWithdrawFees*100;
+                                    _feesMin = (decimal)((SavingsBookProduct)_saving.Product).RateWithdrawFees * 100;
+                                    _feesMax = (decimal)((SavingsBookProduct)_saving.Product).RateWithdrawFees * 100;
                                 }
                                 else
                                 {
-                                    _feesMin = (decimal) ((SavingsBookProduct) _saving.Product).RateWithdrawFeesMin*100;
-                                    _feesMax = (decimal) ((SavingsBookProduct) _saving.Product).RateWithdrawFeesMax*100;
+                                    _feesMin = (decimal)((SavingsBookProduct)_saving.Product).RateWithdrawFeesMin * 100;
+                                    _feesMax = (decimal)((SavingsBookProduct)_saving.Product).RateWithdrawFeesMax * 100;
                                 }
                             }
                         }
@@ -202,11 +202,12 @@ namespace OpenCBS.GUI.Contracts
                         btnSave.Text = MultiLanguageStrings.GetString(Ressource.FrmAddSavingEvent, "Withdrawal.Text");
                         tbxSavingCode.Text = MultiLanguageStrings.GetString(Ressource.FrmAddSavingEvent, "Withdrawal.Text");
                         plTransfer.Visible = false;
-                        pnlSavingPending.Visible = false;
-                        cbSavingsMethod.Visible = true;
+                        pnlSavingPending.Visible = true;
+                        //cbSavingsMethod.Visible = true;
                         rbxDebit.Visible = false;
                         rbxCredit.Visible = false;
                         cbBookings.Visible = false;
+                        lblPaymentMethod.Visible = true;
                         break;
                     }
                 case OSavingsOperation.Transfer:
@@ -279,10 +280,10 @@ namespace OpenCBS.GUI.Contracts
             var paymentMethods =
                   ServicesProvider.GetInstance().GetPaymentMethodServices().GetAllPaymentMethods();
             foreach (var method in paymentMethods)
-               cbSavingsMethod.Items.Add(method);
+                cbSavingsMethod.Items.Add(method);
             cbSavingsMethod.SelectedItem = paymentMethods[0];
-          //cbSavingsMethod.DataBind(typeof(OPaymentMethods), Ressource.SavingsOperationForm, false);
-          // cbSavingsMethod.DataBind(typeof(OSavingsMethods), Ressource.FrmAddSavingEvent, false);
+            //cbSavingsMethod.DataBind(typeof(OPaymentMethods), Ressource.SavingsOperationForm, false);
+            // cbSavingsMethod.DataBind(typeof(OSavingsMethods), Ressource.FrmAddSavingEvent, false);
 
             switch (_bookingDirection)
             {
@@ -294,8 +295,8 @@ namespace OpenCBS.GUI.Contracts
                         //        _flatFees = ((SavingBookContract)_saving).ChequeDepositFees;
                         //        break;
                         //    default:
-                                _flatFees = ((SavingBookContract)_saving).DepositFees;
-                              //  break;
+                        _flatFees = ((SavingBookContract)_saving).DepositFees;
+                        //  break;
                         //}
                         break;
                     }
@@ -335,7 +336,7 @@ namespace OpenCBS.GUI.Contracts
         {
             nudAmount_ValueChanged(sender, e);
             bool pending = cbxPending.Visible && cbxPending.Checked;
-           
+
             try
             {
                 _date = new DateTime(dtpDate.Value.Year, dtpDate.Value.Month, dtpDate.Value.Day, TimeProvider.Now.Hour,
@@ -359,64 +360,65 @@ namespace OpenCBS.GUI.Contracts
                 switch (_bookingDirection)
                 {
                     case OSavingsOperation.Credit:
-                    {
-                        OSavingsMethods savingsMethod =
-                            (OSavingsMethods)
-                                Enum.Parse(typeof (OSavingsMethods),"Cash");
-                        var paymethod = (PaymentMethod)cbSavingsMethod.SelectedItem;
-                        if (_saving is SavingBookContract)
                         {
-                            if (savingsMethod == OSavingsMethods.Cheque)
-                                ((SavingBookContract) _saving).ChequeDepositFees = updAmountFees.Value;
-                            else ((SavingBookContract) _saving).DepositFees = updAmountFees.Value;
-                        }
+                            OSavingsMethods savingsMethod =
+                                (OSavingsMethods)
+                                    Enum.Parse(typeof(OSavingsMethods), "Cash");
+                            var paymentMethod = (PaymentMethod)cbSavingsMethod.SelectedItem;
+                            if (_saving is SavingBookContract)
+                            {
+                                if (savingsMethod == OSavingsMethods.Cheque)
+                                    ((SavingBookContract)_saving).ChequeDepositFees = updAmountFees.Value;
+                                else ((SavingBookContract)_saving).DepositFees = updAmountFees.Value;
+                            }
 
-                        savingServices.Deposit(_saving, _date, _amount, _description, User.CurrentUser, pending,
-                            savingsMethod, paymethod, null, Teller.CurrentTeller);
-                        break;
-                    }
-                    case OSavingsOperation.Debit:
-                    {
-                        if (_saving is SavingBookContract)
-                        {
-                            if (_flatFees.HasValue)
-                                ((SavingBookContract) _saving).FlatWithdrawFees = updAmountFees.Value;
-                            else ((SavingBookContract) _saving).RateWithdrawFees = (double) (updAmountFees.Value/100);
-                        }
-
-                        savingServices.Withdraw(_saving, _date, _amount, _description, User.CurrentUser,
-                            Teller.CurrentTeller);
-                        break;
-                    }
-                    case OSavingsOperation.Transfer:
-                    {
-                        if (_saving is SavingBookContract)
-                        {
-                            if (_flatFees.HasValue)
-                                ((SavingBookContract) _saving).FlatTransferFees = updAmountFees.Value;
-                            else ((SavingBookContract) _saving).RateTransferFees = (double) (updAmountFees.Value/100);
-                        }
-                        decimal fee = nudTotalAmount.Value - nudAmount.Value;
-                        savingServices.Transfer(_saving, _savingTarget, _date, _amount, fee, _description,
-                            User.CurrentUser, false);
-                        break;
-                    }
-
-                    case OSavingsOperation.SpecialOperation:
-                    {
-                        OSavingsMethods savingsMethod =
-                            (OSavingsMethods)
-                                Enum.Parse(typeof (OSavingsMethods), cbSavingsMethod.SelectedValue.ToString());
-                        if (cbBookings.SelectedItem != null)
-                        {
-                            Booking booking = (Booking) cbBookings.SelectedItem;
-                            booking.Branch = _saving.Branch;
-                            savingServices.SpecialOperation(_saving, _date, _amount, _description, User.CurrentUser,
-                                savingsMethod, rbxCredit.Checked, booking);
+                            savingServices.Deposit(_saving, _date, _amount, _description, User.CurrentUser, pending,
+                                savingsMethod, paymentMethod, null, Teller.CurrentTeller);
                             break;
                         }
-                        throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.TransactionInvalid);
-                    }
+                    case OSavingsOperation.Debit:
+                        {
+                            var paymentMethod = (PaymentMethod)cbSavingsMethod.SelectedItem;
+                            if (_saving is SavingBookContract)
+                            {
+                                if (_flatFees.HasValue)
+                                    ((SavingBookContract)_saving).FlatWithdrawFees = updAmountFees.Value;
+                                else ((SavingBookContract)_saving).RateWithdrawFees = (double)(updAmountFees.Value / 100);
+                            }
+
+                            savingServices.Withdraw(_saving, _date, _amount, _description, User.CurrentUser,
+                                Teller.CurrentTeller, paymentMethod);
+                            break;
+                        }
+                    case OSavingsOperation.Transfer:
+                        {
+                            if (_saving is SavingBookContract)
+                            {
+                                if (_flatFees.HasValue)
+                                    ((SavingBookContract)_saving).FlatTransferFees = updAmountFees.Value;
+                                else ((SavingBookContract)_saving).RateTransferFees = (double)(updAmountFees.Value / 100);
+                            }
+                            decimal fee = nudTotalAmount.Value - nudAmount.Value;
+                            savingServices.Transfer(_saving, _savingTarget, _date, _amount, fee, _description,
+                                User.CurrentUser, false);
+                            break;
+                        }
+
+                    case OSavingsOperation.SpecialOperation:
+                        {
+                            OSavingsMethods savingsMethod =
+                                (OSavingsMethods)
+                                    Enum.Parse(typeof(OSavingsMethods), cbSavingsMethod.SelectedValue.ToString());
+                            if (cbBookings.SelectedItem != null)
+                            {
+                                Booking booking = (Booking)cbBookings.SelectedItem;
+                                booking.Branch = _saving.Branch;
+                                savingServices.SpecialOperation(_saving, _date, _amount, _description, User.CurrentUser,
+                                    savingsMethod, rbxCredit.Checked, booking);
+                                break;
+                            }
+                            throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.TransactionInvalid);
+                        }
                 }
 
                 Close();
@@ -536,7 +538,7 @@ namespace OpenCBS.GUI.Contracts
 
                 if (_saving is SavingBookContract)
                 {
-                    SavingsBookProduct p = (SavingsBookProduct) _saving.Product;
+                    SavingsBookProduct p = (SavingsBookProduct)_saving.Product;
                     if (IsNormalTransfer())
                     {
                         isFlat = p.FlatTransferFees.HasValue || p.FlatTransferFeesMin.HasValue;
@@ -547,7 +549,7 @@ namespace OpenCBS.GUI.Contracts
                     }
                 }
 
-                OCurrency fee = isFlat ? updAmountFees.Value : _amount*updAmountFees.Value/100;
+                OCurrency fee = isFlat ? updAmountFees.Value : _amount * updAmountFees.Value / 100;
                 nudTotalAmount.Value = (_amount + fee).Value;
             }
             catch (Exception ex)

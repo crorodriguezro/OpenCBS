@@ -105,7 +105,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             //Below, we explicitly implement withdraw method from <Saving services>.<Withdraw>, since withdraw method of 'saving' object doesn't implement 
             // overdraft fee by default
 
-            List<SavingEvent> withdrawEvents = saving.Withdraw(1100, new DateTime(2009, 1, 2), "withdraw", new User(), false, null);
+            List<SavingEvent> withdrawEvents = saving.Withdraw(1100, new DateTime(2009, 1, 2), "withdraw", new User(), false, null, new PaymentMethod());
             if (saving.GetBalance() < 0 && !saving.InOverdraft)
             {
                 saving.ChargeOverdraftFee(new DateTime(2009, 1, 2), new User());
@@ -137,7 +137,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
             //Below, we explicitly implement withdraw method from <Saving services>.<Withdraw>, since withdraw method of 'saving' object doesn't implement 
             // overdraft fee by default
 
-            List<SavingEvent> withdrawEvents = saving.Withdraw(1100, new DateTime(2009, 1, 2), "withdraw", new User(), false, null);
+            List<SavingEvent> withdrawEvents = saving.Withdraw(1100, new DateTime(2009, 1, 2), "withdraw", new User(), false, null,new PaymentMethod());
             saving.Closure(new DateTime(2009, 1, 12), new User());
 
             //agio for ten days
@@ -280,7 +280,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
                                        new User(), new DateTime(2009, 01, 01), product, null) {FlatWithdrawFees = 2, };
             saving.FirstDeposit(1000, new DateTime(2009, 01, 01), null, new User(), Teller.CurrentTeller);
 
-            List<SavingEvent> withdrawEvents = saving.Withdraw(10, new DateTime(2009, 01, 02), "withdraw", new User(), false, null);
+            List<SavingEvent> withdrawEvents = saving.Withdraw(10, new DateTime(2009, 01, 02), "withdraw", new User(), false, null,new PaymentMethod());
 
             Assert.AreEqual(1, withdrawEvents.Count);
             Assert.AreEqual(10, withdrawEvents[0].Amount.Value);
@@ -300,7 +300,7 @@ namespace OpenCBS.Test.CoreDomain.Contracts.Savings
 
             SavingBookContract saving = new SavingBookContract(ApplicationSettings.GetInstance(""),  new User(), new DateTime(2009, 01, 01), product, null) { RateWithdrawFees = 0.03 };
             saving.FirstDeposit(1000, new DateTime(2009, 01, 01), null, new User(), Teller.CurrentTeller);
-            List<SavingEvent> withdrawEvents = saving.Withdraw(10, new DateTime(2009, 01, 02), "withdraw", new User(), false, null);
+            List<SavingEvent> withdrawEvents = saving.Withdraw(10, new DateTime(2009, 01, 02), "withdraw", new User(), false, null, new PaymentMethod());
 
             Assert.AreEqual(1, withdrawEvents.Count);
             Assert.AreEqual(10, withdrawEvents[0].Amount.Value);

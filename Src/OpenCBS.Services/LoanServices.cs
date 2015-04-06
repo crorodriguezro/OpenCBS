@@ -3073,13 +3073,14 @@ namespace OpenCBS.Services
                          config.Loan.GetUnpaidLatePenalties(config.Date);
             if (amount > balance || !config.KeepExpectedInstallment)
                 amount = balance;
-            if (amount <= 0) return config.Loan;
+            if (amount <= 0) return config.Loan; 
+            var paymentMethod =
+                ServicesProvider.GetInstance().GetPaymentMethodServices().GetPaymentMethodByName("Savings");
             ServicesProvider.GetInstance()
                             .GetSavingServices()
                             .Withdraw(config.Saving, config.Date, amount,
-                                      "Withdraw for loan repayment " + config.Loan.Code, currentUser, new Teller());
-            var paymentMethod =
-                ServicesProvider.GetInstance().GetPaymentMethodServices().GetPaymentMethodByName("Savings");
+                                      "Withdraw for loan repayment " + config.Loan.Code, currentUser, new Teller(), paymentMethod);
+           
             var installment = config.Loan.GetFirstUnpaidInstallment() ?? config.Loan.InstallmentList.First();
             return Repay(config.Loan,
                          config.Client,
@@ -3185,11 +3186,11 @@ namespace OpenCBS.Services
                             return loan;
                         var withdrowEvent = ServicesProvider.GetInstance()
                                                             .GetSavingServices()
-                                                            .Withdraw(saving, repayEvent.Date, amount,
+                                                            .Withdraw(saving, repayEvent.Date, amount, 
                                                                       "Withdraw for loan repayment " + loan.Code,
                                                                       User.CurrentUser,
                                                                       new Teller(),
-                                                                      sqlTransaction).First();
+                                                                      sqlTransaction, new PaymentMethod()).First();
                         eventStock.GetRepaymentEvents().First(i => !i.IsFired).Comment = withdrowEvent.Id.ToString(CultureInfo.InvariantCulture);
                     }
                     loan.Events = eventStock;
