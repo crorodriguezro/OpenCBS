@@ -198,12 +198,6 @@
   <metadata name="bwUserInformation.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1063, 17</value>
   </metadata>
-  <data name="mnuClients.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 20</value>
-  </data>
-  <data name="mnuClients.Text" xml:space="preserve">
-    <value>Client and Contract</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="mnuNewPerson.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
@@ -216,15 +210,6 @@
   </data>
   <data name="mnuNewPerson.Text" xml:space="preserve">
     <value>Create Individual Client</value>
-  </data>
-  <data name="mnuNewClient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="mnuNewClient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 22</value>
-  </data>
-  <data name="mnuNewClient.Text" xml:space="preserve">
-    <value>Create Group or Corporate Client</value>
   </data>
   <data name="mnuNewGroup.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
@@ -255,6 +240,15 @@
   </data>
   <data name="newCorporateToolStripMenuItem.Text" xml:space="preserve">
     <value>New Corporate Client</value>
+  </data>
+  <data name="mnuNewClient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="mnuNewClient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 22</value>
+  </data>
+  <data name="mnuNewClient.Text" xml:space="preserve">
+    <value>Create Group or Corporate Client</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>245, 6</value>
@@ -289,14 +283,11 @@
   <data name="reasignToolStripMenuItem.Text" xml:space="preserve">
     <value>Reassign Contracts</value>
   </data>
-  <data name="mnuAccounting.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 20</value>
+  <data name="mnuClients.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 20</value>
   </data>
-  <data name="mnuAccounting.Text" xml:space="preserve">
-    <value>Accounting</value>
-  </data>
-  <data name="mnuAccounting.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="mnuClients.Text" xml:space="preserve">
+    <value>Client and Contract</value>
   </data>
   <data name="mnuChartOfAccounts.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 22</value>
@@ -361,6 +352,15 @@
   <data name="fiscalYearToolStripMenuItem.Text" xml:space="preserve">
     <value>Fiscal Year</value>
   </data>
+  <data name="mnuAccounting.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 20</value>
+  </data>
+  <data name="mnuAccounting.Text" xml:space="preserve">
+    <value>Accounting</value>
+  </data>
+  <data name="mnuAccounting.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="branchesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 22</value>
   </data>
@@ -389,7 +389,7 @@
     <value>192, 22</value>
   </data>
   <data name="loanPurposeToolStripMenuItem.Text" xml:space="preserve">
-    <value>LoanPurpose</value>
+    <value>Loan Purpose</value>
   </data>
   <data name="menuItemLocations.ShowShortcutKeys" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -463,12 +463,6 @@
   <data name="mnuWindow.Text" xml:space="preserve">
     <value>Window</value>
   </data>
-  <data name="mnuHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="mnuHelp.Text" xml:space="preserve">
-    <value>Help</value>
-  </data>
   <data name="userGuideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>189, 22</value>
   </data>
@@ -499,69 +493,15 @@
   <data name="visitOpenCBScomToolStripMenuItem.Text" xml:space="preserve">
     <value>Visit OpenCBS.com</value>
   </data>
+  <data name="mnuHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="mnuHelp.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
   <metadata name="mainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>5, 0</value>
   </metadata>
-  <data name="mnuSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
-  </data>
-  <data name="mnuSettings.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="mnuSecurity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
-  </data>
-  <data name="mnuSecurity.Text" xml:space="preserve">
-    <value>Security</value>
-  </data>
-  <data name="mnuProducts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 20</value>
-  </data>
-  <data name="mnuProducts.Text" xml:space="preserve">
-    <value>Products</value>
-  </data>
-  <data name="_viewItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="_viewItem.Text" xml:space="preserve">
-    <value>View</value>
-  </data>
-  <data name="_modulesMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 20</value>
-  </data>
-  <data name="_modulesMenuItem.Text" xml:space="preserve">
-    <value>Extensions</value>
-  </data>
-  <data name="reportsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 20</value>
-  </data>
-  <data name="reportsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reports</value>
-  </data>
-  <data name="mainMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="mainMenu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>7, 2, 0, 2</value>
-  </data>
-  <data name="mainMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1284, 24</value>
-  </data>
-  <data name="mainMenu.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;mainMenu.Name" xml:space="preserve">
-    <value>mainMenu</value>
-  </data>
-  <data name="&gt;&gt;mainMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mainMenu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;mainMenu.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="menuItemSetting.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -585,12 +525,6 @@
   </data>
   <data name="menuItemApplicationDate.Text" xml:space="preserve">
     <value>Change Application Date</value>
-  </data>
-  <data name="languagesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
-  </data>
-  <data name="languagesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Language</value>
   </data>
   <data name="frenchToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
@@ -637,6 +571,18 @@
   <data name="portugueseToolStripMenuItem.Text" xml:space="preserve">
     <value>Portuguese</value>
   </data>
+  <data name="languagesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="languagesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="mnuSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
+  </data>
+  <data name="mnuSettings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="rolesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 22</value>
   </data>
@@ -664,6 +610,12 @@
   <data name="changePasswordToolStripMenuItem.Text" xml:space="preserve">
     <value>Change Password</value>
   </data>
+  <data name="mnuSecurity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
+  </data>
+  <data name="mnuSecurity.Text" xml:space="preserve">
+    <value>Security</value>
+  </data>
   <data name="mnuPackages.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -678,6 +630,12 @@
   </data>
   <data name="savingProductsToolStripMenuItem.Text" xml:space="preserve">
     <value>Savings Products</value>
+  </data>
+  <data name="mnuProducts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 20</value>
+  </data>
+  <data name="mnuProducts.Text" xml:space="preserve">
+    <value>Products</value>
   </data>
   <data name="_startPageItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>131, 22</value>
@@ -697,41 +655,59 @@
   <data name="_dashboardItem.Text" xml:space="preserve">
     <value>Dashboard</value>
   </data>
+  <data name="_viewItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="_viewItem.Text" xml:space="preserve">
+    <value>View</value>
+  </data>
   <data name="_aboutModulesMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 22</value>
   </data>
   <data name="_aboutModulesMenuItem.Text" xml:space="preserve">
     <value>About Extensions...</value>
   </data>
+  <data name="_modulesMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 20</value>
+  </data>
+  <data name="_modulesMenuItem.Text" xml:space="preserve">
+    <value>Extensions</value>
+  </data>
+  <data name="reportsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 20</value>
+  </data>
+  <data name="reportsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="mainMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="mainMenu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 2, 0, 2</value>
+  </data>
+  <data name="mainMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1284, 24</value>
+  </data>
+  <data name="mainMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;mainMenu.Name" xml:space="preserve">
+    <value>mainMenu</value>
+  </data>
+  <data name="&gt;&gt;mainMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mainMenu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;mainMenu.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <metadata name="mainStatusBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>39, 477</value>
   </metadata>
   <data name="mainStatusBar.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>None</value>
-  </data>
-  <data name="mainStatusBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 717</value>
-  </data>
-  <data name="mainStatusBar.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 16, 0</value>
-  </data>
-  <data name="mainStatusBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1284, 25</value>
-  </data>
-  <data name="mainStatusBar.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;mainStatusBar.Name" xml:space="preserve">
-    <value>mainStatusBar</value>
-  </data>
-  <data name="&gt;&gt;mainStatusBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mainStatusBar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;mainStatusBar.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="mainStatusBarLblUpdateVersion.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
@@ -756,6 +732,30 @@
   </data>
   <data name="toolStripStatusLblDB.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
+  </data>
+  <data name="mainStatusBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 717</value>
+  </data>
+  <data name="mainStatusBar.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 0, 16, 0</value>
+  </data>
+  <data name="mainStatusBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1284, 25</value>
+  </data>
+  <data name="mainStatusBar.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;mainStatusBar.Name" xml:space="preserve">
+    <value>mainStatusBar</value>
+  </data>
+  <data name="&gt;&gt;mainStatusBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mainStatusBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;mainStatusBar.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1583,6 +1583,12 @@
   <data name="&gt;&gt;mnuDomainOfApplication.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;loanPurposeToolStripMenuItem.Name" xml:space="preserve">
+    <value>loanPurposeToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;loanPurposeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;menuItemLocations.Name" xml:space="preserve">
     <value>menuItemLocations</value>
   </data>
@@ -1858,12 +1864,6 @@
   </data>
   <data name="&gt;&gt;toolStripStatusLblDB.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;loanPurposeToolStripMenuItem.Name" xml:space="preserve">
-    <value>loanPurposeToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;loanPurposeToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainView</value>
