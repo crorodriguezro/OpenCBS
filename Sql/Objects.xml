@@ -3858,215 +3858,188 @@ END
             DROP FUNCTION [dbo].[getEntryFees]]]></drop>
   </object>
   <object name="Alerts" priority="66">
-    <create><![CDATA[-- Return a list of alerts, i.e. pending and late loans, 
--- along with overdraft and pending savings
---
--- HISTORY
---
--- Jul 13, 2011 - v3.2.0  - Ruslan KAZAKOV
--- Overdraft and pending savings update to use ActiveSavingContracts()
---
--- Apr 13, 2011 - v2.8.15 - Pasha BASTOV
--- Add @branch_id to the list of parameters
--- Apr 16, 2012 - v3.8 - Munduzbek SUBANOV
-CREATE FUNCTION [dbo].[Alerts](@date DATETIME, @user_id INT, @branch_id INT)
-RETURNS @tbl TABLE (
-	id INT NOT NULL
-	, kind INT NOT NULL
-	, status INT NOT NULL
-	, date DATETIME NOT NULL
-	, late_days INT NOT NULL
-	, amount MONEY NOT NULL
-	, use_cents BIT NOT NULL
-	, contract_code NVARCHAR(255) NOT NULL
-	, client_name NVARCHAR(100) NOT NULL
-	, loan_officer_id INT NOT NULL
-	, city NVARCHAR(100) NOT NULL
-	, address NVARCHAR(255) NOT NULL
-	, phone NVARCHAR(100) NOT NULL
-	, branch_name NVARCHAR(100) NOT NULL
-) AS
-BEGIN
-	DECLARE @_date DATETIME
-	DECLARE @_user_id INT
-	
-	SET @_date = @date
-	SET @_user_id = @user_id
-	
-	DECLARE @active_loans TABLE
-	(
-	    id INT
-	    , client_id INT
-	    , expected_date DATETIME
-	    , principal_due MONEY
-	    , interest_due MONEY
-	    , late_days INT
-	    , branch_name NVARCHAR(100)
-	)
-	
-	INSERT INTO @active_loans
-	SELECT al.id, client_id, expected_date, principal_due, interest_due, late_days, Branches.name
-	FROM dbo.ActiveLoans(@_date, 0) AS al
-	INNER JOIN Tiers ON al.client_id=Tiers.id
-	INNER JOIN Branches ON Tiers.branch_id=Branches.id
-	
-	;WITH _contracts
-	AS (
-		-- Late and performing loans (due today)
-		SELECT al.id
-		, 5 AS status	
-		, al.expected_date AS date
-		, al.principal_due + interest_due AS amount
-		, al.late_days
-		, br.name AS branch_name
-		FROM @active_loans al
-		INNER JOIN dbo.Tiers t on t.id = al.client_id
-		INNER JOIN dbo.Branches AS br ON t.branch_id=br.id
-		WHERE (late_days > 0 OR (0 = late_days AND NOT expected_date IS NULL))
-		and t.branch_id in (
-			select branch_id
-			from dbo.UsersBranches
-			where user_id = @_user_id
+    <create><![CDATA[
+create function dbo.Alerts(@date datetime, @user_id int)
+returns @tbl table
+(
+	id int not null, 
+	kind int not null,
+	status int not null, 
+	date date not null, 
+	late_days int not null,
+	amount money not null, 
+	contract_code nvarchar(255) not null, 
+	client_name nvarchar(255) not null,
+	loan_officer nvarchar(max) not null,
+	city nvarchar(100) not null,
+	address nvarchar(255) not null,
+	phone nvarchar(100) not null,
+	branch_name nvarchar(100) not null
+)
+as begin
+	declare @_date datetime = @date
+	declare @_user_id int = @user_id
+	-- Active loans
+	insert @tbl
+	select
+		al.id,
+		1 kind,
+		5 status,
+		cast(al.expected_date as date) date,
+		al.late_days,
+		al.principal_due + al.interest_due amount,
+		c.contract_code,
+		cl.name client_name,
+		u.first_name + ' ' + u.last_name loan_officer,
+		isnull(t.city, '') city,
+		coalesce(t.address, t.secondary_address, '') address,
+		coalesce(t.home_phone, t.personal_phone, t.secondary_home_phone, t.secondary_personal_phone, '') phone,
+		br.name branch_name
+	from
+		dbo.ActiveLoans(@_date, 0) al
+	left join
+		dbo.Contracts c on c.id = al.id
+	left join
+		dbo.Credit cr on cr.id = c.id
+	left join
+		dbo.Projects j on j.id = c.project_id
+	left join
+		dbo.Tiers t on t.id = j.tiers_id
+	left join
+		dbo.Clients cl on cl.id = t.id
+	left join
+		dbo.Branches br on br.id = t.branch_id
+	left join
+		dbo.Users u on u.id = cr.loanofficer_id
+	where
+		(al.late_days > 0 or (al.late_days = 0 and not al.expected_date is null))
+		and (t.branch_id in (select branch_id from dbo.UsersBranches where user_id = @_user_id))
+		and
+		(
+			cr.loanofficer_id = @_user_id or
+			cr.loanofficer_id in (select subordinate_id from dbo.UsersSubordinates where user_id = @_user_id)
 		)
-		
-		UNION ALL
-		-- Pending, Postponed and Validated loans	
-		SELECT c.id
-		, c.status
-		, c.start_date AS date
-		, cr.amount
-		, 0 AS late_days
-		, br.name AS branch_name
-		FROM dbo.Contracts AS c
-		INNER JOIN dbo.Credit AS cr ON cr.id = c.id
-		INNER JOIN dbo.Projects AS j ON j.id = c.project_id
-		INNER JOIN dbo.Tiers AS t ON t.id = j.tiers_id
-		INNER JOIN dbo.Branches AS br ON t.branch_id=br.id
-		WHERE c.status IN (1, 2, 8)
-		and t.branch_id in (
-			select branch_id
-			from dbo.UsersBranches
-			where user_id = @_user_id
+
+	-- Pending, Postponed, and Validated loans
+	insert @tbl
+	select
+		c.id,
+		1,
+		c.status,
+		c.start_date,
+		0,
+		cr.amount,
+		c.contract_code,
+		cl.name,
+		u.first_name + ' ' + u.last_name loan_officer,
+		isnull(t.city, '') city,
+		coalesce(t.address, t.secondary_address, '') address,
+		coalesce(t.home_phone, t.personal_phone, t.secondary_home_phone, t.secondary_personal_phone, '') phone,
+		br.name branch_name
+	from 
+		dbo.Contracts c
+	left join
+		dbo.Credit cr on cr.id = c.id
+	left join
+		dbo.Projects j on j.id = c.project_id
+	left join
+		dbo.Tiers t on t.id = j.tiers_id
+	left join
+		dbo.Clients cl on cl.id = t.id
+	left join
+		dbo.Branches br on br.id = t.branch_id
+	left join
+		dbo.Users u on u.id = cr.loanofficer_id
+	where
+		c.status IN (1, 2, 8)
+		and (t.branch_id in (select branch_id from dbo.UsersBranches where user_id = @_user_id))
+		and
+		(
+			cr.loanofficer_id = @_user_id or
+			cr.loanofficer_id in (select subordinate_id from dbo.UsersSubordinates where user_id = @_user_id)
 		)
-	)
-	INSERT @tbl
-	SELECT _c.id
-	, 1 AS kind
-	, _c.status
-	, _c.date
-	, _c.late_days
-	, _c.amount
-	, cur.use_cents
-	, c.contract_code
-	, cl.name AS client_name
-	, cr.loanofficer_id
-	, ISNULL(t.city, '') AS city
-	, COALESCE(t.address, t.secondary_address, '') AS address
-	, COALESCE(t.home_phone, t.personal_phone, t.secondary_home_phone, t.secondary_personal_phone, '') AS phone
-	, _c.branch_name
-	FROM _contracts AS _c
-	LEFT JOIN dbo.Contracts AS c ON c.id = _c.id
-	LEFT JOIN dbo.Credit AS cr ON cr.id = c.id
-	LEFT JOIN dbo.Projects AS j ON j.id = c.project_id
-	LEFT JOIN dbo.Packages AS pack ON pack.id = cr.package_id
-	LEFT JOIN dbo.Currencies AS cur ON cur.id = pack.currency_id
-	LEFT JOIN dbo.Tiers AS t ON t.id = j.tiers_id
-	LEFT JOIN dbo.Clients AS cl ON cl.id = t.id
-	WHERE cr.loanofficer_id = @_user_id OR cr.loanofficer_id IN (
-		SELECT subordinate_id 
-		FROM dbo.UsersSubordinates
-		WHERE user_id = @_user_id
-	)
-	
+
 	-- Overdraft savings
-	INSERT @tbl
-	SELECT c.id
-	, 2 AS kind
-	-- Pasha BASTOV:
-	-- The status below is in fact 1, since 1 for Savings means Active.
-	-- But for the sake of consistency I intentionally change it to 5,
-	-- since 5 means Active for loans and somehow loans prevail because
-	-- they appeared first historically blah blah blah.
-	-- Since it does not seem to be used / affect any code outside the
-	-- Alerts window, I dare do so.
-	, 5 AS status
-	, c.creation_date AS date
-	, 0 AS late_days
-	, ActSC.balance AS amount
-	, cur.use_cents
-	, c.code AS contract_code
-	, cl.name AS client_name
-	, c.savings_officer_id
-	, ISNULL(t.city, '') AS city 
-	, COALESCE(t.address, t.secondary_address, '') AS address
-	, COALESCE(t.home_phone, t.personal_phone, t.secondary_home_phone, t.secondary_personal_phone, '') AS phone
-	, br.name AS branch_name
-	FROM ActiveSavingContracts(@_date, @branch_id) AS ActSC
-	INNER JOIN SavingContracts AS c ON c.id = ActSC.contract_id
-	INNER JOIN SavingProducts AS SaPr ON SaPr.id = c.product_id
-	INNER JOIN Tiers AS t ON t.id = c.tiers_id 
-	LEFT JOIN dbo.Clients AS cl ON cl.id = t.id
-	INNER JOIN dbo.Currencies AS cur ON cur.id = SaPr.currency_id
-	INNER JOIN Branches AS br ON t.branch_id=br.id
-	WHERE ActSC.balance < 0 AND c.status = 1
-	AND (c.savings_officer_id = @_user_id OR c.savings_officer_id IN
-	(
-		SELECT subordinate_id
-		FROM dbo.UsersSubordinates
-		WHERE user_id = @_user_id
-	))
-	and t.branch_id in (
-		select branch_id
-		from dbo.UsersBranches
-		where user_id = @_user_id
-	)
-	
-	UNION ALL
-	
+	insert @tbl
+	select
+		c.id,
+		2,
+		5 status,
+		c.creation_date,
+		0,
+		ActSC.balance,
+		c.code,
+		cl.name,
+		u.first_name + ' ' + u.last_name,
+		isnull(t.city, ''),
+		coalesce(t.address, t.secondary_address, ''),
+		coalesce(t.home_phone, t.personal_phone, t.secondary_home_phone, t.secondary_personal_phone, ''),
+		br.name
+	from
+		dbo.ActiveSavingContracts(@_date, 0) ActSC
+	inner join
+		dbo.SavingContracts c on c.id = ActSC.contract_id
+	inner join
+		dbo.SavingProducts SaPr on SaPr.id = c.product_id
+	inner join
+		dbo.Tiers t on t.id = c.tiers_id 
+	left join 
+		dbo.Clients cl on cl.id = t.id
+	left join
+		dbo.Branches br on t.branch_id = br.id
+	left join
+		dbo.Users u on u.id = c.savings_officer_id
+	where
+		ActSC.balance < 0 and c.status = 1
+		and (c.savings_officer_id = @_user_id or c.savings_officer_id in
+		(
+			select subordinate_id from dbo.UsersSubordinates where user_id = @_user_id
+		))
+		and t.branch_id in (select branch_id from dbo.UsersBranches where user_id = @_user_id)
+
 	-- Pending savings
-	SELECT c.id
-	, 2 AS kind
-	, 1 AS status
-	, c.creation_date AS date
-	, 0 AS late_days
-	, ActSC.balance AS amount
-	, cur.use_cents
-	, c.code AS contract_code
-	, cl.name AS client_name
-	, c.savings_officer_id
-	, ISNULL(t.city, '') AS city 
-	, COALESCE(t.address, t.secondary_address, '') AS address
-	, COALESCE(t.home_phone, t.personal_phone, t.secondary_home_phone, t.secondary_personal_phone, '') AS phone
-	, br.name AS branch_name
-	FROM ActiveSavingContracts(@_date, @branch_id) AS ActSC
-	
-	INNER JOIN SavingContracts AS c ON c.id = ActSC.contract_id
-	INNER JOIN SavingProducts AS SaPr ON SaPr.id = c.product_id
-	INNER JOIN
+	insert @tbl
+	select
+		c.id,
+		2,
+		1,
+		c.creation_date,
+		0,
+		ActSC.balance,
+		c.code, 
+		cl.name,
+		c.savings_officer_id,
+		isnull(t.city, ''),
+		coalesce(t.address, t.secondary_address, ''),
+		coalesce(t.home_phone, t.personal_phone, t.secondary_home_phone, t.secondary_personal_phone, ''), 
+		br.name
+	from
+		dbo.ActiveSavingContracts(@_date, 0) ActSC	
+	inner join
+		dbo.SavingContracts c on c.id = ActSC.contract_id
+	inner join
+		dbo.SavingProducts SaPr on SaPr.id = c.product_id
+	inner join
 	(
-		SELECT contract_id
-		FROM SavingEvents 
-		WHERE code = 'SPDE' AND deleted = 0 AND is_fired = 1 AND pending = 1 AND creation_date <= @_date
-		GROUP BY contract_id
-	) AS b ON b.contract_id = c.id
-	INNER JOIN Tiers AS t ON t.id = c.tiers_id 
-	LEFT JOIN dbo.Clients AS cl ON cl.id = t.id
-	INNER JOIN dbo.Currencies AS cur ON cur.id = SaPr.currency_id
-	INNER JOIN dbo.Branches AS br ON t.branch_id=br.id
-	WHERE (c.savings_officer_id = @_user_id OR c.savings_officer_id IN
-	(
-		SELECT subordinate_id
-		FROM dbo.UsersSubordinates
-		WHERE user_id = @_user_id
-	))
-	and t.branch_id in (
-		select branch_id
-		from dbo.UsersBranches
-		where user_id = @_user_id
-	)
-	
-	RETURN
-END
+		select contract_id
+		from dbo.SavingEvents 
+		where code = 'SPDE' and deleted = 0 and is_fired = 1 and pending = 1 and creation_date <= @_date
+		group by contract_id
+	) b on b.contract_id = c.id
+	inner join
+		dbo.Tiers t on t.id = c.tiers_id 
+	left join
+		dbo.Clients cl on cl.id = t.id
+	left join
+		dbo.Branches br on t.branch_id=br.id
+	where (c.savings_officer_id = @_user_id OR c.savings_officer_id IN
+		(
+			select subordinate_id from dbo.UsersSubordinates where user_id = @_user_id
+		))
+		and t.branch_id in (select branch_id from dbo.UsersBranches	where user_id = @_user_id)
+
+	return
+end
 ]]></create>
     <drop><![CDATA[IF  EXISTS (
                 SELECT * 
