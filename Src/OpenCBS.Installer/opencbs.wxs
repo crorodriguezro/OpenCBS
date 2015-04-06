@@ -97,6 +97,7 @@
               <File Id="Microsoft.Scripting.dll" Source="SourceDir\Microsoft.Scripting.dll" />              
               <File Id="Newtonsoft.Json.dll" Source="SourceDir\Newtonsoft.Json.dll" />
               <File Id="StructureMap.dll" Source="SourceDir\StructureMap.dll" />
+              <File Id="StructureMap.Net4.dll" Source="SourceDir\StructureMap.Net4.dll" />
               <File Id="Dapper.dll" Source="SourceDir\Dapper.dll" />
               <File Id="protobuf_net.dll" Source="SourceDir\protobuf-net.dll" />
               <File Id="GMap.Net.Core.dll" Source="SourceDir\GMap.Net.Core.dll" />
