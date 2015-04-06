@@ -18,5 +18,14 @@
 	"Payment type": "Type de paiement",
 	"OK": "OK",
 	"Cancel": "Annuler",
-	"Available balance: ": "La balance disponible: "
+	"Available balance: ": "La balance disponible: ",
+    "Company": "Personne morale",
+    "Contact Us": "Contactez nous",
+    "Group": "Groupe",
+    "New Client": "Nouveau client",
+    "Person": "Personne",
+    "Search Clients": "Chercher un client",
+    "Search Contracts": "Cherche un contrat",
+    "User Guide": "Guide de l'utilisateur",
+    "Village Bank": "Groupe non solidaire"
 }
