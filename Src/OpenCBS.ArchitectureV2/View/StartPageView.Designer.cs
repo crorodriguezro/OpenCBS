@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this._searchClientButton = new System.Windows.Forms.Button();
+            this._searchClientsButton = new System.Windows.Forms.Button();
             this._newClientButton = new OpenCBS.Controls.SplitButton();
             this._newClientMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this._newPersonItem = new System.Windows.Forms.ToolStripMenuItem();
             this._newGroupItem = new System.Windows.Forms.ToolStripMenuItem();
             this._newVillageBankItem = new System.Windows.Forms.ToolStripMenuItem();
             this._newCompanyItem = new System.Windows.Forms.ToolStripMenuItem();
-            this._searchLoanButton = new System.Windows.Forms.Button();
+            this._searchContractsButton = new System.Windows.Forms.Button();
             this._buttonPanel = new System.Windows.Forms.FlowLayoutPanel();
             this._linkPanel = new System.Windows.Forms.FlowLayoutPanel();
             this._siteLink = new System.Windows.Forms.LinkLabel();
@@ -65,15 +65,15 @@
             ((System.ComponentModel.ISupportInitialize)(this._logoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // _searchClientButton
+            // _searchClientsButton
             // 
-            this._searchClientButton.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this._searchClientButton.Location = new System.Drawing.Point(189, 3);
-            this._searchClientButton.Name = "_searchClientButton";
-            this._searchClientButton.Size = new System.Drawing.Size(180, 35);
-            this._searchClientButton.TabIndex = 20;
-            this._searchClientButton.Text = "Search Client";
-            this._searchClientButton.UseVisualStyleBackColor = true;
+            this._searchClientsButton.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this._searchClientsButton.Location = new System.Drawing.Point(189, 3);
+            this._searchClientsButton.Name = "_searchClientsButton";
+            this._searchClientsButton.Size = new System.Drawing.Size(180, 35);
+            this._searchClientsButton.TabIndex = 20;
+            this._searchClientsButton.Text = "Search Clients";
+            this._searchClientsButton.UseVisualStyleBackColor = true;
             // 
             // _newClientButton
             // 
@@ -122,23 +122,23 @@
             this._newCompanyItem.Size = new System.Drawing.Size(165, 26);
             this._newCompanyItem.Text = "Company";
             // 
-            // _searchLoanButton
+            // _searchContractsButton
             // 
-            this._searchLoanButton.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this._searchLoanButton.Location = new System.Drawing.Point(375, 3);
-            this._searchLoanButton.Name = "_searchLoanButton";
-            this._searchLoanButton.Size = new System.Drawing.Size(180, 35);
-            this._searchLoanButton.TabIndex = 30;
-            this._searchLoanButton.Text = "Search Loan";
-            this._searchLoanButton.UseVisualStyleBackColor = true;
+            this._searchContractsButton.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this._searchContractsButton.Location = new System.Drawing.Point(375, 3);
+            this._searchContractsButton.Name = "_searchContractsButton";
+            this._searchContractsButton.Size = new System.Drawing.Size(180, 35);
+            this._searchContractsButton.TabIndex = 30;
+            this._searchContractsButton.Text = "Search Contracts";
+            this._searchContractsButton.UseVisualStyleBackColor = true;
             // 
             // _buttonPanel
             // 
             this._buttonPanel.AutoSize = true;
             this._buttonPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this._buttonPanel.Controls.Add(this._newClientButton);
-            this._buttonPanel.Controls.Add(this._searchClientButton);
-            this._buttonPanel.Controls.Add(this._searchLoanButton);
+            this._buttonPanel.Controls.Add(this._searchClientsButton);
+            this._buttonPanel.Controls.Add(this._searchContractsButton);
             this._buttonPanel.Location = new System.Drawing.Point(107, 178);
             this._buttonPanel.Name = "_buttonPanel";
             this._buttonPanel.Size = new System.Drawing.Size(558, 41);
@@ -336,9 +336,9 @@
         #endregion
 
         private System.Windows.Forms.PictureBox _logoPictureBox;
-        private System.Windows.Forms.Button _searchClientButton;
+        private System.Windows.Forms.Button _searchClientsButton;
         private Controls.SplitButton _newClientButton;
-        private System.Windows.Forms.Button _searchLoanButton;
+        private System.Windows.Forms.Button _searchContractsButton;
         private System.Windows.Forms.ContextMenuStrip _newClientMenu;
         private System.Windows.Forms.ToolStripMenuItem _newPersonItem;
         private System.Windows.Forms.ToolStripMenuItem _newGroupItem;

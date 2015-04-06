@@ -1,13 +1,16 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 using OpenCBS.ArchitectureV2.Interface.Presenter;
+using OpenCBS.ArchitectureV2.Interface.Service;
 using OpenCBS.ArchitectureV2.Interface.View;
+using StructureMap;
 
 namespace OpenCBS.ArchitectureV2.View
 {
-    public partial class StartPageView : Form, IStartPageView
+    public partial class StartPageView : BaseView, IStartPageView
     {
-        public StartPageView()
+        [DefaultConstructor]
+        public StartPageView(ITranslationService translationService) : base(translationService)
         {
             InitializeComponent();
             SizeChanged += (sender, e) => OnResize();
@@ -24,8 +27,8 @@ namespace OpenCBS.ArchitectureV2.View
             _newGroupItem.Click += (sender, e) => presenterCallbacks.AddGroup();
             _newVillageBankItem.Click += (sender, e) => presenterCallbacks.AddVillageBank();
             _newCompanyItem.Click += (sender, e) => presenterCallbacks.AddCompany();
-            _searchClientButton.Click += (sender, e) => presenterCallbacks.SearchClient();
-            _searchLoanButton.Click += (sender, e) => presenterCallbacks.SearchLoan();
+            _searchClientsButton.Click += (sender, e) => presenterCallbacks.SearchClient();
+            _searchContractsButton.Click += (sender, e) => presenterCallbacks.SearchLoan();
 
             _englishPictureBox.Click += (sender, e) => presenterCallbacks.ChangeLanguage("en-US");
             _frenchPictureBox.Click += (sender, e) => presenterCallbacks.ChangeLanguage("fr");
