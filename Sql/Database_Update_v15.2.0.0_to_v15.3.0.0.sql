@@ -57,15 +57,17 @@ references
 	loanpurpose(id)
 GO
 
-create table dbo.PenaltyWriteOffEvents
-(
-	id int not null,
-	amount money not null
-)
-GO
+if object_id('dbo.PenaltyWriteOffEvents') is null
+begin
+	create table dbo.PenaltyWriteOffEvents
+	(
+		id int not null,
+		amount money not null
+	)
 
-alter table dbo.PenaltyWriteOffEvents
-add constraint FK_PenaltyWriteOffEvents foreign key (id) references dbo.ContractEvents(id)
+	alter table dbo.PenaltyWriteOffEvents
+	add constraint FK_PenaltyWriteOffEvents foreign key (id) references dbo.ContractEvents(id)
+end
 GO
 
 UPDATE  [TechnicalParameters]
