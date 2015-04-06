@@ -67,12 +67,13 @@ namespace OpenCBS.GUI
             // 
             // generalInfoPanel
             // 
-            this.generalInfoPanel.Controls.Add(this.infoPanel);
             resources.ApplyResources(this.generalInfoPanel, "generalInfoPanel");
+            this.generalInfoPanel.Controls.Add(this.infoPanel);
             this.generalInfoPanel.Name = "generalInfoPanel";
             // 
             // infoPanel
             // 
+            resources.ApplyResources(this.infoPanel, "infoPanel");
             this.infoPanel.BackColor = System.Drawing.Color.White;
             this.infoPanel.Controls.Add(this.tableLayoutPanel1);
             this.infoPanel.Controls.Add(this.label2);
@@ -80,7 +81,6 @@ namespace OpenCBS.GUI
             this.infoPanel.Controls.Add(this.label1);
             this.infoPanel.Controls.Add(this._filterPanel);
             this.infoPanel.Controls.Add(this.topBarPanel);
-            resources.ApplyResources(this.infoPanel, "infoPanel");
             this.infoPanel.Name = "infoPanel";
             // 
             // tableLayoutPanel1
@@ -121,6 +121,7 @@ namespace OpenCBS.GUI
             // 
             // parListView
             // 
+            resources.ApplyResources(this.parListView, "parListView");
             this.parListView.AllColumns.Add(this.parNameColumn);
             this.parListView.AllColumns.Add(this.parAmountColumn);
             this.parListView.AllColumns.Add(this.parQuantityColumn);
@@ -128,11 +129,11 @@ namespace OpenCBS.GUI
             this.parNameColumn,
             this.parAmountColumn,
             this.parQuantityColumn});
-            resources.ApplyResources(this.parListView, "parListView");
             this.parListView.FullRowSelect = true;
             this.parListView.GridLines = true;
             this.parListView.HasCollapsibleGroups = false;
             this.parListView.Name = "parListView";
+            this.parListView.OverlayText.Text = resources.GetString("resource.Text");
             this.parListView.ShowGroups = false;
             this.parListView.UseCompatibleStateImageBehavior = false;
             this.parListView.View = System.Windows.Forms.View.Details;
@@ -145,14 +146,14 @@ namespace OpenCBS.GUI
             // parAmountColumn
             // 
             this.parAmountColumn.AspectName = "Amount";
-            this.parAmountColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             resources.ApplyResources(this.parAmountColumn, "parAmountColumn");
+            this.parAmountColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // parQuantityColumn
             // 
             this.parQuantityColumn.AspectName = "Quantity";
-            this.parQuantityColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             resources.ApplyResources(this.parQuantityColumn, "parQuantityColumn");
+            this.parQuantityColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tableLayoutPanel2
             // 
@@ -179,6 +180,7 @@ namespace OpenCBS.GUI
             // 
             // _filterPanel
             // 
+            resources.ApplyResources(this._filterPanel, "_filterPanel");
             this._filterPanel.Controls.Add(this._refreshButton);
             this._filterPanel.Controls.Add(this._loanProductFilterComboBox);
             this._filterPanel.Controls.Add(this._loanProductFilterLabel);
@@ -186,7 +188,6 @@ namespace OpenCBS.GUI
             this._filterPanel.Controls.Add(this._userFilterLabel);
             this._filterPanel.Controls.Add(this._branchFilterComboBox);
             this._filterPanel.Controls.Add(this._branchFilterLabel);
-            resources.ApplyResources(this._filterPanel, "_filterPanel");
             this._filterPanel.Name = "_filterPanel";
             // 
             // _refreshButton
@@ -197,9 +198,9 @@ namespace OpenCBS.GUI
             // 
             // _loanProductFilterComboBox
             // 
+            resources.ApplyResources(this._loanProductFilterComboBox, "_loanProductFilterComboBox");
             this._loanProductFilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._loanProductFilterComboBox.FormattingEnabled = true;
-            resources.ApplyResources(this._loanProductFilterComboBox, "_loanProductFilterComboBox");
             this._loanProductFilterComboBox.Name = "_loanProductFilterComboBox";
             // 
             // _loanProductFilterLabel
@@ -209,9 +210,9 @@ namespace OpenCBS.GUI
             // 
             // _userFilterComboBox
             // 
+            resources.ApplyResources(this._userFilterComboBox, "_userFilterComboBox");
             this._userFilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._userFilterComboBox.FormattingEnabled = true;
-            resources.ApplyResources(this._userFilterComboBox, "_userFilterComboBox");
             this._userFilterComboBox.Name = "_userFilterComboBox";
             // 
             // _userFilterLabel
@@ -221,9 +222,9 @@ namespace OpenCBS.GUI
             // 
             // _branchFilterComboBox
             // 
+            resources.ApplyResources(this._branchFilterComboBox, "_branchFilterComboBox");
             this._branchFilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._branchFilterComboBox.FormattingEnabled = true;
-            resources.ApplyResources(this._branchFilterComboBox, "_branchFilterComboBox");
             this._branchFilterComboBox.Name = "_branchFilterComboBox";
             // 
             // _branchFilterLabel
