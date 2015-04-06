@@ -18,5 +18,15 @@
 	"Payment type": "Payment type",
 	"OK": "OK",
 	"Cancel": "Cancel",
-	"Available balance: ": "Available balance: "
+	"Available balance: ": "Available balance: ",
+    "Company": "Empresa",
+    "Contact Us": "Contáctenos",
+    "Forum": "Foro",
+    "Group": "Grupo",
+    "New Client": "Nuevo cliente",
+    "Person": "Persona",
+    "Search Clients": "Buscar cliente",
+    "Search Contracts": "Buscar contrato",
+    "User Guide": "Guía del usuario",
+    "Village Bank": "Banco comunal"
 }

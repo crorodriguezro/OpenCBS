@@ -18,5 +18,15 @@
 	"Payment type": "Payment type",
 	"OK": "OK",
 	"Cancel": "Cancel",
-	"Available balance: ": "Available balance: "
+	"Available balance: ": "Available balance: ",
+    "Company": "Empresa",
+    "Contact Us": "Contate-nos",
+    "Forum": "Fórum",
+    "Group": "Grupo",
+    "New Client": "Novo cliente",
+    "Person": "Individual",
+    "Search Clients": "Procure clientes",
+    "Search Contracts": "Procure contratos",
+    "User Guide": "Guia do usuário",
+    "Village Bank": "Grupo independente"
 }
