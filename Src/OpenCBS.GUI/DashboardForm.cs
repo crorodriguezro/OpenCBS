@@ -25,6 +25,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using OpenCBS.ArchitectureV2.Interface;
+using OpenCBS.ArchitectureV2.Message;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Dashboard;
 using OpenCBS.Enums;
@@ -345,6 +346,7 @@ namespace OpenCBS.GUI
         private void SetUp()
         {
             _refreshButton.Click += (sender, e) => RefreshDashboard();
+            FormClosing += (sender, e) => _applicationController.Publish(new DashboardHiddenMessage(this));
         }
     }
 }

@@ -247,9 +247,7 @@ namespace OpenCBS.GUI
             // DashboardForm
             // 
             resources.ApplyResources(this, "$this");
-            this.ControlBox = false;
             this.Controls.Add(this.generalInfoPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DashboardForm";
             this.ShowInTaskbar = false;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
