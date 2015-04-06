@@ -4044,7 +4044,7 @@ end
     <drop><![CDATA[IF  EXISTS (
                 SELECT * 
                 FROM sys.objects 
-                WHERE object_id = OBJECT_ID(N'dbo.Alerts') AND type = N'TF'
+                WHERE object_id = OBJECT_ID(N'dbo.Alerts') AND type IN (N'TF', N'IF')
             )
             DROP FUNCTION [dbo].[Alerts]]]></drop>
   </object>

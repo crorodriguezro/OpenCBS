@@ -355,7 +355,6 @@ namespace OpenCBS.GUI
             this.tellersToolStripMenuItem,
             this.toolStripSeparatorConfig1,
             this.mnuDomainOfApplication,
-            this.loanPurposeToolStripMenuItem,
             this.menuItemLocations,
             this.toolStripMenuItemFundingLines,
             this.toolStripMenuItemInstallmentTypes,
