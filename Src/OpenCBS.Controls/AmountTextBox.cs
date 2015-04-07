@@ -67,6 +67,11 @@ namespace OpenCBS.Controls
                 }
 
                 var text = value.ToString();
+                if (text == "0")
+                {
+                    Text = text;
+                    return;
+                }
                 text = text.TrimEnd('0').TrimEnd(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator.ToCharArray());
                 value = decimal.Parse(text);
                 var decimalPlaces = BitConverter.GetBytes(decimal.GetBits(value.Value)[3])[2];
