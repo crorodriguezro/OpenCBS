@@ -240,22 +240,17 @@ namespace OpenCBS.GUI.Products
             }
         }
 
-        private void InitializeComboBoxInterestScheme(int index)
-        {
-            cmbInterestScheme.Items.Clear();
-            cmbInterestScheme.Items.Add(GetString("ActualActual.Text"));
-            cmbInterestScheme.Items.Add(GetString("Actual360.Text"));
-            var installmentType = _product.InstallmentType;
-            if (installmentType == null || (installmentType.NbOfDays == 0 &&
-                installmentType.NbOfMonths == 1))
-            {
-                cmbInterestScheme.Items.Add(GetString("ThirtyActual.Text"));
-                cmbInterestScheme.Items.Add(GetString("Thirty360.Text"));
-            }
-            cmbInterestScheme.SelectedIndex = index;
-        }
+	    private void InitializeComboBoxInterestScheme(int index)
+	    {
+	        cmbInterestScheme.Items.Clear();
+	        cmbInterestScheme.Items.Add(GetString("ActualActual.Text"));
+	        cmbInterestScheme.Items.Add(GetString("Actual360.Text"));
+	        cmbInterestScheme.Items.Add(GetString("ThirtyActual.Text"));
+	        cmbInterestScheme.Items.Add(GetString("Thirty360.Text"));
+	        cmbInterestScheme.SelectedIndex = index;
+	    }
 
-        private void InitializeCycleObjects()
+	    private void InitializeCycleObjects()
         {
             _cycleObjects = ServicesProvider.GetInstance().GetProductServices().GetCycleObjects();
             foreach (var cycleObject in _cycleObjects)
