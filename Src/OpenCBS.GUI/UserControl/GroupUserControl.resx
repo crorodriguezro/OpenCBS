@@ -208,7 +208,7 @@
     <value>0, 0</value>
   </data>
   <data name="listViewOtherMembres.Size" type="System.Drawing.Size, System.Drawing">
-    <value>794, 333</value>
+    <value>797, 333</value>
   </data>
   <data name="listViewOtherMembres.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -238,7 +238,7 @@
     <value>0</value>
   </data>
   <data name="buttonDeleteMembers.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+    <value>Top, Left, Right</value>
   </data>
   <data name="buttonDeleteMembers.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -247,7 +247,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonDeleteMembers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 83</value>
+    <value>4, 83</value>
   </data>
   <data name="buttonDeleteMembers.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 25</value>
@@ -271,7 +271,7 @@
     <value>0</value>
   </data>
   <data name="buttonSaveAsLeader.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+    <value>Top, Left, Right</value>
   </data>
   <data name="buttonSaveAsLeader.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -280,7 +280,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonSaveAsLeader.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 145</value>
+    <value>4, 145</value>
   </data>
   <data name="buttonSaveAsLeader.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 25</value>
@@ -304,7 +304,7 @@
     <value>1</value>
   </data>
   <data name="buttonViewMember.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+    <value>Top, Left, Right</value>
   </data>
   <data name="buttonViewMember.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -313,7 +313,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonViewMember.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 114</value>
+    <value>4, 114</value>
   </data>
   <data name="buttonViewMember.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 25</value>
@@ -337,7 +337,7 @@
     <value>2</value>
   </data>
   <data name="buttonAddMembres.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+    <value>Top, Left, Right</value>
   </data>
   <data name="buttonAddMembres.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -346,7 +346,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonAddMembres.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 52</value>
+    <value>4, 52</value>
   </data>
   <data name="buttonAddMembres.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 25</value>
@@ -370,7 +370,7 @@
     <value>3</value>
   </data>
   <data name="buttonSelectAMember.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+    <value>Top, Left, Right</value>
   </data>
   <data name="buttonSelectAMember.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -379,7 +379,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonSelectAMember.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 21</value>
+    <value>4, 21</value>
   </data>
   <data name="buttonSelectAMember.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 25</value>
@@ -409,7 +409,7 @@
     <value>0, 0</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 333</value>
+    <value>188, 333</value>
   </data>
   <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -442,7 +442,7 @@
     <value>986, 333</value>
   </data>
   <data name="splitContainer3.SplitterDistance" type="System.Int32, mscorlib">
-    <value>794</value>
+    <value>797</value>
   </data>
   <data name="splitContainer3.SplitterWidth" type="System.Int32, mscorlib">
     <value>1</value>
@@ -949,7 +949,7 @@
     <value>savingsListUserControl1</value>
   </data>
   <data name="&gt;&gt;savingsListUserControl1.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SavingsListUserControl, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SavingsListUserControl, OpenCBS.GUI, Version=15.4.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;savingsListUserControl1.Parent" xml:space="preserve">
     <value>tabPageSaving</value>
@@ -998,7 +998,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAQ
-        HAAAAk1TRnQBSQFMAgEBBQEAAZgBAwGYAQMBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HAAAAk1TRnQBSQFMAgEBBQEAAaABAwGgAQMBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -1304,7 +1304,7 @@
     <value>btnPrint</value>
   </data>
   <data name="&gt;&gt;btnPrint.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.4.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrint.Parent" xml:space="preserve">
     <value>groupBoxButtons</value>
@@ -1976,7 +1976,7 @@
     <value>1000, 660</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>769, 504</value>
+    <value>752, 487</value>
   </data>
   <data name="&gt;&gt;columnHeaderName.Name" xml:space="preserve">
     <value>columnHeaderName</value>
@@ -2114,6 +2114,6 @@
     <value>GroupUserControl</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ClientControl, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ClientControl, OpenCBS.GUI, Version=15.4.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
