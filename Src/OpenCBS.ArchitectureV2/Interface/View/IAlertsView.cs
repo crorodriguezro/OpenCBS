@@ -17,5 +17,8 @@ namespace OpenCBS.ArchitectureV2.Interface.View
         bool ShowPostponedLoans { get; }
         bool ShowPendingSavings { get; }
         bool ShowOverdraftSavings { get; }
+
+        int? SelectedLoanId { get; }
+        int? SelectedSavingsId { get; }
     }
 }

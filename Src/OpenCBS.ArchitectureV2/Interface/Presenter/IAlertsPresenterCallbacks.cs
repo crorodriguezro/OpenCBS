@@ -5,5 +5,6 @@
         void Refresh();
         void Reload();
         void DetachView();
+        void ActivateAlert();
     }
 }

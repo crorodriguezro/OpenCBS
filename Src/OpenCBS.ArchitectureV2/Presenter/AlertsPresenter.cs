@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
-using OpenCBS.ArchitectureV2.Command;
+using OpenCBS.ArchitectureV2.CommandData;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.Presenter;
 using OpenCBS.ArchitectureV2.Interface.Repository;
@@ -84,6 +84,22 @@ namespace OpenCBS.ArchitectureV2.Presenter
             };
             _view.StartProgress();
             bw.RunWorkerAsync();
+        }
+
+        public void ActivateAlert()
+        {
+            var id = _view.SelectedLoanId;
+            if (id != null)
+            {
+                _applicationController.Execute(new EditLoanCommandData { Id = id.Value });
+                return;
+            }
+
+            id = _view.SelectedSavingsId;
+            if (id != null)
+            {
+                _applicationController.Execute(new EditSavingCommandData { Id = id.Value });
+            }
         }
     }
 }

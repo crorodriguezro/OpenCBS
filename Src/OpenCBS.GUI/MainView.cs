@@ -86,6 +86,8 @@ namespace OpenCBS.GUI
                 _applicationController.Subscribe<AlertsHiddenMessage>(this, OnAlertsHidden);
                 _applicationController.Subscribe<DashboardShownMessage>(this, OnDashboardShown);
                 _applicationController.Subscribe<DashboardHiddenMessage>(this, OnDashboardHidden);
+                _applicationController.Subscribe<EditLoanMessage>(this, OnEditLoan);
+                _applicationController.Subscribe<EditSavingMessage>(this, OnEditSaving);
                 _applicationController.Subscribe<RestartApplicationMessage>(this, m =>
                 {
                     RestartApplication(m.Language);
@@ -155,6 +157,18 @@ namespace OpenCBS.GUI
         private void OnDashboardHidden(DashboardHiddenMessage message)
         {
             _dashboardItem.Checked = false;
+        }
+
+        private void OnEditLoan(EditLoanMessage message)
+        {
+            var client = ServicesProvider.GetInstance().GetClientServices().FindTiersByContractId(message.Id);
+            InitializeCreditContractForm(client, message.Id);
+        }
+
+        private void OnEditSaving(EditSavingMessage message)
+        {
+            var client = ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(message.Id);
+            InitializeSavingContractForm(client, message.Id);
         }
 
         private void InitMenu()

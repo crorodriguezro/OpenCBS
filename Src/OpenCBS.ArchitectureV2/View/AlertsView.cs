@@ -19,7 +19,8 @@ namespace OpenCBS.ArchitectureV2.View
         }
 
         [DefaultConstructor]
-        public AlertsView(ITranslationService translationService) : base(translationService)
+        public AlertsView(ITranslationService translationService)
+            : base(translationService)
         {
             InitializeComponent();
             ShowLateLoans = true;
@@ -34,6 +35,7 @@ namespace OpenCBS.ArchitectureV2.View
         {
             FormClosing += (sender, e) => presenterCallbacks.DetachView();
             _reloadButton.Click += (sender, e) => presenterCallbacks.Reload();
+            _alertsListView.DoubleClick += (sender, e) => presenterCallbacks.ActivateAlert();
 
             _performingLoansItem.Click += (sender, e) =>
             {
@@ -176,6 +178,32 @@ namespace OpenCBS.ArchitectureV2.View
             });
             _clearSearchButton.Visible = true;
             UpdateTitle();
+        }
+
+        public int? SelectedLoanId
+        {
+            get
+            {
+                var alert = (Alert) _alertsListView.SelectedObject;
+                if (alert == null)
+                {
+                    return null;
+                }
+                return alert.IsLoan ? alert.Id : (int?) null;
+            }
+        }
+
+        public int? SelectedSavingsId
+        {
+            get
+            {
+                var alert = (Alert) _alertsListView.SelectedObject;
+                if (alert == null)
+                {
+                    return null;
+                }
+                return alert.IsSaving ? alert.Id : (int?) null;
+            }
         }
     }
 }

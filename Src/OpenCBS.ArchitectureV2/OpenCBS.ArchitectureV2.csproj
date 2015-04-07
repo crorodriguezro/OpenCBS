@@ -84,6 +84,8 @@
     <Compile Include="CommandData\AddGroupCommandData.cs" />
     <Compile Include="CommandData\AddPersonCommandData.cs" />
     <Compile Include="CommandData\AddVillageBankCommandData.cs" />
+    <Compile Include="CommandData\EditLoanCommandData.cs" />
+    <Compile Include="CommandData\EditSavingCommandData.cs" />
     <Compile Include="CommandData\OpenEmailCommandData.cs" />
     <Compile Include="CommandData\OpenUrlCommandData.cs" />
     <Compile Include="CommandData\SearchClientCommandData.cs" />
@@ -97,6 +99,8 @@
     <Compile Include="Command\AddPersonCommand.cs" />
     <Compile Include="Command\AddVillageBankCommand.cs" />
     <Compile Include="Command\Command.cs" />
+    <Compile Include="Command\EditLoanCommand.cs" />
+    <Compile Include="Command\EditSavingCommand.cs" />
     <Compile Include="Command\ShowDashboardCommand.cs" />
     <Compile Include="Interface\View\IAlertsView.cs" />
     <Compile Include="Command\OpenEmailCommand.cs" />
@@ -146,6 +150,8 @@
     <Compile Include="Message\AlertsShownMessage.cs" />
     <Compile Include="Message\DashboardHiddenMessage.cs" />
     <Compile Include="Message\DashboardShownMessage.cs" />
+    <Compile Include="Message\EditLoanMessage.cs" />
+    <Compile Include="Message\EditSavingMessage.cs" />
     <Compile Include="Message\RestartApplicationMessage.cs" />
     <Compile Include="Message\ShowViewMessage.cs" />
     <Compile Include="Message\StartPageHiddenMessage.cs" />
