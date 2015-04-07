@@ -841,8 +841,10 @@ namespace OpenCBS.GUI
 
                 items.Insert(index + 1, temp.GetItem());
             }
+            var names = ExtensionMenuItems.Select(i => i.GetItem().Name).ToList();
             foreach (var menu in _applicationController.GetAllInstances<IMenu>())
             {
+                if (names.Contains(menu.GetItem().Name)) continue;
                 var anchor = mainMenu.Items.Find(menu.InsertAfter, true).FirstOrDefault();
                 if (anchor == null) continue;
 
