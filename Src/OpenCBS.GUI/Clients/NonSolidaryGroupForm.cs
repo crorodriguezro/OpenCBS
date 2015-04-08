@@ -667,11 +667,10 @@ namespace OpenCBS.GUI.Clients
             LoanProduct product = (LoanProduct)item.Tag;
             if (null == product) return;
             VillageAddLoanForm frm = new VillageAddLoanForm(_village, product, this);
-
-//            if (DialogResult.OK == frm.ShowDialog())
-//            {
-//                ((MainView)MdiParent).ReloadAlerts();
-//            }
+            if (DialogResult.OK == frm.ShowDialog())
+            {
+                //((MainView)MdiParent).ReloadAlerts();
+            }
             DisplayMembers();
             DisplayLoans();
         }
