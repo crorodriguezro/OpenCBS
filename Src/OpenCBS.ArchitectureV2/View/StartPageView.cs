@@ -19,6 +19,10 @@ namespace OpenCBS.ArchitectureV2.View
             new ToolTip().SetToolTip(_russianPictureBox, "Русский");
             new ToolTip().SetToolTip(_spanishPictureBox, "Español");
             new ToolTip().SetToolTip(_portuguesePictureBox, "Português");
+            _newClientButton.Click += (sender, e) =>
+            {
+                _newClientMenu.Show(_newClientButton, 0, _newClientButton.Height);
+            };
         }
 
         public void Attach(IStartPagePresenterCallbacks presenterCallbacks)

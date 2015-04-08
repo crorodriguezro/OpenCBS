@@ -1,4 +1,6 @@
-﻿namespace OpenCBS.ArchitectureV2.View
+﻿using System.Security.AccessControl;
+
+namespace OpenCBS.ArchitectureV2.View
 {
     partial class StartPageView
     {
@@ -30,7 +32,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this._searchClientsButton = new System.Windows.Forms.Button();
-            this._newClientButton = new OpenCBS.Controls.SplitButton();
             this._newClientMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this._newPersonItem = new System.Windows.Forms.ToolStripMenuItem();
             this._newGroupItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +53,7 @@
             this._russianPictureBox = new System.Windows.Forms.PictureBox();
             this._spanishPictureBox = new System.Windows.Forms.PictureBox();
             this._portuguesePictureBox = new System.Windows.Forms.PictureBox();
+            this._newClientButton = new System.Windows.Forms.Button();
             this._logoPictureBox = new System.Windows.Forms.PictureBox();
             this._newClientMenu.SuspendLayout();
             this._buttonPanel.SuspendLayout();
@@ -74,18 +76,6 @@
             this._searchClientsButton.TabIndex = 20;
             this._searchClientsButton.Text = "Search Clients";
             this._searchClientsButton.UseVisualStyleBackColor = true;
-            // 
-            // _newClientButton
-            // 
-            this._newClientButton.ContextMenuStrip = this._newClientMenu;
-            this._newClientButton.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this._newClientButton.Location = new System.Drawing.Point(3, 3);
-            this._newClientButton.Name = "_newClientButton";
-            this._newClientButton.Size = new System.Drawing.Size(180, 35);
-            this._newClientButton.SplitMenuStrip = this._newClientMenu;
-            this._newClientButton.TabIndex = 10;
-            this._newClientButton.Text = "New Client";
-            this._newClientButton.UseVisualStyleBackColor = true;
             // 
             // _newClientMenu
             // 
@@ -294,6 +284,19 @@
             this._portuguesePictureBox.TabIndex = 4;
             this._portuguesePictureBox.TabStop = false;
             // 
+            // _newClientButton
+            // 
+            this._newClientButton.ContextMenuStrip = this._newClientMenu;
+            this._newClientButton.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this._newClientButton.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.bullet_arrow_down;
+            this._newClientButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this._newClientButton.Location = new System.Drawing.Point(3, 3);
+            this._newClientButton.Name = "_newClientButton";
+            this._newClientButton.Size = new System.Drawing.Size(180, 35);
+            this._newClientButton.TabIndex = 10;
+            this._newClientButton.Text = "New Client";
+            this._newClientButton.UseVisualStyleBackColor = true;
+            // 
             // _logoPictureBox
             // 
             this._logoPictureBox.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.logo_with_tagline;
@@ -313,7 +316,6 @@
             this.Controls.Add(this._linkPanel);
             this.Controls.Add(this._buttonPanel);
             this.Controls.Add(this._logoPictureBox);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Name = "StartPageView";
             this.ShowIcon = false;
             this.Text = "Start Page";
@@ -337,7 +339,7 @@
 
         private System.Windows.Forms.PictureBox _logoPictureBox;
         private System.Windows.Forms.Button _searchClientsButton;
-        private Controls.SplitButton _newClientButton;
+        private System.Windows.Forms.Button _newClientButton;
         private System.Windows.Forms.Button _searchContractsButton;
         private System.Windows.Forms.ContextMenuStrip _newClientMenu;
         private System.Windows.Forms.ToolStripMenuItem _newPersonItem;
