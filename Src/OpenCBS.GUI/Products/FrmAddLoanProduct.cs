@@ -92,7 +92,6 @@ namespace OpenCBS.GUI.Products
             InitializeComboBoxCurrencies();
             InitializePackageValues(pPackage);
             comboBoxCurrencies.Enabled = false;
-            groupBoxInterestRateType.Enabled = false;
             if (_product.LoanAmountCycleParams == null) _product.LoanAmountCycleParams = new List<LoanAmountCycle>();
             if (_product.RateCycleParams == null) _product.RateCycleParams = new List<RateCycle>();
             if (_product.MaturityCycleParams == null) _product.MaturityCycleParams = new List<MaturityCycle>();
