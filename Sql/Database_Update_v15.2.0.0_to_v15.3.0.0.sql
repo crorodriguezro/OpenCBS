@@ -9,7 +9,7 @@ GO
 update
 	t1
 set
-	t1.schedule_type = t2.interest_scheme,
+	t1.schedule_type = t2.loan_type,
 	t1.script_name = t2.script_name
 from
 	dbo.Credit t1
