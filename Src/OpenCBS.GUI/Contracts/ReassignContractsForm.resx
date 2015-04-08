@@ -151,7 +151,7 @@
     <value>optionsPanel</value>
   </data>
   <data name="&gt;&gt;filterLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="filterTextbox.Location" type="System.Drawing.Point, System.Drawing">
     <value>19, 132</value>
@@ -175,7 +175,7 @@
     <value>optionsPanel</value>
   </data>
   <data name="&gt;&gt;filterTextbox.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="selectAllCheckbox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -211,7 +211,7 @@
     <value>optionsPanel</value>
   </data>
   <data name="&gt;&gt;selectAllCheckbox.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="assignButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9pt</value>
@@ -244,7 +244,7 @@
     <value>optionsPanel</value>
   </data>
   <data name="&gt;&gt;assignButton.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="toLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -277,7 +277,7 @@
     <value>optionsPanel</value>
   </data>
   <data name="&gt;&gt;toLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="fromLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -310,7 +310,7 @@
     <value>optionsPanel</value>
   </data>
   <data name="&gt;&gt;fromLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="toCombobox.Location" type="System.Drawing.Point, System.Drawing">
     <value>19, 235</value>
@@ -334,7 +334,7 @@
     <value>optionsPanel</value>
   </data>
   <data name="&gt;&gt;toCombobox.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="fromCombobox.Location" type="System.Drawing.Point, System.Drawing">
     <value>19, 37</value>
@@ -358,7 +358,34 @@
     <value>optionsPanel</value>
   </data>
   <data name="&gt;&gt;fromCombobox.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
+  </data>
+  <data name="_incudeDeletedUsersCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_incudeDeletedUsersCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 69</value>
+  </data>
+  <data name="_incudeDeletedUsersCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 20</value>
+  </data>
+  <data name="_incudeDeletedUsersCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="_incudeDeletedUsersCheckBox.Text" xml:space="preserve">
+    <value>Include deleted users</value>
+  </data>
+  <data name="&gt;&gt;_incudeDeletedUsersCheckBox.Name" xml:space="preserve">
+    <value>_incudeDeletedUsersCheckBox</value>
+  </data>
+  <data name="&gt;&gt;_incudeDeletedUsersCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_incudeDeletedUsersCheckBox.Parent" xml:space="preserve">
+    <value>optionsPanel</value>
+  </data>
+  <data name="&gt;&gt;_incudeDeletedUsersCheckBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="optionsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
@@ -1256,6 +1283,6 @@
     <value>ReassignContractsForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.4.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

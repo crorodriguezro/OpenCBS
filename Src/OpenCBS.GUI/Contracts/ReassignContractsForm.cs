@@ -54,6 +54,29 @@ namespace OpenCBS.GUI.Contracts
             assignButton.Click += (sender, args) => Reassign();
             selectAllCheckbox.CheckedChanged += (sender, args) => SelectAll();
             contractsObjectListView.ItemChecked += (sender, args) => UpdateTitle();
+            _incudeDeletedUsersCheckBox.CheckStateChanged += (sender, args) => LoadForm();
+
+            contractsObjectListView.CheckBoxes = true;
+            olbColumn.AspectToStringConverter =
+            amountColumn.AspectToStringConverter = value =>
+            {
+                var amount = value == null ? 0 : (decimal)value;
+                return amount.ToString("N2");
+            };
+            startDateColumn.AspectToStringConverter =
+                closeDateColumn.AspectToStringConverter = value =>
+                {
+                    if (value == null) return "";
+                    var date = (DateTime)value;
+                    return date.ToShortDateString();
+                };
+            interestRateColumn.AspectToStringConverter = value =>
+            {
+                if (value == null) return "";
+                var interestRate = (decimal)value;
+                return (interestRate * 100).ToString("N2") + " %";
+            };
+
         }
 
         private void LoadForm()
@@ -61,31 +84,19 @@ namespace OpenCBS.GUI.Contracts
             LoadUsers();
             fromCombobox.SelectedIndex = 0;
             toCombobox.SelectedIndex = 0;
-            contractsObjectListView.CheckBoxes = true;
-            olbColumn.AspectToStringConverter =
-            amountColumn.AspectToStringConverter = value =>
-                {
-                    var amount = value == null ? 0 : (decimal)value;
-                    return amount.ToString("N2");
-                };
-            startDateColumn.AspectToStringConverter =
-            closeDateColumn.AspectToStringConverter = value =>
-            {
-                var date = (DateTime)value;
-                return date.ToShortDateString();
-            };
-            interestRateColumn.AspectToStringConverter = value =>
-            {
-                var interestRate = (decimal)value;
-                return (interestRate * 100).ToString("N2") + " %";
-            };
         }
 
         private void LoadUsers()
         {
             fromCombobox.Items.Clear();
+            toCombobox.Items.Clear();
 
-            _users = ServicesProvider.GetInstance().GetUserServices().FindAll(false).OrderBy(item => item.LastName).ThenBy(item => item.FirstName).ToList();
+            _users = ServicesProvider.GetInstance()
+                                     .GetUserServices()
+                                     .FindAll(_incudeDeletedUsersCheckBox.Checked)
+                                     .OrderBy(item => item.LastName)
+                                     .ThenBy(item => item.FirstName)
+                                     .ToList();
 
             foreach (var user in _users)
             {

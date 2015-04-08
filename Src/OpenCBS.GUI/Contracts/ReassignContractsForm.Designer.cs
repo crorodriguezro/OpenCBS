@@ -40,6 +40,7 @@ namespace OpenCBS.GUI.Contracts
             this.toCombobox = new System.Windows.Forms.ComboBox();
             this.fromCombobox = new System.Windows.Forms.ComboBox();
             this.optionsPanel = new System.Windows.Forms.Panel();
+            this._incudeDeletedUsersCheckBox = new System.Windows.Forms.CheckBox();
             this.listPanel = new System.Windows.Forms.Panel();
             this.contractsObjectListView = new BrightIdeasSoftware.FastObjectListView();
             this.clientLastNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -108,6 +109,7 @@ namespace OpenCBS.GUI.Contracts
             // 
             // optionsPanel
             // 
+            this.optionsPanel.Controls.Add(this._incudeDeletedUsersCheckBox);
             this.optionsPanel.Controls.Add(this.filterTextbox);
             this.optionsPanel.Controls.Add(this.fromCombobox);
             this.optionsPanel.Controls.Add(this.filterLabel);
@@ -118,6 +120,14 @@ namespace OpenCBS.GUI.Contracts
             this.optionsPanel.Controls.Add(this.assignButton);
             resources.ApplyResources(this.optionsPanel, "optionsPanel");
             this.optionsPanel.Name = "optionsPanel";
+            // 
+            // _incudeDeletedUsersCheckBox
+            // 
+            resources.ApplyResources(this._incudeDeletedUsersCheckBox, "_incudeDeletedUsersCheckBox");
+            this._incudeDeletedUsersCheckBox.Checked = true;
+            this._incudeDeletedUsersCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this._incudeDeletedUsersCheckBox.Name = "_incudeDeletedUsersCheckBox";
+            this._incudeDeletedUsersCheckBox.UseVisualStyleBackColor = true;
             // 
             // listPanel
             // 
@@ -291,6 +301,7 @@ namespace OpenCBS.GUI.Contracts
         private BrightIdeasSoftware.OLVColumn installmentTypeColumn;
         private BrightIdeasSoftware.OLVColumn districtNameColumn;
         private BrightIdeasSoftware.OLVColumn interestRateColumn;
+        private System.Windows.Forms.CheckBox _incudeDeletedUsersCheckBox;
 
     }
 }
