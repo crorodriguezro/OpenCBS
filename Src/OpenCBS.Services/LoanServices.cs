@@ -1679,7 +1679,7 @@ namespace OpenCBS.Services
                     var rescheduleLoanEvent = new RescheduleLoanEvent
                         {
                             Amount = copyOfLoan.CalculateActualOlb(),
-                            Date = rescheduleConfiguration.StartDate,
+                            Date = rescheduleConfiguration.StartDate.Add(DateTime.Now.TimeOfDay),
                             ClientType = client.Type,
                             Interest = rescheduleConfiguration.InterestRate,
                             BadLoan = loan.BadLoan,
