@@ -39,6 +39,7 @@ namespace OpenCBS.ArchitectureV2.View
             this._newCompanyItem = new System.Windows.Forms.ToolStripMenuItem();
             this._searchContractsButton = new System.Windows.Forms.Button();
             this._buttonPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this._newClientButton = new System.Windows.Forms.Button();
             this._linkPanel = new System.Windows.Forms.FlowLayoutPanel();
             this._siteLink = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@ namespace OpenCBS.ArchitectureV2.View
             this._russianPictureBox = new System.Windows.Forms.PictureBox();
             this._spanishPictureBox = new System.Windows.Forms.PictureBox();
             this._portuguesePictureBox = new System.Windows.Forms.PictureBox();
-            this._newClientButton = new System.Windows.Forms.Button();
             this._logoPictureBox = new System.Windows.Forms.PictureBox();
             this._newClientMenu.SuspendLayout();
             this._buttonPanel.SuspendLayout();
@@ -70,9 +70,9 @@ namespace OpenCBS.ArchitectureV2.View
             // _searchClientsButton
             // 
             this._searchClientsButton.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this._searchClientsButton.Location = new System.Drawing.Point(189, 3);
+            this._searchClientsButton.Location = new System.Drawing.Point(163, 3);
             this._searchClientsButton.Name = "_searchClientsButton";
-            this._searchClientsButton.Size = new System.Drawing.Size(180, 35);
+            this._searchClientsButton.Size = new System.Drawing.Size(154, 30);
             this._searchClientsButton.TabIndex = 20;
             this._searchClientsButton.Text = "Search Clients";
             this._searchClientsButton.UseVisualStyleBackColor = true;
@@ -115,9 +115,9 @@ namespace OpenCBS.ArchitectureV2.View
             // _searchContractsButton
             // 
             this._searchContractsButton.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this._searchContractsButton.Location = new System.Drawing.Point(375, 3);
+            this._searchContractsButton.Location = new System.Drawing.Point(323, 3);
             this._searchContractsButton.Name = "_searchContractsButton";
-            this._searchContractsButton.Size = new System.Drawing.Size(180, 35);
+            this._searchContractsButton.Size = new System.Drawing.Size(154, 30);
             this._searchContractsButton.TabIndex = 30;
             this._searchContractsButton.Text = "Search Contracts";
             this._searchContractsButton.UseVisualStyleBackColor = true;
@@ -129,10 +129,23 @@ namespace OpenCBS.ArchitectureV2.View
             this._buttonPanel.Controls.Add(this._newClientButton);
             this._buttonPanel.Controls.Add(this._searchClientsButton);
             this._buttonPanel.Controls.Add(this._searchContractsButton);
-            this._buttonPanel.Location = new System.Drawing.Point(107, 178);
+            this._buttonPanel.Location = new System.Drawing.Point(92, 154);
             this._buttonPanel.Name = "_buttonPanel";
-            this._buttonPanel.Size = new System.Drawing.Size(558, 41);
+            this._buttonPanel.Size = new System.Drawing.Size(480, 36);
             this._buttonPanel.TabIndex = 31;
+            // 
+            // _newClientButton
+            // 
+            this._newClientButton.ContextMenuStrip = this._newClientMenu;
+            this._newClientButton.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this._newClientButton.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.bullet_arrow_down;
+            this._newClientButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this._newClientButton.Location = new System.Drawing.Point(3, 3);
+            this._newClientButton.Name = "_newClientButton";
+            this._newClientButton.Size = new System.Drawing.Size(154, 30);
+            this._newClientButton.TabIndex = 10;
+            this._newClientButton.Text = "New Client";
+            this._newClientButton.UseVisualStyleBackColor = true;
             // 
             // _linkPanel
             // 
@@ -145,9 +158,9 @@ namespace OpenCBS.ArchitectureV2.View
             this._linkPanel.Controls.Add(this._forumLink);
             this._linkPanel.Controls.Add(this.label3);
             this._linkPanel.Controls.Add(this._contactLink);
-            this._linkPanel.Location = new System.Drawing.Point(219, 340);
+            this._linkPanel.Location = new System.Drawing.Point(188, 295);
             this._linkPanel.Name = "_linkPanel";
-            this._linkPanel.Size = new System.Drawing.Size(334, 15);
+            this._linkPanel.Size = new System.Drawing.Size(310, 13);
             this._linkPanel.TabIndex = 32;
             // 
             // _siteLink
@@ -155,7 +168,7 @@ namespace OpenCBS.ArchitectureV2.View
             this._siteLink.AutoSize = true;
             this._siteLink.Location = new System.Drawing.Point(3, 0);
             this._siteLink.Name = "_siteLink";
-            this._siteLink.Size = new System.Drawing.Size(79, 15);
+            this._siteLink.Size = new System.Drawing.Size(70, 13);
             this._siteLink.TabIndex = 0;
             this._siteLink.TabStop = true;
             this._siteLink.Text = "opencbs.com";
@@ -164,18 +177,18 @@ namespace OpenCBS.ArchitectureV2.View
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(88, 0);
+            this.label1.Location = new System.Drawing.Point(79, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(14, 15);
+            this.label1.Size = new System.Drawing.Size(14, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "●";
             // 
             // _userGuideLink
             // 
             this._userGuideLink.AutoSize = true;
-            this._userGuideLink.Location = new System.Drawing.Point(108, 0);
+            this._userGuideLink.Location = new System.Drawing.Point(99, 0);
             this._userGuideLink.Name = "_userGuideLink";
-            this._userGuideLink.Size = new System.Drawing.Size(64, 15);
+            this._userGuideLink.Size = new System.Drawing.Size(59, 13);
             this._userGuideLink.TabIndex = 2;
             this._userGuideLink.TabStop = true;
             this._userGuideLink.Text = "User Guide";
@@ -184,18 +197,18 @@ namespace OpenCBS.ArchitectureV2.View
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label2.Location = new System.Drawing.Point(178, 0);
+            this.label2.Location = new System.Drawing.Point(164, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(14, 15);
+            this.label2.Size = new System.Drawing.Size(14, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "●";
             // 
             // _forumLink
             // 
             this._forumLink.AutoSize = true;
-            this._forumLink.Location = new System.Drawing.Point(198, 0);
+            this._forumLink.Location = new System.Drawing.Point(184, 0);
             this._forumLink.Name = "_forumLink";
-            this._forumLink.Size = new System.Drawing.Size(42, 15);
+            this._forumLink.Size = new System.Drawing.Size(37, 13);
             this._forumLink.TabIndex = 4;
             this._forumLink.TabStop = true;
             this._forumLink.Text = "Forum";
@@ -204,18 +217,18 @@ namespace OpenCBS.ArchitectureV2.View
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label3.Location = new System.Drawing.Point(246, 0);
+            this.label3.Location = new System.Drawing.Point(227, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(14, 15);
+            this.label3.Size = new System.Drawing.Size(14, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "●";
             // 
             // _contactLink
             // 
             this._contactLink.AutoSize = true;
-            this._contactLink.Location = new System.Drawing.Point(266, 0);
+            this._contactLink.Location = new System.Drawing.Point(247, 0);
             this._contactLink.Name = "_contactLink";
-            this._contactLink.Size = new System.Drawing.Size(65, 15);
+            this._contactLink.Size = new System.Drawing.Size(60, 13);
             this._contactLink.TabIndex = 6;
             this._contactLink.TabStop = true;
             this._contactLink.Text = "Contact Us";
@@ -229,9 +242,9 @@ namespace OpenCBS.ArchitectureV2.View
             this._languagePanel.Controls.Add(this._russianPictureBox);
             this._languagePanel.Controls.Add(this._spanishPictureBox);
             this._languagePanel.Controls.Add(this._portuguesePictureBox);
-            this._languagePanel.Location = new System.Drawing.Point(331, 384);
+            this._languagePanel.Location = new System.Drawing.Point(284, 333);
             this._languagePanel.Name = "_languagePanel";
-            this._languagePanel.Size = new System.Drawing.Size(110, 17);
+            this._languagePanel.Size = new System.Drawing.Size(100, 16);
             this._languagePanel.TabIndex = 33;
             // 
             // _englishPictureBox
@@ -240,7 +253,7 @@ namespace OpenCBS.ArchitectureV2.View
             this._englishPictureBox.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.gb;
             this._englishPictureBox.Location = new System.Drawing.Point(3, 3);
             this._englishPictureBox.Name = "_englishPictureBox";
-            this._englishPictureBox.Size = new System.Drawing.Size(16, 11);
+            this._englishPictureBox.Size = new System.Drawing.Size(14, 10);
             this._englishPictureBox.TabIndex = 0;
             this._englishPictureBox.TabStop = false;
             // 
@@ -248,9 +261,9 @@ namespace OpenCBS.ArchitectureV2.View
             // 
             this._frenchPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this._frenchPictureBox.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.fr;
-            this._frenchPictureBox.Location = new System.Drawing.Point(25, 3);
+            this._frenchPictureBox.Location = new System.Drawing.Point(23, 3);
             this._frenchPictureBox.Name = "_frenchPictureBox";
-            this._frenchPictureBox.Size = new System.Drawing.Size(16, 11);
+            this._frenchPictureBox.Size = new System.Drawing.Size(14, 10);
             this._frenchPictureBox.TabIndex = 1;
             this._frenchPictureBox.TabStop = false;
             // 
@@ -258,9 +271,9 @@ namespace OpenCBS.ArchitectureV2.View
             // 
             this._russianPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this._russianPictureBox.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.ru;
-            this._russianPictureBox.Location = new System.Drawing.Point(47, 3);
+            this._russianPictureBox.Location = new System.Drawing.Point(43, 3);
             this._russianPictureBox.Name = "_russianPictureBox";
-            this._russianPictureBox.Size = new System.Drawing.Size(16, 11);
+            this._russianPictureBox.Size = new System.Drawing.Size(14, 10);
             this._russianPictureBox.TabIndex = 2;
             this._russianPictureBox.TabStop = false;
             // 
@@ -268,9 +281,9 @@ namespace OpenCBS.ArchitectureV2.View
             // 
             this._spanishPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this._spanishPictureBox.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.es;
-            this._spanishPictureBox.Location = new System.Drawing.Point(69, 3);
+            this._spanishPictureBox.Location = new System.Drawing.Point(63, 3);
             this._spanishPictureBox.Name = "_spanishPictureBox";
-            this._spanishPictureBox.Size = new System.Drawing.Size(16, 11);
+            this._spanishPictureBox.Size = new System.Drawing.Size(14, 10);
             this._spanishPictureBox.TabIndex = 3;
             this._spanishPictureBox.TabStop = false;
             // 
@@ -278,40 +291,28 @@ namespace OpenCBS.ArchitectureV2.View
             // 
             this._portuguesePictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this._portuguesePictureBox.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.pt;
-            this._portuguesePictureBox.Location = new System.Drawing.Point(91, 3);
+            this._portuguesePictureBox.Location = new System.Drawing.Point(83, 3);
             this._portuguesePictureBox.Name = "_portuguesePictureBox";
-            this._portuguesePictureBox.Size = new System.Drawing.Size(16, 11);
+            this._portuguesePictureBox.Size = new System.Drawing.Size(14, 10);
             this._portuguesePictureBox.TabIndex = 4;
             this._portuguesePictureBox.TabStop = false;
-            // 
-            // _newClientButton
-            // 
-            this._newClientButton.ContextMenuStrip = this._newClientMenu;
-            this._newClientButton.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this._newClientButton.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.bullet_arrow_down;
-            this._newClientButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this._newClientButton.Location = new System.Drawing.Point(3, 3);
-            this._newClientButton.Name = "_newClientButton";
-            this._newClientButton.Size = new System.Drawing.Size(180, 35);
-            this._newClientButton.TabIndex = 10;
-            this._newClientButton.Text = "New Client";
-            this._newClientButton.UseVisualStyleBackColor = true;
             // 
             // _logoPictureBox
             // 
             this._logoPictureBox.Image = global::OpenCBS.ArchitectureV2.Properties.Resources.logo_with_tagline;
-            this._logoPictureBox.Location = new System.Drawing.Point(211, 39);
+            this._logoPictureBox.Location = new System.Drawing.Point(156, 12);
             this._logoPictureBox.Name = "_logoPictureBox";
             this._logoPictureBox.Size = new System.Drawing.Size(350, 120);
+            this._logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this._logoPictureBox.TabIndex = 0;
             this._logoPictureBox.TabStop = false;
             // 
             // StartPageView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(772, 413);
+            this.ClientSize = new System.Drawing.Size(662, 358);
             this.Controls.Add(this._languagePanel);
             this.Controls.Add(this._linkPanel);
             this.Controls.Add(this._buttonPanel);
