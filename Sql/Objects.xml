@@ -4050,61 +4050,26 @@ end
   </object>
   <object name="GetAdvancedFieldValue" priority="67">
     <create><![CDATA[-- Return a value of advanced customizable field
--- @id - loan_id, savings_id or tiers_id
--- @type - 'L', 'S' or 'C' (see @id accordingly)
--- @field_name - name of advanced field
--- HISTORY
---
--- Dec 26, 2011 - v3.5 - Ruslan KAZAKOV
+-- @field_id - id of custom field
+-- @owner_id - loan_id, savings_id or tiers_id
 CREATE FUNCTION [dbo].[GetAdvancedFieldValue]
     (
-      @id INT ,
-      @type CHAR(1) ,
-      @field_name NVARCHAR(255)
+      @owner_id INT ,
+      @field_id INT 
     )
 RETURNS NVARCHAR(255)
 AS 
     BEGIN
         DECLARE @field_value NVARCHAR(255)
-        DECLARE @field_id INT
-        DECLARE @field_type INT
         
-        SELECT  @field_id = id
-        FROM    dbo.AdvancedFields
-        WHERE   name = @field_name
-        
-        SELECT @field_type = [type_id] FROM dbo.AdvancedFields
-		WHERE id = @field_id
-        
-        IF @field_type <> 5 
-			SELECT  @field_value = value
-			FROM    dbo.AdvancedFieldsValues
-					INNER JOIN dbo.AdvancedFields ON dbo.AdvancedFieldsValues.field_id = dbo.AdvancedFields.id
-					INNER JOIN dbo.AdvancedFieldsLinkEntities ON dbo.AdvancedFieldsLinkEntities.id = AdvancedFieldsValues.entity_field_id
-			WHERE   dbo.AdvancedFields.name = @field_name
-					AND link_type = @type
-					AND link_id = @id
-        ELSE
-            SELECT  @field_value = Col.value
-            FROM    dbo.AdvancedFieldsValues
-                    INNER JOIN dbo.AdvancedFields ON dbo.AdvancedFieldsValues.field_id = dbo.AdvancedFields.id
-                    INNER JOIN dbo.AdvancedFieldsLinkEntities ON dbo.AdvancedFieldsLinkEntities.id = AdvancedFieldsValues.entity_field_id
-                    INNER JOIN ( SELECT value ,
-                                        ( ROW_NUMBER() OVER ( ORDER BY id ) )
-                                        - 1 AS id ,
-                                        field_id
-                                 FROM   dbo.AdvancedFieldsCollections
-                                 WHERE  field_id = @field_id
-                               ) Col ON Col.id = AdvancedFieldsValues.value
-                                        AND Col.field_id = AdvancedFieldsValues.field_id
-            WHERE   dbo.AdvancedFields.name = @field_name
-                    AND link_type = @type
-                    AND link_id = @id
+        SELECT  @field_value = value
+        FROM    dbo.CustomFieldsValues cv
+        WHERE   cv.field_id = @field_id
+                AND cv.owner_id = @owner_id
                 
-            RETURN  @field_value
+        RETURN  @field_value
        
-    END
-]]></create>
+    END]]></create>
     <drop><![CDATA[IF  EXISTS (
                 SELECT * 
                 FROM sys.objects 
