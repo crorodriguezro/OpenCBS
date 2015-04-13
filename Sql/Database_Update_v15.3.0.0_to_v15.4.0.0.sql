@@ -10,6 +10,14 @@ begin
 end
 GO
 
+if exists(select * from sys.columns 
+            where Name = N'type_id' and Object_ID = Object_ID(N'city'))
+begin
+    alter table city 
+	add default '1' for type_id
+end
+GO
+
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v15.4.0.0'
 WHERE   [name] = 'VERSION'
