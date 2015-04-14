@@ -491,7 +491,7 @@ namespace OpenCBS.GUI.Contracts
                                 ServicesProvider.GetInstance().GetContractServices().Repay(loan,
                                                                                            person,
                                                                                            number,
-                                                                                           TimeProvider.Today, 
+                                                                                           TimeProvider.Now,
                                                                                            total,
                                                                                            disableFees,
                                                                                            penalties, 
