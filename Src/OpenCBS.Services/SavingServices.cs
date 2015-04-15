@@ -57,7 +57,7 @@ namespace OpenCBS.Services
     public class SavingServices : Services
     {
         [ImportMany(typeof (ISavingInterceptor))]
-        private Lazy<ILoanInterceptor, IDictionary<string, object>>[] SavingInterceptors { get; set; }
+        private Lazy<ISavingInterceptor, IDictionary<string, object>>[] SavingInterceptors { get; set; }
 
         public event GeneralClosureHandler OnSavingClosureFinished;
         private EventProcessorServices _ePS;
