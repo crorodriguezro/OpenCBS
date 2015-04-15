@@ -64,6 +64,7 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="ISavingInterceptor.cs" />
     <Compile Include="ILoanInterceptor.cs" />
     <Compile Include="DefaultEventInterceptor.cs" />
     <Compile Include="ContractCodeGenerator.cs" />

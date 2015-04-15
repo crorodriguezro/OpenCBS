@@ -20,7 +20,7 @@
 // Contact: contact@opencbs.com
 
 using System;
-using System.ComponentModel;
+using System.ComponentModel.Composition;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Globalization;
@@ -34,6 +34,7 @@ using OpenCBS.CoreDomain.Events.Saving;
 using OpenCBS.CoreDomain.Products;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.ExceptionsHandler.Exceptions.SavingExceptions;
+using OpenCBS.Extensions;
 using OpenCBS.Manager.Contracts;
 using OpenCBS.Manager.Events;
 using OpenCBS.Shared;
@@ -49,13 +50,15 @@ using OpenCBS.CoreDomain.Contracts.Loans;
 namespace OpenCBS.Services
 {
     public delegate void GeneralClosureHandler(int current, int totalSavings);
-
     /// <summary>
     /// Description r�sum�e de SavingServices.
     /// </summary>
     [Security()]
     public class SavingServices : Services
     {
+        [ImportMany(typeof (ISavingInterceptor))]
+        private Lazy<ILoanInterceptor, IDictionary<string, object>>[] SavingInterceptors { get; set; }
+
         public event GeneralClosureHandler OnSavingClosureFinished;
         private EventProcessorServices _ePS;
         private readonly SavingManager _savingManager;
@@ -68,12 +71,14 @@ namespace OpenCBS.Services
             _savingManager = new SavingManager(pUser);
             _savingEventManager = new SavingEventManager(pUser);
             _ePS = new EventProcessorServices(pUser);
+            MefContainer.Current.Bind(this);
         }
 
         public SavingServices(string pTestDB)
         {
             _savingManager = new SavingManager(pTestDB);
             _savingEventManager = new SavingEventManager(pTestDB);
+            MefContainer.Current.Bind(this);
         }
 
         public SavingServices(string pTestDB, User pUser)
@@ -82,6 +87,7 @@ namespace OpenCBS.Services
             _savingManager = new SavingManager(pTestDB);
             _savingEventManager = new SavingEventManager(pTestDB);
             _ePS = new EventProcessorServices(pUser, pTestDB);
+            MefContainer.Current.Bind(this);
         }
 
         public SavingServices(SavingManager pSavingManager, SavingEventManager pSavingEventManager, User pUser)
@@ -89,6 +95,7 @@ namespace OpenCBS.Services
             _user = pUser;
             _savingManager = pSavingManager;
             _savingEventManager = pSavingEventManager;
+            MefContainer.Current.Bind(this);
         }
 
         public SavingServices(SavingManager pSavingManager, SavingEventManager pSavingEventManager, LoanManager pLoanManager, User pUser)
@@ -96,6 +103,7 @@ namespace OpenCBS.Services
             _user = pUser;
             _savingManager = pSavingManager;
             _savingEventManager = pSavingEventManager;
+            MefContainer.Current.Bind(this);
         }
 
         private static bool IsInitialAmountCorrect(ISavingsContract pSaving)
@@ -1397,6 +1405,11 @@ namespace OpenCBS.Services
                     string code = saving.Code + '/' + saving.Id.ToString(CultureInfo.InvariantCulture);
                     _savingManager.UpdateSavingContractCode(saving.Id, code, sqlTransaction);
                     if (action != null) action(sqlTransaction, saving.Id);
+                    SavingInterceptorSave(new Dictionary<string, object>
+                            {
+                                {"Saving", saving},
+                                {"SqlTransaction", sqlTransaction}
+                            });
                     sqlTransaction.Commit();
 
                     return saving.Id;
@@ -1468,6 +1481,52 @@ namespace OpenCBS.Services
             Debug.Assert(saving.Branch != null, "Branch is null.");
             BranchService bs = ServicesProvider.GetInstance().GetBranchService();
             saving.Branch = bs.FindById(saving.Branch.Id);
+        }
+
+        public void SavingInterceptorSave(IDictionary<string, object> interceptorParams)
+        {
+            // Find non-default implementation
+            var creator = (from item in SavingInterceptors
+                           where
+                               item.Metadata.ContainsKey("Implementation") &&
+                               item.Metadata["Implementation"].ToString() != "Default"
+                           select item.Value).FirstOrDefault();
+            if (creator != null)
+            {
+                creator.Save(interceptorParams);
+                return;
+            }
+
+            // Otherwise, find the default one
+            creator = (from item in SavingInterceptors
+                       where
+                           item.Metadata.ContainsKey("Implementation") &&
+                           item.Metadata["Implementation"].ToString() == "Default"
+                       select item.Value).FirstOrDefault();
+            if (creator != null) creator.Save(interceptorParams);
+        }
+
+        public void SavingInterceptorUpdate(IDictionary<string, object> interceptorParams)
+        {
+            // Find non-default implementation
+            var creator = (from item in SavingInterceptors
+                           where
+                               item.Metadata.ContainsKey("Implementation") &&
+                               item.Metadata["Implementation"].ToString() != "Default"
+                           select item.Value).FirstOrDefault();
+            if (creator != null)
+            {
+                creator.Update(interceptorParams);
+                return;
+            }
+
+            // Otherwise, find the default one
+            creator = (from item in SavingInterceptors
+                       where
+                           item.Metadata.ContainsKey("Implementation") &&
+                           item.Metadata["Implementation"].ToString() == "Default"
+                       select item.Value).FirstOrDefault();
+            if (creator != null) creator.Update(interceptorParams);
         }
 
         public void PerformBackDateOperations(DateTime date)
