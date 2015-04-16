@@ -32,8 +32,7 @@ namespace OpenCBS.ArchitectureV2
             }
             catch (Exception error)
             {
-                var errorView = _container.GetInstance<IErrorView>();
-                errorView.Run(error.Message);
+                ShowError(error);
             }
         }
 
@@ -68,6 +67,12 @@ namespace OpenCBS.ArchitectureV2
         public void Publish<T>(T message) where T : class, ITinyMessage
         {
             _messengerHub.Publish(message);
+        }
+
+        public void ShowError(Exception error)
+        {
+            var errorView = _container.GetInstance<IErrorView>();
+            errorView.Run(error.Message);
         }
     }
 }

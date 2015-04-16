@@ -36,7 +36,6 @@ namespace OpenCBS.Shared.Settings
         public const string RegistryPathTemplate = @"Software\Open Octopus Ltd\OpenCBS\{0}";
 
         private static bool _useOnlineMode;
-        private static bool _useDebugMode;
         private static string _remotingServer;
         private static int _remotingServerPort;
 
@@ -73,6 +72,11 @@ namespace OpenCBS.Shared.Settings
         public static bool NewRepaymentWindow
         {
             get { return Convert.ToBoolean(GetValue("NewRepaymentWindow", "False")); }
+        }
+
+        public static bool NewFastRepaymentWindow
+        {
+            get { return Convert.ToBoolean(GetValue("NewFastRepaymentWindow", "False")); }
         }
 
         public static bool UseDemoDatabase

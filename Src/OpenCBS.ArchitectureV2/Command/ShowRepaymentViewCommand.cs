@@ -3,7 +3,6 @@ using OpenCBS.ArchitectureV2.CommandData;
 using OpenCBS.ArchitectureV2.Event;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.Presenter;
-using OpenCBS.ArchitectureV2.Interface.Service;
 
 namespace OpenCBS.ArchitectureV2.Command
 {

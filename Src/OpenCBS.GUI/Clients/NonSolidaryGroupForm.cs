@@ -42,6 +42,8 @@ using OpenCBS.Services;
 using OpenCBS.Services.Events;
 using OpenCBS.Shared;
 using BrightIdeasSoftware;
+using OpenCBS.ArchitectureV2.CommandData;
+using OpenCBS.ArchitectureV2.Message;
 using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Clients
@@ -669,7 +671,6 @@ namespace OpenCBS.GUI.Clients
             VillageAddLoanForm frm = new VillageAddLoanForm(_village, product, this);
             if (DialogResult.OK == frm.ShowDialog())
             {
-                //((MainView)MdiParent).ReloadAlerts();
             }
             DisplayMembers();
             DisplayLoans();
@@ -683,20 +684,27 @@ namespace OpenCBS.GUI.Clients
                 DisplayMembers();
                 DisplayLoans();
                 LoadMeetingDates();
-//                ((MainView)MdiParent).ReloadAlerts();
             }
         }
 
         private void btnRepay_Click(object sender, EventArgs e)
         {
-            FastRepaymentForm frm = new FastRepaymentForm(_village);
-            if (DialogResult.OK == frm.ShowDialog())
+            if (TechnicalSettings.NewFastRepaymentWindow)
             {
+                _applicationController.Execute(new FastRepaymentCommandData { VillageBank = _village });
+            }
+            else
+            {
+                var frm = new FastRepaymentForm(_village);
+                if (DialogResult.OK != frm.ShowDialog())
+                {
+                    return;
+                }
                 DisplayMembers();
                 DisplayLoans();
-//                ((MainView)MdiParent).ReloadAlerts();
             }
         }
+
         private bool CheckDataInOpenFiscalYear()
         {
             try
@@ -810,7 +818,6 @@ namespace OpenCBS.GUI.Clients
             frm.ShowDialog();
 
             DisplayLoans();
-//            ((MainView) MdiParent).ReloadAlerts();
         }
 
         private void cbMeetingDay_CheckedChanged(object sender, EventArgs e)
@@ -820,7 +827,7 @@ namespace OpenCBS.GUI.Clients
 
         private void NonSolidaryGroupForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            GC.Collect();
+            _applicationController.Unsubscribe(this);
         }
 
         private void cbxShowRemovedMembers_CheckedChanged(object sender, EventArgs e)
@@ -902,13 +909,23 @@ namespace OpenCBS.GUI.Clients
             {
                 DisplayLoans();
                 LoadMeetingDates();
-//                ((MainView)MdiParent).ReloadAlerts();
             }
+        }
+
+        private void OnFastRepaymentDone(FastRepaymentDoneMessage message)
+        {
+            if (message.VillageBankId != _village.Id)
+            {
+                return;
+            }
+            DisplayMembers();
+            DisplayLoans();
         }
 
         private void NonSolidaryGroupForm_Load(object sender, EventArgs e)
         {
             LoadExtensions();
+            _applicationController.Subscribe<FastRepaymentDoneMessage>(this, OnFastRepaymentDone);
         }
 
         private void LoadExtensions()

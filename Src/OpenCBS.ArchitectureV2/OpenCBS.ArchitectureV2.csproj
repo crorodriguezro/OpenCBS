@@ -92,6 +92,7 @@
     <Compile Include="CommandData\SearchLoanCommandData.cs" />
     <Compile Include="CommandData\ShowAlertsCommandData.cs" />
     <Compile Include="CommandData\ShowDashboardCommandData.cs" />
+    <Compile Include="CommandData\FastRepaymentCommandData.cs" />
     <Compile Include="CommandData\ShowRepaymentViewCommandData.cs" />
     <Compile Include="CommandData\ShowStartPageCommandData.cs" />
     <Compile Include="Command\AddCompanyCommand.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="Message\DashboardShownMessage.cs" />
     <Compile Include="Message\EditLoanMessage.cs" />
     <Compile Include="Message\EditSavingMessage.cs" />
+    <Compile Include="Message\FastRepaymentDoneMessage.cs" />
     <Compile Include="Message\RestartApplicationMessage.cs" />
     <Compile Include="Message\ShowViewMessage.cs" />
     <Compile Include="Message\StartPageHiddenMessage.cs" />
