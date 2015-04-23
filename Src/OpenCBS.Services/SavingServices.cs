@@ -1329,6 +1329,9 @@ namespace OpenCBS.Services
 
             if (!IsSavingBalanceCorrect(saving, initialAmount))
                 throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
+            if (saving.Client == null)
+                saving.Client =
+                    ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(saving.Id);
             using (SqlConnection conn = _savingManager.GetConnection())
             using (SqlTransaction sqlTransaction = conn.BeginTransaction())
             {
@@ -1341,6 +1344,14 @@ namespace OpenCBS.Services
                         foreach (SavingEvent savingEvent in saving.Events)
                         {
                             _ePS.FireEvent(savingEvent, saving, sqlTransaction);
+                            ServicesProvider.GetInstance()
+                                       .GetContractServices()
+                                       .CallInterceptor(new Dictionary<string, object>
+                                            {
+                                                {"Saving", saving},
+                                                {"Event", savingEvent},
+                                                {"SqlTransaction", sqlTransaction}
+                                            });
                         }
                     }
 
