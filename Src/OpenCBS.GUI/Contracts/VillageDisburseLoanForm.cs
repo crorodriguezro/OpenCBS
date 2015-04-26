@@ -312,6 +312,7 @@ namespace OpenCBS.GUI.Contracts
                             loan.CalculateStartDates();
                         }
                     }
+                    loan.CloseDate = loan.InstallmentList[loan.NbOfInstallments - 1].ExpectedDate;
 
                     if (item.SubItems[IdxPaymentMethod].Tag != null && item.SubItems[IdxPaymentMethod].Tag.ToString() == OPaymentMethods.Savings.ToString())
                     {
