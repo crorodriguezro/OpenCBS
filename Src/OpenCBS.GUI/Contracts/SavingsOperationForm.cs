@@ -20,7 +20,6 @@
 // Contact: contact@opencbs.com
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain;
@@ -34,9 +33,7 @@ using OpenCBS.ExceptionsHandler.Exceptions.SavingExceptions;
 using OpenCBS.Services;
 using OpenCBS.Shared;
 using OpenCBS.GUI.UserControl;
-using OpenCBS.GUI.Tools;
 using OpenCBS.MultiLanguageRessources;
-using OpenCBS.GUI.UserControl;
 using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.Contracts
@@ -267,14 +264,9 @@ namespace OpenCBS.GUI.Contracts
 
                         break;
                     }
-                default: break;
             }
 
-            /*dtpDate.MinDate = _saving.GetLastPostingDate();
-            if (_saving.GetLastPostingDate() <= TimeProvider.Today)
-                dtpDate.MaxDate = TimeProvider.Today;*/
-
-            dtpDate.Value = new DateTime(dtpDate.Value.Year, dtpDate.Value.Month, dtpDate.Value.Day, TimeProvider.Now.Hour, TimeProvider.Now.Minute, TimeProvider.Now.Second);
+            dtpDate.Value = TimeProvider.Now;
 
             _pendingSavingsMode = ServicesProvider.GetInstance().GetGeneralSettings().PendingSavingsMode.ToUpper();
             var paymentMethods =
@@ -339,8 +331,7 @@ namespace OpenCBS.GUI.Contracts
 
             try
             {
-                _date = new DateTime(dtpDate.Value.Year, dtpDate.Value.Month, dtpDate.Value.Day, TimeProvider.Now.Hour,
-                                     TimeProvider.Now.Minute, TimeProvider.Now.Second);
+                _date = TimeProvider.Now;
 
                 SavingServices savingServices = ServicesProvider.GetInstance().GetSavingServices();
 
