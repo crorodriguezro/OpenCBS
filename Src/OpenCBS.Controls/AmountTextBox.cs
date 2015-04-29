@@ -67,7 +67,7 @@ namespace OpenCBS.Controls
                 }
 
                 var text = value.ToString();
-                if (text == "0")
+                if (!text.Contains(NumberFormatInfo.CurrentInfo.NumberDecimalSeparator))
                 {
                     Text = text;
                     return;
