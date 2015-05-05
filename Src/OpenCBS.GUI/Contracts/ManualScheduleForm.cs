@@ -268,6 +268,11 @@ namespace OpenCBS.GUI.Contracts
                 _total.InterestsRepayment += interest - Loan.InstallmentList[i].InterestsRepayment;
                 Loan.InstallmentList[i].InterestsRepayment = interest;
             }
+            // Adjust start dates
+            for (var i = 1; i < Loan.InstallmentList.Count; i++)
+            {
+                Loan.InstallmentList[i].StartDate = Loan.InstallmentList[i - 1].ExpectedDate;
+            }
         }
 
         private bool CheckPrincipal(int indexOfChangedItem)
