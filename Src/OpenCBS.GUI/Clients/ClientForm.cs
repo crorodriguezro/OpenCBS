@@ -1311,7 +1311,10 @@ namespace OpenCBS.GUI.Clients
             {
                 _group = _groupUserControl.Group;
                 _client = _group;
-                ((MainView)_mdiParent).SetInfoMessage(string.Format("Group {0} saved", _group.Name));
+                if (_mdiParent != null)
+                {
+                    ((MainView) _mdiParent).SetInfoMessage(string.Format("Group {0} saved", _group.Name));
+                }
                 InitializeTitle(_group.Name);
                 if (!tabControlPerson.TabPages.Contains(tabPageContracts))
                 {
@@ -1329,7 +1332,10 @@ namespace OpenCBS.GUI.Clients
             {
                 _corporate = _corporateUserControl.Corporate;
                 _client = _corporate;
-                ((MainView)_mdiParent).SetInfoMessage(string.Format("Corporate {0} saved", _corporate.Name));
+                if (_mdiParent != null)
+                {
+                    ((MainView) _mdiParent).SetInfoMessage(string.Format("Corporate {0} saved", _corporate.Name));
+                }
                 InitializeTitle(_corporate.Name);
                 if (!tabControlPerson.TabPages.Contains(tabPageContracts))
                 {
