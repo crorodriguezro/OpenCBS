@@ -1126,6 +1126,7 @@ namespace OpenCBS.Services
                 }
                 catch (Exception up)
                 {
+                    body.Id = 0;
                     sqlTransac.Rollback();
                     throw up;
                 }
