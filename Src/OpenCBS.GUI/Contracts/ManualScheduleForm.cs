@@ -49,6 +49,14 @@ namespace OpenCBS.GUI.Contracts
             olvSchedule.RowFormatter = FormatRow;
             Loan = loan;
             InitializeSchedule();
+
+            ObjectListView.EditorRegistry.Register(typeof(DateTime), delegate
+            {
+                var picker = new DateTimePicker();
+                picker.Format = DateTimePickerFormat.Custom;
+                picker.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+                return picker;
+            });
         }
 
         private void InitializeSchedule()
