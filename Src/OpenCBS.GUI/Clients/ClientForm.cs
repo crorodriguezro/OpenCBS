@@ -4133,7 +4133,7 @@ namespace OpenCBS.GUI.Clients
             totalItem.Font = listViewGuarantors.Font;
             totalItem.Font = new Font(totalItem.Font, FontStyle.Bold);
             totalItem.SubItems.Add(_totalGuarantorAmount.GetFormatedValue(_credit.UseCents));
-            if (pAmount >= _totalGuarantorAmount && totalGuarantorAmountPercent == (OCurrency)99.99M)
+            if (_totalGuarantorAmount >= pAmount && totalGuarantorAmountPercent == (OCurrency)99.99M)
                 totalGuarantorAmountPercent = (OCurrency)100M;
             totalItem.SubItems.Add(totalGuarantorAmountPercent.GetFormatedValue(true));
             listViewGuarantors.Items.Add(totalItem);
@@ -6354,7 +6354,7 @@ namespace OpenCBS.GUI.Clients
             totalItem.Font = listViewCollaterals.Font;
             totalItem.Font = new Font(totalItem.Font, FontStyle.Bold);
             totalItem.SubItems.Add(_totalCollateralAmount.GetFormatedValue(_credit.UseCents));
-            if (_credit.Amount >= _totalCollateralAmount && totalCollateralAmountPercent == (OCurrency)99.99M)
+            if (_totalCollateralAmount >= _credit.Amount && totalCollateralAmountPercent == (OCurrency)99.99M)
                 totalCollateralAmountPercent = (OCurrency)100M;
             totalItem.SubItems.Add(totalCollateralAmountPercent.GetFormatedValue(true));
             listViewCollaterals.Items.Add(totalItem);
