@@ -3858,8 +3858,7 @@ END
             DROP FUNCTION [dbo].[getEntryFees]]]></drop>
   </object>
   <object name="Alerts" priority="66">
-    <create><![CDATA[
-create function dbo.Alerts(@date datetime, @user_id int)
+    <create><![CDATA[CREATE function [dbo].[Alerts](@date datetime, @user_id int)
 returns @tbl table
 (
 	id int not null, 
@@ -3912,14 +3911,12 @@ as begin
 	left join
 		dbo.Users u on u.id = cr.loanofficer_id
 	where
-		(al.late_days > 0 or (al.late_days = 0 and not al.expected_date is null))
-		and (t.branch_id in (select branch_id from dbo.UsersBranches where user_id = @_user_id))
+		(t.branch_id in (select branch_id from dbo.UsersBranches where user_id = @_user_id))
 		and
 		(
 			cr.loanofficer_id = @_user_id or
 			cr.loanofficer_id in (select subordinate_id from dbo.UsersSubordinates where user_id = @_user_id)
 		)
-
 	-- Pending, Postponed, and Validated loans
 	insert @tbl
 	select
@@ -3958,7 +3955,6 @@ as begin
 			cr.loanofficer_id = @_user_id or
 			cr.loanofficer_id in (select subordinate_id from dbo.UsersSubordinates where user_id = @_user_id)
 		)
-
 	-- Overdraft savings
 	insert @tbl
 	select
@@ -3996,7 +3992,6 @@ as begin
 			select subordinate_id from dbo.UsersSubordinates where user_id = @_user_id
 		))
 		and t.branch_id in (select branch_id from dbo.UsersBranches where user_id = @_user_id)
-
 	-- Pending savings
 	insert @tbl
 	select
@@ -4037,14 +4032,13 @@ as begin
 			select subordinate_id from dbo.UsersSubordinates where user_id = @_user_id
 		))
 		and t.branch_id in (select branch_id from dbo.UsersBranches	where user_id = @_user_id)
-
 	return
 end
 ]]></create>
     <drop><![CDATA[IF  EXISTS (
                 SELECT * 
                 FROM sys.objects 
-                WHERE object_id = OBJECT_ID(N'dbo.Alerts') AND type IN (N'TF', N'IF')
+                WHERE object_id = OBJECT_ID(N'dbo.Alerts') AND type = N'TF'
             )
             DROP FUNCTION [dbo].[Alerts]]]></drop>
   </object>
@@ -4069,7 +4063,8 @@ AS
                 
         RETURN  @field_value
        
-    END]]></create>
+    END
+]]></create>
     <drop><![CDATA[IF  EXISTS (
                 SELECT * 
                 FROM sys.objects 
