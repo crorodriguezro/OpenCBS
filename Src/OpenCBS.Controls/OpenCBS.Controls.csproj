@@ -35,6 +35,9 @@
     <Reference Include="ObjectListView">
       <HintPath>..\..\Lib\ObjectListView.dll</HintPath>
     </Reference>
+    <Reference Include="OpenCBS.Services">
+      <HintPath>..\..\..\..\OpenCbsLibs\OpenCBS.Services.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
