@@ -22,16 +22,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
-using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
-using OpenCBS.Services;
 using OpenCBS.Shared;
-using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.Controls
 {
-    public partial class ScheduleControl : System.Windows.Forms.UserControl
+    public partial class ScheduleControl : UserControl
     {
         private string _amountFormatString;
 
@@ -62,18 +59,12 @@ namespace OpenCBS.Controls
             paidPrincipalColumn.AspectToStringConverter =
             paidInterestColumn.AspectToStringConverter =
             paidExtraColumn.AspectToStringConverter =
+            olbColumn.AspectToStringConverter =
             totalColumn.AspectToStringConverter = value =>
             {
                 var amount = (OCurrency)value;
                 return amount.Value.ToString(_amountFormatString);
             };
-            olbColumn.AspectGetter = value =>
-                {
-                    var installment = (Installment) value;
-                    return ServicesProvider.GetInstance().GetGeneralSettings().IsOlbBeforeRepayment
-                               ? installment.OLB.Value.ToString(_amountFormatString)
-                               : installment.OLBAfterRepayment.Value.ToString(_amountFormatString);
-                };
             _scheduleContextMenuStrip.Click += (sender, e) => _CopyData();
             extraColumn.IsVisible = false;
             paidExtraColumn.IsVisible = false;
