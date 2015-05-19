@@ -117,10 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lProjectFinancialPlanAmount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 16</value>
+  </data>
+  <data name="lProjectFinancialPlanAmount.Text" xml:space="preserve">
+    <value>Montant:</value>
+  </data>
   <data name="gBProjectFinancialPlan.Text" xml:space="preserve">
     <value>Plan de financement</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lProjectNbOfNewJobs.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 16</value>
   </data>
@@ -157,12 +163,6 @@
   <data name="gBProjectAddress.Text" xml:space="preserve">
     <value>Addresse</value>
   </data>
-  <data name="lProjectFinancialPlanAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 16</value>
-  </data>
-  <data name="lProjectFinancialPlanAmount.Text" xml:space="preserve">
-    <value>Montant:</value>
-  </data>
   <data name="columnHeaderProjectYear.Text" xml:space="preserve">
     <value>Année</value>
   </data>
@@ -186,12 +186,6 @@
   </data>
   <data name="buttonProjectAddFollowUp.Text" xml:space="preserve">
     <value>Ajout</value>
-  </data>
-  <data name="lblGuarantorsList.Text" xml:space="preserve">
-    <value>Garants</value>
-  </data>
-  <data name="lblCollaterals.Text" xml:space="preserve">
-    <value>Gages</value>
   </data>
   <data name="columnHeaderName.Text" xml:space="preserve">
     <value>Nom</value>
@@ -223,6 +217,9 @@
   <data name="lblCreditCurrency.Text" xml:space="preserve">
     <value>Devise :</value>
   </data>
+  <data name="lblGuarantorsList.Text" xml:space="preserve">
+    <value>Garants</value>
+  </data>
   <data name="columnHeader19.Text" xml:space="preserve">
     <value>Nom</value>
   </data>
@@ -244,6 +241,9 @@
   <data name="buttonDelCollateral.Text" xml:space="preserve">
     <value>Supprimer</value>
   </data>
+  <data name="lblCollaterals.Text" xml:space="preserve">
+    <value>Gages</value>
+  </data>
   <data name="labelLoansContracts.Text" xml:space="preserve">
     <value>Contrats de crédit</value>
   </data>
@@ -252,162 +252,6 @@
   </data>
   <data name="tabPageDetails.Text" xml:space="preserve">
     <value>Client</value>
-  </data>
-  <data name="tabPageProject.Text" xml:space="preserve">
-    <value>Projet</value>
-  </data>
-  <data name="tabPageLoansDetails.Text" xml:space="preserve">
-    <value>Proposition de financement</value>
-  </data>
-  <data name="tabPageAdvancedSettings.Text" xml:space="preserve">
-    <value>Paramètres avancés</value>
-  </data>
-  <data name="tabPageCreditCommitee.Text" xml:space="preserve">
-    <value>Comité de crédit</value>
-  </data>
-  <data name="tabPageLoanRepayment.Text" xml:space="preserve">
-    <value>Remboursements</value>
-  </data>
-  <data name="tabPageLoanGuarantees.Text" xml:space="preserve">
-    <value>Garants/Gages</value>
-  </data>
-  <data name="tabPageSavingDetails.Text" xml:space="preserve">
-    <value>Compte d'épargne</value>
-  </data>
-  <data name="tabPageContracts.Text" xml:space="preserve">
-    <value>Contrats</value>
-  </data>
-  <data name="imageListTab.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAQ
-        HQAAAk1TRnQBSQFMAgEBBQIAAQ0BAAENASABAAEgAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMA
-        AYADAAFAAwABAQEAAQgGAAEgGAABgAIAAYADAAKAAQABgAMAAYABAAGAAQACgAIAA8ABAAHAAdwBwAEA
-        AfABygGmAQABMwUAATMBAAEzAQABMwEAAjMCAAMWAQADHAEAAyIBAAMpAQADVQEAA00BAANCAQADOQEA
-        AYABfAH/AQACUAH/AQABkwEAAdYBAAH/AewBzAEAAcYB1gHvAQAB1gLnAQABkAGpAa0CAAH/ATMDAAFm
-        AwABmQMAAcwCAAEzAwACMwIAATMBZgIAATMBmQIAATMBzAIAATMB/wIAAWYDAAFmATMCAAJmAgABZgGZ
-        AgABZgHMAgABZgH/AgABmQMAAZkBMwIAAZkBZgIAApkCAAGZAcwCAAGZAf8CAAHMAwABzAEzAgABzAFm
-        AgABzAGZAgACzAIAAcwB/wIAAf8BZgIAAf8BmQIAAf8BzAEAATMB/wIAAf8BAAEzAQABMwEAAWYBAAEz
-        AQABmQEAATMBAAHMAQABMwEAAf8BAAH/ATMCAAMzAQACMwFmAQACMwGZAQACMwHMAQACMwH/AQABMwFm
-        AgABMwFmATMBAAEzAmYBAAEzAWYBmQEAATMBZgHMAQABMwFmAf8BAAEzAZkCAAEzAZkBMwEAATMBmQFm
-        AQABMwKZAQABMwGZAcwBAAEzAZkB/wEAATMBzAIAATMBzAEzAQABMwHMAWYBAAEzAcwBmQEAATMCzAEA
-        ATMBzAH/AQABMwH/ATMBAAEzAf8BZgEAATMB/wGZAQABMwH/AcwBAAEzAv8BAAFmAwABZgEAATMBAAFm
-        AQABZgEAAWYBAAGZAQABZgEAAcwBAAFmAQAB/wEAAWYBMwIAAWYCMwEAAWYBMwFmAQABZgEzAZkBAAFm
-        ATMBzAEAAWYBMwH/AQACZgIAAmYBMwEAA2YBAAJmAZkBAAJmAcwBAAFmAZkCAAFmAZkBMwEAAWYBmQFm
-        AQABZgKZAQABZgGZAcwBAAFmAZkB/wEAAWYBzAIAAWYBzAEzAQABZgHMAZkBAAFmAswBAAFmAcwB/wEA
-        AWYB/wIAAWYB/wEzAQABZgH/AZkBAAFmAf8BzAEAAcwBAAH/AQAB/wEAAcwBAAKZAgABmQEzAZkBAAGZ
-        AQABmQEAAZkBAAHMAQABmQMAAZkCMwEAAZkBAAFmAQABmQEzAcwBAAGZAQAB/wEAAZkBZgIAAZkBZgEz
-        AQABmQEzAWYBAAGZAWYBmQEAAZkBZgHMAQABmQEzAf8BAAKZATMBAAKZAWYBAAOZAQACmQHMAQACmQH/
-        AQABmQHMAgABmQHMATMBAAFmAcwBZgEAAZkBzAGZAQABmQLMAQABmQHMAf8BAAGZAf8CAAGZAf8BMwEA
-        AZkBzAFmAQABmQH/AZkBAAGZAf8BzAEAAZkC/wEAAcwDAAGZAQABMwEAAcwBAAFmAQABzAEAAZkBAAHM
-        AQABzAEAAZkBMwIAAcwCMwEAAcwBMwFmAQABzAEzAZkBAAHMATMBzAEAAcwBMwH/AQABzAFmAgABzAFm
-        ATMBAAGZAmYBAAHMAWYBmQEAAcwBZgHMAQABmQFmAf8BAAHMAZkCAAHMAZkBMwEAAcwBmQFmAQABzAKZ
-        AQABzAGZAcwBAAHMAZkB/wEAAswCAALMATMBAALMAWYBAALMAZkBAAPMAQACzAH/AQABzAH/AgABzAH/
-        ATMBAAGZAf8BZgEAAcwB/wGZAQABzAH/AcwBAAHMAv8BAAHMAQABMwEAAf8BAAFmAQAB/wEAAZkBAAHM
-        ATMCAAH/AjMBAAH/ATMBZgEAAf8BMwGZAQAB/wEzAcwBAAH/ATMB/wEAAf8BZgIAAf8BZgEzAQABzAJm
-        AQAB/wFmAZkBAAH/AWYBzAEAAcwBZgH/AQAB/wGZAgAB/wGZATMBAAH/AZkBZgEAAf8CmQEAAf8BmQHM
-        AQAB/wGZAf8BAAH/AcwCAAH/AcwBMwEAAf8BzAFmAQAB/wHMAZkBAAH/AswBAAH/AcwB/wEAAv8BMwEA
-        AcwB/wFmAQAC/wGZAQAC/wHMAQACZgH/AQABZgH/AWYBAAFmAv8BAAH/AmYBAAH/AWYB/wEAAv8BZgEA
-        ASEBAAGlAQADXwEAA3cBAAOGAQADlgEAA8sBAAOyAQAD1wEAA90BAAPjAQAD6gEAA/EBAAP4AQAB8AH7
-        Af8BAAGkAqABAAOAAwAB/wIAAf8DAAL/AQAB/wMAAf8BAAH/AQAC/wIAA/8DAAP/FvQC/2UAAf8BvBbv
-        AfcB7wHwAfRiAAL/ArwOBwbvA/cB7AHrAbwB/2EAAf8C8w3/AvQD8wLyBPEB8AHtAfcB9GEAAf8B8gH0
-        DP8D9ALzAfIBBwG8BfEB7wGSAfRhAAH/AfIB9Az/BfQB7wHrAe8B8gTxAe8BkgH0YQAB/wHyAfQM/wP0
-        AfMB8gFsARQB9wEHAfAC8QHyAe8BkgH0YQAB/wHyAfQE/wHwAe8B8wb/AfQB8gHvAfcBbAETA+wBBwHx
-        AfIBBwGSAfRhAAH/AfIB9AP/AbwB6gHsAZIB8wX/AfMB7AEVAw0BEAFDAW0B7AHvAfMBBwGSAfRhAAH/
-        AfIB9AL/AfEBbAEOARUB7AGSAfME/wGRAg0BcQFyAWwBkQFJAQ4BbQHsAfABBwGSAfRhAAH/AfIB9AH/
-        AfABbAENAUgBDQEVAewB9wHzAv8BCAFIAQ0BcgH0AZEB6gHwAQgBbAEPAewCBwGSAfRhAAH/AfIB/wHz
-        AWwESAENAUMBkgHxAv8BkQENARUB8AH/AZEBbAEHAfQB9wENARIB7wEHAZIB9GEAAf8B8gH0AbwB9wHv
-        AfcBSAFsAZIB6wH3A/8B7wFJAesB9AH/AZEBbAEHAf8BuwENARQCBwGSAfRhAAH/AfIB9AP/AfABDQHr
-        AfMF/wH0AQcB8AL/AZEBbAEHAf8B9wENARQBvAEHAZIB9GEAAf8B8gH0A/8BCAENAW0B8Ar/AZEBEgHv
-        AQcBbAENAW0B8wG8AZIB9GEAAf8B8gH0A/8BCAENAW0B8Aj/AfQB8wFyARIB7AFJAg0BBwH/AbwBkgH0
-        YQAB/wHyAfQD/wEIAQ0BbQHwB/8B8wHvAewBSQQNAe0C/wG8AfcB9GEAAf8B8gH0A/8BCAENAW0B8Ab/
-        AfMB7AFDAg0BSAFsAZEBBwP/AfAB9wH0YQAB/wHyAfQD/wEIAQ0BbQHwBv8B7AINAZEBcQFsAbwF/wHw
-        AfcB9GEAAf8B8gH0A/8BCAENAW0B8AX/AfABSAENAZEB9AGRARIBvAX/AfAB9wH0YQAB/wHyAfQD/wEI
-        AQ0BbQHwBf8BuwFIARUBvAH/AZEBbAG8Af8B8wEHAbwB/wHwAfcB9GEAAf8B8gH0A/8BCAENAW0B8AX/
-        AQcBSAEUAe8B9AGRAWwBvAHzAewBbQHtAfMB8AH3AfRhAAH/AfIB9AP/AQgBDQFtAfAF/wHwAWwBEQHt
-        AQcBkQESAbwB7wENAQ4B9wH/AfAB9wH0YQAB/wHyAfQD/wEIAQ0BbQHwBf8B9AGRAQ0BEgH3AWwBEgHv
-        AWwBDQEUAfIB/wHwAfcB9GEAAf8B8gH0A/8BvAENAesB8gb/AfIBcgENARUBDQFDARUCDQEHAv8B8AH3
-        AfRhAAH/AfIB9AP/AfIBcgH3CP8B8gH3AXIBbAENAWwBcgEIA/8B8AH3AfRhAAH/AfIB9BD/AfQB9wFx
-        AfEF/wHwAZIB9GEAAf8B8gH0Ef8B8wHyBv8B8AH3AfRhAAH/AvMZ/wHxAbwB/2EAAf8B9AHyAfMX9AHy
-        AfAC/2IAAf8B9BjzAfQB/2UAGv+GABr/BgAD/xb0Av8FAAP/FvQC/wQAAv8B8xfyAfMB/wQAAf8B8gG8
-        FwcB8gH/BQAB/wG8Fu8B9wHvAfAB9AQAAf8BvBbvAfcB7wHwAfQDAAH/AQcBkgztC+wB7QHwAf8CAAH/
-        AfEC7wz3BJIG7QLsAfEB/wIAAv8CvA4HBu8D9wHsAesBvAH/AQAC/wK8CAcBvAYHCO8B7AHrAbwB/wEA
-        Af8B8QzzA/IC8QPwBLwBBwLsAfMB/wEAAfQB8Qr/A/QD8wLyA/ED8AEHAewB9wH0AgAB/wLzDf8C9APz
-        AvIE8QHwAe0B9wH0AQAB/wLzCP8B8wLxA/ADvAYHAbwB8AHtAfcB9AEAAfQB8gL/AfQH8wPyA/EC8AS8
-        AQcBvAHxAQcB7AHxAf8BAAHyBv8B8AS8BwcE7wEHAfAC8QHvAZIB9AIAAf8B8gH0DP8D9APzAvIF8QHv
-        AZIB9AEAAf8B8gH0B/8B8wHvDewB6wGSAfEB7wGSAfQBAAH0AfIB/wHzAe8N7QjsAbwB8AHsAfEB/wEA
-        AfIB9AT/AQcB6w9tAewBvALxAe8BkgH0AgAB/wHyAfQC/wH0Cf8D9ALzA/IF8QHvAZIB9AEAAf8B8gH0
-        B/8B9wENARAMDQEVAZIB8QEHAZIB9AEAAfQB8gH/AZEUQwERAewC8AHsAfEB/wEAAfIB9AT/AZEO6wFt
-        AUMB7AHwAvIB7wGSAfQCAAH/AfIB9AH/AfMCBwHxAfQG/wP0A/MD8gPxAfIB7wGSAfQBAAH/AfIB9Af/
-        Ae8Bcgy8AewBEQH3AfEBBwGSAfQBAAH0AfIB/wG7AUgUDQH3AfEB8AHsAfEB/wEAAfIB9AP/AfQBuw//
-        AeoB7AHwAvIBBwGSAfQCAAH/AfIC/wHtAesC7AH3Ae8B8AHzA/8E9ALzB/IBBwGSAfQBAAH/AfIB9Af/
-        AbsBkgz/AfcBEQH3AfEBBwGSAfQBAAH0AfIB/wHxAWwSSAENARUBBwHyAfAB7AHxAf8BAAHyAfQD/wH0
-        AQcP/wHqAewB8ALyAQcBkgH0AgAB/wHyAfQB/wEIAUkBQwEUARIBbQHsAZIBvAP/BPQD8wTyAfMBBwGS
-        AfQBAAH/AfIB9Af/AbsBkgHyAWwB8AFyAe8B9wHsAfABbAHyAWwBBwH3AREB7wHyAQcBkgH0AQAB9AHy
-        Af8B9AGRAUgBDRBIAQ0BbQHwAfMB8QHsAfEB/wEAAfIB9AP/AfQBBwH/AZEMbAHwAW0B7AHwAvMBBwGS
-        AfQCAAH/AfIB9AL/AwcB7AESARUBbQHsAe8B8wL/A/QF8wLyAfMBBwGSAfQBAAH/AfIB9Af/AbsBkQH/
-        AQcB9AG8AvIBvAH0AQcB9AEIAfMB9wERAe8B8gEHAZIB9AEAAfQB8gL/AQcBbAENEEgBDQH3AvMB8QHs
-        AfEB/wEAAfIB9AP/AfQBBwH/AfABBwm7AgcB8wHqAewB8QLzAQcBkgH0AgAB/wHyAfQC/wH0AbwC/wH0
-        AfcBEQETAewB9wHxAv8D9AfzAQcBkgH0AQAB/wHyAfQH/wG7AZIB9AGSAfMB7wK8Ae8B8gGSAfQB9wHx
-        AfcBEQHvAfMBBwGSAfQBAAH0AfIC/wHzAZEBSAENDkgBDQESAfEB8wH0AfIB7AHxAf8BAAHyAfQD/wH0
-        AQcB/wH0C/IB8wH0AeoB7AHxAfQB8wEHAZIB9AIAAf8B8gH0A/8B8QHwAv8BkQFsAesBFAHrAe0BvAH0
-        Af8F9APzAfQBBwGSAfQBAAH/AfIB9Af/AbsBkgHzAewB8gGRAgcBkgHxAZEB8wHsAfAB9wERAe8B8wEH
-        AZIB9AEAAfQB8gP/AbwBbAFIAg0ISAINAUgCDQEHA/QB8gHtAfEB/wEAAfIB9AP/AfQBBwH/AZEBSQls
-        AUkBbAHwAW0B7QHyAvQBBwGSAfQCAAH/AfIB9AT/AbwB8wGRAWwBkgGRAewBFAFtAewB7wHzAf8I9AEH
-        AZIB9AEAAf8B8gH0B/8BuwGRAf8B8gH/AfMC9AHzAf8B8gH/AfIB/wH3AUMB7wHzAbwBkgH0AQAB9AHy
-        BP8BBwFxDEgCDQHvAf8D9AHyAe0B8QH/AQAB8gH0A/8B9AEHAf8B9AvzAvQB6gHtAfIC9AG8AZIB9AIA
-        Af8B8gH0BP8B9AEIApEBkgG7AZEB7QESARMB7AH3AfEC/wb0AbwBkgH0AQAB/wHyAfQH/wG7AZIB8wFs
-        AfABcQGYAfcBcgHwAWwB8gFsAQcB9wFDAe8B9AG8AZIB9AEAAfQB8gX/AfAB9wKRAUkESAENAUgBcQFy
-        AZEBvAH/BPQB8wHtAfEB/wEAAfIB9AP/AfQBBwH/AbwB9wvvAfMB6gHtAfMC/wG8AZIB9AIAAf8B8gH0
-        Bf8B9AHwAfEB7wGRAQcBkQHtAW0BFAHrAe0BvAH0Af8E9AH/AbwBkgH0AQAB/wHyAfQE/wHwAfQB/wG7
-        AZEB/wHwAfQB8QLzAfEB9AHwAfQB8AH/AfcBQwHvAfQBvAGSAfQBAAH0AfIH/wHyAZEFSAENAUMB7QHv
-        AfAD/wL0Af8B8wHtAfEB/wEAAfIB9AP/AfQBBwH/AZIMbAHwAW0B7QHzAv8BvAGSAfQCAAH/AfIB9Af/
-        AfEB8AEIAZEB7wGSAZEB7AEVAW0B7AEHAfQF/wG8AZIB9AEAAf8B8gH0A/8B7wHsAQcB/wEHDWwBSQFD
-        Ae8B9AG8AZIB9AEAAfQB8gb/AfMBbAENBkgBDQEPAW0B7QHyBf8B8wHtAfEB/wEAAfIB9AP/AfQBBw7/
-        AfQB6gHtAfMC/wG8AfcB9AIAAf8B8gH0CP8B8wG8AfABkQGSAe8BkQHtARMBEgHsAfcB8gT/AbwB9wH0
-        AQAB/wHyAfQB/wH0AbwBFAHqAe0B7wEHAWwNDQEVAe8B/wHwAfcB9AEAAfQB8gb/AZECDQdIAQ0BEAHs
-        AQcF/wH0Ae0B8QH/AQAB8gH0A/8B9AEHAf8B9wRyAbwH/wH0AeoB7QHzAv8B8AH3AfQCAAH/AfIB9An/
-        AfQBvAHxAfcBkQG7AZEBkgFtARQB7AHtAfAD/wHwAfcB9AEAAf8B8gH0Af8B9wFDAg0BFQHtAfcBbAEN
-        C0gBDQEVAbwB/wHwAfcB9AEAAfQB8gX/AfIBSQpIAQ0BEwHvAfQE/wH0Ae0B8QH/AQAB8gH0A/8B9AEH
-        Af8BBwHsApEB7AG8B/8B9AHqAe0B9AL/AfAB9wH0AgAB/wHyAfQL/wHxAfABBwGRAe8CkQEUAREB6wHs
-        AQcB9AH/AfAB9wH0AQAB/wHyAf8B8gFIAUkBcQGRAWwBEwHvAZICbAmRAWwBSQFtAfQB/wHwAfcB9AEA
-        AfQB8gX/AbsLSAENAREB9wHzBP8B9AHtAfEB/wEAAfIB9AP/AfQBBwf/BvQB/wH0AeoB7QH0Av8B8AH3
-        AfQCAAH/AfIB9Az/AfMCvAGRAfcBkQFIAQ0BDwESAewB7wHzAfAB9wH0AQAB/wHyAf8B8gGRAQcBkQHv
-        AfcBDQHvAfQBkQGSCfQBcQHvAfQC/wHwAfcB9AEAAfQB8gX/Ae8BSAENCUgCDQGSAfME/wH0Ae0B8QH/
-        AQAB8gH0A/8B9AEHAf8BkQFJC2wB8AFtAe0B9AL/AfAB9wH0AgAB/wHyAfQN/wH0AbwB8QGRAUgCDQHt
-        ARIBFQHsAfcBBwH3AfQBAAH/AfIB9AP/AusBbAENAQcB/wEHAfAJ/wEHAfMD/wHwAfcB9AEAAfQB8gX/
-        Ae8BSQENCUgCDQH3AfQE/wH0Ae0B8QH/AQAB8gH0A/8B9AEHAf8B8gEICLwCBwG8AfMB6gHtAfMC/wHw
-        AfcB9AIAAf8B8gH0D/8B8QH3AUkBDQFsAf8B9AHrARUB7AEHAfcB9AEAAf8B8gH0Af8B8gHsAUgCDQHr
-        AfQR/wHwAfcB9AEAAfQB8gX/AbwBbAENCUgCDQEHBf8B9AHtAfEB/wEAAfIB9AP/AfQBBwH/AfMI8AHx
-        BP8B6gH3AfQC/wHwAfcB9AIAAf8B8gH0EP8B9AH3AZEB8wP/ARMB7QG8AfcB9AEAAf8B8gH0Af8BcgEN
-        AUgBbAH3AfQS/wHwAfcB9AEAAfQB8gX/AfMBkQFIAQ0ISAENARIB8wX/AfQB7QHxAf8BAAHyAfQD/wH0
-        AQcB/wGRAUgGbAFJAWwB9AH3ApEBEgHxA/8B8AH3AfQCAAH/AfIB9BL/AfAB8QL/AfABbAHxAfAB9wH0
-        AQAB/wHyAf8B8QFIAWwBcgHtAfABBwG8Ef8B8AH3AfQBAAH0AfIG/wEHAWwBDQdIAg0B7wb/AfQB7QHx
-        Af8BAAHyAfQD/wH0AQcC/wr0AWwCDQG8BP8B8AH3AfQCAAH/AfIB9BP/AfACvAFsAfcB/wHwAfcB9AEA
-        Af8B8gH/AfIBSQHsAesB7AFtAeoBBxH/AfAB9wH0AQAB9AHyBv8B9AGYAWwFDQFIAg0B7Af/AfQB7QHx
-        Af8BAAHyAfQD/wH0AQcM/wFsAQ0BBwX/AfAB9wH0AgAB/wHyAfQU/wHyAfcBvAL/AfAB9wH0AQAB/wHy
-        AfQB/wHtAUkBFQFJAQ4BbQH0Ef8B8AH3AfQBAAH0AfIH/wH0AbsBcQFJBUgB7Qj/AfQB7QHxAf8BAAHy
-        AfQD/wH0AQcB8wr0AfEBbAHvBv8B8AH3AfQCAAH/AfIB9Bn/AfABkgH0AQAB/wHyAfQB/wH0Ae8BbAFJ
-        AZEB9BL/AfABkgH0AQAB9AHyCf8B8QHvA5EB7QHwCf8B9AHtAfEB/wEAAfIB9AT/AfILvAEHAbwH/wHw
-        AfcB9AIAAf8B8gH0Gf8B8AH3AfQBAAH/AfIB9AP/AbwB8BT/AfAB9wH0AQAB9AHyDP8B9A3/AfcB8wH/
-        AQAB8wH0Gf8B8gEHAf8CAAH/AvMZ/wHxAbwB/wEAAf8C8xn/AfEBvAH/AQAB9AHyGf8B9AEHAv8BAAH0
-        AfIB9Bf/AfQBBwH0Af8CAAH/AfQB8gHzF/QB8gHwAv8BAAH/AfQB8gHzF/QB8gHwAv8BAAH/AfQY8gHx
-        AfIC/wIAAf8B9AHzGPIB/wUAAf8B9BjzAfQB/wQAAf8B9BjzAfQB/wQAAv8X9AL/BQAb/wYAGv8GABr/
-        BAABQgFNAT4HAAE+AwABKAMAAYADAAFAAwABAQEAAQEGAAEEFgAD/wEAAcACAAEHDAABwAIAAQMPAAEB
-        DwABAQ8AAQEPAAEBDwABAQ8AAQEPAAEBDwABAQ8AAQEPAAEBDwABAQ8AAQEPAAEBDwABAQ8AAQEPAAEB
-        DwABAQ8AAQEPAAEBDwABAQ8AAQEPAAEBDwABAQ8AAQEPAAEBDwABAQ8AAQEPAAEBDAABgAIAAQcMAAHA
-        AgABDwwABP8BwAIAAQ8BwAIAAQcBwAIAAQcBgAIAAQcBgAIAAQcBwAIAAQMBwAIAAQMBgAIAAQMDAAED
-        AwABAQMAAQEDAAEBAwABAwMAAQEDAAEBAwABAQMAAQMDAAEBAwABAQMAAQEDAAEDAwABAQMAAQEDAAEB
-        AwABAwMAAQEDAAEBAwABAQMAAQMDAAEBAwABAQMAAQEDAAEDAwABAQMAAQEDAAEBAwABAwMAAQEDAAEB
-        AwABAQMAAQMDAAEBAwABAQMAAQEDAAEDAwABAQMAAQEDAAEBAwABAwMAAQEDAAEBAwABAQMAAQMDAAEB
-        AwABAQMAAQEDAAEDAwABAQMAAQEDAAEBAwABAwMAAQEDAAEBAwABAQMAAQMDAAEBAwABAQMAAQEDAAED
-        AwABAQMAAQEDAAEBAwABAwMAAQEDAAEBAwABAQMAAQMDAAEBAwABAQMAAQEDAAEDAwABAQMAAQEDAAEB
-        AwABAwMAAQEDAAEBAwABAQMAAQMDAAEBAwABAQMAAQEDAAEDAwABAQMAAQEDAAEBAwABAwMAAQEDAAEB
-        AwABAQMAAQMDAAEBAwABAQMAAQEDAAEDAwABAQMAAQEDAAEBAwABAwMAAQEDAAEBAwABAQMAAQMDAAEB
-        AwABAQMAAQEDAAEDAwABAQMAAQEDAAEDAwABDwGAAgABBwGAAgABBwGAAgABDwGAAgABDwHAAgABDwHA
-        AgABDws=
-</value>
   </data>
   <data name="buttonProjectSelectPurpose.Text" xml:space="preserve">
     <value>Selectionner</value>
@@ -438,9 +282,6 @@
   </data>
   <data name="buttonProjectSave.Text" xml:space="preserve">
     <value>Sauvegarder projet</value>
-  </data>
-  <data name="tabPageProjectLoans.Text" xml:space="preserve">
-    <value>Propositions de financement</value>
   </data>
   <data name="columnHeaderStatus.Text" xml:space="preserve">
     <value>Statut</value>
@@ -478,8 +319,8 @@
   <data name="buttonProjectViewContract.Text" xml:space="preserve">
     <value>Voir proposition</value>
   </data>
-  <data name="tabPageProjectAnalyses.Text" xml:space="preserve">
-    <value>Analyse</value>
+  <data name="tabPageProjectLoans.Text" xml:space="preserve">
+    <value>Propositions de financement</value>
   </data>
   <data name="labelProjectConcurrence.Size" type="System.Drawing.Size, System.Drawing">
     <value>134, 16</value>
@@ -505,23 +346,17 @@
   <data name="labelProjectAbilities.Text" xml:space="preserve">
     <value>Capacités du porteur:</value>
   </data>
+  <data name="tabPageProjectAnalyses.Text" xml:space="preserve">
+    <value>Analyse</value>
+  </data>
   <data name="tabPageCorporate.Text" xml:space="preserve">
     <value>Structure créée</value>
   </data>
   <data name="tabPageFollowUp.Text" xml:space="preserve">
     <value>Suivi</value>
   </data>
-  <data name="tclLoanDetails.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 266</value>
-  </data>
-  <data name="tclLoanDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 296</value>
-  </data>
-  <data name="tabPageInstallments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 267</value>
-  </data>
-  <data name="tabPageInstallments.Text" xml:space="preserve">
-    <value>échéancier</value>
+  <data name="tabPageProject.Text" xml:space="preserve">
+    <value>Projet</value>
   </data>
   <data name="columnHeaderLoanIP.Text" xml:space="preserve">
     <value>Intérêts</value>
@@ -539,11 +374,8 @@
   <data name="columnHeaderLoanOLB.Width" type="System.Int32, mscorlib">
     <value>177</value>
   </data>
-  <data name="listViewLoanInstallments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1229, 261</value>
-  </data>
-  <data name="loanDetailsButtonsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 232</value>
+  <data name="tabPageInstallments.Text" xml:space="preserve">
+    <value>échéancier</value>
   </data>
   <data name="btnSaveLoan.Text" xml:space="preserve">
     <value>Enregistrer</value>
@@ -563,20 +395,11 @@
   <data name="btnEditSchedule.Text" xml:space="preserve">
     <value>Editer l'échéancier</value>
   </data>
-  <data name="gbxLoanDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 229</value>
-  </data>
-  <data name="tableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1237, 208</value>
-  </data>
   <data name="_scheduleTypeComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 180</value>
+    <value>169, 182</value>
   </data>
   <data name="_installmentTypeComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 150</value>
-  </data>
-  <data name="_installmentTypeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 147</value>
+    <value>169, 152</value>
   </data>
   <data name="_installmentTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 30</value>
@@ -585,7 +408,7 @@
     <value>Type d'échéance:</value>
   </data>
   <data name="lblEconomicActivity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>392, 118</value>
+    <value>392, 120</value>
   </data>
   <data name="lblEconomicActivity.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 29</value>
@@ -606,16 +429,13 @@
     <value>335, 30</value>
   </data>
   <data name="labelLoanNbOfInstallmentsMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>335, 118</value>
+    <value>335, 120</value>
   </data>
   <data name="dtpDateOfFirstInstallment.Location" type="System.Drawing.Point, System.Drawing">
     <value>600, 61</value>
   </data>
   <data name="labelLoanGracePeriodMinMax.Location" type="System.Drawing.Point, System.Drawing">
     <value>335, 90</value>
-  </data>
-  <data name="labelLoanGracePeriodMinMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 28</value>
   </data>
   <data name="labelLoanContractCode.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 30</value>
@@ -641,9 +461,6 @@
   <data name="dateLoanStart.Location" type="System.Drawing.Point, System.Drawing">
     <value>600, 33</value>
   </data>
-  <data name="labelLoanNbOfInstallments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 118</value>
-  </data>
   <data name="labelLoanNbOfInstallments.Size" type="System.Drawing.Size, System.Drawing">
     <value>137, 29</value>
   </data>
@@ -663,7 +480,7 @@
     <value>335, 58</value>
   </data>
   <data name="labelLoanGracePeriod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 28</value>
+    <value>114, 30</value>
   </data>
   <data name="labelLoanGracePeriod.Text" xml:space="preserve">
     <value>Période de grâce :</value>
@@ -672,7 +489,7 @@
     <value>169, 93</value>
   </data>
   <data name="nudLoanNbOfInstallments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 121</value>
+    <value>169, 123</value>
   </data>
   <data name="lblDay.Location" type="System.Drawing.Point, System.Drawing">
     <value>705, 58</value>
@@ -693,7 +510,7 @@
     <value>392, 90</value>
   </data>
   <data name="labelLoanFundingLine.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 28</value>
+    <value>139, 30</value>
   </data>
   <data name="labelLoanFundingLine.Text" xml:space="preserve">
     <value>Ligne de financement :</value>
@@ -702,7 +519,7 @@
     <value>600, 93</value>
   </data>
   <data name="labelLoanPurpose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>392, 147</value>
+    <value>392, 149</value>
   </data>
   <data name="labelLoanPurpose.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 30</value>
@@ -711,7 +528,7 @@
     <value>Commentaire</value>
   </data>
   <data name="textBoxLoanPurpose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>600, 150</value>
+    <value>600, 152</value>
   </data>
   <data name="nudLoanAmount.Location" type="System.Drawing.Point, System.Drawing">
     <value>169, 33</value>
@@ -720,10 +537,7 @@
     <value>169, 61</value>
   </data>
   <data name="eacLoan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>600, 121</value>
-  </data>
-  <data name="_scheduleTypeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 177</value>
+    <value>600, 123</value>
   </data>
   <data name="_scheduleTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 31</value>
@@ -731,18 +545,8 @@
   <data name="_scheduleTypeLabel.Text" xml:space="preserve">
     <value>Méthode de calcul:</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tableLayoutPanel6.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tableLayoutPanel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 527</value>
-  </data>
-  <data name="flowLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>711, 93</value>
-  </data>
-  <data name="groupBoxAnticipatedRepaymentPenalties.Text" xml:space="preserve">
-    <value>Pénalités de remboursement anticipé</value>
+  <data name="tabPageLoansDetails.Text" xml:space="preserve">
+    <value>Proposition de financement</value>
   </data>
   <data name="lblEarlyPartialRepaimentBase.Location" type="System.Drawing.Point, System.Drawing">
     <value>160, 28</value>
@@ -774,17 +578,8 @@
   <data name="labelLoanAnticipatedTotalFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
     <value>129, 0</value>
   </data>
-  <data name="groupBoxLoanLateFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="groupBoxLoanLateFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>437, 77</value>
-  </data>
-  <data name="groupBoxLoanLateFees.Text" xml:space="preserve">
-    <value>Pénalités de retard (% par jour) portant sur :</value>
-  </data>
-  <data name="tableLayoutPanel8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>431, 56</value>
+  <data name="groupBoxAnticipatedRepaymentPenalties.Text" xml:space="preserve">
+    <value>Pénalités de remboursement anticipé</value>
   </data>
   <data name="labelLoanLateFeesOnOverduePrincipalMinMax.Location" type="System.Drawing.Point, System.Drawing">
     <value>186, 28</value>
@@ -840,11 +635,21 @@
   <data name="labelLoanLateFeesOnOverdueInterestMinMax.Location" type="System.Drawing.Point, System.Drawing">
     <value>403, 28</value>
   </data>
-  <data name="groupBoxEntryFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>711, 155</value>
+  <data name="tableLayoutPanel8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>431, 56</value>
   </data>
-  <data name="groupBoxEntryFees.Text" xml:space="preserve">
-    <value>Frais de dossier</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="groupBoxLoanLateFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="groupBoxLoanLateFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>437, 77</value>
+  </data>
+  <data name="groupBoxLoanLateFees.Text" xml:space="preserve">
+    <value>Pénalités de retard (% par jour) portant sur :</value>
+  </data>
+  <data name="flowLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>711, 93</value>
   </data>
   <data name="colName.Text" xml:space="preserve">
     <value>Nom</value>
@@ -861,17 +666,14 @@
   <data name="numEntryFees.Location" type="System.Drawing.Point, System.Drawing">
     <value>557, 82</value>
   </data>
+  <data name="groupBoxEntryFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>711, 155</value>
+  </data>
+  <data name="groupBoxEntryFees.Text" xml:space="preserve">
+    <value>Frais de dossier</value>
+  </data>
   <data name="btnUpdateSettings.Text" xml:space="preserve">
     <value>Enregistrer</value>
-  </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>711, 91</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Epargne obligatoire</value>
-  </data>
-  <data name="tableLayoutPanel10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>705, 70</value>
   </data>
   <data name="lbCompulsorySavingsAmount.Size" type="System.Drawing.Size, System.Drawing">
     <value>126, 29</value>
@@ -909,11 +711,26 @@
   <data name="lbCompAmountPercentMinMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 29</value>
   </data>
+  <data name="tableLayoutPanel10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>705, 70</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>711, 91</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Epargne obligatoire</value>
+  </data>
   <data name="labelComments.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 90</value>
   </data>
   <data name="labelComments.Text" xml:space="preserve">
     <value>Commentaires</value>
+  </data>
+  <data name="tableLayoutPanel6.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1243, 527</value>
   </data>
   <data name="labelLocAmount.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 32</value>
@@ -972,17 +789,20 @@
   <data name="lblLocCurrencyMax.Location" type="System.Drawing.Point, System.Drawing">
     <value>343, 13</value>
   </data>
-  <data name="tabPageRepayments.Text" xml:space="preserve">
-    <value>Echéancier</value>
+  <data name="tabPageAdvancedSettings.Text" xml:space="preserve">
+    <value>Paramètres avancés</value>
   </data>
-  <data name="tabPageEvents.Text" xml:space="preserve">
-    <value>Evénements</value>
+  <data name="tabPageCreditCommitee.Text" xml:space="preserve">
+    <value>Comité de crédit</value>
   </data>
   <data name="buttonLoanRepaymentRepay.Text" xml:space="preserve">
     <value>Rembourser</value>
   </data>
   <data name="buttonLoanReschedule.Text" xml:space="preserve">
     <value>Rééchelonner</value>
+  </data>
+  <data name="buttonManualSchedule.Text" xml:space="preserve">
+    <value>Editer l'échéancier</value>
   </data>
   <data name="buttonAddTranche.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 28</value>
@@ -1001,6 +821,9 @@
   </data>
   <data name="btnPrintLoanRepayment.Text" xml:space="preserve">
     <value>Imprimer</value>
+  </data>
+  <data name="tabPageRepayments.Text" xml:space="preserve">
+    <value>Echéancier</value>
   </data>
   <data name="EntryDate.Text" xml:space="preserve">
     <value>Date Entrée</value>
@@ -1041,12 +864,6 @@
   <data name="lvEvents.Size" type="System.Drawing.Size, System.Drawing">
     <value>981, 368</value>
   </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>981, 0</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 368</value>
-  </data>
   <data name="chxSystemEvents.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 20</value>
   </data>
@@ -1065,11 +882,155 @@
   <data name="btnDeleteEvent.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>981, 0</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>260, 368</value>
+  </data>
+  <data name="tabPageEvents.Text" xml:space="preserve">
+    <value>Evénements</value>
+  </data>
+  <data name="imageListTab.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
+        HQAAAk1TRnQBSQFMAgEBBQEAASABDQEgAQ0BIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
+        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
+        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
+        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
+        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
+        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
+        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
+        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
+        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
+        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
+        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
+        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
+        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
+        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
+        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
+        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
+        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
+        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
+        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
+        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
+        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
+        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
+        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
+        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
+        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
+        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
+        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
+        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/wMAA/8W9AL/ZQAB/wG8
+        Fu8B9wHvAfAB9GIAAv8CvA4HBu8D9wHsAesBvAH/YQAB/wLzDf8C9APzAvIE8QHwAe0B9wH0YQAB/wHy
+        AfQM/wP0AvMB8gEHAbwF8QHvAZIB9GEAAf8B8gH0DP8F9AHvAesB7wHyBPEB7wGSAfRhAAH/AfIB9Az/
+        A/QB8wHyAWwBFAH3AQcB8ALxAfIB7wGSAfRhAAH/AfIB9AT/AfAB7wHzBv8B9AHyAe8B9wFsARMD7AEH
+        AfEB8gEHAZIB9GEAAf8B8gH0A/8BvAHqAewBkgHzBf8B8wHsARUDDQEQAUMBbQHsAe8B8wEHAZIB9GEA
+        Af8B8gH0Av8B8QFsAQ4BFQHsAZIB8wT/AZECDQFxAXIBbAGRAUkBDgFtAewB8AEHAZIB9GEAAf8B8gH0
+        Af8B8AFsAQ0BSAENARUB7AH3AfMC/wEIAUgBDQFyAfQBkQHqAfABCAFsAQ8B7AIHAZIB9GEAAf8B8gH/
+        AfMBbARIAQ0BQwGSAfEC/wGRAQ0BFQHwAf8BkQFsAQcB9AH3AQ0BEgHvAQcBkgH0YQAB/wHyAfQBvAH3
+        Ae8B9wFIAWwBkgHrAfcD/wHvAUkB6wH0Af8BkQFsAQcB/wG7AQ0BFAIHAZIB9GEAAf8B8gH0A/8B8AEN
+        AesB8wX/AfQBBwHwAv8BkQFsAQcB/wH3AQ0BFAG8AQcBkgH0YQAB/wHyAfQD/wEIAQ0BbQHwCv8BkQES
+        Ae8BBwFsAQ0BbQHzAbwBkgH0YQAB/wHyAfQD/wEIAQ0BbQHwCP8B9AHzAXIBEgHsAUkCDQEHAf8BvAGS
+        AfRhAAH/AfIB9AP/AQgBDQFtAfAH/wHzAe8B7AFJBA0B7QL/AbwB9wH0YQAB/wHyAfQD/wEIAQ0BbQHw
+        Bv8B8wHsAUMCDQFIAWwBkQEHA/8B8AH3AfRhAAH/AfIB9AP/AQgBDQFtAfAG/wHsAg0BkQFxAWwBvAX/
+        AfAB9wH0YQAB/wHyAfQD/wEIAQ0BbQHwBf8B8AFIAQ0BkQH0AZEBEgG8Bf8B8AH3AfRhAAH/AfIB9AP/
+        AQgBDQFtAfAF/wG7AUgBFQG8Af8BkQFsAbwB/wHzAQcBvAH/AfAB9wH0YQAB/wHyAfQD/wEIAQ0BbQHw
+        Bf8BBwFIARQB7wH0AZEBbAG8AfMB7AFtAe0B8wHwAfcB9GEAAf8B8gH0A/8BCAENAW0B8AX/AfABbAER
+        Ae0BBwGRARIBvAHvAQ0BDgH3Af8B8AH3AfRhAAH/AfIB9AP/AQgBDQFtAfAF/wH0AZEBDQESAfcBbAES
+        Ae8BbAENARQB8gH/AfAB9wH0YQAB/wHyAfQD/wG8AQ0B6wHyBv8B8gFyAQ0BFQENAUMBFQINAQcC/wHw
+        AfcB9GEAAf8B8gH0A/8B8gFyAfcI/wHyAfcBcgFsAQ0BbAFyAQgD/wHwAfcB9GEAAf8B8gH0EP8B9AH3
+        AXEB8QX/AfABkgH0YQAB/wHyAfQR/wHzAfIG/wHwAfcB9GEAAf8C8xn/AfEBvAH/YQAB/wH0AfIB8xf0
+        AfIB8AL/YgAB/wH0GPMB9AH/ZQAa/4YAGv8GAAP/FvQC/wUAA/8W9AL/BAAC/wHzF/IB8wH/BAAB/wHy
+        AbwXBwHyAf8FAAH/AbwW7wH3Ae8B8AH0BAAB/wG8Fu8B9wHvAfAB9AMAAf8BBwGSDO0L7AHtAfAB/wIA
+        Af8B8QLvDPcEkgbtAuwB8QH/AgAC/wK8DgcG7wP3AewB6wG8Af8BAAL/ArwIBwG8BgcI7wHsAesBvAH/
+        AQAB/wHxDPMD8gLxA/AEvAEHAuwB8wH/AQAB9AHxCv8D9APzAvID8QPwAQcB7AH3AfQCAAH/AvMN/wL0
+        A/MC8gTxAfAB7QH3AfQBAAH/AvMI/wHzAvED8AO8BgcBvAHwAe0B9wH0AQAB9AHyAv8B9AfzA/ID8QLw
+        BLwBBwG8AfEBBwHsAfEB/wEAAfIG/wHwBLwHBwTvAQcB8ALxAe8BkgH0AgAB/wHyAfQM/wP0A/MC8gXx
+        Ae8BkgH0AQAB/wHyAfQH/wHzAe8N7AHrAZIB8QHvAZIB9AEAAfQB8gH/AfMB7w3tCOwBvAHwAewB8QH/
+        AQAB8gH0BP8BBwHrD20B7AG8AvEB7wGSAfQCAAH/AfIB9AL/AfQJ/wP0AvMD8gXxAe8BkgH0AQAB/wHy
+        AfQH/wH3AQ0BEAwNARUBkgHxAQcBkgH0AQAB9AHyAf8BkRRDAREB7ALwAewB8QH/AQAB8gH0BP8BkQ7r
+        AW0BQwHsAfAC8gHvAZIB9AIAAf8B8gH0Af8B8wIHAfEB9Ab/A/QD8wPyA/EB8gHvAZIB9AEAAf8B8gH0
+        B/8B7wFyDLwB7AERAfcB8QEHAZIB9AEAAfQB8gH/AbsBSBQNAfcB8QHwAewB8QH/AQAB8gH0A/8B9AG7
+        D/8B6gHsAfAC8gEHAZIB9AIAAf8B8gL/Ae0B6wLsAfcB7wHwAfMD/wT0AvMH8gEHAZIB9AEAAf8B8gH0
+        B/8BuwGSDP8B9wERAfcB8QEHAZIB9AEAAfQB8gH/AfEBbBJIAQ0BFQEHAfIB8AHsAfEB/wEAAfIB9AP/
+        AfQBBw//AeoB7AHwAvIBBwGSAfQCAAH/AfIB9AH/AQgBSQFDARQBEgFtAewBkgG8A/8E9APzBPIB8wEH
+        AZIB9AEAAf8B8gH0B/8BuwGSAfIBbAHwAXIB7wH3AewB8AFsAfIBbAEHAfcBEQHvAfIBBwGSAfQBAAH0
+        AfIB/wH0AZEBSAENEEgBDQFtAfAB8wHxAewB8QH/AQAB8gH0A/8B9AEHAf8BkQxsAfABbQHsAfAC8wEH
+        AZIB9AIAAf8B8gH0Av8DBwHsARIBFQFtAewB7wHzAv8D9AXzAvIB8wEHAZIB9AEAAf8B8gH0B/8BuwGR
+        Af8BBwH0AbwC8gG8AfQBBwH0AQgB8wH3AREB7wHyAQcBkgH0AQAB9AHyAv8BBwFsAQ0QSAENAfcC8wHx
+        AewB8QH/AQAB8gH0A/8B9AEHAf8B8AEHCbsCBwHzAeoB7AHxAvMBBwGSAfQCAAH/AfIB9AL/AfQBvAL/
+        AfQB9wERARMB7AH3AfEC/wP0B/MBBwGSAfQBAAH/AfIB9Af/AbsBkgH0AZIB8wHvArwB7wHyAZIB9AH3
+        AfEB9wERAe8B8wEHAZIB9AEAAfQB8gL/AfMBkQFIAQ0OSAENARIB8QHzAfQB8gHsAfEB/wEAAfIB9AP/
+        AfQBBwH/AfQL8gHzAfQB6gHsAfEB9AHzAQcBkgH0AgAB/wHyAfQD/wHxAfAC/wGRAWwB6wEUAesB7QG8
+        AfQB/wX0A/MB9AEHAZIB9AEAAf8B8gH0B/8BuwGSAfMB7AHyAZECBwGSAfEBkQHzAewB8AH3AREB7wHz
+        AQcBkgH0AQAB9AHyA/8BvAFsAUgCDQhIAg0BSAINAQcD9AHyAe0B8QH/AQAB8gH0A/8B9AEHAf8BkQFJ
+        CWwBSQFsAfABbQHtAfIC9AEHAZIB9AIAAf8B8gH0BP8BvAHzAZEBbAGSAZEB7AEUAW0B7AHvAfMB/wj0
+        AQcBkgH0AQAB/wHyAfQH/wG7AZEB/wHyAf8B8wL0AfMB/wHyAf8B8gH/AfcBQwHvAfMBvAGSAfQBAAH0
+        AfIE/wEHAXEMSAINAe8B/wP0AfIB7QHxAf8BAAHyAfQD/wH0AQcB/wH0C/MC9AHqAe0B8gL0AbwBkgH0
+        AgAB/wHyAfQE/wH0AQgCkQGSAbsBkQHtARIBEwHsAfcB8QL/BvQBvAGSAfQBAAH/AfIB9Af/AbsBkgHz
+        AWwB8AFxAZgB9wFyAfABbAHyAWwBBwH3AUMB7wH0AbwBkgH0AQAB9AHyBf8B8AH3ApEBSQRIAQ0BSAFx
+        AXIBkQG8Af8E9AHzAe0B8QH/AQAB8gH0A/8B9AEHAf8BvAH3C+8B8wHqAe0B8wL/AbwBkgH0AgAB/wHy
+        AfQF/wH0AfAB8QHvAZEBBwGRAe0BbQEUAesB7QG8AfQB/wT0Af8BvAGSAfQBAAH/AfIB9AT/AfAB9AH/
+        AbsBkQH/AfAB9AHxAvMB8QH0AfAB9AHwAf8B9wFDAe8B9AG8AZIB9AEAAfQB8gf/AfIBkQVIAQ0BQwHt
+        Ae8B8AP/AvQB/wHzAe0B8QH/AQAB8gH0A/8B9AEHAf8BkgxsAfABbQHtAfMC/wG8AZIB9AIAAf8B8gH0
+        B/8B8QHwAQgBkQHvAZIBkQHsARUBbQHsAQcB9AX/AbwBkgH0AQAB/wHyAfQD/wHvAewBBwH/AQcNbAFJ
+        AUMB7wH0AbwBkgH0AQAB9AHyBv8B8wFsAQ0GSAENAQ8BbQHtAfIF/wHzAe0B8QH/AQAB8gH0A/8B9AEH
+        Dv8B9AHqAe0B8wL/AbwB9wH0AgAB/wHyAfQI/wHzAbwB8AGRAZIB7wGRAe0BEwESAewB9wHyBP8BvAH3
+        AfQBAAH/AfIB9AH/AfQBvAEUAeoB7QHvAQcBbA0NARUB7wH/AfAB9wH0AQAB9AHyBv8BkQINB0gBDQEQ
+        AewBBwX/AfQB7QHxAf8BAAHyAfQD/wH0AQcB/wH3BHIBvAf/AfQB6gHtAfMC/wHwAfcB9AIAAf8B8gH0
+        Cf8B9AG8AfEB9wGRAbsBkQGSAW0BFAHsAe0B8AP/AfAB9wH0AQAB/wHyAfQB/wH3AUMCDQEVAe0B9wFs
+        AQ0LSAENARUBvAH/AfAB9wH0AQAB9AHyBf8B8gFJCkgBDQETAe8B9AT/AfQB7QHxAf8BAAHyAfQD/wH0
+        AQcB/wEHAewCkQHsAbwH/wH0AeoB7QH0Av8B8AH3AfQCAAH/AfIB9Av/AfEB8AEHAZEB7wKRARQBEQHr
+        AewBBwH0Af8B8AH3AfQBAAH/AfIB/wHyAUgBSQFxAZEBbAETAe8BkgJsCZEBbAFJAW0B9AH/AfAB9wH0
+        AQAB9AHyBf8BuwtIAQ0BEQH3AfME/wH0Ae0B8QH/AQAB8gH0A/8B9AEHB/8G9AH/AfQB6gHtAfQC/wHw
+        AfcB9AIAAf8B8gH0DP8B8wK8AZEB9wGRAUgBDQEPARIB7AHvAfMB8AH3AfQBAAH/AfIB/wHyAZEBBwGR
+        Ae8B9wENAe8B9AGRAZIJ9AFxAe8B9AL/AfAB9wH0AQAB9AHyBf8B7wFIAQ0JSAINAZIB8wT/AfQB7QHx
+        Af8BAAHyAfQD/wH0AQcB/wGRAUkLbAHwAW0B7QH0Av8B8AH3AfQCAAH/AfIB9A3/AfQBvAHxAZEBSAIN
+        Ae0BEgEVAewB9wEHAfcB9AEAAf8B8gH0A/8C6wFsAQ0BBwH/AQcB8An/AQcB8wP/AfAB9wH0AQAB9AHy
+        Bf8B7wFJAQ0JSAINAfcB9AT/AfQB7QHxAf8BAAHyAfQD/wH0AQcB/wHyAQgIvAIHAbwB8wHqAe0B8wL/
+        AfAB9wH0AgAB/wHyAfQP/wHxAfcBSQENAWwB/wH0AesBFQHsAQcB9wH0AQAB/wHyAfQB/wHyAewBSAIN
+        AesB9BH/AfAB9wH0AQAB9AHyBf8BvAFsAQ0JSAINAQcF/wH0Ae0B8QH/AQAB8gH0A/8B9AEHAf8B8wjw
+        AfEE/wHqAfcB9AL/AfAB9wH0AgAB/wHyAfQQ/wH0AfcBkQHzA/8BEwHtAbwB9wH0AQAB/wHyAfQB/wFy
+        AQ0BSAFsAfcB9BL/AfAB9wH0AQAB9AHyBf8B8wGRAUgBDQhIAQ0BEgHzBf8B9AHtAfEB/wEAAfIB9AP/
+        AfQBBwH/AZEBSAZsAUkBbAH0AfcCkQESAfED/wHwAfcB9AIAAf8B8gH0Ev8B8AHxAv8B8AFsAfEB8AH3
+        AfQBAAH/AfIB/wHxAUgBbAFyAe0B8AEHAbwR/wHwAfcB9AEAAfQB8gb/AQcBbAENB0gCDQHvBv8B9AHt
+        AfEB/wEAAfIB9AP/AfQBBwL/CvQBbAINAbwE/wHwAfcB9AIAAf8B8gH0E/8B8AK8AWwB9wH/AfAB9wH0
+        AQAB/wHyAf8B8gFJAewB6wHsAW0B6gEHEf8B8AH3AfQBAAH0AfIG/wH0AZgBbAUNAUgCDQHsB/8B9AHt
+        AfEB/wEAAfIB9AP/AfQBBwz/AWwBDQEHBf8B8AH3AfQCAAH/AfIB9BT/AfIB9wG8Av8B8AH3AfQBAAH/
+        AfIB9AH/Ae0BSQEVAUkBDgFtAfQR/wHwAfcB9AEAAfQB8gf/AfQBuwFxAUkFSAHtCP8B9AHtAfEB/wEA
+        AfIB9AP/AfQBBwHzCvQB8QFsAe8G/wHwAfcB9AIAAf8B8gH0Gf8B8AGSAfQBAAH/AfIB9AH/AfQB7wFs
+        AUkBkQH0Ev8B8AGSAfQBAAH0AfIJ/wHxAe8DkQHtAfAJ/wH0Ae0B8QH/AQAB8gH0BP8B8gu8AQcBvAf/
+        AfAB9wH0AgAB/wHyAfQZ/wHwAfcB9AEAAf8B8gH0A/8BvAHwFP8B8AH3AfQBAAH0AfIM/wH0Df8B9wHz
+        Af8BAAHzAfQZ/wHyAQcB/wIAAf8C8xn/AfEBvAH/AQAB/wLzGf8B8QG8Af8BAAH0AfIZ/wH0AQcC/wEA
+        AfQB8gH0F/8B9AEHAfQB/wIAAf8B9AHyAfMX9AHyAfAC/wEAAf8B9AHyAfMX9AHyAfAC/wEAAf8B9Bjy
+        AfEB8gL/AgAB/wH0AfMY8gH/BQAB/wH0GPMB9AH/BAAB/wH0GPMB9AH/BAAC/xf0Av8FABv/BgAa/wYA
+        Gv8EAAFCAU0BPgcAAT4DAAEoAwABgAMAAUADAAEBAQABAQYAAQQWAAP/AQABwAIAAQcMAAHAAgABAw8A
+        AQEPAAEBDwABAQ8AAQEPAAEBDwABAQ8AAQEPAAEBDwABAQ8AAQEPAAEBDwABAQ8AAQEPAAEBDwABAQ8A
+        AQEPAAEBDwABAQ8AAQEPAAEBDwABAQ8AAQEPAAEBDwABAQ8AAQEPAAEBDwABAQ8AAQEMAAGAAgABBwwA
+        AcACAAEPDAAE/wHAAgABDwHAAgABBwHAAgABBwGAAgABBwGAAgABBwHAAgABAwHAAgABAwGAAgABAwMA
+        AQMDAAEBAwABAQMAAQEDAAEDAwABAQMAAQEDAAEBAwABAwMAAQEDAAEBAwABAQMAAQMDAAEBAwABAQMA
+        AQEDAAEDAwABAQMAAQEDAAEBAwABAwMAAQEDAAEBAwABAQMAAQMDAAEBAwABAQMAAQEDAAEDAwABAQMA
+        AQEDAAEBAwABAwMAAQEDAAEBAwABAQMAAQMDAAEBAwABAQMAAQEDAAEDAwABAQMAAQEDAAEBAwABAwMA
+        AQEDAAEBAwABAQMAAQMDAAEBAwABAQMAAQEDAAEDAwABAQMAAQEDAAEBAwABAwMAAQEDAAEBAwABAQMA
+        AQMDAAEBAwABAQMAAQEDAAEDAwABAQMAAQEDAAEBAwABAwMAAQEDAAEBAwABAQMAAQMDAAEBAwABAQMA
+        AQEDAAEDAwABAQMAAQEDAAEBAwABAwMAAQEDAAEBAwABAQMAAQMDAAEBAwABAQMAAQEDAAEDAwABAQMA
+        AQEDAAEBAwABAwMAAQEDAAEBAwABAQMAAQMDAAEBAwABAQMAAQEDAAEDAwABAQMAAQEDAAEBAwABAwMA
+        AQEDAAEBAwABAQMAAQMDAAEBAwABAQMAAQMDAAEPAYACAAEHAYACAAEHAYACAAEPAYACAAEPAcACAAEP
+        AcACAAEPCw==
+</value>
+  </data>
   <data name="richTextBoxStatus.Text" xml:space="preserve">
     <value>Statut :</value>
   </data>
-  <data name="tabPageSavingsAmountsAndFees.Text" xml:space="preserve">
-    <value>Frais et limites</value>
+  <data name="tabPageLoanRepayment.Text" xml:space="preserve">
+    <value>Remboursements</value>
+  </data>
+  <data name="tabPageLoanGuarantees.Text" xml:space="preserve">
+    <value>Garants/Gages</value>
   </data>
   <data name="groupBoxSavingBalance.Text" xml:space="preserve">
     <value>Solde</value>
@@ -1082,9 +1043,6 @@
   </data>
   <data name="groupBoxSavingTransfer.Text" xml:space="preserve">
     <value>Montant des transferts</value>
-  </data>
-  <data name="gbInterest.Text" xml:space="preserve">
-    <value>Intérêts</value>
   </data>
   <data name="lbInterestBasedOnValue.Location" type="System.Drawing.Point, System.Drawing">
     <value>85, 41</value>
@@ -1113,8 +1071,8 @@
   <data name="lbInterestPosting.Text" xml:space="preserve">
     <value>Imputation :</value>
   </data>
-  <data name="gbDepositInterest.Text" xml:space="preserve">
-    <value>Interêts</value>
+  <data name="gbInterest.Text" xml:space="preserve">
+    <value>Intérêts</value>
   </data>
   <data name="lbAccrualDeposit.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 16</value>
@@ -1127,6 +1085,9 @@
   </data>
   <data name="lbPeriodicity.Text" xml:space="preserve">
     <value>Périodicité :</value>
+  </data>
+  <data name="gbDepositInterest.Text" xml:space="preserve">
+    <value>Interêts</value>
   </data>
   <data name="lbTransferFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 16</value>
@@ -1176,8 +1137,8 @@
   <data name="lbManagementFees.Text" xml:space="preserve">
     <value>Frais de gestion du compte</value>
   </data>
-  <data name="tabPageSavingsEvents.Text" xml:space="preserve">
-    <value>Evénements</value>
+  <data name="tabPageSavingsAmountsAndFees.Text" xml:space="preserve">
+    <value>Frais et limites</value>
   </data>
   <data name="columnHeader26.Text" xml:space="preserve">
     <value>Frais</value>
@@ -1197,8 +1158,8 @@
   <data name="columnHeader29.Text" xml:space="preserve">
     <value>Utilisateur</value>
   </data>
-  <data name="tabPageLoans.Text" xml:space="preserve">
-    <value>Prêts</value>
+  <data name="tabPageSavingsEvents.Text" xml:space="preserve">
+    <value>Evénements</value>
   </data>
   <data name="olvColumnStatus.Text" xml:space="preserve">
     <value>Statut</value>
@@ -1218,8 +1179,11 @@
   <data name="olvColumnCloseDate.Text" xml:space="preserve">
     <value>Date de fin</value>
   </data>
-  <data name="tpTermDeposit.Text" xml:space="preserve">
-    <value>Dépôt à terme</value>
+  <data name="resource.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="tabPageLoans.Text" xml:space="preserve">
+    <value>Prêts</value>
   </data>
   <data name="lblNumberOfPeriods.Size" type="System.Drawing.Size, System.Drawing">
     <value>148, 28</value>
@@ -1260,6 +1224,9 @@
   <data name="lblTermTransferToAccount.Text" xml:space="preserve">
     <value>Transférer sur le compte</value>
   </data>
+  <data name="tpTermDeposit.Text" xml:space="preserve">
+    <value>Dépôt à terme</value>
+  </data>
   <data name="btSavingsUpdate.Text" xml:space="preserve">
     <value>Mettre à jour</value>
   </data>
@@ -1280,9 +1247,6 @@
   </data>
   <data name="btnPrintSavings.Text" xml:space="preserve">
     <value>Imprimer</value>
-  </data>
-  <data name="groupBoxSaving.Text" xml:space="preserve">
-    <value>Compte d'épargne</value>
   </data>
   <data name="lbSavingAvBalanceValue.Location" type="System.Drawing.Point, System.Drawing">
     <value>691, 42</value>
@@ -1368,8 +1332,14 @@
   <data name="lbWithdrawFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
     <value>691, 106</value>
   </data>
-  <data name="menuBtnAddSavingOperation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 92</value>
+  <data name="groupBoxSaving.Text" xml:space="preserve">
+    <value>Compte d'épargne</value>
+  </data>
+  <data name="tabPageSavingDetails.Text" xml:space="preserve">
+    <value>Compte d'épargne</value>
+  </data>
+  <data name="tabPageContracts.Text" xml:space="preserve">
+    <value>Contrats</value>
   </data>
   <data name="savingDepositToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>172, 22</value>
@@ -1394,6 +1364,9 @@
   </data>
   <data name="specialOperationToolStripMenuItem.Text" xml:space="preserve">
     <value>Opération spéciale</value>
+  </data>
+  <data name="menuBtnAddSavingOperation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 92</value>
   </data>
   <data name="buttonPrintSchedule.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1487,9 +1460,6 @@
   <data name="toolStripMenuItemConfirmPending.Text" xml:space="preserve">
     <value>Confirmer le paiement en attente</value>
   </data>
-  <data name="menuPendingSavingEvents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 48</value>
-  </data>
   <data name="menuItemConfirmPendingSavingEvent.Size" type="System.Drawing.Size, System.Drawing">
     <value>193, 22</value>
   </data>
@@ -1501,6 +1471,9 @@
   </data>
   <data name="menuItemCancelPendingSavingEvent.Text" xml:space="preserve">
     <value>Refuser le paiement</value>
+  </data>
+  <data name="menuPendingSavingEvents.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 48</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
