@@ -7,6 +7,7 @@ namespace OpenCBS.ArchitectureV2.Interface.View
     public interface ISearchView : IView<ISearchPresenterCallbacks>
     {
         string Keywords { get; }
+        SearchResult SelectedItem { get; }
         void SetSearchResults(List<SearchResult> searchResults);
         void StartProgress();
         void StopProgress();

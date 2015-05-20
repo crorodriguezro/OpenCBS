@@ -3,6 +3,7 @@
     public interface ISearchPresenterCallbacks
     {
         void Search();
+        void OpenSearchResult();
         void DetachView();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using OpenCBS.ArchitectureV2.CommandData;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.Presenter;
 using OpenCBS.ArchitectureV2.Interface.Repository;
@@ -60,6 +61,17 @@ namespace OpenCBS.ArchitectureV2.Presenter
         public void DetachView()
         {
             _applicationController.Publish(new SearchHiddenMessage(this));
+        }
+
+        public void OpenSearchResult()
+        {
+            var selectedItem = _view.SelectedItem;
+            if (selectedItem == null)
+            {
+                return;
+            }
+
+            _applicationController.Execute(new EditVillageBankCommandData { VillageBankId = selectedItem.Id });
         }
     }
 }

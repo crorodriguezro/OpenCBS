@@ -26,6 +26,7 @@ namespace OpenCBS.ArchitectureV2.View
                     presenterCallbacks.Search();
                 }
             };
+            _searchResultsListView.DoubleClick += (sender, e) => presenterCallbacks.OpenSearchResult();
         }
 
         public string Keywords
@@ -47,6 +48,11 @@ namespace OpenCBS.ArchitectureV2.View
         public void StopProgress()
         {
             Cursor = Cursors.Default;
+        }
+
+        public SearchResult SelectedItem
+        {
+            get { return (SearchResult) _searchResultsListView.SelectedObject; }
         }
     }
 }

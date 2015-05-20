@@ -66,6 +66,7 @@
             this._searchResultsListView.AllColumns.Add(this._activeColumn);
             this._searchResultsListView.AllColumns.Add(this._districtColumn);
             this._searchResultsListView.AllColumns.Add(this._cityColumn);
+            this._searchResultsListView.CheckBoxes = false;
             this._searchResultsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this._typeColumn,
             this._nameColumn,
