@@ -87,11 +87,22 @@ namespace OpenCBS.GUI.Contracts
                     ListViewItem item = new ListViewItem(person.Name) {Tag = loan};
                     item.UseItemStyleForSubItems = true;
                     item.SubItems.Add(person.IdentificationData);
-                    ListViewItem.ListViewSubItem subitem = new ListViewItem.ListViewSubItem
-                                                               {
-                                                                   Text = TimeProvider.Today.ToShortDateString(),
-                                                                   Tag = TimeProvider.Today
-                                                               };
+
+                    ListViewItem.ListViewSubItem subitem;
+
+                    if (loan.StartDate == null)
+                        subitem = new ListViewItem.ListViewSubItem
+                                    {
+                                        Text = TimeProvider.Today.ToShortDateString(),
+                                        Tag = TimeProvider.Today
+                                    };
+                    else
+                        subitem = new ListViewItem.ListViewSubItem
+                                {
+                                    Text = loan.StartDate.ToShortDateString(),
+                                    Tag = loan.StartDate.ToShortDateString()
+                                };
+
                     item.SubItems.Add(subitem);
                     item.SubItems.Add(loan.FirstInstallmentDate.ToShortDateString());
                     item.SubItems.Add(loan.Amount.GetFormatedValue(loan.UseCents));
