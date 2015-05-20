@@ -86,6 +86,8 @@ namespace OpenCBS.GUI
                 _applicationController.Subscribe<AlertsHiddenMessage>(this, OnAlertsHidden);
                 _applicationController.Subscribe<DashboardShownMessage>(this, OnDashboardShown);
                 _applicationController.Subscribe<DashboardHiddenMessage>(this, OnDashboardHidden);
+                _applicationController.Subscribe<SearchShownMessage>(this, OnSearchShown);
+                _applicationController.Subscribe<SearchHiddenMessage>(this, OnSearchHidden);
                 _applicationController.Subscribe<EditLoanMessage>(this, OnEditLoan);
                 _applicationController.Subscribe<EditSavingMessage>(this, OnEditSaving);
                 _applicationController.Subscribe<RestartApplicationMessage>(this, m =>
@@ -113,6 +115,7 @@ namespace OpenCBS.GUI
             _startPageItem.Click += (sender, e) => _applicationController.Execute(new ShowStartPageCommandData());
             _alertsItem.Click += (sender, e) => _applicationController.Execute(new ShowAlertsCommandData());
             _dashboardItem.Click += (sender, e) => _applicationController.Execute(new ShowDashboardCommandData());
+            _searchItem.Click += (sender, e) => _applicationController.Execute(new ShowSearchCommandData());
         }
 
         private void OnShowView(ShowViewMessage message)
@@ -157,6 +160,16 @@ namespace OpenCBS.GUI
         private void OnDashboardHidden(DashboardHiddenMessage message)
         {
             _dashboardItem.Checked = false;
+        }
+
+        private void OnSearchShown(SearchShownMessage message)
+        {
+            _searchItem.Checked = true;
+        }
+
+        private void OnSearchHidden(SearchHiddenMessage message)
+        {
+            _searchItem.Checked = false;
         }
 
         private void OnEditLoan(EditLoanMessage message)

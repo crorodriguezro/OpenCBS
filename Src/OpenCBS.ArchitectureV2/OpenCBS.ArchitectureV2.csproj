@@ -107,6 +107,9 @@
     <Compile Include="Command\ShowDashboardCommand.cs" />
     <Compile Include="Interface\IStartupProcess.cs" />
     <Compile Include="Command\ShowSearchCommand.cs" />
+    <Compile Include="Interface\Repository\ISearchRepository.cs" />
+    <Compile Include="Interface\Presenter\ISearchPresenter.cs" />
+    <Compile Include="Interface\Presenter\ISearchPresenterCallbacks.cs" />
     <Compile Include="Interface\View\IAlertsView.cs" />
     <Compile Include="Command\OpenEmailCommand.cs" />
     <Compile Include="Command\OpenUrlCommand.cs" />
@@ -144,6 +147,7 @@
     <Compile Include="Interface\View\IErrorView.cs" />
     <Compile Include="Interface\View\ILoginView.cs" />
     <Compile Include="Interface\View\IMainView.cs" />
+    <Compile Include="Interface\View\ISearchView.cs" />
     <Compile Include="Interface\View\IStartPageView.cs" />
     <Compile Include="Interface\View\IUpgradeView.cs" />
     <Compile Include="Interface\View\IView.cs" />
@@ -156,12 +160,16 @@
     <Compile Include="Message\EditSavingMessage.cs" />
     <Compile Include="Message\FastRepaymentDoneMessage.cs" />
     <Compile Include="Message\RestartApplicationMessage.cs" />
+    <Compile Include="Message\SearchHiddenMessage.cs" />
+    <Compile Include="Message\SearchShownMessage.cs" />
     <Compile Include="Message\ShowViewMessage.cs" />
     <Compile Include="Message\StartPageHiddenMessage.cs" />
     <Compile Include="Message\StartPageShownMessage.cs" />
     <Compile Include="Model\Alert.cs" />
+    <Compile Include="Model\SearchResult.cs" />
     <Compile Include="Presenter\AlertsPresenter.cs" />
     <Compile Include="Presenter\LoginPresenter.cs" />
+    <Compile Include="Presenter\SearchPresenter.cs" />
     <Compile Include="Presenter\StartPagePresenter.cs" />
     <Compile Include="Presenter\TranslationService.cs" />
     <Compile Include="Presenter\UpgradePresenter.cs" />
@@ -172,6 +180,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Repository\LoanRepository.cs" />
+    <Compile Include="Repository\SearchRepository.cs" />
     <Compile Include="Service\AuthService.cs" />
     <Compile Include="Service\DatabaseService.cs" />
     <Compile Include="Service\RepaymentSettings.cs" />
@@ -189,6 +198,12 @@
     </Compile>
     <Compile Include="View\BaseView.Designer.cs">
       <DependentUpon>BaseView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SearchView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SearchView.Designer.cs">
+      <DependentUpon>SearchView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StartPageView.cs">
       <SubType>Form</SubType>
@@ -240,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\BaseView.resx">
       <DependentUpon>BaseView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SearchView.resx">
+      <DependentUpon>SearchView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StartPageView.resx">
       <DependentUpon>StartPageView.cs</DependentUpon>

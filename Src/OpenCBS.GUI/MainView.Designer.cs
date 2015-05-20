@@ -98,6 +98,7 @@ namespace OpenCBS.GUI
             this.tellersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorConfig1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuDomainOfApplication = new System.Windows.Forms.ToolStripMenuItem();
+            this.loanPurposeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemLocations = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemFundingLines = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemInstallmentTypes = new System.Windows.Forms.ToolStripMenuItem();
@@ -146,7 +147,7 @@ namespace OpenCBS.GUI
             this.mainStatusBarLblDate = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLblBranchCode = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLblDB = new System.Windows.Forms.ToolStripStatusLabel();
-            this.loanPurposeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._searchItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu.SuspendLayout();
             this.mainStatusBar.SuspendLayout();
             this.SuspendLayout();
@@ -390,6 +391,12 @@ namespace OpenCBS.GUI
             resources.ApplyResources(this.mnuDomainOfApplication, "mnuDomainOfApplication");
             this.mnuDomainOfApplication.Name = "mnuDomainOfApplication";
             this.mnuDomainOfApplication.Click += new System.EventHandler(this.mnuDomainOfApplication_Click);
+            // 
+            // loanPurposeToolStripMenuItem
+            // 
+            this.loanPurposeToolStripMenuItem.Name = "loanPurposeToolStripMenuItem";
+            resources.ApplyResources(this.loanPurposeToolStripMenuItem, "loanPurposeToolStripMenuItem");
+            this.loanPurposeToolStripMenuItem.Click += new System.EventHandler(this.loanPurposeToolStripMenuItem_Click);
             // 
             // menuItemLocations
             // 
@@ -652,7 +659,8 @@ namespace OpenCBS.GUI
             this._viewItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._startPageItem,
             this._alertsItem,
-            this._dashboardItem});
+            this._dashboardItem,
+            this._searchItem});
             this._viewItem.Name = "_viewItem";
             resources.ApplyResources(this._viewItem, "_viewItem");
             // 
@@ -748,11 +756,10 @@ namespace OpenCBS.GUI
             this.toolStripStatusLblDB.Name = "toolStripStatusLblDB";
             resources.ApplyResources(this.toolStripStatusLblDB, "toolStripStatusLblDB");
             // 
-            // loanPurposeToolStripMenuItem
+            // _searchItem
             // 
-            this.loanPurposeToolStripMenuItem.Name = "loanPurposeToolStripMenuItem";
-            resources.ApplyResources(this.loanPurposeToolStripMenuItem, "loanPurposeToolStripMenuItem");
-            this.loanPurposeToolStripMenuItem.Click += new System.EventHandler(this.loanPurposeToolStripMenuItem_Click);
+            this._searchItem.Name = "_searchItem";
+            resources.ApplyResources(this._searchItem, "_searchItem");
             // 
             // MainView
             // 
@@ -832,6 +839,7 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem _alertsItem;
         private ToolStripMenuItem _dashboardItem;
         private ToolStripMenuItem loanPurposeToolStripMenuItem;
+        private ToolStripMenuItem _searchItem;
 
 
     }
