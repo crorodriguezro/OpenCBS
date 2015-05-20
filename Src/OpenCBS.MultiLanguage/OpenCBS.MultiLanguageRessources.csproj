@@ -386,6 +386,7 @@
     <EmbeddedResource Include="resx\FrmAddSavingEvent.pt.resx" />
     <EmbeddedResource Include="resx\FrmAddSavingEvent.resx" />
     <EmbeddedResource Include="resx\FrmAddSavingEvent.ru-RU.resx" />
+    <EmbeddedResource Include="resx\VillageCreditCommitteeForm.resx" />
     <EmbeddedResource Include="resx\SavingsOperationForm.pt.resx" />
     <EmbeddedResource Include="resx\FrmAddSavingProduct.pt.resx" />
     <EmbeddedResource Include="resx\frmAdvancedSettings.pt.resx" />

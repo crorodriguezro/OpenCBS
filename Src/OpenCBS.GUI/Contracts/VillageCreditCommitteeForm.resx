@@ -259,7 +259,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pnlButtons.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="tbAmount.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9pt</value>
@@ -286,7 +286,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbAmount.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="tbEntryFee.Location" type="System.Drawing.Point, System.Drawing">
     <value>381, 309</value>
@@ -310,7 +310,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbEntryFee.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="chName.Text" xml:space="preserve">
     <value>Name</value>
@@ -366,6 +366,18 @@
   <data name="chValidationCode.Width" type="System.Int32, mscorlib">
     <value>100</value>
   </data>
+  <data name="disbursementDateColumn.Text" xml:space="preserve">
+    <value>Disbursement Date</value>
+  </data>
+  <data name="disbursementDateColumn.Width" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
+  <data name="firstInstDateColumn.Text" xml:space="preserve">
+    <value>First Installment Date</value>
+  </data>
+  <data name="firstInstDateColumn.Width" type="System.Int32, mscorlib">
+    <value>129</value>
+  </data>
   <data name="chComment.Text" xml:space="preserve">
     <value>Comment</value>
   </data>
@@ -391,13 +403,13 @@
     <value>lvMembers</value>
   </data>
   <data name="&gt;&gt;lvMembers.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvMembers.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lvMembers.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="cbStatus.Location" type="System.Drawing.Point, System.Drawing">
     <value>554, 174</value>
@@ -421,7 +433,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbStatus.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="tbComment.Location" type="System.Drawing.Point, System.Drawing">
     <value>554, 229</value>
@@ -445,10 +457,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbComment.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="dtCreditCommittee.Location" type="System.Drawing.Point, System.Drawing">
-    <value>554, 201</value>
+    <value>520, 29</value>
   </data>
   <data name="dtCreditCommittee.Size" type="System.Drawing.Size, System.Drawing">
     <value>134, 20</value>
@@ -469,7 +481,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtCreditCommittee.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="tbValidationCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>740, 231</value>
@@ -493,7 +505,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbValidationCode.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="tbLoanOfficer.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9pt</value>
@@ -520,7 +532,55 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbLoanOfficer.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
+  </data>
+  <data name="dtDisbursementDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>735, 29</value>
+  </data>
+  <data name="dtDisbursementDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 20</value>
+  </data>
+  <data name="dtDisbursementDate.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="dtDisbursementDate.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;dtDisbursementDate.Name" xml:space="preserve">
+    <value>dtDisbursementDate</value>
+  </data>
+  <data name="&gt;&gt;dtDisbursementDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtDisbursementDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dtDisbursementDate.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="dtFirstInstDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>855, 29</value>
+  </data>
+  <data name="dtFirstInstDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 20</value>
+  </data>
+  <data name="dtFirstInstDate.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="dtFirstInstDate.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;dtFirstInstDate.Name" xml:space="preserve">
+    <value>dtFirstInstDate</value>
+  </data>
+  <data name="&gt;&gt;dtFirstInstDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtFirstInstDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dtFirstInstDate.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1183,6 +1243,18 @@
   <data name="&gt;&gt;chValidationCode.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;disbursementDateColumn.Name" xml:space="preserve">
+    <value>disbursementDateColumn</value>
+  </data>
+  <data name="&gt;&gt;disbursementDateColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;firstInstDateColumn.Name" xml:space="preserve">
+    <value>firstInstDateColumn</value>
+  </data>
+  <data name="&gt;&gt;firstInstDateColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;chComment.Name" xml:space="preserve">
     <value>chComment</value>
   </data>
@@ -1193,6 +1265,6 @@
     <value>VillageCreditCommitteeForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

@@ -50,12 +50,16 @@ namespace OpenCBS.GUI.Contracts
             this.chStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chValidationDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chValidationCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.disbursementDateColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.firstInstDateColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.tbComment = new System.Windows.Forms.TextBox();
             this.dtCreditCommittee = new System.Windows.Forms.DateTimePicker();
             this.tbValidationCode = new System.Windows.Forms.TextBox();
             this.tbLoanOfficer = new System.Windows.Forms.TextBox();
+            this.dtDisbursementDate = new System.Windows.Forms.DateTimePicker();
+            this.dtFirstInstDate = new System.Windows.Forms.DateTimePicker();
             this.pnlButtons.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,6 +119,8 @@ namespace OpenCBS.GUI.Contracts
             this.chStatus,
             this.chValidationDate,
             this.chValidationCode,
+            this.disbursementDateColumn,
+            this.firstInstDateColumn,
             this.chComment});
             resources.ApplyResources(this.lvMembers, "lvMembers");
             this.lvMembers.DoubleClickActivation = false;
@@ -159,6 +165,14 @@ namespace OpenCBS.GUI.Contracts
             // 
             resources.ApplyResources(this.chValidationCode, "chValidationCode");
             // 
+            // disbursementDateColumn
+            // 
+            resources.ApplyResources(this.disbursementDateColumn, "disbursementDateColumn");
+            // 
+            // firstInstDateColumn
+            // 
+            resources.ApplyResources(this.firstInstDateColumn, "firstInstDateColumn");
+            // 
             // chComment
             // 
             resources.ApplyResources(this.chComment, "chComment");
@@ -192,10 +206,26 @@ namespace OpenCBS.GUI.Contracts
             resources.ApplyResources(this.tbLoanOfficer, "tbLoanOfficer");
             this.tbLoanOfficer.Name = "tbLoanOfficer";
             // 
+            // dtDisbursementDate
+            // 
+            this.dtDisbursementDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            resources.ApplyResources(this.dtDisbursementDate, "dtDisbursementDate");
+            this.dtDisbursementDate.Name = "dtDisbursementDate";
+            this.dtDisbursementDate.ValueChanged += new System.EventHandler(this.dtDisbursementDate_ValueChanged);
+            // 
+            // dtFirstInstDate
+            // 
+            this.dtFirstInstDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            resources.ApplyResources(this.dtFirstInstDate, "dtFirstInstDate");
+            this.dtFirstInstDate.Name = "dtFirstInstDate";
+            this.dtFirstInstDate.ValueChanged += new System.EventHandler(this.dtFirstInstDate_ValueChanged);
+            // 
             // VillageCreditCommitteeForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dtFirstInstDate);
+            this.Controls.Add(this.dtDisbursementDate);
             this.Controls.Add(this.dtCreditCommittee);
             this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.tbEntryFee);
@@ -237,5 +267,9 @@ namespace OpenCBS.GUI.Contracts
         private System.Windows.Forms.TextBox tbLoanOfficer;
         private System.Windows.Forms.Button buttonValidate;
         private System.Windows.Forms.CheckBox checkBoxSelectAll;
+        private ColumnHeader disbursementDateColumn;
+        private ColumnHeader firstInstDateColumn;
+        private DateTimePicker dtDisbursementDate;
+        private DateTimePicker dtFirstInstDate;
     }
 }

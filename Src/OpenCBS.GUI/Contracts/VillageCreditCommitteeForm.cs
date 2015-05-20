@@ -41,8 +41,11 @@ namespace OpenCBS.GUI.Contracts
     {
         private readonly Village _village;
         private bool _blockItemCheck;
-        private DateTime _CreditCommitteeDate = TimeProvider.Today;
+        private DateTime _creditCommitteeDate = TimeProvider.Today;
+        private DateTime _disbursementDate;
+        private DateTime _firstInstallmentDate;
         private bool _sync = false;
+        private bool _isSaveLoanNeeded = false;
 
         private const int IdxAmount = 2;
         private const int IdxCurrency = 3;
@@ -50,7 +53,9 @@ namespace OpenCBS.GUI.Contracts
         private const int IdxStatus = 5;
         private const int IdxCreditCommitteeDate = 6;
         private const int IdxValidationCode = 7;
-        private const int IdxComment = 8;
+        private const int IdxDisbursementDate = 8;
+        private const int IdxFirstInstallmentDate = 9;
+        private const int IdxComment = 10;
 
 
 
@@ -70,6 +75,10 @@ namespace OpenCBS.GUI.Contracts
 
             dtCreditCommittee.Format = DateTimePickerFormat.Custom;
             dtCreditCommittee.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            dtDisbursementDate.Format = DateTimePickerFormat.Custom;
+            dtDisbursementDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            dtFirstInstDate.Format = DateTimePickerFormat.Custom;
+            dtFirstInstDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
 
             foreach (VillageMember member in _village.Members)
             {
@@ -91,6 +100,8 @@ namespace OpenCBS.GUI.Contracts
                      item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", dfc, bc, item.Font));
                      item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", true ? dfc : fc, bc, item.Font));
                      item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", dfc, bc, item.Font));
+                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", dfc, bc, item.Font));
+                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", dfc, bc, item.Font));
                     lvMembers.Items.Add(item);
                 }
 
@@ -107,7 +118,6 @@ namespace OpenCBS.GUI.Contracts
             lvMembers.DoubleClickActivation = true;
             buttonValidate.Click += Validate;
             checkBoxSelectAll.CheckedChanged += checkBoxSelectAll_CheckedChanged;
-
         }
 
 
@@ -201,8 +211,31 @@ namespace OpenCBS.GUI.Contracts
 
                 if (string.IsNullOrEmpty(item.SubItems[IdxCreditCommitteeDate].Text)) // Credit Committee date
                 {
-                    item.SubItems[IdxCreditCommitteeDate].Text = TimeProvider.Today.ToShortDateString();
-                    item.SubItems[IdxCreditCommitteeDate].Tag = TimeProvider.Today.ToShortDateString();
+                    var loan = (Loan)item.Tag;
+                    if (loan.CreditCommiteeDate == null)
+                    {
+                        item.SubItems[IdxCreditCommitteeDate].Text = TimeProvider.Today.ToShortDateString();
+                        item.SubItems[IdxCreditCommitteeDate].Tag = TimeProvider.Today.ToShortDateString();
+                    }
+                    else
+                    {
+                        item.SubItems[IdxCreditCommitteeDate].Text = loan.CreditCommiteeDate.Value.ToShortDateString();
+                        item.SubItems[IdxCreditCommitteeDate].Tag = loan.CreditCommiteeDate.Value.ToShortDateString();
+                    }
+                }
+
+                if (string.IsNullOrEmpty(item.SubItems[IdxDisbursementDate].Text)) // Disbursement date
+                {
+                    var loan = (Loan)item.Tag;
+                    item.SubItems[IdxDisbursementDate].Text = loan.StartDate.ToShortDateString();
+                    item.SubItems[IdxDisbursementDate].Tag = loan.StartDate.ToShortDateString();
+                }
+
+                if (string.IsNullOrEmpty(item.SubItems[IdxFirstInstallmentDate].Text)) // Disbursement date
+                {
+                    var loan = (Loan)item.Tag;
+                    item.SubItems[IdxFirstInstallmentDate].Text = loan.FirstInstallmentDate.ToShortDateString();
+                    item.SubItems[IdxFirstInstallmentDate].Tag = loan.FirstInstallmentDate.ToShortDateString();
                 }
             }
             else
@@ -231,6 +264,14 @@ namespace OpenCBS.GUI.Contracts
 
                     case IdxValidationCode:
                         lvMembers.StartEditing(tbValidationCode, e.Item, e.SubItem);
+                        break;
+
+                    case IdxDisbursementDate:
+                        lvMembers.StartEditing(dtDisbursementDate, e.Item, e.SubItem);
+                        break;
+
+                    case IdxFirstInstallmentDate:
+                        lvMembers.StartEditing(dtFirstInstDate, e.Item, e.SubItem);
                         break;
 
                     case IdxComment:
@@ -263,7 +304,17 @@ namespace OpenCBS.GUI.Contracts
                     break;
 
                 case IdxCreditCommitteeDate:
-                    subItems[e.SubItem].Tag = _CreditCommitteeDate;
+                    subItems[e.SubItem].Tag = _creditCommitteeDate;
+                    break;
+
+                case IdxDisbursementDate:
+                    subItems[IdxDisbursementDate].Tag = _disbursementDate;
+                    //if (_firstInstallmentDate != null)
+                    //    subItems[IdxFirstInstallmentDate].Tag = _firstInstallmentDate;
+                    break;
+
+                case IdxFirstInstallmentDate:
+                    subItems[e.SubItem].Tag = _firstInstallmentDate;
                     break;
 
                 case IdxValidationCode:
@@ -313,14 +364,19 @@ namespace OpenCBS.GUI.Contracts
                 {
                     if (!item.Checked) continue;
                     var loan = item.Tag as Loan;
-                    var comment = item.SubItems[IdxComment].Text;
-                    var currentStatus = loan.ContractStatus;
                     var status = (OContractStatus)item.SubItems[IdxStatus].Tag;
-                    if (currentStatus == status) continue;
+                    var currentStatus = loan.ContractStatus;
                     string code = item.SubItems[IdxValidationCode].Text;
-                    DateTime date = Convert.ToDateTime(item.SubItems[IdxCreditCommitteeDate].Tag);
-
+                    var comment = item.SubItems[IdxComment].Text;
+                    DateTime creditCommDate = Convert.ToDateTime(item.SubItems[IdxCreditCommitteeDate].Tag);
+                    DateTime disbursementDate = Convert.ToDateTime(item.SubItems[IdxDisbursementDate].Tag);
                     VillageMember activeMember = null;
+
+                    loan.CreditCommiteeDate = creditCommDate + DateTime.Now.TimeOfDay;
+                    loan.StartDate = disbursementDate + DateTime.Now.TimeOfDay;
+                    loan.ContractStatus = status;
+                    loan.CreditCommitteeCode = code;
+                    loan.CreditCommiteeComment = comment;
 
                     foreach (VillageMember member in _village.Members)
                     {
@@ -330,19 +386,37 @@ namespace OpenCBS.GUI.Contracts
                             activeMember = member;
                         }
                     }
-
+                    
                     IClient client = activeMember.Tiers;
-
-                    loan.CreditCommiteeDate = date + DateTime.Now.TimeOfDay;
-                    loan.ContractStatus = status;
-                    loan.CreditCommitteeCode = code;
-                    loan.CreditCommiteeComment = comment;
                     Project project = client.Projects[0];
 
+                    if (loan.StartDate.Date < ((DateTime)loan.CreditCommiteeDate).Date)
+                    {
+                        MessageBox.Show(GetString("CCLateError.Text"), GetString("Notification.Caption"));
+                        return;
+                    }
+
+                    if (_isSaveLoanNeeded)
+                    {
+                        DateTime firstInstDate = Convert.ToDateTime(item.SubItems[IdxFirstInstallmentDate].Tag);
+                        loan.AlignDisbursementDate = loan.CalculateAlignDisbursementDate(firstInstDate);
+                        loan.FirstInstallmentDate = firstInstDate + DateTime.Now.TimeOfDay;
+                        loan.InstallmentList = ServicesProvider.GetInstance().GetContractServices().SimulateScheduleCreation(loan);
+
+                        if (loan.FirstInstallmentDate.Date < (DateTime)loan.StartDate.Date)
+                        {
+                            MessageBox.Show(GetString("FILateError.Text"), GetString("Notification.Caption"));
+                            return;
+                        }
+
+                        ServicesProvider.GetInstance().GetContractServices().SaveLoan(ref loan, project.Id, ref client);
+                    }
+                    
                     loan = ServicesProvider.GetInstance().GetContractServices().UpdateContractStatus(loan, project, client, currentStatus == OContractStatus.Validated);
-                    if (OContractStatus.Refused == status ||
-                        OContractStatus.Abandoned == status ||
-                        OContractStatus.Closed == status)
+                    
+                    if (OContractStatus.Refused == status 
+                        || OContractStatus.Abandoned == status 
+                        || OContractStatus.Closed == status)
                     {
                         loan.Closed = true;
                         activeMember.ActiveLoans.Remove(loan);
@@ -375,7 +449,25 @@ namespace OpenCBS.GUI.Contracts
 
         private void dtCreditCommittee_ValueChanged(object sender, EventArgs e)
         {
-            _CreditCommitteeDate = dtCreditCommittee.Value;
+            _creditCommitteeDate = dtCreditCommittee.Value;
+        }
+
+        private void dtDisbursementDate_ValueChanged(object sender, EventArgs e)
+        {
+            _isSaveLoanNeeded = true;
+            //if (dtDisbursementDate.Value > dtFirstInstDate.Value)
+            //    dtFirstInstDate.Value = dtDisbursementDate.Value;
+            
+            _disbursementDate = dtDisbursementDate.Value;
+        }
+
+        private void dtFirstInstDate_ValueChanged(object sender, EventArgs e)
+        {
+            _isSaveLoanNeeded = true;
+            //if (dtDisbursementDate.Value > dtFirstInstDate.Value)
+            //    dtFirstInstDate.Value = dtDisbursementDate.Value;
+            
+            _firstInstallmentDate = dtFirstInstDate.Value;
         }
     }
 }
