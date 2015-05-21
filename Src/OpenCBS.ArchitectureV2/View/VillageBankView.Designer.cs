@@ -50,6 +50,7 @@
             this._loanProductColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._loanFrequencyColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._loanDurationColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this._loanOlbColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._tabList.SuspendLayout();
             this._detailsPage.SuspendLayout();
             this._membersPage.SuspendLayout();
@@ -184,6 +185,7 @@
             this._loansListView.AllColumns.Add(this._loanContractCodeColumn);
             this._loansListView.AllColumns.Add(this._loanStatusColumn);
             this._loansListView.AllColumns.Add(this._loanAmountColumn);
+            this._loansListView.AllColumns.Add(this._loanOlbColumn);
             this._loansListView.AllColumns.Add(this._loanProductColumn);
             this._loansListView.AllColumns.Add(this._loanFrequencyColumn);
             this._loansListView.AllColumns.Add(this._loanDurationColumn);
@@ -194,6 +196,7 @@
             this._loanContractCodeColumn,
             this._loanStatusColumn,
             this._loanAmountColumn,
+            this._loanOlbColumn,
             this._loanProductColumn,
             this._loanFrequencyColumn,
             this._loanDurationColumn});
@@ -268,6 +271,14 @@
             this._loanDurationColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this._loanDurationColumn.Width = 120;
             // 
+            // _loanOlbColumn
+            // 
+            this._loanOlbColumn.AspectName = "Olb";
+            this._loanOlbColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this._loanOlbColumn.Text = "OLB";
+            this._loanOlbColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this._loanOlbColumn.Width = 100;
+            // 
             // VillageBankView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -312,5 +323,6 @@
         private BrightIdeasSoftware.OLVColumn _loanProductColumn;
         private BrightIdeasSoftware.OLVColumn _loanFrequencyColumn;
         private BrightIdeasSoftware.OLVColumn _loanDurationColumn;
+        private BrightIdeasSoftware.OLVColumn _loanOlbColumn;
     }
 }

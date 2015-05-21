@@ -11,6 +11,8 @@ namespace OpenCBS.ArchitectureV2.View
         {
             InitializeComponent();
             _memberActiveColumn.AspectToStringConverter = v => ((bool) v) ? "Yes" : "No";
+            _loanAmountColumn.AspectToStringConverter = v => ((decimal) v).ToString("N0");
+            _loanOlbColumn.AspectToStringConverter = v => ((decimal) v).ToString("N0");
         }
 
         public void Attach(IVillageBankPresenterCallbacks presenterCallbacks)
