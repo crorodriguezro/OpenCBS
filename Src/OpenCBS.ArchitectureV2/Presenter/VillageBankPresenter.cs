@@ -25,8 +25,8 @@ namespace OpenCBS.ArchitectureV2.Presenter
         public void Run(int villageBankId)
         {
             _view.Attach(this);
-            _applicationController.Publish(new ShowViewMessage(this, _view));
             _view.SetVillageBank(_villageBankRepository.Get(villageBankId));
+            _applicationController.Publish(new ShowViewMessage(this, _view));
         }
 
         public object View

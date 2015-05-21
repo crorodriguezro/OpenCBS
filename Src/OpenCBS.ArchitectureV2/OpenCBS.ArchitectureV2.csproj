@@ -179,6 +179,7 @@
     <Compile Include="Model\Alert.cs" />
     <Compile Include="Model\SearchResult.cs" />
     <Compile Include="Model\VillageBank.cs" />
+    <Compile Include="Model\VillageBankLoan.cs" />
     <Compile Include="Model\VillageBankMember.cs" />
     <Compile Include="Presenter\AlertsPresenter.cs" />
     <Compile Include="Presenter\LoginPresenter.cs" />

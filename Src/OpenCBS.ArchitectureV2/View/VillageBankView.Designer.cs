@@ -39,9 +39,23 @@
             this._memberPassportColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._memberLoanCycleColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._memberActiveColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this._nameLabel = new System.Windows.Forms.Label();
+            this._nameTextBox = new System.Windows.Forms.TextBox();
+            this._loansListView = new BrightIdeasSoftware.FastObjectListView();
+            this._loanFirstNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this._loanLastNameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this._loanContractCodeColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this._loanStatusColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this._loanAmountColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this._loanProductColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this._loanFrequencyColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this._loanDurationColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._tabList.SuspendLayout();
+            this._detailsPage.SuspendLayout();
             this._membersPage.SuspendLayout();
+            this._loansPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._membersListView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._loansListView)).BeginInit();
             this.SuspendLayout();
             // 
             // _tabList
@@ -57,6 +71,8 @@
             // 
             // _detailsPage
             // 
+            this._detailsPage.Controls.Add(this._nameTextBox);
+            this._detailsPage.Controls.Add(this._nameLabel);
             this._detailsPage.Dock = System.Windows.Forms.DockStyle.Fill;
             this._detailsPage.Name = "_detailsPage";
             this._detailsPage.Size = new System.Drawing.Size(700, 382);
@@ -74,6 +90,7 @@
             // 
             // _loansPage
             // 
+            this._loansPage.Controls.Add(this._loansListView);
             this._loansPage.Dock = System.Windows.Forms.DockStyle.Fill;
             this._loansPage.Name = "_loansPage";
             this._loansPage.Size = new System.Drawing.Size(700, 382);
@@ -87,7 +104,7 @@
             this._membersListView.AllColumns.Add(this._memberPassportColumn);
             this._membersListView.AllColumns.Add(this._memberLoanCycleColumn);
             this._membersListView.AllColumns.Add(this._memberActiveColumn);
-            this._membersListView.AlternateRowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this._membersListView.AlternateRowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this._membersListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this._memberFirstNameColumn,
             this._memberLastNameColumn,
@@ -143,6 +160,114 @@
             this._memberActiveColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this._memberActiveColumn.Width = 100;
             // 
+            // _nameLabel
+            // 
+            this._nameLabel.AutoSize = true;
+            this._nameLabel.Location = new System.Drawing.Point(15, 16);
+            this._nameLabel.Name = "_nameLabel";
+            this._nameLabel.Size = new System.Drawing.Size(39, 15);
+            this._nameLabel.TabIndex = 0;
+            this._nameLabel.Text = "Name";
+            // 
+            // _nameTextBox
+            // 
+            this._nameTextBox.Location = new System.Drawing.Point(82, 13);
+            this._nameTextBox.Name = "_nameTextBox";
+            this._nameTextBox.ReadOnly = true;
+            this._nameTextBox.Size = new System.Drawing.Size(191, 23);
+            this._nameTextBox.TabIndex = 1;
+            // 
+            // _loansListView
+            // 
+            this._loansListView.AllColumns.Add(this._loanFirstNameColumn);
+            this._loansListView.AllColumns.Add(this._loanLastNameColumn);
+            this._loansListView.AllColumns.Add(this._loanContractCodeColumn);
+            this._loansListView.AllColumns.Add(this._loanStatusColumn);
+            this._loansListView.AllColumns.Add(this._loanAmountColumn);
+            this._loansListView.AllColumns.Add(this._loanProductColumn);
+            this._loansListView.AllColumns.Add(this._loanFrequencyColumn);
+            this._loansListView.AllColumns.Add(this._loanDurationColumn);
+            this._loansListView.AlternateRowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this._loansListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this._loanFirstNameColumn,
+            this._loanLastNameColumn,
+            this._loanContractCodeColumn,
+            this._loanStatusColumn,
+            this._loanAmountColumn,
+            this._loanProductColumn,
+            this._loanFrequencyColumn,
+            this._loanDurationColumn});
+            this._loansListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._loansListView.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this._loansListView.FullRowSelect = true;
+            this._loansListView.GridLines = true;
+            this._loansListView.Location = new System.Drawing.Point(0, 0);
+            this._loansListView.MultiSelect = false;
+            this._loansListView.Name = "_loansListView";
+            this._loansListView.ShowGroups = false;
+            this._loansListView.Size = new System.Drawing.Size(700, 382);
+            this._loansListView.TabIndex = 4;
+            this._loansListView.UseAlternatingBackColors = true;
+            this._loansListView.UseCompatibleStateImageBehavior = false;
+            this._loansListView.View = System.Windows.Forms.View.Details;
+            this._loansListView.VirtualMode = true;
+            // 
+            // _loanFirstNameColumn
+            // 
+            this._loanFirstNameColumn.AspectName = "FirstName";
+            this._loanFirstNameColumn.Text = "First Name";
+            this._loanFirstNameColumn.Width = 150;
+            // 
+            // _loanLastNameColumn
+            // 
+            this._loanLastNameColumn.AspectName = "LastName";
+            this._loanLastNameColumn.Text = "Last Name";
+            this._loanLastNameColumn.Width = 150;
+            // 
+            // _loanContractCodeColumn
+            // 
+            this._loanContractCodeColumn.AspectName = "ContractCode";
+            this._loanContractCodeColumn.Text = "Contract Code";
+            this._loanContractCodeColumn.Width = 250;
+            // 
+            // _loanStatusColumn
+            // 
+            this._loanStatusColumn.AspectName = "Status";
+            this._loanStatusColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this._loanStatusColumn.Text = "Status";
+            this._loanStatusColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this._loanStatusColumn.Width = 150;
+            // 
+            // _loanAmountColumn
+            // 
+            this._loanAmountColumn.AspectName = "Amount";
+            this._loanAmountColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this._loanAmountColumn.Text = "Amount";
+            this._loanAmountColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this._loanAmountColumn.Width = 100;
+            // 
+            // _loanProductColumn
+            // 
+            this._loanProductColumn.AspectName = "LoanProductName";
+            this._loanProductColumn.Text = "Loan Product";
+            this._loanProductColumn.Width = 200;
+            // 
+            // _loanFrequencyColumn
+            // 
+            this._loanFrequencyColumn.AspectName = "InstallmentTypeName";
+            this._loanFrequencyColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this._loanFrequencyColumn.Text = "Frequency";
+            this._loanFrequencyColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this._loanFrequencyColumn.Width = 120;
+            // 
+            // _loanDurationColumn
+            // 
+            this._loanDurationColumn.AspectName = "Duration";
+            this._loanDurationColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this._loanDurationColumn.Text = "Duration";
+            this._loanDurationColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this._loanDurationColumn.Width = 120;
+            // 
             // VillageBankView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -154,8 +279,12 @@
             this.Name = "VillageBankView";
             this.Text = "Village Bank";
             this._tabList.ResumeLayout(false);
+            this._detailsPage.ResumeLayout(false);
+            this._detailsPage.PerformLayout();
             this._membersPage.ResumeLayout(false);
+            this._loansPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._membersListView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._loansListView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -172,5 +301,16 @@
         private BrightIdeasSoftware.OLVColumn _memberPassportColumn;
         private BrightIdeasSoftware.OLVColumn _memberLoanCycleColumn;
         private BrightIdeasSoftware.OLVColumn _memberActiveColumn;
+        private System.Windows.Forms.Label _nameLabel;
+        private System.Windows.Forms.TextBox _nameTextBox;
+        private BrightIdeasSoftware.FastObjectListView _loansListView;
+        private BrightIdeasSoftware.OLVColumn _loanFirstNameColumn;
+        private BrightIdeasSoftware.OLVColumn _loanLastNameColumn;
+        private BrightIdeasSoftware.OLVColumn _loanContractCodeColumn;
+        private BrightIdeasSoftware.OLVColumn _loanStatusColumn;
+        private BrightIdeasSoftware.OLVColumn _loanAmountColumn;
+        private BrightIdeasSoftware.OLVColumn _loanProductColumn;
+        private BrightIdeasSoftware.OLVColumn _loanFrequencyColumn;
+        private BrightIdeasSoftware.OLVColumn _loanDurationColumn;
     }
 }

@@ -66,7 +66,7 @@
             this._searchResultsListView.AllColumns.Add(this._activeColumn);
             this._searchResultsListView.AllColumns.Add(this._districtColumn);
             this._searchResultsListView.AllColumns.Add(this._cityColumn);
-            this._searchResultsListView.CheckBoxes = false;
+            this._searchResultsListView.AlternateRowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this._searchResultsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this._typeColumn,
             this._nameColumn,
@@ -83,6 +83,7 @@
             this._searchResultsListView.ShowGroups = false;
             this._searchResultsListView.Size = new System.Drawing.Size(753, 358);
             this._searchResultsListView.TabIndex = 3;
+            this._searchResultsListView.UseAlternatingBackColors = true;
             this._searchResultsListView.UseCompatibleStateImageBehavior = false;
             this._searchResultsListView.View = System.Windows.Forms.View.Details;
             this._searchResultsListView.VirtualMode = true;

@@ -22,6 +22,8 @@ namespace OpenCBS.ArchitectureV2.View
             Name = "VillageBankView" + villageBank.Id;
             Text = "Village Bank - " + villageBank.Name;
             _membersListView.SetObjects(villageBank.Members);
+            _loansListView.SetObjects(villageBank.Loans);
+            _nameTextBox.Text = villageBank.Name;
         }
     }
 }
