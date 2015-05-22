@@ -17,6 +17,7 @@ namespace OpenCBS.ArchitectureV2.View
 
         public void Attach(IVillageBankPresenterCallbacks presenterCallbacks)
         {
+            _repayButton.Click += (sender, e) => presenterCallbacks.Repay();
         }
 
         public void SetVillageBank(VillageBank villageBank)
@@ -26,6 +27,7 @@ namespace OpenCBS.ArchitectureV2.View
             _membersListView.SetObjects(villageBank.Members);
             _loansListView.SetObjects(villageBank.Loans);
             _nameTextBox.Text = villageBank.Name;
+            _repayButton.Enabled = villageBank.Loans.Count > 0;
         }
     }
 }

@@ -2,5 +2,6 @@
 {
     public interface IVillageBankPresenterCallbacks
     {
+        void Repay();
     }
 }
