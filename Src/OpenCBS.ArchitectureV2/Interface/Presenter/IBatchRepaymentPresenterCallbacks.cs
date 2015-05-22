@@ -2,5 +2,7 @@
 {
     public interface IBatchRepaymentPresenterCallbacks
     {
+        decimal GetDuePrincipal(int loanId);
+        decimal GetDueInterest(int loanId);
     }
 }

@@ -182,6 +182,8 @@
     <Compile Include="Message\StartPageHiddenMessage.cs" />
     <Compile Include="Message\StartPageShownMessage.cs" />
     <Compile Include="Model\Alert.cs" />
+    <Compile Include="Model\Installment.cs" />
+    <Compile Include="Model\Loan.cs" />
     <Compile Include="Model\SearchResult.cs" />
     <Compile Include="Model\VillageBank.cs" />
     <Compile Include="Model\VillageBankLoan.cs" />
