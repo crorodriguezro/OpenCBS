@@ -1614,7 +1614,8 @@ namespace OpenCBS.GUI.UserControl
 
         private void InitPrintButton()
         {
-            btnPrint.ReportInitializer = report => report.SetParamValue("group_id", @group.Id);
+            btnPrint.ReportInitializer = report => report.SetParamValue("group_id", group.Id);
+            
             btnPrint.LoadReports();
         }
 

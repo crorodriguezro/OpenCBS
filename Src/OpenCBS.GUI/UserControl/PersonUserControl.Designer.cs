@@ -195,6 +195,7 @@ namespace OpenCBS.GUI.UserControl
             this.buttonViewProject = new System.Windows.Forms.Button();
             this.buttonAddProject = new System.Windows.Forms.Button();
             this.tabPageSavings = new System.Windows.Forms.TabPage();
+            this.clSavingList = new OpenCBS.GUI.UserControl.SavingsListUserControl();
             this.tabPageGroupMember = new System.Windows.Forms.TabPage();
             this.listViewGroup = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -205,12 +206,16 @@ namespace OpenCBS.GUI.UserControl
             this.groupBoxCivilities = new System.Windows.Forms.GroupBox();
             this.lblBranch = new System.Windows.Forms.Label();
             this.lblEconomicActivity = new System.Windows.Forms.Label();
+            this.eacPerson = new OpenCBS.GUI.UserControl.EconomicActivityControl();
             this.cbBranch = new System.Windows.Forms.ComboBox();
+            this.textBoxNationality = new OpenCBS.GUI.UserControl.TextBoxLimit();
             this.labelNationality = new System.Windows.Forms.Label();
             this.textBoxLoanCycle = new System.Windows.Forms.TextBox();
+            this.textBoxBirthPlace = new OpenCBS.GUI.UserControl.TextBoxLimit();
             this.labelIN = new System.Windows.Forms.Label();
             this.labelLoanCycle = new System.Windows.Forms.Label();
             this.labelRangeOfAge = new System.Windows.Forms.Label();
+            this.textBoxFatherName = new OpenCBS.GUI.UserControl.TextBoxLimit();
             this.labelFatherName = new System.Windows.Forms.Label();
             this.changePhotoLinkLabel2 = new System.Windows.Forms.LinkLabel();
             this.changePhotoLinkLabel = new System.Windows.Forms.LinkLabel();
@@ -219,23 +224,18 @@ namespace OpenCBS.GUI.UserControl
             this.dateTimePickerDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.checkBoxHeadOfHousehold = new System.Windows.Forms.CheckBox();
             this.labelDateOfBirth = new System.Windows.Forms.Label();
+            this.textBoxLastname = new OpenCBS.GUI.UserControl.TextBoxLimit();
             this.labelLastname = new System.Windows.Forms.Label();
+            this.textBoxIdentificationData = new OpenCBS.GUI.UserControl.TextBoxLimit();
             this.labelPassport = new System.Windows.Forms.Label();
             this.comboBoxSex = new System.Windows.Forms.ComboBox();
             this.labelSex = new System.Windows.Forms.Label();
             this.labelFirstName = new System.Windows.Forms.Label();
+            this.textBoxFirstName = new OpenCBS.GUI.UserControl.TextBoxLimit();
             this.panelEconomicActivity = new System.Windows.Forms.Panel();
+            this.btnPrint = new OpenCBS.GUI.UserControl.PrintButton();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.clSavingList = new OpenCBS.GUI.UserControl.SavingsListUserControl();
-            this.eacPerson = new OpenCBS.GUI.UserControl.EconomicActivityControl();
-            this.textBoxNationality = new OpenCBS.GUI.UserControl.TextBoxLimit();
-            this.textBoxBirthPlace = new OpenCBS.GUI.UserControl.TextBoxLimit();
-            this.textBoxFatherName = new OpenCBS.GUI.UserControl.TextBoxLimit();
-            this.textBoxLastname = new OpenCBS.GUI.UserControl.TextBoxLimit();
-            this.textBoxIdentificationData = new OpenCBS.GUI.UserControl.TextBoxLimit();
-            this.textBoxFirstName = new OpenCBS.GUI.UserControl.TextBoxLimit();
-            this.btnPrint = new OpenCBS.GUI.UserControl.PrintButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -931,6 +931,15 @@ namespace OpenCBS.GUI.UserControl
             resources.ApplyResources(this.tabPageSavings, "tabPageSavings");
             this.tabPageSavings.Name = "tabPageSavings";
             // 
+            // clSavingList
+            // 
+            this.clSavingList.ButtonAddSavingsEnabled = true;
+            this.clSavingList.ClientType = OpenCBS.Enums.OClientTypes.Person;
+            resources.ApplyResources(this.clSavingList, "clSavingList");
+            this.clSavingList.Name = "clSavingList";
+            this.clSavingList.AddSelectedSaving += new System.EventHandler(this.savingsListUserControl_AddSelectedSaving);
+            this.clSavingList.ViewSelectedSaving += new System.EventHandler(this.savingsListUserControl_ViewSelectedSaving);
+            // 
             // tabPageGroupMember
             // 
             this.tabPageGroupMember.Controls.Add(this.listViewGroup);
@@ -1019,12 +1028,26 @@ namespace OpenCBS.GUI.UserControl
             this.lblEconomicActivity.BackColor = System.Drawing.Color.Transparent;
             this.lblEconomicActivity.Name = "lblEconomicActivity";
             // 
+            // eacPerson
+            // 
+            this.eacPerson.Activity = null;
+            resources.ApplyResources(this.eacPerson, "eacPerson");
+            this.eacPerson.IsLoanPurpose = false;
+            this.eacPerson.Name = "eacPerson";
+            this.eacPerson.EconomicActivityChange += new System.EventHandler<OpenCBS.GUI.UserControl.EconomicActivtyEventArgs>(this.EacPersonActivityChange);
+            // 
             // cbBranch
             // 
             this.cbBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBranch.FormattingEnabled = true;
             resources.ApplyResources(this.cbBranch, "cbBranch");
             this.cbBranch.Name = "cbBranch";
+            // 
+            // textBoxNationality
+            // 
+            this.textBoxNationality.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBoxNationality, "textBoxNationality");
+            this.textBoxNationality.Name = "textBoxNationality";
             // 
             // labelNationality
             // 
@@ -1037,6 +1060,13 @@ namespace OpenCBS.GUI.UserControl
             resources.ApplyResources(this.textBoxLoanCycle, "textBoxLoanCycle");
             this.textBoxLoanCycle.Name = "textBoxLoanCycle";
             this.textBoxLoanCycle.TextChanged += new System.EventHandler(this.textBoxLoanCycle_TextChanged);
+            // 
+            // textBoxBirthPlace
+            // 
+            this.textBoxBirthPlace.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBoxBirthPlace, "textBoxBirthPlace");
+            this.textBoxBirthPlace.Name = "textBoxBirthPlace";
+            this.textBoxBirthPlace.TextChanged += new System.EventHandler(this.textBoxBirthPlace_TextChanged);
             // 
             // labelIN
             // 
@@ -1056,6 +1086,13 @@ namespace OpenCBS.GUI.UserControl
             resources.ApplyResources(this.labelRangeOfAge, "labelRangeOfAge");
             this.labelRangeOfAge.BackColor = System.Drawing.Color.Transparent;
             this.labelRangeOfAge.Name = "labelRangeOfAge";
+            // 
+            // textBoxFatherName
+            // 
+            this.textBoxFatherName.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBoxFatherName, "textBoxFatherName");
+            this.textBoxFatherName.Name = "textBoxFatherName";
+            this.textBoxFatherName.TextChanged += new System.EventHandler(this.textBoxFatherName_TextChanged);
             // 
             // labelFatherName
             // 
@@ -1119,11 +1156,25 @@ namespace OpenCBS.GUI.UserControl
             this.labelDateOfBirth.BackColor = System.Drawing.Color.Transparent;
             this.labelDateOfBirth.Name = "labelDateOfBirth";
             // 
+            // textBoxLastname
+            // 
+            this.textBoxLastname.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBoxLastname, "textBoxLastname");
+            this.textBoxLastname.Name = "textBoxLastname";
+            this.textBoxLastname.TextChanged += new System.EventHandler(this.textBoxLastname_TextChanged);
+            // 
             // labelLastname
             // 
             resources.ApplyResources(this.labelLastname, "labelLastname");
             this.labelLastname.BackColor = System.Drawing.Color.Transparent;
             this.labelLastname.Name = "labelLastname";
+            // 
+            // textBoxIdentificationData
+            // 
+            this.textBoxIdentificationData.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBoxIdentificationData, "textBoxIdentificationData");
+            this.textBoxIdentificationData.Name = "textBoxIdentificationData";
+            this.textBoxIdentificationData.Leave += new System.EventHandler(this.textBoxIdentificationData_Leave);
             // 
             // labelPassport
             // 
@@ -1153,6 +1204,13 @@ namespace OpenCBS.GUI.UserControl
             this.labelFirstName.BackColor = System.Drawing.Color.Transparent;
             this.labelFirstName.Name = "labelFirstName";
             // 
+            // textBoxFirstName
+            // 
+            this.textBoxFirstName.BackColor = System.Drawing.SystemColors.Window;
+            resources.ApplyResources(this.textBoxFirstName, "textBoxFirstName");
+            this.textBoxFirstName.Name = "textBoxFirstName";
+            this.textBoxFirstName.TextChanged += new System.EventHandler(this.textBoxFirstName_TextChanged);
+            // 
             // panelEconomicActivity
             // 
             this.panelEconomicActivity.Controls.Add(this.btnPrint);
@@ -1160,6 +1218,15 @@ namespace OpenCBS.GUI.UserControl
             this.panelEconomicActivity.Controls.Add(this.buttonSave);
             resources.ApplyResources(this.panelEconomicActivity, "panelEconomicActivity");
             this.panelEconomicActivity.Name = "panelEconomicActivity";
+            // 
+            // btnPrint
+            // 
+            resources.ApplyResources(this.btnPrint, "btnPrint");
+            this.btnPrint.AttachmentPoint = OpenCBS.Reports.AttachmentPoint.PersonDetails;
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.ReportInitializer = null;
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Visibility = OpenCBS.Reports.Visibility.Individual;
             // 
             // buttonCancel
             // 
@@ -1172,73 +1239,6 @@ namespace OpenCBS.GUI.UserControl
             resources.ApplyResources(this.buttonSave, "buttonSave");
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
-            // clSavingList
-            // 
-            this.clSavingList.ButtonAddSavingsEnabled = true;
-            this.clSavingList.ClientType = OpenCBS.Enums.OClientTypes.Person;
-            resources.ApplyResources(this.clSavingList, "clSavingList");
-            this.clSavingList.Name = "clSavingList";
-            this.clSavingList.AddSelectedSaving += new System.EventHandler(this.savingsListUserControl_AddSelectedSaving);
-            this.clSavingList.ViewSelectedSaving += new System.EventHandler(this.savingsListUserControl_ViewSelectedSaving);
-            // 
-            // eacPerson
-            // 
-            this.eacPerson.Activity = null;
-            resources.ApplyResources(this.eacPerson, "eacPerson");
-            this.eacPerson.IsLoanPurpose = false;
-            this.eacPerson.Name = "eacPerson";
-            this.eacPerson.EconomicActivityChange += new System.EventHandler<OpenCBS.GUI.UserControl.EconomicActivtyEventArgs>(this.EacPersonActivityChange);
-            // 
-            // textBoxNationality
-            // 
-            this.textBoxNationality.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxNationality, "textBoxNationality");
-            this.textBoxNationality.Name = "textBoxNationality";
-            // 
-            // textBoxBirthPlace
-            // 
-            this.textBoxBirthPlace.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxBirthPlace, "textBoxBirthPlace");
-            this.textBoxBirthPlace.Name = "textBoxBirthPlace";
-            this.textBoxBirthPlace.TextChanged += new System.EventHandler(this.textBoxBirthPlace_TextChanged);
-            // 
-            // textBoxFatherName
-            // 
-            this.textBoxFatherName.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxFatherName, "textBoxFatherName");
-            this.textBoxFatherName.Name = "textBoxFatherName";
-            this.textBoxFatherName.TextChanged += new System.EventHandler(this.textBoxFatherName_TextChanged);
-            // 
-            // textBoxLastname
-            // 
-            this.textBoxLastname.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxLastname, "textBoxLastname");
-            this.textBoxLastname.Name = "textBoxLastname";
-            this.textBoxLastname.TextChanged += new System.EventHandler(this.textBoxLastname_TextChanged);
-            // 
-            // textBoxIdentificationData
-            // 
-            this.textBoxIdentificationData.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxIdentificationData, "textBoxIdentificationData");
-            this.textBoxIdentificationData.Name = "textBoxIdentificationData";
-            this.textBoxIdentificationData.Leave += new System.EventHandler(this.textBoxIdentificationData_Leave);
-            // 
-            // textBoxFirstName
-            // 
-            this.textBoxFirstName.BackColor = System.Drawing.SystemColors.Window;
-            resources.ApplyResources(this.textBoxFirstName, "textBoxFirstName");
-            this.textBoxFirstName.Name = "textBoxFirstName";
-            this.textBoxFirstName.TextChanged += new System.EventHandler(this.textBoxFirstName_TextChanged);
-            // 
-            // btnPrint
-            // 
-            resources.ApplyResources(this.btnPrint, "btnPrint");
-            this.btnPrint.AttachmentPoint = OpenCBS.Reports.AttachmentPoint.PersonDetails;
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.ReportInitializer = null;
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Visibility = OpenCBS.Reports.Visibility.Individual;
             // 
             // PersonUserControl
             // 

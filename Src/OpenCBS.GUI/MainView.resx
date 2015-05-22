@@ -638,19 +638,19 @@
     <value>Products</value>
   </data>
   <data name="_startPageItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="_startPageItem.Text" xml:space="preserve">
     <value>Start Page</value>
   </data>
   <data name="_alertsItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="_alertsItem.Text" xml:space="preserve">
     <value>Alerts</value>
   </data>
   <data name="_dashboardItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="_dashboardItem.Text" xml:space="preserve">
     <value>Dashboard</value>
@@ -1401,25 +1401,25 @@
     <value>colAlerts_Address</value>
   </data>
   <data name="&gt;&gt;colAlerts_Address.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;colAlerts_City.Name" xml:space="preserve">
     <value>colAlerts_City</value>
   </data>
   <data name="&gt;&gt;colAlerts_City.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;colAlerts_Phone.Name" xml:space="preserve">
     <value>colAlerts_Phone</value>
   </data>
   <data name="&gt;&gt;colAlerts_Phone.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;colAlerts_BranchName.Name" xml:space="preserve">
     <value>colAlerts_BranchName</value>
   </data>
   <data name="&gt;&gt;colAlerts_BranchName.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;bwUserInformation.Name" xml:space="preserve">
     <value>bwUserInformation</value>
@@ -1869,6 +1869,6 @@
     <value>MainView</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.4.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
