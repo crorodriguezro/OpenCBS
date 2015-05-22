@@ -141,6 +141,11 @@ namespace OpenCBS.GUI.Contracts
 
             lvMembers.SubItemClicked += lvMembers_SubItemClicked;
             lvMembers.DoubleClickActivation = true;
+
+            dtDisbursement.Format = DateTimePickerFormat.Custom;
+            dtpRepayment.Format = DateTimePickerFormat.Custom;
+            dtDisbursement.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            dtpRepayment.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
         }
 
         private void UpdateTotal()
