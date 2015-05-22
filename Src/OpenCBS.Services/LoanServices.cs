@@ -782,7 +782,22 @@ namespace OpenCBS.Services
 
                     if (savedContract.AllInstallmentsRepaid)
                     {
-                        _ePs.FireEvent(savedContract.GetCloseEvent(payDate), savedContract, sqlTransaction);
+                        var loce = savedContract.GetCloseEvent(payDate);
+                        _ePs.FireEvent(loce, savedContract, sqlTransaction);
+                        CallInterceptor(new Dictionary<string, object>
+                    {
+                        {"Loan", savedContract},
+                        {
+                            "Event", new LoanCloseEvent
+                            {
+                                Code = "LOCE",
+                                Id = loce.Id,
+                                Date = loce.Date,
+                              }
+                        },
+                         {"CloseAccount", true},
+                        {"SqlTransaction", sqlTransaction}
+                    });
                     }
 
                     _loanManager.UpdateLoan(savedContract, sqlTransaction);
@@ -1924,7 +1939,13 @@ namespace OpenCBS.Services
                     // if event is loan close event, we delete it first
                     if (evnt is LoanCloseEvent)
                     {
-                        _ePs.CancelFireEvent(evnt, sqlTransaction, contract, contract.Product.Currency.Id);
+                        _ePs.CancelFireEvent(evnt, sqlTransaction, contract, contract.Product.Currency.Id); 
+                        CallInterceptor(new Dictionary<string, object>
+                                        {
+                                            {"Event", evnt},
+                                            {"RecoveryAccount", true},
+                                            {"SqlTransaction", sqlTransaction}
+                                        });
                         evnt.Deleted = true;
                         evnt = contract.GetLastNonDeletedEvent();
                         if (pClient is Person)
@@ -1937,6 +1958,7 @@ namespace OpenCBS.Services
                             evnt.ClientType = OClientTypes.Village;
                         evnt.Comment = comment;
                         evnt.CancelDate = TimeProvider.Now;
+                       
                     }
                     _ePs.CancelFireEvent(evnt, sqlTransaction, contract, contract.Product.Currency.Id);
 

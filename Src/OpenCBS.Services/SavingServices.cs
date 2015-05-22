@@ -928,7 +928,17 @@ namespace OpenCBS.Services
                     List<SavingEvent> events = pSaving.Reopen(pReopenAmount, pDate, pUser, "Reopen savings account", false);
 
                     foreach (SavingEvent savingEvent in events)
+                    {
                         _ePS.FireEvent(savingEvent, pSaving, sqlTransaction);
+                        ServicesProvider.GetInstance()
+                           .GetContractServices()
+                           .CallInterceptor(new Dictionary<string, object>
+                            {
+                                {"Event", savingEvent},
+                                {"RecoveryAccount", true},
+                                {"SqlTransaction", sqlTransaction}
+                            });
+                    }
 
                     _savingManager.UpdateStatus(pSaving.Id, pSaving.Status, pSaving.ClosedDate);
                     sqlTransaction.Commit();
@@ -942,8 +952,9 @@ namespace OpenCBS.Services
             }
         }
 
-        public List<SavingEvent> CloseAndWithdraw(ISavingsContract saving, DateTime date, User user, OCurrency withdrawAmount,
-                                                 bool isDesactivateFees, Teller teller, PaymentMethod paymentMethod)
+        public List<SavingEvent> CloseAndWithdraw(ISavingsContract saving, DateTime date, User user,
+            OCurrency withdrawAmount,
+            bool isDesactivateFees, Teller teller, PaymentMethod paymentMethod)
         {
             OCurrency balance = SimulateCloseAccount(saving, date, user, isDesactivateFees, teller).GetBalance(date);
 
@@ -953,7 +964,7 @@ namespace OpenCBS.Services
             }
 
             List<SavingEvent> events = saving.Withdraw(withdrawAmount, date, "Withdraw savings", user, true,
-                                                        Teller.CurrentTeller, paymentMethod);
+                Teller.CurrentTeller, paymentMethod);
             events.AddRange(saving.Close(date, user, "Close savings contract", isDesactivateFees, teller, false));
             using (SqlConnection conn = _savingManager.GetConnection())
             using (SqlTransaction sqlTransaction = conn.BeginTransaction())
@@ -961,11 +972,20 @@ namespace OpenCBS.Services
                 try
                 {
                     foreach (SavingEvent savingEvent in events)
+                    {
                         _ePS.FireEvent(savingEvent, saving, sqlTransaction);
+                        ServicesProvider.GetInstance()
+                            .GetContractServices()
+                            .CallInterceptor(new Dictionary<string, object>
+                            {
+                                {"Event", savingEvent},
+                                {"CloseAccount", true},
+                                {"SqlTransaction", sqlTransaction}
+                            });
+                    }
 
                     if (saving.ClosedDate != null)
-                        _savingManager.UpdateStatus(saving.Id, saving.Status, saving.ClosedDate.Value);
-
+                            _savingManager.UpdateStatus(saving.Id, saving.Status, saving.ClosedDate.Value);
                     sqlTransaction.Commit();
                     return events;
                 }
