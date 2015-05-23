@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Data;
+using System.Linq;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.Repository;
 using OpenCBS.ArchitectureV2.Model;
@@ -90,6 +91,20 @@ namespace OpenCBS.ArchitectureV2.Repository
                 result.Loans = multi.Read<VillageBankLoan>().ToList();
                 return result;
             }
+        }
+
+        public void SyncVillageBankStatus(int villageBankId, IDbTransaction tx)
+        {
+            const string query = @"
+                update dbo.Tiers
+                set active = 
+	                case 
+		                when (select count(*) from dbo.Contracts where status = 5 and nsg_id = @villageBankId) > 0 then 1 
+		                else 0 
+	                end
+                where id = @villageBankId
+            ";
+            tx.Connection.Execute(query, new { villageBankId }, tx);
         }
     }
 }

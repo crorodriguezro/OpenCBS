@@ -6,5 +6,6 @@
         decimal GetDueInterest(int loanId);
         decimal GetMaxDueTotal(int loanId);
         decimal[] DistributeTotal(int loanId, decimal total);
+        void Repay();
     }
 }

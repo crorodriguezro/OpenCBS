@@ -64,6 +64,7 @@ namespace OpenCBS.ArchitectureV2.View
         public void Attach(IBatchRepaymentPresenterCallbacks presenterCallbacks)
         {
             _presenterCallbacks = presenterCallbacks;
+            _okButton.Click += (sender, e) => presenterCallbacks.Repay();
         }
 
         private void UpdateTotal()
@@ -181,6 +182,24 @@ namespace OpenCBS.ArchitectureV2.View
             if ((Item) e.RowObject == _totalItem)
             {
                 e.Cancel = true;
+            }
+        }
+
+        public void Stop()
+        {
+            Close();
+        }
+
+        public decimal GetTotal(int loanId)
+        {
+            return _loansListView.Objects.Cast<Item>().Where(x => x.Id == loanId).Select(x => x.Total).Single();
+        }
+
+        public List<int> SelectedLoanIds
+        {
+            get
+            {
+                return _loansListView.CheckedObjects.Cast<Item>().Where(x => x != _totalItem).Select(x => x.Id).ToList();
             }
         }
     }

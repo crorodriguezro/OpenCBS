@@ -5,5 +5,6 @@ namespace OpenCBS.ArchitectureV2.Interface
     public interface IConnectionProvider
     {
         IDbConnection GetConnection();
+        IDbTransaction GetTransaction();
     }
 }

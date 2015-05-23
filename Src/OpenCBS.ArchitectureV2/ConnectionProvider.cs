@@ -12,5 +12,11 @@ namespace OpenCBS.ArchitectureV2
         {
             return DatabaseConnection.GetConnection();
         }
+
+        public IDbTransaction GetTransaction()
+        {
+            var connection = GetConnection();
+            return connection.BeginTransaction();
+        }
     }
 }
