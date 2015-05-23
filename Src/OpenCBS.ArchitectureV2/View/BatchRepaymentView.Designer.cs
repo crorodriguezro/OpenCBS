@@ -37,8 +37,8 @@
             this._interestColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._totalColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._buttonsPanel = new System.Windows.Forms.Panel();
-            this._okButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
+            this._okButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._loansListView)).BeginInit();
             this._buttonsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +53,7 @@
             this._loansListView.AllColumns.Add(this._totalColumn);
             this._loansListView.AlternateRowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this._loansListView.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.DoubleClick;
+            this._loansListView.CheckedAspectName = "Selected";
             this._loansListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this._firstNameColumn,
             this._lastNameColumn,
@@ -68,9 +69,9 @@
             this._loansListView.MultiSelect = false;
             this._loansListView.Name = "_loansListView";
             this._loansListView.ShowGroups = false;
-            this._loansListView.Size = new System.Drawing.Size(910, 359);
+            this._loansListView.ShowImagesOnSubItems = true;
+            this._loansListView.Size = new System.Drawing.Size(910, 440);
             this._loansListView.TabIndex = 5;
-            this._loansListView.UseAlternatingBackColors = true;
             this._loansListView.UseCompatibleStateImageBehavior = false;
             this._loansListView.View = System.Windows.Forms.View.Details;
             this._loansListView.VirtualMode = true;
@@ -79,6 +80,7 @@
             // 
             this._firstNameColumn.AspectName = "FirstName";
             this._firstNameColumn.IsEditable = false;
+            this._firstNameColumn.Sortable = false;
             this._firstNameColumn.Text = "First Name";
             this._firstNameColumn.Width = 150;
             // 
@@ -86,6 +88,7 @@
             // 
             this._lastNameColumn.AspectName = "LastName";
             this._lastNameColumn.IsEditable = false;
+            this._lastNameColumn.Sortable = false;
             this._lastNameColumn.Text = "Last Name";
             this._lastNameColumn.Width = 150;
             // 
@@ -93,6 +96,7 @@
             // 
             this._contractCodeColumn.AspectName = "ContractCode";
             this._contractCodeColumn.IsEditable = false;
+            this._contractCodeColumn.Sortable = false;
             this._contractCodeColumn.Text = "Contract Code";
             this._contractCodeColumn.Width = 250;
             // 
@@ -101,6 +105,7 @@
             this._principalColumn.AspectName = "Principal";
             this._principalColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this._principalColumn.IsEditable = false;
+            this._principalColumn.Sortable = false;
             this._principalColumn.Text = "Principal";
             this._principalColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this._principalColumn.Width = 100;
@@ -110,6 +115,7 @@
             this._interestColumn.AspectName = "Interest";
             this._interestColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this._interestColumn.IsEditable = false;
+            this._interestColumn.Sortable = false;
             this._interestColumn.Text = "Interest";
             this._interestColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this._interestColumn.Width = 100;
@@ -118,6 +124,7 @@
             // 
             this._totalColumn.AspectName = "Total";
             this._totalColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this._totalColumn.Sortable = false;
             this._totalColumn.Text = "Total";
             this._totalColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this._totalColumn.Width = 100;
@@ -127,19 +134,10 @@
             this._buttonsPanel.Controls.Add(this._cancelButton);
             this._buttonsPanel.Controls.Add(this._okButton);
             this._buttonsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this._buttonsPanel.Location = new System.Drawing.Point(0, 359);
+            this._buttonsPanel.Location = new System.Drawing.Point(0, 440);
             this._buttonsPanel.Name = "_buttonsPanel";
             this._buttonsPanel.Size = new System.Drawing.Size(910, 51);
             this._buttonsPanel.TabIndex = 6;
-            // 
-            // _okButton
-            // 
-            this._okButton.Location = new System.Drawing.Point(377, 14);
-            this._okButton.Name = "_okButton";
-            this._okButton.Size = new System.Drawing.Size(75, 23);
-            this._okButton.TabIndex = 0;
-            this._okButton.Text = "OK";
-            this._okButton.UseVisualStyleBackColor = true;
             // 
             // _cancelButton
             // 
@@ -151,12 +149,21 @@
             this._cancelButton.Text = "Cancel";
             this._cancelButton.UseVisualStyleBackColor = true;
             // 
+            // _okButton
+            // 
+            this._okButton.Location = new System.Drawing.Point(377, 14);
+            this._okButton.Name = "_okButton";
+            this._okButton.Size = new System.Drawing.Size(75, 23);
+            this._okButton.TabIndex = 0;
+            this._okButton.Text = "OK";
+            this._okButton.UseVisualStyleBackColor = true;
+            // 
             // BatchRepaymentView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this._cancelButton;
-            this.ClientSize = new System.Drawing.Size(910, 410);
+            this.ClientSize = new System.Drawing.Size(910, 491);
             this.Controls.Add(this._loansListView);
             this.Controls.Add(this._buttonsPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);

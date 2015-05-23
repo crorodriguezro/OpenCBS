@@ -11,5 +11,20 @@ namespace OpenCBS.ArchitectureV2.Model
         public decimal Interest { get; set; }
         public decimal PaidInterest { get; set; }
         public DateTime ExpectedDate { get; set; }
+
+        public bool Repaid
+        {
+            get { return PaidPrincipal + PaidInterest >= Principal + Interest; }
+        }
+
+        public decimal UnpaidPrincipal
+        {
+            get { return Principal > PaidPrincipal ? Principal - PaidPrincipal : 0; }
+        }
+
+        public decimal UnpaidInterest
+        {
+            get { return Interest > PaidInterest ? Interest - PaidInterest : 0; }
+        }
     }
 }

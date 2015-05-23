@@ -4,5 +4,7 @@
     {
         decimal GetDuePrincipal(int loanId);
         decimal GetDueInterest(int loanId);
+        decimal GetMaxDueTotal(int loanId);
+        decimal[] DistributeTotal(int loanId, decimal total);
     }
 }
