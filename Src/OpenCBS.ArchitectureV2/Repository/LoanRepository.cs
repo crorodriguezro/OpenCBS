@@ -128,6 +128,31 @@ namespace OpenCBS.ArchitectureV2.Repository
             ";
             tx.Connection.Execute(query, repaymentEvent, tx);
 
+            // Create a funding line event
+            query = @"
+                declare @code nvarchar(max)
+                declare @funding_line_id int
+                select @code = contract_code from dbo.Contracts where id = @LoanId
+                select @funding_line_id = fundingLine_id from dbo.Credit where id = @LoanId
+
+                declare @funding_line_code nvarchar(max)
+                set @funding_line_code = 'RE_' + @code + '_INS_' + cast(@InstallmentNumber as nvarchar(max))
+
+                insert into dbo.FundingLineEvents
+                    (code, amount, direction, fundingline_id, deleted, creation_date, type, user_id, contract_event_id)
+                values
+                    (@funding_line_code, @Principal, 1, @funding_line_id, 0, @EventDate, 2, @UserId, @Id)
+            ";
+            tx.Connection.Execute(query, new
+            {
+                repaymentEvent.LoanId,
+                repaymentEvent.InstallmentNumber,
+                repaymentEvent.Principal,
+                repaymentEvent.EventDate,
+                repaymentEvent.UserId,
+                repaymentEvent.Id
+            }, tx);
+
             return repaymentEvent;
         }
 
