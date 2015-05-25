@@ -105,6 +105,7 @@
               <File Id="setup.bat" Source="SourceDir\setup.bat" />
               <File Id="dump.bat" Source="SourceDir\dump.bat" />
               <File Id="dumpObjects.bat" Source="SourceDir\dumpObjects.bat" />
+              <File Id="Cyotek.Windows.Forms.TabList.dll" Source="SourceDir\Cyotek.Windows.Forms.TabList.dll" />
             </Component>
             <!--<Component Id="BuildLabel.txt" Guid="67E3FC7F-3C61-42db-B7EC-B14FDF99E328">
               <File Id="BuildLabel.txt" Source="SourceDir\BuildLabel.txt" />
