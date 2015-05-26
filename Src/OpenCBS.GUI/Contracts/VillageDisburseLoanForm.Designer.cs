@@ -60,17 +60,17 @@ namespace OpenCBS.GUI.Contracts
             // 
             // pnlButtons
             // 
+            resources.ApplyResources(this.pnlButtons, "pnlButtons");
             this.pnlButtons.Controls.Add(this.disburseLoansStatusBar);
             this.pnlButtons.Controls.Add(this.btnCancel);
             this.pnlButtons.Controls.Add(this.btnSave);
-            resources.ApplyResources(this.pnlButtons, "pnlButtons");
             this.pnlButtons.Name = "pnlButtons";
             // 
             // disburseLoansStatusBar
             // 
+            resources.ApplyResources(this.disburseLoansStatusBar, "disburseLoansStatusBar");
             this.disburseLoansStatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            resources.ApplyResources(this.disburseLoansStatusBar, "disburseLoansStatusBar");
             this.disburseLoansStatusBar.Name = "disburseLoansStatusBar";
             this.disburseLoansStatusBar.SizingGrip = false;
             // 
@@ -95,20 +95,21 @@ namespace OpenCBS.GUI.Contracts
             // 
             // dtDisbursement
             // 
-            this.dtDisbursement.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.dtDisbursement, "dtDisbursement");
+            this.dtDisbursement.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtDisbursement.Name = "dtDisbursement";
             this.dtDisbursement.ValueChanged += new System.EventHandler(this.dtDisbursement_ValueChanged);
             // 
             // dtpRepayment
             // 
-            this.dtpRepayment.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.dtpRepayment, "dtpRepayment");
+            this.dtpRepayment.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpRepayment.Name = "dtpRepayment";
             this.dtpRepayment.ValueChanged += new System.EventHandler(this.dtpRepayment_ValueChanged);
             // 
             // lvMembers
             // 
+            resources.ApplyResources(this.lvMembers, "lvMembers");
             this.lvMembers.CheckBoxes = true;
             this.lvMembers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colName,
@@ -124,7 +125,6 @@ namespace OpenCBS.GUI.Contracts
             this.colFundingLine,
             this.colNewFLAmount,
             this.colPaymentMethod});
-            resources.ApplyResources(this.lvMembers, "lvMembers");
             this.lvMembers.DoubleClickActivation = false;
             this.lvMembers.FullRowSelect = true;
             this.lvMembers.GridLines = true;
@@ -191,10 +191,10 @@ namespace OpenCBS.GUI.Contracts
             // 
             // cbPaymentMethods
             // 
+            resources.ApplyResources(this.cbPaymentMethods, "cbPaymentMethods");
             this.cbPaymentMethods.DisplayMember = "Name";
             this.cbPaymentMethods.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPaymentMethods.FormattingEnabled = true;
-            resources.ApplyResources(this.cbPaymentMethods, "cbPaymentMethods");
             this.cbPaymentMethods.Name = "cbPaymentMethods";
             this.cbPaymentMethods.ValueMember = "Id";
             this.cbPaymentMethods.SelectedIndexChanged += new System.EventHandler(this.cbPaymentMethods_SelectedIndexChanged);
