@@ -116,6 +116,7 @@
     <Compile Include="Interface\IStartupProcess.cs" />
     <Compile Include="Command\ShowSearchCommand.cs" />
     <Compile Include="Command\EditVillageBankCommand.cs" />
+    <Compile Include="EventInterceptor.cs" />
     <Compile Include="Interface\Presenter\IBatchRepaymentPresenter.cs" />
     <Compile Include="Interface\Presenter\IBatchRepaymentPresenterCallbacks.cs" />
     <Compile Include="Interface\Presenter\IVillageBankPresenter.cs" />
@@ -327,6 +328,10 @@
     <ProjectReference Include="..\OpenCBS.Enums\OpenCBS.Enums.csproj">
       <Project>{8afc1e87-3856-4f05-8280-5360d33c200b}</Project>
       <Name>OpenCBS.Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCBS.Extensions\OpenCBS.Extensions.csproj">
+      <Project>{d63e15b6-24df-4c27-8593-eface31fa52a}</Project>
+      <Name>OpenCBS.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\OpenCBS.Services\OpenCBS.Services.csproj">
       <Project>{a859d97a-51fb-4961-af07-5856640511af}</Project>

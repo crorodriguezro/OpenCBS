@@ -8,6 +8,7 @@ using OpenCBS.ArchitectureV2.Interface.Repository;
 using OpenCBS.ArchitectureV2.Interface.View;
 using OpenCBS.ArchitectureV2.Model;
 using OpenCBS.CoreDomain;
+using OpenCBS.Extensions;
 using OpenCBS.Shared;
 
 namespace OpenCBS.ArchitectureV2.Presenter
@@ -17,6 +18,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
         private readonly IBatchRepaymentView _view;
         private readonly ILoanRepository _loanRepository;
         private readonly IVillageBankRepository _villageBankRepository;
+        private readonly IEventInterceptor _eventInterceptor;
         private readonly IConnectionProvider _connectionProvider;
         private List<Loan> _loans;
         private int _villageBankId;
@@ -25,11 +27,13 @@ namespace OpenCBS.ArchitectureV2.Presenter
             IBatchRepaymentView view,
             ILoanRepository loanRepository,
             IVillageBankRepository villageBankRepository,
+            IEventInterceptor eventInterceptor,
             IConnectionProvider connectionProvider)
         {
             _view = view;
             _loanRepository = loanRepository;
             _villageBankRepository = villageBankRepository;
+            _eventInterceptor = eventInterceptor;
             _connectionProvider = connectionProvider;
         }
 
@@ -190,6 +194,13 @@ namespace OpenCBS.ArchitectureV2.Presenter
 
                     var repaymentEvent = GetRepaymentEvent(loan, repaidLoan);
                     repaymentEvent = _loanRepository.SaveRepaymentEvent(repaymentEvent, tx);
+                    if (_eventInterceptor != null)
+                        _eventInterceptor.CallInterceptor(new Dictionary<string, object>
+                            {
+                                {"Loan", loan},
+                                {"RepaymentEvent", repaymentEvent},
+                                {"IDbTransaction", tx}
+                            });
                     _loanRepository.ArchiveSchedule(loan.Id, repaymentEvent.Id, loan.Schedule, repaidLoan.Schedule, tx);
 
                     var closed = repaidLoan.Schedule.Last().Repaid;
