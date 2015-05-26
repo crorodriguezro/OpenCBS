@@ -30,6 +30,11 @@ namespace OpenCBS.ArchitectureV2.Presenter
             _view.Attach(this);
             _view.SetVillageBank(_villageBankRepository.Get(villageBankId));
             _applicationController.Publish(new ShowViewMessage(this, _view));
+            _applicationController.Subscribe<VillageBankRepayMessage>(this, m =>
+                {
+                    if (m.VillageBankId == _villageBankId)
+                        _view.SetVillageBank(_villageBankRepository.Get(_villageBankId));
+                });
         }
 
         public object View

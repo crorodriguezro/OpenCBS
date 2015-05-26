@@ -182,6 +182,7 @@
     <Compile Include="Message\ShowViewMessage.cs" />
     <Compile Include="Message\StartPageHiddenMessage.cs" />
     <Compile Include="Message\StartPageShownMessage.cs" />
+    <Compile Include="Message\VillageBankRepayMessage.cs" />
     <Compile Include="Model\Alert.cs" />
     <Compile Include="Model\CloseEvent.cs" />
     <Compile Include="Model\Installment.cs" />

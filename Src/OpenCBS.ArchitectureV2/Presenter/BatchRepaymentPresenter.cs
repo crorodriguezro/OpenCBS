@@ -6,6 +6,7 @@ using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.Presenter;
 using OpenCBS.ArchitectureV2.Interface.Repository;
 using OpenCBS.ArchitectureV2.Interface.View;
+using OpenCBS.ArchitectureV2.Message;
 using OpenCBS.ArchitectureV2.Model;
 using OpenCBS.CoreDomain;
 using OpenCBS.Extensions;
@@ -20,6 +21,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
         private readonly IVillageBankRepository _villageBankRepository;
         private readonly IEventInterceptor _eventInterceptor;
         private readonly IConnectionProvider _connectionProvider;
+        private readonly IApplicationController _applicationController;
         private List<Loan> _loans;
         private int _villageBankId;
 
@@ -28,13 +30,15 @@ namespace OpenCBS.ArchitectureV2.Presenter
             ILoanRepository loanRepository,
             IVillageBankRepository villageBankRepository,
             IEventInterceptor eventInterceptor,
-            IConnectionProvider connectionProvider)
+            IConnectionProvider connectionProvider,
+            IApplicationController applicationController)
         {
             _view = view;
             _loanRepository = loanRepository;
             _villageBankRepository = villageBankRepository;
             _eventInterceptor = eventInterceptor;
             _connectionProvider = connectionProvider;
+            _applicationController = applicationController;
         }
 
         public void Run(int villageBankId)
@@ -216,6 +220,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
                 tx.Commit();
 
                 _view.Stop();
+                _applicationController.Publish(new VillageBankRepayMessage(this, _villageBankId));
             }
             catch (Exception error)
             {
