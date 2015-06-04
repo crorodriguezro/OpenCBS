@@ -1,7 +1,8 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using OpenCBS.ArchitectureV2.Interface;
-using OpenCBS.Shared.Settings;
+using OpenCBS.CoreDomain;
 
 namespace OpenCBS.ArchitectureV2
 {
@@ -9,15 +10,7 @@ namespace OpenCBS.ArchitectureV2
     {
         public IDbConnection GetConnection()
         {
-            var csb = new SqlConnectionStringBuilder();
-            csb.DataSource = TechnicalSettings.DatabaseServerName;
-            csb.InitialCatalog = TechnicalSettings.DatabaseName;
-            csb.UserID = TechnicalSettings.DatabaseLoginName;
-            csb.Password = TechnicalSettings.DatabasePassword;
-
-            var connection = new SqlConnection(csb.ConnectionString);
-            connection.Open();
-            return connection;
+            return DatabaseConnection.GetConnection();
         }
     }
 }
