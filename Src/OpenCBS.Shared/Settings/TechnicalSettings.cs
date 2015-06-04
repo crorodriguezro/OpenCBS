@@ -69,16 +69,6 @@ namespace OpenCBS.Shared.Settings
             set { SetValue("DATABASE_NAME", value); }
         }
 
-        public static bool NewRepaymentWindow
-        {
-            get { return Convert.ToBoolean(GetValue("NewRepaymentWindow", "False")); }
-        }
-
-        public static bool NewFastRepaymentWindow
-        {
-            get { return Convert.ToBoolean(GetValue("NewFastRepaymentWindow", "False")); }
-        }
-
         public static bool UseDemoDatabase
         {
             get

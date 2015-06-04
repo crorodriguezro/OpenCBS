@@ -689,20 +689,18 @@ namespace OpenCBS.GUI.Clients
 
         private void btnRepay_Click(object sender, EventArgs e)
         {
-            if (TechnicalSettings.NewFastRepaymentWindow)
+            _applicationController.Execute(new FastRepaymentCommandData { VillageBank = _village, DefaultAction = Repay });
+        }
+
+        private void Repay()
+        {
+            var frm = new FastRepaymentForm(_village);
+            if (DialogResult.OK != frm.ShowDialog())
             {
-                _applicationController.Execute(new FastRepaymentCommandData { VillageBank = _village });
+                return;
             }
-            else
-            {
-                var frm = new FastRepaymentForm(_village);
-                if (DialogResult.OK != frm.ShowDialog())
-                {
-                    return;
-                }
-                DisplayMembers();
-                DisplayLoans();
-            }
+            DisplayMembers();
+            DisplayLoans();
         }
 
         private bool CheckDataInOpenFiscalYear()

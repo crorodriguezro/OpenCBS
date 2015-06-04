@@ -102,6 +102,7 @@
     <Compile Include="Command\Command.cs" />
     <Compile Include="Command\EditLoanCommand.cs" />
     <Compile Include="Command\EditSavingCommand.cs" />
+    <Compile Include="Command\FastRepaymentCommand.cs" />
     <Compile Include="Command\ShowDashboardCommand.cs" />
     <Compile Include="Interface\View\IAlertsView.cs" />
     <Compile Include="Command\OpenEmailCommand.cs" />
@@ -124,8 +125,6 @@
     <Compile Include="Interface\IEventPublisher.cs" />
     <Compile Include="Interface\Presenter\IAlertsPresenter.cs" />
     <Compile Include="Interface\Presenter\IAlertsPresenterCallbacks.cs" />
-    <Compile Include="Interface\Presenter\IRepaymentPresenter.cs" />
-    <Compile Include="Interface\Presenter\IRepaymentPresenterCallbacks.cs" />
     <Compile Include="Interface\Presenter\ISqlServerConnectionPresenter.cs" />
     <Compile Include="Interface\Presenter\IStartPagePresenter.cs" />
     <Compile Include="Interface\Presenter\IStartPagePresenterCallbacks.cs" />
@@ -142,7 +141,6 @@
     <Compile Include="Interface\View\IErrorView.cs" />
     <Compile Include="Interface\View\ILoginView.cs" />
     <Compile Include="Interface\View\IMainView.cs" />
-    <Compile Include="Interface\View\IRepaymentView.cs" />
     <Compile Include="Interface\View\IStartPageView.cs" />
     <Compile Include="Interface\View\IUpgradeView.cs" />
     <Compile Include="Interface\View\IView.cs" />
@@ -161,7 +159,6 @@
     <Compile Include="Model\Alert.cs" />
     <Compile Include="Presenter\AlertsPresenter.cs" />
     <Compile Include="Presenter\LoginPresenter.cs" />
-    <Compile Include="Presenter\RepaymentPresenter.cs" />
     <Compile Include="Presenter\StartPagePresenter.cs" />
     <Compile Include="Presenter\TranslationService.cs" />
     <Compile Include="Presenter\UpgradePresenter.cs" />
@@ -189,12 +186,6 @@
     </Compile>
     <Compile Include="View\BaseView.Designer.cs">
       <DependentUpon>BaseView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\RepaymentView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\RepaymentView.Designer.cs">
-      <DependentUpon>RepaymentView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StartPageView.cs">
       <SubType>Form</SubType>
@@ -246,10 +237,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\BaseView.resx">
       <DependentUpon>BaseView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\RepaymentView.resx">
-      <DependentUpon>RepaymentView.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StartPageView.resx">
       <DependentUpon>StartPageView.cs</DependentUpon>

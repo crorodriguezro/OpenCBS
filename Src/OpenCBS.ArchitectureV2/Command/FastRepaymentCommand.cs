@@ -3,9 +3,9 @@ using OpenCBS.ArchitectureV2.Interface;
 
 namespace OpenCBS.ArchitectureV2.Command
 {
-    public class ShowRepaymentViewCommand : ICommand<ShowRepaymentViewCommandData>
+    public class FastRepaymentCommand : ICommand<FastRepaymentCommandData>
     {
-        public void Execute(ShowRepaymentViewCommandData commandData)
+        public void Execute(FastRepaymentCommandData commandData)
         {
             commandData.DefaultAction();
         }

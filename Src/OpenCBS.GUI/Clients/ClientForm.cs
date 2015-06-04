@@ -4021,14 +4021,7 @@ namespace OpenCBS.GUI.Clients
 
         private void buttonLoanRepaymentRepay_Click(object sender, EventArgs e)
         {
-            if (TechnicalSettings.NewRepaymentWindow)
-            {
-                _applicationController.Execute(new ShowRepaymentViewCommandData { Loan = _credit });
-            }
-            else
-            {
-                Repay();
-            }
+            _applicationController.Execute(new ShowRepaymentViewCommandData { Loan = _credit, DefaultAction = Repay });
         }
 
         private void Repay()
