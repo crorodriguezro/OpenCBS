@@ -1587,6 +1587,7 @@ namespace OpenCBS.Services
                         _ePs.FireEvent(entryFeeEvent, copyOfLoan, transaction);
                         copyOfLoan.Events.Add(entryFeeEvent);
                     }
+                    _loanManager.InsertLoanEntryFees(entryFees.ToList(), loan.Id, transaction);
 
                     var trancheEntryFeeEvent =
                         copyOfLoan.Events.OfType<LoanEntryFeeEvent>()
