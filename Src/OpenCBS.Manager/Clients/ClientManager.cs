@@ -182,40 +182,15 @@ namespace OpenCBS.Manager.Clients
                             [sex], 
                             [identification_data], 
                             [last_name], 
-                            [birth_date], 
-                            [household_head], 
-                            [nb_of_dependents], 
-                            [nb_of_children], 
-                            [children_basic_education], 
-                            [livestock_number], 
-                            [livestock_type], 
-                            [landplot_size], 
-                            [home_size], 
-                            [home_time_living_in], 
-                            [capital_other_equipments], 
+                            [birth_date],
                             [activity_id], 
-                            [experience], 
-                            [nb_of_people],
                             [father_name],
-                            [mother_name],
                             [image_path],
                             [birth_place],
                             [nationality],
-                            [study_level],
-                            [SS],
-                            [CAF],
-                            [housing_situation],
-                            [handicapped],
                             [professional_situation],
-                            [professional_experience],
-                            [first_contact],
                             [first_appointment],
-                            [family_situation],
-                            [povertylevel_childreneducation],
-                            [povertylevel_economiceducation],
-                            [povertylevel_socialparticipation],
-                            [povertylevel_healthsituation],
-                            [unemployment_months]
+                            [povertylevel_economiceducation]
                             ) 
                 VALUES(
                             @id
@@ -224,62 +199,26 @@ namespace OpenCBS.Manager.Clients
                             ,@identificationData
                             ,@lastName
                             ,@birthDate
-                            ,@householdHead
-                            ,@nbOfDependents
-                            ,@nbOfChildren
-                            ,@childrenBasicEducation
-                            ,@livestockNumber
-                            ,@livestockType
-                            ,@landplotSize
-                            ,@homeSize
-                            ,@homeTimeLivingIn
-                            ,@capitalOtherEquipments
                             ,@activityId
-                            ,@experience
-                            ,@nbOfPeople
                             ,@fatherName
-                            ,@motherName
                             ,@imagePath
                             ,@BirthPlace
                             ,@Nationality
-                            ,@StudyLevel
-                            ,@SS
-                            ,@CAF
-                            ,@HousingSituation
-                            ,@handicapped
                             ,@professionalSituation
-                            ,@professionalExperience
-                            ,@firstContact
                             ,@firstAppointment
-                            ,@family_situation
-                            ,@povertyLevelChildrenEducation
                             ,@povertyLevelEconomicEducation
-                            ,@povertyLevelSocialParticipation
-                            ,@povertyLevelHealthSituation
-                            ,@unemploymentMonths
                         )";
 
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
             {
 
-                c.AddParam("@handicapped", pPerson.Handicapped);
                 c.AddParam("@BirthPlace", pPerson.BirthPlace);
-                c.AddParam("@firstContact", pPerson.FirstContact);
                 c.AddParam("@firstAppointment", pPerson.FirstAppointment);
-                c.AddParam("@professionalExperience", pPerson.ProfessionalExperience);
                 c.AddParam("@professionalSituation", pPerson.ProfessionalSituation);
                 c.AddParam("@Nationality", pPerson.Nationality);
-                c.AddParam("@unemploymentMonths", pPerson.UnemploymentMonths);
-                c.AddParam("@SS", pPerson.SSNumber);
-                c.AddParam("@StudyLevel", pPerson.StudyLevel);
-                c.AddParam("@CAF", pPerson.CAFNumber);
-                c.AddParam("@HousingSituation", pPerson.HousingSituation);
-
+                
                 c.AddParam("@id", tiersId);
-                c.AddParam("@povertyLevelChildrenEducation", pPerson.PovertyLevelIndicators.ChildrenEducation);
-                c.AddParam("@povertyLevelHealthSituation", pPerson.PovertyLevelIndicators.HealthSituation);
-                c.AddParam("@povertyLevelSocialParticipation", pPerson.PovertyLevelIndicators.SocialParticipation);
                 c.AddParam("@povertyLevelEconomicEducation", pPerson.PovertyLevelIndicators.EconomicEducation);
 
                 c.AddParam("@firstName", pPerson.FirstName);
@@ -287,23 +226,11 @@ namespace OpenCBS.Manager.Clients
                 c.AddParam("@identificationData", pPerson.IdentificationData);
                 c.AddParam("@lastName", pPerson.LastName);
                 c.AddParam("@birthDate", pPerson.DateOfBirth);
-                c.AddParam("@householdHead", pPerson.HouseHoldHead);
-                c.AddParam("@nbOfDependents", pPerson.NbOfDependents);
-                c.AddParam("@nbOfChildren", pPerson.NbOfChildren);
-                c.AddParam("@childrenBasicEducation", pPerson.ChildrenBasicEducation);
-                c.AddParam("@livestockNumber", pPerson.LivestockNumber);
-                c.AddParam("@livestockType", pPerson.LivestockType);
-                c.AddParam("@landPlotSize", pPerson.LandplotSize);
-                c.AddParam("@homeSize", pPerson.HomeSize);
-                c.AddParam("@homeTimeLivingIn", pPerson.HomeTimeLivingIn);
-                c.AddParam("@capitalOtherEquipments", pPerson.CapitalOthersEquipments);
-                c.AddParam("@experience", pPerson.Experience);
-                c.AddParam("@nbOfPeople", pPerson.NbOfPeople);
+                
                 c.AddParam("@fatherName", pPerson.FatherName);
-                c.AddParam("@motherName", pPerson.MotherName);
+                
                 c.AddParam("@imagePath", pPerson.Image);
-                c.AddParam("@family_situation", pPerson.FamilySituation);
-
+                
                 if (pPerson.Activity != null)
                     c.AddParam("@activityId", pPerson.Activity.Id);
                 else
@@ -340,8 +267,6 @@ namespace OpenCBS.Manager.Clients
             int? districtId = null;
             int? secondaryDistrictId = null;
             int? activityId = null;
-            int? personalBankId = null;
-            int? businessBankId = null;
 
             string q = @"SELECT 
                                  Tiers.id AS tiers_id, 
@@ -382,41 +307,14 @@ namespace OpenCBS.Manager.Clients
                                  Persons.identification_data, 
                                  Persons.last_name, 
                                  Persons.birth_date, 
-                                 Persons.household_head, 
-                                 Persons.nb_of_dependents, 
-                                 Persons.nb_of_children, 
-                                 Persons.children_basic_education, 
-                                 Persons.livestock_number, 
-                                 Persons.livestock_type, 
-                                 Persons.landplot_size, 
-                                 Persons.home_time_living_in, 
-                                 Persons.home_size, 
-                                 Persons.capital_other_equipments, 
                                  Persons.activity_id, 
-                                 Persons.experience, 
-                                 Persons.nb_of_people, 
-                                 Persons.mother_name, 
                                  Persons.image_path, 
                                  Persons.father_name, 
                                  Persons.birth_place, 
                                  Persons.nationality,
-                                 Persons.unemployment_months,
-                                 Persons.personalBank_id,
-                                 Persons.businessBank_id, 
-                                 Persons.study_level, 
-                                 Persons.SS, 
-                                 Persons.CAF, 
-                                 Persons.housing_situation, 
-                                 Persons.handicapped,
                                  Persons.professional_situation, 
-                                 Persons.professional_experience,
-                                 Persons.first_contact,
                                  Persons.first_appointment, 
-                                 Persons.family_situation,
-                                 Persons.povertylevel_childreneducation,
                                  Persons.povertylevel_economiceducation,
-                                 Persons.povertylevel_socialparticipation,
-                                 Persons.povertylevel_healthsituation,
                                  Persons.loan_officer_id      
                             FROM Tiers 
                             INNER JOIN Persons ON Tiers.id = Persons.id 
@@ -435,8 +333,6 @@ namespace OpenCBS.Manager.Clients
                         r.Read();
                         person = GetPersonFromReader(r);
 
-                        personalBankId = r.GetNullInt("personalBank_id");
-                        businessBankId = r.GetNullInt("businessBank_id");
                         secondaryDistrictId = r.GetNullInt("secondary_district_id");
                         activityId = r.GetNullInt("activity_id");
                         districtId = r.GetNullInt("district_id");
@@ -479,12 +375,8 @@ namespace OpenCBS.Manager.Clients
                          {
                              Id = r.GetInt("tiers_id"),
                              HomePhone = r.GetString("home_phone"),
-                             FirstContact = r.GetNullDateTime("first_contact"),
                              FirstAppointment = r.GetNullDateTime("first_appointment"),
                              ProfessionalSituation = r.GetString("professional_situation"),
-                             ProfessionalExperience = r.GetString("professional_experience"),
-                             FamilySituation = r.GetString("family_situation"),
-                             Handicapped = r.GetBool("handicapped"),
                              Email = r.GetString("e_mail"),
                              Status = (OClientStatus)r.GetSmallInt("status"),
                              SecondaryEmail = r.GetString("secondary_e_mail"),
@@ -519,28 +411,10 @@ namespace OpenCBS.Manager.Clients
                              IdentificationData = r.GetString("identification_data"),
                              DateOfBirth = r.GetNullDateTime("birth_date"),
                              LastName = r.GetString("last_name"),
-                             HouseHoldHead = r.GetBool("household_head"),
-                             NbOfDependents = r.GetNullInt("nb_of_dependents"),
-                             NbOfChildren = r.GetNullInt("nb_of_children"),
-                             ChildrenBasicEducation = r.GetNullInt("children_basic_education"),
-                             LivestockNumber = r.GetNullInt("livestock_number"),
-                             LivestockType = r.GetString("livestock_type"),
-                             LandplotSize = r.GetNullDouble("landplot_size"),
-                             HomeTimeLivingIn = r.GetNullInt("home_time_living_in"),
-                             HomeSize = r.GetNullDouble("home_size"),
-                             CapitalOthersEquipments = r.GetString("capital_other_equipments"),
-                             Experience = r.GetNullInt("experience"),
-                             NbOfPeople = r.GetNullInt("nb_of_people"),
                              FatherName = r.GetString("father_name"),
-                             MotherName = r.GetString("mother_name"),
                              Image = r.GetString("image_path"),
-                             StudyLevel = r.GetString("study_level"),
                              BirthPlace = r.GetString("birth_place"),
                              Nationality = r.GetString("nationality"),
-                             UnemploymentMonths = r.GetNullInt("unemployment_months"),
-                             SSNumber = r.GetString("SS"),
-                             CAFNumber = r.GetString("CAF"),
-                             HousingSituation = r.GetString("housing_situation"),
                              FollowUpComment = r.GetString("follow_up_comment"),
                              Sponsor1 = r.GetString("sponsor1"),
                              Sponsor2 = r.GetString("sponsor2"),
@@ -551,10 +425,7 @@ namespace OpenCBS.Manager.Clients
 
                              PovertyLevelIndicators =
                                  {
-                                     ChildrenEducation = r.GetInt("povertylevel_childreneducation"),
                                      EconomicEducation = r.GetInt("povertylevel_economiceducation"),
-                                     HealthSituation = r.GetInt("povertylevel_socialparticipation"),
-                                     SocialParticipation = r.GetInt("povertylevel_healthsituation")
                                  }
                          };
             return person;
@@ -616,38 +487,13 @@ namespace OpenCBS.Manager.Clients
                                 ,[identification_data]=@identificationData
                                 ,[last_name]=@lastName
                                 ,[birth_date]=@birthDate
-                                ,[household_head]=@householdHead
-                                ,[nb_of_dependents]=@nbOfDependents
-                                ,[nb_of_children]=@nbOfChildren
-                                ,[children_basic_education]=@childrenBasicEducation
-                                ,[livestock_number]=@livestockNumber
-                                ,[livestock_type]=@livestockType
-                                ,[landplot_size]=@landPlotSize
-                                ,[home_size]=@homeSize
-                                ,[home_time_living_in]=@homeTimeLivingIn
-                                ,[capital_other_equipments]=@capitalOtherEquipments
                                 ,[activity_id]=@activityId
-                                ,[experience]=@experience
-                                ,[nb_of_people]=@nbOfPeople
                                 ,[father_name]=@fathername
-                                ,[mother_name]=@mothername
                                 ,[image_path]=@image
-                                ,[study_level] = @studyLevel
                                 ,[birth_place] = @birthPlace
                                 ,[nationality] = @nationality
-                                ,[SS] = @SS
-                                ,[CAF] = @CAF
-                                ,[housing_situation] = @housing_situation
-                                ,[unemployment_months] = @UnemploymentMonths
-                                ,[handicapped] = @handicapped
                                 ,[professional_situation] = @ProfessionalSituation
-                                ,[professional_experience] = @ProfessionalExperience
-                                ,[first_contact] = @firstContact
                                 ,[first_appointment] = @firstAppointment
-                                ,[family_situation] = @family_situation
-                                ,[povertylevel_healthsituation]=@povertyLevelHealthSituation
-                                ,[povertylevel_childreneducation]=@povertyLevelChildrenEducation
-                                ,[povertylevel_socialparticipation]=@povertyLevelSocialParticipation
                                 ,[povertylevel_economiceducation]= @povertyLevelEconomicEducation   
                                 WHERE id = @id";
 
@@ -664,43 +510,18 @@ namespace OpenCBS.Manager.Clients
                 person.FirstName = string.Format(formatInfo, person.FirstName);
                 person.LastName = string.Format(formatInfo, person.LastName);
 
-                c.AddParam("@handicapped", person.Handicapped);
-                c.AddParam("@studyLevel", person.StudyLevel);
-                c.AddParam("@firstContact", person.FirstContact);
                 c.AddParam("@firstAppointment", person.FirstAppointment);
                 c.AddParam("@ProfessionalSituation", person.ProfessionalSituation);
-                c.AddParam("@ProfessionalExperience", person.ProfessionalExperience);
                 c.AddParam("@birthPlace", person.BirthPlace);
                 c.AddParam("@nationality", person.Nationality);
-                c.AddParam("@UnemploymentMonths", person.UnemploymentMonths);
-                c.AddParam("@SS", person.SSNumber);
-                c.AddParam("@CAF", person.CAFNumber);
-                c.AddParam("@housing_situation", person.HousingSituation);
                 c.AddParam("@id", person.Id);
                 c.AddParam("@firstName", person.FirstName);
                 c.AddParam("@sex", person.Sex);
                 c.AddParam("@identificationData", person.IdentificationData);
                 c.AddParam("@lastName", person.LastName);
                 c.AddParam("@birthDate", person.DateOfBirth);
-                c.AddParam("@householdHead", person.HouseHoldHead);
-                c.AddParam("@nbOfDependents", person.NbOfDependents);
-                c.AddParam("@nbOfChildren", person.NbOfChildren);
-                c.AddParam("@childrenBasicEducation", person.ChildrenBasicEducation);
-                c.AddParam("@livestockNumber", person.LivestockNumber);
-                c.AddParam("@livestockType", person.LivestockType);
-                c.AddParam("@landPlotSize", person.LandplotSize);
-                c.AddParam("@homeSize", person.HomeSize);
-                c.AddParam("@homeTimeLivingIn", person.HomeTimeLivingIn);
-                c.AddParam("@capitalOtherEquipments", person.CapitalOthersEquipments);
-                c.AddParam("@experience", person.Experience);
-                c.AddParam("@nbOfPeople", person.NbOfPeople);
                 c.AddParam("@fathername", person.FatherName);
-                c.AddParam("@mothername", person.MotherName);
                 c.AddParam("@image", person.Image);
-                c.AddParam("@family_situation", person.FamilySituation);
-                c.AddParam("@povertyLevelChildrenEducation", person.PovertyLevelIndicators.ChildrenEducation);
-                c.AddParam("@povertyLevelHealthSituation", person.PovertyLevelIndicators.HealthSituation);
-                c.AddParam("@povertyLevelSocialParticipation", person.PovertyLevelIndicators.SocialParticipation);
                 c.AddParam("@povertyLevelEconomicEducation", person.PovertyLevelIndicators.EconomicEducation);
 
                 if (person.Activity != null)
@@ -1859,8 +1680,6 @@ namespace OpenCBS.Manager.Clients
             int? districtId = null;
             int? secondaryDistrictId = null;
             int? activityId = null;
-            int? personalBankId = null;
-            int? businessBankId = null;
 
             string q = @"SELECT 
                                  Tiers.id AS tiers_id, 
@@ -1901,41 +1720,15 @@ namespace OpenCBS.Manager.Clients
                                  Persons.identification_data, 
                                  Persons.last_name, 
                                  Persons.birth_date, 
-                                 Persons.household_head, 
-                                 Persons.nb_of_dependents, 
-                                 Persons.nb_of_children, 
-                                 Persons.children_basic_education, 
-                                 Persons.livestock_number, 
-                                 Persons.livestock_type, 
-                                 Persons.landplot_size, 
-                                 Persons.home_time_living_in, 
-                                 Persons.home_size, 
-                                 Persons.capital_other_equipments, 
                                  Persons.activity_id, 
-                                 Persons.experience, 
-                                 Persons.nb_of_people, 
-                                 Persons.mother_name, 
+                                 Persons.nb_of_people,
                                  Persons.image_path, 
                                  Persons.father_name, 
                                  Persons.birth_place, 
                                  Persons.nationality,
-                                 Persons.unemployment_months,
-                                 Persons.personalBank_id,
-                                 Persons.businessBank_id, 
-                                 Persons.study_level, 
-                                 Persons.SS, 
-                                 Persons.CAF, 
-                                 Persons.housing_situation, 
-                                 Persons.handicapped,
                                  Persons.professional_situation, 
-                                 Persons.professional_experience,
-                                 Persons.first_contact,
                                  Persons.first_appointment, 
-                                 Persons.family_situation,
-                                 Persons.povertylevel_childreneducation,
                                  Persons.povertylevel_economiceducation,
-                                 Persons.povertylevel_socialparticipation,
-                                 Persons.povertylevel_healthsituation,
                                  Persons.loan_officer_id      
                             FROM Tiers 
                             INNER JOIN Persons ON Tiers.id = Persons.id";
@@ -1951,8 +1744,6 @@ namespace OpenCBS.Manager.Clients
                         while (r.Read())
                         {
                             person = GetPersonFromReader(r);
-                            personalBankId = r.GetNullInt("personalBank_id");
-                            businessBankId = r.GetNullInt("businessBank_id");
                             secondaryDistrictId = r.GetNullInt("secondary_district_id");
                             activityId = r.GetNullInt("activity_id");
                             districtId = r.GetNullInt("district_id");

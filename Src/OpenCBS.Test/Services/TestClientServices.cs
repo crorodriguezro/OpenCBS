@@ -168,7 +168,7 @@ namespace OpenCBS.Test.Services
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[a-z]{2}");
 
             Person person = AddPerson(true, null, 1, "city", new District(1, "district", new Province(1, "province")),
-                "nicolas", "MANGIN", 'M', "12345", true);
+                "nicolas", "MANGIN", 'M', "12345");
 
             clientServices.SavePerson(ref person);
         }
@@ -182,9 +182,8 @@ namespace OpenCBS.Test.Services
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ENFORCE_ID_PATTERN, 1);
 
             Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city",
-                new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa", true);
+                new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
 
-            person.NbOfDependents = ERRORVALUE;
             //clientManagement = (ClientManager)mockClientManagement.MockInstance;
             //clientServices = new ClientServices(clientManagement);
             clientServices.SavePerson(ref person);
@@ -198,11 +197,8 @@ namespace OpenCBS.Test.Services
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[a-z]{2}");
 
             Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city",
-                new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa", true);
-
-            person.NbOfDependents = 1;
-            person.NbOfChildren = ERRORVALUE;
-
+                new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
+            
             clientServices.SavePerson(ref person);
         }
 
@@ -213,11 +209,7 @@ namespace OpenCBS.Test.Services
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[a-z]{2}");
 
             Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city",
-                new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa", true);
-
-            person.NbOfDependents = 1;
-            person.NbOfChildren = 1;
-            person.ChildrenBasicEducation = ERRORVALUE;
+                new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
 
             clientServices.SavePerson(ref person);
         }
@@ -229,12 +221,7 @@ namespace OpenCBS.Test.Services
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[a-z]{2}");
 
             Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city",
-                new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa", true);
-
-            person.NbOfDependents = 1;
-            person.NbOfChildren = 1;
-            person.ChildrenBasicEducation = 1;
-            person.Experience = ERRORVALUE;
+                new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
 
             clientServices.SavePerson(ref person);
         }
@@ -246,13 +233,7 @@ namespace OpenCBS.Test.Services
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[a-z]{2}");
 
             Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city",
-                new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa", true);
-
-            person.NbOfDependents = 1;
-            person.NbOfChildren = 1;
-            person.ChildrenBasicEducation = 1;
-            person.Experience = 1;
-            person.NbOfPeople = ERRORVALUE;
+                new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
 
             clientServices.SavePerson(ref person);
         }
@@ -264,13 +245,7 @@ namespace OpenCBS.Test.Services
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[a-z]{2}");
 
             Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city",
-                new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa", true);
-
-            person.NbOfDependents = 1;
-            person.NbOfChildren = 1;
-            person.ChildrenBasicEducation = 1;
-            person.Experience = 1;
-            person.NbOfPeople = 1;
+                new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
             person.OtherOrgAmount = ERRORVALUE;
 
             clientServices.SavePerson(ref person);
@@ -283,13 +258,8 @@ namespace OpenCBS.Test.Services
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[a-z]{2}");
 
             Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city",
-                new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa", true);
+                new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
 
-            person.NbOfDependents = 1;
-            person.NbOfChildren = 1;
-            person.ChildrenBasicEducation = 1;
-            person.Experience = 1;
-            person.NbOfPeople = 1;
             person.OtherOrgAmount = 1;
             person.OtherOrgDebts = ERRORVALUE;
 
@@ -303,16 +273,11 @@ namespace OpenCBS.Test.Services
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[a-z]{2}");
 
             Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city",
-                new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa", true);
+                new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
 
-            person.NbOfDependents = 1;
-            person.NbOfChildren = 1;
-            person.ChildrenBasicEducation = 1;
-            person.Experience = 1;
-            person.NbOfPeople = 1;
+           
             person.OtherOrgAmount = 1;
             person.OtherOrgDebts = 1;
-            person.HomeSize = ERRORVALUE;
 
             clientServices.SavePerson(ref person);
         }
@@ -323,17 +288,10 @@ namespace OpenCBS.Test.Services
         {
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[a-z]{2}");
 
-            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa", true);
+            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
 
-            person.NbOfDependents = 1;
-            person.NbOfChildren = 1;
-            person.ChildrenBasicEducation = 1;
-            person.Experience = 1;
-            person.NbOfPeople = 1;
             person.OtherOrgAmount = 1;
             person.OtherOrgDebts = 1;
-            person.HomeSize = 1;
-            person.HomeTimeLivingIn = ERRORVALUE;
 
             clientServices.SavePerson(ref person);
         }
@@ -344,18 +302,10 @@ namespace OpenCBS.Test.Services
         {
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[a-z]{2}");
 
-            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa", true);
+            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
 
-            person.NbOfDependents = 1;
-            person.NbOfChildren = 1;
-            person.ChildrenBasicEducation = 1;
-            person.Experience = 1;
-            person.NbOfPeople = 1;
             person.OtherOrgAmount = 1;
             person.OtherOrgDebts = 1;
-            person.HomeSize = 1;
-            person.HomeTimeLivingIn = 1;
-            person.LandplotSize = ERRORVALUE;
 
             clientServices.SavePerson(ref person);
         }
@@ -365,19 +315,10 @@ namespace OpenCBS.Test.Services
         public void TestSavePersonButLivestockNumberIsBad()
         {
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[a-z]{2}");
-            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa", true);
+            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
 
-            person.NbOfDependents = 1;
-            person.NbOfChildren = 1;
-            person.ChildrenBasicEducation = 1;
-            person.Experience = 1;
-            person.NbOfPeople = 1;
             person.OtherOrgAmount = 1;
             person.OtherOrgDebts = 1;
-            person.HomeSize = 1;
-            person.HomeTimeLivingIn = 1;
-            person.LandplotSize = 1;
-            person.LivestockNumber = ERRORVALUE;
 
             clientServices.SavePerson(ref person);
         }
@@ -386,7 +327,7 @@ namespace OpenCBS.Test.Services
         [ExpectedException(typeof(OpenCBS.ExceptionsHandler.OpenCbsTiersSaveException))]
         public void TestSavePersonButDistrictIsNull()
         {
-            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", null, "nicolas", "mangin", 'M', "12345", true);
+            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", null, "nicolas", "mangin", 'M', "12345");
 
             clientServices.SavePerson(ref person);
         }
@@ -395,7 +336,7 @@ namespace OpenCBS.Test.Services
         [ExpectedException(typeof(OpenCBS.ExceptionsHandler.OpenCbsTiersSaveException))]
         public void TestSavePersonButCityIsNull()
         {
-            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, null, new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12ED", true);
+            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, null, new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12ED");
 
             clientServices.SavePerson(ref person);
         }
@@ -404,7 +345,7 @@ namespace OpenCBS.Test.Services
         [ExpectedException(typeof(OpenCBS.ExceptionsHandler.OpenCbsTiersSaveException))]
         public void TestSavePersonButFirstNameIsNull()
         {
-            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), null, "mangin", 'M', "12345", true);
+            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), null, "mangin", 'M', "12345");
 
             clientServices.SavePerson(ref person);
         }
@@ -413,7 +354,7 @@ namespace OpenCBS.Test.Services
         [ExpectedException(typeof(OpenCBS.ExceptionsHandler.OpenCbsTiersSaveException))]
         public void TestSavePersonButSexIsNull()
         {
-            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "mangin", Convert.ToChar(0), "12345", true);
+            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "mangin", Convert.ToChar(0), "12345");
 
             clientServices.SavePerson(ref person);
         }
@@ -424,7 +365,7 @@ namespace OpenCBS.Test.Services
         {
             // Ru55
             Assert.Ignore();
-            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', null, true);
+            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', null);
 
             clientServices.SavePerson(ref person);
         }
@@ -433,7 +374,7 @@ namespace OpenCBS.Test.Services
         public void TestSavePersonButIdentificationDataIsBad()
         {
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ENFORCE_ID_PATTERN, 1);
-            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "1111111", true);
+            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "1111111");
 
             clientServices.SavePerson(ref person);
         }
@@ -442,7 +383,7 @@ namespace OpenCBS.Test.Services
         public void TestSavePersonButLastNameIsNull()
         {
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[A-Z]{2}");
-            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", null, 'M', "12ED", true);
+            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", null, 'M', "12ED");
 
             clientServices.SavePerson(ref person);
         }
@@ -452,7 +393,7 @@ namespace OpenCBS.Test.Services
         public void TestSavePersonWhenSecondaryAddressNotNullButSecondaryCityIsNull()
         {
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[A-Z]{2}");
-            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "MANGIN", 'M', "12ED", true);
+            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "MANGIN", 'M', "12ED");
 
             person.SecondaryDistrict = new District(1, "district", new Province(1, "province"));
             person.SecondaryAddress = "address";
@@ -466,7 +407,7 @@ namespace OpenCBS.Test.Services
         public void TestSavePersonWhenSecondaryAddressNotNullButSecondaryDistrictIsNull()
         {
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[a-z]{2}");
-            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "MANGIN", 'M', "12aa", true);
+            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "MANGIN", 'M', "12aa");
 
             person.SecondaryDistrict = null;
             person.SecondaryCity = "city";
@@ -479,7 +420,7 @@ namespace OpenCBS.Test.Services
         public void TestSavePersonWhenDateOfBirthIsBad()
         {
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[a-z]{2}");
-            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "MANGIN", 'M', "12aa", true);
+            Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "MANGIN", 'M', "12aa");
             person.DateOfBirth = DateTime.Now.Date;
             clientServices.SavePerson(ref person);
         }
@@ -512,13 +453,13 @@ namespace OpenCBS.Test.Services
             _appSettings.UpdateSelectedParameter(OGeneralSettings.ID_PATTERN, "[0-9]{2}[A-Z]{2}");
             _appSettings.UpdateSelectedParameter(OGeneralSettings.CITYMANDATORY, false);
 
-            Person person = AddPerson(true, agriculture, 1, "Dushambe", district, "Nicolas", "MANGIN", 'M', "12ED", true);
+            Person person = AddPerson(true, agriculture, 1, "Dushambe", district, "Nicolas", "MANGIN", 'M', "12ED");
             person.Branch = _branch;
             Assert.AreEqual(String.Empty, clientServices.SavePerson(ref person));
         }
 
         private Person AddPerson(bool active, EconomicActivity dOA, int loanCycle, string city, District district, string firstName, string lastname,
-            char sex, string identificationData, bool houseHoldHead)
+            char sex, string identificationData)
         {
             Person person = new Person();
             person.Active = active;
@@ -530,7 +471,6 @@ namespace OpenCBS.Test.Services
             person.Sex = sex;
             person.LoanCycle = loanCycle;
             person.IdentificationData = identificationData;
-            person.HouseHoldHead = houseHoldHead;
             person.DateOfBirth = new DateTime(1980, 12, 12);
             return person;
         }
@@ -550,7 +490,7 @@ namespace OpenCBS.Test.Services
             EconomicActivity agriculture = addDataForTesting.AddDomainOfApplicationAgriculture();
             District district = addDataForTesting.AddDistrictIntoDatabase();
 
-            Person person = AddPerson(true, agriculture, 1, "Dushambe", district, "Nicolas", "MANGIN", 'M', "12ED", true);
+            Person person = AddPerson(true, agriculture, 1, "Dushambe", district, "Nicolas", "MANGIN", 'M', "12ED");
             person.Branch = _branch;
             Assert.AreEqual(String.Empty, clientServices.SavePerson(ref person));
 

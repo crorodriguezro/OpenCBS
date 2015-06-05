@@ -737,12 +737,6 @@
   <data name="changePhotoLinkLabel.Text" xml:space="preserve">
     <value>Изменить фото...</value>
   </data>
-  <data name="checkBoxHeadOfHousehold.Location" type="System.Drawing.Point, System.Drawing">
-    <value>378, 37</value>
-  </data>
-  <data name="checkBoxHeadOfHousehold.Text" xml:space="preserve">
-    <value>Глава семьи</value>
-  </data>
   <data name="labelDateOfBirth.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 16</value>
   </data>

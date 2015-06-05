@@ -60,7 +60,6 @@ namespace OpenCBS.GUI.UserControl
         private ColumnHeader columnHeaderDateOfBirth;
         private ColumnHeader columnHeaderPassport;
         private ColumnHeader columnHeaderSex;
-        private ColumnHeader columnHeaderHeadOfHousehold;
         private ColumnHeader columnHeaderDependents;
         public event EventHandler ButtonCancelClick;
         public event EventHandler ButtonSaveClick;
@@ -95,14 +94,11 @@ namespace OpenCBS.GUI.UserControl
         private bool _cancelClicked;
         private OCurrency loanAmount;
         private System.Windows.Forms.Button buttonDeleteMembers;
-        private ColumnHeader columnHeader8;
         private TableLayoutPanel tableLayoutPanel1;
         private SplitContainer splitContainer3;
         private TableLayoutPanel tableLayoutPanel4;
         private ApplicationSettings _generalParameters;
         private ColumnHeader columnHeader7;
-        private ColumnHeader columnHeader9;
-        private ColumnHeader columnHeader10;
         private TabPage tabPageProjects;
         private SplitContainer splitContainer1;
         private ListView listViewProjects;
@@ -159,11 +155,9 @@ namespace OpenCBS.GUI.UserControl
             this.columnHeaderPassport = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderDateOfBirth = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderSex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderHeadOfHousehold = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderLoanCycle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderDependents = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonDeleteMembers = new System.Windows.Forms.Button();
             this.buttonSaveAsLeader = new System.Windows.Forms.Button();
@@ -193,8 +187,6 @@ namespace OpenCBS.GUI.UserControl
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageProjects = new System.Windows.Forms.TabPage();
             this.tabPageSaving = new System.Windows.Forms.TabPage();
             this.savingsListUserControl1 = new OpenCBS.GUI.UserControl.SavingsListUserControl();
@@ -272,11 +264,9 @@ namespace OpenCBS.GUI.UserControl
             this.columnHeaderPassport,
             this.columnHeaderDateOfBirth,
             this.columnHeaderSex,
-            this.columnHeaderHeadOfHousehold,
             this.columnHeaderLoanCycle,
             this.columnHeaderDependents,
-            this.columnHeader7,
-            this.columnHeader8});
+            this.columnHeader7});
             resources.ApplyResources(this.listViewOtherMembres, "listViewOtherMembres");
             this.listViewOtherMembres.FullRowSelect = true;
             this.listViewOtherMembres.GridLines = true;
@@ -302,10 +292,6 @@ namespace OpenCBS.GUI.UserControl
             // 
             resources.ApplyResources(this.columnHeaderSex, "columnHeaderSex");
             // 
-            // columnHeaderHeadOfHousehold
-            // 
-            resources.ApplyResources(this.columnHeaderHeadOfHousehold, "columnHeaderHeadOfHousehold");
-            // 
             // columnHeaderLoanCycle
             // 
             resources.ApplyResources(this.columnHeaderLoanCycle, "columnHeaderLoanCycle");
@@ -317,10 +303,6 @@ namespace OpenCBS.GUI.UserControl
             // columnHeader7
             // 
             resources.ApplyResources(this.columnHeader7, "columnHeader7");
-            // 
-            // columnHeader8
-            // 
-            resources.ApplyResources(this.columnHeader8, "columnHeader8");
             // 
             // groupBox3
             // 
@@ -485,9 +467,7 @@ namespace OpenCBS.GUI.UserControl
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader9,
-            this.columnHeader10});
+            this.columnHeader6});
             resources.ApplyResources(this.listViewHistoryMembers, "listViewHistoryMembers");
             this.listViewHistoryMembers.FullRowSelect = true;
             this.listViewHistoryMembers.GridLines = true;
@@ -520,14 +500,6 @@ namespace OpenCBS.GUI.UserControl
             // columnHeader6
             // 
             resources.ApplyResources(this.columnHeader6, "columnHeader6");
-            // 
-            // columnHeader9
-            // 
-            resources.ApplyResources(this.columnHeader9, "columnHeader9");
-            // 
-            // columnHeader10
-            // 
-            resources.ApplyResources(this.columnHeader10, "columnHeader10");
             // 
             // tabPageProjects
             // 
@@ -1273,12 +1245,7 @@ namespace OpenCBS.GUI.UserControl
                     listViewItem.SubItems.Add(person.DateOfBirth.Value.ToShortDateString());
 
                 listViewItem.SubItems.Add(person.Sex.ToString());
-                if (person.HouseHoldHead)
-                    listViewItem.SubItems.Add(MultiLanguageStrings.GetString(Ressource.GroupUserControl, "textYes.Text"));
-                else
-                    listViewItem.SubItems.Add(MultiLanguageStrings.GetString(Ressource.GroupUserControl, "textNo.Text"));
-
-                listViewItem.SubItems.Add(person.NbOfDependents.ToString());
+                
                 listViewItem.SubItems.Add(member.JoinedDate.ToShortDateString());
                 listViewItem.SubItems.Add(member.LeftDate.Value.ToShortDateString());
                 listViewHistoryMembers.Items.Add(listViewItem);
@@ -1314,13 +1281,8 @@ namespace OpenCBS.GUI.UserControl
                     listViewItem.SubItems.Add(person.DateOfBirth.Value.ToShortDateString());
 
                 listViewItem.SubItems.Add(person.Sex.ToString());
-                if (person.HouseHoldHead)
-                    listViewItem.SubItems.Add(MultiLanguageStrings.GetString(Ressource.GroupUserControl, "textYes.Text"));
-                else
-                    listViewItem.SubItems.Add(MultiLanguageStrings.GetString(Ressource.GroupUserControl, "textNo.Text"));
+                
                 listViewItem.SubItems.Add(person.LoanCycle.ToString());
-
-                listViewItem.SubItems.Add(person.NbOfDependents.ToString());
                 listViewItem.SubItems.Add(entry.JoinedDate.ToShortDateString());
                 listViewItem.SubItems.Add(person.BadClient.ToString());
 

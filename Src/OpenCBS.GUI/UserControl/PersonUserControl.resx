@@ -3575,39 +3575,6 @@
   <data name="&gt;&gt;dateTimePickerDateOfBirth.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
-  <data name="checkBoxHeadOfHousehold.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="checkBoxHeadOfHousehold.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxHeadOfHousehold.Location" type="System.Drawing.Point, System.Drawing">
-    <value>429, 39</value>
-  </data>
-  <data name="checkBoxHeadOfHousehold.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>No</value>
-  </data>
-  <data name="checkBoxHeadOfHousehold.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 23</value>
-  </data>
-  <data name="checkBoxHeadOfHousehold.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="checkBoxHeadOfHousehold.Text" xml:space="preserve">
-    <value>Head of household</value>
-  </data>
-  <data name="&gt;&gt;checkBoxHeadOfHousehold.Name" xml:space="preserve">
-    <value>checkBoxHeadOfHousehold</value>
-  </data>
-  <data name="&gt;&gt;checkBoxHeadOfHousehold.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxHeadOfHousehold.Parent" xml:space="preserve">
-    <value>groupBoxCivilities</value>
-  </data>
-  <data name="&gt;&gt;checkBoxHeadOfHousehold.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
   <data name="labelDateOfBirth.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>

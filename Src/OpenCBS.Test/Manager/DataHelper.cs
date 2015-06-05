@@ -253,7 +253,7 @@ namespace OpenCBS.Test.Manager
             if (pClientType == OClientTypes.Group)
                 insert = new OpenCbsCommand("INSERT INTO Groups (id,name) VALUES (" + tiersId + ",'SCG')", SqlConnection);
             else if (pClientType == OClientTypes.Person)
-                insert = new OpenCbsCommand("INSERT INTO Persons (id,first_name,sex,identification_data,last_name,household_head) VALUES (" + tiersId + ",'Nicolas','M','123KH','BARON',1)", SqlConnection);
+                insert = new OpenCbsCommand("INSERT INTO Persons (id,first_name,sex,identification_data,last_name) VALUES (" + tiersId + ",'Nicolas','M','123KH','BARON',1)", SqlConnection);
 
             if (insert != null) insert.ExecuteNonQuery();
 			return tiersId;

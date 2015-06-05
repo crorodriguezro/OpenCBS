@@ -81,13 +81,6 @@ namespace OpenCBS.Test.CoreDomain
             Assert.AreEqual("John",person.FatherName);
         }
 
-        [Test]
-        public void MotherCorrectlySetAndRetrieved()
-        {
-            person.MotherName = "Marry";
-            Assert.AreEqual("Marry", person.MotherName);
-        }
-
 		[Test]
 		public void TestIfOtherOrgNameIsCorrectlySetAndRetrieved()
 		{
@@ -241,88 +234,11 @@ namespace OpenCBS.Test.CoreDomain
 		}
 
         [Test]
-        public void TestIfDateOfFirstContactIsCorrectlySetAndRetrieved()
-        {
-            person.FirstContact = new DateTime(2009, 12, 25);
-            Assert.AreEqual(new DateTime(2009, 12, 25), person.FirstContact.Value);
-        }
-
-        [Test]
         public void TestIfDateOfFirstAppointmentIsCorrectlySetAndRetrieved()
         {
             person.FirstAppointment = new DateTime(2010, 04, 1);
             Assert.AreEqual(new DateTime(2010, 04, 1), person.FirstAppointment.Value);
         }
-
-		[Test]
-		public void TestIfHouseholdHeadIsCorrectlySetAndRetrieved()
-		{
-			person.HouseHoldHead = true;
-			Assert.IsTrue(person.HouseHoldHead);
-		}
-
-		[Test]
-		public void TestIfNbOfDependentsIsCorrectlySetAndRetrieved()
-		{
-			person.NbOfDependents = 12;
-			Assert.AreEqual(12,person.NbOfDependents.Value);
-		}
-
-		[Test]
-		public void TestIfNbOfChildrenIsCorrectlySetAndRetrieved()
-		{
-			person.NbOfChildren = 12;
-			Assert.AreEqual(12,person.NbOfChildren.Value);
-		}
-
-		[Test]
-		public void TestIfNbOfChildrenBasicEducationIsCorrectlySetAndRetrieved()
-		{
-			person.ChildrenBasicEducation= 10;
-			Assert.AreEqual(10,person.ChildrenBasicEducation.Value);
-		}
-
-		[Test]
-		public void TestIfNbOfiveStockNumberLIsCorrectlySetAndRetrieved()
-		{
-			person.LivestockNumber = 50;
-			Assert.AreEqual(50,person.LivestockNumber.Value);
-		}
-
-		[Test]
-		public void TestIfLivestockTypeIsCorrectlySetAndRetrieved()
-		{
-			person.LivestockType = "Cows";
-			Assert.AreEqual("Cows",person.LivestockType);
-		}
-
-		[Test]
-		public void TestIfLandplotSizeCorrectlySetAndRetrieved()
-		{
-			person.LandplotSize = 100.5;
-			Assert.AreEqual(100.5,person.LandplotSize.Value);
-		}
-
-		[Test]
-		public void TestIfHomeSizeCorrectlySetAndRetrieved()
-		{
-			person.HomeSize = 100.5;
-			Assert.AreEqual(100.5,person.HomeSize.Value);
-		}
-
-		[Test]
-		public void TestIfHomeTimeLivingInCorrectlySetAndRetrieved()
-		{
-			person.HomeTimeLivingIn = 5;
-			Assert.AreEqual(5,person.HomeTimeLivingIn.Value);
-		}
-
-		[Test]
-		public void TestIfCapitalOthersEquipmentsIsCorrectlySetAndRetrieved()
-		{
-			person.CapitalOthersEquipments = "1 tractor + 1 TV";
-			Assert.AreEqual("1 tractor + 1 TV",person.CapitalOthersEquipments);
-		}
 
 		[Test]
 		public void TestIfDomainOfApplicationIsCorrectlySetAndRetrieved()
@@ -333,67 +249,6 @@ namespace OpenCBS.Test.CoreDomain
 			Assert.AreEqual("Agriculture",person.Activity.Name);
 			Assert.IsNotNull(person.Activity.Parent);
 			Assert.IsFalse(person.Activity.Deleted);
-		}
-		
-		[Test]
-		public void TestIfExperienceIsCorrectlySetAndRetrieved()
-		{
-			person.Experience = 4;
-			Assert.AreEqual(4,person.Experience.Value);
-		}
-
-		[Test]
-		public void TestIfNbOfPeopleIsCorrectlySetAndRetrieved()
-		{
-			person.NbOfPeople = 4;
-			Assert.AreEqual(4,person.NbOfPeople.Value);
-		}
-
-		[Test]
-		public void TestIfPersonHasAHouse()
-		{
-			Person newPerson = new Person();
-			newPerson.HomeSize = null;
-			newPerson.HomeTimeLivingIn = null;
-			Assert.IsFalse(person.HasHome());
-			
-			newPerson.HomeSize = 123;
-			Assert.IsTrue(newPerson.HasHome());
-
-			newPerson.HomeTimeLivingIn = 2;
-			Assert.IsTrue(newPerson.HasHome());
-			
-			newPerson.HomeSize = null;
-			Assert.IsTrue(newPerson.HasHome());
-		}
-
-		[Test]
-		public void TestIfPersonHasALandPlot()
-		{
-			Person newPerson = new Person();
-			newPerson.LandplotSize = null;
-			Assert.IsFalse(newPerson.HasLandPlot());
-
-			newPerson.LandplotSize = 123;
-			Assert.IsTrue(newPerson.HasLandPlot());
-		}
-
-		[Test]
-		public void TestIfPersonHasLivestock()
-		{
-			Person newPerson = new Person();
-			newPerson.LivestockNumber = null;
-			newPerson.LivestockType = null;
-			Assert.IsFalse(newPerson.HasLivestock());
-
-			newPerson.LivestockNumber = 12;
-			Assert.IsTrue(newPerson.HasLivestock());
-
-			newPerson.LivestockType = "cows";
-			Assert.IsTrue(newPerson.HasLivestock());
-
-			newPerson.LivestockNumber = null;;
-			Assert.IsTrue(newPerson.HasLivestock());
 		}
 
 		[Test]

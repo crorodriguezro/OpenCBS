@@ -129,9 +129,6 @@
   <data name="columnHeaderSex.Text" xml:space="preserve">
     <value>Sexo</value>
   </data>
-  <data name="columnHeaderHeadOfHousehold.Text" xml:space="preserve">
-    <value>Jefe de familia</value>
-  </data>
   <data name="columnHeaderDependents.Text" xml:space="preserve">
     <value>Dependientes</value>
   </data>

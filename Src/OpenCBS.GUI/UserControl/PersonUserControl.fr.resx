@@ -738,12 +738,6 @@
   <data name="dateTimePickerDateOfBirth.Location" type="System.Drawing.Point, System.Drawing">
     <value>166, 64</value>
   </data>
-  <data name="checkBoxHeadOfHousehold.Location" type="System.Drawing.Point, System.Drawing">
-    <value>424, 40</value>
-  </data>
-  <data name="checkBoxHeadOfHousehold.Text" xml:space="preserve">
-    <value>Chef de famille</value>
-  </data>
   <data name="labelDateOfBirth.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 16</value>
   </data>

@@ -276,14 +276,12 @@ namespace OpenCBS.GUI.UserControl
                 textBoxLastname.Text = _tempPerson.LastName;
                 textBoxFirstName.Text = _tempPerson.FirstName;
                 textBoxIdentificationData.Text = _tempPerson.IdentificationData;
-                dateTimePickerFirstContact.Text = ServicesHelper.ConvertNullableDateTimeToString(_tempPerson.FirstContact);
                 dateTimePickerFirstContact.Format = DateTimePickerFormat.Custom;
                 dateTimePickerFirstContact.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
                 dateTimePickerFirstAppointment.Text = ServicesHelper.ConvertNullableDateTimeToString(_tempPerson.FirstAppointment);
                 dateTimePickerFirstAppointment.Format = DateTimePickerFormat.Custom;
                 dateTimePickerFirstAppointment.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
                 dateTimePickerDateOfBirth.Text = ServicesHelper.ConvertNullableDateTimeToString(_tempPerson.DateOfBirth);
-                checkBoxHeadOfHousehold.Checked = _tempPerson.HouseHoldHead;
                 textBoxLoanCycle.Text = _tempPerson.LoanCycle.ToString();
                 textBoxFatherName.Text = _tempPerson.FatherName;
                 textBoxBirthPlace.Text = _tempPerson.BirthPlace ?? String.Empty;
@@ -344,7 +342,6 @@ namespace OpenCBS.GUI.UserControl
             dateTimePickerDateOfBirth.Value = new DateTime(1980, 1, 1);
             dateTimePickerFirstContact.Value = TimeProvider.Today;
             textBoxIdentificationData.Text = string.Empty;
-            checkBoxHeadOfHousehold.Checked = false;
             richTextBoxCommentsActivity.Text = string.Empty;
 
             eacPerson.Activity = null;
@@ -386,7 +383,6 @@ namespace OpenCBS.GUI.UserControl
             RecoverDatasFromUserControlsAddress();
             RecoverDataFromCombobox();
 
-            _tempPerson.FirstContact = dateTimePickerFirstContact.Value;
             _tempPerson.FirstAppointment = dateTimePickerFirstAppointment.Value;
             _tempPerson.Branch = (Branch)cbBranch.SelectedItem;
 
@@ -446,11 +442,6 @@ namespace OpenCBS.GUI.UserControl
             _tempPerson.IsImageAdded = false;
             _tempPerson.IsImageDeleted = false;
             _tempPerson.IsImageUpdated = false;
-        }
-
-        private void checkBoxHeadOfHousehold_CheckedChanged(object sender, EventArgs e)
-        {
-            _tempPerson.HouseHoldHead = checkBoxHeadOfHousehold.Checked;
         }
 
         private void dateTimePickerDateOfBirth_ValueChanged(object sender, EventArgs e)

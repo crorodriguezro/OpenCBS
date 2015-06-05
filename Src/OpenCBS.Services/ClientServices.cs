@@ -564,40 +564,13 @@ namespace OpenCBS.Services
             if (person.LastName == null)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.LastNameIsEmpty);
 
-            if (person.NbOfDependents.HasValue && person.NbOfDependents.Value == ERRORVALUE)
-                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.NbOfDependantsIsBadlyInformed);
-
-            if (person.NbOfChildren.HasValue && person.NbOfChildren.Value == ERRORVALUE)
-                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.NbOfChildrensIsBadlyInformed);
-
-            if (person.ChildrenBasicEducation.HasValue && person.ChildrenBasicEducation.Value == ERRORVALUE)
-                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.NbOfChidrensWithBasicEducationisBadlyInformed);
-
-            if (person.Experience.HasValue && person.Experience.Value == ERRORVALUE)
-                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.ExperienceIsBadlyInformed);
-
-            if (person.NbOfPeople.HasValue && person.NbOfPeople.Value == ERRORVALUE)
-                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.NbOfPeopleWorkingWithinIsBadlyInformed);
-
-            if (person.OtherOrgAmount.HasValue && person.OtherOrgAmount.Value == ERRORVALUE)
+           if (person.OtherOrgAmount.HasValue && person.OtherOrgAmount.Value == ERRORVALUE)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.OtherOrganizationAmountIsBadlyInformed);
 
             if (person.OtherOrgDebts.HasValue && person.OtherOrgDebts.Value == ERRORVALUE)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.OtherOrganizationDebtsIsBadlyInformed);
 
-            if (person.HomeSize.HasValue && person.HomeSize.Value == ERRORVALUE)
-                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.HouseSizeIsBadlyInformed);
-
-            if (person.HomeTimeLivingIn.HasValue && person.HomeTimeLivingIn.Value == ERRORVALUE)
-                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.HouseTimeLivingInIsBadlyInformed);
-
-            if (person.LandplotSize.HasValue && person.LandplotSize.Value == ERRORVALUE)
-                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.LandPlotSizeIsBadlyInformed);
-
-            if (person.LivestockNumber.HasValue && person.LivestockNumber.Value == ERRORVALUE)
-                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.LivestockNumberIsBadlyInformed);
-
-            if (person.DateOfBirth != null)
+           if (person.DateOfBirth != null)
             {
                 int year = DateTime.Now.Year - person.DateOfBirth.Value.Year;
 

@@ -129,9 +129,6 @@
   <data name="columnHeaderSex.Text" xml:space="preserve">
     <value>Пол</value>
   </data>
-  <data name="columnHeaderHeadOfHousehold.Text" xml:space="preserve">
-    <value>Глава семьи</value>
-  </data>
   <data name="columnHeaderLoanCycle.Text" xml:space="preserve">
     <value>Цикл</value>
   </data>

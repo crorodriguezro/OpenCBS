@@ -61,7 +61,6 @@ namespace OpenCBS.Test.Services
 			person.LastName = "BARON";
 			person.Sex = 'M';
 			person.IdentificationData = "123ARK3VC";
-			person.HouseHoldHead = true;
 		    person.Branch = _branch;
 			person.Id = _clientManagement.AddPerson(person);
 			return person;
@@ -79,7 +78,6 @@ namespace OpenCBS.Test.Services
 			person.LastName = "MANGIN";
 			person.Sex = 'F';
 			person.IdentificationData = "123ARK3VC";
-			person.HouseHoldHead = true;
 		    person.Branch = _branch;
 			person.Id = _clientManagement.AddPerson(person);
 			return person;
@@ -97,7 +95,6 @@ namespace OpenCBS.Test.Services
 			person.LastName = "MANGIN";
 			person.Sex = 'F';
 			person.IdentificationData = "123ARK3VC";
-			person.HouseHoldHead = true;
 		    person.Branch = _branch;
 			person.Id = _clientManagement.AddPerson(person);
 			return person;
@@ -115,7 +112,7 @@ namespace OpenCBS.Test.Services
 			if (type.Equals("group"))
                 insert = new OpenCbsCommand("INSERT INTO Groups (id,name) VALUES (" + tiersId + ",'SCG')", _connection);
 			else if (type.Equals("person"))
-                insert = new OpenCbsCommand("INSERT INTO Persons (id,first_name,sex,identification_data,last_name,household_head) VALUES (" + tiersId + ",'Nicolas','M','123KH','BARON',1)", _connection);
+                insert = new OpenCbsCommand("INSERT INTO Persons (id,first_name,sex,identification_data,last_name) VALUES (" + tiersId + ",'Nicolas','M','123KH','BARON',1)", _connection);
 			
             if (insert != null) insert.ExecuteNonQuery();
 
@@ -257,7 +254,6 @@ namespace OpenCBS.Test.Services
 		    person.LoanCycle = 1;
 			person.Sex = 'M';
 			person.IdentificationData = "123ARK3VC";
-			person.HouseHoldHead = true;
 		    person.Branch = _branch;
 			person.Id = _clientManagement.AddPerson(person);
 			return person;

@@ -695,9 +695,6 @@
   <data name="labelFatherName.Text" xml:space="preserve">
     <value>Nombre de padre</value>
   </data>
-  <data name="checkBoxHeadOfHousehold.Text" xml:space="preserve">
-    <value>Jefe de familia</value>
-  </data>
   <data name="labelDateOfBirth.Size" type="System.Drawing.Size, System.Drawing">
     <value>129, 16</value>
   </data>

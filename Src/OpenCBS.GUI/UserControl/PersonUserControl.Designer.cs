@@ -15,7 +15,6 @@ namespace OpenCBS.GUI.UserControl
         private Label labelSex;
         private Panel panelBottom;
         private Panel panelEconomicActivity;
-        private CheckBox checkBoxHeadOfHousehold;
         private IContainer components;
         public event EventHandler ButtonCancelClick;
         public event EventHandler ButtonSaveClick;
@@ -222,7 +221,6 @@ namespace OpenCBS.GUI.UserControl
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.dateTimePickerDateOfBirth = new System.Windows.Forms.DateTimePicker();
-            this.checkBoxHeadOfHousehold = new System.Windows.Forms.CheckBox();
             this.labelDateOfBirth = new System.Windows.Forms.Label();
             this.textBoxLastname = new OpenCBS.GUI.UserControl.TextBoxLimit();
             this.labelLastname = new System.Windows.Forms.Label();
@@ -1002,7 +1000,6 @@ namespace OpenCBS.GUI.UserControl
             this.groupBoxCivilities.Controls.Add(this.pictureBox2);
             this.groupBoxCivilities.Controls.Add(this.pictureBox);
             this.groupBoxCivilities.Controls.Add(this.dateTimePickerDateOfBirth);
-            this.groupBoxCivilities.Controls.Add(this.checkBoxHeadOfHousehold);
             this.groupBoxCivilities.Controls.Add(this.labelDateOfBirth);
             this.groupBoxCivilities.Controls.Add(this.textBoxLastname);
             this.groupBoxCivilities.Controls.Add(this.labelLastname);
@@ -1143,12 +1140,6 @@ namespace OpenCBS.GUI.UserControl
             this.dateTimePickerDateOfBirth.Name = "dateTimePickerDateOfBirth";
             this.dateTimePickerDateOfBirth.Value = new System.DateTime(2009, 10, 7, 0, 0, 0, 0);
             this.dateTimePickerDateOfBirth.ValueChanged += new System.EventHandler(this.dateTimePickerDateOfBirth_ValueChanged);
-            // 
-            // checkBoxHeadOfHousehold
-            // 
-            resources.ApplyResources(this.checkBoxHeadOfHousehold, "checkBoxHeadOfHousehold");
-            this.checkBoxHeadOfHousehold.Name = "checkBoxHeadOfHousehold";
-            this.checkBoxHeadOfHousehold.CheckedChanged += new System.EventHandler(this.checkBoxHeadOfHousehold_CheckedChanged);
             // 
             // labelDateOfBirth
             // 

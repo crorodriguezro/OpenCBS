@@ -104,12 +104,6 @@ namespace OpenCBS.Test.Manager
 			_person.LastName = "BARON";
 		    _person.Sex = 'M';
 			_person.IdentificationData = "123ARK3VC";
-            _person.HouseHoldHead = true;
-            _person.StudyLevel = "1";
-            _person.SSNumber = "3333";
-            _person.CAFNumber = "2424";
-            _person.HousingSituation = "test";
-		    _person.UnemploymentMonths = 1;
             _person.Nationality = "France";
             _person.BirthPlace = "Nancy";
             _person.Email = "man@yahoo.fr";
@@ -118,10 +112,8 @@ namespace OpenCBS.Test.Manager
             _person.ZipCode = "12345";
             _person.SecondaryZipCode = "123458";
             _person.SecondaryHomeType = "Maison";
-            _person.Handicapped = true;
 		    _person.Status = OClientStatus.Inactive;
             _person.FollowUpComment = "Comment follow Up";
-            _person.FirstContact = new DateTime(2009, 12, 25);
             _person.FirstAppointment = new DateTime(2010, 04, 01);
 		    _person.Sponsor1 = "coucou";
             _person.Sponsor1Comment = "coucou2";
@@ -162,25 +154,10 @@ namespace OpenCBS.Test.Manager
 			_person.SecondaryCity = "Kathlon";
 			_person.SecondaryAddress = "32 rue des acacias";
 			_person.DateOfBirth = new DateTime(1983,4,6);
-			_person.NbOfDependents = 1;
-			_person.NbOfChildren = 1;
-			_person.ChildrenBasicEducation = 2;
-			_person.LivestockNumber = 4;
-			_person.LivestockType = "Cows";
-		    _person.StudyLevel = "1";
-		    _person.SSNumber = "3333";
-		    _person.CAFNumber = "2424";
-		    _person.HousingSituation = "test";
 		    _person.Nationality = "France";
 		    _person.BirthPlace = "Nancy";
 
-			_person.LandplotSize = 100;
-			_person.HomeSize = 100;
-			_person.HomeTimeLivingIn = 2;
-			_person.CapitalOthersEquipments = "Tractor";
 			_person.Activity = _agriculture;
-			_person.Experience = 3;
-			_person.NbOfPeople = 5;
 
 			_group.Scoring = 0.6;
 			_group.OtherOrgName = "Planet Finance";
@@ -230,11 +207,9 @@ namespace OpenCBS.Test.Manager
             Assert.AreEqual(pExpectedPerson.IdentificationData, pActualPerson.IdentificationData);
             Assert.AreEqual(pExpectedPerson.CashReceiptIn, pActualPerson.CashReceiptIn);
             Assert.AreEqual(pExpectedPerson.CashReceiptOut, pActualPerson.CashReceiptOut);
-            Assert.AreEqual(pExpectedPerson.HouseHoldHead, pActualPerson.HouseHoldHead);
             Assert.AreEqual(pExpectedPerson.BadClient, pActualPerson.BadClient);
             Assert.AreEqual(pExpectedPerson.Projects.Count, pActualPerson.Projects.Count);
             Assert.AreEqual(pExpectedPerson.Scoring, pActualPerson.Scoring);
-            Assert.AreEqual(pExpectedPerson.MotherName, pActualPerson.MotherName);
             Assert.AreEqual(pExpectedPerson.OtherOrgName,pActualPerson.OtherOrgName);
             if (pExpectedPerson.OtherOrgAmount.HasValue)
             Assert.AreEqual(pExpectedPerson.OtherOrgAmount.Value,pActualPerson.OtherOrgAmount.Value);
@@ -251,29 +226,14 @@ namespace OpenCBS.Test.Manager
             
             Assert.AreEqual(pExpectedPerson.SecondaryAddress,pActualPerson.SecondaryAddress);
             Assert.AreEqual(pExpectedPerson.DateOfBirth ,pActualPerson.DateOfBirth);
-            Assert.AreEqual(pExpectedPerson.NbOfDependents ,pActualPerson.NbOfDependents);
-            Assert.AreEqual(pExpectedPerson.NbOfChildren ,pActualPerson.NbOfChildren);
-            Assert.AreEqual(pExpectedPerson.ChildrenBasicEducation ,pActualPerson.ChildrenBasicEducation);
-            Assert.AreEqual(pExpectedPerson.LivestockNumber ,pActualPerson.LivestockNumber);
-            Assert.AreEqual(pExpectedPerson.LivestockType ,pActualPerson.LivestockType);
-            Assert.AreEqual(pExpectedPerson.LandplotSize,pActualPerson.LandplotSize);
-            Assert.AreEqual(pExpectedPerson.HomeSize ,pActualPerson.HomeSize);
-            Assert.AreEqual(pExpectedPerson.HomeTimeLivingIn ,pActualPerson.HomeTimeLivingIn);
-            Assert.AreEqual(pExpectedPerson.CapitalOthersEquipments ,pActualPerson.CapitalOthersEquipments);
 
             if (pExpectedPerson.Activity != null)
                 Assert.AreEqual(pExpectedPerson.Activity.Name ,pActualPerson.Activity.Name);
             else
                 Assert.AreEqual(pExpectedPerson.Activity, pActualPerson.Activity);
 
-            Assert.AreEqual(pExpectedPerson.Experience ,pActualPerson.Experience);
-            Assert.AreEqual(pExpectedPerson.NbOfPeople ,pActualPerson.NbOfPeople);
             Assert.AreEqual(pExpectedPerson.BadClient, pActualPerson.BadClient);
 
-            Assert.AreEqual(pExpectedPerson.StudyLevel, pActualPerson.StudyLevel);
-            Assert.AreEqual(pExpectedPerson.SSNumber, pActualPerson.SSNumber);
-            Assert.AreEqual(pExpectedPerson.CAFNumber, pActualPerson.CAFNumber);
-            Assert.AreEqual(pExpectedPerson.HousingSituation, pActualPerson.HousingSituation);
             Assert.AreEqual(pExpectedPerson.Nationality, pActualPerson.Nationality);
             Assert.AreEqual(pExpectedPerson.BirthPlace, pActualPerson.BirthPlace);
             Assert.AreEqual(pExpectedPerson.Email, pActualPerson.Email);
@@ -282,10 +242,8 @@ namespace OpenCBS.Test.Manager
             Assert.AreEqual(pExpectedPerson.SecondaryHomeType, pActualPerson.SecondaryHomeType);
             Assert.AreEqual(pExpectedPerson.ZipCode, pActualPerson.ZipCode);
             Assert.AreEqual(pExpectedPerson.SecondaryZipCode, pActualPerson.SecondaryZipCode);
-            Assert.AreEqual(pExpectedPerson.Handicapped, pActualPerson.Handicapped);
             Assert.AreEqual(pExpectedPerson.FollowUpComment, pActualPerson.FollowUpComment);
-            if (pExpectedPerson.FirstContact.HasValue)
-                Assert.AreEqual(pExpectedPerson.FirstContact.Value, pActualPerson.FirstContact.Value);
+            
             if (pExpectedPerson.FirstAppointment.HasValue)
                 Assert.AreEqual(pExpectedPerson.FirstAppointment.Value, pActualPerson.FirstAppointment.Value);
         }
@@ -352,16 +310,6 @@ namespace OpenCBS.Test.Manager
         }
 
         [Test]
-        public void AddPerson_Get_Set_UnemploymentMonths()
-        {
-            _person.UnemploymentMonths = 1;
-            int id = _cltManagement.AddPerson(_person);
-
-            Person selectedPerson = _cltManagement.SelectPersonById(id);
-            Assert.AreEqual(1, selectedPerson.UnemploymentMonths);
-        }
-
-        [Test]
         public void AddPerson_FirstNameInLowerCase()
         {
             _person.FirstName = "Nicolas";
@@ -412,7 +360,6 @@ namespace OpenCBS.Test.Manager
 	    [Test]
 		public void TestAddPersonAndSelectPersonById()
 		{
-            _person.MotherName = "Radha";
 			_person.CashReceiptIn = 12;
 			_person.CashReceiptOut = 2;
 			_person.Image = @"c:\image.jpg";
@@ -426,7 +373,6 @@ namespace OpenCBS.Test.Manager
 		[Test]
 		public void TestAddPersonAndSelectPersonByIdNullAuthorizedValuesWhenAllAreNull()
 		{
-            _person.MotherName = "Radha";
             _person.Id = _cltManagement.AddPerson(_person);
 			Person selectedPerson = _cltManagement.SelectPersonById(_person.Id);
             
@@ -437,7 +383,6 @@ namespace OpenCBS.Test.Manager
 		public void TestAddPersonAndSelectPersonByIdNullAuthorizedValuesWhenNotNull()
 		{
 			PrepareNullAuthorizedValues();
-            _person.MotherName = "Radha";
             _person.HomePhone = "12345678";
             _person.PersonalPhone = "87654321";
             _person.SecondaryHomePhone = "987987654";
@@ -461,8 +406,6 @@ namespace OpenCBS.Test.Manager
             Assert.AreEqual("87654321", selectedPerson.PersonalPhone);
             Assert.AreEqual("987987654", selectedPerson.SecondaryHomePhone);
             Assert.AreEqual("12344321", selectedPerson.SecondaryPersonalPhone);
-            Assert.AreEqual("Radha", selectedPerson.MotherName);
-            Assert.AreEqual(_person.MotherName, selectedPerson.MotherName);
             Assert.AreEqual(_person.Scoring,selectedPerson.Scoring);
 			Assert.AreEqual(_person.OtherOrgName,selectedPerson.OtherOrgName);
 			Assert.AreEqual(_person.OtherOrgAmount.Value,selectedPerson.OtherOrgAmount.Value);
@@ -473,18 +416,7 @@ namespace OpenCBS.Test.Manager
                 Assert.AreEqual(_person.SecondaryCity,selectedPerson.SecondaryCity);
 			Assert.AreEqual(_person.SecondaryAddress,selectedPerson.SecondaryAddress);
 			Assert.AreEqual(_person.DateOfBirth,selectedPerson.DateOfBirth);
-			Assert.AreEqual(_person.NbOfDependents,selectedPerson.NbOfDependents);
-			Assert.AreEqual(_person.NbOfChildren,selectedPerson.NbOfChildren);
-			Assert.AreEqual(_person.ChildrenBasicEducation,selectedPerson.ChildrenBasicEducation);
-			Assert.AreEqual(_person.LivestockNumber,selectedPerson.LivestockNumber);
-			Assert.AreEqual(_person.LivestockType,selectedPerson.LivestockType);
-			Assert.AreEqual(_person.LandplotSize,selectedPerson.LandplotSize);
-			Assert.AreEqual(_person.HomeSize,selectedPerson.HomeSize);
-			Assert.AreEqual(_person.HomeTimeLivingIn,selectedPerson.HomeTimeLivingIn);
-			Assert.AreEqual(_person.CapitalOthersEquipments,selectedPerson.CapitalOthersEquipments);
 			Assert.AreEqual(_person.Activity.Name,selectedPerson.Activity.Name);
-			Assert.AreEqual(_person.Experience,selectedPerson.Experience);
-			Assert.AreEqual(_person.NbOfPeople,selectedPerson.NbOfPeople);
 		}
 
 		[Test]
@@ -558,7 +490,6 @@ namespace OpenCBS.Test.Manager
 			firstPersonToAdd.LastName = "BARON";
 			firstPersonToAdd.Sex = 'M';
 			firstPersonToAdd.IdentificationData = "145VK133";
-			firstPersonToAdd.HouseHoldHead = false;
 		    firstPersonToAdd.Branch = _branch;
 			firstPersonToAdd.Id = _cltManagement.AddPerson(firstPersonToAdd);
 			
@@ -570,7 +501,6 @@ namespace OpenCBS.Test.Manager
 			secondPersonToAdd.LastName = "BARON";
 			secondPersonToAdd.Sex = 'M';
 			secondPersonToAdd.IdentificationData = "2334KGHT";
-			secondPersonToAdd.HouseHoldHead = false;
 		    secondPersonToAdd.Branch = _branch;
 			secondPersonToAdd.Id = _cltManagement.AddPerson(secondPersonToAdd);
 
@@ -596,7 +526,6 @@ namespace OpenCBS.Test.Manager
 			_person.LastName = "Mecd";
 			_person.Sex = 'F';
 			_person.IdentificationData = "ERP345";
-			_person.HouseHoldHead = false;
 			_person.CashReceiptIn = 10;
 			_person.CashReceiptOut = 12;
 			_person.Image = @"c:\test.jpg";
@@ -605,11 +534,6 @@ namespace OpenCBS.Test.Manager
             _person.PersonalPhone = "1";
             _person.SecondaryHomePhone = "2";
             _person.SecondaryPersonalPhone = "3";
-            _person.StudyLevel = "4";
-            _person.SSNumber = "24242";
-		    _person.Handicapped = true;
-            _person.CAFNumber = "24636236324";
-            _person.HousingSituation = "TGSDGSDg";
 
             _person.Nationality = "France2";
             _person.BirthPlace = "Nancy2";
@@ -620,7 +544,6 @@ namespace OpenCBS.Test.Manager
 
             _person.ZipCode = "54321";
             _person.SecondaryZipCode = "45654";
-            _person.MotherName = "Radha";
 		    _person.Status = OClientStatus.Pending;
 			PrepareNullAuthorizedValues();
 
@@ -639,14 +562,10 @@ namespace OpenCBS.Test.Manager
             Assert.AreEqual("1", selectedPerson.PersonalPhone);
             Assert.AreEqual("2", selectedPerson.SecondaryHomePhone);
             Assert.AreEqual("3", selectedPerson.SecondaryPersonalPhone);
-            Assert.AreEqual("Radha", selectedPerson.MotherName);
-
-            Assert.AreEqual(_person.MotherName, selectedPerson.MotherName);
 			Assert.AreEqual(_person.FirstName,selectedPerson.FirstName);
 			Assert.AreEqual(_person.LastName,selectedPerson.LastName);
 			Assert.AreEqual(_person.Sex,selectedPerson.Sex);
 			Assert.AreEqual(_person.IdentificationData,selectedPerson.IdentificationData);
-			Assert.IsFalse(selectedPerson.HouseHoldHead);
 			Assert.AreEqual(10,_person.CashReceiptIn.Value);
 			Assert.AreEqual(12,_person.CashReceiptOut.Value);
 			Assert.AreEqual(_person.Scoring,selectedPerson.Scoring);
@@ -661,18 +580,7 @@ namespace OpenCBS.Test.Manager
 			
             Assert.AreEqual(_person.SecondaryAddress,selectedPerson.SecondaryAddress);
 			Assert.AreEqual(_person.DateOfBirth,selectedPerson.DateOfBirth);
-			Assert.AreEqual(_person.NbOfDependents,selectedPerson.NbOfDependents);
-			Assert.AreEqual(_person.NbOfChildren,selectedPerson.NbOfChildren);
-			Assert.AreEqual(_person.ChildrenBasicEducation,selectedPerson.ChildrenBasicEducation);
-			Assert.AreEqual(_person.LivestockNumber,selectedPerson.LivestockNumber);
-			Assert.AreEqual(_person.LivestockType,selectedPerson.LivestockType);
-			Assert.AreEqual(_person.LandplotSize,selectedPerson.LandplotSize);
-			Assert.AreEqual(_person.HomeSize,selectedPerson.HomeSize);
-			Assert.AreEqual(_person.HomeTimeLivingIn,selectedPerson.HomeTimeLivingIn);
-			Assert.AreEqual(_person.CapitalOthersEquipments,selectedPerson.CapitalOthersEquipments);
 			Assert.AreEqual(_person.Activity.Name,selectedPerson.Activity.Name);
-			Assert.AreEqual(_person.Experience,selectedPerson.Experience);
-			Assert.AreEqual(_person.NbOfPeople,selectedPerson.NbOfPeople);
 		}
 
 		[Test]
@@ -862,7 +770,6 @@ namespace OpenCBS.Test.Manager
 			                                  LastName = "BARON",
 			                                  Sex = 'M',
 			                                  IdentificationData = "145VK133",
-			                                  HouseHoldHead = false,
                                               Branch = _branch
 			                              };
 		    firstPersonToAdd.Id = _cltManagement.AddPerson(firstPersonToAdd);
@@ -876,7 +783,6 @@ namespace OpenCBS.Test.Manager
 			                                   LastName = "BARON",
 			                                   Sex = 'M',
 			                                   IdentificationData = "2334KGHT",
-			                                   HouseHoldHead = false,
                                                Branch = _branch
 			                               };
 		    secondPersonToAdd.Id = _cltManagement.AddPerson(secondPersonToAdd);
@@ -921,7 +827,6 @@ namespace OpenCBS.Test.Manager
 			                                  LastName = "MANGIN",
 			                                  Sex = 'M',
 			                                  IdentificationData = "145VK133",
-			                                  HouseHoldHead = false,
 			                                  CashReceiptIn = 15,
 			                                  CashReceiptOut = 23,
                                               Branch = _branch
@@ -937,7 +842,6 @@ namespace OpenCBS.Test.Manager
 			                                   LastName = "BARON",
 			                                   Sex = 'M',
 			                                   IdentificationData = "2334KGHT",
-			                                   HouseHoldHead = false,
 			                                   CashReceiptIn = 1,
 			                                   CashReceiptOut = 4,
                                                Branch = _branch
@@ -996,7 +900,6 @@ namespace OpenCBS.Test.Manager
 			                                  LastName = "MANGIN",
 			                                  Sex = 'M',
 			                                  IdentificationData = "145VK133",
-			                                  HouseHoldHead = false,
                                               Branch = _branch
 			                              };
 		    firstPersonToAdd.Id = _cltManagement.AddPerson(firstPersonToAdd);
@@ -1011,7 +914,6 @@ namespace OpenCBS.Test.Manager
 			                                   LastName = "BARON",
 			                                   Sex = 'M',
 			                                   IdentificationData = "2334KGHT",
-			                                   HouseHoldHead = false,
                                                Branch = _branch
 			                               };
 		    secondPersonToAdd.Id = _cltManagement.AddPerson(secondPersonToAdd);
