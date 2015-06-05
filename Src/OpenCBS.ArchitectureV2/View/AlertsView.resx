@@ -117,70 +117,467 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="_contractCodeColumn.Text" xml:space="preserve">
+    <value>Contract Code</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_contractCodeColumn.Width" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="_statusColumn.Text" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_statusColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="_statusColumn.Width" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="_dateColumn.Text" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="_dateColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="_dateColumn.Width" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="_lateDaysColumn.Text" xml:space="preserve">
+    <value>Late Days</value>
+  </data>
+  <data name="_lateDaysColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="_lateDaysColumn.Width" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
+  <data name="_amountColumn.Text" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="_amountColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="_amountColumn.Width" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="_clientNameColumn.Text" xml:space="preserve">
+    <value>Client</value>
+  </data>
+  <data name="_clientNameColumn.Width" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="_loanOfficerColumn.Text" xml:space="preserve">
+    <value>Loan Officer</value>
+  </data>
+  <data name="_loanOfficerColumn.Width" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="_cityColumn.Text" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="_cityColumn.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
+  <data name="_addressColumn.Text" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="_addressColumn.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
+  <data name="_phoneColumn.Text" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="_phoneColumn.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
+  <data name="_branchColumn.Text" xml:space="preserve">
+    <value>Branch</value>
+  </data>
+  <data name="_branchColumn.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
+  <data name="_alertsListView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_alertsListView.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="_alertsListView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 25</value>
+  </data>
+  <data name="_alertsListView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>715, 271</value>
+  </data>
+  <data name="_alertsListView.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_alertsListView.Name" xml:space="preserve">
+    <value>_alertsListView</value>
+  </data>
+  <data name="&gt;&gt;_alertsListView.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.FastObjectListView, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;_alertsListView.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_alertsListView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="_toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="_reloadButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJtSURBVDhPldPrS1phHAdwob/DRbO10WTQhcLKOUfZKu2C
-        6SDJfDLDYRdZrGUuu5y08syyUqvVcrVYoxbIhNlubZUUtUtLBnvduwh6O3r3nR4fCrcx1ufdj9/58hye
-        7zm8/3H7aXmHakmVRMfzk/tkkZJR6Qwd/+7uuo5velNnbnhZE9KsqI9qnlVCOVsGha8Ixuc61M9rkNeV
-        5aaPJzK9rRcZX2sDzKYFY7tDmPnmwey+F1N7bng+PcTIzgAGwj2o9pZD2JTWT2Nxd1Z1fMMrTWB4x46F
-        79OY/DqCR3tj8H52wb07CHaLgT1sQ/e6BXJXMQSGFCeNxjUENWbbh3uYi0xiZs8D17YDhkUtbjhEyLNl
-        I6v9GircJShli5BKksdp7EztsjI0tNnDnegMM5Cw4gNxX46LrjmpekFEoLvgp2Mi5ZNbhxVTN09ko9Kf
-        Ekf+cUFPNkNXp1Lq+FaeipekXaom6vlyUjVdQuTjUlLIFhCe3FtIZC4JkThERGTLJhntQhLrvHVDb6X5
-        U6o5BaPwFB/HDhMzOScF3RmHdJWo5aPeb1ytjdCRo3xc6lJ4ig6GtxzRVgbRHmyN3o8wRNdnmtfIuH3b
-        it6N+9AuVyP6FSL6yjC90IPdZLhKh7b6oJ6oxNXmNDONxZne6ZxM2ILFH7Ncpf7IREKlfRudXKX6hVqk
-        my4FBDoBn0bjGoI1/Q/et8G/7+Mq9X0ZweiuE+y2Hb1rnWhaMaBqrAxXjKkBQX2yiMYSqefk7pZAI4xL
-        BIWsGNeZXORaM5HZln4kbLocSmu8aP7j5N/FfhypPT/hEs8lVqOoK6uDjv/A4/0Cvo0zG/g3wskAAAAA
-        SUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJdSURBVDhPlZPdS9pRGMeF/g4XzeZGk0EZxa80J1it0l4w
+        HSSZRzMc9iKLtcql1S+t/M2yUqvldLZYoxZIwWxvbZUUuZeWDHbdXQTdju6+U6/SZLRze57zeV4+52Gx
+        rnDuv6ztVawosq4QmjlE6q2IVU2Jff8EPNzWsI3vW0yt601h1ZrytOlVPeT+Gsi85TC81kC7qELJAN+V
+        EWL8oKUM79QhercP09Fx+H664T/yYP7QBffXp5g8GMVoZBCNnlrw2rkjKZAHmxq2/q0qNHFgw9KvBcz9
+        mMSzw2l4vjnhio6B2aNhi1hg3e6D1FkJjj7HkQJo3VCZLJ8fIRibg+/QDee+HfplNe7aKZRYCsHvuYM6
+        VxWqmXLkkuyZSy00r8rD47uDyYyOCA0RIzwWDhc5Lwbm6jgxjuZaIGP/8hf3Turmy84rpsR/RPbSM8Fg
+        IZ0emNPCNrMUrCz1SiNRLtaShoUqIp0REwkjICypR0IqnCIislOEshSS/B4eSTjv2tGZ00GKoIyWuSvP
+        Eskoa9G5wJp/krGqzi+6gGGzOXbxUv682ilzlx9P7NnjVsbQs9EVnw8vfAnQsUVmbPtmDO08hnq1EfFf
+        iHjJML7Rgdmlk0rH94ahnK3H7Q6uKQVg/Khx0JE+LP/2J5UGYrMpSod3+pNKdUvNyDPeCHE0HHaa0qaR
+        J5+6ETjyJpV6v09iKuoAs2/D0FY/2tf0aJiuwS1DboijzaYy9q8MSl2doTYYVggkjBBldDGKzQUo6M47
+        5bXfDHPbrpsuZU4nJRZHbCtNGeJ/bWJCIzXA773Ko7+nETMPU5XwqAAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="_reloadButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="_reloadButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="_reloadButton.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="_performingLoansItemToday.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 22</value>
+  </data>
+  <data name="_performingLoansItemToday.Text" xml:space="preserve">
+    <value>Performing (today)</value>
+  </data>
+  <data name="_performingLoansItemAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 22</value>
+  </data>
+  <data name="_performingLoansItemAll.Text" xml:space="preserve">
+    <value>Performing (all)</value>
+  </data>
+  <data name="_lateLoansItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 22</value>
+  </data>
+  <data name="_lateLoansItem.Text" xml:space="preserve">
+    <value>Late</value>
+  </data>
+  <data name="_pendingLoansItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 22</value>
+  </data>
+  <data name="_pendingLoansItem.Text" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="_validatedLoansItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 22</value>
+  </data>
+  <data name="_validatedLoansItem.Text" xml:space="preserve">
+    <value>Validated</value>
+  </data>
+  <data name="_postponedLoansItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 22</value>
+  </data>
+  <data name="_postponedLoansItem.Text" xml:space="preserve">
+    <value>Postponed</value>
   </data>
   <data name="_loansDropDownButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
-        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
-        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
-        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
-        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
-        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
-        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
-        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
-        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
-        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIISURBVDhPpZP7S1NxGMbPPxKaXVUkMEq8IpKUCoY/hGgI
+        ymqkDYYXcCjDZOANURSjCNGFQUTsl4GXVMxKk62YU4fXQpaIlygHQxBRH8/zwvyaIAYe+HLgnPN8nue9
+        HA3nvDTq63oW/jm13XOwvPTB3DYFY5MH+bXfcN8ygfTSMSSXfESicQDxBqdYHwH29g9w2tnZ3UcguIvN
+        rR3417exuBJE5N1n/wfwLgXEOc38Bc6xNRHb+/y4nm49G0Bnit2zf9H6bkliE/jKuYxrd6oVgDWfjB+K
+        TWeKMyrGEVfowITvD9re/9ABVQrAhh0HHK+ZselMMaN/mvwtDb+aVqkA7HYIwIj3ysfluPTorJnP6Ezx
+        oHsD1s5ZXEktUwCOioB5f1CEPR9+wTG6iuiserTo8dkwng7HT/R+XUPF8xlcTjErAOdMcW6NW8STiwG8
+        7vej8oUPN/PsEv3t8Ao0TZP3T1u8uJRkUgAuSYHtO97oLxmXd5t9Ho8aPTK+GzntqNfrLm2fFoihwYOI
+        xGIF4KjoGBLzY1OrF9k6OOFxnwDC4wxIMX1G0pMhgVyMNyoA13PAtS7OrJk1PrC69LUdQWxuF6IybHrX
+        LRI7JrtZdoDAo1XmbjMyD+tjSXxGcXRmnYg5ttD9QuxDhN0uUgDOmbvNTpPOJaGAo2K36cyaGZvOFIfd
+        KlSA8/zRh9ABIDUG+1JpAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="_loansDropDownButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="_loansDropDownButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 22</value>
+  </data>
+  <data name="_loansDropDownButton.Text" xml:space="preserve">
+    <value>Loans</value>
+  </data>
+  <data name="_pendingSavingsItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="_pendingSavingsItem.Text" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="_overdraftSavingsItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="_overdraftSavingsItem.Text" xml:space="preserve">
+    <value>Overdraft</value>
   </data>
   <data name="_savingsDropDownButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
-        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
-        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
-        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
-        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
-        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
-        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
-        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
-        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
-        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIISURBVDhPpZP7S1NxGMbPPxKaXVUkMEq8IpKUCoY/hGgI
+        ymqkDYYXcCjDZOANURSjCNGFQUTsl4GXVMxKk62YU4fXQpaIlygHQxBRH8/zwvyaIAYe+HLgnPN8nue9
+        HA3nvDTq63oW/jm13XOwvPTB3DYFY5MH+bXfcN8ygfTSMSSXfESicQDxBqdYHwH29g9w2tnZ3UcguIvN
+        rR3417exuBJE5N1n/wfwLgXEOc38Bc6xNRHb+/y4nm49G0Bnit2zf9H6bkliE/jKuYxrd6oVgDWfjB+K
+        TWeKMyrGEVfowITvD9re/9ABVQrAhh0HHK+ZselMMaN/mvwtDb+aVqkA7HYIwIj3ysfluPTorJnP6Ezx
+        oHsD1s5ZXEktUwCOioB5f1CEPR9+wTG6iuiserTo8dkwng7HT/R+XUPF8xlcTjErAOdMcW6NW8STiwG8
+        7vej8oUPN/PsEv3t8Ao0TZP3T1u8uJRkUgAuSYHtO97oLxmXd5t9Ho8aPTK+GzntqNfrLm2fFoihwYOI
+        xGIF4KjoGBLzY1OrF9k6OOFxnwDC4wxIMX1G0pMhgVyMNyoA13PAtS7OrJk1PrC69LUdQWxuF6IybHrX
+        LRI7JrtZdoDAo1XmbjMyD+tjSXxGcXRmnYg5ttD9QuxDhN0uUgDOmbvNTpPOJaGAo2K36cyaGZvOFIfd
+        KlSA8/zRh9ABIDUG+1JpAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="_savingsDropDownButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="_savingsDropDownButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 22</value>
+  </data>
+  <data name="_savingsDropDownButton.Text" xml:space="preserve">
+    <value>Savings</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="_searchTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 25</value>
   </data>
   <data name="_clearSearchButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIESURBVDhPnZFtb9JQGIaJiUnjXzCmifqFkQXNjB+EtdaX
-        bZKpZArr6FbkRTYZbxsEwoagftDEX+K/IosmDIhTXtbS0vb2tJYRAsS4KznJ055ed8/zHMf/gkTiml1O
-        Y+TztFEsuuzHKRQx7hoIQlYKhhj71RhTRukIRrEMI5ebClFE0TWIxKHsJdHxv/rW9fmd9tZYRvUjDLL0
-        gwKUZPIixJLDUQzTWaBShVmfrT7Lola7Yn1ACkpJZXXj6D3w5Sv0cgXDdymYR7ZkMQI1lQHIvhyOoM09
-        0bC0dNWSRyBco+T9jKYXSsCnz9DyRQyiccg7b6Am00D52KpbDx9rdZalbG0ShMNUP5bQhukcaecDcFwl
-        YgUolSFvi2ixj+bLI8yQToDXUSbtCCLAC0ChSGRO/6ds0uNFlyzsAOQ2ENwCXm8CuUP8XlnDT49n7hVb
-        9HjeJYW2ocZ3gcMCEfNAhrRDBigHNnG2zKLhds8OseQtAWosAZBrlPgQml5Ga3gZvf/cD+zu4fyFH+17
-        99FwOidDLJn0qkbfkr8eQCJHb3qWrYGZ68fiHa37dBWIxtBf86G56MbJjVvjkN7GBnce5KFGYpACPE4f
-        eCemXadZ6mRhQeuwHCTfOlruu/h+nebs7b/8WvFx3fWXOGXYmdOu0zRVv3lbmymPaDMMN0seYYbMlS+H
-        w/EHBwNJXTDxvsIAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIHSURBVDhPlZNta9NQGIaHIAT/gkhA/dJGKTKZ026J+eA2
+        y9Q6ty5rtsS+2NVufdlaWrLVVv2g4C/xP4lU2daiY3Nr16RNk9w7CXRa2ggLHDhwnut63sjY2CU/JBLX
+        XBErn6etYpFxC+hKcaYjilk1FGaHYmwYpR1YRQVWLjck6UoS04nE0U2mcBp89bUZCHouJH0YlQ+wyDG3
+        CuimUhcSB5aj6KWzQLkC+348+zSLavWKIyEXqp3cMK2dd8DnLzCVMnpvN2GX7MBSBPpmBiDvmhxBY/qx
+        gfHxqwNtQK5SrY2MYRZKwMdPMPJFdKJxaGuvoafSgLLr3OtTnFHjOGrknCDL1EksYfTSOaDyHtitELAM
+        lBRoqxLqftYd7httydHLRRMKaUeUAEEECkXUOc50zfxvOS1BYjRxDSDbQGgFWFwGcts4mZnDkd/vumLH
+        0RIERg2vQo+vA9sFAuaBDGmHDFBbWsbxNIeGzzda4sArIvRYAiBrVIUwDiYfGXtTrHn2LAisJ9F+HsTh
+        /Qk0PJ5BiQOTXvXoG5J1Cyop/eDBQ2dg9vnhvWM0n8wC0RjO5gL4ddeHnzdu/ZW0Fhb4dkiAHolBXRKw
+        PzE5MO0azVHfvV7jlOOhBubx23cPe9dpfmCVf2YCfHP+BfbZ0dOu0TT17eZtYyTcNx2yLP+/VdmSocyX
+        /JuHws8BBNtI1INJtrcAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="_clearSearchButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="_clearSearchButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="_clearSearchButton.Text" xml:space="preserve">
+    <value>Clear Search</value>
+  </data>
+  <data name="_toolStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="_toolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>715, 25</value>
+  </data>
+  <data name="_toolStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="_toolStrip.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;_toolStrip.Name" xml:space="preserve">
+    <value>_toolStrip</value>
+  </data>
+  <data name="&gt;&gt;_toolStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_toolStrip.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_toolStrip.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>715, 296</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Alerts</value>
+  </data>
+  <data name="&gt;&gt;_contractCodeColumn.Name" xml:space="preserve">
+    <value>_contractCodeColumn</value>
+  </data>
+  <data name="&gt;&gt;_contractCodeColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;_statusColumn.Name" xml:space="preserve">
+    <value>_statusColumn</value>
+  </data>
+  <data name="&gt;&gt;_statusColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;_dateColumn.Name" xml:space="preserve">
+    <value>_dateColumn</value>
+  </data>
+  <data name="&gt;&gt;_dateColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;_lateDaysColumn.Name" xml:space="preserve">
+    <value>_lateDaysColumn</value>
+  </data>
+  <data name="&gt;&gt;_lateDaysColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;_amountColumn.Name" xml:space="preserve">
+    <value>_amountColumn</value>
+  </data>
+  <data name="&gt;&gt;_amountColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;_clientNameColumn.Name" xml:space="preserve">
+    <value>_clientNameColumn</value>
+  </data>
+  <data name="&gt;&gt;_clientNameColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;_loanOfficerColumn.Name" xml:space="preserve">
+    <value>_loanOfficerColumn</value>
+  </data>
+  <data name="&gt;&gt;_loanOfficerColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;_cityColumn.Name" xml:space="preserve">
+    <value>_cityColumn</value>
+  </data>
+  <data name="&gt;&gt;_cityColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;_addressColumn.Name" xml:space="preserve">
+    <value>_addressColumn</value>
+  </data>
+  <data name="&gt;&gt;_addressColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;_phoneColumn.Name" xml:space="preserve">
+    <value>_phoneColumn</value>
+  </data>
+  <data name="&gt;&gt;_phoneColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;_branchColumn.Name" xml:space="preserve">
+    <value>_branchColumn</value>
+  </data>
+  <data name="&gt;&gt;_branchColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;_reloadButton.Name" xml:space="preserve">
+    <value>_reloadButton</value>
+  </data>
+  <data name="&gt;&gt;_reloadButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
+    <value>toolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_loansDropDownButton.Name" xml:space="preserve">
+    <value>_loansDropDownButton</value>
+  </data>
+  <data name="&gt;&gt;_loansDropDownButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_performingLoansItemToday.Name" xml:space="preserve">
+    <value>_performingLoansItemToday</value>
+  </data>
+  <data name="&gt;&gt;_performingLoansItemToday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_performingLoansItemAll.Name" xml:space="preserve">
+    <value>_performingLoansItemAll</value>
+  </data>
+  <data name="&gt;&gt;_performingLoansItemAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_lateLoansItem.Name" xml:space="preserve">
+    <value>_lateLoansItem</value>
+  </data>
+  <data name="&gt;&gt;_lateLoansItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_pendingLoansItem.Name" xml:space="preserve">
+    <value>_pendingLoansItem</value>
+  </data>
+  <data name="&gt;&gt;_pendingLoansItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_validatedLoansItem.Name" xml:space="preserve">
+    <value>_validatedLoansItem</value>
+  </data>
+  <data name="&gt;&gt;_validatedLoansItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_postponedLoansItem.Name" xml:space="preserve">
+    <value>_postponedLoansItem</value>
+  </data>
+  <data name="&gt;&gt;_postponedLoansItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_savingsDropDownButton.Name" xml:space="preserve">
+    <value>_savingsDropDownButton</value>
+  </data>
+  <data name="&gt;&gt;_savingsDropDownButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_pendingSavingsItem.Name" xml:space="preserve">
+    <value>_pendingSavingsItem</value>
+  </data>
+  <data name="&gt;&gt;_pendingSavingsItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_overdraftSavingsItem.Name" xml:space="preserve">
+    <value>_overdraftSavingsItem</value>
+  </data>
+  <data name="&gt;&gt;_overdraftSavingsItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_searchTextBox.Name" xml:space="preserve">
+    <value>_searchTextBox</value>
+  </data>
+  <data name="&gt;&gt;_searchTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_clearSearchButton.Name" xml:space="preserve">
+    <value>_clearSearchButton</value>
+  </data>
+  <data name="&gt;&gt;_clearSearchButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>AlertsView</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>OpenCBS.ArchitectureV2.View.BaseView, OpenCBS.ArchitectureV2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

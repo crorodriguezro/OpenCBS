@@ -54,7 +54,8 @@ namespace OpenCBS.ArchitectureV2.Presenter
         public void Refresh()
         {
             var alerts = _alerts.FindAll(x =>
-                _view.ShowPerformingLoans && x.IsLoan && x.Status == OContractStatus.Active && x.LateDays == 0 ||
+                _view.ShowPerformingLoansToday && x.IsLoan && x.Status == OContractStatus.Active && x.LateDays == 0 && x.Date.Date == TimeProvider.Today ||
+                _view.ShowPerformingLoansAll && x.IsLoan && x.Status == OContractStatus.Active && x.LateDays == 0 && x.Date.Date > TimeProvider.Today ||
                 _view.ShowLateLoans && x.IsLoan && x.Status == OContractStatus.Active && x.LateDays > 0 ||
                 _view.ShowPendingLoans && x.IsLoan && x.Status == OContractStatus.Pending ||
                 _view.ShowValidatedLoans && x.IsLoan && x.Status == OContractStatus.Validated ||

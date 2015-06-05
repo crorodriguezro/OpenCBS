@@ -10,7 +10,8 @@ namespace OpenCBS.ArchitectureV2.Interface.View
         void StartProgress();
         void StopProgress();
 
-        bool ShowPerformingLoans { get; }
+        bool ShowPerformingLoansToday { get; }
+        bool ShowPerformingLoansAll { get; }
         bool ShowLateLoans { get; }
         bool ShowPendingLoans { get; }
         bool ShowValidatedLoans { get; }

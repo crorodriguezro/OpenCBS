@@ -24,9 +24,10 @@ namespace OpenCBS.ArchitectureV2.View
         {
             InitializeComponent();
             ShowLateLoans = true;
-            ShowPerformingLoans = true;
+            ShowPerformingLoansToday = true;
+            ShowPerformingLoansAll = true;
             _lateLoansItem.Checked = true;
-            _performingLoansItem.Checked = true;
+            _performingLoansItemToday.Checked = true;
             _clearSearchButton.Visible = false;
             SetUp();
         }
@@ -37,10 +38,17 @@ namespace OpenCBS.ArchitectureV2.View
             _reloadButton.Click += (sender, e) => presenterCallbacks.Reload();
             _alertsListView.DoubleClick += (sender, e) => presenterCallbacks.ActivateAlert();
 
-            _performingLoansItem.Click += (sender, e) =>
+            _performingLoansItemToday.Click += (sender, e) =>
             {
-                ShowPerformingLoans = !ShowPerformingLoans;
-                _performingLoansItem.Checked = ShowPerformingLoans;
+                ShowPerformingLoansToday = !ShowPerformingLoansToday;
+                _performingLoansItemToday.Checked = ShowPerformingLoansToday;
+                presenterCallbacks.Refresh();
+            };
+
+            _performingLoansItemAll.Click += (sender, e) =>
+            {
+                ShowPerformingLoansAll = !ShowPerformingLoansAll;
+                _performingLoansItemAll.Checked = ShowPerformingLoansAll;
                 presenterCallbacks.Refresh();
             };
 
@@ -143,7 +151,9 @@ namespace OpenCBS.ArchitectureV2.View
             _toolStrip.Enabled = true;
         }
 
-        public bool ShowPerformingLoans { get; private set; }
+        public bool ShowPerformingLoansToday { get; private set; }
+
+        public bool ShowPerformingLoansAll { get; private set; }
 
         public bool ShowLateLoans { get; private set; }
 

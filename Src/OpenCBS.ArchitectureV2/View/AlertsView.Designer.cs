@@ -45,7 +45,8 @@
             this._reloadButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this._loansDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
-            this._performingLoansItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._performingLoansItemToday = new System.Windows.Forms.ToolStripMenuItem();
+            this._performingLoansItemAll = new System.Windows.Forms.ToolStripMenuItem();
             this._lateLoansItem = new System.Windows.Forms.ToolStripMenuItem();
             this._pendingLoansItem = new System.Windows.Forms.ToolStripMenuItem();
             this._validatedLoansItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,16 +86,12 @@
             this._addressColumn,
             this._phoneColumn,
             this._branchColumn});
-            this._alertsListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._alertsListView.Font = new System.Drawing.Font("Segoe UI", 9F);
+            resources.ApplyResources(this._alertsListView, "_alertsListView");
             this._alertsListView.FullRowSelect = true;
             this._alertsListView.GridLines = true;
-            this._alertsListView.Location = new System.Drawing.Point(0, 25);
             this._alertsListView.MultiSelect = false;
             this._alertsListView.Name = "_alertsListView";
             this._alertsListView.ShowGroups = false;
-            this._alertsListView.Size = new System.Drawing.Size(715, 271);
-            this._alertsListView.TabIndex = 2;
             this._alertsListView.UseCompatibleStateImageBehavior = false;
             this._alertsListView.View = System.Windows.Forms.View.Details;
             this._alertsListView.VirtualMode = true;
@@ -102,76 +99,61 @@
             // _contractCodeColumn
             // 
             this._contractCodeColumn.AspectName = "ContractCode";
-            this._contractCodeColumn.Text = "Contract Code";
-            this._contractCodeColumn.Width = 200;
+            resources.ApplyResources(this._contractCodeColumn, "_contractCodeColumn");
             // 
             // _statusColumn
             // 
             this._statusColumn.AspectName = "Status";
             this._statusColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this._statusColumn.Text = "Status";
-            this._statusColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this._statusColumn.Width = 100;
+            resources.ApplyResources(this._statusColumn, "_statusColumn");
             // 
             // _dateColumn
             // 
             this._dateColumn.AspectName = "Date";
             this._dateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this._dateColumn.Text = "Date";
-            this._dateColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this._dateColumn.Width = 100;
+            resources.ApplyResources(this._dateColumn, "_dateColumn");
             // 
             // _lateDaysColumn
             // 
             this._lateDaysColumn.AspectName = "LateDays";
             this._lateDaysColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this._lateDaysColumn.Text = "Late Days";
-            this._lateDaysColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this._lateDaysColumn.Width = 80;
+            resources.ApplyResources(this._lateDaysColumn, "_lateDaysColumn");
             // 
             // _amountColumn
             // 
             this._amountColumn.AspectName = "Amount";
             this._amountColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this._amountColumn.Text = "Amount";
-            this._amountColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this._amountColumn.Width = 100;
+            resources.ApplyResources(this._amountColumn, "_amountColumn");
             // 
             // _clientNameColumn
             // 
             this._clientNameColumn.AspectName = "ClientName";
-            this._clientNameColumn.Text = "Client";
-            this._clientNameColumn.Width = 200;
+            resources.ApplyResources(this._clientNameColumn, "_clientNameColumn");
             // 
             // _loanOfficerColumn
             // 
             this._loanOfficerColumn.AspectName = "LoanOfficer";
-            this._loanOfficerColumn.Text = "Loan Officer";
-            this._loanOfficerColumn.Width = 200;
+            resources.ApplyResources(this._loanOfficerColumn, "_loanOfficerColumn");
             // 
             // _cityColumn
             // 
             this._cityColumn.AspectName = "City";
-            this._cityColumn.Text = "City";
-            this._cityColumn.Width = 150;
+            resources.ApplyResources(this._cityColumn, "_cityColumn");
             // 
             // _addressColumn
             // 
             this._addressColumn.AspectName = "Address";
-            this._addressColumn.Text = "Address";
-            this._addressColumn.Width = 150;
+            resources.ApplyResources(this._addressColumn, "_addressColumn");
             // 
             // _phoneColumn
             // 
             this._phoneColumn.AspectName = "Phone";
-            this._phoneColumn.Text = "Phone";
-            this._phoneColumn.Width = 150;
+            resources.ApplyResources(this._phoneColumn, "_phoneColumn");
             // 
             // _branchColumn
             // 
             this._branchColumn.AspectName = "BranchName";
-            this._branchColumn.Text = "Branch";
-            this._branchColumn.Width = 150;
+            resources.ApplyResources(this._branchColumn, "_branchColumn");
             // 
             // _toolStrip
             // 
@@ -183,70 +165,62 @@
             this.toolStripSeparator1,
             this._searchTextBox,
             this._clearSearchButton});
-            this._toolStrip.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this._toolStrip, "_toolStrip");
             this._toolStrip.Name = "_toolStrip";
-            this._toolStrip.Size = new System.Drawing.Size(715, 25);
-            this._toolStrip.TabIndex = 4;
-            this._toolStrip.Text = "toolStrip1";
             // 
             // _reloadButton
             // 
             this._reloadButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this._reloadButton.Image = ((System.Drawing.Image)(resources.GetObject("_reloadButton.Image")));
-            this._reloadButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this._reloadButton, "_reloadButton");
             this._reloadButton.Name = "_reloadButton";
-            this._reloadButton.Size = new System.Drawing.Size(23, 22);
-            this._reloadButton.Text = "Refresh";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             // 
             // _loansDropDownButton
             // 
             this._loansDropDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this._loansDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._performingLoansItem,
+            this._performingLoansItemToday,
+            this._performingLoansItemAll,
             this._lateLoansItem,
             this._pendingLoansItem,
             this._validatedLoansItem,
             this._postponedLoansItem});
-            this._loansDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("_loansDropDownButton.Image")));
-            this._loansDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this._loansDropDownButton, "_loansDropDownButton");
             this._loansDropDownButton.Name = "_loansDropDownButton";
-            this._loansDropDownButton.Size = new System.Drawing.Size(51, 22);
-            this._loansDropDownButton.Text = "Loans";
             // 
-            // _performingLoansItem
+            // _performingLoansItemToday
             // 
-            this._performingLoansItem.Name = "_performingLoansItem";
-            this._performingLoansItem.Size = new System.Drawing.Size(134, 22);
-            this._performingLoansItem.Text = "Performing";
+            this._performingLoansItemToday.Name = "_performingLoansItemToday";
+            resources.ApplyResources(this._performingLoansItemToday, "_performingLoansItemToday");
+            // 
+            // _performingLoansItemAll
+            // 
+            this._performingLoansItemAll.Name = "_performingLoansItemAll";
+            resources.ApplyResources(this._performingLoansItemAll, "_performingLoansItemAll");
             // 
             // _lateLoansItem
             // 
             this._lateLoansItem.Name = "_lateLoansItem";
-            this._lateLoansItem.Size = new System.Drawing.Size(134, 22);
-            this._lateLoansItem.Text = "Late";
+            resources.ApplyResources(this._lateLoansItem, "_lateLoansItem");
             // 
             // _pendingLoansItem
             // 
             this._pendingLoansItem.Name = "_pendingLoansItem";
-            this._pendingLoansItem.Size = new System.Drawing.Size(134, 22);
-            this._pendingLoansItem.Text = "Pending";
+            resources.ApplyResources(this._pendingLoansItem, "_pendingLoansItem");
             // 
             // _validatedLoansItem
             // 
             this._validatedLoansItem.Name = "_validatedLoansItem";
-            this._validatedLoansItem.Size = new System.Drawing.Size(134, 22);
-            this._validatedLoansItem.Text = "Validated";
+            resources.ApplyResources(this._validatedLoansItem, "_validatedLoansItem");
             // 
             // _postponedLoansItem
             // 
             this._postponedLoansItem.Name = "_postponedLoansItem";
-            this._postponedLoansItem.Size = new System.Drawing.Size(134, 22);
-            this._postponedLoansItem.Text = "Postponed";
+            resources.ApplyResources(this._postponedLoansItem, "_postponedLoansItem");
             // 
             // _savingsDropDownButton
             // 
@@ -254,52 +228,42 @@
             this._savingsDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._pendingSavingsItem,
             this._overdraftSavingsItem});
-            this._savingsDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("_savingsDropDownButton.Image")));
-            this._savingsDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this._savingsDropDownButton, "_savingsDropDownButton");
             this._savingsDropDownButton.Name = "_savingsDropDownButton";
-            this._savingsDropDownButton.Size = new System.Drawing.Size(60, 22);
-            this._savingsDropDownButton.Text = "Savings";
             // 
             // _pendingSavingsItem
             // 
             this._pendingSavingsItem.Name = "_pendingSavingsItem";
-            this._pendingSavingsItem.Size = new System.Drawing.Size(124, 22);
-            this._pendingSavingsItem.Text = "Pending";
+            resources.ApplyResources(this._pendingSavingsItem, "_pendingSavingsItem");
             // 
             // _overdraftSavingsItem
             // 
             this._overdraftSavingsItem.Name = "_overdraftSavingsItem";
-            this._overdraftSavingsItem.Size = new System.Drawing.Size(124, 22);
-            this._overdraftSavingsItem.Text = "Overdraft";
+            resources.ApplyResources(this._overdraftSavingsItem, "_overdraftSavingsItem");
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // _searchTextBox
             // 
             this._searchTextBox.Name = "_searchTextBox";
-            this._searchTextBox.Size = new System.Drawing.Size(200, 25);
+            resources.ApplyResources(this._searchTextBox, "_searchTextBox");
             // 
             // _clearSearchButton
             // 
             this._clearSearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this._clearSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("_clearSearchButton.Image")));
-            this._clearSearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this._clearSearchButton, "_clearSearchButton");
             this._clearSearchButton.Name = "_clearSearchButton";
-            this._clearSearchButton.Size = new System.Drawing.Size(23, 22);
-            this._clearSearchButton.Text = "Clear Search";
             // 
             // AlertsView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 296);
             this.Controls.Add(this._alertsListView);
             this.Controls.Add(this._toolStrip);
             this.Name = "AlertsView";
-            this.Text = "Alerts";
             ((System.ComponentModel.ISupportInitialize)(this._alertsListView)).EndInit();
             this._toolStrip.ResumeLayout(false);
             this._toolStrip.PerformLayout();
@@ -324,7 +288,7 @@
         private BrightIdeasSoftware.OLVColumn _lateDaysColumn;
         private System.Windows.Forms.ToolStrip _toolStrip;
         private System.Windows.Forms.ToolStripDropDownButton _loansDropDownButton;
-        private System.Windows.Forms.ToolStripMenuItem _performingLoansItem;
+        private System.Windows.Forms.ToolStripMenuItem _performingLoansItemToday;
         private System.Windows.Forms.ToolStripMenuItem _lateLoansItem;
         private System.Windows.Forms.ToolStripMenuItem _pendingLoansItem;
         private System.Windows.Forms.ToolStripMenuItem _validatedLoansItem;
@@ -337,5 +301,6 @@
         private System.Windows.Forms.ToolStripButton _reloadButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton _clearSearchButton;
+        private System.Windows.Forms.ToolStripMenuItem _performingLoansItemAll;
     }
 }
