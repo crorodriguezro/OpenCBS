@@ -178,19 +178,26 @@ namespace OpenCBS.GUI.Contracts
             var configuration = GetTrancheConfiguration();
 
             var entryFeesForm = new LoanEntryFeesForm
-            {
-                EntryFees = _contract.LoanEntryFeesList.Select(fee =>
                 {
-                    var result = new LoanEntryFee
-                    {
-                        FeeValue = fee.ProductEntryFee.IsRate ? configuration.Amount * fee.FeeValue / 100 : fee.FeeValue,
-                        Id = fee.Id,
-                        ProductEntryFee = fee.ProductEntryFee,
-                        ProductEntryFeeId = fee.ProductEntryFeeId
-                    };
-                    return result;
-                }).ToList()
-            };
+                    EntryFees = _contract
+                        .LoanEntryFeesList
+                        .GroupBy(i => i.ProductEntryFeeId)
+                        .Select(i => i.First())
+                        .Select(fee =>
+                            {
+                                var result = new LoanEntryFee
+                                    {
+                                        FeeValue =
+                                            fee.ProductEntryFee.IsRate
+                                                ? configuration.Amount*fee.FeeValue/100
+                                                : fee.FeeValue,
+                                        Id = fee.Id,
+                                        ProductEntryFee = fee.ProductEntryFee,
+                                        ProductEntryFeeId = fee.ProductEntryFeeId
+                                    };
+                                return result;
+                            }).ToList()
+                };
             if (entryFeesForm.ShowDialog() != DialogResult.OK) return;
 
             try

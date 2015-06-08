@@ -2060,6 +2060,26 @@ namespace OpenCBS.Services
                             contract.InterestRate =
                                 contract.GivenTranches[contract.GivenTranches.Count - 1].InterestRate.Value;
                         }
+                        foreach (var contractEvent in
+                            from contractEvent in
+                                contract.Events.Cast<Event>()
+                                        .Where(contractEvent => !contractEvent.Deleted)
+                                        .OfType<LoanEntryFeeEvent>()
+                            let entryFeeEvent = contractEvent
+                            where entryFeeEvent.DisbursementEventId == cancelledEvent.Id
+                            select contractEvent)
+                        {
+                            _ePs.CancelFireEvent(contractEvent, sqlTransaction, contract,
+                                                 contract.Product.Currency.Id);
+                            contractEvent.Deleted = true;
+                            CallInterceptor(new Dictionary<string, object>
+                                {
+                                    {"Loan", contract},
+                                    {"Event", contractEvent},
+                                    {"Deleted", true},
+                                    {"SqlTransaction", sqlTransaction}
+                                });
+                        }
                     }
                     else if (cancelledEvent is RepaymentEvent)
                     {
