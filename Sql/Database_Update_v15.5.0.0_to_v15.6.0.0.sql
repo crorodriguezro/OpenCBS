@@ -45,3 +45,16 @@ ALTER TABLE Persons DROP COLUMN
 , personalBank_id
 , businessBank_id
 GO
+
+delete from 
+	generalparameters
+where 
+	[key] = 'ACCOUNTING_EXPORT_MODE'
+	or [key] = 'ACCUMULATED_PENALTY'
+	or [key] = 'BRANCH_ADDRESS'
+	or [key] = 'BRANCH_CODE'
+	or [key] = 'BRANCH_NAME'
+	or [key] = 'CONSOLIDATION_MODE'
+	or [key] = 'PENDING_REPAYMENT_MODE'
+	or [key] = 'REPAYMENT_COMMENT_MANDATORY'
+GO
