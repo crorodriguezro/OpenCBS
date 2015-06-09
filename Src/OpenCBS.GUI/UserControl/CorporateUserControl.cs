@@ -90,6 +90,7 @@ namespace OpenCBS.GUI.UserControl
             dateTimePickerDateOfCreate.Value = TimeProvider.Today;
             dateTimePickerDateOfCreate.Format = DateTimePickerFormat.Custom;
             dateTimePickerDateOfCreate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            InitPrintButton();
 
             if (_corporate.Id != 0)
             {
@@ -118,7 +119,6 @@ namespace OpenCBS.GUI.UserControl
 
                 DisplayListContactCorporate(_corporate.Contacts);
                 DisplaySavings(_corporate.Savings);
-                InitPrintButton();
             }
             else
             {

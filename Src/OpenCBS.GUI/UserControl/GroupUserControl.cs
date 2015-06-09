@@ -860,6 +860,7 @@ namespace OpenCBS.GUI.UserControl
 
         private void InitializeGroup()
         {
+            InitPrintButton();
             if (group.Id != 0)
             {
                 textBoxName.Text = group.Name;
@@ -910,7 +911,6 @@ namespace OpenCBS.GUI.UserControl
 
                 if (cbBranch.Items.Count > 0) cbBranch.SelectedIndex = 0;
             }
-            InitPrintButton();
         }
 
         public void ResetAllComponents()
