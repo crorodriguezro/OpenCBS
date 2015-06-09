@@ -25,7 +25,6 @@ namespace OpenCBS.ArchitectureV2.View
             InitializeComponent();
             ShowLateLoans = true;
             ShowPerformingLoansToday = true;
-            ShowPerformingLoansAll = true;
             _lateLoansItem.Checked = true;
             _performingLoansItemToday.Checked = true;
             _clearSearchButton.Visible = false;
