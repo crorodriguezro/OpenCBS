@@ -167,21 +167,6 @@ namespace OpenCBS.GUI.UserControl
             this.tableLayoutPanelAddress = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxFirstAddress = new System.Windows.Forms.GroupBox();
             this.groupBoxSecondaryAddress = new System.Windows.Forms.GroupBox();
-            this.tabPage1FollowUp = new System.Windows.Forms.TabPage();
-            this.lblAnd2 = new System.Windows.Forms.Label();
-            this.lblAnd1 = new System.Windows.Forms.Label();
-            this.textBoxSponsor2 = new System.Windows.Forms.TextBox();
-            this.textBoxSponsor1 = new System.Windows.Forms.TextBox();
-            this.richTextBoxCommentsActivity = new System.Windows.Forms.RichTextBox();
-            this.comboBoxSponsor2 = new System.Windows.Forms.ComboBox();
-            this.comboBoxSponsor1 = new System.Windows.Forms.ComboBox();
-            this.labelSponsor2 = new System.Windows.Forms.Label();
-            this.labelCommentsTypeActivity = new System.Windows.Forms.Label();
-            this.dateTimePickerFirstAppointment = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerFirstContact = new System.Windows.Forms.DateTimePicker();
-            this.labelFirstAppointment = new System.Windows.Forms.Label();
-            this.labelFirstContact = new System.Windows.Forms.Label();
-            this.labelSponsor1 = new System.Windows.Forms.Label();
             this.tabPageProjects = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.listViewProjects = new System.Windows.Forms.ListView();
@@ -244,7 +229,6 @@ namespace OpenCBS.GUI.UserControl
             this.tabControlEconomicInfo.SuspendLayout();
             this.tabPageAddress.SuspendLayout();
             this.tableLayoutPanelAddress.SuspendLayout();
-            this.tabPage1FollowUp.SuspendLayout();
             this.tabPageProjects.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -703,7 +687,6 @@ namespace OpenCBS.GUI.UserControl
             // tabControlEconomicInfo
             // 
             this.tabControlEconomicInfo.Controls.Add(this.tabPageAddress);
-            this.tabControlEconomicInfo.Controls.Add(this.tabPage1FollowUp);
             this.tabControlEconomicInfo.Controls.Add(this.tabPageProjects);
             this.tabControlEconomicInfo.Controls.Add(this.tabPageSavings);
             this.tabControlEconomicInfo.Controls.Add(this.tabPageGroupMember);
@@ -737,115 +720,6 @@ namespace OpenCBS.GUI.UserControl
             resources.ApplyResources(this.groupBoxSecondaryAddress, "groupBoxSecondaryAddress");
             this.groupBoxSecondaryAddress.Name = "groupBoxSecondaryAddress";
             this.groupBoxSecondaryAddress.TabStop = false;
-            // 
-            // tabPage1FollowUp
-            // 
-            this.tabPage1FollowUp.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.tabPage1FollowUp.Controls.Add(this.lblAnd2);
-            this.tabPage1FollowUp.Controls.Add(this.lblAnd1);
-            this.tabPage1FollowUp.Controls.Add(this.textBoxSponsor2);
-            this.tabPage1FollowUp.Controls.Add(this.textBoxSponsor1);
-            this.tabPage1FollowUp.Controls.Add(this.richTextBoxCommentsActivity);
-            this.tabPage1FollowUp.Controls.Add(this.comboBoxSponsor2);
-            this.tabPage1FollowUp.Controls.Add(this.comboBoxSponsor1);
-            this.tabPage1FollowUp.Controls.Add(this.labelSponsor2);
-            this.tabPage1FollowUp.Controls.Add(this.labelCommentsTypeActivity);
-            this.tabPage1FollowUp.Controls.Add(this.dateTimePickerFirstAppointment);
-            this.tabPage1FollowUp.Controls.Add(this.dateTimePickerFirstContact);
-            this.tabPage1FollowUp.Controls.Add(this.labelFirstAppointment);
-            this.tabPage1FollowUp.Controls.Add(this.labelFirstContact);
-            this.tabPage1FollowUp.Controls.Add(this.labelSponsor1);
-            resources.ApplyResources(this.tabPage1FollowUp, "tabPage1FollowUp");
-            this.tabPage1FollowUp.Name = "tabPage1FollowUp";
-            // 
-            // lblAnd2
-            // 
-            resources.ApplyResources(this.lblAnd2, "lblAnd2");
-            this.lblAnd2.BackColor = System.Drawing.Color.Transparent;
-            this.lblAnd2.Name = "lblAnd2";
-            // 
-            // lblAnd1
-            // 
-            resources.ApplyResources(this.lblAnd1, "lblAnd1");
-            this.lblAnd1.BackColor = System.Drawing.Color.Transparent;
-            this.lblAnd1.Name = "lblAnd1";
-            // 
-            // textBoxSponsor2
-            // 
-            this.textBoxSponsor2.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxSponsor2, "textBoxSponsor2");
-            this.textBoxSponsor2.Name = "textBoxSponsor2";
-            this.textBoxSponsor2.TextChanged += new System.EventHandler(this.textBoxSponsor2_TextChanged);
-            // 
-            // textBoxSponsor1
-            // 
-            this.textBoxSponsor1.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxSponsor1, "textBoxSponsor1");
-            this.textBoxSponsor1.Name = "textBoxSponsor1";
-            this.textBoxSponsor1.TextChanged += new System.EventHandler(this.textBoxSponsor1_TextChanged);
-            // 
-            // richTextBoxCommentsActivity
-            // 
-            this.richTextBoxCommentsActivity.AcceptsTab = true;
-            resources.ApplyResources(this.richTextBoxCommentsActivity, "richTextBoxCommentsActivity");
-            this.richTextBoxCommentsActivity.Name = "richTextBoxCommentsActivity";
-            this.richTextBoxCommentsActivity.TextChanged += new System.EventHandler(this.richTextBoxCommentsActivity_TextChanged);
-            // 
-            // comboBoxSponsor2
-            // 
-            this.comboBoxSponsor2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSponsor2.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBoxSponsor2, "comboBoxSponsor2");
-            this.comboBoxSponsor2.Name = "comboBoxSponsor2";
-            // 
-            // comboBoxSponsor1
-            // 
-            this.comboBoxSponsor1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSponsor1.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBoxSponsor1, "comboBoxSponsor1");
-            this.comboBoxSponsor1.Name = "comboBoxSponsor1";
-            // 
-            // labelSponsor2
-            // 
-            resources.ApplyResources(this.labelSponsor2, "labelSponsor2");
-            this.labelSponsor2.BackColor = System.Drawing.Color.Transparent;
-            this.labelSponsor2.Name = "labelSponsor2";
-            // 
-            // labelCommentsTypeActivity
-            // 
-            resources.ApplyResources(this.labelCommentsTypeActivity, "labelCommentsTypeActivity");
-            this.labelCommentsTypeActivity.BackColor = System.Drawing.Color.Transparent;
-            this.labelCommentsTypeActivity.Name = "labelCommentsTypeActivity";
-            // 
-            // dateTimePickerFirstAppointment
-            // 
-            this.dateTimePickerFirstAppointment.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            resources.ApplyResources(this.dateTimePickerFirstAppointment, "dateTimePickerFirstAppointment");
-            this.dateTimePickerFirstAppointment.Name = "dateTimePickerFirstAppointment";
-            // 
-            // dateTimePickerFirstContact
-            // 
-            this.dateTimePickerFirstContact.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            resources.ApplyResources(this.dateTimePickerFirstContact, "dateTimePickerFirstContact");
-            this.dateTimePickerFirstContact.Name = "dateTimePickerFirstContact";
-            // 
-            // labelFirstAppointment
-            // 
-            resources.ApplyResources(this.labelFirstAppointment, "labelFirstAppointment");
-            this.labelFirstAppointment.BackColor = System.Drawing.Color.Transparent;
-            this.labelFirstAppointment.Name = "labelFirstAppointment";
-            // 
-            // labelFirstContact
-            // 
-            resources.ApplyResources(this.labelFirstContact, "labelFirstContact");
-            this.labelFirstContact.BackColor = System.Drawing.Color.Transparent;
-            this.labelFirstContact.Name = "labelFirstContact";
-            // 
-            // labelSponsor1
-            // 
-            resources.ApplyResources(this.labelSponsor1, "labelSponsor1");
-            this.labelSponsor1.BackColor = System.Drawing.Color.Transparent;
-            this.labelSponsor1.Name = "labelSponsor1";
             // 
             // tabPageProjects
             // 
@@ -1247,8 +1121,6 @@ namespace OpenCBS.GUI.UserControl
             this.tabControlEconomicInfo.ResumeLayout(false);
             this.tabPageAddress.ResumeLayout(false);
             this.tableLayoutPanelAddress.ResumeLayout(false);
-            this.tabPage1FollowUp.ResumeLayout(false);
-            this.tabPage1FollowUp.PerformLayout();
             this.tabPageProjects.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -1308,21 +1180,6 @@ namespace OpenCBS.GUI.UserControl
         private TableLayoutPanel tableLayoutPanelAddress;
         private GroupBox groupBoxFirstAddress;
         private GroupBox groupBoxSecondaryAddress;
-        private TabPage tabPage1FollowUp;
-        private Label lblAnd2;
-        private Label lblAnd1;
-        private TextBox textBoxSponsor2;
-        private TextBox textBoxSponsor1;
-        private RichTextBox richTextBoxCommentsActivity;
-        private ComboBox comboBoxSponsor2;
-        private ComboBox comboBoxSponsor1;
-        private Label labelSponsor2;
-        private Label labelCommentsTypeActivity;
-        private DateTimePicker dateTimePickerFirstAppointment;
-        private DateTimePicker dateTimePickerFirstContact;
-        private Label labelFirstAppointment;
-        private Label labelFirstContact;
-        private Label labelSponsor1;
         private TabPage tabPageProjects;
         private SplitContainer splitContainer1;
         private ListView listViewProjects;

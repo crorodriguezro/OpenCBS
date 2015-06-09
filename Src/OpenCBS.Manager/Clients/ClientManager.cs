@@ -187,10 +187,7 @@ namespace OpenCBS.Manager.Clients
                             [father_name],
                             [image_path],
                             [birth_place],
-                            [nationality],
-                            [professional_situation],
-                            [first_appointment],
-                            [povertylevel_economiceducation]
+                            [nationality]
                             ) 
                 VALUES(
                             @id
@@ -204,9 +201,6 @@ namespace OpenCBS.Manager.Clients
                             ,@imagePath
                             ,@BirthPlace
                             ,@Nationality
-                            ,@professionalSituation
-                            ,@firstAppointment
-                            ,@povertyLevelEconomicEducation
                         )";
 
 
@@ -214,12 +208,9 @@ namespace OpenCBS.Manager.Clients
             {
 
                 c.AddParam("@BirthPlace", pPerson.BirthPlace);
-                c.AddParam("@firstAppointment", pPerson.FirstAppointment);
-                c.AddParam("@professionalSituation", pPerson.ProfessionalSituation);
                 c.AddParam("@Nationality", pPerson.Nationality);
                 
                 c.AddParam("@id", tiersId);
-                c.AddParam("@povertyLevelEconomicEducation", pPerson.PovertyLevelIndicators.EconomicEducation);
 
                 c.AddParam("@firstName", pPerson.FirstName);
                 c.AddParam("@sex", pPerson.Sex);
@@ -312,9 +303,6 @@ namespace OpenCBS.Manager.Clients
                                  Persons.father_name, 
                                  Persons.birth_place, 
                                  Persons.nationality,
-                                 Persons.professional_situation, 
-                                 Persons.first_appointment, 
-                                 Persons.povertylevel_economiceducation,
                                  Persons.loan_officer_id      
                             FROM Tiers 
                             INNER JOIN Persons ON Tiers.id = Persons.id 
@@ -375,8 +363,6 @@ namespace OpenCBS.Manager.Clients
                          {
                              Id = r.GetInt("tiers_id"),
                              HomePhone = r.GetString("home_phone"),
-                             FirstAppointment = r.GetNullDateTime("first_appointment"),
-                             ProfessionalSituation = r.GetString("professional_situation"),
                              Email = r.GetString("e_mail"),
                              Status = (OClientStatus)r.GetSmallInt("status"),
                              SecondaryEmail = r.GetString("secondary_e_mail"),
@@ -421,12 +407,7 @@ namespace OpenCBS.Manager.Clients
                              Sponsor1Comment = r.GetString("sponsor1_comment"),
                              Sponsor2Comment = r.GetString("sponsor2_comment"),
                              FavouriteLoanOfficerId = r.GetNullInt("loan_officer_id"),
-                             Branch = new Branch { Id = r.GetInt("branch_id") },
-
-                             PovertyLevelIndicators =
-                                 {
-                                     EconomicEducation = r.GetInt("povertylevel_economiceducation"),
-                                 }
+                             Branch = new Branch { Id = r.GetInt("branch_id") }
                          };
             return person;
         }
@@ -492,9 +473,6 @@ namespace OpenCBS.Manager.Clients
                                 ,[image_path]=@image
                                 ,[birth_place] = @birthPlace
                                 ,[nationality] = @nationality
-                                ,[professional_situation] = @ProfessionalSituation
-                                ,[first_appointment] = @firstAppointment
-                                ,[povertylevel_economiceducation]= @povertyLevelEconomicEducation   
                                 WHERE id = @id";
 
 
@@ -510,8 +488,6 @@ namespace OpenCBS.Manager.Clients
                 person.FirstName = string.Format(formatInfo, person.FirstName);
                 person.LastName = string.Format(formatInfo, person.LastName);
 
-                c.AddParam("@firstAppointment", person.FirstAppointment);
-                c.AddParam("@ProfessionalSituation", person.ProfessionalSituation);
                 c.AddParam("@birthPlace", person.BirthPlace);
                 c.AddParam("@nationality", person.Nationality);
                 c.AddParam("@id", person.Id);
@@ -522,7 +498,6 @@ namespace OpenCBS.Manager.Clients
                 c.AddParam("@birthDate", person.DateOfBirth);
                 c.AddParam("@fathername", person.FatherName);
                 c.AddParam("@image", person.Image);
-                c.AddParam("@povertyLevelEconomicEducation", person.PovertyLevelIndicators.EconomicEducation);
 
                 if (person.Activity != null)
                     c.AddParam("@activityId", person.Activity.Id);
@@ -1726,9 +1701,6 @@ namespace OpenCBS.Manager.Clients
                                  Persons.father_name, 
                                  Persons.birth_place, 
                                  Persons.nationality,
-                                 Persons.professional_situation, 
-                                 Persons.first_appointment, 
-                                 Persons.povertylevel_economiceducation,
                                  Persons.loan_officer_id      
                             FROM Tiers 
                             INNER JOIN Persons ON Tiers.id = Persons.id";

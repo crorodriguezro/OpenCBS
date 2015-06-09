@@ -1,15 +1,29 @@
-UPDATE  [TechnicalParameters]
-SET     [value] = 'v15.6.0.0'
-WHERE   [name] = 'VERSION'
+if object_id('FK_Persons_Banks') is not null
+alter table dbo.Persons drop constraint FK_Persons_Banks
 GO
 
-ALTER TABLE [dbo].[Persons] DROP CONSTRAINT 
- [FK_Persons_Banks]
-,[FK_Persons_Banks1]
-,[DF_Credit_handicapped]
-,[DF_Persons_povertylevel_childreneducation]
-,[DF_Persons_povertylevel_socialparticipation]
-,[DF_Persons_povertylevel_healthsituation]
+if object_id('FK_Persons_Banks1') is not null
+alter table dbo.Persons drop constraint FK_Persons_Banks1
+GO
+
+if object_id('DF_Credit_handicapped') is not null
+alter table dbo.Persons drop constraint DF_Credit_handicapped
+GO
+
+if object_id('DF_Persons_povertylevel_childreneducation') is not null
+alter table dbo.Persons drop constraint DF_Persons_povertylevel_childreneducation
+GO
+
+if object_id('DF_Persons_povertylevel_socialparticipation') is not null
+alter table dbo.Persons drop constraint DF_Persons_povertylevel_socialparticipation
+GO
+
+if object_id('DF_Persons_povertylevel_healthsituation') is not null
+alter table dbo.Persons drop constraint DF_Persons_povertylevel_healthsituation
+GO
+
+if object_id('DF_Persons_povertylevel_economiceducation') is not null
+alter table dbo.Persons drop constraint DF_Persons_povertylevel_economiceducation
 GO
 
 ALTER TABLE Persons DROP COLUMN 
@@ -44,10 +58,13 @@ ALTER TABLE Persons DROP COLUMN
 , unemployment_months
 , personalBank_id
 , businessBank_id
+, professional_situation
+, povertylevel_economiceducation
+, first_appointment
 GO
 
 delete from 
-	generalparameters
+	dbo.GeneralParameters
 where 
 	[key] = 'ACCOUNTING_EXPORT_MODE'
 	or [key] = 'ACCUMULATED_PENALTY'
@@ -57,4 +74,9 @@ where
 	or [key] = 'CONSOLIDATION_MODE'
 	or [key] = 'PENDING_REPAYMENT_MODE'
 	or [key] = 'REPAYMENT_COMMENT_MANDATORY'
+GO
+
+UPDATE  [TechnicalParameters]
+SET     [value] = 'v15.6.0.0'
+WHERE   [name] = 'VERSION'
 GO

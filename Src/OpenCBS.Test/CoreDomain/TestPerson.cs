@@ -233,13 +233,6 @@ namespace OpenCBS.Test.CoreDomain
 			Assert.AreEqual(new DateTime(1983,6,4),person.DateOfBirth.Value);
 		}
 
-        [Test]
-        public void TestIfDateOfFirstAppointmentIsCorrectlySetAndRetrieved()
-        {
-            person.FirstAppointment = new DateTime(2010, 04, 1);
-            Assert.AreEqual(new DateTime(2010, 04, 1), person.FirstAppointment.Value);
-        }
-
 		[Test]
 		public void TestIfDomainOfApplicationIsCorrectlySetAndRetrieved()
 		{

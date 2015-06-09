@@ -114,7 +114,6 @@ namespace OpenCBS.Test.Manager
             _person.SecondaryHomeType = "Maison";
 		    _person.Status = OClientStatus.Inactive;
             _person.FollowUpComment = "Comment follow Up";
-            _person.FirstAppointment = new DateTime(2010, 04, 01);
 		    _person.Sponsor1 = "coucou";
             _person.Sponsor1Comment = "coucou2";
 		    _person.Branch = _branch;
@@ -243,9 +242,6 @@ namespace OpenCBS.Test.Manager
             Assert.AreEqual(pExpectedPerson.ZipCode, pActualPerson.ZipCode);
             Assert.AreEqual(pExpectedPerson.SecondaryZipCode, pActualPerson.SecondaryZipCode);
             Assert.AreEqual(pExpectedPerson.FollowUpComment, pActualPerson.FollowUpComment);
-            
-            if (pExpectedPerson.FirstAppointment.HasValue)
-                Assert.AreEqual(pExpectedPerson.FirstAppointment.Value, pActualPerson.FirstAppointment.Value);
         }
 
 	    [Ignore]

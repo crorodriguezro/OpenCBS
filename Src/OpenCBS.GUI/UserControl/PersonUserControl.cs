@@ -36,7 +36,6 @@ using OpenCBS.GUI.Tools;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
 using OpenCBS.Services.Events;
-using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
 
 namespace OpenCBS.GUI.UserControl
@@ -86,8 +85,7 @@ namespace OpenCBS.GUI.UserControl
             InitializeGroup();
             DisplayProjects(person.Projects);
             DisplaySavings(person.Savings);
-            _tempPerson.DateOfBirth = person.DateOfBirth; //new DateTime(1980,1,1);
-            tabControlEconomicInfo.TabPages.Remove(tabPage1FollowUp);
+            _tempPerson.DateOfBirth = person.DateOfBirth;
             textBoxIdentificationData.ReadOnly = ServicesProvider.GetInstance().GetGeneralSettings().IsAutomaticID;
             if (ServicesProvider.GetInstance().GetGeneralSettings().IsAutomaticID)
                 textBoxIdentificationData.BackColor = Color.WhiteSmoke;
@@ -150,9 +148,7 @@ namespace OpenCBS.GUI.UserControl
             ApplicationSettings generalSettings = ServicesProvider.GetInstance().GetGeneralSettings();
             textBoxNationality.Text = generalSettings.Country;
 
-            //InitializeSecurity();
             InitializeUserControlsAddress();
-            _InitializeCombobox();
             _personSaved = false;
             _tempPerson = new Person();
             _tempPerson.Nationality = generalSettings.Country;
@@ -191,82 +187,10 @@ namespace OpenCBS.GUI.UserControl
             }
         }
 
-        private void _InitializeCombobox()
-        {
-            _InitializeSponsor();
-            _InitializeSponsor2();
-        }
-
-        private void _DisplayAllGroups(List<IClient> listAllGroups)
-        {
-            //tabControlEconomicInfo.TabPages.Remove(tabPageGroupMember);
-            if (listAllGroups.Count != 0)
-            {
-                //tabControlEconomicInfo.TabPages.Add(tabPageGroupMember);
-                listViewGroup.Items.Clear();
-                foreach (IClient client in listAllGroups)
-                {
-                    ListViewItem item = new ListViewItem(client.Name) { Tag = client };
-                    if (client is Group)
-                    {
-                        Group group = (Group)client;
-                        item.SubItems.Add("SG");
-                        if (group.EstablishmentDate.HasValue) item.SubItems.Add(group.EstablishmentDate.Value.ToShortDateString()); else item.SubItems.Add("-");
-
-                        List<Member> members = ServicesProvider.GetInstance().GetClientServices().FindGroupHistoryPersons(group.Id);
-                        //string joinedDate = "-";
-                        //string leftDate = "-";
-                        foreach (Member member in members)
-                        {
-                            if (member.Tiers.Id == _tempPerson.Id)
-                            {
-                                item.SubItems.Add(member.JoinedDate.ToShortDateString());
-                                if (member.LeftDate.HasValue)
-                                    item.SubItems.Add(member.LeftDate.Value.ToShortDateString());
-                                else item.SubItems.Add("-");
-
-                                listViewGroup.Items.Add(item);
-                                break;
-                            }
-                        }
-                        //item.SubItems.Add(joinedDate);
-                        //item.SubItems.Add(leftDate);
-                    }
-                    else if (client is Village)
-                    {
-                        Village village = (Village)client;
-                        item.SubItems.Add("NSG");
-                        if (village.EstablishmentDate.HasValue) item.SubItems.Add(village.EstablishmentDate.Value.ToShortDateString()); else item.SubItems.Add("-");
-
-                        List<VillageMember> members = ServicesProvider.GetInstance().GetClientServices().FindVillageHistoryPersons(village.Id);
-                        //string joinedDate = "-";
-                        //string leftDate = "-";
-                        foreach (VillageMember member in members)
-                        {
-                            if (member.Tiers.Id == _tempPerson.Id)
-                            {
-                                item.SubItems.Add(member.JoinedDate.ToShortDateString());
-                                if (member.LeftDate.HasValue)
-                                    item.SubItems.Add(member.LeftDate.Value.ToShortDateString());
-                                else item.SubItems.Add("-");
-
-                                listViewGroup.Items.Add(item);
-                                break;
-                            }
-                        }
-                        //item.SubItems.Add(joinedDate);
-                        //item.SubItems.Add(leftDate);
-                    }
-                }
-            }
-        }
-
         private void InitializeSex()
         {
             comboBoxSex.LoadGender();
         }
-
-
 
         private void InitializePerson()
         {
@@ -276,27 +200,16 @@ namespace OpenCBS.GUI.UserControl
                 textBoxLastname.Text = _tempPerson.LastName;
                 textBoxFirstName.Text = _tempPerson.FirstName;
                 textBoxIdentificationData.Text = _tempPerson.IdentificationData;
-                dateTimePickerFirstContact.Format = DateTimePickerFormat.Custom;
-                dateTimePickerFirstContact.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
-                dateTimePickerFirstAppointment.Text = ServicesHelper.ConvertNullableDateTimeToString(_tempPerson.FirstAppointment);
-                dateTimePickerFirstAppointment.Format = DateTimePickerFormat.Custom;
-                dateTimePickerFirstAppointment.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
                 dateTimePickerDateOfBirth.Text = ServicesHelper.ConvertNullableDateTimeToString(_tempPerson.DateOfBirth);
                 textBoxLoanCycle.Text = _tempPerson.LoanCycle.ToString();
                 textBoxFatherName.Text = _tempPerson.FatherName;
                 textBoxBirthPlace.Text = _tempPerson.BirthPlace ?? String.Empty;
                 textBoxNationality.Text = _tempPerson.Nationality ?? ServicesProvider.GetInstance().GetGeneralSettings().Country;
-                richTextBoxCommentsActivity.Text = _tempPerson.FollowUpComment;
 
                 comboBoxSex.SelectGender(_tempPerson.Sex);
 
                 comboBoxSex.Text = _tempPerson.Sex.ToString();
                 eacPerson.Activity = _tempPerson.Activity;
-
-                comboBoxSponsor1.Text = _tempPerson.Sponsor1;
-                comboBoxSponsor2.Text = _tempPerson.Sponsor2;
-                textBoxSponsor1.Text = _tempPerson.Sponsor1Comment;
-                textBoxSponsor2.Text = _tempPerson.Sponsor2Comment;
 
                 addressUserControlFirst.ZipCode = _tempPerson.ZipCode;
                 addressUserControlFirst.HomeType = _tempPerson.HomeType;
@@ -340,9 +253,7 @@ namespace OpenCBS.GUI.UserControl
             textBoxLastname.Text = string.Empty;
             pictureBox.Image = null;
             dateTimePickerDateOfBirth.Value = new DateTime(1980, 1, 1);
-            dateTimePickerFirstContact.Value = TimeProvider.Today;
             textBoxIdentificationData.Text = string.Empty;
-            richTextBoxCommentsActivity.Text = string.Empty;
 
             eacPerson.Activity = null;
             textBoxBirthPlace.Clear();
@@ -371,19 +282,11 @@ namespace OpenCBS.GUI.UserControl
             _tempPerson.SecondaryPersonalPhone = addressUserControlSecondaryAddress.PersonalPhone;
         }
 
-        private void RecoverDataFromCombobox()
-        {
-            _tempPerson.Sponsor1 = comboBoxSponsor1.Text;
-            _tempPerson.Sponsor2 = comboBoxSponsor2.Text;
-        }
-
         private void SavePerson()
         {
             _personSaved = false;
             RecoverDatasFromUserControlsAddress();
-            RecoverDataFromCombobox();
 
-            _tempPerson.FirstAppointment = dateTimePickerFirstAppointment.Value;
             _tempPerson.Branch = (Branch)cbBranch.SelectedItem;
 
             try
@@ -416,16 +319,11 @@ namespace OpenCBS.GUI.UserControl
                 _personSaved = true;
                 buttonSave.Text = MultiLanguageStrings.GetString(Ressource.PersonUserControl, "Update");
 
-                var formatInfo = new NameFormatInfo();
-                var settings = ServicesProvider.GetInstance().GetGeneralSettings();
-                //var fnFormat = @"{0:" + settings.FirstNameFormat + @"}";
-                //var lnFormat = @"{0:" + settings.LastNameFormat + @"}";
                 textBoxFirstName.Text = string.Format(_tempPerson.FirstName);
                 textBoxLastname.Text = string.Format(_tempPerson.LastName);
                 if (_tempPerson.FatherName != null)
                     textBoxFatherName.Text = string.Format(_tempPerson.FatherName);
                 textBoxIdentificationData.Text = string.Format(_tempPerson.IdentificationData);
-                //EnableDocuments();
                 ResetImagesFlags();
             }
             catch (Exception ex)
@@ -630,41 +528,6 @@ namespace OpenCBS.GUI.UserControl
         private void textBoxBirthPlace_TextChanged(object sender, EventArgs e)
         {
             _tempPerson.BirthPlace = ServicesHelper.CheckTextBoxText(textBoxBirthPlace.Text);
-        }
-
-
-        private void richTextBoxCommentsActivity_TextChanged(object sender, EventArgs e)
-        {
-            _tempPerson.FollowUpComment = ServicesHelper.CheckTextBoxText(richTextBoxCommentsActivity.Text);
-        }
-
-        private void _InitializeSponsor()
-        {
-            comboBoxSponsor1.Items.Clear();
-            List<string> list = ServicesProvider.GetInstance().GetClientServices().FindAllSetUpFields(OSetUpFieldTypes.Sponsor1);
-            foreach (string s in list)
-            {
-                comboBoxSponsor1.Items.Add(s);
-            }
-        }
-        private void _InitializeSponsor2()
-        {
-            comboBoxSponsor2.Items.Clear();
-            List<string> list = ServicesProvider.GetInstance().GetClientServices().FindAllSetUpFields(OSetUpFieldTypes.Sponsor2);
-            foreach (string s in list)
-            {
-                comboBoxSponsor2.Items.Add(s);
-            }
-        }
-
-        private void textBoxSponsor1_TextChanged(object sender, EventArgs e)
-        {
-            _tempPerson.Sponsor1Comment = textBoxSponsor1.Text;
-        }
-
-        private void textBoxSponsor2_TextChanged(object sender, EventArgs e)
-        {
-            _tempPerson.Sponsor2Comment = textBoxSponsor2.Text;
         }
 
 

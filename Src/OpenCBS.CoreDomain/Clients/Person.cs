@@ -24,7 +24,6 @@ using System.Collections.Generic;
 using System.Text;
 using OpenCBS.CoreDomain.EconomicActivities;
 using OpenCBS.Enums;
-using OpenCBS.Shared;
 
 namespace OpenCBS.CoreDomain.Clients
 {
@@ -35,8 +34,6 @@ namespace OpenCBS.CoreDomain.Clients
         private string _lastName;
         private char sex = OGender.Male;
 
-        public DateTime? FirstAppointment { get; set; }
-        public string ProfessionalSituation { get; set; }
         public string BirthPlace { get; set; }
         public string Nationality { get; set; }
         public string Image { get; set; }
@@ -58,11 +55,8 @@ namespace OpenCBS.CoreDomain.Clients
         public User FavouriteLoanOfficer { get; set; }
         public int? FavouriteLoanOfficerId { get; set; }
 
-        public PovertyLevelIndicators PovertyLevelIndicators { get; set; }
-
         public Person() : base(new List<Project>(), OClientTypes.Person)
         {
-            PovertyLevelIndicators = new PovertyLevelIndicators();
         }
 
         public override string Name
@@ -93,11 +87,6 @@ namespace OpenCBS.CoreDomain.Clients
         {
             get { return _lastName; }
             set { _lastName = value; }
-        }
-
-        public bool HasOtherOrganization()
-        {
-            return OtherOrgName != null || OtherOrgDebts.HasValue || OtherOrgAmount.HasValue;
         }
 
         public override string ToString()
