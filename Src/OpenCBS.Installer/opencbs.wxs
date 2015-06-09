@@ -399,6 +399,8 @@
                   <File Id="Guarantee_Status" Name = "Guarantee_Status.zip" Source="SourceDir\Reports\Internal\Guarantee_Status.zip" />
                   <File Id="Guarantee_Committee_Appraisal" Name = "Guarantee_Committee_Appraisal.zip" Source="SourceDir\Reports\Internal\Guarantee_Committee_Appraisal.zip" />
                   <File Id="Client_Personal_Information" Name = "Client_Personal_Information.zip" Source="SourceDir\Reports\Internal\Client_Personal_Information.zip" />
+                  <File Id="Client_Corporate_Information" Name = "Client_Corporate_Information.zip" Source="SourceDir\Reports\Internal\Client_Corporate_Information.zip" />
+                  <File Id="Client_Solidarity_Group_Information" Name = "Client_Solidarity_Group_Information.zip" Source="SourceDir\Reports\Internal\Client_Solidarity_Group_Information.zip" />
                   <File Id="Audit_Trail" Name = "Audit_Trail.zip" Source="SourceDir\Reports\Internal\Audit_Trail.zip" />
                   <File Id="Village_Disbursement_Cash_Receipt" Name = "Village_Disbursement_Cash_Receipt.zip" Source="SourceDir\Reports\Internal\Village_Disbursement_Cash_Receipt.zip" />
                   <File Id="Village_Collection_Sheet" Name = "Village_Collection_Sheet.zip" Source="SourceDir\Reports\Internal\Village_Collection_Sheet.zip" />
