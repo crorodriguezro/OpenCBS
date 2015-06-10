@@ -3700,6 +3700,12 @@ namespace OpenCBS.GUI.Clients
                                             foreach (var extension in LoanExtensions) extension.Save(credit, tx);
                                         });
                     }
+                    catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
+                    {
+                        _credit.Id = 0;
+                        tabControlPerson.SelectedTab = tabPageLoansDetails;
+                        return null;
+                    }
                     catch
                     {
                         _credit.Id = 0;
@@ -5297,6 +5303,10 @@ namespace OpenCBS.GUI.Clients
                 buttonSaveSaving.Visible = false;
                 buttonFirstDeposit.Visible = true;
             }
+            catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
+            {
+
+            }
             catch (Exception ex)
             {
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
@@ -5879,6 +5889,10 @@ namespace OpenCBS.GUI.Clients
                 DisplaySaving(_saving);
                 DisplaySavings(_client.Savings);
                 DisplaySavingEvent(_saving);
+            }
+            catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
+            {
+
             }
             catch (Exception ex)
             {

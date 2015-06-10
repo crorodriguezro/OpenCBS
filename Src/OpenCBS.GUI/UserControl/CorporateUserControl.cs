@@ -248,6 +248,10 @@ namespace OpenCBS.GUI.UserControl
 
                 _saved = true;
             }
+            catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
+            {
+
+            }
             catch (Exception ex)
             {
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();

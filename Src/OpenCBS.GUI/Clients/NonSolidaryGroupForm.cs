@@ -151,6 +151,10 @@ namespace OpenCBS.GUI.Clients
 
 
             }
+            catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
+            {
+                return false;
+            }
             catch (Exception ex)
             {
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();

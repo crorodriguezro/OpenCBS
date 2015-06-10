@@ -326,6 +326,10 @@ namespace OpenCBS.GUI.UserControl
                 textBoxIdentificationData.Text = string.Format(_tempPerson.IdentificationData);
                 ResetImagesFlags();
             }
+            catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
+            {
+
+            }
             catch (Exception ex)
             {
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
