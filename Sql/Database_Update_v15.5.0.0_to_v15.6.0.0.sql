@@ -175,6 +175,12 @@ where
 	or [key] = 'REPAYMENT_COMMENT_MANDATORY'
 GO
 
+delete from 
+	dbo.GeneralParameters
+where 
+	[key] = 'CITY_MANDATORY'
+GO
+
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v15.6.0.0'
 WHERE   [name] = 'VERSION'
