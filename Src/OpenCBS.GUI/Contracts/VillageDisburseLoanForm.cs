@@ -93,18 +93,18 @@ namespace OpenCBS.GUI.Contracts
                     if (loan.StartDate == null)
                         subitem = new ListViewItem.ListViewSubItem
                                     {
-                                        Text = TimeProvider.Today.ToShortDateString(),
+                                        Text = TimeProvider.Today.ToString(ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT),
                                         Tag = TimeProvider.Today
                                     };
                     else
                         subitem = new ListViewItem.ListViewSubItem
                                 {
-                                    Text = loan.StartDate.ToShortDateString(),
-                                    Tag = loan.StartDate.ToShortDateString()
+                                    Text = loan.StartDate.ToString(ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT),
+                                    Tag = loan.StartDate.ToString(ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT)
                                 };
 
                     item.SubItems.Add(subitem);
-                    item.SubItems.Add(loan.FirstInstallmentDate.ToShortDateString());
+                    item.SubItems.Add(loan.FirstInstallmentDate.ToString(ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT));
                     item.SubItems.Add(loan.Amount.GetFormatedValue(loan.UseCents));
                     item.SubItems.Add(loan.Product.Currency.Code);
                     item.SubItems.Add(Math.Round(loan.InterestRate*100, decimalPlaces).ToString());

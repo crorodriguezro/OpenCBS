@@ -350,8 +350,8 @@ namespace OpenCBS.GUI.Contracts
 
                 if (string.IsNullOrEmpty(item.SubItems[IdxCreationDate].Text)) // Credit Committee date
                 {
-                    item.SubItems[IdxCreationDate].Text = TimeProvider.Today.ToShortDateString();
-                    item.SubItems[IdxCreationDate].Tag = TimeProvider.Today.ToShortDateString();
+                    item.SubItems[IdxCreationDate].Text = TimeProvider.Today.ToString(ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT);
+                    item.SubItems[IdxCreationDate].Tag = TimeProvider.Today.ToString(ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT);
                 }
 
                 if (string.IsNullOrEmpty(item.SubItems[IdxFundingLine].Text)) // Funding line

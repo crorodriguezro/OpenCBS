@@ -214,28 +214,28 @@ namespace OpenCBS.GUI.Contracts
                     var loan = (Loan)item.Tag;
                     if (loan.CreditCommiteeDate == null)
                     {
-                        item.SubItems[IdxCreditCommitteeDate].Text = TimeProvider.Today.ToShortDateString();
-                        item.SubItems[IdxCreditCommitteeDate].Tag = TimeProvider.Today.ToShortDateString();
+                        item.SubItems[IdxCreditCommitteeDate].Text = TimeProvider.Today.ToString(ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT);
+                        item.SubItems[IdxCreditCommitteeDate].Tag = TimeProvider.Today.ToString(ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT);
                     }
                     else
                     {
-                        item.SubItems[IdxCreditCommitteeDate].Text = loan.CreditCommiteeDate.Value.ToShortDateString();
-                        item.SubItems[IdxCreditCommitteeDate].Tag = loan.CreditCommiteeDate.Value.ToShortDateString();
+                        item.SubItems[IdxCreditCommitteeDate].Text = loan.CreditCommiteeDate.Value.ToString(ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT);
+                        item.SubItems[IdxCreditCommitteeDate].Tag = loan.CreditCommiteeDate.Value.ToString(ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT);
                     }
                 }
 
                 if (string.IsNullOrEmpty(item.SubItems[IdxDisbursementDate].Text)) // Disbursement date
                 {
                     var loan = (Loan)item.Tag;
-                    item.SubItems[IdxDisbursementDate].Text = loan.StartDate.ToShortDateString();
-                    item.SubItems[IdxDisbursementDate].Tag = loan.StartDate.ToShortDateString();
+                    item.SubItems[IdxDisbursementDate].Text = loan.StartDate.ToString(ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT);
+                    item.SubItems[IdxDisbursementDate].Tag = loan.StartDate.ToString(ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT);
                 }
 
                 if (string.IsNullOrEmpty(item.SubItems[IdxFirstInstallmentDate].Text)) // Disbursement date
                 {
                     var loan = (Loan)item.Tag;
-                    item.SubItems[IdxFirstInstallmentDate].Text = loan.FirstInstallmentDate.ToShortDateString();
-                    item.SubItems[IdxFirstInstallmentDate].Tag = loan.FirstInstallmentDate.ToShortDateString();
+                    item.SubItems[IdxFirstInstallmentDate].Text = loan.FirstInstallmentDate.ToString(ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT);
+                    item.SubItems[IdxFirstInstallmentDate].Tag = loan.FirstInstallmentDate.ToString(ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT);
                 }
             }
             else
