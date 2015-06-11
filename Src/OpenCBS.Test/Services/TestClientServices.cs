@@ -437,27 +437,6 @@ namespace OpenCBS.Test.Services
             addDataForTesting.DeleteEconomicActivities();
         }
 
-        [Test]
-        public void TestSavePerson()
-        {
-            AddDataForTestingTransaction addDataForTesting = new AddDataForTestingTransaction();
-            clientManagement = new ClientManager(DataUtil.TESTDB);
-            clientServices = new ClientServices(clientManagement);
-
-            DeleteAllData();
-
-            EconomicActivity agriculture = addDataForTesting.AddDomainOfApplicationAgriculture();
-            District district = addDataForTesting.AddDistrictIntoDatabase();
-            ApplicationSettingsServices _appSettings= ServicesProvider.GetInstance().GetApplicationSettingsServices();
-            _appSettings.FillGeneralDatabaseParameter();
-            _appSettings.UpdateSelectedParameter(OGeneralSettings.ID_PATTERN, "[0-9]{2}[A-Z]{2}");
-            _appSettings.UpdateSelectedParameter(OGeneralSettings.CITYMANDATORY, false);
-
-            Person person = AddPerson(true, agriculture, 1, "Dushambe", district, "Nicolas", "MANGIN", 'M', "12ED");
-            person.Branch = _branch;
-            Assert.AreEqual(String.Empty, clientServices.SavePerson(ref person));
-        }
-
         private Person AddPerson(bool active, EconomicActivity dOA, int loanCycle, string city, District district, string firstName, string lastname,
             char sex, string identificationData)
         {
@@ -580,7 +559,6 @@ namespace OpenCBS.Test.Services
             dataParam.DeleteAllParameters();
             dataParam.AddParameter(OGeneralSettings.GROUPMINMEMBERS, 4);
             dataParam.AddParameter(OGeneralSettings.GROUPMAXMEMBERS, 10);
-            dataParam.AddParameter(OGeneralSettings.CITYMANDATORY, true);
             return dataParam;
         }
 
@@ -680,45 +658,6 @@ namespace OpenCBS.Test.Services
 
             services.SaveSolidarityGroup(ref group);
         }
-
-        [Test]
-        public void TestSaveGroupWhenCityIsNotMandatory()
-        {
-            AddDataForTestingTransaction addDataForTesting = new AddDataForTestingTransaction();
-            clientManagement = new ClientManager(DataUtil.TESTDB);
-            clientServices = new ClientServices(clientManagement);
-            branchManager = new BranchManager(DataUtil.TESTDB);
-            //List<Branch> branchs = branchManager.SelectAll();
-
-            ApplicationSettings dataParam = ApplicationSettings.GetInstance("");
-            dataParam.DeleteAllParameters();
-            dataParam.AddParameter(OGeneralSettings.GROUPMINMEMBERS, 4);
-            dataParam.AddParameter(OGeneralSettings.GROUPMAXMEMBERS, 10);
-            dataParam.AddParameter(OGeneralSettings.CITYMANDATORY, false);
-            DeleteAllData();
-
-            Person leader = addDataForTesting.AddPerson();
-            Person members = addDataForTesting.AddPersonBis();
-            Person membersTer = addDataForTesting.AddPersonTer();
-            Person membersQuater = addDataForTesting.AddPersonQuater();
-            Group group = new Group
-                              {
-                                  Active = true,
-                                  City = null,
-                                  District = leader.District,
-                                  Name = "SCG",
-                                  Leader = new Member { Tiers = leader, LoanShareAmount = 1000, CurrentlyIn = true, IsLeader = true, JoinedDate = TimeProvider.Today },
-                                  LoanCycle = 3,
-                                  Branch = _branch
-                              };
-
-            group.AddMember(new Member { Tiers = members, LoanShareAmount = 200, CurrentlyIn = true, IsLeader = false, JoinedDate = TimeProvider.Today });
-            group.AddMember(new Member { Tiers = membersTer, LoanShareAmount = 400, CurrentlyIn = true, IsLeader = false, JoinedDate = TimeProvider.Today });
-            group.AddMember(new Member { Tiers = membersQuater, LoanShareAmount = 700, CurrentlyIn = true, IsLeader = false, JoinedDate = TimeProvider.Today });
-
-            Assert.AreEqual(String.Empty, clientServices.SaveSolidarityGroup(ref group));
-        }
-
 
         [Test]
         public void TestSaveGroup()

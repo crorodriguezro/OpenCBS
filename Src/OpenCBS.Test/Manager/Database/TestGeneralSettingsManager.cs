@@ -121,23 +121,6 @@ namespace OpenCBS.Test.Manager.Database
         }
 
         [Test]
-        public void TestUpdateCityMandatory()
-        {
-            ApplicationSettings dataParam = ApplicationSettings.GetInstance("");
-            _generalSettingsManager.UpdateSelectedParameter(OGeneralSettings.CITYMANDATORY, true);
-            Assert.AreEqual(true, dataParam.IsCityMandatory);
-
-            _generalSettingsManager.FillGeneralSettings();
-            Assert.AreEqual(true, dataParam.IsCityMandatory);
-
-            _generalSettingsManager.UpdateSelectedParameter(OGeneralSettings.CITYMANDATORY, false);
-            Assert.AreEqual(false, dataParam.IsCityMandatory);
-
-            _generalSettingsManager.FillGeneralSettings();
-            Assert.AreEqual(false, dataParam.IsCityMandatory);
-        }
-
-        [Test]
         public void TestUpdateAutomaticID()
         {
             ApplicationSettings dataParam = ApplicationSettings.GetInstance("");

@@ -63,7 +63,6 @@ namespace OpenCBS.Shared.Settings
             _defaultParamList.Add(OGeneralSettings.WEEKENDDAY1, 6);
             _defaultParamList.Add(OGeneralSettings.WEEKENDDAY2, 0);
             _defaultParamList.Add(OGeneralSettings.PAYFIRSTINSTALLMENTREALVALUE, 1);
-            _defaultParamList.Add(OGeneralSettings.CITYMANDATORY, 1);
             _defaultParamList.Add(OGeneralSettings.AUTOMATIC_ID, 0);
             _defaultParamList.Add(OGeneralSettings.GROUPMINMEMBERS, 2);
             _defaultParamList.Add(OGeneralSettings.GROUPMAXMEMBERS, 10);
@@ -287,11 +286,6 @@ namespace OpenCBS.Shared.Settings
             {
                 return (OAccountingProcesses)Convert.ToInt32(GetSpecificParameter(OGeneralSettings.ACCOUNTINGPROCESS));
             }
-        }
-
-        public bool IsCityMandatory
-        {
-            get { return GetSpecificParameter(OGeneralSettings.CITYMANDATORY).ToString() == "1"; }
         }
 
         public bool IsAutomaticID

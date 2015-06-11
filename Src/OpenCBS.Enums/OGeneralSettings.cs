@@ -30,7 +30,6 @@ namespace OpenCBS.Enums
         public static readonly string WEEKENDDAY1 = "WEEK_END_DAY1";
         public static readonly string WEEKENDDAY2 = "WEEK_END_DAY2";
         public static readonly string PAYFIRSTINSTALLMENTREALVALUE = "PAY_FIRST_INSTALLMENT_REAL_VALUE";
-        public static readonly string CITYMANDATORY = "CITY_MANDATORY";
         public static readonly string GROUPMINMEMBERS = "GROUP_MIN_MEMBERS";
         public static readonly string GROUPMAXMEMBERS = "GROUP_MAX_MEMBERS";
         public static readonly string VILLAGEMINMEMBERS = "NSG_MIN_MEMBERS";

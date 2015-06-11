@@ -377,20 +377,14 @@ namespace OpenCBS.Services
             bool result = true;
             if (!client.SecondaryAddressIsEmpty && client.SecondaryAddressPartiallyFilled)
             {
-                result = false;
                 if (client.SecondaryDistrict == null)
                     throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.SecondaryDistrictIsNull);
 
                 if (client.SecondaryDistrict.Id == 0)
                     throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.SecondaryDistrictIsBad);
 
-                if (_dataParam.IsCityMandatory)
-                {
-                    if (client.SecondaryCity == null)
-                        throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.SecondaryCityIsNull);
-                }
-                else
-                    result = true;
+                if (client.SecondaryCity == null)
+                    throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.SecondaryCityIsNull);
             }
             
             //For all the regexes: If a particular regex is set, only then the following validation takes place
@@ -539,11 +533,8 @@ namespace OpenCBS.Services
             if (person.District.Id == 0)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.DistrictIsBad);
 
-            if (_dataParam.IsCityMandatory)
-            {
-                if (string.IsNullOrEmpty(person.City))
-                    throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.CityIsNull);
-            }
+            if (string.IsNullOrEmpty(person.City))
+                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.CityIsNull);
 
             if (person.FirstName == null)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.FirstNameIsNull);
@@ -951,11 +942,8 @@ namespace OpenCBS.Services
             if (group.District.Id == 0)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.DistrictIsBad);
 
-            if (_dataParam.IsCityMandatory)
-            {
-                if (group.City == null)
-                    throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.CityIsNull);
-            }
+            if (group.City == null)
+                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.CityIsNull);
 
             if (group.GetNumberOfMembers < _dataParam.GroupMinMembers)
             {
@@ -1206,11 +1194,8 @@ namespace OpenCBS.Services
             if (village.District.Id == 0)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.DistrictIsBad);
 
-            if (_dataParam.IsCityMandatory)
-            {
-                if (village.City == null)
-                    throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.CityIsNull);
-            }
+            if (village.City == null)
+                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.CityIsNull);
 
             if (null == village.Branch)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.BranchIsEmpty);

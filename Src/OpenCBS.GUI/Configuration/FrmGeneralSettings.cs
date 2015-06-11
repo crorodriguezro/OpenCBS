@@ -207,8 +207,7 @@ namespace OpenCBS.GUI.Configuration
 
                 if (val.Value != null)
                 {
-                    if (val.Key.ToString() == OGeneralSettings.CITYMANDATORY ||
-                        val.Key.ToString() == OGeneralSettings.PAYFIRSTINSTALLMENTREALVALUE ||
+                    if (val.Key.ToString() == OGeneralSettings.PAYFIRSTINSTALLMENTREALVALUE ||
                         val.Key.ToString() == OGeneralSettings.ALLOWSMULTIPLELOANS ||
                         val.Key.ToString() == OGeneralSettings.ALLOWSMULTIPLEGROUPS ||
                         val.Key.ToString() == OGeneralSettings.OLBBEFOREREPAYMENT ||
@@ -1183,8 +1182,7 @@ namespace OpenCBS.GUI.Configuration
 
         private void InitializeControls()
         {
-            if (entry.Key.ToString() == OGeneralSettings.CITYMANDATORY ||
-                entry.Key.ToString() == OGeneralSettings.PAYFIRSTINSTALLMENTREALVALUE ||
+            if (entry.Key.ToString() == OGeneralSettings.PAYFIRSTINSTALLMENTREALVALUE ||
                 entry.Key.ToString() == OGeneralSettings.ALLOWSMULTIPLELOANS ||
                 entry.Key.ToString() == OGeneralSettings.ALLOWSMULTIPLEGROUPS ||
                 entry.Key.ToString() == OGeneralSettings.OLBBEFOREREPAYMENT ||
@@ -1274,8 +1272,7 @@ namespace OpenCBS.GUI.Configuration
                 textBoxGeneralParameterValue.Text = String.Empty;
                 textBoxGeneralParameterValue.Enabled = false;
             }
-            else if (entry.Key.ToString() == OGeneralSettings.CITYMANDATORY ||
-                     entry.Key.ToString() == OGeneralSettings.PAYFIRSTINSTALLMENTREALVALUE ||
+            else if (entry.Key.ToString() == OGeneralSettings.PAYFIRSTINSTALLMENTREALVALUE ||
                      entry.Key.ToString() == OGeneralSettings.ALLOWSMULTIPLELOANS ||
                      entry.Key.ToString() == OGeneralSettings.ALLOWSMULTIPLEGROUPS ||
                      entry.Key.ToString() == OGeneralSettings.OLBBEFOREREPAYMENT ||
