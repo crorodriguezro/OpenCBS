@@ -65,11 +65,11 @@ namespace OpenCBS.GUI.Contracts
             // 
             // pnlButtons
             // 
+            resources.ApplyResources(this.pnlButtons, "pnlButtons");
             this.pnlButtons.Controls.Add(this.buttonValidate);
             this.pnlButtons.Controls.Add(this.checkBoxSelectAll);
             this.pnlButtons.Controls.Add(this.btnCancel);
             this.pnlButtons.Controls.Add(this.btnSave);
-            resources.ApplyResources(this.pnlButtons, "pnlButtons");
             this.pnlButtons.Name = "pnlButtons";
             // 
             // buttonValidate
@@ -109,6 +109,7 @@ namespace OpenCBS.GUI.Contracts
             // 
             // lvMembers
             // 
+            resources.ApplyResources(this.lvMembers, "lvMembers");
             this.lvMembers.CheckBoxes = true;
             this.lvMembers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chName,
@@ -122,7 +123,6 @@ namespace OpenCBS.GUI.Contracts
             this.disbursementDateColumn,
             this.firstInstDateColumn,
             this.chComment});
-            resources.ApplyResources(this.lvMembers, "lvMembers");
             this.lvMembers.DoubleClickActivation = false;
             this.lvMembers.FullRowSelect = true;
             this.lvMembers.GridLines = true;
@@ -179,9 +179,9 @@ namespace OpenCBS.GUI.Contracts
             // 
             // cbStatus
             // 
+            resources.ApplyResources(this.cbStatus, "cbStatus");
             this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.FormattingEnabled = true;
-            resources.ApplyResources(this.cbStatus, "cbStatus");
             this.cbStatus.Name = "cbStatus";
             // 
             // tbComment
@@ -191,8 +191,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // dtCreditCommittee
             // 
-            this.dtCreditCommittee.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             resources.ApplyResources(this.dtCreditCommittee, "dtCreditCommittee");
+            this.dtCreditCommittee.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtCreditCommittee.Name = "dtCreditCommittee";
             this.dtCreditCommittee.ValueChanged += new System.EventHandler(this.dtCreditCommittee_ValueChanged);
             // 
@@ -208,15 +208,15 @@ namespace OpenCBS.GUI.Contracts
             // 
             // dtDisbursementDate
             // 
-            this.dtDisbursementDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             resources.ApplyResources(this.dtDisbursementDate, "dtDisbursementDate");
+            this.dtDisbursementDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtDisbursementDate.Name = "dtDisbursementDate";
             this.dtDisbursementDate.ValueChanged += new System.EventHandler(this.dtDisbursementDate_ValueChanged);
             // 
             // dtFirstInstDate
             // 
-            this.dtFirstInstDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             resources.ApplyResources(this.dtFirstInstDate, "dtFirstInstDate");
+            this.dtFirstInstDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFirstInstDate.Name = "dtFirstInstDate";
             this.dtFirstInstDate.ValueChanged += new System.EventHandler(this.dtFirstInstDate_ValueChanged);
             // 

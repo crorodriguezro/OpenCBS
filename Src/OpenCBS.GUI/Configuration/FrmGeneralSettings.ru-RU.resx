@@ -117,17 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>Общие параметры</value>
-  </data>
   <data name="columnHeader5.Text" xml:space="preserve">
     <value>Название</value>
   </data>
   <data name="columnHeader6.Text" xml:space="preserve">
     <value>Значение</value>
   </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>Параметр</value>
+  <data name="unitColumnHeader.Text" xml:space="preserve">
+    <value>Единица</value>
+  </data>
+  <data name="explanationColumnHeader.Text" xml:space="preserve">
+    <value>Описание</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
@@ -154,9 +154,6 @@
   <data name="buttonUpdate.Text" xml:space="preserve">
     <value>Сохранить</value>
   </data>
-  <data name="groupBoxValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 59</value>
-  </data>
   <data name="radioButtonNo.Location" type="System.Drawing.Point, System.Drawing">
     <value>84, 12</value>
   </data>
@@ -166,8 +163,14 @@
   <data name="radioButtonYes.Text" xml:space="preserve">
     <value>Да</value>
   </data>
-  <data name="tabPageProvioningRules.Text" xml:space="preserve">
-    <value>Правила создания провизии</value>
+  <data name="groupBoxValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 59</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Параметр</value>
+  </data>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>Общие параметры</value>
   </data>
   <data name="columnHeader1.Text" xml:space="preserve">
     <value>№</value>
@@ -186,9 +189,6 @@
   </data>
   <data name="columnHeader13.Text" xml:space="preserve">
     <value>Провизия пени</value>
-  </data>
-  <data name="groupBoxAddUser.Text" xml:space="preserve">
-    <value>Правила провизии</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>105, 16</value>
@@ -235,11 +235,11 @@
   <data name="labelUsername.Text" xml:space="preserve">
     <value>Мин. кол-во дней</value>
   </data>
-  <data name="tabPage2.Text" xml:space="preserve">
-    <value>Праздничные дни</value>
+  <data name="groupBoxAddUser.Text" xml:space="preserve">
+    <value>Правила провизии</value>
   </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>Дата</value>
+  <data name="tabPageProvioningRules.Text" xml:space="preserve">
+    <value>Правила создания провизии</value>
   </data>
   <data name="columnHeader7.Text" xml:space="preserve">
     <value>Дата</value>
@@ -265,11 +265,11 @@
   <data name="buttonPublicHolidaysSave.Text" xml:space="preserve">
     <value>Сохранить</value>
   </data>
-  <data name="tabPageLoanScale.Text" xml:space="preserve">
-    <value>Масштаб кредита</value>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Дата</value>
   </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Добавить масштаб</value>
+  <data name="tabPage2.Text" xml:space="preserve">
+    <value>Праздничные дни</value>
   </data>
   <data name="buttonDeleteScale.Text" xml:space="preserve">
     <value>Удалить</value>
@@ -289,11 +289,17 @@
   <data name="labelScaleMin.Text" xml:space="preserve">
     <value>Min</value>
   </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Добавить масштаб</value>
+  </data>
   <data name="columnHeader10.Text" xml:space="preserve">
     <value>Min</value>
   </data>
   <data name="columnHeader11.Text" xml:space="preserve">
     <value>Max</value>
+  </data>
+  <data name="tabPageLoanScale.Text" xml:space="preserve">
+    <value>Масштаб кредита</value>
   </data>
   <data name="butImport.Text" xml:space="preserve">
     <value>Импорт</value>
