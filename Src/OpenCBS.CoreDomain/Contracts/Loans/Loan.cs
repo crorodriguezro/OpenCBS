@@ -155,7 +155,12 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
             foreach (LoanEntryFee fee in LoanEntryFeesList)
             {
                 if (fee.ProductEntryFee.IsRate)
-                    sum += _amount*fee.FeeValue/100.00;
+                {
+                    if (fee.ProductEntryFee.Value != null)
+                        sum += _amount.Value*fee.ProductEntryFee.Value/100.00m;
+                    else
+                        sum += _amount*fee.FeeValue/100.00m;
+                }
                 else
                     sum += fee.FeeValue;
             }
@@ -1274,7 +1279,11 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
             {
                 OCurrency feeAmount;
                 if (fee.ProductEntryFee.IsRate)
-                    feeAmount = _amount.Value * fee.FeeValue/100;
+
+                    if (fee.ProductEntryFee.Value != null)
+                        feeAmount = _amount.Value*fee.ProductEntryFee.Value/100.00m;
+                    else
+                        feeAmount = _amount.Value*fee.FeeValue/100;
                 else
                     feeAmount = fee.FeeValue;
                 entryFees.Add(feeAmount);
