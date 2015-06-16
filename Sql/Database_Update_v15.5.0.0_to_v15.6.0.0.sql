@@ -114,10 +114,6 @@ if exists(select * from sys.columns where Name = N'professional_experience' and 
 alter table dbo.Persons drop column professional_experience
 GO
 
-if exists(select * from sys.columns where Name = N'first_contact' and Object_ID = Object_ID(N'dbo.Persons'))
-alter table dbo.Persons drop column first_contact
-GO
-
 if exists(select * from sys.columns where Name = N'family_situation' and Object_ID = Object_ID(N'dbo.Persons'))
 alter table dbo.Persons drop column family_situation
 GO
@@ -156,10 +152,6 @@ GO
 
 if exists(select * from sys.columns where Name = N'povertylevel_economiceducation' and Object_ID = Object_ID(N'dbo.Persons'))
 alter table dbo.Persons drop column povertylevel_economiceducation
-GO
-
-if exists(select * from sys.columns where Name = N'first_appointment' and Object_ID = Object_ID(N'dbo.Persons'))
-alter table dbo.Persons drop column first_appointment
 GO
 
 delete from 
