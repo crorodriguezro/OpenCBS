@@ -173,6 +173,10 @@ where
 	[key] = 'CITY_MANDATORY'
 GO
 
+alter table dbo.Credit
+alter column effective_interest_rate decimal(18,4)
+GO
+
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v15.6.0.0'
 WHERE   [name] = 'VERSION'

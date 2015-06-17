@@ -3,7 +3,7 @@ add schedule_type int, script_name nvarchar(255) null
 GO
 
 alter table dbo.Credit
-alter column effective_interest_rate decimal(8,4)
+alter column effective_interest_rate decimal(18,4)
 GO
 
 update
