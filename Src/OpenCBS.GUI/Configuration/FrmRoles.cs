@@ -50,6 +50,37 @@ namespace OpenCBS.GUI.Configuration
             UpdateControlStatus();
             _role = new Role();
             btnNew.Text = GetString("new");
+            initializeDefaultWindowComboBox();
+            adjustDefaultWindowComboBoxByRole(role);
+        }
+
+        private void adjustDefaultWindowComboBoxByRole(Role role)
+        {
+            switch (role.DefaultStartPage)
+            {
+                case OStartPages.StartPages.START_PAGE:
+                    defaultWindowComboBox.SelectedIndex = 0;
+                    break;
+                case OStartPages.StartPages.DASHBOARD_PAGE:
+                    defaultWindowComboBox.SelectedIndex = 1;
+                    break;
+                case OStartPages.StartPages.ALERTS_PAGE:
+                    defaultWindowComboBox.SelectedIndex = 2;
+                    break;
+                default:
+                    defaultWindowComboBox.SelectedIndex = 0;
+                    break;
+            }
+        }
+
+        private void initializeDefaultWindowComboBox()
+        {
+            this.defaultWindowComboBox.Items.AddRange(new string [] 
+            {
+                GetString("start_page.Text"), 
+                GetString("dashboard_page.Text"),
+                GetString("alerts_page.Text")
+            });
         }
 
         public void EraseRole()
@@ -57,6 +88,7 @@ namespace OpenCBS.GUI.Configuration
             _role = new Role();
             txtTitle.Text = _role.RoleName;
             txtDescription.Text = _role.Description;
+            defaultWindowComboBox.SelectedIndex = 0;
         }
 
         List<MenuObject> GetDeidMenuItems()
@@ -84,6 +116,7 @@ namespace OpenCBS.GUI.Configuration
         {
             _role.RoleName = txtTitle.Text;
             _role.Description = txtDescription.Text;
+            _role.DefaultStartPage = (OStartPages.StartPages)defaultWindowComboBox.Tag;
 
             try
             {
@@ -111,6 +144,7 @@ namespace OpenCBS.GUI.Configuration
         {
             _role.RoleName = txtTitle.Text;
             _role.Description = txtDescription.Text;
+            _role.DefaultStartPage = (OStartPages.StartPages)defaultWindowComboBox.Tag;
 
             try
             {
@@ -296,6 +330,7 @@ namespace OpenCBS.GUI.Configuration
                 InitTrees(_role);
             }
             UpdateControlStatus(true,_role.RoleName);
+            adjustDefaultWindowComboBoxByRole(_role);
         }
 
         private void TreeViewMenuItemsAfterCheck(object sender, TreeViewEventArgs e)
@@ -344,6 +379,7 @@ namespace OpenCBS.GUI.Configuration
             {
                 Role role = (Role) listViewRoles.SelectedItems[0].Tag;
                 InitTrees(role);
+                adjustDefaultWindowComboBoxByRole(role);
             }
         }
 
@@ -390,12 +426,41 @@ namespace OpenCBS.GUI.Configuration
         {
             txtTitle.Text = role.RoleName;
             txtDescription.Text = role.Description;
+            switch (role.DefaultStartPage)
+            {
+                case OStartPages.StartPages.START_PAGE:
+                    break;
+                case OStartPages.StartPages.DASHBOARD_PAGE:
+                    break;
+                case OStartPages.StartPages.ALERTS_PAGE:
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void BtnNewClick(object sender, EventArgs e)
         {
             EraseRole();
             UpdateControlStatus();
+        }
+
+        private void defaultWindowComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (defaultWindowComboBox.SelectedIndex)
+            {
+                case 0:
+                    defaultWindowComboBox.Tag = OStartPages.StartPages.START_PAGE;
+                    break;
+                case 1:
+                    defaultWindowComboBox.Tag = OStartPages.StartPages.DASHBOARD_PAGE;
+                    break;
+                case 2:
+                    defaultWindowComboBox.Tag = OStartPages.StartPages.ALERTS_PAGE;
+                    break;
+                default:
+                    throw new IndexOutOfRangeException();
+            }
         }
     }
 }

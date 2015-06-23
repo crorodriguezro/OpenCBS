@@ -63,6 +63,7 @@
     <Compile Include="OSavingsMethods.cs" />
     <Compile Include="ORoundingType.cs" />
     <Compile Include="OSecurityObjectTypes.cs" />
+    <Compile Include="OStartPages.cs" />
     <Compile Include="OTellerEvents.cs" />
     <Compile Include="OTermDepositFeesType.cs" />
     <Compile Include="OAlertSettings.cs" />

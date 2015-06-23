@@ -1,3 +1,11 @@
+if not exists(select * from sys.columns 
+            where Name = N'default_start_view' and Object_ID = Object_ID(N'Roles'))
+begin
+    alter table dbo.Roles
+	add default_start_view varchar(20) not null default('START_PAGE')
+end
+GO
+
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v15.7.0.0'
 WHERE   [name] = 'VERSION'

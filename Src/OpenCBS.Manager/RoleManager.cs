@@ -22,6 +22,8 @@
 using System.Collections.Generic;
 using OpenCBS.CoreDomain;
 using System.Data.SqlClient;
+using System;
+using OpenCBS.Enums;
 
 namespace OpenCBS.Manager
 {
@@ -50,8 +52,8 @@ namespace OpenCBS.Manager
         public int AddRole(Role pRole)
         {
             const string q = @"INSERT INTO [Roles]
-                                     ([deleted], [code], [description]) 
-                                     VALUES(@deleted, @code, @description) 
+                                     ([deleted], [code], [description], [default_start_view]) 
+                                     VALUES(@deleted, @code, @description, @start_view) 
                                      SELECT SCOPE_IDENTITY()";
 
             using (SqlConnection conn = GetConnection())
@@ -61,6 +63,7 @@ namespace OpenCBS.Manager
                     c.AddParam("@deleted", false);
                     c.AddParam("@code", pRole.RoleName);
                     c.AddParam("@description", pRole.Description);
+                    c.AddParam("@start_view", pRole.DefaultStartPage.ToString());
 
                     pRole.Id = int.Parse(c.ExecuteScalar().ToString());
                     SaveRoleMenu(pRole);
@@ -79,7 +82,8 @@ namespace OpenCBS.Manager
             const string q = @"UPDATE [Roles] 
                                      SET [code]=@code, 
                                          [deleted]=@deleted, 
-                                         [description]=@description 
+                                         [description]=@description,
+                                         [default_start_view] = @start_view 
                                      WHERE [id] = @RoleId";
 
             using (SqlConnection conn = GetConnection())
@@ -90,6 +94,7 @@ namespace OpenCBS.Manager
                     c.AddParam("@deleted", pRole.IsDeleted);
                     c.AddParam("@code", pRole.RoleName);
                     c.AddParam("@description", pRole.Description);
+                    c.AddParam("start_view", pRole.DefaultStartPage.ToString());
 
                     c.ExecuteNonQuery();
                     SaveRoleMenu(pRole);
@@ -126,7 +131,7 @@ namespace OpenCBS.Manager
         /// <returns>selected Role or null otherwise</returns>
         public Role SelectRole(int pRoleId, bool pIncludeDeletedRole, SqlTransaction pSqlTransac)
         {
-            string q = @"SELECT [Roles].[id], [code], [deleted], [description] 
+            string q = @"SELECT [Roles].[id], [code], [deleted], [description],  [default_start_view]
                                FROM [Roles] WHERE [id] = @id ";
 
             if (!pIncludeDeletedRole)
@@ -193,7 +198,7 @@ namespace OpenCBS.Manager
 
         public List<Role> SelectAllRoles(bool pSelectDeletedRoles)
         {
-            string q = @"SELECT [Roles].[id], [code], [deleted], [description]
+            string q = @"SELECT [Roles].[id], [code], [deleted], [description], [default_start_view]
                                FROM [Roles] WHERE 1 = 1 ";
 
             if (!pSelectDeletedRoles)
@@ -231,7 +236,7 @@ namespace OpenCBS.Manager
         /// <returns>selected role or null otherwise</returns>
         public Role SelectRole(string pRoleName,bool pIncludeDeleted)
         {
-            string q = @"SELECT [id], [code], [deleted], [description]
+            string q = @"SELECT [id], [code], [deleted], [description], [default_start_view]
                                     FROM [Roles] WHERE [code] = @name ";
 
             q += pIncludeDeleted ? "" : "AND [deleted] = 0";
@@ -509,12 +514,14 @@ namespace OpenCBS.Manager
 
         private static Role GetRole(OpenCbsReader r)
         {
+
             return new Role
                 {           
                     Id = r.GetInt("id"),
                     RoleName = r.GetString("code"),
                     IsDeleted = r.GetBool("deleted"),
-                    Description = r.GetString("description")
+                    Description = r.GetString("description"),
+                    DefaultStartPage = (OStartPages.StartPages)Enum.Parse(typeof(OStartPages.StartPages), (r.GetString("default_start_view")), true)
                 };;
         }
 

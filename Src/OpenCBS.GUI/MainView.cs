@@ -313,7 +313,19 @@ namespace OpenCBS.GUI
             {
                 SetActiveMenuItem(item);
             }
-            _applicationController.Execute(new ShowStartPageCommandData());
+            Role role = User.CurrentUser.UserRole;
+            switch (role.DefaultStartPage)
+            {
+                case OStartPages.StartPages.START_PAGE:
+                    _applicationController.Execute(new ShowStartPageCommandData());
+                    break;
+                case OStartPages.StartPages.DASHBOARD_PAGE:
+                    _applicationController.Execute(new ShowDashboardCommandData());
+                    break;
+                case OStartPages.StartPages.ALERTS_PAGE:
+                    _applicationController.Execute(new ShowAlertsCommandData());
+                    break;
+            }
         }
 
         public void InitializePersonForm()
@@ -732,7 +744,6 @@ namespace OpenCBS.GUI
                 InitializeMainMenu();
                 _InitializeUserRights();
                 DisplayFastChoiceForm();
-
             }
             else
             {

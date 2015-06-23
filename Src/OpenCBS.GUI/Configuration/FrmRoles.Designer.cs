@@ -36,7 +36,9 @@ namespace OpenCBS.GUI.Configuration
             this.listViewRoles = new System.Windows.Forms.ListView();
             this.chRoleName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chRoleDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.defaultWindowComboBox = new System.Windows.Forms.ComboBox();
             this.stateLabel = new System.Windows.Forms.Label();
+            this.defaultWindowLabel = new System.Windows.Forms.Label();
             this.btnNew = new System.Windows.Forms.Button();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.lbRoleDescription = new System.Windows.Forms.Label();
@@ -99,12 +101,15 @@ namespace OpenCBS.GUI.Configuration
             // 
             // splitContainerLeft.Panel1
             // 
+            resources.ApplyResources(this.splitContainerLeft.Panel1, "splitContainerLeft.Panel1");
             this.splitContainerLeft.Panel1.Controls.Add(this.listViewRoles);
             // 
             // splitContainerLeft.Panel2
             // 
             resources.ApplyResources(this.splitContainerLeft.Panel2, "splitContainerLeft.Panel2");
+            this.splitContainerLeft.Panel2.Controls.Add(this.defaultWindowComboBox);
             this.splitContainerLeft.Panel2.Controls.Add(this.stateLabel);
+            this.splitContainerLeft.Panel2.Controls.Add(this.defaultWindowLabel);
             this.splitContainerLeft.Panel2.Controls.Add(this.btnNew);
             this.splitContainerLeft.Panel2.Controls.Add(this.txtDescription);
             this.splitContainerLeft.Panel2.Controls.Add(this.lbRoleDescription);
@@ -115,11 +120,11 @@ namespace OpenCBS.GUI.Configuration
             // 
             // listViewRoles
             // 
+            resources.ApplyResources(this.listViewRoles, "listViewRoles");
             this.listViewRoles.BackColor = System.Drawing.SystemColors.Window;
             this.listViewRoles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chRoleName,
             this.chRoleDescription});
-            resources.ApplyResources(this.listViewRoles, "listViewRoles");
             this.listViewRoles.FullRowSelect = true;
             this.listViewRoles.GridLines = true;
             this.listViewRoles.HideSelection = false;
@@ -139,10 +144,24 @@ namespace OpenCBS.GUI.Configuration
             // 
             resources.ApplyResources(this.chRoleDescription, "chRoleDescription");
             // 
+            // defaultWindowComboBox
+            // 
+            resources.ApplyResources(this.defaultWindowComboBox, "defaultWindowComboBox");
+            this.defaultWindowComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.defaultWindowComboBox.FormattingEnabled = true;
+            this.defaultWindowComboBox.Name = "defaultWindowComboBox";
+            this.defaultWindowComboBox.SelectedIndexChanged += new System.EventHandler(this.defaultWindowComboBox_SelectedIndexChanged);
+            // 
             // stateLabel
             // 
             resources.ApplyResources(this.stateLabel, "stateLabel");
             this.stateLabel.Name = "stateLabel";
+            // 
+            // defaultWindowLabel
+            // 
+            resources.ApplyResources(this.defaultWindowLabel, "defaultWindowLabel");
+            this.defaultWindowLabel.BackColor = System.Drawing.Color.Transparent;
+            this.defaultWindowLabel.Name = "defaultWindowLabel";
             // 
             // btnNew
             // 
@@ -185,35 +204,35 @@ namespace OpenCBS.GUI.Configuration
             // 
             // tabControlActions
             // 
+            resources.ApplyResources(this.tabControlActions, "tabControlActions");
             this.tabControlActions.Controls.Add(this.tabPageMenu);
             this.tabControlActions.Controls.Add(this.tabPageGUIActions);
-            resources.ApplyResources(this.tabControlActions, "tabControlActions");
             this.tabControlActions.Name = "tabControlActions";
             this.tabControlActions.SelectedIndex = 0;
             // 
             // tabPageMenu
             // 
-            this.tabPageMenu.Controls.Add(this.trvMenuItems);
             resources.ApplyResources(this.tabPageMenu, "tabPageMenu");
+            this.tabPageMenu.Controls.Add(this.trvMenuItems);
             this.tabPageMenu.Name = "tabPageMenu";
             // 
             // trvMenuItems
             // 
-            this.trvMenuItems.CheckBoxes = true;
             resources.ApplyResources(this.trvMenuItems, "trvMenuItems");
+            this.trvMenuItems.CheckBoxes = true;
             this.trvMenuItems.Name = "trvMenuItems";
             this.trvMenuItems.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.TreeViewMenuItemsAfterCheck);
             // 
             // tabPageGUIActions
             // 
-            this.tabPageGUIActions.Controls.Add(this.trwActionItems);
             resources.ApplyResources(this.tabPageGUIActions, "tabPageGUIActions");
+            this.tabPageGUIActions.Controls.Add(this.trwActionItems);
             this.tabPageGUIActions.Name = "tabPageGUIActions";
             // 
             // trwActionItems
             // 
-            this.trwActionItems.CheckBoxes = true;
             resources.ApplyResources(this.trwActionItems, "trwActionItems");
+            this.trwActionItems.CheckBoxes = true;
             this.trwActionItems.Name = "trwActionItems";
             this.trwActionItems.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.TreeViewActionItemsAfterCheck);
             // 
@@ -224,13 +243,18 @@ namespace OpenCBS.GUI.Configuration
             // 
             // splitContainer1.Panel1
             // 
+            resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
             this.splitContainer1.Panel1.Controls.Add(this.labelRoles);
             this.splitContainer1.Panel1.Controls.Add(this.buttonAdd);
             // 
+            // splitContainer1.Panel2
+            // 
+            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
+            // 
             // labelRoles
             // 
-            this.labelRoles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             resources.ApplyResources(this.labelRoles, "labelRoles");
+            this.labelRoles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.labelRoles.Name = "labelRoles";
             // 
             // buttonAdd
@@ -246,11 +270,13 @@ namespace OpenCBS.GUI.Configuration
             // 
             // splitContainerMain.Panel1
             // 
+            resources.ApplyResources(this.splitContainerMain.Panel1, "splitContainerMain.Panel1");
             this.splitContainerMain.Panel1.Controls.Add(this.btnCancel);
             this.splitContainerMain.Panel1.Controls.Add(this.lblRoles);
             // 
             // splitContainerMain.Panel2
             // 
+            resources.ApplyResources(this.splitContainerMain.Panel2, "splitContainerMain.Panel2");
             this.splitContainerMain.Panel2.Controls.Add(this.splitContainer2);
             // 
             // btnCancel
@@ -262,8 +288,8 @@ namespace OpenCBS.GUI.Configuration
             // 
             // lblRoles
             // 
-            this.lblRoles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
             resources.ApplyResources(this.lblRoles, "lblRoles");
+            this.lblRoles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
             this.lblRoles.ForeColor = System.Drawing.Color.White;
             this.lblRoles.Name = "lblRoles";
             // 
@@ -322,5 +348,7 @@ namespace OpenCBS.GUI.Configuration
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Label stateLabel;
+        private System.Windows.Forms.ComboBox defaultWindowComboBox;
+        private System.Windows.Forms.Label defaultWindowLabel;
     }
 }

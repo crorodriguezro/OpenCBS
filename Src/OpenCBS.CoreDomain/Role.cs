@@ -38,6 +38,7 @@ namespace OpenCBS.CoreDomain
         private string _description;
         private Dictionary<MenuObject, bool> _menus;
         private Dictionary<ActionItemObject, bool> _actions;
+        public OpenCBS.Enums.OStartPages.StartPages DefaultStartPage { get; set; }
 
         public Role()
         {

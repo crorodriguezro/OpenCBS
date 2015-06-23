@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="action_item.Text" xml:space="preserve">
     <value>Todos os itens de ação</value>
@@ -152,5 +152,14 @@
   </data>
   <data name="updateLabel" xml:space="preserve">
     <value>O papel {0} será actualizado.</value>
+  </data>
+  <data name="alerts_page.Text" xml:space="preserve">
+    <value>Alertas</value>
+  </data>
+  <data name="dashboard_page.Text" xml:space="preserve">
+    <value>Graficos</value>
+  </data>
+  <data name="start_page.Text" xml:space="preserve">
+    <value>Pagina inicial</value>
   </data>
 </root>
