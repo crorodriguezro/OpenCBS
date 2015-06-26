@@ -170,6 +170,17 @@ namespace OpenCBS.Services
         {
             return _roleManager.SelectAllRoles(pSelectDeletedRoles);
         }
+
+        public Role FindRoleStartPage(string pRoleName)
+        {
+            return _roleManager.SelectRole(pRoleName, true);
+        }
+
+        public List<Role> FindAllRolesForFrmRoles(bool pSelectDeletedRoles)
+        {
+            return _roleManager.SelectAllRolesForFrmRoles(pSelectDeletedRoles);
+        }
+
         public void UpdateMenuList(List<MenuObject> pMenuTitles)
         {
             _roleManager.UpdateMenuList(pMenuTitles);
@@ -205,6 +216,11 @@ namespace OpenCBS.Services
             role.SetMenuItems(_roleManager.GetAllowedMenuList(roleId));
             role.SetActionItems(_roleManager.GetAllowedActionList(roleId));
             return role;
+        }
+
+        public Enums.OStartPages.StartPages GetRolesDefaultStartPageByRoleId(int roleId)
+        {
+            return _roleManager.GetRolesDefaultStartPageByRoleId(roleId);
         }
     }
 }

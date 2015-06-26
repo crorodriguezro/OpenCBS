@@ -131,7 +131,7 @@ namespace OpenCBS.Manager
         /// <returns>selected Role or null otherwise</returns>
         public Role SelectRole(int pRoleId, bool pIncludeDeletedRole, SqlTransaction pSqlTransac)
         {
-            string q = @"SELECT [Roles].[id], [code], [deleted], [description],  [default_start_view]
+            string q = @"SELECT [Roles].[id], [code], [deleted], [description]
                                FROM [Roles] WHERE [id] = @id ";
 
             if (!pIncludeDeletedRole)
@@ -196,9 +196,42 @@ namespace OpenCBS.Manager
             return SelectRole(pRoleId, pIncludeDeletedRole, null);
         }
 
-        public List<Role> SelectAllRoles(bool pSelectDeletedRoles)
+        public List<Role> SelectAllRolesForFrmRoles(bool pSelectDeletedRoles)
         {
             string q = @"SELECT [Roles].[id], [code], [deleted], [description], [default_start_view]
+                               FROM [Roles] WHERE 1 = 1 ";
+
+            if (!pSelectDeletedRoles)
+                q += " AND [deleted] = 0";
+
+            List<Role> Roles = new List<Role>();
+
+            using (SqlConnection conn = GetConnection())
+            {
+                using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+                {
+                    using (OpenCbsReader r = c.ExecuteReader())
+                    {
+                        if (r != null)
+                        {
+                            if (!r.Empty)
+                                while (r.Read())
+                                    Roles.Add(GetRoleForFrmRoles(r));
+                        }
+                    }
+                }
+            }
+            foreach (Role r in Roles)
+            {
+                r.SetMenuItems(GetAllowedMenuList(r.Id));
+                r.SetActionItems(GetAllowedActionList(r.Id));
+            }
+            return Roles;
+        }
+
+        public List<Role> SelectAllRoles(bool pSelectDeletedRoles)
+        {
+            string q = @"SELECT [Roles].[id], [code], [deleted], [description]
                                FROM [Roles] WHERE 1 = 1 ";
 
             if (!pSelectDeletedRoles)
@@ -236,7 +269,7 @@ namespace OpenCBS.Manager
         /// <returns>selected role or null otherwise</returns>
         public Role SelectRole(string pRoleName,bool pIncludeDeleted)
         {
-            string q = @"SELECT [id], [code], [deleted], [description], [default_start_view]
+            string q = @"SELECT [id], [code], [deleted], [description]
                                     FROM [Roles] WHERE [code] = @name ";
 
             q += pIncludeDeleted ? "" : "AND [deleted] = 0";
@@ -520,9 +553,21 @@ namespace OpenCBS.Manager
                     Id = r.GetInt("id"),
                     RoleName = r.GetString("code"),
                     IsDeleted = r.GetBool("deleted"),
-                    Description = r.GetString("description"),
-                    DefaultStartPage = (OStartPages.StartPages)Enum.Parse(typeof(OStartPages.StartPages), (r.GetString("default_start_view")), true)
+                    Description = r.GetString("description")
                 };;
+        }
+
+        private static Role GetRoleForFrmRoles(OpenCbsReader r)
+        {
+
+            return new Role
+            {
+                Id = r.GetInt("id"),
+                RoleName = r.GetString("code"),
+                IsDeleted = r.GetBool("deleted"),
+                Description = r.GetString("description"),
+                DefaultStartPage = (OStartPages.StartPages)Enum.Parse(typeof(OStartPages.StartPages), (r.GetString("default_start_view")), true)
+            }; ;
         }
 
         public Dictionary<int, int> SelectUserToRole()
@@ -550,6 +595,25 @@ namespace OpenCBS.Manager
                 }
             }
             return userToRole;
+        }
+
+        public OStartPages.StartPages GetRolesDefaultStartPageByRoleId(int roleId)
+        {
+            string q = @"SELECT [default_start_view]
+                                    FROM [Roles] WHERE [id] = @id ";
+
+            using (SqlConnection conn = GetConnection())
+            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+            {
+                c.AddParam("@id", roleId);
+                using (OpenCbsReader r = c.ExecuteReader())
+                {
+                    r.Read();
+                    OStartPages.StartPages startPage =
+                        (OStartPages.StartPages)Enum.Parse(typeof(OStartPages.StartPages), r.GetString("default_start_view"));
+                    return startPage;
+                }
+            }
         }
     }
 }

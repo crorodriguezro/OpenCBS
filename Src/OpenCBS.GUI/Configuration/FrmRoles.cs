@@ -168,7 +168,7 @@ namespace OpenCBS.GUI.Configuration
         {
             listViewRoles.Items.Clear();
             List<Role> roles = new List<Role>();
-            roles = ServicesProvider.GetInstance().GetRoleServices().FindAllRoles(false);
+            roles = ServicesProvider.GetInstance().GetRoleServices().FindAllRolesForFrmRoles(false);
             foreach (Role role in roles)
             {
                 ListViewItem lv = new ListViewItem(new []{role.RoleName,role.Description});

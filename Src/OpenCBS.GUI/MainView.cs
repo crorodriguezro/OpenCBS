@@ -314,6 +314,7 @@ namespace OpenCBS.GUI
                 SetActiveMenuItem(item);
             }
             Role role = User.CurrentUser.UserRole;
+            role.DefaultStartPage = ServicesProvider.GetInstance().GetRoleServices().GetRolesDefaultStartPageByRoleId(role.Id);
             switch (role.DefaultStartPage)
             {
                 case OStartPages.StartPages.START_PAGE:
