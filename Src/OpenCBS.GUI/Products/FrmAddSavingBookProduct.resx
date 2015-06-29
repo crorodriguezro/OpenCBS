@@ -2731,7 +2731,7 @@
     <value>3</value>
   </data>
   <data name="gbWithDrawing.Text" xml:space="preserve">
-    <value>Withdrawing</value>
+    <value>Withdrawal Amount</value>
   </data>
   <data name="&gt;&gt;gbWithDrawing.Name" xml:space="preserve">
     <value>gbWithDrawing</value>
@@ -5765,6 +5765,6 @@
     <value>FrmAddSavingBookProduct</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.4.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

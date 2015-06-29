@@ -3,6 +3,8 @@ if not exists(select * from sys.columns
 begin
     alter table dbo.Roles
 	add default_start_view varchar(20) not null default('START_PAGE')
+	
+	alter table dbo.Tiers add created_at date, created_by int
 end
 GO
 
