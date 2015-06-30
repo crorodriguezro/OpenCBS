@@ -66,7 +66,7 @@ namespace OpenCBS.GUI.Clients
             _applicationController = applicationController;
             MefContainer.Current.Bind(this);
             InitializeComponent();
-            _village = new Village { CreationDate = TimeProvider.Now };
+            _village = new Village {CreationDate = TimeProvider.Now, CreatedBy = User.CurrentUser};
             InitializeControls();
             InitializeTitle();
             this.dtDate.Format = DateTimePickerFormat.Custom;

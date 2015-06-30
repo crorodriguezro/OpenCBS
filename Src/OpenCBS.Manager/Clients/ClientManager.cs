@@ -3069,8 +3069,7 @@ namespace OpenCBS.Manager.Clients
                                        [zipCode],
                                        [secondary_zipCode],
                                        [branch_id],
-                                       [created_by],
-                                       [created_at]) 
+                                       [created_by]) 
                                      VALUES(@creationDate, 
                                        @clientTypeCode, 
                                         @scoring, 
@@ -3106,8 +3105,7 @@ namespace OpenCBS.Manager.Clients
                                         @zipCode,
                                         @secondaryZipCode,
                                         @branchId,
-                                        @created_by,
-                                        @created_at) 
+                                        @created_by) 
                                       SELECT SCOPE_IDENTITY()";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
@@ -3145,8 +3143,7 @@ namespace OpenCBS.Manager.Clients
                 c.AddParam("@sponsor2Comment", pTiers.Sponsor2Comment);
                 c.AddParam("@followUpComment", pTiers.FollowUpComment);
                 c.AddParam("@branchId", pTiers.Branch.Id);
-                c.AddParam("@created_by", User.CurrentUser.Id);
-                c.AddParam("@created_at", DateTime.Now.Date);
+                c.AddParam("@created_by", pTiers.CreatedBy.Id);
 
                 if (pTiers.District != null)
                     c.AddParam("@districtId", pTiers.District.Id);

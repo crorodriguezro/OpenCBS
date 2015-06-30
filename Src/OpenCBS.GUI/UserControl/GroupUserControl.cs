@@ -1153,6 +1153,7 @@ namespace OpenCBS.GUI.UserControl
             group.SecondaryZipCode = addressUserControlSecondaryAddress.ZipCode;
             group.MeetingDay = cbMeetingDay.Checked ? (DayOfWeek?)GetDayOfWeek() : null;
             group.Branch = (Branch)cbBranch.SelectedItem;
+            Group.CreatedBy=User.CurrentUser;
         }
 
         private DayOfWeek GetDayOfWeek()

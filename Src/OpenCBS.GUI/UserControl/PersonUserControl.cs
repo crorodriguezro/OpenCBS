@@ -288,6 +288,7 @@ namespace OpenCBS.GUI.UserControl
             RecoverDatasFromUserControlsAddress();
 
             _tempPerson.Branch = (Branch)cbBranch.SelectedItem;
+            _tempPerson.CreatedBy = User.CurrentUser;
 
             try
             {

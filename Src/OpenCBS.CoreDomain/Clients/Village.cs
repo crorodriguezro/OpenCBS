@@ -49,6 +49,7 @@ namespace OpenCBS.CoreDomain.Clients
         public bool IsImage2Added { get; set; }
         public DayOfWeek? MeetingDay { get; set; }
         public Branch Branch { get; set; }
+        public User CreatedBy { get; set; }
 
         public Village()
         {

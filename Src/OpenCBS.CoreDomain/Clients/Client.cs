@@ -138,6 +138,8 @@ namespace OpenCBS.CoreDomain.Clients
 
         public List<Loan> ActiveLoans { get; set; }
         public Branch Branch { get; set; }
+        public User CreatedBy { get; set; }
+
         #endregion
 
         public bool SecondaryAddressIsEmpty

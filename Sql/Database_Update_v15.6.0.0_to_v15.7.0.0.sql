@@ -3,8 +3,17 @@ if not exists(select * from sys.columns
 begin
     alter table dbo.Roles
 	add default_start_view varchar(20) not null default('START_PAGE')
-	
-	alter table dbo.Tiers add created_at date, created_by int
+end
+GO
+
+if not exists(select * from sys.columns 
+            where Name = N'created_by' and Object_ID = Object_ID(N'Tiers'))
+begin
+    alter table dbo.Tiers
+	add created_by int null
+
+alter table dbo.Tiers add constraint FK_Tiers_created_by
+foreign key  (created_by) references dbo.Users(id)
 end
 GO
 

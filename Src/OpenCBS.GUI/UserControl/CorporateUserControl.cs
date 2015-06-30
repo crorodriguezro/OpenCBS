@@ -216,6 +216,7 @@ namespace OpenCBS.GUI.UserControl
                 _corporate.SmallName = textBoxSmallNameCorporate.Text;
 
                 _corporate.Branch = (Branch) cbBranch.SelectedItem;
+                _corporate.CreatedBy=User.CurrentUser;
                 if (_corporate.Name != null)
                     _corporate.Name = _corporate.Name.Trim();
 

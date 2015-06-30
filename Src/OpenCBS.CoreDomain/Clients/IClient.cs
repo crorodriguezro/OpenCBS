@@ -86,5 +86,6 @@ namespace OpenCBS.CoreDomain.Clients
         List<Loan> ActiveLoans { get; set; }
 	    IClient Copy();
         Branch Branch { get; set; }
+        User CreatedBy { get; set; }
 	}
 }
