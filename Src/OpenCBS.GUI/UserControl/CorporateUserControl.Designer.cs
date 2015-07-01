@@ -68,14 +68,12 @@ namespace OpenCBS.GUI.UserControl
             this.eacCorporate = new OpenCBS.GUI.UserControl.EconomicActivityControl();
             this.lblEconomicActivity = new System.Windows.Forms.Label();
             this.labelDateCrate = new System.Windows.Forms.Label();
-            this.labelSigle = new System.Windows.Forms.Label();
             this.cbBranch = new System.Windows.Forms.ComboBox();
             this.labelCorpCycle = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxCorpLoanCycle = new System.Windows.Forms.TextBox();
             this.textBoxLastNameCorporate = new System.Windows.Forms.TextBox();
             this.dateTimePickerDateOfCreate = new System.Windows.Forms.DateTimePicker();
-            this.textBoxSigle = new System.Windows.Forms.TextBox();
             this.textBoxSmallNameCorporate = new System.Windows.Forms.TextBox();
             this.labelSmallNameCorporate = new System.Windows.Forms.Label();
             this.linkLabelChangePhoto2 = new System.Windows.Forms.LinkLabel();
@@ -260,19 +258,17 @@ namespace OpenCBS.GUI.UserControl
             // 
             resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
             this.tableLayoutPanel1.Controls.Add(this.labelLastname, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.eacCorporate, 2, 6);
-            this.tableLayoutPanel1.Controls.Add(this.lblEconomicActivity, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.eacCorporate, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.lblEconomicActivity, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.labelDateCrate, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.labelSigle, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.cbBranch, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.labelCorpCycle, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxCorpLoanCycle, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.cbBranch, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.labelCorpCycle, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxCorpLoanCycle, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.textBoxLastNameCorporate, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePickerDateOfCreate, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxSigle, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxSmallNameCorporate, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.labelSmallNameCorporate, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxSmallNameCorporate, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.labelSmallNameCorporate, 0, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
             // labelLastname
@@ -300,12 +296,6 @@ namespace OpenCBS.GUI.UserControl
             resources.ApplyResources(this.labelDateCrate, "labelDateCrate");
             this.labelDateCrate.BackColor = System.Drawing.Color.Transparent;
             this.labelDateCrate.Name = "labelDateCrate";
-            // 
-            // labelSigle
-            // 
-            resources.ApplyResources(this.labelSigle, "labelSigle");
-            this.labelSigle.BackColor = System.Drawing.Color.Transparent;
-            this.labelSigle.Name = "labelSigle";
             // 
             // cbBranch
             // 
@@ -343,12 +333,6 @@ namespace OpenCBS.GUI.UserControl
             this.dateTimePickerDateOfCreate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerDateOfCreate.Name = "dateTimePickerDateOfCreate";
             this.dateTimePickerDateOfCreate.Value = new System.DateTime(2006, 5, 15, 0, 0, 0, 0);
-            // 
-            // textBoxSigle
-            // 
-            this.textBoxSigle.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxSigle, "textBoxSigle");
-            this.textBoxSigle.Name = "textBoxSigle";
             // 
             // textBoxSmallNameCorporate
             // 
@@ -428,12 +412,10 @@ namespace OpenCBS.GUI.UserControl
         #endregion
 
         private System.Windows.Forms.GroupBox groupBoxCorporate;
-        private System.Windows.Forms.TextBox textBoxSigle;
         private System.Windows.Forms.DateTimePicker dateTimePickerDateOfCreate;
         private System.Windows.Forms.Label labelDateCrate;
         private System.Windows.Forms.TextBox textBoxLastNameCorporate;
         private System.Windows.Forms.Label labelLastname;
-        private System.Windows.Forms.Label labelSigle;
         private System.Windows.Forms.TextBox textBoxSmallNameCorporate;
         private System.Windows.Forms.Label labelSmallNameCorporate;
         private System.Windows.Forms.LinkLabel linkLabelChangePhoto2;

@@ -475,7 +475,7 @@
     <value>savingsListUserControl1</value>
   </data>
   <data name="&gt;&gt;savingsListUserControl1.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SavingsListUserControl, OpenCBS.GUI, Version=15.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SavingsListUserControl, OpenCBS.GUI, Version=15.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;savingsListUserControl1.Parent" xml:space="preserve">
     <value>tabPageSavings</value>
@@ -646,7 +646,7 @@
     <value>btnPrint</value>
   </data>
   <data name="&gt;&gt;btnPrint.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrint.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
@@ -727,13 +727,13 @@
     <value>Fill</value>
   </data>
   <data name="eacCorporate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>236, 167</value>
+    <value>236, 161</value>
   </data>
   <data name="eacCorporate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="eacCorporate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 32</value>
+    <value>236, 38</value>
   </data>
   <data name="eacCorporate.TabIndex" type="System.Int32, mscorlib">
     <value>99</value>
@@ -742,7 +742,7 @@
     <value>eacCorporate</value>
   </data>
   <data name="&gt;&gt;eacCorporate.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.EconomicActivityControl, OpenCBS.GUI, Version=15.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.EconomicActivityControl, OpenCBS.GUI, Version=15.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;eacCorporate.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -763,7 +763,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblEconomicActivity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 167</value>
+    <value>3, 161</value>
   </data>
   <data name="lblEconomicActivity.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 16</value>
@@ -796,7 +796,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelDateCrate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 27</value>
+    <value>3, 31</value>
   </data>
   <data name="labelDateCrate.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 16</value>
@@ -819,44 +819,11 @@
   <data name="&gt;&gt;labelDateCrate.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="labelSigle.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelSigle.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="labelSigle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelSigle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 54</value>
-  </data>
-  <data name="labelSigle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
-  </data>
-  <data name="labelSigle.TabIndex" type="System.Int32, mscorlib">
-    <value>42</value>
-  </data>
-  <data name="labelSigle.Text" xml:space="preserve">
-    <value>Abb:</value>
-  </data>
-  <data name="&gt;&gt;labelSigle.Name" xml:space="preserve">
-    <value>labelSigle</value>
-  </data>
-  <data name="&gt;&gt;labelSigle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelSigle.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;labelSigle.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="cbBranch.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="cbBranch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>239, 138</value>
+    <value>239, 127</value>
   </data>
   <data name="cbBranch.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 21</value>
@@ -874,7 +841,7 @@
     <value>tableLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;cbBranch.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="labelCorpCycle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -886,7 +853,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelCorpCycle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 108</value>
+    <value>3, 93</value>
   </data>
   <data name="labelCorpCycle.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 16</value>
@@ -907,7 +874,7 @@
     <value>tableLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;labelCorpCycle.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="label3.AccessibleName" xml:space="preserve">
     <value />
@@ -922,7 +889,7 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 135</value>
+    <value>3, 124</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 16</value>
@@ -943,7 +910,7 @@
     <value>tableLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="textBoxCorpLoanCycle.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -955,7 +922,7 @@
     <value>Arial, 9.75pt</value>
   </data>
   <data name="textBoxCorpLoanCycle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>239, 111</value>
+    <value>239, 96</value>
   </data>
   <data name="textBoxCorpLoanCycle.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 22</value>
@@ -976,7 +943,7 @@
     <value>tableLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;textBoxCorpLoanCycle.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="textBoxLastNameCorporate.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1000,13 +967,13 @@
     <value>tableLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;textBoxLastNameCorporate.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="dateTimePickerDateOfCreate.DropDownAlign" type="System.Windows.Forms.LeftRightAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
   <data name="dateTimePickerDateOfCreate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>239, 30</value>
+    <value>239, 34</value>
   </data>
   <data name="dateTimePickerDateOfCreate.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 20</value>
@@ -1024,37 +991,13 @@
     <value>tableLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;dateTimePickerDateOfCreate.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="textBoxSigle.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="textBoxSigle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>239, 57</value>
-  </data>
-  <data name="textBoxSigle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 20</value>
-  </data>
-  <data name="textBoxSigle.TabIndex" type="System.Int32, mscorlib">
-    <value>64</value>
-  </data>
-  <data name="&gt;&gt;textBoxSigle.Name" xml:space="preserve">
-    <value>textBoxSigle</value>
-  </data>
-  <data name="&gt;&gt;textBoxSigle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxSigle.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;textBoxSigle.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>9</value>
   </data>
   <data name="textBoxSmallNameCorporate.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="textBoxSmallNameCorporate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>239, 84</value>
+    <value>239, 65</value>
   </data>
   <data name="textBoxSmallNameCorporate.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 20</value>
@@ -1072,7 +1015,7 @@
     <value>tableLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;textBoxSmallNameCorporate.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>10</value>
   </data>
   <data name="labelSmallNameCorporate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1084,7 +1027,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelSmallNameCorporate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 81</value>
+    <value>3, 62</value>
   </data>
   <data name="labelSmallNameCorporate.Size" type="System.Drawing.Size, System.Drawing">
     <value>79, 16</value>
@@ -1105,7 +1048,7 @@
     <value>tableLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;labelSmallNameCorporate.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>11</value>
   </data>
   <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -1114,7 +1057,7 @@
     <value>3, 16</value>
   </data>
   <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>472, 199</value>
@@ -1135,7 +1078,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="labelLastname" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="eacCorporate" Row="6" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblEconomicActivity" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelDateCrate" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelSigle" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="cbBranch" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCorpCycle" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxCorpLoanCycle" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxLastNameCorporate" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="dateTimePickerDateOfCreate" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxSigle" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxSmallNameCorporate" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelSmallNameCorporate" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,14,14141,Percent,14,14141,Percent,14,14141,Percent,14,14141,Percent,14,14141,Percent,16,66667,Percent,15,15152,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="labelLastname" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="eacCorporate" Row="5" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblEconomicActivity" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelDateCrate" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="cbBranch" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCorpCycle" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxCorpLoanCycle" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxLastNameCorporate" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="dateTimePickerDateOfCreate" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxSmallNameCorporate" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelSmallNameCorporate" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,14,14141,Percent,14,14141,Percent,14,14141,Percent,14,14141,Percent,16,66667,Percent,15,15152,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="linkLabelChangePhoto2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1297,7 +1240,7 @@
     <value>1000, 660</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 353</value>
+    <value>759, 336</value>
   </data>
   <data name="&gt;&gt;columnHeaderName.Name" xml:space="preserve">
     <value>columnHeaderName</value>
@@ -1321,6 +1264,6 @@
     <value>CorporateUserControl</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ClientControl, OpenCBS.GUI, Version=15.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ClientControl, OpenCBS.GUI, Version=15.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

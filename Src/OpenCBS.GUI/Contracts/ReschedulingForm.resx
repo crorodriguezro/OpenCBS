@@ -337,13 +337,13 @@
     <value>4, 39</value>
   </data>
   <data name="newInstallmentsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 16</value>
+    <value>149, 16</value>
   </data>
   <data name="newInstallmentsLabel.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="newInstallmentsLabel.Text" xml:space="preserve">
-    <value>New total installments:</value>
+    <value>Total future installments:</value>
   </data>
   <data name="&gt;&gt;newInstallmentsLabel.Name" xml:space="preserve">
     <value>newInstallmentsLabel</value>
@@ -1295,6 +1295,6 @@
     <value>ReschedulingForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.4.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

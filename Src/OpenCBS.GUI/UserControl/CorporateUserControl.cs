@@ -98,8 +98,6 @@ namespace OpenCBS.GUI.UserControl
                     //"Update corporate";
 
                 textBoxLastNameCorporate.Text = _corporate.Name;
-
-                textBoxSigle.Text = _corporate.Sigle;
                 dateTimePickerDateOfCreate.Value = _corporate.RegistrationDate == DateTime.MinValue
                                                        ? TimeProvider.Today
                                                       : _corporate.RegistrationDate;
@@ -212,7 +210,6 @@ namespace OpenCBS.GUI.UserControl
                 
                 RecoverDatasFromUserControlsAddress();
                 _corporate.Name = textBoxLastNameCorporate.Text;
-                _corporate.Sigle = textBoxSigle.Text;
                 _corporate.SmallName = textBoxSmallNameCorporate.Text;
 
                 _corporate.Branch = (Branch) cbBranch.SelectedItem;
@@ -220,7 +217,6 @@ namespace OpenCBS.GUI.UserControl
                 if (_corporate.Name != null)
                     _corporate.Name = _corporate.Name.Trim();
 
-                _corporate.Sigle = _corporate.Sigle.Trim();
                 _corporate.SmallName = _corporate.SmallName.Trim();
                 EventProcessorServices es = ServicesProvider.GetInstance().GetEventProcessorServices();
                 if (_corporate.Id == 0)
