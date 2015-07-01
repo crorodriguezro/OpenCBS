@@ -10,7 +10,7 @@ if not exists(select * from sys.columns
             where Name = N'created_by' and Object_ID = Object_ID(N'Tiers'))
 begin
     alter table dbo.Tiers
-	add created_by int null
+	add created_by int not null default((1))
 
 alter table dbo.Tiers add constraint FK_Tiers_created_by
 foreign key  (created_by) references dbo.Users(id)
