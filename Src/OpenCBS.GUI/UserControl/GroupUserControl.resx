@@ -172,7 +172,7 @@
     <value>Center</value>
   </data>
   <data name="columnHeaderDependents.Width" type="System.Int32, mscorlib">
-    <value>95</value>
+    <value>98</value>
   </data>
   <data name="columnHeader7.Text" xml:space="preserve">
     <value>Bad Client</value>
@@ -190,7 +190,7 @@
     <value>0, 0</value>
   </data>
   <data name="listViewOtherMembres.Size" type="System.Drawing.Size, System.Drawing">
-    <value>963, 333</value>
+    <value>893, 333</value>
   </data>
   <data name="listViewOtherMembres.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -229,16 +229,16 @@
     <value>NoControl</value>
   </data>
   <data name="buttonDeleteMembers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 83</value>
+    <value>7, 65</value>
   </data>
   <data name="buttonDeleteMembers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 25</value>
+    <value>126, 25</value>
   </data>
   <data name="buttonDeleteMembers.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="buttonDeleteMembers.Text" xml:space="preserve">
-    <value>Remove from group</value>
+    <value>Remove</value>
   </data>
   <data name="&gt;&gt;buttonDeleteMembers.Name" xml:space="preserve">
     <value>buttonDeleteMembers</value>
@@ -262,10 +262,10 @@
     <value>NoControl</value>
   </data>
   <data name="buttonSaveAsLeader.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 145</value>
+    <value>7, 96</value>
   </data>
   <data name="buttonSaveAsLeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 25</value>
+    <value>126, 25</value>
   </data>
   <data name="buttonSaveAsLeader.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -285,39 +285,6 @@
   <data name="&gt;&gt;buttonSaveAsLeader.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="buttonViewMember.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="buttonViewMember.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="buttonViewMember.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonViewMember.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 114</value>
-  </data>
-  <data name="buttonViewMember.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 25</value>
-  </data>
-  <data name="buttonViewMember.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="buttonViewMember.Text" xml:space="preserve">
-    <value>View member</value>
-  </data>
-  <data name="&gt;&gt;buttonViewMember.Name" xml:space="preserve">
-    <value>buttonViewMember</value>
-  </data>
-  <data name="&gt;&gt;buttonViewMember.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonViewMember.Parent" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;buttonViewMember.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="buttonAddMembres.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
@@ -328,16 +295,16 @@
     <value>NoControl</value>
   </data>
   <data name="buttonAddMembres.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 52</value>
+    <value>7, 34</value>
   </data>
   <data name="buttonAddMembres.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 25</value>
+    <value>126, 25</value>
   </data>
   <data name="buttonAddMembres.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="buttonAddMembres.Text" xml:space="preserve">
-    <value>Add new</value>
+    <value>Add</value>
   </data>
   <data name="&gt;&gt;buttonAddMembres.Name" xml:space="preserve">
     <value>buttonAddMembres</value>
@@ -349,7 +316,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;buttonAddMembres.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="buttonSelectAMember.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -361,16 +328,16 @@
     <value>NoControl</value>
   </data>
   <data name="buttonSelectAMember.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 21</value>
+    <value>7, 3</value>
   </data>
   <data name="buttonSelectAMember.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 25</value>
+    <value>126, 25</value>
   </data>
   <data name="buttonSelectAMember.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="buttonSelectAMember.Text" xml:space="preserve">
-    <value>Search existing</value>
+    <value>Select</value>
   </data>
   <data name="&gt;&gt;buttonSelectAMember.Name" xml:space="preserve">
     <value>buttonSelectAMember</value>
@@ -382,7 +349,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;buttonSelectAMember.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="groupBox3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -391,7 +358,7 @@
     <value>0, 0</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 333</value>
+    <value>146, 333</value>
   </data>
   <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -421,10 +388,10 @@
     <value>1</value>
   </data>
   <data name="splitContainer3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1125, 333</value>
+    <value>1040, 333</value>
   </data>
   <data name="splitContainer3.SplitterDistance" type="System.Int32, mscorlib">
-    <value>963</value>
+    <value>893</value>
   </data>
   <data name="splitContainer3.SplitterWidth" type="System.Int32, mscorlib">
     <value>1</value>
@@ -478,7 +445,7 @@
     <value>0, 0</value>
   </data>
   <data name="listViewProjects.Size" type="System.Drawing.Size, System.Drawing">
-    <value>908, 327</value>
+    <value>838, 327</value>
   </data>
   <data name="listViewProjects.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -517,7 +484,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonViewProject.Location" type="System.Drawing.Point, System.Drawing">
-    <value>68, 111</value>
+    <value>53, 111</value>
   </data>
   <data name="buttonViewProject.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 25</value>
@@ -550,7 +517,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonAddProject.Location" type="System.Drawing.Point, System.Drawing">
-    <value>68, 46</value>
+    <value>53, 46</value>
   </data>
   <data name="buttonAddProject.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 25</value>
@@ -580,7 +547,7 @@
     <value>0, 0</value>
   </data>
   <data name="groupBoxProjects.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 327</value>
+    <value>209, 327</value>
   </data>
   <data name="groupBoxProjects.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -610,10 +577,10 @@
     <value>1</value>
   </data>
   <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1136, 327</value>
+    <value>1051, 327</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>908</value>
+    <value>838</value>
   </data>
   <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -646,7 +613,7 @@
     <value>3, 3</value>
   </data>
   <data name="groupBoxFirstAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>556, 327</value>
+    <value>514, 327</value>
   </data>
   <data name="groupBoxFirstAddress.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -673,10 +640,10 @@
     <value>Arial, 9.75pt</value>
   </data>
   <data name="groupBoxSecondaryAddress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>565, 3</value>
+    <value>523, 3</value>
   </data>
   <data name="groupBoxSecondaryAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>557, 327</value>
+    <value>514, 327</value>
   </data>
   <data name="groupBoxSecondaryAddress.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -706,7 +673,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1125, 333</value>
+    <value>1040, 333</value>
   </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -730,7 +697,7 @@
     <value>4, 36</value>
   </data>
   <data name="tabPageBusinessAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1125, 333</value>
+    <value>1040, 333</value>
   </data>
   <data name="tabPageBusinessAddress.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -754,7 +721,7 @@
     <value>4, 36</value>
   </data>
   <data name="tabPageMembers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1125, 333</value>
+    <value>1040, 333</value>
   </data>
   <data name="tabPageMembers.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -835,7 +802,7 @@
     <value>0, 0</value>
   </data>
   <data name="listViewHistoryMembers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1142, 333</value>
+    <value>1057, 333</value>
   </data>
   <data name="listViewHistoryMembers.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -856,7 +823,7 @@
     <value>4, 36</value>
   </data>
   <data name="tabPageHistory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1142, 333</value>
+    <value>1057, 333</value>
   </data>
   <data name="tabPageHistory.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -883,7 +850,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageProjects.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1142, 333</value>
+    <value>1057, 333</value>
   </data>
   <data name="tabPageProjects.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -910,7 +877,7 @@
     <value>3, 3</value>
   </data>
   <data name="savingsListUserControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1136, 327</value>
+    <value>1051, 327</value>
   </data>
   <data name="savingsListUserControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -919,7 +886,7 @@
     <value>savingsListUserControl1</value>
   </data>
   <data name="&gt;&gt;savingsListUserControl1.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SavingsListUserControl, OpenCBS.GUI, Version=15.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SavingsListUserControl, OpenCBS.GUI, Version=15.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;savingsListUserControl1.Parent" xml:space="preserve">
     <value>tabPageSaving</value>
@@ -934,7 +901,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageSaving.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1142, 333</value>
+    <value>1057, 333</value>
   </data>
   <data name="tabPageSaving.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -968,7 +935,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAQ
-        HAAAAk1TRnQBSQFMAgEBBQEAAegBAwHoAQMBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HAAAAk1TRnQBSQFMAgEBBQEAARABBAEQAQQBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -1097,7 +1064,7 @@
     <value>3, 231</value>
   </data>
   <data name="tabControlGroupInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1133, 373</value>
+    <value>1048, 373</value>
   </data>
   <data name="tabControlGroupInfo.TabIndex" type="System.Int32, mscorlib">
     <value>40</value>
@@ -1148,7 +1115,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonNext.Location" type="System.Drawing.Point, System.Drawing">
-    <value>987, 13</value>
+    <value>902, 13</value>
   </data>
   <data name="buttonNext.Size" type="System.Drawing.Size, System.Drawing">
     <value>129, 25</value>
@@ -1211,7 +1178,7 @@
     <value>3, 610</value>
   </data>
   <data name="groupBoxButtonBottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1133, 47</value>
+    <value>1048, 47</value>
   </data>
   <data name="groupBoxButtonBottom.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1259,7 +1226,7 @@
     <value>MiddleRight</value>
   </data>
   <data name="btnPrint.Location" type="System.Drawing.Point, System.Drawing">
-    <value>730, 10</value>
+    <value>645, 10</value>
   </data>
   <data name="btnPrint.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 25</value>
@@ -1274,7 +1241,7 @@
     <value>btnPrint</value>
   </data>
   <data name="&gt;&gt;btnPrint.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrint.Parent" xml:space="preserve">
     <value>groupBoxButtons</value>
@@ -1292,7 +1259,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>999, 10</value>
+    <value>914, 10</value>
   </data>
   <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 25</value>
@@ -1325,7 +1292,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>850, 10</value>
+    <value>765, 10</value>
   </data>
   <data name="buttonSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 25</value>
@@ -1355,7 +1322,7 @@
     <value>3, 181</value>
   </data>
   <data name="groupBoxButtons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1133, 44</value>
+    <value>1048, 44</value>
   </data>
   <data name="groupBoxButtons.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
@@ -1754,7 +1721,7 @@
     <value>NoControl</value>
   </data>
   <data name="linkLabelChangePhoto2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>996, 146</value>
+    <value>911, 146</value>
   </data>
   <data name="linkLabelChangePhoto2.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 13</value>
@@ -1790,7 +1757,7 @@
     <value>NoControl</value>
   </data>
   <data name="linkLabelChangePhoto.Location" type="System.Drawing.Point, System.Drawing">
-    <value>847, 146</value>
+    <value>762, 146</value>
   </data>
   <data name="linkLabelChangePhoto.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 13</value>
@@ -1820,7 +1787,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>999, 15</value>
+    <value>914, 15</value>
   </data>
   <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 128</value>
@@ -1847,7 +1814,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>850, 15</value>
+    <value>765, 15</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 128</value>
@@ -1877,7 +1844,7 @@
     <value>3, 3</value>
   </data>
   <data name="groupBoxCivilStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1133, 172</value>
+    <value>1048, 172</value>
   </data>
   <data name="groupBoxCivilStatus.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
@@ -1910,7 +1877,7 @@
     <value>4</value>
   </data>
   <data name="tableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1139, 660</value>
+    <value>1054, 660</value>
   </data>
   <data name="tableLayoutPanel4.TabIndex" type="System.Int32, mscorlib">
     <value>45</value>
@@ -1946,7 +1913,7 @@
     <value>1000, 660</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1139, 589</value>
+    <value>1054, 589</value>
   </data>
   <data name="&gt;&gt;columnHeaderName.Name" xml:space="preserve">
     <value>columnHeaderName</value>
@@ -2060,6 +2027,6 @@
     <value>GroupUserControl</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ClientControl, OpenCBS.GUI, Version=15.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ClientControl, OpenCBS.GUI, Version=15.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

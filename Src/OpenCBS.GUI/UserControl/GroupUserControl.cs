@@ -74,7 +74,6 @@ namespace OpenCBS.GUI.UserControl
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Button buttonPreview;
         private System.Windows.Forms.Button buttonSelectAMember;
-        private System.Windows.Forms.Button buttonViewMember;
         private System.Windows.Forms.Button buttonSaveAsLeader;
         private ImageList imageListTab;
         private GroupBox groupBoxButtonBottom;
@@ -161,7 +160,6 @@ namespace OpenCBS.GUI.UserControl
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonDeleteMembers = new System.Windows.Forms.Button();
             this.buttonSaveAsLeader = new System.Windows.Forms.Button();
-            this.buttonViewMember = new System.Windows.Forms.Button();
             this.buttonAddMembres = new System.Windows.Forms.Button();
             this.buttonSelectAMember = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -308,7 +306,6 @@ namespace OpenCBS.GUI.UserControl
             // 
             this.groupBox3.Controls.Add(this.buttonDeleteMembers);
             this.groupBox3.Controls.Add(this.buttonSaveAsLeader);
-            this.groupBox3.Controls.Add(this.buttonViewMember);
             this.groupBox3.Controls.Add(this.buttonAddMembres);
             this.groupBox3.Controls.Add(this.buttonSelectAMember);
             resources.ApplyResources(this.groupBox3, "groupBox3");
@@ -326,12 +323,6 @@ namespace OpenCBS.GUI.UserControl
             resources.ApplyResources(this.buttonSaveAsLeader, "buttonSaveAsLeader");
             this.buttonSaveAsLeader.Name = "buttonSaveAsLeader";
             this.buttonSaveAsLeader.Click += new System.EventHandler(this.buttonSaveAsLeader_Click);
-            // 
-            // buttonViewMember
-            // 
-            resources.ApplyResources(this.buttonViewMember, "buttonViewMember");
-            this.buttonViewMember.Name = "buttonViewMember";
-            this.buttonViewMember.Click += new System.EventHandler(this.buttonViewMember_Click);
             // 
             // buttonAddMembres
             // 
