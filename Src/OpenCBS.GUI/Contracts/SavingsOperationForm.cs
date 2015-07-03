@@ -332,7 +332,7 @@ namespace OpenCBS.GUI.Contracts
             try
             {
                 _date = new DateTime(dtpDate.Value.Year, dtpDate.Value.Month, dtpDate.Value.Day, TimeProvider.Now.Hour,
-                    -TimeProvider.Now.Minute, TimeProvider.Now.Second);
+                    TimeProvider.Now.Minute, TimeProvider.Now.Second);
 
                 SavingServices savingServices = ServicesProvider.GetInstance().GetSavingServices();
 
