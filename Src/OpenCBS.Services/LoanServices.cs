@@ -1154,9 +1154,7 @@ namespace OpenCBS.Services
                 (rescheduleConfiguration.PreferredFirstInstallmentDate - rescheduleConfiguration.StartDate).Days;
             decimal firstInterest = 0;
             if (rescheduleConfiguration.GracePeriod == 0 || rescheduleConfiguration.ChargeInterestDuringGracePeriod)
-                firstInterest = currentOlb*rescheduleConfiguration.InterestRate/100*daysTillRepayment/
-                            scheduleConfiguration.PeriodPolicy.GetNumberOfDays(
-                                rescheduleConfiguration.PreferredFirstInstallmentDate);
+                firstInterest = currentOlb*rescheduleConfiguration.InterestRate/100*daysTillRepayment/daysInYear;
 
             copyOfLoan.Amount = currentOlb;
             copyOfLoan.InterestRate = rescheduleConfiguration.InterestRate/100;
