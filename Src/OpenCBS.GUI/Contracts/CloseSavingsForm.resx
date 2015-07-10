@@ -315,9 +315,6 @@
   <data name="lbClientName.TabIndex" type="System.Int32, mscorlib">
     <value>50</value>
   </data>
-  <data name="lbClientName.Text" xml:space="preserve">
-    <value>xxxx</value>
-  </data>
   <data name="&gt;&gt;lbClientName.Name" xml:space="preserve">
     <value>lbClientName</value>
   </data>

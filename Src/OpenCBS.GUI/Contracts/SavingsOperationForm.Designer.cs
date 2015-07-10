@@ -110,6 +110,7 @@ namespace OpenCBS.GUI.Contracts
             this.gbxMainWindow.Controls.Add(this.lblDescription);
             this.gbxMainWindow.Controls.Add(this.plTransfer);
             this.gbxMainWindow.Controls.Add(this.pnlSavingPending);
+            resources.ApplyResources(this.gbxMainWindow, "gbxMainWindow");
             this.gbxMainWindow.Name = "gbxMainWindow";
             this.gbxMainWindow.TabStop = false;
             // 
@@ -196,9 +197,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // dtpDate
             // 
-            resources.ApplyResources(this.gbxMainWindow, "gbxMainWindow");
-            resources.ApplyResources(this.dtpDate, "dtpDate");
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            resources.ApplyResources(this.dtpDate, "dtpDate");
             this.dtpDate.Name = "dtpDate";
             // 
             // lblDate

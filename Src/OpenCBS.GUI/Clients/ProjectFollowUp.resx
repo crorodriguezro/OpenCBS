@@ -211,13 +211,13 @@
     <value>6, 48</value>
   </data>
   <data name="lProjectJobs1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 16</value>
+    <value>78, 16</value>
   </data>
   <data name="lProjectJobs1.TabIndex" type="System.Int32, mscorlib">
     <value>63</value>
   </data>
   <data name="lProjectJobs1.Text" xml:space="preserve">
-    <value>N° of jobs1:</value>
+    <value>N° of Jobs1:</value>
   </data>
   <data name="&gt;&gt;lProjectJobs1.Name" xml:space="preserve">
     <value>lProjectJobs1</value>

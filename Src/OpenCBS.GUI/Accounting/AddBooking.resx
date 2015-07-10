@@ -139,7 +139,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageEntry.Size" type="System.Drawing.Size, System.Drawing">
-    <value>595, 176</value>
+    <value>595, 179</value>
   </data>
   <data name="tabPageEntry.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -475,7 +475,7 @@
     <value>0, 0</value>
   </data>
   <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>603, 202</value>
+    <value>603, 205</value>
   </data>
   <data name="tabControl.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -550,7 +550,7 @@
     <value>343, 19</value>
   </data>
   <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 22</value>
+    <value>131, 27</value>
   </data>
   <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
     <value>86</value>
@@ -577,7 +577,7 @@
     <value>0, 0</value>
   </data>
   <data name="gbPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>603, 52</value>
+    <value>603, 49</value>
   </data>
   <data name="gbPanel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -610,7 +610,7 @@
     <value>603, 255</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>202</value>
+    <value>205</value>
   </data>
   <data name="splitContainer1.SplitterWidth" type="System.Int32, mscorlib">
     <value>1</value>
