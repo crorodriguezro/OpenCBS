@@ -222,6 +222,7 @@
     <EmbeddedResource Include="resx\FrmAvalaibleCollateralProducts.resx" />
     <EmbeddedResource Include="resx\FrmGeneralSettings.resx" />
     <EmbeddedResource Include="resx\OpenSavingsForm.resx" />
+    <EmbeddedResource Include="resx\PrintButton.resx" />
     <EmbeddedResource Include="resx\ReschedulingForm.es-ES.resx" />
     <EmbeddedResource Include="resx\ReschedulingForm.fr.resx" />
     <EmbeddedResource Include="resx\ReschedulingForm.pt.resx" />

@@ -98,7 +98,8 @@ namespace OpenCBS.MultiLanguageRessources
         FrmOpenCloseTeller,
         CreditScoringForm,
         ClientControl,
-        MyInforamtionForm
+        MyInforamtionForm,
+        PrintButton
     }
 
 	/// <summary>

@@ -28,6 +28,7 @@ using System.Windows.Forms;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.Reports;
 using OpenCBS.Reports.Forms;
+using OpenCBS.MultiLanguageRessources;
 
 namespace OpenCBS.GUI.UserControl
 {
@@ -67,7 +68,17 @@ namespace OpenCBS.GUI.UserControl
             Menu.Items.Clear();
 
             ReportService rs = ReportService.GetInstance();
-            foreach (Report report in rs.GetInternalReports(AttachmentPoint, Visibility))
+            var reports = rs.GetInternalReports(AttachmentPoint, Visibility);
+            if (reports.Count == 0)
+            {
+                ToolStripMenuItem item = new ToolStripMenuItem(MultiLanguageStrings.GetString(OpenCBS.MultiLanguageRessources.Ressource.PrintButton, "noAvailableReportsCaption.Text"));
+                {
+                    ForeColor = Color.FromArgb(0, 81, 152);
+                };
+                Menu.Items.Add(item);
+            }
+
+            foreach (Report report in reports)
             {
                 ToolStripMenuItem item = new ToolStripMenuItem(report.Title)
                 {
