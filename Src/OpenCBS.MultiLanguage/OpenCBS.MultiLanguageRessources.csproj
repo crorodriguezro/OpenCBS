@@ -218,6 +218,10 @@
     <EmbeddedResource Include="resx\ClientControl.resx">
     </EmbeddedResource>
     <EmbeddedResource Include="resx\AddTrancheForm.es-ES.resx" />
+    <EmbeddedResource Include="resx\PrintButton.pt.resx" />
+    <EmbeddedResource Include="resx\PrintButton.fr.resx" />
+    <EmbeddedResource Include="resx\PrintButton.es-ES.resx" />
+    <EmbeddedResource Include="resx\PrintButton.ru-RU.resx" />
     <EmbeddedResource Include="resx\DashboardForm.resx" />
     <EmbeddedResource Include="resx\FrmAvalaibleCollateralProducts.resx" />
     <EmbeddedResource Include="resx\FrmGeneralSettings.resx" />
