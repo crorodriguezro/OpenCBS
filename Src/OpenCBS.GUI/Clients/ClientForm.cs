@@ -6962,11 +6962,10 @@ namespace OpenCBS.GUI.Clients
                     Date = TimeProvider.Now
                 };
                 ServiceProvider.GetContractServices()
-                               .AddManualScheduleChangeEvent(_credit, manualScheduleChangeEvent);
+                               .ManualSchedule(_credit, manualScheduleForm.Loan, manualScheduleChangeEvent);
 
                 _credit = manualScheduleForm.Loan;
 
-                SaveContract();
                 _credit = ServiceProvider.GetContractServices().SelectLoan(_credit.Id, true, true, true);
                 DisplayListViewLoanRepayments(_credit);
                 DisplayLoanEvents(_credit);

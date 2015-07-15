@@ -1502,19 +1502,25 @@ namespace OpenCBS.Services
             }
         }
 
-        public Loan AddManualScheduleChangeEvent(Loan loan, ManualScheduleChangeEvent manualScheduleChangeEvent)
+        public Loan ManualSchedule(Loan oldLoan, Loan newLoan, ManualScheduleChangeEvent manualScheduleChangeEvent)
         {
-            using (SqlConnection conn = _savingEventManager.GetConnection())
-            using (SqlTransaction sqlTransaction = conn.BeginTransaction())
+            using (var conn = _savingEventManager.GetConnection())
+            using (var sqlTransaction = conn.BeginTransaction())
             {
                 try
                 {
-                    Loan copyOfLoan = loan.Copy();
-                    _ePs.FireEvent(manualScheduleChangeEvent, loan, sqlTransaction);
-                    ArchiveInstallments(copyOfLoan, manualScheduleChangeEvent, sqlTransaction);
+                    _ePs.FireEvent(manualScheduleChangeEvent, oldLoan, sqlTransaction);
+                    ArchiveInstallments(oldLoan, manualScheduleChangeEvent, sqlTransaction);
+                    UpdateLoan(ref newLoan, sqlTransaction);
+                    CallInterceptor(new Dictionary<string, object>
+                    {
+                        {"Loan", newLoan},
+                        {"Event", manualScheduleChangeEvent},
+                        {"SqlTransaction", sqlTransaction}
+                    });
 
                     sqlTransaction.Commit();
-                    return loan;
+                    return newLoan;
                 }
                 catch (Exception ex)
                 {
