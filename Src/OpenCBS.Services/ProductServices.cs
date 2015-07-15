@@ -21,23 +21,22 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
-using System.Threading;
+using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.CoreDomain.LoanCycles;
 using OpenCBS.CoreDomain.Products;
-using OpenCBS.DatabaseConnection;
 using OpenCBS.Enums;
-using OpenCBS.Manager;
-using OpenCBS.CoreDomain;
 using OpenCBS.ExceptionsHandler;
+using OpenCBS.Extensions;
+using OpenCBS.Manager;
 using OpenCBS.Manager.Products;
 using OpenCBS.MultiLanguageRessources;
-using OpenCBS.Reports;
 using OpenCBS.Services.Currencies;
 using OpenCBS.Shared.Settings;
 
@@ -54,20 +53,26 @@ namespace OpenCBS.Services
         private User _user = new User();
 	    private int _clientTypeCheckBoxCounter = 1;
 
+        [ImportMany(typeof(ILoanInterceptor))]
+        private Lazy<ILoanProductInterceptor, IDictionary<string, object>>[] LoanProductInterceptors { get; set; }
+
 	    public ProductServices(InstallmentTypeManager installmentTypeManager)
 		{
 			_installmentTypeManager = installmentTypeManager;
+            MefContainer.Current.Bind(this);
 		}
 
         public ProductServices(LoanProductManager productManager)
 		{
 			_productManager = productManager;
             _productManager.ProductLoaded += ProductLoaded;
+            MefContainer.Current.Bind(this);
 		}
         public ProductServices(FundingLineManager fundingLineManager)
         {
             _fundingLineManager = fundingLineManager;
             _productManager.ProductLoaded += ProductLoaded;
+            MefContainer.Current.Bind(this);
         }
 
         public ProductServices(User user)
@@ -77,17 +82,35 @@ namespace OpenCBS.Services
             _installmentTypeManager = new InstallmentTypeManager(user);
             _fundingLineManager = new FundingLineManager(user);
             _productManager.ProductLoaded += ProductLoaded;
+            MefContainer.Current.Bind(this);
         }
 
-		public int AddPackage(LoanProduct package)
-		{
-            if (package.UseLoanCycle)
-                SetDefaultValues(package);
-            int packageId = _productManager.Add(package);
-            _productManager.InsertEntryFees(package.EntryFees, packageId);
-		   
-		    return packageId;
-		}
+	    public int AddPackage(LoanProduct package)
+	    {
+	        if (package.UseLoanCycle)
+	            SetDefaultValues(package);
+	        using (var connection = _productManager.GetConnection())
+	        using (var transaction = connection.BeginTransaction())
+	        {
+	            try
+	            {
+	                package.Id = _productManager.Add(package, transaction);
+	                _productManager.InsertEntryFees(package.EntryFees, package.Id, transaction);
+	                LoanProductInterceptorSave(new Dictionary<string, object>
+	                {
+	                    {"LoanProduct", package},
+	                    {"SqlTransaction", transaction}
+	                });
+	                transaction.Commit();
+	            }
+	            catch (Exception)
+	            {
+	                transaction.Rollback();
+	                throw;
+	            }
+	        }
+	        return package.Id;
+	    }
 
 	    private static void SetDefaultValues(LoanProduct pPackage)
 	    {
@@ -420,14 +443,32 @@ namespace OpenCBS.Services
           return  _productManager.SelectEntryFeeById(entryFeeId);
         }
 
-        public void UpdatePackage(LoanProduct pPackage, bool updateContracts)
-        {
-            _productManager.UpdatePackage(pPackage, updateContracts);
-            _productManager.DeleteEntryFees(pPackage);
-            _productManager.InsertEntryFees(pPackage.EntryFees, pPackage.Id);
-        }
+	    public void UpdatePackage(LoanProduct pPackage, bool updateContracts)
+	    {
+	        using (var connection = _productManager.GetConnection())
+	        using (var transaction = connection.BeginTransaction())
+	        {
+	            try
+	            {
+	                _productManager.UpdatePackage(pPackage, updateContracts, transaction);
+	                _productManager.DeleteEntryFees(pPackage, transaction);
+	                _productManager.InsertEntryFees(pPackage.EntryFees, pPackage.Id, transaction);
+	                LoanProductInterceptorUpdate(new Dictionary<string, object>
+	                {
+	                    {"LoanProduct", pPackage},
+	                    {"SqlTransaction", transaction}
+	                });
+	                transaction.Commit();
+	            }
+	            catch (Exception)
+	            {
+	                transaction.Rollback();
+	                throw;
+	            }
+	        }
+	    }
 
-		public int AddExoticProduct(ExoticInstallmentsTable pExoticProduct, OLoanTypes loanType)
+	    public int AddExoticProduct(ExoticInstallmentsTable pExoticProduct, OLoanTypes loanType)
 		{
             if (_productManager.IsThisExoticProductNameAlreadyExist(pExoticProduct.Name))
 				throw new OpenCbsPackageSaveException(OpenCbsPackageSaveExceptionEnum.ExoticProductNameAlreadyExist);
@@ -555,7 +596,25 @@ namespace OpenCBS.Services
 			if(package.Delete)
 				throw new OpenCbsPackageDeleteException(OpenCbsPackageDeleteExceptionEnum.AlreadyDeleted);
 
-			_productManager.DeleteProduct(package.Id);
+            using (var connection = _productManager.GetConnection())
+            using (var transaction = connection.BeginTransaction())
+            {
+                try
+                {
+                    _productManager.DeleteProduct(package.Id, transaction);
+                    LoanProductInterceptorUpdate(new Dictionary<string, object>
+	                {
+	                    {"LoanProduct", package},
+	                    {"SqlTransaction", transaction}
+	                });
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
 			
             return true;
         }
@@ -879,6 +938,75 @@ namespace OpenCBS.Services
             string dir = TechnicalSettings.ScriptPath;
             if (string.IsNullOrEmpty(dir)) dir = AppDomain.CurrentDomain.BaseDirectory;
             return Path.Combine(dir, "Scripts");
+        }
+
+        public void LoanProductInterceptorSave(IDictionary<string, object> interceptorParams)
+        {
+            // Find non-default implementation
+            var creator = (from item in LoanProductInterceptors
+                           where
+                               item.Metadata.ContainsKey("Implementation") &&
+                               item.Metadata["Implementation"].ToString() != "Default"
+                           select item.Value).FirstOrDefault();
+            if (creator != null)
+            {
+                creator.Save(interceptorParams);
+                return;
+            }
+
+            // Otherwise, find the default one
+            creator = (from item in LoanProductInterceptors
+                       where
+                           item.Metadata.ContainsKey("Implementation") &&
+                           item.Metadata["Implementation"].ToString() == "Default"
+                       select item.Value).FirstOrDefault();
+            if (creator != null) creator.Save(interceptorParams);
+        }
+
+        public void LoanProductInterceptorUpdate(IDictionary<string, object> interceptorParams)
+        {
+            // Find non-default implementation
+            var creator = (from item in LoanProductInterceptors
+                           where
+                               item.Metadata.ContainsKey("Implementation") &&
+                               item.Metadata["Implementation"].ToString() != "Default"
+                           select item.Value).FirstOrDefault();
+            if (creator != null)
+            {
+                creator.Update(interceptorParams);
+                return;
+            }
+
+            // Otherwise, find the default one
+            creator = (from item in LoanProductInterceptors
+                       where
+                           item.Metadata.ContainsKey("Implementation") &&
+                           item.Metadata["Implementation"].ToString() == "Default"
+                       select item.Value).FirstOrDefault();
+            if (creator != null) creator.Update(interceptorParams);
+        }
+
+        public void LoanProductInterceptorDelete(IDictionary<string, object> interceptorParams)
+        {
+            // Find non-default implementation
+            var creator = (from item in LoanProductInterceptors
+                           where
+                               item.Metadata.ContainsKey("Implementation") &&
+                               item.Metadata["Implementation"].ToString() != "Default"
+                           select item.Value).FirstOrDefault();
+            if (creator != null)
+            {
+                creator.Delete(interceptorParams);
+                return;
+            }
+
+            // Otherwise, find the default one
+            creator = (from item in LoanProductInterceptors
+                       where
+                           item.Metadata.ContainsKey("Implementation") &&
+                           item.Metadata["Implementation"].ToString() == "Default"
+                       select item.Value).FirstOrDefault();
+            if (creator != null) creator.Delete(interceptorParams);
         }
 	}
 }

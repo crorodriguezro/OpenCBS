@@ -172,7 +172,7 @@ namespace OpenCBS.Manager.Products
         /// </summary>
         /// <param name="pPackage">Package Object</param>
         /// <returns>The id of the package which has been added</returns>
-        public int Add(LoanProduct pPackage)
+        public int Add(LoanProduct pPackage, SqlTransaction tx = null)
         {
             int identity;
             const string q = @"INSERT INTO [Packages]
@@ -317,32 +317,42 @@ namespace OpenCBS.Manager.Products
                 ,@scriptName)
                 SELECT SCOPE_IDENTITY()";
 
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand insertPackage = new OpenCbsCommand(q, conn))
+            var conn = tx == null ? GetConnection() : tx.Connection;
+            try
             {
-                SetProduct(insertPackage, pPackage);
-                identity= int.Parse(insertPackage.ExecuteScalar().ToString());
-            }
-
-            foreach (ProductClientType clientType in pPackage.ProductClientTypes)
-            {
-                if (clientType.IsChecked)
+                using (var insertPackage = tx == null ? new OpenCbsCommand(q, conn) : new OpenCbsCommand(q, conn, tx))
                 {
-                    string sqlTextForClientTypes = string.Format(@"INSERT INTO PackagesClientTypes 
+                    SetProduct(insertPackage, pPackage);
+                    identity = int.Parse(insertPackage.ExecuteScalar().ToString());
+                }
+
+                foreach (var clientType in pPackage.ProductClientTypes)
+                {
+                    if (!clientType.IsChecked) continue;
+                    var sqlTextForClientTypes = string.Format(@"INSERT INTO PackagesClientTypes 
                                                          ([client_type_id], [package_id])
-                                                          VALUES({0}, {1})", 
-                                                            clientType.TypeId, identity);
-                    using (SqlConnection conn = GetConnection())
-                    using (OpenCbsCommand c = new OpenCbsCommand(sqlTextForClientTypes, conn))
+                                                          VALUES({0}, {1})",
+                        clientType.TypeId, identity);
+                    using (
+                        var c = tx == null
+                            ? new OpenCbsCommand(sqlTextForClientTypes, conn)
+                            : new OpenCbsCommand(sqlTextForClientTypes, conn, tx))
                     {
                         c.ExecuteNonQuery();
                     }
                 }
             }
+            finally
+            {
+                if (tx == null)
+                {
+                    conn.Dispose();
+                }
+            }
             return identity;
         }
 
-        public void UpdatePackage(LoanProduct pPackage, bool pUpdateContracts)
+        public void UpdatePackage(LoanProduct pPackage, bool pUpdateContracts, SqlTransaction tx = null)
         {
             string q = @"UPDATE [Packages] 
                 SET [deleted] = @deleted
@@ -416,36 +426,34 @@ namespace OpenCBS.Manager.Products
                 ,[script_name] = @scriptName
                 WHERE id = @packageId";
 
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand updatePackage = new OpenCbsCommand(q, conn))
+            var conn = tx == null ? GetConnection() : tx.Connection;
+            try
             {
-                SetProduct(updatePackage, pPackage);
-                updatePackage.ExecuteNonQuery();
-            }
-
-            q = string.Format(@"DELETE FROM PackagesClientTypes WHERE package_id={0}", pPackage.Id);
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            c.ExecuteNonQuery();
-
-            
-            foreach (ProductClientType clientType in pPackage.ProductClientTypes)
-            {
-                if (clientType.IsChecked)
+                using (var updatePackage = tx == null ? new OpenCbsCommand(q, conn) : new OpenCbsCommand(q, conn, tx))
                 {
+                    SetProduct(updatePackage, pPackage);
+                    updatePackage.ExecuteNonQuery();
+                }
+
+                q = string.Format(@"DELETE FROM PackagesClientTypes WHERE package_id={0}", pPackage.Id);
+                using (var c = tx == null ? new OpenCbsCommand(q, conn) : new OpenCbsCommand(q, conn, tx))
+                    c.ExecuteNonQuery();
+
+
+                foreach (var clientType in pPackage.ProductClientTypes)
+                {
+                    if (!clientType.IsChecked) continue;
                     q = string.Format(@"INSERT INTO PackagesClientTypes ([client_type_id], [package_id])
                                      VALUES({0}, {1})", clientType.TypeId, pPackage.Id);
-                    using (SqlConnection conn = GetConnection())
-                    using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+                    using (var c = tx == null ? new OpenCbsCommand(q, conn) : new OpenCbsCommand(q, conn, tx))
                     {
                         c.ExecuteNonQuery();
                     }
                 }
-            }
 
-            if (!pUpdateContracts) return;
+                if (!pUpdateContracts) return;
 
-            q = @"UPDATE Credit 
+                q = @"UPDATE Credit 
                        SET anticipated_total_repayment_penalties = ISNULL(@anticipated_total_repayment_penalties, 0), 
                        anticipated_partial_repayment_penalties = ISNULL(@anticipated_partial_repayment_penalties, 0),   
                        non_repayment_penalties_based_on_overdue_principal = ISNULL(@non_repayment_penalties_based_on_overdue_principal, 0),
@@ -460,46 +468,74 @@ namespace OpenCBS.Manager.Products
                        [anticipated_total_repayment_base] = ISNULL(@AnticipatedTotalRepaymentPenaltiesBase, 0)
                        WHERE package_id = @packageId";
 
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand updatePackage = new OpenCbsCommand(q, conn))
+                using (var updatePackage = tx == null ? new OpenCbsCommand(q, conn) : new OpenCbsCommand(q, conn, tx))
+                {
+                    updatePackage.AddParam("@anticipated_total_repayment_penalties",
+                        pPackage.AnticipatedTotalRepaymentPenalties ?? pPackage.AnticipatedTotalRepaymentPenaltiesMin);
+                    updatePackage.AddParam("@anticipated_partial_repayment_penalties",
+                        pPackage.AnticipatedPartialRepaymentPenalties ??
+                        pPackage.AnticipatedPartialRepaymentPenaltiesMin);
+
+                    updatePackage.AddParam("@non_repayment_penalties_based_on_overdue_principal",
+                        pPackage.NonRepaymentPenalties.OverDuePrincipal ??
+                        pPackage.NonRepaymentPenaltiesMin.OverDuePrincipal);
+                    updatePackage.AddParam("@non_repayment_penalties_based_on_initial_amount",
+                        pPackage.NonRepaymentPenalties.InitialAmount ?? pPackage.NonRepaymentPenaltiesMin.InitialAmount);
+                    updatePackage.AddParam("@non_repayment_penalties_based_on_olb",
+                        pPackage.NonRepaymentPenalties.OLB ?? pPackage.NonRepaymentPenaltiesMin.OLB);
+                    updatePackage.AddParam("@non_repayment_penalties_based_on_overdue_interest",
+                        pPackage.NonRepaymentPenalties.OverDueInterest ??
+                        pPackage.NonRepaymentPenaltiesMin.OverDueInterest);
+                    updatePackage.AddParam("@grace_period_of_latefees", pPackage.GracePeriodOfLateFees);
+
+                    updatePackage.AddParam("@number_of_drawings_loc", pPackage.DrawingsNumber);
+                    updatePackage.AddParam("@amount_under_loc", pPackage.AmountUnderLoc);
+                    updatePackage.AddParam("@maturity_loc", pPackage.MaturityLoc);
+
+                    updatePackage.AddParam("@AnticipatedTotalRepaymentPenaltiesBase",
+                        (int) pPackage.AnticipatedTotalRepaymentPenaltiesBase);
+                    updatePackage.AddParam("@AnticipatedPartialRepaymentPenaltiesBase",
+                        (int) pPackage.AnticipatedPartialRepaymentPenaltiesBase);
+
+                    updatePackage.AddParam("@packageId", pPackage.Id);
+
+                    updatePackage.ExecuteNonQuery();
+                }
+            }
+            finally
             {
-                updatePackage.AddParam("@anticipated_total_repayment_penalties", pPackage.AnticipatedTotalRepaymentPenalties??pPackage.AnticipatedTotalRepaymentPenaltiesMin);
-                updatePackage.AddParam("@anticipated_partial_repayment_penalties", pPackage.AnticipatedPartialRepaymentPenalties??pPackage.AnticipatedPartialRepaymentPenaltiesMin);
-                
-                updatePackage.AddParam("@non_repayment_penalties_based_on_overdue_principal", pPackage.NonRepaymentPenalties.OverDuePrincipal??pPackage.NonRepaymentPenaltiesMin.OverDuePrincipal);
-                updatePackage.AddParam("@non_repayment_penalties_based_on_initial_amount", pPackage.NonRepaymentPenalties.InitialAmount??pPackage.NonRepaymentPenaltiesMin.InitialAmount);
-                updatePackage.AddParam("@non_repayment_penalties_based_on_olb", pPackage.NonRepaymentPenalties.OLB ?? pPackage.NonRepaymentPenaltiesMin.OLB);
-                updatePackage.AddParam("@non_repayment_penalties_based_on_overdue_interest", pPackage.NonRepaymentPenalties.OverDueInterest ?? pPackage.NonRepaymentPenaltiesMin.OverDueInterest);
-                updatePackage.AddParam("@grace_period_of_latefees",  pPackage.GracePeriodOfLateFees);
-
-                updatePackage.AddParam("@number_of_drawings_loc", pPackage.DrawingsNumber);
-                updatePackage.AddParam("@amount_under_loc", pPackage.AmountUnderLoc);
-                updatePackage.AddParam("@maturity_loc", pPackage.MaturityLoc);
-
-                updatePackage.AddParam("@AnticipatedTotalRepaymentPenaltiesBase", (int)pPackage.AnticipatedTotalRepaymentPenaltiesBase);
-                updatePackage.AddParam("@AnticipatedPartialRepaymentPenaltiesBase", (int)pPackage.AnticipatedPartialRepaymentPenaltiesBase);
-
-                updatePackage.AddParam("@packageId", pPackage.Id);
-
-                updatePackage.ExecuteNonQuery();
+                if (tx == null)
+                {
+                    conn.Dispose();
+                }
             }
         }
 
-        public void DeleteEntryFees(LoanProduct product)
+        public void DeleteEntryFees(LoanProduct product, SqlTransaction tx = null)
         {
             string q = @"UPDATE EntryFees
                          SET is_deleted = 1
                          WHERE id_product=@id";
-            if (product.DeletedEntryFees== null) return;
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+            if (product.DeletedEntryFees == null) return;
+            var conn = tx == null ? GetConnection() : tx.Connection;
+            try
             {
-                c.AddParam("@id", product.Id);
-                c.ExecuteNonQuery();
+                using (var c = tx == null ? new OpenCbsCommand(q, conn) : new OpenCbsCommand(q, conn, tx))
+                {
+                    c.AddParam("@id", product.Id);
+                    c.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                if (tx == null)
+                {
+                    conn.Dispose();
+                }
             }
         }
 
-        public void InsertEntryFees(List<EntryFee> entryFees, int productId)
+        public void InsertEntryFees(List<EntryFee> entryFees, int productId, SqlTransaction tx = null)
         {
             if (entryFees == null) return;
             string q = @"INSERT INTO EntryFees 
@@ -511,20 +547,32 @@ namespace OpenCBS.Manager.Products
                                 fee_index, 
                                 cycle_id)
                               VALUES (@id_product, @name_of_fee, @min, @max, @value, @rate, @fee_index, @cycle_id)";
-            foreach (var entryFee in entryFees)
+            var conn = tx == null ? GetConnection() : tx.Connection;
+            try
             {
-                using (SqlConnection conn = GetConnection())
-                using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+                foreach (var entryFee in entryFees)
                 {
-                    c.AddParam("@id_product", productId);
-                    c.AddParam("@name_of_fee", entryFee.Name);
-                    c.AddParam("@min", entryFee.Min);
-                    c.AddParam("@max", entryFee.Max);
-                    c.AddParam("@value", entryFee.Value);
-                    c.AddParam("rate", entryFee.IsRate);
-                    c.AddParam("@fee_index", entryFee.Index);
-                    c.AddParam("@cycle_id", entryFee.CycleId);
-                    c.ExecuteNonQuery();
+                    using (var c = tx == null
+                        ? new OpenCbsCommand(q, conn)
+                        : new OpenCbsCommand(q, conn, tx))
+                    {
+                        c.AddParam("@id_product", productId);
+                        c.AddParam("@name_of_fee", entryFee.Name);
+                        c.AddParam("@min", entryFee.Min);
+                        c.AddParam("@max", entryFee.Max);
+                        c.AddParam("@value", entryFee.Value);
+                        c.AddParam("rate", entryFee.IsRate);
+                        c.AddParam("@fee_index", entryFee.Index);
+                        c.AddParam("@cycle_id", entryFee.CycleId);
+                        c.ExecuteNonQuery();
+                    }
+                }
+            }
+            finally
+            {
+                if (tx == null)
+                {
+                    conn.Dispose();
                 }
             }
         }
@@ -1330,15 +1378,24 @@ namespace OpenCBS.Manager.Products
         /// Delete a product
         /// </summary>
         /// <param name="pProductId"></param>
-        public void DeleteProduct(int pProductId)
+        public void DeleteProduct(int pProductId, SqlTransaction tx = null)
         {
             const string q = @"UPDATE Packages SET deleted = 1 WHERE id = @id";
-
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+            var conn = tx == null ? GetConnection() : tx.Connection;
+            try
             {
-                c.AddParam("@id", pProductId);
-                c.ExecuteNonQuery();
+                using (var c = tx == null ? new OpenCbsCommand(q, conn) : new OpenCbsCommand(q, conn, tx))
+                {
+                    c.AddParam("@id", pProductId);
+                    c.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                if (tx == null)
+                {
+                    conn.Dispose();
+                }
             }
         }
 
