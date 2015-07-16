@@ -53,7 +53,7 @@ namespace OpenCBS.Services
         private User _user = new User();
 	    private int _clientTypeCheckBoxCounter = 1;
 
-        [ImportMany(typeof(ILoanInterceptor))]
+        [ImportMany(typeof(ILoanProductInterceptor))]
         private Lazy<ILoanProductInterceptor, IDictionary<string, object>>[] LoanProductInterceptors { get; set; }
 
 	    public ProductServices(InstallmentTypeManager installmentTypeManager)
