@@ -170,6 +170,12 @@ namespace OpenCBS.GUI.Clients
             this.dtpDateOfFirstInstallment.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
             this.dateLoanStart.Format = DateTimePickerFormat.Custom;
             this.dateLoanStart.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+
+            var initializers = _applicationController.GetAllInstances<IClientFormInitializer>();
+            foreach (var initializer in initializers)
+            {
+                initializer.Initialize(this);
+            }
         }
 
         public ClientForm(
