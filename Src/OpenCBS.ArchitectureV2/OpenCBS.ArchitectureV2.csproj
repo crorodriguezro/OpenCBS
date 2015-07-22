@@ -104,6 +104,7 @@
     <Compile Include="Command\EditSavingCommand.cs" />
     <Compile Include="Command\FastRepaymentCommand.cs" />
     <Compile Include="Command\ShowDashboardCommand.cs" />
+    <Compile Include="Interface\IStartupProcess.cs" />
     <Compile Include="Interface\View\IAlertsView.cs" />
     <Compile Include="Command\OpenEmailCommand.cs" />
     <Compile Include="Command\OpenUrlCommand.cs" />
