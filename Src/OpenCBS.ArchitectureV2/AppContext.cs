@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.Presenter;
 using OpenCBS.ArchitectureV2.Interface.Service;
 using OpenCBS.ArchitectureV2.Interface.View;
@@ -19,6 +20,10 @@ namespace OpenCBS.ArchitectureV2
             var databaseService = _container.GetInstance<IDatabaseService>();
             if (databaseService.IsServerConnectionOk())
             {
+                foreach (var startupProcess in _container.GetAllInstances<IStartupProcess>())
+                {
+                    startupProcess.Run();
+                }
                 MainForm = GetLoginForm();
             }
             else
