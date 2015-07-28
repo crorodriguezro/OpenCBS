@@ -1389,7 +1389,9 @@ namespace OpenCBS.GUI.Configuration
                         }
                     }
                     else
+                    {
                         entry.Value = null;
+                    }
                 }
 
                 else if (entryKey == OGeneralSettings.LATEDAYSAFTERACCRUALCEASES)
