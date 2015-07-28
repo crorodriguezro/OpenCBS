@@ -1364,4 +1364,7 @@ Enter another account number.
   <data name="IncorrectMobilePhoneFormat.Text" xml:space="preserve">
     <value>Please enter the mobile phone number in a valid format.</value>
   </data>
+  <data name="BetweenZeroAndSix.Text" xml:space="preserve">
+    <value>Allowed input is between 0 and 6.</value>
+  </data>
 </root>

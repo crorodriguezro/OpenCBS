@@ -1348,8 +1348,6 @@ namespace OpenCBS.GUI.Configuration
                          entryKey == OGeneralSettings.GROUPMAXMEMBERS ||
                          entryKey == OGeneralSettings.VILLAGEMINMEMBERS ||
                          entryKey == OGeneralSettings.VILLAGEMAXMEMBERS ||
-                         entryKey == OGeneralSettings.WEEKENDDAY1 ||
-                         entryKey == OGeneralSettings.WEEKENDDAY2 ||
                          entryKey == OGeneralSettings.CEASE_LAIE_DAYS ||
                          entryKey == OGeneralSettings.CLIENT_AGE_MIN ||
                          entryKey == OGeneralSettings.CLIENT_AGE_MAX ||
@@ -1372,6 +1370,28 @@ namespace OpenCBS.GUI.Configuration
                         entry.Value = null;
 
                 }
+                else if (entryKey == OGeneralSettings.WEEKENDDAY1 ||
+                         entryKey == OGeneralSettings.WEEKENDDAY2)
+                {
+                    textBoxGeneralParameterValue.Enabled = true;
+                    if (textBoxGeneralParameterValue.Text != String.Empty)
+                    {
+                        try
+                        {
+                            entry.Value = Convert.ToInt32(textBoxGeneralParameterValue.Text);
+                            var entryVal = int.Parse(entry.Value.ToString());
+                            if (entryVal > 6 || entryVal < 0)
+                                throw new ArgumentOutOfRangeException();
+                        }
+                        catch
+                        {
+                            throw new GeneralSettingException(GeneralSettingEnumException.BetweenZeroAndSix);
+                        }
+                    }
+                    else
+                        entry.Value = null;
+                }
+
                 else if (entryKey == OGeneralSettings.LATEDAYSAFTERACCRUALCEASES)
                 {
                     if (textBoxGeneralParameterValue.Text == @"-")
