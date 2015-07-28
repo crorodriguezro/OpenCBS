@@ -702,4 +702,7 @@
   <data name="DuplicatedAccount.Text" xml:space="preserve">
     <value>Cambie el número de cuenta.</value>
   </data>
+  <data name="BetweenZeroAndSix.Text" xml:space="preserve">
+    <value>La entrada permitida es de entre 0 y 6.</value>
+  </data>
 </root>

@@ -67,6 +67,9 @@ namespace OpenCBS.ExceptionsHandler
                     returned = "onlyIntsAndUnderscore.Text";
                     break;
 
+                case GeneralSettingEnumException.BetweenZeroAndSix:
+                    returned = "BetweenZeroAndSix.Text";
+                    break;
 				
 			}
 			return returned;
@@ -75,9 +78,10 @@ namespace OpenCBS.ExceptionsHandler
 
     [Serializable]
     public enum GeneralSettingEnumException
-	{
+    {
         OnlyChar,
         OnlyInt,
-        OnlyIntAndUnderscore
-	}
+        OnlyIntAndUnderscore,
+        BetweenZeroAndSix
+    }
 }
