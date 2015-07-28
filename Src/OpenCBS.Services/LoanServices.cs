@@ -1106,10 +1106,15 @@ namespace OpenCBS.Services
                 where installment.ExpectedDate <= rescheduleConfiguration.StartDate
                 select installment;
 
+            var reschedulingDateTime = rescheduleConfiguration.StartDate
+                .AddHours(TimeProvider.Now.Hour)
+                .AddMinutes(TimeProvider.Now.Minute)
+                .AddSeconds(TimeProvider.Now.Second);
+
             // Get overpaid principal = sum of paid principal after the rescheduling date...
             var overpaidPrincipal = (
                 from installment in schedule
-                where installment.PaidDate > rescheduleConfiguration.StartDate
+                where installment.PaidDate > reschedulingDateTime
                 select installment
             ).Sum(installment => installment.PaidCapital.Value);
 
