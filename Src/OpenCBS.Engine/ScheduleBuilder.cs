@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.Engine.InstallmentCalculationPolicy;
 using OpenCBS.Engine.Interfaces;
@@ -43,9 +44,12 @@ namespace OpenCBS.Engine
             }
 
             // Initialize RepaymentDate's
+            var startDate = configuration.StartDate;
             foreach (var i in result)
             {
                 i.ExpectedDate = configuration.DateShiftPolicy.ShiftDate(i.ExpectedDate);
+                i.StartDate = startDate;
+                startDate = i.ExpectedDate;
             }
 
             return result;
