@@ -774,6 +774,25 @@ namespace OpenCBS.GUI.Contracts
                     member = item.Tag as VillageMember;
                     Project project;
                     if (null == member) continue;
+                    
+                    switch (member.Product.LoanType)
+                    {
+                        case OLoanTypes.All:
+                            break;
+                        case OLoanTypes.Flat:
+                            member.Product.ScriptName = null;
+                            break;
+                        case OLoanTypes.DecliningFixedPrincipal:
+                            member.Product.ScriptName = null;
+                            break;
+                        case OLoanTypes.DecliningFixedInstallments:
+                            member.Product.ScriptName = null;
+                            break;
+                        case OLoanTypes.CustomLoanType:
+                            break;
+                        default:
+                            break;
+                    }
 
                     OCurrency amount = (OCurrency)item.SubItems[IdxAmount].Tag;
                     decimal interest = (decimal)item.SubItems[IdxInterest].Tag;
