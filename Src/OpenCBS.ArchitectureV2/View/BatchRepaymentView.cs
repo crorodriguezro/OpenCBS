@@ -170,7 +170,7 @@ namespace OpenCBS.ArchitectureV2.View
                 foreach (Item loanItem in _loansListView.Objects)
                 {
                     loanItem.Selected = item.Checked;
-                    _loansListView.RefreshObject(loanItem);
+                    //_loansListView.RefreshObject(loanItem);
                 }
                 _canUpdateTotal = true;
             }
