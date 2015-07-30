@@ -43,9 +43,12 @@ namespace OpenCBS.Engine
             }
 
             // Initialize RepaymentDate's
+            var startDate = configuration.StartDate;
             foreach (var i in result)
             {
                 i.ExpectedDate = configuration.DateShiftPolicy.ShiftDate(i.ExpectedDate);
+                i.StartDate = startDate;
+                startDate = i.ExpectedDate;
             }
 
             return result;
