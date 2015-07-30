@@ -32,7 +32,13 @@ namespace OpenCBS.Engine.InstallmentCalculationPolicy
             // at first we are trying to calculate standard annuity for 30/360 using standard formula.
             var numerator = (decimal)interestRate * configuration.Amount;
             var denominator = 1 - 1 / Math.Pow(1 + interestRate, number);
-            var annuity = numerator / (decimal)denominator;
+
+            var annuity = 0.0M;
+            if (configuration.InterestRate == 0)
+                annuity = configuration.Amount / number;
+            else
+                annuity = numerator / (decimal)denominator;
+
             // In order to define the annuity amount for the other types Period and Year policy
             // we need to increase the standard annuity, build schedule according defined amount
             // and if scheduled is not balanced, repeat the procedure again
