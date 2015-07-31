@@ -1376,21 +1376,18 @@ namespace OpenCBS.GUI.Configuration
                     textBoxGeneralParameterValue.Enabled = true;
                     if (textBoxGeneralParameterValue.Text != String.Empty)
                     {
-                        try
+                        entry.Value = Convert.ToInt32(textBoxGeneralParameterValue.Text);
+                        var entryVal = int.Parse(entry.Value.ToString());
+                        
+                        if (entryVal > 6 || entryVal < 0)
                         {
-                            entry.Value = Convert.ToInt32(textBoxGeneralParameterValue.Text);
-                            var entryVal = int.Parse(entry.Value.ToString());
-                            if (entryVal > 6 || entryVal < 0)
-                                throw new ArgumentOutOfRangeException();
-                        }
-                        catch
-                        {
+                            entry.Value = "0";
                             throw new GeneralSettingException(GeneralSettingEnumException.BetweenZeroAndSix);
                         }
                     }
                     else
                     {
-                        entry.Value = null;
+                        entry.Value = "0";
                     }
                 }
 
@@ -1424,6 +1421,11 @@ namespace OpenCBS.GUI.Configuration
                 {
                     textBoxGeneralParameterValue.Text = String.Empty;
                     entry.Value = String.Empty;
+                }
+                if (entryKey == OGeneralSettings.WEEKENDDAY1 || entryKey == OGeneralSettings.WEEKENDDAY2)
+                {
+                    textBoxGeneralParameterValue.Text = "0";
+                    entry.Value = "0";
                 }
             }
         }
