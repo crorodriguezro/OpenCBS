@@ -3017,48 +3017,18 @@ namespace OpenCBS.Services
 
         public void LoanInterceptorSave(IDictionary<string, object> interceptorParams)
         {
-            // Find non-default implementation
-            var creator = (from item in LoanInterceptors
-                           where
-                               item.Metadata.ContainsKey("Implementation") &&
-                               item.Metadata["Implementation"].ToString() != "Default"
-                           select item.Value).FirstOrDefault();
-            if (creator != null)
+            foreach (var interceptor in LoanInterceptors)
             {
-                creator.Save(interceptorParams);
-                return;
+                interceptor.Value.Save(interceptorParams);
             }
-
-            // Otherwise, find the default one
-            creator = (from item in LoanInterceptors
-                       where
-                           item.Metadata.ContainsKey("Implementation") &&
-                           item.Metadata["Implementation"].ToString() == "Default"
-                       select item.Value).FirstOrDefault();
-            if (creator != null) creator.Save(interceptorParams);
         }
 
         public void LoanInterceptorUpdate(IDictionary<string, object> interceptorParams)
         {
-            // Find non-default implementation
-            var creator = (from item in LoanInterceptors
-                           where
-                               item.Metadata.ContainsKey("Implementation") &&
-                               item.Metadata["Implementation"].ToString() != "Default"
-                           select item.Value).FirstOrDefault();
-            if (creator != null)
+            foreach (var interceptor in LoanInterceptors)
             {
-                creator.Update(interceptorParams);
-                return;
+                interceptor.Value.Update(interceptorParams);
             }
-
-            // Otherwise, find the default one
-            creator = (from item in LoanInterceptors
-                       where
-                           item.Metadata.ContainsKey("Implementation") &&
-                           item.Metadata["Implementation"].ToString() == "Default"
-                       select item.Value).FirstOrDefault();
-            if (creator != null) creator.Update(interceptorParams);
         }
 
         public void ManualScheduleBeforeDisbursement()
