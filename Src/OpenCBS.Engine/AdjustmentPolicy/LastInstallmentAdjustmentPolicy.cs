@@ -14,8 +14,10 @@ namespace OpenCBS.Engine.AdjustmentPolicy
         {
             schedule[schedule.Count - 1].CapitalRepayment += GetAdjustment(schedule, configuration);
             if (configuration.CalculationPolicy.GetType() == typeof (FlatInstallmentCalculationPolicy))
+            {
                 schedule[schedule.Count - 1].InterestsRepayment += GetAdjustmentInterestRepayment(schedule,
                     configuration);
+            }
         }
     }
 }
