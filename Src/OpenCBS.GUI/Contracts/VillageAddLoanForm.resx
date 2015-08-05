@@ -118,241 +118,127 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="allScheduleLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="allScheduleLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>350, 15</value>
-  </data>
-  <data name="allScheduleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 13</value>
-  </data>
-  <data name="allScheduleLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>37</value>
-  </data>
-  <data name="allScheduleLabel.Text" xml:space="preserve">
-    <value>Schedule type of every loan:</value>
-  </data>
-  <data name="&gt;&gt;allScheduleLabel.Name" xml:space="preserve">
-    <value>allScheduleLabel</value>
-  </data>
-  <data name="&gt;&gt;allScheduleLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;allScheduleLabel.Parent" xml:space="preserve">
-    <value>pnlButtons</value>
-  </data>
-  <data name="&gt;&gt;allScheduleLabel.ZOrder" xml:space="preserve">
+  <data name="pnlButtons.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="allPeriodicityLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;cbCompulsorySavings.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="allPeriodicityLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>47, 15</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pnlButtons.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
-  <data name="allPeriodicityLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 13</value>
-  </data>
-  <data name="allPeriodicityLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>36</value>
-  </data>
-  <data name="allPeriodicityLabel.Text" xml:space="preserve">
-    <value>Periodicity of every loan:</value>
-  </data>
-  <data name="&gt;&gt;allPeriodicityLabel.Name" xml:space="preserve">
-    <value>allPeriodicityLabel</value>
-  </data>
-  <data name="&gt;&gt;allPeriodicityLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;allPeriodicityLabel.Parent" xml:space="preserve">
-    <value>pnlButtons</value>
-  </data>
-  <data name="&gt;&gt;allPeriodicityLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="allScheduleComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>498, 12</value>
-  </data>
-  <data name="allScheduleComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 21</value>
-  </data>
-  <data name="allScheduleComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>35</value>
-  </data>
-  <data name="&gt;&gt;allScheduleComboBox.Name" xml:space="preserve">
-    <value>allScheduleComboBox</value>
-  </data>
-  <data name="&gt;&gt;allScheduleComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;allScheduleComboBox.Parent" xml:space="preserve">
-    <value>pnlButtons</value>
-  </data>
-  <data name="&gt;&gt;allScheduleComboBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="allPeriodicityComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>175, 12</value>
-  </data>
-  <data name="allPeriodicityComboBox.Size" type="System.Drawing.Size, System.Drawing">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="periodicityComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
+  </data>
+  <data name="&gt;&gt;cbDonor.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="udInstallments.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="chCurrency.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="scheduleComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="tbEntryFee.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;tbEntryFee.Name" xml:space="preserve">
+    <value>tbEntryFee</value>
   </data>
   <data name="allPeriodicityComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
   </data>
-  <data name="&gt;&gt;allPeriodicityComboBox.Name" xml:space="preserve">
-    <value>allPeriodicityComboBox</value>
+  <data name="&gt;&gt;allScheduleComboBox.Parent" xml:space="preserve">
+    <value>pnlButtons</value>
   </data>
-  <data name="&gt;&gt;allPeriodicityComboBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;scheduleComboBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;allPeriodicityComboBox.Parent" xml:space="preserve">
-    <value>pnlButtons</value>
+  <data name="&gt;&gt;tbInterest.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
-  <data name="&gt;&gt;allPeriodicityComboBox.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="btnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>875, 9</value>
-  </data>
-  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 25</value>
-  </data>
-  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
-  </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
-    <value>btnCancel</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
-    <value>pnlButtons</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="btnSave.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="btnSave.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAADECAIAAAAdy+YyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACH0lEQVRoQ+3LS0gTcADH8V8QEUGHrh27
-        duvU1UMRFFQQiPQOegpGgmEghSEWJYiIRSZJmRhmiYgmmiWarUxt5PuxZOrc2sM555xu0+r+P/U9CMb/
-        y+f61W+U3YzsZmQ3I7sZ2c3IbkZ2M7Kbkd2M7GZkNyO6raPsZmQ3o82xra2vAXYz0C21lgKUTKWA/3xL
-        AptjSyQTgFaTCWCDt5XEKrDBWzyxAtBteTUOKLYSBzbHFo3HALotLi8BG7xFYlFA4aUoQLf5aARQKLoA
-        0C24GAYUiIQBuvkXQoB+hYOAvOEgQLe5+QAgT8gPaDboAzQd8AF/Ny8gt98DaMrvAeTyzQCa9E4DdBuf
-        cwMa80wBGpn9CWh4xgVo0D0BaMA9Dsg5NQqo3zUMqM81BKh3chBQz8QAIMeYE9DnUSegrpF+QJ1DvYA+
-        DvQAav/xBVCb0wGo5Xs3oOb+LkBNfZ2AGr91AKr/2g7ojeM9oNfdrYBefXoHqLqzCVBVRyOgyg8NgCra
-        3gIqb60D9LilFlBpcw2g4saXgIoaXgC6V18JqKCuAlB+bTmgvJpHgG5VlwK6WVUCKPt5MaCsZw8BXXt6
-        H9DFJ4WAzpXdBXSq9A6g9JI8QMeKcgEdeZAD6GDhDUBpBdcB7c/PBLTv9hVAe/MuAdqTex7Q7pwzgHZl
-        nwS0Mysd0I7ME4C2Xz0OaNvlo4C2XjgMaMvZQ4B0+gChjLR/lpH2B8auF1qedkGxAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnSave.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="btnSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>711, 9</value>
-  </data>
-  <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 25</value>
-  </data>
-  <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
-  </data>
-  <data name="btnSave.Text" xml:space="preserve">
-    <value>Confirm Creation</value>
+  <data name="&gt;&gt;chCompulsorySavings.Name" xml:space="preserve">
+    <value>chCompulsorySavings</value>
   </data>
   <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
     <value>btnSave</value>
   </data>
-  <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="chAmount.Text" xml:space="preserve">
+    <value>Amount</value>
   </data>
-  <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
-    <value>pnlButtons</value>
+  <data name="&gt;&gt;udInstallments.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="cbFundingLine.Location" type="System.Drawing.Point, System.Drawing">
+    <value>554, 255</value>
   </data>
-  <data name="pnlButtons.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
+  <data name="lvMembers.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="pnlButtons.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 361</value>
+  <data name="tbInterest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
   </data>
-  <data name="pnlButtons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1015, 46</value>
+  <data name="&gt;&gt;dtCreationDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="pnlButtons.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="chCompulsoryPercentage.Width" type="System.Int32, mscorlib">
+    <value>123</value>
   </data>
-  <data name="&gt;&gt;pnlButtons.Name" xml:space="preserve">
-    <value>pnlButtons</value>
+  <data name="cbFundingLine.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;pnlButtons.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;periodicityColumnHeader.Name" xml:space="preserve">
+    <value>periodicityColumnHeader</value>
   </data>
-  <data name="&gt;&gt;pnlButtons.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="periodicityComboBox.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;pnlButtons.ZOrder" xml:space="preserve">
-    <value>14</value>
+  <data name="&gt;&gt;allPeriodicityLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tbAmount.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9pt</value>
   </data>
+  <data name="cbLoanOfficer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="tbEntryFee.Location" type="System.Drawing.Point, System.Drawing">
+    <value>381, 309</value>
+  </data>
+  <data name="&gt;&gt;periodicityComboBox.Name" xml:space="preserve">
+    <value>periodicityComboBox</value>
+  </data>
+  <data name="chPassport.Text" xml:space="preserve">
+    <value>Passport</value>
+  </data>
+  <data name="&gt;&gt;cbLoanOfficer.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;udInstallments.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="allPeriodicityComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="chInterest.Text" xml:space="preserve">
+    <value>Interest</value>
+  </data>
+  <data name="&gt;&gt;chPassport.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="udInstallments.Location" type="System.Drawing.Point, System.Drawing">
+    <value>381, 256</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Add Loan</value>
+  </data>
   <data name="tbAmount.Location" type="System.Drawing.Point, System.Drawing">
     <value>381, 177</value>
-  </data>
-  <data name="tbAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
-  </data>
-  <data name="tbAmount.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="tbAmount.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;tbAmount.Name" xml:space="preserve">
-    <value>tbAmount</value>
-  </data>
-  <data name="&gt;&gt;tbAmount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbAmount.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbAmount.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="tbInterest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>381, 204</value>
-  </data>
-  <data name="tbInterest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
   </data>
   <data name="tbInterest.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -360,410 +246,17 @@
   <data name="tbInterest.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;tbInterest.Name" xml:space="preserve">
-    <value>tbInterest</value>
-  </data>
-  <data name="&gt;&gt;tbInterest.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbInterest.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbInterest.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="udGracePeriod.Location" type="System.Drawing.Point, System.Drawing">
-    <value>381, 230</value>
-  </data>
-  <data name="udGracePeriod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 20</value>
-  </data>
-  <data name="udGracePeriod.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="udGracePeriod.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;udGracePeriod.Name" xml:space="preserve">
-    <value>udGracePeriod</value>
-  </data>
-  <data name="&gt;&gt;udGracePeriod.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;udGracePeriod.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;udGracePeriod.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="udInstallments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>381, 256</value>
-  </data>
-  <data name="udInstallments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 20</value>
-  </data>
-  <data name="udInstallments.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="udInstallments.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;udInstallments.Name" xml:space="preserve">
-    <value>udInstallments</value>
-  </data>
-  <data name="&gt;&gt;udInstallments.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;udInstallments.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;udInstallments.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="cbLoanOfficer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>381, 282</value>
-  </data>
-  <data name="cbLoanOfficer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 21</value>
-  </data>
-  <data name="cbLoanOfficer.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="cbLoanOfficer.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;cbLoanOfficer.Name" xml:space="preserve">
-    <value>cbLoanOfficer</value>
-  </data>
-  <data name="&gt;&gt;cbLoanOfficer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;cbLoanOfficer.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cbLoanOfficer.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="tbEntryFee.Location" type="System.Drawing.Point, System.Drawing">
-    <value>381, 309</value>
-  </data>
-  <data name="tbEntryFee.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="tbEntryFee.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="tbEntryFee.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;tbEntryFee.Name" xml:space="preserve">
-    <value>tbEntryFee</value>
-  </data>
-  <data name="&gt;&gt;tbEntryFee.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbEntryFee.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbEntryFee.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="cbFundingLine.Location" type="System.Drawing.Point, System.Drawing">
-    <value>554, 255</value>
-  </data>
-  <data name="cbFundingLine.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 21</value>
-  </data>
-  <data name="cbFundingLine.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="cbFundingLine.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;cbFundingLine.Name" xml:space="preserve">
-    <value>cbFundingLine</value>
-  </data>
-  <data name="&gt;&gt;cbFundingLine.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbFundingLine.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cbFundingLine.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="cbDonor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>554, 282</value>
-  </data>
-  <data name="cbDonor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 21</value>
-  </data>
-  <data name="cbDonor.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="cbDonor.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;cbDonor.Name" xml:space="preserve">
-    <value>cbDonor</value>
-  </data>
-  <data name="&gt;&gt;cbDonor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbDonor.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cbDonor.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="chName.Text" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="chName.Width" type="System.Int32, mscorlib">
-    <value>132</value>
-  </data>
-  <data name="chPassport.Text" xml:space="preserve">
-    <value>Passport</value>
-  </data>
-  <data name="chPassport.Width" type="System.Int32, mscorlib">
-    <value>89</value>
-  </data>
-  <data name="chAmount.Text" xml:space="preserve">
-    <value>Amount</value>
-  </data>
-  <data name="chAmount.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="chAmount.Width" type="System.Int32, mscorlib">
-    <value>80</value>
-  </data>
-  <data name="chCurrency.Text" xml:space="preserve">
-    <value>Currency</value>
-  </data>
-  <data name="chCurrency.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="chCurrency.Width" type="System.Int32, mscorlib">
-    <value>67</value>
-  </data>
-  <data name="chInterest.Text" xml:space="preserve">
-    <value>Interest</value>
-  </data>
-  <data name="chInterest.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="chGracePeriod.Text" xml:space="preserve">
-    <value>Grace period</value>
-  </data>
-  <data name="chGracePeriod.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="chInstallments.Text" xml:space="preserve">
-    <value>Installments</value>
-  </data>
-  <data name="chInstallments.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="chLoanOfficer.Text" xml:space="preserve">
-    <value>Loan officer</value>
-  </data>
-  <data name="chLoanOfficer.Width" type="System.Int32, mscorlib">
-    <value>87</value>
-  </data>
-  <data name="chCreationDate.Text" xml:space="preserve">
-    <value>Creation Date</value>
-  </data>
-  <data name="chFundingLine.Text" xml:space="preserve">
-    <value>Funding line</value>
-  </data>
-  <data name="chFundingLine.Width" type="System.Int32, mscorlib">
-    <value>107</value>
-  </data>
-  <data name="chAvailableFunds.Text" xml:space="preserve">
-    <value>Remaining FL amount</value>
-  </data>
-  <data name="chAvailableFunds.Width" type="System.Int32, mscorlib">
-    <value>91</value>
-  </data>
-  <data name="chCompulsorySavings.Text" xml:space="preserve">
-    <value>Mandatory savings</value>
-  </data>
-  <data name="chCompulsorySavings.Width" type="System.Int32, mscorlib">
-    <value>109</value>
-  </data>
-  <data name="chCompulsoryPercentage.Text" xml:space="preserve">
-    <value>Compulsory percentage</value>
-  </data>
-  <data name="chCompulsoryPercentage.Width" type="System.Int32, mscorlib">
-    <value>123</value>
-  </data>
-  <data name="periodicityColumnHeader.Text" xml:space="preserve">
-    <value>Periodicity</value>
-  </data>
-  <data name="periodicityColumnHeader.Width" type="System.Int32, mscorlib">
-    <value>68</value>
-  </data>
-  <data name="scheduleTypeColumnHeader.Text" xml:space="preserve">
-    <value>Schedule</value>
-  </data>
-  <data name="scheduleTypeColumnHeader.Width" type="System.Int32, mscorlib">
-    <value>104</value>
-  </data>
-  <data name="lvMembers.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
   </data>
   <data name="lvMembers.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9pt</value>
   </data>
-  <data name="lvMembers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
+    <value>pnlButtons</value>
   </data>
-  <data name="lvMembers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1015, 361</value>
-  </data>
-  <data name="lvMembers.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lvMembers.Name" xml:space="preserve">
-    <value>lvMembers</value>
-  </data>
-  <data name="&gt;&gt;lvMembers.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.8.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;lvMembers.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lvMembers.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="cbCompulsorySavings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>740, 177</value>
-  </data>
-  <data name="cbCompulsorySavings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 21</value>
-  </data>
-  <data name="cbCompulsorySavings.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="cbCompulsorySavings.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;cbCompulsorySavings.Name" xml:space="preserve">
-    <value>cbCompulsorySavings</value>
-  </data>
-  <data name="&gt;&gt;cbCompulsorySavings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbCompulsorySavings.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cbCompulsorySavings.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="udCompulsoryPercentage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>740, 205</value>
-  </data>
-  <data name="udCompulsoryPercentage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 20</value>
-  </data>
-  <data name="udCompulsoryPercentage.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="udCompulsoryPercentage.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;udCompulsoryPercentage.Name" xml:space="preserve">
-    <value>udCompulsoryPercentage</value>
-  </data>
-  <data name="&gt;&gt;udCompulsoryPercentage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;udCompulsoryPercentage.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;udCompulsoryPercentage.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="dtCreationDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>554, 201</value>
-  </data>
-  <data name="dtCreationDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 20</value>
-  </data>
-  <data name="dtCreationDate.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="dtCreationDate.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;dtCreationDate.Name" xml:space="preserve">
-    <value>dtCreationDate</value>
-  </data>
-  <data name="&gt;&gt;dtCreationDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dtCreationDate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;dtCreationDate.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="periodicityComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 177</value>
-  </data>
-  <data name="periodicityComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 21</value>
-  </data>
-  <data name="periodicityComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="periodicityComboBox.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;periodicityComboBox.Name" xml:space="preserve">
-    <value>periodicityComboBox</value>
-  </data>
-  <data name="&gt;&gt;periodicityComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;periodicityComboBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;periodicityComboBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="scheduleComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 217</value>
-  </data>
-  <data name="scheduleComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 21</value>
-  </data>
-  <data name="scheduleComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="scheduleComboBox.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;scheduleComboBox.Name" xml:space="preserve">
-    <value>scheduleComboBox</value>
-  </data>
-  <data name="&gt;&gt;scheduleComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;scheduleComboBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;scheduleComboBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1015, 407</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1363,106 +856,613 @@
         ODowMHJGaQ8AAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterParent</value>
+  <data name="udCompulsoryPercentage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 20</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Add Loan</value>
+  <data name="cbFundingLine.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="periodicityColumnHeader.Text" xml:space="preserve">
+    <value>Periodicity</value>
+  </data>
+  <data name="chLoanOfficer.Width" type="System.Int32, mscorlib">
+    <value>87</value>
+  </data>
+  <data name="&gt;&gt;scheduleTypeColumnHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbDonor.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;chInstallments.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;udCompulsoryPercentage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="scheduleTypeColumnHeader.Width" type="System.Int32, mscorlib">
+    <value>104</value>
+  </data>
+  <data name="&gt;&gt;scheduleComboBox.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;chName.Name" xml:space="preserve">
     <value>chName</value>
   </data>
-  <data name="&gt;&gt;chName.Type" xml:space="preserve">
+  <data name="&gt;&gt;allPeriodicityComboBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tbEntryFee.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="tbAmount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="allPeriodicityLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 15</value>
+  </data>
+  <data name="&gt;&gt;chLoanOfficer.Name" xml:space="preserve">
+    <value>chLoanOfficer</value>
+  </data>
+  <data name="chFundingLine.Text" xml:space="preserve">
+    <value>Funding line</value>
+  </data>
+  <data name="allPeriodicityLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbCompulsorySavings.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbDonor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="&gt;&gt;chFundingLine.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;udCompulsoryPercentage.Name" xml:space="preserve">
+    <value>udCompulsoryPercentage</value>
+  </data>
+  <data name="&gt;&gt;lvMembers.Name" xml:space="preserve">
+    <value>lvMembers</value>
+  </data>
+  <data name="chCompulsoryPercentage.Text" xml:space="preserve">
+    <value>Compulsory percentage</value>
+  </data>
+  <data name="cbFundingLine.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="&gt;&gt;scheduleComboBox.Name" xml:space="preserve">
+    <value>scheduleComboBox</value>
+  </data>
+  <data name="btnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chName.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="&gt;&gt;chCurrency.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lvMembers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>VillageAddLoanForm</value>
+  </data>
+  <data name="udGracePeriod.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="chGracePeriod.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;udInstallments.Name" xml:space="preserve">
+    <value>udInstallments</value>
+  </data>
+  <data name="cbCompulsorySavings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>740, 177</value>
+  </data>
+  <data name="&gt;&gt;cbCompulsorySavings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="scheduleComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="scheduleComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>161, 217</value>
+  </data>
+  <data name="&gt;&gt;tbEntryFee.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chAvailableFunds.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chInterest.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;allPeriodicityComboBox.Name" xml:space="preserve">
+    <value>allPeriodicityComboBox</value>
+  </data>
+  <data name="&gt;&gt;allPeriodicityLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;scheduleTypeColumnHeader.Name" xml:space="preserve">
+    <value>scheduleTypeColumnHeader</value>
+  </data>
+  <data name="&gt;&gt;chCompulsorySavings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chInstallments.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;udGracePeriod.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;scheduleComboBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;chGracePeriod.Name" xml:space="preserve">
+    <value>chGracePeriod</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cbCompulsorySavings.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;allScheduleComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="udInstallments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 20</value>
+  </data>
+  <data name="&gt;&gt;udCompulsoryPercentage.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;tbAmount.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="cbDonor.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="&gt;&gt;chPassport.Name" xml:space="preserve">
     <value>chPassport</value>
   </data>
-  <data name="&gt;&gt;chPassport.Type" xml:space="preserve">
+  <data name="&gt;&gt;periodicityColumnHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chCreationDate.Text" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
+  <data name="allScheduleLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 13</value>
+  </data>
+  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="allPeriodicityComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 12</value>
+  </data>
+  <data name="&gt;&gt;cbCompulsorySavings.Name" xml:space="preserve">
+    <value>cbCompulsorySavings</value>
+  </data>
+  <data name="udCompulsoryPercentage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>740, 205</value>
+  </data>
+  <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="&gt;&gt;allScheduleComboBox.Name" xml:space="preserve">
+    <value>allScheduleComboBox</value>
+  </data>
+  <data name="&gt;&gt;dtCreationDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;tbAmount.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="chAvailableFunds.Text" xml:space="preserve">
+    <value>Remaining FL amount</value>
+  </data>
+  <data name="chFundingLine.Width" type="System.Int32, mscorlib">
+    <value>107</value>
+  </data>
+  <data name="&gt;&gt;chCompulsoryPercentage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chAmount.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbLoanOfficer.Name" xml:space="preserve">
+    <value>cbLoanOfficer</value>
+  </data>
+  <data name="&gt;&gt;chCompulsoryPercentage.Name" xml:space="preserve">
+    <value>chCompulsoryPercentage</value>
+  </data>
+  <data name="&gt;&gt;udGracePeriod.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;chFundingLine.Name" xml:space="preserve">
+    <value>chFundingLine</value>
+  </data>
+  <data name="&gt;&gt;dtCreationDate.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlButtons.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 361</value>
+  </data>
+  <data name="udGracePeriod.Location" type="System.Drawing.Point, System.Drawing">
+    <value>381, 230</value>
+  </data>
+  <data name="pnlButtons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1015, 46</value>
+  </data>
+  <data name="allScheduleLabel.Text" xml:space="preserve">
+    <value>Schedule type of every loan:</value>
+  </data>
+  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="&gt;&gt;periodicityComboBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lvMembers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1015, 361</value>
+  </data>
+  <data name="&gt;&gt;lvMembers.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbDonor.Name" xml:space="preserve">
+    <value>cbDonor</value>
+  </data>
+  <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
+    <value>btnCancel</value>
+  </data>
+  <data name="chCurrency.Text" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="&gt;&gt;allPeriodicityLabel.Name" xml:space="preserve">
+    <value>allPeriodicityLabel</value>
+  </data>
+  <data name="udGracePeriod.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="chCompulsorySavings.Text" xml:space="preserve">
+    <value>Mandatory savings</value>
+  </data>
+  <data name="chCurrency.Width" type="System.Int32, mscorlib">
+    <value>67</value>
+  </data>
+  <data name="&gt;&gt;chName.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;chAmount.Name" xml:space="preserve">
     <value>chAmount</value>
   </data>
-  <data name="&gt;&gt;chAmount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;allPeriodicityLabel.Parent" xml:space="preserve">
+    <value>pnlButtons</value>
   </data>
-  <data name="&gt;&gt;chCurrency.Name" xml:space="preserve">
-    <value>chCurrency</value>
+  <data name="cbDonor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>554, 282</value>
   </data>
-  <data name="&gt;&gt;chCurrency.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
   </data>
-  <data name="&gt;&gt;chInterest.Name" xml:space="preserve">
-    <value>chInterest</value>
+  <data name="dtCreationDate.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
-  <data name="&gt;&gt;chInterest.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;allScheduleLabel.Name" xml:space="preserve">
+    <value>allScheduleLabel</value>
   </data>
-  <data name="&gt;&gt;chGracePeriod.Name" xml:space="preserve">
-    <value>chGracePeriod</value>
+  <data name="&gt;&gt;dtCreationDate.Name" xml:space="preserve">
+    <value>dtCreationDate</value>
   </data>
-  <data name="&gt;&gt;chGracePeriod.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cbCompulsorySavings.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="&gt;&gt;chInstallments.Name" xml:space="preserve">
-    <value>chInstallments</value>
+  <data name="chAmount.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
   </data>
-  <data name="&gt;&gt;chInstallments.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="periodicityComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>161, 177</value>
   </data>
-  <data name="&gt;&gt;chLoanOfficer.Name" xml:space="preserve">
-    <value>chLoanOfficer</value>
+  <data name="&gt;&gt;pnlButtons.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;chLoanOfficer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;pnlButtons.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
   <data name="&gt;&gt;chCreationDate.Name" xml:space="preserve">
     <value>chCreationDate</value>
   </data>
-  <data name="&gt;&gt;chCreationDate.Type" xml:space="preserve">
+  <data name="allPeriodicityLabel.Text" xml:space="preserve">
+    <value>Periodicity of every loan:</value>
+  </data>
+  <data name="&gt;&gt;chLoanOfficer.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;chFundingLine.Name" xml:space="preserve">
-    <value>chFundingLine</value>
+  <data name="allScheduleLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>350, 15</value>
   </data>
-  <data name="&gt;&gt;chFundingLine.Type" xml:space="preserve">
+  <data name="&gt;&gt;allPeriodicityComboBox.Parent" xml:space="preserve">
+    <value>pnlButtons</value>
+  </data>
+  <data name="&gt;&gt;chGracePeriod.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chAvailableFunds.Name" xml:space="preserve">
-    <value>chAvailableFunds</value>
-  </data>
-  <data name="&gt;&gt;chAvailableFunds.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chCompulsorySavings.Name" xml:space="preserve">
-    <value>chCompulsorySavings</value>
-  </data>
-  <data name="&gt;&gt;chCompulsorySavings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chCompulsoryPercentage.Name" xml:space="preserve">
-    <value>chCompulsoryPercentage</value>
-  </data>
-  <data name="&gt;&gt;chCompulsoryPercentage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;periodicityColumnHeader.Name" xml:space="preserve">
-    <value>periodicityColumnHeader</value>
-  </data>
-  <data name="&gt;&gt;periodicityColumnHeader.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;scheduleTypeColumnHeader.Name" xml:space="preserve">
-    <value>scheduleTypeColumnHeader</value>
-  </data>
-  <data name="&gt;&gt;scheduleTypeColumnHeader.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>VillageAddLoanForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.8.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="&gt;&gt;cbDonor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chCurrency.Name" xml:space="preserve">
+    <value>chCurrency</value>
+  </data>
+  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 25</value>
+  </data>
+  <data name="&gt;&gt;pnlButtons.Name" xml:space="preserve">
+    <value>pnlButtons</value>
+  </data>
+  <data name="allScheduleComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="&gt;&gt;lvMembers.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;allScheduleComboBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnSave.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="&gt;&gt;allScheduleLabel.Parent" xml:space="preserve">
+    <value>pnlButtons</value>
+  </data>
+  <data name="chCompulsorySavings.Width" type="System.Int32, mscorlib">
+    <value>109</value>
+  </data>
+  <data name="dtCreationDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>554, 201</value>
+  </data>
+  <data name="&gt;&gt;chInterest.Name" xml:space="preserve">
+    <value>chInterest</value>
+  </data>
+  <data name="cbDonor.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;chInterest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbAmount.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chInstallments.Name" xml:space="preserve">
+    <value>chInstallments</value>
+  </data>
+  <data name="&gt;&gt;allScheduleLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="udCompulsoryPercentage.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;cbFundingLine.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="dtCreationDate.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;tbEntryFee.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;periodicityComboBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="udGracePeriod.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 20</value>
+  </data>
+  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>711, 9</value>
+  </data>
+  <data name="udCompulsoryPercentage.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="chPassport.Width" type="System.Int32, mscorlib">
+    <value>89</value>
+  </data>
+  <data name="&gt;&gt;udInstallments.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="tbInterest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>381, 204</value>
+  </data>
+  <data name="&gt;&gt;tbInterest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chName.Width" type="System.Int32, mscorlib">
+    <value>132</value>
+  </data>
+  <data name="tbEntryFee.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cbLoanOfficer.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="allScheduleLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="allScheduleComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 21</value>
+  </data>
+  <data name="cbLoanOfficer.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;tbEntryFee.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;pnlButtons.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnSave.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="&gt;&gt;chAvailableFunds.Name" xml:space="preserve">
+    <value>chAvailableFunds</value>
+  </data>
+  <data name="chGracePeriod.Text" xml:space="preserve">
+    <value>Grace period</value>
+  </data>
+  <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="periodicityColumnHeader.Width" type="System.Int32, mscorlib">
+    <value>68</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1015, 407</value>
+  </data>
+  <data name="scheduleComboBox.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;udCompulsoryPercentage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;allPeriodicityComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
+    <value>pnlButtons</value>
+  </data>
+  <data name="allScheduleLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lvMembers.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;tbAmount.Name" xml:space="preserve">
+    <value>tbAmount</value>
+  </data>
+  <data name="&gt;&gt;udGracePeriod.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="allPeriodicityLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="chLoanOfficer.Text" xml:space="preserve">
+    <value>Loan officer</value>
+  </data>
+  <data name="tbAmount.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;periodicityComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="allPeriodicityLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 13</value>
+  </data>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>875, 9</value>
+  </data>
+  <data name="periodicityComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="chAmount.Width" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
+  <data name="&gt;&gt;tbInterest.Name" xml:space="preserve">
+    <value>tbInterest</value>
+  </data>
+  <data name="udInstallments.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;cbFundingLine.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;udGracePeriod.Name" xml:space="preserve">
+    <value>udGracePeriod</value>
+  </data>
+  <data name="&gt;&gt;chCreationDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;allScheduleLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="chAvailableFunds.Width" type="System.Int32, mscorlib">
+    <value>91</value>
+  </data>
+  <data name="allScheduleComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>498, 12</value>
+  </data>
+  <data name="dtCreationDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 20</value>
+  </data>
+  <data name="&gt;&gt;cbFundingLine.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbCompulsorySavings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="btnSave.Text" xml:space="preserve">
+    <value>Confirm Creation</value>
+  </data>
+  <data name="&gt;&gt;lvMembers.Type" xml:space="preserve">
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.8.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 25</value>
+  </data>
+  <data name="&gt;&gt;cbLoanOfficer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="scheduleTypeColumnHeader.Text" xml:space="preserve">
+    <value>Schedule</value>
+  </data>
+  <data name="tbAmount.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;cbFundingLine.Name" xml:space="preserve">
+    <value>cbFundingLine</value>
+  </data>
+  <data name="btnSave.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAADECAIAAAAdy+YyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACH0lEQVRoQ+3LS0gTcADH8V8QEUGHrh27
+        duvU1UMRFFQQiPQOegpGgmEghSEWJYiIRSZJmRhmiYgmmiWarUxt5PuxZOrc2sM555xu0+r+P/U9CMb/
+        y+f61W+U3YzsZmQ3I7sZ2c3IbkZ2M7Kbkd2M7GZkNyO6raPsZmQ3o82xra2vAXYz0C21lgKUTKWA/3xL
+        AptjSyQTgFaTCWCDt5XEKrDBWzyxAtBteTUOKLYSBzbHFo3HALotLi8BG7xFYlFA4aUoQLf5aARQKLoA
+        0C24GAYUiIQBuvkXQoB+hYOAvOEgQLe5+QAgT8gPaDboAzQd8AF/Ny8gt98DaMrvAeTyzQCa9E4DdBuf
+        cwMa80wBGpn9CWh4xgVo0D0BaMA9Dsg5NQqo3zUMqM81BKh3chBQz8QAIMeYE9DnUSegrpF+QJ1DvYA+
+        DvQAav/xBVCb0wGo5Xs3oOb+LkBNfZ2AGr91AKr/2g7ojeM9oNfdrYBefXoHqLqzCVBVRyOgyg8NgCra
+        3gIqb60D9LilFlBpcw2g4saXgIoaXgC6V18JqKCuAlB+bTmgvJpHgG5VlwK6WVUCKPt5MaCsZw8BXXt6
+        H9DFJ4WAzpXdBXSq9A6g9JI8QMeKcgEdeZAD6GDhDUBpBdcB7c/PBLTv9hVAe/MuAdqTex7Q7pwzgHZl
+        nwS0Mysd0I7ME4C2Xz0OaNvlo4C2XjgMaMvZQ4B0+gChjLR/lpH2B8auF1qedkGxAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="chInstallments.Text" xml:space="preserve">
+    <value>Installments</value>
+  </data>
+  <data name="cbLoanOfficer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>381, 282</value>
+  </data>
+  <data name="&gt;&gt;tbInterest.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

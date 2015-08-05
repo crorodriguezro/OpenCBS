@@ -77,13 +77,13 @@ namespace OpenCBS.GUI.Contracts
             // 
             // pnlButtons
             // 
+            resources.ApplyResources(this.pnlButtons, "pnlButtons");
             this.pnlButtons.Controls.Add(this.allScheduleLabel);
             this.pnlButtons.Controls.Add(this.allPeriodicityLabel);
             this.pnlButtons.Controls.Add(this.allScheduleComboBox);
             this.pnlButtons.Controls.Add(this.allPeriodicityComboBox);
             this.pnlButtons.Controls.Add(this.btnCancel);
             this.pnlButtons.Controls.Add(this.btnSave);
-            resources.ApplyResources(this.pnlButtons, "pnlButtons");
             this.pnlButtons.Name = "pnlButtons";
             // 
             // allScheduleLabel
@@ -98,17 +98,17 @@ namespace OpenCBS.GUI.Contracts
             // 
             // allScheduleComboBox
             // 
+            resources.ApplyResources(this.allScheduleComboBox, "allScheduleComboBox");
             this.allScheduleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.allScheduleComboBox.FormattingEnabled = true;
-            resources.ApplyResources(this.allScheduleComboBox, "allScheduleComboBox");
             this.allScheduleComboBox.Name = "allScheduleComboBox";
             this.allScheduleComboBox.SelectedIndexChanged += new System.EventHandler(this.allScheduleComboBox_SelectedIndexChanged);
             // 
             // allPeriodicityComboBox
             // 
+            resources.ApplyResources(this.allPeriodicityComboBox, "allPeriodicityComboBox");
             this.allPeriodicityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.allPeriodicityComboBox.FormattingEnabled = true;
-            resources.ApplyResources(this.allPeriodicityComboBox, "allPeriodicityComboBox");
             this.allPeriodicityComboBox.Name = "allPeriodicityComboBox";
             this.allPeriodicityComboBox.SelectedIndexChanged += new System.EventHandler(this.allPeriodicityComboBox_SelectedIndexChanged);
             // 
@@ -147,9 +147,9 @@ namespace OpenCBS.GUI.Contracts
             // 
             // cbLoanOfficer
             // 
+            resources.ApplyResources(this.cbLoanOfficer, "cbLoanOfficer");
             this.cbLoanOfficer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLoanOfficer.FormattingEnabled = true;
-            resources.ApplyResources(this.cbLoanOfficer, "cbLoanOfficer");
             this.cbLoanOfficer.Name = "cbLoanOfficer";
             // 
             // tbEntryFee
@@ -159,20 +159,21 @@ namespace OpenCBS.GUI.Contracts
             // 
             // cbFundingLine
             // 
+            resources.ApplyResources(this.cbFundingLine, "cbFundingLine");
             this.cbFundingLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFundingLine.FormattingEnabled = true;
-            resources.ApplyResources(this.cbFundingLine, "cbFundingLine");
             this.cbFundingLine.Name = "cbFundingLine";
             // 
             // cbDonor
             // 
+            resources.ApplyResources(this.cbDonor, "cbDonor");
             this.cbDonor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDonor.FormattingEnabled = true;
-            resources.ApplyResources(this.cbDonor, "cbDonor");
             this.cbDonor.Name = "cbDonor";
             // 
             // lvMembers
             // 
+            resources.ApplyResources(this.lvMembers, "lvMembers");
             this.lvMembers.CheckBoxes = true;
             this.lvMembers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chName,
@@ -190,7 +191,6 @@ namespace OpenCBS.GUI.Contracts
             this.chCompulsoryPercentage,
             this.periodicityColumnHeader,
             this.scheduleTypeColumnHeader});
-            resources.ApplyResources(this.lvMembers, "lvMembers");
             this.lvMembers.DoubleClickActivation = false;
             this.lvMembers.FullRowSelect = true;
             this.lvMembers.GridLines = true;
@@ -263,9 +263,9 @@ namespace OpenCBS.GUI.Contracts
             // 
             // cbCompulsorySavings
             // 
+            resources.ApplyResources(this.cbCompulsorySavings, "cbCompulsorySavings");
             this.cbCompulsorySavings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCompulsorySavings.FormattingEnabled = true;
-            resources.ApplyResources(this.cbCompulsorySavings, "cbCompulsorySavings");
             this.cbCompulsorySavings.Name = "cbCompulsorySavings";
             // 
             // udCompulsoryPercentage
@@ -275,23 +275,23 @@ namespace OpenCBS.GUI.Contracts
             // 
             // dtCreationDate
             // 
-            this.dtCreationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             resources.ApplyResources(this.dtCreationDate, "dtCreationDate");
+            this.dtCreationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtCreationDate.Name = "dtCreationDate";
             this.dtCreationDate.ValueChanged += new System.EventHandler(this.dtCreationDate_ValueChanged);
             // 
             // periodicityComboBox
             // 
+            resources.ApplyResources(this.periodicityComboBox, "periodicityComboBox");
             this.periodicityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.periodicityComboBox.FormattingEnabled = true;
-            resources.ApplyResources(this.periodicityComboBox, "periodicityComboBox");
             this.periodicityComboBox.Name = "periodicityComboBox";
             // 
             // scheduleComboBox
             // 
+            resources.ApplyResources(this.scheduleComboBox, "scheduleComboBox");
             this.scheduleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.scheduleComboBox.FormattingEnabled = true;
-            resources.ApplyResources(this.scheduleComboBox, "scheduleComboBox");
             this.scheduleComboBox.Name = "scheduleComboBox";
             // 
             // VillageAddLoanForm
