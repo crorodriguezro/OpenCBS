@@ -40,6 +40,7 @@ using OpenCBS.Shared;
 using OpenCBS.CoreDomain.Online;
 using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.Shared.Settings;
+using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 
 namespace OpenCBS.GUI.Contracts
 {
@@ -63,13 +64,23 @@ namespace OpenCBS.GUI.Contracts
         private const int IdxRemainingFlMoney = 10;
         private const int IdxCompulsorySavings = 11;
         private const int IdxCompulsoryPercentage = 12;
-        //private const int IdxPaymentMethod = 13;
+        private const int IdxPeriodicity = 13;
+        private const int IdxScheduleType = 14;
 
         private int decimalPlaces = 0;
 
         private readonly FundingLineServices _fLServices;
         private decimal _accumulatedAmount;
         private readonly NonSolidaryGroupForm _nsgForm;
+
+        private Dictionary<string, OLoanTypes> _scheduleTypes;
+        private string _allScheduleType;
+        private string _flatScheduleType;
+        private string _decliningPrincipalType;
+        private string _declininingInstallmentsType;
+
+        private InstallmentType _allPeriodicity;
+        private bool _isTheAllOptionFound = false;
 
         public VillageAddLoanForm(Village village, LoanProduct product, NonSolidaryGroupForm nsgForm)
         {
@@ -79,8 +90,23 @@ namespace OpenCBS.GUI.Contracts
             _product.EntryFees = ServicesProvider.GetInstance().GetProductServices().GetProductEntryFees(_product, village);
             _fLServices = new FundingLineServices(User.CurrentUser);
             _accumulatedAmount = 0;
+            SetScheduleNames();
             InitializeComponent();
             InitializeControls();
+        }
+
+        private void SetScheduleNames()
+        {
+            _allScheduleType = GetString("FrmAddLoanProduct", "allScheduleTypes");
+            _flatScheduleType = GetString("FrmAddLoanProduct", "Flat.Text");
+            _decliningPrincipalType = GetString("FrmAddLoanProduct", "DecliningFixedPrincipal.Text");
+            _declininingInstallmentsType = GetString("FrmAddLoanProduct", "DecliningFixedInstallments.Text");
+
+            _scheduleTypes = new Dictionary<string, OLoanTypes>();
+            _scheduleTypes.Add(_allScheduleType, OLoanTypes.All);
+            _scheduleTypes.Add(_flatScheduleType, OLoanTypes.Flat);
+            _scheduleTypes.Add(_decliningPrincipalType, OLoanTypes.DecliningFixedPrincipal);
+            _scheduleTypes.Add(_declininingInstallmentsType, OLoanTypes.DecliningFixedInstallments);
         }
 
         private void InitializeControls()
@@ -210,6 +236,79 @@ namespace OpenCBS.GUI.Contracts
                 {
                     udCompulsoryPercentage.Minimum = _product.CompulsoryAmountMin ?? 0;
                     udCompulsoryPercentage.Maximum = _product.CompulsoryAmountMax ?? 0;
+                }
+            }
+
+            InitializeInstallmentTypeComboBoxes();
+            InitializeScheduleTypeComboBoxes();
+        }
+
+        private void InitializeInstallmentTypeComboBoxes()
+        {
+            var periodicityComboBoxes = new List<ComboBox>();
+            periodicityComboBoxes.Add(periodicityComboBox);
+            periodicityComboBoxes.Add(allPeriodicityComboBox);
+
+            _allPeriodicity = new InstallmentType { Id = 0, Name = GetString("FrmAddLoanProduct", "allInstallmentTypes") };
+            var installmentTypes = ServicesProvider.GetInstance().GetProductServices().FindAllInstallmentTypes();
+
+            foreach (var comboBox in periodicityComboBoxes)
+            {
+                comboBox.Items.Add(_allPeriodicity);
+                foreach (var type in installmentTypes)
+                    comboBox.Items.Add(type);
+                
+                comboBox.SelectedItem = _product.InstallmentType;
+            }
+        }
+
+        private void InitializeScheduleTypeComboBoxes()
+        {
+            var scheduleComboBoxes = new List<ComboBox>();
+            scheduleComboBoxes.Add(scheduleComboBox);
+            scheduleComboBoxes.Add(allScheduleComboBox);
+
+            var scripts = ServicesProvider.GetInstance().GetProductServices().SelectLoanProuctTypeScripts();
+            var scheduleNames = ServicesProvider.GetInstance().GetContractServices().GetScheduleGeneratorNames();
+
+            foreach (var script in scripts)
+                _scheduleTypes.Add(script, OLoanTypes.CustomLoanType);
+
+            foreach (var scheduleName in scheduleNames)
+                _scheduleTypes.Add(scheduleName, OLoanTypes.CustomLoanType);
+
+            foreach (var comboBox in scheduleComboBoxes)
+            {
+                comboBox.Items.Add(_allScheduleType);
+                comboBox.Items.Add(_flatScheduleType);
+                comboBox.Items.Add(_decliningPrincipalType);
+                comboBox.Items.Add(_declininingInstallmentsType);
+
+                foreach (var script in scripts)
+                    comboBox.Items.Add(script);
+
+                foreach (var name in scheduleNames)
+                    comboBox.Items.Add(name);
+
+                switch (_product.LoanType)
+                {
+                    case OLoanTypes.All:
+                        comboBox.SelectedIndex = 0;
+                        break;
+                    case OLoanTypes.Flat:
+                        comboBox.SelectedIndex = 1;
+                        break;
+                    case OLoanTypes.DecliningFixedPrincipal:
+                        comboBox.SelectedIndex = 2;
+                        break;
+                    case OLoanTypes.DecliningFixedInstallments:
+                        comboBox.SelectedIndex = 3;
+                        break;
+                    case OLoanTypes.CustomLoanType:
+                        comboBox.SelectedItem = _product.ScriptName;
+                        break;
+                    default:
+                        break;
                 }
             }
         }
@@ -414,20 +513,24 @@ namespace OpenCBS.GUI.Contracts
                         item.SubItems[IdxCompulsoryPercentage].Tag = _product.CompulsoryAmountMin;
                     }
                 }
-                /*if (string.IsNullOrEmpty(item.SubItems[IdxPaymentMethod].Text))
+                if (string.IsNullOrEmpty(item.SubItems[IdxPeriodicity].Text))
                 {
-                    cbPaymentMethods.Items.Clear();
-                    List<PaymentMethod> methods = ServicesProvider.GetInstance().GetPaymentMethodServices().GetAllPaymentMethods();
-
-                    if (methods.Count > 0)
+                    item.SubItems[IdxPeriodicity].Text = ((VillageMember)e.Item.Tag).Product.InstallmentType.ToString();
+                    item.SubItems[IdxPeriodicity].Tag = ((VillageMember)e.Item.Tag).Product.InstallmentType;
+                }
+                if (string.IsNullOrEmpty(item.SubItems[IdxScheduleType].Text))
+                {
+                    if (((VillageMember)e.Item.Tag).Product.LoanType == OLoanTypes.CustomLoanType)
                     {
-                        foreach (PaymentMethod method in methods)
-                            cbPaymentMethods.Items.Add(method.Name);
-
-                        item.SubItems[IdxPaymentMethod].Text = methods[0].Name;
-                        item.SubItems[IdxPaymentMethod].Tag = methods[0].Method;
+                        item.SubItems[IdxScheduleType].Text = ((VillageMember)e.Item.Tag).Product.ScriptName;
+                        item.SubItems[IdxScheduleType].Tag = _scheduleTypes.Where(x => x.Key == ((VillageMember)e.Item.Tag).Product.ScriptName).FirstOrDefault();
                     }
-                }*/
+                    else
+                    {
+                        item.SubItems[IdxScheduleType].Text = _scheduleTypes.Where(x => x.Value == ((VillageMember)e.Item.Tag).Product.LoanType).FirstOrDefault().Key;
+                        item.SubItems[IdxScheduleType].Tag = _scheduleTypes.Where(x => x.Value == ((VillageMember)e.Item.Tag).Product.LoanType).FirstOrDefault();
+                    }
+                }
             }
             else
             {
@@ -527,17 +630,15 @@ namespace OpenCBS.GUI.Contracts
                             lvMembers.StartEditing(udCompulsoryPercentage, e.Item, e.SubItem);
                         }
                         break;
-                    /*
-                    case IdxPaymentMethod:
-                        cbPaymentMethods.Items.Clear();
-                        List<PaymentMethod> methods = ServicesProvider.GetInstance().GetPaymentMethodServices().GetAllPaymentMethods();
 
-                        foreach (PaymentMethod method in methods) 
-                            cbPaymentMethods.Items.Add(method.Name);
-
-                        lvMembers.StartEditing(cbPaymentMethods, e.Item, e.SubItem);
+                    case IdxPeriodicity:
+                        lvMembers.StartEditing(periodicityComboBox, e.Item, e.SubItem);
                         break;
-                        */
+
+                    case IdxScheduleType:
+                        lvMembers.StartEditing(scheduleComboBox, e.Item, e.SubItem);
+                        break;
+
                     default:
                         break;
                 }
@@ -686,11 +787,19 @@ namespace OpenCBS.GUI.Contracts
                     if (_product.UseCompulsorySavings)
                         e.Item.SubItems[e.SubItem].Tag = int.Parse(e.DisplayText);
                     break;
-                /*
-                case IdxPaymentMethod:
-                        e.Item.SubItems[e.SubItem].Tag = cbPaymentMethods.SelectedItem;
+
+                case IdxPeriodicity: // Periodicity
+                    e.Item.SubItems[e.SubItem].Tag = periodicityComboBox.SelectedItem;
+                    if (_isTheAllOptionFound && periodicityComboBox.SelectedItem != _allPeriodicity)
+                        e.Item.SubItems[e.SubItem].BackColor = Color.White;
                     break;
-                    */
+
+                case IdxScheduleType: // Schedule
+                    e.Item.SubItems[e.SubItem].Tag = _scheduleTypes.Where(x => x.Key == scheduleComboBox.SelectedItem.ToString()).FirstOrDefault();
+                    if (_isTheAllOptionFound && scheduleComboBox.SelectedItem.ToString() != _allScheduleType)
+                        e.Item.SubItems[e.SubItem].BackColor = Color.White;
+                        break;
+
                 default:
                     break;
             }
@@ -761,6 +870,7 @@ namespace OpenCBS.GUI.Contracts
                 }*/
             }
 
+            if (TryFindAndMarkTheAllOptions()) return;
             if(!_nsgForm.Save()) return;
 
             Loan loan = null;
@@ -775,31 +885,23 @@ namespace OpenCBS.GUI.Contracts
                     Project project;
                     if (null == member) continue;
                     
-                    switch (member.Product.LoanType)
-                    {
-                        case OLoanTypes.All:
-                            break;
-                        case OLoanTypes.Flat:
-                            member.Product.ScriptName = null;
-                            break;
-                        case OLoanTypes.DecliningFixedPrincipal:
-                            member.Product.ScriptName = null;
-                            break;
-                        case OLoanTypes.DecliningFixedInstallments:
-                            member.Product.ScriptName = null;
-                            break;
-                        case OLoanTypes.CustomLoanType:
-                            break;
-                        default:
-                            break;
-                    }
-
                     OCurrency amount = (OCurrency)item.SubItems[IdxAmount].Tag;
                     decimal interest = (decimal)item.SubItems[IdxInterest].Tag;
                     int gracePeriod = (int)item.SubItems[IdxGracePeriod].Tag;
                     int installments = (int)item.SubItems[IdxInstallments].Tag;
                     DateTime date = Convert.ToDateTime(item.SubItems[IdxCreationDate].Tag);
 
+                    var periodicity = (InstallmentType)item.SubItems[IdxPeriodicity].Tag;
+                    var scheduleTypeKeyValue = (KeyValuePair<string, OLoanTypes>)item.SubItems[IdxScheduleType].Tag;
+
+                    if (scheduleTypeKeyValue.Value != OLoanTypes.CustomLoanType)
+                        member.Product.ScriptName = null;
+                    else
+                        member.Product.ScriptName = scheduleTypeKeyValue.Key;
+
+                    _product.InstallmentType = periodicity;
+                    _product.LoanType = scheduleTypeKeyValue.Value;
+                    
                     //creation of loan
                     loan = new Loan(_product,
                                     amount,
@@ -821,7 +923,6 @@ namespace OpenCBS.GUI.Contracts
                             OverDuePrincipal = _product.NonRepaymentPenalties.OverDuePrincipal ?? 0,
                             OverDueInterest = _product.NonRepaymentPenalties.OverDueInterest ?? 0
                         },
-                        InstallmentType = _product.InstallmentType,
                         AnticipatedTotalRepaymentPenalties = 0,
                         FundingLine = item.SubItems[IdxFundingLine].Tag as FundingLine,
                         LoanOfficer = (User)item.SubItems[IdxLoanOfficer].Tag,
@@ -836,11 +937,12 @@ namespace OpenCBS.GUI.Contracts
                         InterestRateMax = member.Product.InterestRateMax,
                         NmbOfInstallmentsMin = member.Product.NbOfInstallmentsMin,
                         NmbOfInstallmentsMax = member.Product.NbOfInstallmentsMax,
-                        ScheduleType = member.Product.LoanType,
+                        InstallmentType = periodicity,
+                        ScheduleType = scheduleTypeKeyValue.Value,
                         ScriptName = member.Product.ScriptName
                     };
-                    loan.InstallmentList =
-                        ServicesProvider.GetInstance().GetContractServices().SimulateScheduleCreation(loan);
+
+                    loan.InstallmentList = ServicesProvider.GetInstance().GetContractServices().SimulateScheduleCreation(loan);
                     loan.LoanEntryFeesList = new List<LoanEntryFee>();
                     foreach (EntryFee fee in loan.Product.EntryFees)
                     {
@@ -910,6 +1012,30 @@ namespace OpenCBS.GUI.Contracts
             }
         }
 
+        private bool TryFindAndMarkTheAllOptions()
+        {
+            _isTheAllOptionFound = false;
+
+            foreach (ListViewItem lvi in lvMembers.Items)
+            {
+                if (!lvi.Checked || lvi == _itemTotal) continue;
+
+                if (lvi.SubItems[IdxPeriodicity].Text == _allPeriodicity.ToString())
+                {
+                    lvi.SubItems[IdxPeriodicity].BackColor = Color.Red;
+                    _isTheAllOptionFound = true;
+                }
+
+                if (lvi.SubItems[IdxScheduleType].Text == _allScheduleType)
+                {
+                    lvi.SubItems[IdxScheduleType].BackColor = Color.Red;
+                    _isTheAllOptionFound = true;
+                }
+            }
+
+            return _isTheAllOptionFound;
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
@@ -943,6 +1069,41 @@ namespace OpenCBS.GUI.Contracts
         private void dtCreationDate_ValueChanged(object sender, EventArgs e)
         {
             _CreditCommitteeDate = dtCreationDate.Value;
+        }
+
+        private void allPeriodicityComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvMembers.Items.Count == 0) return;
+            var allPeriodicity = (InstallmentType)allPeriodicityComboBox.SelectedItem;
+            periodicityComboBox.SelectedItem = allPeriodicity;
+
+            foreach (ListViewItem lvi in lvMembers.Items)
+            {
+                if (lvi == _itemTotal) continue;
+                ((VillageMember)lvi.Tag).Product.InstallmentType = allPeriodicity;
+                lvi.SubItems[IdxPeriodicity].Tag = allPeriodicity;
+                
+                if (!lvi.Checked) continue;
+                lvi.SubItems[IdxPeriodicity].Text = allPeriodicity.ToString();
+            }
+        }
+
+        private void allScheduleComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvMembers.Items.Count == 0) return;
+            scheduleComboBox.SelectedItem = allScheduleComboBox.SelectedItem.ToString();
+            var allScheduleKeyValue = _scheduleTypes.Where(x => x.Key == scheduleComboBox.SelectedItem.ToString()).FirstOrDefault();
+
+            foreach (ListViewItem lvi in lvMembers.Items)
+            {
+                if (lvi == _itemTotal) continue;
+                lvi.SubItems[IdxScheduleType].Tag = allScheduleKeyValue;
+                ((VillageMember)lvi.Tag).Product.LoanType = allScheduleKeyValue.Value;
+                ((VillageMember)lvi.Tag).Product.ScriptName = allScheduleKeyValue.Key;
+
+                if (!lvi.Checked) continue;
+                lvi.SubItems[IdxScheduleType].Text = allScheduleComboBox.SelectedItem.ToString();
+            }
         }
     }
 }
