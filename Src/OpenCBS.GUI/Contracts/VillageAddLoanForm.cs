@@ -200,8 +200,14 @@ namespace OpenCBS.GUI.Contracts
                         item.SubItems.Add("");
                         item.SubItems.Add(new ListViewItem.ListViewSubItem(item, "", _product.CompulsoryAmount.HasValue ? dfc : fc, bc, item.Font));
                     }
+
                     lvMembers.Items.Add(item);
                     item.SubItems[IdxCurrency].Tag = member.Product.Currency;
+
+                    if (!_allowPeriodicityEditing)
+                        item.SubItems[IdxPeriodicity].ForeColor = dfc;
+                    if (!_allowScheduleEditing)
+                        item.SubItems[IdxScheduleType].ForeColor = dfc;
                 }
             }
             if (_hasMember)
