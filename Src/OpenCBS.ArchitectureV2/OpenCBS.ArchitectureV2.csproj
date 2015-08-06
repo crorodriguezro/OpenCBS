@@ -94,6 +94,7 @@
     <Compile Include="CommandData\EditSavingCommandData.cs" />
     <Compile Include="CommandData\OpenEmailCommandData.cs" />
     <Compile Include="CommandData\OpenUrlCommandData.cs" />
+    <Compile Include="CommandData\PrintControlCommandData.cs" />
     <Compile Include="CommandData\SearchClientCommandData.cs" />
     <Compile Include="CommandData\SearchLoanCommandData.cs" />
     <Compile Include="CommandData\ShowAlertsCommandData.cs" />
