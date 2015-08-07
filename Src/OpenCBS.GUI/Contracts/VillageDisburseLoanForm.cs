@@ -34,10 +34,12 @@ using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
 using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
+using System.Linq;
 
 namespace OpenCBS.GUI.Contracts
 {
     using OpenCBS.ExceptionsHandler.Exceptions.SavingExceptions;
+    using OpenCBS.CoreDomain.Contracts.Collaterals;
 
     public partial class VillageDisburseLoanForm : SweetBaseForm
     {
@@ -50,6 +52,7 @@ namespace OpenCBS.GUI.Contracts
         private bool _notEnoughMoney;
         private ListViewItem _itemTotal = new ListViewItem("");
         private bool _hasMember;
+        private bool _isFormStillNeeded = false;
         //private int _paymentMethodId;
 
         private const int IdxDDate = 2;
@@ -259,12 +262,47 @@ namespace OpenCBS.GUI.Contracts
                         MessageBoxButtons.YesNo).Equals(DialogResult.Yes))
                         return;
                 }
+
+                //Guarantors and Collaterals Check
+                var isGuarantorAndCollateralAmountSufficient = true;
+                var message = "";
+                var failedItems = new List<ListViewItem>();
+
+                foreach (ListViewItem item in lvMembers.Items)
+                {
+                    if (!item.Checked || item == _itemTotal) continue;
+                    var loan = item.Tag as Loan;
+                    if (loan != null)
+                    {
+                        var result = ServicesProvider.GetInstance().GetContractServices().CheckIfGuarantorsAndCollateralsAmountIsSufficient(loan);
+                        if (result.Key == false)
+                        {
+                            isGuarantorAndCollateralAmountSufficient = false;
+                            message = result.Value;
+                            failedItems.Add(item);
+                        }
+                    }
+                }
+
+                if (!isGuarantorAndCollateralAmountSufficient)
+                {
+                    _isFormStillNeeded = true;
+                    foreach (var item in failedItems)
+                        item.BackColor = Color.Red;
+                    
+                    Fail(message);
+                    return;
+                }
+                else
+                {
+                    _isFormStillNeeded = false;
+                }
+
                 foreach (ListViewItem item in lvMembers.Items)
                 {
                     if (!item.Checked || item == _itemTotal) continue;
                     var loan = item.Tag as Loan;
                     DateTime date = Convert.ToDateTime(item.SubItems[IdxDDate].Text);
-
                     VillageMember activeMember = null;
                     
                     int index = 0;
@@ -397,6 +435,15 @@ namespace OpenCBS.GUI.Contracts
         {
             if (e.SubItem == IdxPaymentMethod)
                 e.Item.SubItems[e.SubItem].Tag = cbPaymentMethods.SelectedItem;
+        }
+
+        private void VillageDisburseLoanForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                if (_isFormStillNeeded)
+                    e.Cancel = true;
+            }
         }
     }
 }

@@ -209,6 +209,7 @@ namespace OpenCBS.GUI.Contracts
             this.Controls.Add(this.dtDisbursement);
             this.Controls.Add(this.pnlButtons);
             this.Name = "VillageDisburseLoanForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VillageDisburseLoanForm_FormClosing);
             this.pnlButtons.ResumeLayout(false);
             this.pnlButtons.PerformLayout();
             this.disburseLoansStatusBar.ResumeLayout(false);

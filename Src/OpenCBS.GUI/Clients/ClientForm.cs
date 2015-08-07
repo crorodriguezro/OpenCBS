@@ -3836,42 +3836,48 @@ namespace OpenCBS.GUI.Clients
         private void buttonLoanDisbursment_Click(object sender, EventArgs e)
         {
             // Collateral & Guarantor
-            if (_credit.Product.UseGuarantorCollateral)
+            var resultKeyValue = ServicesProvider.GetInstance().GetContractServices().CheckIfGuarantorsAndCollateralsAmountIsSufficient(_credit);
+            if (resultKeyValue.Key == false)
             {
-                if (!_credit.Product.SetSeparateGuarantorCollateral)
-                {
-                    if (_totalCollateralAmount + _totalGuarantorAmount <
-                        _credit.Amount.Value * _credit.Product.PercentageTotalGuarantorCollateral / 100)
-                    {
-                        var message = string.Format(ML.GetString(Ressource.ClientForm, "CollateralGuarantorAmountIsNotEnough"),
-                                        ServicesHelper.ConvertDecimalToString(_credit.Amount.Value * _credit.Product.PercentageTotalGuarantorCollateral / 100),
-                                        _credit.Product.PercentageTotalGuarantorCollateral);
-                        Fail(message);
-                        return;
-                    }
-                }
-                else
-                {
-                    if (_totalGuarantorAmount < _credit.Amount.Value * _credit.Product.PercentageSeparateGuarantour / 100)
-                    {
-                        var message = string.Format(ML.GetString(Ressource.ClientForm, "GuarantorAmountIsNotEnough"),
-                                        ServicesHelper.ConvertDecimalToString(_credit.Amount.Value * _credit.Product.PercentageSeparateGuarantour / 100),
-                                        _credit.Product.PercentageSeparateGuarantour);
-                        Fail(message);
-                        return;
-                    }
-
-                    if (_totalCollateralAmount < _credit.Amount.Value * _credit.Product.PercentageSeparateCollateral / 100)
-                    {
-                        var message = string.Format(ML.GetString(Ressource.ClientForm, "CollateralAmountIsNotEnough"),
-                                        ServicesHelper.ConvertDecimalToString(_credit.Amount.Value * _credit.Product.PercentageSeparateCollateral / 100),
-                                        _credit.Product.PercentageSeparateCollateral);
-                        Fail(message);
-
-                        return;
-                    }
-                }
+                Fail(resultKeyValue.Value);
+                return;
             }
+            //if (_credit.Product.UseGuarantorCollateral)
+            //{
+            //    if (!_credit.Product.SetSeparateGuarantorCollateral)
+            //    {
+            //        if (_totalCollateralAmount + _totalGuarantorAmount <
+            //            _credit.Amount.Value * _credit.Product.PercentageTotalGuarantorCollateral / 100)
+            //        {
+            //            var message = string.Format(ML.GetString(Ressource.ClientForm, "CollateralGuarantorAmountIsNotEnough"),
+            //                            ServicesHelper.ConvertDecimalToString(_credit.Amount.Value * _credit.Product.PercentageTotalGuarantorCollateral / 100),
+            //                            _credit.Product.PercentageTotalGuarantorCollateral);
+            //            Fail(message);
+            //            return;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        if (_totalGuarantorAmount < _credit.Amount.Value * _credit.Product.PercentageSeparateGuarantour / 100)
+            //        {
+            //            var message = string.Format(ML.GetString(Ressource.ClientForm, "GuarantorAmountIsNotEnough"),
+            //                            ServicesHelper.ConvertDecimalToString(_credit.Amount.Value * _credit.Product.PercentageSeparateGuarantour / 100),
+            //                            _credit.Product.PercentageSeparateGuarantour);
+            //            Fail(message);
+            //            return;
+            //        }
+
+            //        if (_totalCollateralAmount < _credit.Amount.Value * _credit.Product.PercentageSeparateCollateral / 100)
+            //        {
+            //            var message = string.Format(ML.GetString(Ressource.ClientForm, "CollateralAmountIsNotEnough"),
+            //                            ServicesHelper.ConvertDecimalToString(_credit.Amount.Value * _credit.Product.PercentageSeparateCollateral / 100),
+            //                            _credit.Product.PercentageSeparateCollateral);
+            //            Fail(message);
+
+            //            return;
+            //        }
+            //    }
+            //}
 
             // Compulsory savings
             if (_credit.Product.UseCompulsorySavings)
