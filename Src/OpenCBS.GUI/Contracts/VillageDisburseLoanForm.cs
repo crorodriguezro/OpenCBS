@@ -38,7 +38,6 @@ using OpenCBS.Shared.Settings;
 namespace OpenCBS.GUI.Contracts
 {
     using OpenCBS.ExceptionsHandler.Exceptions.SavingExceptions;
-    using OpenCBS.CoreDomain.Contracts.Collaterals;
 
     public partial class VillageDisburseLoanForm : SweetBaseForm
     {
