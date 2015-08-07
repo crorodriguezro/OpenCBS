@@ -469,7 +469,7 @@ namespace OpenCBS.Services
         {
             OCurrency totalCollateralAmount = 0;
 
-            List<string> amountPropertyNames = new List<string>()
+            var amountPropertyNames = new List<string>()
             {
                 MultiLanguageStrings.GetString("FrmAddCollateralProduct", "propertyAmount"),
                 "Montant",

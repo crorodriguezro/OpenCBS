@@ -270,16 +270,12 @@ namespace OpenCBS.GUI.Contracts
                 {
                     if (!item.Checked || item == _itemTotal) continue;
                     var loan = item.Tag as Loan;
-                    if (loan != null)
-                    {
-                        var result = ServicesProvider.GetInstance().GetContractServices().CheckIfGuarantorsAndCollateralsAmountIsSufficient(loan);
-                        if (result.Key == false)
-                        {
-                            isGuarantorAndCollateralAmountSufficient = false;
-                            message = result.Value;
-                            failedItems.Add(item);
-                        }
-                    }
+                    if (loan == null) continue;
+                    var result = ServicesProvider.GetInstance().GetContractServices().CheckIfGuarantorsAndCollateralsAmountIsSufficient(loan);
+                    if (result.Key) continue;
+                    isGuarantorAndCollateralAmountSufficient = false;
+                    message = result.Value;
+                    failedItems.Add(item);
                 }
 
                 if (!isGuarantorAndCollateralAmountSufficient)
@@ -300,7 +296,7 @@ namespace OpenCBS.GUI.Contracts
                 {
                     if (!item.Checked || item == _itemTotal) continue;
                     var loan = item.Tag as Loan;
-                    DateTime date = Convert.ToDateTime(item.SubItems[IdxDDate].Text);
+                    var date = Convert.ToDateTime(item.SubItems[IdxDDate].Text);
                     VillageMember activeMember = null;
                     
                     int index = 0;
