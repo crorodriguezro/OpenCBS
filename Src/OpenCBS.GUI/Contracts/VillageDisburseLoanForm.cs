@@ -34,7 +34,6 @@ using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
 using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
-using System.Linq;
 
 namespace OpenCBS.GUI.Contracts
 {
