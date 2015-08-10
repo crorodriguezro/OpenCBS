@@ -49,7 +49,8 @@ namespace OpenCBS.GUI.Configuration
             _exchangeRate=null;
             _fundingLineEvent = new FundingLineEvent();
             InitializeComboBoxDirections();
-            dateTimePickerEvent.Value = TimeProvider.Now;
+            dateTimePickerEvent.MinDate = _FundingLine.StartDate;
+            dateTimePickerEvent.MaxDate = _FundingLine.EndDate;
             dateTimePickerEvent.Format = DateTimePickerFormat.Custom;
             dateTimePickerEvent.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
         }
