@@ -57,6 +57,7 @@ using OpenCBS.Services.Events;
 using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
 using Installment = OpenCBS.CoreDomain.Contracts.Loans.Installments.Installment;
+using OpenCBS.MultiLanguageRessources;
 
 namespace OpenCBS.Services
 {
@@ -409,6 +410,83 @@ namespace OpenCBS.Services
                                                                                           sqlTransaction, false);
                 }
             }
+        }
+
+        public KeyValuePair<bool, string> CheckIfGuarantorsAndCollateralsAmountIsSufficient(Loan loan)
+        {
+            var isAmountSufficient = true;
+            var message = "";
+
+            if (loan.Product.UseGuarantorCollateral)
+            {
+                var totalCollateralAmount = CalculateTotalCollateralAmount(loan);
+                var totalGuarantorAmount = CalculateTotalGuarantorAmount(loan);
+
+                if (!loan.Product.SetSeparateGuarantorCollateral)
+                {
+                    if (totalCollateralAmount + totalGuarantorAmount < loan.Amount.Value * loan.Product.PercentageTotalGuarantorCollateral / 100)
+                    {
+                        isAmountSufficient = false;
+                        message = string.Format(MultiLanguageStrings.GetString(Ressource.ClientForm, "CollateralGuarantorAmountIsNotEnough"),
+                                        ServicesHelper.ConvertDecimalToString(loan.Amount.Value * loan.Product.PercentageTotalGuarantorCollateral / 100),
+                                        loan.Product.PercentageTotalGuarantorCollateral);
+                    }
+                }
+                else
+                {
+                    if (totalGuarantorAmount < loan.Amount.Value * loan.Product.PercentageSeparateGuarantour / 100)
+                    {
+                        isAmountSufficient = false;
+                        message = string.Format(MultiLanguageStrings.GetString(Ressource.ClientForm, "GuarantorAmountIsNotEnough"),
+                                        ServicesHelper.ConvertDecimalToString(loan.Amount.Value * loan.Product.PercentageSeparateGuarantour / 100),
+                                        loan.Product.PercentageSeparateGuarantour);
+                    }
+                    
+                    if (totalCollateralAmount < loan.Amount.Value * loan.Product.PercentageSeparateCollateral / 100)
+                    {
+                        isAmountSufficient = false;
+                        message = string.Format(MultiLanguageStrings.GetString(Ressource.ClientForm, "CollateralAmountIsNotEnough"),
+                                        ServicesHelper.ConvertDecimalToString(loan.Amount.Value * loan.Product.PercentageSeparateCollateral / 100),
+                                        loan.Product.PercentageSeparateCollateral);
+                    }
+                }
+            }
+
+            return new KeyValuePair<bool, string>(isAmountSufficient, message);
+        }
+
+        private OCurrency CalculateTotalGuarantorAmount(Loan loan)
+        {
+            OCurrency totalGuarantorAmount = 0;
+
+            foreach (var guarantor in loan.Guarantors)
+                totalGuarantorAmount += guarantor.Amount;
+
+            return totalGuarantorAmount;
+        }
+
+        private OCurrency CalculateTotalCollateralAmount(Loan loan)
+        {
+            OCurrency totalCollateralAmount = 0;
+
+            var amountPropertyNames = new List<string>()
+            {
+                MultiLanguageStrings.GetString("FrmAddCollateralProduct", "propertyAmount"),
+                "Montant",
+                "Сумма",
+                "Amount"
+            };
+
+            foreach (var collateral in loan.Collaterals)
+            {
+                var collateralAmount = from c in collateral.PropertyValues
+                                       where amountPropertyNames.Contains(c.Property.Name)
+                                       select new OCurrency(Converter.CustomFieldValueToDecimal(c.Value));
+
+                totalCollateralAmount += collateralAmount.FirstOrDefault();
+            }
+
+            return totalCollateralAmount;
         }
 
         public Loan Disburse(Loan pLoan, DateTime pDateToDisburse, bool pAlignInstallmentsDatesOnRealDisbursmentDate,
