@@ -3,5 +3,6 @@
     public interface IVillageBankPresenterCallbacks
     {
         void Repay();
+        void DetachView();
     }
 }

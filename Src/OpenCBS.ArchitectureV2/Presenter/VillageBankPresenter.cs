@@ -46,5 +46,10 @@ namespace OpenCBS.ArchitectureV2.Presenter
         {
             _applicationController.Execute(new BatchRepayCommandData { VillageBankId = _villageBankId });
         }
+
+        public void DetachView()
+        {
+            _applicationController.Unsubscribe(this);
+        }
     }
 }
