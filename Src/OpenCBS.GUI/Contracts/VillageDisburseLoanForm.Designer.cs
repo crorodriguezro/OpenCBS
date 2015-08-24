@@ -53,7 +53,9 @@ namespace OpenCBS.GUI.Contracts
             this.colFundingLine = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colNewFLAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPaymentMethod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cbPaymentMethods = new System.Windows.Forms.ComboBox();
+            this.tbComment = new System.Windows.Forms.TextBox();
             this.pnlButtons.SuspendLayout();
             this.disburseLoansStatusBar.SuspendLayout();
             this.SuspendLayout();
@@ -123,7 +125,8 @@ namespace OpenCBS.GUI.Contracts
             this.colLoanOfficer,
             this.colFundingLine,
             this.colNewFLAmount,
-            this.colPaymentMethod});
+            this.colPaymentMethod,
+            this.colComment});
             resources.ApplyResources(this.lvMembers, "lvMembers");
             this.lvMembers.DoubleClickActivation = false;
             this.lvMembers.FullRowSelect = true;
@@ -189,6 +192,10 @@ namespace OpenCBS.GUI.Contracts
             // 
             resources.ApplyResources(this.colPaymentMethod, "colPaymentMethod");
             // 
+            // colComment
+            // 
+            resources.ApplyResources(this.colComment, "colComment");
+            // 
             // cbPaymentMethods
             // 
             this.cbPaymentMethods.DisplayMember = "Name";
@@ -199,12 +206,20 @@ namespace OpenCBS.GUI.Contracts
             this.cbPaymentMethods.ValueMember = "Id";
             this.cbPaymentMethods.SelectedIndexChanged += new System.EventHandler(this.cbPaymentMethods_SelectedIndexChanged);
             // 
+            // tbComment
+            // 
+            this.tbComment.Name = "tbComment";
+            this.tbComment.Size = new System.Drawing.Size(185, 20);
+            this.tbComment.TabIndex = 0;
+            resources.ApplyResources(this.tbComment, "tbComment");
+            // 
             // VillageDisburseLoanForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lvMembers);
             this.Controls.Add(this.cbPaymentMethods);
+            this.Controls.Add(this.tbComment);
             this.Controls.Add(this.dtpRepayment);
             this.Controls.Add(this.dtDisbursement);
             this.Controls.Add(this.pnlButtons);
@@ -241,6 +256,8 @@ namespace OpenCBS.GUI.Contracts
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ColumnHeader colCurrency;
         private System.Windows.Forms.ComboBox cbPaymentMethods;
+        private System.Windows.Forms.TextBox tbComment;
         private System.Windows.Forms.ColumnHeader colPaymentMethod;
+        private System.Windows.Forms.ColumnHeader colComment;
     }
 }
