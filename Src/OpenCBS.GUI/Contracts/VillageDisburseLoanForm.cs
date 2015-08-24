@@ -390,7 +390,6 @@ namespace OpenCBS.GUI.Contracts
                             return;
                         }
                     }
-                    // this this this this this this this this !!!!!!!!!!
                     loan.Comments = item.SubItems[IdxComment].Text;
 
                     date += DateTime.Now.TimeOfDay;
