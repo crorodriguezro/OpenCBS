@@ -18,6 +18,7 @@ namespace OpenCBS.ArchitectureV2.View
         public void Attach(IVillageBankPresenterCallbacks presenterCallbacks)
         {
             _repayButton.Click += (sender, e) => presenterCallbacks.Repay();
+            FormClosing += (sender, e) => presenterCallbacks.DetachView();
         }
 
         public void SetVillageBank(VillageBank villageBank)
