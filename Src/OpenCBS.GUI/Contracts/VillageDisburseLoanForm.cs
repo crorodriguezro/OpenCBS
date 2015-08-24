@@ -58,6 +58,7 @@ namespace OpenCBS.GUI.Contracts
         private const int IdxCurrency = 5;
         private const int IdxDflRemainder = 11;
         private const int IdxPaymentMethod = 12;
+        private const int IdxComment = 13;
 
         public VillageDisburseLoanForm(Village village)
         {
@@ -122,6 +123,8 @@ namespace OpenCBS.GUI.Contracts
                     List<PaymentMethod> methods = ServicesProvider.GetInstance().GetPaymentMethodServices().GetAllPaymentMethods();
                     item.SubItems.Add(methods[0].Name);
 
+                    item.SubItems.Add(loan.Comments);
+
                     lvMembers.Items.Add(item);
                     item.SubItems[IdxAmount].Tag = loan.Amount.GetFormatedValue(loan.UseCents);
                     item.SubItems[IdxCurrency].Tag = loan.Product.Currency;
@@ -184,6 +187,10 @@ namespace OpenCBS.GUI.Contracts
                     cbPaymentMethods.Items.Add(method);
                 
                 lvMembers.StartEditing(cbPaymentMethods, e.Item, e.SubItem);
+            }
+            if (e.SubItem == IdxComment)
+            {
+                lvMembers.StartEditing(tbComment, e.Item, e.SubItem);
             }
         }
 
@@ -383,6 +390,7 @@ namespace OpenCBS.GUI.Contracts
                             return;
                         }
                     }
+                    loan.Comments = item.SubItems[IdxComment].Text;
 
                     date += DateTime.Now.TimeOfDay;
                     PaymentMethod method = 
