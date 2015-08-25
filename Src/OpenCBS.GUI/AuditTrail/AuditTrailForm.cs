@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain;
 using OpenCBS.GUI.UserControl;
@@ -133,6 +134,7 @@ namespace OpenCBS.GUI.AuditTrail
             filter.BranchId = null == b ? 0 : b.Id;
             filter.Types = EventTypesToString();
             filter.IncludeDeleted = chkIncludeDeleted.Checked;
+            filter.SuspiciousOnly = chkSuspiciousOnly.Checked;
             string userName = null == u ? GetString("all") : u.Name;
             bwReport.RunWorkerAsync(new object[] {filter, userName});
         }
@@ -150,6 +152,7 @@ namespace OpenCBS.GUI.AuditTrail
             filter.BranchId = null == b ? 0 : b.Id;
             filter.Types = EventTypesToString();
             filter.IncludeDeleted = chkIncludeDeleted.Checked;
+            filter.SuspiciousOnly = chkSuspiciousOnly.Checked;
 
             bwRefresh.RunWorkerAsync(filter);
         }
@@ -178,6 +181,7 @@ namespace OpenCBS.GUI.AuditTrail
             }
 
             olvEvents.SetObjects(events);
+            PaintDifferentItem();
             UpdateTitle();
         }
 
@@ -203,6 +207,17 @@ namespace OpenCBS.GUI.AuditTrail
             }
         }
 
+        private void PaintDifferentItem()
+        {
+            foreach (ListViewItem item in olvEvents.Items)
+            {
+                string event_date = item.SubItems[0].Text.Substring(0, 10);
+                string entry_date = item.SubItems[1].Text;
+                if (event_date != entry_date)
+                    item.BackColor = Color.Coral;
+            }
+        }
+
         private void OnPrintDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             ReportService rs = ReportService.GetInstance();
@@ -221,6 +236,7 @@ namespace OpenCBS.GUI.AuditTrail
             r.AddParam("user_name", userName);
             r.AddParam("events", filter.Types);
             r.AddParam("include_deleted", filter.IncludeDeleted);
+            r.AddParam("suspiciousOnly", filter.SuspiciousOnly);
             rs.LoadReport(r);
             e.Result = r;
         }

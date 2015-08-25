@@ -282,6 +282,33 @@
   <data name="panel3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="chkSuspiciousOnly.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkSuspiciousOnly.Location" type="System.Drawing.Point, System.Drawing">
+    <value>139, 20</value>
+  </data>
+  <data name="chkSuspiciousOnly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 20</value>
+  </data>
+  <data name="chkSuspiciousOnly.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="chkSuspiciousOnly.Text" xml:space="preserve">
+    <value>Show suspicious only</value>
+  </data>
+  <data name="&gt;&gt;chkSuspiciousOnly.Name" xml:space="preserve">
+    <value>chkSuspiciousOnly</value>
+  </data>
+  <data name="&gt;&gt;chkSuspiciousOnly.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkSuspiciousOnly.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;chkSuspiciousOnly.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="tabPeriod.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -409,7 +436,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;tabPeriod.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="tabPeriod.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="dtFrom" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="dtTo" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblMdash" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
@@ -454,7 +481,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;lblPeriod.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="cbBranch.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -478,7 +505,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;cbBranch.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="lblBranch.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -511,7 +538,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;lblBranch.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <metadata name="cbUser.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -541,7 +568,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;cbUser.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="lblUser.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -583,7 +610,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;lblUser.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <metadata name="chkIncludeDeleted.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -625,7 +652,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;chkIncludeDeleted.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="panel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -949,7 +976,7 @@
     <value>olvEvents</value>
   </data>
   <data name="&gt;&gt;olvEvents.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.ObjectListView, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.ObjectListView, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;olvEvents.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1598,48 +1625,48 @@
     <value>colEvents_Date</value>
   </data>
   <data name="&gt;&gt;colEvents_Date.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;colEvents_EntryDate.Name" xml:space="preserve">
     <value>colEvents_EntryDate</value>
   </data>
   <data name="&gt;&gt;colEvents_EntryDate.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;colEvents_Code.Name" xml:space="preserve">
     <value>colEvents_Code</value>
   </data>
   <data name="&gt;&gt;colEvents_Code.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;colEvents_User.Name" xml:space="preserve">
     <value>colEvents_User</value>
   </data>
   <data name="&gt;&gt;colEvents_User.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;colEvents_Role.Name" xml:space="preserve">
     <value>colEvents_Role</value>
   </data>
   <data name="&gt;&gt;colEvents_Role.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;colEvents_Description.Name" xml:space="preserve">
     <value>colEvents_Description</value>
   </data>
   <data name="&gt;&gt;colEvents_Description.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;colEvents_BranchName.Name" xml:space="preserve">
     <value>colEvents_BranchName</value>
   </data>
   <data name="&gt;&gt;colEvents_BranchName.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AuditTrailForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

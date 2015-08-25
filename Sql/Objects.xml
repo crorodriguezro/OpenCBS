@@ -1822,7 +1822,8 @@ END
   @user_id INT, 
   @branch_id INT,
   @list    NVARCHAR(MAX), 
-  @include_deleted BIT)
+  @include_deleted BIT,
+  @suspicious_only BIT)
 RETURNS @tbl TABLE (
 	event_type NVARCHAR(10) NOT NULL, 
 	event_date DATETIME NOT NULL, 
@@ -1859,8 +1860,8 @@ BEGIN
 	LEFT JOIN dbo.Projects j ON j.id = c.project_id
 	LEFT JOIN dbo.Tiers t ON t.id = j.tiers_id
 	LEFT JOIN dbo.Branches b ON b.id = t.branch_id
-	WHERE (CONVERT(date, ce.event_date) >= @from OR @from IS NULL)
-	  AND (CONVERT(date, ce.event_date) <= @to OR @to IS NULL)
+	WHERE (CONVERT(date, ce.entry_date) >= @from OR @from IS NULL)
+	  AND (CONVERT(date, ce.entry_date) <= @to OR @to IS NULL)
 	  AND (ce.user_id = @user_id OR 0 = @user_id)
 	  AND (ce.is_deleted = 0 OR 1 = @include_deleted)
 	  AND (0 = @branch_id OR t.branch_id = @branch_id)
@@ -1943,6 +1944,7 @@ BEGIN
 	WHERE EXISTS (SELECT 1 
 	              FROM dbo.StringListToTable(@list) AS sl 
 	              WHERE sl.string = t.event_type)
+				  AND (CONVERT(varchar(10), t.entry_date, 104) != CONVERT(varchar(10), t.event_date, 104) or @suspicious_only = 0)
 	
     RETURN
 END

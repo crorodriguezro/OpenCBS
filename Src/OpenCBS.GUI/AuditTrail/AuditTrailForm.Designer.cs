@@ -66,6 +66,7 @@ namespace OpenCBS.GUI.AuditTrail
             this.colEvents_Role = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.colEvents_Description = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.colEvents_BranchName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.chkSuspiciousOnly = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.split2)).BeginInit();
             this.split2.Panel1.SuspendLayout();
             this.split2.Panel2.SuspendLayout();
@@ -136,6 +137,7 @@ namespace OpenCBS.GUI.AuditTrail
             // panel3
             // 
             resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.Controls.Add(this.chkSuspiciousOnly);
             this.panel3.Controls.Add(this.tabPeriod);
             this.panel3.Controls.Add(this.lblPeriod);
             this.panel3.Controls.Add(this.cbBranch);
@@ -311,6 +313,12 @@ namespace OpenCBS.GUI.AuditTrail
             this.colEvents_BranchName.AspectName = "BranchName";
             resources.ApplyResources(this.colEvents_BranchName, "colEvents_BranchName");
             // 
+            // chkSuspiciousOnly
+            // 
+            resources.ApplyResources(this.chkSuspiciousOnly, "chkSuspiciousOnly");
+            this.chkSuspiciousOnly.Name = "chkSuspiciousOnly";
+            this.chkSuspiciousOnly.UseVisualStyleBackColor = true;
+            // 
             // AuditTrailForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -375,5 +383,6 @@ namespace OpenCBS.GUI.AuditTrail
         private System.Windows.Forms.ComboBox cbBranch;
         private System.Windows.Forms.Label lblBranch;
         private BrightIdeasSoftware.OLVColumn colEvents_BranchName;
+        private System.Windows.Forms.CheckBox chkSuspiciousOnly;
     }
 }

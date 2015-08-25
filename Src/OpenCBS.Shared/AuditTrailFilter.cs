@@ -31,5 +31,6 @@ namespace OpenCBS.Shared
         public string Types;
         public int UserId;
         public int BranchId;
+        public bool SuspiciousOnly;
     }
 }
