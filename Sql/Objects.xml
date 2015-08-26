@@ -1944,7 +1944,7 @@ BEGIN
 	WHERE EXISTS (SELECT 1 
 	              FROM dbo.StringListToTable(@list) AS sl 
 	              WHERE sl.string = t.event_type)
-				  AND (CONVERT(varchar(10), t.entry_date, 104) != CONVERT(varchar(10), t.event_date, 104) or @suspicious_only = 0)
+		    AND (CONVERT(varchar(10), t.entry_date, 104) != CONVERT(varchar(10), t.event_date, 104) or @suspicious_only = 0)
 	
     RETURN
 END
