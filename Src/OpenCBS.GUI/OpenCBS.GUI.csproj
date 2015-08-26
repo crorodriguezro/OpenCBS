@@ -1869,6 +1869,9 @@
     <EmbeddedResource Include="Contracts\VillageCreditCommitteeForm.ru-RU.resx">
       <DependentUpon>VillageCreditCommitteeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\VillageDisburseLoanForm.es.resx">
+      <DependentUpon>VillageDisburseLoanForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Contracts\VillageDisburseLoanForm.fr-BE.resx">
       <DependentUpon>VillageDisburseLoanForm.cs</DependentUpon>
     </EmbeddedResource>
