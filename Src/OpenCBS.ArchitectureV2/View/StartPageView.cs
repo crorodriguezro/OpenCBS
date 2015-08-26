@@ -14,8 +14,8 @@ namespace OpenCBS.ArchitectureV2.View
     public partial class StartPageView : BaseView, IStartPageView
     {
         private List<MenuObject> _menuItems;
-        [DefaultConstructor]
 
+        [DefaultConstructor]
         public StartPageView(ITranslationService translationService) : base(translationService)
         {
             InitializeComponent();
@@ -25,10 +25,7 @@ namespace OpenCBS.ArchitectureV2.View
             new ToolTip().SetToolTip(_russianPictureBox, "Русский");
             new ToolTip().SetToolTip(_spanishPictureBox, "Español");
             new ToolTip().SetToolTip(_portuguesePictureBox, "Português");
-            _newClientButton.Click += (sender, e) =>
-            {   
-                _newClientMenu.Show(_newClientButton, 0, _newClientButton.Height);
-            };
+            _newClientButton.Click += (sender, e) => _newClientMenu.Show(_newClientButton, 0, _newClientButton.Height);
             _InitializeUserRights();
         }
 
@@ -37,21 +34,29 @@ namespace OpenCBS.ArchitectureV2.View
             _menuItems = ServicesProvider.GetInstance().GetMenuItemServices().GetMenuList(OSecurityObjectTypes.MenuItem);
             var role = User.CurrentUser.UserRole;
             var itemName = "mnuNewPerson";
-            var foundMo = _menuItems.Find(item => item == itemName.Trim());
-            if (foundMo != null)
-                _newPersonItem.Enabled = role.IsMenuAllowed(foundMo);
+            var item = _menuItems.Find(i => i == itemName);
+            if (item != null)
+            {
+                _newPersonItem.Enabled = role.IsMenuAllowed(item);
+            }
             itemName = "mnuNewGroup";
-            foundMo = _menuItems.Find(item => item == itemName.Trim());
-            if (foundMo != null)
-                _newGroupItem.Enabled = role.IsMenuAllowed(foundMo);
+            item = _menuItems.Find(i => i == itemName);
+            if (item != null)
+            {
+                _newGroupItem.Enabled = role.IsMenuAllowed(item);
+            }
             itemName = "mnuNewVillage";
-            foundMo = _menuItems.Find(item => item == itemName.Trim());
-            if (foundMo != null)
-                _newVillageBankItem.Enabled = role.IsMenuAllowed(foundMo);
+            item = _menuItems.Find(i => i == itemName);
+            if (item != null)
+            {
+                _newVillageBankItem.Enabled = role.IsMenuAllowed(item);
+            }
             itemName = "newCorporateToolStripMenuItem";
-            foundMo = _menuItems.Find(item => item == itemName.Trim());
-            if (foundMo != null)
-                _newCompanyItem.Enabled = role.IsMenuAllowed(foundMo);
+            item = _menuItems.Find(i => i == itemName);
+            if (item != null)
+            {
+                _newCompanyItem.Enabled = role.IsMenuAllowed(item);
+            }
         }
 
         public void Attach(IStartPagePresenterCallbacks presenterCallbacks)
