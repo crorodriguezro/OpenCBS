@@ -40,6 +40,7 @@ namespace OpenCBS.GUI.AuditTrail
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.chkSuspiciousOnly = new System.Windows.Forms.CheckBox();
             this.tabPeriod = new System.Windows.Forms.TableLayoutPanel();
             this.dtFrom = new System.Windows.Forms.DateTimePicker();
             this.dtTo = new System.Windows.Forms.DateTimePicker();
@@ -66,7 +67,6 @@ namespace OpenCBS.GUI.AuditTrail
             this.colEvents_Role = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.colEvents_Description = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.colEvents_BranchName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.chkSuspiciousOnly = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.split2)).BeginInit();
             this.split2.Panel1.SuspendLayout();
             this.split2.Panel2.SuspendLayout();
@@ -146,6 +146,12 @@ namespace OpenCBS.GUI.AuditTrail
             this.panel3.Controls.Add(this.lblUser);
             this.panel3.Controls.Add(this.chkIncludeDeleted);
             this.panel3.Name = "panel3";
+            // 
+            // chkSuspiciousOnly
+            // 
+            resources.ApplyResources(this.chkSuspiciousOnly, "chkSuspiciousOnly");
+            this.chkSuspiciousOnly.Name = "chkSuspiciousOnly";
+            this.chkSuspiciousOnly.UseVisualStyleBackColor = true;
             // 
             // tabPeriod
             // 
@@ -312,12 +318,6 @@ namespace OpenCBS.GUI.AuditTrail
             // 
             this.colEvents_BranchName.AspectName = "BranchName";
             resources.ApplyResources(this.colEvents_BranchName, "colEvents_BranchName");
-            // 
-            // chkSuspiciousOnly
-            // 
-            resources.ApplyResources(this.chkSuspiciousOnly, "chkSuspiciousOnly");
-            this.chkSuspiciousOnly.Name = "chkSuspiciousOnly";
-            this.chkSuspiciousOnly.UseVisualStyleBackColor = true;
             // 
             // AuditTrailForm
             // 

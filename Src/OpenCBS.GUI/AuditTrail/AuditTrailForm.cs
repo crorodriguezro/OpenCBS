@@ -211,10 +211,12 @@ namespace OpenCBS.GUI.AuditTrail
         {
             foreach (ListViewItem item in olvEvents.Items)
             {
-                string event_date = item.SubItems[0].Text.Substring(0, 10);
-                string entry_date = item.SubItems[1].Text;
+                var event_date = item.SubItems[0].Text.Substring(0, 10);
+                var entry_date = item.SubItems[1].Text;
                 if (event_date != entry_date)
+                {
                     item.BackColor = Color.Coral;
+                }
             }
         }
 
