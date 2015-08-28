@@ -23,6 +23,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
@@ -414,6 +415,15 @@ namespace OpenCBS.GUI.UserControl
                 var pages = extension.GetTabPages(_tempPerson);
                 if (pages == null) continue;
                 tabControlEconomicInfo.TabPages.AddRange(pages);
+            }
+            var tabs = _applicationController.GetAllInstances<IPersonTabs>();
+            foreach (var tab in tabs)
+            {
+                if (Extensions.Any(i => i.GetType() == tab.GetType())) continue;
+                var pages = tab.GetTabPages(_tempPerson);
+                if (pages == null) continue;
+                tabControlEconomicInfo.TabPages.AddRange(pages);
+                Extensions.Add(tab);
             }
         }
 
