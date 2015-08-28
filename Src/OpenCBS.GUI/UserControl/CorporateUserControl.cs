@@ -313,6 +313,15 @@ namespace OpenCBS.GUI.UserControl
                 if (pages == null) continue;
                 tabControlCorporate.TabPages.AddRange(pages);
             }
+            var tabs = _applicationController.GetAllInstances<ICorporateTabs>();
+            foreach (var tab in tabs)
+            {
+                if (Extensions.Any(i => i.GetType() == tab.GetType())) continue;
+                var pages = tab.GetTabPages(_corporate);
+                if (pages == null) continue;
+                tabControlCorporate.TabPages.AddRange(pages);
+                Extensions.Add(tab);
+            }
         }
 
         private void SavingsListUserControl1AddSelectedSaving(object sender, EventArgs e)

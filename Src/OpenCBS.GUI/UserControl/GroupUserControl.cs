@@ -1425,6 +1425,15 @@ namespace OpenCBS.GUI.UserControl
                 if (pages == null) continue;
                 tabControlGroupInfo.TabPages.AddRange(pages);
             }
+            var tabs = _applicationController.GetAllInstances<ISolidarityGroupTabs>();
+            foreach (var tab in tabs)
+            {
+                if (Extensions.Any(i => i.GetType() == tab.GetType())) continue;
+                var pages = tab.GetTabPages(group);
+                if (pages == null) continue;
+                tabControlGroupInfo.TabPages.AddRange(pages);
+                Extensions.Add(tab);
+            }
         }
 
         #region IDisposable Members
