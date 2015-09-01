@@ -6890,6 +6890,23 @@ namespace OpenCBS.GUI.Clients
                     tabControlRepayments.TabPages.AddRange(pages);
                 }
             }
+            var tabs = _applicationController.GetAllInstances<ILoanTabs>();
+            foreach (var tab in tabs)
+            {
+                if (LoanTabs.Any(i => i.GetType() == tab.GetType())) continue;
+                var pages = tab.GetTabPages(_credit);
+                if (pages != null)
+                {
+                    tclLoanDetails.TabPages.AddRange(pages);
+                }
+
+                pages = tab.GetRepaymentTabPages(_credit);
+                if (pages != null)
+                {
+                    tabControlRepayments.TabPages.AddRange(pages);
+                }
+                LoanTabs.Add(tab);
+            }
         }
 
 
@@ -6912,7 +6929,15 @@ namespace OpenCBS.GUI.Clients
                 foreach (var page in pages) page.Tag = true; // mark as extension
                 tabControlSavingsDetails.TabPages.AddRange(pages);
             }
-
+            var tabs = _applicationController.GetAllInstances<ISavingsTabs>();
+            foreach (var tab in tabs)
+            {
+                if (SavingsExtensions.Any(i => i.GetType() == tab.GetType())) continue;
+                var pages = tab.GetTabPages(_saving);
+                if (pages == null) continue;
+                tabControlSavingsDetails.TabPages.AddRange(pages);
+                SavingsExtensions.Add(tab);
+            }
         }
 
         private void buttonSavingsOperations_Click(object sender, EventArgs e)

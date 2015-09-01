@@ -938,6 +938,15 @@ namespace OpenCBS.GUI.Clients
                 if (null == pages) continue;
                 tabVillage.TabPages.AddRange(pages);
             }
+            var tabs = _applicationController.GetAllInstances<INonSolidarityGroupTabs>();
+            foreach (var tab in tabs)
+            {
+                if (Extensions.Any(i => i.GetType() == tab.GetType())) continue;
+                var pages = tab.GetTabPages(_village);
+                if (pages == null) continue;
+                tabVillage.TabPages.AddRange(pages);
+                Extensions.Add(tab);
+            }
         }
     }
 }
