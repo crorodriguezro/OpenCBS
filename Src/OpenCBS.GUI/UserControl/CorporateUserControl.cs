@@ -389,7 +389,7 @@ namespace OpenCBS.GUI.UserControl
         private void BtnSelectContactClick(object sender, EventArgs e)
         {
 
-            using (SearchClientForm searchClientForm = SearchClientForm.GetInstance(OClientTypes.Person, true))
+            using (SearchClientForm searchClientForm = SearchClientForm.GetInstance(OClientTypes.Person, true, _applicationController))
             {
                 searchClientForm.ShowDialog();
                 var contact = new Contact();

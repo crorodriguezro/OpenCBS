@@ -282,6 +282,12 @@ namespace OpenCBS.GUI.Clients
 
             btnPrint.ReportInitializer = report => report.SetParamValue("village_id", _village.Id);
             btnPrint.LoadReports();
+
+            var intializers = _applicationController.GetAllInstances<IVillageBankFormInitializer>();
+            foreach (var initializer in intializers)
+            {
+                initializer.Initialize(this);
+            }
         }
 
         private void InitializeLoanOfficers()
@@ -298,7 +304,7 @@ namespace OpenCBS.GUI.Clients
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            SearchClientForm frm = SearchClientForm.GetInstanceForVillage();
+            SearchClientForm frm = SearchClientForm.GetInstanceForVillage(_applicationController);
             frm.ShowDialog();
             if (DialogResult.OK != frm.DialogResult) return;
 

@@ -23,6 +23,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.SearchResult;
 using OpenCBS.GUI.UserControl;
@@ -30,6 +31,7 @@ using OpenCBS.Services;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.Enums;
+using OpenCBS.Extensions;
 
 namespace OpenCBS.GUI
 {
@@ -80,6 +82,7 @@ namespace OpenCBS.GUI
         private OClientTypes _clientType;
         private ImageList imageListSort;
         private ListViewSorter Sorter;
+        private readonly IApplicationController _applicationController;
         public bool ViewSearchCorporate
         {
             get { return _viewSearchCorporate; }
@@ -131,53 +134,64 @@ namespace OpenCBS.GUI
             }
         }
 
-        public static SearchClientForm GetInstance(Control pMDIForm)
+        public static SearchClientForm GetInstance(Control pMDIForm, IApplicationController applicationController)
         {
             if (_theUniqueInstance1 == null)
-                return _theUniqueInstance1 = new SearchClientForm(pMDIForm);
+                return _theUniqueInstance1 = new SearchClientForm(pMDIForm, applicationController);
             
             return _theUniqueInstance1;
         }
 
-        public static SearchClientForm GetInstance(OClientTypes pTiersEnum, bool includeNotactiveOnly)
+        public static SearchClientForm GetInstance(OClientTypes pTiersEnum, bool includeNotactiveOnly, IApplicationController applicatinController)
         {
             if (_theUniqueInstance3 == null)
-                return _theUniqueInstance3 = new SearchClientForm(pTiersEnum, includeNotactiveOnly);
+                return _theUniqueInstance3 = new SearchClientForm(pTiersEnum, includeNotactiveOnly, applicatinController);
             
             return _theUniqueInstance3;
         }
 
-        public static SearchClientForm GetInstanceForVillage()
+        public static SearchClientForm GetInstanceForVillage(IApplicationController applicationController)
         {
-            return new SearchClientForm(OClientTypes.Person, true);
+            return new SearchClientForm(OClientTypes.Person, true, applicationController);
         }
 
         private int test;
 
-        private SearchClientForm(Control pMDIForm)
+        private SearchClientForm(Control pMDIForm, IApplicationController applicationController)
         {
             InitializeComponent();
             Initialization(pMDIForm, false);
             test = 1;
+            _applicationController = applicationController;
+            RunInitializers();
         }
-        protected SearchClientForm() : this(null)
-        {
-        }
-
-        protected SearchClientForm(OClientTypes pTiersEnum, bool inludeOnlyNotactive)
+    
+        protected SearchClientForm(OClientTypes pTiersEnum, bool inludeOnlyNotactive, IApplicationController applicationController)
         {
             _clientType = pTiersEnum;
             InitializeComponent();
             Initialization(null, true);
             WatchCorporate(pTiersEnum, inludeOnlyNotactive);
             test = 2;
+            _applicationController = applicationController;
+            RunInitializers();
         }
+
+        private void RunInitializers()
+        {
+            foreach (var initializer in _applicationController.GetAllInstances<ISearchFormInitializer>())
+            {
+                initializer.Initialize(this);
+            }
+        }
+
         private void ReinitializeValues()
         {
             labelTitleResult.Text = MultiLanguageStrings.GetString(Ressource.SearchClientForm, "result.Text");
             //listViewClient.Items.Clear();
             textBoxCurrentlyPage.Text = String.Empty;
         }
+
         private void InitializeSearchParameters()
         {
             _currentPageNumber = 1;

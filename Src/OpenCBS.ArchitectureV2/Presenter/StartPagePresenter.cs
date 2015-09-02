@@ -1,8 +1,10 @@
-﻿using OpenCBS.ArchitectureV2.CommandData;
+﻿using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.CommandData;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.Presenter;
 using OpenCBS.ArchitectureV2.Interface.View;
 using OpenCBS.ArchitectureV2.Message;
+using OpenCBS.Extensions;
 
 namespace OpenCBS.ArchitectureV2.Presenter
 {
@@ -20,6 +22,11 @@ namespace OpenCBS.ArchitectureV2.Presenter
         public void Run()
         {
             _view.Attach(this);
+            var initializers = _applicationController.GetAllInstances<IStartPageInitializer>();
+            foreach (var initializer in initializers)
+            {
+                initializer.Initialize((Form)_view);
+            }
             _applicationController.Publish(new ShowViewMessage(this, _view));
             _applicationController.Publish(new StartPageShownMessage(this));
         }

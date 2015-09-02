@@ -1030,7 +1030,7 @@ namespace OpenCBS.GUI.UserControl
         {
             if (GroupHasActiveContracts())
             {
-                using (SearchClientForm searchClientForm = SearchClientForm.GetInstance(OClientTypes.Person, true))
+                using (SearchClientForm searchClientForm = SearchClientForm.GetInstance(OClientTypes.Person, true, _applicationController))
                 {
                     searchClientForm.ShowDialog();
                     try

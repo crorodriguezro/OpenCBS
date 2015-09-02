@@ -271,7 +271,7 @@ namespace OpenCBS.GUI
 
         private void SelectAGuarantor()
         {
-            using (SearchClientForm searchClientForm = SearchClientForm.GetInstance(OClientTypes.Person, false))
+            using (SearchClientForm searchClientForm = SearchClientForm.GetInstance(OClientTypes.Person, false, _applicationController))
             {
                 searchClientForm.ShowDialog();
                 _guarantor.Tiers = searchClientForm.Client;

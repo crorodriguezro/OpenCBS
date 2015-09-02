@@ -103,6 +103,11 @@ namespace OpenCBS.GUI
                 InitializeTracer();
                 DisplayWinFormDetails();
                 InitMenu();
+
+                foreach (var initializer in _applicationController.GetAllInstances<IMainFormInitializer>())
+                {
+                    initializer.Initialize(this);
+                }
             }
             catch (Exception error)
             {
@@ -411,7 +416,7 @@ namespace OpenCBS.GUI
 
         public void InitializeSearchClientForm()
         {
-            SearchClientForm searchClientForm = SearchClientForm.GetInstance(this);
+            SearchClientForm searchClientForm = SearchClientForm.GetInstance(this, _applicationController);
             searchClientForm.BringToFront();
             searchClientForm.WindowState = FormWindowState.Normal;
             searchClientForm.Show();

@@ -294,7 +294,7 @@ namespace OpenCBS.GUI.Contracts
 
         private Person SelectOwner()
         {
-            using (SearchClientForm searchClientForm = SearchClientForm.GetInstance(OClientTypes.Person, true))
+            using (SearchClientForm searchClientForm = SearchClientForm.GetInstance(OClientTypes.Person, true, _applicationController))
             {
                 searchClientForm.ShowDialog();
 
