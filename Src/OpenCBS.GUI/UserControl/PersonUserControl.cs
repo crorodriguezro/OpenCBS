@@ -90,6 +90,11 @@ namespace OpenCBS.GUI.UserControl
             textBoxIdentificationData.ReadOnly = ServicesProvider.GetInstance().GetGeneralSettings().IsAutomaticID;
             if (ServicesProvider.GetInstance().GetGeneralSettings().IsAutomaticID)
                 textBoxIdentificationData.BackColor = Color.WhiteSmoke;
+
+            foreach (var initializer in _applicationController.GetAllInstances<IPersonControlInitializer>())
+            {
+                initializer.Initialize(this);
+            }
         }
 
         public bool PersonSaved
