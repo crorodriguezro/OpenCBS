@@ -27,6 +27,7 @@ namespace OpenCBS.Extensions
 {
     public interface ILoanTabs
     {
+        bool ShowForSavedOnly { get; }
         TabPage[] GetTabPages(Loan loan);
         TabPage[] GetRepaymentTabPages(Loan loan);
         void Save(Loan loan, SqlTransaction tx);
