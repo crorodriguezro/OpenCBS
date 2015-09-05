@@ -27,6 +27,7 @@ namespace OpenCBS.Extensions
 {
     public interface ICorporateTabs
     {
+        bool ShowForSavedOnly { get; }
         TabPage[] GetTabPages(Corporate corporate);
         void Save(Corporate corporate, SqlTransaction tx);
     }

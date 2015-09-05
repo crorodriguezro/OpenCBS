@@ -228,6 +228,7 @@ namespace OpenCBS.GUI.UserControl
                         {
                             foreach (var extension in Extensions) extension.Save(_corporate, tx);
                         });
+                    LoadExtensions();
                     buttonSave.Text = MultiLanguageStrings.GetString(Ressource.CorporateUserControl, "buttonUpdate.Text");
                     es.LogClientSaveUpdateEvent(_corporate, true);
                 }
@@ -310,7 +311,7 @@ namespace OpenCBS.GUI.UserControl
             foreach (var extension in Extensions)
             {
                 var pages = extension.GetTabPages(_corporate);
-                if (pages == null) continue;
+                if (pages == null || (_corporate.Id == 0 && extension.ShowForSavedOnly)) continue;
                 tabControlCorporate.TabPages.AddRange(pages);
             }
             var tabs = _applicationController.GetAllInstances<ICorporateTabs>();
@@ -318,7 +319,7 @@ namespace OpenCBS.GUI.UserControl
             {
                 if (Extensions.Any(i => i.GetType() == tab.GetType())) continue;
                 var pages = tab.GetTabPages(_corporate);
-                if (pages == null) continue;
+                if (pages == null || (_corporate.Id == 0 && tab.ShowForSavedOnly)) continue;
                 tabControlCorporate.TabPages.AddRange(pages);
                 Extensions.Add(tab);
             }
