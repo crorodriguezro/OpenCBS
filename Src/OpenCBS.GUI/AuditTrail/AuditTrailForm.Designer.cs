@@ -40,6 +40,7 @@ namespace OpenCBS.GUI.AuditTrail
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.chkSuspiciousOnly = new System.Windows.Forms.CheckBox();
             this.tabPeriod = new System.Windows.Forms.TableLayoutPanel();
             this.dtFrom = new System.Windows.Forms.DateTimePicker();
             this.dtTo = new System.Windows.Forms.DateTimePicker();
@@ -136,6 +137,7 @@ namespace OpenCBS.GUI.AuditTrail
             // panel3
             // 
             resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.Controls.Add(this.chkSuspiciousOnly);
             this.panel3.Controls.Add(this.tabPeriod);
             this.panel3.Controls.Add(this.lblPeriod);
             this.panel3.Controls.Add(this.cbBranch);
@@ -144,6 +146,12 @@ namespace OpenCBS.GUI.AuditTrail
             this.panel3.Controls.Add(this.lblUser);
             this.panel3.Controls.Add(this.chkIncludeDeleted);
             this.panel3.Name = "panel3";
+            // 
+            // chkSuspiciousOnly
+            // 
+            resources.ApplyResources(this.chkSuspiciousOnly, "chkSuspiciousOnly");
+            this.chkSuspiciousOnly.Name = "chkSuspiciousOnly";
+            this.chkSuspiciousOnly.UseVisualStyleBackColor = true;
             // 
             // tabPeriod
             // 
@@ -375,5 +383,6 @@ namespace OpenCBS.GUI.AuditTrail
         private System.Windows.Forms.ComboBox cbBranch;
         private System.Windows.Forms.Label lblBranch;
         private BrightIdeasSoftware.OLVColumn colEvents_BranchName;
+        private System.Windows.Forms.CheckBox chkSuspiciousOnly;
     }
 }

@@ -53,7 +53,7 @@ namespace OpenCBS.Manager.Events
    
         public List<AuditTrailEvent> SelectAuditTrailEvents(AuditTrailFilter filter)
         {
-            const string q = @"SELECT * FROM dbo.AuditTrailEvents(@from, @to, @user_id, @branch_id, @types, @del)";
+            const string q = @"SELECT * FROM dbo.AuditTrailEvents(@from, @to, @user_id, @branch_id, @types, @del, @suspicious_only)";
 
             List<AuditTrailEvent> retval = new List<AuditTrailEvent>();
             using (SqlConnection conn = GetConnection())
@@ -65,6 +65,7 @@ namespace OpenCBS.Manager.Events
                 c.AddParam("@branch_id", filter.BranchId);
                 c.AddParam("@types", filter.Types);
                 c.AddParam("@del", filter.IncludeDeleted);
+                c.AddParam("@suspicious_only", filter.SuspiciousOnly);
                 using (OpenCbsReader r = c.ExecuteReader())
                 {
                     if (r.Empty) return retval;

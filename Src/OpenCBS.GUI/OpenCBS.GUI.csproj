@@ -1332,9 +1332,15 @@
       <DependentUpon>AuditTrailForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="AuditTrail\AuditTrailForm.es.resx">
+      <DependentUpon>AuditTrailForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AuditTrail\AuditTrailForm.fr.resx">
       <DependentUpon>AuditTrailForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditTrail\AuditTrailForm.pt-PT.resx">
+      <DependentUpon>AuditTrailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AuditTrail\AuditTrailForm.pt.resx">
       <DependentUpon>AuditTrailForm.cs</DependentUpon>
@@ -1346,6 +1352,9 @@
     <EmbeddedResource Include="AuditTrail\AuditTrailForm.ru-RU.resx">
       <DependentUpon>AuditTrailForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditTrail\AuditTrailForm.ru.resx">
+      <DependentUpon>AuditTrailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Clients\ClientForm.es-ES.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
