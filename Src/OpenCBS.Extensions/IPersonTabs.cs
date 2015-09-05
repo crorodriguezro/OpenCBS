@@ -27,6 +27,7 @@ namespace OpenCBS.Extensions
 {
     public interface IPersonTabs
     {
+        bool ShowForSavedOnly { get; }
         TabPage[] GetTabPages(Person person);
         void Save(Person person, SqlTransaction tx);
     }
