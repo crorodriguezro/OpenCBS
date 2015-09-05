@@ -1198,7 +1198,7 @@ namespace OpenCBS.GUI.UserControl
                 groupSaved = true;
                 if (result != string.Empty) MessageBox.Show(result, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 buttonSave.Text = MultiLanguageStrings.GetString(Ressource.Common, "updateButton.Text");
-
+                if(save) LoadExtensions();
                 //EnableDocuments();
             }
             catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
@@ -1422,7 +1422,7 @@ namespace OpenCBS.GUI.UserControl
             foreach (var extension in Extensions)
             {
                 var pages = extension.GetTabPages(group);
-                if (pages == null) continue;
+                if (pages == null || (group.Id == 0 && extension.ShowForSavedOnly)) continue;
                 tabControlGroupInfo.TabPages.AddRange(pages);
             }
             var tabs = _applicationController.GetAllInstances<ISolidarityGroupTabs>();
@@ -1430,7 +1430,7 @@ namespace OpenCBS.GUI.UserControl
             {
                 if (Extensions.Any(i => i.GetType() == tab.GetType())) continue;
                 var pages = tab.GetTabPages(group);
-                if (pages == null) continue;
+                if (pages == null || (group.Id == 0 && tab.ShowForSavedOnly)) continue;
                 tabControlGroupInfo.TabPages.AddRange(pages);
                 Extensions.Add(tab);
             }
