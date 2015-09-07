@@ -320,8 +320,6 @@ namespace OpenCBS.GUI.UserControl
                 EventProcessorServices es = ServicesProvider.GetInstance().GetEventProcessorServices();
                 es.LogClientSaveUpdateEvent(_tempPerson, save);
 
-                if (save) LoadExtensions();
-
                 if (result != string.Empty)
                     MessageBox.Show(result, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -420,7 +418,7 @@ namespace OpenCBS.GUI.UserControl
             foreach (var extension in Extensions)
             {
                 var pages = extension.GetTabPages(_tempPerson);
-                if (pages == null || (_tempPerson.Id == 0 && extension.ShowForSavedOnly)) continue;
+                if (pages == null) continue;
                 tabControlEconomicInfo.TabPages.AddRange(pages);
             }
             var tabs = _applicationController.GetAllInstances<IPersonTabs>();
@@ -428,7 +426,7 @@ namespace OpenCBS.GUI.UserControl
             {
                 if (Extensions.Any(i => i.GetType() == tab.GetType())) continue;
                 var pages = tab.GetTabPages(_tempPerson);
-                if (pages == null || (_tempPerson.Id == 0 && tab.ShowForSavedOnly)) continue;
+                if (pages == null) continue;
                 tabControlEconomicInfo.TabPages.AddRange(pages);
                 Extensions.Add(tab);
             }

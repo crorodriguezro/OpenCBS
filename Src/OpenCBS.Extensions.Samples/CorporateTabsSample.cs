@@ -35,11 +35,6 @@ namespace OpenCBS.Extensions.Samples
     [Export(typeof(ICorporateTabs))]
     public class CorporateTabsSample : ICorporateTabs
     {
-        public bool ShowForSavedOnly
-        {
-            get { return false; }
-        }
-
         public TabPage[] GetTabPages(Corporate corporate)
         {
             var page = new TabPage("TEST CORPORATE");
