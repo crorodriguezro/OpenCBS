@@ -3726,7 +3726,6 @@ namespace OpenCBS.GUI.Clients
                     InitializeTabPageGuaranteesDetailsButtons(_credit.Product.UseGuarantorCollateral);
 
                     DisplayContracts(_project.Credits);
-                    LoadLoanDetailsExtensions();
 
                     tabControlPerson.TabPages.Add(tabPageCreditCommitee);
 
@@ -6880,13 +6879,13 @@ namespace OpenCBS.GUI.Clients
             foreach (var extension in LoanTabs)
             {
                 var pages = extension.GetTabPages(_credit);
-                if (pages != null && !(extension.ShowForSavedOnly && _credit.Id == 0))
+                if (pages != null)
                 {
                     tclLoanDetails.TabPages.AddRange(pages);
                 }
 
                 pages = extension.GetRepaymentTabPages(_credit);
-                if (pages != null && !(extension.ShowForSavedOnly && _credit.Id == 0))
+                if (pages != null)
                 {
                     tabControlRepayments.TabPages.AddRange(pages);
                 }
@@ -6896,13 +6895,13 @@ namespace OpenCBS.GUI.Clients
             {
                 if (LoanTabs.Any(i => i.GetType() == tab.GetType())) continue;
                 var pages = tab.GetTabPages(_credit);
-                if (pages != null && !(tab.ShowForSavedOnly && _credit.Id == 0))
+                if (pages != null)
                 {
                     tclLoanDetails.TabPages.AddRange(pages);
                 }
 
                 pages = tab.GetRepaymentTabPages(_credit);
-                if (pages != null && !(tab.ShowForSavedOnly && _credit.Id == 0))
+                if (pages != null)
                 {
                     tabControlRepayments.TabPages.AddRange(pages);
                 }

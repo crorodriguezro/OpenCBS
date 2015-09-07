@@ -36,11 +36,6 @@ namespace OpenCBS.Extensions.Samples
     [Export(typeof(IPersonTabs))]
     public class PersonTabsSample : IPersonTabs
     {
-        public bool ShowForSavedOnly
-        {
-            get { return false; }
-        }
-
         public TabPage[] GetTabPages(Person person)
         {
             var tabPage = new TabPage("TEST PERSON");
