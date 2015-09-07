@@ -35,6 +35,11 @@ namespace OpenCBS.Extensions.Samples
     [Export(typeof(INonSolidarityGroupTabs))]
     public class NonSolidarityGroupTabsSample : INonSolidarityGroupTabs
     {
+        public bool ShowForSavedOnly
+        {
+            get { return false; }
+        }
+
         public TabPage[] GetTabPages(Village nonSolidarityGroup)
         {
             var tabPage = new TabPage("TEST NON SOLIDARITY GROUP");

@@ -148,8 +148,7 @@ namespace OpenCBS.GUI.Clients
 
                 foreach (VillageMember member in _village.Members)
                     member.IsSaved = true;
-
-
+                if (save) LoadExtensions();
             }
             catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
             {
@@ -941,7 +940,7 @@ namespace OpenCBS.GUI.Clients
             foreach (var extension in Extensions)
             {
                 var pages = extension.GetTabPages(_village);
-                if (null == pages) continue;
+                if (null == pages || (_village.Id == 0 && extension.ShowForSavedOnly)) continue;
                 tabVillage.TabPages.AddRange(pages);
             }
             var tabs = _applicationController.GetAllInstances<INonSolidarityGroupTabs>();
@@ -949,7 +948,7 @@ namespace OpenCBS.GUI.Clients
             {
                 if (Extensions.Any(i => i.GetType() == tab.GetType())) continue;
                 var pages = tab.GetTabPages(_village);
-                if (pages == null) continue;
+                if (pages == null || (_village.Id == 0 && tab.ShowForSavedOnly)) continue;
                 tabVillage.TabPages.AddRange(pages);
                 Extensions.Add(tab);
             }

@@ -27,6 +27,7 @@ namespace OpenCBS.Extensions
 {
     public interface ISolidarityGroupTabs
     {
+        bool ShowForSavedOnly { get; }
         TabPage[] GetTabPages(Group group);
         void Save(Group group, SqlTransaction tx);
     }
