@@ -1268,6 +1268,7 @@ namespace OpenCBS.Services
                 try
                 {
                     int retval = _clientManagement.AddVillage(village, sqlTransac);
+                    village.Id = retval;
                     if (action != null) action(sqlTransac, retval);
 
                     sqlTransac.Commit();
@@ -1275,6 +1276,7 @@ namespace OpenCBS.Services
                 }
                 catch (Exception)
                 {
+                    village.Id = 0;
                     sqlTransac.Rollback();
                     throw;
                 }
