@@ -2031,6 +2031,7 @@ namespace OpenCBS.Services
                         CallInterceptor(new Dictionary<string, object>
                                         {
                                             {"Event", evnt},
+                                            {"Loan", contract},
                                             {"RecoveryAccount", true},
                                             {"SqlTransaction", sqlTransaction}
                                         });
