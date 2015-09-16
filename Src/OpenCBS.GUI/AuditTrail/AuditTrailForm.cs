@@ -238,7 +238,7 @@ namespace OpenCBS.GUI.AuditTrail
             r.AddParam("user_name", userName);
             r.AddParam("events", filter.Types);
             r.AddParam("include_deleted", filter.IncludeDeleted);
-            r.AddParam("suspiciousOnly", filter.SuspiciousOnly);
+            r.AddParam("suspicious_only", filter.SuspiciousOnly);
             rs.LoadReport(r);
             e.Result = r;
         }
