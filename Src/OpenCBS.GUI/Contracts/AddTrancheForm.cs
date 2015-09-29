@@ -85,6 +85,7 @@ namespace OpenCBS.GUI.Contracts
 
         private void Setup()
         {
+            scheduleUserControl.ShowOlbAfterRepayment = !ApplicationSettings.GetInstance("").IsOlbBeforeRepayment;
             Load += (sender, args) => LoadForm();
             interestRateNumericUpDown.LostFocus += (sender, args) => RecalculateTrancheAndRefreshSchedule();
             interestRateNumericUpDown.KeyDown += (sender, args) => { if(args.KeyCode == Keys.Return) RecalculateTrancheAndRefreshSchedule(); };

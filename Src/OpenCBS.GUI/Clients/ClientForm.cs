@@ -1795,6 +1795,7 @@ namespace OpenCBS.GUI.Clients
 
         private void InitializeTabPageLoanRepayment(Loan pCredit)
         {
+            _repaymentScheduleControl.ShowOlbAfterRepayment = !ApplicationSettings.GetInstance("").IsOlbBeforeRepayment;
             DisplayListViewLoanRepayments(pCredit);
             DisplayLoanEvents(pCredit);
             buttonLoanReschedule.Enabled = !pCredit.Closed;

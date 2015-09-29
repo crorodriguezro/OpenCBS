@@ -41,6 +41,7 @@ namespace OpenCBS.Controls
 
         public void SetScheduleFor(Loan loan)
         {
+            olbColumn.AspectName = ShowOlbAfterRepayment ? "OLBAfterRepayment" : "OLB";
             _amountFormatString = loan.UseCents ? "N2" : "N0";
             scheduleObjectListView.SetObjects(loan.InstallmentList);
         }
@@ -112,5 +113,7 @@ namespace OpenCBS.Controls
             Clipboard.SetText(buffer.ToString());
             _scheduleContextMenuStrip.Visible = false;
         }
+
+        public bool ShowOlbAfterRepayment { get; set; }
     }
 }

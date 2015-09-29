@@ -73,6 +73,7 @@ namespace OpenCBS.GUI.Contracts
 
         private void Setup()
         {
+            scheduleUserControl.ShowOlbAfterRepayment = !ApplicationSettings.GetInstance("").IsOlbBeforeRepayment;
             Load += (sender, args) => LoadForm();
             _interestRateTextBox.TextChanged += (sender, args) => RecalculateAndRefreshSchedule();
             installmentsNumericUpDown.ValueChanged += (sender, args) =>
