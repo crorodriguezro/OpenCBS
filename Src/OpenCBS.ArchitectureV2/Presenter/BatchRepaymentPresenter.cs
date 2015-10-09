@@ -10,6 +10,7 @@ using OpenCBS.ArchitectureV2.Message;
 using OpenCBS.ArchitectureV2.Model;
 using OpenCBS.CoreDomain;
 using OpenCBS.Extensions;
+using OpenCBS.Services;
 using OpenCBS.Shared;
 
 namespace OpenCBS.ArchitectureV2.Presenter
@@ -198,10 +199,22 @@ namespace OpenCBS.ArchitectureV2.Presenter
                     var interceptors = _applicationController.GetAllInstances<IEventInterceptor>();
                     foreach (var interceptor in interceptors)
                     {
+                        var e = new CoreDomain.Events.RepaymentEvent
+                        {
+                            Id = repaymentEvent.Id,
+                            Code = repaymentEvent.Code,
+                            Principal = repaymentEvent.Principal,
+                            Interests = repaymentEvent.Interest,
+                            Penalties = 0
+                        };
                         interceptor.CallInterceptor(new Dictionary<string, object>
                         {
-                            {"Loan", loan},
-                            {"RepaymentEvent", repaymentEvent},
+                            {"LoanId", loan.Id},
+                            {"ClientId", loan.ClientId},
+                            {"BranchId", loan.BranchId},
+                            {"ProductId", loan.ProductId},
+                            {"ProductCode", loan.ProductCode},
+                            {"Event", e},
                             {"SqlTransaction", tx}
                         });
                     }

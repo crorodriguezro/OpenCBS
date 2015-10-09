@@ -52,12 +52,22 @@ namespace OpenCBS.ArchitectureV2.Repository
 	                , p.first_name FirstName
 	                , p.last_name LastName
 	                , c.contract_code ContractCode
+                    , j.tiers_id ClientId
+                    , pack.id ProductId
+                    , pack.code ProductCode
+                    , t.branch_id BranchId
                 from
 	                dbo.Persons p
                 left join
 	                dbo.Projects j on j.tiers_id = p.id
                 left join
+                    dbo.Tiers t on t.id = j.tiers_id
+                left join
 	                dbo.Contracts c on c.project_id = j.id
+                left join
+                    dbo.Credit cr on cr.id = c.id
+                left join
+                    dbo.Packages pack on pack.id = cr.package_id
                 left join
 	                dbo.VillagesPersons vp on vp.person_id = p.id
                 where
