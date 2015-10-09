@@ -19,7 +19,6 @@ namespace OpenCBS.ArchitectureV2.Presenter
         private readonly IBatchRepaymentView _view;
         private readonly ILoanRepository _loanRepository;
         private readonly IVillageBankRepository _villageBankRepository;
-        private readonly IEventInterceptor _eventInterceptor;
         private readonly IConnectionProvider _connectionProvider;
         private readonly IApplicationController _applicationController;
         private List<Loan> _loans;
@@ -29,14 +28,12 @@ namespace OpenCBS.ArchitectureV2.Presenter
             IBatchRepaymentView view,
             ILoanRepository loanRepository,
             IVillageBankRepository villageBankRepository,
-            IEventInterceptor eventInterceptor,
             IConnectionProvider connectionProvider,
             IApplicationController applicationController)
         {
             _view = view;
             _loanRepository = loanRepository;
             _villageBankRepository = villageBankRepository;
-            _eventInterceptor = eventInterceptor;
             _connectionProvider = connectionProvider;
             _applicationController = applicationController;
         }
@@ -198,13 +195,16 @@ namespace OpenCBS.ArchitectureV2.Presenter
 
                     var repaymentEvent = GetRepaymentEvent(loan, repaidLoan);
                     repaymentEvent = _loanRepository.SaveRepaymentEvent(repaymentEvent, tx);
-                    if (_eventInterceptor != null)
-                        _eventInterceptor.CallInterceptor(new Dictionary<string, object>
-                            {
-                                {"Loan", loan},
-                                {"RepaymentEvent", repaymentEvent},
-                                {"IDbTransaction", tx}
-                            });
+                    var interceptors = _applicationController.GetAllInstances<IEventInterceptor>();
+                    foreach (var interceptor in interceptors)
+                    {
+                        interceptor.CallInterceptor(new Dictionary<string, object>
+                        {
+                            {"Loan", loan},
+                            {"RepaymentEvent", repaymentEvent},
+                            {"SqlTransaction", tx}
+                        });
+                    }
                     _loanRepository.ArchiveSchedule(loan.Id, repaymentEvent.Id, loan.Schedule, repaidLoan.Schedule, tx);
 
                     var closed = repaidLoan.Schedule.Last().Repaid;
