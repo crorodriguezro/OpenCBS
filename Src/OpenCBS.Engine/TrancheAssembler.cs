@@ -2,7 +2,6 @@
 using System.Linq;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.Engine.Interfaces;
-using IInstallment = OpenCBS.Engine.Interfaces.IInstallment;
 
 namespace OpenCBS.Engine
 {
