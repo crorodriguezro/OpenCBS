@@ -91,7 +91,6 @@
               <File Id="OpenCBS.GUI.exe.config" Source="SourceDir\OpenCBS.GUI.exe.config" />
               <File Id="OpenCBS.Reports.dll" Source="SourceDir\OpenCBS.Reports.dll" />
               <File Id="OpenCBS.License.dll" Source="SourceDir\OpenCBS.License.dll" />
-              <File Id="AutoMapper.dll" Source="SourceDir\AutoMapper.dll" />
               <File Id="IronPython.dll" Source="SourceDir\IronPython.dll" />              
               <File Id="Microsoft.Dynamic.dll" Source="SourceDir\Microsoft.Dynamic.dll" />
               <File Id="Microsoft.Scripting.dll" Source="SourceDir\Microsoft.Scripting.dll" />              
