@@ -46,6 +46,7 @@ namespace OpenCBS.Engine
             var startDate = configuration.StartDate;
             foreach (var i in result)
             {
+                i.LastInterestAccrualDate = i.ExpectedDate;
                 i.ExpectedDate = configuration.DateShiftPolicy.ShiftDate(i.ExpectedDate);
                 i.StartDate = startDate;
                 startDate = i.ExpectedDate;

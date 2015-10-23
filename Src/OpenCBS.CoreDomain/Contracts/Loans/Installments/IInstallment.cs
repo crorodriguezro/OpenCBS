@@ -32,6 +32,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
         DateTime StartDate { get; set; }
         OCurrency OLB { get; set; }
         DateTime ExpectedDate{get;set;}
+        DateTime LastInterestAccrualDate { get; set; }
         OCurrency InterestsRepayment{get;set;}
         OCurrency CapitalRepayment{get;set;}
         OCurrency PaidInterests{get;set;}
