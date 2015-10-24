@@ -490,7 +490,7 @@ namespace OpenCBS.Services
         }
 
         public Loan Disburse(Loan pLoan, DateTime pDateToDisburse, bool pAlignInstallmentsDatesOnRealDisbursmentDate,
-                             bool pDisableFees, PaymentMethod method)
+                             bool pDisableFees, PaymentMethod method, string check = "", string receipt = "")
         {
             Loan copyLoan = pLoan.Copy();
             CheckDisbursedLoan(copyLoan, pDateToDisburse);
@@ -547,7 +547,7 @@ namespace OpenCBS.Services
                     if (copyLoan.Project != null)
                         copyLoan.Project.Client.Active = true;
 
-                    _loanManager.UpdateLoan(copyLoan, sqlTransaction);
+                    _loanManager.UpdateLoan(copyLoan, sqlTransaction, check, receipt);
 
                     int loanDisbEventId = loanDisbursmentEvent.Id;
                     if (pAlignInstallmentsDatesOnRealDisbursmentDate ||

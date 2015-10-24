@@ -1868,6 +1868,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contracts\VillageDisburseLoanForm.es.resx">
       <DependentUpon>VillageDisburseLoanForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Contracts\VillageDisburseLoanForm.fr-BE.resx">
       <DependentUpon>VillageDisburseLoanForm.cs</DependentUpon>
