@@ -54,29 +54,29 @@ namespace OpenCBS.GUI.Contracts
             this.colNewFLAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPaymentMethod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colComment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCheckNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colReceiptNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cbPaymentMethods = new System.Windows.Forms.ComboBox();
             this.tbComment = new System.Windows.Forms.TextBox();
             this.tbCheck = new System.Windows.Forms.TextBox();
             this.tbReceipt = new System.Windows.Forms.TextBox();
-            this.colCheckNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colReceiptNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlButtons.SuspendLayout();
             this.disburseLoansStatusBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlButtons
             // 
+            resources.ApplyResources(this.pnlButtons, "pnlButtons");
             this.pnlButtons.Controls.Add(this.disburseLoansStatusBar);
             this.pnlButtons.Controls.Add(this.btnCancel);
             this.pnlButtons.Controls.Add(this.btnSave);
-            resources.ApplyResources(this.pnlButtons, "pnlButtons");
             this.pnlButtons.Name = "pnlButtons";
             // 
             // disburseLoansStatusBar
             // 
+            resources.ApplyResources(this.disburseLoansStatusBar, "disburseLoansStatusBar");
             this.disburseLoansStatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            resources.ApplyResources(this.disburseLoansStatusBar, "disburseLoansStatusBar");
             this.disburseLoansStatusBar.Name = "disburseLoansStatusBar";
             this.disburseLoansStatusBar.SizingGrip = false;
             // 
@@ -101,20 +101,21 @@ namespace OpenCBS.GUI.Contracts
             // 
             // dtDisbursement
             // 
-            this.dtDisbursement.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.dtDisbursement, "dtDisbursement");
+            this.dtDisbursement.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtDisbursement.Name = "dtDisbursement";
             this.dtDisbursement.ValueChanged += new System.EventHandler(this.dtDisbursement_ValueChanged);
             // 
             // dtpRepayment
             // 
-            this.dtpRepayment.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.dtpRepayment, "dtpRepayment");
+            this.dtpRepayment.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpRepayment.Name = "dtpRepayment";
             this.dtpRepayment.ValueChanged += new System.EventHandler(this.dtpRepayment_ValueChanged);
             // 
             // lvMembers
             // 
+            resources.ApplyResources(this.lvMembers, "lvMembers");
             this.lvMembers.CheckBoxes = true;
             this.lvMembers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colName,
@@ -133,7 +134,6 @@ namespace OpenCBS.GUI.Contracts
             this.colComment,
             this.colCheckNumber,
             this.colReceiptNumber});
-            resources.ApplyResources(this.lvMembers, "lvMembers");
             this.lvMembers.DoubleClickActivation = false;
             this.lvMembers.FullRowSelect = true;
             this.lvMembers.GridLines = true;
@@ -202,12 +202,20 @@ namespace OpenCBS.GUI.Contracts
             // 
             resources.ApplyResources(this.colComment, "colComment");
             // 
+            // colCheckNumber
+            // 
+            resources.ApplyResources(this.colCheckNumber, "colCheckNumber");
+            // 
+            // colReceiptNumber
+            // 
+            resources.ApplyResources(this.colReceiptNumber, "colReceiptNumber");
+            // 
             // cbPaymentMethods
             // 
+            resources.ApplyResources(this.cbPaymentMethods, "cbPaymentMethods");
             this.cbPaymentMethods.DisplayMember = "Name";
             this.cbPaymentMethods.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPaymentMethods.FormattingEnabled = true;
-            resources.ApplyResources(this.cbPaymentMethods, "cbPaymentMethods");
             this.cbPaymentMethods.Name = "cbPaymentMethods";
             this.cbPaymentMethods.ValueMember = "Id";
             this.cbPaymentMethods.SelectedIndexChanged += new System.EventHandler(this.cbPaymentMethods_SelectedIndexChanged);
@@ -216,24 +224,16 @@ namespace OpenCBS.GUI.Contracts
             // 
             resources.ApplyResources(this.tbComment, "tbComment");
             this.tbComment.Name = "tbComment";
-            //
+            // 
             // tbCheck
-            //
+            // 
             resources.ApplyResources(this.tbCheck, "tbCheck");
             this.tbCheck.Name = "tbCheck";
-            //
+            // 
             // tbReceipt
-            //
+            // 
             resources.ApplyResources(this.tbReceipt, "tbReceipt");
             this.tbReceipt.Name = "tbReceipt";
-            // 
-            // colCheckNumber
-            // 
-            resources.ApplyResources(this.colCheckNumber, "colCheckNumber");
-            // 
-            // colReceiptNumber
-            // 
-            resources.ApplyResources(this.colReceiptNumber, "colReceiptNumber");
             // 
             // VillageDisburseLoanForm
             // 

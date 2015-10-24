@@ -206,6 +206,12 @@
   <data name="colComment.Text" xml:space="preserve">
     <value>Комментарий</value>
   </data>
+  <data name="colCheckNumber.Text" xml:space="preserve">
+    <value>Чек №</value>
+  </data>
+  <data name="colReceiptNumber.Text" xml:space="preserve">
+    <value>Квитанция №</value>
+  </data>
   <data name="lvMembers.Size" type="System.Drawing.Size, System.Drawing">
     <value>999, 326</value>
   </data>

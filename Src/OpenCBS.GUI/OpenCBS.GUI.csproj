@@ -1873,12 +1873,18 @@
     <EmbeddedResource Include="Contracts\VillageDisburseLoanForm.fr-BE.resx">
       <DependentUpon>VillageDisburseLoanForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\VillageDisburseLoanForm.gd.resx">
+      <DependentUpon>VillageDisburseLoanForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Contracts\VillageDisburseLoanForm.pt.resx">
       <DependentUpon>VillageDisburseLoanForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contracts\VillageDisburseLoanForm.ru-RU.resx">
       <DependentUpon>VillageDisburseLoanForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\VillageDisburseLoanForm.ru.resx">
+      <DependentUpon>VillageDisburseLoanForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Database\FrmDatabaseName.es-ES.resx">
       <DependentUpon>FrmDatabaseName.cs</DependentUpon>
