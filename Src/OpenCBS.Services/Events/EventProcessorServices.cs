@@ -109,13 +109,13 @@ namespace OpenCBS.Services.Events
              
         }
 
-        public void FireEvent(Event e, Loan contract, SqlTransaction sqlTransac)
+        public void FireEvent(Event e, Loan contract, SqlTransaction sqlTransac, string check = "", string receipt = "")
 		{
             e.IsFired = true;
 
 			if(e is LoanDisbursmentEvent)
 			{
-                LoanDisbursmentOrigination((LoanDisbursmentEvent)e, contract, sqlTransac);
+                LoanDisbursmentOrigination((LoanDisbursmentEvent)e, contract, sqlTransac, check, receipt);
 			}
             else if (e is TrancheEvent)
             {
@@ -312,9 +312,9 @@ namespace OpenCBS.Services.Events
             _eventManagement.AddLoanEntryFeesEvent(entryFeeEvent, transaction);
         }
 
-        private void LoanDisbursmentOrigination(LoanDisbursmentEvent loanDisbursmentEvent, Loan loanContract, SqlTransaction sqlTransac)
+        private void LoanDisbursmentOrigination(LoanDisbursmentEvent loanDisbursmentEvent, Loan loanContract, SqlTransaction sqlTransac, string check = "", string receipt = "")
 		{
-           int eventId = _eventManagement.AddLoanEvent(loanDisbursmentEvent, loanContract.Id, sqlTransac);
+           int eventId = _eventManagement.AddLoanEvent(loanDisbursmentEvent, loanContract.Id, sqlTransac, check, receipt);
            loanDisbursmentEvent.Id = eventId;
            if (loanDisbursmentEvent.Commissions != null)
            {

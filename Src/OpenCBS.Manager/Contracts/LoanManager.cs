@@ -586,12 +586,12 @@ namespace OpenCBS.Manager.Contracts
             using (SqlConnection connection = GetConnection())
             using (SqlTransaction transaction = connection.BeginTransaction())
             {
-                UpdateLoan(pLoan, transaction, "", "");
+                UpdateLoan(pLoan, transaction);
                 transaction.Commit();
             }
         }
 
-        public void UpdateLoan(Loan pLoan, SqlTransaction pSqlTransac, string check = "", string receipt = "")
+        public void UpdateLoan(Loan pLoan, SqlTransaction pSqlTransac)
         {
             string q = @"UPDATE Credit 
                               SET loanofficer_id = @loanOfficerId, 
@@ -638,8 +638,6 @@ namespace OpenCBS.Manager.Contracts
                         status = @status,
                         loan_purpose = @loanPurpose,
                         comments = @comments,
-                        check_number = @check_number,
-                        receipt_number = @receipt_number,
                         activity_id = @activityId,
                         preferred_first_installment_date = @preferredFirstInstallmentDate
                         WHERE id = @id";
@@ -654,8 +652,6 @@ namespace OpenCBS.Manager.Contracts
                 c.AddParam("@id", pLoan.Id);
                 c.AddParam("@loanPurpose", pLoan.LoanPurpose);
                 c.AddParam("@comments", pLoan.Comments);
-                c.AddParam("@check_number", check);
-                c.AddParam("@receipt_number", receipt);
                 c.AddParam("@activityId", pLoan.EconomicActivityId);
                 c.AddParam("@preferredFirstInstallmentDate", pLoan.FirstInstallmentDate);
                 c.ExecuteNonQuery();

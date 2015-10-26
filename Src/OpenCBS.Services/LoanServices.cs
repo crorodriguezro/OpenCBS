@@ -529,7 +529,7 @@ namespace OpenCBS.Services
                         flFundingLineEvent.TellerId = Teller.CurrentTeller.Id;
                     }
                     loanDisbursmentEvent.Comment = copyLoan.Comments;
-                    _ePs.FireEvent(loanDisbursmentEvent, copyLoan, sqlTransaction);
+                    _ePs.FireEvent(loanDisbursmentEvent, copyLoan, sqlTransaction, check, receipt);
 
                     flFundingLineEvent = _fundingLineServices.AddFundingLineEvent(flFundingLineEvent, sqlTransaction);
 
@@ -547,7 +547,7 @@ namespace OpenCBS.Services
                     if (copyLoan.Project != null)
                         copyLoan.Project.Client.Active = true;
 
-                    _loanManager.UpdateLoan(copyLoan, sqlTransaction, check, receipt);
+                    _loanManager.UpdateLoan(copyLoan, sqlTransaction);
 
                     int loanDisbEventId = loanDisbursmentEvent.Id;
                     if (pAlignInstallmentsDatesOnRealDisbursmentDate ||

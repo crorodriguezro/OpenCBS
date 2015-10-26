@@ -672,16 +672,16 @@ namespace OpenCBS.Manager.Events
             }
         }
 
-	    public int AddLoanEvent(LoanDisbursmentEvent evnt, int contractId, SqlTransaction transaction)
+        public int AddLoanEvent(LoanDisbursmentEvent evnt, int contractId, SqlTransaction transaction, string check = "", string receipt = "")
 		{
             evnt.Id = AddLoanEventHead(evnt, contractId, transaction);
 
-			const string q = @"INSERT INTO [LoanDisbursmentEvents]([id], [amount], [fees], [interest], [payment_method_id]) 
-                                    VALUES(@id, @amount, @fees, @interest, @payment_method_id)";
+            const string q = @"INSERT INTO [LoanDisbursmentEvents]([id], [amount], [fees], [interest], [payment_method_id], [check_number], [receipt_number])
+                                    VALUES(@id, @amount, @fees, @interest, @payment_method_id, @check_number, @receipt_number)";
 
             using(OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
             {
-                GetLoanDisbursmentEvent(evnt, c);
+                GetLoanDisbursmentEvent(evnt, c, check, receipt);
                 c.ExecuteNonQuery();
             }
             return evnt.Id;
@@ -1240,13 +1240,15 @@ namespace OpenCBS.Manager.Events
             c.AddParam("@bounce_fee", evnt.BounceFee);
         }
 
-        private static void GetLoanDisbursmentEvent(LoanDisbursmentEvent evnt, OpenCbsCommand c)
+        private static void GetLoanDisbursmentEvent(LoanDisbursmentEvent evnt, OpenCbsCommand c, string check = "", string receipt = "")
         {
             c.AddParam("@id", evnt.Id);
             c.AddParam("@amount", evnt.Amount.Value);
             c.AddParam("@fees", 0);
             c.AddParam("@interest", evnt.Interest.HasValue ? evnt.Interest.Value : 0);
             c.AddParam("@payment_method_id", evnt.PaymentMethod.Id);
+            c.AddParam("@check_number", check);
+            c.AddParam("@receipt_number", receipt);
         }
 
         private static void SetLoanInterestAccruingEvent(AccruedInterestEvent pEvent, OpenCbsCommand c)
