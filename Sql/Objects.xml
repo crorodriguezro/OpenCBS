@@ -561,18 +561,15 @@ AS RETURN
 			SELECT *
 				, CASE
 					WHEN expected_date > @date THEN 0
-					--WHEN ABS(principal - paid_principal) > 0.05 OR ABS(interest - paid_interest) > 0.05 THEN DATEDIFF(DD, expected_date, @date)
 					WHEN principal > paid_principal OR interest > paid_interest THEN DATEDIFF(DD, expected_date, @date)
 					ELSE 0
 				END late_days
-				, CASE
-					--WHEN (ABS(principal - paid_principal) > 0.05 OR ABS(interest - paid_interest) > 0.05) AND expected_date <= @date THEN expected_date
-					WHEN (principal > paid_principal OR interest > paid_interest) AND expected_date <= @date THEN expected_date
-					ELSE NULL
-				END expected_date_before
+                , case
+                    when principal > paid_principal or interest > paid_interest then expected_date
+                    else '2100-01-01' -- far future
+                end expected_date_before
 				, principal - paid_principal principal_due
 				, interest - paid_interest interest_due
-			--FROM dbo.InstallmentSnapshot(@date)
 			FROM _installments
 		) i
 		GROUP BY contract_id
@@ -3887,7 +3884,7 @@ as begin
 		al.id,
 		1 kind,
 		5 status,
-		cast(i.expected_date as date) date,
+		cast(al.expected_date as date) date,
 		al.late_days,
 		al.principal_due + al.interest_due amount,
 		c.contract_code,
@@ -3913,18 +3910,6 @@ as begin
 		dbo.Branches br on br.id = t.branch_id
 	left join
 		dbo.Users u on u.id = cr.loanofficer_id
-	left join
-	(
-		select
-			contract_id,
-			min(expected_date) expected_date
-		from
-			dbo.InstallmentSnapshot(@date)
-		where
-			principal + interest > paid_principal + paid_interest
-		group by
-			contract_id
-	) i on i.contract_id = al.id
 	where
 		(t.branch_id in (select branch_id from dbo.UsersBranches where user_id = @_user_id))
 		and
@@ -3934,8 +3919,7 @@ as begin
 		)
 	order by
 		al.late_days desc,
-		i.expected_date asc
-
+		al.expected_date asc
 	-- Pending, Postponed, and Validated loans
 	insert @tbl
 	select
