@@ -188,7 +188,7 @@ namespace OpenCBS.Services
         }
 
         /// <summary>
-        /// Check loan filling before calculate Instalments
+        /// CheckNumber loan filling before calculate Instalments
         /// </summary>
         /// <param name="pLoan"></param>
         public void CheckLoanFilling(Loan pLoan)
@@ -506,6 +506,8 @@ namespace OpenCBS.Services
                                                                                   pDisableFees);
                     loanDisbursmentEvent.User = _user;
                     loanDisbursmentEvent.PaymentMethod = method;
+                    ((Event) loanDisbursmentEvent).CheckNumber = check;
+                    ((Event) loanDisbursmentEvent).ReceiptNumber = receipt;
 
                     if (pLoan.CompulsorySavings != null)
                         loanDisbursmentEvent.Comment = pLoan.CompulsorySavings.Code;
@@ -529,7 +531,7 @@ namespace OpenCBS.Services
                         flFundingLineEvent.TellerId = Teller.CurrentTeller.Id;
                     }
                     loanDisbursmentEvent.Comment = copyLoan.Comments;
-                    _ePs.FireEvent(loanDisbursmentEvent, copyLoan, sqlTransaction, check, receipt);
+                    _ePs.FireEvent(loanDisbursmentEvent, copyLoan, sqlTransaction);
 
                     flFundingLineEvent = _fundingLineServices.AddFundingLineEvent(flFundingLineEvent, sqlTransaction);
 

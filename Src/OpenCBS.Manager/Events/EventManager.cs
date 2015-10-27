@@ -634,7 +634,9 @@ namespace OpenCBS.Manager.Events
                                       [is_deleted], 
                                       [teller_id],
                                       [parent_id],
-                                      [comment])
+                                      [comment],
+                                      [check_number],
+                                      [receipt_number])
 			                         VALUES
                                       (@eventType, 
                                        @contractId, 
@@ -643,7 +645,9 @@ namespace OpenCBS.Manager.Events
                                        @deleted, 
                                        @tellerId,
                                        @parentId,
-                                       @comment)
+                                       @comment,
+                                       @checkNumber,
+                                       @receiptNumber)
                                      SELECT SCOPE_IDENTITY()";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
@@ -672,16 +676,16 @@ namespace OpenCBS.Manager.Events
             }
         }
 
-        public int AddLoanEvent(LoanDisbursmentEvent evnt, int contractId, SqlTransaction transaction, string check = "", string receipt = "")
+        public int AddLoanEvent(LoanDisbursmentEvent evnt, int contractId, SqlTransaction transaction)
 		{
             evnt.Id = AddLoanEventHead(evnt, contractId, transaction);
 
-            const string q = @"INSERT INTO [LoanDisbursmentEvents]([id], [amount], [fees], [interest], [payment_method_id], [check_number], [receipt_number])
-                                    VALUES(@id, @amount, @fees, @interest, @payment_method_id, @check_number, @receipt_number)";
+            const string q = @"INSERT INTO [LoanDisbursmentEvents]([id], [amount], [fees], [interest], [payment_method_id])
+                                    VALUES(@id, @amount, @fees, @interest, @payment_method_id)";
 
             using(OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
             {
-                GetLoanDisbursmentEvent(evnt, c, check, receipt);
+                GetLoanDisbursmentEvent(evnt, c);
                 c.ExecuteNonQuery();
             }
             return evnt.Id;
@@ -1247,8 +1251,6 @@ namespace OpenCBS.Manager.Events
             c.AddParam("@fees", 0);
             c.AddParam("@interest", evnt.Interest.HasValue ? evnt.Interest.Value : 0);
             c.AddParam("@payment_method_id", evnt.PaymentMethod.Id);
-            c.AddParam("@check_number", check);
-            c.AddParam("@receipt_number", receipt);
         }
 
         private static void SetLoanInterestAccruingEvent(AccruedInterestEvent pEvent, OpenCbsCommand c)
@@ -1270,6 +1272,8 @@ namespace OpenCBS.Manager.Events
             c.AddParam("@tellerId", pEvent.TellerId);
             c.AddParam("@parentId", pEvent.ParentId);
             c.AddParam("@comment", pEvent.Comment);
+            c.AddParam("@checkNumber", pEvent.CheckNumber);
+            c.AddParam("@receiptNumber", pEvent.ReceiptNumber);
         }
 
         private static void SetLoanPenaltyAccrualEvent(OpenCbsCommand c, Event pEvent, OCurrency penalty)
