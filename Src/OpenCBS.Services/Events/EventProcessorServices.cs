@@ -314,7 +314,7 @@ namespace OpenCBS.Services.Events
 
         private void LoanDisbursmentOrigination(LoanDisbursmentEvent loanDisbursmentEvent, Loan loanContract, SqlTransaction sqlTransac, string check = "", string receipt = "")
 		{
-           int eventId = _eventManagement.AddLoanEvent(loanDisbursmentEvent, loanContract.Id, sqlTransac, check, receipt);
+           int eventId = _eventManagement.AddLoanEvent(loanDisbursmentEvent, loanContract.Id, sqlTransac);
            loanDisbursmentEvent.Id = eventId;
            if (loanDisbursmentEvent.Commissions != null)
            {
