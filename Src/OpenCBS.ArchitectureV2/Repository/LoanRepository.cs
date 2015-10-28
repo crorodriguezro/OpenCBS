@@ -126,15 +126,15 @@ namespace OpenCBS.ArchitectureV2.Repository
         public RepaymentEvent SaveRepaymentEvent(RepaymentEvent repaymentEvent, IDbTransaction tx)
         {
             var query = @"
-                insert into dbo.ContractEvents (event_type, contract_id, event_date, user_id, is_deleted, entry_date)
-                values (@Code, @LoanId, @EventDate, @UserId, 0, getdate())
+                insert into dbo.ContractEvents (event_type, contract_id, event_date, user_id, is_deleted, entry_date, comment, doc1)
+                values (@Code, @LoanId, @EventDate, @UserId, 0, getdate(), @Comment, @ReceiptNumber)
                 select cast(scope_identity() as int)
             ";
             repaymentEvent.Id = tx.Connection.Query<int>(query, repaymentEvent, tx).First();
 
             query = @"
-                insert into dbo.RepaymentEvents (id, past_due_days, principal, interests, installment_number, commissions, penalties, payment_method_id, bounce_fee, receiptnumber, comment)
-                values (@Id, @LateDays, @Principal, @Interest, @InstallmentNumber, 0, 0, 1, 0,@ReceiptNumber, @Comment)
+                insert into dbo.RepaymentEvents (id, past_due_days, principal, interests, installment_number, commissions, penalties, payment_method_id, bounce_fee)
+                values (@Id, @LateDays, @Principal, @Interest, @InstallmentNumber, 0, 0, 1, 0)
             ";
             tx.Connection.Execute(query, repaymentEvent, tx);
 

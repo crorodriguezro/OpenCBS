@@ -10,7 +10,6 @@ using OpenCBS.ArchitectureV2.Message;
 using OpenCBS.ArchitectureV2.Model;
 using OpenCBS.CoreDomain;
 using OpenCBS.Extensions;
-using OpenCBS.Services;
 using OpenCBS.Shared;
 
 namespace OpenCBS.ArchitectureV2.Presenter
@@ -152,7 +151,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
             return loan.Schedule.Sum(x => x.Principal + x.Interest - x.PaidPrincipal - x.PaidInterest);
         }
 
-        private static RepaymentEvent GetRepaymentEvent(Loan loan, Loan repaidLoan, string receiptNumber, string comment)
+        private static RepaymentEvent GetRepaymentEvent(Loan loan, Loan repaidLoan)
         {
             var firstUnpaidInstallment = loan.Schedule.Find(x => !x.Repaid);
             var lateDays = (TimeProvider.Today - firstUnpaidInstallment.ExpectedDate.Date).Days;
@@ -169,9 +168,6 @@ namespace OpenCBS.ArchitectureV2.Presenter
             repaymentEvent.Principal = repaidLoan.Schedule.Sum(x => x.PaidPrincipal) - loan.Schedule.Sum(x => x.PaidPrincipal);
             repaymentEvent.Interest = repaidLoan.Schedule.Sum(x => x.PaidInterest) - loan.Schedule.Sum(x => x.PaidInterest);
 
-            repaymentEvent.ReceiptNumber = receiptNumber;
-            repaymentEvent.Comment = comment;
-            
             return repaymentEvent;
         }
 
@@ -192,15 +188,15 @@ namespace OpenCBS.ArchitectureV2.Presenter
             {
                 foreach (var id in _view.SelectedLoanIds)
                 {
-                    decimal total = _view.GetTotal(id);
-                    string comment = _view.GetComment(id);
-                    string receiptNumber = _view.GetReceiptNumber(id);
+                    var total = _view.GetTotal(id);
 
-                    Loan loan = GetLoan(id);
-                    Loan repaidLoan = loan.Copy();
+                    var loan = GetLoan(id);
+                    var repaidLoan = loan.Copy();
                     DistributeTotal(repaidLoan, total);
 
-                    RepaymentEvent repaymentEvent = GetRepaymentEvent(loan, repaidLoan, receiptNumber, comment);
+                    var repaymentEvent = GetRepaymentEvent(loan, repaidLoan);
+                    repaymentEvent.Comment = _view.GetComment(id);
+                    repaymentEvent.ReceiptNumber = _view.GetReceiptNumber(id);
 
                     repaymentEvent = _loanRepository.SaveRepaymentEvent(repaymentEvent, tx);
                     var interceptors = _applicationController.GetAllInstances<IEventInterceptor>();
@@ -213,6 +209,8 @@ namespace OpenCBS.ArchitectureV2.Presenter
                             Principal = repaymentEvent.Principal,
                             Interests = repaymentEvent.Interest,
                             Penalties = 0,
+                            Comment = repaymentEvent.Comment,
+                            Doc1 = repaymentEvent.ReceiptNumber
                         };
                         interceptor.CallInterceptor(new Dictionary<string, object>
                         {
