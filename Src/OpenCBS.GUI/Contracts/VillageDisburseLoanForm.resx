@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -134,14 +134,14 @@
   <data name="colNewFLAmount.Text" xml:space="preserve">
     <value>Funding line amount</value>
   </data>
-  <data name="colCurrency.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
   <data name="&gt;&gt;colName.Name" xml:space="preserve">
     <value>colName</value>
   </data>
   <data name="&gt;&gt;toolStripStatusLabel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;colDoc1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
     <value>pnlButtons</value>
@@ -150,7 +150,7 @@
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pnlButtons.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="colInterest.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -177,11 +177,23 @@
   <data name="lvMembers.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;tbDoc1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;colDoc2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;colNewFLAmount.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="tbDoc1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
   <data name="&gt;&gt;colInterest.Name" xml:space="preserve">
     <value>colInterest</value>
+  </data>
+  <data name="&gt;&gt;tbDoc2.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="colNewFLAmount.Width" type="System.Int32, mscorlib">
     <value>99</value>
@@ -201,14 +213,14 @@
   <data name="tbComment.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 20</value>
   </data>
+  <data name="tbDoc1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;colName.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="colPassport.Width" type="System.Int32, mscorlib">
     <value>95</value>
-  </data>
-  <data name="&gt;&gt;disburseLoansStatusBar.Parent" xml:space="preserve">
-    <value>pnlButtons</value>
   </data>
   <data name="&gt;&gt;dtpRepayment.Name" xml:space="preserve">
     <value>dtpRepayment</value>
@@ -219,11 +231,14 @@
   <data name="&gt;&gt;colDate.Name" xml:space="preserve">
     <value>colDate</value>
   </data>
-  <data name="disburseLoansStatusBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 36</value>
+  <data name="&gt;&gt;colDoc1.Name" xml:space="preserve">
+    <value>colDoc1</value>
   </data>
   <data name="colPaymentMethod.Width" type="System.Int32, mscorlib">
     <value>120</value>
+  </data>
+  <data name="&gt;&gt;tbComment.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
@@ -832,11 +847,14 @@
   <data name="colAmount.Text" xml:space="preserve">
     <value>Amount</value>
   </data>
-  <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>235, 17</value>
+  <data name="disburseLoansStatusBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 36</value>
   </data>
   <data name="&gt;&gt;lvMembers.Name" xml:space="preserve">
     <value>lvMembers</value>
+  </data>
+  <data name="&gt;&gt;tbDoc1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="dtpRepayment.Location" type="System.Drawing.Point, System.Drawing">
     <value>530, 215</value>
@@ -847,11 +865,17 @@
   <data name="lvMembers.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <data name="&gt;&gt;tbDoc1.Name" xml:space="preserve">
+    <value>tbDoc1</value>
+  </data>
   <data name="&gt;&gt;colPassport.Name" xml:space="preserve">
     <value>colPassport</value>
   </data>
   <data name="colPassport.Text" xml:space="preserve">
     <value>Passport</value>
+  </data>
+  <data name="&gt;&gt;colAmount.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dtDisbursement.Type" xml:space="preserve">
     <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -862,8 +886,8 @@
   <data name="&gt;&gt;colPassport.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;dtDisbursement.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="colGracePeriod.Text" xml:space="preserve">
     <value>Grace period</value>
@@ -898,9 +922,6 @@
   <data name="lvMembers.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="colAmount.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
   <data name="&gt;&gt;colDate.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -910,17 +931,17 @@
   <data name="&gt;&gt;colInstallments.Name" xml:space="preserve">
     <value>colInstallments</value>
   </data>
-  <data name="colInterest.Text" xml:space="preserve">
-    <value>Interest</value>
+  <data name="&gt;&gt;cbPaymentMethods.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;colFundingLine.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cbPaymentMethods.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;colPaymentMethod.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tbDoc1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 20</value>
   </data>
   <data name="&gt;&gt;colLoanOfficer.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -934,11 +955,20 @@
   <data name="colName.Width" type="System.Int32, mscorlib">
     <value>132</value>
   </data>
+  <data name="&gt;&gt;tbDoc2.Name" xml:space="preserve">
+    <value>tbDoc2</value>
+  </data>
+  <data name="&gt;&gt;colDoc2.Name" xml:space="preserve">
+    <value>colDoc2</value>
+  </data>
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="tbComment.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
+  </data>
+  <data name="tbDoc2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
@@ -946,14 +976,17 @@
   <data name="colPaymentMethod.Text" xml:space="preserve">
     <value>Payment method</value>
   </data>
-  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>431, 6</value>
   </data>
   <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="disburseLoansStatusBar.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
+  </data>
+  <data name="&gt;&gt;colRepaymentDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;colAmount.Name" xml:space="preserve">
     <value>colAmount</value>
@@ -964,11 +997,17 @@
   <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
   </data>
+  <data name="tbDoc2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
   <data name="disburseLoansStatusBar.Text" xml:space="preserve">
     <value>statusStrip1</value>
   </data>
-  <data name="&gt;&gt;colRepaymentDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="colAmount.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="pnlButtons.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 349</value>
   </data>
   <data name="colDate.Width" type="System.Int32, mscorlib">
     <value>80</value>
@@ -976,8 +1015,11 @@
   <data name="colCurrency.Text" xml:space="preserve">
     <value>Currency</value>
   </data>
-  <data name="&gt;&gt;dtpRepayment.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tbDoc1.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="&gt;&gt;dtpRepayment.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Disburse Loans</value>
@@ -985,8 +1027,11 @@
   <data name="&gt;&gt;colGracePeriod.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="pnlButtons.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 349</value>
+  <data name="&gt;&gt;disburseLoansStatusBar.Name" xml:space="preserve">
+    <value>disburseLoansStatusBar</value>
+  </data>
+  <data name="&gt;&gt;tbDoc2.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="pnlButtons.Size" type="System.Drawing.Size, System.Drawing">
     <value>1015, 58</value>
@@ -1006,8 +1051,8 @@
   <data name="btnSave.Text" xml:space="preserve">
     <value>Disburse Loans</value>
   </data>
-  <data name="&gt;&gt;tbComment.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;tbDoc2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -1027,6 +1072,9 @@
   <data name="btnCancel.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="tbDoc2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 20</value>
+  </data>
   <data name="colComment.Width" type="System.Int32, mscorlib">
     <value>200</value>
   </data>
@@ -1036,6 +1084,9 @@
   <data name="&gt;&gt;pnlButtons.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="colDoc2.Width" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
   <data name="cbPaymentMethods.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -1043,16 +1094,19 @@
     <value>colComment</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.9.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="dtpRepayment.Size" type="System.Drawing.Size, System.Drawing">
     <value>134, 20</value>
   </data>
+  <data name="&gt;&gt;pnlButtons.Name" xml:space="preserve">
+    <value>pnlButtons</value>
+  </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 25</value>
   </data>
-  <data name="&gt;&gt;pnlButtons.Name" xml:space="preserve">
-    <value>pnlButtons</value>
+  <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 17</value>
   </data>
   <data name="cbPaymentMethods.Location" type="System.Drawing.Point, System.Drawing">
     <value>365, 280</value>
@@ -1072,6 +1126,9 @@
   <data name="cbPaymentMethods.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
+  <data name="colDoc1.Width" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
   <data name="dtDisbursement.Location" type="System.Drawing.Point, System.Drawing">
     <value>365, 215</value>
   </data>
@@ -1084,14 +1141,14 @@
   <data name="&gt;&gt;dtpRepayment.Type" xml:space="preserve">
     <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>431, 6</value>
+  <data name="colCurrency.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="dtDisbursement.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;disburseLoansStatusBar.Name" xml:space="preserve">
-    <value>disburseLoansStatusBar</value>
+  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="colLoanOfficer.Width" type="System.Int32, mscorlib">
     <value>93</value>
@@ -1099,17 +1156,20 @@
   <data name="&gt;&gt;colGracePeriod.Name" xml:space="preserve">
     <value>colGracePeriod</value>
   </data>
+  <data name="colInterest.Text" xml:space="preserve">
+    <value>Interest</value>
+  </data>
   <data name="tbComment.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="dtDisbursement.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;colAmount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;disburseLoansStatusBar.Parent" xml:space="preserve">
+    <value>pnlButtons</value>
   </data>
   <data name="&gt;&gt;dtDisbursement.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;pnlButtons.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1119,6 +1179,9 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1015, 407</value>
+  </data>
+  <data name="colDoc1.Text" xml:space="preserve">
+    <value>Check №</value>
   </data>
   <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
     <value>pnlButtons</value>
@@ -1138,6 +1201,9 @@
   <data name="&gt;&gt;dtpRepayment.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="colDoc2.Text" xml:space="preserve">
+    <value>Receipt №</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>VillageDisburseLoanForm</value>
   </data>
@@ -1145,13 +1211,13 @@
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lvMembers.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.9.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>138, 25</value>
   </data>
-  <data name="&gt;&gt;dtDisbursement.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -1160,7 +1226,7 @@
     <value>0, 36</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
+    <value>ru-RU</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

@@ -37,6 +37,7 @@ namespace OpenCBS.CoreDomain.Events.Loan
 		protected bool _cancelable;
 		protected bool _deleted;
 	    protected bool _isFired;
+        
         protected OClientTypes _clientType;
         OPaymentType _repaymentType = OPaymentType.StandardPayment;
         public DateTime ExportedDate { get; set; }
@@ -57,6 +58,8 @@ namespace OpenCBS.CoreDomain.Events.Loan
         public string Comment { get; set; }
         public int? TellerId { get; set; }
         public int? ParentId { get; set; }
+        public string Doc1 { get; set; }
+        public string Doc2 { get; set; }
 
         public Event()
         {

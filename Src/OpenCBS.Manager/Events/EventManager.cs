@@ -634,7 +634,9 @@ namespace OpenCBS.Manager.Events
                                       [is_deleted], 
                                       [teller_id],
                                       [parent_id],
-                                      [comment])
+                                      [comment],
+                                      [doc1],
+                                      [doc2])
 			                         VALUES
                                       (@eventType, 
                                        @contractId, 
@@ -643,7 +645,9 @@ namespace OpenCBS.Manager.Events
                                        @deleted, 
                                        @tellerId,
                                        @parentId,
-                                       @comment)
+                                       @comment,
+                                       @doc1,
+                                       @doc2)
                                      SELECT SCOPE_IDENTITY()";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
@@ -672,11 +676,11 @@ namespace OpenCBS.Manager.Events
             }
         }
 
-	    public int AddLoanEvent(LoanDisbursmentEvent evnt, int contractId, SqlTransaction transaction)
+        public int AddLoanEvent(LoanDisbursmentEvent evnt, int contractId, SqlTransaction transaction)
 		{
             evnt.Id = AddLoanEventHead(evnt, contractId, transaction);
 
-			const string q = @"INSERT INTO [LoanDisbursmentEvents]([id], [amount], [fees], [interest], [payment_method_id]) 
+            const string q = @"INSERT INTO [LoanDisbursmentEvents]([id], [amount], [fees], [interest], [payment_method_id])
                                     VALUES(@id, @amount, @fees, @interest, @payment_method_id)";
 
             using(OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
@@ -1268,6 +1272,8 @@ namespace OpenCBS.Manager.Events
             c.AddParam("@tellerId", pEvent.TellerId);
             c.AddParam("@parentId", pEvent.ParentId);
             c.AddParam("@comment", pEvent.Comment);
+            c.AddParam("@doc1", pEvent.Doc1);
+            c.AddParam("@doc2", pEvent.Doc2);
         }
 
         private static void SetLoanPenaltyAccrualEvent(OpenCbsCommand c, Event pEvent, OCurrency penalty)

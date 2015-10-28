@@ -490,7 +490,7 @@ namespace OpenCBS.Services
         }
 
         public Loan Disburse(Loan pLoan, DateTime pDateToDisburse, bool pAlignInstallmentsDatesOnRealDisbursmentDate,
-                             bool pDisableFees, PaymentMethod method)
+                             bool pDisableFees, PaymentMethod method, string check = "", string receipt = "")
         {
             Loan copyLoan = pLoan.Copy();
             CheckDisbursedLoan(copyLoan, pDateToDisburse);
@@ -506,6 +506,8 @@ namespace OpenCBS.Services
                                                                                   pDisableFees);
                     loanDisbursmentEvent.User = _user;
                     loanDisbursmentEvent.PaymentMethod = method;
+                    loanDisbursmentEvent.Doc1 = check;
+                    loanDisbursmentEvent.Doc2 = receipt;
 
                     if (pLoan.CompulsorySavings != null)
                         loanDisbursmentEvent.Comment = pLoan.CompulsorySavings.Code;

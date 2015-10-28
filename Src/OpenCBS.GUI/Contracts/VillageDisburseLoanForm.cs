@@ -51,6 +51,8 @@ namespace OpenCBS.GUI.Contracts
         private ListViewItem _itemTotal = new ListViewItem("");
         private bool _hasMember;
         private bool _isFormStillNeeded = false;
+        private string _doc1;
+        private string _doc2;
         //private int _paymentMethodId;
 
         private const int IdxDDate = 2;
@@ -59,6 +61,9 @@ namespace OpenCBS.GUI.Contracts
         private const int IdxDflRemainder = 11;
         private const int IdxPaymentMethod = 12;
         private const int IdxComment = 13;
+        private const int IdxDoc1 = 14;
+        private const int IdxDoc2 = 15;
+
 
         public VillageDisburseLoanForm(Village village)
         {
@@ -124,6 +129,8 @@ namespace OpenCBS.GUI.Contracts
                     item.SubItems.Add(methods[0].Name);
 
                     item.SubItems.Add(loan.Comments);
+                    item.SubItems.Add("");
+                    item.SubItems.Add("");
 
                     lvMembers.Items.Add(item);
                     item.SubItems[IdxAmount].Tag = loan.Amount.GetFormatedValue(loan.UseCents);
@@ -191,6 +198,14 @@ namespace OpenCBS.GUI.Contracts
             if (e.SubItem == IdxComment)
             {
                 lvMembers.StartEditing(tbComment, e.Item, e.SubItem);
+            }
+            if (e.SubItem == IdxDoc1)
+            {
+                lvMembers.StartEditing(tbDoc1, e.Item, e.SubItem);
+            }
+            if (e.SubItem == IdxDoc2)
+            {
+                lvMembers.StartEditing(tbDoc2, e.Item, e.SubItem);
             }
         }
 
@@ -298,7 +313,8 @@ namespace OpenCBS.GUI.Contracts
                 {
                     _isFormStillNeeded = false;
                 }
-
+                _doc1 = "";
+                _doc2 = "";
                 foreach (ListViewItem item in lvMembers.Items)
                 {
                     if (!item.Checked || item == _itemTotal) continue;
@@ -391,11 +407,13 @@ namespace OpenCBS.GUI.Contracts
                         }
                     }
                     loan.Comments = item.SubItems[IdxComment].Text;
+                    _doc1 = item.SubItems[IdxDoc1].Text == "" ? "" : item.SubItems[IdxDoc1].Text;
+                    _doc2 = item.SubItems[IdxDoc2].Text == "" ? "" : item.SubItems[IdxDoc2].Text;
 
                     date += DateTime.Now.TimeOfDay;
                     PaymentMethod method = 
                         ServicesProvider.GetInstance().GetPaymentMethodServices().GetPaymentMethodByName(item.SubItems[IdxPaymentMethod].Text);
-                    activeMember.ActiveLoans[index] = ServicesProvider.GetInstance().GetContractServices().Disburse(loan, date, true, false, method);
+                    activeMember.ActiveLoans[index] = ServicesProvider.GetInstance().GetContractServices().Disburse(loan, date, true, false, method, _doc1, _doc2);
                 }
             }
             catch (Exception ex)
