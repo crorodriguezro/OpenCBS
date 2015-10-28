@@ -13,5 +13,7 @@ namespace OpenCBS.ArchitectureV2.Model
         public int LateDays { get; set; }
         public decimal Principal { get; set; }
         public decimal Interest { get; set; }
+        public string Comment { get; set; }
+        public string ReceiptNumber { get; set; }
     }
 }

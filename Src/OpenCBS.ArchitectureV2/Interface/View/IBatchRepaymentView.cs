@@ -10,6 +10,8 @@ namespace OpenCBS.ArchitectureV2.Interface.View
         void Stop();
         void SetLoans(List<Loan> loans);
         decimal GetTotal(int loanId);
+        string GetComment(int loanId);
+        string GetReceiptNumber(int loanId);
         List<int> SelectedLoanIds { get; } 
     }
 }

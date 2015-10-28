@@ -10,7 +10,6 @@ using OpenCBS.ArchitectureV2.Message;
 using OpenCBS.ArchitectureV2.Model;
 using OpenCBS.CoreDomain;
 using OpenCBS.Extensions;
-using OpenCBS.Services;
 using OpenCBS.Shared;
 
 namespace OpenCBS.ArchitectureV2.Presenter
@@ -168,7 +167,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
 
             repaymentEvent.Principal = repaidLoan.Schedule.Sum(x => x.PaidPrincipal) - loan.Schedule.Sum(x => x.PaidPrincipal);
             repaymentEvent.Interest = repaidLoan.Schedule.Sum(x => x.PaidInterest) - loan.Schedule.Sum(x => x.PaidInterest);
-            
+
             return repaymentEvent;
         }
 
@@ -190,11 +189,15 @@ namespace OpenCBS.ArchitectureV2.Presenter
                 foreach (var id in _view.SelectedLoanIds)
                 {
                     var total = _view.GetTotal(id);
+
                     var loan = GetLoan(id);
                     var repaidLoan = loan.Copy();
                     DistributeTotal(repaidLoan, total);
 
                     var repaymentEvent = GetRepaymentEvent(loan, repaidLoan);
+                    repaymentEvent.Comment = _view.GetComment(id);
+                    repaymentEvent.ReceiptNumber = _view.GetReceiptNumber(id);
+
                     repaymentEvent = _loanRepository.SaveRepaymentEvent(repaymentEvent, tx);
                     var interceptors = _applicationController.GetAllInstances<IEventInterceptor>();
                     foreach (var interceptor in interceptors)
@@ -205,7 +208,9 @@ namespace OpenCBS.ArchitectureV2.Presenter
                             Code = repaymentEvent.Code,
                             Principal = repaymentEvent.Principal,
                             Interests = repaymentEvent.Interest,
-                            Penalties = 0
+                            Penalties = 0,
+                            Comment = repaymentEvent.Comment,
+                            Doc1 = repaymentEvent.ReceiptNumber
                         };
                         interceptor.CallInterceptor(new Dictionary<string, object>
                         {

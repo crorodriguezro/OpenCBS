@@ -22,6 +22,8 @@ namespace OpenCBS.ArchitectureV2.View
             public decimal Interest { get; set; }
             public decimal Total { get; set; }
             public bool Selected { get; set; }
+            public string ReceiptNumber { get; set; }
+            public string Comment { get; set; }
         }
 
         private class TotalItem : Item
@@ -193,6 +195,14 @@ namespace OpenCBS.ArchitectureV2.View
         public decimal GetTotal(int loanId)
         {
             return _loansListView.Objects.Cast<Item>().Where(x => x.Id == loanId).Select(x => x.Total).Single();
+        }
+        public string GetComment(int loanId)
+        {
+            return _loansListView.Objects.Cast<Item>().Where(x => x.Id == loanId).Select(x => x.Comment).Single();
+        }
+        public string GetReceiptNumber(int loanId)
+        {
+            return _loansListView.Objects.Cast<Item>().Where(x => x.Id == loanId).Select(x => x.ReceiptNumber).Single();
         }
 
         public List<int> SelectedLoanIds
