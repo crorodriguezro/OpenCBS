@@ -152,7 +152,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
             return loan.Schedule.Sum(x => x.Principal + x.Interest - x.PaidPrincipal - x.PaidInterest);
         }
 
-        private static RepaymentEvent GetRepaymentEvent(Loan loan, Loan repaidLoan)
+        private static RepaymentEvent GetRepaymentEvent(Loan loan, Loan repaidLoan, string receiptNumber, string comment)
         {
             var firstUnpaidInstallment = loan.Schedule.Find(x => !x.Repaid);
             var lateDays = (TimeProvider.Today - firstUnpaidInstallment.ExpectedDate.Date).Days;
@@ -168,6 +168,9 @@ namespace OpenCBS.ArchitectureV2.Presenter
 
             repaymentEvent.Principal = repaidLoan.Schedule.Sum(x => x.PaidPrincipal) - loan.Schedule.Sum(x => x.PaidPrincipal);
             repaymentEvent.Interest = repaidLoan.Schedule.Sum(x => x.PaidInterest) - loan.Schedule.Sum(x => x.PaidInterest);
+
+            repaymentEvent.ReceiptNumber = receiptNumber;
+            repaymentEvent.Comment = comment;
             
             return repaymentEvent;
         }
@@ -189,12 +192,16 @@ namespace OpenCBS.ArchitectureV2.Presenter
             {
                 foreach (var id in _view.SelectedLoanIds)
                 {
-                    var total = _view.GetTotal(id);
-                    var loan = GetLoan(id);
-                    var repaidLoan = loan.Copy();
+                    decimal total = _view.GetTotal(id);
+                    string comment = _view.GetComment(id);
+                    string receiptNumber = _view.GetReceiptNumber(id);
+
+                    Loan loan = GetLoan(id);
+                    Loan repaidLoan = loan.Copy();
                     DistributeTotal(repaidLoan, total);
 
-                    var repaymentEvent = GetRepaymentEvent(loan, repaidLoan);
+                    RepaymentEvent repaymentEvent = GetRepaymentEvent(loan, repaidLoan, receiptNumber, comment);
+
                     repaymentEvent = _loanRepository.SaveRepaymentEvent(repaymentEvent, tx);
                     var interceptors = _applicationController.GetAllInstances<IEventInterceptor>();
                     foreach (var interceptor in interceptors)
@@ -205,7 +212,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
                             Code = repaymentEvent.Code,
                             Principal = repaymentEvent.Principal,
                             Interests = repaymentEvent.Interest,
-                            Penalties = 0
+                            Penalties = 0,
                         };
                         interceptor.CallInterceptor(new Dictionary<string, object>
                         {

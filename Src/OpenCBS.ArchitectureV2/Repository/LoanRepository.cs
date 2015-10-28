@@ -133,8 +133,8 @@ namespace OpenCBS.ArchitectureV2.Repository
             repaymentEvent.Id = tx.Connection.Query<int>(query, repaymentEvent, tx).First();
 
             query = @"
-                insert into dbo.RepaymentEvents (id, past_due_days, principal, interests, installment_number, commissions, penalties, payment_method_id, bounce_fee)
-                values (@Id, @LateDays, @Principal, @Interest, @InstallmentNumber, 0, 0, 1, 0)
+                insert into dbo.RepaymentEvents (id, past_due_days, principal, interests, installment_number, commissions, penalties, payment_method_id, bounce_fee, receiptnumber, comment)
+                values (@Id, @LateDays, @Principal, @Interest, @InstallmentNumber, 0, 0, 1, 0,@ReceiptNumber, @Comment)
             ";
             tx.Connection.Execute(query, repaymentEvent, tx);
 

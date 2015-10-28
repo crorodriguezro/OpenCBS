@@ -36,6 +36,8 @@
             this._principalColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._interestColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._totalColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this._receiptNumber = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this._comment = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._buttonsPanel = new System.Windows.Forms.Panel();
             this._cancelButton = new System.Windows.Forms.Button();
             this._okButton = new System.Windows.Forms.Button();
@@ -51,6 +53,8 @@
             this._loansListView.AllColumns.Add(this._principalColumn);
             this._loansListView.AllColumns.Add(this._interestColumn);
             this._loansListView.AllColumns.Add(this._totalColumn);
+            this._loansListView.AllColumns.Add(this._receiptNumber);
+            this._loansListView.AllColumns.Add(this._comment);
             this._loansListView.AlternateRowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this._loansListView.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.DoubleClick;
             this._loansListView.CheckedAspectName = "Selected";
@@ -60,7 +64,9 @@
             this._contractCodeColumn,
             this._principalColumn,
             this._interestColumn,
-            this._totalColumn});
+            this._totalColumn,
+            this._receiptNumber,
+            this._comment});
             this._loansListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this._loansListView.Font = new System.Drawing.Font("Segoe UI", 9F);
             this._loansListView.FullRowSelect = true;
@@ -70,7 +76,7 @@
             this._loansListView.Name = "_loansListView";
             this._loansListView.ShowGroups = false;
             this._loansListView.ShowImagesOnSubItems = true;
-            this._loansListView.Size = new System.Drawing.Size(910, 440);
+            this._loansListView.Size = new System.Drawing.Size(1202, 441);
             this._loansListView.TabIndex = 5;
             this._loansListView.UseCompatibleStateImageBehavior = false;
             this._loansListView.View = System.Windows.Forms.View.Details;
@@ -129,20 +135,32 @@
             this._totalColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this._totalColumn.Width = 100;
             // 
+            // _receiptNumber
+            // 
+            this._receiptNumber.AspectName = "ReceiptNumber";
+            this._receiptNumber.Text = "Receipt Number";
+            this._receiptNumber.Width = 105;
+            // 
+            // _comment
+            // 
+            this._comment.AspectName = "Comment";
+            this._comment.Text = "Comment";
+            this._comment.Width = 228;
+            // 
             // _buttonsPanel
             // 
             this._buttonsPanel.Controls.Add(this._cancelButton);
             this._buttonsPanel.Controls.Add(this._okButton);
             this._buttonsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this._buttonsPanel.Location = new System.Drawing.Point(0, 440);
+            this._buttonsPanel.Location = new System.Drawing.Point(0, 441);
             this._buttonsPanel.Name = "_buttonsPanel";
-            this._buttonsPanel.Size = new System.Drawing.Size(910, 51);
+            this._buttonsPanel.Size = new System.Drawing.Size(1202, 51);
             this._buttonsPanel.TabIndex = 6;
             // 
             // _cancelButton
             // 
             this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._cancelButton.Location = new System.Drawing.Point(458, 14);
+            this._cancelButton.Location = new System.Drawing.Point(627, 16);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(75, 23);
             this._cancelButton.TabIndex = 1;
@@ -151,7 +169,7 @@
             // 
             // _okButton
             // 
-            this._okButton.Location = new System.Drawing.Point(377, 14);
+            this._okButton.Location = new System.Drawing.Point(546, 16);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(75, 23);
             this._okButton.TabIndex = 0;
@@ -163,7 +181,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this._cancelButton;
-            this.ClientSize = new System.Drawing.Size(910, 491);
+            this.ClientSize = new System.Drawing.Size(1202, 492);
             this.Controls.Add(this._loansListView);
             this.Controls.Add(this._buttonsPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -192,5 +210,7 @@
         private System.Windows.Forms.Panel _buttonsPanel;
         private System.Windows.Forms.Button _cancelButton;
         private System.Windows.Forms.Button _okButton;
+        private BrightIdeasSoftware.OLVColumn _receiptNumber;
+        private BrightIdeasSoftware.OLVColumn _comment;
     }
 }
