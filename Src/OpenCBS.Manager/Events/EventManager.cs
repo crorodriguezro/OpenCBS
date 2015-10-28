@@ -635,8 +635,8 @@ namespace OpenCBS.Manager.Events
                                       [teller_id],
                                       [parent_id],
                                       [comment],
-                                      [check_number],
-                                      [receipt_number])
+                                      [doc1],
+                                      [doc2])
 			                         VALUES
                                       (@eventType, 
                                        @contractId, 
@@ -646,8 +646,8 @@ namespace OpenCBS.Manager.Events
                                        @tellerId,
                                        @parentId,
                                        @comment,
-                                       @checkNumber,
-                                       @receiptNumber)
+                                       @doc1,
+                                       @doc2)
                                      SELECT SCOPE_IDENTITY()";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
@@ -1244,7 +1244,7 @@ namespace OpenCBS.Manager.Events
             c.AddParam("@bounce_fee", evnt.BounceFee);
         }
 
-        private static void GetLoanDisbursmentEvent(LoanDisbursmentEvent evnt, OpenCbsCommand c, string check = "", string receipt = "")
+        private static void GetLoanDisbursmentEvent(LoanDisbursmentEvent evnt, OpenCbsCommand c)
         {
             c.AddParam("@id", evnt.Id);
             c.AddParam("@amount", evnt.Amount.Value);
@@ -1272,8 +1272,8 @@ namespace OpenCBS.Manager.Events
             c.AddParam("@tellerId", pEvent.TellerId);
             c.AddParam("@parentId", pEvent.ParentId);
             c.AddParam("@comment", pEvent.Comment);
-            c.AddParam("@checkNumber", pEvent.CheckNumber);
-            c.AddParam("@receiptNumber", pEvent.ReceiptNumber);
+            c.AddParam("@doc1", pEvent.Doc1);
+            c.AddParam("@doc2", pEvent.Doc2);
         }
 
         private static void SetLoanPenaltyAccrualEvent(OpenCbsCommand c, Event pEvent, OCurrency penalty)

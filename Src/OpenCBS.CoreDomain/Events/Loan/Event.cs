@@ -58,8 +58,8 @@ namespace OpenCBS.CoreDomain.Events.Loan
         public string Comment { get; set; }
         public int? TellerId { get; set; }
         public int? ParentId { get; set; }
-        public string CheckNumber { get; set; }
-        public string ReceiptNumber { get; set; }
+        public string Doc1 { get; set; }
+        public string Doc2 { get; set; }
 
         public Event()
         {

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -167,8 +167,14 @@
   <data name="colDate.Text" xml:space="preserve">
     <value>Дата выдачи</value>
   </data>
+  <data name="colDate.Width" type="System.Int32, mscorlib">
+    <value>92</value>
+  </data>
   <data name="colRepaymentDate.Text" xml:space="preserve">
     <value>Дата первого погашения</value>
+  </data>
+  <data name="colRepaymentDate.Width" type="System.Int32, mscorlib">
+    <value>155</value>
   </data>
   <data name="colAmount.Text" xml:space="preserve">
     <value>Сумма</value>
@@ -182,14 +188,26 @@
   <data name="colInterest.Text" xml:space="preserve">
     <value>Процент</value>
   </data>
+  <data name="colInterest.Width" type="System.Int32, mscorlib">
+    <value>69</value>
+  </data>
   <data name="colGracePeriod.Text" xml:space="preserve">
     <value>Льготный период</value>
+  </data>
+  <data name="colGracePeriod.Width" type="System.Int32, mscorlib">
+    <value>119</value>
   </data>
   <data name="colInstallments.Text" xml:space="preserve">
     <value>Платежи</value>
   </data>
+  <data name="colInstallments.Width" type="System.Int32, mscorlib">
+    <value>78</value>
+  </data>
   <data name="colLoanOfficer.Text" xml:space="preserve">
     <value>Кред. специалист</value>
+  </data>
+  <data name="colLoanOfficer.Width" type="System.Int32, mscorlib">
+    <value>122</value>
   </data>
   <data name="colFundingLine.Text" xml:space="preserve">
     <value>Фондовая линия</value>
@@ -206,11 +224,11 @@
   <data name="colComment.Text" xml:space="preserve">
     <value>Комментарий</value>
   </data>
-  <data name="colCheckNumber.Text" xml:space="preserve">
-    <value>Чек №</value>
+  <data name="colDoc1.Text" xml:space="preserve">
+    <value>№ Чека</value>
   </data>
-  <data name="colReceiptNumber.Text" xml:space="preserve">
-    <value>Квитанция №</value>
+  <data name="colDoc2.Text" xml:space="preserve">
+    <value>№ Квитанции</value>
   </data>
   <data name="lvMembers.Size" type="System.Drawing.Size, System.Drawing">
     <value>999, 326</value>
