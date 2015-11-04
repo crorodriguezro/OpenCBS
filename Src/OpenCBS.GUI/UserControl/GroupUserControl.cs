@@ -132,6 +132,7 @@ namespace OpenCBS.GUI.UserControl
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
         private PrintButton btnPrint;
+        private Button buttonCopy;
         public event EventHandler AddSelectedSaving;
         public event EventHandler ViewSelectedSaving;
 
@@ -215,6 +216,7 @@ namespace OpenCBS.GUI.UserControl
             this.linkLabelChangePhoto = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonCopy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -423,7 +425,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
             this.tableLayoutPanel1.Controls.Add(this.groupBoxFirstAddress, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupBoxSecondaryAddress, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBoxSecondaryAddress, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonCopy, 1, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
             // groupBoxFirstAddress
@@ -726,6 +729,13 @@ namespace OpenCBS.GUI.UserControl
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // buttonCopy
+            // 
+            resources.ApplyResources(this.buttonCopy, "buttonCopy");
+            this.buttonCopy.Name = "buttonCopy";
+            this.buttonCopy.UseVisualStyleBackColor = true;
+            this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
             // 
             // GroupUserControl
             // 
@@ -1589,6 +1599,18 @@ namespace OpenCBS.GUI.UserControl
         private void savingsListUserControl1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonCopy_Click(object sender, EventArgs e)
+        {
+            addressUserControlSecondaryAddress.District = addressUserControlFirst.District;
+            addressUserControlSecondaryAddress.City = addressUserControlFirst.City;
+            addressUserControlSecondaryAddress.Comments = addressUserControlFirst.Comments;
+            addressUserControlSecondaryAddress.ZipCode = addressUserControlFirst.ZipCode;
+            addressUserControlSecondaryAddress.HomeType = addressUserControlFirst.HomeType;
+            addressUserControlSecondaryAddress.HomePhone = addressUserControlFirst.HomePhone;
+            addressUserControlSecondaryAddress.PersonalPhone = addressUserControlFirst.PersonalPhone;
+            addressUserControlSecondaryAddress.Email = addressUserControlFirst.Email;
         }
     }
 }

@@ -219,6 +219,7 @@ namespace OpenCBS.GUI.UserControl
             this.btnPrint = new OpenCBS.GUI.UserControl.PrintButton();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonCopy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -706,7 +707,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             resources.ApplyResources(this.tableLayoutPanelAddress, "tableLayoutPanelAddress");
             this.tableLayoutPanelAddress.Controls.Add(this.groupBoxFirstAddress, 0, 0);
-            this.tableLayoutPanelAddress.Controls.Add(this.groupBoxSecondaryAddress, 1, 0);
+            this.tableLayoutPanelAddress.Controls.Add(this.groupBoxSecondaryAddress, 2, 0);
+            this.tableLayoutPanelAddress.Controls.Add(this.buttonCopy, 1, 0);
             this.tableLayoutPanelAddress.Name = "tableLayoutPanelAddress";
             // 
             // groupBoxFirstAddress
@@ -1105,6 +1107,13 @@ namespace OpenCBS.GUI.UserControl
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // buttonCopy
+            // 
+            resources.ApplyResources(this.buttonCopy, "buttonCopy");
+            this.buttonCopy.Name = "buttonCopy";
+            this.buttonCopy.UseVisualStyleBackColor = true;
+            this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
+            // 
             // PersonUserControl
             // 
             resources.ApplyResources(this, "$this");
@@ -1203,5 +1212,6 @@ namespace OpenCBS.GUI.UserControl
         private EconomicActivityControl eacPerson;
         private Label lblEconomicActivity;
         private Label lblBranch;
+        private Button buttonCopy;
     }
 }
