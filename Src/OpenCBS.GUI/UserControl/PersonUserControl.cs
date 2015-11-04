@@ -615,5 +615,17 @@ namespace OpenCBS.GUI.UserControl
         {
             if (_tempPerson != null) _tempPerson.Activity = eacPerson.Activity;
         }
+
+        private void buttonCopy_Click(object sender, EventArgs e)
+        {
+            addressUserControlSecondaryAddress.District = addressUserControlFirst.District;
+            addressUserControlSecondaryAddress.City = addressUserControlFirst.City;
+            addressUserControlSecondaryAddress.Comments = addressUserControlFirst.Comments;
+            addressUserControlSecondaryAddress.ZipCode = addressUserControlFirst.ZipCode;
+            addressUserControlSecondaryAddress.HomeType = addressUserControlFirst.HomeType;
+            addressUserControlSecondaryAddress.HomePhone = addressUserControlFirst.HomePhone;
+            addressUserControlSecondaryAddress.PersonalPhone = addressUserControlFirst.PersonalPhone;
+            addressUserControlSecondaryAddress.Email = addressUserControlFirst.Email;
+        }
     }
 }
