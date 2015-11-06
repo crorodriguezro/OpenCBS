@@ -476,7 +476,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACC
-        UQAAAk1TRnQBSQFMAgEBBwEAARABCAEQAQgBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
+        UQAAAk1TRnQBSQFMAgEBBwEAATABCAEwAQgBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
         AwABQAMAAQEBAAEgBgABgP8AHgABAQMJAQwDFAEbAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMW
         AR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMU
         ARsDBwEJnwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMA
@@ -2157,7 +2157,7 @@
     <value>Stretch</value>
   </data>
   <data name="tableLayoutPanelAddress.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="groupBoxFirstAddress.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -2169,7 +2169,7 @@
     <value>3, 3</value>
   </data>
   <data name="groupBoxFirstAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>538, 445</value>
+    <value>518, 445</value>
   </data>
   <data name="groupBoxFirstAddress.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2193,10 +2193,10 @@
     <value>Arial, 9.75pt</value>
   </data>
   <data name="groupBoxSecondaryAddress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>547, 3</value>
+    <value>567, 3</value>
   </data>
   <data name="groupBoxSecondaryAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>539, 445</value>
+    <value>519, 445</value>
   </data>
   <data name="groupBoxSecondaryAddress.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2212,6 +2212,36 @@
   </data>
   <data name="&gt;&gt;groupBoxSecondaryAddress.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="buttonCopy.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="buttonCopy.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 19pt</value>
+  </data>
+  <data name="buttonCopy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>527, 200</value>
+  </data>
+  <data name="buttonCopy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 50</value>
+  </data>
+  <data name="buttonCopy.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="buttonCopy.Text" xml:space="preserve">
+    <value>→</value>
+  </data>
+  <data name="&gt;&gt;buttonCopy.Name" xml:space="preserve">
+    <value>buttonCopy</value>
+  </data>
+  <data name="&gt;&gt;buttonCopy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonCopy.Parent" xml:space="preserve">
+    <value>tableLayoutPanelAddress</value>
+  </data>
+  <data name="&gt;&gt;buttonCopy.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="tableLayoutPanelAddress.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -2241,7 +2271,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanelAddress.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="groupBoxFirstAddress" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="groupBoxSecondaryAddress" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="groupBoxFirstAddress" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="groupBoxSecondaryAddress" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="buttonCopy" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Absolute,40,Percent,50" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tabPageAddress.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 36</value>
@@ -2502,7 +2532,7 @@
     <value>clSavingList</value>
   </data>
   <data name="&gt;&gt;clSavingList.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SavingsListUserControl, OpenCBS.GUI, Version=15.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SavingsListUserControl, OpenCBS.GUI, Version=15.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;clSavingList.Parent" xml:space="preserve">
     <value>tabPageSavings</value>
@@ -2757,7 +2787,7 @@
     <value>eacPerson</value>
   </data>
   <data name="&gt;&gt;eacPerson.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.EconomicActivityControl, OpenCBS.GUI, Version=15.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.EconomicActivityControl, OpenCBS.GUI, Version=15.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;eacPerson.Parent" xml:space="preserve">
     <value>groupBoxCivilities</value>
@@ -2802,7 +2832,7 @@
     <value>textBoxNationality</value>
   </data>
   <data name="&gt;&gt;textBoxNationality.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxNationality.Parent" xml:space="preserve">
     <value>groupBoxCivilities</value>
@@ -2883,7 +2913,7 @@
     <value>textBoxBirthPlace</value>
   </data>
   <data name="&gt;&gt;textBoxBirthPlace.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxBirthPlace.Parent" xml:space="preserve">
     <value>groupBoxCivilities</value>
@@ -3000,7 +3030,7 @@
     <value>textBoxFatherName</value>
   </data>
   <data name="&gt;&gt;textBoxFatherName.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxFatherName.Parent" xml:space="preserve">
     <value>groupBoxCivilities</value>
@@ -3219,7 +3249,7 @@
     <value>textBoxLastname</value>
   </data>
   <data name="&gt;&gt;textBoxLastname.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxLastname.Parent" xml:space="preserve">
     <value>groupBoxCivilities</value>
@@ -3276,7 +3306,7 @@
     <value>textBoxIdentificationData</value>
   </data>
   <data name="&gt;&gt;textBoxIdentificationData.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxIdentificationData.Parent" xml:space="preserve">
     <value>groupBoxCivilities</value>
@@ -3423,7 +3453,7 @@
     <value>textBoxFirstName</value>
   </data>
   <data name="&gt;&gt;textBoxFirstName.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.TextBoxLimit, OpenCBS.GUI, Version=15.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxFirstName.Parent" xml:space="preserve">
     <value>groupBoxCivilities</value>
@@ -3489,7 +3519,7 @@
     <value>btnPrint</value>
   </data>
   <data name="&gt;&gt;btnPrint.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrint.Parent" xml:space="preserve">
     <value>panelEconomicActivity</value>
@@ -3798,6 +3828,6 @@
     <value>PersonUserControl</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ClientControl, OpenCBS.GUI, Version=15.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ClientControl, OpenCBS.GUI, Version=15.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
