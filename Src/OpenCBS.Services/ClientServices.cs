@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Data;
 using System.Linq;
 using OpenCBS.CoreDomain;
@@ -34,6 +35,7 @@ using OpenCBS.Enums;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using OpenCBS.ExceptionsHandler;
+using OpenCBS.Extensions;
 using OpenCBS.Manager.Clients;
 using OpenCBS.Shared;
 using OpenCBS.ExceptionsHandler.Exceptions.FundingLineExceptions;
@@ -58,6 +60,9 @@ namespace OpenCBS.Services
         private readonly User _user = new User();
         private readonly PicturesServices _picturesServices;
         private readonly LoanServices _loanServices = ServicesProvider.GetInstance().GetContractServices();
+
+        [ImportMany(typeof(IClientSave))]
+        private Lazy<IClientSave, IDictionary<string, object>>[] ClientInterceptors { get; set; }
 
         public ClientServices(User pUser)
         {
@@ -693,6 +698,16 @@ namespace OpenCBS.Services
                     else
                     {
                         pPerson.Id = _clientManagement.AddPerson(pPerson, transac);
+                        ClientInterceptorSave(new Dictionary<string, object>
+                            {
+                                {"Person", pPerson},
+                                {"SqlTransaction", transac}
+                            });
+                        CallInterceptor(new Dictionary<string, object>
+                        {
+                            {"Person", pPerson},
+                            {"SqlTransaction", transac}
+                        });
                     }
 
                     if (action != null) action(transac, pPerson.Id);
@@ -1395,6 +1410,37 @@ namespace OpenCBS.Services
         {
             if (oldClient.Branch.Id != client.Branch.Id)
                 _clientManagement.UpdateClientBranchHistory(client, oldClient, sqlTransaction);
+        }
+
+        public void ClientInterceptorSave(IDictionary<string, object> interceptorParams)
+        {
+            foreach (var interceptor in ClientInterceptors)
+            {
+                interceptor.Value.PersonSave(interceptorParams);
+            }
+        }
+
+        public void CallInterceptor(IDictionary<string, object> interceptorParams)
+        {
+            // Find non-default implementation
+            var creator = (from item in ClientInterceptors
+                           where
+                               item.Metadata.ContainsKey("Implementation") &&
+                               item.Metadata["Implementation"].ToString() != "Default"
+                           select item.Value).FirstOrDefault();
+            if (creator != null)
+            {
+                creator.PersonSave(interceptorParams);
+                return;
+            }
+
+            // Otherwise, find the default one
+            creator = (from item in ClientInterceptors
+                       where
+                           item.Metadata.ContainsKey("Implementation") &&
+                           item.Metadata["Implementation"].ToString() == "Default"
+                       select item.Value).FirstOrDefault();
+            if (creator != null) creator.PersonSave(interceptorParams);
         }
     }
 }
