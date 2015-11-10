@@ -61,8 +61,8 @@ namespace OpenCBS.Services
         private readonly PicturesServices _picturesServices;
         private readonly LoanServices _loanServices = ServicesProvider.GetInstance().GetContractServices();
 
-        [ImportMany(typeof(IClientSave))]
-        private Lazy<IClientSave, IDictionary<string, object>>[] ClientInterceptors { get; set; }
+        [ImportMany(typeof(IPersonInterceptor))]
+        private Lazy<IPersonInterceptor, IDictionary<string, object>>[] PersonInterceptors { get; set; }
 
         public ClientServices(User pUser)
         {
@@ -71,6 +71,7 @@ namespace OpenCBS.Services
             _clientManagement.ClientSelected += ClientSelected;
             _dataParam = ApplicationSettings.GetInstance(pUser.Md5);
             _picturesServices = new PicturesServices(pUser);
+            MefContainer.Current.Bind(this);
         }
 
         public ClientServices(User pUser, string testDB)
@@ -698,16 +699,19 @@ namespace OpenCBS.Services
                     else
                     {
                         pPerson.Id = _clientManagement.AddPerson(pPerson, transac);
-                        ClientInterceptorSave(new Dictionary<string, object>
+                        foreach (var interceptor in PersonInterceptors)
+                        {
+                            interceptor.Value.Save(new Dictionary<string, object>
                             {
                                 {"Person", pPerson},
                                 {"SqlTransaction", transac}
                             });
-                        CallInterceptor(new Dictionary<string, object>
-                        {
-                            {"Person", pPerson},
-                            {"SqlTransaction", transac}
-                        });
+                        }
+//                        CallInterceptor(new Dictionary<string, object>
+//                        {
+//                            {"Person", pPerson},
+//                            {"SqlTransaction", transac}
+//                        });
                     }
 
                     if (action != null) action(transac, pPerson.Id);
@@ -1412,35 +1416,27 @@ namespace OpenCBS.Services
                 _clientManagement.UpdateClientBranchHistory(client, oldClient, sqlTransaction);
         }
 
-        public void ClientInterceptorSave(IDictionary<string, object> interceptorParams)
-        {
-            foreach (var interceptor in ClientInterceptors)
-            {
-                interceptor.Value.PersonSave(interceptorParams);
-            }
-        }
-
         public void CallInterceptor(IDictionary<string, object> interceptorParams)
         {
             // Find non-default implementation
-            var creator = (from item in ClientInterceptors
+            var creator = (from item in PersonInterceptors
                            where
                                item.Metadata.ContainsKey("Implementation") &&
                                item.Metadata["Implementation"].ToString() != "Default"
                            select item.Value).FirstOrDefault();
             if (creator != null)
             {
-                creator.PersonSave(interceptorParams);
+                creator.Save(interceptorParams);
                 return;
             }
 
             // Otherwise, find the default one
-            creator = (from item in ClientInterceptors
+            creator = (from item in PersonInterceptors
                        where
                            item.Metadata.ContainsKey("Implementation") &&
                            item.Metadata["Implementation"].ToString() == "Default"
                        select item.Value).FirstOrDefault();
-            if (creator != null) creator.PersonSave(interceptorParams);
+            if (creator != null) creator.Save(interceptorParams);
         }
     }
 }
