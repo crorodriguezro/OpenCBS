@@ -707,11 +707,6 @@ namespace OpenCBS.Services
                                 {"SqlTransaction", transac}
                             });
                         }
-//                        CallInterceptor(new Dictionary<string, object>
-//                        {
-//                            {"Person", pPerson},
-//                            {"SqlTransaction", transac}
-//                        });
                     }
 
                     if (action != null) action(transac, pPerson.Id);
@@ -738,6 +733,15 @@ namespace OpenCBS.Services
                 {
                     _clientManagement.UpdatePerson(person, transac);
                     UpdateClientBranchHistory(person, oldPerson, transac);
+
+                    foreach (var interceptor in PersonInterceptors)
+                    {
+                        interceptor.Value.Save(new Dictionary<string, object>
+                            {
+                                {"Person", person},
+                                {"SqlTransaction", transac}
+                            });
+                    }
 
                     if (action != null) action(transac, person.Id);
                     transac.Commit();
