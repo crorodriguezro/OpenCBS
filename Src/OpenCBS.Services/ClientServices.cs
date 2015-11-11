@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Data;
 using System.Linq;
 using OpenCBS.CoreDomain;
@@ -34,6 +35,7 @@ using OpenCBS.Enums;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using OpenCBS.ExceptionsHandler;
+using OpenCBS.Extensions;
 using OpenCBS.Manager.Clients;
 using OpenCBS.Shared;
 using OpenCBS.ExceptionsHandler.Exceptions.FundingLineExceptions;
@@ -59,6 +61,9 @@ namespace OpenCBS.Services
         private readonly PicturesServices _picturesServices;
         private readonly LoanServices _loanServices = ServicesProvider.GetInstance().GetContractServices();
 
+        [ImportMany(typeof(IPersonInterceptor))]
+        private Lazy<IPersonInterceptor, IDictionary<string, object>>[] PersonInterceptors { get; set; }
+
         public ClientServices(User pUser)
         {
             _user = pUser;
@@ -66,6 +71,7 @@ namespace OpenCBS.Services
             _clientManagement.ClientSelected += ClientSelected;
             _dataParam = ApplicationSettings.GetInstance(pUser.Md5);
             _picturesServices = new PicturesServices(pUser);
+            MefContainer.Current.Bind(this);
         }
 
         public ClientServices(User pUser, string testDB)
@@ -693,6 +699,14 @@ namespace OpenCBS.Services
                     else
                     {
                         pPerson.Id = _clientManagement.AddPerson(pPerson, transac);
+                        foreach (var interceptor in PersonInterceptors)
+                        {
+                            interceptor.Value.Save(new Dictionary<string, object>
+                            {
+                                {"Person", pPerson},
+                                {"SqlTransaction", transac}
+                            });
+                        }
                     }
 
                     if (action != null) action(transac, pPerson.Id);
@@ -719,6 +733,15 @@ namespace OpenCBS.Services
                 {
                     _clientManagement.UpdatePerson(person, transac);
                     UpdateClientBranchHistory(person, oldPerson, transac);
+
+                    foreach (var interceptor in PersonInterceptors)
+                    {
+                        interceptor.Value.Save(new Dictionary<string, object>
+                            {
+                                {"Person", person},
+                                {"SqlTransaction", transac}
+                            });
+                    }
 
                     if (action != null) action(transac, person.Id);
                     transac.Commit();
@@ -1395,6 +1418,29 @@ namespace OpenCBS.Services
         {
             if (oldClient.Branch.Id != client.Branch.Id)
                 _clientManagement.UpdateClientBranchHistory(client, oldClient, sqlTransaction);
+        }
+
+        public void CallInterceptor(IDictionary<string, object> interceptorParams)
+        {
+            // Find non-default implementation
+            var creator = (from item in PersonInterceptors
+                           where
+                               item.Metadata.ContainsKey("Implementation") &&
+                               item.Metadata["Implementation"].ToString() != "Default"
+                           select item.Value).FirstOrDefault();
+            if (creator != null)
+            {
+                creator.Save(interceptorParams);
+                return;
+            }
+
+            // Otherwise, find the default one
+            creator = (from item in PersonInterceptors
+                       where
+                           item.Metadata.ContainsKey("Implementation") &&
+                           item.Metadata["Implementation"].ToString() == "Default"
+                       select item.Value).FirstOrDefault();
+            if (creator != null) creator.Save(interceptorParams);
         }
     }
 }

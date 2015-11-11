@@ -30,9 +30,6 @@ using OpenCBS.Shared;
 
 namespace OpenCBS.Manager
 {
-	/// <summary>
-	/// Description r�sum�e de InstallmentManagement.
-	/// </summary>
 	public class InstallmentManager : Manager
 	{
 	   
@@ -74,7 +71,8 @@ namespace OpenCBS.Manager
                                         start_date,
                                         olb,
                                         commission,
-                                        paid_commission)
+                                        paid_commission,
+                                        last_interest_accrual_date)
                                     VALUES (
                                         @expectedDate,
                                         @interestsRepayment,
@@ -91,7 +89,8 @@ namespace OpenCBS.Manager
                                         @start_date,
                                         @olb,
                                         @commission,
-                                        @paidCommission)";
+                                        @paidCommission,
+                                        @lastInterestAccrualDate)";
 
             using(var c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
             {
@@ -153,7 +152,8 @@ namespace OpenCBS.Manager
                                             start_date,
                                             olb,
                                             commission,
-                                            paid_commission
+                                            paid_commission,
+                                            last_interest_accrual_date
                                     FROM Installments WHERE contract_id = @id";
 
             using (var c = new OpenCbsCommand(sqlText, pSqlTransac.Connection, pSqlTransac))
@@ -192,7 +192,8 @@ namespace OpenCBS.Manager
                                             start_date,
                                             olb,
                                             commission,
-                                            paid_commission
+                                            paid_commission,
+                                            last_interest_accrual_date
                                   FROM Installments
                                   WHERE paid_capital = 0 
                                     AND paid_interest = 0"; 
@@ -232,7 +233,8 @@ namespace OpenCBS.Manager
                                           start_date,
                                           olb,
                                           commission,
-                                          paid_commission
+                                          paid_commission,
+                                          last_interest_accrual_date
                                     FROM InstallmentHistory 
                                     WHERE event_id = @event_id 
                                       AND delete_date IS NULL";
@@ -272,7 +274,8 @@ namespace OpenCBS.Manager
                             OLB = r.GetMoney("olb"),
 	                        IsPending = r.GetBool("pending"),
                             Commission = r.GetMoney("commission"),
-                            PaidCommissions = r.GetMoney("paid_commission")
+                            PaidCommissions = r.GetMoney("paid_commission"),
+                            LastInterestAccrualDate = r.GetDateTime("last_interest_accrual_date")
 	                    };
 	        return i;
 	    }
@@ -319,6 +322,7 @@ namespace OpenCBS.Manager
             c.AddParam("@olb", pInstallment.OLB);
             c.AddParam("@commission", pInstallment.Commission);
             c.AddParam("@paidCommission", pInstallment.PaidCommissions);
+            c.AddParam("@lastInterestAccrualDate", pInstallment.LastInterestAccrualDate);
 	    }
 
         private static Installment GetInstallment(OpenCbsReader r)
@@ -339,7 +343,8 @@ namespace OpenCBS.Manager
                 StartDate = r.GetDateTime("start_date"),
                 OLB = r.GetMoney("olb"),
                 Commission = r.GetMoney("commission"),
-                PaidCommissions = r.GetMoney("paid_commission")
+                PaidCommissions = r.GetMoney("paid_commission"),
+                LastInterestAccrualDate = r.GetDateTime("last_interest_accrual_date")
             };
             return installment;
         }
@@ -381,7 +386,8 @@ namespace OpenCBS.Manager
                                         start_date = @start_date,
                                         olb = @olb,
                                         commission = @commission,
-                                        paid_commission = @paidCommission
+                                        paid_commission = @paidCommission,
+                                        last_interest_accrual_date = @lastInterestAccrualDate
                                      WHERE contract_id = @contractId 
                                        AND number = @number";
 
@@ -403,6 +409,7 @@ namespace OpenCBS.Manager
                 c.AddParam("@olb", pInstallment.OLB);
                 c.AddParam("@commission", pInstallment.Commission);
                 c.AddParam("@paidCommission", pInstallment.PaidCommissions);
+                c.AddParam("@lastInterestAccrualDate", pInstallment.LastInterestAccrualDate);
 
                 if (pInstallment is Installment)
                 {
@@ -485,7 +492,8 @@ namespace OpenCBS.Manager
                                         start_date,
                                         olb,
                                         commission,
-                                        paid_commission) 
+                                        paid_commission,
+                                        last_interest_accrual_date) 
                                     VALUES (
                                             @contract_id,
                                             @event_id,
@@ -503,7 +511,8 @@ namespace OpenCBS.Manager
                                             @start_date,
                                             @olb,
                                             @commission,
-                                            @paidCommission)";
+                                            @paidCommission,
+                                            @lastInterestAccrualDate)";
             using (var c = new OpenCbsCommand(q, transaction.Connection, transaction))
             {
                 c.AddParam("@contract_id", contractId);
@@ -523,6 +532,7 @@ namespace OpenCBS.Manager
                 c.AddParam("@olb", i.OLB);
                 c.AddParam("@commission", i.Commission);
                 c.AddParam("@paidCommission", i.PaidCommissions);
+                c.AddParam("@lastInterestAccrualDate", i.LastInterestAccrualDate);
                 c.ExecuteNonQuery();
             }
         }
@@ -561,7 +571,8 @@ namespace OpenCBS.Manager
                                                start_date,
                                                olb,
                                                commission,
-                                               paid_commission) 
+                                               paid_commission,
+                                               last_interest_accrual_date) 
                                              VALUES (
                                                @expected_date, 
                                                @interest_repayment, 
@@ -578,7 +589,8 @@ namespace OpenCBS.Manager
                                                @start_date,
                                                @olb,
                                                @commission,
-                                               @paidCommission)";
+                                               @paidCommission,
+                                               @lastInterestAccrualDate)";
 
                 using (var c = new OpenCbsCommand(queryInsert, t.Connection, t))
                 {
@@ -598,6 +610,7 @@ namespace OpenCBS.Manager
                     c.AddParam("@olb", i.OLB);
                     c.AddParam("@commission", i.Commission);
                     c.AddParam("@paidCommission", i.PaidCommissions);
+                    c.AddParam("@lastInterestAccrualDate", i.LastInterestAccrualDate);
                     c.ExecuteNonQuery();
                 }
             }

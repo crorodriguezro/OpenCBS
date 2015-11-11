@@ -20,15 +20,10 @@
 // Contact: contact@opencbs.com
 
 using System;
-using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.Shared;
-using OpenCBS.Enums;
 
 namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
 {
-    /// <summary>
-    /// Description r�sum�e de Installment.
-    /// </summary>
     [Serializable]
     public class Installment : IInstallment
     {
@@ -39,7 +34,6 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
         private OCurrency _paidFees = 0;
         private OCurrency _paidCommision = 0;
         private OCurrency _commission = 0;
-        private OCurrency _olbAfterRepayment = 0;
         private OCurrency _unpaidFees = 0;
         private bool _pending;
         
@@ -65,6 +59,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
 
         public DateTime StartDate { get; set; }
         public DateTime ExpectedDate { get; set; }
+        public DateTime LastInterestAccrualDate { get; set; }
 
         public OCurrency FeesUnpaid
         {
