@@ -35,6 +35,8 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
         private OCurrency _paidCommision = 0;
         private OCurrency _commission = 0;
         private OCurrency _unpaidFees = 0;
+        private OCurrency _exchangeRate = 0;
+        private OCurrency _exchangedAmount = 0;
         private bool _pending;
         
         public Installment()
@@ -98,6 +100,18 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
         {
             get { return _commission; }
             set { _commission = value; }
+        }
+
+        public OCurrency ExchangeRate
+        {
+            get { return _exchangeRate; }
+            set { _exchangeRate = value; }
+        }
+
+        public OCurrency ExchangedAmount
+        {
+            get { return _exchangedAmount; }
+            set { _exchangedAmount = value; }
         }
 
         public OCurrency CommissionsUnpaid

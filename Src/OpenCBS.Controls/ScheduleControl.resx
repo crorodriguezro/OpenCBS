@@ -143,6 +143,9 @@
   <data name="interestColumn.Width" type="System.Int32, mscorlib">
     <value>100</value>
   </data>
+  <data name="extraColumn.DisplayIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
   <data name="extraColumn.Text" xml:space="preserve">
     <value>Extra</value>
   </data>

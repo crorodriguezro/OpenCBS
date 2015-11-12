@@ -118,8 +118,8 @@
             // extraColumn
             // 
             this.extraColumn.AspectName = "Commission";
-            this.extraColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             resources.ApplyResources(this.extraColumn, "extraColumn");
+            this.extraColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // principalColumn
             // 

@@ -61,6 +61,8 @@ namespace OpenCBS.Controls
             paidInterestColumn.AspectToStringConverter =
             paidExtraColumn.AspectToStringConverter =
             olbColumn.AspectToStringConverter =
+            exchangeRateColumn.AspectToStringConverter =
+            exchangedAmountColumn.AspectToStringConverter =
             totalColumn.AspectToStringConverter = value =>
             {
                 var amount = (OCurrency)value;
