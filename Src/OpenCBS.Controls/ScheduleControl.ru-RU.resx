@@ -156,4 +156,10 @@
   <data name="paidExtraColumn.Text" xml:space="preserve">
     <value>Оплаченный доп. процент</value>
   </data>
+  <data name="exchangedAmountColumn.Text" xml:space="preserve">
+    <value>Платёж в долларах</value>
+  </data>
+  <data name="exchangeRateColumn.Text" xml:space="preserve">
+    <value>Курс</value>
+  </data>
 </root>

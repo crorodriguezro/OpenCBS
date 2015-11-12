@@ -231,18 +231,30 @@
     <value>Right</value>
   </data>
   <data name="commentColumn.Width" type="System.Int32, mscorlib">
-    <value>80</value>
+    <value>85</value>
+  </data>
+  <data name="exchangeRateColumn.Text" xml:space="preserve">
+    <value>Exchange Rate</value>
+  </data>
+  <data name="exchangeRateColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="exchangeRateColumn.Width" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="exchangedAmountColumn.Text" xml:space="preserve">
+    <value>Exchanged Amount</value>
+  </data>
+  <data name="exchangedAmountColumn.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="exchangedAmountColumn.Width" type="System.Int32, mscorlib">
+    <value>120</value>
   </data>
   <metadata name="_scheduleContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="menuItemCopy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="menuItemCopy.Text" xml:space="preserve">
-    <value>Copy all to clipboard</value>
-  </data>
   <data name="_scheduleContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 26</value>
   </data>
@@ -274,13 +286,19 @@
     <value>scheduleObjectListView</value>
   </data>
   <data name="&gt;&gt;scheduleObjectListView.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.ObjectListView, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.ObjectListView, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;scheduleObjectListView.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;scheduleObjectListView.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="menuItemCopy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="menuItemCopy.Text" xml:space="preserve">
+    <value>Copy all to clipboard</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -295,85 +313,97 @@
     <value>numberColumn</value>
   </data>
   <data name="&gt;&gt;numberColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;dateColumn.Name" xml:space="preserve">
     <value>dateColumn</value>
   </data>
   <data name="&gt;&gt;dateColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;interestColumn.Name" xml:space="preserve">
     <value>interestColumn</value>
   </data>
   <data name="&gt;&gt;interestColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;extraColumn.Name" xml:space="preserve">
     <value>extraColumn</value>
   </data>
   <data name="&gt;&gt;extraColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;principalColumn.Name" xml:space="preserve">
     <value>principalColumn</value>
   </data>
   <data name="&gt;&gt;principalColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;totalColumn.Name" xml:space="preserve">
     <value>totalColumn</value>
   </data>
   <data name="&gt;&gt;totalColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;olbColumn.Name" xml:space="preserve">
     <value>olbColumn</value>
   </data>
   <data name="&gt;&gt;olbColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;paidInterestColumn.Name" xml:space="preserve">
     <value>paidInterestColumn</value>
   </data>
   <data name="&gt;&gt;paidInterestColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;paidExtraColumn.Name" xml:space="preserve">
     <value>paidExtraColumn</value>
   </data>
   <data name="&gt;&gt;paidExtraColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;paidPrincipalColumn.Name" xml:space="preserve">
     <value>paidPrincipalColumn</value>
   </data>
   <data name="&gt;&gt;paidPrincipalColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;paymentDateColumn.Name" xml:space="preserve">
     <value>paymentDateColumn</value>
   </data>
   <data name="&gt;&gt;paymentDateColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;lateDaysColumn.Name" xml:space="preserve">
     <value>lateDaysColumn</value>
   </data>
   <data name="&gt;&gt;lateDaysColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;commentColumn.Name" xml:space="preserve">
     <value>commentColumn</value>
   </data>
   <data name="&gt;&gt;commentColumn.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.0.26223, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;menuItemCopy.Name" xml:space="preserve">
     <value>menuItemCopy</value>
   </data>
   <data name="&gt;&gt;menuItemCopy.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exchangeRateColumn.Name" xml:space="preserve">
+    <value>exchangeRateColumn</value>
+  </data>
+  <data name="&gt;&gt;exchangeRateColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;exchangedAmountColumn.Name" xml:space="preserve">
+    <value>exchangedAmountColumn</value>
+  </data>
+  <data name="&gt;&gt;exchangedAmountColumn.Type" xml:space="preserve">
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ScheduleControl</value>

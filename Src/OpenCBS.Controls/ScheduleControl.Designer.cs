@@ -46,6 +46,8 @@
             this.commentColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._scheduleContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuItemCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.exchangeRateColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.exchangedAmountColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             ((System.ComponentModel.ISupportInitialize)(this.scheduleObjectListView)).BeginInit();
             this._scheduleContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +67,8 @@
             this.scheduleObjectListView.AllColumns.Add(this.paymentDateColumn);
             this.scheduleObjectListView.AllColumns.Add(this.lateDaysColumn);
             this.scheduleObjectListView.AllColumns.Add(this.commentColumn);
+            this.scheduleObjectListView.AllColumns.Add(this.exchangeRateColumn);
+            this.scheduleObjectListView.AllColumns.Add(this.exchangedAmountColumn);
             this.scheduleObjectListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.numberColumn,
             this.dateColumn,
@@ -78,7 +82,9 @@
             this.paidPrincipalColumn,
             this.paymentDateColumn,
             this.lateDaysColumn,
-            this.commentColumn});
+            this.commentColumn,
+            this.exchangeRateColumn,
+            this.exchangedAmountColumn});
             this.scheduleObjectListView.ContextMenuStrip = this._scheduleContextMenuStrip;
             resources.ApplyResources(this.scheduleObjectListView, "scheduleObjectListView");
             this.scheduleObjectListView.FullRowSelect = true;
@@ -181,6 +187,18 @@
             this.menuItemCopy.Name = "menuItemCopy";
             resources.ApplyResources(this.menuItemCopy, "menuItemCopy");
             // 
+            // exchangeRateColumn
+            // 
+            this.exchangeRateColumn.AspectName = "ExchangeRate";
+            this.exchangeRateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            resources.ApplyResources(this.exchangeRateColumn, "exchangeRateColumn");
+            // 
+            // exchangedAmountColumn
+            // 
+            this.exchangedAmountColumn.AspectName = "ExchangedAmount";
+            this.exchangedAmountColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            resources.ApplyResources(this.exchangedAmountColumn, "exchangedAmountColumn");
+            // 
             // ScheduleControl
             // 
             resources.ApplyResources(this, "$this");
@@ -211,5 +229,7 @@
         private BrightIdeasSoftware.OLVColumn commentColumn;
         private System.Windows.Forms.ContextMenuStrip _scheduleContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem menuItemCopy;
+        private BrightIdeasSoftware.OLVColumn exchangeRateColumn;
+        private BrightIdeasSoftware.OLVColumn exchangedAmountColumn;
     }
 }

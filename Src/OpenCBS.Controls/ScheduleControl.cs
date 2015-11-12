@@ -69,6 +69,8 @@ namespace OpenCBS.Controls
             _scheduleContextMenuStrip.Click += (sender, e) => _CopyData();
             extraColumn.IsVisible = false;
             paidExtraColumn.IsVisible = false;
+            exchangeRateColumn.IsVisible = false;
+            exchangedAmountColumn.IsVisible = false;
             scheduleObjectListView.RebuildColumns();
         }
 
@@ -87,6 +89,8 @@ namespace OpenCBS.Controls
         {
             extraColumn.IsVisible = true;
             paidExtraColumn.IsVisible = true;
+            exchangeRateColumn.IsVisible = true;
+            exchangedAmountColumn.IsVisible = true;
             scheduleObjectListView.RebuildColumns();
         }
 
