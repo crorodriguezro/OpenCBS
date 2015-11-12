@@ -145,7 +145,7 @@
     <value>Комментарий</value>
   </data>
   <data name="extraColumn.Text" xml:space="preserve">
-    <value>Доп. процент</value>
+    <value>Д/Уб. курс</value>
   </data>
   <data name="lateDaysColumn.Text" xml:space="preserve">
     <value>Дни просрочки</value>
@@ -157,9 +157,9 @@
     <value>Оплаченный доп. процент</value>
   </data>
   <data name="exchangedAmountColumn.Text" xml:space="preserve">
-    <value>Платёж в долларах</value>
+    <value>Платёж в валюте</value>
   </data>
   <data name="exchangeRateColumn.Text" xml:space="preserve">
-    <value>Курс</value>
+    <value>Обм. Курс</value>
   </data>
 </root>
