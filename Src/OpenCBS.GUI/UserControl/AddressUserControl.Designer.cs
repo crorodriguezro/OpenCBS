@@ -70,9 +70,9 @@ namespace OpenCBS.GUI
             // 
             // comboBoxDistrict
             // 
+            resources.ApplyResources(this.comboBoxDistrict, "comboBoxDistrict");
             this.comboBoxDistrict.BackColor = System.Drawing.Color.White;
             this.comboBoxDistrict.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.comboBoxDistrict, "comboBoxDistrict");
             this.comboBoxDistrict.Name = "comboBoxDistrict";
             this.comboBoxDistrict.SelectionChangeCommitted += new System.EventHandler(this.comboBoxDistrict_SelectionChangeCommitted);
             // 
@@ -102,9 +102,9 @@ namespace OpenCBS.GUI
             // 
             // comboBoxProvince
             // 
+            resources.ApplyResources(this.comboBoxProvince, "comboBoxProvince");
             this.comboBoxProvince.BackColor = System.Drawing.Color.White;
             this.comboBoxProvince.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.comboBoxProvince, "comboBoxProvince");
             this.comboBoxProvince.Name = "comboBoxProvince";
             this.comboBoxProvince.SelectionChangeCommitted += new System.EventHandler(this.comboBoxProvince_SelectionChangeCommitted);
             // 
@@ -141,9 +141,9 @@ namespace OpenCBS.GUI
             // 
             // comboBoxHomeType
             // 
+            resources.ApplyResources(this.comboBoxHomeType, "comboBoxHomeType");
             this.comboBoxHomeType.BackColor = System.Drawing.Color.White;
             this.comboBoxHomeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.comboBoxHomeType, "comboBoxHomeType");
             this.comboBoxHomeType.Name = "comboBoxHomeType";
             this.comboBoxHomeType.SelectionChangeCommitted += new System.EventHandler(this.comboBoxHomeType_SelectionChangeCommitted);
             // 
