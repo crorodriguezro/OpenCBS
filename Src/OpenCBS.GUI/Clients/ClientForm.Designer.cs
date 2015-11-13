@@ -2303,6 +2303,7 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this._repaymentScheduleControl, "_repaymentScheduleControl");
             this._repaymentScheduleControl.Name = "_repaymentScheduleControl";
+            this._repaymentScheduleControl.ShowOlbAfterRepayment = false;
             // 
             // flowLayoutPanel8
             // 
