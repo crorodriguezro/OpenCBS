@@ -619,7 +619,7 @@ namespace OpenCBS.Manager
                                                @commission,
                                                @paidCommission,
                                                @lastInterestAccrualDate,
-                                               @exchangeRate
+                                               @exchangeRate,
                                                @exchangedAmount)";
 
                 using (var c = new OpenCbsCommand(queryInsert, t.Connection, t))
