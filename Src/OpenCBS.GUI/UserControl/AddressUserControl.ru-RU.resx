@@ -112,35 +112,35 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="labelDistrict.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 16</value>
+    <value>52, 16</value>
   </data>
   <data name="labelDistrict.Text" xml:space="preserve">
-    <value>Район*:</value>
+    <value>Город*:</value>
   </data>
   <data name="labelComments.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 85</value>
   </data>
   <data name="labelComments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 16</value>
+    <value>50, 16</value>
   </data>
   <data name="labelComments.Text" xml:space="preserve">
     <value>Адрес:</value>
   </data>
   <data name="labelCity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 16</value>
+    <value>54, 16</value>
   </data>
   <data name="labelCity.Text" xml:space="preserve">
-    <value>Город*:</value>
+    <value>Район*:</value>
   </data>
   <data name="labelProvince.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 16</value>
+    <value>66, 16</value>
   </data>
   <data name="labelProvince.Text" xml:space="preserve">
     <value>Область*:</value>
@@ -152,7 +152,7 @@
     <value>3, 181</value>
   </data>
   <data name="labelHomePhone.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 16</value>
+    <value>103, 16</value>
   </data>
   <data name="labelHomePhone.Text" xml:space="preserve">
     <value>Домашний тел.:</value>
@@ -161,19 +161,10 @@
     <value>3, 205</value>
   </data>
   <data name="labelPersonalPhone.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 16</value>
+    <value>116, 16</value>
   </data>
   <data name="labelPersonalPhone.Text" xml:space="preserve">
     <value>Сотовый телефон:</value>
-  </data>
-  <data name="textBoxHomePhone.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 180</value>
-  </data>
-  <data name="textBoxPersonalPhone.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 204</value>
-  </data>
-  <data name="textBoxEMail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 227</value>
   </data>
   <data name="labelEMail.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 228</value>
@@ -182,7 +173,7 @@
     <value>3, 132</value>
   </data>
   <data name="labelZipCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 16</value>
+    <value>116, 16</value>
   </data>
   <data name="labelZipCode.Text" xml:space="preserve">
     <value>Почтовый индекс:</value>
@@ -191,12 +182,21 @@
     <value>3, 155</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 16</value>
+    <value>67, 16</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Тип дома:</value>
   </data>
   <data name="comboBoxHomeType.Location" type="System.Drawing.Point, System.Drawing">
     <value>135, 154</value>
+  </data>
+  <data name="textBoxEMail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>135, 227</value>
+  </data>
+  <data name="textBoxPersonalPhone.Location" type="System.Drawing.Point, System.Drawing">
+    <value>135, 204</value>
+  </data>
+  <data name="textBoxHomePhone.Location" type="System.Drawing.Point, System.Drawing">
+    <value>135, 180</value>
   </data>
 </root>
