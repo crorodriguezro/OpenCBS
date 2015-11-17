@@ -2943,28 +2943,28 @@
   <data name="&gt;&gt;tabPageProject.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="scheduleControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="_loanDetailsScheduleControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="scheduleControl1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="_loanDetailsScheduleControl.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="scheduleControl1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_loanDetailsScheduleControl.Size" type="System.Drawing.Size, System.Drawing">
     <value>1229, 259</value>
   </data>
-  <data name="scheduleControl1.TabIndex" type="System.Int32, mscorlib">
+  <data name="_loanDetailsScheduleControl.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
   </data>
-  <data name="&gt;&gt;scheduleControl1.Name" xml:space="preserve">
-    <value>scheduleControl1</value>
+  <data name="&gt;&gt;_loanDetailsScheduleControl.Name" xml:space="preserve">
+    <value>_loanDetailsScheduleControl</value>
   </data>
-  <data name="&gt;&gt;scheduleControl1.Type" xml:space="preserve">
+  <data name="&gt;&gt;_loanDetailsScheduleControl.Type" xml:space="preserve">
     <value>OpenCBS.Controls.ScheduleControl, OpenCBS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;scheduleControl1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_loanDetailsScheduleControl.Parent" xml:space="preserve">
     <value>tabPageInstallments</value>
   </data>
-  <data name="&gt;&gt;scheduleControl1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_loanDetailsScheduleControl.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="tabPageInstallments.Location" type="System.Drawing.Point, System.Drawing">

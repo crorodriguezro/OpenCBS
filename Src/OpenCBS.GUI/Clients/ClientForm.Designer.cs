@@ -208,7 +208,7 @@ namespace OpenCBS.GUI.Clients
             this.tabPageLoansDetails = new System.Windows.Forms.TabPage();
             this.tclLoanDetails = new System.Windows.Forms.TabControl();
             this.tabPageInstallments = new System.Windows.Forms.TabPage();
-            this.scheduleControl1 = new OpenCBS.Controls.ScheduleControl();
+            this._loanDetailsScheduleControl = new OpenCBS.Controls.ScheduleControl();
             this.loanDetailsButtonsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSaveLoan = new System.Windows.Forms.Button();
             this.buttonLoanPreview = new System.Windows.Forms.Button();
@@ -1446,15 +1446,15 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabPageInstallments
             // 
-            this.tabPageInstallments.Controls.Add(this.scheduleControl1);
+            this.tabPageInstallments.Controls.Add(this._loanDetailsScheduleControl);
             resources.ApplyResources(this.tabPageInstallments, "tabPageInstallments");
             this.tabPageInstallments.Name = "tabPageInstallments";
             // 
             // scheduleControl1
             // 
-            resources.ApplyResources(this.scheduleControl1, "scheduleControl1");
-            this.scheduleControl1.Name = "scheduleControl1";
-            this.scheduleControl1.ShowOlbAfterRepayment = false;
+            resources.ApplyResources(this._loanDetailsScheduleControl, "_loanDetailsScheduleControl");
+            this._loanDetailsScheduleControl.Name = "_loanDetailsScheduleControl";
+            this._loanDetailsScheduleControl.ShowOlbAfterRepayment = false;
             // 
             // loanDetailsButtonsPanel
             // 
@@ -4180,6 +4180,6 @@ namespace OpenCBS.GUI.Clients
         private Label _installmentTypeLabel;
         private Label _scheduleTypeLabel;
         private ComboBox _scheduleTypeComboBox;
-        private Controls.ScheduleControl scheduleControl1;
+        private Controls.ScheduleControl _loanDetailsScheduleControl;
     }
 }

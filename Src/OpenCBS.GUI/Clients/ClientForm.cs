@@ -2086,9 +2086,9 @@ namespace OpenCBS.GUI.Clients
             _loanOfficerComboBox.Enabled = true;
             textBoxLoanPurpose.Enabled = true;
             textBoxComments.Enabled = true;
-            scheduleControl1.SetScheduleFor(_credit);
+            _loanDetailsScheduleControl.SetScheduleFor(_credit);
             if (ApplicationSettings.GetInstance(User.CurrentUser.Md5).ShowExtraInterestColumn)
-                scheduleControl1.ShowExtraColumn();
+                _loanDetailsScheduleControl.ShowExtraColumn();
             listViewGuarantors.Items.Clear();
             lblCreditCurrency.Text = MultiLanguageStrings.GetString(Ressource.ClientForm, "Currency.Text") + pPackage.Currency.Name;
             lbCompulsorySavings.Enabled = false;
@@ -3137,9 +3137,9 @@ namespace OpenCBS.GUI.Clients
 
         private void ReInitializeListViewInstallment()
         {
-            scheduleControl1.SetScheduleFor(_credit);
+            _loanDetailsScheduleControl.SetScheduleFor(_credit);
             if (ApplicationSettings.GetInstance(User.CurrentUser.Md5).ShowExtraInterestColumn)
-                scheduleControl1.ShowExtraColumn();
+                _loanDetailsScheduleControl.ShowExtraColumn();
         }
 
         private void CheckAmount()
@@ -3526,9 +3526,9 @@ namespace OpenCBS.GUI.Clients
 
         private void DisplayInstallments(ref Loan pCredit)
         {
-            scheduleControl1.SetScheduleFor(pCredit);
+            _loanDetailsScheduleControl.SetScheduleFor(pCredit);
             if (ApplicationSettings.GetInstance(User.CurrentUser.Md5).ShowExtraInterestColumn)
-                scheduleControl1.ShowExtraColumn();
+                _loanDetailsScheduleControl.ShowExtraColumn();
             if (pCredit.InstallmentList.Count == 0)
             {
                 pCredit.Product = _product;
