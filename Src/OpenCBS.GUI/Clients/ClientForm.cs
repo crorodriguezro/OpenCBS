@@ -2086,7 +2086,9 @@ namespace OpenCBS.GUI.Clients
             _loanOfficerComboBox.Enabled = true;
             textBoxLoanPurpose.Enabled = true;
             textBoxComments.Enabled = true;
-            listViewLoanInstallments.Items.Clear();
+            scheduleControl1.SetScheduleFor(_credit);
+            if (ApplicationSettings.GetInstance(User.CurrentUser.Md5).ShowExtraInterestColumn)
+                scheduleControl1.ShowExtraColumn();
             listViewGuarantors.Items.Clear();
             lblCreditCurrency.Text = MultiLanguageStrings.GetString(Ressource.ClientForm, "Currency.Text") + pPackage.Currency.Name;
             lbCompulsorySavings.Enabled = false;
@@ -3135,7 +3137,9 @@ namespace OpenCBS.GUI.Clients
 
         private void ReInitializeListViewInstallment()
         {
-            listViewLoanInstallments.Items.Clear();
+            scheduleControl1.SetScheduleFor(_credit);
+            if (ApplicationSettings.GetInstance(User.CurrentUser.Md5).ShowExtraInterestColumn)
+                scheduleControl1.ShowExtraColumn();
         }
 
         private void CheckAmount()
@@ -3522,51 +3526,13 @@ namespace OpenCBS.GUI.Clients
 
         private void DisplayInstallments(ref Loan pCredit)
         {
-            listViewLoanInstallments.Items.Clear();
-
-
+            scheduleControl1.SetScheduleFor(pCredit);
+            if (ApplicationSettings.GetInstance(User.CurrentUser.Md5).ShowExtraInterestColumn)
+                scheduleControl1.ShowExtraColumn();
             if (pCredit.InstallmentList.Count == 0)
             {
                 pCredit.Product = _product;
             }
-
-            OCurrency interestTotal = 0;
-            OCurrency principalTotal = 0;
-
-            foreach (Installment installment in pCredit.InstallmentList)
-            {
-                ListViewItem listViewItem = new ListViewItem(installment.Number.ToString());
-
-                if (!_useGregorienCalendar)
-                {
-                    DateTime dt = new DateTime(installment.ExpectedDate.Year, installment.ExpectedDate.Month,
-                                     installment.ExpectedDate.Day,
-                                     currentCalendar);
-                    listViewItem.SubItems.Add(string.Format("{0}/{1}/{2}", targetCalendar.GetDayOfMonth(dt), targetCalendar.GetMonth(dt), targetCalendar.GetYear(dt)));
-                }
-                else
-                    listViewItem.SubItems.Add(installment.ExpectedDate.ToShortDateString());
-
-                listViewItem.SubItems.Add(installment.InterestsRepayment.GetFormatedValue(pCredit.UseCents));
-                listViewItem.SubItems.Add(installment.CapitalRepayment.GetFormatedValue(pCredit.UseCents));
-                listViewItem.SubItems.Add(installment.Amount.GetFormatedValue(pCredit.UseCents));
-                listViewItem.SubItems.Add(ServicesProvider.GetInstance().GetGeneralSettings().IsOlbBeforeRepayment
-                                              ? installment.OLB.GetFormatedValue(pCredit.UseCents)
-                                              : installment.OLBAfterRepayment.GetFormatedValue(pCredit.UseCents));
-                listViewLoanInstallments.Items.Add(listViewItem);
-                interestTotal += installment.InterestsRepayment;
-                principalTotal += installment.CapitalRepayment;
-            }
-            // Add totals to the list view
-            ListViewItem total = new ListViewItem
-                                     {
-                                         Font = new Font(listViewLoanInstallments.Font, FontStyle.Bold)
-                                     };
-            total.SubItems.Add("");
-            total.SubItems.Add(interestTotal.GetFormatedValue(pCredit.UseCents));
-            total.SubItems.Add(principalTotal.GetFormatedValue(pCredit.UseCents));
-            total.SubItems.Add((interestTotal + principalTotal).GetFormatedValue(pCredit.UseCents));
-            listViewLoanInstallments.Items.Add(total);
         }
 
         private void buttonLoanSave_Click(object sender, EventArgs e)
