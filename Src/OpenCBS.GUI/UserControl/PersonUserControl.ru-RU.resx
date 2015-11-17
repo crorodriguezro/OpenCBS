@@ -205,46 +205,12 @@
   <data name="buttonProjectAddContract.Text" xml:space="preserve">
     <value>Добавить кредит</value>
   </data>
-  <data name="columnHeaderId.Text" xml:space="preserve">
-    <value>Номер</value>
-  </data>
-  <data name="columnHeaderCode.Text" xml:space="preserve">
-    <value>Код</value>
-  </data>
-  <data name="columnHeaderName.Text" xml:space="preserve">
-    <value>Имя</value>
-  </data>
-  <data name="columnHeaderNbOfCredits.Text" xml:space="preserve">
-    <value>Колличество кредитов</value>
-  </data>
-  <data name="columnHeaderNbOfGuarantees.Text" xml:space="preserve">
-    <value>Кол-во поручительств</value>
-  </data>
-  <data name="listViewProjects.Size" type="System.Drawing.Size, System.Drawing">
-    <value>951, 380</value>
-  </data>
-  <data name="buttonViewProject.Text" xml:space="preserve">
-    <value>Просмотр проекта</value>
-  </data>
-  <data name="buttonAddProject.Text" xml:space="preserve">
-    <value>Добавить проект</value>
-  </data>
-  <data name="groupBoxProjects.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 380</value>
-  </data>
-  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>980, 380</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>951</value>
-  </data>
   <data name="imageListEconomicInfo.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACC
-        UQAAAk1TRnQBSQFMAgEBBwEAAWwBAwFsAQMBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
+        UQAAAk1TRnQBSQFMAgEBBwEAAXQBAwF0AQMBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
         AwABQAMAAQEBAAEgBgABgP8AHgABAQMJAQwDFAEbAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMW
         AR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMU
         ARsDBwEJnwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMA
@@ -920,7 +886,7 @@
     <value>467, 380</value>
   </data>
   <data name="groupBoxFirstAddress.Text" xml:space="preserve">
-    <value>Домашний адрес*</value>
+    <value>Адрес прописки</value>
   </data>
   <data name="groupBoxSecondaryAddress.Location" type="System.Drawing.Point, System.Drawing">
     <value>516, 3</value>
@@ -929,7 +895,7 @@
     <value>467, 380</value>
   </data>
   <data name="groupBoxSecondaryAddress.Text" xml:space="preserve">
-    <value>Деловой адрес</value>
+    <value>Адрес проживания</value>
   </data>
   <data name="buttonCopy.Location" type="System.Drawing.Point, System.Drawing">
     <value>476, 168</value>
@@ -942,6 +908,40 @@
   </data>
   <data name="tabPageAddress.Text" xml:space="preserve">
     <value>Адрес</value>
+  </data>
+  <data name="columnHeaderId.Text" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="columnHeaderCode.Text" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="columnHeaderName.Text" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="columnHeaderNbOfCredits.Text" xml:space="preserve">
+    <value>Колличество кредитов</value>
+  </data>
+  <data name="columnHeaderNbOfGuarantees.Text" xml:space="preserve">
+    <value>Кол-во поручительств</value>
+  </data>
+  <data name="listViewProjects.Size" type="System.Drawing.Size, System.Drawing">
+    <value>951, 380</value>
+  </data>
+  <data name="buttonViewProject.Text" xml:space="preserve">
+    <value>Просмотр проекта</value>
+  </data>
+  <data name="buttonAddProject.Text" xml:space="preserve">
+    <value>Добавить проект</value>
+  </data>
+  <data name="groupBoxProjects.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 380</value>
+  </data>
+  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>980, 380</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
+    <value>951</value>
   </data>
   <data name="tabPageProjects.Size" type="System.Drawing.Size, System.Drawing">
     <value>986, 386</value>
@@ -1169,6 +1169,6 @@
     <value>1000, 660</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>817, 363</value>
+    <value>800, 346</value>
   </data>
 </root>
