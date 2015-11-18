@@ -80,6 +80,15 @@ namespace OpenCBS.ArchitectureV2
                 var authService = _container.GetInstance<IAuthService>();
                 if (authService.LoggedIn)
                 {
+                    var hooks = _container.GetAllInstances<IAfterLoginHook>();
+                    foreach (var hook in hooks)
+                    {
+                        if (hook.Run()) continue;
+
+                        base.OnMainFormClosed(sender, e);
+                        return;
+                    }
+
                     var databaseService = _container.GetInstance<IDatabaseService>();
                     if (databaseService.IsVersionOk())
                     {

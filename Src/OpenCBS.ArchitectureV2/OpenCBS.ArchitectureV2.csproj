@@ -114,6 +114,7 @@
     <Compile Include="Command\EditSavingCommand.cs" />
     <Compile Include="Command\FastRepaymentCommand.cs" />
     <Compile Include="Command\ShowDashboardCommand.cs" />
+    <Compile Include="Interface\IAfterLoginHook.cs" />
     <Compile Include="Interface\IStartupProcess.cs" />
     <Compile Include="Command\ShowSearchCommand.cs" />
     <Compile Include="Command\EditVillageBankCommand.cs" />
