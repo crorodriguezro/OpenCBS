@@ -143,9 +143,6 @@
   <data name="interestColumn.Width" type="System.Int32, mscorlib">
     <value>100</value>
   </data>
-  <data name="extraColumn.DisplayIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
   <data name="extraColumn.Text" xml:space="preserve">
     <value>Extra</value>
   </data>
@@ -258,6 +255,12 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="menuItemCopy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="menuItemCopy.Text" xml:space="preserve">
+    <value>Copy all to clipboard</value>
+  </data>
   <data name="_scheduleContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 26</value>
   </data>
@@ -296,12 +299,6 @@
   </data>
   <data name="&gt;&gt;scheduleObjectListView.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="menuItemCopy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="menuItemCopy.Text" xml:space="preserve">
-    <value>Copy all to clipboard</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -390,12 +387,6 @@
   <data name="&gt;&gt;commentColumn.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
-  <data name="&gt;&gt;menuItemCopy.Name" xml:space="preserve">
-    <value>menuItemCopy</value>
-  </data>
-  <data name="&gt;&gt;menuItemCopy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;exchangeRateColumn.Name" xml:space="preserve">
     <value>exchangeRateColumn</value>
   </data>
@@ -407,6 +398,12 @@
   </data>
   <data name="&gt;&gt;exchangedAmountColumn.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;menuItemCopy.Name" xml:space="preserve">
+    <value>menuItemCopy</value>
+  </data>
+  <data name="&gt;&gt;menuItemCopy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ScheduleControl</value>

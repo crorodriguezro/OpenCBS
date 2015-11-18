@@ -208,13 +208,7 @@ namespace OpenCBS.GUI.Clients
             this.tabPageLoansDetails = new System.Windows.Forms.TabPage();
             this.tclLoanDetails = new System.Windows.Forms.TabControl();
             this.tabPageInstallments = new System.Windows.Forms.TabPage();
-            this.listViewLoanInstallments = new OpenCBS.GUI.UserControl.ListViewEx();
-            this.columnHeaderLoanN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderLoanDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderLoanIP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderLoanPR = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderLoanInstallmentTotal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderLoanOLB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this._loanDetailsScheduleControl = new OpenCBS.Controls.ScheduleControl();
             this.loanDetailsButtonsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSaveLoan = new System.Windows.Forms.Button();
             this.buttonLoanPreview = new System.Windows.Forms.Button();
@@ -1452,50 +1446,15 @@ namespace OpenCBS.GUI.Clients
             // 
             // tabPageInstallments
             // 
-            this.tabPageInstallments.Controls.Add(this.listViewLoanInstallments);
+            this.tabPageInstallments.Controls.Add(this._loanDetailsScheduleControl);
             resources.ApplyResources(this.tabPageInstallments, "tabPageInstallments");
             this.tabPageInstallments.Name = "tabPageInstallments";
             // 
-            // listViewLoanInstallments
+            // scheduleControl1
             // 
-            this.listViewLoanInstallments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeaderLoanN,
-            this.columnHeaderLoanDate,
-            this.columnHeaderLoanIP,
-            this.columnHeaderLoanPR,
-            this.columnHeaderLoanInstallmentTotal,
-            this.columnHeaderLoanOLB});
-            resources.ApplyResources(this.listViewLoanInstallments, "listViewLoanInstallments");
-            this.listViewLoanInstallments.DoubleClickActivation = false;
-            this.listViewLoanInstallments.GridLines = true;
-            this.listViewLoanInstallments.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listViewLoanInstallments.Name = "listViewLoanInstallments";
-            this.listViewLoanInstallments.UseCompatibleStateImageBehavior = false;
-            this.listViewLoanInstallments.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeaderLoanN
-            // 
-            resources.ApplyResources(this.columnHeaderLoanN, "columnHeaderLoanN");
-            // 
-            // columnHeaderLoanDate
-            // 
-            resources.ApplyResources(this.columnHeaderLoanDate, "columnHeaderLoanDate");
-            // 
-            // columnHeaderLoanIP
-            // 
-            resources.ApplyResources(this.columnHeaderLoanIP, "columnHeaderLoanIP");
-            // 
-            // columnHeaderLoanPR
-            // 
-            resources.ApplyResources(this.columnHeaderLoanPR, "columnHeaderLoanPR");
-            // 
-            // columnHeaderLoanInstallmentTotal
-            // 
-            resources.ApplyResources(this.columnHeaderLoanInstallmentTotal, "columnHeaderLoanInstallmentTotal");
-            // 
-            // columnHeaderLoanOLB
-            // 
-            resources.ApplyResources(this.columnHeaderLoanOLB, "columnHeaderLoanOLB");
+            resources.ApplyResources(this._loanDetailsScheduleControl, "_loanDetailsScheduleControl");
+            this._loanDetailsScheduleControl.Name = "_loanDetailsScheduleControl";
+            this._loanDetailsScheduleControl.ShowOlbAfterRepayment = false;
             // 
             // loanDetailsButtonsPanel
             // 
@@ -4214,13 +4173,6 @@ namespace OpenCBS.GUI.Clients
         private Button buttonManualSchedule;
         private TabControl tclLoanDetails;
         private TabPage tabPageInstallments;
-        private ListViewEx listViewLoanInstallments;
-        private ColumnHeader columnHeaderLoanN;
-        private ColumnHeader columnHeaderLoanDate;
-        private ColumnHeader columnHeaderLoanIP;
-        private ColumnHeader columnHeaderLoanPR;
-        private ColumnHeader columnHeaderLoanInstallmentTotal;
-        private ColumnHeader columnHeaderLoanOLB;
         private ColumnHeader colBounceFee;
         private CheckBox chxSystemEvents;
         private Controls.ScheduleControl _repaymentScheduleControl;
@@ -4228,5 +4180,6 @@ namespace OpenCBS.GUI.Clients
         private Label _installmentTypeLabel;
         private Label _scheduleTypeLabel;
         private ComboBox _scheduleTypeComboBox;
+        private Controls.ScheduleControl _loanDetailsScheduleControl;
     }
 }
