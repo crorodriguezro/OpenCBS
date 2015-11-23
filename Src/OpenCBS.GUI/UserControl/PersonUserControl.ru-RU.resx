@@ -210,7 +210,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACC
-        UQAAAk1TRnQBSQFMAgEBBwEAAXQBAwF0AQMBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
+        UQAAAk1TRnQBSQFMAgEBBwEAAXwBAwF8AQMBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
         AwABQAMAAQEBAAEgBgABgP8AHgABAQMJAQwDFAEbAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMW
         AR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMU
         ARsDBwEJnwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMA
@@ -1096,6 +1096,12 @@
   <data name="labelDateOfBirth.Text" xml:space="preserve">
     <value>Дата рождения*:</value>
   </data>
+  <data name="textBoxLastname.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 11</value>
+  </data>
+  <data name="labelLastname.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 16</value>
+  </data>
   <data name="labelLastname.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 16</value>
   </data>
@@ -1129,11 +1135,17 @@
   <data name="labelSex.Text" xml:space="preserve">
     <value>Пол*:</value>
   </data>
+  <data name="labelFirstName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 40</value>
+  </data>
   <data name="labelFirstName.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 16</value>
   </data>
   <data name="labelFirstName.Text" xml:space="preserve">
     <value>Имя*:</value>
+  </data>
+  <data name="textBoxFirstName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 37</value>
   </data>
   <data name="groupBoxCivilities.Size" type="System.Drawing.Size, System.Drawing">
     <value>994, 180</value>
@@ -1169,6 +1181,6 @@
     <value>1000, 660</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 346</value>
+    <value>783, 329</value>
   </data>
 </root>
