@@ -210,7 +210,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACC
-        UQAAAk1TRnQBSQFMAgEBBwEAAXwBAwF8AQMBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
+        UQAAAk1TRnQBSQFMAgEBBwEAAYQBAwGEAQMBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
         AwABQAMAAQEBAAEgBgABgP8AHgABAQMJAQwDFAEbAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMW
         AR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMU
         ARsDBwEJnwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMA
@@ -1012,17 +1012,26 @@
   <data name="eacPerson.Size" type="System.Drawing.Size, System.Drawing">
     <value>199, 23</value>
   </data>
+  <data name="eacPerson.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
   <data name="cbBranch.Location" type="System.Drawing.Point, System.Drawing">
     <value>505, 119</value>
   </data>
   <data name="cbBranch.Size" type="System.Drawing.Size, System.Drawing">
     <value>199, 21</value>
   </data>
+  <data name="cbBranch.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
   <data name="textBoxNationality.Location" type="System.Drawing.Point, System.Drawing">
     <value>505, 92</value>
   </data>
   <data name="textBoxNationality.Size" type="System.Drawing.Size, System.Drawing">
     <value>199, 20</value>
+  </data>
+  <data name="textBoxNationality.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
   <data name="labelNationality.Location" type="System.Drawing.Point, System.Drawing">
     <value>376, 93</value>
@@ -1069,6 +1078,9 @@
   <data name="textBoxFatherName.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 20</value>
   </data>
+  <data name="textBoxFatherName.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="labelFatherName.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 65</value>
   </data>
@@ -1087,6 +1099,9 @@
   <data name="dateTimePickerDateOfBirth.Location" type="System.Drawing.Point, System.Drawing">
     <value>160, 89</value>
   </data>
+  <data name="dateTimePickerDateOfBirth.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
   <data name="labelDateOfBirth.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 91</value>
   </data>
@@ -1098,6 +1113,9 @@
   </data>
   <data name="textBoxLastname.Location" type="System.Drawing.Point, System.Drawing">
     <value>160, 11</value>
+  </data>
+  <data name="textBoxLastname.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="labelLastname.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 16</value>
@@ -1114,6 +1132,9 @@
   <data name="textBoxIdentificationData.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 20</value>
   </data>
+  <data name="textBoxIdentificationData.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
   <data name="labelPassport.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 142</value>
   </data>
@@ -1125,6 +1146,9 @@
   </data>
   <data name="comboBoxSex.Location" type="System.Drawing.Point, System.Drawing">
     <value>160, 114</value>
+  </data>
+  <data name="comboBoxSex.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="labelSex.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 115</value>
@@ -1146,6 +1170,9 @@
   </data>
   <data name="textBoxFirstName.Location" type="System.Drawing.Point, System.Drawing">
     <value>160, 37</value>
+  </data>
+  <data name="textBoxFirstName.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="groupBoxCivilities.Size" type="System.Drawing.Size, System.Drawing">
     <value>994, 180</value>
@@ -1181,6 +1208,6 @@
     <value>1000, 660</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>783, 329</value>
+    <value>766, 312</value>
   </data>
 </root>
