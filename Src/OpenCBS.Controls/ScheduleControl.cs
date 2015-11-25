@@ -61,8 +61,8 @@ namespace OpenCBS.Controls
             paidInterestColumn.AspectToStringConverter =
             paidExtraColumn.AspectToStringConverter =
             olbColumn.AspectToStringConverter =
-            exchangeRateColumn.AspectToStringConverter =
-            exchangedAmountColumn.AspectToStringConverter =
+            extraAmount1.AspectToStringConverter =
+            extraAmount2.AspectToStringConverter =
             totalColumn.AspectToStringConverter = value =>
             {
                 var amount = (OCurrency)value;
@@ -71,8 +71,8 @@ namespace OpenCBS.Controls
             _scheduleContextMenuStrip.Click += (sender, e) => _CopyData();
             extraColumn.IsVisible = false;
             paidExtraColumn.IsVisible = false;
-            exchangeRateColumn.IsVisible = false;
-            exchangedAmountColumn.IsVisible = false;
+            extraAmount1.IsVisible = false;
+            extraAmount2.IsVisible = false;
             scheduleObjectListView.RebuildColumns();
         }
 
@@ -91,8 +91,8 @@ namespace OpenCBS.Controls
         {
             extraColumn.IsVisible = true;
             paidExtraColumn.IsVisible = true;
-            exchangeRateColumn.IsVisible = true;
-            exchangedAmountColumn.IsVisible = true;
+            extraAmount1.IsVisible = true;
+            extraAmount2.IsVisible = true;
             scheduleObjectListView.RebuildColumns();
         }
 
