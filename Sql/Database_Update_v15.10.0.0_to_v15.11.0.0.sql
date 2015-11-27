@@ -19,6 +19,13 @@ GO
 update dbo.InstallmentHistory set last_interest_accrual_date = expected_date
 GO
 
+alter table dbo.Installments alter column last_interest_accurl_date date not null
+GO
+
+alter table dbo.InstallmentHistory alter column last_interest_accurl_date date not null
+GO
+
+
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v15.11.0.0'
 WHERE   [name] = 'VERSION'
