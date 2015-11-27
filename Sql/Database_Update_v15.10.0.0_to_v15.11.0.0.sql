@@ -1,16 +1,25 @@
+if col_length('dbo.Installments','extraAmount1') is null
 ALTER TABLE dbo.Installments ADD extraAmount1 MONEY NULL DEFAULT(0)
 GO
+
+if col_length('dbo.Installments','extraAmount2') is null
 ALTER TABLE dbo.Installments ADD extraAmount2 MONEY NULL DEFAULT(0)
 GO
-ALTER TABLE dbo.InstallmentHistory ADD extraAmount1 MONEY NULL DEFAULT(0)
-GO
-ALTER TABLE dbo.InstallmentHistory ADD extraAmount2 MONEY NULL DEFAULT(0)
+
+if col_length('dbo.InstallmentHistory','extraAmount1') is null
+ALTER TABLE dbo.Installments ADD extraAmount1 MONEY NULL DEFAULT(0)
 GO
 
-alter table dbo.Installments add last_interest_accrual_date date NULL
+if col_length('dbo.InstallmentHistory','extraAmount2') is null
+ALTER TABLE dbo.Installments ADD extraAmount2 MONEY NULL DEFAULT(0)
 GO
 
-alter table dbo.InstallmentHistory add last_interest_accrual_date date NULL
+if col_length('dbo.Installments','last_interest_accrual_date') is null
+ALTER TABLE dbo.Installments ADD extraAmount1 MONEY NULL DEFAULT(0)
+GO
+
+if col_length('dbo.InstallmentHistory','last_interest_accrual_date') is null
+ALTER TABLE dbo.Installments ADD extraAmount2 MONEY NULL DEFAULT(0)
 GO
 
 update dbo.Installments set last_interest_accrual_date = expected_date
@@ -19,12 +28,13 @@ GO
 update dbo.InstallmentHistory set last_interest_accrual_date = expected_date
 GO
 
-alter table dbo.Installments alter column last_interest_accurl_date date not null
+if col_length('dbo.Installments','last_interest_accrual_date') is null
+alter table dbo.Installments alter column last_interest_accrual_date date not null
 GO
 
-alter table dbo.InstallmentHistory alter column last_interest_accurl_date date not null
+if col_length('dbo.InstallmentHistory','last_interest_accrual_date') is null
+alter table dbo.InstallmentHistory alter column last_interest_accrual_date date not null
 GO
-
 
 UPDATE  [TechnicalParameters]
 SET     [value] = 'v15.11.0.0'
