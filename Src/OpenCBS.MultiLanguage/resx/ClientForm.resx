@@ -187,7 +187,7 @@
     <value>OLB:</value>
   </data>
   <data name="PercentsDue.Text" xml:space="preserve">
-    <value>Interests due:</value>
+    <value>Total Outstanding Interest:</value>
   </data>
   <data name="Status.Text" xml:space="preserve">
     <value>Status</value>
