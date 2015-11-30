@@ -5,7 +5,6 @@ GO
 if col_length('dbo.Installments','extra_amount_2') is null
 ALTER TABLE dbo.Installments ADD extra_amount_2 MONEY NULL DEFAULT(0)
 GO
---********************
 
 if col_length('dbo.InstallmentHistory','extra_amount_1') is null
 ALTER TABLE dbo.InstallmentHistory ADD extra_amount_1 MONEY NULL DEFAULT(0)
@@ -14,8 +13,6 @@ GO
 if col_length('dbo.InstallmentHistory','extra_amount_2') is null
 ALTER TABLE dbo.InstallmentHistory ADD extra_amount_2 MONEY NULL DEFAULT(0)
 GO
-
------------------------------------
 
 if col_length('dbo.Installments','last_interest_accrual_date') is null
 ALTER TABLE dbo.Installments ADD last_interest_accrual_date MONEY NULL DEFAULT(0)
