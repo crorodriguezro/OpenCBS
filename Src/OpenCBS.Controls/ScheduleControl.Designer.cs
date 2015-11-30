@@ -44,8 +44,8 @@
             this.paymentDateColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.lateDaysColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.commentColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.extraAmount1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.extraAmount2 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.extra_amount_1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.extra_amount_2 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._scheduleContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuItemCopy = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleObjectListView)).BeginInit();
@@ -67,8 +67,8 @@
             this.scheduleObjectListView.AllColumns.Add(this.paymentDateColumn);
             this.scheduleObjectListView.AllColumns.Add(this.lateDaysColumn);
             this.scheduleObjectListView.AllColumns.Add(this.commentColumn);
-            this.scheduleObjectListView.AllColumns.Add(this.extraAmount1);
-            this.scheduleObjectListView.AllColumns.Add(this.extraAmount2);
+            this.scheduleObjectListView.AllColumns.Add(this.extra_amount_1);
+            this.scheduleObjectListView.AllColumns.Add(this.extra_amount_2);
             this.scheduleObjectListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.numberColumn,
             this.dateColumn,
@@ -83,8 +83,8 @@
             this.paymentDateColumn,
             this.lateDaysColumn,
             this.commentColumn,
-            this.extraAmount1,
-            this.extraAmount2});
+            this.extra_amount_1,
+            this.extra_amount_2});
             this.scheduleObjectListView.ContextMenuStrip = this._scheduleContextMenuStrip;
             resources.ApplyResources(this.scheduleObjectListView, "scheduleObjectListView");
             this.scheduleObjectListView.FullRowSelect = true;
@@ -177,15 +177,15 @@
             // 
             // extraAmount1
             // 
-            this.extraAmount1.AspectName = "ExtraAmount1";
-            this.extraAmount1.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            resources.ApplyResources(this.extraAmount1, "extraAmount1");
+            this.extra_amount_1.AspectName = "ExtraAmount1";
+            this.extra_amount_1.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            resources.ApplyResources(this.extra_amount_1, "extra_amount_1");
             // 
             // extraAmount2
             // 
-            this.extraAmount2.AspectName = "ExtraAmount2";
-            this.extraAmount2.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            resources.ApplyResources(this.extraAmount2, "extraAmount2");
+            this.extra_amount_2.AspectName = "ExtraAmount2";
+            this.extra_amount_2.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            resources.ApplyResources(this.extra_amount_2, "extra_amount_2");
             // 
             // _scheduleContextMenuStrip
             // 
@@ -229,7 +229,7 @@
         private BrightIdeasSoftware.OLVColumn commentColumn;
         private System.Windows.Forms.ContextMenuStrip _scheduleContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem menuItemCopy;
-        private BrightIdeasSoftware.OLVColumn extraAmount1;
-        private BrightIdeasSoftware.OLVColumn extraAmount2;
+        private BrightIdeasSoftware.OLVColumn extra_amount_1;
+        private BrightIdeasSoftware.OLVColumn extra_amount_2;
     }
 }

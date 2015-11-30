@@ -35,8 +35,8 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
         private OCurrency _paidCommision = 0;
         private OCurrency _commission = 0;
         private OCurrency _unpaidFees = 0;
-        private OCurrency _extraAmount1 = 0;
-        private OCurrency _extraAmount2 = 0;
+        private OCurrency _extra_amount_1 = 0;
+        private OCurrency extra_amount_2 = 0;
         private bool _pending;
         
         public Installment()
@@ -104,14 +104,14 @@ namespace OpenCBS.CoreDomain.Contracts.Loans.Installments
 
         public OCurrency ExtraAmount1
         {
-            get { return _extraAmount1; }
-            set { _extraAmount1 = value; }
+            get { return _extra_amount_1; }
+            set { _extra_amount_1 = value; }
         }
 
         public OCurrency ExtraAmount2
         {
-            get { return _extraAmount2; }
-            set { _extraAmount2 = value; }
+            get { return extra_amount_2; }
+            set { extra_amount_2 = value; }
         }
 
         public OCurrency CommissionsUnpaid
