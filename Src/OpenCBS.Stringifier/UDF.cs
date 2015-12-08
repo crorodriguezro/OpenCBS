@@ -70,5 +70,19 @@ namespace OpenCBS.Stringifier
                 return string.Format("Exception: {0}", ex.Message);
             }
         }
+
+        [SqlFunction(DataAccess = DataAccessKind.Read, IsDeterministic = true, Name = "Stringify_EN_IN")]
+        public static string StringifyIndianEnglish(int amount)
+        {
+            try
+            {
+                var stringifier = new IndianEnglish();
+                return stringifier.Stringify(amount);
+            }
+            catch (Exception e)
+            {
+                return string.Format("Exception: {0}", e.Message);
+            }
+        }
     }
 }

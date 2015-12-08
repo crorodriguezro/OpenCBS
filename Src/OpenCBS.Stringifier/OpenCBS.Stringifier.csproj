@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OpenCBS.Stringifier</RootNamespace>
     <AssemblyName>OpenCBS.Stringifier</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="English.cs" />
     <Compile Include="French.cs" />
+    <Compile Include="IndianEnglish.cs" />
     <Compile Include="Kazakh.cs" />
     <Compile Include="Marathi.cs" />
     <Compile Include="Russian.cs" />

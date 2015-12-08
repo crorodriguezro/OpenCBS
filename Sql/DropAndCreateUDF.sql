@@ -22,6 +22,10 @@ IF EXISTS (SELECT * FROM sys.objects WHERE [object_id] = OBJECT_ID(N'[dbo].[Stri
 DROP FUNCTION [dbo].[Stringify]
 GO
 
+IF EXISTS (SELECT * FROM sys.objects WHERE [object_id] = OBJECT_ID(N'[dbo].[Stringify_EN_IN]') AND [type] = 'FS')
+DROP FUNCTION [dbo].[Stringify_EN_IN]
+GO
+
 IF EXISTS (SELECT * FROM sys.assemblies WHERE [name] = N'sqludf')
 DROP ASSEMBLY [sqludf]
 GO
@@ -40,4 +44,8 @@ GO
 
 CREATE FUNCTION Stringify(@format NVARCHAR(20), @amount DECIMAL(18, 2)) RETURNS NVARCHAR(255)
 AS EXTERNAL NAME [sqludf].[OpenCBS.Stringifier.Udf].[Stringify]
+GO
+
+CREATE FUNCTION Stringify_EN_IN(@amount INT) RETURNS NVARCHAR(255)
+AS EXTERNAL NAME [sqludf].[OpenCBS.Stringifier.Udf].[Stringify_EN_IN]
 GO
