@@ -4105,6 +4105,8 @@ namespace OpenCBS.GUI.Clients
                     || e is LoanCloseEvent
                     || e is ManualScheduleChangeEvent
                     || e is LoanPenaltyAccrualEvent
+                    //|| e is OutOfBalanceInterestAccrualEvent
+                    //|| e is OutOfBalancePenaltyAccrualEvent
                     || e is LoanInterestAccrualEvent
                     || e is LoanTransitionEvent)
                 {

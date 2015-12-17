@@ -2913,7 +2913,10 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
         }
         public DateTime LastEventDate
         {
-            get { return Events.GetLastLoanNonDeletedEvent.Date; }
+            get
+            {
+                return Events.GetLastLoanNonDeletedEvent.Date;
+            }
         }
         public decimal OLB
         {
