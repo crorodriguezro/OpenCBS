@@ -223,6 +223,7 @@ namespace OpenCBS.Services
                         LoanInterceptorSave(new Dictionary<string, object>
                             {
                                 {"Loan", pLoan},
+                                {"Client", pClient},
                                 {"SqlTransaction", transaction}
                             });
                     }
