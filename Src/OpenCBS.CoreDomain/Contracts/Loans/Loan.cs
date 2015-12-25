@@ -2594,6 +2594,21 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
             return date;
         }
 
+        public DateTime GetFirstRepaymentDate()
+        {
+            var date = new DateTime();
+
+            foreach (RepaymentEvent rPayment in Events.GetRepaymentEvents())
+            {
+                if (rPayment.Interests > 0 && rPayment.Deleted == false)
+                {
+                    if (rPayment.Date.Date > date.Date)
+                        return rPayment.Date.Date;
+                }
+            }
+            throw new Exception("There are no valid repayments.");
+        }
+
         public bool HasPendingInstallment
         {
             get
