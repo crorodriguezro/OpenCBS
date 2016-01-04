@@ -38,10 +38,7 @@
     <Property Id="PASSWORD" />
     <Property Id="TIMEOUT" />
     <Property Id="DATABASELIST" />
-    <Property Id="USEDEMODATABASE" />
 	
-	  <Property Id="DEMODIRECTORY">C:\Users\Public</Property>
-
     <Directory Id="TARGETDIR" Name="SourceDir">
 
       <Directory Id="ProgramMenuFolder">
@@ -56,15 +53,6 @@
         </Component>
       </Directory>
 	  
-	    <Directory Id="DEMODIRECTORY" Name="DemoDb">
-		    <Component Id="DemoDbDirectory" Guid="fefa597c-f9df-4073-8128-d2c7fc92775a">
-			    <File Id="DemoDB.mdf" Source="SourceDir\DemoDB.mdf" />
-			    <File Id="DemoDB.ldf" Source="SourceDir\DemoDB.ldf" />
-			    <File Id="DemoDB_attachments.mdf" Source="SourceDir\DemoDB_attachments.mdf" />
-			    <File Id="DemoDB_attachments.ldf" Source="SourceDir\DemoDB_attachments.ldf" />
-		    </Component>
-	    </Directory>
-
       <Directory Id="$(var.PlatformProgramFilesFolder)" SourceName="User's Programs Menu">
         <Directory Id="DIR_ROOT" Name="OpenCBS" >
           <Directory Id="DIR_ROOT_VERSION" Name="$(var.ProductVersion)">
@@ -123,7 +111,6 @@
                 <RegistryValue Id="DATABASE_PASSWORD" Type="string" Name="DATABASE_PASSWORD" Value="[PASSWORD]"/>
                 <RegistryValue Id="DATABASE_TIMEOUT" Type="string" Name="DATABASE_TIMEOUT" Value="[TIMEOUT]"/>
                 <RegistryValue Id="DATABASE_LIST" Type="string" Name="DATABASE_LIST" Value="[DATABASELIST]"/>
-				        <RegistryValue Id="USE_DEMO_DATABASE" Type="string" Name="USE_DEMO_DATABASE" Value="[USEDEMODATABASE]"/>
               </RegistryKey>
             </Component>
             <Directory Id="DIR_TEMPLATE" Name="Template">
@@ -476,7 +463,6 @@
       <ComponentRef Id="ApplicationShortcut" />
       <ComponentRef Id="extensions" />
       <ComponentRef Id="Languages"/>
-	    <ComponentRef Id="DemoDbDirectory" />
       <ComponentRef Id="PermissionsOfRootDirectory"/>
     </Feature>
     
