@@ -32,7 +32,6 @@ namespace OpenCBS.GUI.Database
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDatabaseSettings));
             this.groupBoxSQLServerConnection = new System.Windows.Forms.GroupBox();
-            this._useDemoCheckBox = new System.Windows.Forms.CheckBox();
             this.btnDefault = new System.Windows.Forms.Button();
             this.btnGetServersList = new System.Windows.Forms.Button();
             this.lblHelpServerName = new System.Windows.Forms.Label();
@@ -104,7 +103,6 @@ namespace OpenCBS.GUI.Database
             // 
             // groupBoxSQLServerConnection
             // 
-            this.groupBoxSQLServerConnection.Controls.Add(this._useDemoCheckBox);
             this.groupBoxSQLServerConnection.Controls.Add(this.btnDefault);
             this.groupBoxSQLServerConnection.Controls.Add(this.btnGetServersList);
             this.groupBoxSQLServerConnection.Controls.Add(this.lblHelpServerName);
@@ -118,13 +116,6 @@ namespace OpenCBS.GUI.Database
             resources.ApplyResources(this.groupBoxSQLServerConnection, "groupBoxSQLServerConnection");
             this.groupBoxSQLServerConnection.Name = "groupBoxSQLServerConnection";
             this.groupBoxSQLServerConnection.TabStop = false;
-            // 
-            // _useDemoCheckBox
-            // 
-            resources.ApplyResources(this._useDemoCheckBox, "_useDemoCheckBox");
-            this._useDemoCheckBox.Name = "_useDemoCheckBox";
-            this._useDemoCheckBox.UseVisualStyleBackColor = true;
-            this._useDemoCheckBox.CheckedChanged += new System.EventHandler(this._useDemoCheckBox_CheckedChanged);
             // 
             // btnDefault
             // 
@@ -555,6 +546,5 @@ namespace OpenCBS.GUI.Database
         private System.Windows.Forms.Label lblHelpServerName;
         private System.Windows.Forms.Button btnGetServersList;
         private System.Windows.Forms.Button btnDefault;
-        private System.Windows.Forms.CheckBox _useDemoCheckBox;
     }
 }

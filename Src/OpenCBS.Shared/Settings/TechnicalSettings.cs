@@ -69,16 +69,6 @@ namespace OpenCBS.Shared.Settings
             set { SetValue("DATABASE_NAME", value); }
         }
 
-        public static bool UseDemoDatabase
-        {
-            get
-            {
-                bool ret;
-                return bool.TryParse(GetValue("USE_DEMO_DATABASE", "False"), out ret) && ret;
-            }
-            set { SetValue("USE_DEMO_DATABASE", value.ToString()); }
-        }
-
         public static string DatabaseServerName
         {
             get { return GetValue("DATABASE_SERVER_NAME", "localhost"); }
