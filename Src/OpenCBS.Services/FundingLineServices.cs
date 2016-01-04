@@ -250,7 +250,7 @@ namespace OpenCBS.Services
             {
                 fundingLinesWithAmounts.Add(fL.Id, amount);
             }
-            return fL.AnticipatedRemainingAmount.Value - (decimal)fundingLinesWithAmounts[fL.Id];
+            return fL.RealRemainingAmount.Value - (decimal)fundingLinesWithAmounts[fL.Id];
         }
 
         public void EmptyTemporaryFLAmountsStorage()
