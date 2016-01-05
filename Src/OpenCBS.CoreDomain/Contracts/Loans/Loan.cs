@@ -38,7 +38,6 @@ using OpenCBS.CoreDomain.Events.Saving;
 using OpenCBS.CoreDomain.FundingLines;
 using OpenCBS.CoreDomain.Products;
 using OpenCBS.Enums;
-using OpenCBS.ExceptionsHandler;
 using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
 
@@ -137,6 +136,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
         /// <param name="pChartOfAccounts"></param>
         public Loan(User pUser, ApplicationSettings pGeneralSettings, NonWorkingDateSingleton pNwds, ProvisionTable pPt, ChartOfAccounts pChartOfAccounts)
         {
+            CreatedBy = pUser;
             _user = pUser;
             _generalSettings = pGeneralSettings;
             _nwdS = pNwds;
@@ -198,6 +198,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
         /// <param name="pChartOfAccounts"></param>
         public Loan(LoanProduct pAckage, OCurrency pAmount, decimal pInterestRate, int pNbOfInstallments, int pGracePeriod, DateTime pStartDate, User pUser, ApplicationSettings pGeneralSettings, NonWorkingDateSingleton pNwds, ProvisionTable pPt, ChartOfAccounts pChartOfAccounts)
         {
+            CreatedBy = pUser;
             _user = pUser;
             _generalSettings = pGeneralSettings;
             _nwdS = pNwds;
@@ -228,6 +229,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                       DateTime pStartDate, User pUser, ApplicationSettings pGeneralSettings, NonWorkingDateSingleton pNwds, 
                         ProvisionTable pPt, ContractChartOfAccounts pChartOfAccounts)
         {
+            CreatedBy = pUser;
             _user = pUser;
             _generalSettings = pGeneralSettings;
             _nwdS = pNwds;
@@ -259,6 +261,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                       DateTime pStartDate, DateTime pFirstInstallmentDate, User pUser, ApplicationSettings pGeneralSettings, 
                         NonWorkingDateSingleton pNwds, ProvisionTable pPt, ChartOfAccounts pChartOfAccounts)
         {
+            CreatedBy = pUser;
             _user = pUser;
             _generalSettings = pGeneralSettings;
             _nwdS = pNwds;
@@ -292,6 +295,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                       DateTime pStartDate, DayOfWeek? meetingDay, User pUser, ApplicationSettings pGeneralSettings,
                         NonWorkingDateSingleton pNwds, ProvisionTable pPt, ChartOfAccounts pChartOfAccounts)
         {
+            CreatedBy = pUser;
             _user = pUser;
             _generalSettings = pGeneralSettings;
             _nwdS = pNwds;
@@ -525,6 +529,8 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
         }
 
         public User LoanOfficer { get; set; }
+
+        public User CreatedBy { get; set; }
 
         public User LoanInitialOfficer { get; set; }
 

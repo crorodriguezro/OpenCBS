@@ -1374,7 +1374,8 @@ namespace OpenCBS.Manager.Contracts
             [comments],
             [nsg_id],
             [activity_id],
-            preferred_first_installment_date)
+            preferred_first_installment_date,
+            created_by)
             VALUES(@code, 
             @branchCode, 
             @closed, 
@@ -1391,7 +1392,8 @@ namespace OpenCBS.Manager.Contracts
             @comments,
             @NsgID,
             @activityId,
-            @preferredFirstInstallmentDate)
+            @preferredFirstInstallmentDate,
+            @CreatedBy)
             SELECT SCOPE_IDENTITY()";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
@@ -1414,6 +1416,7 @@ namespace OpenCBS.Manager.Contracts
                 c.AddParam("@NsgID", pContract.NsgID);
                 c.AddParam("activityId", pContract.EconomicActivityId);
                 c.AddParam("@preferredFirstInstallmentDate", pContract.FirstInstallmentDate);
+                c.AddParam("@CreatedBy", pContract.CreatedBy.Id);
 
                 pContract.Id = Convert.ToInt32(c.ExecuteScalar());
             }
