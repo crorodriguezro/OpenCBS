@@ -23,6 +23,7 @@ namespace OpenCBS.Enums
 {
     public enum OContractStatus
     {
+        None = 0,
         Pending = 1,
         Validated = 2,
         Refused = 3,

@@ -117,6 +117,7 @@ namespace OpenCBS.Reports
         private bool _manualDatasources;
         private readonly ArrayList _helpers = new ArrayList();
         private readonly string _lang = UserSettings.Language;
+        private readonly Dictionary<string, object> _extra;
 
         [NonSerialized]
         private XmlDocument _docLabels;
@@ -128,6 +129,7 @@ namespace OpenCBS.Reports
         public Report(string fileName)
         {
             _fileName = fileName;
+            _extra = new Dictionary<string, object>();
 
             try
             {
@@ -140,6 +142,24 @@ namespace OpenCBS.Reports
                Trace.WriteLine(e.Message + "\n");
                Debug.WriteLine("Exception while loading report package");
             }
+        }
+
+        public void SetExtra(string key, object value)
+        {
+            if (_extra.ContainsKey(key))
+            {
+                _extra[key] = value;
+            }
+            else
+            {
+                _extra.Add(key, value);
+            }
+        }
+
+        public object GetExtra(string key)
+        {
+            if (_extra.ContainsKey(key)) return _extra[key];
+            return null;
         }
 
         private void InitializeReport(string fileName)
@@ -157,6 +177,12 @@ namespace OpenCBS.Reports
             if (groupAttr != null)
             {
                 Group = groupAttr.Value;
+            }
+
+            var attr = root.Attributes["disableIfLoanIsPending"];
+            if (attr != null)
+            {
+                DisableIfLoanIsPending = attr.Value == "yes";
             }
 
             // Get GUID
@@ -390,6 +416,8 @@ namespace OpenCBS.Reports
         {
             get { return _guid; }
         }
+
+        public bool DisableIfLoanIsPending { get; private set; }
 
         public void AddParam(string name, object value)
         {            
