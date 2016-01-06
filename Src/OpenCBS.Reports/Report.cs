@@ -153,6 +153,12 @@ namespace OpenCBS.Reports
             XmlElement root = doc.DocumentElement;
             Debug.Assert(root != null, "Root element not found");
 
+            var groupAttr = root.Attributes["group"];
+            if (groupAttr != null)
+            {
+                Group = groupAttr.Value;
+            }
+
             // Get GUID
             var nodeGuid = root.SelectSingleNode("guid");
             _guid = null == nodeGuid ? Guid.NewGuid() : new Guid(nodeGuid.InnerText);
@@ -385,11 +391,6 @@ namespace OpenCBS.Reports
             get { return _guid; }
         }
 
-        public int Order
-        {
-            get { return _order; }
-        }
-
         public void AddParam(string name, object value)
         {            
             if (null == _params) _params = new List<ReportParamV2>();
@@ -597,5 +598,7 @@ namespace OpenCBS.Reports
                     Tags = Tags.Where(t => !t.Equals(Resource.TagStar)).ToArray();
             }
         }
+
+        public string Group { get; private set; }
     }
 }
