@@ -87,6 +87,7 @@ namespace OpenCBS.ArchitectureV2.Repository
 	                , interest_repayment Interest
 	                , paid_interest PaidInterest
                     , olb
+                    , last_interest_accrual_date LastInterestAccrualDate
                 from
 	                dbo.Installments
                 where
@@ -198,7 +199,8 @@ namespace OpenCBS.ArchitectureV2.Repository
                     pending,
                     olb,
                     commission,
-                    paid_commission
+                    paid_commission,
+                    last_interest_accrual_date
                 )
                 values
                 (
@@ -217,7 +219,9 @@ namespace OpenCBS.ArchitectureV2.Repository
                     0,
                     @Olb,
                     0,
-                    0
+                    0,
+                    @LastInterestAccrualDate
+                    
                 )
             ";
             foreach (var installment in oldSchedule)
@@ -234,7 +238,8 @@ namespace OpenCBS.ArchitectureV2.Repository
                     installment.PaidPrincipal,
                     installment.PaidInterest,
                     installment.PaymentDate,
-                    installment.Olb
+                    installment.Olb,
+                    installment.LastInterestAccrualDate
                 },
                 tx);
             }
@@ -250,7 +255,8 @@ namespace OpenCBS.ArchitectureV2.Repository
                     paid_capital = @PaidPrincipal,
                     paid_date = @PaymentDate,
                     paid_fees = 0,
-                    olb = @Olb
+                    olb = @Olb,
+                    last_interest_accrual_date = @LastInterestAccrualDate
                 where
                     contract_id = @loanId
                     and number = @Number
@@ -268,7 +274,8 @@ namespace OpenCBS.ArchitectureV2.Repository
                     installment.PaymentDate,
                     installment.Olb,
                     loanId,
-                    installment.Number
+                    installment.Number,
+                    installment.LastInterestAccrualDate
                 }, tx);
             }
         }

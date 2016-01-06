@@ -65,17 +65,26 @@ namespace OpenCBS.ArchitectureV2.Presenter
         public decimal GetDuePrincipal(int loanId)
         {
             var loan = GetLoan(loanId);
-            var date = TimeProvider.Today;
+            var date = GetFirstRepaymentDateAfterToday(loan);
             return loan
                 .Schedule
                 .FindAll(x => x.ExpectedDate <= date)
                 .Sum(x => x.Principal - x.PaidPrincipal);
         }
 
+        private DateTime GetFirstRepaymentDateAfterToday(Loan loan)
+        {
+            var toDayDate = TimeProvider.Today;
+            return loan.Schedule
+                .Where(x => !x.Repaid)
+                .OrderBy(x => x.ExpectedDate)
+                .First(x => toDayDate <= x.ExpectedDate).ExpectedDate;
+        }
+
         public decimal GetDueInterest(int loanId)
         {
             var loan = GetLoan(loanId);
-            var date = TimeProvider.Today;
+            var date = GetFirstRepaymentDateAfterToday(loan);
             return loan
                 .Schedule
                 .FindAll(x => x.ExpectedDate <= date)
