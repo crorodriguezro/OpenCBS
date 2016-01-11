@@ -14,7 +14,7 @@
   <?define UpgradeCode="be584361-0c04-42c9-8ea8-457cdea8b89e"?>
   <?define ProductCode="07fbfe11-10c8-4d36-86e1-ebbefe5aeef3"?>
 
-  <Product Id="$(var.ProductCode)" Name="OpenCBS $(var.ProductVersion)" Language="1033"
+  <Product Id="$(var.ProductCode)" Name="OPENCBS $(var.ProductVersion)" Language="1033"
            Version="$(var.ProductVersion)" Manufacturer="OpenCBS" UpgradeCode="$(var.UpgradeCode)">
     <Package Comments="Open Core Banking System" Compressed="yes" InstallerVersion="200"
              Keywords="OpenCBS" Languages="1033" Manufacturer="Open Octopus" InstallScope="perMachine"/>
