@@ -2612,7 +2612,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                         return rPayment.Date.Date;
                 }
             }
-            throw new Exception("There are no valid repayments.");
+            return FirstInstallmentDate.Date;
         }
 
         public bool HasPendingInstallment
