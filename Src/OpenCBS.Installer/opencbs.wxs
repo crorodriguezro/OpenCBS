@@ -95,6 +95,10 @@
               <File Id="Cyotek.Windows.Forms.TabList.dll" Source="SourceDir\Cyotek.Windows.Forms.TabList.dll" />
             </Component>
 
+            <!--
+            This link was absolutely helpful in figuring out how to add desktop shortucts:
+            http://pradeepc.net/blog/2009/11/04/adding-a-desktop-shortcut-using-wix/
+        	-->
             <Component Id="Guide" Guid="d6d3ef66-8401-4af8-86d0-31c9ce5d6eef">
               <File Id="OPENCBS_INSTALLATION_GUIDE.pdf" Source="SourceDir\OPENCBS_INSTALLATION_GUIDE.pdf">
               	<Shortcut Advertise="yes" Id="OPENCBSGuideShortcut" Directory="DesktopFolder" Name="OPENCBS Installation Guide" WorkingDirectory="DIR_ROOT_VERSION" Icon="Guide.Icon.pdf">
