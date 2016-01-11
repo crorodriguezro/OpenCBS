@@ -94,14 +94,17 @@
               <File Id="dumpObjects.bat" Source="SourceDir\dumpObjects.bat" />
               <File Id="Cyotek.Windows.Forms.TabList.dll" Source="SourceDir\Cyotek.Windows.Forms.TabList.dll" />
             </Component>
-            <!--<Component Id="BuildLabel.txt" Guid="67E3FC7F-3C61-42db-B7EC-B14FDF99E328">
-              <File Id="BuildLabel.txt" Source="SourceDir\BuildLabel.txt" />
+
+            <Component Id="Guide" Guid="d6d3ef66-8401-4af8-86d0-31c9ce5d6eef">
+              <File Id="OPENCBS_INSTALLATION_GUIDE.pdf" Source="SourceDir\OPENCBS_INSTALLATION_GUIDE.pdf" />
+              <Shortcut Id="Guide.DesktopShortcut" Directory="DesktopFolder" Name="OPENCBS_INSTALLATION_GUIDE" WorkingDirectory="DIR_ROOT_VERSION"/>
             </Component>
-	    -->
+
             <Component Id="OpenCBS.GUI" Guid="CB26138B-9031-2360-D666-DD5F20038ED8">
               <File Id="OpenCBS.GUI.exe" Source="SourceDir\OpenCBS.GUI.exe" />
               <Shortcut Id="DesktopShortcut" Directory="DesktopFolder" Name="OpenCBS $(var.ProductVersionReduced)" Icon="opencbs.ico" WorkingDirectory="DIR_ROOT_VERSION" Advertise="yes"/>
             </Component>
+
             <Component Id="Registry" Guid="674968e0-7c4a-4164-aaec-5ddf6922a2dc" Permanent="yes">
               <RegistryKey Id="OpenCbsKey" Root="HKLM" Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.ProductVersion)" Action="create">
                 <util:PermissionEx User="Users" GenericAll="yes"/>
