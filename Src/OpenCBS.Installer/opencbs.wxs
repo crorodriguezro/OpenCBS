@@ -97,7 +97,7 @@
 
             <Component Id="Guide" Guid="d6d3ef66-8401-4af8-86d0-31c9ce5d6eef">
               <File Id="OPENCBS_INSTALLATION_GUIDE.pdf" Source="SourceDir\OPENCBS_INSTALLATION_GUIDE.pdf" />
-              <Shortcut Id="Guide.DesktopShortcut" Directory="DesktopFolder" Name="OPENCBS_INSTALLATION_GUIDE" WorkingDirectory="DIR_ROOT_VERSION"/>
+              <Shortcut Id="Guide.DesktopShortcut" Directory="DesktopFolder" Name="OPENCBS_INSTALLATION_GUIDE" WorkingDirectory="DIR_ROOT_VERSION"/Oppen/>
             </Component>
 
             <Component Id="OpenCBS.GUI" Guid="CB26138B-9031-2360-D666-DD5F20038ED8">
@@ -406,6 +406,7 @@
       <ComponentRef Id="extensions" />
       <ComponentRef Id="Languages"/>
       <ComponentRef Id="PermissionsOfRootDirectory"/>
+      <ComponentRef Id="Guide"/>
     </Feature>
     
     <Binary Id="CustomActionsId" SourceFile="d:\build\Src\OpenCBS.Installer\Resources\CustomActions.CA.dll" />
