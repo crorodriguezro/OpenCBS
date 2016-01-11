@@ -98,7 +98,7 @@
             <Component Id="Guide" Guid="d6d3ef66-8401-4af8-86d0-31c9ce5d6eef">
               <File Id="OPENCBS_INSTALLATION_GUIDE.pdf" Source="SourceDir\OPENCBS_INSTALLATION_GUIDE.pdf">
               	<Shortcut Advertise="yes" Id="OPENCBSGuideShortcut" Directory="DesktopFolder" Name="OPENCBS Installation Guide" WorkingDirectory="DIR_ROOT_VERSION" Icon="Guide.Icon.pdf">
-              		<Icon Id="Guide.Icon.pdf" SourceFile="SourceDir\OPENCBS_INSTALLATION_GUIDE.pdf">
+              		<Icon Id="Guide.Icon.pdf" SourceFile="SourceDir\OPENCBS_INSTALLATION_GUIDE.pdf"/>
               	</Shortcut>
               </File>
             </Component>
