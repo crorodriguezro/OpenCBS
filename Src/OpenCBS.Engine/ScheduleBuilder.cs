@@ -33,7 +33,14 @@ namespace OpenCBS.Engine
             {
                 for (var i = 0; i < configuration.GracePeriod; i++)
                 {
-                    result[i].InterestsRepayment = CalculateInterest(result[i], configuration);
+                    if (i == 0)
+                    {
+                        result[0].InterestsRepayment = CalculateFirstInstallmentInterest(result[0], configuration);
+                    }
+                    else
+                    {
+                        result[i].InterestsRepayment = CalculateInterest(result[i], configuration);
+                    }
                 }
             }
             // if the difference between start date and first installment date less or greater than period
