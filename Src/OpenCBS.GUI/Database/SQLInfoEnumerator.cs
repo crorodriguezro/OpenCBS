@@ -118,8 +118,6 @@ namespace OpenCBS.GUI.Database
 		/// <returns></returns>
 		private string[] RetrieveInformation(string InputParam)
 		{
-		    if (TechnicalSettings.UseDemoDatabase)
-		        return new[] {@"(LocalDB)\v11.0"};
 			IntPtr m_environmentHandle=IntPtr.Zero;
 			IntPtr m_connectionHandle = IntPtr.Zero;
 			StringBuilder inConnection = new StringBuilder(InputParam);

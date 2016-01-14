@@ -25,6 +25,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using OpenCBS.CoreDomain.Contracts.Loans;
+using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.Reports;
 using OpenCBS.Reports.Forms;
@@ -71,7 +73,7 @@ namespace OpenCBS.GUI.UserControl
             var reports = rs.GetInternalReports(AttachmentPoint, Visibility);
             if (reports.Count == 0)
             {
-                ToolStripMenuItem item = new ToolStripMenuItem(MultiLanguageStrings.GetString(OpenCBS.MultiLanguageRessources.Ressource.PrintButton, "noAvailableReportsCaption.Text"));
+                ToolStripMenuItem item = new ToolStripMenuItem(MultiLanguageStrings.GetString(Ressource.PrintButton, "noAvailableReportsCaption.Text"));
                 {
                     ForeColor = Color.FromArgb(0, 81, 152);
                 };
@@ -107,6 +109,7 @@ namespace OpenCBS.GUI.UserControl
             base.OnClick(e);
             Menu.Show(this, 0, Height);
         }
+
         private void PrintReport(Guid guid)
         {
 
@@ -116,6 +119,22 @@ namespace OpenCBS.GUI.UserControl
 
             try
             {
+                ReportInitializer(report);
+
+                if (report.DisableIfLoanIsPending)
+                {
+                    var loan = (Loan) report.GetExtra("loan");
+                    if (loan == null || loan.ContractStatus == OContractStatus.None || loan.ContractStatus == OContractStatus.Pending)
+                    {
+                        MessageBox.Show(
+                            MultiLanguageStrings.GetString(Ressource.PrintButton, "pleaseApproveLoan"),
+                            MultiLanguageStrings.GetString(Ressource.PrintButton, "warning"), 
+                            MessageBoxButtons.OK, 
+                            MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
                 List<ReportParamV2> additionalParams
                     = report.Params
                         .Where(p => p.Additional && p.Visible)
@@ -125,8 +144,6 @@ namespace OpenCBS.GUI.UserControl
                     ReportParamsForm reportParamsForm = new ReportParamsForm(additionalParams, report.Title);
                     if (reportParamsForm.ShowDialog() != DialogResult.OK) return;
                 }
-
-                ReportInitializer(report);
 
                 try
                 {

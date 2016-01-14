@@ -8,13 +8,13 @@
   	<?define PlatformProgramFilesFolder="ProgramFiles64Folder"?>
   <?endif?>
 
-  <?define PreviousVersion="15.10.0.0" ?>
-  <?define ProductVersion="15.11.0.0" ?>
-  <?define ProductVersionReduced="15.11" ?>
+  <?define PreviousVersion="15.11.0.0" ?>
+  <?define ProductVersion="15.12.0.0" ?>
+  <?define ProductVersionReduced="15.12" ?>
   <?define UpgradeCode="be584361-0c04-42c9-8ea8-457cdea8b89e"?>
-  <?define ProductCode="55401e7a-69e1-42e6-aea5-9a0e4e66572e"?>
+  <?define ProductCode="07fbfe11-10c8-4d36-86e1-ebbefe5aeef3"?>
 
-  <Product Id="$(var.ProductCode)" Name="OpenCBS $(var.ProductVersion)" Language="1033"
+  <Product Id="$(var.ProductCode)" Name="OPENCBS $(var.ProductVersion)" Language="1033"
            Version="$(var.ProductVersion)" Manufacturer="OpenCBS" UpgradeCode="$(var.UpgradeCode)">
     <Package Comments="Open Core Banking System" Compressed="yes" InstallerVersion="200"
              Keywords="OpenCBS" Languages="1033" Manufacturer="Open Octopus" InstallScope="perMachine"/>
@@ -38,10 +38,7 @@
     <Property Id="PASSWORD" />
     <Property Id="TIMEOUT" />
     <Property Id="DATABASELIST" />
-    <Property Id="USEDEMODATABASE" />
 	
-	  <Property Id="DEMODIRECTORY">C:\Users\Public</Property>
-
     <Directory Id="TARGETDIR" Name="SourceDir">
 
       <Directory Id="ProgramMenuFolder">
@@ -56,15 +53,6 @@
         </Component>
       </Directory>
 	  
-	    <Directory Id="DEMODIRECTORY" Name="DemoDb">
-		    <Component Id="DemoDbDirectory" Guid="fefa597c-f9df-4073-8128-d2c7fc92775a">
-			    <File Id="DemoDB.mdf" Source="SourceDir\DemoDB.mdf" />
-			    <File Id="DemoDB.ldf" Source="SourceDir\DemoDB.ldf" />
-			    <File Id="DemoDB_attachments.mdf" Source="SourceDir\DemoDB_attachments.mdf" />
-			    <File Id="DemoDB_attachments.ldf" Source="SourceDir\DemoDB_attachments.ldf" />
-		    </Component>
-	    </Directory>
-
       <Directory Id="$(var.PlatformProgramFilesFolder)" SourceName="User's Programs Menu">
         <Directory Id="DIR_ROOT" Name="OpenCBS" >
           <Directory Id="DIR_ROOT_VERSION" Name="$(var.ProductVersion)">
@@ -106,14 +94,24 @@
               <File Id="dumpObjects.bat" Source="SourceDir\dumpObjects.bat" />
               <File Id="Cyotek.Windows.Forms.TabList.dll" Source="SourceDir\Cyotek.Windows.Forms.TabList.dll" />
             </Component>
-            <!--<Component Id="BuildLabel.txt" Guid="67E3FC7F-3C61-42db-B7EC-B14FDF99E328">
-              <File Id="BuildLabel.txt" Source="SourceDir\BuildLabel.txt" />
+
+            <!--
+            This link was absolutely helpful in figuring out how to add desktop shortucts:
+            http://pradeepc.net/blog/2009/11/04/adding-a-desktop-shortcut-using-wix/
+        	-->
+            <Component Id="Guide" Guid="d6d3ef66-8401-4af8-86d0-31c9ce5d6eef">
+              <File Id="OPENCBS_INSTALLATION_GUIDE.pdf" Source="SourceDir\OPENCBS_INSTALLATION_GUIDE.pdf">
+              	<Shortcut Advertise="yes" Id="OPENCBSGuideShortcut" Directory="DesktopFolder" Name="OPENCBS Installation Guide" WorkingDirectory="DIR_ROOT_VERSION" Icon="Guide.Icon.pdf">
+              		<Icon Id="Guide.Icon.pdf" SourceFile="SourceDir\OPENCBS_INSTALLATION_GUIDE.pdf"/>
+              	</Shortcut>
+              </File>
             </Component>
-	    -->
+
             <Component Id="OpenCBS.GUI" Guid="CB26138B-9031-2360-D666-DD5F20038ED8">
               <File Id="OpenCBS.GUI.exe" Source="SourceDir\OpenCBS.GUI.exe" />
               <Shortcut Id="DesktopShortcut" Directory="DesktopFolder" Name="OpenCBS $(var.ProductVersionReduced)" Icon="opencbs.ico" WorkingDirectory="DIR_ROOT_VERSION" Advertise="yes"/>
             </Component>
+
             <Component Id="Registry" Guid="674968e0-7c4a-4164-aaec-5ddf6922a2dc" Permanent="yes">
               <RegistryKey Id="OpenCbsKey" Root="HKLM" Key="SOFTWARE\Open Octopus Ltd\OpenCBS\$(var.ProductVersion)" Action="create">
                 <util:PermissionEx User="Users" GenericAll="yes"/>
@@ -123,7 +121,6 @@
                 <RegistryValue Id="DATABASE_PASSWORD" Type="string" Name="DATABASE_PASSWORD" Value="[PASSWORD]"/>
                 <RegistryValue Id="DATABASE_TIMEOUT" Type="string" Name="DATABASE_TIMEOUT" Value="[TIMEOUT]"/>
                 <RegistryValue Id="DATABASE_LIST" Type="string" Name="DATABASE_LIST" Value="[DATABASELIST]"/>
-				        <RegistryValue Id="USE_DEMO_DATABASE" Type="string" Name="USE_DEMO_DATABASE" Value="[USEDEMODATABASE]"/>
               </RegistryKey>
             </Component>
             <Directory Id="DIR_TEMPLATE" Name="Template">
@@ -228,71 +225,9 @@
                 <File Id="DropAndCreateUDF.sql" Source="SourceDir\Update\DropAndCreateUDF.sql" />
               </Component>
               <Component Id="sql_create_database" Guid="6A36DFA4-83F5-FC67-DDB2-0AD22AB03E72">
-                <File Id="CreateDatabase_v15.11.0.0.sql" Source="SourceDir\Update\CreateDatabase_v15.11.0.0.sql" />
+                <File Id="CreateDatabase_v15.12.0.0.sql" Source="SourceDir\Update\CreateDatabase_v15.12.0.0.sql" />
               </Component>
               <Component Id="sql_update_database" Guid="BDBEE7A0-23E5-2E7D-BD1B-E58C5CFA0E65">
-                <File Id="Database_Update_v1.1.0_to_v1.1.1.sql" Source="SourceDir\Update\Database_Update_v1.1.0_to_v1.1.1.sql" />
-                <File Id="Database_Update_v1.1.1_to_v1.1.2.sql" Source="SourceDir\Update\Database_Update_v1.1.1_to_v1.1.2.sql" />
-                <File Id="Database_Update_v1.1.2_to_v1.1.3.sql" Source="SourceDir\Update\Database_Update_v1.1.2_to_v1.1.3.sql" />
-                <File Id="Database_Update_v1.1.3_to_v1.1.4.sql" Source="SourceDir\Update\Database_Update_v1.1.3_to_v1.1.4.sql" />
-                <File Id="Database_Update_v1.1.4_to_v1.1.5.sql" Source="SourceDir\Update\Database_Update_v1.1.4_to_v1.1.5.sql" />
-                <File Id="Database_Update_v1.1.5_to_v1.1.6.sql" Source="SourceDir\Update\Database_Update_v1.1.5_to_v1.1.6.sql" />
-                <File Id="Database_Update_v1.1.6_to_v1.1.7.sql" Source="SourceDir\Update\Database_Update_v1.1.6_to_v1.1.7.sql" />
-                <File Id="Database_Update_v1.1.7_to_v1.1.8.sql" Source="SourceDir\Update\Database_Update_v1.1.7_to_v1.1.8.sql" />
-                <File Id="Database_Update_v1.1.8_to_v1.1.9.sql" Source="SourceDir\Update\Database_Update_v1.1.8_to_v1.1.9.sql" />
-                <File Id="Database_Update_v1.1.9_to_v1.1.10.sql" Source="SourceDir\Update\Database_Update_v1.1.9_to_v1.1.10.sql" />
-                <File Id="Database_Update_v1.1.10_to_v1.2.0.sql" Source="SourceDir\Update\Database_Update_v1.1.10_to_v1.2.0.sql" />
-                <File Id="Database_Update_v1.2.0_to_v1.2.1.sql" Source="SourceDir\Update\Database_Update_v1.2.0_to_v1.2.1.sql" />
-                <File Id="Database_Update_v1.2.1_to_v1.2.2.sql" Source="SourceDir\Update\Database_Update_v1.2.1_to_v1.2.2.sql" />
-                <File Id="Database_Update_v1.2.2_to_v2.0.0.sql" Source="SourceDir\Update\Database_Update_v1.2.2_to_v2.0.0.sql" />
-                <File Id="Database_Update_v2.0.0_to_v2.0.1.sql" Source="SourceDir\Update\Database_Update_v2.0.0_to_v2.0.1.sql" />
-                <File Id="Database_Update_v2.0.1_to_v2.1.0.sql" Source="SourceDir\Update\Database_Update_v2.0.1_to_v2.1.0.sql" />
-                <File Id="Database_Update_v2.1.0_to_v2.5.0.sql" Source="SourceDir\Update\Database_Update_v2.1.0_to_v2.5.0.sql" />
-                <File Id="Database_Update_v2.5.0_to_v2.5.1.sql" Source="SourceDir\Update\Database_Update_v2.5.0_to_v2.5.1.sql" />
-                <File Id="Database_Update_v2.5.1_to_v2.5.2.sql" Source="SourceDir\Update\Database_Update_v2.5.1_to_v2.5.2.sql" />
-                <File Id="Database_Update_v2.5.2_to_v2.5.3.sql" Source="SourceDir\Update\Database_Update_v2.5.2_to_v2.5.3.sql" />
-                <File Id="Database_Update_v2.5.3_to_v2.5.4.sql" Source="SourceDir\Update\Database_Update_v2.5.3_to_v2.5.4.sql" />
-                <File Id="Database_Update_v2.5.4_to_v2.5.5.sql" Source="SourceDir\Update\Database_Update_v2.5.4_to_v2.5.5.sql" />
-                <File Id="Database_Update_v2.5.5_to_v2.5.6.sql" Source="SourceDir\Update\Database_Update_v2.5.5_to_v2.5.6.sql" />
-                <File Id="Database_Update_v2.5.6_to_v2.5.7.sql" Source="SourceDir\Update\Database_Update_v2.5.6_to_v2.5.7.sql" />
-                <File Id="Database_Update_v2.5.7_to_v2.5.8.sql" Source="SourceDir\Update\Database_Update_v2.5.7_to_v2.5.8.sql" />
-                <File Id="Database_Update_v2.5.8_to_v2.5.9.sql" Source="SourceDir\Update\Database_Update_v2.5.8_to_v2.5.9.sql" />
-                <File Id="Database_Update_v2.5.9_to_v2.6.0.sql" Source="SourceDir\Update\Database_Update_v2.5.9_to_v2.6.0.sql" />
-                <File Id="Database_Update_v2.6.0_to_v2.7.0.sql" Source="SourceDir\Update\Database_Update_v2.6.0_to_v2.7.0.sql" />
-                <File Id="Database_Update_v2.7.0_to_v2.8.0.sql" Source="SourceDir\Update\Database_Update_v2.7.0_to_v2.8.0.sql" />
-                <File Id="Database_Update_v2.8.0_to_v2.8.1.sql" Source="SourceDir\Update\Database_Update_v2.8.0_to_v2.8.1.sql" />
-                <File Id="Database_Update_v2.8.1_to_v2.8.2.sql" Source="SourceDir\Update\Database_Update_v2.8.1_to_v2.8.2.sql" />
-                <File Id="Database_Update_v2.8.2_to_v2.8.3.sql" Source="SourceDir\Update\Database_Update_v2.8.2_to_v2.8.3.sql" />
-                <File Id="Database_Update_v2.8.3_to_v2.8.4.sql" Source="SourceDir\Update\Database_Update_v2.8.3_to_v2.8.4.sql" />
-                <File Id="Database_Update_v2.8.4_to_v2.8.5.sql" Source="SourceDir\Update\Database_Update_v2.8.4_to_v2.8.5.sql" />
-                <File Id="Database_Update_v2.8.5_to_v2.8.6.sql" Source="SourceDir\Update\Database_Update_v2.8.5_to_v2.8.6.sql" />
-                <File Id="Database_Update_v2.8.6_to_v2.8.7.sql" Source="SourceDir\Update\Database_Update_v2.8.6_to_v2.8.7.sql" />
-                <File Id="Database_Update_v2.8.7_to_v2.8.8.sql" Source="SourceDir\Update\Database_Update_v2.8.7_to_v2.8.8.sql" />
-                <File Id="Database_Update_v2.8.8_to_v2.8.9.sql" Source="SourceDir\Update\Database_Update_v2.8.8_to_v2.8.9.sql" />
-                <File Id="Database_Update_v2.8.9_to_v2.8.10.sql" Source="SourceDir\Update\Database_Update_v2.8.9_to_v2.8.10.sql" />
-                <File Id="Database_Update_v2.8.10_to_v2.8.11.sql" Source="SourceDir\Update\Database_Update_v2.8.10_to_v2.8.11.sql" />
-                <File Id="Database_Update_v2.8.11_to_v2.8.12.sql" Source="SourceDir\Update\Database_Update_v2.8.11_to_v2.8.12.sql" />
-                <File Id="Database_Update_v2.8.12_to_v2.8.13.sql" Source="SourceDir\Update\Database_Update_v2.8.12_to_v2.8.13.sql" />
-                <File Id="Database_Update_v2.8.13_to_v2.8.14.sql" Source="SourceDir\Update\Database_Update_v2.8.13_to_v2.8.14.sql" />
-                <File Id="Database_Update_v2.8.14_to_v2.8.15.sql" Source="SourceDir\Update\Database_Update_v2.8.14_to_v2.8.15.sql" />
-                <File Id="Database_Update_v2.8.15_to_v3.0.0.sql" Source="SourceDir\Update\Database_Update_v2.8.15_to_v3.0.0.sql" />
-                <File Id="Database_Update_v3.0.0_to_v3.1.0.sql" Source="SourceDir\Update\Database_Update_v3.0.0_to_v3.1.0.sql" />
-                <File Id="Database_Update_v3.1.0_to_v3.2.0.sql" Source="SourceDir\Update\Database_Update_v3.1.0_to_v3.2.0.sql" />
-                <File Id="Database_Update_v3.2.0_to_v3.3.0.sql" Source="SourceDir\Update\Database_Update_v3.2.0_to_v3.3.0.sql" />
-                <File Id="Database_Update_v3.3.0_to_v3.4.0.sql" Source="SourceDir\Update\Database_Update_v3.3.0_to_v3.4.0.sql" />
-                <File Id="Database_Update_v3.4.0_to_v3.5.0.sql" Source="SourceDir\Update\Database_Update_v3.4.0_to_v3.5.0.sql" />
-                <File Id="Database_Update_v3.5.0_to_v3.6.0.sql" Source="SourceDir\Update\Database_Update_v3.5.0_to_v3.6.0.sql" />
-                <File Id="Database_Update_v3.6.0_to_v3.7.0.sql" Source="SourceDir\Update\Database_Update_v3.6.0_to_v3.7.0.sql" />
-                <File Id="Database_Update_v3.7.0_to_v3.8.0.sql" Source="SourceDir\Update\Database_Update_v3.7.0_to_v3.8.0.sql" />
-                <File Id="Database_Update_v3.8.0_to_v3.9.0.sql" Source="SourceDir\Update\Database_Update_v3.8.0_to_v3.9.0.sql" />
-                <File Id="Database_Update_v3.9.0_to_v4.0.0.sql" Source="SourceDir\Update\Database_Update_v3.9.0_to_v4.0.0.sql" />
-                <File Id="Database_Update_v4.0.0_to_v4.1.0.sql" Source="SourceDir\Update\Database_Update_v4.0.0_to_v4.1.0.sql" />
-                <File Id="Database_Update_v4.1.0_to_v4.2.0.sql" Source="SourceDir\Update\Database_Update_v4.1.0_to_v4.2.0.sql" />
-                <File Id="Database_Update_v4.2.0_to_v4.3.0.sql" Source="SourceDir\Update\Database_Update_v4.2.0_to_v4.3.0.sql" />
-                <File Id="Database_Update_v4.3.0_to_v4.4.0.sql" Source="SourceDir\Update\Database_Update_v4.3.0_to_v4.4.0.sql" />
-                <File Id="Database_Update_v4.4.0_to_v4.5.0.sql" Source="SourceDir\Update\Database_Update_v4.4.0_to_v4.5.0.sql" />
-                <File Id="Database_Update_v4.5.0_to_v4.6.0.sql" Source="SourceDir\Update\Database_Update_v4.5.0_to_v4.6.0.sql" />
-                <File Id="Database_Update_v4.6.0_to_v4.7.0.sql" Source="SourceDir\Update\Database_Update_v4.6.0_to_v4.7.0.sql" />
                 <File Id="Database_Update_v4.7.0_to_v13.5.0.0.sql" Source="SourceDir\Update\Database_Update_v4.7.0_to_v13.5.0.0.sql" />
                 <File Id="Database_Update_v13.5.0.0_to_v13.6.0.0.sql" Source="SourceDir\Update\Database_Update_v13.5.0.0_to_v13.6.0.0.sql" />
                 <File Id="Database_Update_v13.6.0.0_to_v13.7.0.0.sql" Source="SourceDir\Update\Database_Update_v13.6.0.0_to_v13.7.0.0.sql" />
@@ -330,9 +265,10 @@
                 <File Id="Database_Update_v15.8.0.0_to_v15.9.0.0.sql" Source="SourceDir\Update\Database_Update_v15.8.0.0_to_v15.9.0.0.sql" />
                 <File Id="Database_Update_v15.9.0.0_to_v15.10.0.0.sql" Source="SourceDir\Update\Database_Update_v15.9.0.0_to_v15.10.0.0.sql" />
                 <File Id="Database_Update_v15.10.0.0_to_v15.11.0.0.sql" Source="SourceDir\Update\Database_Update_v15.10.0.0_to_v15.11.0.0.sql" />
+                <File Id="Database_Update_v15.11.0.0_to_v15.12.0.0.sql" Source="SourceDir\Update\Database_Update_v15.11.0.0_to_v15.12.0.0.sql" />
               </Component>
               <Component Id="xml_data_schema" Guid="CB26138B-9031-2360-D666-DD5F20038ED9">
-                <File Id="OCTOPUS_Data_Schema_v15.11.0.0.xml" Name="OCTOPUS_Data_Schema_(v15.11.0.0).xml" Source="SourceDir\Update\OCTOPUS_Data_Schema_(v15.11.0.0).xml" />
+                <File Id="OCTOPUS_Data_Schema_v15.12.0.0.xml" Name="OCTOPUS_Data_Schema_(v15.12.0.0).xml" Source="SourceDir\Update\OCTOPUS_Data_Schema_(v15.12.0.0).xml" />
                 <File Id="OCTOPUS_Upgrade_Schema.xml" Source="SourceDir\Update\OCTOPUS_Upgrade_Schema.xml" />
                 <File Id="Objects.xml" Source="SourceDir\Update\Objects.xml" />
               </Component>
@@ -476,8 +412,8 @@
       <ComponentRef Id="ApplicationShortcut" />
       <ComponentRef Id="extensions" />
       <ComponentRef Id="Languages"/>
-	    <ComponentRef Id="DemoDbDirectory" />
       <ComponentRef Id="PermissionsOfRootDirectory"/>
+      <ComponentRef Id="Guide"/>
     </Feature>
     
     <Binary Id="CustomActionsId" SourceFile="d:\build\Src\OpenCBS.Installer\Resources\CustomActions.CA.dll" />

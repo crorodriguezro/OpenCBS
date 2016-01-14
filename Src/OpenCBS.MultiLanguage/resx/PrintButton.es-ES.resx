@@ -120,4 +120,10 @@
   <data name="noAvailableReportsCaption.Text" xml:space="preserve">
     <value>No hay informes disponibles para esta sección.</value>
   </data>
+  <data name="pleaseApproveLoan" xml:space="preserve">
+    <value>Por favor aprobar el préstamo.</value>
+  </data>
+  <data name="warning" xml:space="preserve">
+    <value>Aviso</value>
+  </data>
 </root>

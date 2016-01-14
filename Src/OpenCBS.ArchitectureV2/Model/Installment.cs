@@ -14,7 +14,7 @@ namespace OpenCBS.ArchitectureV2.Model
         public DateTime StartDate { get; set; }
         public DateTime ExpectedDate { get; set; }
         public DateTime? PaymentDate { get; set; }
-
+        public DateTime LastInterestAccrualDate { get; set; }
         public bool Repaid
         {
             get { return PaidPrincipal + PaidInterest >= Principal + Interest; }

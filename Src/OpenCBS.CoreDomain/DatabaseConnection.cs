@@ -19,7 +19,6 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
-using System;
 using System.Data.SqlClient;
 using OpenCBS.Shared.Settings;
 using System.ComponentModel.Composition;
@@ -41,13 +40,8 @@ namespace OpenCBS.CoreDomain
             csb.InitialCatalog = IsProductionDatabase ? TechnicalSettings.DatabaseName : "opencbs_test";
             csb.ConnectTimeout = TechnicalSettings.DatabaseTimeout;
 
-            var localDbConnectionString =
-                String.Format(@"data source=(LocalDB)\v11.0;Integrated Security=True;Initial Catalog={0}",
-                              TechnicalSettings.DatabaseName);
             var conn =
-                new SqlConnection(TechnicalSettings.UseDemoDatabase
-                                      ? localDbConnectionString
-                                      : csb.ConnectionString);
+                new SqlConnection(csb.ConnectionString);
             conn.Open();
             return conn;
         }

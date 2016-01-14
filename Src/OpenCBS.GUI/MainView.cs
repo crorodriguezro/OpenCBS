@@ -31,6 +31,7 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
 using OpenCBS.ArchitectureV2.CommandData;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.View;
@@ -57,6 +58,7 @@ using OpenCBS.Reports.Forms;
 using OpenCBS.Services;
 using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
+using Group = OpenCBS.CoreDomain.Clients.Group;
 
 namespace OpenCBS.GUI
 {
@@ -825,18 +827,34 @@ namespace OpenCBS.GUI
 
         private void LoadReportsToolStrip()
         {
-            ToolStripMenuItem i;
             IComparer<Report> comparer = new ReportAbcComparer();
             var re = new List<Report>(ReportService.GetInstance().GetReports());
             re.Sort(comparer);
-            foreach (Report report in re)
+            foreach (var report in re)
             {
-                i = new ToolStripMenuItem(report.Title) { Tag = report.Name };
-                i.Click += new System.EventHandler(this.activeLoansToolStripMenuItem_Click);
-                reportsToolStripMenuItem.DropDownItems.Add(i);
+                var i = new ToolStripMenuItem(report.Title) { Tag = report.Name };
+                i.Click += activeLoansToolStripMenuItem_Click;
+                if (!string.IsNullOrEmpty(report.Group))
+                {
+                    ToolStripMenuItem groupItem;
+                    var subitems = reportsToolStripMenuItem.DropDownItems.Find(report.Group, true);
+                    if (subitems.Any())
+                    {
+                        groupItem = (ToolStripMenuItem) subitems[0];
+                    }
+                    else
+                    {
+                        groupItem = new ToolStripMenuItem(report.Group);
+                        groupItem.Name = report.Group;
+                        reportsToolStripMenuItem.DropDownItems.Insert(0, groupItem);
+                    }
+                    groupItem.DropDownItems.Add(i);
+                }
+                else
+                {
+                    reportsToolStripMenuItem.DropDownItems.Add(i);
+                }
             }
-
-
         }
 
         private void LogUser()

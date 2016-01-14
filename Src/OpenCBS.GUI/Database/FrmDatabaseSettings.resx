@@ -117,35 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="_useDemoCheckBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="_useDemoCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>119, 158</value>
-  </data>
-  <data name="_useDemoCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 17</value>
-  </data>
-  <data name="_useDemoCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="_useDemoCheckBox.Text" xml:space="preserve">
-    <value>Use LocalDb</value>
-  </data>
-  <data name="&gt;&gt;_useDemoCheckBox.Name" xml:space="preserve">
-    <value>_useDemoCheckBox</value>
-  </data>
-  <data name="&gt;&gt;_useDemoCheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_useDemoCheckBox.Parent" xml:space="preserve">
-    <value>groupBoxSQLServerConnection</value>
-  </data>
-  <data name="&gt;&gt;_useDemoCheckBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="btnDefault.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
@@ -159,6 +131,7 @@
   <data name="btnDefault.Size" type="System.Drawing.Size, System.Drawing">
     <value>134, 22</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnDefault.TabIndex" type="System.Int32, mscorlib">
     <value>39</value>
   </data>
@@ -175,7 +148,7 @@
     <value>groupBoxSQLServerConnection</value>
   </data>
   <data name="&gt;&gt;btnDefault.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="btnGetServersList.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -205,7 +178,7 @@
     <value>groupBoxSQLServerConnection</value>
   </data>
   <data name="&gt;&gt;btnGetServersList.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="lblHelpServerName.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -235,7 +208,7 @@
     <value>groupBoxSQLServerConnection</value>
   </data>
   <data name="&gt;&gt;lblHelpServerName.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="cbServerName.Location" type="System.Drawing.Point, System.Drawing">
     <value>119, 51</value>
@@ -259,7 +232,7 @@
     <value>groupBoxSQLServerConnection</value>
   </data>
   <data name="&gt;&gt;cbServerName.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="txtPassword.Location" type="System.Drawing.Point, System.Drawing">
     <value>390, 115</value>
@@ -283,7 +256,7 @@
     <value>groupBoxSQLServerConnection</value>
   </data>
   <data name="&gt;&gt;txtPassword.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="lblPassword.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt</value>
@@ -316,7 +289,7 @@
     <value>groupBoxSQLServerConnection</value>
   </data>
   <data name="&gt;&gt;lblPassword.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="txtLoginName.Location" type="System.Drawing.Point, System.Drawing">
     <value>119, 115</value>
@@ -340,7 +313,7 @@
     <value>groupBoxSQLServerConnection</value>
   </data>
   <data name="&gt;&gt;txtLoginName.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="lblLoginName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt</value>
@@ -373,7 +346,7 @@
     <value>groupBoxSQLServerConnection</value>
   </data>
   <data name="&gt;&gt;lblLoginName.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="lblServerName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt</value>
@@ -406,7 +379,7 @@
     <value>groupBoxSQLServerConnection</value>
   </data>
   <data name="&gt;&gt;lblServerName.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="lblFindDBInfo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -436,7 +409,7 @@
     <value>groupBoxSQLServerConnection</value>
   </data>
   <data name="&gt;&gt;lblFindDBInfo.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="groupBoxSQLServerConnection.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -2147,6 +2120,6 @@
     <value>FrmDatabaseSettings</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.11.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

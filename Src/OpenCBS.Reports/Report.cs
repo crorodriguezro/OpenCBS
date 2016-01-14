@@ -117,6 +117,7 @@ namespace OpenCBS.Reports
         private bool _manualDatasources;
         private readonly ArrayList _helpers = new ArrayList();
         private readonly string _lang = UserSettings.Language;
+        private readonly Dictionary<string, object> _extra;
 
         [NonSerialized]
         private XmlDocument _docLabels;
@@ -128,6 +129,7 @@ namespace OpenCBS.Reports
         public Report(string fileName)
         {
             _fileName = fileName;
+            _extra = new Dictionary<string, object>();
 
             try
             {
@@ -142,6 +144,24 @@ namespace OpenCBS.Reports
             }
         }
 
+        public void SetExtra(string key, object value)
+        {
+            if (_extra.ContainsKey(key))
+            {
+                _extra[key] = value;
+            }
+            else
+            {
+                _extra.Add(key, value);
+            }
+        }
+
+        public object GetExtra(string key)
+        {
+            if (_extra.ContainsKey(key)) return _extra[key];
+            return null;
+        }
+
         private void InitializeReport(string fileName)
         {
             Trace.IndentLevel = 1;
@@ -152,6 +172,18 @@ namespace OpenCBS.Reports
             doc.Load(GetMetaStream());
             XmlElement root = doc.DocumentElement;
             Debug.Assert(root != null, "Root element not found");
+
+            var groupAttr = root.Attributes["group"];
+            if (groupAttr != null)
+            {
+                Group = groupAttr.Value;
+            }
+
+            var attr = root.Attributes["disableIfLoanIsPending"];
+            if (attr != null)
+            {
+                DisableIfLoanIsPending = attr.Value == "yes";
+            }
 
             // Get GUID
             var nodeGuid = root.SelectSingleNode("guid");
@@ -385,10 +417,7 @@ namespace OpenCBS.Reports
             get { return _guid; }
         }
 
-        public int Order
-        {
-            get { return _order; }
-        }
+        public bool DisableIfLoanIsPending { get; private set; }
 
         public void AddParam(string name, object value)
         {            
@@ -597,5 +626,7 @@ namespace OpenCBS.Reports
                     Tags = Tags.Where(t => !t.Equals(Resource.TagStar)).ToArray();
             }
         }
+
+        public string Group { get; private set; }
     }
 }

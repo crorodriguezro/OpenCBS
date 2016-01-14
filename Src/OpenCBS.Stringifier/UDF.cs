@@ -72,7 +72,7 @@ namespace OpenCBS.Stringifier
         }
 
         [SqlFunction(DataAccess = DataAccessKind.Read, IsDeterministic = true, Name = "Stringify_EN_IN")]
-        public static string StringifyIndianEnglish(int amount)
+        public static string Stringify_EN_IN(int amount)
         {
             try
             {

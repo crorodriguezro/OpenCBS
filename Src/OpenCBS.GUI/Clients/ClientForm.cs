@@ -5398,6 +5398,7 @@ namespace OpenCBS.GUI.Clients
                 report =>
                 {
                     report.SetParamValue("user_id", User.CurrentUser.Id);
+                    report.SetExtra("loan", _credit);
                     if (_credit != null) report.SetParamValue("contract_id", _credit.Id);
                     if (_saving != null) report.SetParamValue("saving_id", _saving.Id);
                     if (_guarantee != null) report.SetParamValue("guarantee_id", _guarantee.Id);
