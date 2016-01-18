@@ -21,6 +21,7 @@
 
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using OpenCBS.CoreDomain;
 using OpenCBS.Shared;
 
@@ -31,11 +32,36 @@ namespace OpenCBS.Manager
     /// </summary>
     public class LocationsManager : Manager
     {
-        public LocationsManager(User pUser) : base(pUser) { }
 
-        public LocationsManager(string testDB) : base(testDB) { }
+        private List<Province> _cacheProvinces;
+        private List<City> _cacheCities;
+        private List<District> _cacheDistricts;
+
+        public LocationsManager(User pUser) : base(pUser)
+        {
+            InitCache();
+        }
+
+        public LocationsManager(string testDB) : base(testDB)
+        {
+            InitCache();
+        }
+
+        public void InitCache()
+        {
+            if(_cacheProvinces==null) _cacheProvinces=GetProvincesList();
+            if(_cacheCities==null)_cacheCities=GetCitiesList();
+            if (_cacheDistricts == null) _cacheDistricts = GetDistrictsList();
+
+        } 
+
 
         public List<Province> GetProvinces()
+        {
+            return _cacheProvinces;
+        }
+
+        private List<Province> GetProvincesList()
         {
             List<Province> provinces = new List<Province>();
             const string q = "SELECT [id],[name] FROM [Provinces]  WHERE [deleted] = 0 ORDER BY name";
@@ -62,6 +88,11 @@ namespace OpenCBS.Manager
 
         public List<City> GetCities()
         {
+            return _cacheCities;
+        }
+
+        private List<City> GetCitiesList()
+        {
             List<City> cities = new List<City>();
             const string q = "SELECT [id], [name] ,[district_id]FROM [City] WHERE [deleted]=0 ORDER BY name ";
 
@@ -85,7 +116,12 @@ namespace OpenCBS.Manager
             return cities;
         }
 
+
         public List<District> GetDistricts()
+        {
+            return _cacheDistricts;
+        }
+        private List<District> GetDistrictsList()
         {
             List<Province> provinces = GetProvinces();
 
@@ -135,6 +171,8 @@ namespace OpenCBS.Manager
 
         public District SelectDistrictById(int pId)
         {
+            return _cacheDistricts.FirstOrDefault(val => val.Id == pId);
+
             District district = null;
 
             const string q = "SELECT Districts.id, Districts.name, Districts.province_id, " +
@@ -169,36 +207,47 @@ namespace OpenCBS.Manager
 
         public District SelectDistrictByName(string name)
         {
-            District district = null;
-
-            const string q = "SELECT Districts.id, Districts.name, Districts.province_id, " +
-                                   "Provinces.id AS province_id, Provinces.name AS province_name " +
-                                   "FROM Districts INNER JOIN " +
-                                   "Provinces ON Districts.province_id = Provinces.id " +
-                                   "WHERE Districts.name= @name";
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+            return _cacheDistricts.Join(_cacheProvinces,val => val.Id,val=>val.Id,(district,province) => new District()
             {
-                c.AddParam("@name", name);
-
-                using (OpenCbsReader r = c.ExecuteReader())
+                Id = district.Id,
+                Name = district.Name,
+                Province = new Province()
                 {
-                    if (r != null)
-                    {
-                        if (!r.Empty)
-                        {
-                            r.Read();
-                            district = new District();
-                            district.Province = new Province();
-                            district.Id = r.GetInt("id");
-                            district.Name = r.GetString("name");
-                            district.Province.Id = r.GetInt("province_id");
-                            district.Province.Name = r.GetString("province_name");
-                        }
-                    }
+                    Id = province.Id,
+                    Name = province.Name
                 }
-            }
-            return district;
+            }).FirstOrDefault();
+
+            //District district = null;
+
+            //const string q = "SELECT Districts.id, Districts.name, Districts.province_id, " +
+            //                       "Provinces.id AS province_id, Provinces.name AS province_name " +
+            //                       "FROM Districts INNER JOIN " +
+            //                       "Provinces ON Districts.province_id = Provinces.id " +
+            //                       "WHERE Districts.name= @name";
+            //using (SqlConnection conn = GetConnection())
+            //using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+            //{
+            //    c.AddParam("@name", name);
+
+            //    using (OpenCbsReader r = c.ExecuteReader())
+            //    {
+            //        if (r != null)
+            //        {
+            //            if (!r.Empty)
+            //            {
+            //                r.Read();
+            //                district = new District();
+            //                district.Province = new Province();
+            //                district.Id = r.GetInt("id");
+            //                district.Name = r.GetString("name");
+            //                district.Province.Id = r.GetInt("province_id");
+            //                district.Province.Name = r.GetString("province_name");
+            //            }
+            //        }
+            //    }
+            //}
+            //return district;
         }
 
         public int AddProvince(string pName)
@@ -347,39 +396,56 @@ namespace OpenCBS.Manager
 
         public List<District> SelectDistrictsByProvinceId(int pProvinceId)
         {
-            List<District> districts = new List<District>();
 
-            const string q = "SELECT Districts.id, Districts.name, Districts.province_id, " +
-                                   "Provinces.id AS province_id, Provinces.name AS province_name " +
-                                   "FROM Districts INNER JOIN " +
-                                   "Provinces ON Districts.province_id = Provinces.id " +
-                                   "WHERE Provinces.id= @id AND Districts.deleted = 0 ORDER BY Districts.name";
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            {
-                c.AddParam("@id", pProvinceId);
-                using (OpenCbsReader r = c.ExecuteReader())
-                {
-                    if (r != null)
+            return
+                _cacheDistricts.Join(_cacheProvinces, district => district.Id, province => province.Id,
+                    (district, province) => new District()
                     {
-                        while (r.Read())
+                        Id = district.Id,
+                        Name = district.Name,
+                        Province = new Province()
                         {
-                            District district = new District();
-                            district.Province = new Province();
-                            district.Id = r.GetInt("id");
-                            district.Name = r.GetString("name");
-                            district.Province.Id = r.GetInt("province_id");
-                            district.Province.Name = r.GetString("province_name");
-                            districts.Add(district);
+                            Id = province.Id,
+                            Name = province.Name,
                         }
-                    }
-                }
-            }
-            return districts;
+                    }).ToList();
+
+
+            //List<District> districts = new List<District>();
+
+            //const string q = "SELECT Districts.id, Districts.name, Districts.province_id, " +
+            //                       "Provinces.id AS province_id, Provinces.name AS province_name " +
+            //                       "FROM Districts INNER JOIN " +
+            //                       "Provinces ON Districts.province_id = Provinces.id " +
+            //                       "WHERE Provinces.id= @id AND Districts.deleted = 0 ORDER BY Districts.name";
+            //using (SqlConnection conn = GetConnection())
+            //using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+            //{
+            //    c.AddParam("@id", pProvinceId);
+            //    using (OpenCbsReader r = c.ExecuteReader())
+            //    {
+            //        if (r != null)
+            //        {
+            //            while (r.Read())
+            //            {
+            //                District district = new District();
+            //                district.Province = new Province();
+            //                district.Id = r.GetInt("id");
+            //                district.Name = r.GetString("name");
+            //                district.Province.Id = r.GetInt("province_id");
+            //                district.Province.Name = r.GetString("province_name");
+            //                districts.Add(district);
+            //            }
+            //        }
+            //    }
+            //}
+            //return districts;
         }
 
         public List<Province> SelectAllProvinces()
         {
+            return _cacheProvinces;
+
             List<Province> provinces = new List<Province>();
 
             const string q = "SELECT id,name FROM Provinces ORDER BY name";
@@ -406,6 +472,8 @@ namespace OpenCBS.Manager
 
         public Province SelectProvinceByName(string name)
         {
+            return _cacheProvinces.FirstOrDefault(val => val.Name == name);
+
             const string q = "SELECT id,name FROM Provinces WHERE name = @name";
             using (SqlConnection conn = GetConnection())
             using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
@@ -427,6 +495,9 @@ namespace OpenCBS.Manager
 
         public List<City> SelectCityByDistrictId(int pDistrictId)
         {
+            return _cacheCities.Where(val => val.DistrictId == pDistrictId).ToList();
+
+
             List<City> cities = new List<City>();
 
             const string q = "SELECT name, id FROM City WHERE district_id = @id and deleted = 0 ORDER BY name";
@@ -456,6 +527,23 @@ namespace OpenCBS.Manager
 
         public District SelectDistrictByCityName(string name)
         {
+            return (from d in _cacheDistricts
+                join p in _cacheProvinces on d.Id equals p.Id
+                join c in _cacheCities on d.Id equals c.Id
+                where c.Name.Contains(name)
+                select new District()
+                {
+                    Id = d.Id,
+                    Name = d.Name,
+                    Province = new Province()
+                    {
+                        Id = p.Id,
+                        Name = p.Name
+
+                    }
+                }).FirstOrDefault();
+
+
             string query = @"SELECT d.id district_id
 	            , d.name district_name
 	            , p.id province_id

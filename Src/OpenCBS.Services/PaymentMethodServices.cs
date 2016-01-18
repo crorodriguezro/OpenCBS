@@ -86,7 +86,7 @@ namespace OpenCBS.Services
 
         public void Delete(PaymentMethod paymentMethod)
         {
-            _paymentMethodManager.DeletePaymentMethodFromBranach(paymentMethod);
+            _paymentMethodManager.DeletePaymentMethodFromBranch(paymentMethod);
         }
 
         public void Update(PaymentMethod paymentMethod)

@@ -22,25 +22,70 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using OpenCBS.CoreDomain;
 
 namespace OpenCBS.Manager
 {
     public class BranchManager : Manager
     {
+        private List<Branch> _cache; 
+
         public BranchManager(User user)
             : base(user)
         {
+            InitCache();
         }
 
         public BranchManager(string pTestDb)
             : base(pTestDb)
         {
+            InitCache();
+        }
 
+
+        private void InitCache()
+        {
+            if (_cache == null) _cache = GetAll();
+        }
+
+        public List<Branch> GetAll()
+        {
+            List<Branch> branches = new List<Branch>();
+            const string q =
+                @"SELECT 
+                    id, 
+                    name, 
+                    deleted
+                    , code, address, description
+            FROM dbo.Branches";
+            using (SqlConnection conn = GetConnection())
+            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+            using (OpenCbsReader r = c.ExecuteReader())
+            {
+                if (r.Empty) return branches;
+
+                while (r.Read())
+                {
+                    var b = new Branch
+                    {
+                        Id = r.GetInt("id"),
+                        Name = r.GetString("name"),
+                        Deleted = r.GetBool("deleted"),
+                        Code = r.GetString("code"),
+                        Address = r.GetString("address"),
+                        Description = r.GetString("description")
+                    };
+                    branches.Add(b);
+                }
+            }
+            return branches;
         }
 
         public List<Branch> SelectAll()
         {
+            return _cache;
+
             List<Branch> branches = new List<Branch>();
             const string q =
                 @"SELECT 
@@ -158,6 +203,8 @@ namespace OpenCBS.Manager
 
         public bool NameExists(int id, string name)
         {
+            return _cache.Any(val => val.Name == name && val.Id != id);
+
             const string q =
                 @"select count(*)
             from dbo.Branches
@@ -173,6 +220,8 @@ namespace OpenCBS.Manager
 
         public bool CodeExists(int id, string code)
         {
+
+            return _cache.Any(val => val.Id == id && val.Code != code);
             const string q =
                 @"select count(*)
             from dbo.Branches
@@ -228,6 +277,8 @@ namespace OpenCBS.Manager
 
         public Branch Select(int branchId)
         {
+            return _cache.FirstOrDefault(val => val.Id == branchId);
+
             using (SqlConnection conn = GetConnection())
             using (SqlTransaction t = conn.BeginTransaction())
             {
@@ -247,6 +298,8 @@ namespace OpenCBS.Manager
 
         private Branch Select(int branchId, SqlTransaction pSqlTransac)
         {
+            return _cache.FirstOrDefault(val => val.Id == branchId);
+
             const string sqlText = @"SELECT 
                                        id,
                                        name,
@@ -281,6 +334,8 @@ namespace OpenCBS.Manager
 
         public Branch SelectBranchByName(string name)
         {
+
+            return _cache.FirstOrDefault(val => val.Name.Contains(name));
             string query = @"SELECT id
                 , name
                 , deleted
