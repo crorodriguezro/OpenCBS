@@ -47,13 +47,21 @@ namespace OpenCBS.Manager
             InitCache();
         }
 
-        public void InitCache()
+        private void InitCache()
         {
-            if(_cacheProvinces==null) _cacheProvinces=GetProvincesList();
-            if(_cacheCities==null)_cacheCities=GetCitiesList();
-            if (_cacheDistricts == null) _cacheDistricts = GetDistrictsList();
+            if(_cacheProvinces==null) _cacheProvinces= GetProvinceCache();
+            if(_cacheCities==null)_cacheCities= GetCityCache();
+            if (_cacheDistricts == null) _cacheDistricts = GetDistrictsCache();
 
-        } 
+        }
+
+        private void RefreshCache()
+        {
+            _cacheProvinces = GetProvinceCache();
+            _cacheCities = GetCityCache();
+            _cacheDistricts = GetDistrictsCache();
+
+        }
 
 
         public List<Province> GetProvinces()
@@ -61,7 +69,7 @@ namespace OpenCBS.Manager
             return _cacheProvinces;
         }
 
-        private List<Province> GetProvincesList()
+        private List<Province> GetProvinceCache()
         {
             List<Province> provinces = new List<Province>();
             const string q = "SELECT [id],[name] FROM [Provinces]  WHERE [deleted] = 0 ORDER BY name";
@@ -91,7 +99,7 @@ namespace OpenCBS.Manager
             return _cacheCities;
         }
 
-        private List<City> GetCitiesList()
+        private List<City> GetCityCache()
         {
             List<City> cities = new List<City>();
             const string q = "SELECT [id], [name] ,[district_id]FROM [City] WHERE [deleted]=0 ORDER BY name ";
@@ -121,7 +129,7 @@ namespace OpenCBS.Manager
         {
             return _cacheDistricts;
         }
-        private List<District> GetDistrictsList()
+        private List<District> GetDistrictsCache()
         {
             List<Province> provinces = GetProvinces();
 
@@ -165,44 +173,15 @@ namespace OpenCBS.Manager
                 c.AddParam("@name", pName);
                 c.AddParam("@province", pProvinceId);
                 c.AddParam("@deleted", false);
-                return int.Parse(c.ExecuteScalar().ToString());
+                var id = c.ExecuteScalar().ToString();
+                RefreshCache();
+                return int.Parse(id);
             }
         }
 
         public District SelectDistrictById(int pId)
         {
             return _cacheDistricts.FirstOrDefault(val => val.Id == pId);
-
-            District district = null;
-
-            const string q = "SELECT Districts.id, Districts.name, Districts.province_id, " +
-                                   "Provinces.id AS province_id, Provinces.name AS province_name " +
-                                   "FROM Districts INNER JOIN " +
-                                   "Provinces ON Districts.province_id = Provinces.id " +
-                                   "WHERE Districts.id= @id ORDER BY Districts.name";
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            {
-                c.AddParam("@id", pId);
-
-                using (OpenCbsReader r = c.ExecuteReader())
-                {
-                    if (r != null)
-                    {
-                        if (!r.Empty)
-                        {
-                            r.Read();
-                            district = new District();
-                            district.Province = new Province();
-                            district.Id = r.GetInt("id");
-                            district.Name = r.GetString("name");
-                            district.Province.Id = r.GetInt("province_id");
-                            district.Province.Name = r.GetString("province_name");
-                        }
-                    }
-                }
-            }
-            return district;
         }
 
         public District SelectDistrictByName(string name)
@@ -217,37 +196,6 @@ namespace OpenCBS.Manager
                     Name = province.Name
                 }
             }).FirstOrDefault();
-
-            //District district = null;
-
-            //const string q = "SELECT Districts.id, Districts.name, Districts.province_id, " +
-            //                       "Provinces.id AS province_id, Provinces.name AS province_name " +
-            //                       "FROM Districts INNER JOIN " +
-            //                       "Provinces ON Districts.province_id = Provinces.id " +
-            //                       "WHERE Districts.name= @name";
-            //using (SqlConnection conn = GetConnection())
-            //using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            //{
-            //    c.AddParam("@name", name);
-
-            //    using (OpenCbsReader r = c.ExecuteReader())
-            //    {
-            //        if (r != null)
-            //        {
-            //            if (!r.Empty)
-            //            {
-            //                r.Read();
-            //                district = new District();
-            //                district.Province = new Province();
-            //                district.Id = r.GetInt("id");
-            //                district.Name = r.GetString("name");
-            //                district.Province.Id = r.GetInt("province_id");
-            //                district.Province.Name = r.GetString("province_name");
-            //            }
-            //        }
-            //    }
-            //}
-            //return district;
         }
 
         public int AddProvince(string pName)
@@ -258,7 +206,9 @@ namespace OpenCBS.Manager
             {
                 c.AddParam("@name", pName);
                 c.AddParam("@deleted", false);
-                return int.Parse(c.ExecuteScalar().ToString());
+                var id = c.ExecuteScalar().ToString();
+                RefreshCache();
+                return int.Parse(id);
             }
         }
 
@@ -273,6 +223,7 @@ namespace OpenCBS.Manager
                 {
                     c.AddParam("@id", pProvince.Id);
                     c.AddParam("@name", pProvince.Name);
+                    RefreshCache();
                     c.ExecuteNonQuery();
                     updateOk = true;
                 }
@@ -292,6 +243,7 @@ namespace OpenCBS.Manager
             using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
             {
                 c.AddParam("@id", pProvinceId);
+                RefreshCache();
                 c.ExecuteNonQuery();
             }
         }
@@ -305,7 +257,9 @@ namespace OpenCBS.Manager
                 c.AddParam("@name", pDistrict.Name);
                 c.AddParam("@provinceId", pDistrict.Province.Id);
                 c.AddParam("@deleted", false);
-                return int.Parse(c.ExecuteScalar().ToString());
+                var id = c.ExecuteScalar().ToString();
+                RefreshCache();
+                return int.Parse(id);
             }
         }
 
@@ -321,6 +275,7 @@ namespace OpenCBS.Manager
                     c.AddParam("@id", pDistrict.Id);
                     c.AddParam("@name", pDistrict.Name);
                     c.ExecuteNonQuery();
+                    RefreshCache();
                     UpdateOk = true;
                 }
             }
@@ -340,6 +295,7 @@ namespace OpenCBS.Manager
             {
                 c.AddParam("@id", districtID);
                 c.ExecuteNonQuery();
+                RefreshCache();
             }
         }
 
@@ -352,7 +308,9 @@ namespace OpenCBS.Manager
                 c.AddParam("@name", pCity.Name);
                 c.AddParam("@district_id", pCity.DistrictId);
                 c.AddParam("@deleted", pCity.Deleted);
-                return int.Parse(c.ExecuteScalar().ToString());
+                var id = c.ExecuteScalar().ToString();
+                RefreshCache();
+                return int.Parse(id);
             }
 
         }
@@ -369,6 +327,7 @@ namespace OpenCBS.Manager
                         c.AddParam("@id", pCity.Id);
                         c.AddParam("@name", pCity.Name);
                         c.ExecuteNonQuery();
+                        RefreshCache();
                         updateOk = true;
                     }
                 }
@@ -389,6 +348,7 @@ namespace OpenCBS.Manager
             {
                 c.AddParam("@id", pCityId);
                 c.ExecuteNonQuery();
+                RefreshCache();
             }
         }
 
@@ -410,119 +370,21 @@ namespace OpenCBS.Manager
                         }
                     }).ToList();
 
-
-            //List<District> districts = new List<District>();
-
-            //const string q = "SELECT Districts.id, Districts.name, Districts.province_id, " +
-            //                       "Provinces.id AS province_id, Provinces.name AS province_name " +
-            //                       "FROM Districts INNER JOIN " +
-            //                       "Provinces ON Districts.province_id = Provinces.id " +
-            //                       "WHERE Provinces.id= @id AND Districts.deleted = 0 ORDER BY Districts.name";
-            //using (SqlConnection conn = GetConnection())
-            //using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            //{
-            //    c.AddParam("@id", pProvinceId);
-            //    using (OpenCbsReader r = c.ExecuteReader())
-            //    {
-            //        if (r != null)
-            //        {
-            //            while (r.Read())
-            //            {
-            //                District district = new District();
-            //                district.Province = new Province();
-            //                district.Id = r.GetInt("id");
-            //                district.Name = r.GetString("name");
-            //                district.Province.Id = r.GetInt("province_id");
-            //                district.Province.Name = r.GetString("province_name");
-            //                districts.Add(district);
-            //            }
-            //        }
-            //    }
-            //}
-            //return districts;
         }
 
         public List<Province> SelectAllProvinces()
         {
             return _cacheProvinces;
-
-            List<Province> provinces = new List<Province>();
-
-            const string q = "SELECT id,name FROM Provinces ORDER BY name";
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            using (OpenCbsReader r = c.ExecuteReader())
-            {
-                if (r != null)
-                {
-                    while (r.Read())
-                    {
-                        Province province = new Province
-                                                {
-                                                    Id = r.GetInt("id"),
-                                                    Name = r.GetString("name")
-                                                };
-                        provinces.Add(province);
-                    }
-                }
-            }
-            
-            return provinces;
         }
 
         public Province SelectProvinceByName(string name)
         {
             return _cacheProvinces.FirstOrDefault(val => val.Name == name);
-
-            const string q = "SELECT id,name FROM Provinces WHERE name = @name";
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            {
-                c.AddParam("@name", name);
-                using (OpenCbsReader r = c.ExecuteReader())
-                {
-                    if (null == r || r.Empty) return null;
-                    r.Read();
-                    Province retval = new Province
-                                          {
-                                              Id = r.GetInt("id"),
-                                              Name = r.GetString("name")
-                                          };
-                    return retval;
-                }
-            }
         }
 
         public List<City> SelectCityByDistrictId(int pDistrictId)
         {
             return _cacheCities.Where(val => val.DistrictId == pDistrictId).ToList();
-
-
-            List<City> cities = new List<City>();
-
-            const string q = "SELECT name, id FROM City WHERE district_id = @id and deleted = 0 ORDER BY name";
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            {
-                c.AddParam("@id", pDistrictId);
-                using (OpenCbsReader r = c.ExecuteReader())
-                {
-                    if (r != null)
-                    {
-                        while (r.Read())
-                        {
-                            City city = new City
-                                            {
-                                                Name = r.GetString("name"),
-                                                Id = r.GetInt("id"),
-                                                DistrictId = pDistrictId
-                                            };
-                            cities.Add(city);
-                        }
-                    }
-                }
-            }
-            return cities;
         }
 
         public District SelectDistrictByCityName(string name)
@@ -542,36 +404,6 @@ namespace OpenCBS.Manager
 
                     }
                 }).FirstOrDefault();
-
-
-            string query = @"SELECT d.id district_id
-	            , d.name district_name
-	            , p.id province_id
-	            , p.name province_name
-            FROM dbo.Districts d
-            INNER JOIN dbo.City c ON c.district_id = d.id
-            INNER JOIN dbo.Provinces p ON p.id = d.province_id
-            WHERE c.name LIKE N'%{0}%'";
-            query = string.Format(query, name);
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand cmd = new OpenCbsCommand(query, conn))
-            using (OpenCbsReader r = cmd.ExecuteReader())
-            {
-                if (null == r) return null;
-                if (!r.Read()) return null;
-
-                District retval = new District
-                {
-                    Id = r.GetInt("district_id"),
-                    Name = r.GetString("district_name"),
-                    Province = new Province
-                    {
-                        Id = r.GetInt("province_id"),
-                        Name = r.GetString("province_name")
-                    }
-                };
-                return retval;
-            }
         }
 
         public bool IsDistrictUsed(int districtId)

@@ -68,84 +68,10 @@ namespace OpenCBS.Manager
         }
 
 
-        //private List<Branch> GetPaymentMethods()
-        //{
-        //    string q = @"SELECT pm.[id]
-        //                          ,[name]
-        //                          ,[description]
-        //                          ,[pending]
-        //                          ,0 AS [account_id]
-        //                    FROM [PaymentMethods] pm
-        //                    ORDER BY pm.[id]";
-
-        //    List<PaymentMethod> paymentMethods = new List<PaymentMethod>();
-
-        //    using (SqlConnection conn = GetConnection())
-        //    using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-        //    using (OpenCbsReader r = c.ExecuteReader())
-        //    {
-        //        if (r != null && !r.Empty)
-        //            while (r.Read())
-        //            {
-        //                paymentMethods.Add(GetPaymentMethodFromReader(r));
-        //            }
-        //    }
-        //    return paymentMethods;
-        //}
-
-
-        //private List<Branch> GetBranches()
-        //{
-        //    string q = @"SELECT    [id]
-        //                          ,[branch_id]
-        //                          ,[payment_method_id]
-        //                          ,[date]
-        //                          ,[account_id]
-        //                    FROM [LinkBranchesPaymentMethods] lbpm
-        //                    WHERE lbpm.[deleted] = 0
-        //                    ORDER BY pm.[id]";
-
-        //    List<Branch> lbpmList = new List<Branch>();
-
-        //    using (SqlConnection conn = GetConnection())
-        //    using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-        //    using (OpenCbsReader r = c.ExecuteReader())
-        //    {
-        //        if (r != null && !r.Empty)
-        //            while (r.Read())
-        //            {
-        //                paymentMethods.Add(GetPaymentMethodFromReader(r));
-        //            }
-        //    }
-        //    return paymentMethods;
-        //}
 
         public List<PaymentMethod> SelectPaymentMethodsForClosure()
         {
             return _cache;
-
-            //string q = @"SELECT pm.[id]
-            //                      ,[name]
-            //                      ,[description]
-            //                      ,[pending]
-            //                      ,[account_id]
-            //                FROM [PaymentMethods] pm
-            //                INNER JOIN LinkBranchesPaymentMethods lbpm ON lbpm.payment_method_id = pm.id
-            //                ORDER BY pm.[id]";
-
-            //List<PaymentMethod> paymentMethods = new List<PaymentMethod>();
-
-            //using (SqlConnection conn = GetConnection())
-            //using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            //using (OpenCbsReader r = c.ExecuteReader())
-            //{
-            //    if (r != null && !r.Empty)
-            //        while (r.Read())
-            //        {
-            //            paymentMethods.Add(GetPaymentMethodFromReader(r));
-            //        }
-            //}
-            //return paymentMethods;
         }
 
 
@@ -197,116 +123,17 @@ namespace OpenCBS.Manager
 
             return _cache.Where(val => val.Branch.Id == branchId).ToList();
 
-            //string q = @"SELECT [lbpm].[payment_method_id], 
-            //                    [lbpm].[id], 
-            //                    [pm].[name], 
-            //                    [pm].[description], 
-            //                    [pm].[pending], 
-            //                    [lbpm].[branch_id], 
-            //                    [lbpm].[date], 
-            //                    [lbpm].[account_id] 
-            //             FROM PaymentMethods pm
-            //             INNER JOIN LinkBranchesPaymentMethods lbpm ON lbpm.payment_method_id = pm.id
-            //             WHERE [lbpm].[branch_id] = @id AND [lbpm].[deleted] = 0";
-
-            //List<PaymentMethod> paymentMethods = new List<PaymentMethod>();
-
-            //using (SqlConnection conn = GetConnection())
-            //using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            //{
-            //    c.AddParam("@id", branchId);
-            //    using (OpenCbsReader r = c.ExecuteReader())
-            //    {
-            //        if (r.Empty) return paymentMethods;
-            //        while (r.Read())
-            //        {
-            //            PaymentMethod paymentMethod = new PaymentMethod
-            //                                              {
-            //                                                  Id = r.GetInt("payment_method_id"),
-            //                                                  Name = r.GetString("name"),
-            //                                                  Description = r.GetString("description"),
-            //                                                  IsPending = r.GetBool("pending"),
-            //                                                  LinkId = r.GetInt("id"),
-            //                                                  Branch = _branchManager.Select(r.GetInt("branch_id")),
-            //                                                  Date = r.GetDateTime("date"),
-            //                                                  Account = _accountManager.Select(r.GetInt("account_id"))
-            //                                              };
-            //            paymentMethods.Add(paymentMethod);
-            //        }
-            //    }
-            //}
-            //return paymentMethods;
         }
 
         public PaymentMethod SelectPaymentMethodById(int paymentMethodId)
         {
-
             return _cache.Find(pm2 => pm2.Id == paymentMethodId);
-            //string q = @"SELECT pm.[id]
-            //                      ,[name]
-            //                      ,[description]
-            //                      ,[pending]
-            //                      , 0 AS account_id
-            //                FROM [dbo].[PaymentMethods] pm
-            //                WHERE pm.id = @id";
-            //PaymentMethod pm = new PaymentMethod();
-            //using (SqlConnection conn = GetConnection())
-            //using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            //{
-            //    c.AddParam("@id", paymentMethodId);
-            //    using (OpenCbsReader r = c.ExecuteReader())
-            //    {
-            //        if (r != null && !r.Empty)
-            //        {
-            //            r.Read();
-            //            pm = GetPaymentMethodFromReader(r);
-            //        }
-            //    }
-            //}
-            //return pm;
         }
 
         public PaymentMethod SelectPaymentMethodByName(string name)
         {
-
             return _cache.FirstOrDefault(val => val.Name == name);
-
-            //const string q = @"SELECT pm.[id]
-            //                      ,[name]
-            //                      ,[description]
-            //                      ,[pending]
-            //                      ,0 AS account_id
-            //                FROM [PaymentMethods] pm
-            //                WHERE [name] = @name";
-            //PaymentMethod pm = new PaymentMethod();
-            //using (SqlConnection conn = GetConnection())
-            //using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            //{
-            //    c.AddParam("@name", name);
-            //    using (OpenCbsReader r = c.ExecuteReader())
-            //    {
-            //        if (r != null && !r.Empty)
-            //        {
-            //            r.Read();
-            //            pm = GetPaymentMethodFromReader(r);
-            //        }
-            //    }
-            //}
-            //return pm;
         }
-
-        //private PaymentMethod GetPaymentMethodFromReader(OpenCbsReader r)
-        //{
-        //    //Do not change this calling of constructor by Object initializer
-        //    PaymentMethod pm = new PaymentMethod(
-        //                                            r.GetInt("id"), 
-        //                                            r.GetString("name"), 
-        //                                            r.GetString("description"),
-        //                                            r.GetBool("pending")
-        //                                        );
-        //    pm.Account = _accountManager.Select(r.GetInt("account_id"));
-        //    return pm;
-        //}
 
         public void AddPaymentMethodToBranch(PaymentMethod paymentMethod)
         {
