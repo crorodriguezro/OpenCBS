@@ -25,7 +25,10 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using OpenCBS.CoreDomain.Contracts.Loans;
+using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
+using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Reports;
 using OpenCBS.Reports.Forms;
 
@@ -81,21 +84,24 @@ namespace OpenCBS.Controls
 
         private void PrintReportFromMenuItem(object sender, EventArgs e)
         {
-            Guid guid = (Guid)((ToolStripMenuItem)sender).Tag;
+            Guid guid = (Guid) ((ToolStripMenuItem) sender).Tag;
             PrintReport(guid);
         }
 
         private void StartProgress()
-        { }
+        {
+        }
 
         private void StopProgress()
-        { }
+        {
+        }
 
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
             Menu.Show(this, 0, Height);
         }
+
         private void PrintReport(Guid guid)
         {
 
@@ -105,6 +111,22 @@ namespace OpenCBS.Controls
 
             try
             {
+                ReportInitializer(report);
+                if (report.DisableIfLoanIsPending)
+                {
+                    var loan = (Loan) report.GetExtra("loan");
+                    if (loan == null || loan.ContractStatus == OContractStatus.None ||
+                        loan.ContractStatus == OContractStatus.Pending)
+                    {
+                        MessageBox.Show(
+                            MultiLanguageStrings.GetString(Ressource.PrintButton, "pleaseApproveLoan"),
+                            MultiLanguageStrings.GetString(Ressource.PrintButton, "warning"),
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
                 List<ReportParamV2> additionalParams
                     = report.Params
                         .Where(p => p.Additional && p.Visible)
@@ -114,8 +136,6 @@ namespace OpenCBS.Controls
                     ReportParamsForm reportParamsForm = new ReportParamsForm(additionalParams, report.Title);
                     if (reportParamsForm.ShowDialog() != DialogResult.OK) return;
                 }
-
-                ReportInitializer(report);
 
                 try
                 {

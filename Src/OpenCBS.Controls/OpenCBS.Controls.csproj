@@ -131,9 +131,17 @@
       <Project>{d539c388-3848-4a3e-ab87-42b8e329755a}</Project>
       <Name>OpenCBS.CoreDomain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OpenCBS.Enums\OpenCBS.Enums.csproj">
+      <Project>{8AFC1E87-3856-4F05-8280-5360D33C200B}</Project>
+      <Name>OpenCBS.Enums</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenCBS.ExceptionsHandler\OpenCBS.ExceptionsHandler.csproj">
       <Project>{98b26ad8-d160-462b-b70f-982d8701154a}</Project>
       <Name>OpenCBS.ExceptionsHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCBS.MultiLanguage\OpenCBS.MultiLanguageRessources.csproj">
+      <Project>{1644EDA1-7196-4197-B752-A4D14F384E31}</Project>
+      <Name>OpenCBS.MultiLanguageRessources</Name>
     </ProjectReference>
     <ProjectReference Include="..\OpenCBS.Reports\OpenCBS.Reports.csproj">
       <Project>{a2e4e382-5796-446c-85b1-8ef306ad50de}</Project>
