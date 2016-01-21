@@ -2202,52 +2202,45 @@ namespace OpenCBS.Manager.Contracts
 
         public List<TrancheEvent> SelectTranches(int pLoanId, SqlTransaction pSqlTransac)
         {
-            const string q = @" SELECT  con.id AS contract_id,
-                                        con.start_date,
-                                        amount,
-                                        COUNT(ISNULL(h.id, nb_of_installment)) AS countOfInstallments,
-                                        interest_rate,
-                                        CONVERT(BIT, 0) AS ApplyNewInterest,
-                                        0 AS started_from_installment,
-                                        0 AS Number,
-                                        cred.grace_period,
-                                        con.preferred_first_installment_date first_repayment_date,
-                                        ce.is_deleted,
-                                        0 AS event_id
-                                FROM    Credit cred
-                                        INNER JOIN Contracts con ON cred.id = con.id
-                                        INNER JOIN ContractEvents AS ce ON con.id = ce.contract_id
-                                        LEFT JOIN dbo.InstallmentHistory h ON con.id = h.contract_id
-                                          AND ce.id = h.event_id
-                                WHERE   con.id = @id
-                                        AND ce.is_deleted = 0
-                                        AND ce.event_date <= (SELECT MIN(event_date)
-                                                             FROM   dbo.ContractEvents
-                                                             WHERE  contract_id = @id)
-                                GROUP BY con.id,
-                                        con.start_date,
-                                        cred.grace_period,
-                                        con.preferred_first_installment_date,
-                                        amount,
-                                        interest_rate,
-                                        ce.is_deleted
-                                UNION ALL
-                                SELECT  contract_id,
-                                        start_date,
-                                        amount,
-                                        maturity AS countOfInstallments,
-                                        interest_rate,
-                                        CONVERT(BIT, applied_new_interest) AS ApplyNewInterest,
-                                        ISNULL(started_from_installment, 0),
-                                        CONVERT(INT, ROW_NUMBER() OVER (ORDER BY start_date DESC)) + 1 AS Number,
-                                        grace_period,
-                                        first_repayment_date,
-                                        ce.is_deleted,
-                                        ce.id AS event_id
-                                FROM    TrancheEvents te
-                                        INNER JOIN ContractEvents ce ON te.id = ce.id
-                                WHERE   contract_id = @id
-                                  AND ce.is_deleted = 0";
+            const string q = @"
+                select
+	                c.id contract_id
+	                , c.start_date
+	                , cr.amount
+	                , cr.nb_of_installment countOfInstallments
+	                , cr.interest_rate
+	                , cast(0 as bit) ApplyNewInterest
+	                , 0 started_from_installment
+	                , 0 Number
+	                , cr.grace_period
+	                , c.preferred_first_installment_date first_repayment_date
+	                , cast(0 as bit) is_deleted
+	                , 0 event_id
+                from
+	                dbo.Contracts c
+                left join
+	                dbo.Credit cr on cr.id = c.id
+                where
+	                c.id = @id
+
+                UNION ALL
+                SELECT  contract_id,
+                        start_date,
+                        amount,
+                        maturity AS countOfInstallments,
+                        interest_rate,
+                        CONVERT(BIT, applied_new_interest) AS ApplyNewInterest,
+                        ISNULL(started_from_installment, 0),
+                        CONVERT(INT, ROW_NUMBER() OVER (ORDER BY start_date DESC)) + 1 AS Number,
+                        grace_period,
+                        first_repayment_date,
+                        ce.is_deleted,
+                        ce.id AS event_id
+                FROM    TrancheEvents te
+                        INNER JOIN ContractEvents ce ON te.id = ce.id
+                WHERE   contract_id = @id
+                    AND ce.is_deleted = 0
+            ";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, pSqlTransac.Connection, pSqlTransac))
             {
