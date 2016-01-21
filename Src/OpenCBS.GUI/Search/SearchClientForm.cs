@@ -636,10 +636,7 @@ namespace OpenCBS.GUI
         {
             try
             {
-                var a1 = ServicesProvider.GetInstance();
-                var b1 = a1.GetClientServices();
-                var c1 = b1.FindTiers(pClient.Id, pClient.Type);
-                _client = c1;
+                _client = ServicesProvider.GetInstance().GetClientServices().FindTiers(pClient.Id, pClient.Type);
 
                 /*
                  * This code is for loading compulsory savings. Compulsory savings are being 
@@ -650,12 +647,7 @@ namespace OpenCBS.GUI
                     foreach (Project project in _client.Projects)
                         if (project.Credits != null)
                             foreach (Loan loan in project.Credits)
-                            {
-                                var a = ServicesProvider.GetInstance();
-                                var b = a.GetSavingServices();
-                                var c = b.GetSavingForLoan(loan.Id, true);
-                                loan.CompulsorySavings = c;
-                            }
+                                loan.CompulsorySavings = ServicesProvider.GetInstance().GetSavingServices().GetSavingForLoan(loan.Id, true);
 
                 if (test != 2)
                 {
