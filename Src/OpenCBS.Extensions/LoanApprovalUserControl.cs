@@ -82,6 +82,7 @@ namespace OpenCBS.Extensions
             _printButton.ReportInitializer =
                 report =>
                 {
+                    report.SetExtra("loan", loan);
                     report.SetParamValue("user_id", User.CurrentUser.Id);
                     if (loan != null) report.SetParamValue("contract_id", loan.Id);
                 };
