@@ -33,9 +33,9 @@ namespace OpenCBS.Manager
     public class LocationsManager : Manager
     {
 
-        private List<Province> _cacheProvinces;
-        private List<City> _cacheCities;
-        private List<District> _cacheDistricts;
+        private static List<Province> _cacheProvinces;
+        private static List<City> _cacheCities;
+        private static List<District> _cacheDistricts;
 
         public LocationsManager(User pUser) : base(pUser)
         {
