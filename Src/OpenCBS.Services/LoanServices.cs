@@ -1324,6 +1324,7 @@ namespace OpenCBS.Services
                 installment.FeesUnpaid = oldInstallment.FeesUnpaid;
                 installment.CommissionsUnpaid = oldInstallment.CommissionsUnpaid;
                 installment.IsPending = oldInstallment.IsPending;
+                installment.LastInterestAccrualDate = oldInstallment.ExpectedDate;
                 //installment.PaidDate = oldInstallment.PaidDate;
             }
             copyOfLoan.InstallmentList = newSchedule;
@@ -1734,7 +1735,8 @@ namespace OpenCBS.Services
 
         public void CheckLoanForTranche(Loan loan)
         {
-            if (loan.Product.DrawingsNumber.Value <= loan.GivenTranches.Count - 1)
+            var drawingNumber = loan.Product.DrawingsNumber ?? 0;
+            if (drawingNumber <= loan.GivenTranches.Count - 1)
             {
                 throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.TrancheMaturityError);
             }
