@@ -1324,7 +1324,7 @@ namespace OpenCBS.Services
                 installment.FeesUnpaid = oldInstallment.FeesUnpaid;
                 installment.CommissionsUnpaid = oldInstallment.CommissionsUnpaid;
                 installment.IsPending = oldInstallment.IsPending;
-                installment.LastInterestAccrualDate = oldInstallment.ExpectedDate;
+                installment.LastInterestAccrualDate = oldInstallment.LastInterestAccrualDate;
                 //installment.PaidDate = oldInstallment.PaidDate;
             }
             copyOfLoan.InstallmentList = newSchedule;
@@ -1443,6 +1443,7 @@ namespace OpenCBS.Services
                         CapitalRepayment = lhi.CapitalRepayment + rhi.CapitalRepayment,
                         InterestsRepayment = lhi.InterestsRepayment + rhi.InterestsRepayment,
                         OLB = lhi.OLB + rhi.OLB,
+                        LastInterestAccrualDate = lhi.LastInterestAccrualDate
                     };
                 }
                 result.Add(installment);
