@@ -3402,7 +3402,7 @@ namespace OpenCBS.GUI.Clients
 
             credit.LoanPurpose = textBoxLoanPurpose.Text;
             credit.Comments = textBoxComments.Text;
-
+            credit.DrawingsNumber = _product != null ? _product.DrawingsNumber : 0;
             credit.CompulsorySavings = GetSelectedSavingProduct();
             credit.CompulsorySavingsPercentage = (int)numCompulsoryAmountPercent.Value;
             credit.LoanEntryFeesList = new List<LoanEntryFee>();
