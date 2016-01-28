@@ -7,5 +7,6 @@
         decimal GetMaxDueTotal(int loanId);
         decimal[] DistributeTotal(int loanId, decimal total);
         void Repay();
+        System.DateTime GetExpectedDate(int loanId);
     }
 }

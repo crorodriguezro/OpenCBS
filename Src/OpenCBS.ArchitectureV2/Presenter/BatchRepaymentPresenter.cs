@@ -72,6 +72,18 @@ namespace OpenCBS.ArchitectureV2.Presenter
                 .Sum(x => x.Principal - x.PaidPrincipal);
         }
 
+        public DateTime GetExpectedDate(int loanId)
+        {
+            var loan = GetLoan(loanId);
+            var date = GetFirstRepaymentDateAfterToday(loan);
+            return loan
+                .Schedule
+                .FindAll(x => !x.Repaid)
+                .OrderBy(x => x.Number)
+                .FirstOrDefault()
+                .ExpectedDate;
+        }
+
         private DateTime GetFirstRepaymentDateAfterToday(Loan loan)
         {
             var toDayDate = TimeProvider.Today;
