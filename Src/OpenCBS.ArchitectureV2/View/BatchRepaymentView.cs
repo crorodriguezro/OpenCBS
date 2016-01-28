@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -20,6 +21,7 @@ namespace OpenCBS.ArchitectureV2.View
             public string ContractCode { get; set; }
             public decimal Principal { get; set; }
             public decimal Interest { get; set; }
+            public DateTime ExpectedDate { get; set; } 
             public decimal Total { get; set; }
             public bool Selected { get; set; }
             public string ReceiptNumber { get; set; }
@@ -30,6 +32,7 @@ namespace OpenCBS.ArchitectureV2.View
         {
             public new decimal Principal { get; set; }
             public new decimal Interest { get; set; }
+            public new DateTime ExpectedDate { get; set; }  
             public new decimal Total { get; set; }
         }
 
@@ -44,6 +47,7 @@ namespace OpenCBS.ArchitectureV2.View
             _interestColumn.AspectToStringConverter =
             _totalColumn.AspectToStringConverter = v => ((decimal) v).ToString("N0");
             _totalColumn.AspectPutter = TotalAspectPutter;
+            _expectedDateColumn.AspectToStringConverter = v => ((DateTime)v).Date.ToString("dd'/'MM'/'yyyy"); 
             _loansListView.RowFormatter = ItemRowFormatter;
             _loansListView.ItemChecked += OnItemChecked;
             _loansListView.CellEditStarting += OnCellEditStarting;
@@ -99,6 +103,8 @@ namespace OpenCBS.ArchitectureV2.View
                 var principal = _presenterCallbacks.GetDuePrincipal(x.Id);
                 var interest = _presenterCallbacks.GetDueInterest(x.Id);
                 var total = principal + interest;
+                DateTime expectedDate = _presenterCallbacks.GetExpectedDate(x.Id);
+                
                 return new Item
                 {
                     Id = x.Id,
@@ -107,7 +113,8 @@ namespace OpenCBS.ArchitectureV2.View
                     LastName = x.LastName,
                     Principal = principal,
                     Interest = interest,
-                    Total = total
+                    Total = total,
+                    ExpectedDate = expectedDate
                 };
             }).ToList();
             items.Add(_totalItem);
@@ -149,6 +156,7 @@ namespace OpenCBS.ArchitectureV2.View
                 item.SubItems[3].BackColor = selectedBackColor;
                 item.SubItems[4].BackColor = selectedBackColor;
                 item.SubItems[5].BackColor = selectedBackColor;
+                item.SubItems[6].BackColor = selectedBackColor;
             }
 
             if (loan == _totalItem)
@@ -158,7 +166,8 @@ namespace OpenCBS.ArchitectureV2.View
                 item.SubItems[2].Font = item.Font;
                 item.SubItems[3].Font = item.Font;
                 item.SubItems[4].Font = item.Font;
-                item.SubItems[5].Font = item.Font;
+                item.SubItems[5].Text = string.Empty;
+                item.SubItems[6].Font = item.Font;
             }
         }
 

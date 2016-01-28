@@ -35,6 +35,7 @@
             this._contractCodeColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._principalColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._interestColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this._expectedDateColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._totalColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._receiptNumber = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._comment = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -52,6 +53,7 @@
             this._loansListView.AllColumns.Add(this._contractCodeColumn);
             this._loansListView.AllColumns.Add(this._principalColumn);
             this._loansListView.AllColumns.Add(this._interestColumn);
+            this._loansListView.AllColumns.Add(this._expectedDateColumn);
             this._loansListView.AllColumns.Add(this._totalColumn);
             this._loansListView.AllColumns.Add(this._receiptNumber);
             this._loansListView.AllColumns.Add(this._comment);
@@ -64,6 +66,7 @@
             this._contractCodeColumn,
             this._principalColumn,
             this._interestColumn,
+            this._expectedDateColumn,
             this._totalColumn,
             this._receiptNumber,
             this._comment});
@@ -76,7 +79,7 @@
             this._loansListView.Name = "_loansListView";
             this._loansListView.ShowGroups = false;
             this._loansListView.ShowImagesOnSubItems = true;
-            this._loansListView.Size = new System.Drawing.Size(1202, 441);
+            this._loansListView.Size = new System.Drawing.Size(1344, 441);
             this._loansListView.TabIndex = 5;
             this._loansListView.UseCompatibleStateImageBehavior = false;
             this._loansListView.View = System.Windows.Forms.View.Details;
@@ -126,6 +129,16 @@
             this._interestColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this._interestColumn.Width = 100;
             // 
+            // _expectedDateColumn
+            // 
+            this._expectedDateColumn.AspectName = "ExpectedDate";
+            this._expectedDateColumn.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this._expectedDateColumn.IsEditable = false;
+            this._expectedDateColumn.Sortable = false;
+            this._expectedDateColumn.Text = "ExpectedDate";
+            this._expectedDateColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this._expectedDateColumn.Width = 150;
+            // 
             // _totalColumn
             // 
             this._totalColumn.AspectName = "Total";
@@ -154,7 +167,7 @@
             this._buttonsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this._buttonsPanel.Location = new System.Drawing.Point(0, 441);
             this._buttonsPanel.Name = "_buttonsPanel";
-            this._buttonsPanel.Size = new System.Drawing.Size(1202, 51);
+            this._buttonsPanel.Size = new System.Drawing.Size(1344, 51);
             this._buttonsPanel.TabIndex = 6;
             // 
             // _cancelButton
@@ -181,7 +194,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this._cancelButton;
-            this.ClientSize = new System.Drawing.Size(1202, 492);
+            this.ClientSize = new System.Drawing.Size(1344, 492);
             this.Controls.Add(this._loansListView);
             this.Controls.Add(this._buttonsPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -212,5 +225,6 @@
         private System.Windows.Forms.Button _okButton;
         private BrightIdeasSoftware.OLVColumn _receiptNumber;
         private BrightIdeasSoftware.OLVColumn _comment;
+        private BrightIdeasSoftware.OLVColumn _expectedDateColumn;
     }
 }

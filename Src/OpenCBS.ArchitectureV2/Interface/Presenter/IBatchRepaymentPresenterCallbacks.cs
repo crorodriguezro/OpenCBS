@@ -1,4 +1,6 @@
-﻿namespace OpenCBS.ArchitectureV2.Interface.Presenter
+﻿using System;
+
+namespace OpenCBS.ArchitectureV2.Interface.Presenter
 {
     public interface IBatchRepaymentPresenterCallbacks
     {
@@ -7,5 +9,6 @@
         decimal GetMaxDueTotal(int loanId);
         decimal[] DistributeTotal(int loanId, decimal total);
         void Repay();
+        DateTime GetExpectedDate(int loanId);
     }
 }
