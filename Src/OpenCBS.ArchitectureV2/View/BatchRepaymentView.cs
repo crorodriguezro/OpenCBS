@@ -32,7 +32,6 @@ namespace OpenCBS.ArchitectureV2.View
         {
             public new decimal Principal { get; set; }
             public new decimal Interest { get; set; }
-            public new DateTime ExpectedDate { get; set; }  
             public new decimal Total { get; set; }
         }
 
@@ -220,6 +219,16 @@ namespace OpenCBS.ArchitectureV2.View
             {
                 return _loansListView.CheckedObjects.Cast<Item>().Where(x => x != _totalItem).Select(x => x.Id).ToList();
             }
+        }
+
+        public void EnableTotalEdit()
+        {
+            _totalColumn.IsEditable = true;
+        }
+
+        public void DisableTotalEdit()
+        {
+            _totalColumn.IsEditable = false;
         }
     }
 }

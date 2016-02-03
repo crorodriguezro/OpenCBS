@@ -23,6 +23,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
         private readonly IApplicationController _applicationController;
         private List<Loan> _loans;
         private int _villageBankId;
+        private bool _addaction;
 
         public BatchRepaymentPresenter(
             IBatchRepaymentView view,
@@ -42,6 +43,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
         {
             _villageBankId = villageBankId;
             _view.Attach(this);
+            ModifyTotal();
             _loans = _loanRepository.GetVillageBankLoans(villageBankId);
             _view.SetLoans(_loans);
             _view.Run();
@@ -130,7 +132,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
                 installment.PaidPrincipal = installment.Principal;
             }
 
-            return new[] { principal, interest };
+            return new[] {principal, interest};
         }
 
         private static void DistributeTotal(Loan loan, decimal total)
@@ -186,8 +188,10 @@ namespace OpenCBS.ArchitectureV2.Presenter
             repaymentEvent.UserId = User.CurrentUser.Id;
             repaymentEvent.LateDays = lateDays;
 
-            repaymentEvent.Principal = repaidLoan.Schedule.Sum(x => x.PaidPrincipal) - loan.Schedule.Sum(x => x.PaidPrincipal);
-            repaymentEvent.Interest = repaidLoan.Schedule.Sum(x => x.PaidInterest) - loan.Schedule.Sum(x => x.PaidInterest);
+            repaymentEvent.Principal = repaidLoan.Schedule.Sum(x => x.PaidPrincipal) -
+                                       loan.Schedule.Sum(x => x.PaidPrincipal);
+            repaymentEvent.Interest = repaidLoan.Schedule.Sum(x => x.PaidInterest) -
+                                      loan.Schedule.Sum(x => x.PaidInterest);
 
             return repaymentEvent;
         }
@@ -266,6 +270,18 @@ namespace OpenCBS.ArchitectureV2.Presenter
                 tx.Rollback();
                 MessageBox.Show(error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ModifyTotal()
+        {
+            var addaction = new ActionItemObject("LoanServices", "ModifyTotal");
+            _addaction = User.CurrentUser.UserRole.IsActionAllowed(addaction);
+            if (_addaction)
+            {
+                _view.EnableTotalEdit();
+                return;
+            }
+            _view.DisableTotalEdit();
         }
     }
 }

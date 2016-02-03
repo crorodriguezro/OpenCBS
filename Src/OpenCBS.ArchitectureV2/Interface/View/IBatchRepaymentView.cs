@@ -12,6 +12,8 @@ namespace OpenCBS.ArchitectureV2.Interface.View
         decimal GetTotal(int loanId);
         string GetComment(int loanId);
         string GetReceiptNumber(int loanId);
-        List<int> SelectedLoanIds { get; } 
+        List<int> SelectedLoanIds { get; }
+        void EnableTotalEdit();
+        void DisableTotalEdit();
     }
 }
