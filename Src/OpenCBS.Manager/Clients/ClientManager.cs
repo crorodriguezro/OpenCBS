@@ -563,6 +563,11 @@ namespace OpenCBS.Manager.Clients
             }
         }
 
+        public bool IsLeaderInVillage(Client member)
+        {
+            return true;
+        }
+
         public bool IsLeaderInVillage(int personId)
         {
             bool status = false;
@@ -663,6 +668,7 @@ namespace OpenCBS.Manager.Clients
                 }
                 group.Id = tiersId;
                 c.ExecuteNonQuery();
+                
             }
 
             foreach (Member member in group.Members)
@@ -1010,7 +1016,7 @@ namespace OpenCBS.Manager.Clients
                 {
                     member.Tiers = SelectPersonById(member.Tiers.Id, true);
                     village.AddMember(member);
-                    if (IsLeaderInVillage(member.Tiers.Id))
+                    if (member.IsLeader)
                         village.Leader = member;
                 }
             }

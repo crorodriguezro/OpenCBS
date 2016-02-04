@@ -177,7 +177,15 @@ namespace OpenCBS.Services.Events
             {
                 LoanTransitionEventOrigination((LoanTransitionEvent)e, contract, sqlTransac);
             }
-		}
+            //else if (e is OutOfBalanceInterestAccrualEvent)
+            //{
+            //    OutOfBalanceInterestAccrualEventOrigination((OutOfBalanceInterestAccrualEvent)e, contract, sqlTransac);
+            //}
+            //else if (e is OutOfBalancePenaltyAccrualEvent)
+            //{
+            //    OutOfBalancePenaltyAccrualEventOrigination((OutOfBalancePenaltyAccrualEvent)e, contract, sqlTransac);
+            //}
+        }
         
         public void FireSavingBlockEvent(SavingBlockCompulsarySavingsEvent savingBlockEvent, int contracId, SqlTransaction sqlTransac)
         {
@@ -387,6 +395,16 @@ namespace OpenCBS.Services.Events
         {
             _eventManagement.AddLoanEvent(loanTransitionEvent, contract.Id, sqlTransac);
         }
+
+        //private void OutOfBalanceInterestAccrualEventOrigination(OutOfBalanceInterestAccrualEvent outOfBalanceInterestAccrualEvent, Loan contract, SqlTransaction sqlTransac)
+        //{
+        //    _eventManagement.AddLoanEvent(outOfBalanceInterestAccrualEvent, contract.Id, sqlTransac);
+        //}
+
+        //private void OutOfBalancePenaltyAccrualEventOrigination(OutOfBalancePenaltyAccrualEvent outOfBalancePenaltyAccrualEvent, Loan contract, SqlTransaction sqlTransac)
+        //{
+        //    _eventManagement.AddLoanEvent(outOfBalancePenaltyAccrualEvent, contract.Id, sqlTransac);
+        //}
 
         public void FireFundingLineEvent(Event e, FundingLine fundingLine, SqlTransaction sqlTransac)
         {

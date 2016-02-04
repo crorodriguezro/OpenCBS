@@ -20,6 +20,7 @@
 // Contact: contact@opencbs.com
 
 using System;
+using System.Collections.Generic;
 
 namespace OpenCBS.CoreDomain
 {
@@ -32,6 +33,8 @@ namespace OpenCBS.CoreDomain
 		private int _id;
 		private string _name;
         private bool _deleted = false;
+
+	    private List<District> _districts; 
 
 		public Province() {}
 
@@ -82,7 +85,21 @@ namespace OpenCBS.CoreDomain
             }
         }
 
-		public override string ToString()
+        public List<District> Districts
+        {
+            get
+            {
+                return _districts;
+            }
+            set
+            {
+                _districts = value;
+            }
+        }
+
+
+
+        public override string ToString()
 		{
 			return _name;
 		}

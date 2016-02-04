@@ -32,6 +32,9 @@ namespace OpenCBS.Manager
     {
         //private readonly User _user = new User();
 
+        
+
+
         public UserManager(User pUser)
             : base(pUser)
         {

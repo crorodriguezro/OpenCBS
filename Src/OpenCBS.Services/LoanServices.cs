@@ -258,7 +258,7 @@ namespace OpenCBS.Services
                     if (action != null) action(transaction, pLoan.Id);
                     transaction.Commit();
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     transaction.Rollback();
                     throw;

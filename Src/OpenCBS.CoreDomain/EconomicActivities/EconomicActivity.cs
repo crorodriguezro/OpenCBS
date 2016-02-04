@@ -36,6 +36,7 @@ namespace OpenCBS.CoreDomain.EconomicActivities
 		private bool _deleted;
 	    private List<EconomicActivity> _childrens;
 	    private bool _hasValue;
+	    private int? _parentId;
       
 		public EconomicActivity()
 		{
@@ -95,13 +96,19 @@ namespace OpenCBS.CoreDomain.EconomicActivities
             }
         }
 
-		public string Name
+        public int? ParentId
+        {
+            get { return _parentId; }
+            set { _parentId = value; }
+        }
+
+        public string Name
 		{
 			get{ return _name;}
 			set{ _name = value;}
 		}
 
-		public EconomicActivity Parent
+        public EconomicActivity Parent
 		{
 			get{ return _parent;}
 			set{ _parent = value;}
@@ -113,4 +120,7 @@ namespace OpenCBS.CoreDomain.EconomicActivities
 			set{ _deleted = value;}
 		}
 	}
+
+
+
 }

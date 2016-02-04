@@ -174,6 +174,12 @@ namespace OpenCBS.Manager.Events
                     AccrualInterestLoanEvents.id AS aile_id,
                     AccrualInterestLoanEvents.interest AS aile_interest,
 
+                    --OutOfBalancePenaltyAccrualEvents.id AS apoe_id,
+                    --OutOfBalancePenaltyAccrualEvent.penalty AS apoe_penalty,
+
+                    --OutOfBalanceInterestAccrualEvent.id AS aioe_id,
+                    --OutOfBalanceInterestAccrualEvent.interest AS aioe_interest,
+
                     LoanTransitionEvents.id AS glll_id,
                     LoanTransitionEvents.amount AS glll_amount,
                     pwoe.id pwoe_id,
@@ -209,6 +215,8 @@ namespace OpenCBS.Manager.Events
                     LEFT OUTER JOIN OverdueEvents ON ContractEvents.id = OverdueEvents.id
                     LEFT OUTER JOIN ProvisionEvents ON ContractEvents.id = ProvisionEvents.id
                     LEFT OUTER JOIN LoanPenaltyAccrualEvents ON ContractEvents.id = LoanPenaltyAccrualEvents.id
+                    --LEFT OUTER JOIN OutOfBalancePenaltyAccrualEvent ON ContractEvents.id = OutOfBalancePenaltyAccrualEvent.id
+                    --LEFT OUTER JOIN OutOfBalanceInterestAccrualEvent ON ContractEvents.id = OutOfBalanceInterestAccrualEvent.id
                     LEFT OUTER JOIN AccrualInterestLoanEvents ON ContractEvents.id = AccrualInterestLoanEvents.id
                     LEFT OUTER JOIN LoanTransitionEvents ON ContractEvents.id = LoanTransitionEvents.id
                     left join dbo.PenaltyWriteOffEvents pwoe on pwoe.id = ContractEvents.id
@@ -1053,6 +1061,38 @@ namespace OpenCBS.Manager.Events
             }
         }
 
+        public void AddLoanEvent(OutOfBalancePenaltyAccrualEvent pEvent, int contractId, SqlTransaction transaction)
+        {
+            pEvent.Id = AddLoanEventHead(pEvent, contractId, transaction);
+            const string q = @"INSERT INTO [OutOfBalancePenaltyAccrualEvents](
+                                        [id], 
+                                        [interest]) 
+                                     VALUES(@id, 
+                                        @interest)";
+
+            using (var c = new OpenCbsCommand(q, transaction.Connection, transaction))
+            {
+                SetOutOfBalancePenaltyAccrualEvent(c, pEvent, pEvent.Penalty);
+                c.ExecuteNonQuery();
+            }
+        }
+
+        public void AddLoanEvent(OutOfBalanceInterestAccrualEvent pEvent, int contractId, SqlTransaction transaction)
+        {
+            pEvent.Id = AddLoanEventHead(pEvent, contractId, transaction);
+            const string q = @"INSERT INTO [OutOfBalanceInterestAccrualEvents](
+                                        [id], 
+                                        [interest]) 
+                                     VALUES(@id, 
+                                        @interest)";
+
+            using (var c = new OpenCbsCommand(q, transaction.Connection, transaction))
+            {
+                SetLoanOutOfBalanceInterestAccrualEvent(c, pEvent, pEvent.Interest);
+                c.ExecuteNonQuery();
+            }
+        }
+
         public void AddLoanEvent(LoanTransitionEvent pEvent, int contractId, SqlTransaction transaction)
         {
             pEvent.Id = AddLoanEventHead(pEvent, contractId, transaction);
@@ -1276,6 +1316,18 @@ namespace OpenCBS.Manager.Events
             c.AddParam("@doc2", pEvent.Doc2);
         }
 
+        private static void SetOutOfBalancePenaltyAccrualEvent(OpenCbsCommand c, Event pEvent, OCurrency penalty)
+        {
+            c.AddParam("@id", pEvent.Id);
+            c.AddParam("@penalty", penalty);
+        }
+
+        private static void SetLoanOutOfBalanceInterestAccrualEvent(OpenCbsCommand c, Event pEvent, OCurrency penalty)
+        {
+            c.AddParam("@id", pEvent.Id);
+            c.AddParam("@penalty", penalty);
+        }
+
         private static void SetLoanPenaltyAccrualEvent(OpenCbsCommand c, Event pEvent, OCurrency penalty)
         {
             c.AddParam("@id", pEvent.Id);
@@ -1345,6 +1397,14 @@ namespace OpenCBS.Manager.Events
             else if (r.GetNullInt("lpae_id").HasValue)
             {
                 e = GetLoanPenaltyAccrualEvent(r);
+            //}
+            //else if (r.GetNullInt("aioe_id").HasValue)
+            //{
+            //    e = GetOutOfBalanceInterestAccrualEvent(r);
+            //}
+            //else if (r.GetNullInt("apoe_id").HasValue)
+            //{
+            //    e = GetOutOfBalancePenaltyAccrualEvent(r);
             }
             else if (r.GetNullInt("aile_id").HasValue)
             {
@@ -1574,6 +1634,24 @@ namespace OpenCBS.Manager.Events
                     Penalty = r.GetMoney("lpae_penalty"),
                 };
         }
+
+        //private static OutOfBalanceInterestAccrualEvent GetOutOfBalanceInterestAccrualEvent(OpenCbsReader r)
+        //{
+        //    return new OutOfBalanceInterestAccrualEvent
+        //    {
+        //        Id = r.GetInt("aioe_id"),
+        //        Interest = r.GetMoney("aioe_interest"),
+        //    };
+        //}
+
+        //private static OutOfBalancePenaltyAccrualEvent GetOutOfBalancePenaltyAccrualEvent(OpenCbsReader r)
+        //{
+        //    return new OutOfBalancePenaltyAccrualEvent
+        //    {
+        //        Id = r.GetInt("opae_id"),
+        //        Penalty = r.GetMoney("opae_penalty"),
+        //    };
+        //}
 
         private static LoanInterestAccrualEvent GetLoanInterestAccrualEvent(OpenCbsReader r)
         {
