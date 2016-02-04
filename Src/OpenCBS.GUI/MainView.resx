@@ -289,78 +289,6 @@
   <data name="mnuClients.Text" xml:space="preserve">
     <value>Client and Contract</value>
   </data>
-  <data name="mnuChartOfAccounts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
-  </data>
-  <data name="mnuChartOfAccounts.Text" xml:space="preserve">
-    <value>Chart of Accounts</value>
-  </data>
-  <data name="accountingRulesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
-  </data>
-  <data name="accountingRulesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Accounting Rules</value>
-  </data>
-  <data name="trialBalanceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
-  </data>
-  <data name="trialBalanceToolStripMenuItem.Text" xml:space="preserve">
-    <value>Trial Balance</value>
-  </data>
-  <data name="toolStripMenuItemAccountView.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="toolStripMenuItemAccountView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
-  </data>
-  <data name="toolStripMenuItemAccountView.Text" xml:space="preserve">
-    <value>General Ledger</value>
-  </data>
-  <data name="manualEntriesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
-  </data>
-  <data name="manualEntriesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Manual Entries</value>
-  </data>
-  <data name="standardToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
-  </data>
-  <data name="standardToolStripMenuItem.Text" xml:space="preserve">
-    <value>Standard Bookings</value>
-  </data>
-  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 6</value>
-  </data>
-  <data name="menuItemExportTransaction.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="menuItemExportTransaction.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
-  </data>
-  <data name="menuItemExportTransaction.Text" xml:space="preserve">
-    <value>Export Transactions</value>
-  </data>
-  <data name="mnuNewclosure.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
-  </data>
-  <data name="mnuNewclosure.Text" xml:space="preserve">
-    <value>Accounting Closure</value>
-  </data>
-  <data name="fiscalYearToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
-  </data>
-  <data name="fiscalYearToolStripMenuItem.Text" xml:space="preserve">
-    <value>Fiscal Year</value>
-  </data>
-  <data name="mnuAccounting.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 20</value>
-  </data>
-  <data name="mnuAccounting.Text" xml:space="preserve">
-    <value>Accounting</value>
-  </data>
-  <data name="mnuAccounting.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="branchesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 22</value>
   </data>
@@ -638,25 +566,25 @@
     <value>Products</value>
   </data>
   <data name="_startPageItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>131, 22</value>
   </data>
   <data name="_startPageItem.Text" xml:space="preserve">
     <value>Start Page</value>
   </data>
   <data name="_alertsItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>131, 22</value>
   </data>
   <data name="_alertsItem.Text" xml:space="preserve">
     <value>Alerts</value>
   </data>
   <data name="_dashboardItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>131, 22</value>
   </data>
   <data name="_dashboardItem.Text" xml:space="preserve">
     <value>Dashboard</value>
   </data>
   <data name="_searchItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>131, 22</value>
   </data>
   <data name="_searchItem.Text" xml:space="preserve">
     <value>Search</value>
@@ -1493,72 +1421,6 @@
   <data name="&gt;&gt;reasignToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnuAccounting.Name" xml:space="preserve">
-    <value>mnuAccounting</value>
-  </data>
-  <data name="&gt;&gt;mnuAccounting.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mnuChartOfAccounts.Name" xml:space="preserve">
-    <value>mnuChartOfAccounts</value>
-  </data>
-  <data name="&gt;&gt;mnuChartOfAccounts.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;accountingRulesToolStripMenuItem.Name" xml:space="preserve">
-    <value>accountingRulesToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;accountingRulesToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;trialBalanceToolStripMenuItem.Name" xml:space="preserve">
-    <value>trialBalanceToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;trialBalanceToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemAccountView.Name" xml:space="preserve">
-    <value>toolStripMenuItemAccountView</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemAccountView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;manualEntriesToolStripMenuItem.Name" xml:space="preserve">
-    <value>manualEntriesToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;manualEntriesToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;standardToolStripMenuItem.Name" xml:space="preserve">
-    <value>standardToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;standardToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
-    <value>toolStripSeparator2</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemExportTransaction.Name" xml:space="preserve">
-    <value>menuItemExportTransaction</value>
-  </data>
-  <data name="&gt;&gt;menuItemExportTransaction.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mnuNewclosure.Name" xml:space="preserve">
-    <value>mnuNewclosure</value>
-  </data>
-  <data name="&gt;&gt;mnuNewclosure.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fiscalYearToolStripMenuItem.Name" xml:space="preserve">
-    <value>fiscalYearToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;fiscalYearToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;mnuConfiguration.Name" xml:space="preserve">
     <value>mnuConfiguration</value>
   </data>
@@ -1823,6 +1685,12 @@
   <data name="&gt;&gt;_dashboardItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;_searchItem.Name" xml:space="preserve">
+    <value>_searchItem</value>
+  </data>
+  <data name="&gt;&gt;_searchItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;_modulesMenuItem.Name" xml:space="preserve">
     <value>_modulesMenuItem</value>
   </data>
@@ -1871,16 +1739,10 @@
   <data name="&gt;&gt;toolStripStatusLblDB.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_searchItem.Name" xml:space="preserve">
-    <value>_searchItem</value>
-  </data>
-  <data name="&gt;&gt;_searchItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainView</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.12.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

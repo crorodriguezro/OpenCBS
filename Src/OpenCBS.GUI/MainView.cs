@@ -31,7 +31,6 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
-using CrystalDecisions.CrystalReports.Engine;
 using OpenCBS.ArchitectureV2.CommandData;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.View;
@@ -206,12 +205,6 @@ namespace OpenCBS.GUI
         private void DisplayWinFormDetails()
         {
             _DisplayDetails();
-            InitializeContractCurrencies();
-        }
-
-        private void InitializeContractCurrencies()
-        {
-            mnuChartOfAccounts.Click += mnuChartOfAccounts_Click;
         }
 
         private void InitExtensions()
@@ -870,7 +863,6 @@ namespace OpenCBS.GUI
 
         private void InitializeMainMenu()
         {
-            InitializeCoreMenu();
             foreach (var extensionItem in ExtensionMenuItems)
             {
                 var anchor = mainMenu.Items.Find(extensionItem.InsertAfter, true).FirstOrDefault();
@@ -905,11 +897,6 @@ namespace OpenCBS.GUI
 
                 items.Insert(index + 1, temp.GetItem());
             }
-        }
-
-        private void InitializeCoreMenu()
-        {
-            mainMenu.Items["mnuAccounting"].Visible = !ServicesProvider.GetInstance().GetGeneralSettings().UseExternalAccounting;
         }
 
         private static void bwReportLoader_DoWork(object sender, DoWorkEventArgs e)
