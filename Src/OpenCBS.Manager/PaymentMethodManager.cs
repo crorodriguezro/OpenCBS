@@ -28,11 +28,10 @@ using OpenCBS.Manager.Accounting;
 
 namespace OpenCBS.Manager
 {
-    public class PaymentMethodManager:Manager
+    public class PaymentMethodManager : Manager
     {
-        private static List<PaymentMethod> _cache; 
-
-
+        private static List<PaymentMethod> _cacheWithBranch;
+        private static List<PaymentMethod> _cacheWithoutBranch;
         private readonly BranchManager _branchManager;
         private readonly AccountManager _accountManager;
 
@@ -43,12 +42,13 @@ namespace OpenCBS.Manager
             InitCache();
         }
 
-        public PaymentMethodManager(string testDb):base(testDb)
+        public PaymentMethodManager(string testDb) : base(testDb)
         {
             _branchManager = new BranchManager(testDb);
             _accountManager = new AccountManager(testDb);
             InitCache();
         }
+
         public PaymentMethodManager(string testDb, User user) : base(testDb)
         {
             InitCache();
@@ -56,24 +56,54 @@ namespace OpenCBS.Manager
 
         private void InitCache()
         {
-            if (_cache == null)
-            _cache = GetPaymentMethodOfBranch();
+            if (_cacheWithBranch == null)
+                _cacheWithBranch = GetPaymentMethodOfBranch();
+            if (_cacheWithoutBranch == null)
+                _cacheWithoutBranch = GetPaymentMethodsWithoutBranch();
         }
-
-
 
         public List<PaymentMethod> SelectPaymentMethods()
         {
-            return _cache;
+            return _cacheWithoutBranch;
         }
 
+        public List<PaymentMethod> GetPaymentMethodsWithoutBranch()
+        {
+            string q = @"SELECT pm.[id]
+                                  ,[name]
+                                  ,[description]
+                                  ,[pending]
+                                  ,0 AS [account_id]
+                            FROM [PaymentMethods] pm
+                            ORDER BY pm.[id]";
 
+            List<PaymentMethod> paymentMethods = new List<PaymentMethod>();
+
+            using (SqlConnection conn = GetConnection())
+            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+            using (OpenCbsReader r = c.ExecuteReader())
+            {
+                if (r != null && !r.Empty)
+                    while (r.Read())
+                    {
+                        PaymentMethod paymentMethod = new PaymentMethod
+                        {
+                            Id = r.GetInt("id"),
+                            Name = r.GetString("name"),
+                            Description = r.GetString("description"),
+                            IsPending = r.GetBool("pending"),
+                            Account = _accountManager.Select(r.GetInt("account_id"))
+                        };
+                        paymentMethods.Add(paymentMethod);
+                    }
+            }
+            return paymentMethods;
+        }
 
         public List<PaymentMethod> SelectPaymentMethodsForClosure()
         {
-            return _cache;
+            return _cacheWithBranch;
         }
-
 
         public List<PaymentMethod> GetPaymentMethodOfBranch()
         {
@@ -118,21 +148,19 @@ namespace OpenCBS.Manager
             return paymentMethods;
         }
 
-        public List<PaymentMethod>  SelectPaymentMethodOfBranch(int branchId)
+        public List<PaymentMethod> SelectPaymentMethodOfBranch(int branchId)
         {
-
-            return _cache.Where(val => val.Branch.Id == branchId).ToList();
-
+            return _cacheWithBranch.Where(val => val.Branch.Id == branchId).ToList();
         }
 
         public PaymentMethod SelectPaymentMethodById(int paymentMethodId)
         {
-            return _cache.Find(pm2 => pm2.Id == paymentMethodId);
+            return _cacheWithBranch.Find(pm2 => pm2.Id == paymentMethodId);
         }
 
         public PaymentMethod SelectPaymentMethodByName(string name)
         {
-            return _cache.FirstOrDefault(val => val.Name == name);
+            return _cacheWithBranch.FirstOrDefault(val => val.Name == name);
         }
 
         public void AddPaymentMethodToBranch(PaymentMethod paymentMethod)

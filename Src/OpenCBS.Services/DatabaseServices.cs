@@ -40,7 +40,6 @@ namespace OpenCBS.Services
         private const string UPDATEDATABASE = "Database_Update_{0}_to_{1}.sql";
         private const string CREATEDATABASE = "CreateDatabase_{0}.sql";
         private const string INITIAL_DATAS = "InitialData.sql";
-        private const string INITIAL_ACCOUNTING_RULES = "AccountingRules.sql";
         private const string UPGRADE_SCHEMA_FILE_NAME = "OCTOPUS_Upgrade_Schema.xml";
 
 
@@ -192,7 +191,6 @@ namespace OpenCBS.Services
                 string createSqlfile = Path.Combine(scriptPath, string.Format(CREATEDATABASE, version));
                 DatabaseManager.ExecuteScript(createSqlfile, name, conn);
                 DatabaseManager.ExecuteScript(Path.Combine(scriptPath, INITIAL_DATAS), name, conn);
-                DatabaseManager.ExecuteScript(Path.Combine(scriptPath, INITIAL_ACCOUNTING_RULES), name, conn);
                 DatabaseManager.ExecuteScript(_GetSqlObjects(), name, conn);
 
                 try
