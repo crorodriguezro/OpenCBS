@@ -178,10 +178,23 @@ namespace OpenCBS.Manager
                 return int.Parse(id);
             }
         }
-
         public District SelectDistrictById(int pId)
         {
-            return _cacheDistricts.FirstOrDefault(val => val.Id == pId);
+            return (from d in _cacheDistricts
+                    join p in _cacheProvinces on d.Id equals p.Id
+                    where d.Id == pId
+                    orderby d.Name
+                    select new District()
+                    {
+                        Id = d.Id,
+                        Name = d.Name,
+                        Province = new Province()
+                        {
+                            Id = p.Id,
+                            Name = p.Name
+
+                        }
+                    }).FirstOrDefault();
         }
 
         public District SelectDistrictByName(string name)
