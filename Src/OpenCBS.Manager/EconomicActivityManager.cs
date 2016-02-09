@@ -19,7 +19,6 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
-using System;
 using System.Collections.Generic;
 using OpenCBS.CoreDomain;
 using System.Data.SqlClient;
@@ -28,34 +27,36 @@ using OpenCBS.CoreDomain.EconomicActivities;
 
 namespace OpenCBS.Manager
 {
-	/// <summary>
+    /// <summary>
     /// Summary description for EconomicActivityManager.
-	/// </summary>
-	public class EconomicActivityManager : Manager
-	{
-	    private static List<EconomicActivity> _cache;
+    /// </summary>
+    public class EconomicActivityManager : Manager
+    {
+        private static List<EconomicActivity> _cacheEconomicActivities;
+        private static List<EconomicActivity> _cacheLoanPurposes;
 
-	    public EconomicActivityManager(string testDB) : base(testDB)
-	    {
-	        InitCache();
-	    }
+        public EconomicActivityManager(string testDB) : base(testDB)
+        {
+            InitCache();
+        }
 
-	    public EconomicActivityManager(User pUser) : base(pUser)
-	    {
-	        InitCache();
-	    }
+        public EconomicActivityManager(User pUser) : base(pUser)
+        {
+            InitCache();
+        }
 
-	    private void InitCache()
-	    {
-	        if (_cache == null) _cache = GetCashe();
-	    }
+        private void InitCache()
+        {
+            if (_cacheEconomicActivities == null) _cacheEconomicActivities = GetCasheEconomicActivities();
+            if (_cacheLoanPurposes == null) _cacheLoanPurposes = GetCacheLoanPurposes();
+        }
 
-
-        private List<EconomicActivity> GetCashe()
+        private List<EconomicActivity> GetCasheEconomicActivities()
         {
             List<EconomicActivity> doaList = new List<EconomicActivity>();
 
-            const string sqlText = "SELECT id,name,deleted,parent_id FROM EconomicActivities WHERE parent_id IS NULL AND deleted = 0";
+            const string sqlText =
+                "SELECT id,name,deleted,parent_id FROM EconomicActivities WHERE parent_id IS NULL AND deleted = 0";
 
             using (SqlConnection connection = GetConnection())
             using (OpenCbsCommand selectAll = new OpenCbsCommand(sqlText, connection))
@@ -75,20 +76,50 @@ namespace OpenCBS.Manager
                 }
             }
 
-
             foreach (var economicActivity in doaList)
             {
                 economicActivity.Parent = doaList.FirstOrDefault(val => val.Id == economicActivity.ParentId);
                 economicActivity.Childrens = doaList.Where(val => economicActivity.Id == val.ParentId).ToList();
             }
 
-            return doaList.Where(val => val.Parent==null).ToList();
+            return doaList.Where(val => val.Parent == null).ToList();
         }
 
+        public List<EconomicActivity> GetCacheLoanPurposes()
+        {
+            List<EconomicActivity> list = new List<EconomicActivity>();
 
+            const string sql = @"
+                select 
+                    id,
+					name,
+					deleted
+                from
+                    dbo.LoanPurpose
+                where
+                    parent_id is null
+                    and deleted = 0
+            ";
 
-
-
+            using (SqlConnection connection = GetConnection())
+            using (OpenCbsCommand selectAll = new OpenCbsCommand(sql, connection))
+            {
+                using (OpenCbsReader reader = selectAll.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        EconomicActivity domain = new EconomicActivity
+                        {
+                            Id = reader.GetInt("id"),
+                            Name = reader.GetString("name"),
+                            Deleted = reader.GetBool("deleted")
+                        };
+                        list.Add(domain);
+                    }
+                }
+            }
+            return list;
+        }
 
         /// <summary>
         /// Add an economic activity in database
@@ -96,22 +127,22 @@ namespace OpenCBS.Manager
         /// <param name="pEconomicActivity">the economic activity object to add</param>
         /// <returns>the id of the economic activity added</returns>
         public int AddEconomicActivity(EconomicActivity pEconomicActivity)
-		{
+        {
             const string sqlText = @"INSERT INTO EconomicActivities ([name] , [parent_id] , [deleted]) 
                         VALUES (@name,@parentId,@deleted) SELECT SCOPE_IDENTITY()";
 
-		    using (SqlConnection connection = GetConnection())
+            using (SqlConnection connection = GetConnection())
             using (OpenCbsCommand insert = new OpenCbsCommand(sqlText, connection))
-		    {
+            {
                 insert.AddParam("@name", pEconomicActivity.Name);
                 insert.AddParam("@deleted", pEconomicActivity.Deleted);
-		        if (pEconomicActivity.Parent != null)
+                if (pEconomicActivity.Parent != null)
                     insert.AddParam("@parentId", pEconomicActivity.Parent.Id);
                 else
                     insert.AddParam("@parentId", null);
                 return int.Parse(insert.ExecuteScalar().ToString());
             }
-		}
+        }
 
         public int AddEconomicActivity(EconomicActivity loanPurpose, bool isLoanPurpose)
         {
@@ -133,40 +164,41 @@ namespace OpenCBS.Manager
                     insert.AddParam("@parentId", null);
                 return int.Parse(insert.ExecuteScalar().ToString());
             }
-            
+
         }
-		/// <summary>
-		/// This methods allows us to find all domains of application
-		/// </summary>
-		/// <returns>hierarchic collection of DomainOfApplication
-		/// </returns>
-		public List<EconomicActivity> SelectAllEconomicActivities()
-		{
-		    return _cache;
-		}
+
+        /// <summary>
+        /// This methods allows us to find all domains of application
+        /// </summary>
+        /// <returns>hierarchic collection of DomainOfApplication
+        /// </returns>
+        public List<EconomicActivity> SelectAllEconomicActivities()
+        {
+            return _cacheEconomicActivities;
+        }
 
         public List<EconomicActivity> SelectAllLoanPurposes()
         {
-            return _cache;
+            return _cacheLoanPurposes;
         }
 
-		/// <summary>
-		/// Update economic activity name and delete
-		/// </summary>
+        /// <summary>
+        /// Update economic activity name and delete
+        /// </summary>
         /// <param name="pEconomicActivity">EconomicActivity object</param>
         public void UpdateEconomicActivity(EconomicActivity pEconomicActivity)
-		{
+        {
             const string sqlText = "UPDATE EconomicActivities SET name = @name,deleted = @wasDeleted WHERE id = @id";
 
             using (SqlConnection connection = GetConnection())
             using (OpenCbsCommand update = new OpenCbsCommand(sqlText, connection))
-		    {
+            {
                 update.AddParam("@id", pEconomicActivity.Id);
-                update.AddParam("@name",  pEconomicActivity.Name);
+                update.AddParam("@name", pEconomicActivity.Name);
                 update.AddParam("@wasDeleted", pEconomicActivity.Deleted);
-		        update.ExecuteNonQuery();
-		    }
-		}
+                update.ExecuteNonQuery();
+            }
+        }
 
         public void UpdateEconomicActivity(EconomicActivity pEconomicActivity, bool isLoanPurpose)
         {
@@ -182,25 +214,25 @@ namespace OpenCBS.Manager
             }
         }
 
-	    private List<EconomicActivity> SelectChildren(int pParentId)
-	    {
-	        return _cache.Where(val => val.Parent.Id == pParentId).ToList();
-		}
+        private List<EconomicActivity> SelectChildren(int pParentId)
+        {
+            return _cacheEconomicActivities.Where(val => val.Parent.Id == pParentId).ToList();
+        }
 
         private List<EconomicActivity> SelectLPChildren(int pParentId)
         {
-            return _cache.Where(val => val.Parent.Id == pParentId).ToList();
+            return _cacheLoanPurposes.Where(val => val.Parent.Id == pParentId).ToList();
         }
 
         public bool ThisActivityAlreadyExist(string pName, int pParentId)
         {
-            return _cache.Any(val => val.Parent.Id == pParentId && val.Name == pName);
+            return _cacheEconomicActivities.Any(val => val.Parent.Id == pParentId && val.Name == pName);
         }
 
         public bool ThisActivityAlreadyExist(string pName, int pParentId, bool isLoanPurpose)
         {
             return isLoanPurpose
-                ? _cache.Any(val => val.Parent.Id == pParentId && val.Name == pName)
+                ? _cacheLoanPurposes.Any(val => val.Parent.Id == pParentId && val.Name == pName)
                 : ThisActivityAlreadyExist(pName, pParentId);
         }
 
@@ -212,12 +244,12 @@ namespace OpenCBS.Manager
         /// <returns>DomainOfApplication object</returns>
         public EconomicActivity SelectEconomicActivity(int pId)
         {
-           return _cache.FirstOrDefault(val => val.Id == pId);
+            return _cacheEconomicActivities.FirstOrDefault(val => val.Id == pId);
         }
 
         public EconomicActivity SelectLoanPurpose(int pId)
         {
-            return _cache.FirstOrDefault(val => val.Id == pId);
+            return _cacheLoanPurposes.FirstOrDefault(val => val.Id == pId);
         }
 
         private static EconomicActivity GetEconomicActivity(OpenCbsReader pReader)
@@ -236,12 +268,13 @@ namespace OpenCBS.Manager
             return doa;
         }
 
-	    public EconomicActivity SelectEconomicActivity(string pName)
-	    {
-	        return _cache.FirstOrDefault(val => val.Name == pName);
-	    }
+        public EconomicActivity SelectEconomicActivity(string pName)
+        {
+            return _cacheEconomicActivities.FirstOrDefault(val => val.Name == pName);
+        }
 
-        public void AddEconomicActivityLoanHistory(EconomicActivityLoanHistory activityLoanHistory, SqlTransaction sqlTransaction)
+        public void AddEconomicActivityLoanHistory(EconomicActivityLoanHistory activityLoanHistory,
+            SqlTransaction sqlTransaction)
         {
             const string sqlText = @"INSERT INTO EconomicActivityLoanHistory 
                                     ([contract_id],[person_id],[group_id],[economic_activity_id],[deleted]) 
@@ -249,14 +282,14 @@ namespace OpenCBS.Manager
 
             using (OpenCbsCommand insert = new OpenCbsCommand(sqlText, sqlTransaction.Connection, sqlTransaction))
             {
-                insert.AddParam("@contract_id",  activityLoanHistory.Contract.Id);
-                insert.AddParam("@person_id",  activityLoanHistory.Person.Id);
+                insert.AddParam("@contract_id", activityLoanHistory.Contract.Id);
+                insert.AddParam("@person_id", activityLoanHistory.Person.Id);
                 if (activityLoanHistory.Group != null)
                     insert.AddParam("@group_id", activityLoanHistory.Group.Id);
                 else
                     insert.AddParam("@group_id", null);
                 insert.AddParam("@economic_activity_id", activityLoanHistory.EconomicActivity.Id);
-                insert.AddParam("@deleted",  activityLoanHistory.Deleted);
+                insert.AddParam("@deleted", activityLoanHistory.Deleted);
 
                 insert.ExecuteNonQuery();
             }
@@ -271,10 +304,10 @@ namespace OpenCBS.Manager
 
             using (OpenCbsCommand update = new OpenCbsCommand(sqlText, sqlTransaction.Connection, sqlTransaction))
             {
-                update.AddParam("@contract_id",  contractId);
-                update.AddParam("@person_id",  personId);
-                update.AddParam("@economic_activity_id",  economicActivityId);
-                update.AddParam("@deleted",  deleted);
+                update.AddParam("@contract_id", contractId);
+                update.AddParam("@person_id", personId);
+                update.AddParam("@economic_activity_id", economicActivityId);
+                update.AddParam("@deleted", deleted);
                 update.ExecuteNonQuery();
             }
         }
@@ -289,8 +322,8 @@ namespace OpenCBS.Manager
 
             using (OpenCbsCommand sqlCommand = new OpenCbsCommand(sqlText, sqlTransaction.Connection, sqlTransaction))
             {
-                sqlCommand.AddParam("@contract_id",  contractId);
-                sqlCommand.AddParam("@person_id",  personId);
+                sqlCommand.AddParam("@contract_id", contractId);
+                sqlCommand.AddParam("@person_id", personId);
 
                 using (OpenCbsReader reader = sqlCommand.ExecuteReader())
                 {
@@ -313,8 +346,8 @@ namespace OpenCBS.Manager
 
             using (OpenCbsCommand sqlCommand = new OpenCbsCommand(sqlText, sqlTransaction.Connection, sqlTransaction))
             {
-                sqlCommand.AddParam("@contract_id",  contractId);
-                sqlCommand.AddParam("@person_id",  personId);
+                sqlCommand.AddParam("@contract_id", contractId);
+                sqlCommand.AddParam("@person_id", personId);
 
                 using (OpenCbsReader reader = sqlCommand.ExecuteReader())
                 {
@@ -327,6 +360,5 @@ namespace OpenCBS.Manager
             }
             return id != 0;
         }
-
-	}
+    }
 }

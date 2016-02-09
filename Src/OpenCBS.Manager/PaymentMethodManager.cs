@@ -155,12 +155,12 @@ namespace OpenCBS.Manager
 
         public PaymentMethod SelectPaymentMethodById(int paymentMethodId)
         {
-            return _cacheWithBranch.Find(pm2 => pm2.Id == paymentMethodId);
+            return _cacheWithoutBranch.Find(pm2 => pm2.Id == paymentMethodId);
         }
 
         public PaymentMethod SelectPaymentMethodByName(string name)
         {
-            return _cacheWithBranch.FirstOrDefault(val => val.Name == name);
+            return _cacheWithoutBranch.FirstOrDefault(val => val.Name == name);
         }
 
         public void AddPaymentMethodToBranch(PaymentMethod paymentMethod)
