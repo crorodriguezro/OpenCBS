@@ -2076,11 +2076,12 @@ namespace OpenCBS.Services
                                     savingEvent.CancelDate = TimeProvider.Today;
                                     tempService.DeleteEvent(savingEvent);
                                     CallInterceptor(new Dictionary<string, object>
-                                        {
-                                            {"Event", savingEvent},
-                                            {"Deleted", true},
-                                            {"SqlTransaction", sqlTransaction}
-                                        });
+                                    {
+                                        {"Event", savingEvent},
+                                        {"Loan", contract},
+                                        {"Deleted", true},
+                                        {"SqlTransaction", sqlTransaction}
+                                    });
                                 }
                             }
                         }
