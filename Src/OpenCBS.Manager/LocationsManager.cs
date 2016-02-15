@@ -180,21 +180,7 @@ namespace OpenCBS.Manager
         }
         public District SelectDistrictById(int pId)
         {
-            return (from d in _cacheDistricts
-                    join p in _cacheProvinces on d.Id equals p.Id
-                    where d.Id == pId
-                    orderby d.Name
-                    select new District()
-                    {
-                        Id = d.Id,
-                        Name = d.Name,
-                        Province = new Province()
-                        {
-                            Id = p.Id,
-                            Name = p.Name
-
-                        }
-                    }).FirstOrDefault();
+            return _cacheDistricts.FirstOrDefault(val => val.Id == pId);
         }
 
         public District SelectDistrictByName(string name)
