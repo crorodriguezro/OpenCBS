@@ -236,7 +236,7 @@ namespace OpenCBS.Manager
 
         public Branch SelectBranchByName(string name)
         {
-            return _cache.FirstOrDefault(val => val.Name.Contains(name));
+            return _cache.FirstOrDefault(val => val.Name.IndexOf(name,StringComparison.OrdinalIgnoreCase)>=0);
         }
     }
 }
