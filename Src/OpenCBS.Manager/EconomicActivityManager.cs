@@ -82,7 +82,7 @@ namespace OpenCBS.Manager
                 economicActivity.Childrens = doaList.Where(val => economicActivity.Id == val.ParentId).ToList();
             }
 
-            return doaList.ToList();
+            return doaList;
         }
 
         public List<EconomicActivity> GetCacheLoanPurposes()
@@ -118,6 +118,12 @@ namespace OpenCBS.Manager
                     }
                 }
             }
+            foreach (var economicActivity in list)
+            {
+                economicActivity.Parent = list.FirstOrDefault(val => val.Id == economicActivity.ParentId);
+                economicActivity.Childrens = list.Where(val => economicActivity.Id == val.ParentId).ToList();
+            }
+
             return list;
         }
 
@@ -174,12 +180,12 @@ namespace OpenCBS.Manager
         /// </returns>
         public List<EconomicActivity> SelectAllEconomicActivities()
         {
-            return _cacheEconomicActivities;
+            return _cacheEconomicActivities.Where(val => val.ParentId==null).ToList();
         }
 
         public List<EconomicActivity> SelectAllLoanPurposes()
         {
-            return _cacheLoanPurposes;
+            return _cacheLoanPurposes.Where(val => val.ParentId == null).ToList();
         }
 
         /// <summary>
@@ -216,23 +222,23 @@ namespace OpenCBS.Manager
 
         private List<EconomicActivity> SelectChildren(int pParentId)
         {
-            return _cacheEconomicActivities.Where(val => val.Parent.Id == pParentId).ToList();
+            return _cacheEconomicActivities.Where(val => val.ParentId == pParentId).ToList();
         }
 
         private List<EconomicActivity> SelectLPChildren(int pParentId)
         {
-            return _cacheLoanPurposes.Where(val => val.Parent.Id == pParentId).ToList();
+            return _cacheLoanPurposes.Where(val => val.ParentId == pParentId).ToList();
         }
 
         public bool ThisActivityAlreadyExist(string pName, int pParentId)
         {
-            return _cacheEconomicActivities.Any(val => val.Parent.Id == pParentId && val.Name == pName);
+            return _cacheEconomicActivities.Any(val => val.ParentId == pParentId && val.Name == pName);
         }
 
         public bool ThisActivityAlreadyExist(string pName, int pParentId, bool isLoanPurpose)
         {
             return isLoanPurpose
-                ? _cacheLoanPurposes.Any(val => val.Parent.Id == pParentId && val.Name == pName)
+                ? _cacheLoanPurposes.Any(val => val.ParentId == pParentId && val.Name == pName)
                 : ThisActivityAlreadyExist(pName, pParentId);
         }
 
