@@ -56,7 +56,7 @@ namespace OpenCBS.Manager
             List<EconomicActivity> doaList = new List<EconomicActivity>();
 
             const string sqlText =
-                "SELECT id,name,deleted,parent_id FROM EconomicActivities WHERE parent_id IS NULL AND deleted = 0";
+                "SELECT id,name,deleted,parent_id FROM EconomicActivities WHERE deleted = 0";
 
             using (SqlConnection connection = GetConnection())
             using (OpenCbsCommand selectAll = new OpenCbsCommand(sqlText, connection))
@@ -82,7 +82,7 @@ namespace OpenCBS.Manager
                 economicActivity.Childrens = doaList.Where(val => economicActivity.Id == val.ParentId).ToList();
             }
 
-            return doaList.Where(val => val.Parent == null).ToList();
+            return doaList.ToList();
         }
 
         public List<EconomicActivity> GetCacheLoanPurposes()
