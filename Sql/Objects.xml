@@ -427,7 +427,8 @@ END
             DROP FUNCTION [dbo].[next_contractEvents]]]></drop>
   </object>
   <object name="InstallmentSnapshot" priority="10">
-    <create><![CDATA[CREATE FUNCTION [dbo].[InstallmentSnapshot]
+    <create><![CDATA[
+create function dbo.InstallmentSnapshot
 (
 	@date DATETIME
 )
@@ -482,7 +483,7 @@ RETURN
 	RIGHT JOIN
 	(
 		-- Rank snapshots according to dates
-		SELECT *, ROW_NUMBER() OVER (PARTITION BY contract_id ORDER BY snapshot_date ASC) AS [rank]
+        SELECT *, ROW_NUMBER() OVER (PARTITION BY contract_id ORDER BY snapshot_date ASC, CASE WHEN snapshot_date = @date THEN 0 - snapshot_id ELSE snapshot_id END ASC) AS [rank]
 		FROM
 		(
 			-- Get relevant snapshots only
