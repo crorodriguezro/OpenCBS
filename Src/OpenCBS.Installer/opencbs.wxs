@@ -72,7 +72,6 @@
               <File Id="OpenCBS.DatabaseConnection.dll" Source="SourceDir\OpenCBS.DatabaseConnection.dll" />
               <File Id="OpenCBS.Enums.dll" Source="SourceDir\OpenCBS.Enums.dll" />
               <File Id="OpenCBS.Stringifier.dll" Source="SourceDir\OpenCBS.Stringifier.dll" />
-              <File Id="OpenCBS.Stringifier.Dotnet40.dll" Source="SourceDir\OpenCBS.Stringifier.Dotnet40.dll" />
               <File Id="OpenCBS.MultiLanguageRessources.dll" Source="SourceDir\OpenCBS.MultiLanguageRessources.dll" />
               <File Id="OpenCBS.ExceptionsHandler.dll" Source="SourceDir\OpenCBS.ExceptionsHandler.dll" />
               <File Id="OpenCBS.GUI.Restarter.exe" Source="SourceDir\OpenCBS.GUI.Restarter.exe" />
