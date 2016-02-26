@@ -93,12 +93,12 @@ namespace OpenCBS.Manager
                 select 
                     id,
 					name,
-					deleted
+					deleted,
+                    parent_id
                 from
                     dbo.LoanPurpose
                 where
-                    parent_id is null
-                    and deleted = 0
+                    deleted = 0
             ";
 
             using (SqlConnection connection = GetConnection())
@@ -112,7 +112,8 @@ namespace OpenCBS.Manager
                         {
                             Id = reader.GetInt("id"),
                             Name = reader.GetString("name"),
-                            Deleted = reader.GetBool("deleted")
+                            Deleted = reader.GetBool("deleted"),
+                            ParentId = reader.GetNullInt("parent_id")
                         };
                         list.Add(domain);
                     }
