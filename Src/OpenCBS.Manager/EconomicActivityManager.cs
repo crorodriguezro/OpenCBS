@@ -92,8 +92,8 @@ namespace OpenCBS.Manager
             const string sql = @"
                 select 
                     id,
-					name,
-					deleted,
+                    name,
+                    deleted,
                     parent_id
                 from
                     dbo.LoanPurpose
