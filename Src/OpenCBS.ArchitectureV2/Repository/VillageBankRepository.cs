@@ -78,7 +78,8 @@ namespace OpenCBS.ArchitectureV2.Repository
 		                contract_id
                 ) i on i.contract_id = c.id
                 where
-	                vp.village_id = @id
+                    vp.left_date is null                    
+	                and vp.village_id = @id
 	                and c.status in (1, 2, 5)
                 order by
                     p.id
