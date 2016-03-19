@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using OpenCBS.ArchitectureV2.Interface.Presenter;
 using OpenCBS.ArchitectureV2.Model;
+using OpenCBS.CoreDomain.Accounting;
 
 namespace OpenCBS.ArchitectureV2.Interface.View
 {
@@ -15,5 +16,6 @@ namespace OpenCBS.ArchitectureV2.Interface.View
         List<int> SelectedLoanIds { get; }
         void EnableTotalEdit();
         void DisableTotalEdit();
+        PaymentMethod Method { get; set; }
     }
 }

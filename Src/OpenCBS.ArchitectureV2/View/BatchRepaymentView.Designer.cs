@@ -42,6 +42,8 @@
             this._buttonsPanel = new System.Windows.Forms.Panel();
             this._cancelButton = new System.Windows.Forms.Button();
             this._okButton = new System.Windows.Forms.Button();
+            this.cmbPaymentMethod = new System.Windows.Forms.ComboBox();
+            this.labelPaymentMethod = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._loansListView)).BeginInit();
             this._buttonsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -162,6 +164,8 @@
             // 
             // _buttonsPanel
             // 
+            this._buttonsPanel.Controls.Add(this.labelPaymentMethod);
+            this._buttonsPanel.Controls.Add(this.cmbPaymentMethod);
             this._buttonsPanel.Controls.Add(this._cancelButton);
             this._buttonsPanel.Controls.Add(this._okButton);
             this._buttonsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -173,7 +177,7 @@
             // _cancelButton
             // 
             this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._cancelButton.Location = new System.Drawing.Point(627, 16);
+            this._cancelButton.Location = new System.Drawing.Point(1257, 16);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(75, 23);
             this._cancelButton.TabIndex = 1;
@@ -182,12 +186,31 @@
             // 
             // _okButton
             // 
-            this._okButton.Location = new System.Drawing.Point(546, 16);
+            this._okButton.Location = new System.Drawing.Point(1176, 16);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(75, 23);
             this._okButton.TabIndex = 0;
             this._okButton.Text = "OK";
             this._okButton.UseVisualStyleBackColor = true;
+            // 
+            // cmbPaymentMethod
+            // 
+            this.cmbPaymentMethod.DisplayMember = "Name";
+            this.cmbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPaymentMethod.FormattingEnabled = true;
+            this.cmbPaymentMethod.Location = new System.Drawing.Point(126, 16);
+            this.cmbPaymentMethod.Name = "cmbPaymentMethod";
+            this.cmbPaymentMethod.Size = new System.Drawing.Size(136, 23);
+            this.cmbPaymentMethod.TabIndex = 2;
+            // 
+            // labelPaymentMethod
+            // 
+            this.labelPaymentMethod.AutoSize = true;
+            this.labelPaymentMethod.Location = new System.Drawing.Point(12, 20);
+            this.labelPaymentMethod.Name = "labelPaymentMethod";
+            this.labelPaymentMethod.Size = new System.Drawing.Size(108, 15);
+            this.labelPaymentMethod.TabIndex = 3;
+            this.labelPaymentMethod.Text = "Payment Method : ";
             // 
             // BatchRepaymentView
             // 
@@ -207,6 +230,7 @@
             this.Text = "Repayment";
             ((System.ComponentModel.ISupportInitialize)(this._loansListView)).EndInit();
             this._buttonsPanel.ResumeLayout(false);
+            this._buttonsPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -226,5 +250,7 @@
         private BrightIdeasSoftware.OLVColumn _receiptNumber;
         private BrightIdeasSoftware.OLVColumn _comment;
         private BrightIdeasSoftware.OLVColumn _expectedDateColumn;
+        private System.Windows.Forms.ComboBox cmbPaymentMethod;
+        private System.Windows.Forms.Label labelPaymentMethod;
     }
 }
