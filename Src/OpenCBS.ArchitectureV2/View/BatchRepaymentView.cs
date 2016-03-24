@@ -8,6 +8,8 @@ using OpenCBS.ArchitectureV2.Interface.Presenter;
 using OpenCBS.ArchitectureV2.Interface.View;
 using OpenCBS.ArchitectureV2.Model;
 using OpenCBS.Controls;
+using OpenCBS.CoreDomain.Accounting;
+using OpenCBS.Services;
 
 namespace OpenCBS.ArchitectureV2.View
 {
@@ -50,6 +52,7 @@ namespace OpenCBS.ArchitectureV2.View
             _loansListView.RowFormatter = ItemRowFormatter;
             _loansListView.ItemChecked += OnItemChecked;
             _loansListView.CellEditStarting += OnCellEditStarting;
+            FillComboBoxPaymentMethods();
 
             ObjectListView.EditorRegistry.Register(typeof(decimal), delegate
             {
@@ -59,6 +62,17 @@ namespace OpenCBS.ArchitectureV2.View
 
             _totalItem.FirstName = "TOTAL";
             _loansListView.CheckBoxes = true;
+        }
+
+        private void FillComboBoxPaymentMethods()
+        {
+            List<PaymentMethod> paymentMethods =
+                ServicesProvider.GetInstance().GetPaymentMethodServices().GetAllPaymentMethods();
+            foreach (PaymentMethod method in paymentMethods)
+            {
+                cmbPaymentMethod.Items.Add(method);
+            }
+            Method = paymentMethods[0];
         }
 
         public void Run()
@@ -194,12 +208,10 @@ namespace OpenCBS.ArchitectureV2.View
                 e.Cancel = true;
             }
         }
-
         public void Stop()
         {
             Close();
         }
-
         public decimal GetTotal(int loanId)
         {
             return _loansListView.Objects.Cast<Item>().Where(x => x.Id == loanId).Select(x => x.Total).Single();
@@ -212,7 +224,6 @@ namespace OpenCBS.ArchitectureV2.View
         {
             return _loansListView.Objects.Cast<Item>().Where(x => x.Id == loanId).Select(x => x.ReceiptNumber).Single();
         }
-
         public List<int> SelectedLoanIds
         {
             get
@@ -220,15 +231,19 @@ namespace OpenCBS.ArchitectureV2.View
                 return _loansListView.CheckedObjects.Cast<Item>().Where(x => x != _totalItem).Select(x => x.Id).ToList();
             }
         }
-
         public void EnableTotalEdit()
         {
             _totalColumn.IsEditable = true;
         }
-
         public void DisableTotalEdit()
         {
             _totalColumn.IsEditable = false;
+        }
+
+        public PaymentMethod Method
+        {
+            get { return (PaymentMethod)cmbPaymentMethod.SelectedItem; }
+            set { cmbPaymentMethod.SelectedItem = value; }
         }
     }
 }
