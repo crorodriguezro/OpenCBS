@@ -235,7 +235,8 @@ namespace OpenCBS.ArchitectureV2.Presenter
                             Interests = repaymentEvent.Interest,
                             Penalties = 0,
                             Comment = repaymentEvent.Comment,
-                            Doc1 = repaymentEvent.ReceiptNumber
+                            Doc1 = repaymentEvent.ReceiptNumber,
+                            PaymentMethodId = _view.Method.Id
                         };
                         interceptor.CallInterceptor(new Dictionary<string, object>
                         {
