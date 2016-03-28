@@ -216,9 +216,7 @@
             </Directory>
             <Directory Id="DIR_UPDATE" Name="Update">
               <Component Id="sql_divers" Guid="B4B47D80-2F95-431D-AFA3-8CA334CB5999">
-                <File Id="Add_all_missing_Events.sql" Source="SourceDir\Update\Add_all_missing_Events.sql" />
                 <File Id="InitialData.sql" Source="SourceDir\Update\InitialData.sql" />
-                <File Id="AccountingRules.sql" Source="SourceDir\Update\AccountingRules.sql" />
                 <File Id="DropAndCreateUDF.sql" Source="SourceDir\Update\DropAndCreateUDF.sql" />
               </Component>
               <Component Id="sql_create_database" Guid="6A36DFA4-83F5-FC67-DDB2-0AD22AB03E72">
