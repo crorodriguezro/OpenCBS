@@ -213,6 +213,11 @@ namespace OpenCBS.GUI
             {
                 initializer.Init();
             }
+
+            foreach (var initializer in _applicationController.GetAllInstances<IInitializer>())
+            {
+                initializer.Init();
+            }
         }
 
         private bool InitializeTellerManagement()
