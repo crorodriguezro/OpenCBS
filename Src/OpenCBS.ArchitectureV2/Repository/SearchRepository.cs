@@ -34,14 +34,22 @@ namespace OpenCBS.ArchitectureV2.Repository
 	                dbo.Tiers t on v.id = t.id
                 left join
 	                dbo.Districts d on d.id = t.district_id
-                left join
-	                dbo.UsersBranches ub on ub.user_id = @userId
-                left join
-	                dbo.Branches b on b.id = ub.branch_id
                 where
-	                v.name like @keywords
-                and 
-                    t.branch_id = b.id
+                    v.loan_officer in
+                    (
+                        -- Fetch only the village banks that belong to the user
+                        -- or any subordinate of the user
+                        select @userId
+                        union all
+                        select subordinate_id from dbo.UsersSubordinates where user_id = @userId
+                    )
+                    and t.branch_id in
+                    (
+                        -- Fetch only the villages banks that belong to the branches
+                        -- that the user has access to
+                        select branch_id from dbo.UsersBranches where user_id = @userId
+                    )
+	                and v.name like @keywords
                 order by
                     v.name
             ";
