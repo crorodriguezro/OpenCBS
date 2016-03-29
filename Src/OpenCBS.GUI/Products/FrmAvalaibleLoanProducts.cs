@@ -99,6 +99,13 @@ namespace OpenCBS.GUI.Products
             ((MainView)MdiParent).SetInfoMessage("Product saved");
         }
 
+        private void EditPackage()
+        {
+            var addPackageForm = new FrmAddLoanProduct(retrieveSelectedPackage());
+            addPackageForm.ShowDialog();
+            refreshListView();
+        }
+
         private void refreshListView()
         {
             descriptionListView.Items.Clear();
@@ -141,16 +148,13 @@ namespace OpenCBS.GUI.Products
         {
             if (descriptionListView.SelectedItems.Count != 0)
             {
-                var addPackageForm = new FrmAddLoanProduct(retrieveSelectedPackage());
-                addPackageForm.ShowDialog();
-                refreshListView();
+                EditPackage();
+                return;
             }
-            else
-            {
-                MessageBox.Show(GetString("messageSelection.Text"),
-                                GetString("title.Text"),
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            
+            MessageBox.Show(GetString("messageSelection.Text"),
+                GetString("title.Text"),
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void checkBoxShowDeletedProduct_CheckedChanged(object sender, EventArgs e)
@@ -167,8 +171,7 @@ namespace OpenCBS.GUI.Products
         
         private void descriptionListView_DoubleClick(object sender, EventArgs e)
         {
-            var addPackageForm = new FrmAddLoanProduct(retrieveSelectedPackage());
-            addPackageForm.ShowDialog();
+            EditPackage();
         }
 
         private LoanProduct retrieveSelectedPackage()
