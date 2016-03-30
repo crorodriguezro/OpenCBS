@@ -356,19 +356,20 @@ namespace OpenCBS.Manager
 
         public List<District> SelectDistrictsByProvinceId(int pProvinceId)
         {
-
-            return
-                _cacheDistricts.Join(_cacheProvinces, district => district.Id, province => province.Id,
-                    (district, province) => new District()
+            var result = (from district in _cacheDistricts
+                join province in _cacheProvinces on (district.Province != null ? district.Province.Id : 0) equals
+                    province.Id
+                select new District()
+                {
+                    Id = district.Id,
+                    Name = district.Name,
+                    Province = new Province()
                     {
-                        Id = district.Id,
-                        Name = district.Name,
-                        Province = new Province()
-                        {
-                            Id = province.Id,
-                            Name = province.Name,
-                        }
-                    }).ToList();
+                        Id = province.Id,
+                        Name = province.Name,
+                    }
+                }).ToList();
+            return result;
 
         }
 
