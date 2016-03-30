@@ -196,7 +196,7 @@ namespace OpenCBS.Manager
                     Id = province.Id,
                     Name = province.Name
                 }
-            }).FirstOrDefault();
+            }).FirstOrDefault(val => val.Name.Equals(name));
         }
 
         public int AddProvince(string pName)
@@ -357,9 +357,21 @@ namespace OpenCBS.Manager
 
         public List<District> SelectDistrictsByProvinceId(int pProvinceId)
         {
-            var result1 = _cacheDistricts.Where(val => (val.Province != null ? val.Province.Id : 0) == pProvinceId).ToList();
-            
-            return result1;
+            var result = (from district in _cacheDistricts
+                          join province in _cacheProvinces on (district.Province != null ? district.Province.Id : 0) equals
+                              province.Id
+                          where province.Id == pProvinceId 
+                          select new District()
+                          {
+                              Id = district.Id,
+                              Name = district.Name,
+                              Province = new Province()
+                              {
+                                  Id = province.Id,
+                                  Name = province.Name,
+                              }
+                          }).ToList();
+            return result;
 
         }
 
