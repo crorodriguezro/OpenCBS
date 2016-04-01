@@ -152,9 +152,6 @@
                 <File Id="OpenCBS.Extension.OfficeReports.dll" Source="SourceDir\Extensions\OpenCBS.Extension.OfficeReports.dll" />
                 <File Id="OpenCBS.Extension.CustomFields.dll" Source="SourceDir\Extensions\OpenCBS.Extension.CustomFields.dll" />
                 <File Id="OpenCBS.Extension.Maps.dll" Source="SourceDir\Extensions\OpenCBS.Extension.Maps.dll" />
-                <File Id="OpenCBS.Extension.TaskManagement.dll" Source="SourceDir\Extensions\OpenCBS.Extension.TaskManagement.dll" />
-                <File Id="OpenCBS.Extension.DelinquencyManagementModule.dll" Source="SourceDir\Extensions\OpenCBS.Extension.DelinquencyManagementModule.dll" />
-                <File Id="OpenCBS.Extension.FastRepayment.dll" Source="SourceDir\Extensions\OpenCBS.Extension.FastRepayment.dll" />
               </Component>
             </Directory>
 
@@ -180,8 +177,6 @@
                 <File Id="OpenCBS.MultiLanguageRessources.resources.dll" Source="SourceDir\fr\OpenCBS.MultiLanguageRessources.resources.dll" />
                 <File Id="OpenCBS.Reports.resources.dll" Source="SourceDir\fr\OpenCBS.Reports.resources.dll" />
                 <File Id="OpenCBS.Extension.CustomFields.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.CustomFields.resources.dll"/>
-                <File Id="OpenCBS.Extension.DelinquencyManagementModule.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.DelinquencyManagementModule.resources.dll"/>
-                <File Id="OpenCBS.Extension.FastRepayment.resources.dll" Source="SourceDir\fr\OpenCBS.Extension.FastRepayment.resources.dll"/>
                 <File Id="OpenCBS.Controls.resources.dll" Source="SourceDir\fr\OpenCBS.Controls.resources.dll"/>
 				<File Id="OpenCBS.Extensions.resources.dll" Source="SourceDir\fr\OpenCBS.Extensions.resources.dll"/>
               </Component>
