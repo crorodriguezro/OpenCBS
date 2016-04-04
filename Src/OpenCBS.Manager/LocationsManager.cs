@@ -186,16 +186,17 @@ namespace OpenCBS.Manager
 
         public District SelectDistrictByName(string name)
         {
-            return _cacheDistricts.Join(_cacheProvinces,val => val.Id,val=>val.Id,(district,province) => new District()
-            {
-                Id = district.Id,
-                Name = district.Name,
-                Province = new Province()
+            return _cacheDistricts.Join(_cacheProvinces, val => (val.Province != null ? val.Province.Id : 0),
+                val => val.Id, (district, province) => new District()
                 {
-                    Id = province.Id,
-                    Name = province.Name
-                }
-            }).FirstOrDefault();
+                    Id = district.Id,
+                    Name = district.Name,
+                    Province = new Province()
+                    {
+                        Id = province.Id,
+                        Name = province.Name
+                    }
+                }).FirstOrDefault(val => val.Name.Equals(name));
         }
 
         public int AddProvince(string pName)
@@ -356,19 +357,21 @@ namespace OpenCBS.Manager
 
         public List<District> SelectDistrictsByProvinceId(int pProvinceId)
         {
-
-            return
-                _cacheDistricts.Join(_cacheProvinces, district => district.Id, province => province.Id,
-                    (district, province) => new District()
-                    {
-                        Id = district.Id,
-                        Name = district.Name,
-                        Province = new Province()
-                        {
-                            Id = province.Id,
-                            Name = province.Name,
-                        }
-                    }).ToList();
+            var result = (from district in _cacheDistricts
+                          join province in _cacheProvinces on (district.Province != null ? district.Province.Id : 0) equals
+                              province.Id
+                          where province.Id == pProvinceId 
+                          select new District()
+                          {
+                              Id = district.Id,
+                              Name = district.Name,
+                              Province = new Province()
+                              {
+                                  Id = province.Id,
+                                  Name = province.Name,
+                              }
+                          }).ToList();
+            return result;
 
         }
 
@@ -390,8 +393,8 @@ namespace OpenCBS.Manager
         public District SelectDistrictByCityName(string name)
         {
             return (from d in _cacheDistricts
-                join p in _cacheProvinces on d.Id equals p.Id
-                join c in _cacheCities on d.Id equals c.Id
+                join p in _cacheProvinces on (d.Province != null ? d.Province.Id : 0) equals p.Id
+                join c in _cacheCities on d.Id equals c.DistrictId
                 where c.Name.Contains(name)
                 select new District()
                 {
@@ -401,7 +404,6 @@ namespace OpenCBS.Manager
                     {
                         Id = p.Id,
                         Name = p.Name
-
                     }
                 }).FirstOrDefault();
         }
