@@ -564,6 +564,16 @@ namespace OpenCBS.GUI.Clients
                 if (1 == lvMembers.SelectedItems.Count && lvMembers.SelectedItems[0].BackColor != Color.Red)
                 {
                     VillageMember member = (VillageMember)lvMembers.SelectedItems[0].Tag;
+                   
+                        if (_village.Members.Count <= ApplicationSettings.GetInstance("").GroupMinMembers)
+                        {
+                            var l = new List<string>
+                            {
+                                ApplicationSettings.GetInstance("").GroupMinMembers.ToString()
+                            };
+                            throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.NoEnoughPersonsInThisGroup, l);
+                        }
+                 
                     if (member.ActiveLoans != null && member.ActiveLoans.Count > 0)
                     {
                         MessageBox.Show(MultiLanguageStrings.GetString(Ressource.VillageForm, "RemoveProhibited.Text"),
@@ -573,13 +583,14 @@ namespace OpenCBS.GUI.Clients
                     else
                     {
                         if (DialogResult.Yes == MessageBox.Show(MultiLanguageStrings.GetString(Ressource.VillageForm, "RemoveConfirm.Text"),
-                            MultiLanguageStrings.GetString(Ressource.VillageForm, "RemoveConfirm.Caption"),
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                                MultiLanguageStrings.GetString(Ressource.VillageForm, "RemoveConfirm.Caption"),
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                         {
                             ServicesProvider.GetInstance().GetClientServices().RemoveMember(_village, member);
                             membersSaved = false;
                             DisplayMembers();
                             DisplayLoans();
+                            Save();
                         }
                     }
                 }
