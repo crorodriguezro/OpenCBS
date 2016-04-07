@@ -627,5 +627,10 @@ namespace OpenCBS.GUI.UserControl
             addressUserControlSecondaryAddress.PersonalPhone = addressUserControlFirst.PersonalPhone;
             addressUserControlSecondaryAddress.Email = addressUserControlFirst.Email;
         }
+
+        private void eacPerson_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
