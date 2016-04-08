@@ -51,7 +51,7 @@ namespace OpenCBS.Manager
             if (_cacheLoanPurposes == null) _cacheLoanPurposes = GetCacheLoanPurposes();
         }
 
-        public void RefreshCashe()
+        public void RefreshCache()
         {
             _cacheEconomicActivities = GetCasheEconomicActivities();
             _cacheLoanPurposes = GetCacheLoanPurposes();
@@ -155,7 +155,7 @@ namespace OpenCBS.Manager
                     insert.AddParam("@parentId", null);
 
                 var result = int.Parse(insert.ExecuteScalar().ToString());
-                RefreshCashe();
+                RefreshCache();
                 return result;
             }
 
@@ -181,7 +181,7 @@ namespace OpenCBS.Manager
                     insert.AddParam("@parentId", null);
 
                 var result = int.Parse(insert.ExecuteScalar().ToString());
-                RefreshCashe();
+                RefreshCache();
                 return result;
             }
 
@@ -217,7 +217,7 @@ namespace OpenCBS.Manager
                 update.AddParam("@name", pEconomicActivity.Name);
                 update.AddParam("@wasDeleted", pEconomicActivity.Deleted);
                 update.ExecuteNonQuery();
-                RefreshCashe();
+                RefreshCache();
             }
         }
 
@@ -232,7 +232,7 @@ namespace OpenCBS.Manager
                 update.AddParam("@name", pEconomicActivity.Name);
                 update.AddParam("@wasDeleted", pEconomicActivity.Deleted);
                 update.ExecuteNonQuery();
-                RefreshCashe();
+                RefreshCache();
             }
         }
 
@@ -314,7 +314,7 @@ namespace OpenCBS.Manager
                 insert.AddParam("@deleted", activityLoanHistory.Deleted);
 
                 insert.ExecuteNonQuery();
-                RefreshCashe();
+                RefreshCache();
 
             }
         }
@@ -333,7 +333,7 @@ namespace OpenCBS.Manager
                 update.AddParam("@economic_activity_id", economicActivityId);
                 update.AddParam("@deleted", deleted);
                 update.ExecuteNonQuery();
-                RefreshCashe();
+                RefreshCache();
             }
         }
 

@@ -49,7 +49,7 @@ namespace OpenCBS.Manager
             if (_cache == null) _cache = GetCache();
         }
 
-        public void RefreshCashe()
+        public void RefreshCache()
         {
             _cache = GetCache();
         }
@@ -141,7 +141,7 @@ namespace OpenCBS.Manager
                 c.AddParam("@description", branch.Description);
                 branch.Id = Convert.ToInt32(c.ExecuteScalar());
 
-                RefreshCashe();
+                RefreshCache();
 
                 return branch;
             }
@@ -164,7 +164,7 @@ namespace OpenCBS.Manager
                 c.AddParam("@address", branch.Address);
                 c.ExecuteNonQuery();
 
-                RefreshCashe();
+                RefreshCache();
             }
         }
 
@@ -178,7 +178,7 @@ namespace OpenCBS.Manager
                 c.AddParam("@id", id);
                 c.ExecuteNonQuery();
 
-                RefreshCashe();
+                RefreshCache();
             }
         }
 
