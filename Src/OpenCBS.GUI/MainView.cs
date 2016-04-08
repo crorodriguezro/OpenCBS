@@ -830,6 +830,7 @@ namespace OpenCBS.GUI
             re.Sort(comparer);
             foreach (var report in re)
             {
+                if (!Report.UserHasAccess(report)) continue;
                 var i = new ToolStripMenuItem(report.Title) { Tag = report.Name };
                 i.Click += activeLoansToolStripMenuItem_Click;
                 if (!string.IsNullOrEmpty(report.Group))
@@ -838,7 +839,7 @@ namespace OpenCBS.GUI
                     var subitems = reportsToolStripMenuItem.DropDownItems.Find(report.Group, true);
                     if (subitems.Any())
                     {
-                        groupItem = (ToolStripMenuItem) subitems[0];
+                        groupItem = (ToolStripMenuItem)subitems[0];
                     }
                     else
                     {

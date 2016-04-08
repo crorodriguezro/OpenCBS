@@ -29,6 +29,7 @@ using CrystalDecisions.CrystalReports.Engine;
 using ICSharpCode.SharpZipLib.Zip;
 using OpenCBS.Shared.Settings;
 using System.Collections.Generic;
+using OpenCBS.CoreDomain;
 
 namespace OpenCBS.Reports
 {
@@ -137,10 +138,10 @@ namespace OpenCBS.Reports
             }
             catch (Exception e)
             {
-               Trace.Indent();
-               Trace.WriteLine("EXCEPTION: ");
-               Trace.WriteLine(e.Message + "\n");
-               Debug.WriteLine("Exception while loading report package");
+                Trace.Indent();
+                Trace.WriteLine("EXCEPTION: ");
+                Trace.WriteLine(e.Message + "\n");
+                Debug.WriteLine("Exception while loading report package");
             }
         }
 
@@ -188,7 +189,7 @@ namespace OpenCBS.Reports
             // Get GUID
             var nodeGuid = root.SelectSingleNode("guid");
             _guid = null == nodeGuid ? Guid.NewGuid() : new Guid(nodeGuid.InnerText);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
             // Get title
             XmlNode nodeTitle = root.SelectSingleNode(string.Format("localized[@lang='{0}']/title", _lang));
             nodeTitle = nodeTitle ?? root.SelectSingleNode("title");
@@ -198,7 +199,7 @@ namespace OpenCBS.Reports
             XmlNode nodeDesc = root.SelectSingleNode(string.Format("localized[@lang='{0}']/description", _lang));
             nodeDesc = nodeDesc ?? root.SelectSingleNode("description");
             _description = nodeDesc.InnerText;
-            
+
             XmlNode rep = doc.GetElementsByTagName("report")[0];
             XmlAttribute order = rep.Attributes["order"];
             _order = order != null ? int.Parse(order.Value) : 0;
@@ -315,11 +316,25 @@ namespace OpenCBS.Reports
             }
         }
 
+        public static bool UserHasAccess(Report report)
+
+        {
+            var currentUser = User.CurrentUser;
+            var userRole = currentUser.UserRole;
+            if (report.Params.Any(val => val is RoleParam))
+            {
+                var roleParams = report.Params.OfType<RoleParam>().First();
+                string[] roles = roleParams.GetArray();
+                return roles.Any(val => val.Equals(userRole.RoleName));
+            }
+            return false;
+        }
+
 
         private static ReportParamV2 XmlNodeToParam(XmlNode node)
         {
             ReportParamV2 param;
-            XmlAttribute d = node.Attributes["default"];            
+            XmlAttribute d = node.Attributes["default"];
             string value = null == d ? string.Empty : d.Value;
 
             XmlAttribute a;
@@ -364,6 +379,10 @@ namespace OpenCBS.Reports
                     a = node.Attributes["consoTable"];
                     string consoTable = null == a ? string.Empty : a.Value;
                     param = new BranchParam(consoTable);
+                    break;
+
+                case "role":
+                    param = new RoleParam(value);
                     break;
 
                 default:
@@ -420,7 +439,7 @@ namespace OpenCBS.Reports
         public bool DisableIfLoanIsPending { get; private set; }
 
         public void AddParam(string name, object value)
-        {            
+        {
             if (null == _params) _params = new List<ReportParamV2>();
 
             ReportParamV2 param = GenerateParameter(name, value);
@@ -545,7 +564,7 @@ namespace OpenCBS.Reports
                 return Path.GetFileName(_fileName);
             }
         }
-        
+
         public void SetFlag(Flag flag)
         {
             _flag = _flag | flag;
