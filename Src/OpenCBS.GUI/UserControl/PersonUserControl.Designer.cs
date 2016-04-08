@@ -915,7 +915,6 @@ namespace OpenCBS.GUI.UserControl
             this.eacPerson.IsLoanPurpose = false;
             this.eacPerson.Name = "eacPerson";
             this.eacPerson.EconomicActivityChange += new System.EventHandler<OpenCBS.GUI.UserControl.EconomicActivtyEventArgs>(this.EacPersonActivityChange);
-            this.eacPerson.Load += new System.EventHandler(this.eacPerson_Load);
             // 
             // cbBranch
             // 
