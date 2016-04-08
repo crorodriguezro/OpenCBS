@@ -67,6 +67,11 @@ namespace OpenCBS.Manager
             return _cacheWithoutBranch;
         }
 
+        public void RefreshCashe()
+        {
+            _cacheWithBranch = GetPaymentMethodOfBranch();
+            _cacheWithoutBranch = GetPaymentMethodsWithoutBranch();
+        }
         public List<PaymentMethod> GetPaymentMethodsWithoutBranch()
         {
             string q = @"SELECT pm.[id]
@@ -175,6 +180,7 @@ namespace OpenCBS.Manager
                 c.AddParam("@payment_method_id", paymentMethod.Id);
                 c.AddParam("@account_id", paymentMethod.Account.Id);
                 c.ExecuteNonQuery();
+                RefreshCashe();
             }
         }
 
@@ -189,6 +195,7 @@ namespace OpenCBS.Manager
             {
                 c.AddParam("@link_id", paymentMethod.LinkId);
                 c.ExecuteNonQuery();
+                RefreshCashe();
             }
         }
 
@@ -205,6 +212,7 @@ namespace OpenCBS.Manager
                 c.AddParam("@payment_method_id", paymentMethod.Id);
                 c.AddParam("@id", paymentMethod.LinkId);
                 c.ExecuteNonQuery();
+                RefreshCashe();
             }
         }
     }
