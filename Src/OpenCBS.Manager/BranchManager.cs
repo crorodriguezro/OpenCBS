@@ -29,7 +29,7 @@ namespace OpenCBS.Manager
 {
     public class BranchManager : Manager
     {
-        private static List<Branch> _cache; 
+        private static List<Branch> _cache;
 
         public BranchManager(User user)
             : base(user)
@@ -49,6 +49,10 @@ namespace OpenCBS.Manager
             if (_cache == null) _cache = GetCache();
         }
 
+        public void RefreshCashe()
+        {
+            _cache = GetCache();
+        }
         private List<Branch> GetCache()
         {
             List<Branch> branches = new List<Branch>();
@@ -137,7 +141,7 @@ namespace OpenCBS.Manager
                 c.AddParam("@description", branch.Description);
                 branch.Id = Convert.ToInt32(c.ExecuteScalar());
 
-                InitCache();
+                RefreshCashe();
 
                 return branch;
             }
@@ -160,7 +164,7 @@ namespace OpenCBS.Manager
                 c.AddParam("@address", branch.Address);
                 c.ExecuteNonQuery();
 
-                InitCache();
+                RefreshCashe();
             }
         }
 
@@ -174,7 +178,7 @@ namespace OpenCBS.Manager
                 c.AddParam("@id", id);
                 c.ExecuteNonQuery();
 
-                InitCache();
+                RefreshCashe();
             }
         }
 
@@ -236,7 +240,7 @@ namespace OpenCBS.Manager
 
         public Branch SelectBranchByName(string name)
         {
-            return _cache.FirstOrDefault(val => val.Name.IndexOf(name,StringComparison.OrdinalIgnoreCase)>=0);
+            return _cache.FirstOrDefault(val => val.Name.IndexOf(name, StringComparison.OrdinalIgnoreCase) >= 0);
         }
     }
 }
