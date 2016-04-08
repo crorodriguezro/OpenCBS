@@ -67,17 +67,22 @@ namespace OpenCBS.ArchitectureV2.Presenter
         public decimal GetDuePrincipal(int loanId)
         {
             var loan = GetLoan(loanId);
-            var date = GetFirstRepaymentDateAfterToday(loan);
-            return loan
-                .Schedule
-                .FindAll(x => x.ExpectedDate <= date)
-                .Sum(x => x.Principal - x.PaidPrincipal);
+            var date = GetFirstExpectedDateAfterToday(loan);
+            if (date.HasValue)
+            {
+                // There are still some installments ahead
+                return loan
+                    .Schedule
+                    .FindAll(x => x.ExpectedDate <= date)
+                    .Sum(x => x.Principal - x.PaidPrincipal);
+            }
+            // The loan is in the past
+            return loan.Schedule.Sum(x => x.Principal - x.PaidPrincipal);
         }
 
         public DateTime GetExpectedDate(int loanId)
         {
             var loan = GetLoan(loanId);
-            var date = GetFirstRepaymentDateAfterToday(loan);
             return loan
                 .Schedule
                 .FindAll(x => !x.Repaid)
@@ -86,23 +91,30 @@ namespace OpenCBS.ArchitectureV2.Presenter
                 .ExpectedDate;
         }
 
-        private DateTime GetFirstRepaymentDateAfterToday(Loan loan)
+        private static DateTime? GetFirstExpectedDateAfterToday(Loan loan)
         {
-            var toDayDate = TimeProvider.Today;
-            return loan.Schedule
+            var today = TimeProvider.Today;
+            var installment = loan.Schedule
                 .Where(x => !x.Repaid)
                 .OrderBy(x => x.ExpectedDate)
-                .First(x => toDayDate <= x.ExpectedDate).ExpectedDate;
+                .FirstOrDefault(x => today <= x.ExpectedDate);
+            return installment == null ? (DateTime?) null : installment.ExpectedDate;
         }
 
         public decimal GetDueInterest(int loanId)
         {
             var loan = GetLoan(loanId);
-            var date = GetFirstRepaymentDateAfterToday(loan);
-            return loan
-                .Schedule
-                .FindAll(x => x.ExpectedDate <= date)
-                .Sum(x => x.Interest - x.PaidInterest);
+            var date = GetFirstExpectedDateAfterToday(loan);
+            if (date.HasValue)
+            {
+                // There are still some installments ahead
+                return loan
+                    .Schedule
+                    .FindAll(x => x.ExpectedDate <= date)
+                    .Sum(x => x.Interest - x.PaidInterest);
+            }
+            // The loan is in the past
+            return loan.Schedule.Sum(x => x.Interest - x.PaidInterest);
         }
 
         public decimal[] DistributeTotal(int loanId, decimal total)
