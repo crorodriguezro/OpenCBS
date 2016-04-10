@@ -246,7 +246,6 @@ namespace OpenCBS.Test.Services
 
             Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city",
                 new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
-            person.OtherOrgAmount = ERRORVALUE;
 
             clientServices.SavePerson(ref person);
         }
@@ -259,9 +258,6 @@ namespace OpenCBS.Test.Services
 
             Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city",
                 new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
-
-            person.OtherOrgAmount = 1;
-            person.OtherOrgDebts = ERRORVALUE;
 
             clientServices.SavePerson(ref person);
         }
@@ -276,9 +272,6 @@ namespace OpenCBS.Test.Services
                 new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
 
            
-            person.OtherOrgAmount = 1;
-            person.OtherOrgDebts = 1;
-
             clientServices.SavePerson(ref person);
         }
 
@@ -289,9 +282,6 @@ namespace OpenCBS.Test.Services
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[a-z]{2}");
 
             Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
-
-            person.OtherOrgAmount = 1;
-            person.OtherOrgDebts = 1;
 
             clientServices.SavePerson(ref person);
         }
@@ -304,9 +294,6 @@ namespace OpenCBS.Test.Services
 
             Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
 
-            person.OtherOrgAmount = 1;
-            person.OtherOrgDebts = 1;
-
             clientServices.SavePerson(ref person);
         }
 
@@ -316,9 +303,6 @@ namespace OpenCBS.Test.Services
         {
             ApplicationSettings.GetInstance("").UpdateParameter(OGeneralSettings.ID_PATTERN, @"[0-9]{2}[a-z]{2}");
             Person person = AddPerson(true, new EconomicActivity(1, "tiki", null, false), 1, "city", new District(1, "district", new Province(1, "province")), "nicolas", "mangin", 'M', "12aa");
-
-            person.OtherOrgAmount = 1;
-            person.OtherOrgDebts = 1;
 
             clientServices.SavePerson(ref person);
         }
@@ -585,7 +569,6 @@ namespace OpenCBS.Test.Services
 
             Member leader = new Member {Tiers = {Id = 1}};
             Group group = AddGroup(true, "Dushambe", new District(1, "district", new Province(1, "province")), "Nicolas", leader, 4);
-            group.OtherOrgAmount = ERRORVALUE;
 
             services.SaveSolidarityGroup(ref group);
         }
@@ -600,8 +583,6 @@ namespace OpenCBS.Test.Services
 
             Member leader = new Member {Tiers = {Id = 1}};
             Group group = AddGroup(true, "Dushambe", new District(1, "district", new Province(1, "province")), "Nicolas", leader, 4);
-            group.OtherOrgAmount = 100;
-            group.OtherOrgDebts = ERRORVALUE;
 
             services.SaveSolidarityGroup(ref group);
         }

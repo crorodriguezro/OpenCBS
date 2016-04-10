@@ -108,14 +108,9 @@ namespace OpenCBS.Test.Manager
             _person.BirthPlace = "Nancy";
             _person.Email = "man@yahoo.fr";
             _person.SecondaryEmail = "man@yahoo2.fr";
-            _person.HomeType = "Maison";
             _person.ZipCode = "12345";
             _person.SecondaryZipCode = "123458";
-            _person.SecondaryHomeType = "Maison";
 		    _person.Status = OClientStatus.Inactive;
-            _person.FollowUpComment = "Comment follow Up";
-		    _person.Sponsor1 = "coucou";
-            _person.Sponsor1Comment = "coucou2";
 		    _person.Branch = _branch;
 
             _group = new Group();
@@ -129,26 +124,16 @@ namespace OpenCBS.Test.Manager
             _group.SecondaryZipCode = "123458";
             _group.Email = "man@yahoo.fr";
             _group.SecondaryEmail = "man@yahoo2.fr";
-            _group.HomeType = "Maison";
-            _group.SecondaryHomeType = "Maison";
             _group.Status = OClientStatus.Active;
-            _group.FollowUpComment = "Follow Up Comment Group";
-            _group.Sponsor2 = "coucou";
-            _group.Sponsor2Comment = "coucou2";
 		    _group.Branch = _branch;
 		}
 		
 		private void PrepareNullAuthorizedValues()
 		{
 			_person.Scoring = 0.6;
-			_person.OtherOrgName = "Planet Finance";
-			_person.OtherOrgAmount = 500m;
-			_person.OtherOrgDebts = 200.43m;
 			_person.Address = "Kaboul Street";
             _person.Email = "man@yahoo.fr";
             _person.SecondaryEmail = "man@yahoo2.fr";
-		    _person.HomeType = "Maison";
-            _person.SecondaryHomeType = "Maison";
 			_person.SecondaryDistrict = _district;
 			_person.SecondaryCity = "Kathlon";
 			_person.SecondaryAddress = "32 rue des acacias";
@@ -159,19 +144,13 @@ namespace OpenCBS.Test.Manager
 			_person.Activity = _agriculture;
 
 			_group.Scoring = 0.6;
-			_group.OtherOrgName = "Planet Finance";
-			_group.OtherOrgAmount = 500m;
-			_group.OtherOrgDebts = 200.43m;
 			_group.Address = "Kaboul Street";
 			_group.SecondaryDistrict = _district;
             _group.SecondaryCity = "Kathlon";
             _group.Email = "man@yahoo.fr";
             _group.SecondaryEmail = "man@yahoo2.fr";
-            _group.HomeType = "Maison";
-            _group.SecondaryHomeType = "Maison";
 			_group.SecondaryAddress = "32 rue des acacias";
 			_group.EstablishmentDate = new DateTime(2006,7,14);
-			_group.FollowUpComment = "oh my God";
 		}
 		
 		[Test]
@@ -204,16 +183,9 @@ namespace OpenCBS.Test.Manager
             Assert.AreEqual(pExpectedPerson.Sex, pActualPerson.Sex);
             Assert.AreEqual(pExpectedPerson.LoanCycle, pActualPerson.LoanCycle);
             Assert.AreEqual(pExpectedPerson.IdentificationData, pActualPerson.IdentificationData);
-            Assert.AreEqual(pExpectedPerson.CashReceiptIn, pActualPerson.CashReceiptIn);
-            Assert.AreEqual(pExpectedPerson.CashReceiptOut, pActualPerson.CashReceiptOut);
             Assert.AreEqual(pExpectedPerson.BadClient, pActualPerson.BadClient);
             Assert.AreEqual(pExpectedPerson.Projects.Count, pActualPerson.Projects.Count);
             Assert.AreEqual(pExpectedPerson.Scoring, pActualPerson.Scoring);
-            Assert.AreEqual(pExpectedPerson.OtherOrgName,pActualPerson.OtherOrgName);
-            if (pExpectedPerson.OtherOrgAmount.HasValue)
-            Assert.AreEqual(pExpectedPerson.OtherOrgAmount.Value,pActualPerson.OtherOrgAmount.Value);
-            if (pExpectedPerson.OtherOrgDebts.HasValue)
-            Assert.AreEqual(pExpectedPerson.OtherOrgDebts.Value,pActualPerson.OtherOrgDebts.Value);
             Assert.AreEqual(pExpectedPerson.Address,pActualPerson.Address);
             if (pExpectedPerson.SecondaryDistrict != null)
                 Assert.AreEqual(pExpectedPerson.SecondaryDistrict.Name, pActualPerson.SecondaryDistrict.Name);
@@ -237,11 +209,8 @@ namespace OpenCBS.Test.Manager
             Assert.AreEqual(pExpectedPerson.BirthPlace, pActualPerson.BirthPlace);
             Assert.AreEqual(pExpectedPerson.Email, pActualPerson.Email);
             Assert.AreEqual(pExpectedPerson.SecondaryEmail, pActualPerson.SecondaryEmail);
-            Assert.AreEqual(pExpectedPerson.HomeType, pActualPerson.HomeType);
-            Assert.AreEqual(pExpectedPerson.SecondaryHomeType, pActualPerson.SecondaryHomeType);
             Assert.AreEqual(pExpectedPerson.ZipCode, pActualPerson.ZipCode);
             Assert.AreEqual(pExpectedPerson.SecondaryZipCode, pActualPerson.SecondaryZipCode);
-            Assert.AreEqual(pExpectedPerson.FollowUpComment, pActualPerson.FollowUpComment);
         }
 
 	    [Ignore]
@@ -265,44 +234,6 @@ namespace OpenCBS.Test.Manager
             Person selectedPerson = _cltManagement.SelectPersonById(_person.Id);
 
             _AssertPerson(_person, selectedPerson);
-        }
-
-        [Test]
-        public void AddPerson_Get_Set_Sponsor1()
-        {
-            _person.Sponsor1 = "nicolas";
-            int id = _cltManagement.AddPerson(_person);
-
-            Person selectedPerson = _cltManagement.SelectPersonById(id);
-            Assert.AreEqual("nicolas", selectedPerson.Sponsor1);
-        }
-
-        [Test]
-        public void AddPerson_Get_Set_Sponsor1Comment()
-        {
-            _person.Sponsor1Comment = "nico";
-            int id = _cltManagement.AddPerson(_person);
-
-            Person selectedPerson = _cltManagement.SelectPersonById(id);
-            Assert.AreEqual("nico", selectedPerson.Sponsor1Comment);
-        }
-        [Test]
-        public void AddPerson_Get_Set_Sponsor2()
-        {
-            _person.Sponsor2 = "florinae";
-            int id = _cltManagement.AddPerson(_person);
-
-            Person selectedPerson = _cltManagement.SelectPersonById(id);
-            Assert.AreEqual("florinae", selectedPerson.Sponsor2);
-        }
-        [Test]
-        public void AddPerson_Get_Set_Sponsor2Comment()
-        {
-            _person.Sponsor2Comment = "111111";
-            int id = _cltManagement.AddPerson(_person);
-
-            Person selectedPerson = _cltManagement.SelectPersonById(id);
-            Assert.AreEqual("111111", selectedPerson.Sponsor2Comment);
         }
 
         [Test]
@@ -356,8 +287,6 @@ namespace OpenCBS.Test.Manager
 	    [Test]
 		public void TestAddPersonAndSelectPersonById()
 		{
-			_person.CashReceiptIn = 12;
-			_person.CashReceiptOut = 2;
 			_person.Image = @"c:\image.jpg";
 			_person.Id = _cltManagement.AddPerson(_person);
 			Person selectedPerson = _cltManagement.SelectPersonById(_person.Id);
@@ -385,8 +314,6 @@ namespace OpenCBS.Test.Manager
             _person.SecondaryPersonalPhone = "12344321";
             _person.ZipCode = "1234";
             _person.SecondaryZipCode = "12344";
-            _person.HomeType = "12331";
-            _person.SecondaryHomeType = "12461";
 			_person.Id = _cltManagement.AddPerson(_person);
 
 			Person selectedPerson = _cltManagement.SelectPersonById(_person.Id);
@@ -395,17 +322,12 @@ namespace OpenCBS.Test.Manager
 
             Assert.AreEqual("1234", selectedPerson.ZipCode);
             Assert.AreEqual("12344", selectedPerson.SecondaryZipCode);
-            Assert.AreEqual("12331", selectedPerson.HomeType);
-            Assert.AreEqual("12461", selectedPerson.SecondaryHomeType);
 
             Assert.AreEqual("12345678", selectedPerson.HomePhone);
             Assert.AreEqual("87654321", selectedPerson.PersonalPhone);
             Assert.AreEqual("987987654", selectedPerson.SecondaryHomePhone);
             Assert.AreEqual("12344321", selectedPerson.SecondaryPersonalPhone);
             Assert.AreEqual(_person.Scoring,selectedPerson.Scoring);
-			Assert.AreEqual(_person.OtherOrgName,selectedPerson.OtherOrgName);
-			Assert.AreEqual(_person.OtherOrgAmount.Value,selectedPerson.OtherOrgAmount.Value);
-			Assert.AreEqual(_person.OtherOrgDebts.Value,selectedPerson.OtherOrgDebts.Value);
 			Assert.AreEqual(_person.Address,selectedPerson.Address);
 			Assert.AreEqual(_person.SecondaryDistrict.Name,selectedPerson.SecondaryDistrict.Name);
 			if(!string.IsNullOrEmpty(_person.SecondaryCity))
@@ -522,8 +444,6 @@ namespace OpenCBS.Test.Manager
 			_person.LastName = "Mecd";
 			_person.Sex = 'F';
 			_person.IdentificationData = "ERP345";
-			_person.CashReceiptIn = 10;
-			_person.CashReceiptOut = 12;
 			_person.Image = @"c:\test.jpg";
 		    _person.LoanCycle = 34;
             _person.HomePhone = "0";
@@ -535,8 +455,6 @@ namespace OpenCBS.Test.Manager
             _person.BirthPlace = "Nancy2";
             _person.Email = "man@yahoo.fr2";
             _person.SecondaryEmail = "man@yahoo342.fr";
-            _person.HomeType = "Maison45";
-            _person.SecondaryHomeType = "Maison3535";
 
             _person.ZipCode = "54321";
             _person.SecondaryZipCode = "45654";
@@ -562,12 +480,7 @@ namespace OpenCBS.Test.Manager
 			Assert.AreEqual(_person.LastName,selectedPerson.LastName);
 			Assert.AreEqual(_person.Sex,selectedPerson.Sex);
 			Assert.AreEqual(_person.IdentificationData,selectedPerson.IdentificationData);
-			Assert.AreEqual(10,_person.CashReceiptIn.Value);
-			Assert.AreEqual(12,_person.CashReceiptOut.Value);
 			Assert.AreEqual(_person.Scoring,selectedPerson.Scoring);
-			Assert.AreEqual(_person.OtherOrgName,selectedPerson.OtherOrgName);
-			Assert.AreEqual(_person.OtherOrgAmount.Value,selectedPerson.OtherOrgAmount.Value);
-			Assert.AreEqual(_person.OtherOrgDebts.Value,selectedPerson.OtherOrgDebts.Value);
 			Assert.AreEqual(_person.Address,selectedPerson.Address);
 			Assert.AreEqual(_person.SecondaryDistrict.Name,selectedPerson.SecondaryDistrict.Name);
 			
@@ -598,30 +511,22 @@ namespace OpenCBS.Test.Manager
 			Assert.AreEqual(_group.Name,selectedGroup.Name);
             Assert.AreEqual(1, selectedGroup.GetNumberOfMembers);
             Assert.AreEqual(OClientStatus.Active, selectedGroup.Status);
-			Assert.AreEqual(null,selectedGroup.CashReceiptIn);
-			Assert.AreEqual(null,selectedGroup.CashReceiptOut);
             Assert.IsFalse(selectedGroup.BadClient);
 		}
 
 		[Test]
 		public void TestAddGroupAndSelectGroupById()
 		{
-			_person.CashReceiptIn = 12;
-			_person.CashReceiptOut = 3;
 			_person.Id = _cltManagement.AddPerson(_person);
 
             _group.AddMember(new Member { Tiers = _person, LoanShareAmount = 1000, CurrentlyIn = true, IsLeader = false, JoinedDate = TimeProvider.Today });
 
-			_group.CashReceiptIn = 3;
-			_group.CashReceiptOut = 5;
 		    _group.BadClient = true;
 
 			_group.Id = _cltManagement.AddNewGroup(_group);
             Group selectedGroup = _cltManagement.SelectGroupById(_group.Id);
 			
 			Assert.AreEqual(_group.Id,selectedGroup.Id);
-			Assert.AreEqual(3,selectedGroup.CashReceiptIn.Value);
-			Assert.AreEqual(5,selectedGroup.CashReceiptOut.Value);
             Assert.IsTrue(selectedGroup.BadClient);
 
 			Assert.AreEqual(OClientTypes.Group,selectedGroup.Type);
@@ -644,9 +549,6 @@ namespace OpenCBS.Test.Manager
             Group selectedGroup = _cltManagement.SelectGroupById(_group.Id);
 			
 			Assert.IsTrue(!selectedGroup.Scoring.HasValue);
-			Assert.IsNull(selectedGroup.OtherOrgName);
-			Assert.IsTrue(!selectedGroup.OtherOrgAmount.HasValue);
-			Assert.IsTrue(!selectedGroup.OtherOrgDebts.HasValue);
 			Assert.IsNull(selectedGroup.Address);
 			Assert.IsNull(selectedGroup.SecondaryDistrict);
 			Assert.IsNull(selectedGroup.SecondaryCity);
@@ -669,16 +571,12 @@ namespace OpenCBS.Test.Manager
             Group selectedGroup = _cltManagement.SelectGroupById(_group.Id);
 			
 			Assert.AreEqual(_group.Scoring,selectedGroup.Scoring);
-			Assert.AreEqual(_group.OtherOrgName,selectedGroup.OtherOrgName);
-			Assert.AreEqual(_group.OtherOrgAmount.Value,selectedGroup.OtherOrgAmount.Value);
-			Assert.AreEqual(_group.OtherOrgDebts.Value,selectedGroup.OtherOrgDebts.Value);
 			Assert.AreEqual(_group.Address,selectedGroup.Address);
 			Assert.AreEqual(_group.SecondaryDistrict.Name,selectedGroup.SecondaryDistrict.Name);
 			if(!string.IsNullOrEmpty(_group.SecondaryCity))
                 Assert.AreEqual(_group.SecondaryCity,selectedGroup.SecondaryCity);
 			Assert.AreEqual(_group.SecondaryAddress,selectedGroup.SecondaryAddress);
 			Assert.AreEqual(_group.EstablishmentDate,selectedGroup.EstablishmentDate);
-			Assert.AreEqual(_group.FollowUpComment,selectedGroup.FollowUpComment);
 			Assert.AreEqual(1,selectedGroup.GetNumberOfMembers);
 		}
 
@@ -697,14 +595,10 @@ namespace OpenCBS.Test.Manager
 			_group.City = "Dushambe";
 			_group.District = _district;
 			_group.Name = "SCG";
-			_group.CashReceiptIn = 10;
-			_group.CashReceiptOut = 14;
 		    _group.Status = OClientStatus.Deleted;
 
 
-		    _group.HomeType = "Maison";
             _group.SecondaryZipCode = "75000";
-            _group.SecondaryHomeType = "Maison2";
             _group.ZipCode = "75002";
             _group.HomePhone = "0";
             _group.PersonalPhone = "1";
@@ -721,8 +615,6 @@ namespace OpenCBS.Test.Manager
 
             Assert.AreEqual("75002", _group.ZipCode);
             Assert.AreEqual("75000", _group.SecondaryZipCode);
-            Assert.AreEqual("Maison", _group.HomeType);
-            Assert.AreEqual("Maison2", _group.SecondaryHomeType);
 
             Assert.AreEqual("0", _group.HomePhone);
             Assert.AreEqual("1", _group.PersonalPhone);
@@ -730,13 +622,8 @@ namespace OpenCBS.Test.Manager
             Assert.AreEqual("3", _group.SecondaryPersonalPhone);
 			Assert.AreEqual(_group.District.Name,selectedGroup.District.Name);
             Assert.AreEqual(_group.Name, selectedGroup.Name);
-            Assert.AreEqual(10, _group.CashReceiptIn.Value);
             Assert.AreEqual(OClientStatus.Deleted, _group.Status);
-			Assert.AreEqual(14,_group.CashReceiptOut.Value);
 			Assert.AreEqual(_group.Scoring,selectedGroup.Scoring);
-			Assert.AreEqual(_group.OtherOrgName,selectedGroup.OtherOrgName);
-			Assert.AreEqual(_group.OtherOrgAmount,selectedGroup.OtherOrgAmount);
-			Assert.AreEqual(_group.OtherOrgDebts,selectedGroup.OtherOrgDebts);
 			Assert.AreEqual(_group.Address,selectedGroup.Address);
 			Assert.AreEqual(_group.SecondaryDistrict.Name,selectedGroup.SecondaryDistrict.Name);
 			Assert.AreEqual(_group.SecondaryCity,selectedGroup.SecondaryCity);
@@ -810,8 +697,6 @@ namespace OpenCBS.Test.Manager
 	    [Test]
 		public void TestUpdateGroupWhenNeedToChangeLeader()
 		{
-			_person.CashReceiptIn = 19;
-			_person.CashReceiptOut = 2;
 			_person.Id = _cltManagement.AddPerson(_person);
 
 			Person firstPersonToAdd = new Person
@@ -823,8 +708,6 @@ namespace OpenCBS.Test.Manager
 			                                  LastName = "MANGIN",
 			                                  Sex = 'M',
 			                                  IdentificationData = "145VK133",
-			                                  CashReceiptIn = 15,
-			                                  CashReceiptOut = 23,
                                               Branch = _branch
 			                              };
 	        firstPersonToAdd.Id = _cltManagement.AddPerson(firstPersonToAdd);
@@ -838,8 +721,6 @@ namespace OpenCBS.Test.Manager
 			                                   LastName = "BARON",
 			                                   Sex = 'M',
 			                                   IdentificationData = "2334KGHT",
-			                                   CashReceiptIn = 1,
-			                                   CashReceiptOut = 4,
                                                Branch = _branch
 			                               };
 	        secondPersonToAdd.Id = _cltManagement.AddPerson(secondPersonToAdd);
@@ -847,8 +728,6 @@ namespace OpenCBS.Test.Manager
             _group.Leader = new Member { Tiers = _person, LoanShareAmount = 0, CurrentlyIn = true, IsLeader = true, JoinedDate = TimeProvider.Today };
             _group.AddMember(new Member { Tiers = firstPersonToAdd, LoanShareAmount = 1000, CurrentlyIn = true, IsLeader = false, JoinedDate = TimeProvider.Today });
             _group.AddMember(new Member { Tiers = secondPersonToAdd, LoanShareAmount = 1000, CurrentlyIn = true, IsLeader = false, JoinedDate = TimeProvider.Today });
-			_group.CashReceiptIn = 10;
-			_group.CashReceiptOut = 14;
 
 			_group.Id = _cltManagement.AddNewGroup(_group);
 
@@ -857,25 +736,12 @@ namespace OpenCBS.Test.Manager
 			Assert.AreEqual(3,selectedGroup.GetNumberOfMembers);
 			Assert.AreEqual(_person.LastName,((Person)selectedGroup.Leader.Tiers).LastName);
 
-			Assert.AreEqual(10,_group.CashReceiptIn.Value);
-			Assert.AreEqual(14,_group.CashReceiptOut.Value);
-
-            Assert.AreEqual(19, ((Person)selectedGroup.Leader.Tiers).CashReceiptIn.Value);
-            Assert.AreEqual(2, ((Person)selectedGroup.Leader.Tiers).CashReceiptOut.Value);
-
-			_group.CashReceiptIn = 101;
-			_group.CashReceiptOut = 141;
-
             _group.Leader = new Member { Tiers = firstPersonToAdd, LoanShareAmount = 0, CurrentlyIn = true, IsLeader = true, JoinedDate = TimeProvider.Today };
-            ((Person)selectedGroup.Leader.Tiers).CashReceiptIn = 151;
-            ((Person)selectedGroup.Leader.Tiers).CashReceiptOut = 231;
 
 			_cltManagement.UpdateGroup(_group);
 			selectedGroup = _cltManagement.SelectGroupById(_group.Id);
 
 			Assert.AreEqual(3,selectedGroup.GetNumberOfMembers);
-			Assert.AreEqual(101,_group.CashReceiptIn.Value);
-			Assert.AreEqual(141,_group.CashReceiptOut.Value);
 
             Assert.AreEqual(firstPersonToAdd.LastName, ((Person)selectedGroup.Leader.Tiers).LastName);
             Assert.AreEqual(firstPersonToAdd.FirstName, ((Person)selectedGroup.Leader.Tiers).FirstName);

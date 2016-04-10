@@ -82,27 +82,6 @@ namespace OpenCBS.Test.CoreDomain
         }
 
 		[Test]
-		public void TestIfOtherOrgNameIsCorrectlySetAndRetrieved()
-		{
-			person.OtherOrgName = "Planet Finance";
-			Assert.AreEqual("Planet Finance" , person.OtherOrgName);
-		}
-
-		[Test]
-		public void TestIfOtherOrgAmountIsCorrectlySetAndRetrieved()
-		{
-			person.OtherOrgAmount = 200.5m;
-			Assert.AreEqual(200.5m,person.OtherOrgAmount.Value);
-		}
-
-		[Test]
-		public void TestIfOtherOrgDebtsIsCorrectlySetAndRetrieved()
-		{
-			person.OtherOrgDebts = 200.5m;
-			Assert.AreEqual(200.5m,person.OtherOrgDebts.Value);
-		}
-
-		[Test]
 		public void TestIfAddressIsCorrectlySetAndRetrieved()
 		{
 			person.Address = "50 avenue des Champs Elys�es";
@@ -242,34 +221,6 @@ namespace OpenCBS.Test.CoreDomain
 			Assert.AreEqual("Agriculture",person.Activity.Name);
 			Assert.IsNotNull(person.Activity.Parent);
 			Assert.IsFalse(person.Activity.Deleted);
-		}
-
-		[Test]
-		public void TestIfPersonIsMemberOfAnOtherOrganization()
-		{
-			Person newPerson = new Person();
-			newPerson.OtherOrgAmount = null;
-			newPerson.OtherOrgDebts = null;
-			newPerson.OtherOrgName = null;
-			Assert.IsFalse(newPerson.HasOtherOrganization());
-
-			newPerson.OtherOrgAmount = 123;
-			Assert.IsTrue(newPerson.HasOtherOrganization());
-
-			newPerson.OtherOrgDebts = 1233;
-			Assert.IsTrue(newPerson.HasOtherOrganization());
-
-			newPerson.OtherOrgName = "planet finance";
-			Assert.IsTrue(newPerson.HasOtherOrganization());
-
-			newPerson.OtherOrgAmount = null;
-			Assert.IsTrue(newPerson.HasOtherOrganization());
-
-			newPerson.OtherOrgDebts = null;
-			Assert.IsTrue(newPerson.HasOtherOrganization());
-
-			newPerson.OtherOrgName = null;
-			Assert.IsFalse(newPerson.HasOtherOrganization());
 		}
 
         [Test]

@@ -24,7 +24,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using OpenCBS.CoreDomain;
-using OpenCBS.Enums;
 using OpenCBS.Services;
 using OpenCBS.MultiLanguageRessources;
 
@@ -43,7 +42,6 @@ namespace OpenCBS.GUI
         private string _personalPhone;
         private string _email;
         private string _zipCode;
-        private string _homeType;
 
         public AddressUserControl(bool mandatory = true)
         {
@@ -61,7 +59,7 @@ namespace OpenCBS.GUI
             set
             {
                 _district = value;
-                _SetValue(_district, _city, _comments, _homePhone,_personalPhone,_zipCode,_email,_homeType);
+                _SetValue(_district, _city, _comments, _homePhone,_personalPhone,_zipCode,_email);
             }
         }
 
@@ -71,7 +69,7 @@ namespace OpenCBS.GUI
             set
             {
                 _city = value;
-                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email, _homeType);
+                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
             }
         }
 
@@ -81,7 +79,7 @@ namespace OpenCBS.GUI
             set
             {
                 _comments = value;
-                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email, _homeType);
+                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
             }
         }
 
@@ -91,7 +89,7 @@ namespace OpenCBS.GUI
             set
             {
                 _homePhone= value;
-                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email, _homeType);
+                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
             }
         }
 
@@ -101,7 +99,7 @@ namespace OpenCBS.GUI
             set
             {
                 _personalPhone = value;
-                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email, _homeType);
+                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
             }
         }
 
@@ -111,7 +109,7 @@ namespace OpenCBS.GUI
             set
             {
                 _email = value;
-                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email, _homeType);
+                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
             }
         }
 
@@ -121,17 +119,7 @@ namespace OpenCBS.GUI
             set
             {
                 _zipCode = value;
-                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email, _homeType);
-            }
-        }
-
-        public string HomeType
-        {
-            get { return _homeType; }
-            set
-            {
-                _homeType = value;
-                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email, _homeType);
+                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
             }
         }
 
@@ -148,7 +136,7 @@ namespace OpenCBS.GUI
         }
 
         private void _SetValue(District pDistrict, string pCity, 
-            string pComments,string pHomePhone,string pPersonalPhone,string pZipCode, string pEmail,string pHomeType)
+            string pComments,string pHomePhone,string pPersonalPhone,string pZipCode, string pEmail)
         {
             if (pDistrict != null)
             {
@@ -161,7 +149,6 @@ namespace OpenCBS.GUI
             textBoxPersonalPhone.Text = pPersonalPhone;
             textBoxEMail.Text = pEmail;
             tbZipCode.Text = pZipCode;
-            comboBoxHomeType.Text = pHomeType;
         }
 
         private void _Initialization()
@@ -175,21 +162,9 @@ namespace OpenCBS.GUI
             _personalPhone = string.Empty;
             _email = string.Empty;
             _zipCode = string.Empty;
-            _homeType = string.Empty;
             _InitializeProvince();
             _InitializeDistricts();
             _InitializeCity();
-            _InitializeHomeType();
-        }
-
-        private void _InitializeHomeType()
-        {
-            comboBoxHomeType.Items.Clear();
-            List<string> list = ServicesProvider.GetInstance().GetClientServices().FindAllSetUpFields(OSetUpFieldTypes.HousingLocation);
-            foreach (string s in list)
-            {
-                comboBoxHomeType.Items.Add(s);
-            }
         }
 
         private void _InitializeProvince()
@@ -291,7 +266,6 @@ namespace OpenCBS.GUI
         {
             _InitializeDistricts();
             _InitializeProvince();
-            _InitializeHomeType();
             textBoxCity.Text = string.Empty;
             tbAddress.Text = string.Empty;
             textBoxHomePhone.Text = string.Empty;
@@ -346,22 +320,10 @@ namespace OpenCBS.GUI
             _email = ServicesHelper.CheckTextBoxText(textBoxEMail.Text);
         }
 
-        private void comboBoxHomeType_DropDown(object sender, EventArgs e)
-        {
-            _InitializeHomeType();
-        }
-
-        private void comboBoxHomeType_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            _homeType = ServicesHelper.CheckTextBoxText(comboBoxHomeType.SelectedItem.ToString());
-        }
-
         public bool ExtraVisible
         {
             set
             {
-                comboBoxHomeType.Visible = value;
-                label1.Visible = value;
                 textBoxHomePhone.Visible = value;
                 labelHomePhone.Visible = value;
                 textBoxPersonalPhone.Visible = value;

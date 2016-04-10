@@ -23,7 +23,6 @@ using System;
 using System.Collections.Generic;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.Enums;
-using OpenCBS.Shared;
 using OpenCBS.CoreDomain.Contracts.Savings;
 
 namespace OpenCBS.CoreDomain.Clients
@@ -68,9 +67,6 @@ namespace OpenCBS.CoreDomain.Clients
         public bool Active { get; set; }
 
         public virtual bool BadClient { get; set; }
-        public string OtherOrgName { get; set; }
-        public OCurrency OtherOrgAmount { get; set; }
-        public OCurrency OtherOrgDebts { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
         public string ZipCode { get; set; }
@@ -87,10 +83,7 @@ namespace OpenCBS.CoreDomain.Clients
         public string PersonalPhone { get; set; }
         public string Email { get; set; }
         public string SecondaryEmail { get; set; }
-        public string SecondaryHomeType { get; set; }
         public string SecondaryZipCode { get; set; }
-        public string HomeType { get; set; }
-        public string OtherOrgComment { get; set; }
         public string SecondaryHomePhone { get; set; }
         public string SecondaryPersonalPhone { get; set; }
         public District SecondaryDistrict
@@ -112,19 +105,7 @@ namespace OpenCBS.CoreDomain.Clients
             set { _clientStatus = value; }
         }
 
-        public string Sponsor1 { get; set; }
-        public string Sponsor2 { get; set; }
-        public string Sponsor1Comment { get; set; }
-        public string Sponsor2Comment { get; set; }
-        public string FollowUpComment { get; set; }
         public DateTime CreationDate { get; set; }
-        public int? CashReceiptIn { get; set; }
-        public int? CashReceiptOut { get; set; }
-
-        public bool HasOtherOrganization()
-        {
-            return OtherOrgName != null || OtherOrgDebts.HasValue || OtherOrgAmount.HasValue;
-        }
 
         public List<Project> Projects
         {

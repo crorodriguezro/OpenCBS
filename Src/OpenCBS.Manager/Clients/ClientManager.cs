@@ -82,31 +82,18 @@ namespace OpenCBS.Manager.Clients
                                         [active]=@active, 
                                         [loan_cycle] = @loanCycle, 
                                         [bad_client]=@badClient, 
-                                        [other_org_name]=@otherOrgName, 
-                                        [other_org_amount]=@otherOrgAmount, 
-                                        [other_org_debts]=@otherOrgDebts, 
                                         [district_id]=@districtId, 
                                         [city]=@city, 
                                         [address]=@address, 
                                         [secondary_district_id]=@secondaryDistrictId, 
                                         [secondary_city]=@secondaryCity, 
                                         [secondary_address]=@secondaryAddress, 
-                                        [cash_input_voucher_number]=@cashInput, 
-                                        [cash_output_voucher_number]=@cashOutput,
                                         [home_phone] = @homePhone,
                                         [personal_phone]=@personalPhone,
                                         [secondary_home_phone]= @secondaryHomePhone,
                                         [secondary_personal_phone]=@secondaryPersonalPhone,
                                         [e_mail] = @email,
                                         [secondary_e_mail] = @secondaryEmail,
-                                        [home_type] = @homeType, 
-                                        [secondary_homeType] = @secondaryHomeType,
-                                        [other_org_comment] = @otherOrgComment, 
-                                        [sponsor1] = @sponsor1,
-                                        [sponsor2] = @sponsor2,
-                                        [sponsor1_comment] = @sponsor1Comment,
-                                        [sponsor2_comment] = @sponsor2Comment,
-                                        [follow_up_comment] = @followUpComment,
                                         [zipCode] = @zipCode, 
                                         [secondary_zipCode] = @secondaryZipCode
                                         , branch_id = @branch_id
@@ -116,8 +103,6 @@ namespace OpenCBS.Manager.Clients
             {
                 c.AddParam("@zipCode", pTiers.ZipCode);
                 c.AddParam("@secondaryZipCode", pTiers.SecondaryZipCode);
-                c.AddParam("@homeType", pTiers.HomeType);
-                c.AddParam("@secondaryHomeType", pTiers.SecondaryHomeType);
                 c.AddParam("@email", pTiers.Email);
                 c.AddParam("@secondaryEmail", pTiers.SecondaryEmail);
                 c.AddParam("@id", pTiers.Id);
@@ -125,9 +110,6 @@ namespace OpenCBS.Manager.Clients
                 c.AddParam("@active", pTiers.Active);
                 c.AddParam("@badClient", pTiers.BadClient);
                 c.AddParam("@loanCycle", pTiers.LoanCycle);
-                c.AddParam("@otherOrgName", pTiers.OtherOrgName);
-                c.AddParam("@otherOrgAmount", pTiers.OtherOrgAmount);
-                c.AddParam("@otherOrgDebts", pTiers.OtherOrgDebts);
                 c.AddParam("@city", pTiers.City);
                 c.AddParam("@address", pTiers.Address);
                 c.AddParam("@secondaryCity", pTiers.SecondaryCity);
@@ -137,14 +119,6 @@ namespace OpenCBS.Manager.Clients
                 c.AddParam("@personalPhone", pTiers.PersonalPhone);
                 c.AddParam("@secondaryHomePhone", pTiers.SecondaryHomePhone);
                 c.AddParam("@secondaryPersonalPhone", pTiers.SecondaryPersonalPhone);
-                c.AddParam("@cashInput", pTiers.CashReceiptIn);
-                c.AddParam("@cashOutput", pTiers.CashReceiptOut);
-                c.AddParam("@otherOrgComment", pTiers.OtherOrgComment);
-                c.AddParam("@sponsor1", pTiers.Sponsor1);
-                c.AddParam("@sponsor2", pTiers.Sponsor2);
-                c.AddParam("@sponsor1Comment", pTiers.Sponsor1Comment);
-                c.AddParam("@sponsor2Comment", pTiers.Sponsor2Comment);
-                c.AddParam("@followUpComment", pTiers.FollowUpComment);
                 c.AddParam("@branch_id", pTiers.Branch.Id);
 
                 if (pTiers.District != null)
@@ -266,17 +240,12 @@ namespace OpenCBS.Manager.Clients
                                  Tiers.loan_cycle,
                                  Tiers.active, 
                                  Tiers.bad_client, 
-                                 Tiers.other_org_name, 
-                                 Tiers.other_org_amount, 
-                                 Tiers.other_org_debts, 
                                  Tiers.district_id, 
                                  Tiers.city, 
                                  Tiers.address, 
                                  Tiers.secondary_district_id, 
                                  Tiers.secondary_city, 
                                  Tiers.secondary_address, 
-                                 Tiers.cash_input_voucher_number, 
-                                 Tiers.cash_output_voucher_number,
                                  Tiers.status,
                                  Tiers.home_phone, 
                                  Tiers.personal_phone,
@@ -284,14 +253,8 @@ namespace OpenCBS.Manager.Clients
                                  Tiers.secondary_personal_phone,
                                  Tiers.e_mail,
                                  Tiers.secondary_e_mail,
-                                 Tiers.home_type,
                                  Tiers.zipCode, 
                                  Tiers.secondary_zipCode,
-                                 Tiers.secondary_homeType,
-                                 Tiers.other_org_comment,
-                                 Tiers.sponsor1,Tiers.sponsor2,
-                                 Tiers.sponsor1_comment,Tiers.sponsor2_comment,
-                                 Tiers.follow_up_comment,
                                  Tiers.branch_id,
                                  Persons.first_name, 
                                  Persons.sex, 
@@ -366,16 +329,11 @@ namespace OpenCBS.Manager.Clients
                              Email = r.GetString("e_mail"),
                              Status = (OClientStatus)r.GetSmallInt("status"),
                              SecondaryEmail = r.GetString("secondary_e_mail"),
-                             HomeType = r.GetString("home_type"),
-                             SecondaryHomeType = r.GetString("secondary_hometype"),
                              ZipCode = r.GetString("zipCode"),
                              SecondaryZipCode = r.GetString("secondary_zipCode"),
-                             OtherOrgComment = r.GetString("other_org_comment"),
                              PersonalPhone = r.GetString("personal_phone"),
                              SecondaryHomePhone = r.GetString("secondary_home_phone"),
                              SecondaryPersonalPhone = r.GetString("secondary_personal_phone"),
-                             CashReceiptIn = r.GetNullInt("cash_input_voucher_number"),
-                             CashReceiptOut = r.GetNullInt("cash_output_voucher_number"),
                              Type = r.GetChar("client_type_code") == 'I'
                                         ? OClientTypes.Person
                                         : r.GetChar("client_type_code") == 'G'
@@ -385,9 +343,6 @@ namespace OpenCBS.Manager.Clients
                              LoanCycle = r.GetInt("loan_cycle"),
                              Active = r.GetBool("active"),
                              BadClient = r.GetBool("bad_client"),
-                             OtherOrgName = r.GetString("other_org_name"),
-                             OtherOrgAmount = r.GetMoney("other_org_amount"),
-                             OtherOrgDebts = r.GetMoney("other_org_debts"),
                              City = r.GetString("city"),
                              Address = r.GetString("address"),
                              SecondaryCity = r.GetString("secondary_city"),
@@ -401,11 +356,6 @@ namespace OpenCBS.Manager.Clients
                              Image = r.GetString("image_path"),
                              BirthPlace = r.GetString("birth_place"),
                              Nationality = r.GetString("nationality"),
-                             FollowUpComment = r.GetString("follow_up_comment"),
-                             Sponsor1 = r.GetString("sponsor1"),
-                             Sponsor2 = r.GetString("sponsor2"),
-                             Sponsor1Comment = r.GetString("sponsor1_comment"),
-                             Sponsor2Comment = r.GetString("sponsor2_comment"),
                              FavouriteLoanOfficerId = r.GetNullInt("loan_officer_id"),
                              Branch = new Branch { Id = r.GetInt("branch_id") }
                          };
@@ -807,9 +757,6 @@ namespace OpenCBS.Manager.Clients
                 Tiers.loan_cycle, 
                 Tiers.active,
                 Tiers.bad_client, 
-                Tiers.other_org_name, 
-                Tiers.other_org_amount, 
-                Tiers.other_org_debts, 
                 Tiers.district_id, 
                 Tiers.city, 
                 Tiers.address, 
@@ -821,20 +768,10 @@ namespace OpenCBS.Manager.Clients
                 Tiers.personal_phone,
                 Tiers.secondary_home_phone,
                 Tiers.secondary_personal_phone,
-                Tiers.cash_input_voucher_number, 
-                Tiers.cash_output_voucher_number,
                 Tiers.e_mail,
                 Tiers.secondary_e_mail,
-                Tiers.home_type,
                 Tiers.zipCode,
                 Tiers.secondary_zipCode,
-                Tiers.secondary_homeType, 
-                Tiers.other_org_comment,
-                Tiers.sponsor1,
-                Tiers.sponsor2,
-                Tiers.sponsor1_comment,
-                Tiers.sponsor2_comment,
-                Tiers.follow_up_comment,
                 Tiers.branch_id,
                 Groups.name, 
                 Groups.establishment_date, 
@@ -861,8 +798,6 @@ namespace OpenCBS.Manager.Clients
                         group = new Group
                                     {
                                         Id = r.GetInt("tiers_id"),
-                                        HomeType = r.GetString("home_type"),
-                                        SecondaryHomeType = r.GetString("secondary_hometype"),
                                         ZipCode = r.GetString("zipCode"),
                                         SecondaryZipCode = r.GetString("secondary_zipCode"),
                                         HomePhone = r.GetString("home_phone"),
@@ -870,8 +805,6 @@ namespace OpenCBS.Manager.Clients
                                         SecondaryHomePhone = r.GetString("secondary_home_phone"),
                                         SecondaryPersonalPhone = r.GetString("secondary_personal_phone"),
                                         Status = ((OClientStatus)r.GetSmallInt("status")),
-                                        CashReceiptIn = r.GetNullInt("cash_input_voucher_number"),
-                                        CashReceiptOut = r.GetNullInt("cash_output_voucher_number"),
                                         Type = r.GetChar("client_type_code") == 'I'
                                                    ? OClientTypes.Person
                                                    : r.GetChar("client_type_code") ==
@@ -882,10 +815,6 @@ namespace OpenCBS.Manager.Clients
                                         LoanCycle = r.GetInt("loan_cycle"),
                                         Active = r.GetBool("active"),
                                         BadClient = r.GetBool("bad_client"),
-                                        OtherOrgName = r.GetString("other_org_name"),
-                                        OtherOrgAmount = r.GetMoney("other_org_amount"),
-                                        OtherOrgDebts = r.GetMoney("other_org_debts"),
-                                        OtherOrgComment = r.GetString("other_org_comment"),
                                         Comments = r.GetString("comments"),
                                         Email = r.GetString("e_mail"),
                                         SecondaryEmail = r.GetString("secondary_e_mail"),
@@ -903,11 +832,6 @@ namespace OpenCBS.Manager.Clients
                         group.SecondaryAddress = r.GetString("secondary_address");
                         group.Name = r.GetString("name");
                         group.EstablishmentDate = r.GetNullDateTime("establishment_date");
-                        group.FollowUpComment = r.GetString("follow_up_comment");
-                        group.Sponsor1 = r.GetString("sponsor1");
-                        group.Sponsor2 = r.GetString("sponsor2");
-                        group.Sponsor1Comment = r.GetString("sponsor1_comment");
-                        group.Sponsor2Comment = r.GetString("sponsor2_comment");
 
                         activityId = r.GetNullInt("economic_activity_id");
 
@@ -1669,17 +1593,12 @@ namespace OpenCBS.Manager.Clients
                                  Tiers.loan_cycle,
                                  Tiers.active, 
                                  Tiers.bad_client, 
-                                 Tiers.other_org_name, 
-                                 Tiers.other_org_amount, 
-                                 Tiers.other_org_debts, 
                                  Tiers.district_id, 
                                  Tiers.city, 
                                  Tiers.address, 
                                  Tiers.secondary_district_id, 
                                  Tiers.secondary_city, 
                                  Tiers.secondary_address, 
-                                 Tiers.cash_input_voucher_number, 
-                                 Tiers.cash_output_voucher_number,
                                  Tiers.status,
                                  Tiers.home_phone, 
                                  Tiers.personal_phone,
@@ -1687,14 +1606,8 @@ namespace OpenCBS.Manager.Clients
                                  Tiers.secondary_personal_phone,
                                  Tiers.e_mail,
                                  Tiers.secondary_e_mail,
-                                 Tiers.home_type,
                                  Tiers.zipCode, 
                                  Tiers.secondary_zipCode,
-                                 Tiers.secondary_homeType,
-                                 Tiers.other_org_comment,
-                                 Tiers.sponsor1,Tiers.sponsor2,
-                                 Tiers.sponsor1_comment,Tiers.sponsor2_comment,
-                                 Tiers.follow_up_comment,
                                  Tiers.branch_id,
                                  Persons.first_name, 
                                  Persons.sex, 
@@ -2576,9 +2489,6 @@ namespace OpenCBS.Manager.Clients
                                        Name = r.GetString("name"),
                                        Status = (OClientStatus)r.GetSmallInt("status"),
                                        IsDeleted = r.GetBool("deleted"),
-                                       CashReceiptIn = r.GetNullInt("cash_input_voucher_number"),
-                                       CashReceiptOut =
-                                           r.GetNullInt("cash_output_voucher_number"),
                                        Type = r.GetChar("client_type_code") == 'I'
                                                   ? OClientTypes.Person
                                                   : r.GetChar("client_type_code") == 'G'
@@ -2588,9 +2498,6 @@ namespace OpenCBS.Manager.Clients
                                        LoanCycle = r.GetInt("loan_cycle"),
                                        Active = r.GetBool("active"),
                                        BadClient = r.GetBool("bad_client"),
-                                       OtherOrgName = r.GetString("other_org_name"),
-                                       OtherOrgAmount = r.GetMoney("other_org_amount"),
-                                       OtherOrgDebts = r.GetMoney("other_org_debts"),
                                        City = r.GetString("city"),
                                        Address = r.GetString("address"),
                                        SecondaryCity = r.GetString("secondary_city"),
@@ -2606,15 +2513,8 @@ namespace OpenCBS.Manager.Clients
                                        SmallName = r.GetString("small_name"),
                                        CreationDate = r.GetDateTime("creation_date"),
                                        AgrementDate = r.GetNullDateTime("agrement_date"),
-                                       FollowUpComment = r.GetString("follow_up_comment"),
-                                       HomeType = r.GetString("home_type"),
-                                       SecondaryHomeType = r.GetString("secondary_hometype"),
                                        ZipCode = r.GetString("zipCode"),
                                        SecondaryZipCode = r.GetString("secondary_zipCode"),
-                                       Sponsor1 = r.GetString("sponsor1"),
-                                       Sponsor2 = r.GetString("sponsor2"),
-                                       Sponsor1Comment = r.GetString("sponsor1_Comment"),
-                                       Sponsor2Comment = r.GetString("sponsor2_comment"),
                                        FiscalStatus = r.GetString("fiscal_status"),
                                        Registre = r.GetString("registre"),
                                        LegalForm = r.GetString("legalForm"),
@@ -3045,32 +2945,19 @@ namespace OpenCBS.Manager.Clients
                                        [loan_cycle], 
                                        [active], 
                                        [bad_client], 
-                                       [other_org_name], 
-                                       [other_org_amount], 
-                                       [other_org_debts], 
                                        [district_id], 
                                        [city], 
                                        [address], 
                                        [secondary_district_id], 
                                        [secondary_city], 
                                        [secondary_address], 
-                                       [cash_input_voucher_number], 
-                                       [cash_output_voucher_number],
                                        [home_phone],
                                        [personal_phone],
                                        [secondary_home_phone],
                                        [secondary_personal_phone],
                                        [e_mail],
-                                       [home_type],
                                        [secondary_e_mail],
-                                       [secondary_homeType],
                                        [status],
-                                       [other_org_comment],
-                                       [sponsor1],
-                                       [sponsor2],
-                                       [sponsor1_comment],
-                                       [sponsor2_comment],
-                                       [follow_up_comment],
                                        [zipCode],
                                        [secondary_zipCode],
                                        [branch_id],
@@ -3081,32 +2968,19 @@ namespace OpenCBS.Manager.Clients
                                         @loanCycle, 
                                         @active, 
                                         @badClient, 
-                                        @otherOrgName, 
-                                        @otherOrgAmount, 
-                                        @otherOrgDebts, 
                                         @districtId, 
                                         @city, 
                                         @address, 
                                         @secondaryDistrict, 
                                         @secondaryCity, 
                                         @secondaryAddress, 
-                                        @cashIn, 
-                                        @cashOut,
                                         @homePhone,
                                         @personalPhone,
                                         @secondaryHomePhone,
                                         @secondaryPersonalPhone,
                                         @Email,
-                                        @HomeType,
                                         @SecondaryEmail,
-                                        @SecondaryHometype,
                                         @status,    
-                                        @OtherOrgComments, 
-                                        @sponsor1,
-                                        @sponsor2,
-                                        @sponsor1Comment,
-                                        @sponsor2Comment, 
-                                        @followUpComment,
                                         @zipCode,
                                         @secondaryZipCode,
                                         @branchId,
@@ -3121,32 +2995,19 @@ namespace OpenCBS.Manager.Clients
                 c.AddParam("@loanCycle", pTiers.LoanCycle);
                 c.AddParam("@active", pTiers.Active);
                 c.AddParam("@badClient", pTiers.BadClient);
-                c.AddParam("@otherOrgName", pTiers.OtherOrgName);
-                c.AddParam("@otherOrgAmount", pTiers.OtherOrgAmount);
-                c.AddParam("@otherOrgDebts", pTiers.OtherOrgDebts);
                 c.AddParam("@city", pTiers.City);
                 c.AddParam("@address", pTiers.Address);
                 c.AddParam("@secondaryCity", pTiers.SecondaryCity);
                 c.AddParam("@secondaryAddress", pTiers.SecondaryAddress);
-                c.AddParam("@cashIn", pTiers.CashReceiptIn);
-                c.AddParam("@cashOut", pTiers.CashReceiptOut);
                 c.AddParam("@homePhone", pTiers.HomePhone);
                 c.AddParam("@personalPhone", pTiers.PersonalPhone);
                 c.AddParam("@secondaryHomePhone", pTiers.SecondaryHomePhone);
                 c.AddParam("@secondaryPersonalPhone", pTiers.SecondaryPersonalPhone);
                 c.AddParam("@Email", pTiers.Email);
                 c.AddParam("@secondaryEmail", pTiers.SecondaryEmail);
-                c.AddParam("@HomeType", pTiers.HomeType);
-                c.AddParam("@secondaryHomeType", pTiers.SecondaryHomeType);
                 c.AddParam("@zipCode", pTiers.ZipCode);
                 c.AddParam("@secondaryZipCode", pTiers.SecondaryZipCode);
                 c.AddParam("@status", (int)pTiers.Status);
-                c.AddParam("@OtherOrgComments", pTiers.OtherOrgComment);
-                c.AddParam("@sponsor1", pTiers.Sponsor1);
-                c.AddParam("@sponsor2", pTiers.Sponsor2);
-                c.AddParam("@sponsor1Comment", pTiers.Sponsor1Comment);
-                c.AddParam("@sponsor2Comment", pTiers.Sponsor2Comment);
-                c.AddParam("@followUpComment", pTiers.FollowUpComment);
                 c.AddParam("@branchId", pTiers.Branch.Id);
                 c.AddParam("@created_by", pTiers.CreatedBy.Id);
 
