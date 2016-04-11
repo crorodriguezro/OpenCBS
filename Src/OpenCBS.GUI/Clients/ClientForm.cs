@@ -1810,6 +1810,8 @@ namespace OpenCBS.GUI.Clients
             }
             SetAddTrancheButton(pCredit);
             buttonLoanRepaymentRepay.Enabled = !pCredit.Closed;
+            buttonLoanReschedule.Enabled = !pCredit.WrittenOff;
+            buttonManualSchedule.Enabled = !pCredit.WrittenOff;
             btnWriteOff.Enabled = !pCredit.Closed && !pCredit.WrittenOff;
             InitLoanRepaymentButtons();
         }
@@ -6456,6 +6458,8 @@ namespace OpenCBS.GUI.Clients
                 if (form.ShowDialog() != DialogResult.OK) return;
 
                 WriteOff(form.OptionId, form.Comment);
+                buttonManualSchedule.Enabled = false;
+                buttonLoanReschedule.Enabled = false;
             }
             catch (Exception ex)
             {
