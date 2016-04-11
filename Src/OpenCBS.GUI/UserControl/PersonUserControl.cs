@@ -218,7 +218,6 @@ namespace OpenCBS.GUI.UserControl
                 eacPerson.Activity = _tempPerson.Activity;
 
                 addressUserControlFirst.ZipCode = _tempPerson.ZipCode;
-                addressUserControlFirst.HomeType = _tempPerson.HomeType;
                 addressUserControlFirst.Email = _tempPerson.Email;
                 addressUserControlFirst.District = _tempPerson.District;
                 addressUserControlFirst.City = _tempPerson.City;
@@ -229,7 +228,6 @@ namespace OpenCBS.GUI.UserControl
                 if (!_tempPerson.SecondaryAddressIsEmpty)
                 {
                     addressUserControlSecondaryAddress.ZipCode = _tempPerson.SecondaryZipCode;
-                    addressUserControlSecondaryAddress.HomeType = _tempPerson.SecondaryHomeType;
                     addressUserControlSecondaryAddress.Email = _tempPerson.SecondaryEmail;
                     addressUserControlSecondaryAddress.District = _tempPerson.SecondaryDistrict;
                     addressUserControlSecondaryAddress.City = _tempPerson.SecondaryCity;
@@ -270,7 +268,6 @@ namespace OpenCBS.GUI.UserControl
         private void RecoverDatasFromUserControlsAddress()
         {
             _tempPerson.ZipCode = addressUserControlFirst.ZipCode;
-            _tempPerson.HomeType = addressUserControlFirst.HomeType;
             _tempPerson.Email = addressUserControlFirst.Email;
             _tempPerson.District = addressUserControlFirst.District;
             _tempPerson.City = addressUserControlFirst.City;
@@ -279,7 +276,6 @@ namespace OpenCBS.GUI.UserControl
             _tempPerson.PersonalPhone = addressUserControlFirst.PersonalPhone;
 
             _tempPerson.SecondaryZipCode = addressUserControlSecondaryAddress.ZipCode;
-            _tempPerson.SecondaryHomeType = addressUserControlSecondaryAddress.HomeType;
             _tempPerson.SecondaryEmail = addressUserControlSecondaryAddress.Email;
             _tempPerson.SecondaryDistrict = addressUserControlSecondaryAddress.District;
             _tempPerson.SecondaryCity = addressUserControlSecondaryAddress.City;
@@ -622,7 +618,6 @@ namespace OpenCBS.GUI.UserControl
             addressUserControlSecondaryAddress.City = addressUserControlFirst.City;
             addressUserControlSecondaryAddress.Comments = addressUserControlFirst.Comments;
             addressUserControlSecondaryAddress.ZipCode = addressUserControlFirst.ZipCode;
-            addressUserControlSecondaryAddress.HomeType = addressUserControlFirst.HomeType;
             addressUserControlSecondaryAddress.HomePhone = addressUserControlFirst.HomePhone;
             addressUserControlSecondaryAddress.PersonalPhone = addressUserControlFirst.PersonalPhone;
             addressUserControlSecondaryAddress.Email = addressUserControlFirst.Email;

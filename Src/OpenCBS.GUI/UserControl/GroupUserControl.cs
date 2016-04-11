@@ -1139,7 +1139,6 @@ namespace OpenCBS.GUI.UserControl
             group.City = addressUserControlFirst.City;
             group.Address = addressUserControlFirst.Comments;
             group.HomePhone = addressUserControlFirst.HomePhone;
-            group.HomeType = addressUserControlFirst.HomeType;
             group.PersonalPhone = addressUserControlFirst.PersonalPhone;
             group.Email = addressUserControlFirst.Email;
             group.ZipCode = addressUserControlFirst.ZipCode;
@@ -1148,7 +1147,6 @@ namespace OpenCBS.GUI.UserControl
             group.SecondaryCity = addressUserControlSecondaryAddress.City;
             group.SecondaryAddress = addressUserControlSecondaryAddress.Comments;
             group.SecondaryHomePhone = addressUserControlSecondaryAddress.HomePhone;
-            group.SecondaryHomeType = addressUserControlSecondaryAddress.HomeType;
             group.SecondaryPersonalPhone = addressUserControlSecondaryAddress.PersonalPhone;
             group.SecondaryEmail = addressUserControlSecondaryAddress.Email;
             group.SecondaryZipCode = addressUserControlSecondaryAddress.ZipCode;
@@ -1607,7 +1605,6 @@ namespace OpenCBS.GUI.UserControl
             addressUserControlSecondaryAddress.City = addressUserControlFirst.City;
             addressUserControlSecondaryAddress.Comments = addressUserControlFirst.Comments;
             addressUserControlSecondaryAddress.ZipCode = addressUserControlFirst.ZipCode;
-            addressUserControlSecondaryAddress.HomeType = addressUserControlFirst.HomeType;
             addressUserControlSecondaryAddress.HomePhone = addressUserControlFirst.HomePhone;
             addressUserControlSecondaryAddress.PersonalPhone = addressUserControlFirst.PersonalPhone;
             addressUserControlSecondaryAddress.Email = addressUserControlFirst.Email;

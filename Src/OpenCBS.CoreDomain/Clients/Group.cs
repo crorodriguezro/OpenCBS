@@ -114,11 +114,6 @@ namespace OpenCBS.CoreDomain.Clients
             }
         }
 
-        public bool HasOtherOrganization()
-        {
-            return OtherOrgName != null || OtherOrgDebts.HasValue || OtherOrgAmount.HasValue;
-        }
-
         public void AddMember(Member pMember)
         {
             if (pMember.CurrentlyIn)

@@ -561,12 +561,6 @@ namespace OpenCBS.Services
             if (person.LastName == null)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.LastNameIsEmpty);
 
-           if (person.OtherOrgAmount.HasValue && person.OtherOrgAmount.Value == ERRORVALUE)
-                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.OtherOrganizationAmountIsBadlyInformed);
-
-            if (person.OtherOrgDebts.HasValue && person.OtherOrgDebts.Value == ERRORVALUE)
-                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.OtherOrganizationDebtsIsBadlyInformed);
-
            if (person.DateOfBirth != null)
             {
                 int year = DateTime.Now.Year - person.DateOfBirth.Value.Year;
@@ -987,12 +981,6 @@ namespace OpenCBS.Services
 
             if (group.Leader.Tiers.Id == 0)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.LeaderIsEmpty);
-
-            if (group.OtherOrgAmount.HasValue && group.OtherOrgAmount.Value == ERRORVALUE)
-                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.OtherOrganizationAmountIsBadlyInformed);
-
-            if (group.OtherOrgDebts.HasValue && group.OtherOrgDebts.Value == ERRORVALUE)
-                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.OtherOrganizationDebtsIsBadlyInformed);
 
             if (group.BadClient && group.Comments == null)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.CommentsNeedFullIfBadClient);
