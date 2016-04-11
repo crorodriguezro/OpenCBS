@@ -198,7 +198,292 @@
   <metadata name="bwUserInformation.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1063, 17</value>
   </metadata>
+  <metadata name="mainStatusBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>39, 477</value>
+  </metadata>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="mainStatusBar.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="mainStatusBarLblUpdateVersion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
+  </data>
+  <data name="mainStatusBarLblUpdateVersion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1043, 20</value>
+  </data>
+  <data name="mainStatusBarLblUserName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 20</value>
+  </data>
+  <data name="mainStatusBarLblUserName.Text" xml:space="preserve">
+    <value>UserName</value>
+  </data>
+  <data name="mainStatusBarLblDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 20</value>
+  </data>
+  <data name="mainStatusBarLblDate.Text" xml:space="preserve">
+    <value>00/00/00 00:00:00</value>
+  </data>
+  <data name="toolStripStatusLblBranchCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>4, 20</value>
+  </data>
+  <data name="toolStripStatusLblDB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="mainStatusBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 708</value>
+  </data>
+  <data name="mainStatusBar.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 0, 16, 0</value>
+  </data>
+  <data name="mainStatusBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1284, 25</value>
+  </data>
+  <data name="mainStatusBar.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;mainStatusBar.Name" xml:space="preserve">
+    <value>mainStatusBar</value>
+  </data>
+  <data name="&gt;&gt;mainStatusBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mainStatusBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;mainStatusBar.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="mainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>5, 0</value>
+  </metadata>
+  <data name="branchesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="branchesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Configure Branches</value>
+  </data>
+  <data name="tellersToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="tellersToolStripMenuItem.Text" xml:space="preserve">
+    <value>Configure Tellers</value>
+  </data>
+  <data name="toolStripSeparatorConfig1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 6</value>
+  </data>
+  <data name="mnuDomainOfApplication.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="mnuDomainOfApplication.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="mnuDomainOfApplication.Text" xml:space="preserve">
+    <value>Economic Activity</value>
+  </data>
+  <data name="loanPurposeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="loanPurposeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Loan Purpose</value>
+  </data>
+  <data name="menuItemLocations.ShowShortcutKeys" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="menuItemLocations.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="menuItemLocations.Text" xml:space="preserve">
+    <value>Regions, Districts, Cities</value>
+  </data>
+  <data name="toolStripMenuItemFundingLines.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+F</value>
+  </data>
+  <data name="toolStripMenuItemFundingLines.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="toolStripMenuItemFundingLines.Text" xml:space="preserve">
+    <value>Funding Lines</value>
+  </data>
+  <data name="toolStripMenuItemInstallmentTypes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="toolStripMenuItemInstallmentTypes.Text" xml:space="preserve">
+    <value>Installment Periodicity</value>
+  </data>
+  <data name="toolStripSeparatorConfig2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 6</value>
+  </data>
+  <data name="menuItemExchangeRate.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="menuItemExchangeRate.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+X</value>
+  </data>
+  <data name="menuItemExchangeRate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="menuItemExchangeRate.Text" xml:space="preserve">
+    <value>Exchange Rate</value>
+  </data>
+  <data name="currenciesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="currenciesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Currencies</value>
+  </data>
+  <data name="toolStripSeparatorConfig3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 6</value>
+  </data>
+  <data name="miContractCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="miContractCode.Text" xml:space="preserve">
+    <value>Contract Code</value>
+  </data>
+  <data name="collateralProductsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="collateralProductsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Collaterals</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 6</value>
+  </data>
+  <data name="menuItemSetting.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="menuItemSetting.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="menuItemSetting.Text" xml:space="preserve">
+    <value>General Settings</value>
+  </data>
+  <data name="menuItemDatabaseControlPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="menuItemDatabaseControlPanel.Text" xml:space="preserve">
+    <value>Database Control Panel</value>
+  </data>
+  <data name="menuItemApplicationDate.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="menuItemApplicationDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="menuItemApplicationDate.Text" xml:space="preserve">
+    <value>Change Application Date</value>
+  </data>
+  <data name="frenchToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="frenchToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 22</value>
+  </data>
+  <data name="frenchToolStripMenuItem.Text" xml:space="preserve">
+    <value>French</value>
+  </data>
+  <data name="englishToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="englishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 22</value>
+  </data>
+  <data name="englishToolStripMenuItem.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="russianToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="russianToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 22</value>
+  </data>
+  <data name="russianToolStripMenuItem.Text" xml:space="preserve">
+    <value>Russian</value>
+  </data>
+  <data name="spanishToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="spanishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 22</value>
+  </data>
+  <data name="spanishToolStripMenuItem.Text" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
+  <data name="portugueseToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="portugueseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 22</value>
+  </data>
+  <data name="portugueseToolStripMenuItem.Text" xml:space="preserve">
+    <value>Portuguese</value>
+  </data>
+  <data name="languagesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="languagesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="mnuConfiguration.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <data name="mnuConfiguration.Text" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="rolesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 22</value>
+  </data>
+  <data name="rolesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="menuItemAddUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="menuItemAddUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 22</value>
+  </data>
+  <data name="menuItemAddUser.Text" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="miAuditTrail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 22</value>
+  </data>
+  <data name="miAuditTrail.Text" xml:space="preserve">
+    <value>Audit Trail...</value>
+  </data>
+  <data name="changePasswordToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 22</value>
+  </data>
+  <data name="changePasswordToolStripMenuItem.Text" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="mnuSecurity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
+  </data>
+  <data name="mnuSecurity.Text" xml:space="preserve">
+    <value>Security</value>
+  </data>
+  <data name="mnuPackages.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="mnuPackages.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 22</value>
+  </data>
+  <data name="mnuPackages.Text" xml:space="preserve">
+    <value>Loan Products</value>
+  </data>
+  <data name="savingProductsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 22</value>
+  </data>
+  <data name="savingProductsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Savings Products</value>
+  </data>
+  <data name="mnuProducts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 20</value>
+  </data>
+  <data name="mnuProducts.Text" xml:space="preserve">
+    <value>Products</value>
+  </data>
   <data name="mnuNewPerson.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -289,282 +574,6 @@
   <data name="mnuClients.Text" xml:space="preserve">
     <value>Client and Contract</value>
   </data>
-  <data name="branchesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
-  </data>
-  <data name="branchesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Configure Branches</value>
-  </data>
-  <data name="tellersToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
-  </data>
-  <data name="tellersToolStripMenuItem.Text" xml:space="preserve">
-    <value>Configure Tellers</value>
-  </data>
-  <data name="toolStripSeparatorConfig1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 6</value>
-  </data>
-  <data name="mnuDomainOfApplication.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="mnuDomainOfApplication.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
-  </data>
-  <data name="mnuDomainOfApplication.Text" xml:space="preserve">
-    <value>Economic Activity</value>
-  </data>
-  <data name="loanPurposeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
-  </data>
-  <data name="loanPurposeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Loan Purpose</value>
-  </data>
-  <data name="menuItemLocations.ShowShortcutKeys" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="menuItemLocations.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
-  </data>
-  <data name="menuItemLocations.Text" xml:space="preserve">
-    <value>Regions, Districts, Cities</value>
-  </data>
-  <data name="toolStripMenuItemFundingLines.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+F</value>
-  </data>
-  <data name="toolStripMenuItemFundingLines.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
-  </data>
-  <data name="toolStripMenuItemFundingLines.Text" xml:space="preserve">
-    <value>Funding Lines</value>
-  </data>
-  <data name="toolStripMenuItemInstallmentTypes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
-  </data>
-  <data name="toolStripMenuItemInstallmentTypes.Text" xml:space="preserve">
-    <value>Installment Periodicity</value>
-  </data>
-  <data name="toolStripSeparatorConfig2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 6</value>
-  </data>
-  <data name="menuItemExchangeRate.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="menuItemExchangeRate.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+X</value>
-  </data>
-  <data name="menuItemExchangeRate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
-  </data>
-  <data name="menuItemExchangeRate.Text" xml:space="preserve">
-    <value>Exchange Rate</value>
-  </data>
-  <data name="currenciesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
-  </data>
-  <data name="currenciesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Currencies</value>
-  </data>
-  <data name="toolStripSeparatorConfig3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 6</value>
-  </data>
-  <data name="miContractCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
-  </data>
-  <data name="miContractCode.Text" xml:space="preserve">
-    <value>Contract Code</value>
-  </data>
-  <data name="collateralProductsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
-  </data>
-  <data name="collateralProductsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Collaterals</value>
-  </data>
-  <data name="mnuConfiguration.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
-  </data>
-  <data name="mnuConfiguration.Text" xml:space="preserve">
-    <value>Configuration</value>
-  </data>
-  <data name="mnuWindow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 20</value>
-  </data>
-  <data name="mnuWindow.Text" xml:space="preserve">
-    <value>Window</value>
-  </data>
-  <data name="userGuideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 22</value>
-  </data>
-  <data name="userGuideToolStripMenuItem.Text" xml:space="preserve">
-    <value>User Guide</value>
-  </data>
-  <data name="contactMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 22</value>
-  </data>
-  <data name="contactMenuItem.Text" xml:space="preserve">
-    <value>Contact Us...</value>
-  </data>
-  <data name="aboutMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 22</value>
-  </data>
-  <data name="aboutMenuItem.Text" xml:space="preserve">
-    <value>About</value>
-  </data>
-  <data name="getHelpFromForumToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 22</value>
-  </data>
-  <data name="getHelpFromForumToolStripMenuItem.Text" xml:space="preserve">
-    <value>Get Help From Forum</value>
-  </data>
-  <data name="visitOpenCBScomToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 22</value>
-  </data>
-  <data name="visitOpenCBScomToolStripMenuItem.Text" xml:space="preserve">
-    <value>Visit OpenCBS.com</value>
-  </data>
-  <data name="mnuHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="mnuHelp.Text" xml:space="preserve">
-    <value>Help</value>
-  </data>
-  <metadata name="mainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>5, 0</value>
-  </metadata>
-  <data name="menuItemSetting.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="menuItemSetting.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
-  </data>
-  <data name="menuItemSetting.Text" xml:space="preserve">
-    <value>General Settings</value>
-  </data>
-  <data name="menuItemDatabaseControlPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
-  </data>
-  <data name="menuItemDatabaseControlPanel.Text" xml:space="preserve">
-    <value>Database Control Panel</value>
-  </data>
-  <data name="menuItemApplicationDate.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="menuItemApplicationDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
-  </data>
-  <data name="menuItemApplicationDate.Text" xml:space="preserve">
-    <value>Change Application Date</value>
-  </data>
-  <data name="frenchToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="frenchToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 22</value>
-  </data>
-  <data name="frenchToolStripMenuItem.Text" xml:space="preserve">
-    <value>French</value>
-  </data>
-  <data name="englishToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="englishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 22</value>
-  </data>
-  <data name="englishToolStripMenuItem.Text" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="russianToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="russianToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 22</value>
-  </data>
-  <data name="russianToolStripMenuItem.Text" xml:space="preserve">
-    <value>Russian</value>
-  </data>
-  <data name="spanishToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="spanishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 22</value>
-  </data>
-  <data name="spanishToolStripMenuItem.Text" xml:space="preserve">
-    <value>Spanish</value>
-  </data>
-  <data name="portugueseToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="portugueseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 22</value>
-  </data>
-  <data name="portugueseToolStripMenuItem.Text" xml:space="preserve">
-    <value>Portuguese</value>
-  </data>
-  <data name="languagesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
-  </data>
-  <data name="languagesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="mnuSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
-  </data>
-  <data name="mnuSettings.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="rolesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 22</value>
-  </data>
-  <data name="rolesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Roles</value>
-  </data>
-  <data name="menuItemAddUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="menuItemAddUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 22</value>
-  </data>
-  <data name="menuItemAddUser.Text" xml:space="preserve">
-    <value>Users</value>
-  </data>
-  <data name="miAuditTrail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 22</value>
-  </data>
-  <data name="miAuditTrail.Text" xml:space="preserve">
-    <value>Audit Trail...</value>
-  </data>
-  <data name="changePasswordToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 22</value>
-  </data>
-  <data name="changePasswordToolStripMenuItem.Text" xml:space="preserve">
-    <value>Change Password</value>
-  </data>
-  <data name="mnuSecurity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
-  </data>
-  <data name="mnuSecurity.Text" xml:space="preserve">
-    <value>Security</value>
-  </data>
-  <data name="mnuPackages.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="mnuPackages.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 22</value>
-  </data>
-  <data name="mnuPackages.Text" xml:space="preserve">
-    <value>Loan Products</value>
-  </data>
-  <data name="savingProductsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 22</value>
-  </data>
-  <data name="savingProductsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Savings Products</value>
-  </data>
-  <data name="mnuProducts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 20</value>
-  </data>
-  <data name="mnuProducts.Text" xml:space="preserve">
-    <value>Products</value>
-  </data>
   <data name="_startPageItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>131, 22</value>
   </data>
@@ -613,6 +622,48 @@
   <data name="reportsToolStripMenuItem.Text" xml:space="preserve">
     <value>Reports</value>
   </data>
+  <data name="mnuWindow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 20</value>
+  </data>
+  <data name="mnuWindow.Text" xml:space="preserve">
+    <value>Window</value>
+  </data>
+  <data name="userGuideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 22</value>
+  </data>
+  <data name="userGuideToolStripMenuItem.Text" xml:space="preserve">
+    <value>User Guide</value>
+  </data>
+  <data name="contactMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 22</value>
+  </data>
+  <data name="contactMenuItem.Text" xml:space="preserve">
+    <value>Contact Us...</value>
+  </data>
+  <data name="aboutMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 22</value>
+  </data>
+  <data name="aboutMenuItem.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="getHelpFromForumToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 22</value>
+  </data>
+  <data name="getHelpFromForumToolStripMenuItem.Text" xml:space="preserve">
+    <value>Get Help From Forum</value>
+  </data>
+  <data name="visitOpenCBScomToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 22</value>
+  </data>
+  <data name="visitOpenCBScomToolStripMenuItem.Text" xml:space="preserve">
+    <value>Visit OpenCBS.com</value>
+  </data>
+  <data name="mnuHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="mnuHelp.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
   <data name="mainMenu.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -637,68 +688,14 @@
   <data name="&gt;&gt;mainMenu.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="mainStatusBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>39, 477</value>
-  </metadata>
-  <data name="mainStatusBar.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="mainStatusBarLblUpdateVersion.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
-  </data>
-  <data name="mainStatusBarLblUpdateVersion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1043, 20</value>
-  </data>
-  <data name="mainStatusBarLblUserName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 20</value>
-  </data>
-  <data name="mainStatusBarLblUserName.Text" xml:space="preserve">
-    <value>UserName</value>
-  </data>
-  <data name="mainStatusBarLblDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 20</value>
-  </data>
-  <data name="mainStatusBarLblDate.Text" xml:space="preserve">
-    <value>00/00/00 00:00:00</value>
-  </data>
-  <data name="toolStripStatusLblBranchCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>4, 20</value>
-  </data>
-  <data name="toolStripStatusLblDB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
-  </data>
-  <data name="mainStatusBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 717</value>
-  </data>
-  <data name="mainStatusBar.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 16, 0</value>
-  </data>
-  <data name="mainStatusBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1284, 25</value>
-  </data>
-  <data name="mainStatusBar.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;mainStatusBar.Name" xml:space="preserve">
-    <value>mainStatusBar</value>
-  </data>
-  <data name="&gt;&gt;mainStatusBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mainStatusBar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;mainStatusBar.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>142</value>
+    <value>57</value>
   </metadata>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1284, 742</value>
+    <value>1284, 733</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.25pt</value>
@@ -1361,65 +1358,35 @@
   <data name="&gt;&gt;bwUserInformation.Type" xml:space="preserve">
     <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnuClients.Name" xml:space="preserve">
-    <value>mnuClients</value>
+  <data name="&gt;&gt;mainStatusBarLblUpdateVersion.Name" xml:space="preserve">
+    <value>mainStatusBarLblUpdateVersion</value>
   </data>
-  <data name="&gt;&gt;mnuClients.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;mainStatusBarLblUpdateVersion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnuNewPerson.Name" xml:space="preserve">
-    <value>mnuNewPerson</value>
+  <data name="&gt;&gt;mainStatusBarLblUserName.Name" xml:space="preserve">
+    <value>mainStatusBarLblUserName</value>
   </data>
-  <data name="&gt;&gt;mnuNewPerson.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;mainStatusBarLblUserName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnuNewClient.Name" xml:space="preserve">
-    <value>mnuNewClient</value>
+  <data name="&gt;&gt;mainStatusBarLblDate.Name" xml:space="preserve">
+    <value>mainStatusBarLblDate</value>
   </data>
-  <data name="&gt;&gt;mnuNewClient.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;mainStatusBarLblDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnuNewGroup.Name" xml:space="preserve">
-    <value>mnuNewGroup</value>
+  <data name="&gt;&gt;toolStripStatusLblBranchCode.Name" xml:space="preserve">
+    <value>toolStripStatusLblBranchCode</value>
   </data>
-  <data name="&gt;&gt;mnuNewGroup.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;toolStripStatusLblBranchCode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnuNewVillage.Name" xml:space="preserve">
-    <value>mnuNewVillage</value>
+  <data name="&gt;&gt;toolStripStatusLblDB.Name" xml:space="preserve">
+    <value>toolStripStatusLblDB</value>
   </data>
-  <data name="&gt;&gt;mnuNewVillage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;newCorporateToolStripMenuItem.Name" xml:space="preserve">
-    <value>newCorporateToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;newCorporateToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem1.Name" xml:space="preserve">
-    <value>toolStripMenuItem1</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mnuSearchClient.Name" xml:space="preserve">
-    <value>mnuSearchClient</value>
-  </data>
-  <data name="&gt;&gt;mnuSearchClient.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mnuSearchContract.Name" xml:space="preserve">
-    <value>mnuSearchContract</value>
-  </data>
-  <data name="&gt;&gt;mnuSearchContract.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;reasignToolStripMenuItem.Name" xml:space="preserve">
-    <value>reasignToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;reasignToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;toolStripStatusLblDB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;mnuConfiguration.Name" xml:space="preserve">
     <value>mnuConfiguration</value>
@@ -1511,53 +1478,11 @@
   <data name="&gt;&gt;collateralProductsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnuWindow.Name" xml:space="preserve">
-    <value>mnuWindow</value>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
   </data>
-  <data name="&gt;&gt;mnuWindow.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mnuHelp.Name" xml:space="preserve">
-    <value>mnuHelp</value>
-  </data>
-  <data name="&gt;&gt;mnuHelp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;userGuideToolStripMenuItem.Name" xml:space="preserve">
-    <value>userGuideToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;userGuideToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;contactMenuItem.Name" xml:space="preserve">
-    <value>contactMenuItem</value>
-  </data>
-  <data name="&gt;&gt;contactMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;aboutMenuItem.Name" xml:space="preserve">
-    <value>aboutMenuItem</value>
-  </data>
-  <data name="&gt;&gt;aboutMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;getHelpFromForumToolStripMenuItem.Name" xml:space="preserve">
-    <value>getHelpFromForumToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;getHelpFromForumToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;visitOpenCBScomToolStripMenuItem.Name" xml:space="preserve">
-    <value>visitOpenCBScomToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;visitOpenCBScomToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mnuSettings.Name" xml:space="preserve">
-    <value>mnuSettings</value>
-  </data>
-  <data name="&gt;&gt;mnuSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;menuItemSetting.Name" xml:space="preserve">
     <value>menuItemSetting</value>
@@ -1661,6 +1586,66 @@
   <data name="&gt;&gt;savingProductsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;mnuClients.Name" xml:space="preserve">
+    <value>mnuClients</value>
+  </data>
+  <data name="&gt;&gt;mnuClients.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuNewPerson.Name" xml:space="preserve">
+    <value>mnuNewPerson</value>
+  </data>
+  <data name="&gt;&gt;mnuNewPerson.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuNewClient.Name" xml:space="preserve">
+    <value>mnuNewClient</value>
+  </data>
+  <data name="&gt;&gt;mnuNewClient.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuNewGroup.Name" xml:space="preserve">
+    <value>mnuNewGroup</value>
+  </data>
+  <data name="&gt;&gt;mnuNewGroup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuNewVillage.Name" xml:space="preserve">
+    <value>mnuNewVillage</value>
+  </data>
+  <data name="&gt;&gt;mnuNewVillage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;newCorporateToolStripMenuItem.Name" xml:space="preserve">
+    <value>newCorporateToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;newCorporateToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Name" xml:space="preserve">
+    <value>toolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuSearchClient.Name" xml:space="preserve">
+    <value>mnuSearchClient</value>
+  </data>
+  <data name="&gt;&gt;mnuSearchClient.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuSearchContract.Name" xml:space="preserve">
+    <value>mnuSearchContract</value>
+  </data>
+  <data name="&gt;&gt;mnuSearchContract.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;reasignToolStripMenuItem.Name" xml:space="preserve">
+    <value>reasignToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;reasignToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;_viewItem.Name" xml:space="preserve">
     <value>_viewItem</value>
   </data>
@@ -1709,40 +1694,52 @@
   <data name="&gt;&gt;reportsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mainStatusBarLblUpdateVersion.Name" xml:space="preserve">
-    <value>mainStatusBarLblUpdateVersion</value>
+  <data name="&gt;&gt;mnuWindow.Name" xml:space="preserve">
+    <value>mnuWindow</value>
   </data>
-  <data name="&gt;&gt;mainStatusBarLblUpdateVersion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;mnuWindow.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mainStatusBarLblUserName.Name" xml:space="preserve">
-    <value>mainStatusBarLblUserName</value>
+  <data name="&gt;&gt;mnuHelp.Name" xml:space="preserve">
+    <value>mnuHelp</value>
   </data>
-  <data name="&gt;&gt;mainStatusBarLblUserName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;mnuHelp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mainStatusBarLblDate.Name" xml:space="preserve">
-    <value>mainStatusBarLblDate</value>
+  <data name="&gt;&gt;userGuideToolStripMenuItem.Name" xml:space="preserve">
+    <value>userGuideToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;mainStatusBarLblDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;userGuideToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripStatusLblBranchCode.Name" xml:space="preserve">
-    <value>toolStripStatusLblBranchCode</value>
+  <data name="&gt;&gt;contactMenuItem.Name" xml:space="preserve">
+    <value>contactMenuItem</value>
   </data>
-  <data name="&gt;&gt;toolStripStatusLblBranchCode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;contactMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripStatusLblDB.Name" xml:space="preserve">
-    <value>toolStripStatusLblDB</value>
+  <data name="&gt;&gt;aboutMenuItem.Name" xml:space="preserve">
+    <value>aboutMenuItem</value>
   </data>
-  <data name="&gt;&gt;toolStripStatusLblDB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;aboutMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;getHelpFromForumToolStripMenuItem.Name" xml:space="preserve">
+    <value>getHelpFromForumToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;getHelpFromForumToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;visitOpenCBScomToolStripMenuItem.Name" xml:space="preserve">
+    <value>visitOpenCBScomToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;visitOpenCBScomToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainView</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.12.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=16.4.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
