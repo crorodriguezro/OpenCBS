@@ -39,9 +39,11 @@ namespace OpenCBS.GUI.Configuration
         private string tempCode;
         private string tempAddress;
         private string tempDescription;
+        public bool EditBranch;
 
-        public AddBranchForm()
+        public AddBranchForm(bool editBranch)
         {
+            EditBranch = editBranch;
             InitializeComponent();
         }
 
@@ -168,6 +170,28 @@ namespace OpenCBS.GUI.Configuration
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
             }
             LoadPaymentMethods();
+        }
+    }
+    public class TablessControl : TabControl
+    {
+        public bool Condition;
+
+        public TablessControl(bool condition)
+        {
+            Condition = condition;
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (Condition)
+            {
+                base.WndProc(ref m);
+                return;
+            }
+
+            // Hide tabs by trapping the TCM_ADJUSTRECT message
+            if (m.Msg == 0x1328 && !DesignMode) m.Result = (IntPtr)1;
+            else base.WndProc(ref m);
         }
     }
 }

@@ -62,7 +62,7 @@ namespace OpenCBS.GUI.Configuration
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddBranchForm frm = new AddBranchForm();
+            AddBranchForm frm = new AddBranchForm(false);
             frm.IsNew = true;
             frm.Branch = new Branch();
             if (DialogResult.OK != frm.ShowDialog()) return;
@@ -73,7 +73,7 @@ namespace OpenCBS.GUI.Configuration
         {
             Branch b = olvBranches.SelectedObject as Branch;
             Debug.Assert(b != null, "Branch not selected");
-            AddBranchForm frm = new AddBranchForm();
+            AddBranchForm frm = new AddBranchForm(true);
             frm.IsNew = false;
             frm.Branch = b;
             if (DialogResult.OK != frm.ShowDialog()) return;
