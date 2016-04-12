@@ -117,6 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="listViewOtherMembres.Size" type="System.Drawing.Size, System.Drawing">
+    <value>756, 333</value>
+  </data>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 333</value>
+  </data>
+  <data name="splitContainer3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>986, 333</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitContainer3.SplitterDistance" type="System.Int32, mscorlib">
+    <value>756</value>
+  </data>
   <data name="columnHeaderName.Text" xml:space="preserve">
     <value>Фамилия</value>
   </data>
@@ -138,15 +152,11 @@
   <data name="columnHeader7.Text" xml:space="preserve">
     <value>В черном списке</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="listViewOtherMembres.Size" type="System.Drawing.Size, System.Drawing">
-    <value>851, 333</value>
-  </data>
   <data name="buttonDeleteMembers.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 83</value>
   </data>
   <data name="buttonDeleteMembers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 25</value>
+    <value>200, 25</value>
   </data>
   <data name="buttonDeleteMembers.Text" xml:space="preserve">
     <value>Удалить из группы</value>
@@ -155,7 +165,7 @@
     <value>9, 145</value>
   </data>
   <data name="buttonSaveAsLeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 25</value>
+    <value>200, 25</value>
   </data>
   <data name="buttonSaveAsLeader.Text" xml:space="preserve">
     <value>Сохранить как Лидера</value>
@@ -164,7 +174,7 @@
     <value>9, 52</value>
   </data>
   <data name="buttonAddMembres.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 25</value>
+    <value>200, 25</value>
   </data>
   <data name="buttonAddMembres.Text" xml:space="preserve">
     <value>Добавить нового</value>
@@ -173,20 +183,22 @@
     <value>8, 21</value>
   </data>
   <data name="buttonSelectAMember.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 25</value>
+    <value>200, 25</value>
   </data>
   <data name="buttonSelectAMember.Text" xml:space="preserve">
     <value>Выбрать</value>
   </data>
-  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 333</value>
+  <data name="listViewProjects.Size" type="System.Drawing.Size, System.Drawing">
+    <value>780, 327</value>
   </data>
-  <data name="splitContainer3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>986, 333</value>
+  <data name="groupBoxProjects.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 327</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="splitContainer3.SplitterDistance" type="System.Int32, mscorlib">
-    <value>851</value>
+  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>980, 327</value>
+  </data>
+  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
+    <value>780</value>
   </data>
   <data name="columnHeader11.Text" xml:space="preserve">
     <value>Номер</value>
@@ -199,9 +211,6 @@
   </data>
   <data name="columnHeaderNbOfContracts.Text" xml:space="preserve">
     <value>Кол-во контрактов</value>
-  </data>
-  <data name="listViewProjects.Size" type="System.Drawing.Size, System.Drawing">
-    <value>780, 327</value>
   </data>
   <data name="buttonViewProject.Location" type="System.Drawing.Point, System.Drawing">
     <value>-1, 111</value>
@@ -221,36 +230,6 @@
   <data name="buttonAddProject.Text" xml:space="preserve">
     <value>Добавить проект</value>
   </data>
-  <data name="groupBoxProjects.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 327</value>
-  </data>
-  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>980, 327</value>
-  </data>
-  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>780</value>
-  </data>
-  <data name="groupBoxFirstAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>467, 327</value>
-  </data>
-  <data name="groupBoxFirstAddress.Text" xml:space="preserve">
-    <value>Адрес прописки</value>
-  </data>
-  <data name="groupBoxSecondaryAddress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>516, 3</value>
-  </data>
-  <data name="groupBoxSecondaryAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>467, 327</value>
-  </data>
-  <data name="groupBoxSecondaryAddress.Text" xml:space="preserve">
-    <value>Адрес проживания</value>
-  </data>
-  <data name="buttonCopy.Location" type="System.Drawing.Point, System.Drawing">
-    <value>476, 141</value>
-  </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>986, 333</value>
-  </data>
   <data name="tabPageBusinessAddress.Size" type="System.Drawing.Size, System.Drawing">
     <value>986, 333</value>
   </data>
@@ -262,27 +241,6 @@
   </data>
   <data name="tabPageMembers.Text" xml:space="preserve">
     <value>Члены</value>
-  </data>
-  <data name="columnHeader1.Text" xml:space="preserve">
-    <value>Имя</value>
-  </data>
-  <data name="columnHeader2.Text" xml:space="preserve">
-    <value>Паспорт №</value>
-  </data>
-  <data name="columnHeader3.Text" xml:space="preserve">
-    <value>Дата рождения</value>
-  </data>
-  <data name="columnHeader4.Text" xml:space="preserve">
-    <value>Пол</value>
-  </data>
-  <data name="columnHeader5.Text" xml:space="preserve">
-    <value>Глава семьи</value>
-  </data>
-  <data name="columnHeader6.Text" xml:space="preserve">
-    <value>Иждивенцы</value>
-  </data>
-  <data name="listViewHistoryMembers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>986, 333</value>
   </data>
   <data name="tabPageHistory.Size" type="System.Drawing.Size, System.Drawing">
     <value>986, 333</value>
@@ -296,9 +254,6 @@
   <data name="tabPageProjects.Text" xml:space="preserve">
     <value>Проекты</value>
   </data>
-  <data name="savingsListUserControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>980, 327</value>
-  </data>
   <data name="tabPageSaving.Size" type="System.Drawing.Size, System.Drawing">
     <value>986, 333</value>
   </data>
@@ -310,7 +265,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAQ
-        HAAAAk1TRnQBSQFMAgEBBQEAAZQBAAGUAQABIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HAAAAk1TRnQBSQFMAgEBBQEAAaQBAAGkAQABIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -435,8 +390,56 @@
   <data name="tabControlGroupInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>994, 373</value>
   </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>986, 333</value>
+  </data>
+  <data name="groupBoxFirstAddress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>467, 327</value>
+  </data>
+  <data name="groupBoxFirstAddress.Text" xml:space="preserve">
+    <value>Адрес прописки</value>
+  </data>
+  <data name="groupBoxSecondaryAddress.Location" type="System.Drawing.Point, System.Drawing">
+    <value>516, 3</value>
+  </data>
+  <data name="groupBoxSecondaryAddress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>467, 327</value>
+  </data>
+  <data name="groupBoxSecondaryAddress.Text" xml:space="preserve">
+    <value>Адрес проживания</value>
+  </data>
+  <data name="buttonCopy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>476, 141</value>
+  </data>
+  <data name="listViewHistoryMembers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>986, 333</value>
+  </data>
+  <data name="columnHeader1.Text" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="columnHeader2.Text" xml:space="preserve">
+    <value>Паспорт №</value>
+  </data>
+  <data name="columnHeader3.Text" xml:space="preserve">
+    <value>Дата рождения</value>
+  </data>
+  <data name="columnHeader4.Text" xml:space="preserve">
+    <value>Пол</value>
+  </data>
+  <data name="columnHeader5.Text" xml:space="preserve">
+    <value>Глава семьи</value>
+  </data>
+  <data name="columnHeader6.Text" xml:space="preserve">
+    <value>Иждивенцы</value>
+  </data>
+  <data name="savingsListUserControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>980, 327</value>
+  </data>
   <data name="cbBranch.Location" type="System.Drawing.Point, System.Drawing">
     <value>129, 117</value>
+  </data>
+  <data name="groupBoxButtonBottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>994, 47</value>
   </data>
   <data name="buttonNext.Location" type="System.Drawing.Point, System.Drawing">
     <value>848, 13</value>
@@ -447,8 +450,8 @@
   <data name="buttonPreview.Text" xml:space="preserve">
     <value>Назад</value>
   </data>
-  <data name="groupBoxButtonBottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>994, 47</value>
+  <data name="groupBoxButtons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>994, 44</value>
   </data>
   <data name="btnPrint.Location" type="System.Drawing.Point, System.Drawing">
     <value>591, 10</value>
@@ -468,8 +471,17 @@
   <data name="buttonSave.Text" xml:space="preserve">
     <value>Сохранить</value>
   </data>
-  <data name="groupBoxButtons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>994, 44</value>
+  <data name="tableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1000, 660</value>
+  </data>
+  <data name="groupBoxCivilStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>994, 172</value>
+  </data>
+  <data name="groupBoxCivilStatus.Text" xml:space="preserve">
+    <value>Основное</value>
+  </data>
+  <data name="tlpGroupControls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>480, 144</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 16</value>
@@ -546,9 +558,6 @@
   <data name="textBoxName.Size" type="System.Drawing.Size, System.Drawing">
     <value>333, 22</value>
   </data>
-  <data name="tlpGroupControls.Size" type="System.Drawing.Size, System.Drawing">
-    <value>480, 144</value>
-  </data>
   <data name="linkLabelChangePhoto2.Location" type="System.Drawing.Point, System.Drawing">
     <value>857, 146</value>
   </data>
@@ -573,16 +582,7 @@
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>711, 15</value>
   </data>
-  <data name="groupBoxCivilStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>994, 172</value>
-  </data>
-  <data name="groupBoxCivilStatus.Text" xml:space="preserve">
-    <value>Основное</value>
-  </data>
-  <data name="tableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1000, 660</value>
-  </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>820, 555</value>
+    <value>786, 521</value>
   </data>
 </root>
