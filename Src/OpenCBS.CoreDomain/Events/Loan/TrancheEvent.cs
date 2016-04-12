@@ -20,6 +20,8 @@
 // Contact: contact@opencbs.com
 
 using System;
+using System.Collections.Generic;
+using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.CoreDomain.Events.Loan;
 using OpenCBS.Shared;
 
@@ -39,6 +41,7 @@ namespace OpenCBS.CoreDomain.Events
 
         public OCurrency InterestRate { get; set; }
         public OCurrency Amount { get; set; }
+        public IList<LoanEntryFee> Commissions { get; set; }  
         public int? Maturity { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime CloseDate { get; set; }

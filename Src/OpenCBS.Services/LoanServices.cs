@@ -1651,11 +1651,16 @@ namespace OpenCBS.Services
                         };
 
                     trancheEvent.User = _user;
+                    trancheEvent.Commissions = entryFees;
+                    foreach (var loanEntryFee in trancheEvent.Commissions)
+                    {
+                        loanEntryFee.Code = "LEE" + loanEntryFee.ProductEntryFee.Index;
+                    }
 
                     //insert into table TrancheEvent
                     _ePs.FireEvent(trancheEvent, copyOfLoan, transaction);
                     copyOfLoan.Events.Add(trancheEvent);
-
+                    
                     CallInterceptor(new Dictionary<string, object>
                     {
                         {"Loan", copyOfLoan},
@@ -1684,6 +1689,7 @@ namespace OpenCBS.Services
                     var trancheEntryFeeEvent =
                         copyOfLoan.Events.OfType<LoanEntryFeeEvent>()
                                   .FirstOrDefault(i => i.DisbursementEventId == trancheEvent.Id);
+
                     if (trancheEntryFeeEvent != null)
                         CallInterceptor(new Dictionary<string, object>
                         {
