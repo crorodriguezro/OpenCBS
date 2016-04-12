@@ -1,7 +1,8 @@
-{
+{	
 	"Absent": "Отсувствовал",
 	"Account": "Счет",
 	"Accounts": "Счета",
+	"Account is already created.": "Счет уже создан.",
 	"Accounting": "Бухгалтерия",
     "Active": "Текущий",
 	"Actual address": "Факт. адрес",
