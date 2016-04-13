@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain.Products;
@@ -59,7 +60,14 @@ namespace OpenCBS.GUI.Products
             foreach (ISavingProduct s in packageList)
             {
                 ListViewItem lvi = new ListViewItem(s.Name);
-                lvi.SubItems.Add(Convert.ToString(s.ClientType));
+                var savingBookProduct = s as SavingsBookProduct;
+                var clientTypeNames = "";
+
+                if (savingBookProduct != null)
+                {
+                    clientTypeNames = string.Join(",",s.ProductClientTypes.Select(val => val.TypeName)).Trim(',');
+                }
+                lvi.SubItems.Add(clientTypeNames);
                 lvi.SubItems.Add(s.InterestRate == null ? String.Format("{0:N2}% - {1:N2}%", s.InterestRateMin * 100, s.InterestRateMax * 100) : String.Format("{0:N2}%", s.InterestRate * 100));
                 lvi.SubItems.Add(s.Periodicity == null ? "No" : "Yes"); //TermDeposit
                 lvi.Tag = s;

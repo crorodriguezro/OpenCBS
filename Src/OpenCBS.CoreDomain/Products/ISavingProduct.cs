@@ -19,6 +19,7 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
+using System.Collections.Generic;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.Enums;
 using OpenCBS.Shared;
@@ -33,6 +34,7 @@ namespace OpenCBS.CoreDomain.Products
         string Name { get; set; }
         string Code { get; set; }
         OClientTypes ClientType { get; set; }
+        List<ProductClientType> ProductClientTypes { get; set; }
         OCurrency InitialAmountMin { get; set; }
         OCurrency InitialAmountMax { get; set; }
         OCurrency BalanceMin { get; set; }
