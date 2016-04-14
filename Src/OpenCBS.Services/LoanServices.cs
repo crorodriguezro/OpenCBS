@@ -2823,6 +2823,7 @@ namespace OpenCBS.Services
 
         private void UpdateLoan(ref Loan pLoan, SqlTransaction transaction)
         {
+            pLoan.CloseDate = (pLoan.InstallmentList[pLoan.InstallmentList.Count - 1]).ExpectedDate;
             UpdateInstalmentsInDatabase(pLoan, transaction);
             UpdateLoanInDatabase(pLoan, transaction);
         }

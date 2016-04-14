@@ -3708,6 +3708,7 @@ namespace OpenCBS.GUI.Clients
                         credit.ScheduleChangedManually = _credit.ScheduleChangedManually;
                         credit.InstallmentList = _credit.InstallmentList;
                     }
+
                     ServicesProvider.GetInstance().GetContractServices().SaveLoan(ref credit, _project.Id, ref client, (tx, id) =>
                     {
                         LoanTabs.ForEach(e => e.Save(credit, tx));
