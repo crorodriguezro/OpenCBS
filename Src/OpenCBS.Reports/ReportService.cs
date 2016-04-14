@@ -161,112 +161,125 @@ namespace OpenCBS.Reports
 
         public ReportDocument LoadReport(Report report)
         {
-            ReportDocument doc = report.GetDocument();
-            // TODO: remove the retarded ManualDatasources flag
-            Hashtable datasources = report.ManualDatasources ? report.GetDatasources() : GetDatasources(report);
+                ReportDocument doc = report.GetDocument();
+                // TODO: remove the retarded ManualDatasources flag
+                Hashtable datasources = report.ManualDatasources ? report.GetDatasources() : GetDatasources(report);
 
-            bool labelsLoaded = report.LoadLabels();
-            foreach (ReportDocument part in report.GetPartIterator())
-            {
-                // Set up data sources
-                foreach (Table table in part.Database.Tables)
+                bool labelsLoaded = report.LoadLabels();
+                foreach (ReportDocument part in report.GetPartIterator())
                 {
-                    table.SetDataSource(datasources[table.Name]);
+                    // Set up data sources
+                    foreach (Table table in part.Database.Tables)
+                    {
+                        table.SetDataSource(datasources[table.Name]);
+                    }
+
+                    if (!labelsLoaded) continue;
+
+                    // Localize formulae
+                    foreach (FormulaFieldDefinition ff in part.DataDefinition.FormulaFields)
+                    {
+                        // There is a trick here:
+                        // only the formulae whose name starts with 'fn_'
+                        // will be localized
+                        if (!ff.Name.StartsWith("fn_")) continue;
+
+                        string name = part.Name;
+                        name = string.IsNullOrEmpty(name) ? "MAIN_REPORT" : name;
+
+                        string label = report.GetLabel(name, ff.Name);
+                        if (string.IsNullOrEmpty(label)) continue;
+                        ff.Text = label;
+                    }
+
+                    // Localize labels
+                    foreach (ReportObject obj in part.ReportDefinition.ReportObjects)
+                    {
+                        if (!(obj is TextObject)) continue;
+
+                        TextObject tobj = obj as TextObject;
+                        string name = part.Name;
+                        name = string.IsNullOrEmpty(name) ? "MAIN_REPORT" : name;
+
+                        string label = report.GetLabel(name, tobj.Name);
+                        if (string.IsNullOrEmpty(label)) continue;
+                        tobj.Text = label;
+                    }
                 }
 
-                if (!labelsLoaded) continue;
-
-                // Localize formulae
-                foreach (FormulaFieldDefinition ff in part.DataDefinition.FormulaFields)
+                report.UseCents = true;
+                object cur = report.GetParamValueByName("display_in");
+                if (cur != null)
                 {
-                    // There is a trick here:
-                    // only the formulae whose name starts with 'fn_'
-                    // will be localized
-                    if (!ff.Name.StartsWith("fn_")) continue;
-
-                    string name = part.Name;
-                    name = string.IsNullOrEmpty(name) ? "MAIN_REPORT" : name;
-
-                    string label = report.GetLabel(name, ff.Name);
-                    if (string.IsNullOrEmpty(label)) continue;
-                    ff.Text = label;
+                    report.UseCents = Manager.GetUseCents(Convert.ToInt32(cur));
                 }
 
-                // Localize labels
-                foreach (ReportObject obj in part.ReportDefinition.ReportObjects)
-                {
-                    if (!(obj is TextObject)) continue;
-
-                    TextObject tobj = obj as TextObject;
-                    string name = part.Name;
-                    name = string.IsNullOrEmpty(name) ? "MAIN_REPORT" : name;
-
-                    string label = report.GetLabel(name, tobj.Name);
-                    if (string.IsNullOrEmpty(label)) continue;
-                    tobj.Text = label;
-                }
+                return doc;
             }
 
-            report.UseCents = true;
-            object cur = report.GetParamValueByName("display_in");
-            if (cur != null)
+        public bool CanLoadDocument()
+        {
+            try
             {
-                report.UseCents = Manager.GetUseCents(Convert.ToInt32(cur));
+                new ReportDocument();
+                return true;
             }
-
-            return doc;
-        }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        } 
 
         public ParameterFields GetParameterFields(Report report)
         {
-            ParameterFields retval = new ParameterFields();
-            ReportDocument doc = report.GetDocument();
-            foreach (ParameterField pf in doc.ParameterFields)
-            {
-                object value;
-
-                switch (pf.Name)
+                ParameterFields retval = new ParameterFields();
+                ReportDocument doc = report.GetDocument();
+                foreach (ParameterField pf in doc.ParameterFields)
                 {
-                    case "@LANGUAGE":
-                    case "LANGUAGE":
-                        value = UserSettings.Language;
-                        break;
+                    object value;
 
-                    case "user_id":
-                    case "@user_id":
-                    case "USER_ID":
-                    case "@USER_ID":
-                        value = User.CurrentUser.Id;
-                        break;
+                    switch (pf.Name)
+                    {
+                        case "@LANGUAGE":
+                        case "LANGUAGE":
+                            value = UserSettings.Language;
+                            break;
 
-                    case "@USER_NAME":
-                    case "USER_NAME":
-                        value = User.CurrentUser.FirstName + " " + User.CurrentUser.LastName;
-                        break;
+                        case "user_id":
+                        case "@user_id":
+                        case "USER_ID":
+                        case "@USER_ID":
+                            value = User.CurrentUser.Id;
+                            break;
 
-                    case "@BRANCH_NAME":
-                    case "BRANCH_NAME":
-                        value = "";
-                        break;
+                        case "@USER_NAME":
+                        case "USER_NAME":
+                            value = User.CurrentUser.FirstName + " " + User.CurrentUser.LastName;
+                            break;
 
-                    case "@MFI_NAME":
-                    case "MFI_NAME":
-                        value = "";
-                        break;
+                        case "@BRANCH_NAME":
+                        case "BRANCH_NAME":
+                            value = "";
+                            break;
 
-                    default:
-                        value = report.GetParamValueByName(pf.Name);
-                        break;
+                        case "@MFI_NAME":
+                        case "MFI_NAME":
+                            value = "";
+                            break;
+
+                        default:
+                            value = report.GetParamValueByName(pf.Name);
+                            break;
+                    }
+
+                    if (null == value) continue;
+
+                    ParameterField newPf = pf;
+                    newPf.CurrentValues.Clear();
+                    newPf.CurrentValues.Add(new ParameterDiscreteValue {Value = value});
+                    retval.Add(newPf);
                 }
-
-                if (null == value) continue;
-
-                ParameterField newPf = pf;
-                newPf.CurrentValues.Clear();
-                newPf.CurrentValues.Add(new ParameterDiscreteValue {Value = value});
-                retval.Add(newPf);
-            }
-            return retval;
+                return retval;
         }
 
         private Hashtable GetDatasources(Report report)
