@@ -160,7 +160,7 @@ namespace OpenCBS.GUI.Configuration
                 var economicActivity = (EconomicActivity)_selectedNode.Tag;
                 var format = GetString("areYouSureMessage.Text");
                 var message = string.Format(format, economicActivity.Name);
-                if (MessageBox.Show(message, message, MessageBoxButtons.YesNo) ==
+                if (MessageBox.Show(message, "", MessageBoxButtons.YesNo) ==
                     DialogResult.Yes)
                 {
                     DeleteEconomicActivity(economicActivity);

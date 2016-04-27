@@ -22,7 +22,6 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
-using OpenCBS.ExceptionsHandler;
 using OpenCBS.GUI.UserControl;
 
 namespace OpenCBS.GUI

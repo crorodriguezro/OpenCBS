@@ -4510,9 +4510,6 @@ namespace OpenCBS.GUI.Clients
             }
         }
 
-
-
-
         private void buttonLoanReschedule_Click(object sender, EventArgs e)
         {
             try
