@@ -186,5 +186,20 @@ namespace OpenCBS.Services
         {
             return _locationsManager.SelectDistrictByCityName(name);
         }
+
+        public bool Exists(Province province)
+        {
+            return _locationsManager.Exists(province);
+        }
+
+        public bool Exists(District district)
+        {
+            return _locationsManager.Exists(district);
+        }
+
+        public bool Exists(City city)
+        {
+            return _locationsManager.Exists(city);
+        }
     }
 }

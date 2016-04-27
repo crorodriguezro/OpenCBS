@@ -390,6 +390,22 @@ namespace OpenCBS.Manager
             return _cacheCities.Where(val => val.DistrictId == pDistrictId).ToList();
         }
 
+        public bool Exists(Province province)
+        {
+            return _cacheProvinces.Any(val => val.Name == province.Name);
+        }
+
+        public bool Exists(District district)
+        {
+            var d = district;
+            return _cacheDistricts.Any(val => val.Name == district.Name && val.Province.Id == district.Province.Id);
+        }
+
+        public bool Exists(City city)
+        {
+            return _cacheCities.Any(val => val.Name == city.Name && val.DistrictId == city.DistrictId);
+        }
+
         public District SelectDistrictByCityName(string name)
         {
             return (from d in _cacheDistricts

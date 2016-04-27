@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Presenter;
 using OpenCBS.CoreDomain;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.Services;
@@ -148,11 +149,17 @@ namespace OpenCBS.GUI
                 if (!string.IsNullOrEmpty(tbName.Text))
                 {
                     var locationServices = ServicesProvider.GetInstance().GetLocationServices();
+                    var translationService = new TranslationService();
                     if (node.Tag == null)
                     {
                         // Add province
                         int newId = locationServices.AddProvince(tbName.Text);
                         Province p = new Province(newId, tbName.Text);
+                        if (locationServices.Exists(p))
+                        {
+                            MessageBox.Show(translationService.Translate("This province have already exists."));
+                            return;
+                        }
                         TreeNode pnode = new TreeNode(tbName.Text) {Tag = p};
                         node.Nodes.Add(pnode);
                     }
@@ -162,6 +169,11 @@ namespace OpenCBS.GUI
                         Province province = (Province) node.Tag;
                         int newId = locationServices.AddDistrict(tbName.Text, province.Id);
                         District d = new District(newId, tbName.Text, province);
+                        if (locationServices.Exists(d))
+                        {
+                            MessageBox.Show(translationService.Translate("This district have already exists."));
+                            return;
+                        }
                         TreeNode dnode = new TreeNode(tbName.Text) {Tag = d};
                         node.Nodes.Add(dnode);
                     }
@@ -170,6 +182,11 @@ namespace OpenCBS.GUI
                         // Add city
                         District district = (District) node.Tag;
                         City city = new City {Name = tbName.Text, DistrictId = district.Id};
+                        if (locationServices.Exists(city))
+                        {
+                            MessageBox.Show(translationService.Translate("This city have already exists."));
+                            return;
+                        }
                         city.Id = locationServices.AddCity(city);
                         TreeNode cnode = new TreeNode(tbName.Text) {Tag = city};
                         node.Nodes.Add(cnode);
