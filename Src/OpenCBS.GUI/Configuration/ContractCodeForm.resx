@@ -365,6 +365,9 @@
   <data name="&gt;&gt;lblContractCode.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="tbCode.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="tbCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>177, 240</value>
   </data>
