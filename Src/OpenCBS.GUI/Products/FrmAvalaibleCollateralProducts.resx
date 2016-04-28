@@ -166,7 +166,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonEditProduct.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 76</value>
+    <value>18, 76</value>
   </data>
   <data name="buttonEditProduct.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 28</value>
@@ -176,9 +176,6 @@
   </data>
   <data name="buttonEditProduct.Text" xml:space="preserve">
     <value>Edit Collateral Type</value>
-  </data>
-  <data name="buttonEditProduct.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;buttonEditProduct.Name" xml:space="preserve">
     <value>buttonEditProduct</value>
@@ -235,7 +232,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonAddProduct.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 42</value>
+    <value>18, 42</value>
   </data>
   <data name="buttonAddProduct.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 28</value>
@@ -245,9 +242,6 @@
   </data>
   <data name="buttonAddProduct.Text" xml:space="preserve">
     <value>Add Collateral Type</value>
-  </data>
-  <data name="buttonAddProduct.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;buttonAddProduct.Name" xml:space="preserve">
     <value>buttonAddProduct</value>
@@ -274,7 +268,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonDeletePackage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 110</value>
+    <value>18, 110</value>
   </data>
   <data name="buttonDeletePackage.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 28</value>
@@ -284,9 +278,6 @@
   </data>
   <data name="buttonDeletePackage.Text" xml:space="preserve">
     <value>Delete Collateral Type</value>
-  </data>
-  <data name="buttonDeletePackage.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;buttonDeletePackage.Name" xml:space="preserve">
     <value>buttonDeletePackage</value>
@@ -974,6 +965,6 @@
     <value>FrmAvalaibleCollateralProducts</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=16.4.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
