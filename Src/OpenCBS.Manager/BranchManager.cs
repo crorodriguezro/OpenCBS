@@ -127,27 +127,29 @@ namespace OpenCBS.Manager
             return branches;
         }
 
-        public Branch Add(Branch branch, SqlTransaction t)
+        public Branch Add(Branch branch)
         {
             const string q = @"INSERT INTO dbo.Branches
                               (name, code, address, description)
                               VALUES (@name, @code, @address, @description)
                               SELECT SCOPE_IDENTITY()";
-            using (OpenCbsCommand c = new OpenCbsCommand(q, t.Connection, t))
+            using (SqlConnection conn = GetConnection())
+            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
             {
                 c.AddParam("@name", branch.Name);
                 c.AddParam("@code", branch.Code);
                 c.AddParam("@address", branch.Address);
                 c.AddParam("@description", branch.Description);
                 branch.Id = Convert.ToInt32(c.ExecuteScalar());
-
                 RefreshCache();
-
                 return branch;
             }
+
+
+
         }
 
-        public void Update(Branch branch, SqlTransaction t)
+        public void Update(Branch branch)
         {
             const string q = @"UPDATE dbo.Branches
                                 SET name = @name
@@ -155,7 +157,8 @@ namespace OpenCBS.Manager
                                 , description = @description
                                 , address = @address
                                 WHERE id = @id";
-            using (OpenCbsCommand c = new OpenCbsCommand(q, t.Connection, t))
+            using (SqlConnection conn = GetConnection())
+            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
             {
                 c.AddParam("@id", branch.Id);
                 c.AddParam("@name", branch.Name);
