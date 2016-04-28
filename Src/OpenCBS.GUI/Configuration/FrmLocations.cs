@@ -152,28 +152,31 @@ namespace OpenCBS.GUI
                     var translationService = new TranslationService();
                     if (node.Tag == null)
                     {
-                        // Add province
-                        int newId = locationServices.AddProvince(tbName.Text);
-                        Province p = new Province(newId, tbName.Text);
+
+                        Province p = new Province( tbName.Text);
                         if (locationServices.Exists(p))
                         {
-                            MessageBox.Show(translationService.Translate("This province have already exists."));
+                            MessageBox.Show(translationService.Translate("This province have already existed."));
                             return;
                         }
+                        // Add province
+                        int newId = locationServices.AddProvince(tbName.Text);
+                        p = new Province(newId, tbName.Text);
                         TreeNode pnode = new TreeNode(tbName.Text) {Tag = p};
                         node.Nodes.Add(pnode);
                     }
                     else if ((node.Tag is Province))
                     {
-                        // Add district
                         Province province = (Province) node.Tag;
-                        int newId = locationServices.AddDistrict(tbName.Text, province.Id);
-                        District d = new District(newId, tbName.Text, province);
+                        District d = new District(tbName.Text, province);
                         if (locationServices.Exists(d))
                         {
-                            MessageBox.Show(translationService.Translate("This district have already exists."));
+                            MessageBox.Show(translationService.Translate("This district have already existed."));
                             return;
                         }
+                        // Add district
+                        int newId = locationServices.AddDistrict(tbName.Text, province.Id);
+                        d = new District(newId,tbName.Text, province);
                         TreeNode dnode = new TreeNode(tbName.Text) {Tag = d};
                         node.Nodes.Add(dnode);
                     }
@@ -184,7 +187,7 @@ namespace OpenCBS.GUI
                         City city = new City {Name = tbName.Text, DistrictId = district.Id};
                         if (locationServices.Exists(city))
                         {
-                            MessageBox.Show(translationService.Translate("This city have already exists."));
+                            MessageBox.Show(translationService.Translate("This city have already existed."));
                             return;
                         }
                         city.Id = locationServices.AddCity(city);
