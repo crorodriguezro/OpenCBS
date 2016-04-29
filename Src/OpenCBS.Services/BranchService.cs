@@ -94,9 +94,10 @@ namespace OpenCBS.Services
                 {
                     ValidateBranch(branch);       
                     LoadBranches();
-                    _manager.Add(branch);
+                    _manager.Add(branch,t);
                     _branches.Add(branch);
                     if (t!= null) t.Commit();
+                    _manager.RefreshCache();
                     return branch;
                 }
                 catch (Exception)
@@ -115,8 +116,9 @@ namespace OpenCBS.Services
                 try
                 {
                     ValidateBranch(branch);
-                    _manager.Update(branch);
+                    _manager.Update(branch,t);
                     if (t != null) t.Commit();
+                    _manager.RefreshCache();
                     return branch;
                 }
                 catch (Exception)

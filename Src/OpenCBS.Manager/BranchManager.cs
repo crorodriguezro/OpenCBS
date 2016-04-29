@@ -127,21 +127,20 @@ namespace OpenCBS.Manager
             return branches;
         }
 
-        public Branch Add(Branch branch)
+        public Branch Add(Branch branch, SqlTransaction t)
         {
             const string q = @"INSERT INTO dbo.Branches
                               (name, code, address, description)
                               VALUES (@name, @code, @address, @description)
                               SELECT SCOPE_IDENTITY()";
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+            using (OpenCbsCommand c = new OpenCbsCommand(q, t.Connection, t))
             {
                 c.AddParam("@name", branch.Name);
                 c.AddParam("@code", branch.Code);
                 c.AddParam("@address", branch.Address);
                 c.AddParam("@description", branch.Description);
                 branch.Id = Convert.ToInt32(c.ExecuteScalar());
-                RefreshCache();
+                //RefreshCache();
                 return branch;
             }
 
@@ -149,7 +148,7 @@ namespace OpenCBS.Manager
 
         }
 
-        public void Update(Branch branch)
+        public void Update(Branch branch, SqlTransaction t)
         {
             const string q = @"UPDATE dbo.Branches
                                 SET name = @name
@@ -157,8 +156,7 @@ namespace OpenCBS.Manager
                                 , description = @description
                                 , address = @address
                                 WHERE id = @id";
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+            using (OpenCbsCommand c = new OpenCbsCommand(q, t.Connection, t))
             {
                 c.AddParam("@id", branch.Id);
                 c.AddParam("@name", branch.Name);
@@ -167,7 +165,7 @@ namespace OpenCBS.Manager
                 c.AddParam("@address", branch.Address);
                 c.ExecuteNonQuery();
 
-                RefreshCache();
+                //RefreshCache();
             }
         }
 
@@ -192,8 +190,7 @@ namespace OpenCBS.Manager
 
         public bool CodeExists(int id, string code)
         {
-
-            return _cache.Any(val => val.Id == id && val.Code != code);
+            return _cache.Any(val => val.Id != id && val.Code == code);
         }
 
         public string GetBranchCodeByClientId(int clientId)
