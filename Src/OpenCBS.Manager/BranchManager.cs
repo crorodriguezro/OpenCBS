@@ -140,7 +140,6 @@ namespace OpenCBS.Manager
                 c.AddParam("@address", branch.Address);
                 c.AddParam("@description", branch.Description);
                 branch.Id = Convert.ToInt32(c.ExecuteScalar());
-                //RefreshCache();
                 return branch;
             }
 
@@ -164,8 +163,6 @@ namespace OpenCBS.Manager
                 c.AddParam("@description", branch.Description);
                 c.AddParam("@address", branch.Address);
                 c.ExecuteNonQuery();
-
-                //RefreshCache();
             }
         }
 

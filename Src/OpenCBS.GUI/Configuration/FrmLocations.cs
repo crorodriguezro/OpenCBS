@@ -156,7 +156,7 @@ namespace OpenCBS.GUI
                         Province p = new Province( tbName.Text);
                         if (locationServices.Exists(p))
                         {
-                            MessageBox.Show(translationService.Translate("This province have already existed."));
+                            MessageBox.Show(translationService.Translate("This province already exists."));
                             return;
                         }
                         // Add province
@@ -171,7 +171,7 @@ namespace OpenCBS.GUI
                         District d = new District(tbName.Text, province);
                         if (locationServices.Exists(d))
                         {
-                            MessageBox.Show(translationService.Translate("This district have already existed."));
+                            MessageBox.Show(translationService.Translate("This city already exists."));
                             return;
                         }
                         // Add district
