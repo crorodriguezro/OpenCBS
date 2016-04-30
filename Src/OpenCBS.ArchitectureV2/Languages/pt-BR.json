@@ -1,4 +1,5 @@
 ﻿{
+	"Account is already created.": "Conta já está criado.",
 	"Database": "Banco de dados",
 	"Error": "Erro",
 	"Invalid username or password.": "Nome de usuário ou senha inválida.",
@@ -17,7 +18,11 @@
 	"Payment method": "Payment method",
 	"Payment type": "Payment type",
 	"OK": "OK",
-	"Cancel": "Cancel",
+	"This province already exists." : "Esta província já existe.",
+	"This district already exists." : "Este bairro já existe.",
+	"This city already exists." : "Esta cidade já existe.",
+  "Cancel": "Cancel",
+  "Crystal reports haven't been installed.": "Crystal Reports não foram instalados.",
 	"Available balance: ": "Available balance: ",
     "Company": "Empresa",
     "Contact Us": "Contate-nos",

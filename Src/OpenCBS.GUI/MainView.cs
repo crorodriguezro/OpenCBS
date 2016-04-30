@@ -35,6 +35,7 @@ using OpenCBS.ArchitectureV2.CommandData;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.View;
 using OpenCBS.ArchitectureV2.Message;
+using OpenCBS.ArchitectureV2.Presenter;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Loans;
@@ -830,6 +831,7 @@ namespace OpenCBS.GUI
             re.Sort(comparer);
             foreach (var report in re)
             {
+                if (!Report.UserHasAccess(report)) continue;
                 var i = new ToolStripMenuItem(report.Title) { Tag = report.Name };
                 i.Click += activeLoansToolStripMenuItem_Click;
                 if (!string.IsNullOrEmpty(report.Group))
@@ -838,7 +840,7 @@ namespace OpenCBS.GUI
                     var subitems = reportsToolStripMenuItem.DropDownItems.Find(report.Group, true);
                     if (subitems.Any())
                     {
-                        groupItem = (ToolStripMenuItem) subitems[0];
+                        groupItem = (ToolStripMenuItem)subitems[0];
                     }
                     else
                     {
@@ -1075,41 +1077,49 @@ namespace OpenCBS.GUI
         {
             try
             {
-                var reportName = (sender as ToolStripMenuItem).Tag.ToString();
-                var report = ReportService.GetInstance().GetReportByName(reportName);
-                var reportParamsForm = new ReportParamsForm(report.Params, report.Title);
-
-                if (reportParamsForm.ShowDialog() != DialogResult.OK) return;
-
-                var progressForm = new ReportLoadingProgressForm();
-                progressForm.Show();
-
-                var bw = new BackgroundWorker
+                if (ReportService.GetInstance().CanLoadDocument())
                 {
-                    WorkerReportsProgress = true,
-                    WorkerSupportsCancellation = true,
-                };
-                bw.DoWork += (obj, args) =>
-                {
-                    ReportService.GetInstance().LoadReport(report);
-                    bw.ReportProgress(100);
-                };
-                bw.RunWorkerCompleted += (obj, args) =>
-                {
-                    progressForm.Close();
-                    if (args.Error != null)
+                    var reportName = (sender as ToolStripMenuItem).Tag.ToString();
+                    var report = ReportService.GetInstance().GetReportByName(reportName);
+                    var reportParamsForm = new ReportParamsForm(report.Params, report.Title);
+
+                    if (reportParamsForm.ShowDialog() != DialogResult.OK) return;
+
+                    var progressForm = new ReportLoadingProgressForm();
+                    progressForm.Show();
+
+                    var bw = new BackgroundWorker
                     {
-                        Fail(args.Error.Message);
-                        return;
-                    }
-                    if (args.Cancelled) return;
+                        WorkerReportsProgress = true,
+                        WorkerSupportsCancellation = true,
+                    };
+                    bw.DoWork += (obj, args) =>
+                    {
+                        ReportService.GetInstance().LoadReport(report);
+                        bw.ReportProgress(100);
+                    };
+                    bw.RunWorkerCompleted += (obj, args) =>
+                    {
+                        progressForm.Close();
+                        if (args.Error != null)
+                        {
+                            Fail(args.Error.Message);
+                            return;
+                        }
+                        if (args.Cancelled) return;
 
-                    report.OpenCount++;
-                    report.SaveOpenCount();
-                    var reportViewer = new ReportViewerForm(report);
-                    reportViewer.Show();
-                };
-                bw.RunWorkerAsync(report);
+                        report.OpenCount++;
+                        report.SaveOpenCount();
+                        var reportViewer = new ReportViewerForm(report);
+                        reportViewer.Show();
+                    };
+                    bw.RunWorkerAsync(report);
+                }
+                else
+                {
+                    var translationService = new TranslationService();
+                    MessageBox.Show(translationService.Translate("Crystal reports haven't been installed."));
+                }
             }
             catch (Exception ex)
             {

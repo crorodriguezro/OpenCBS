@@ -105,7 +105,7 @@
             this._membersPage.Controls.Add(this._membersListView);
             this._membersPage.Dock = System.Windows.Forms.DockStyle.Fill;
             this._membersPage.Name = "_membersPage";
-            this._membersPage.Size = new System.Drawing.Size(42, 192);
+            this._membersPage.Size = new System.Drawing.Size(700, 382);
             this._membersPage.TabIndex = 1;
             this._membersPage.Text = "Members";
             // 
@@ -117,7 +117,6 @@
             this._membersListView.AllColumns.Add(this._memberLoanCycleColumn);
             this._membersListView.AllColumns.Add(this._memberActiveColumn);
             this._membersListView.AlternateRowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this._membersListView.CheckBoxes = false;
             this._membersListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this._memberFirstNameColumn,
             this._memberLastNameColumn,
@@ -132,7 +131,7 @@
             this._membersListView.MultiSelect = false;
             this._membersListView.Name = "_membersListView";
             this._membersListView.ShowGroups = false;
-            this._membersListView.Size = new System.Drawing.Size(42, 192);
+            this._membersListView.Size = new System.Drawing.Size(700, 382);
             this._membersListView.TabIndex = 3;
             this._membersListView.UseAlternatingBackColors = true;
             this._membersListView.UseCompatibleStateImageBehavior = false;
@@ -195,7 +194,6 @@
             this._loansListView.AllColumns.Add(this._loanFrequencyColumn);
             this._loansListView.AllColumns.Add(this._loanDurationColumn);
             this._loansListView.AlternateRowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this._loansListView.CheckBoxes = false;
             this._loansListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this._loanFirstNameColumn,
             this._loanLastNameColumn,

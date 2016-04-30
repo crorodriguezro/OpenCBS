@@ -51,6 +51,12 @@ namespace OpenCBS.Manager
             if (_cacheLoanPurposes == null) _cacheLoanPurposes = GetCacheLoanPurposes();
         }
 
+        public void RefreshCache()
+        {
+            _cacheEconomicActivities = GetCasheEconomicActivities();
+            _cacheLoanPurposes = GetCacheLoanPurposes();
+        }
+
         private List<EconomicActivity> GetCasheEconomicActivities()
         {
             List<EconomicActivity> doaList = new List<EconomicActivity>();
@@ -147,8 +153,12 @@ namespace OpenCBS.Manager
                     insert.AddParam("@parentId", pEconomicActivity.Parent.Id);
                 else
                     insert.AddParam("@parentId", null);
-                return int.Parse(insert.ExecuteScalar().ToString());
+
+                var result = int.Parse(insert.ExecuteScalar().ToString());
+                RefreshCache();
+                return result;
             }
+
         }
 
         public int AddEconomicActivity(EconomicActivity loanPurpose, bool isLoanPurpose)
@@ -169,7 +179,10 @@ namespace OpenCBS.Manager
                     insert.AddParam("@parentId", loanPurpose.Parent.Id);
                 else
                     insert.AddParam("@parentId", null);
-                return int.Parse(insert.ExecuteScalar().ToString());
+
+                var result = int.Parse(insert.ExecuteScalar().ToString());
+                RefreshCache();
+                return result;
             }
 
         }
@@ -181,7 +194,7 @@ namespace OpenCBS.Manager
         /// </returns>
         public List<EconomicActivity> SelectAllEconomicActivities()
         {
-            return _cacheEconomicActivities.Where(val => val.ParentId==null).ToList();
+            return _cacheEconomicActivities.Where(val => val.ParentId == null).ToList();
         }
 
         public List<EconomicActivity> SelectAllLoanPurposes()
@@ -204,6 +217,7 @@ namespace OpenCBS.Manager
                 update.AddParam("@name", pEconomicActivity.Name);
                 update.AddParam("@wasDeleted", pEconomicActivity.Deleted);
                 update.ExecuteNonQuery();
+                RefreshCache();
             }
         }
 
@@ -218,6 +232,7 @@ namespace OpenCBS.Manager
                 update.AddParam("@name", pEconomicActivity.Name);
                 update.AddParam("@wasDeleted", pEconomicActivity.Deleted);
                 update.ExecuteNonQuery();
+                RefreshCache();
             }
         }
 
@@ -299,6 +314,8 @@ namespace OpenCBS.Manager
                 insert.AddParam("@deleted", activityLoanHistory.Deleted);
 
                 insert.ExecuteNonQuery();
+                RefreshCache();
+
             }
         }
 
@@ -316,6 +333,7 @@ namespace OpenCBS.Manager
                 update.AddParam("@economic_activity_id", economicActivityId);
                 update.AddParam("@deleted", deleted);
                 update.ExecuteNonQuery();
+                RefreshCache();
             }
         }
 

@@ -120,7 +120,4 @@ namespace OpenCBS.CoreDomain.EconomicActivities
 			set{ _deleted = value;}
 		}
 	}
-
-
-
 }

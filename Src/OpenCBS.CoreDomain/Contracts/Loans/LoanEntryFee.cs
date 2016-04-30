@@ -19,12 +19,6 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using OpenCBS.CoreDomain;
-
 namespace OpenCBS.CoreDomain.Contracts.Loans
 {
     public class LoanEntryFee
@@ -39,5 +33,6 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
         public int ProductEntryFeeId { get; set; }
         public EntryFee ProductEntryFee { get; set; }
         public decimal FeeValue { get; set; }
+        public string Code { get; set; }
     }
 }

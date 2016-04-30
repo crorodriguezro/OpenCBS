@@ -98,34 +98,6 @@ namespace OpenCBS.Test.CoreDomain
 		}
 
 		[Test]
-		public void TestIfOtherOrgNameIsCorrectlySetAndRetrieved()
-		{
-			testGroup.OtherOrgName = "Planet Finance";
-			Assert.AreEqual("Planet Finance" , testGroup.OtherOrgName);
-		}
-
-		[Test]
-		public void TestIfOtherOrgAmountIsCorrectlySetAndRetrieved()
-		{
-			testGroup.OtherOrgAmount = 200.5m;
-			Assert.AreEqual(200.5m,testGroup.OtherOrgAmount.Value);
-		}
-
-		[Test]
-		public void TestIfOtherOrgDebtsIsCorrectlySetAndRetrieved()
-		{
-			testGroup.OtherOrgDebts = 200.5m;
-			Assert.AreEqual(200.5m,testGroup.OtherOrgDebts.Value);
-		}
-
-		[Test]
-		public void TestIfAddressIsCorrectlySetAndRetrieved()
-		{
-			testGroup.Address = "50 avenue des Champs Elys�es";
-			Assert.AreEqual("50 avenue des Champs Elys�es",testGroup.Address);
-		}
-
-		[Test]
 		public void TestIfCityIsCorrectlySetAndRetrieved()
 		{
 			testGroup.City = "Paris";
@@ -235,13 +207,6 @@ namespace OpenCBS.Test.CoreDomain
 			Assert.AreEqual("This group has always paid correctly due installments",testGroup.Comments);
 		}
 
-        [Test]
-        public void TestIfOtherMFICommentsIsCorrectlySetAndRetrieved()
-        {
-            testGroup.OtherOrgComment = "This group has always paid correctly due installments,comment by other orgs";
-            Assert.AreEqual("This group has always paid correctly due installments,comment by other orgs", testGroup.OtherOrgComment);
-        }
-
 		[Test]
 		public void TestIfLeaderIsCorrectlySetAndRetrieved()
 		{
@@ -255,31 +220,6 @@ namespace OpenCBS.Test.CoreDomain
 		{
 		    testGroup.AddMember(new Member{Tiers = new Person(),LoanShareAmount = 1000,CurrentlyIn = true,IsLeader = false,JoinedDate = TimeProvider.Today});
 			Assert.AreEqual(1,testGroup.Members.Count);
-		}
-
-		[Test]
-		public void TestIfGroupIsMemberOfAnOtherOrganization()
-		{
-            var newGroup = new Group {OtherOrgAmount = null, OtherOrgDebts = null, OtherOrgName = null};
-		    Assert.IsFalse(newGroup.HasOtherOrganization());
-
-			newGroup.OtherOrgAmount = 123;
-			Assert.IsTrue(newGroup.HasOtherOrganization());
-
-			newGroup.OtherOrgDebts = 1233;
-			Assert.IsTrue(newGroup.HasOtherOrganization());
-
-			newGroup.OtherOrgName = "planet finance";
-			Assert.IsTrue(newGroup.HasOtherOrganization());
-            
-			newGroup.OtherOrgAmount = null;
-			Assert.IsTrue(newGroup.HasOtherOrganization());
-
-			newGroup.OtherOrgDebts = null;
-			Assert.IsTrue(newGroup.HasOtherOrganization());
-
-			newGroup.OtherOrgName = null;
-			Assert.IsFalse(newGroup.HasOtherOrganization());
 		}
 
 		[Test]

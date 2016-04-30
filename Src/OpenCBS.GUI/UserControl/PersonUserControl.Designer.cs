@@ -167,6 +167,7 @@ namespace OpenCBS.GUI.UserControl
             this.tableLayoutPanelAddress = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxFirstAddress = new System.Windows.Forms.GroupBox();
             this.groupBoxSecondaryAddress = new System.Windows.Forms.GroupBox();
+            this.buttonCopy = new System.Windows.Forms.Button();
             this.tabPageProjects = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.listViewProjects = new System.Windows.Forms.ListView();
@@ -219,7 +220,6 @@ namespace OpenCBS.GUI.UserControl
             this.btnPrint = new OpenCBS.GUI.UserControl.PrintButton();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonCopy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -723,6 +723,13 @@ namespace OpenCBS.GUI.UserControl
             this.groupBoxSecondaryAddress.Name = "groupBoxSecondaryAddress";
             this.groupBoxSecondaryAddress.TabStop = false;
             // 
+            // buttonCopy
+            // 
+            resources.ApplyResources(this.buttonCopy, "buttonCopy");
+            this.buttonCopy.Name = "buttonCopy";
+            this.buttonCopy.UseVisualStyleBackColor = true;
+            this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
+            // 
             // tabPageProjects
             // 
             this.tabPageProjects.Controls.Add(this.splitContainer1);
@@ -1106,13 +1113,6 @@ namespace OpenCBS.GUI.UserControl
             resources.ApplyResources(this.buttonSave, "buttonSave");
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
-            // buttonCopy
-            // 
-            resources.ApplyResources(this.buttonCopy, "buttonCopy");
-            this.buttonCopy.Name = "buttonCopy";
-            this.buttonCopy.UseVisualStyleBackColor = true;
-            this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
             // 
             // PersonUserControl
             // 

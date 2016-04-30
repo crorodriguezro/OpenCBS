@@ -158,9 +158,9 @@ namespace OpenCBS.GUI.Configuration
                 if (!isEditable) return;
 
                 var economicActivity = (EconomicActivity)_selectedNode.Tag;
-                var format = GetString("areYouSureMessage.Text");
+                var format = GetString(_isLoanPurpose ? "areYouSureLoan.Text" : "areYouSureEconomic.Text");
                 var message = string.Format(format, economicActivity.Name);
-                if (MessageBox.Show(message, message, MessageBoxButtons.YesNo) ==
+                if (MessageBox.Show(message, "", MessageBoxButtons.YesNo) ==
                     DialogResult.Yes)
                 {
                     DeleteEconomicActivity(economicActivity);

@@ -29,7 +29,7 @@ namespace OpenCBS.Manager
 {
     public class BranchManager : Manager
     {
-        private static List<Branch> _cache; 
+        private static List<Branch> _cache;
 
         public BranchManager(User user)
             : base(user)
@@ -49,6 +49,10 @@ namespace OpenCBS.Manager
             if (_cache == null) _cache = GetCache();
         }
 
+        public void RefreshCache()
+        {
+            _cache = GetCache();
+        }
         private List<Branch> GetCache()
         {
             List<Branch> branches = new List<Branch>();
@@ -136,11 +140,11 @@ namespace OpenCBS.Manager
                 c.AddParam("@address", branch.Address);
                 c.AddParam("@description", branch.Description);
                 branch.Id = Convert.ToInt32(c.ExecuteScalar());
-
-                InitCache();
-
                 return branch;
             }
+
+
+
         }
 
         public void Update(Branch branch, SqlTransaction t)
@@ -159,8 +163,6 @@ namespace OpenCBS.Manager
                 c.AddParam("@description", branch.Description);
                 c.AddParam("@address", branch.Address);
                 c.ExecuteNonQuery();
-
-                InitCache();
             }
         }
 
@@ -174,7 +176,7 @@ namespace OpenCBS.Manager
                 c.AddParam("@id", id);
                 c.ExecuteNonQuery();
 
-                InitCache();
+                RefreshCache();
             }
         }
 
@@ -185,8 +187,7 @@ namespace OpenCBS.Manager
 
         public bool CodeExists(int id, string code)
         {
-
-            return _cache.Any(val => val.Id == id && val.Code != code);
+            return _cache.Any(val => val.Id != id && val.Code == code);
         }
 
         public string GetBranchCodeByClientId(int clientId)
@@ -236,7 +237,7 @@ namespace OpenCBS.Manager
 
         public Branch SelectBranchByName(string name)
         {
-            return _cache.FirstOrDefault(val => val.Name.IndexOf(name,StringComparison.OrdinalIgnoreCase)>=0);
+            return _cache.FirstOrDefault(val => val.Name.IndexOf(name, StringComparison.OrdinalIgnoreCase) >= 0);
         }
     }
 }

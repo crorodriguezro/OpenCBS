@@ -27,6 +27,7 @@ using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.CoreDomain.Products;
 using OpenCBS.Enums;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace OpenCBS.Manager.Products
 {
@@ -941,7 +942,9 @@ namespace OpenCBS.Manager.Products
 
             string q = @"SELECT DISTINCT 
                                        [dbo].[SavingProducts].[id], 
-                                       [dbo].[SavingProducts].[product_type]
+                                       [dbo].[SavingProducts].[product_type],
+                                       [dbo].[ClientTypes].[type_name],
+                                       [dbo].[ClientTypes].[id] clientTypeId
                                        FROM [dbo].[SavingProducts]
                                        INNER JOIN [dbo].[SavingProductsClientTypes] ON
                                        [dbo].[SavingProductsClientTypes].[saving_product_id]=[dbo].[SavingProducts].[id] 
@@ -973,30 +976,52 @@ namespace OpenCBS.Manager.Products
             {
                 using (OpenCbsReader r = c.ExecuteReader())
                 {
-                    if(r == null || r.Empty) return new List<ISavingProduct>();
+                    if (r == null || r.Empty) return new List<ISavingProduct>();
                     while (r.Read())
                     {
                         ISavingProduct pack;
-
-                        switch (r.GetChar("product_type"))
+                        var packId = r.GetInt("id");
+                        if (!productsList.Any(val => val.Id == packId))
                         {
-                            case 'B' :
-                                pack = new SavingsBookProduct();
-                                break;
-                           default:
-                                pack = null; break;
+                            switch (r.GetChar("product_type"))
+                            {
+                                case 'B':
+                                    pack = new SavingsBookProduct();
+                                    break;
+                                default:
+                                    pack = null;
+                                    break;
+                            }
+                            pack.Id = r.GetInt("id");
+                            productsList.Add(pack);
                         }
 
-                        pack.Id = r.GetInt("id");
-                        productsList.Add(pack);
+
+                        var clientTypeName = r.GetString("type_name");
+                            var clientTypeId = r.GetInt("clientTypeId");
+                            var savingProducts = productsList.Where(val => val.Id == packId);
+                            foreach (var savingProduct in savingProducts)
+                            {
+                                if (savingProduct.ProductClientTypes != null)
+                                    savingProduct.ProductClientTypes.Add(new ProductClientType(clientTypeId, clientTypeName));
+                                else
+                                    savingProduct.ProductClientTypes = new List<ProductClientType>()
+                                {
+                                    new ProductClientType(clientTypeId, clientTypeName)
+                                };
+                            }
+                        }
                     }
-                }
             }
-            
+
             for (int i = 0; i < productsList.Count; i++)
             {
                 if (productsList[i] is SavingsBookProduct)
+                {
+                    var product = productsList[i].ProductClientTypes;
                     productsList[i] = SelectSavingsBookProduct(productsList[i].Id);
+                    productsList[i].ProductClientTypes = product;
+                }
             }
             return productsList;
         }

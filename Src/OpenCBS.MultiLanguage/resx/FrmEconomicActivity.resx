@@ -129,7 +129,7 @@
   <data name="doa.Text" xml:space="preserve">
     <value>Economic activity</value>
   </data>
-  <data name="areYouSureMessage.Text" xml:space="preserve">
+  <data name="areYouSureEconomic.Text" xml:space="preserve">
     <value>Are you sure, you want to delete economic activity: {0}?</value>
   </data>
   <data name="buttonEdit" xml:space="preserve">
@@ -143,5 +143,8 @@
   </data>
   <data name="messageBoxNoSelectionLoanPurpose.Text" xml:space="preserve">
     <value>Please select a loan purpose first</value>
+  </data>
+  <data name="areYouSureLoan.Text" xml:space="preserve">
+    <value>Are you sure, you want to delete loan purpose: {0}?</value>
   </data>
 </root>

@@ -485,25 +485,31 @@ namespace OpenCBS.Services
 		    return pExoticProduct.Id;
 		}
 
-        public int AddInstallmentType(InstallmentType pInstallmentType)
-        {
+	    private void CheckExistingInstallmentType(InstallmentType pInstallmentType)
+	    {
             List<InstallmentType> list = _installmentTypeManager.SelectAllInstallmentTypes();
             foreach (InstallmentType type in list)
             {
-                if(type.Name.ToLower() == pInstallmentType.Name.ToLower())
+                if (type.Name.ToLower() == pInstallmentType.Name.ToLower())
                     throw new OpenCbsPackageSaveException(OpenCbsPackageSaveExceptionEnum.InstallmentTypeNameAlreadyExist);
-                if(type.NbOfDays == pInstallmentType.NbOfDays && type.NbOfMonths == pInstallmentType.NbOfMonths)
+                if (type.NbOfDays == pInstallmentType.NbOfDays && type.NbOfMonths == pInstallmentType.NbOfMonths)
                     throw new OpenCbsPackageSaveException(OpenCbsPackageSaveExceptionEnum.InstallmentTypeValuesAlreadyExist);
             }
+        }
+
+        public int AddInstallmentType(InstallmentType pInstallmentType)
+        {
+            CheckExistingInstallmentType(pInstallmentType);
             return _installmentTypeManager.AddInstallmentType(pInstallmentType);
         }
 
-        public void EditInstallmentType(InstallmentType pInstallmentType)
-        {
-            _installmentTypeManager.EditInstallmentType(pInstallmentType);
-        }
+	    public void EditInstallmentType(InstallmentType pInstallmentType)
+	    {
+            CheckExistingInstallmentType(pInstallmentType);
+	        _installmentTypeManager.EditInstallmentType(pInstallmentType);
+	    }
 
-        public void DeleteInstallmentType(InstallmentType pInstallmentType)
+	    public void DeleteInstallmentType(InstallmentType pInstallmentType)
         {
             if (_installmentTypeManager.NumberOfLinksToInstallmentType(pInstallmentType) > 0)
                 throw new OpenCbsPackageSaveException(OpenCbsPackageSaveExceptionEnum.InstallmentTypeValuesAreUsed);

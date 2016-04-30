@@ -1401,7 +1401,6 @@ namespace OpenCBS.GUI.Clients
             tBProjectFinancialPlanTotal.Text = pProject.CorporateFinancialPlanTotalAmount.HasValue ? pProject.CorporateFinancialPlanTotalAmount.GetFormatedValue(true) : "";
 
             projectAddressUserControl.ZipCode = pProject.ZipCode;
-            projectAddressUserControl.HomeType = pProject.HomeType;
             projectAddressUserControl.Email = pProject.Email;
             projectAddressUserControl.District = pProject.District;
             projectAddressUserControl.City = pProject.City;
@@ -1810,6 +1809,8 @@ namespace OpenCBS.GUI.Clients
             }
             SetAddTrancheButton(pCredit);
             buttonLoanRepaymentRepay.Enabled = !pCredit.Closed;
+            buttonLoanReschedule.Enabled = !pCredit.WrittenOff;
+            buttonManualSchedule.Enabled = !pCredit.WrittenOff;
             btnWriteOff.Enabled = !pCredit.Closed && !pCredit.WrittenOff;
             InitLoanRepaymentButtons();
         }
@@ -3075,7 +3076,6 @@ namespace OpenCBS.GUI.Clients
                         newProject.CorporateRegistre = cBProjectAffiliation.Text;
 
                         newProject.ZipCode = projectAddressUserControl.ZipCode;
-                        newProject.HomeType = projectAddressUserControl.HomeType;
                         newProject.Email = projectAddressUserControl.Email;
                         newProject.District = projectAddressUserControl.District;
                         newProject.City = projectAddressUserControl.City;
@@ -3114,7 +3114,6 @@ namespace OpenCBS.GUI.Clients
                         _project.CorporateRegistre = cBProjectAffiliation.Text;
 
                         _project.ZipCode = projectAddressUserControl.ZipCode;
-                        _project.HomeType = projectAddressUserControl.HomeType;
                         _project.Email = projectAddressUserControl.Email;
                         _project.District = projectAddressUserControl.District;
                         _project.City = projectAddressUserControl.City;
@@ -3709,6 +3708,7 @@ namespace OpenCBS.GUI.Clients
                         credit.ScheduleChangedManually = _credit.ScheduleChangedManually;
                         credit.InstallmentList = _credit.InstallmentList;
                     }
+
                     ServicesProvider.GetInstance().GetContractServices().SaveLoan(ref credit, _project.Id, ref client, (tx, id) =>
                     {
                         LoanTabs.ForEach(e => e.Save(credit, tx));
@@ -4509,9 +4509,6 @@ namespace OpenCBS.GUI.Clients
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
             }
         }
-
-
-
 
         private void buttonLoanReschedule_Click(object sender, EventArgs e)
         {
@@ -6456,6 +6453,8 @@ namespace OpenCBS.GUI.Clients
                 if (form.ShowDialog() != DialogResult.OK) return;
 
                 WriteOff(form.OptionId, form.Comment);
+                buttonManualSchedule.Enabled = false;
+                buttonLoanReschedule.Enabled = false;
             }
             catch (Exception ex)
             {

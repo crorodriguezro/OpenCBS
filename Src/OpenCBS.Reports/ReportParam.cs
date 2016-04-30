@@ -23,6 +23,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain;
 using OpenCBS.Shared.Settings;
@@ -36,9 +37,11 @@ namespace OpenCBS.Reports
         protected static Font ControlFont = new Font("Arial", 9F);
         protected static Font LabelFont = new Font("Arial", 9F, FontStyle.Bold);
         public abstract Control Control { get; }
+        protected bool _visible = true;
         public virtual bool Visible
         {
-            get { return true; }
+            get { return _visible; }
+            set { _visible = value; }
         }
         public virtual bool AddLabel
         {
@@ -162,6 +165,38 @@ namespace OpenCBS.Reports
             get { return null == _control ? _value : Convert.ToDecimal(_control.Text); }
         }
     }
+
+
+    public class RoleParam : ReportParamV2
+    {
+        private readonly string _values;
+
+        public RoleParam(string value)
+        {
+            _values = string.IsNullOrEmpty(value) ? null : value;
+            base.Visible = false;
+        }
+
+        public override void InitControl()
+        {
+        }
+
+        public string[] GetArray()
+        {
+            return _values.Split(',').Select(val => val.Trim(' ')).ToArray();
+        }
+
+        public override Control Control
+        {
+            get { return null; }
+        }
+
+        public override object Value
+        {
+            get { return _values; }
+        }
+    }
+
 
     public class StringParam : ReportParamV2
     {

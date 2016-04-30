@@ -58,8 +58,6 @@ namespace OpenCBS.GUI
             this.labelPersonalPhone = new System.Windows.Forms.Label();
             this.labelEMail = new System.Windows.Forms.Label();
             this.labelZipCode = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxHomeType = new System.Windows.Forms.ComboBox();
             this.tbZipCode = new OpenCBS.GUI.UserControl.TextBoxLimit();
             this.textBoxEMail = new OpenCBS.GUI.UserControl.TextBoxLimit();
             this.textBoxPersonalPhone = new OpenCBS.GUI.UserControl.TextBoxLimit();
@@ -70,9 +68,9 @@ namespace OpenCBS.GUI
             // 
             // comboBoxDistrict
             // 
-            resources.ApplyResources(this.comboBoxDistrict, "comboBoxDistrict");
             this.comboBoxDistrict.BackColor = System.Drawing.Color.White;
             this.comboBoxDistrict.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.comboBoxDistrict, "comboBoxDistrict");
             this.comboBoxDistrict.Name = "comboBoxDistrict";
             this.comboBoxDistrict.SelectionChangeCommitted += new System.EventHandler(this.comboBoxDistrict_SelectionChangeCommitted);
             // 
@@ -102,9 +100,9 @@ namespace OpenCBS.GUI
             // 
             // comboBoxProvince
             // 
-            resources.ApplyResources(this.comboBoxProvince, "comboBoxProvince");
             this.comboBoxProvince.BackColor = System.Drawing.Color.White;
             this.comboBoxProvince.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.comboBoxProvince, "comboBoxProvince");
             this.comboBoxProvince.Name = "comboBoxProvince";
             this.comboBoxProvince.SelectionChangeCommitted += new System.EventHandler(this.comboBoxProvince_SelectionChangeCommitted);
             // 
@@ -133,19 +131,6 @@ namespace OpenCBS.GUI
             // 
             resources.ApplyResources(this.labelZipCode, "labelZipCode");
             this.labelZipCode.Name = "labelZipCode";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // comboBoxHomeType
-            // 
-            resources.ApplyResources(this.comboBoxHomeType, "comboBoxHomeType");
-            this.comboBoxHomeType.BackColor = System.Drawing.Color.White;
-            this.comboBoxHomeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHomeType.Name = "comboBoxHomeType";
-            this.comboBoxHomeType.SelectionChangeCommitted += new System.EventHandler(this.comboBoxHomeType_SelectionChangeCommitted);
             // 
             // tbZipCode
             // 
@@ -189,8 +174,6 @@ namespace OpenCBS.GUI
             // AddressUserControl
             // 
             resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.comboBoxHomeType);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.tbZipCode);
             this.Controls.Add(this.labelZipCode);
             this.Controls.Add(this.labelEMail);
@@ -216,7 +199,5 @@ namespace OpenCBS.GUI
 
         private System.Windows.Forms.Label labelZipCode;
         private OpenCBS.GUI.UserControl.TextBoxLimit tbZipCode;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxHomeType;
     }
 }

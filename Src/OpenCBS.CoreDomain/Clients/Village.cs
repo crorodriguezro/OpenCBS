@@ -76,14 +76,11 @@ namespace OpenCBS.CoreDomain.Clients
 
         public string Address { get; set; }
         public bool BadClient { get; set; }
-        public int? CashReceiptIn { get; set; }
-        public int? CashReceiptOut { get; set; }
         public string City { get; set; }
         public OClientStatus Status { get; set; }
         public DateTime CreationDate { get; set; }
         public District District { get; set; }
         public string Email { get; set; }
-        public string FollowUpComment { get; set; }
         public string HomePhone { get; set; }
         public string HomeType { get; set; }
         public int Id { get; set; }
@@ -92,10 +89,6 @@ namespace OpenCBS.CoreDomain.Clients
         public int NbOfGuarantees { get { return 0; } }
         public int NbOfloans { get { return 0; } }
         public int NbOfProjects { get { return 0; } }
-        public OCurrency OtherOrgAmount { get; set; }
-        public string OtherOrgComment { get; set; }
-        public OCurrency OtherOrgDebts { get; set; }
-        public string OtherOrgName { get; set; }
         public string PersonalPhone { get; set; }
         public List<Project> Projects { get { return null; } }
         public IList<ISavingsContract> Savings { get { return null; } }
@@ -132,10 +125,6 @@ namespace OpenCBS.CoreDomain.Clients
         {
             
         }
-        public string Sponsor1 { get; set; }
-        public string Sponsor2 { get; set; }
-        public string Sponsor1Comment { get; set; }
-        public string Sponsor2Comment { get; set; }
         public OClientTypes Type
         {
             get { return OClientTypes.Village; }
