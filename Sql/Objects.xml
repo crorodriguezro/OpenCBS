@@ -427,8 +427,7 @@ END
             DROP FUNCTION [dbo].[next_contractEvents]]]></drop>
   </object>
   <object name="InstallmentSnapshot" priority="10">
-    <create><![CDATA[
-create function dbo.InstallmentSnapshot
+    <create><![CDATA[create function dbo.InstallmentSnapshot
 (
 	@date DATETIME
 )
@@ -507,26 +506,8 @@ RETURN
 RETURNS TABLE
 AS RETURN
 (
-	WITH _amounts AS
-	(
-		SELECT contract_id id, SUM(amount) amount
-		FROM
-		(
-		    SELECT ce.contract_id, lode.amount
-		    FROM dbo.ContractEvents ce
-		    INNER JOIN dbo.LoanDisbursmentEvents lode ON ce.id = lode.id
-		    WHERE ce.is_deleted = 0 AND CONVERT(date, ce.event_date) <= @date
-		    
-		    UNION ALL
-		    
-		    SELECT ce.contract_id, te.amount
-		    FROM dbo.ContractEvents ce
-		    INNER JOIN dbo.TrancheEvents te ON ce.id = te.id
-		    WHERE ce.is_deleted = 0 AND CONVERT(date, ce.event_date) <= @date
-		) t
-		GROUP BY contract_id
-	)
-	, _installments AS
+	WITH 
+	_installments AS
 	(
 		SELECT contract_id
 			, expected_date
@@ -539,6 +520,7 @@ AS RETURN
 	, _loans AS
 	(
 		SELECT contract_id id
+      , SUM(principal) amount
 			, SUM(principal - paid_principal) olb
 			, SUM(interest - paid_interest) interest
 			, SUM(interest) initial_interest
@@ -587,13 +569,12 @@ AS RETURN
         GROUP BY c.id
     )
     
-	SELECT l.*, a.amount, t.id client_id, t.client_type_code
+	SELECT l.*, t.id client_id, t.client_type_code
 	FROM _loans l
 	LEFT JOIN _flags f ON f.contract_id = l.id
 	LEFT JOIN dbo.Contracts c ON c.id = l.id
 	LEFT JOIN dbo.Projects j ON j.id = c.project_id
 	LEFT JOIN dbo.Tiers t ON t.id = j.tiers_id
-	LEFT JOIN _amounts a ON a.id = l.id
 	WHERE olb > 0.5
 		AND f.disbursed > 0 AND f.written_off < 1 AND f.closed < 1 
 		AND (0 = @branch_id OR t.branch_id = @branch_id)
