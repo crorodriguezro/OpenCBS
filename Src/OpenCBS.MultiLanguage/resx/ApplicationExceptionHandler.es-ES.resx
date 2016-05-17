@@ -267,6 +267,9 @@
   <data name="InstallmentExceptionNotFirstInstallmentToCancelRepay.Text" xml:space="preserve">
     <value>No se puede cancelar esta cuota ya que las posteriores  no han sido canceladas todavía</value>
   </data>
+  <data name="MaxMinCondition.Text" xml:space="preserve">
+    <value>El campo debe ser menor que el máximo o mayor que el mínimo</value>
+  </data>
   <data name="OpenCbsCorporateEventExceptionAmountIsBigger.Text" xml:space="preserve">
     <value>El monto es demasiado alto (solo puede ser inferior a 100 millones)</value>
   </data>

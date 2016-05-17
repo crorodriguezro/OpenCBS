@@ -521,6 +521,9 @@ Deve completar ou "min" e "Max" ou 
     <value>OpenCBS permite apenas até 2 moedas. 
 Não pode adicionar mais</value>
   </data>
+  <data name="MaxMinCondition.Text" xml:space="preserve">
+    <value>O campo deve ser menor do que o máximo ou mínimo maior do que</value>
+  </data>
   <data name="NumberFieldIsNotANumber.Text" xml:space="preserve">
     <value>O campo personalizado do tipo de número
 contém símbolos impróprios.</value>

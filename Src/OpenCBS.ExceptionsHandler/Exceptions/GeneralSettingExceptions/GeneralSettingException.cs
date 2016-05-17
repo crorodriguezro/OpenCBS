@@ -70,8 +70,11 @@ namespace OpenCBS.ExceptionsHandler
                 case GeneralSettingEnumException.BetweenZeroAndSix:
                     returned = "BetweenZeroAndSix.Text";
                     break;
-				
-			}
+                case GeneralSettingEnumException.MaxMinCondition:
+                    returned = "MaxMinCondition.Text";
+                    break;
+
+            }
 			return returned;
 		}
 	}
@@ -82,6 +85,7 @@ namespace OpenCBS.ExceptionsHandler
         OnlyChar,
         OnlyInt,
         OnlyIntAndUnderscore,
-        BetweenZeroAndSix
+        BetweenZeroAndSix,
+        MaxMinCondition
     }
 }

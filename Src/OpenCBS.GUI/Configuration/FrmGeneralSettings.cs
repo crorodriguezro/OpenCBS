@@ -1342,14 +1342,10 @@ namespace OpenCBS.GUI.Configuration
             string entryKey = entry.Key.ToString();
             try
             {
-                if (entryKey == OGeneralSettings.GROUPMINMEMBERS ||
-                         entryKey == OGeneralSettings.GROUPMAXMEMBERS ||
-                         entryKey == OGeneralSettings.VILLAGEMINMEMBERS ||
-                         entryKey == OGeneralSettings.VILLAGEMAXMEMBERS ||
-                         entryKey == OGeneralSettings.CEASE_LAIE_DAYS ||
-                         entryKey == OGeneralSettings.MAX_LOANS_COVERED ||
-                         entryKey == OGeneralSettings.MAX_GUARANTOR_AMOUNT ||
-                         entryKey == OGeneralSettings.INTEREST_RATE_DECIMAL_PLACES)
+                if (entryKey == OGeneralSettings.CEASE_LAIE_DAYS ||
+                    entryKey == OGeneralSettings.MAX_LOANS_COVERED ||
+                    entryKey == OGeneralSettings.MAX_GUARANTOR_AMOUNT ||
+                    entryKey == OGeneralSettings.INTEREST_RATE_DECIMAL_PLACES)
                 {
                     if (textBoxGeneralParameterValue.Text != String.Empty)
                     {
@@ -1366,6 +1362,126 @@ namespace OpenCBS.GUI.Configuration
                         entry.Value = null;
 
                 }
+                else if (entryKey == OGeneralSettings.GROUPMAXMEMBERS)
+                {
+                    var groupMinMembersValueStr = GetGeneralSettingsItem(OGeneralSettings.GROUPMINMEMBERS).ToString();
+                    if (!string.IsNullOrEmpty(textBoxGeneralParameterValue.Text))
+                    {
+                        try
+                        {
+                            if (!string.IsNullOrEmpty(groupMinMembersValueStr))
+                            {
+                                var groupMinMembersValue = Convert.ToUInt32(groupMinMembersValueStr);
+                                var groupMaxMembersValue = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                                if (groupMinMembersValue > groupMaxMembersValue)
+                                    throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
+                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                            }
+                            else
+                            {
+                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            if (ex.ToString() == GeneralSettingEnumException.MaxMinCondition + ".Text")
+                                throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
+
+                            throw new GeneralSettingException(GeneralSettingEnumException.OnlyInt);
+                        }
+
+                    }
+                }
+                else if (entryKey == OGeneralSettings.VILLAGEMINMEMBERS)
+                {
+                    var villageMaxMembersValueStr = GetGeneralSettingsItem(OGeneralSettings.VILLAGEMAXMEMBERS).ToString();
+                    if (!string.IsNullOrEmpty(textBoxGeneralParameterValue.Text))
+                    {
+                        try
+                        {
+                            if (!string.IsNullOrEmpty(villageMaxMembersValueStr))
+                            {
+                                var villageMaxMembersValue = Convert.ToUInt32(villageMaxMembersValueStr);
+                                var villageMinMembersValue = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                                if (!string.IsNullOrEmpty(villageMaxMembersValueStr) &&
+                                    villageMinMembersValue > villageMaxMembersValue)
+                                    throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
+                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                            }
+                            else
+                            {
+                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            if (ex.ToString() == GeneralSettingEnumException.MaxMinCondition + ".Text")
+                                throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
+
+                            throw new GeneralSettingException(GeneralSettingEnumException.OnlyInt);
+                        }
+                    }
+                }
+                else if (entryKey == OGeneralSettings.VILLAGEMAXMEMBERS)
+                {
+                    var villageMinMembersValueStr = GetGeneralSettingsItem(OGeneralSettings.VILLAGEMINMEMBERS).ToString();
+                    if (!string.IsNullOrEmpty(textBoxGeneralParameterValue.Text) )
+                    {
+                        try
+                        {
+                            if (!string.IsNullOrEmpty(villageMinMembersValueStr))
+                            {
+                                var villageMinMembersValue = Convert.ToUInt32(villageMinMembersValueStr);
+                                var villageMaxMembersValue = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                                if (villageMinMembersValue > villageMaxMembersValue)
+                                    throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
+                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                            }
+                            else
+                            {
+                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            if (ex.ToString()  == GeneralSettingEnumException.MaxMinCondition + ".Text")
+                                throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
+
+                                throw new GeneralSettingException(GeneralSettingEnumException.OnlyInt);
+                        }
+
+                    }
+                }
+                else if (entryKey == OGeneralSettings.GROUPMINMEMBERS)
+                {
+                    var groupMaxMembersValueStr = GetGeneralSettingsItem(OGeneralSettings.GROUPMAXMEMBERS).ToString();
+                    if (!string.IsNullOrEmpty(textBoxGeneralParameterValue.Text) )
+                    {
+                        try
+                        {
+                            if (!string.IsNullOrEmpty(groupMaxMembersValueStr))
+                            {
+                                var groupMaxMembersValue = Convert.ToUInt32(groupMaxMembersValueStr);
+                                var groupMinMembersValue = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                                if (!string.IsNullOrEmpty(groupMaxMembersValueStr) &&
+                                    groupMinMembersValue > groupMaxMembersValue)
+                                    throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
+                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                            }
+                            else
+                            {
+                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                            }
+                        }
+                        catch(Exception ex)
+                        {
+                            if (ex.ToString() == GeneralSettingEnumException.MaxMinCondition + ".Text")
+                                throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
+
+                            throw new GeneralSettingException(GeneralSettingEnumException.OnlyInt);
+                        }
+                    }
+                }
                 else if (entryKey == OGeneralSettings.WEEKENDDAY1 ||
                          entryKey == OGeneralSettings.WEEKENDDAY2)
                 {
@@ -1374,7 +1490,7 @@ namespace OpenCBS.GUI.Configuration
                     {
                         entry.Value = Convert.ToInt32(textBoxGeneralParameterValue.Text);
                         var entryVal = int.Parse(entry.Value.ToString());
-                        
+
                         if (entryVal > 6 || entryVal < 0)
                         {
                             entry.Value = "0";
@@ -1451,6 +1567,20 @@ namespace OpenCBS.GUI.Configuration
                     entry.Value = "0";
                 }
             }
+        }
+
+        public object GetGeneralSettingsItem(string generalSettings)
+        {
+            foreach (ListViewItem listViewItem in lvGeneralParameters.Items)
+            {
+                var tag = (DictionaryEntry) listViewItem.Tag;
+                if (tag.Key.Equals(generalSettings))
+                {
+                    return listViewItem.SubItems[1].Text;
+                }
+
+            }
+            return null;
         }
 
         private void InitializeHoliday()
