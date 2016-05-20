@@ -101,7 +101,7 @@ namespace OpenCBS.Services
         /// <returns>A struct contains, if necessary, errors occurs</returns>
         public UserErrors SaveUser(User pUser)
         {
-            UserErrors userErrors = new UserErrors();
+            var userErrors = new UserErrors();
 
             if (pUser.UserName == null)
             {
@@ -152,29 +152,47 @@ namespace OpenCBS.Services
 
             Debug.Assert(OGender.CheckGender(pUser.Sex), string.Format("Non valif geder character is given for user: {0}", pUser.Name));
 
-            if (userErrors.FindError) return userErrors;
 
-            if (pUser.Id == 0)
+            if (pUser.Id == 0 && Find(pUser.UserName, pUser.Password) != null)
             {
-                if (Find(pUser.UserName, pUser.Password) != null)
-                {
-                    userErrors.FindError = true;
-                    userErrors.ResultMessage += "\n - " + MultiLanguageStrings.GetString(Ressource.StringRes, "User_Save_AlreadyExist.Text");
-                }
-                else
-                {
-                    _userManager.AddUser(pUser);
-                    if (_users != null) _users.Add(pUser);
-                    userErrors.ResultMessage = MultiLanguageStrings.GetString(Ressource.StringRes, "User_Save_OK.Text");
-                }
-            }
-            else
-            {
-                _userManager.UpdateUser(pUser);
-                userErrors.ResultMessage = MultiLanguageStrings.GetString(Ressource.StringRes, "User_Update_OK.Text");
+                userErrors.FindError = true;
+                userErrors.ResultMessage += "\n - " + MultiLanguageStrings.GetString(Ressource.StringRes, "User_Save_AlreadyExist.Text");
             }
 
-            return userErrors;
+            return userErrors.FindError ? userErrors : SaveUserInternal(pUser);
+        }
+
+        private UserErrors SaveUserInternal(User pUser)
+        {
+            var userErrors = new UserErrors();
+
+            using (var connection = _userManager.GetConnection())
+            using (var transaction = connection.BeginTransaction())
+            {
+                try
+                {
+                    if (pUser.Id == 0)
+                    {
+                        _userManager.AddUser(pUser, transaction);
+                        if (_users != null) _users.Add(pUser);
+
+                        userErrors.ResultMessage = MultiLanguageStrings.GetString(Ressource.StringRes, "User_Save_OK.Text");
+                    }
+                    else
+                    {
+                        _userManager.UpdateUser(pUser, transaction);
+                        userErrors.ResultMessage = MultiLanguageStrings.GetString(Ressource.StringRes, "User_Update_OK.Text");
+                    }
+
+                    transaction.Commit();
+                    return userErrors;
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
         }
 
         public User Find(int id)

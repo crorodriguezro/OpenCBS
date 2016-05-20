@@ -49,7 +49,7 @@ namespace OpenCBS.Manager
             //_user = pUser;
         }
 
-        public int AddUser(User pUser)
+        public int AddUser(User pUser, SqlTransaction transaction)
         {
             const string sqlText = @"INSERT INTO [Users] (
                                        [deleted], 
@@ -73,18 +73,18 @@ namespace OpenCBS.Manager
                                        @phone) 
                                      SELECT SCOPE_IDENTITY()";
 
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand sqlCommand = new OpenCbsCommand(sqlText, conn))
+            using (var sqlCommand = new OpenCbsCommand(sqlText, transaction.Connection, transaction))
             {
                 sqlCommand.AddParam("@deleted", false);
                 SetUser(sqlCommand, pUser);
                 pUser.Id = int.Parse(sqlCommand.ExecuteScalar().ToString());
-                SaveUsersRole(pUser.Id, pUser.UserRole.Id);
+                SaveUsersRole(pUser.Id, pUser.UserRole.Id, transaction);
             }
+
             return pUser.Id;
         }
 
-        public void UpdateUser(User pUser)
+        public void UpdateUser(User pUser, SqlTransaction transaction)
         {
             const string sqlText = @"UPDATE [Users] 
                                      SET [user_name] = @username, 
@@ -97,23 +97,21 @@ namespace OpenCBS.Manager
                                        [phone] = @phone
                                      WHERE [id] = @userId";
 
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand sqlCommand = new OpenCbsCommand(sqlText, conn))
+            using (var sqlCommand = new OpenCbsCommand(sqlText, transaction.Connection, transaction))
             {
                 sqlCommand.AddParam("@userId", pUser.Id);
                 SetUser(sqlCommand, pUser);
                 sqlCommand.ExecuteNonQuery();
-                _UpdateUsersRole(pUser.Id, pUser.UserRole.Id);
+                _UpdateUsersRole(pUser.Id, pUser.UserRole.Id, transaction);
             }
         }
 
-        private void SaveUsersRole(int pUserId, int pRoleId)
+        private void SaveUsersRole(int pUserId, int pRoleId, SqlTransaction transaction)
         {
             const string sqlText = @"INSERT INTO [UserRole]([role_id], [user_id]) 
                                    VALUES(@role_id, @user_id)";
 
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand sqlCommand = new OpenCbsCommand(sqlText, conn))
+            using (var sqlCommand = new OpenCbsCommand(sqlText, transaction.Connection, transaction))
             {
                 sqlCommand.AddParam("@role_id", pRoleId);
                 sqlCommand.AddParam("@user_id", pUserId);
@@ -121,14 +119,13 @@ namespace OpenCBS.Manager
             }
         }
 
-        private void _UpdateUsersRole(int pUserId, int pRoleId)
+        private void _UpdateUsersRole(int pUserId, int pRoleId, SqlTransaction transaction)
         {
             const string sqlText = @"UPDATE [UserRole] 
                                     SET [role_id] = @role_id
                                     WHERE [user_id] = @user_id";
 
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand sqlCommand = new OpenCbsCommand(sqlText, conn))
+            using (var sqlCommand = new OpenCbsCommand(sqlText, transaction.Connection, transaction))
             {
                 sqlCommand.AddParam("@role_id", pRoleId);
                 sqlCommand.AddParam("@user_id", pUserId);
