@@ -36,7 +36,7 @@ namespace OpenCBS.ArchitectureV2.Repository
 	                dbo.VillagesPersons vp on vp.person_id = p.id
                 where
 	                vp.left_date is null
-	                and vp.village_id = @id
+	                and vp.village_id = @id 
                 order by
                     p.id
 
@@ -80,6 +80,7 @@ namespace OpenCBS.ArchitectureV2.Repository
                 where
                     vp.left_date is null                    
 	                and vp.village_id = @id
+                    and c.nsg_id = @id
 	                and c.status in (1, 2, 5)
                 order by
                     p.id

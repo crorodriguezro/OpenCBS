@@ -71,7 +71,7 @@ namespace OpenCBS.ArchitectureV2.Repository
                 left join
 	                dbo.VillagesPersons vp on vp.person_id = p.id
                 where
-	                vp.village_id = @villageBankId
+	                vp.village_id = @villageBankId and c.nsg_id=@villageBankId
 	                and c.status = 5
                 order by
                     p.id
@@ -104,7 +104,7 @@ namespace OpenCBS.ArchitectureV2.Repository
 		                left join
 			                dbo.VillagesPersons vp on vp.person_id = p.id
 		                where
-			                vp.village_id = @villageBankId
+			                vp.village_id = @villageBankId and c.nsg_id=@villageBankId
 			                and c.status = 5
 	                )
             ";
