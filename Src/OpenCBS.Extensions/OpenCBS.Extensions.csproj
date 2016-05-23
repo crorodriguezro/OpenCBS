@@ -93,6 +93,7 @@
     <Compile Include="ISearchFormInitializer.cs" />
     <Compile Include="ISolidarityGroupTabs.cs" />
     <Compile Include="IStartPageInitializer.cs" />
+    <Compile Include="IUserInterceptor.cs" />
     <Compile Include="IVillageBankFormInitializer.cs" />
     <Compile Include="LoanApprovalUserControl.cs">
       <SubType>UserControl</SubType>

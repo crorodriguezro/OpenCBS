@@ -21,12 +21,14 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Diagnostics;
 using OpenCBS.CoreDomain.Dashboard;
 using OpenCBS.Enums;
 using OpenCBS.Manager;
 using OpenCBS.CoreDomain;
 using OpenCBS.ExceptionsHandler;
+using OpenCBS.Extensions;
 using OpenCBS.MultiLanguageRessources;
 
 namespace OpenCBS.Services
@@ -40,12 +42,16 @@ namespace OpenCBS.Services
         private static List<User> _users;
         private static Dictionary<int, List<int>> _subordinateRel;
         private static Dictionary<int, List<int>> _branchRel;
-        
+
+        [ImportMany(typeof(IUserInterceptor))]
+        private Lazy<IUserInterceptor, IDictionary<string, object>>[] UserInterceptors { get; set; }
+
         public UserServices(User pUser)
         {
             _user = pUser;
             _userManager = new UserManager(pUser);
             _tellerManager = new TellerManager(pUser);
+            MefContainer.Current.Bind(this);
         }
 
         public UserServices(User pUser, string pTestDb)
@@ -53,6 +59,7 @@ namespace OpenCBS.Services
             _user = pUser;
             _userManager = new UserManager(pTestDb, pUser);
             _tellerManager = new TellerManager(pTestDb);
+            MefContainer.Current.Bind(this);
         }
 
         public UserServices(UserManager pUserManager)
@@ -60,6 +67,7 @@ namespace OpenCBS.Services
             _user = new User();
             _userManager = pUserManager;
             _tellerManager = new TellerManager("");
+            MefContainer.Current.Bind(this);
         }
 
         public bool Delete(User user)
@@ -175,12 +183,21 @@ namespace OpenCBS.Services
                     {
                         _userManager.AddUser(pUser, transaction);
                         if (_users != null) _users.Add(pUser);
-
+                        UserInterceptorSave(new Dictionary<string, object>
+                            {
+                                {"User", pUser},
+                                {"SqlTransaction", transaction}
+                            });
                         userErrors.ResultMessage = MultiLanguageStrings.GetString(Ressource.StringRes, "User_Save_OK.Text");
                     }
                     else
                     {
                         _userManager.UpdateUser(pUser, transaction);
+                        UserInterceptorUpdate(new Dictionary<string, object>
+                            {
+                                {"User", pUser},
+                                {"SqlTransaction", transaction}
+                            });
                         userErrors.ResultMessage = MultiLanguageStrings.GetString(Ressource.StringRes, "User_Update_OK.Text");
                     }
 
@@ -192,6 +209,22 @@ namespace OpenCBS.Services
                     transaction.Rollback();
                     throw;
                 }
+            }
+        }
+
+        public void UserInterceptorSave(IDictionary<string, object> interceptorParams)
+        {
+            foreach (var interceptor in UserInterceptors)
+            {
+                interceptor.Value.Save(interceptorParams);
+            }
+        }
+
+        public void UserInterceptorUpdate(IDictionary<string, object> interceptorParams)
+        {
+            foreach (var interceptor in UserInterceptors)
+            {
+                interceptor.Value.Update(interceptorParams);
             }
         }
 
