@@ -167,6 +167,13 @@ namespace OpenCBS.Services
                 userErrors.ResultMessage += "\n - " + MultiLanguageStrings.GetString(Ressource.StringRes, "User_Save_AlreadyExist.Text");
             }
 
+            if (!string.IsNullOrEmpty(pUser.Password) && (pUser.Password.Length <= 4 || pUser.Password.Length > 30))
+            {
+                userErrors.FindError = true;
+                userErrors.PasswordError = true;
+                userErrors.ResultMessage += "\n - " + MultiLanguageStrings.GetString(Ressource.StringRes, "User_Password_Short_Long.Text");
+            }
+
             return userErrors.FindError ? userErrors : SaveUserInternal(pUser);
         }
 

@@ -162,4 +162,7 @@
   <data name="Role_Save_AlreadyExist.Text" xml:space="preserve">
     <value>A role with the same code exists</value>
   </data>
+  <data name="User_Password_Short_Long.Text" xml:space="preserve">
+    <value>Password must be between 4 and 30 characters long.</value>
+  </data>
 </root>

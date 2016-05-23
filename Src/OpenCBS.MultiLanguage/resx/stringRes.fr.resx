@@ -165,4 +165,7 @@
   <data name="User_Mail_Empty.Text" xml:space="preserve">
     <value>L'email n'est pas renseigné</value>
   </data>
+  <data name="User_Password_Short_Long.Text" xml:space="preserve">
+    <value>e mot de passe doit avoir de 4 à30 caractères</value>
+  </data>
 </root>

@@ -162,4 +162,7 @@
   <data name="User_Update_OK.Text" xml:space="preserve">
     <value>Utilizador actualizado</value>
   </data>
+  <data name="User_Password_Short_Long.Text" xml:space="preserve">
+    <value>A senha deve ter entre 4 e 30 caracteres.</value>
+  </data>
 </root>
