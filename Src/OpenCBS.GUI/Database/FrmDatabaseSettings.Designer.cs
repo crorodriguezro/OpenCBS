@@ -76,9 +76,9 @@ namespace OpenCBS.GUI.Database
             this.lblSQLDatabaseSettingsVersion = new System.Windows.Forms.Label();
             this.lblSQLDatabaseSettingsName = new System.Windows.Forms.Label();
             this.groupBoxSQLDatabaseStructure = new System.Windows.Forms.GroupBox();
-            this.btnContinue = new System.Windows.Forms.Button();
             this.lblDatabaseSettingsMessage = new System.Windows.Forms.Label();
             this.tBDatabaseSettingsSchemaResult = new System.Windows.Forms.RichTextBox();
+            this.btnContinue = new System.Windows.Forms.Button();
             this.bWDatabasesDetection = new System.ComponentModel.BackgroundWorker();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.bWDatabaseCreation = new System.ComponentModel.BackgroundWorker();
@@ -396,7 +396,6 @@ namespace OpenCBS.GUI.Database
             // 
             // groupBoxSQLDatabaseStructure
             // 
-            this.groupBoxSQLDatabaseStructure.Controls.Add(this.btnContinue);
             this.groupBoxSQLDatabaseStructure.Controls.Add(this.lblDatabaseSettingsMessage);
             this.groupBoxSQLDatabaseStructure.Controls.Add(this.tBDatabaseSettingsSchemaResult);
             resources.ApplyResources(this.groupBoxSQLDatabaseStructure, "groupBoxSQLDatabaseStructure");

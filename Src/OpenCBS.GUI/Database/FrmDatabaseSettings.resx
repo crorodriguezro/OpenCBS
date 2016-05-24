@@ -1219,7 +1219,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnContinue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>532, 68</value>
+    <value>537, 19</value>
   </data>
   <data name="btnContinue.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 24</value>
