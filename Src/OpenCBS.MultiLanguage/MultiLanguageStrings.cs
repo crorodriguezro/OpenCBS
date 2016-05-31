@@ -37,6 +37,7 @@ namespace OpenCBS.MultiLanguageRessources
         CashPrevisionForm,
         CashReceiptForm,
         ChartOfAccountsForm,
+        BranchesForm,
         Common,
         ContractReschedulingForm,
         ReschedulingForm,

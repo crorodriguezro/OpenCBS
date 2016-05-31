@@ -25,6 +25,7 @@ using System.Windows.Forms;
 using OpenCBS.CoreDomain;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.GUI.UserControl;
+using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
 
 namespace OpenCBS.GUI.Configuration
@@ -96,6 +97,14 @@ namespace OpenCBS.GUI.Configuration
             Branch b = olvBranches.SelectedObject as Branch;
             Debug.Assert(b != null, "Branch not selected");
             if (!Confirm("confirmDelete")) return;
+
+            var service = ServicesProvider.GetInstance().GetBranchService();
+            if (service.GetActiveLoansCount(b.Id) > 0)
+            {
+                MessageBox.Show(MultiLanguageStrings.GetString(Ressource.BranchesForm, "activeLoansError"));
+                return;
+            }
+
 
             ServicesProvider.GetInstance().GetBranchService().Delete(b);
             LoadBranches();
