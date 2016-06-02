@@ -5290,7 +5290,9 @@ namespace OpenCBS.GUI.Clients
                         SelectCollateralProductByPropertyId(contractCollateral.PropertyValues[0].Property.Id);
                     CollateralProduct product = ServicesProvider.GetInstance().GetCollateralProductServices().SelectCollateralProduct(collateralProduct.Id);
 
-                    ContractCollateralForm collateralForm = new ContractCollateralForm(product, contractCollateral, false, _applicationController);
+                    bool onlyViewCollateral = _credit.ContractStatus != OContractStatus.Pending;
+
+                    ContractCollateralForm collateralForm = new ContractCollateralForm(product, contractCollateral, onlyViewCollateral, _applicationController);
                     collateralForm.ShowDialog();
 
                     if (collateralForm.ContractCollateral != null)
@@ -6250,8 +6252,8 @@ namespace OpenCBS.GUI.Clients
         {
             var productId = (int)((ToolStripMenuItem)sender).Tag;
             CollateralProduct product = ServicesProvider.GetInstance().GetCollateralProductServices().SelectCollateralProduct(productId);
-
-            ContractCollateralForm collateralForm = new ContractCollateralForm(product, _applicationController);
+            bool onlyViewCollateral = _credit.ContractStatus != OContractStatus.Pending;
+            ContractCollateralForm collateralForm = new ContractCollateralForm(product, onlyViewCollateral, _applicationController);
             collateralForm.ShowDialog();
 
             if (collateralForm.ContractCollateral != null && collateralForm.ContractCollateral.PropertyValues != null)
