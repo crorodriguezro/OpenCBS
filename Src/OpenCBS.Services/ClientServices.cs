@@ -64,6 +64,9 @@ namespace OpenCBS.Services
         [ImportMany(typeof(IPersonInterceptor))]
         private Lazy<IPersonInterceptor, IDictionary<string, object>>[] PersonInterceptors { get; set; }
 
+        [ImportMany(typeof(ICorporateInterceptor))]
+        private Lazy<ICorporateInterceptor, IDictionary<string, object>>[] CorporateInterceptors { get; set; }
+
         public ClientServices(User pUser)
         {
             _user = pUser;
@@ -1090,6 +1093,14 @@ namespace OpenCBS.Services
                     ValidateCorporate(body);
                     body.Id = _clientManagement.AddBodyCorporate(body, pFundingLine, sqlTransac);
                     if (action != null) action(sqlTransac);
+                    foreach (var interceptor in CorporateInterceptors)
+                    {
+                        interceptor.Value.Save(new Dictionary<string, object>
+                            {
+                                {"Corporate", body},
+                                {"SqlTransaction", sqlTransac}
+                            });
+                    }
                     sqlTransac.Commit();
                     SavePicture(body);
                     SaveCorporatePerson(body.Id, body.Contacts);

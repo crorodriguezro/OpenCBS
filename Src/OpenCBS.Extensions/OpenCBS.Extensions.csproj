@@ -65,6 +65,7 @@
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="IClientFormInitializer.cs" />
+    <Compile Include="ICorporateInterceptor.cs" />
     <Compile Include="IPersonInterceptor.cs" />
     <Compile Include="ILoanProductInterceptor.cs" />
     <Compile Include="IMainFormInitializer.cs" />
