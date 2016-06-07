@@ -121,7 +121,7 @@ namespace OpenCBS.GUI.Clients
             this.olvAttendeeLoanIdColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.panelAttendeesControls = new System.Windows.Forms.FlowLayoutPanel();
             this.labelMeetingDate = new System.Windows.Forms.Label();
-            this.comboBoxMeetingDates = new System.Windows.Forms.ComboBox();
+            this.dtDate1 = new System.Windows.Forms.DateTimePicker();
             this.buttonUpdateAttendence = new System.Windows.Forms.Button();
             this.gbDetails.SuspendLayout();
             this.panelNSGDetails.SuspendLayout();
@@ -723,7 +723,7 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.panelAttendeesControls, "panelAttendeesControls");
             this.panelAttendeesControls.Controls.Add(this.labelMeetingDate);
-            this.panelAttendeesControls.Controls.Add(this.comboBoxMeetingDates);
+            this.panelAttendeesControls.Controls.Add(this.dtDate1);
             this.panelAttendeesControls.Controls.Add(this.buttonUpdateAttendence);
             this.panelAttendeesControls.Name = "panelAttendeesControls";
             // 
@@ -732,13 +732,11 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.labelMeetingDate, "labelMeetingDate");
             this.labelMeetingDate.Name = "labelMeetingDate";
             // 
-            // comboBoxMeetingDates
+            // dtDate1
             // 
-            resources.ApplyResources(this.comboBoxMeetingDates, "comboBoxMeetingDates");
-            this.comboBoxMeetingDates.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxMeetingDates.FormattingEnabled = true;
-            this.comboBoxMeetingDates.Name = "comboBoxMeetingDates";
-            this.comboBoxMeetingDates.SelectedValueChanged += new System.EventHandler(this.comboBoxMeetingDates_SelectedValueChanged);
+            resources.ApplyResources(this.dtDate1, "dtDate1");
+            this.dtDate1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtDate1.Name = "dtDate1";
             // 
             // buttonUpdateAttendence
             // 
@@ -871,7 +869,6 @@ namespace OpenCBS.GUI.Clients
         private BrightIdeasSoftware.OLVColumn olvAttendeeAttendedColumn;
         private BrightIdeasSoftware.OLVColumn olvAttendeeCommentColumn;
         private System.Windows.Forms.Label labelMeetingDate;
-        private System.Windows.Forms.ComboBox comboBoxMeetingDates;
         private BrightIdeasSoftware.OLVColumn olvAttendeeIdColumn;
         private BrightIdeasSoftware.OLVColumn olvAttendeeTiersIdColumn;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
@@ -880,5 +877,6 @@ namespace OpenCBS.GUI.Clients
         private BrightIdeasSoftware.OLVColumn olvAttendeeLoanIdColumn;
         private PrintButton btnPrint;
         private System.Windows.Forms.ColumnHeader colLoanCycle;
+        private System.Windows.Forms.DateTimePicker dtDate1;
     }
 }

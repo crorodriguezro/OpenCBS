@@ -162,4 +162,7 @@
   <data name="Role_Save_AlreadyExist.Text" xml:space="preserve">
     <value>Роль с таким именем уже сушествует</value>
   </data>
+  <data name="User_Password_Short_Long.Text" xml:space="preserve">
+    <value>Пароль должен иметь длину от 4-х до 30-ти символов.</value>
+  </data>
 </root>

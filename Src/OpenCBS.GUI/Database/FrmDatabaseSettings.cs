@@ -216,8 +216,11 @@ namespace OpenCBS.GUI.Database
             }
 
             lblResultMessage.Text = string.Empty;
+
+            groupBoxSaveSettings.Controls.Add(btnContinue);
             tableLayoutPanelDatabaseSettings.Controls.Add(groupBoxSQLSettings, 0, 0);
             tableLayoutPanelDatabaseSettings.Controls.Add(groupBoxSaveSettings, 0, 3);
+
         }
 
         private void CheckDatabaseStructure(string pDatabaseName)

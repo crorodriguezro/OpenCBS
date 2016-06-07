@@ -84,7 +84,10 @@ namespace OpenCBS.Services
                 throw new OpenCbsBranchSameCodeException();
             }
         }
-
+        public int GetActiveLoansCount(int branchId)
+        {
+            return _manager.CountActiveLoans(branchId);
+        }
         public Branch Add(Branch branch)
         {
             using (SqlConnection conn = _manager.GetConnection())

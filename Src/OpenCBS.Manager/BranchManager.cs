@@ -142,10 +142,65 @@ namespace OpenCBS.Manager
                 branch.Id = Convert.ToInt32(c.ExecuteScalar());
                 return branch;
             }
-
-
-
         }
+
+
+
+        public int CountActiveLoans(int branchId)
+        {
+            const string sqlText = @";with lode(id, event_type) as
+                                        (
+                                            select 
+                                                distinct contract_id
+                                                , event_type 
+                                            from dbo.ContractEvents ce
+                                            where event_type = 'LODE' and is_deleted = 0
+                                        )
+
+                                        , loce(id, event_type) as
+                                        (
+                                            select 
+                                                distinct contract_id
+                                                , event_type 
+                                            from dbo.ContractEvents ce
+                                            where event_type in('LOCE','WROE') and is_deleted = 0
+                                        )
+
+                                        , raw_loans (id, lode, loce, project_id,contract_code) as
+                                        (
+                                            select
+                                                c.id id
+                                                , lode.event_type lode
+                                                , loce.event_type loce  
+                                                , c.project_id project_id
+                                                , c.contract_code
+                                            from lode
+                                          inner join Contracts c on lode.id = c.id
+                                          left join loce on loce.id = c.id
+
+                                        )
+
+                                        select count(*) count from raw_loans rl
+                                        left join Projects pr on pr.id = rl.project_id
+                                        left join Tiers t on t.id = pr.tiers_id
+                                        where loce is null and t.branch_id = @branchId";
+            using (SqlConnection conn = GetConnection())
+            {
+                using (OpenCbsCommand select = new OpenCbsCommand(sqlText, conn))
+                {
+                    select.AddParam("@branchId", branchId);
+                    using (OpenCbsReader reader = select.ExecuteReader())
+                    {
+                        if (reader == null || reader.Empty) return -1;
+
+                        reader.Read();
+                        var result = reader.GetInt("count");
+                        return result;
+                    }
+                }
+            }
+        }
+
 
         public void Update(Branch branch, SqlTransaction t)
         {

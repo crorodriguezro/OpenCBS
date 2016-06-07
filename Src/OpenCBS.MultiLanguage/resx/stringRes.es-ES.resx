@@ -159,4 +159,7 @@
   <data name="User_Update_OK.Text" xml:space="preserve">
     <value>Usuario actualizado</value>
   </data>
+  <data name="User_Password_Short_Long.Text" xml:space="preserve">
+    <value>La contraseña debe tener entre 4 y 30 caracteres de longitud.</value>
+  </data>
 </root>

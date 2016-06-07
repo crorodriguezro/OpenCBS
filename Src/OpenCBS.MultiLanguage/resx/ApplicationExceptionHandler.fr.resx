@@ -930,6 +930,9 @@ Vous devez remplir soit "min" et "max", soit "valeur". Si vous ne souhaitez pas 
   <data name="LoanWasValidatedLaterThanDisbursed.Text" xml:space="preserve">
     <value>La date de validation par le comité de crédit est postérieure à la date de déboursement prévue. Vous devez modifier l'une de ces dates</value>
   </data>
+  <data name="MaxMinCondition.Text" xml:space="preserve">
+    <value>Le champ doit être inférieure à la valeur maximale ou supérieure à minimum</value>
+  </data>
   <data name="ManualEntrySameAccount.Text" xml:space="preserve">
     <value>Les comptes sont identiques</value>
   </data>

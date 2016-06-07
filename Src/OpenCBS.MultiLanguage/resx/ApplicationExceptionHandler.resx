@@ -521,6 +521,9 @@ You must complete either "min" and "max" or "value". Amount cannot be null (Main
   <data name="ContractExceptionProjectIsNull.Text" xml:space="preserve">
     <value>Please, save the project before!</value>
   </data>
+  <data name="MaxMinCondition.Text" xml:space="preserve">
+    <value>The field must be less than the maximum or greater than minimum</value>
+  </data>
   <data name="ProjectExceptionClientIsNull.Text" xml:space="preserve">
     <value>Please, Save client before</value>
   </data>

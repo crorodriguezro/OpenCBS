@@ -53,7 +53,7 @@ namespace OpenCBS.GUI.Contracts
             }
         }
 
-        public ContractCollateralForm(CollateralProduct product, IApplicationController applicationController)
+        public ContractCollateralForm(CollateralProduct product, bool isView, IApplicationController applicationController)
         {
             _applicationController = applicationController;
             this.product = product;
@@ -63,6 +63,13 @@ namespace OpenCBS.GUI.Contracts
 
             InitializeComponent();
             FillCollateralProperties();
+
+            if (isView)
+            {
+                propertyGrid.Enabled = false;
+                groupBoxOwnerDetails.Enabled = false;
+                buttonSave.Enabled = false;
+            }
         }
 
         public ContractCollateralForm(CollateralProduct product, ContractCollateral contractCollateral, bool isView, IApplicationController applicationController)

@@ -71,6 +71,8 @@ namespace OpenCBS.GUI.Clients
             InitializeTitle();
             this.dtDate.Format = DateTimePickerFormat.Custom;
             this.dtDate.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
+            this.dtDate1.Format = DateTimePickerFormat.Custom;
+            this.dtDate1.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
         }
 
         public NonSolidaryGroupForm(Village village, IApplicationController applicationController)
@@ -88,16 +90,9 @@ namespace OpenCBS.GUI.Clients
 
             InitializeComponent();
             InitializeControls();
-            LoadMeetingDates();
             InitializeTitle();
         }
-
-        private void LoadMeetingDates()
-        {
-            comboBoxMeetingDates.DataSource
-                = ServicesProvider.GetInstance().GetContractServices().FindInstallmentDatesForVillageActiveContracts(_village.Id);
-        }
-
+        
         private void InitializeTitle()
         {
             if (_village != null && !string.IsNullOrEmpty(_village.Name))
@@ -196,6 +191,7 @@ namespace OpenCBS.GUI.Clients
         {
             _village.Name = tbName.Text;
             _village.EstablishmentDate = dtDate.Value;
+            _village.EstablishmentDate = dtDate1.Value;
             _village.District = _ucAddress.District;
             _village.City = _ucAddress.City;
             _village.Address = _ucAddress.Comments;
@@ -217,6 +213,7 @@ namespace OpenCBS.GUI.Clients
             {
                 tbName.Text = _village.Name;
                 dtDate.Value = _village.EstablishmentDate.HasValue ? _village.EstablishmentDate.Value : TimeProvider.Now;
+                dtDate1.Value = _village.EstablishmentDate.HasValue ? _village.EstablishmentDate.Value : TimeProvider.Now;
                 _ucAddress.District = _village.District;
                 _ucAddress.City = _village.City;
                 _ucAddress.Comments = _village.Address;
@@ -704,7 +701,6 @@ namespace OpenCBS.GUI.Clients
             {
                 DisplayMembers();
                 DisplayLoans();
-                LoadMeetingDates();
             }
         }
 
@@ -894,15 +890,7 @@ namespace OpenCBS.GUI.Clients
             if (frm.ShowDialog() == DialogResult.OK)
                 DisplaySavings();
         }
-
-        private void comboBoxMeetingDates_SelectedValueChanged(object sender, EventArgs e)
-        {
-            List<VillageAttendee> attendees =
-                ServicesProvider.GetInstance().GetContractServices().FindMeetingAttendees(_village.Id, ((DateTime)comboBoxMeetingDates.SelectedValue).Date);
-
-            olvAttendees.SetObjects(attendees);
-        }
-
+        
         private void buttonUpdateAttendence_Click(object sender, EventArgs e)
         {
             foreach (OLVListItem item in olvAttendees.Items)
@@ -912,7 +900,6 @@ namespace OpenCBS.GUI.Clients
                 attendee.Id = Convert.ToInt32(item.SubItems[0].Text);
                 attendee.VillageId = _village.Id;
                 attendee.TiersId = Convert.ToInt32(item.SubItems[1].Text);
-                attendee.AttendedDate = ((DateTime)this.comboBoxMeetingDates.SelectedValue).Date;
                 attendee.Attended = Convert.ToBoolean(item.SubItems[3].Text);
                 attendee.Comment = item.SubItems[4].Text;
                 attendee.LoanId = Convert.ToInt32(item.SubItems[5].Text);
@@ -927,7 +914,6 @@ namespace OpenCBS.GUI.Clients
             if (DialogResult.OK == frm.ShowDialog())
             {
                 DisplayLoans();
-                LoadMeetingDates();
             }
         }
 

@@ -110,6 +110,7 @@ namespace OpenCBS.Manager.Database
             {
                 zip.AlternateEncoding = Encoding.UTF8;
                 zip.AlternateEncodingUsage = ZipOption.AsNecessary;
+                zip.UseZip64WhenSaving = Zip64Option.AsNecessary;
                 zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
                 zip.AddFile(rawFile, string.Empty);
                 zip.Save(zippedFile);

@@ -3293,6 +3293,7 @@ namespace OpenCBS.Services
                                     Commissions = listOfRble.Sum(item => item.Commissions.Value),
                                     Penalties = listOfRble.Sum(item => item.Penalties.Value),
                                     BounceFee = listOfRble.Sum(item=>item.BounceFee.Value),
+                                    InstallmentNumber = repayEvent.InstallmentNumber,
                                     Id = repayEvent.Id,
                                     Date = repayEvent.Date,
                                     PaymentMethodId = repayEvent.PaymentMethod.Id
@@ -3313,6 +3314,7 @@ namespace OpenCBS.Services
                                     Commissions = listOfRgle.Sum(item => item.Commissions.Value),
                                     Penalties = listOfRgle.Sum(item => item.Penalties.Value),
                                     BounceFee = listOfRble.Sum(item=>item.BounceFee.Value),
+                                    InstallmentNumber = repayEvent.InstallmentNumber,
                                     Id = repayEvent.Id,
                                     Date = repayEvent.Date,
                                     PaymentMethodId = repayEvent.PaymentMethod.Id

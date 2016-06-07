@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,52 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CashReceipt_NeedExchangeRate.Text" xml:space="preserve">
-    <value>Por favor, indique a taxa de câmbio para esta data:</value>
-  </data>
-  <data name="Info" xml:space="preserve">
-    <value>Informações</value>
-  </data>
-  <data name="Role_Save_AlreadyExist.Text" xml:space="preserve">
-    <value>Um papel com o mesmo código existe</value>
-  </data>
-  <data name="User_Delete_Confirm.Caption" xml:space="preserve">
-    <value>Confirmação</value>
-  </data>
-  <data name="User_Delete_Confirm.Text" xml:space="preserve">
-    <value>Tem certeza de que deseja apagar este utilizador?</value>
-  </data>
-  <data name="User_Delete_OK.Text" xml:space="preserve">
-    <value>Utilizador foi apagado</value>
-  </data>
-  <data name="User_FirstName_Empty.Text" xml:space="preserve">
-    <value>O prenome não está preenchido </value>
-  </data>
-  <data name="User_LastName_Empty.Text" xml:space="preserve">
-    <value>O apelido não está preenchido</value>
-  </data>
-  <data name="User_Login_Empty.Text" xml:space="preserve">
-    <value>O nome do utilizador não está preenchido</value>
-  </data>
-  <data name="User_Mail_Empty.Text" xml:space="preserve">
-    <value>O endereço postal do utilizador não está preenchido</value>
-  </data>
-  <data name="User_Password_Empty.Text" xml:space="preserve">
-    <value>A senha não está preenchida</value>
-  </data>
-  <data name="User_Role_Empty.Text" xml:space="preserve">
-    <value>O papel não está preenchido</value>
-  </data>
-  <data name="User_Save_AlreadyExist.Text" xml:space="preserve">
-    <value>Existe um utilizador com a mesma senha para aceder</value>
-  </data>
-  <data name="User_Save_OK.Text" xml:space="preserve">
-    <value>Utilizador salvo</value>
-  </data>
-  <data name="User_Update_OK.Text" xml:space="preserve">
-    <value>Utilizador actualizado</value>
-  </data>
-  <data name="User_Password_Short_Long.Text" xml:space="preserve">
-    <value>A senha deve ter entre 4 e 30 caracteres.</value>
-  </data>
+  <metadata name="timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

@@ -348,6 +348,9 @@
   <data name="InstallmentExceptionNotFirstInstallmentToRepay.Text" xml:space="preserve">
     <value>Нет предыдущих погашений !!</value>
   </data>
+  <data name="MaxMinCondition.Text" xml:space="preserve">
+    <value>Поле должно быть меньше максимума или больше минимума</value>
+  </data>
   <data name="OpenCbsCorporateEventExceptionAmountIsEmpty.Text" xml:space="preserve">
     <value>Значение не указано</value>
   </data>

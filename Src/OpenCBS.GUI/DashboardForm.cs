@@ -19,13 +19,16 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Message;
+using OpenCBS.Controls;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Dashboard;
 using OpenCBS.Enums;
@@ -40,6 +43,7 @@ namespace OpenCBS.GUI
         private Chart _parChart;
         private Chart _disbursementsChart;
         private Chart _olbTrendChart;
+        private Dashboard _dashBoard;
 
         private readonly IApplicationController _applicationController;
 
@@ -47,7 +51,7 @@ namespace OpenCBS.GUI
         {
             _applicationController = applicationController;
             InitializeComponent();
-           SetUp();
+            SetUp();
         }
 
         private void OnLoad(object sender, EventArgs e)
@@ -58,10 +62,10 @@ namespace OpenCBS.GUI
                 NumberDecimalSeparator = ",",
             };
             parAmountColumn.AspectToStringConverter = value =>
-                {
-                    var amount = (decimal)value;
-                    return amount.ToString("N0", numberFormatInfo);
-                };
+            {
+                var amount = (decimal)value;
+                return amount.ToString("N0", numberFormatInfo);
+            };
             parNameColumn.AspectToStringConverter = value =>
             {
                 var name = (string)value;
@@ -127,6 +131,35 @@ namespace OpenCBS.GUI
             portfolioPanel.Controls.Add(_portfolioChart);
         }
 
+
+        private void ShowProgressForm()
+        {
+
+            var progressForm = new LoadingProgressForm();
+            var bw = new BackgroundWorker
+            {
+                WorkerReportsProgress = true,
+                WorkerSupportsCancellation = true,
+            };
+            bw.DoWork += (obj, args) =>
+            {
+                Thread.CurrentThread.Priority = ThreadPriority.Highest;
+                var us = ServicesProvider.GetInstance().GetUserServices();
+                _dashBoard = us.GetDashboard(FilterBranchId, FilterUserId, FilterLoanProductId);
+                bw.ReportProgress(100);
+            };
+            bw.RunWorkerCompleted += (obj, args) =>
+            {
+                if (args.Error != null)
+                {
+                    MessageBox.Show(args.Error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                progressForm.Close();
+            };
+            bw.RunWorkerAsync();
+            progressForm.ShowDialog();
+        }
+
         private void RefreshParPieChart(Dashboard dashboard)
         {
             if (_parChart != null)
@@ -147,9 +180,9 @@ namespace OpenCBS.GUI
             var legends = dashboard.
                 PortfolioLines.
                 Where(line => line.Name.Contains("PAR")).Select(line => line.Name).ToArray();
-                //Select(line => GetString(line.Name)).ToArray();
-              
- 
+            //Select(line => GetString(line.Name)).ToArray();
+
+
 
             var colors = new List<Color>();
 
@@ -276,14 +309,12 @@ namespace OpenCBS.GUI
 
             try
             {
-                var us = ServicesProvider.GetInstance().GetUserServices();
-                var dashboard = us.GetDashboard(FilterBranchId, FilterUserId, FilterLoanProductId);
-
-                RefreshPortfolioPieChart(dashboard);
-                RefreshParPieChart(dashboard);
-                RefreshParTable(dashboard);
-                RefreshDisbursementsChart(dashboard);
-                RefreshOlbTrendChart(dashboard);
+                ShowProgressForm();
+                RefreshPortfolioPieChart(_dashBoard);
+                RefreshParPieChart(_dashBoard);
+                RefreshParTable(_dashBoard);
+                RefreshDisbursementsChart(_dashBoard);
+                RefreshOlbTrendChart(_dashBoard);
             }
             finally
             {

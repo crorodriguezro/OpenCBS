@@ -21,12 +21,14 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Diagnostics;
 using OpenCBS.CoreDomain.Dashboard;
 using OpenCBS.Enums;
 using OpenCBS.Manager;
 using OpenCBS.CoreDomain;
 using OpenCBS.ExceptionsHandler;
+using OpenCBS.Extensions;
 using OpenCBS.MultiLanguageRessources;
 
 namespace OpenCBS.Services
@@ -40,12 +42,16 @@ namespace OpenCBS.Services
         private static List<User> _users;
         private static Dictionary<int, List<int>> _subordinateRel;
         private static Dictionary<int, List<int>> _branchRel;
-        
+
+        [ImportMany(typeof(IUserInterceptor))]
+        private Lazy<IUserInterceptor, IDictionary<string, object>>[] UserInterceptors { get; set; }
+
         public UserServices(User pUser)
         {
             _user = pUser;
             _userManager = new UserManager(pUser);
             _tellerManager = new TellerManager(pUser);
+            MefContainer.Current.Bind(this);
         }
 
         public UserServices(User pUser, string pTestDb)
@@ -53,6 +59,7 @@ namespace OpenCBS.Services
             _user = pUser;
             _userManager = new UserManager(pTestDb, pUser);
             _tellerManager = new TellerManager(pTestDb);
+            MefContainer.Current.Bind(this);
         }
 
         public UserServices(UserManager pUserManager)
@@ -60,6 +67,7 @@ namespace OpenCBS.Services
             _user = new User();
             _userManager = pUserManager;
             _tellerManager = new TellerManager("");
+            MefContainer.Current.Bind(this);
         }
 
         public bool Delete(User user)
@@ -101,7 +109,7 @@ namespace OpenCBS.Services
         /// <returns>A struct contains, if necessary, errors occurs</returns>
         public UserErrors SaveUser(User pUser)
         {
-            UserErrors userErrors = new UserErrors();
+            var userErrors = new UserErrors();
 
             if (pUser.UserName == null)
             {
@@ -152,29 +160,79 @@ namespace OpenCBS.Services
 
             Debug.Assert(OGender.CheckGender(pUser.Sex), string.Format("Non valif geder character is given for user: {0}", pUser.Name));
 
-            if (userErrors.FindError) return userErrors;
 
-            if (pUser.Id == 0)
+            if (pUser.Id == 0 && Find(pUser.UserName, pUser.Password) != null)
             {
-                if (Find(pUser.UserName, pUser.Password) != null)
-                {
-                    userErrors.FindError = true;
-                    userErrors.ResultMessage += "\n - " + MultiLanguageStrings.GetString(Ressource.StringRes, "User_Save_AlreadyExist.Text");
-                }
-                else
-                {
-                    _userManager.AddUser(pUser);
-                    if (_users != null) _users.Add(pUser);
-                    userErrors.ResultMessage = MultiLanguageStrings.GetString(Ressource.StringRes, "User_Save_OK.Text");
-                }
-            }
-            else
-            {
-                _userManager.UpdateUser(pUser);
-                userErrors.ResultMessage = MultiLanguageStrings.GetString(Ressource.StringRes, "User_Update_OK.Text");
+                userErrors.FindError = true;
+                userErrors.ResultMessage += "\n - " + MultiLanguageStrings.GetString(Ressource.StringRes, "User_Save_AlreadyExist.Text");
             }
 
-            return userErrors;
+            if (!string.IsNullOrEmpty(pUser.Password) && (pUser.Password.Length < 4 || pUser.Password.Length > 30))
+            {
+                userErrors.FindError = true;
+                userErrors.PasswordError = true;
+                userErrors.ResultMessage += "\n - " + MultiLanguageStrings.GetString(Ressource.StringRes, "User_Password_Short_Long.Text");
+            }
+
+            return userErrors.FindError ? userErrors : SaveUserInternal(pUser);
+        }
+
+        private UserErrors SaveUserInternal(User pUser)
+        {
+            var userErrors = new UserErrors();
+
+            using (var connection = _userManager.GetConnection())
+            using (var transaction = connection.BeginTransaction())
+            {
+                try
+                {
+                    if (pUser.Id == 0)
+                    {
+                        _userManager.AddUser(pUser, transaction);
+                        if (_users != null) _users.Add(pUser);
+                        UserInterceptorSave(new Dictionary<string, object>
+                            {
+                                {"User", pUser},
+                                {"SqlTransaction", transaction}
+                            });
+                        userErrors.ResultMessage = MultiLanguageStrings.GetString(Ressource.StringRes, "User_Save_OK.Text");
+                    }
+                    else
+                    {
+                        _userManager.UpdateUser(pUser, transaction);
+                        UserInterceptorUpdate(new Dictionary<string, object>
+                            {
+                                {"User", pUser},
+                                {"SqlTransaction", transaction}
+                            });
+                        userErrors.ResultMessage = MultiLanguageStrings.GetString(Ressource.StringRes, "User_Update_OK.Text");
+                    }
+
+                    transaction.Commit();
+                    return userErrors;
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
+
+        public void UserInterceptorSave(IDictionary<string, object> interceptorParams)
+        {
+            foreach (var interceptor in UserInterceptors)
+            {
+                interceptor.Value.Save(interceptorParams);
+            }
+        }
+
+        public void UserInterceptorUpdate(IDictionary<string, object> interceptorParams)
+        {
+            foreach (var interceptor in UserInterceptors)
+            {
+                interceptor.Value.Update(interceptorParams);
+            }
         }
 
         public User Find(int id)
