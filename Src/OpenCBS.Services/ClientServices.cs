@@ -67,6 +67,9 @@ namespace OpenCBS.Services
         [ImportMany(typeof(ICorporateInterceptor))]
         private Lazy<ICorporateInterceptor, IDictionary<string, object>>[] CorporateInterceptors { get; set; }
 
+        [ImportMany(typeof(IGroupInterceptor))]
+        private Lazy<IGroupInterceptor, IDictionary<string, object>>[] GroupInterceptors { get; set; }
+
         public ClientServices(User pUser)
         {
             _user = pUser;
@@ -1020,6 +1023,14 @@ namespace OpenCBS.Services
                 {
                     _clientManagement.AddNewGroup(group, sqlTransac);
                     if (action != null) action(sqlTransac, group.Id);
+                    foreach (var interceptor in GroupInterceptors)
+                    {
+                        interceptor.Value.Save(new Dictionary<string, object>
+                            {
+                                {"Group", group},
+                                {"SqlTransaction", sqlTransac}
+                            });
+                    }
                     sqlTransac.Commit();
                     return group.Id;
                 }
