@@ -485,19 +485,32 @@ namespace OpenCBS.Services
 		    return pExoticProduct.Id;
 		}
 
-	    private void CheckExistingInstallmentType(InstallmentType pInstallmentType)
+	    private void CheckExistingInstallmentType(InstallmentType pInstallmentType, bool? editMode = null)
 	    {
-            List<InstallmentType> list = _installmentTypeManager.SelectAllInstallmentTypes();
-            foreach (InstallmentType type in list)
-            {
-                if (type.Name.ToLower() == pInstallmentType.Name.ToLower())
-                    throw new OpenCbsPackageSaveException(OpenCbsPackageSaveExceptionEnum.InstallmentTypeNameAlreadyExist);
-                if (type.NbOfDays == pInstallmentType.NbOfDays && type.NbOfMonths == pInstallmentType.NbOfMonths)
-                    throw new OpenCbsPackageSaveException(OpenCbsPackageSaveExceptionEnum.InstallmentTypeValuesAlreadyExist);
-            }
-        }
+	        List<InstallmentType> list = _installmentTypeManager.SelectAllInstallmentTypes();
+	        foreach (InstallmentType type in list)
+	        {
+	            if (editMode == true)
+	            {
+	                if (type.Id != pInstallmentType.Id &&
+                        type.Name.ToLower() == pInstallmentType.Name.ToLower() &&
+	                    type.NbOfDays == pInstallmentType.NbOfDays &&
+	                    type.NbOfMonths == pInstallmentType.NbOfMonths)
+	                    throw new OpenCbsPackageSaveException(
+	                        OpenCbsPackageSaveExceptionEnum.InstallmentTypeNameAlreadyExist);
+	            }
+	            else
+	            {
+	                if (type.Name.ToLower() == pInstallmentType.Name.ToLower() &&
+	                    type.NbOfDays == pInstallmentType.NbOfDays &&
+	                    type.NbOfMonths == pInstallmentType.NbOfMonths)
+	                    throw new OpenCbsPackageSaveException(
+	                        OpenCbsPackageSaveExceptionEnum.InstallmentTypeNameAlreadyExist);
+	            }
+	        }
+	    }
 
-        public int AddInstallmentType(InstallmentType pInstallmentType)
+	    public int AddInstallmentType(InstallmentType pInstallmentType)
         {
             CheckExistingInstallmentType(pInstallmentType);
             return _installmentTypeManager.AddInstallmentType(pInstallmentType);
@@ -505,7 +518,7 @@ namespace OpenCBS.Services
 
 	    public void EditInstallmentType(InstallmentType pInstallmentType)
 	    {
-            CheckExistingInstallmentType(pInstallmentType);
+            CheckExistingInstallmentType(pInstallmentType,editMode:true);
 	        _installmentTypeManager.EditInstallmentType(pInstallmentType);
 	    }
 
