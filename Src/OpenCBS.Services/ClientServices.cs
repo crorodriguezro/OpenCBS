@@ -736,7 +736,7 @@ namespace OpenCBS.Services
 
                     foreach (var interceptor in PersonInterceptors)
                     {
-                        interceptor.Value.Save(new Dictionary<string, object>
+                        interceptor.Value.Update(new Dictionary<string, object>
                             {
                                 {"Person", person},
                                 {"SqlTransaction", transac}
