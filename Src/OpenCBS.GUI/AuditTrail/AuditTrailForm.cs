@@ -255,11 +255,13 @@ namespace OpenCBS.GUI.AuditTrail
 
         private void OnRefreshDoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
+            btnRefresh.Enabled = false;
             Debug.Assert(e.Argument != null, "Argument is null");
             AuditTrailFilter filter = (AuditTrailFilter) e.Argument;
             EventProcessorServices s = ServicesProvider.GetInstance().GetEventProcessorServices();
             List<AuditTrailEvent> events = s.SelectAuditTrailEvents(filter);
             UpdateEvents(events);
+            btnRefresh.Enabled = true;
         }
 
         private void OnRefreshCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
