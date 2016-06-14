@@ -10,4 +10,4 @@ insert into
 	dbo.ActionItems (class_name,method_name)
 values
 	 ('ClientServices', 'ModifyNonSolidarityGroup')
-go
+GO
