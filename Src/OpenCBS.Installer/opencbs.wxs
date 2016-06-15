@@ -10,7 +10,7 @@
 
   <?define PreviousVersion="16.5.0.0" ?>
   <?define ProductVersion="16.6.0.0" ?>
-  <?define ProductVersionReduced="16.5" ?>
+  <?define ProductVersionReduced="16.6" ?>
   <?define UpgradeCode="be584361-0c04-42c9-8ea8-457cdea8b89e"?>
   <?define ProductCode="5d40433d-072f-4c53-9cf6-644d5332e217"?>
 
