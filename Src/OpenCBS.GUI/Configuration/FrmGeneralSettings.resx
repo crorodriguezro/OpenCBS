@@ -720,6 +720,9 @@
   <data name="&gt;&gt;buttonUpdate.Name" xml:space="preserve">
     <value>buttonUpdate</value>
   </data>
+  <data name="buttonUpdate.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
     <value>40, 74</value>
   </data>

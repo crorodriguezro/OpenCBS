@@ -1188,6 +1188,7 @@ namespace OpenCBS.GUI.Configuration
 
         private void InitializeControls()
         {
+            buttonUpdate.Visible = true;
             textBoxGeneralParameterName.Visible = true;
             if (entry.Key.ToString() == OGeneralSettings.PAYFIRSTINSTALLMENTREALVALUE ||
                 entry.Key.ToString() == OGeneralSettings.ALLOWSMULTIPLELOANS ||
