@@ -595,6 +595,7 @@ namespace OpenCBS.GUI.Configuration
             resources.GetString("cbxValue.Items"),
             resources.GetString("cbxValue.Items1")});
             this.cbxValue.Name = "cbxValue";
+            this.cbxValue.Visible = false;
             this.cbxValue.SelectionChangeCommitted += new System.EventHandler(this.comboBoxValue_SelectionChangeCommitted);
             this.cbxValue.SelectedValueChanged += new System.EventHandler(this.buttonUpdate_Click);
             // 
@@ -1187,6 +1188,7 @@ namespace OpenCBS.GUI.Configuration
 
         private void InitializeControls()
         {
+            textBoxGeneralParameterName.Visible = true;
             if (entry.Key.ToString() == OGeneralSettings.PAYFIRSTINSTALLMENTREALVALUE ||
                 entry.Key.ToString() == OGeneralSettings.ALLOWSMULTIPLELOANS ||
                 entry.Key.ToString() == OGeneralSettings.ALLOWSMULTIPLEGROUPS ||
