@@ -201,6 +201,26 @@ namespace OpenCBS.GUI.Clients
             _village.Branch = (Branch)cbBranch.SelectedItem;
         }
 
+        private void ValidatePermissions()
+        {
+            if (_village == null || _village.Id <= 0) return;
+            var editAction = new ActionItemObject("ClientServices", "ModifyNonSolidarityGroup");
+            var modifyPermission = User.CurrentUser.UserRole.IsActionAllowed(editAction);
+            btnSave.Enabled = modifyPermission;
+            btnSearch.Enabled = modifyPermission;
+            btnAdd.Enabled = modifyPermission;
+            btnRemove.Enabled = modifyPermission;
+            btnSetAsLeader.Enabled = modifyPermission;
+            btnAddLoan.Enabled = modifyPermission;
+            btnValidateLoans.Enabled = modifyPermission;
+            btnDisburse.Enabled = modifyPermission;
+            btnRepay.Enabled = modifyPermission;
+            btnAddSavings.Enabled = modifyPermission;
+            buttonViewSaving.Enabled = modifyPermission;
+            buttonFastDeposit.Enabled = modifyPermission;
+            buttonUpdateAttendence.Enabled = modifyPermission;
+        }
+
         private void InitializeControls()
         {
             _ucAddress = new AddressUserControl();
@@ -209,6 +229,7 @@ namespace OpenCBS.GUI.Clients
             _ucAddress.Dock = DockStyle.Fill;
             gbAddress.Controls.Add(_ucAddress);
             InitializeLoanOfficers();
+            ValidatePermissions();
             if (_village != null && _village.Id > 0)
             {
                 tbName.Text = _village.Name;
