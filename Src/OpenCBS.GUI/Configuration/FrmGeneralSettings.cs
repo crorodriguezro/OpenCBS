@@ -1348,13 +1348,17 @@ namespace OpenCBS.GUI.Configuration
                 if (entryKey == OGeneralSettings.CEASE_LAIE_DAYS ||
                     entryKey == OGeneralSettings.MAX_LOANS_COVERED ||
                     entryKey == OGeneralSettings.MAX_GUARANTOR_AMOUNT ||
-                    entryKey == OGeneralSettings.INTEREST_RATE_DECIMAL_PLACES)
+                    entryKey == OGeneralSettings.INTEREST_RATE_DECIMAL_PLACES ||
+                    entryKey == OGeneralSettings.CLIENT_AGE_MAX ||
+                    entryKey == OGeneralSettings.CLIENT_AGE_MIN ||
+                    entryKey == OGeneralSettings.INTEREST_RATE_DECIMAL_PLACES ||
+                    entryKey == OGeneralSettings.REPORT_TIMEOUT)
                 {
                     if (textBoxGeneralParameterValue.Text != String.Empty)
                     {
                         try
                         {
-                            entry.Value = Convert.ToInt32(textBoxGeneralParameterValue.Text);
+                            entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
                         }
                         catch
                         {
@@ -1489,45 +1493,26 @@ namespace OpenCBS.GUI.Configuration
                          entryKey == OGeneralSettings.WEEKENDDAY2)
                 {
                     textBoxGeneralParameterValue.Enabled = true;
-                    if (textBoxGeneralParameterValue.Text != String.Empty)
+                    try
                     {
-                        entry.Value = Convert.ToInt32(textBoxGeneralParameterValue.Text);
-                        var entryVal = int.Parse(entry.Value.ToString());
-
-                        if (entryVal > 6 || entryVal < 0)
+                        if (textBoxGeneralParameterValue.Text != String.Empty)
                         {
-                            entry.Value = "0";
-                            throw new GeneralSettingException(GeneralSettingEnumException.BetweenZeroAndSix);
+                            var entryVal = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+
+                            if (entryVal > 6 || entryVal < 0)
+                            {
+                                throw new GeneralSettingException(GeneralSettingEnumException.BetweenZeroAndSix);
+                            }
+                            entry.Value = entryVal;
+
+
                         }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        entry.Value = "0";
+                        throw new GeneralSettingException(GeneralSettingEnumException.OnlyInt);
                     }
                 }
-
-                else if (entryKey == OGeneralSettings.CLIENT_AGE_MAX ||
-                         entryKey == OGeneralSettings.CLIENT_AGE_MIN)
-                {
-                    textBoxGeneralParameterValue.Enabled = true;
-                    if (textBoxGeneralParameterValue.Text != String.Empty)
-                    {
-                        try
-                        {
-                            entry.Value = Convert.ToInt32(textBoxGeneralParameterValue.Text);
-                        }
-                        catch
-                        {
-                            entry.Value = "0";
-                            throw new GeneralSettingException(GeneralSettingEnumException.OnlyInt);
-                        }
-                    }
-                    else
-                    {
-                        entry.Value = "0";
-                    }
-                }
-
                 else if (entryKey == OGeneralSettings.LATEDAYSAFTERACCRUALCEASES)
                 {
                     if (textBoxGeneralParameterValue.Text == @"-")
@@ -1556,19 +1541,9 @@ namespace OpenCBS.GUI.Configuration
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
                 if (entryKey != OGeneralSettings.LATEDAYSAFTERACCRUALCEASES)
                 {
-                    textBoxGeneralParameterValue.Text = String.Empty;
-                    entry.Value = String.Empty;
+                    textBoxGeneralParameterValue.Text = entry.Value!=null? entry.Value.ToString():"";
                 }
-                if (entryKey == OGeneralSettings.WEEKENDDAY1 || entryKey == OGeneralSettings.WEEKENDDAY2)
-                {
-                    textBoxGeneralParameterValue.Text = "0";
-                    entry.Value = "0";
-                }
-                if (entryKey == OGeneralSettings.CLIENT_AGE_MAX || entryKey == OGeneralSettings.CLIENT_AGE_MIN)
-                {
-                    textBoxGeneralParameterValue.Text = "0";
-                    entry.Value = "0";
-                }
+
             }
         }
 
