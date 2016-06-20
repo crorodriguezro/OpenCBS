@@ -1349,9 +1349,6 @@ namespace OpenCBS.GUI.Configuration
                     entryKey == OGeneralSettings.MAX_LOANS_COVERED ||
                     entryKey == OGeneralSettings.MAX_GUARANTOR_AMOUNT ||
                     entryKey == OGeneralSettings.INTEREST_RATE_DECIMAL_PLACES ||
-                    entryKey == OGeneralSettings.CLIENT_AGE_MAX ||
-                    entryKey == OGeneralSettings.CLIENT_AGE_MIN ||
-                    entryKey == OGeneralSettings.INTEREST_RATE_DECIMAL_PLACES ||
                     entryKey == OGeneralSettings.REPORT_TIMEOUT)
                 {
                     if (textBoxGeneralParameterValue.Text != String.Empty)
@@ -1365,9 +1362,58 @@ namespace OpenCBS.GUI.Configuration
                             throw new GeneralSettingException(GeneralSettingEnumException.OnlyInt);
                         }
                     }
-                    else
-                        entry.Value = null;
+                }
+                else if (entryKey == OGeneralSettings.CLIENT_AGE_MIN)
+                {
+                    var clientAgeMaxValueStr = GetGeneralSettingsItem(OGeneralSettings.CLIENT_AGE_MAX).ToString();
+                    if (!string.IsNullOrEmpty(textBoxGeneralParameterValue.Text))
+                    {
+                        try
+                        {
+                            if (!string.IsNullOrEmpty(clientAgeMaxValueStr))
+                            {
+                                var clientMaxAgeValue = Convert.ToUInt32(clientAgeMaxValueStr);
+                                var clientMinAgeValue = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                                if (!string.IsNullOrEmpty(clientAgeMaxValueStr) &&
+                                    clientMinAgeValue > clientMaxAgeValue)
+                                    throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
+                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            if (ex.ToString() == GeneralSettingEnumException.MaxMinCondition + ".Text")
+                                throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
 
+                            throw new GeneralSettingException(GeneralSettingEnumException.OnlyInt);
+                        }
+                    }
+                }
+                else if (entryKey == OGeneralSettings.CLIENT_AGE_MAX)
+                {
+                    var clientMinAgeStr = GetGeneralSettingsItem(OGeneralSettings.CLIENT_AGE_MIN).ToString();
+                    if (!string.IsNullOrEmpty(textBoxGeneralParameterValue.Text))
+                    {
+                        try
+                        {
+                            if (!string.IsNullOrEmpty(clientMinAgeStr))
+                            {
+                                var clientMinAgeValue = Convert.ToUInt32(clientMinAgeStr);
+                                var clientMaxAgeValue = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                                if (clientMinAgeValue > clientMaxAgeValue)
+                                    throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
+                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            if (ex.ToString() == GeneralSettingEnumException.MaxMinCondition + ".Text")
+                                throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
+
+                            throw new GeneralSettingException(GeneralSettingEnumException.OnlyInt);
+                        }
+
+                    }
                 }
                 else if (entryKey == OGeneralSettings.GROUPMAXMEMBERS)
                 {
@@ -1382,10 +1428,6 @@ namespace OpenCBS.GUI.Configuration
                                 var groupMaxMembersValue = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
                                 if (groupMinMembersValue > groupMaxMembersValue)
                                     throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
-                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
-                            }
-                            else
-                            {
                                 entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
                             }
                         }
@@ -1415,10 +1457,6 @@ namespace OpenCBS.GUI.Configuration
                                     throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
                                 entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
                             }
-                            else
-                            {
-                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
-                            }
                         }
                         catch (Exception ex)
                         {
@@ -1442,10 +1480,6 @@ namespace OpenCBS.GUI.Configuration
                                 var villageMaxMembersValue = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
                                 if (villageMinMembersValue > villageMaxMembersValue)
                                     throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
-                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
-                            }
-                            else
-                            {
                                 entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
                             }
                         }
@@ -1473,10 +1507,6 @@ namespace OpenCBS.GUI.Configuration
                                 if (!string.IsNullOrEmpty(groupMaxMembersValueStr) &&
                                     groupMinMembersValue > groupMaxMembersValue)
                                     throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
-                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
-                            }
-                            else
-                            {
                                 entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
                             }
                         }
