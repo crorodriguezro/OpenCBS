@@ -603,7 +603,7 @@ namespace OpenCBS.GUI.Configuration
             // 
             resources.ApplyResources(this.textBoxGeneralParameterValue, "textBoxGeneralParameterValue");
             this.textBoxGeneralParameterValue.Name = "textBoxGeneralParameterValue";
-            this.textBoxGeneralParameterValue.TextChanged += new System.EventHandler(this.textBoxGeneralParameterValue_TextChanged);
+            
             this.textBoxGeneralParameterValue.Leave += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // tabPageProvioningRules
@@ -1335,12 +1335,13 @@ namespace OpenCBS.GUI.Configuration
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
+            if(textBoxGeneralParameterValue.Visible) CheckNumericValues();
             ServicesProvider.GetInstance().GetGeneralSettings().UpdateParameter(entry.Key.ToString(), entry.Value);
             ServicesProvider.GetInstance().GetApplicationSettingsServices().UpdateSelectedParameter(entry.Key.ToString(), entry.Value);
             InitializeListViewGeneralParameters();
         }
 
-        private void textBoxGeneralParameterValue_TextChanged(object sender, EventArgs e)
+        private void CheckNumericValues()
         {
             string entryKey = entry.Key.ToString();
             try
