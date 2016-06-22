@@ -190,6 +190,7 @@ namespace OpenCBS.GUI.Configuration
             txbUsername.Text = _user.UserName;
             txbPhone.Text = _user.Phone;
             txbMail.Text = _user.Mail;
+            cmbRoles.SelectedIndex = -1;
             cmbRoles.Text = _user.UserRole.Id > 0 ? _user.UserRole.RoleName : "";
             cmbRoles.Enabled = true;
             cmbSex.SelectGender(_user.Sex);
