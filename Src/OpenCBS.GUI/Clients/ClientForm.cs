@@ -247,7 +247,7 @@ namespace OpenCBS.GUI.Clients
             InitControls();
             _oClientType = OClientTypes.Corporate;
             InitializeUserControl(OClientTypes.Corporate, pMdiParent);
-            InitializeTitle(_corporate.Name);
+            InitializeTitle(string.Format("{0} - {1}",_corporate.Id, _corporate.Name));
         }
 
         public ClientForm(Group pGroup, Form pMdiParent, IApplicationController applicationController = null)
