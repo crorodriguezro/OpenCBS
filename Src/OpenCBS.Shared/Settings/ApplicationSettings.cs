@@ -507,5 +507,9 @@ namespace OpenCBS.Shared.Settings
         {
             get { return (string)GetSpecificParameter(OGeneralSettings.STANDARD_MOBILE_PHONE_FORMAT); }
         }
+        public bool CheckCreditCommitteeDate
+        {
+            get { return GetSpecificParameter(OGeneralSettings.CHECK_CREDIT_COMMITTEE_DATE).ToString() == "1"; }
+        }
     }
 }

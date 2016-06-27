@@ -2486,7 +2486,8 @@ namespace OpenCBS.Services
 
                 try
                 {
-                    if (credit.StartDate.Date < ((DateTime)credit.CreditCommiteeDate).Date)
+                    if (ApplicationSettings.GetInstance("").CheckCreditCommitteeDate)
+                        if (credit.StartDate.Date < ((DateTime)credit.CreditCommiteeDate).Date)
                         throw new OpenCbsContractSaveException(
                             OpenCbsContractSaveExceptionEnum.LoanWasValidatedLaterThanDisbursed);
 
