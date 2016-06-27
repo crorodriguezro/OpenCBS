@@ -50,5 +50,10 @@ namespace OpenCBS.Extensions.Samples
         public void Save(Loan loan, SqlTransaction tx)
         {
         }
+
+        public void Refresh()
+        {
+           // throw new System.NotImplementedException();
+        }
     }
 }
