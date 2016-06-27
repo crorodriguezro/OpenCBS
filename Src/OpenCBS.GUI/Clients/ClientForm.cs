@@ -247,7 +247,7 @@ namespace OpenCBS.GUI.Clients
             InitControls();
             _oClientType = OClientTypes.Corporate;
             InitializeUserControl(OClientTypes.Corporate, pMdiParent);
-            InitializeTitle(string.Format("{0} - {1}",_corporate.Id, _corporate.Name));
+            InitializeTitle(_corporate.Name);
         }
 
         public ClientForm(Group pGroup, Form pMdiParent, IApplicationController applicationController = null)
@@ -3968,6 +3968,24 @@ namespace OpenCBS.GUI.Clients
 //                ((MainView) MdiParent).ReloadAlertsSync();
         }
 
+        public void OnDisbursementNotification(DisbursementNotification notification)
+        {
+            if (_credit.Id != notification.LoanId) return;
+
+            if (!tabControlPerson.TabPages.Contains(tabPageLoanRepayment))
+            {
+                tabControlPerson.TabPages.Add(tabPageLoanRepayment);
+            }
+            DisplayListViewLoanRepayments(_credit);
+            DisplayLoanEvents(_credit);
+            tabControlPerson.SelectedTab = tabPageLoanRepayment;
+            InitializeContractStatus(_credit);
+            InitializeTabPageLoansDetails(_credit);
+            DisplayContracts(_project.Credits);
+            Preview();
+            DisplayInstallments(ref _credit);
+        }
+
         private void buttonLoanRepaymentRepay_Click(object sender, EventArgs e)
         {
             _applicationController.Execute(new ShowRepaymentViewCommandData { Loan = _credit, DefaultAction = Repay });
@@ -5757,6 +5775,7 @@ namespace OpenCBS.GUI.Clients
         {
             _toChangeAlignDate = true;
             _applicationController.Subscribe<RepaymentNotification>(this, OnRepaymentNotification);
+            _applicationController.Subscribe<DisbursementNotification>(this, OnDisbursementNotification);
         }
 
         private void btSearchContract_Click(object sender, EventArgs e)
