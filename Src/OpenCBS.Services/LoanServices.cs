@@ -730,7 +730,7 @@ namespace OpenCBS.Services
                                                                     keepExpectedInstallment, proportionPayment,
                                                                     paymentMethod, comment,
                                                                     isPending);
-
+                    repayEvent.Comment = comment;
                     savedContract.EscapedMember = curentLoan.EscapedMember;
                     repayEvent.User = _user;
                     //the code below should be moved into event generation proccess
@@ -837,7 +837,8 @@ namespace OpenCBS.Services
                                     Penalties = listOfRble.Sum(item => item.Fees.Value),
                                     Id = repayEvent.Id,
                                     Date = repayEvent.Date,
-                                    PaymentMethodId = paymentMethod.Id
+                                    PaymentMethodId = paymentMethod.Id,
+                                    Comment = repayEvent.Comment
                                 }
                             },
                             {"SqlTransaction", sqlTransaction}
@@ -855,7 +856,8 @@ namespace OpenCBS.Services
                                 Penalties = listOfRgle.Sum(item => item.Fees.Value),
                                 Id = repayEvent.Id,
                                 Date = repayEvent.Date,
-                                PaymentMethodId = paymentMethod.Id
+                                PaymentMethodId = paymentMethod.Id,
+                                Comment = repayEvent.Comment
                             }
                         },
                         {"SqlTransaction", sqlTransaction}
@@ -3297,7 +3299,8 @@ namespace OpenCBS.Services
                                     InstallmentNumber = repayEvent.InstallmentNumber,
                                     Id = repayEvent.Id,
                                     Date = repayEvent.Date,
-                                    PaymentMethodId = repayEvent.PaymentMethod.Id
+                                    PaymentMethodId = repayEvent.PaymentMethod.Id,
+                                    Comment = repayEvent.Comment
                                 }
                             },
                             {"SqlTransaction", sqlTransaction}
@@ -3318,7 +3321,8 @@ namespace OpenCBS.Services
                                     InstallmentNumber = repayEvent.InstallmentNumber,
                                     Id = repayEvent.Id,
                                     Date = repayEvent.Date,
-                                    PaymentMethodId = repayEvent.PaymentMethod.Id
+                                    PaymentMethodId = repayEvent.PaymentMethod.Id,
+                                    Comment = repayEvent.Comment
                                 }
                             },
                             {"SqlTransaction", sqlTransaction}
