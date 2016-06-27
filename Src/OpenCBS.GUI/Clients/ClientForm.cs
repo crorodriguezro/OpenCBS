@@ -4059,9 +4059,9 @@ namespace OpenCBS.GUI.Clients
                         btnWriteOff.Enabled = false;
                         buttonManualSchedule.Enabled = false;
                     }
-
-//                    if (MdiParent != null)
-//                        ((MainView)MdiParent).ReloadAlertsSync();
+                    LoadLoanDetailsExtensions();
+                    //                    if (MdiParent != null)
+                    //                        ((MainView)MdiParent).ReloadAlertsSync();
                 }
                 SetAddTrancheButton(_credit);
             }
@@ -4526,6 +4526,7 @@ namespace OpenCBS.GUI.Clients
                     }
 
                     InitializeTabPageLoansDetails(_credit);
+                    LoadLoanDetailsExtensions();
                 }
             }
             catch (Exception ex)
@@ -4768,6 +4769,7 @@ namespace OpenCBS.GUI.Clients
                 }
 
                 //((MainView)_mdiParent).ReloadAlertsSync();
+                LoadLoanDetailsExtensions();
 
             }
             catch (Exception ex)
@@ -6885,6 +6887,7 @@ namespace OpenCBS.GUI.Clients
                 {
                     tabControlRepayments.TabPages.AddRange(pages);
                 }
+                extension.Refresh();
             }
             var tabs = _applicationController.GetAllInstances<ILoanTabs>();
             foreach (var tab in tabs)
@@ -6901,6 +6904,7 @@ namespace OpenCBS.GUI.Clients
                 {
                     tabControlRepayments.TabPages.AddRange(pages);
                 }
+                tab.Refresh();
                 LoanTabs.Add(tab);
             }
         }
