@@ -4012,6 +4012,12 @@ namespace OpenCBS.GUI.Clients
                 if (_oClientType == OClientTypes.Group) client = _groupUserControl.Group;
 
                 var creditContractRepayForm = new CreditContractRepayForm(_credit, client);
+
+                foreach (var initializer in _applicationController.GetAllInstances<IRepaymentControlInitializer>())
+                {
+                    initializer.Initialize(creditContractRepayForm);
+                }
+
                 creditContractRepayForm.ShowDialog();
 
                 if (creditContractRepayForm.DialogResult != DialogResult.Cancel)
