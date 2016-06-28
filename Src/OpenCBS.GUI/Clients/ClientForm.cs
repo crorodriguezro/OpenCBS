@@ -247,7 +247,7 @@ namespace OpenCBS.GUI.Clients
             InitControls();
             _oClientType = OClientTypes.Corporate;
             InitializeUserControl(OClientTypes.Corporate, pMdiParent);
-            InitializeTitle(string.Format("{0} - {1}",_corporate.Id, _corporate.Name));
+            InitializeTitle(_corporate.Name);
         }
 
         public ClientForm(Group pGroup, Form pMdiParent, IApplicationController applicationController = null)
@@ -3968,6 +3968,24 @@ namespace OpenCBS.GUI.Clients
 //                ((MainView) MdiParent).ReloadAlertsSync();
         }
 
+        public void OnDisbursementNotification(DisbursementNotification notification)
+        {
+            if (_credit.Id != notification.LoanId) return;
+
+            if (!tabControlPerson.TabPages.Contains(tabPageLoanRepayment))
+            {
+                tabControlPerson.TabPages.Add(tabPageLoanRepayment);
+            }
+            DisplayListViewLoanRepayments(_credit);
+            DisplayLoanEvents(_credit);
+            tabControlPerson.SelectedTab = tabPageLoanRepayment;
+            InitializeContractStatus(_credit);
+            InitializeTabPageLoansDetails(_credit);
+            DisplayContracts(_project.Credits);
+            Preview();
+            DisplayInstallments(ref _credit);
+        }
+
         private void buttonLoanRepaymentRepay_Click(object sender, EventArgs e)
         {
             _applicationController.Execute(new ShowRepaymentViewCommandData { Loan = _credit, DefaultAction = Repay });
@@ -3994,6 +4012,12 @@ namespace OpenCBS.GUI.Clients
                 if (_oClientType == OClientTypes.Group) client = _groupUserControl.Group;
 
                 var creditContractRepayForm = new CreditContractRepayForm(_credit, client);
+
+                foreach (var initializer in _applicationController.GetAllInstances<IRepaymentControlInitializer>())
+                {
+                    initializer.Initialize(creditContractRepayForm);
+                }
+
                 creditContractRepayForm.ShowDialog();
 
                 if (creditContractRepayForm.DialogResult != DialogResult.Cancel)
@@ -4035,9 +4059,9 @@ namespace OpenCBS.GUI.Clients
                         btnWriteOff.Enabled = false;
                         buttonManualSchedule.Enabled = false;
                     }
-
-//                    if (MdiParent != null)
-//                        ((MainView)MdiParent).ReloadAlertsSync();
+                    LoadLoanDetailsExtensions();
+                    //                    if (MdiParent != null)
+                    //                        ((MainView)MdiParent).ReloadAlertsSync();
                 }
                 SetAddTrancheButton(_credit);
             }
@@ -4502,6 +4526,7 @@ namespace OpenCBS.GUI.Clients
                     }
 
                     InitializeTabPageLoansDetails(_credit);
+                    LoadLoanDetailsExtensions();
                 }
             }
             catch (Exception ex)
@@ -4744,6 +4769,7 @@ namespace OpenCBS.GUI.Clients
                 }
 
                 //((MainView)_mdiParent).ReloadAlertsSync();
+                LoadLoanDetailsExtensions();
 
             }
             catch (Exception ex)
@@ -5757,6 +5783,7 @@ namespace OpenCBS.GUI.Clients
         {
             _toChangeAlignDate = true;
             _applicationController.Subscribe<RepaymentNotification>(this, OnRepaymentNotification);
+            _applicationController.Subscribe<DisbursementNotification>(this, OnDisbursementNotification);
         }
 
         private void btSearchContract_Click(object sender, EventArgs e)
@@ -6860,6 +6887,7 @@ namespace OpenCBS.GUI.Clients
                 {
                     tabControlRepayments.TabPages.AddRange(pages);
                 }
+                extension.Refresh();
             }
             var tabs = _applicationController.GetAllInstances<ILoanTabs>();
             foreach (var tab in tabs)
@@ -6876,6 +6904,7 @@ namespace OpenCBS.GUI.Clients
                 {
                     tabControlRepayments.TabPages.AddRange(pages);
                 }
+                tab.Refresh();
                 LoanTabs.Add(tab);
             }
         }

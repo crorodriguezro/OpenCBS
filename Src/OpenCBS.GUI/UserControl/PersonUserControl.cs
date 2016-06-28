@@ -244,6 +244,10 @@ namespace OpenCBS.GUI.UserControl
             {
                 _tempPerson.LoanCycle = 0;
                 if (cbBranch.Items.Count > 0) cbBranch.SelectedIndex = 0;
+                eacPerson.Activity = ServicesProvider.GetInstance()
+                                                   .GetEconomicActivityServices()
+                                                   .FindAllEconomicActivities(false)
+                                                   .FirstOrDefault();
             }
             InitializePhoto();
         }
