@@ -11,3 +11,12 @@ insert into
 values
 	 ('ClientServices', 'ModifyNonSolidarityGroup')
 GO
+
+if(select [key] from dbo.GeneralParameters where [key] = 'CHECK_CREDIT_COMMITTEE_DATE') is null
+	begin
+		insert into 
+		    dbo.GeneralParameters([key], value)
+		values
+		    ('CHECK_CREDIT_COMMITTEE_DATE', 0)
+	end
+GO
