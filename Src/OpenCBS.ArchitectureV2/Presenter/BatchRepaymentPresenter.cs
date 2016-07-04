@@ -10,6 +10,7 @@ using OpenCBS.ArchitectureV2.Message;
 using OpenCBS.ArchitectureV2.Model;
 using OpenCBS.CoreDomain;
 using OpenCBS.Extensions;
+using OpenCBS.Services;
 using OpenCBS.Shared;
 
 namespace OpenCBS.ArchitectureV2.Presenter
@@ -44,6 +45,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
             _villageBankId = villageBankId;
             _view.Attach(this);
             ModifyTotal();
+            _view.PaymentMethods = ServicesProvider.GetInstance().GetPaymentMethodServices().GetAllPaymentMethods();
             _loans = _loanRepository.GetVillageBankLoans(villageBankId);
             _view.SetLoans(_loans);
             _view.Run();
@@ -186,7 +188,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
             return loan.Schedule.Sum(x => x.Principal + x.Interest - x.PaidPrincipal - x.PaidInterest);
         }
 
-        private static RepaymentEvent GetRepaymentEvent(Loan loan, Loan repaidLoan)
+        private  RepaymentEvent GetRepaymentEvent(Loan loan, Loan repaidLoan)
         {
             var firstUnpaidInstallment = loan.Schedule.Find(x => !x.Repaid);
             var lateDays = (TimeProvider.Today - firstUnpaidInstallment.ExpectedDate.Date).Days;
@@ -204,6 +206,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
                                        loan.Schedule.Sum(x => x.PaidPrincipal);
             repaymentEvent.Interest = repaidLoan.Schedule.Sum(x => x.PaidInterest) -
                                       loan.Schedule.Sum(x => x.PaidInterest);
+            repaymentEvent.PaymentMethodId = _view.SelectedPaymentMethod.Id;
 
             return repaymentEvent;
         }
@@ -248,7 +251,8 @@ namespace OpenCBS.ArchitectureV2.Presenter
                             Penalties = 0,
                             Comment = repaymentEvent.Comment,
                             Doc1 = repaymentEvent.ReceiptNumber,
-                            PaymentMethodId = _view.Method.Id
+                            PaymentMethodId = repaymentEvent.PaymentMethodId,
+                            PaymentMethod = _view.SelectedPaymentMethod
                         };
                         interceptor.CallInterceptor(new Dictionary<string, object>
                         {

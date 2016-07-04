@@ -15,5 +15,6 @@ namespace OpenCBS.ArchitectureV2.Model
         public decimal Interest { get; set; }
         public string Comment { get; set; }
         public string ReceiptNumber { get; set; }
+        public int PaymentMethodId { get; set; }
     }
 }
