@@ -938,7 +938,8 @@ namespace OpenCBS.GUI.Contracts
 
                     _product.InstallmentType = periodicity;
                     _product.LoanType = scheduleTypeKeyValue.Value;
-                    
+                    _product.EntryFees.Clear();
+                    _product.EntryFees = ServicesProvider.GetInstance().GetProductServices(). GetProductEntryFees(_product, member.Tiers);
                     //creation of loan
                     loan = new Loan(_product,
                                     amount,
