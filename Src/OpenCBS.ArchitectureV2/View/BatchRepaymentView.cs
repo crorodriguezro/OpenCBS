@@ -23,7 +23,7 @@ namespace OpenCBS.ArchitectureV2.View
             public string ContractCode { get; set; }
             public decimal Principal { get; set; }
             public decimal Interest { get; set; }
-            public DateTime ExpectedDate { get; set; } 
+            public DateTime ExpectedDate { get; set; }
             public decimal Total { get; set; }
             public bool Selected { get; set; }
             public string ReceiptNumber { get; set; }
@@ -45,18 +45,17 @@ namespace OpenCBS.ArchitectureV2.View
         {
             InitializeComponent();
             _principalColumn.AspectToStringConverter =
-            _interestColumn.AspectToStringConverter =
-            _totalColumn.AspectToStringConverter = v => ((decimal) v).ToString("N0");
+                _interestColumn.AspectToStringConverter =
+                    _totalColumn.AspectToStringConverter = v => ((decimal) v).ToString("N0");
             _totalColumn.AspectPutter = TotalAspectPutter;
-            _expectedDateColumn.AspectToStringConverter = v => ((DateTime)v).Date.ToString("dd'/'MM'/'yyyy"); 
+            _expectedDateColumn.AspectToStringConverter = v => ((DateTime) v).Date.ToString("dd'/'MM'/'yyyy");
             _loansListView.RowFormatter = ItemRowFormatter;
             _loansListView.ItemChecked += OnItemChecked;
             _loansListView.CellEditStarting += OnCellEditStarting;
-            FillComboBoxPaymentMethods();
 
-            ObjectListView.EditorRegistry.Register(typeof(decimal), delegate
+            ObjectListView.EditorRegistry.Register(typeof (decimal), delegate
             {
-                var textBox = new AmountTextBox { AllowDecimalSeparator = false };
+                var textBox = new AmountTextBox {AllowDecimalSeparator = false};
                 return textBox;
             });
 
@@ -64,15 +63,14 @@ namespace OpenCBS.ArchitectureV2.View
             _loansListView.CheckBoxes = true;
         }
 
-        private void FillComboBoxPaymentMethods()
+        public List<PaymentMethod> PaymentMethods
         {
-            List<PaymentMethod> paymentMethods =
-                ServicesProvider.GetInstance().GetPaymentMethodServices().GetAllPaymentMethods();
-            foreach (PaymentMethod method in paymentMethods)
+            set
             {
-                cmbPaymentMethod.Items.Add(method);
+                cmbPaymentMethod.DataSource = value;
+                cmbPaymentMethod.ValueMember = "Id";
+                cmbPaymentMethod.DisplayMember = "Name";
             }
-            Method = paymentMethods[0];
         }
 
         public void Run()
@@ -117,7 +115,7 @@ namespace OpenCBS.ArchitectureV2.View
                 var interest = _presenterCallbacks.GetDueInterest(x.Id);
                 var total = principal + interest;
                 DateTime expectedDate = _presenterCallbacks.GetExpectedDate(x.Id);
-                
+
                 return new Item
                 {
                     Id = x.Id,
@@ -208,22 +206,27 @@ namespace OpenCBS.ArchitectureV2.View
                 e.Cancel = true;
             }
         }
+
         public void Stop()
         {
             Close();
         }
+
         public decimal GetTotal(int loanId)
         {
             return _loansListView.Objects.Cast<Item>().Where(x => x.Id == loanId).Select(x => x.Total).Single();
         }
+
         public string GetComment(int loanId)
         {
             return _loansListView.Objects.Cast<Item>().Where(x => x.Id == loanId).Select(x => x.Comment).Single();
         }
+
         public string GetReceiptNumber(int loanId)
         {
             return _loansListView.Objects.Cast<Item>().Where(x => x.Id == loanId).Select(x => x.ReceiptNumber).Single();
         }
+
         public List<int> SelectedLoanIds
         {
             get
@@ -231,18 +234,20 @@ namespace OpenCBS.ArchitectureV2.View
                 return _loansListView.CheckedObjects.Cast<Item>().Where(x => x != _totalItem).Select(x => x.Id).ToList();
             }
         }
+
         public void EnableTotalEdit()
         {
             _totalColumn.IsEditable = true;
         }
+
         public void DisableTotalEdit()
         {
             _totalColumn.IsEditable = false;
         }
 
-        public PaymentMethod Method
+        public PaymentMethod SelectedPaymentMethod
         {
-            get { return (PaymentMethod)cmbPaymentMethod.SelectedItem; }
+            get { return (PaymentMethod) cmbPaymentMethod.SelectedItem; }
             set { cmbPaymentMethod.SelectedItem = value; }
         }
     }

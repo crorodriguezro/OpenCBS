@@ -595,6 +595,7 @@ namespace OpenCBS.GUI.Configuration
             resources.GetString("cbxValue.Items"),
             resources.GetString("cbxValue.Items1")});
             this.cbxValue.Name = "cbxValue";
+            this.cbxValue.Visible = false;
             this.cbxValue.SelectionChangeCommitted += new System.EventHandler(this.comboBoxValue_SelectionChangeCommitted);
             this.cbxValue.SelectedValueChanged += new System.EventHandler(this.buttonUpdate_Click);
             // 
@@ -602,7 +603,7 @@ namespace OpenCBS.GUI.Configuration
             // 
             resources.ApplyResources(this.textBoxGeneralParameterValue, "textBoxGeneralParameterValue");
             this.textBoxGeneralParameterValue.Name = "textBoxGeneralParameterValue";
-            this.textBoxGeneralParameterValue.TextChanged += new System.EventHandler(this.textBoxGeneralParameterValue_TextChanged);
+            
             this.textBoxGeneralParameterValue.Leave += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // tabPageProvioningRules
@@ -1187,6 +1188,8 @@ namespace OpenCBS.GUI.Configuration
 
         private void InitializeControls()
         {
+            buttonUpdate.Visible = true;
+            textBoxGeneralParameterName.Visible = true;
             if (entry.Key.ToString() == OGeneralSettings.PAYFIRSTINSTALLMENTREALVALUE ||
                 entry.Key.ToString() == OGeneralSettings.ALLOWSMULTIPLELOANS ||
                 entry.Key.ToString() == OGeneralSettings.ALLOWSMULTIPLEGROUPS ||
@@ -1332,12 +1335,13 @@ namespace OpenCBS.GUI.Configuration
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
+            if(textBoxGeneralParameterValue.Visible) CheckNumericValues();
             ServicesProvider.GetInstance().GetGeneralSettings().UpdateParameter(entry.Key.ToString(), entry.Value);
             ServicesProvider.GetInstance().GetApplicationSettingsServices().UpdateSelectedParameter(entry.Key.ToString(), entry.Value);
             InitializeListViewGeneralParameters();
         }
 
-        private void textBoxGeneralParameterValue_TextChanged(object sender, EventArgs e)
+        private void CheckNumericValues()
         {
             string entryKey = entry.Key.ToString();
             try
@@ -1345,22 +1349,72 @@ namespace OpenCBS.GUI.Configuration
                 if (entryKey == OGeneralSettings.CEASE_LAIE_DAYS ||
                     entryKey == OGeneralSettings.MAX_LOANS_COVERED ||
                     entryKey == OGeneralSettings.MAX_GUARANTOR_AMOUNT ||
-                    entryKey == OGeneralSettings.INTEREST_RATE_DECIMAL_PLACES)
+                    entryKey == OGeneralSettings.INTEREST_RATE_DECIMAL_PLACES ||
+                    entryKey == OGeneralSettings.REPORT_TIMEOUT)
                 {
                     if (textBoxGeneralParameterValue.Text != String.Empty)
                     {
                         try
                         {
-                            entry.Value = Convert.ToInt32(textBoxGeneralParameterValue.Text);
+                            entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
                         }
                         catch
                         {
                             throw new GeneralSettingException(GeneralSettingEnumException.OnlyInt);
                         }
                     }
-                    else
-                        entry.Value = null;
+                }
+                else if (entryKey == OGeneralSettings.CLIENT_AGE_MIN)
+                {
+                    var clientAgeMaxValueStr = GetGeneralSettingsItem(OGeneralSettings.CLIENT_AGE_MAX).ToString();
+                    if (!string.IsNullOrEmpty(textBoxGeneralParameterValue.Text))
+                    {
+                        try
+                        {
+                            if (!string.IsNullOrEmpty(clientAgeMaxValueStr))
+                            {
+                                var clientMaxAgeValue = Convert.ToUInt32(clientAgeMaxValueStr);
+                                var clientMinAgeValue = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                                if (!string.IsNullOrEmpty(clientAgeMaxValueStr) &&
+                                    clientMinAgeValue > clientMaxAgeValue)
+                                    throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
+                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            if (ex.ToString() == GeneralSettingEnumException.MaxMinCondition + ".Text")
+                                throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
 
+                            throw new GeneralSettingException(GeneralSettingEnumException.OnlyInt);
+                        }
+                    }
+                }
+                else if (entryKey == OGeneralSettings.CLIENT_AGE_MAX)
+                {
+                    var clientMinAgeStr = GetGeneralSettingsItem(OGeneralSettings.CLIENT_AGE_MIN).ToString();
+                    if (!string.IsNullOrEmpty(textBoxGeneralParameterValue.Text))
+                    {
+                        try
+                        {
+                            if (!string.IsNullOrEmpty(clientMinAgeStr))
+                            {
+                                var clientMinAgeValue = Convert.ToUInt32(clientMinAgeStr);
+                                var clientMaxAgeValue = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                                if (clientMinAgeValue > clientMaxAgeValue)
+                                    throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
+                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            if (ex.ToString() == GeneralSettingEnumException.MaxMinCondition + ".Text")
+                                throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
+
+                            throw new GeneralSettingException(GeneralSettingEnumException.OnlyInt);
+                        }
+
+                    }
                 }
                 else if (entryKey == OGeneralSettings.GROUPMAXMEMBERS)
                 {
@@ -1375,10 +1429,6 @@ namespace OpenCBS.GUI.Configuration
                                 var groupMaxMembersValue = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
                                 if (groupMinMembersValue > groupMaxMembersValue)
                                     throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
-                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
-                            }
-                            else
-                            {
                                 entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
                             }
                         }
@@ -1408,10 +1458,6 @@ namespace OpenCBS.GUI.Configuration
                                     throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
                                 entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
                             }
-                            else
-                            {
-                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
-                            }
                         }
                         catch (Exception ex)
                         {
@@ -1435,10 +1481,6 @@ namespace OpenCBS.GUI.Configuration
                                 var villageMaxMembersValue = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
                                 if (villageMinMembersValue > villageMaxMembersValue)
                                     throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
-                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
-                            }
-                            else
-                            {
                                 entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
                             }
                         }
@@ -1468,10 +1510,6 @@ namespace OpenCBS.GUI.Configuration
                                     throw new GeneralSettingException(GeneralSettingEnumException.MaxMinCondition);
                                 entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
                             }
-                            else
-                            {
-                                entry.Value = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
-                            }
                         }
                         catch(Exception ex)
                         {
@@ -1486,45 +1524,26 @@ namespace OpenCBS.GUI.Configuration
                          entryKey == OGeneralSettings.WEEKENDDAY2)
                 {
                     textBoxGeneralParameterValue.Enabled = true;
-                    if (textBoxGeneralParameterValue.Text != String.Empty)
+                    try
                     {
-                        entry.Value = Convert.ToInt32(textBoxGeneralParameterValue.Text);
-                        var entryVal = int.Parse(entry.Value.ToString());
-
-                        if (entryVal > 6 || entryVal < 0)
+                        if (textBoxGeneralParameterValue.Text != String.Empty)
                         {
-                            entry.Value = "0";
-                            throw new GeneralSettingException(GeneralSettingEnumException.BetweenZeroAndSix);
+                            var entryVal = Convert.ToUInt32(textBoxGeneralParameterValue.Text);
+
+                            if (entryVal > 6 || entryVal < 0)
+                            {
+                                throw new GeneralSettingException(GeneralSettingEnumException.BetweenZeroAndSix);
+                            }
+                            entry.Value = entryVal;
+
+
                         }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        entry.Value = "0";
+                        throw new GeneralSettingException(GeneralSettingEnumException.OnlyInt);
                     }
                 }
-
-                else if (entryKey == OGeneralSettings.CLIENT_AGE_MAX ||
-                         entryKey == OGeneralSettings.CLIENT_AGE_MIN)
-                {
-                    textBoxGeneralParameterValue.Enabled = true;
-                    if (textBoxGeneralParameterValue.Text != String.Empty)
-                    {
-                        try
-                        {
-                            entry.Value = Convert.ToInt32(textBoxGeneralParameterValue.Text);
-                        }
-                        catch
-                        {
-                            entry.Value = "0";
-                            throw new GeneralSettingException(GeneralSettingEnumException.OnlyInt);
-                        }
-                    }
-                    else
-                    {
-                        entry.Value = "0";
-                    }
-                }
-
                 else if (entryKey == OGeneralSettings.LATEDAYSAFTERACCRUALCEASES)
                 {
                     if (textBoxGeneralParameterValue.Text == @"-")
@@ -1553,19 +1572,9 @@ namespace OpenCBS.GUI.Configuration
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
                 if (entryKey != OGeneralSettings.LATEDAYSAFTERACCRUALCEASES)
                 {
-                    textBoxGeneralParameterValue.Text = String.Empty;
-                    entry.Value = String.Empty;
+                    textBoxGeneralParameterValue.Text = entry.Value!=null? entry.Value.ToString():"";
                 }
-                if (entryKey == OGeneralSettings.WEEKENDDAY1 || entryKey == OGeneralSettings.WEEKENDDAY2)
-                {
-                    textBoxGeneralParameterValue.Text = "0";
-                    entry.Value = "0";
-                }
-                if (entryKey == OGeneralSettings.CLIENT_AGE_MAX || entryKey == OGeneralSettings.CLIENT_AGE_MIN)
-                {
-                    textBoxGeneralParameterValue.Text = "0";
-                    entry.Value = "0";
-                }
+
             }
         }
 

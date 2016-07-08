@@ -65,10 +65,13 @@
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="IClientFormInitializer.cs" />
+    <Compile Include="ICorporateInterceptor.cs" />
+    <Compile Include="IGroupInterceptor.cs" />
     <Compile Include="IPersonInterceptor.cs" />
     <Compile Include="ILoanProductInterceptor.cs" />
     <Compile Include="IMainFormInitializer.cs" />
     <Compile Include="IPersonControlInitializer.cs" />
+    <Compile Include="IRepaymentControlInitializer.cs" />
     <Compile Include="ISavingInterceptor.cs" />
     <Compile Include="ILoanInterceptor.cs" />
     <Compile Include="DefaultEventInterceptor.cs" />

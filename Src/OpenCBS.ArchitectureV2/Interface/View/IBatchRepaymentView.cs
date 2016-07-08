@@ -16,6 +16,7 @@ namespace OpenCBS.ArchitectureV2.Interface.View
         List<int> SelectedLoanIds { get; }
         void EnableTotalEdit();
         void DisableTotalEdit();
-        PaymentMethod Method { get; set; }
+        PaymentMethod SelectedPaymentMethod { get; set; }
+        List<PaymentMethod> PaymentMethods { set; }
     }
 }

@@ -64,6 +64,12 @@ namespace OpenCBS.Services
         [ImportMany(typeof(IPersonInterceptor))]
         private Lazy<IPersonInterceptor, IDictionary<string, object>>[] PersonInterceptors { get; set; }
 
+        [ImportMany(typeof(ICorporateInterceptor))]
+        private Lazy<ICorporateInterceptor, IDictionary<string, object>>[] CorporateInterceptors { get; set; }
+
+        [ImportMany(typeof(IGroupInterceptor))]
+        private Lazy<IGroupInterceptor, IDictionary<string, object>>[] GroupInterceptors { get; set; }
+
         public ClientServices(User pUser)
         {
             _user = pUser;
@@ -730,7 +736,7 @@ namespace OpenCBS.Services
 
                     foreach (var interceptor in PersonInterceptors)
                     {
-                        interceptor.Value.Save(new Dictionary<string, object>
+                        interceptor.Value.Update(new Dictionary<string, object>
                             {
                                 {"Person", person},
                                 {"SqlTransaction", transac}
@@ -1017,6 +1023,14 @@ namespace OpenCBS.Services
                 {
                     _clientManagement.AddNewGroup(group, sqlTransac);
                     if (action != null) action(sqlTransac, group.Id);
+                    foreach (var interceptor in GroupInterceptors)
+                    {
+                        interceptor.Value.Save(new Dictionary<string, object>
+                            {
+                                {"Group", group},
+                                {"SqlTransaction", sqlTransac}
+                            });
+                    }
                     sqlTransac.Commit();
                     return group.Id;
                 }
@@ -1090,6 +1104,14 @@ namespace OpenCBS.Services
                     ValidateCorporate(body);
                     body.Id = _clientManagement.AddBodyCorporate(body, pFundingLine, sqlTransac);
                     if (action != null) action(sqlTransac);
+                    foreach (var interceptor in CorporateInterceptors)
+                    {
+                        interceptor.Value.Save(new Dictionary<string, object>
+                            {
+                                {"Corporate", body},
+                                {"SqlTransaction", sqlTransac}
+                            });
+                    }
                     sqlTransac.Commit();
                     SavePicture(body);
                     SaveCorporatePerson(body.Id, body.Contacts);

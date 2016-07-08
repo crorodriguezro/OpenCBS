@@ -30,5 +30,6 @@ namespace OpenCBS.Extensions
         TabPage[] GetTabPages(Loan loan);
         TabPage[] GetRepaymentTabPages(Loan loan);
         void Save(Loan loan, SqlTransaction tx);
+        void Refresh();
     }
 }
