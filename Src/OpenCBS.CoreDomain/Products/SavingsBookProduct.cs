@@ -80,7 +80,7 @@ namespace OpenCBS.CoreDomain.Products
 	[Serializable]
 	public class SavingsBookProduct : ISavingProduct
     {
-	    private readonly Fee _interBranchTransferFee;
+	    private Fee _interBranchTransferFee;
 
         #region ISavingProduct Members
         public int Id { get; set; }
@@ -165,7 +165,8 @@ namespace OpenCBS.CoreDomain.Products
         public int? TermDepositPeriodMin { get; set; }
         public int? TermDepositPeriodMax { get; set; }
         public InstallmentType Periodicity { get; set; }
-        public int? InstallmentTypeId { get; set; }
+	    public OSavingProductType Type { get; set; }
+	    public int? InstallmentTypeId { get; set; }
 
         public bool UseCents
 	    {
@@ -192,10 +193,8 @@ namespace OpenCBS.CoreDomain.Products
 
 	    public Fee InterBranchTransferFee
 	    {
-	        get
-	        {
-	            return _interBranchTransferFee;
-	        }
+	        get { return _interBranchTransferFee; }
+	        set { _interBranchTransferFee = value; }
 	    }
     }
 }

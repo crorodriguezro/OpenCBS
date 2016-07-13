@@ -727,6 +727,7 @@ namespace OpenCBS.Manager.Products
 
             c.AddParam("@productId", product.Id);
             c.AddParam("@currency_id", product.Currency.Id);
+            c.AddParam("@type", product.Type);
             
             if (product is  SavingsBookProduct)
             {

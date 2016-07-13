@@ -673,6 +673,16 @@ namespace OpenCBS.Services
             return returned;
         }
 
+        public static bool CheckMinMaxCorrectlyFilledAndSetValueIfNeed(OCurrency min, OCurrency max, OCurrency fixedValue)
+        {
+            var returned = false;
+
+            if (min.HasValue && max.HasValue)
+                returned = min <= max;
+
+            return returned;
+        }
+
         /// <summary>
         /// This method checks are Min, Max and Fixed values correctly filled
         /// </summary>
