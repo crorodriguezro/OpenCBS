@@ -118,6 +118,7 @@ namespace OpenCBS.GUI.Configuration
                 rbInterFlatTransferFees.Checked = true;
             else
                 rbInterRateTransferFees.Checked = true;
+            TransactionTabRadioButtonChanged();
             rbIntraFlatTransferFees.Checked = _savingsProduct.TransferFeesType == OSavingsFeesType.Flat;
             rbFlatWithdrawFees.CheckedChanged += (sender, e) => TransactionTabRadioButtonChanged();
             rbRateWithdrawFees.CheckedChanged += (sender, e) => TransactionTabRadioButtonChanged();
@@ -313,6 +314,7 @@ namespace OpenCBS.GUI.Configuration
                 _savingsProduct.Type = OSavingProductType.ShortTermDeposit;
             else
                 _savingsProduct.Type = OSavingProductType.Saving;
+            TransactionTabRadioButtonChanged();
             try
             {
                if (_savingsProduct.PackageMode==OPackageMode.Edit)
@@ -888,7 +890,6 @@ namespace OpenCBS.GUI.Configuration
                 _savingsProduct.RateTransferFeesMin = _savingsProduct.RateTransferFeesMax = null;
             }
             _savingsProduct.InterBranchTransferFee.IsFlat = rbInterFlatTransferFees.Checked;
-            _savingsProduct.WithdrawFeesType = rbFlatWithdrawFees.Checked ? OSavingsFeesType.Flat: OSavingsFeesType.Rate;
         }
     }
 }

@@ -292,7 +292,7 @@
     <value>Client Type</value>
   </data>
   <data name="columnHeaderClientType.Width" type="System.Int32, mscorlib">
-    <value>166</value>
+    <value>257</value>
   </data>
   <data name="columnHeaderInterestRate.Text" xml:space="preserve">
     <value>Interest Rate</value>
@@ -325,7 +325,7 @@
     <value>descriptionListView</value>
   </data>
   <data name="&gt;&gt;descriptionListView.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=16.6.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;descriptionListView.Parent" xml:space="preserve">
     <value>pnlSavingsProducts</value>
@@ -1022,6 +1022,6 @@
     <value>FrmAvailableSavingProducts</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=16.6.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

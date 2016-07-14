@@ -1450,7 +1450,7 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.tabPageInstallments, "tabPageInstallments");
             this.tabPageInstallments.Name = "tabPageInstallments";
             // 
-            // scheduleControl1
+            // _loanDetailsScheduleControl
             // 
             resources.ApplyResources(this._loanDetailsScheduleControl, "_loanDetailsScheduleControl");
             this._loanDetailsScheduleControl.Name = "_loanDetailsScheduleControl";
