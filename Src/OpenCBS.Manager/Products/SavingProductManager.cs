@@ -476,7 +476,6 @@ namespace OpenCBS.Manager.Products
                 DeleteAssignedClientTypes(product.Id);
                 AssignClientTypes(((SavingsBookProduct)product).ProductClientTypes, product.Id);
             }
-            
         }
 
         public bool IsThisProductAlreadyUsed(int productId)

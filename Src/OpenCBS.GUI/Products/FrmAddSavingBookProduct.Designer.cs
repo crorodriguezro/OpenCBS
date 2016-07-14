@@ -101,11 +101,11 @@ namespace OpenCBS.GUI.Configuration
             this.rbFlatDepositFees = new System.Windows.Forms.RadioButton();
             this.lbDepositFeesType = new System.Windows.Forms.Label();
             this.tbDepositFees = new System.Windows.Forms.TextBox();
-            this.lbDepositFees = new System.Windows.Forms.Label();
             this.tbDepositFeesMax = new System.Windows.Forms.TextBox();
             this.tbDepositFeesMin = new System.Windows.Forms.TextBox();
             this.lbDepositFeesMax = new System.Windows.Forms.Label();
             this.lbDepositFeesMin = new System.Windows.Forms.Label();
+            this.lbDepositFees = new System.Windows.Forms.Label();
             this.cbTransactionIn = new System.Windows.Forms.ComboBox();
             this.gbIntraTransferFees = new System.Windows.Forms.GroupBox();
             this.cbIntraTransferType = new System.Windows.Forms.ComboBox();
@@ -144,11 +144,11 @@ namespace OpenCBS.GUI.Configuration
             this.rbFlatReopenFees = new System.Windows.Forms.RadioButton();
             this.lbReopenFeesType = new System.Windows.Forms.Label();
             this.tbReopenFeesValue = new System.Windows.Forms.TextBox();
-            this.lbReopenFeesValue = new System.Windows.Forms.Label();
             this.tbReopenFeesMax = new System.Windows.Forms.TextBox();
             this.tbReopenFeesMin = new System.Windows.Forms.TextBox();
             this.lbReopenFeesMax = new System.Windows.Forms.Label();
             this.lbReopenFeesMin = new System.Windows.Forms.Label();
+            this.lbReopenFeesValue = new System.Windows.Forms.Label();
             this.gtManagementFees = new System.Windows.Forms.GroupBox();
             this.cbManagementFeeFreq = new System.Windows.Forms.ComboBox();
             this.rbRateManagementFees = new System.Windows.Forms.RadioButton();
@@ -187,11 +187,11 @@ namespace OpenCBS.GUI.Configuration
             this.lbAgioFeesType = new System.Windows.Forms.Label();
             this.cbAgioFeesFreq = new System.Windows.Forms.ComboBox();
             this.tbAgioFees = new System.Windows.Forms.TextBox();
-            this.lbAgioFeesValue = new System.Windows.Forms.Label();
             this.tbAgioFeesMax = new System.Windows.Forms.TextBox();
             this.tbAgioFeesMin = new System.Windows.Forms.TextBox();
             this.lbAgioFeesMax = new System.Windows.Forms.Label();
             this.lbAgioFeesMin = new System.Windows.Forms.Label();
+            this.lbAgioFeesValue = new System.Windows.Forms.Label();
             this.gtOverdraftFees = new System.Windows.Forms.GroupBox();
             this.rbRateOverdraftFees = new System.Windows.Forms.RadioButton();
             this.rbFlatOverdraftFees = new System.Windows.Forms.RadioButton();
@@ -647,6 +647,7 @@ namespace OpenCBS.GUI.Configuration
             // 
             resources.ApplyResources(this.tbInterTransferFeesMax, "tbInterTransferFeesMax");
             this.tbInterTransferFeesMax.Name = "tbInterTransferFeesMax";
+            this.tbInterTransferFeesMax.TextChanged += new System.EventHandler(this.tbInterTransferFeesMax_TextChanged);
             // 
             // tbInterTransferFeesMin
             // 
@@ -683,11 +684,13 @@ namespace OpenCBS.GUI.Configuration
             // 
             resources.ApplyResources(this.tbDepositMax, "tbDepositMax");
             this.tbDepositMax.Name = "tbDepositMax";
+            this.tbDepositMax.TextChanged += new System.EventHandler(this.tbDepositMax_TextChanged);
             // 
             // tbDepositMin
             // 
             resources.ApplyResources(this.tbDepositMin, "tbDepositMin");
             this.tbDepositMin.Name = "tbDepositMin";
+            this.tbDepositMin.TextChanged += new System.EventHandler(this.tbDepositMin_TextChanged);
             // 
             // lbDepositMax
             // 
@@ -710,11 +713,11 @@ namespace OpenCBS.GUI.Configuration
             this.gtDepositFees.Controls.Add(this.rbFlatDepositFees);
             this.gtDepositFees.Controls.Add(this.lbDepositFeesType);
             this.gtDepositFees.Controls.Add(this.tbDepositFees);
-            this.gtDepositFees.Controls.Add(this.lbDepositFees);
             this.gtDepositFees.Controls.Add(this.tbDepositFeesMax);
             this.gtDepositFees.Controls.Add(this.tbDepositFeesMin);
             this.gtDepositFees.Controls.Add(this.lbDepositFeesMax);
             this.gtDepositFees.Controls.Add(this.lbDepositFeesMin);
+            this.gtDepositFees.Controls.Add(this.lbDepositFees);
             resources.ApplyResources(this.gtDepositFees, "gtDepositFees");
             this.gtDepositFees.Name = "gtDepositFees";
             this.gtDepositFees.TabStop = false;
@@ -741,20 +744,17 @@ namespace OpenCBS.GUI.Configuration
             resources.ApplyResources(this.tbDepositFees, "tbDepositFees");
             this.tbDepositFees.Name = "tbDepositFees";
             // 
-            // lbDepositFees
-            // 
-            resources.ApplyResources(this.lbDepositFees, "lbDepositFees");
-            this.lbDepositFees.Name = "lbDepositFees";
-            // 
             // tbDepositFeesMax
             // 
             resources.ApplyResources(this.tbDepositFeesMax, "tbDepositFeesMax");
             this.tbDepositFeesMax.Name = "tbDepositFeesMax";
+            this.tbDepositFeesMax.TextChanged += new System.EventHandler(this.tbDepositFeesMax_TextChanged);
             // 
             // tbDepositFeesMin
             // 
             resources.ApplyResources(this.tbDepositFeesMin, "tbDepositFeesMin");
             this.tbDepositFeesMin.Name = "tbDepositFeesMin";
+            this.tbDepositFeesMin.TextChanged += new System.EventHandler(this.tbDepositFeesMin_TextChanged);
             // 
             // lbDepositFeesMax
             // 
@@ -765,6 +765,11 @@ namespace OpenCBS.GUI.Configuration
             // 
             resources.ApplyResources(this.lbDepositFeesMin, "lbDepositFeesMin");
             this.lbDepositFeesMin.Name = "lbDepositFeesMin";
+            // 
+            // lbDepositFees
+            // 
+            resources.ApplyResources(this.lbDepositFees, "lbDepositFees");
+            this.lbDepositFees.Name = "lbDepositFees";
             // 
             // cbTransactionIn
             // 
@@ -955,11 +960,13 @@ namespace OpenCBS.GUI.Configuration
             // 
             resources.ApplyResources(this.tbDrawingMax, "tbDrawingMax");
             this.tbDrawingMax.Name = "tbDrawingMax";
+            this.tbDrawingMax.TextChanged += new System.EventHandler(this.tbDrawingMax_TextChanged);
             // 
             // tbWithDrawingMin
             // 
             resources.ApplyResources(this.tbWithDrawingMin, "tbWithDrawingMin");
             this.tbWithDrawingMin.Name = "tbWithDrawingMin";
+            this.tbWithDrawingMin.TextChanged += new System.EventHandler(this.tbWithDrawingMin_TextChanged);
             // 
             // lbWithDrawingMax
             // 
@@ -986,11 +993,11 @@ namespace OpenCBS.GUI.Configuration
             this.gbReopenFees.Controls.Add(this.rbFlatReopenFees);
             this.gbReopenFees.Controls.Add(this.lbReopenFeesType);
             this.gbReopenFees.Controls.Add(this.tbReopenFeesValue);
-            this.gbReopenFees.Controls.Add(this.lbReopenFeesValue);
             this.gbReopenFees.Controls.Add(this.tbReopenFeesMax);
             this.gbReopenFees.Controls.Add(this.tbReopenFeesMin);
             this.gbReopenFees.Controls.Add(this.lbReopenFeesMax);
             this.gbReopenFees.Controls.Add(this.lbReopenFeesMin);
+            this.gbReopenFees.Controls.Add(this.lbReopenFeesValue);
             resources.ApplyResources(this.gbReopenFees, "gbReopenFees");
             this.gbReopenFees.Name = "gbReopenFees";
             this.gbReopenFees.TabStop = false;
@@ -1018,11 +1025,6 @@ namespace OpenCBS.GUI.Configuration
             this.tbReopenFeesValue.Name = "tbReopenFeesValue";
             this.tbReopenFeesValue.TextChanged += new System.EventHandler(this.tbReopenFeesValue_TextChanged);
             // 
-            // lbReopenFeesValue
-            // 
-            resources.ApplyResources(this.lbReopenFeesValue, "lbReopenFeesValue");
-            this.lbReopenFeesValue.Name = "lbReopenFeesValue";
-            // 
             // tbReopenFeesMax
             // 
             resources.ApplyResources(this.tbReopenFeesMax, "tbReopenFeesMax");
@@ -1044,6 +1046,11 @@ namespace OpenCBS.GUI.Configuration
             // 
             resources.ApplyResources(this.lbReopenFeesMin, "lbReopenFeesMin");
             this.lbReopenFeesMin.Name = "lbReopenFeesMin";
+            // 
+            // lbReopenFeesValue
+            // 
+            resources.ApplyResources(this.lbReopenFeesValue, "lbReopenFeesValue");
+            this.lbReopenFeesValue.Name = "lbReopenFeesValue";
             // 
             // gtManagementFees
             // 
@@ -1262,11 +1269,11 @@ namespace OpenCBS.GUI.Configuration
             this.gtAgioFees.Controls.Add(this.lbAgioFeesType);
             this.gtAgioFees.Controls.Add(this.cbAgioFeesFreq);
             this.gtAgioFees.Controls.Add(this.tbAgioFees);
-            this.gtAgioFees.Controls.Add(this.lbAgioFeesValue);
             this.gtAgioFees.Controls.Add(this.tbAgioFeesMax);
             this.gtAgioFees.Controls.Add(this.tbAgioFeesMin);
             this.gtAgioFees.Controls.Add(this.lbAgioFeesMax);
             this.gtAgioFees.Controls.Add(this.lbAgioFeesMin);
+            this.gtAgioFees.Controls.Add(this.lbAgioFeesValue);
             resources.ApplyResources(this.gtAgioFees, "gtAgioFees");
             this.gtAgioFees.Name = "gtAgioFees";
             this.gtAgioFees.TabStop = false;
@@ -1303,11 +1310,6 @@ namespace OpenCBS.GUI.Configuration
             this.tbAgioFees.Name = "tbAgioFees";
             this.tbAgioFees.TextChanged += new System.EventHandler(this.tbAgioFees_TextChanged);
             // 
-            // lbAgioFeesValue
-            // 
-            resources.ApplyResources(this.lbAgioFeesValue, "lbAgioFeesValue");
-            this.lbAgioFeesValue.Name = "lbAgioFeesValue";
-            // 
             // tbAgioFeesMax
             // 
             resources.ApplyResources(this.tbAgioFeesMax, "tbAgioFeesMax");
@@ -1329,6 +1331,11 @@ namespace OpenCBS.GUI.Configuration
             // 
             resources.ApplyResources(this.lbAgioFeesMin, "lbAgioFeesMin");
             this.lbAgioFeesMin.Name = "lbAgioFeesMin";
+            // 
+            // lbAgioFeesValue
+            // 
+            resources.ApplyResources(this.lbAgioFeesValue, "lbAgioFeesValue");
+            this.lbAgioFeesValue.Name = "lbAgioFeesValue";
             // 
             // gtOverdraftFees
             // 
@@ -1578,7 +1585,6 @@ namespace OpenCBS.GUI.Configuration
         private System.Windows.Forms.Label lbInterestRateMax;
         private System.Windows.Forms.Label lbInterestRateMin;
         private System.Windows.Forms.TextBox tbInterestRateValue;
-        private System.Windows.Forms.Label lbInterestRateValue;
         private System.Windows.Forms.Button btSavingProduct;
         private System.Windows.Forms.Button bClose;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1598,13 +1604,11 @@ namespace OpenCBS.GUI.Configuration
         private System.Windows.Forms.TabPage tabPageFees;
         private System.Windows.Forms.Label lbCodeSavingProduct;
         private System.Windows.Forms.TextBox tbCodeSavingProduct;
-        private System.Windows.Forms.Label lbYearlyInterestRate;
         private System.Windows.Forms.Label lbYearlyInterestRateMax;
         private System.Windows.Forms.Label lbYearlyInterestRateMin;
         private System.Windows.Forms.TabPage tabPageManagement;
         private System.Windows.Forms.GroupBox gbEntryFees;
         private System.Windows.Forms.TextBox tbEntryFeesValue;
-        private System.Windows.Forms.Label lbEntryFeesValue;
         private System.Windows.Forms.TextBox tbEntryFeesMax;
         private System.Windows.Forms.TextBox tbEntryFeesMin;
         private System.Windows.Forms.Label lbEntryFeesMax;
@@ -1612,7 +1616,6 @@ namespace OpenCBS.GUI.Configuration
         private System.Windows.Forms.TabPage tabPageOverdraft;
         private System.Windows.Forms.GroupBox gtCloseFees;
         private System.Windows.Forms.TextBox tbCloseFees;
-        private System.Windows.Forms.Label lbCloseFees;
         private System.Windows.Forms.TextBox tbCloseFeesMax;
         private System.Windows.Forms.TextBox tbCloseFeesMin;
         private System.Windows.Forms.Label lbCloseFeesMax;
@@ -1628,7 +1631,6 @@ namespace OpenCBS.GUI.Configuration
         private System.Windows.Forms.RadioButton rbFlatManagementFees;
         private System.Windows.Forms.Label lbManagementFeesType;
         private System.Windows.Forms.TextBox tbManagementFees;
-        private System.Windows.Forms.Label lbManagementFees;
         private System.Windows.Forms.TextBox tbManagementFeesMax;
         private System.Windows.Forms.TextBox tbManagementFeesMin;
         private System.Windows.Forms.Label lbManagementFeesMax;
@@ -1637,21 +1639,18 @@ namespace OpenCBS.GUI.Configuration
         private System.Windows.Forms.CheckBox clientTypeIndivCheckBox;
         private System.Windows.Forms.CheckBox clientTypeGroupCheckBox;
         private System.Windows.Forms.CheckBox clientTypeAllCheckBox;
-        private System.Windows.Forms.ComboBox cbManagementFeeFreq;
         private System.Windows.Forms.CheckBox clientTypeVillageCheckBox;
         private System.Windows.Forms.GroupBox gtOverdraftFees;
         private System.Windows.Forms.RadioButton rbRateOverdraftFees;
         private System.Windows.Forms.RadioButton rbFlatOverdraftFees;
         private System.Windows.Forms.Label lbOverdraftFeesType;
         private System.Windows.Forms.TextBox tbOverdraftFees;
-        private System.Windows.Forms.Label lbOverdraftFeesValue;
         private System.Windows.Forms.TextBox tbOverdraftFeesMax;
         private System.Windows.Forms.TextBox tbOverdraftFeesMin;
         private System.Windows.Forms.Label lbOverdraftFeesMax;
         private System.Windows.Forms.Label lbOverdraftFeesMin;
         private System.Windows.Forms.GroupBox gtAgioFees;
         private System.Windows.Forms.TextBox tbAgioFees;
-        private System.Windows.Forms.Label lbAgioFeesValue;
         private System.Windows.Forms.TextBox tbAgioFeesMax;
         private System.Windows.Forms.TextBox tbAgioFeesMin;
         private System.Windows.Forms.Label lbAgioFeesMax;
@@ -1665,7 +1664,6 @@ namespace OpenCBS.GUI.Configuration
         private System.Windows.Forms.RadioButton rbFlatReopenFees;
         private System.Windows.Forms.Label lbReopenFeesType;
         private System.Windows.Forms.TextBox tbReopenFeesValue;
-        private System.Windows.Forms.Label lbReopenFeesValue;
         private System.Windows.Forms.TextBox tbReopenFeesMax;
         private System.Windows.Forms.TextBox tbReopenFeesMin;
         private System.Windows.Forms.Label lbReopenFeesMax;
@@ -1694,17 +1692,13 @@ namespace OpenCBS.GUI.Configuration
         private System.Windows.Forms.RadioButton rbRateDepositFees;
         private System.Windows.Forms.RadioButton rbFlatDepositFees;
         private System.Windows.Forms.Label lbDepositFeesType;
-        private System.Windows.Forms.TextBox tbDepositFees;
-        private System.Windows.Forms.Label lbDepositFees;
         private System.Windows.Forms.TextBox tbDepositFeesMax;
         private System.Windows.Forms.TextBox tbDepositFeesMin;
         private System.Windows.Forms.Label lbDepositFeesMax;
         private System.Windows.Forms.Label lbDepositFeesMin;
         private System.Windows.Forms.ComboBox cbTransactionIn;
         private System.Windows.Forms.GroupBox gbIntraTransferFees;
-        private System.Windows.Forms.ComboBox cbIntraTransferType;
         private System.Windows.Forms.RadioButton rbIntraRateTransferFees;
-        private System.Windows.Forms.TextBox tbIntraTransferFees;
         private System.Windows.Forms.RadioButton rbIntraFlatTransferFees;
         private System.Windows.Forms.Label lbIntraTransferFeesValue;
         private System.Windows.Forms.TextBox tbIntraTransferFeesMax;
@@ -1715,8 +1709,6 @@ namespace OpenCBS.GUI.Configuration
         private System.Windows.Forms.GroupBox gbWithdrawFees;
         private System.Windows.Forms.RadioButton rbRateWithdrawFees;
         private System.Windows.Forms.RadioButton rbFlatWithdrawFees;
-        private System.Windows.Forms.TextBox tbWithdrawFees;
-        private System.Windows.Forms.Label lbWithdrawFeesValue;
         private System.Windows.Forms.TextBox tbWithdrawFeesMax;
         private System.Windows.Forms.TextBox tbWithdrawFeesMin;
         private System.Windows.Forms.Label lbWithdrawFeesType;
@@ -1737,11 +1729,26 @@ namespace OpenCBS.GUI.Configuration
         private System.Windows.Forms.Label lbInterTransferFeesMax;
         private System.Windows.Forms.TextBox tbInterTransferFeesMin;
         private System.Windows.Forms.TextBox tbInterTransferFeesMax;
-        private System.Windows.Forms.Label lbInterTransferFeesValue;
         private System.Windows.Forms.RadioButton rbInterFlatTransferFees;
-        private System.Windows.Forms.TextBox tbInterTransferFees;
         private System.Windows.Forms.RadioButton rbInterRateTransferFees;
-        private System.Windows.Forms.ComboBox cbInterTransferType;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label lbYearlyInterestRate;
+        private System.Windows.Forms.Label lbInterestRateValue;
+        private System.Windows.Forms.ComboBox cbInterTransferType;
+        private System.Windows.Forms.TextBox tbInterTransferFees;
+        private System.Windows.Forms.Label lbInterTransferFeesValue;
+        private System.Windows.Forms.TextBox tbDepositFees;
+        private System.Windows.Forms.Label lbDepositFees;
+        private System.Windows.Forms.ComboBox cbIntraTransferType;
+        private System.Windows.Forms.TextBox tbIntraTransferFees;
+        private System.Windows.Forms.TextBox tbWithdrawFees;
+        private System.Windows.Forms.Label lbWithdrawFeesValue;
+        private System.Windows.Forms.Label lbReopenFeesValue;
+        private System.Windows.Forms.ComboBox cbManagementFeeFreq;
+        private System.Windows.Forms.Label lbManagementFees;
+        private System.Windows.Forms.Label lbCloseFees;
+        private System.Windows.Forms.Label lbEntryFeesValue;
+        private System.Windows.Forms.Label lbAgioFeesValue;
+        private System.Windows.Forms.Label lbOverdraftFeesValue;
     }
 }

@@ -23,6 +23,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain.Accounting;
@@ -60,7 +61,6 @@ namespace OpenCBS.GUI.Configuration
 
             rbFlatWithdrawFees_CheckedChanged(this, null);
 
-//            tabControlSaving.TabPages.Remove(tabPageOverdraft);
             _personalAccountRadioButton.Checked = true;
             tabControlSaving.TabPages.Remove(tabPageTermDeposit);
         }
@@ -80,7 +80,6 @@ namespace OpenCBS.GUI.Configuration
 
             _savingsProduct.PackageMode = OPackageMode.Edit;
 
-            //tabControlSaving.TabPages.Remove(tabPageOverdraft);
             _personalAccountRadioButton.Checked = true;
             tabControlSaving.TabPages.Remove(tabPageTermDeposit);
         }
@@ -103,8 +102,32 @@ namespace OpenCBS.GUI.Configuration
             if (_savingsProduct.InterestRate.HasValue) tbInterestRateValue.Text = (_savingsProduct.InterestRate.Value * 100).ToString();
             cbPosting.SelectedValue = _savingsProduct.InterestFrequency.ToString();
             cbAccrual.Text = _savingsProduct.InterestBase.ToString();
-            if (_savingsProduct.InterestBase == OSavingInterestBase.Monthly
-                || _savingsProduct.InterestBase == OSavingInterestBase.Weekly)
+            tbDepositMin.Text = _savingsProduct.DepositMin.Value.ToString("F");
+            tbDepositMax.Text = _savingsProduct.DepositMax.Value.ToString("F");
+            tbDepositFeesMin.Text = _savingsProduct.DepositFeesMin.Value.ToString("F");
+            tbDepositFeesMax.Text = _savingsProduct.DepositFeesMax.Value.ToString("F");
+            tbIntraTransferFeesMin.Text = (_savingsProduct.FlatTransferFeesMin.HasValue && _savingsProduct.FlatTransferFeesMin.Value > 0)
+                ? _savingsProduct.FlatTransferFeesMin.GetFormatedValue(_savingsProduct.UseCents)
+                : (_savingsProduct.RateTransferFeesMin.Value * 100).ToString(CultureInfo.InvariantCulture);
+            tbIntraTransferFeesMax.Text = (_savingsProduct.FlatTransferFeesMax.HasValue && _savingsProduct.FlatTransferFeesMax.Value > 0)
+                ? _savingsProduct.FlatTransferFeesMax.GetFormatedValue(_savingsProduct.UseCents)
+                : (_savingsProduct.RateTransferFeesMax.Value * 100).ToString(CultureInfo.InvariantCulture);
+            if (_savingsProduct.InterBranchTransferFee.Min != null) tbInterTransferFeesMin.Text = _savingsProduct.InterBranchTransferFee.Min.Value.ToString("F");
+            if (_savingsProduct.InterBranchTransferFee.Max != null) tbInterTransferFeesMax.Text = _savingsProduct.InterBranchTransferFee.Max.Value.ToString("F");
+            if (_savingsProduct.InterBranchTransferFee.IsFlat)
+                rbInterFlatTransferFees.Checked = true;
+            else
+                rbInterRateTransferFees.Checked = true;
+            rbIntraFlatTransferFees.Checked = _savingsProduct.TransferFeesType == OSavingsFeesType.Flat;
+            rbFlatWithdrawFees.CheckedChanged += (sender, e) => TransactionTabRadioButtonChanged();
+            rbRateWithdrawFees.CheckedChanged += (sender, e) => TransactionTabRadioButtonChanged();
+            rbIntraFlatTransferFees.CheckedChanged += (sender, e) => TransactionTabRadioButtonChanged();
+            rbIntraRateTransferFees.CheckedChanged += (sender, e) => TransactionTabRadioButtonChanged();
+            rbInterFlatTransferFees.CheckedChanged += (sender, e) => TransactionTabRadioButtonChanged();
+            rbInterRateTransferFees.CheckedChanged += (sender, e) => TransactionTabRadioButtonChanged();
+            rbFlatDepositFees.CheckedChanged += (sender, e) => TransactionTabRadioButtonChanged();
+            rbRateDepositFees.CheckedChanged += (sender, e) => TransactionTabRadioButtonChanged();
+            if (_savingsProduct.InterestBase == OSavingInterestBase.Monthly || _savingsProduct.InterestBase == OSavingInterestBase.Weekly)
                 cbCalculAmount.SelectedValue = _savingsProduct.CalculAmountBase.ToString();
 
             if (_savingsProduct.EntryFees.HasValue) tbEntryFeesValue.Text = _savingsProduct.EntryFees.GetFormatedValue(_savingsProduct.UseCents);
@@ -140,7 +163,6 @@ namespace OpenCBS.GUI.Configuration
                     tbIntraTransferFeesMin.Text = _savingsProduct.FlatTransferFeesMin.GetFormatedValue(_savingsProduct.UseCents);
                 if (_savingsProduct.FlatTransferFeesMax.HasValue) 
                     tbIntraTransferFeesMax.Text = _savingsProduct.FlatTransferFeesMax.GetFormatedValue(_savingsProduct.UseCents);
-                rbIntraFlatTransferFees.Checked = true;
             }
             else
             {
@@ -159,7 +181,6 @@ namespace OpenCBS.GUI.Configuration
                 tbCodeSavingProduct.Enabled = false;
                 cbCurrency.Enabled = false;
                 gbFrequency.Enabled = false;
-                rbIntraFlatTransferFees.Enabled = false;
                 rbFlatWithdrawFees.Enabled = false;
                 rbIntraRateTransferFees.Enabled = false;
                 rbRateWithdrawFees.Enabled = false;
@@ -454,18 +475,12 @@ namespace OpenCBS.GUI.Configuration
 
         private void tbDepositMin_TextChanged(object sender, EventArgs e)
         {
-            if (cbTransactionIn.SelectedItem.ToString().Equals(_cash))
-                _savingsProduct.DepositMin = CheckAmount(tbDepositMin, true, false);
-            else if (cbTransactionIn.SelectedItem.ToString().Equals(_cheque))
-                _savingsProduct.ChequeDepositMin = CheckAmount(tbDepositMin, true, false);
+            _savingsProduct.DepositMin = CheckAmount(tbDepositMin, true, false);
         }
 
         private void tbDepositMax_TextChanged(object sender, EventArgs e)
         {
-         if (cbTransactionIn.SelectedItem.ToString().Equals(_cash))
-             _savingsProduct.DepositMax = CheckAmount(tbDepositMax, true,false);
-         else if (cbTransactionIn.SelectedItem.ToString().Equals(_cheque))
-             _savingsProduct.ChequeDepositMax = CheckAmount(tbDepositMax, true, false);
+            _savingsProduct.DepositMax = CheckAmount(tbDepositMax, true, false);
         }
 
         private void bClose_Click(object sender, EventArgs e)
@@ -536,199 +551,19 @@ namespace OpenCBS.GUI.Configuration
 
         private void rbFlatWithdrawFees_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbFlatWithdrawFees.Checked)
-            {
-                _savingsProduct.WithdrawFeesType = OSavingsFeesType.Flat;
-                _savingsProduct.FlatWithdrawFees = CheckAmount(tbWithdrawFees, true, false);
-                _savingsProduct.FlatWithdrawFeesMin = CheckAmount(tbWithdrawFeesMin, true, false);
-                _savingsProduct.FlatWithdrawFeesMax = CheckAmount(tbWithdrawFeesMax, true, false);
-            }
-        }
-
-        private void rbRateWithdrawFees_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbRateWithdrawFees.Checked)
-            {
-                _savingsProduct.WithdrawFeesType = OSavingsFeesType.Rate;
-                _savingsProduct.RateWithdrawFees = CheckAmount(tbWithdrawFees, false);
-                _savingsProduct.RateWithdrawFeesMin = CheckAmount(tbWithdrawFeesMin, false);
-                _savingsProduct.RateWithdrawFeesMax = CheckAmount(tbWithdrawFeesMax, false);
-            }
-        }
-
-        private void rbFlatTransferFees_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!rbIntraFlatTransferFees.Checked) return;
-
-            if (IsInterBranchTransferFees())
-            {
-                Fee fee = _savingsProduct.InterBranchTransferFee;
-                fee.IsFlat = true;
-                fee.Value = Check(tbIntraTransferFees, false);
-                fee.Min = Check(tbIntraTransferFeesMin, false);
-                fee.Max = Check(tbIntraTransferFeesMax, false);
-            }
-            else
-            {
-                _savingsProduct.TransferFeesType = OSavingsFeesType.Flat;
-                _savingsProduct.FlatTransferFees = CheckAmount(tbIntraTransferFees, true, false);
-                _savingsProduct.FlatTransferFeesMin = CheckAmount(tbIntraTransferFeesMin, true, false);
-                _savingsProduct.FlatTransferFeesMax = CheckAmount(tbIntraTransferFeesMax, true, false);
-            }
-        }
-
-        private void rbRateTransferFees_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!rbIntraRateTransferFees.Checked) return;
-
-            if (IsInterBranchTransferFees())
-            {
-                Fee fee = _savingsProduct.InterBranchTransferFee;
-                fee.IsFlat = false;
-                fee.Value = Check(tbIntraTransferFees, false);
-                fee.Min = Check(tbIntraTransferFeesMin, false);
-                fee.Max = Check(tbIntraTransferFeesMax, false);
-            }
-            else
-            {
-                _savingsProduct.TransferFeesType = OSavingsFeesType.Rate;
-                _savingsProduct.RateTransferFees = CheckAmount(tbIntraTransferFees, false);
-                _savingsProduct.RateTransferFeesMin = CheckAmount(tbIntraTransferFeesMin, false);
-                _savingsProduct.RateTransferFeesMax = CheckAmount(tbIntraTransferFeesMax, false);
-            }
-        } 
-        
-        private void tbWithdrawFeesMin_TextChanged(object sender, EventArgs e)
-        {
-            if (rbFlatWithdrawFees.Checked)
-                _savingsProduct.FlatWithdrawFeesMin = CheckAmount(tbWithdrawFeesMin, true, false);
-            else
-                _savingsProduct.RateWithdrawFeesMin = CheckAmount(tbWithdrawFeesMin, false);
-        }
-
-        private void tbWithdrawFeesMax_TextChanged(object sender, EventArgs e)
-        {
-            if (rbFlatWithdrawFees.Checked)
-                _savingsProduct.FlatWithdrawFeesMax = CheckAmount(tbWithdrawFeesMax, true, false);
-            else
-                _savingsProduct.RateWithdrawFeesMax = CheckAmount(tbWithdrawFeesMax, false);
-        }
-
-        private void tbWithdrawFees_TextChanged(object sender, EventArgs e)
-        {
-            if (rbFlatWithdrawFees.Checked)
-                _savingsProduct.FlatWithdrawFees = CheckAmount(tbWithdrawFees, true, false);
-            else
-                _savingsProduct.RateWithdrawFees = CheckAmount(tbWithdrawFees, false);
-        }
-
-        private void tbTransferFeesMin_TextChanged(object sender, EventArgs e)
-        {
-            bool ib = IsInterBranchTransferFees();
-            if (rbIntraFlatTransferFees.Checked)
-            {
-                if (ib)
-                {
-                    _savingsProduct.InterBranchTransferFee.Min = Check(tbIntraTransferFeesMin, false);
-                }
-                else
-                {
-                    _savingsProduct.FlatTransferFeesMin = CheckAmount(tbIntraTransferFeesMin, true, false);
-                }
-            }
-            else
-            {
-                if (ib)
-                {
-                    _savingsProduct.InterBranchTransferFee.Min = Check(tbIntraTransferFeesMin, false);
-                }
-                else
-                {
-                    _savingsProduct.RateTransferFeesMin = CheckAmount(tbIntraTransferFeesMin, false);
-                }
-            }
-        }
-
-        private void tbTransferFeesMax_TextChanged(object sender, EventArgs e)
-        {
-            bool ib = IsInterBranchTransferFees();
-            if (rbIntraFlatTransferFees.Checked)
-            {
-                if (ib)
-                {
-                    _savingsProduct.InterBranchTransferFee.Max = Check(tbIntraTransferFeesMax, false);
-                }
-                else
-                {
-                    _savingsProduct.FlatTransferFeesMax = CheckAmount(tbIntraTransferFeesMax, true, false);
-                }
-            }
-            else
-            {
-                if (ib)
-                {
-                    _savingsProduct.InterBranchTransferFee.Max = Check(tbIntraTransferFeesMax, false);
-                }
-                else
-                {
-                    _savingsProduct.RateTransferFeesMax = CheckAmount(tbIntraTransferFeesMax, false);
-                }
-            }
-        }
-
-        private void tbTransferFees_TextChanged(object sender, EventArgs e)
-        {
-            bool ib = IsInterBranchTransferFees();
-            if (rbIntraFlatTransferFees.Checked)
-            {
-                if (ib)
-                {
-                    _savingsProduct.InterBranchTransferFee.Value = Check(tbIntraTransferFees, false);
-                }
-                else
-                {
-                    _savingsProduct.FlatTransferFees = CheckAmount(tbIntraTransferFees, true, false);
-                }
-            }
-            else
-            {
-                if (ib)
-                {
-                    _savingsProduct.InterBranchTransferFee.Value = Check(tbIntraTransferFees, false);
-                }
-                else
-                {
-                    _savingsProduct.RateTransferFees = CheckAmount(tbIntraTransferFees, false);
-                }
-            }
-        }
-
-        private void tbDepositFees_TextChanged(object sender, EventArgs e)
-        {
-            if (cbTransactionIn.SelectedItem.ToString().Equals(_cash))
-            {
-                _savingsProduct.DepositFees = CheckAmount(tbDepositFees, true, false);
-            }
-            else if (cbTransactionIn.SelectedItem.ToString().Equals(_cheque))
-            {
-                _savingsProduct.ChequeDepositFees = CheckAmount(tbDepositFees, true, false);
-            }
+            _savingsProduct.FlatWithdrawFees = CheckAmount(tbWithdrawFees, true, false);
+            _savingsProduct.FlatWithdrawFeesMin = CheckAmount(tbWithdrawFeesMin, true, false);
+            _savingsProduct.FlatWithdrawFeesMax = CheckAmount(tbWithdrawFeesMax, true, false);
         }
 
         private void tbDepositFeesMax_TextChanged(object sender, EventArgs e)
         {
-            if (cbTransactionIn.SelectedItem.ToString().Equals(_cash))
-                _savingsProduct.DepositFeesMax = CheckAmount(tbDepositFeesMax, true, false);
-            else if (cbTransactionIn.SelectedItem.ToString().Equals(_cheque))
-                _savingsProduct.ChequeDepositFeesMax = CheckAmount(tbDepositFeesMax, true, false);
+            _savingsProduct.DepositFeesMax = CheckAmount(tbDepositFeesMax, true, false);
         }
 
         private void tbDepositFeesMin_TextChanged(object sender, EventArgs e)
         {
-            if (cbTransactionIn.SelectedItem.ToString().Equals(_cash))
-                _savingsProduct.DepositFeesMin = CheckAmount(tbDepositFeesMin, true, false);
-            else if (cbTransactionIn.SelectedItem.ToString().Equals(_cheque))
-                _savingsProduct.ChequeDepositFeesMin = CheckAmount(tbDepositFeesMin, true, false);
+            _savingsProduct.DepositFeesMin = CheckAmount(tbDepositFeesMin, true, false);
         }
 
         private void tbCloseFeesMin_TextChanged(object sender, EventArgs e)
@@ -914,61 +749,6 @@ namespace OpenCBS.GUI.Configuration
             _savingsProduct.AgioFees = CheckAmount(tbAgioFees, false);
         }
 
-        private void cbTransactionIn_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string chequeDeposit = MultiLanguageStrings.GetString(Ressource.FrmAddSavingProduct, "chequeDeposit");
-            string chequeDepositFees = MultiLanguageStrings.GetString(Ressource.FrmAddSavingProduct, "chequeDepositFees");
-            string cashDeposit = MultiLanguageStrings.GetString(Ressource.FrmAddSavingProduct, "cashDeposit");
-            string cashDepositFees = MultiLanguageStrings.GetString(Ressource.FrmAddSavingProduct, "cashDepositFees");
-
-            if (cbTransactionIn.SelectedItem.ToString().Equals(_cheque))
-            {
-                gbDeposit.Text = chequeDeposit;
-                gtDepositFees.Text = chequeDepositFees;
-
-                tbDepositMin.TextChanged -= tbDepositMin_TextChanged;
-                tbDepositMax.TextChanged -= tbDepositMax_TextChanged;
-                tbDepositFeesMin.TextChanged -= tbDepositFeesMin_TextChanged;
-                tbDepositFeesMax.TextChanged -= tbDepositFeesMax_TextChanged;
-                tbDepositFees.TextChanged -= tbDepositFees_TextChanged;
-
-                tbDepositMin.Text = _savingsProduct.ChequeDepositMin.GetFormatedValue(_savingsProduct.UseCents);
-                tbDepositMax.Text = _savingsProduct.ChequeDepositMax.GetFormatedValue(_savingsProduct.UseCents);
-                tbDepositFeesMin.Text = _savingsProduct.ChequeDepositFeesMin.HasValue ? _savingsProduct.ChequeDepositFeesMin.GetFormatedValue(_savingsProduct.UseCents) : null;
-                tbDepositFeesMax.Text = _savingsProduct.ChequeDepositFeesMax.HasValue ? _savingsProduct.ChequeDepositFeesMax.GetFormatedValue(_savingsProduct.UseCents) : null;
-                tbDepositFees.Text = _savingsProduct.ChequeDepositFees.HasValue ? _savingsProduct.ChequeDepositFees.GetFormatedValue(_savingsProduct.UseCents) : null;
-
-                tbDepositMin.TextChanged += tbDepositMin_TextChanged;
-                tbDepositMax.TextChanged += tbDepositMax_TextChanged;
-                tbDepositFeesMin.TextChanged += tbDepositFeesMin_TextChanged;
-                tbDepositFeesMax.TextChanged += tbDepositFeesMax_TextChanged;
-                tbDepositFees.TextChanged += tbDepositFees_TextChanged;
-            }
-            else if (cbTransactionIn.SelectedItem.ToString().Equals(_cash))
-            {
-                gbDeposit.Text = cashDeposit;
-                gtDepositFees.Text = cashDepositFees;
-
-                tbDepositMin.TextChanged -= tbDepositMin_TextChanged;
-                tbDepositMax.TextChanged -= tbDepositMax_TextChanged;
-                tbDepositFeesMin.TextChanged -= tbDepositFeesMin_TextChanged;
-                tbDepositFeesMax.TextChanged -= tbDepositFeesMax_TextChanged;
-                tbDepositFees.TextChanged -= tbDepositFees_TextChanged;
-
-                tbDepositMin.Text = _savingsProduct.DepositMin.GetFormatedValue(_savingsProduct.UseCents);
-                tbDepositMax.Text = _savingsProduct.DepositMax.GetFormatedValue(_savingsProduct.UseCents);
-                tbDepositFees.Text = _savingsProduct.DepositFees.HasValue ? _savingsProduct.DepositFees.GetFormatedValue(_savingsProduct.UseCents) : null;
-                tbDepositFeesMin.Text = _savingsProduct.DepositFeesMin.HasValue ? _savingsProduct.DepositFeesMin.GetFormatedValue(_savingsProduct.UseCents) : null;
-                tbDepositFeesMax.Text = _savingsProduct.DepositFeesMax.HasValue ? _savingsProduct.DepositFeesMax.GetFormatedValue(_savingsProduct.UseCents) : null;
-
-                tbDepositMin.TextChanged += tbDepositMin_TextChanged;
-                tbDepositMax.TextChanged += tbDepositMax_TextChanged;
-                tbDepositFeesMin.TextChanged += tbDepositFeesMin_TextChanged;
-                tbDepositFeesMax.TextChanged += tbDepositFeesMax_TextChanged;
-                tbDepositFees.TextChanged += tbDepositFees_TextChanged;
-            }
-        }
-
         private void tbReopenFeesMin_TextChanged(object sender, EventArgs e)
         {
             _savingsProduct.ReopenFeesMin = CheckAmount(tbReopenFeesMin, true, false);
@@ -987,85 +767,6 @@ namespace OpenCBS.GUI.Configuration
         private bool IsInterBranchTransferFees()
         {
             return 1 == cbIntraTransferType.SelectedIndex;
-        }
-
-        private void UnhookTransferFeeEvets()
-        {
-            tbIntraTransferFees.TextChanged -= tbTransferFees_TextChanged;
-        }
-
-        private void HookTransferFeeEvents()
-        {
-            tbIntraTransferFees.TextChanged += tbTransferFees_TextChanged;
-        }
-
-        private void cbTransferType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            bool ib = IsInterBranchTransferFees();
-            Fee ibtFee = _savingsProduct.InterBranchTransferFee;
-            OSavingsFeesType ibtFeeType = ibtFee.IsFlat ? OSavingsFeesType.Flat : OSavingsFeesType.Rate;
-            OSavingsFeesType ft = ib ? ibtFeeType : _savingsProduct.TransferFeesType;
-            OCurrency flatMin = ib ? ibtFee.Min : _savingsProduct.FlatTransferFeesMin;
-            OCurrency flatMax = ib ? ibtFee.Max : _savingsProduct.FlatTransferFeesMax;
-            OCurrency flatValue = ib ? ibtFee.Value : _savingsProduct.FlatTransferFees;
-
-            double? rateMin;
-            double? rateMax;
-            double? rateValue;
-            if (ib)
-            {
-                if (ibtFee.Min.HasValue)
-                {
-                    rateMin = Convert.ToDouble(ibtFee.Min.Value/100);
-                }
-                else
-                {
-                    rateMin = null;
-                }
-
-                if (ibtFee.Max.HasValue)
-                {
-                    rateMax = Convert.ToDouble(ibtFee.Max.Value/100);
-                }
-                else
-                {
-                    rateMax = null;
-                }
-
-                if (ibtFee.Value.HasValue)
-                {
-                    rateValue = Convert.ToDouble(ibtFee.Value.Value/100);
-                }
-                else
-                {
-                    rateValue = null;
-                }
-            }
-            else
-            {
-                rateMin = _savingsProduct.RateTransferFeesMin;
-                rateMax = _savingsProduct.RateTransferFeesMax;
-                rateValue = _savingsProduct.RateTransferFees;
-            }
-            
-            UnhookTransferFeeEvets();
-
-            if (OSavingsFeesType.Flat == ft)
-            {
-                rbIntraFlatTransferFees.Checked = true;
-                tbIntraTransferFeesMin.Text = flatMin.HasValue ?  flatMin.GetFormatedValue(_savingsProduct.UseCents) : string.Empty;
-                tbIntraTransferFeesMax.Text = flatMax.HasValue ? flatMax.GetFormatedValue(_savingsProduct.UseCents) : string.Empty;
-                tbIntraTransferFees.Text = flatValue.HasValue ? flatValue.GetFormatedValue(_savingsProduct.UseCents) : string.Empty;
-            }
-            else
-            {
-                rbIntraRateTransferFees.Checked = true;
-                tbIntraTransferFeesMin.Text = rateMin.HasValue ? (rateMin.Value*100).ToString() : string.Empty;
-                tbIntraTransferFeesMax.Text = rateMax.HasValue ? (rateMax.Value * 100).ToString() : string.Empty;
-                tbIntraTransferFees.Text = rateValue.HasValue ? (rateValue*100).ToString() : string.Empty;
-            }
-
-            HookTransferFeeEvents();
         }
 
         private void checkBoxUseTermDeposit_CheckedChanged(object sender, EventArgs e)
@@ -1145,31 +846,49 @@ namespace OpenCBS.GUI.Configuration
 
         private void tbIntraTransferFeesMin_TextChanged(object sender, EventArgs e)
         {
-            if(rbIntraFlatTransferFees.Checked)
+            if (_savingsProduct.TransferFeesType == OSavingsFeesType.Flat)
                 _savingsProduct.FlatTransferFeesMin = CheckAmount(tbIntraTransferFeesMin, true, false);
-            _savingsProduct.TransferFeesType = OSavingsFeesType.Flat;
+            if (_savingsProduct.TransferFeesType == OSavingsFeesType.Rate)
+                _savingsProduct.RateTransferFeesMin = CheckAmount(tbIntraTransferFeesMin, false);
         }
 
         private void tbIntraTransferFeesMax_TextChanged(object sender, EventArgs e)
         {
-            if (rbIntraFlatTransferFees.Checked)
+            if (_savingsProduct.TransferFeesType == OSavingsFeesType.Flat)
                 _savingsProduct.FlatTransferFeesMax = CheckAmount(tbIntraTransferFeesMax, true, false);
-            _savingsProduct.TransferFeesType = OSavingsFeesType.Flat;
+            if (_savingsProduct.TransferFeesType == OSavingsFeesType.Rate)
+                _savingsProduct.FlatTransferFeesMax = CheckAmount(tbIntraTransferFeesMax, true, false);
         }
 
         private void tbInterTransferFeesMin_TextChanged(object sender, EventArgs e)
         {
-            if (rbInterFlatTransferFees.Checked)
+            _savingsProduct.InterBranchTransferFee.Min = Check(tbInterTransferFeesMin, false);
+        }
+
+        private void tbInterTransferFeesMax_TextChanged(object sender, EventArgs e)
+        {
+            _savingsProduct.InterBranchTransferFee.Max = Check(tbInterTransferFeesMax, false);
+        }
+
+        void TransactionTabRadioButtonChanged()
+        {
+            _savingsProduct.WithdrawFeesType = rbFlatWithdrawFees.Checked ? OSavingsFeesType.Flat : OSavingsFeesType.Rate;
+            _savingsProduct.TransferFeesType = rbIntraFlatTransferFees.Checked? OSavingsFeesType.Flat: OSavingsFeesType.Rate;
+            if (_savingsProduct.TransferFeesType == OSavingsFeesType.Rate)
             {
-                var fee = new Fee
-                {
-                    IsFlat = true,
-                    Min = Check(tbInterTransferFeesMin, false),
-                    Max = Check(tbInterTransferFeesMax, false)
-                };
-                _savingsProduct.InterBranchTransferFee = fee;
-                _savingsProduct.TransferFeesType = OSavingsFeesType.Flat;
+                _savingsProduct.RateTransferFeesMin = CheckAmount(tbIntraTransferFeesMin, false);
+                _savingsProduct.RateTransferFeesMax = CheckAmount(tbIntraTransferFeesMax, false);
+                _savingsProduct.FlatTransferFeesMin = _savingsProduct.FlatTransferFeesMax = null;
+
             }
+            if (_savingsProduct.TransferFeesType == OSavingsFeesType.Flat)
+            {
+                _savingsProduct.FlatTransferFeesMin = CheckAmount(tbIntraTransferFeesMin, true, false);
+                _savingsProduct.FlatTransferFeesMax = CheckAmount(tbIntraTransferFeesMax, true, false);
+                _savingsProduct.RateTransferFeesMin = _savingsProduct.RateTransferFeesMax = null;
+            }
+            _savingsProduct.InterBranchTransferFee.IsFlat = rbInterFlatTransferFees.Checked;
+            _savingsProduct.WithdrawFeesType = rbFlatWithdrawFees.Checked ? OSavingsFeesType.Flat: OSavingsFeesType.Rate;
         }
     }
 }

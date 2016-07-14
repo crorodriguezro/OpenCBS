@@ -193,6 +193,15 @@ namespace OpenCBS.Services
                     throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.RateTransferFeesMinIsInvalid);
             }
 
+            if (!ServicesHelper.CheckMinMaxCorrectlyFilledAndSetValueIfNeed(savingsProduct.DepositMin, savingsProduct.DepositMax, null))
+                throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.DepositAmountIsInvalid);
+            if (savingsProduct.DepositMin <= 0)
+                throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.DepositMinAmountIsInvalid);
+            if (savingsProduct.DepositFeesMin < 0)
+                throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.DepositFeesMinIsInvalid);
+            if (!ServicesHelper.CheckMinMaxCorrectlyFilledAndSetValueIfNeed(savingsProduct.DepositFeesMin, savingsProduct.DepositFeesMax, savingsProduct.DepositFees))
+                throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.DepositFeesIsInvalid);
+
             ValidateInterBranchTransferFees(savingsProduct);
 
             if (savingsProduct.Type == OSavingProductType.PersonalAccount)
@@ -237,20 +246,12 @@ namespace OpenCBS.Services
                     throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.PeriodicityIsNotSet);
             }
 
-            if (!ServicesHelper.CheckMinMaxCorrectlyFilledAndSetValueIfNeed(savingsProduct.DepositMin, savingsProduct.DepositMax, null))
-                throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.DepositAmountIsInvalid);
-            if (savingsProduct.DepositMin <= 0)
-                throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.DepositMinAmountIsInvalid);
             if (savingsProduct.ChequeDepositMin <= 0)
                 throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.ChequeDepositIsInvalid);
             if (savingsProduct.ChequeDepositMin > savingsProduct.ChequeDepositMax)
                 throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.ChequeDepositIsInvalid);
-            if (savingsProduct.DepositFeesMin < 0)
-                throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.DepositFeesMinIsInvalid);
             if (savingsProduct.ChequeDepositFeesMin < 0)
                 throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.ChequeDepositFeesIsInvalid);
-            if (!ServicesHelper.CheckMinMaxCorrectlyFilledAndSetValueIfNeed(savingsProduct.DepositFeesMin, savingsProduct.DepositFeesMax, savingsProduct.DepositFees))
-                throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.DepositFeesIsInvalid);
             if (!ServicesHelper.CheckMinMaxCorrectlyFilledAndSetValueIfNeed(savingsProduct.ChequeDepositFeesMin, savingsProduct.ChequeDepositFeesMax, savingsProduct.ChequeDepositFees))
                 throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.ChequeDepositFeesIsInvalid);
         }

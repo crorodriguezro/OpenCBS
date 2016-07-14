@@ -1473,9 +1473,6 @@
   <data name="rbInterRateTransferFees.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="rbInterRateTransferFees.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="rbInterRateTransferFees.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
@@ -1535,9 +1532,6 @@
   </data>
   <data name="rbInterFlatTransferFees.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="rbInterFlatTransferFees.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="rbInterFlatTransferFees.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -1906,7 +1900,7 @@
     <value>20</value>
   </data>
   <data name="gbDeposit.Text" xml:space="preserve">
-    <value>Cash deposit</value>
+    <value>Deposit</value>
   </data>
   <data name="&gt;&gt;gbDeposit.Name" xml:space="preserve">
     <value>gbDeposit</value>
@@ -1959,6 +1953,9 @@
   <data name="rbRateDepositFees.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="rbRateDepositFees.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="rbRateDepositFees.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
@@ -1991,6 +1988,9 @@
   </data>
   <data name="rbFlatDepositFees.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="rbFlatDepositFees.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="rbFlatDepositFees.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -2082,6 +2082,120 @@
   <data name="&gt;&gt;tbDepositFees.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="tbDepositFeesMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="tbDepositFeesMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 52</value>
+  </data>
+  <data name="tbDepositFeesMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="tbDepositFeesMax.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;tbDepositFeesMax.Name" xml:space="preserve">
+    <value>tbDepositFeesMax</value>
+  </data>
+  <data name="&gt;&gt;tbDepositFeesMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbDepositFeesMax.Parent" xml:space="preserve">
+    <value>gtDepositFees</value>
+  </data>
+  <data name="&gt;&gt;tbDepositFeesMax.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tbDepositFeesMin.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="tbDepositFeesMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 23</value>
+  </data>
+  <data name="tbDepositFeesMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="tbDepositFeesMin.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;tbDepositFeesMin.Name" xml:space="preserve">
+    <value>tbDepositFeesMin</value>
+  </data>
+  <data name="&gt;&gt;tbDepositFeesMin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbDepositFeesMin.Parent" xml:space="preserve">
+    <value>gtDepositFees</value>
+  </data>
+  <data name="&gt;&gt;tbDepositFeesMin.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lbDepositFeesMax.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbDepositFeesMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lbDepositFeesMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbDepositFeesMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 55</value>
+  </data>
+  <data name="lbDepositFeesMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 16</value>
+  </data>
+  <data name="lbDepositFeesMax.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="lbDepositFeesMax.Text" xml:space="preserve">
+    <value>Max:</value>
+  </data>
+  <data name="&gt;&gt;lbDepositFeesMax.Name" xml:space="preserve">
+    <value>lbDepositFeesMax</value>
+  </data>
+  <data name="&gt;&gt;lbDepositFeesMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbDepositFeesMax.Parent" xml:space="preserve">
+    <value>gtDepositFees</value>
+  </data>
+  <data name="&gt;&gt;lbDepositFeesMax.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lbDepositFeesMin.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbDepositFeesMin.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lbDepositFeesMin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbDepositFeesMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 26</value>
+  </data>
+  <data name="lbDepositFeesMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 16</value>
+  </data>
+  <data name="lbDepositFeesMin.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lbDepositFeesMin.Text" xml:space="preserve">
+    <value>Min:</value>
+  </data>
+  <data name="&gt;&gt;lbDepositFeesMin.Name" xml:space="preserve">
+    <value>lbDepositFeesMin</value>
+  </data>
+  <data name="&gt;&gt;lbDepositFeesMin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbDepositFeesMin.Parent" xml:space="preserve">
+    <value>gtDepositFees</value>
+  </data>
+  <data name="&gt;&gt;lbDepositFeesMin.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="lbDepositFees.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -2116,120 +2230,6 @@
     <value>gtDepositFees</value>
   </data>
   <data name="&gt;&gt;lbDepositFees.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="tbDepositFeesMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="tbDepositFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 52</value>
-  </data>
-  <data name="tbDepositFeesMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="tbDepositFeesMax.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;tbDepositFeesMax.Name" xml:space="preserve">
-    <value>tbDepositFeesMax</value>
-  </data>
-  <data name="&gt;&gt;tbDepositFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbDepositFeesMax.Parent" xml:space="preserve">
-    <value>gtDepositFees</value>
-  </data>
-  <data name="&gt;&gt;tbDepositFeesMax.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="tbDepositFeesMin.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="tbDepositFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 23</value>
-  </data>
-  <data name="tbDepositFeesMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="tbDepositFeesMin.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;tbDepositFeesMin.Name" xml:space="preserve">
-    <value>tbDepositFeesMin</value>
-  </data>
-  <data name="&gt;&gt;tbDepositFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbDepositFeesMin.Parent" xml:space="preserve">
-    <value>gtDepositFees</value>
-  </data>
-  <data name="&gt;&gt;tbDepositFeesMin.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="lbDepositFeesMax.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbDepositFeesMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lbDepositFeesMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbDepositFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 55</value>
-  </data>
-  <data name="lbDepositFeesMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
-  </data>
-  <data name="lbDepositFeesMax.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="lbDepositFeesMax.Text" xml:space="preserve">
-    <value>Max:</value>
-  </data>
-  <data name="&gt;&gt;lbDepositFeesMax.Name" xml:space="preserve">
-    <value>lbDepositFeesMax</value>
-  </data>
-  <data name="&gt;&gt;lbDepositFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbDepositFeesMax.Parent" xml:space="preserve">
-    <value>gtDepositFees</value>
-  </data>
-  <data name="&gt;&gt;lbDepositFeesMax.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="lbDepositFeesMin.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbDepositFeesMin.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lbDepositFeesMin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbDepositFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 26</value>
-  </data>
-  <data name="lbDepositFeesMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 16</value>
-  </data>
-  <data name="lbDepositFeesMin.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="lbDepositFeesMin.Text" xml:space="preserve">
-    <value>Min:</value>
-  </data>
-  <data name="&gt;&gt;lbDepositFeesMin.Name" xml:space="preserve">
-    <value>lbDepositFeesMin</value>
-  </data>
-  <data name="&gt;&gt;lbDepositFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbDepositFeesMin.Parent" xml:space="preserve">
-    <value>gtDepositFees</value>
-  </data>
-  <data name="&gt;&gt;lbDepositFeesMin.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
   <data name="gtDepositFees.Font" type="System.Drawing.Font, System.Drawing">
@@ -2245,7 +2245,7 @@
     <value>25</value>
   </data>
   <data name="gtDepositFees.Text" xml:space="preserve">
-    <value>Cash deposit fees</value>
+    <value>Deposit fees</value>
   </data>
   <data name="&gt;&gt;gtDepositFees.Name" xml:space="preserve">
     <value>gtDepositFees</value>
@@ -2316,9 +2316,6 @@
   <data name="rbIntraRateTransferFees.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="rbIntraRateTransferFees.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="rbIntraRateTransferFees.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
@@ -2378,9 +2375,6 @@
   </data>
   <data name="rbIntraFlatTransferFees.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="rbIntraFlatTransferFees.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="rbIntraFlatTransferFees.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -3363,6 +3357,120 @@
   <data name="&gt;&gt;tbReopenFeesValue.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="tbReopenFeesMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="tbReopenFeesMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 80</value>
+  </data>
+  <data name="tbReopenFeesMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="tbReopenFeesMax.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;tbReopenFeesMax.Name" xml:space="preserve">
+    <value>tbReopenFeesMax</value>
+  </data>
+  <data name="&gt;&gt;tbReopenFeesMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbReopenFeesMax.Parent" xml:space="preserve">
+    <value>gbReopenFees</value>
+  </data>
+  <data name="&gt;&gt;tbReopenFeesMax.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tbReopenFeesMin.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="tbReopenFeesMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 51</value>
+  </data>
+  <data name="tbReopenFeesMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="tbReopenFeesMin.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;tbReopenFeesMin.Name" xml:space="preserve">
+    <value>tbReopenFeesMin</value>
+  </data>
+  <data name="&gt;&gt;tbReopenFeesMin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbReopenFeesMin.Parent" xml:space="preserve">
+    <value>gbReopenFees</value>
+  </data>
+  <data name="&gt;&gt;tbReopenFeesMin.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lbReopenFeesMax.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbReopenFeesMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lbReopenFeesMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbReopenFeesMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 83</value>
+  </data>
+  <data name="lbReopenFeesMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 16</value>
+  </data>
+  <data name="lbReopenFeesMax.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="lbReopenFeesMax.Text" xml:space="preserve">
+    <value>Max:</value>
+  </data>
+  <data name="&gt;&gt;lbReopenFeesMax.Name" xml:space="preserve">
+    <value>lbReopenFeesMax</value>
+  </data>
+  <data name="&gt;&gt;lbReopenFeesMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbReopenFeesMax.Parent" xml:space="preserve">
+    <value>gbReopenFees</value>
+  </data>
+  <data name="&gt;&gt;lbReopenFeesMax.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lbReopenFeesMin.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbReopenFeesMin.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lbReopenFeesMin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbReopenFeesMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 54</value>
+  </data>
+  <data name="lbReopenFeesMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 16</value>
+  </data>
+  <data name="lbReopenFeesMin.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lbReopenFeesMin.Text" xml:space="preserve">
+    <value>Min:</value>
+  </data>
+  <data name="&gt;&gt;lbReopenFeesMin.Name" xml:space="preserve">
+    <value>lbReopenFeesMin</value>
+  </data>
+  <data name="&gt;&gt;lbReopenFeesMin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbReopenFeesMin.Parent" xml:space="preserve">
+    <value>gbReopenFees</value>
+  </data>
+  <data name="&gt;&gt;lbReopenFeesMin.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="lbReopenFeesValue.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -3397,120 +3505,6 @@
     <value>gbReopenFees</value>
   </data>
   <data name="&gt;&gt;lbReopenFeesValue.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="tbReopenFeesMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="tbReopenFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 80</value>
-  </data>
-  <data name="tbReopenFeesMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="tbReopenFeesMax.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;tbReopenFeesMax.Name" xml:space="preserve">
-    <value>tbReopenFeesMax</value>
-  </data>
-  <data name="&gt;&gt;tbReopenFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbReopenFeesMax.Parent" xml:space="preserve">
-    <value>gbReopenFees</value>
-  </data>
-  <data name="&gt;&gt;tbReopenFeesMax.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="tbReopenFeesMin.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="tbReopenFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 51</value>
-  </data>
-  <data name="tbReopenFeesMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="tbReopenFeesMin.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;tbReopenFeesMin.Name" xml:space="preserve">
-    <value>tbReopenFeesMin</value>
-  </data>
-  <data name="&gt;&gt;tbReopenFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbReopenFeesMin.Parent" xml:space="preserve">
-    <value>gbReopenFees</value>
-  </data>
-  <data name="&gt;&gt;tbReopenFeesMin.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="lbReopenFeesMax.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbReopenFeesMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lbReopenFeesMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbReopenFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 83</value>
-  </data>
-  <data name="lbReopenFeesMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
-  </data>
-  <data name="lbReopenFeesMax.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="lbReopenFeesMax.Text" xml:space="preserve">
-    <value>Max:</value>
-  </data>
-  <data name="&gt;&gt;lbReopenFeesMax.Name" xml:space="preserve">
-    <value>lbReopenFeesMax</value>
-  </data>
-  <data name="&gt;&gt;lbReopenFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbReopenFeesMax.Parent" xml:space="preserve">
-    <value>gbReopenFees</value>
-  </data>
-  <data name="&gt;&gt;lbReopenFeesMax.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="lbReopenFeesMin.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbReopenFeesMin.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lbReopenFeesMin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbReopenFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 54</value>
-  </data>
-  <data name="lbReopenFeesMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 16</value>
-  </data>
-  <data name="lbReopenFeesMin.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="lbReopenFeesMin.Text" xml:space="preserve">
-    <value>Min:</value>
-  </data>
-  <data name="&gt;&gt;lbReopenFeesMin.Name" xml:space="preserve">
-    <value>lbReopenFeesMin</value>
-  </data>
-  <data name="&gt;&gt;lbReopenFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbReopenFeesMin.Parent" xml:space="preserve">
-    <value>gbReopenFees</value>
-  </data>
-  <data name="&gt;&gt;lbReopenFeesMin.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
   <data name="gbReopenFees.Font" type="System.Drawing.Font, System.Drawing">
@@ -4671,6 +4665,120 @@
   <data name="&gt;&gt;tbAgioFees.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="tbAgioFeesMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="tbAgioFeesMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 80</value>
+  </data>
+  <data name="tbAgioFeesMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="tbAgioFeesMax.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;tbAgioFeesMax.Name" xml:space="preserve">
+    <value>tbAgioFeesMax</value>
+  </data>
+  <data name="&gt;&gt;tbAgioFeesMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbAgioFeesMax.Parent" xml:space="preserve">
+    <value>gtAgioFees</value>
+  </data>
+  <data name="&gt;&gt;tbAgioFeesMax.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="tbAgioFeesMin.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="tbAgioFeesMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 51</value>
+  </data>
+  <data name="tbAgioFeesMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="tbAgioFeesMin.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;tbAgioFeesMin.Name" xml:space="preserve">
+    <value>tbAgioFeesMin</value>
+  </data>
+  <data name="&gt;&gt;tbAgioFeesMin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbAgioFeesMin.Parent" xml:space="preserve">
+    <value>gtAgioFees</value>
+  </data>
+  <data name="&gt;&gt;tbAgioFeesMin.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lbAgioFeesMax.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbAgioFeesMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lbAgioFeesMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbAgioFeesMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 83</value>
+  </data>
+  <data name="lbAgioFeesMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 16</value>
+  </data>
+  <data name="lbAgioFeesMax.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="lbAgioFeesMax.Text" xml:space="preserve">
+    <value>Max:</value>
+  </data>
+  <data name="&gt;&gt;lbAgioFeesMax.Name" xml:space="preserve">
+    <value>lbAgioFeesMax</value>
+  </data>
+  <data name="&gt;&gt;lbAgioFeesMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbAgioFeesMax.Parent" xml:space="preserve">
+    <value>gtAgioFees</value>
+  </data>
+  <data name="&gt;&gt;lbAgioFeesMax.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lbAgioFeesMin.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbAgioFeesMin.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lbAgioFeesMin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbAgioFeesMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 54</value>
+  </data>
+  <data name="lbAgioFeesMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 16</value>
+  </data>
+  <data name="lbAgioFeesMin.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lbAgioFeesMin.Text" xml:space="preserve">
+    <value>Min:</value>
+  </data>
+  <data name="&gt;&gt;lbAgioFeesMin.Name" xml:space="preserve">
+    <value>lbAgioFeesMin</value>
+  </data>
+  <data name="&gt;&gt;lbAgioFeesMin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbAgioFeesMin.Parent" xml:space="preserve">
+    <value>gtAgioFees</value>
+  </data>
+  <data name="&gt;&gt;lbAgioFeesMin.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
   <data name="lbAgioFeesValue.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -4705,120 +4813,6 @@
     <value>gtAgioFees</value>
   </data>
   <data name="&gt;&gt;lbAgioFeesValue.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="tbAgioFeesMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="tbAgioFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 80</value>
-  </data>
-  <data name="tbAgioFeesMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="tbAgioFeesMax.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;tbAgioFeesMax.Name" xml:space="preserve">
-    <value>tbAgioFeesMax</value>
-  </data>
-  <data name="&gt;&gt;tbAgioFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbAgioFeesMax.Parent" xml:space="preserve">
-    <value>gtAgioFees</value>
-  </data>
-  <data name="&gt;&gt;tbAgioFeesMax.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="tbAgioFeesMin.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="tbAgioFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 51</value>
-  </data>
-  <data name="tbAgioFeesMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="tbAgioFeesMin.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;tbAgioFeesMin.Name" xml:space="preserve">
-    <value>tbAgioFeesMin</value>
-  </data>
-  <data name="&gt;&gt;tbAgioFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbAgioFeesMin.Parent" xml:space="preserve">
-    <value>gtAgioFees</value>
-  </data>
-  <data name="&gt;&gt;tbAgioFeesMin.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="lbAgioFeesMax.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbAgioFeesMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lbAgioFeesMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbAgioFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 83</value>
-  </data>
-  <data name="lbAgioFeesMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
-  </data>
-  <data name="lbAgioFeesMax.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="lbAgioFeesMax.Text" xml:space="preserve">
-    <value>Max:</value>
-  </data>
-  <data name="&gt;&gt;lbAgioFeesMax.Name" xml:space="preserve">
-    <value>lbAgioFeesMax</value>
-  </data>
-  <data name="&gt;&gt;lbAgioFeesMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbAgioFeesMax.Parent" xml:space="preserve">
-    <value>gtAgioFees</value>
-  </data>
-  <data name="&gt;&gt;lbAgioFeesMax.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="lbAgioFeesMin.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbAgioFeesMin.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lbAgioFeesMin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbAgioFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 54</value>
-  </data>
-  <data name="lbAgioFeesMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 16</value>
-  </data>
-  <data name="lbAgioFeesMin.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="lbAgioFeesMin.Text" xml:space="preserve">
-    <value>Min:</value>
-  </data>
-  <data name="&gt;&gt;lbAgioFeesMin.Name" xml:space="preserve">
-    <value>lbAgioFeesMin</value>
-  </data>
-  <data name="&gt;&gt;lbAgioFeesMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbAgioFeesMin.Parent" xml:space="preserve">
-    <value>gtAgioFees</value>
-  </data>
-  <data name="&gt;&gt;lbAgioFeesMin.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
   <data name="gtAgioFees.Font" type="System.Drawing.Font, System.Drawing">
