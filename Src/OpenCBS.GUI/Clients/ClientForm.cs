@@ -4944,7 +4944,18 @@ namespace OpenCBS.GUI.Clients
             {
                 Text = _title;
                 _savingsBookProduct = (SavingsBookProduct)product;
-                DisplaySavingProduct(product);
+
+                if (product.Type == OSavingProductType.PersonalAccount)
+                {
+                    tabControlSavingsDetails.Visible = false;
+//                    labelInitialAmount.Visible = nudDownInitialAmount.Visible = lbEntryFees.Visible = nudEntryFees.Visible = false;
+//                    lBSavingBalance.Visible = lbSavingBalanceValue.Visible = lBSavingAvBalance.Visible = lbSavingAvBalanceValue.Visible = false;
+//                    labelInterestRate.Visible = nudDownInterestRate.Visible = lbWithdrawFees.Visible = nudWithdrawFees.Visible = false;
+                }
+                else
+                {
+                    DisplaySavingProduct(product);
+                }
 
                 tabControlSavingsDetails.TabPages.Clear();
                 tabControlSavingsDetails.TabPages.Add(tabPageSavingsAmountsAndFees);

@@ -77,6 +77,7 @@ namespace OpenCBS.Manager.Products
                     ,[entry_fees]
                     ,[currency_id]
                     ,[product_type]
+                    ,[type]
                 )
                 VALUES 
                 (
@@ -101,7 +102,8 @@ namespace OpenCBS.Manager.Products
                     ,@entryFeesMin
                     ,@entryFees
                     ,@currency_id
-                    ,@product_type                 
+                    ,@product_type
+                    ,@type             
                 ) 
                 SELECT CONVERT(int, SCOPE_IDENTITY())";
 
@@ -456,6 +458,7 @@ namespace OpenCBS.Manager.Products
                                     , [entry_fees] = @entryFees
                                     , [entry_fees_max] = @entryFeesMax
                                     , [entry_fees_min] = @entryFeesMin
+                                    , [type] = @type
                                     {0}
                                     WHERE id = @productId";
 
@@ -561,7 +564,20 @@ namespace OpenCBS.Manager.Products
             product.EntryFees = r.GetMoney("entry_fees");
             product.EntryFeesMax = r.GetMoney("entry_fees_max");
             product.EntryFeesMin = r.GetMoney("entry_fees_min");
-           
+
+            switch (r.GetInt("type"))
+            {
+                case 1: product.Type = OSavingProductType.PersonalAccount;
+                    break;
+                case 2:
+                    product.Type = OSavingProductType.PersonalAccount;
+                    break;
+                case 3:
+                    product.Type = OSavingProductType.PersonalAccount;
+                    break;
+                default: throw new Exception();
+            }
+
             if (product is SavingsBookProduct)
             {
                 var savingBookProduct = (SavingsBookProduct) product;
