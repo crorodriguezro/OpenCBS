@@ -570,10 +570,10 @@ namespace OpenCBS.Manager.Products
                 case 1: product.Type = OSavingProductType.PersonalAccount;
                     break;
                 case 2:
-                    product.Type = OSavingProductType.PersonalAccount;
+                    product.Type = OSavingProductType.ShortTermDeposit;
                     break;
                 case 3:
-                    product.Type = OSavingProductType.PersonalAccount;
+                    product.Type = OSavingProductType.Saving;
                     break;
                 default: throw new Exception();
             }

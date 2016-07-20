@@ -79,8 +79,6 @@ namespace OpenCBS.GUI.Configuration
             InitializeTabPageTermDeposit();
 
             _savingsProduct.PackageMode = OPackageMode.Edit;
-
-            _personalAccountRadioButton.Checked = true;
             tabControlSaving.TabPages.Remove(tabPageTermDeposit);
         }
 
@@ -118,16 +116,19 @@ namespace OpenCBS.GUI.Configuration
                 rbInterFlatTransferFees.Checked = true;
             else
                 rbInterRateTransferFees.Checked = true;
-            RadioButtonChanged();
+            FillFieldValues();
             rbIntraFlatTransferFees.Checked = _savingsProduct.TransferFeesType == OSavingsFeesType.Flat;
-            rbFlatWithdrawFees.CheckedChanged += (sender, e) => RadioButtonChanged();
-            rbRateWithdrawFees.CheckedChanged += (sender, e) => RadioButtonChanged();
-            rbIntraFlatTransferFees.CheckedChanged += (sender, e) => RadioButtonChanged();
-            rbIntraRateTransferFees.CheckedChanged += (sender, e) => RadioButtonChanged();
-            rbInterFlatTransferFees.CheckedChanged += (sender, e) => RadioButtonChanged();
-            rbInterRateTransferFees.CheckedChanged += (sender, e) => RadioButtonChanged();
-            rbFlatDepositFees.CheckedChanged += (sender, e) => RadioButtonChanged();
-            rbRateDepositFees.CheckedChanged += (sender, e) => RadioButtonChanged();
+            rbFlatWithdrawFees.CheckedChanged += (sender, e) => FillFieldValues();
+            rbRateWithdrawFees.CheckedChanged += (sender, e) => FillFieldValues();
+            rbIntraFlatTransferFees.CheckedChanged += (sender, e) => FillFieldValues();
+            rbIntraRateTransferFees.CheckedChanged += (sender, e) => FillFieldValues();
+            rbInterFlatTransferFees.CheckedChanged += (sender, e) => FillFieldValues();
+            rbInterRateTransferFees.CheckedChanged += (sender, e) => FillFieldValues();
+            rbFlatDepositFees.CheckedChanged += (sender, e) => FillFieldValues();
+            rbRateDepositFees.CheckedChanged += (sender, e) => FillFieldValues();
+            _personalAccountRadioButton.Checked = product.Type == OSavingProductType.PersonalAccount;
+            _shortTermDepositRadioButton.Checked = product.Type == OSavingProductType.ShortTermDeposit;
+            _savingRadioButton.Checked = product.Type == OSavingProductType.Saving;
             if (_savingsProduct.InterestBase == OSavingInterestBase.Monthly || _savingsProduct.InterestBase == OSavingInterestBase.Weekly)
                 cbCalculAmount.SelectedValue = _savingsProduct.CalculAmountBase.ToString();
 
@@ -315,7 +316,7 @@ namespace OpenCBS.GUI.Configuration
                 _savingsProduct.Type = OSavingProductType.ShortTermDeposit;
             else
                 _savingsProduct.Type = OSavingProductType.Saving;
-            RadioButtonChanged();
+            FillFieldValues();
             _savingsProduct.FlatWithdrawFeesMin = CheckAmount(tbWithdrawFeesMin, true, false);
             _savingsProduct.FlatWithdrawFeesMax = CheckAmount(tbWithdrawFeesMax, true, false);
             if (_savingsProduct.FlatWithdrawFeesMin == _savingsProduct.FlatWithdrawFeesMax)
@@ -917,7 +918,7 @@ namespace OpenCBS.GUI.Configuration
             _savingsProduct.InterBranchTransferFee.Max = Check(tbInterTransferFeesMax, false);
         }
 
-        void RadioButtonChanged()
+        void FillFieldValues()
         {
             _savingsProduct.WithdrawFeesType = rbFlatWithdrawFees.Checked ? OSavingsFeesType.Flat : OSavingsFeesType.Rate;
             if (rbFlatWithdrawFees.Checked)
@@ -962,6 +963,15 @@ namespace OpenCBS.GUI.Configuration
                 _savingsProduct.AgioFeesMin = _savingsProduct.AgioFeesMax = null;
                 _savingsProduct.AgioFees = CheckAmount(tbAgioFeesMin, false);
             }
+            _savingsProduct.InterestRateMin = CheckAmount(tbInterestRateMin, false);
+            _savingsProduct.InterestRateMax = CheckAmount(tbInterestRateMax, false);
+            if (_savingsProduct.InterestRateMin == _savingsProduct.InterestRateMax)
+            {
+                _savingsProduct.InterestRateMin = _savingsProduct.InterestRateMax = null;
+                _savingsProduct.InterestRate = CheckAmount(tbInterestRateMin, false);
+            }
+            else
+                _savingsProduct.InterestRate = null;
         }
     }
 }
