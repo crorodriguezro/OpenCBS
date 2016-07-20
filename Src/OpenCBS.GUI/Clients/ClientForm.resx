@@ -976,7 +976,7 @@
     <value>0, 35</value>
   </data>
   <data name="listViewGuarantors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1097, 236</value>
+    <value>1097, 234</value>
   </data>
   <data name="listViewGuarantors.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -1012,7 +1012,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnPrintGuarantors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 205</value>
+    <value>3, 203</value>
   </data>
   <data name="btnPrintGuarantors.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 28</value>
@@ -1201,7 +1201,7 @@
     <value>3, 3</value>
   </data>
   <data name="pnlGuarantorButtons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 230</value>
+    <value>140, 228</value>
   </data>
   <data name="pnlGuarantorButtons.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -1228,7 +1228,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 236</value>
+    <value>146, 234</value>
   </data>
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -1327,7 +1327,7 @@
     <value>0, 35</value>
   </data>
   <data name="listViewCollaterals.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1097, 249</value>
+    <value>1097, 251</value>
   </data>
   <data name="listViewCollaterals.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1468,7 +1468,7 @@
     <value>1097, 35</value>
   </data>
   <data name="pnlCollateralButtons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 249</value>
+    <value>146, 251</value>
   </data>
   <data name="pnlCollateralButtons.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -1537,7 +1537,7 @@
     <value>1243, 559</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>271</value>
+    <value>269</value>
   </data>
   <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1570,7 +1570,7 @@
     <value>0, 0</value>
   </data>
   <data name="panelLoansContracts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 242</value>
+    <value>1249, 240</value>
   </data>
   <data name="panelLoansContracts.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -1639,7 +1639,7 @@
     <value>0, 35</value>
   </data>
   <data name="panelSavingsContracts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 284</value>
+    <value>1249, 286</value>
   </data>
   <data name="panelSavingsContracts.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -1708,7 +1708,7 @@
     <value>1249, 565</value>
   </data>
   <data name="splitContainerContracts.SplitterDistance" type="System.Int32, mscorlib">
-    <value>242</value>
+    <value>240</value>
   </data>
   <data name="splitContainerContracts.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -6967,7 +6967,7 @@ Max:
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        HQAAAk1TRnQBSQFMAgEBBQEAAZABJQGQASUBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAATgBJgE4ASYBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -10506,79 +10506,7 @@ Max:
     <value>GrowAndShrink</value>
   </data>
   <data name="tableLayoutPanel5.ColumnCount" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="lbSavingAvBalanceValue.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="lbSavingAvBalanceValue.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lbSavingAvBalanceValue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbSavingAvBalanceValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>675, 42</value>
-  </data>
-  <data name="lbSavingAvBalanceValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>315, 32</value>
-  </data>
-  <data name="lbSavingAvBalanceValue.TabIndex" type="System.Int32, mscorlib">
-    <value>60</value>
-  </data>
-  <data name="lbSavingAvBalanceValue.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lbSavingAvBalanceValue.Name" xml:space="preserve">
-    <value>lbSavingAvBalanceValue</value>
-  </data>
-  <data name="&gt;&gt;lbSavingAvBalanceValue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbSavingAvBalanceValue.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;lbSavingAvBalanceValue.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lBSavingAvBalance.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lBSavingAvBalance.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="lBSavingAvBalance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lBSavingAvBalance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lBSavingAvBalance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 42</value>
-  </data>
-  <data name="lBSavingAvBalance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 32</value>
-  </data>
-  <data name="lBSavingAvBalance.TabIndex" type="System.Int32, mscorlib">
-    <value>59</value>
-  </data>
-  <data name="lBSavingAvBalance.Text" xml:space="preserve">
-    <value>Available balance</value>
-  </data>
-  <data name="lBSavingAvBalance.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lBSavingAvBalance.Name" xml:space="preserve">
-    <value>lBSavingAvBalance</value>
-  </data>
-  <data name="&gt;&gt;lBSavingAvBalance.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lBSavingAvBalance.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;lBSavingAvBalance.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>8</value>
   </data>
   <data name="lbEntryFeesMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -10587,10 +10515,10 @@ Max:
     <value>Arial, 7.5pt</value>
   </data>
   <data name="lbEntryFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>226, 74</value>
+    <value>266, 74</value>
   </data>
   <data name="lbEntryFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 32</value>
+    <value>114, 32</value>
   </data>
   <data name="lbEntryFeesMinMax.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -10608,7 +10536,7 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;lbEntryFeesMinMax.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>0</value>
   </data>
   <data name="lbInitialAmountMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -10616,11 +10544,14 @@ Max:
   <data name="lbInitialAmountMinMax.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 7.5pt</value>
   </data>
+  <data name="lbInitialAmountMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="lbInitialAmountMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>226, 42</value>
+    <value>266, 42</value>
   </data>
   <data name="lbInitialAmountMinMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 32</value>
+    <value>114, 32</value>
   </data>
   <data name="lbInitialAmountMinMax.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -10638,7 +10569,7 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;lbInitialAmountMinMax.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>1</value>
   </data>
   <data name="lbEntryFees.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -10674,7 +10605,7 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;lbEntryFees.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>2</value>
   </data>
   <data name="labelInitialAmount.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -10710,13 +10641,13 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;labelInitialAmount.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>3</value>
   </data>
   <data name="nudEntryFees.Location" type="System.Drawing.Point, System.Drawing">
     <value>100, 77</value>
   </data>
   <data name="nudEntryFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 22</value>
+    <value>160, 22</value>
   </data>
   <data name="nudEntryFees.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -10731,7 +10662,7 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;nudEntryFees.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>4</value>
   </data>
   <data name="nudDownInitialAmount.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>On</value>
@@ -10740,7 +10671,7 @@ Max:
     <value>100, 45</value>
   </data>
   <data name="nudDownInitialAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 22</value>
+    <value>160, 22</value>
   </data>
   <data name="nudDownInitialAmount.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -10755,7 +10686,7 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;nudDownInitialAmount.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>5</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -10791,7 +10722,7 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>6</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -10830,82 +10761,13 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="lbSavingBalanceValue.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="lbSavingBalanceValue.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 15pt</value>
-  </data>
-  <data name="lbSavingBalanceValue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbSavingBalanceValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>675, 10</value>
-  </data>
-  <data name="lbSavingBalanceValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>315, 32</value>
-  </data>
-  <data name="lbSavingBalanceValue.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="lbSavingBalanceValue.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lbSavingBalanceValue.Name" xml:space="preserve">
-    <value>lbSavingBalanceValue</value>
-  </data>
-  <data name="&gt;&gt;lbSavingBalanceValue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbSavingBalanceValue.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;lbSavingBalanceValue.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="lBSavingBalance.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lBSavingBalance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 15pt</value>
-  </data>
-  <data name="lBSavingBalance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lBSavingBalance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 10</value>
-  </data>
-  <data name="lBSavingBalance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 23</value>
-  </data>
-  <data name="lBSavingBalance.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="lBSavingBalance.Text" xml:space="preserve">
-    <value>Balance</value>
-  </data>
-  <data name="lBSavingBalance.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lBSavingBalance.Name" xml:space="preserve">
-    <value>lBSavingBalance</value>
-  </data>
-  <data name="&gt;&gt;lBSavingBalance.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lBSavingBalance.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;lBSavingBalance.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>7</value>
   </data>
   <data name="tBSavingCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>100, 13</value>
   </data>
   <data name="tBSavingCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 22</value>
+    <value>280, 22</value>
   </data>
   <data name="tBSavingCode.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -10920,7 +10782,7 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;tBSavingCode.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>8</value>
   </data>
   <data name="cmbSavingsOfficer.Location" type="System.Drawing.Point, System.Drawing">
     <value>100, 109</value>
@@ -10941,7 +10803,7 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;cmbSavingsOfficer.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>9</value>
   </data>
   <data name="labelInterestRate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -10956,7 +10818,7 @@ Max:
     <value>NoControl</value>
   </data>
   <data name="labelInterestRate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>413, 74</value>
+    <value>386, 74</value>
   </data>
   <data name="labelInterestRate.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 32</value>
@@ -10980,13 +10842,13 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;labelInterestRate.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>10</value>
   </data>
   <data name="nudDownInterestRate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 77</value>
+    <value>500, 77</value>
   </data>
   <data name="nudDownInterestRate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>222, 22</value>
   </data>
   <data name="nudDownInterestRate.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -11004,7 +10866,7 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;nudDownInterestRate.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>11</value>
   </data>
   <data name="lbWithdrawFees.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11019,7 +10881,7 @@ Max:
     <value>NoControl</value>
   </data>
   <data name="lbWithdrawFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>413, 106</value>
+    <value>386, 106</value>
   </data>
   <data name="lbWithdrawFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 32</value>
@@ -11043,37 +10905,7 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;lbWithdrawFees.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="nudWithdrawFees.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="nudWithdrawFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 109</value>
-  </data>
-  <data name="nudWithdrawFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="nudWithdrawFees.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="nudWithdrawFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="nudWithdrawFees.ThousandsSeparator" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;nudWithdrawFees.Name" xml:space="preserve">
-    <value>nudWithdrawFees</value>
-  </data>
-  <data name="&gt;&gt;nudWithdrawFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudWithdrawFees.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;nudWithdrawFees.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>12</value>
   </data>
   <data name="lbInterestRateMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -11085,7 +10917,7 @@ Max:
     <value>NoControl</value>
   </data>
   <data name="lbInterestRateMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>675, 74</value>
+    <value>728, 74</value>
   </data>
   <data name="lbInterestRateMinMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 32</value>
@@ -11106,7 +10938,7 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;lbInterestRateMinMax.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>13</value>
   </data>
   <data name="lbWithdrawFeesMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -11118,7 +10950,7 @@ Max:
     <value>NoControl</value>
   </data>
   <data name="lbWithdrawFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>675, 106</value>
+    <value>728, 106</value>
   </data>
   <data name="lbWithdrawFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 32</value>
@@ -11139,7 +10971,301 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;lbWithdrawFeesMinMax.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="_currentAccountLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_currentAccountLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="_currentAccountLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>908, 10</value>
+  </data>
+  <data name="_currentAccountLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 32</value>
+  </data>
+  <data name="_currentAccountLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>61</value>
+  </data>
+  <data name="_currentAccountLabel.Text" xml:space="preserve">
+    <value>Current Account</value>
+  </data>
+  <data name="_currentAccountLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountLabel.Name" xml:space="preserve">
+    <value>_currentAccountLabel</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountLabel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountLabel.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="_currentAccountTextBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="_currentAccountTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1015, 13</value>
+  </data>
+  <data name="_currentAccountTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 22</value>
+  </data>
+  <data name="_currentAccountTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>65</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountTextBox.Name" xml:space="preserve">
+    <value>_currentAccountTextBox</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountTextBox.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountTextBox.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="lBSavingBalance.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lBSavingBalance.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lBSavingBalance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 15pt</value>
+  </data>
+  <data name="lBSavingBalance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lBSavingBalance.Location" type="System.Drawing.Point, System.Drawing">
+    <value>386, 10</value>
+  </data>
+  <data name="lBSavingBalance.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 32</value>
+  </data>
+  <data name="lBSavingBalance.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lBSavingBalance.Text" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="lBSavingBalance.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lBSavingBalance.Name" xml:space="preserve">
+    <value>lBSavingBalance</value>
+  </data>
+  <data name="&gt;&gt;lBSavingBalance.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lBSavingBalance.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lBSavingBalance.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="lbSavingBalanceValue.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbSavingBalanceValue.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 15pt</value>
+  </data>
+  <data name="lbSavingBalanceValue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbSavingBalanceValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>500, 10</value>
+  </data>
+  <data name="lbSavingBalanceValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 32</value>
+  </data>
+  <data name="lbSavingBalanceValue.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lbSavingBalanceValue.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbSavingBalanceValue.Name" xml:space="preserve">
+    <value>lbSavingBalanceValue</value>
+  </data>
+  <data name="&gt;&gt;lbSavingBalanceValue.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbSavingBalanceValue.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbSavingBalanceValue.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="lBSavingAvBalance.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lBSavingAvBalance.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lBSavingAvBalance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lBSavingAvBalance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lBSavingAvBalance.Location" type="System.Drawing.Point, System.Drawing">
+    <value>386, 42</value>
+  </data>
+  <data name="lBSavingAvBalance.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 32</value>
+  </data>
+  <data name="lBSavingAvBalance.TabIndex" type="System.Int32, mscorlib">
+    <value>59</value>
+  </data>
+  <data name="lBSavingAvBalance.Text" xml:space="preserve">
+    <value>Available balance</value>
+  </data>
+  <data name="lBSavingAvBalance.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lBSavingAvBalance.Name" xml:space="preserve">
+    <value>lBSavingAvBalance</value>
+  </data>
+  <data name="&gt;&gt;lBSavingAvBalance.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lBSavingAvBalance.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lBSavingAvBalance.ZOrder" xml:space="preserve">
     <value>19</value>
+  </data>
+  <data name="nudWithdrawFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="nudWithdrawFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>500, 109</value>
+  </data>
+  <data name="nudWithdrawFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 22</value>
+  </data>
+  <data name="nudWithdrawFees.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="nudWithdrawFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="nudWithdrawFees.ThousandsSeparator" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;nudWithdrawFees.Name" xml:space="preserve">
+    <value>nudWithdrawFees</value>
+  </data>
+  <data name="&gt;&gt;nudWithdrawFees.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudWithdrawFees.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;nudWithdrawFees.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="lbSavingAvBalanceValue.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="lbSavingAvBalanceValue.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lbSavingAvBalanceValue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbSavingAvBalanceValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>500, 42</value>
+  </data>
+  <data name="lbSavingAvBalanceValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 32</value>
+  </data>
+  <data name="lbSavingAvBalanceValue.TabIndex" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="lbSavingAvBalanceValue.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbSavingAvBalanceValue.Name" xml:space="preserve">
+    <value>lbSavingAvBalanceValue</value>
+  </data>
+  <data name="&gt;&gt;lbSavingAvBalanceValue.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbSavingAvBalanceValue.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbSavingAvBalanceValue.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="_dateCreatedLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_dateCreatedLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="_dateCreatedLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>908, 42</value>
+  </data>
+  <data name="_dateCreatedLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 32</value>
+  </data>
+  <data name="_dateCreatedLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>66</value>
+  </data>
+  <data name="_dateCreatedLabel.Text" xml:space="preserve">
+    <value>Date created</value>
+  </data>
+  <data name="_dateCreatedLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;_dateCreatedLabel.Name" xml:space="preserve">
+    <value>_dateCreatedLabel</value>
+  </data>
+  <data name="&gt;&gt;_dateCreatedLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_dateCreatedLabel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;_dateCreatedLabel.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="_dateCreatedValueLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_dateCreatedValueLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="_dateCreatedValueLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1015, 42</value>
+  </data>
+  <data name="_dateCreatedValueLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 32</value>
+  </data>
+  <data name="_dateCreatedValueLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>67</value>
+  </data>
+  <data name="_dateCreatedValueLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;_dateCreatedValueLabel.Name" xml:space="preserve">
+    <value>_dateCreatedValueLabel</value>
+  </data>
+  <data name="&gt;&gt;_dateCreatedValueLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_dateCreatedValueLabel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;_dateCreatedValueLabel.ZOrder" xml:space="preserve">
+    <value>23</value>
   </data>
   <data name="tableLayoutPanel5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -11172,7 +11298,7 @@ Max:
     <value>0</value>
   </data>
   <data name="tableLayoutPanel5.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbSavingAvBalanceValue" Row="1" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lBSavingAvBalance" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lbEntryFeesMinMax" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbInitialAmountMinMax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbEntryFees" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelInitialAmount" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudEntryFees" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudDownInitialAmount" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label9" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbSavingBalanceValue" Row="0" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lBSavingBalance" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="tBSavingCode" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="cmbSavingsOfficer" Row="3" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="labelInterestRate" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="nudDownInterestRate" Row="2" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawFees" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="nudWithdrawFees" Row="3" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lbInterestRateMinMax" Row="2" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawFeesMinMax" Row="3" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbEntryFeesMinMax" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbInitialAmountMinMax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbEntryFees" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelInitialAmount" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudEntryFees" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudDownInitialAmount" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label9" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tBSavingCode" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="cmbSavingsOfficer" Row="3" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="labelInterestRate" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="nudDownInterestRate" Row="2" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawFees" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lbInterestRateMinMax" Row="2" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawFeesMinMax" Row="3" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="_currentAccountLabel" Row="0" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="_currentAccountTextBox" Row="0" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;Control Name="lBSavingBalance" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lbSavingBalanceValue" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lBSavingAvBalance" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="nudWithdrawFees" Row="3" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lbSavingAvBalanceValue" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="_dateCreatedLabel" Row="1" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="_dateCreatedValueLabel" Row="1" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="groupBoxSaving.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>

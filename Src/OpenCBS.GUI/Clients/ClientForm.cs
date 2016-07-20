@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
@@ -673,24 +674,24 @@ namespace OpenCBS.GUI.Clients
             lbInitialAmountMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
                 "Min ", product.InitialAmountMin.GetFormatedValue(product.Currency.UseCents),
                 "Max ", product.InitialAmountMax.GetFormatedValue(product.Currency.UseCents), product.Currency.Code);
-            nudDownInitialAmount.Maximum = product.InitialAmountMax.Value;
-            nudDownInitialAmount.Minimum = product.InitialAmountMin.Value;
-            nudDownInitialAmount.Value = product.InitialAmountMin.Value;
+            nudDownInitialAmount.Maximum = product.InitialAmountMax == null ? 0 : product.InitialAmountMax.Value;
+            nudDownInitialAmount.Minimum = product.InitialAmountMin == null ? 0 : product.InitialAmountMin.Value;
+            nudDownInitialAmount.Value = product.InitialAmountMin == null ? 0 : product.InitialAmountMin.Value;
 
             if (product.InterestRate.HasValue)
             {
                 nudDownInterestRate.Enabled = false;
                 lbInterestRateMinMax.Text = string.Format("{0} %", product.InterestRate * 100);
-                nudDownInterestRate.Maximum = (decimal)product.InterestRate.Value * 100;
-                nudDownInterestRate.Minimum = (decimal)product.InterestRate.Value * 100;
+                nudDownInterestRate.Maximum = product.InterestRate == null ? 0 : (decimal)product.InterestRate.Value * 100;
+                nudDownInterestRate.Minimum = product.InterestRate == null ? 0 : (decimal)product.InterestRate.Value * 100;
             }
             else
             {
                 lbInterestRateMinMax.Text = string.Format("{0}{1} %\r\n{2}{3} %",
-                    "Min ", product.InterestRateMin.Value * 100,
-                    "Max ", product.InterestRateMax.Value * 100);
-                nudDownInterestRate.Maximum = (decimal)product.InterestRateMax.Value * 100;
-                nudDownInterestRate.Minimum = (decimal)product.InterestRateMin.Value * 100;
+                    "Min ", product.InterestRateMin == null ? 0 : product.InterestRateMin.Value * 100,
+                    "Max ", product.InterestRateMax == null ? 0 : product.InterestRateMax.Value * 100);
+                nudDownInterestRate.Maximum = product.InterestRateMax == null ? 0 : (decimal)product.InterestRateMax.Value * 100;
+                nudDownInterestRate.Minimum = product.InterestRateMin == null ? 0 : (decimal)product.InterestRateMin.Value * 100;
             }
 
             lbBalanceMinValue.Text = string.Format("{0} {1}", product.BalanceMin.GetFormatedValue(product.Currency.UseCents), product.Currency.Code);
@@ -917,8 +918,8 @@ namespace OpenCBS.GUI.Clients
                 if (((SavingsBookProduct)product).ChequeDepositFees.HasValue)
                 {
                     nudChequeDepositFees.Enabled = false;
-                    nudChequeDepositFees.Maximum = ((SavingsBookProduct)product).ChequeDepositFees.Value;
-                    nudChequeDepositFees.Minimum = ((SavingsBookProduct)product).ChequeDepositFees.Value;
+                    nudChequeDepositFees.Maximum = ((SavingsBookProduct)product).ChequeDepositFees == null ? 0 : ((SavingsBookProduct)product).ChequeDepositFees.Value;
+                    nudChequeDepositFees.Minimum = ((SavingsBookProduct)product).ChequeDepositFees == null ? 0 : ((SavingsBookProduct)product).ChequeDepositFees.Value;
                     lblChequeDepositFeesMinMax.Text = string.Format("{0} {1}",
                                                              ((SavingsBookProduct)product).ChequeDepositFees.GetFormatedValue(product.Currency.UseCents),
                                                              product.Currency.Code);
@@ -926,8 +927,8 @@ namespace OpenCBS.GUI.Clients
                 else
                 {
                     nudChequeDepositFees.Enabled = true;
-                    nudChequeDepositFees.Minimum = ((SavingsBookProduct)product).ChequeDepositFeesMin.Value;
-                    nudChequeDepositFees.Maximum = ((SavingsBookProduct)product).ChequeDepositFeesMax.Value;
+                    nudChequeDepositFees.Minimum = ((SavingsBookProduct)product).ChequeDepositFeesMin == null ? 0 : ((SavingsBookProduct)product).ChequeDepositFeesMin.Value;
+                    nudChequeDepositFees.Maximum = ((SavingsBookProduct)product).ChequeDepositFeesMax == null ? 0 : ((SavingsBookProduct)product).ChequeDepositFeesMax.Value;
                     lblChequeDepositFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
                                                              "Min ", ((SavingsBookProduct)product).ChequeDepositFeesMin.GetFormatedValue(product.Currency.UseCents),
                                                              "Max ", ((SavingsBookProduct)product).ChequeDepositFeesMax.GetFormatedValue(product.Currency.UseCents),
@@ -984,16 +985,16 @@ namespace OpenCBS.GUI.Clients
                 if (((SavingsBookProduct)product).OverdraftFees.HasValue)
                 {
                     nudOverdraftFees.Enabled = false;
-                    nudOverdraftFees.Minimum = ((SavingsBookProduct)product).OverdraftFees.Value;
-                    nudOverdraftFees.Maximum = ((SavingsBookProduct)product).OverdraftFees.Value;
+                    nudOverdraftFees.Minimum = ((SavingsBookProduct)product).OverdraftFees == null ? 0 : ((SavingsBookProduct)product).OverdraftFees.Value;
+                    nudOverdraftFees.Maximum = ((SavingsBookProduct)product).OverdraftFees == null ? 0 : ((SavingsBookProduct)product).OverdraftFees.Value;
                     lbOverdraftFeesMinMax.Text = string.Format("{0} {1}",
                         ((SavingsBookProduct)product).OverdraftFees.GetFormatedValue(product.Currency.UseCents), product.Currency.Code);
                 }
                 else
                 {
                     nudOverdraftFees.Enabled = true;
-                    nudOverdraftFees.Minimum = ((SavingsBookProduct)product).OverdraftFeesMin.Value;
-                    nudOverdraftFees.Maximum = ((SavingsBookProduct)product).OverdraftFeesMax.Value;
+                    nudOverdraftFees.Minimum = ((SavingsBookProduct)product).OverdraftFeesMin == null ? 0 : ((SavingsBookProduct)product).OverdraftFeesMin.Value;
+                    nudOverdraftFees.Maximum = ((SavingsBookProduct)product).OverdraftFeesMax == null ? 0 : ((SavingsBookProduct)product).OverdraftFeesMax.Value;
                     lbOverdraftFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
                         "Min ", ((SavingsBookProduct)product).OverdraftFeesMin.GetFormatedValue(product.Currency.UseCents),
                         "Max ", ((SavingsBookProduct)product).OverdraftFeesMax.GetFormatedValue(product.Currency.UseCents),
@@ -1006,18 +1007,18 @@ namespace OpenCBS.GUI.Clients
                 if (((SavingsBookProduct)product).AgioFees.HasValue)
                 {
                     nudAgioFees.Enabled = false;
-                    nudAgioFees.Minimum = (decimal)((SavingsBookProduct)product).AgioFees.Value * 100;
-                    nudAgioFees.Maximum = (decimal)((SavingsBookProduct)product).AgioFees.Value * 100;
-                    lbAgioFeesMinMax.Text = string.Format("{0} {1}", ((SavingsBookProduct)product).AgioFees * 100, "%");
+                    nudAgioFees.Minimum = ((SavingsBookProduct)product).AgioFees == null ? Convert.ToDecimal(0.00) : (decimal)((SavingsBookProduct)product).AgioFees.Value * 100;
+                    nudAgioFees.Maximum = ((SavingsBookProduct)product).AgioFees == null ? Convert.ToDecimal(0.00) : (decimal)((SavingsBookProduct)product).AgioFees.Value * 100;
+                    lbAgioFeesMinMax.Text = string.Format("{0} {1}", ((SavingsBookProduct)product).AgioFees == null ? 0.00 : ((SavingsBookProduct)product).AgioFees * 100, "%");
                 }
                 else
                 {
                     nudAgioFees.Enabled = true;
-                    nudAgioFees.Minimum = (decimal)((SavingsBookProduct)product).AgioFeesMin.Value * 100;
-                    nudAgioFees.Maximum = (decimal)((SavingsBookProduct)product).AgioFeesMax.Value * 100;
+                    nudAgioFees.Minimum = ((SavingsBookProduct)product).AgioFeesMin == null ? Convert.ToDecimal(0.00) : (decimal)((SavingsBookProduct)product).AgioFeesMin.Value * 100;
+                    nudAgioFees.Maximum = ((SavingsBookProduct)product).AgioFeesMax == null ? Convert.ToDecimal(0.00) : (decimal)((SavingsBookProduct)product).AgioFeesMax.Value * 100;
                     lbAgioFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
-                        "Min ", ((SavingsBookProduct)product).AgioFeesMin * 100,
-                        "Max ", ((SavingsBookProduct)product).AgioFeesMax * 100, "%");
+                        "Min ", ((SavingsBookProduct)product).AgioFeesMin == null ? 0.00 : ((SavingsBookProduct)product).AgioFeesMin * 100,
+                        "Max ", ((SavingsBookProduct)product).AgioFeesMax == null ? 0.00 : ((SavingsBookProduct)product).AgioFeesMax * 100, "%");
                 }
 
                 //Reopen fees
@@ -1027,8 +1028,8 @@ namespace OpenCBS.GUI.Clients
                 if (((SavingsBookProduct)product).ReopenFees.HasValue)
                 {
                     nudReopenFees.Enabled = false;
-                    nudReopenFees.Minimum = ((SavingsBookProduct)product).ReopenFees.Value;
-                    nudReopenFees.Maximum = ((SavingsBookProduct)product).ReopenFees.Value;
+                    nudReopenFees.Minimum = ((SavingsBookProduct)product).ReopenFees == null ? 0 : ((SavingsBookProduct)product).ReopenFees.Value;
+                    nudReopenFees.Maximum = ((SavingsBookProduct)product).ReopenFees == null ? 0 : ((SavingsBookProduct)product).ReopenFees.Value;
                     lbReopenFeesMinMax.Text = string.Format("{0} {1}",
                                                              ((SavingsBookProduct)product).ReopenFees.GetFormatedValue(product.Currency.UseCents),
                                                              product.Currency.Code);
@@ -1036,8 +1037,8 @@ namespace OpenCBS.GUI.Clients
                 else
                 {
                     nudReopenFees.Enabled = true;
-                    nudReopenFees.Minimum = ((SavingsBookProduct)product).ReopenFeesMin.Value;
-                    nudReopenFees.Maximum = ((SavingsBookProduct)product).ReopenFeesMax.Value;
+                    nudReopenFees.Minimum = ((SavingsBookProduct)product).ReopenFeesMin == null ? 0 : ((SavingsBookProduct)product).ReopenFeesMin.Value;
+                    nudReopenFees.Maximum = ((SavingsBookProduct)product).ReopenFeesMin == null ? 0 : ((SavingsBookProduct)product).ReopenFeesMax.Value;
                     lbReopenFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
                                                              "Min ", ((SavingsBookProduct)product).ReopenFeesMin.GetFormatedValue(product.Currency.UseCents),
                                                              "Max ", ((SavingsBookProduct)product).ReopenFeesMax.GetFormatedValue(product.Currency.UseCents),
@@ -1049,14 +1050,12 @@ namespace OpenCBS.GUI.Clients
                     nudNumberOfPeriods.Enabled = true;
                     btSearchContract2.Enabled = true;
                     cmbRollover2.Enabled = true;
-                    nudNumberOfPeriods.Minimum = (decimal)((SavingsBookProduct)product).TermDepositPeriodMin;
-                    nudNumberOfPeriods.Maximum = (decimal)((SavingsBookProduct)product).TermDepositPeriodMax;
+                    nudNumberOfPeriods.Minimum = ((SavingsBookProduct)product).TermDepositPeriodMin == null ? 0 : (decimal)((SavingsBookProduct)product).TermDepositPeriodMin;
+                    nudNumberOfPeriods.Maximum = ((SavingsBookProduct)product).TermDepositPeriodMax == null ? 0 : (decimal)((SavingsBookProduct)product).TermDepositPeriodMax;
                     nudNumberOfPeriods.Value = nudNumberOfPeriods.Minimum;
                     tbTargetAccount2.ResetText();
                 }
-
             }
-
         }
 
         public void DisplaySaving(int pId, IClient client)
@@ -1090,6 +1089,29 @@ namespace OpenCBS.GUI.Clients
         {
             saving = SavingServices.GetSaving(saving.Id);
 
+            if (saving.Product.Type == OSavingProductType.PersonalAccount)
+            {
+                tabControlSavingsDetails.Visible = buttonFirstDeposit.Enabled = buttonSavingsOperations.Enabled = true;
+                buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible = tlpSBDetails.Visible = false;
+                //flowLayoutPanel10.Visible
+                tabControlSavingsDetails.TabPages.Remove(tabPageSavingsAmountsAndFees);
+                tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
+                tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
+
+                using (SqlTransaction sqlTransaction = DatabaseConnection.GetConnection().BeginTransaction())
+                {
+                    try
+                    {
+                        _currentAccountTextBox.Text = SavingServices.CheckAlreadyHaveClientCurrentAccount(_client.Id, sqlTransaction);
+                    }
+                    catch (Exception)
+                    {
+                        sqlTransaction.Rollback();
+                        throw;
+                    }
+                }
+            }
+
             ((SavingBookContract)saving).Loans = SavingServices.SelectLoansBySavingsId(saving.Id);
 
             if (!tabControlPerson.TabPages.Contains(tabPageContracts))
@@ -1122,6 +1144,7 @@ namespace OpenCBS.GUI.Clients
             btSearchContract2.Enabled = false;
             cmbRollover2.Enabled = false;
             cmbSavingsOfficer.Enabled = false;
+            _dateCreatedValueLabel.Text = saving.CreationDate.ToString(CultureInfo.InvariantCulture);
             cmbSavingsOfficer.Items.Add(User.CurrentUser);
             foreach (User subordinate in User.CurrentUser.Subordinates)
             {
@@ -1146,9 +1169,11 @@ namespace OpenCBS.GUI.Clients
                 _saving is SavingBookContract ? "SavingsBook.Text" : "CompulsorySavings.Text"),
                 MultiLanguageStrings.GetString(Ressource.ClientForm, "Savings" + _saving.Status + ".Text"));
 
-            switch (_saving.Status)
+            if (_saving.Product.Type != OSavingProductType.PersonalAccount)
             {
-                case OSavingsStatus.Pending:
+                switch (_saving.Status)
+                {
+                    case OSavingsStatus.Pending:
                     {
                         groupBoxSaving.ForeColor = Color.FromArgb(246, 137, 56);
                         pnlSavingsButtons.Enabled = false;
@@ -1157,7 +1182,7 @@ namespace OpenCBS.GUI.Clients
                         buttonReopenSaving.Visible = false;
                         break;
                     }
-                case OSavingsStatus.Active:
+                    case OSavingsStatus.Active:
                     {
                         groupBoxSaving.ForeColor = Color.FromArgb(61, 153, 57);
                         pnlSavingsButtons.Enabled = true;
@@ -1166,7 +1191,7 @@ namespace OpenCBS.GUI.Clients
                         buttonReopenSaving.Visible = false;
                         break;
                     }
-                case OSavingsStatus.Closed:
+                    case OSavingsStatus.Closed:
                     {
                         groupBoxSaving.ForeColor = Color.Red;
                         pnlSavingsButtons.Enabled = true;
@@ -1176,6 +1201,7 @@ namespace OpenCBS.GUI.Clients
                         buttonReopenSaving.Visible = true;
                         break;
                     }
+                }
             }
 
             tBSavingCode.Text = _saving.Code;
@@ -4947,10 +4973,13 @@ namespace OpenCBS.GUI.Clients
 
                 if (product.Type == OSavingProductType.PersonalAccount)
                 {
-                    tabControlSavingsDetails.Visible = false;
-//                    labelInitialAmount.Visible = nudDownInitialAmount.Visible = lbEntryFees.Visible = nudEntryFees.Visible = false;
-//                    lBSavingBalance.Visible = lbSavingBalanceValue.Visible = lBSavingAvBalance.Visible = lbSavingAvBalanceValue.Visible = false;
-//                    labelInterestRate.Visible = nudDownInterestRate.Visible = lbWithdrawFees.Visible = nudWithdrawFees.Visible = false;
+                    tabControlSavingsDetails.Visible = buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible =
+                    tlpSBDetails.Visible = false;
+                    //flowLayoutPanel10.Visible
+                    buttonSavingsOperations.Enabled = true;
+                    tabControlSavingsDetails.TabPages.Remove(tabPageSavingsAmountsAndFees);
+                    tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
+                    tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
                 }
                 else
                 {
@@ -5117,9 +5146,9 @@ namespace OpenCBS.GUI.Clients
 
                 nudTransferFees.Value = nudTransferFees.Minimum = nudTransferFees.Maximum = s.FlatTransferFees.HasValue ?
                     s.FlatTransferFees.Value : (decimal)s.RateTransferFees.Value * 100;
-
-                nudIbtFee.Value = s.FlatInterBranchTransferFee.HasValue ? s.FlatInterBranchTransferFee.Value
-                    : Convert.ToDecimal(s.RateInterBranchTransferFee.Value);
+                
+                nudIbtFee.Value = s.FlatInterBranchTransferFee.HasValue ? (s.FlatInterBranchTransferFee.Value == 0 ? nudIbtFee.Minimum : s.FlatInterBranchTransferFee.Value)
+                    : Convert.ToDecimal((s.RateInterBranchTransferFee == null ? 0 : s.RateInterBranchTransferFee.Value));
                 nudIbtFee.Minimum = nudIbtFee.Maximum = nudIbtFee.Value;
 
                 nudDepositFees.Value = nudDepositFees.Minimum = nudDepositFees.Maximum = ((SavingBookContract)pSaving).DepositFees.Value;
@@ -5280,7 +5309,8 @@ namespace OpenCBS.GUI.Clients
                 DisplaySavings(_client.Savings);
                 DisplaySavingEvent(_saving);
                 buttonSaveSaving.Visible = false;
-                buttonFirstDeposit.Visible = true;
+                if (_saving.Product.Type != OSavingProductType.PersonalAccount)
+                    buttonFirstDeposit.Visible = true;
             }
             catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
             {

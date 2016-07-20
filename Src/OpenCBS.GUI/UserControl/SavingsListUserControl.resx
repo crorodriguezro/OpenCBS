@@ -117,36 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lvSavings.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lvSavings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="lvSavings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>931, 333</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lvSavings.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lvSavings.Name" xml:space="preserve">
-    <value>lvSavings</value>
-  </data>
-  <data name="&gt;&gt;lvSavings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lvSavings.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lvSavings.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="columnHeaderSavingCode.Text" xml:space="preserve">
     <value>Code</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="columnHeaderSavingCode.Width" type="System.Int32, mscorlib">
     <value>150</value>
   </data>
@@ -160,11 +134,12 @@
     <value>Description</value>
   </data>
   <data name="columnHeaderSavingDescription.Width" type="System.Int32, mscorlib">
-    <value>146</value>
+    <value>242</value>
   </data>
   <data name="columnHeaderSavingBalance.Text" xml:space="preserve">
     <value>Balance</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="columnHeaderSavingBalance.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
@@ -194,6 +169,31 @@
   </data>
   <data name="columnHeaderSavingCloseDate.Width" type="System.Int32, mscorlib">
     <value>100</value>
+  </data>
+  <data name="lvSavings.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lvSavings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lvSavings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>931, 333</value>
+  </data>
+  <data name="lvSavings.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lvSavings.Name" xml:space="preserve">
+    <value>lvSavings</value>
+  </data>
+  <data name="&gt;&gt;lvSavings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lvSavings.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lvSavings.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="contextMenuStripSaving.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

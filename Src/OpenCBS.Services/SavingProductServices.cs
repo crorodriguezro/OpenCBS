@@ -187,7 +187,7 @@ namespace OpenCBS.Services
             {
                 if (savingsProduct.RateTransferFees.HasValue && savingsProduct.RateTransferFees.Value < 0)
                     throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.RateTransferFeesIsInvalid);
-                if (!ServicesHelper.CheckMinMaxAndValueCorrectlyFilled(savingsProduct.RateTransferFeesMin, savingsProduct.RateTransferFeesMax, savingsProduct.RateTransferFees))
+                if (!ServicesHelper.CheckMinMaxAndValueCorrectlyFilledWithEquality(savingsProduct.RateTransferFeesMin, savingsProduct.RateTransferFeesMax, savingsProduct.RateTransferFees))
                     throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.RateTransferFeesMinMaxIsInvalid);
                 if (savingsProduct.RateTransferFeesMin != null && (!savingsProduct.RateTransferFees.HasValue && savingsProduct.RateTransferFeesMin.Value < 0))
                     throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.RateTransferFeesMinIsInvalid);
@@ -252,8 +252,8 @@ namespace OpenCBS.Services
                 throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.ChequeDepositIsInvalid);
             if (savingsProduct.ChequeDepositFeesMin < 0)
                 throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.ChequeDepositFeesIsInvalid);
-            if (!ServicesHelper.CheckMinMaxCorrectlyFilledAndSetValueIfNeed(savingsProduct.ChequeDepositFeesMin, savingsProduct.ChequeDepositFeesMax, savingsProduct.ChequeDepositFees))
-                throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.ChequeDepositFeesIsInvalid);
+//            if (!ServicesHelper.CheckMinMaxCorrectlyFilledAndSetValueIfNeed(savingsProduct.ChequeDepositFeesMin, savingsProduct.ChequeDepositFeesMax, savingsProduct.ChequeDepositFees))
+//                throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.ChequeDepositFeesIsInvalid);
         }
         
         public bool ValidateProduct(ISavingProduct savingsProduct, int clientTypeCounter)

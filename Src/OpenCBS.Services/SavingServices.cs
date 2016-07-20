@@ -1296,25 +1296,28 @@ namespace OpenCBS.Services
         {
             if (!IsProductCorrect(saving))
                 throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.ProductIsInvalid);
-            if (!IsInterestRateCorrect(saving))
-                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.InterestRateIsInvalid);
-            if (!IsWithdrawFeesCorrect((SavingBookContract)saving))
-                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.WithdrawFeesIsInvalid);
+            if (saving.Product.Type != OSavingProductType.PersonalAccount)
+            {
+                if (!IsInterestRateCorrect(saving))
+                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.InterestRateIsInvalid);
+                if (!IsWithdrawFeesCorrect((SavingBookContract)saving))
+                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.WithdrawFeesIsInvalid);
 
-            if (!IsTransferFeesCorrect((SavingBookContract)saving))
-                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.TransferFeesIsInvalid);
+                if (!IsTransferFeesCorrect((SavingBookContract)saving))
+                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.TransferFeesIsInvalid);
 
-            if (!IsDepositFeesCorrect((SavingBookContract)saving))
-                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.DepositFeesIsInvalid);
+                if (!IsDepositFeesCorrect((SavingBookContract)saving))
+                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.DepositFeesIsInvalid);
 
-            if (!IsCloseFeesCorrect((SavingBookContract)saving))
-                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.CloseFeesIsInvalid);
+                if (!IsCloseFeesCorrect((SavingBookContract)saving))
+                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.CloseFeesIsInvalid);
 
-            if (!IsManagementFeesCorrect((SavingBookContract)saving))
-                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.ManagementFeesIsInvalid);
+                if (!IsManagementFeesCorrect((SavingBookContract)saving))
+                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.ManagementFeesIsInvalid);
 
-            if (!IsAgioFeesCorrect((SavingBookContract)saving))
-                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.AgioFeesIsInvalid);
+                if (!IsAgioFeesCorrect((SavingBookContract)saving))
+                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.AgioFeesIsInvalid);
+            }
 
             if (((SavingBookContract)saving).Loans != null)
             {
@@ -1439,6 +1442,7 @@ namespace OpenCBS.Services
                     SavingInterceptorSave(new Dictionary<string, object>
                             {
                                 {"Saving", saving},
+                                {"Client", client},
                                 {"SqlTransaction", sqlTransaction}
                             });
                     sqlTransaction.Commit();
@@ -1609,6 +1613,11 @@ namespace OpenCBS.Services
             FirstDeposit(saving, 0, TimeProvider.Today, saving.EntryFees, User.CurrentUser, Teller.CurrentTeller);
 
             return saving;
+        }
+
+        public string CheckAlreadyHaveClientCurrentAccount(int clientId, SqlTransaction tx)
+        {
+            return _savingManager.CheckAlreadyHaveClientCurrentAccount(clientId, tx);
         }
     }
 }
