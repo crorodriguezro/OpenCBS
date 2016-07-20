@@ -247,7 +247,7 @@ namespace OpenCBS.GUI.Clients
             InitControls();
             _oClientType = OClientTypes.Corporate;
             InitializeUserControl(OClientTypes.Corporate, pMdiParent);
-            InitializeTitle(_corporate.Name);
+            InitializeTitle(string.Format("{0} - {1}", _corporate.Id, _corporate.Name));
         }
 
         public ClientForm(Group pGroup, Form pMdiParent, IApplicationController applicationController = null)
@@ -409,7 +409,7 @@ namespace OpenCBS.GUI.Clients
                 _corporate = (Corporate)pClient;
                 _oClientType = OClientTypes.Corporate;
                 InitializeUserControl(_oClientType, _mdiParent);
-                InitializeTitle(_corporate.Name);
+                InitializeTitle(string.Format("{0} - {1}", _corporate.Id, _corporate.Name));
             }
 
             tabControlPerson.TabPages.Add(tabPageProject);
@@ -440,7 +440,7 @@ namespace OpenCBS.GUI.Clients
                 _client = _corporate;
                 _oClientType = OClientTypes.Corporate;
                 InitializeUserControl(_oClientType, _mdiParent);
-                InitializeTitle(_corporate.Name);
+                InitializeTitle(string.Format("{0} - {1}", _corporate.Id, _corporate.Name));
             }
 
             _project = pClient.SelectProject(pContractId);
@@ -1342,7 +1342,7 @@ namespace OpenCBS.GUI.Clients
                 {
                     ((MainView) _mdiParent).SetInfoMessage(string.Format("Corporate {0} saved", _corporate.Name));
                 }
-                InitializeTitle(_corporate.Name);
+                InitializeTitle(string.Format("{0} - {1}", _corporate.Id, _corporate.Name));
                 if (!tabControlPerson.TabPages.Contains(tabPageContracts))
                 {
                     tabControlPerson.TabPages.Add(tabPageContracts);
