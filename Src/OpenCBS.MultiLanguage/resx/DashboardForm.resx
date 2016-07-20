@@ -127,10 +127,10 @@
     <value>All users</value>
   </data>
   <data name="NumberOfDisbursements" xml:space="preserve">
-    <value>Number of disbursements in last 10 days</value>
+    <value>Number of disbursements in last 3 days</value>
   </data>
   <data name="OlbTrend" xml:space="preserve">
-    <value>OLB trend in last 10 days</value>
+    <value>OLB trend in last 3 days</value>
   </data>
   <data name="PAR" xml:space="preserve">
     <value>PAR</value>
