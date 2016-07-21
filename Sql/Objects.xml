@@ -4841,7 +4841,7 @@ AS BEGIN
           
     ----------------------------------------------------------------------------------------------
     DECLARE @endDate DATETIME = CAST(@date as date) 
-    DECLARE @startDate DATETIME = CAST(DATEADD(DD, -9, @endDate) AS DATE)
+    DECLARE @startDate DATETIME = CAST(DATEADD(DD, -2, @endDate) AS DATE)
     ;
     WITH dates AS
     (
