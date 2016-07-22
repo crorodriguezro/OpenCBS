@@ -93,36 +93,6 @@ namespace OpenCBS.Services
             _savingProductManager.DeleteSavingProduct(id);
         }
 
-        private static void ValidateInterBranchTransferFees(SavingsBookProduct savingsProduct)
-        {
-            return;
-            //todo need to create new method
-
-            Fee fee = savingsProduct.InterBranchTransferFee;
-            if (fee.IsFlat)
-            {
-                if (fee.Value.HasValue && fee.Value < 0)
-                    throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.InterBranchFlatTransferFeesIsInvalid);
-
-                if (!ServicesHelper.CheckMinMaxAndValueCorrectlyFilled(fee.Min, fee.Max, fee.Value))
-                    throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.InterBranchFlatTransferFeesMinMaxIsInvalid);
-
-                if (!fee.Value.HasValue && fee.Min < 0)
-                    throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.InterBranchFlatTransferFeesMinIsInvalid);
-            }
-            else
-            {
-                if (fee.Value.HasValue && fee.Value < 0)
-                    throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.InterBranchRateTransferFeesIsInvalid);
-
-                if (!ServicesHelper.CheckMinMaxAndValueCorrectlyFilled(fee.Min, fee.Max, fee.Value))
-                    throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.InterBranchRateTransferFeesMinMaxIsInvalid);
-
-                if (!fee.Value.HasValue && fee.Value < 0)
-                    throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.InterBranchRateTransferFeesMinIsInvalid);
-            }
-        }
-
         private static void ValidateSavingBookProduct(SavingsBookProduct savingsProduct)
         {
             if (savingsProduct.WithdrawingMin <= 0)
@@ -201,8 +171,6 @@ namespace OpenCBS.Services
                 throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.DepositFeesMinIsInvalid);
             if (!ServicesHelper.CheckMinMaxCorrectlyFilledAndSetValueIfNeed(savingsProduct.DepositFeesMin, savingsProduct.DepositFeesMax, savingsProduct.DepositFees))
                 throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.DepositFeesIsInvalid);
-
-            ValidateInterBranchTransferFees(savingsProduct);
 
             if (savingsProduct.Type == OSavingProductType.PersonalAccount)
                 return;

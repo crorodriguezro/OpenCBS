@@ -59,7 +59,7 @@ namespace OpenCBS.GUI.Configuration
             InitializeTabPageTermDeposit();
             _savingsProduct.PackageMode = OPackageMode.Insert;
 
-            rbFlatWithdrawFees_CheckedChanged(this, null);
+            SetWithdrawalFees();
 
             _personalAccountRadioButton.Checked = true;
             tabControlSaving.TabPages.Remove(tabPageTermDeposit);
@@ -95,9 +95,15 @@ namespace OpenCBS.GUI.Configuration
             tbInitialAmountMin.Text = _savingsProduct.InitialAmountMin.GetFormatedValue(_savingsProduct.UseCents);
             tbTransferMin.Text = _savingsProduct.TransferMin.GetFormatedValue(_savingsProduct.UseCents);
             tbTransferMax.Text = _savingsProduct.TransferMax.GetFormatedValue(_savingsProduct.UseCents);
-            if (_savingsProduct.InterestRateMax.HasValue) tbInterestRateMax.Text = (_savingsProduct.InterestRateMax.Value * 100).ToString();
-            if (_savingsProduct.InterestRateMin.HasValue) tbInterestRateMin.Text = (_savingsProduct.InterestRateMin.Value * 100).ToString();
-            if (_savingsProduct.InterestRate.HasValue) tbInterestRateValue.Text = (_savingsProduct.InterestRate.Value * 100).ToString();
+            if (_savingsProduct.InterestRate.HasValue)
+                tbInterestRateMax.Text = tbInterestRateMin.Text = (_savingsProduct.InterestRate.Value*100).ToString("F");
+            else
+            {
+                // ReSharper disable once PossibleInvalidOperationException
+                tbInterestRateMax.Text = (_savingsProduct.InterestRateMax.Value*100).ToString(CultureInfo.InvariantCulture);
+                // ReSharper disable once PossibleInvalidOperationException
+                tbInterestRateMin.Text = (_savingsProduct.InterestRateMin.Value*100).ToString(CultureInfo.InvariantCulture);
+            }
             cbPosting.SelectedValue = _savingsProduct.InterestFrequency.ToString();
             cbAccrual.Text = _savingsProduct.InterestBase.ToString();
             tbDepositMin.Text = _savingsProduct.DepositMin.Value.ToString("F");
@@ -113,18 +119,22 @@ namespace OpenCBS.GUI.Configuration
             {
                 tbIntraTransferFeesMin.Text = (_savingsProduct.FlatTransferFees.HasValue && _savingsProduct.FlatTransferFees.Value > 0)
                     ? _savingsProduct.FlatTransferFees.Value.ToString("F")
+                    // ReSharper disable once PossibleInvalidOperationException
                     : (_savingsProduct.RateTransferFees.Value*100).ToString("F");
                 tbIntraTransferFeesMax.Text = (_savingsProduct.FlatTransferFees.HasValue && _savingsProduct.FlatTransferFees.Value > 0)
                     ? _savingsProduct.FlatTransferFees.Value.ToString("F")
+                    // ReSharper disable once PossibleInvalidOperationException
                     : (_savingsProduct.RateTransferFees.Value*100).ToString("F");
             }
             else
             {
                 tbIntraTransferFeesMin.Text = (_savingsProduct.FlatTransferFeesMin.HasValue && _savingsProduct.FlatTransferFeesMin.Value > 0)
                     ? _savingsProduct.FlatTransferFeesMin.Value.ToString("F")
+                    // ReSharper disable once PossibleInvalidOperationException
                     : (_savingsProduct.RateTransferFeesMin.Value*100).ToString("F");
                 tbIntraTransferFeesMax.Text = (_savingsProduct.FlatTransferFeesMax.HasValue && _savingsProduct.FlatTransferFeesMax.Value > 0)
                     ? _savingsProduct.FlatTransferFeesMax.Value.ToString("F")
+                    // ReSharper disable once PossibleInvalidOperationException
                     : (_savingsProduct.RateTransferFeesMax.Value*100).ToString("F");
             }
             if (_savingsProduct.WithdrawFeesType == OSavingsFeesType.Flat)
@@ -212,11 +222,12 @@ namespace OpenCBS.GUI.Configuration
                 tbOverdraftFeesMax.Text = _savingsProduct.OverdraftFeesMax.GetFormatedValue(_savingsProduct.UseCents);
 
             if (_savingsProduct.AgioFees.HasValue)
-                tbAgioFees.Text = (_savingsProduct.AgioFees.Value * 100).ToString();
-            if (_savingsProduct.AgioFeesMin.HasValue)
-                tbAgioFeesMin.Text = (_savingsProduct.AgioFeesMin.Value * 100).ToString();
-            if (_savingsProduct.AgioFeesMax.HasValue)
-                tbAgioFeesMax.Text = (_savingsProduct.AgioFeesMax.Value * 100).ToString();
+                tbAgioFeesMin.Text = tbAgioFeesMax.Text = (_savingsProduct.AgioFees.Value*100).ToString("F");
+            else
+            {
+                tbAgioFeesMin.Text = (_savingsProduct.AgioFeesMin.Value*100).ToString("F");
+                tbAgioFeesMax.Text = (_savingsProduct.AgioFeesMax.Value*100).ToString("F");
+            }
 
             if (_savingsProduct.ReopenFees.HasValue) tbReopenFeesValue.Text = _savingsProduct.ReopenFees.GetFormatedValue(_savingsProduct.UseCents);
             if (_savingsProduct.ReopenFeesMin.HasValue) tbReopenFeesMin.Text = _savingsProduct.ReopenFeesMin.GetFormatedValue(_savingsProduct.UseCents);
@@ -273,7 +284,6 @@ namespace OpenCBS.GUI.Configuration
                     case "Village":
                         clientTypeVillageCheckBox.Checked = clientType.IsChecked;
                         break;
-                    default: break;
                 }
             }
         }
@@ -330,6 +340,7 @@ namespace OpenCBS.GUI.Configuration
             {
                if (_savingsProduct.PackageMode==OPackageMode.Edit)
                {
+                   // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
                    if (DialogResult.Yes == MessageBox.Show(MultiLanguageStrings.GetString(Ressource.FrmAddSavingProduct, "messageUpdate.Text"),
                                 MultiLanguageStrings.GetString(Ressource.FrmAddSavingProduct, "title.Text"), MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                    {
@@ -471,6 +482,8 @@ namespace OpenCBS.GUI.Configuration
                 _savingsProduct.InterestRateMin = _savingsProduct.InterestRateMax = null;
                 _savingsProduct.InterestRate = CheckAmount(tbInterestRateMin, false);
             }
+            // ReSharper disable once ConvertConditionalTernaryToNullCoalescing
+            // ReSharper disable once UseStringInterpolation
             lbYearlyInterestRateMin.Text = string.Format("{0} % {1}", GetYearlyInterestRate(_savingsProduct.InterestRateMin == null ? _savingsProduct.InterestRate : _savingsProduct.InterestRateMin, 
                 (OSavingInterestBase)Enum.Parse(typeof(OSavingInterestBase), cbAccrual.SelectedValue.ToString())), 
                 MultiLanguageStrings.GetString(Ressource.FrmAddSavingProduct, "Yearly.Text"));
@@ -484,6 +497,8 @@ namespace OpenCBS.GUI.Configuration
                 _savingsProduct.InterestRateMin = _savingsProduct.InterestRateMax = null;
                 _savingsProduct.InterestRate = CheckAmount(tbInterestRateMax, false);
             }
+            // ReSharper disable once ConvertConditionalTernaryToNullCoalescing
+            // ReSharper disable once UseStringInterpolation
             lbYearlyInterestRateMax.Text = string.Format("{0} % {1}", GetYearlyInterestRate(_savingsProduct.InterestRateMax == null ? _savingsProduct.InterestRate : _savingsProduct.InterestRateMax, 
                 (OSavingInterestBase)Enum.Parse(typeof(OSavingInterestBase), cbAccrual.SelectedValue.ToString())), 
                 MultiLanguageStrings.GetString(Ressource.FrmAddSavingProduct, "Yearly.Text"));
@@ -492,6 +507,7 @@ namespace OpenCBS.GUI.Configuration
         private void tbInterestRateValue_TextChanged(object sender, EventArgs e)
         {
             _savingsProduct.InterestRate = CheckAmount(tbInterestRateValue, false);
+            // ReSharper disable once UseStringInterpolation
             lbYearlyInterestRate.Text = string.Format("{0} % {1}", GetYearlyInterestRate(_savingsProduct.InterestRate, 
                 (OSavingInterestBase)Enum.Parse(typeof(OSavingInterestBase), cbAccrual.SelectedValue.ToString())), 
                 MultiLanguageStrings.GetString(Ressource.FrmAddSavingProduct, "Yearly.Text"));
@@ -523,12 +539,18 @@ namespace OpenCBS.GUI.Configuration
         {
             cbCalculAmount.Enabled = ((OSavingInterestBase)Enum.Parse(typeof(OSavingInterestBase), 
                 cbAccrual.SelectedValue.ToString())) != OSavingInterestBase.Daily;
+            // ReSharper disable once ConvertConditionalTernaryToNullCoalescing
+            // ReSharper disable once UseStringInterpolation
             lbYearlyInterestRateMin.Text = string.Format("{0} % {1}", GetYearlyInterestRate(_savingsProduct.InterestRateMin == null ? _savingsProduct.InterestRate : _savingsProduct.InterestRateMin, 
                 (OSavingInterestBase)Enum.Parse(typeof(OSavingInterestBase), cbAccrual.SelectedValue.ToString())), 
                 MultiLanguageStrings.GetString(Ressource.FrmAddSavingProduct, "Yearly.Text"));
+            // ReSharper disable once ConvertConditionalTernaryToNullCoalescing
+            // ReSharper disable once UseStringInterpolation
             lbYearlyInterestRateMax.Text = string.Format("{0} % {1}", GetYearlyInterestRate(_savingsProduct.InterestRateMax == null ? _savingsProduct.InterestRate : _savingsProduct.InterestRateMax, 
                 (OSavingInterestBase)Enum.Parse(typeof(OSavingInterestBase), cbAccrual.SelectedValue.ToString())), 
                 MultiLanguageStrings.GetString(Ressource.FrmAddSavingProduct, "Yearly.Text"));
+            // ReSharper disable once ConvertConditionalTernaryToNullCoalescing
+            // ReSharper disable once UseStringInterpolation
             lbYearlyInterestRate.Text = string.Format("{0} % {1}", GetYearlyInterestRate(_savingsProduct.InterestRate, 
                 (OSavingInterestBase)Enum.Parse(typeof(OSavingInterestBase), cbAccrual.SelectedValue.ToString())), 
                 MultiLanguageStrings.GetString(Ressource.FrmAddSavingProduct, "Yearly.Text"));
@@ -573,7 +595,7 @@ namespace OpenCBS.GUI.Configuration
             _savingsProduct.TransferMax = CheckAmount(tbTransferMax, true, false);
         }
 
-        private void rbFlatWithdrawFees_CheckedChanged(object sender, EventArgs e)
+        private void SetWithdrawalFees()
         {
             _savingsProduct.FlatWithdrawFees = CheckAmount(tbWithdrawFees, true, false);
             _savingsProduct.FlatWithdrawFeesMin = CheckAmount(tbWithdrawFeesMin, true, false);
@@ -715,13 +737,10 @@ namespace OpenCBS.GUI.Configuration
                     break;
             }
 
-            for (int i = 0; i < _savingsProduct.ProductClientTypes.Count; i++)
+            foreach (var prodClientType in _savingsProduct.ProductClientTypes.Where(prodClientType => prodClientType.TypeName == clientTypeName))
             {
-                if (_savingsProduct.ProductClientTypes[i].TypeName == clientTypeName)
-                {
-                    _savingsProduct.ProductClientTypes[i].IsChecked = receivedCheckBox.Checked;
-                    break;
-                }
+                prodClientType.IsChecked = receivedCheckBox.Checked;
+                break;
             }
         }
 
@@ -735,12 +754,7 @@ namespace OpenCBS.GUI.Configuration
                 clientTypeCounter--;
                 clientTypeAllCheckBox.Checked = false;
             }
-            if (clientTypeCounter == 4)
-                clientTypeAllCheckBox.Checked = true;
-            else
-            {
-                clientTypeAllCheckBox.Checked = false;
-            }
+            clientTypeAllCheckBox.Checked = clientTypeCounter == 4;
         }
 
         private void tbOverdraftFeesMin_TextChanged(object sender, EventArgs e)
@@ -786,11 +800,6 @@ namespace OpenCBS.GUI.Configuration
         private void tbReopenFeesValue_TextChanged(object sender, EventArgs e)
         {
             _savingsProduct.ReopenFees = CheckAmount(tbReopenFeesValue, true, false);
-        }
-
-        private bool IsInterBranchTransferFees()
-        {
-            return 1 == cbIntraTransferType.SelectedIndex;
         }
 
         private void checkBoxUseTermDeposit_CheckedChanged(object sender, EventArgs e)
@@ -977,6 +986,8 @@ namespace OpenCBS.GUI.Configuration
                 _savingsProduct.AgioFeesMin = _savingsProduct.AgioFeesMax = null;
                 _savingsProduct.AgioFees = CheckAmount(tbAgioFeesMin, false);
             }
+            else
+                _savingsProduct.AgioFees = null;
             _savingsProduct.InterestRateMin = CheckAmount(tbInterestRateMin, false);
             _savingsProduct.InterestRateMax = CheckAmount(tbInterestRateMax, false);
             if (_savingsProduct.InterestRateMin == _savingsProduct.InterestRateMax)

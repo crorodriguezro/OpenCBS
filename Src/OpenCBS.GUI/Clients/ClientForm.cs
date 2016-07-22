@@ -1093,22 +1093,28 @@ namespace OpenCBS.GUI.Clients
             {
                 tabControlSavingsDetails.Visible = buttonFirstDeposit.Enabled = buttonSavingsOperations.Enabled = true;
                 buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible = tlpSBDetails.Visible = false;
-                //flowLayoutPanel10.Visible
                 tabControlSavingsDetails.TabPages.Remove(tabPageSavingsAmountsAndFees);
                 tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
                 tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
-
-                using (SqlTransaction sqlTransaction = DatabaseConnection.GetConnection().BeginTransaction())
+                if (saving.Product.Type == OSavingProductType.PersonalAccount)
                 {
-                    try
+                    _currentAccountLabel.Visible = _currentAccountTextBox.Visible = true;
+                    using (SqlTransaction sqlTransaction = DatabaseConnection.GetConnection().BeginTransaction())
                     {
-                        _currentAccountTextBox.Text = SavingServices.CheckAlreadyHaveClientCurrentAccount(_client.Id, sqlTransaction);
+                        try
+                        {
+                            _currentAccountTextBox.Text = SavingServices.CheckAlreadyHaveClientCurrentAccount(_client.Id, sqlTransaction);
+                        }
+                        catch (Exception)
+                        {
+                            sqlTransaction.Rollback();
+                            throw;
+                        }
                     }
-                    catch (Exception)
-                    {
-                        sqlTransaction.Rollback();
-                        throw;
-                    }
+                }
+                else
+                {
+                    _currentAccountLabel.Visible = _currentAccountTextBox.Visible = false;
                 }
             }
 

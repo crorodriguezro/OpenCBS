@@ -482,7 +482,6 @@ namespace OpenCBS.GUI.Clients
             this.lbWithdrawFees = new System.Windows.Forms.Label();
             this.lbInterestRateMinMax = new System.Windows.Forms.Label();
             this.lbWithdrawFeesMinMax = new System.Windows.Forms.Label();
-            this._currentAccountLabel = new System.Windows.Forms.Label();
             this._currentAccountTextBox = new System.Windows.Forms.TextBox();
             this.lBSavingBalance = new System.Windows.Forms.Label();
             this.lbSavingBalanceValue = new System.Windows.Forms.Label();
@@ -523,6 +522,7 @@ namespace OpenCBS.GUI.Clients
             this.menuPendingSavingEvents = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuItemConfirmPendingSavingEvent = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCancelPendingSavingEvent = new System.Windows.Forms.ToolStripMenuItem();
+            this._currentAccountLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer10)).BeginInit();
             this.splitContainer10.Panel1.SuspendLayout();
             this.splitContainer10.Panel2.SuspendLayout();
@@ -3273,15 +3273,15 @@ namespace OpenCBS.GUI.Clients
             this.tableLayoutPanel5.Controls.Add(this.lbWithdrawFees, 3, 3);
             this.tableLayoutPanel5.Controls.Add(this.lbInterestRateMinMax, 5, 2);
             this.tableLayoutPanel5.Controls.Add(this.lbWithdrawFeesMinMax, 5, 3);
-            this.tableLayoutPanel5.Controls.Add(this._currentAccountLabel, 6, 0);
-            this.tableLayoutPanel5.Controls.Add(this._currentAccountTextBox, 7, 0);
             this.tableLayoutPanel5.Controls.Add(this.lBSavingBalance, 3, 0);
             this.tableLayoutPanel5.Controls.Add(this.lbSavingBalanceValue, 4, 0);
             this.tableLayoutPanel5.Controls.Add(this.lBSavingAvBalance, 3, 1);
             this.tableLayoutPanel5.Controls.Add(this.nudWithdrawFees, 4, 3);
             this.tableLayoutPanel5.Controls.Add(this.lbSavingAvBalanceValue, 4, 1);
-            this.tableLayoutPanel5.Controls.Add(this._dateCreatedLabel, 6, 1);
-            this.tableLayoutPanel5.Controls.Add(this._dateCreatedValueLabel, 7, 1);
+            this.tableLayoutPanel5.Controls.Add(this._currentAccountLabel, 6, 1);
+            this.tableLayoutPanel5.Controls.Add(this._currentAccountTextBox, 7, 1);
+            this.tableLayoutPanel5.Controls.Add(this._dateCreatedLabel, 6, 0);
+            this.tableLayoutPanel5.Controls.Add(this._dateCreatedValueLabel, 7, 0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             // 
             // lbEntryFeesMinMax
@@ -3388,11 +3388,6 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.lbWithdrawFeesMinMax, "lbWithdrawFeesMinMax");
             this.lbWithdrawFeesMinMax.Name = "lbWithdrawFeesMinMax";
-            // 
-            // _currentAccountLabel
-            // 
-            resources.ApplyResources(this._currentAccountLabel, "_currentAccountLabel");
-            this._currentAccountLabel.Name = "_currentAccountLabel";
             // 
             // _currentAccountTextBox
             // 
@@ -3628,6 +3623,11 @@ namespace OpenCBS.GUI.Clients
             this.menuItemCancelPendingSavingEvent.Name = "menuItemCancelPendingSavingEvent";
             resources.ApplyResources(this.menuItemCancelPendingSavingEvent, "menuItemCancelPendingSavingEvent");
             this.menuItemCancelPendingSavingEvent.Click += new System.EventHandler(this.menuItemCancelPendingSavingEvent_Click);
+            // 
+            // _currentAccountLabel
+            // 
+            resources.ApplyResources(this._currentAccountLabel, "_currentAccountLabel");
+            this._currentAccountLabel.Name = "_currentAccountLabel";
             // 
             // ClientForm
             // 
@@ -4210,9 +4210,9 @@ namespace OpenCBS.GUI.Clients
         private ComboBox _scheduleTypeComboBox;
         private Controls.ScheduleControl _loanDetailsScheduleControl;
         private TextBox _currentAccountTextBox;
-        private Label _currentAccountLabel;
         private Label lBSavingBalance;
         private Label _dateCreatedLabel;
         private Label _dateCreatedValueLabel;
+        private Label _currentAccountLabel;
     }
 }

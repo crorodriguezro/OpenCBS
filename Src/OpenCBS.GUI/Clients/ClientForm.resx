@@ -2950,7 +2950,7 @@
     <value>3, 3</value>
   </data>
   <data name="_loanDetailsScheduleControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1229, 259</value>
+    <value>1229, 295</value>
   </data>
   <data name="_loanDetailsScheduleControl.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -2974,7 +2974,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageInstallments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 265</value>
+    <value>1235, 301</value>
   </data>
   <data name="tabPageInstallments.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3001,7 +3001,7 @@
     <value>3, 268</value>
   </data>
   <data name="tclLoanDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 294</value>
+    <value>1243, 330</value>
   </data>
   <data name="tclLoanDetails.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -4312,7 +4312,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageLoansDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 565</value>
+    <value>1249, 601</value>
   </data>
   <data name="tabPageLoansDetails.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -6967,7 +6967,7 @@ Max:
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        HQAAAk1TRnQBSQFMAgEBBQEAATgBJgE4ASYBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAAUgBJgFIASYBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -8766,7 +8766,7 @@ Max:
     <value>459, 3</value>
   </data>
   <data name="flowLayoutPanel10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>773, 297</value>
+    <value>773, 333</value>
   </data>
   <data name="flowLayoutPanel10.TabIndex" type="System.Int32, mscorlib">
     <value>77</value>
@@ -9627,7 +9627,7 @@ Max:
     <value>10</value>
   </data>
   <data name="tlpSBDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>456, 297</value>
+    <value>456, 333</value>
   </data>
   <data name="tlpSBDetails.TabIndex" type="System.Int32, mscorlib">
     <value>78</value>
@@ -9654,7 +9654,7 @@ Max:
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageSavingsAmountsAndFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 303</value>
+    <value>1235, 339</value>
   </data>
   <data name="tabPageSavingsAmountsAndFees.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -10182,7 +10182,7 @@ Max:
     <value>3, 226</value>
   </data>
   <data name="tabControlSavingsDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 336</value>
+    <value>1243, 372</value>
   </data>
   <data name="tabControlSavingsDetails.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -10973,63 +10973,6 @@ Max:
   <data name="&gt;&gt;lbWithdrawFeesMinMax.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="_currentAccountLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="_currentAccountLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="_currentAccountLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>908, 10</value>
-  </data>
-  <data name="_currentAccountLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 32</value>
-  </data>
-  <data name="_currentAccountLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>61</value>
-  </data>
-  <data name="_currentAccountLabel.Text" xml:space="preserve">
-    <value>Current Account</value>
-  </data>
-  <data name="_currentAccountLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;_currentAccountLabel.Name" xml:space="preserve">
-    <value>_currentAccountLabel</value>
-  </data>
-  <data name="&gt;&gt;_currentAccountLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_currentAccountLabel.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;_currentAccountLabel.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="_currentAccountTextBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="_currentAccountTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1015, 13</value>
-  </data>
-  <data name="_currentAccountTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 22</value>
-  </data>
-  <data name="_currentAccountTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>65</value>
-  </data>
-  <data name="&gt;&gt;_currentAccountTextBox.Name" xml:space="preserve">
-    <value>_currentAccountTextBox</value>
-  </data>
-  <data name="&gt;&gt;_currentAccountTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_currentAccountTextBox.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;_currentAccountTextBox.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
   <data name="lBSavingBalance.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -11067,7 +11010,7 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;lBSavingBalance.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>15</value>
   </data>
   <data name="lbSavingBalanceValue.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -11100,7 +11043,7 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;lbSavingBalanceValue.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>16</value>
   </data>
   <data name="lBSavingAvBalance.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11139,7 +11082,7 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;lBSavingAvBalance.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>17</value>
   </data>
   <data name="nudWithdrawFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -11169,7 +11112,7 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;nudWithdrawFees.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>18</value>
   </data>
   <data name="lbSavingAvBalanceValue.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -11202,6 +11145,66 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;lbSavingAvBalanceValue.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="_currentAccountLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_currentAccountLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="_currentAccountLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_currentAccountLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>908, 42</value>
+  </data>
+  <data name="_currentAccountLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 32</value>
+  </data>
+  <data name="_currentAccountLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>61</value>
+  </data>
+  <data name="_currentAccountLabel.Text" xml:space="preserve">
+    <value>Current Account</value>
+  </data>
+  <data name="_currentAccountLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountLabel.Name" xml:space="preserve">
+    <value>_currentAccountLabel</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountLabel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountLabel.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="_currentAccountTextBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="_currentAccountTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1015, 45</value>
+  </data>
+  <data name="_currentAccountTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 22</value>
+  </data>
+  <data name="_currentAccountTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>65</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountTextBox.Name" xml:space="preserve">
+    <value>_currentAccountTextBox</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountTextBox.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountTextBox.ZOrder" xml:space="preserve">
     <value>21</value>
   </data>
   <data name="_dateCreatedLabel.AutoSize" type="System.Boolean, mscorlib">
@@ -11211,7 +11214,7 @@ Max:
     <value>Fill</value>
   </data>
   <data name="_dateCreatedLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>908, 42</value>
+    <value>908, 10</value>
   </data>
   <data name="_dateCreatedLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 32</value>
@@ -11241,13 +11244,13 @@ Max:
     <value>True</value>
   </data>
   <data name="_dateCreatedValueLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+    <value>Left</value>
   </data>
   <data name="_dateCreatedValueLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1015, 42</value>
+    <value>1015, 10</value>
   </data>
   <data name="_dateCreatedValueLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 32</value>
+    <value>0, 32</value>
   </data>
   <data name="_dateCreatedValueLabel.TabIndex" type="System.Int32, mscorlib">
     <value>67</value>
@@ -11298,7 +11301,7 @@ Max:
     <value>0</value>
   </data>
   <data name="tableLayoutPanel5.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbEntryFeesMinMax" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbInitialAmountMinMax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbEntryFees" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelInitialAmount" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudEntryFees" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudDownInitialAmount" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label9" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tBSavingCode" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="cmbSavingsOfficer" Row="3" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="labelInterestRate" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="nudDownInterestRate" Row="2" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawFees" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lbInterestRateMinMax" Row="2" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawFeesMinMax" Row="3" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="_currentAccountLabel" Row="0" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="_currentAccountTextBox" Row="0" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;Control Name="lBSavingBalance" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lbSavingBalanceValue" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lBSavingAvBalance" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="nudWithdrawFees" Row="3" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lbSavingAvBalanceValue" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="_dateCreatedLabel" Row="1" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="_dateCreatedValueLabel" Row="1" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbEntryFeesMinMax" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbInitialAmountMinMax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbEntryFees" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelInitialAmount" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudEntryFees" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudDownInitialAmount" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label9" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tBSavingCode" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="cmbSavingsOfficer" Row="3" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="labelInterestRate" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="nudDownInterestRate" Row="2" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawFees" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lbInterestRateMinMax" Row="2" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawFeesMinMax" Row="3" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lBSavingBalance" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lbSavingBalanceValue" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lBSavingAvBalance" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="nudWithdrawFees" Row="3" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lbSavingAvBalanceValue" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="_currentAccountLabel" Row="1" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="_currentAccountTextBox" Row="1" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;Control Name="_dateCreatedLabel" Row="0" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="_dateCreatedValueLabel" Row="0" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="groupBoxSaving.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -11334,7 +11337,7 @@ Max:
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageSavingDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 565</value>
+    <value>1249, 601</value>
   </data>
   <data name="tabPageSavingDetails.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -11385,10 +11388,10 @@ Max:
     <value>60, 32</value>
   </data>
   <data name="tabControlPerson.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 36</value>
+    <value>0, 0</value>
   </data>
   <data name="tabControlPerson.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1257, 605</value>
+    <value>1257, 641</value>
   </data>
   <data name="tabControlPerson.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -11403,7 +11406,7 @@ Max:
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tabControlPerson.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <metadata name="menuBtnAddSavingOperation.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>392, 13</value>
@@ -11475,7 +11478,7 @@ Max:
     <value>0</value>
   </data>
   <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="" /&gt;&lt;Rows Styles="" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Absolute,20" /&gt;&lt;Rows Styles="" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -11759,7 +11762,7 @@ Max:
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="" /&gt;&lt;Rows Styles="" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Absolute,20" /&gt;&lt;Rows Styles="" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="buttonLoanDisbursement.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
