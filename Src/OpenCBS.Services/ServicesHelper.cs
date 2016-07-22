@@ -612,11 +612,6 @@ namespace OpenCBS.Services
             return a < b;
         }
 
-        public static bool CheckIfMinMaxOrEquality(double? a, double? b)
-        {
-            return a <= b;
-        }
-
         public static bool CheckIfMinLowerThanMax(DateTime a, DateTime b)
         {
             return a <= b;
@@ -635,19 +630,6 @@ namespace OpenCBS.Services
 
             if (min.HasValue && max.HasValue && !fixedValue.HasValue)
                 returned = CheckIfMinLowerThanMax(min, max);
-
-            else if (!min.HasValue && !max.HasValue && fixedValue.HasValue)
-                returned = true;
-
-            return returned;
-        }
-
-        public static bool CheckMinMaxAndValueCorrectlyFilledWithEquality(double? min, double? max, double? fixedValue)
-        {
-            bool returned = false;
-
-            if (min.HasValue && max.HasValue && !fixedValue.HasValue)
-                returned = CheckIfMinMaxOrEquality(min, max);
 
             else if (!min.HasValue && !max.HasValue && fixedValue.HasValue)
                 returned = true;

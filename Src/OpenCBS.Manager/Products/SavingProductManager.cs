@@ -766,12 +766,12 @@ namespace OpenCBS.Manager.Products
 
         private static void SetProduct(OpenCbsCommand c, SavingsBookProduct product)
         {
-            c.AddParam("@interestBase", (int)product.InterestBase);
-            c.AddParam("@interestFrequency", (int)product.InterestFrequency);
+            c.AddParam("@interestBase", product.InterestBase);
+            c.AddParam("@interestFrequency", product.InterestFrequency);
             c.AddParam("@calculAmountBase", product.CalculAmountBase.HasValue ? (int)product.CalculAmountBase.Value : 0);
             c.AddParam("@productId", product.Id);
 
-            c.AddParam("@withdrawFeesType", (int)product.WithdrawFeesType);
+            c.AddParam("@withdrawFeesType", product.WithdrawFeesType);
             c.AddParam("@flatWithdrawFeesMin", product.WithdrawFeesType == OSavingsFeesType.Flat ? product.FlatWithdrawFeesMin : null);
             c.AddParam("@flatWithdrawFeesMax", product.WithdrawFeesType == OSavingsFeesType.Flat ? product.FlatWithdrawFeesMax : null);
             c.AddParam("@flatWithdrawFees", product.WithdrawFeesType == OSavingsFeesType.Flat ? product.FlatWithdrawFees : null);
@@ -779,7 +779,7 @@ namespace OpenCBS.Manager.Products
             c.AddParam("@rateWithdrawFeesMax", product.WithdrawFeesType == OSavingsFeesType.Rate ? product.RateWithdrawFeesMax : null);
             c.AddParam("@rateWithdrawFees", product.WithdrawFeesType == OSavingsFeesType.Rate ? product.RateWithdrawFees : null);
 
-            c.AddParam("@transferFeesType", (int)product.TransferFeesType);
+            c.AddParam("@transferFeesType", product.TransferFeesType);
             c.AddParam("@flatTransferFeesMin", product.TransferFeesType == OSavingsFeesType.Flat ? product.FlatTransferFeesMin : null);
             c.AddParam("@flatTransferFeesMax", product.TransferFeesType == OSavingsFeesType.Flat ? product.FlatTransferFeesMax : null);
             c.AddParam("@flatTransferFees", product.TransferFeesType == OSavingsFeesType.Flat ? product.FlatTransferFees : null);

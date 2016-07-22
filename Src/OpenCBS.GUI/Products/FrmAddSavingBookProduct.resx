@@ -1974,6 +1974,9 @@
   <data name="rbRateDepositFees.Text" xml:space="preserve">
     <value>Rate</value>
   </data>
+  <data name="rbRateDepositFees.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;rbRateDepositFees.Name" xml:space="preserve">
     <value>rbRateDepositFees</value>
   </data>
@@ -2010,6 +2013,9 @@
   <data name="rbFlatDepositFees.Text" xml:space="preserve">
     <value>Flat</value>
   </data>
+  <data name="rbFlatDepositFees.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;rbFlatDepositFees.Name" xml:space="preserve">
     <value>rbFlatDepositFees</value>
   </data>
@@ -2042,6 +2048,9 @@
   </data>
   <data name="lbDepositFeesType.Text" xml:space="preserve">
     <value>Type:</value>
+  </data>
+  <data name="lbDepositFeesType.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;lbDepositFeesType.Name" xml:space="preserve">
     <value>lbDepositFeesType</value>
@@ -3241,7 +3250,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbRateReopenFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 22</value>
+    <value>299, 22</value>
   </data>
   <data name="rbRateReopenFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 20</value>
@@ -3251,6 +3260,9 @@
   </data>
   <data name="rbRateReopenFees.Text" xml:space="preserve">
     <value>Rate</value>
+  </data>
+  <data name="rbRateReopenFees.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;rbRateReopenFees.Name" xml:space="preserve">
     <value>rbRateReopenFees</value>
@@ -3274,7 +3286,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbFlatReopenFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 22</value>
+    <value>245, 22</value>
   </data>
   <data name="rbFlatReopenFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
@@ -3284,6 +3296,9 @@
   </data>
   <data name="rbFlatReopenFees.Text" xml:space="preserve">
     <value>Flat</value>
+  </data>
+  <data name="rbFlatReopenFees.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;rbFlatReopenFees.Name" xml:space="preserve">
     <value>rbFlatReopenFees</value>
@@ -3307,7 +3322,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbReopenFeesType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 24</value>
+    <value>181, 24</value>
   </data>
   <data name="lbReopenFeesType.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 16</value>
@@ -3317,6 +3332,9 @@
   </data>
   <data name="lbReopenFeesType.Text" xml:space="preserve">
     <value>Type:</value>
+  </data>
+  <data name="lbReopenFeesType.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;lbReopenFeesType.Name" xml:space="preserve">
     <value>lbReopenFeesType</value>
@@ -3361,7 +3379,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="tbReopenFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 80</value>
+    <value>78, 50</value>
   </data>
   <data name="tbReopenFeesMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 22</value>
@@ -3385,7 +3403,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="tbReopenFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 51</value>
+    <value>78, 21</value>
   </data>
   <data name="tbReopenFeesMin.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 22</value>
@@ -3415,7 +3433,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbReopenFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 83</value>
+    <value>15, 53</value>
   </data>
   <data name="lbReopenFeesMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 16</value>
@@ -3448,7 +3466,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbReopenFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 54</value>
+    <value>14, 24</value>
   </data>
   <data name="lbReopenFeesMin.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 16</value>
@@ -3514,7 +3532,7 @@
     <value>346, 6</value>
   </data>
   <data name="gbReopenFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>312, 115</value>
+    <value>312, 96</value>
   </data>
   <data name="gbReopenFees.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -3577,7 +3595,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbRateManagementFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 22</value>
+    <value>300, 20</value>
   </data>
   <data name="rbRateManagementFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 20</value>
@@ -3587,6 +3605,9 @@
   </data>
   <data name="rbRateManagementFees.Text" xml:space="preserve">
     <value>Rate</value>
+  </data>
+  <data name="rbRateManagementFees.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;rbRateManagementFees.Name" xml:space="preserve">
     <value>rbRateManagementFees</value>
@@ -3610,7 +3631,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbFlatManagementFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>79, 22</value>
+    <value>246, 20</value>
   </data>
   <data name="rbFlatManagementFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
@@ -3620,6 +3641,9 @@
   </data>
   <data name="rbFlatManagementFees.Text" xml:space="preserve">
     <value>Flat</value>
+  </data>
+  <data name="rbFlatManagementFees.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;rbFlatManagementFees.Name" xml:space="preserve">
     <value>rbFlatManagementFees</value>
@@ -3643,7 +3667,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbManagementFeesType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 24</value>
+    <value>181, 22</value>
   </data>
   <data name="lbManagementFeesType.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 16</value>
@@ -3653,6 +3677,9 @@
   </data>
   <data name="lbManagementFeesType.Text" xml:space="preserve">
     <value>Type:</value>
+  </data>
+  <data name="lbManagementFeesType.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;lbManagementFeesType.Name" xml:space="preserve">
     <value>lbManagementFeesType</value>
@@ -3733,7 +3760,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="tbManagementFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 80</value>
+    <value>78, 55</value>
   </data>
   <data name="tbManagementFeesMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 22</value>
@@ -3757,7 +3784,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="tbManagementFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 51</value>
+    <value>78, 26</value>
   </data>
   <data name="tbManagementFeesMin.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 22</value>
@@ -3787,7 +3814,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbManagementFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 83</value>
+    <value>14, 58</value>
   </data>
   <data name="lbManagementFeesMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 16</value>
@@ -3820,7 +3847,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbManagementFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 54</value>
+    <value>14, 29</value>
   </data>
   <data name="lbManagementFeesMin.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 16</value>
@@ -3850,7 +3877,7 @@
     <value>346, 127</value>
   </data>
   <data name="gtManagementFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>312, 116</value>
+    <value>312, 95</value>
   </data>
   <data name="gtManagementFees.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -3880,7 +3907,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbRateCloseFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 22</value>
+    <value>308, 22</value>
   </data>
   <data name="rbRateCloseFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 20</value>
@@ -3890,6 +3917,9 @@
   </data>
   <data name="rbRateCloseFees.Text" xml:space="preserve">
     <value>Rate</value>
+  </data>
+  <data name="rbRateCloseFees.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;rbRateCloseFees.Name" xml:space="preserve">
     <value>rbRateCloseFees</value>
@@ -3913,7 +3943,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbFlatCloseFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>79, 22</value>
+    <value>254, 22</value>
   </data>
   <data name="rbFlatCloseFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
@@ -3923,6 +3953,9 @@
   </data>
   <data name="rbFlatCloseFees.Text" xml:space="preserve">
     <value>Flat</value>
+  </data>
+  <data name="rbFlatCloseFees.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;rbFlatCloseFees.Name" xml:space="preserve">
     <value>rbFlatCloseFees</value>
@@ -3946,7 +3979,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbCloseFeesType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 24</value>
+    <value>189, 24</value>
   </data>
   <data name="lbCloseFeesType.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 16</value>
@@ -3956,6 +3989,9 @@
   </data>
   <data name="lbCloseFeesType.Text" xml:space="preserve">
     <value>Type:</value>
+  </data>
+  <data name="lbCloseFeesType.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;lbCloseFeesType.Name" xml:space="preserve">
     <value>lbCloseFeesType</value>
@@ -4036,7 +4072,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="tbCloseFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 80</value>
+    <value>79, 52</value>
   </data>
   <data name="tbCloseFeesMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 22</value>
@@ -4060,7 +4096,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="tbCloseFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 51</value>
+    <value>79, 23</value>
   </data>
   <data name="tbCloseFeesMin.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 22</value>
@@ -4090,7 +4126,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbCloseFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 83</value>
+    <value>15, 55</value>
   </data>
   <data name="lbCloseFeesMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 16</value>
@@ -4123,7 +4159,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbCloseFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 54</value>
+    <value>15, 26</value>
   </data>
   <data name="lbCloseFeesMin.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 16</value>
@@ -4153,7 +4189,7 @@
     <value>8, 127</value>
   </data>
   <data name="gtCloseFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>314, 116</value>
+    <value>314, 95</value>
   </data>
   <data name="gtCloseFees.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -4183,7 +4219,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbRateEntryFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 22</value>
+    <value>306, 22</value>
   </data>
   <data name="rbRateEntryFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 20</value>
@@ -4193,6 +4229,9 @@
   </data>
   <data name="rbRateEntryFees.Text" xml:space="preserve">
     <value>Rate</value>
+  </data>
+  <data name="rbRateEntryFees.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;rbRateEntryFees.Name" xml:space="preserve">
     <value>rbRateEntryFees</value>
@@ -4216,7 +4255,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbFlatEntryFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 22</value>
+    <value>252, 22</value>
   </data>
   <data name="rbFlatEntryFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
@@ -4226,6 +4265,9 @@
   </data>
   <data name="rbFlatEntryFees.Text" xml:space="preserve">
     <value>Flat</value>
+  </data>
+  <data name="rbFlatEntryFees.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;rbFlatEntryFees.Name" xml:space="preserve">
     <value>rbFlatEntryFees</value>
@@ -4249,7 +4291,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbEntryFeesType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 24</value>
+    <value>189, 24</value>
   </data>
   <data name="lbEntryFeesType.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 16</value>
@@ -4259,6 +4301,9 @@
   </data>
   <data name="lbEntryFeesType.Text" xml:space="preserve">
     <value>Type:</value>
+  </data>
+  <data name="lbEntryFeesType.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;lbEntryFeesType.Name" xml:space="preserve">
     <value>lbEntryFeesType</value>
@@ -4339,7 +4384,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="tbEntryFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 80</value>
+    <value>78, 53</value>
   </data>
   <data name="tbEntryFeesMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 22</value>
@@ -4363,7 +4408,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="tbEntryFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 51</value>
+    <value>78, 24</value>
   </data>
   <data name="tbEntryFeesMin.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 22</value>
@@ -4393,7 +4438,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbEntryFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 83</value>
+    <value>15, 56</value>
   </data>
   <data name="lbEntryFeesMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 16</value>
@@ -4426,7 +4471,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbEntryFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 54</value>
+    <value>14, 27</value>
   </data>
   <data name="lbEntryFeesMin.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 16</value>
@@ -4456,7 +4501,7 @@
     <value>8, 6</value>
   </data>
   <data name="gbEntryFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>314, 115</value>
+    <value>314, 96</value>
   </data>
   <data name="gbEntryFees.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -4513,7 +4558,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbRateAgioFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 22</value>
+    <value>315, 18</value>
   </data>
   <data name="rbRateAgioFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 20</value>
@@ -4523,6 +4568,9 @@
   </data>
   <data name="rbRateAgioFees.Text" xml:space="preserve">
     <value>Rate</value>
+  </data>
+  <data name="rbRateAgioFees.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;rbRateAgioFees.Name" xml:space="preserve">
     <value>rbRateAgioFees</value>
@@ -4546,7 +4594,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbFlatAgioFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>79, 22</value>
+    <value>261, 18</value>
   </data>
   <data name="rbFlatAgioFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
@@ -4556,6 +4604,9 @@
   </data>
   <data name="rbFlatAgioFees.Text" xml:space="preserve">
     <value>Flat</value>
+  </data>
+  <data name="rbFlatAgioFees.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;rbFlatAgioFees.Name" xml:space="preserve">
     <value>rbFlatAgioFees</value>
@@ -4579,7 +4630,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbAgioFeesType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 24</value>
+    <value>196, 20</value>
   </data>
   <data name="lbAgioFeesType.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 16</value>
@@ -4589,6 +4640,9 @@
   </data>
   <data name="lbAgioFeesType.Text" xml:space="preserve">
     <value>Type:</value>
+  </data>
+  <data name="lbAgioFeesType.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;lbAgioFeesType.Name" xml:space="preserve">
     <value>lbAgioFeesType</value>
@@ -4669,7 +4723,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="tbAgioFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 80</value>
+    <value>82, 50</value>
   </data>
   <data name="tbAgioFeesMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 22</value>
@@ -4693,7 +4747,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="tbAgioFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 51</value>
+    <value>82, 21</value>
   </data>
   <data name="tbAgioFeesMin.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 22</value>
@@ -4723,7 +4777,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbAgioFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 83</value>
+    <value>18, 53</value>
   </data>
   <data name="lbAgioFeesMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 16</value>
@@ -4756,7 +4810,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbAgioFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 54</value>
+    <value>18, 24</value>
   </data>
   <data name="lbAgioFeesMin.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 16</value>
@@ -4822,13 +4876,13 @@
     <value>342, 6</value>
   </data>
   <data name="gtAgioFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>316, 116</value>
+    <value>316, 96</value>
   </data>
   <data name="gtAgioFees.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
   <data name="gtAgioFees.Text" xml:space="preserve">
-    <value>Agio</value>
+    <value>Agio (rate)</value>
   </data>
   <data name="&gt;&gt;gtAgioFees.Name" xml:space="preserve">
     <value>gtAgioFees</value>
@@ -4852,7 +4906,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbRateOverdraftFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 22</value>
+    <value>326, 16</value>
   </data>
   <data name="rbRateOverdraftFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 20</value>
@@ -4862,6 +4916,9 @@
   </data>
   <data name="rbRateOverdraftFees.Text" xml:space="preserve">
     <value>Rate</value>
+  </data>
+  <data name="rbRateOverdraftFees.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;rbRateOverdraftFees.Name" xml:space="preserve">
     <value>rbRateOverdraftFees</value>
@@ -4885,7 +4942,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbFlatOverdraftFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>79, 22</value>
+    <value>272, 16</value>
   </data>
   <data name="rbFlatOverdraftFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
@@ -4895,6 +4952,9 @@
   </data>
   <data name="rbFlatOverdraftFees.Text" xml:space="preserve">
     <value>Flat</value>
+  </data>
+  <data name="rbFlatOverdraftFees.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;rbFlatOverdraftFees.Name" xml:space="preserve">
     <value>rbFlatOverdraftFees</value>
@@ -4918,7 +4978,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbOverdraftFeesType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 24</value>
+    <value>207, 18</value>
   </data>
   <data name="lbOverdraftFeesType.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 16</value>
@@ -4928,6 +4988,9 @@
   </data>
   <data name="lbOverdraftFeesType.Text" xml:space="preserve">
     <value>Type:</value>
+  </data>
+  <data name="lbOverdraftFeesType.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;lbOverdraftFeesType.Name" xml:space="preserve">
     <value>lbOverdraftFeesType</value>
@@ -5008,7 +5071,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="tbOverdraftFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 80</value>
+    <value>79, 53</value>
   </data>
   <data name="tbOverdraftFeesMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 22</value>
@@ -5032,7 +5095,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="tbOverdraftFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 51</value>
+    <value>79, 24</value>
   </data>
   <data name="tbOverdraftFeesMin.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 22</value>
@@ -5062,7 +5125,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbOverdraftFeesMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 83</value>
+    <value>15, 56</value>
   </data>
   <data name="lbOverdraftFeesMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 16</value>
@@ -5095,7 +5158,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbOverdraftFeesMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 54</value>
+    <value>15, 27</value>
   </data>
   <data name="lbOverdraftFeesMin.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 16</value>
@@ -5125,7 +5188,7 @@
     <value>8, 6</value>
   </data>
   <data name="gtOverdraftFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>322, 116</value>
+    <value>322, 96</value>
   </data>
   <data name="gtOverdraftFees.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>

@@ -187,7 +187,7 @@ namespace OpenCBS.Services
             {
                 if (savingsProduct.RateTransferFees.HasValue && savingsProduct.RateTransferFees.Value < 0)
                     throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.RateTransferFeesIsInvalid);
-                if (!ServicesHelper.CheckMinMaxAndValueCorrectlyFilledWithEquality(savingsProduct.RateTransferFeesMin, savingsProduct.RateTransferFeesMax, savingsProduct.RateTransferFees))
+                if (!ServicesHelper.CheckMinMaxAndValueCorrectlyFilled(savingsProduct.RateTransferFeesMin, savingsProduct.RateTransferFeesMax, savingsProduct.RateTransferFees))
                     throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.RateTransferFeesMinMaxIsInvalid);
                 if (savingsProduct.RateTransferFeesMin != null && (!savingsProduct.RateTransferFees.HasValue && savingsProduct.RateTransferFeesMin.Value < 0))
                     throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.RateTransferFeesMinIsInvalid);

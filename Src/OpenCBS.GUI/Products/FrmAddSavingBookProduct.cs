@@ -104,20 +104,63 @@ namespace OpenCBS.GUI.Configuration
             tbDepositMax.Text = _savingsProduct.DepositMax.Value.ToString("F");
             tbDepositFeesMin.Text = _savingsProduct.DepositFeesMin.Value.ToString("F");
             tbDepositFeesMax.Text = _savingsProduct.DepositFeesMax.Value.ToString("F");
-            tbIntraTransferFeesMin.Text = (_savingsProduct.FlatTransferFeesMin.HasValue && _savingsProduct.FlatTransferFeesMin.Value > 0)
-                ? _savingsProduct.FlatTransferFeesMin.GetFormatedValue(_savingsProduct.UseCents)
-                : (_savingsProduct.RateTransferFeesMin.Value * 100).ToString(CultureInfo.InvariantCulture);
-            tbIntraTransferFeesMax.Text = (_savingsProduct.FlatTransferFeesMax.HasValue && _savingsProduct.FlatTransferFeesMax.Value > 0)
-                ? _savingsProduct.FlatTransferFeesMax.GetFormatedValue(_savingsProduct.UseCents)
-                : (_savingsProduct.RateTransferFeesMax.Value * 100).ToString(CultureInfo.InvariantCulture);
+
+            if (_savingsProduct.TransferFeesType == OSavingsFeesType.Flat)
+                rbIntraFlatTransferFees.Checked = true;
+            else
+                rbIntraRateTransferFees.Checked = true;
+            if (_savingsProduct.FlatTransferFees.HasValue || _savingsProduct.RateTransferFees.HasValue)
+            {
+                tbIntraTransferFeesMin.Text = (_savingsProduct.FlatTransferFees.HasValue && _savingsProduct.FlatTransferFees.Value > 0)
+                    ? _savingsProduct.FlatTransferFees.Value.ToString("F")
+                    : (_savingsProduct.RateTransferFees.Value*100).ToString("F");
+                tbIntraTransferFeesMax.Text = (_savingsProduct.FlatTransferFees.HasValue && _savingsProduct.FlatTransferFees.Value > 0)
+                    ? _savingsProduct.FlatTransferFees.Value.ToString("F")
+                    : (_savingsProduct.RateTransferFees.Value*100).ToString("F");
+            }
+            else
+            {
+                tbIntraTransferFeesMin.Text = (_savingsProduct.FlatTransferFeesMin.HasValue && _savingsProduct.FlatTransferFeesMin.Value > 0)
+                    ? _savingsProduct.FlatTransferFeesMin.Value.ToString("F")
+                    : (_savingsProduct.RateTransferFeesMin.Value*100).ToString("F");
+                tbIntraTransferFeesMax.Text = (_savingsProduct.FlatTransferFeesMax.HasValue && _savingsProduct.FlatTransferFeesMax.Value > 0)
+                    ? _savingsProduct.FlatTransferFeesMax.Value.ToString("F")
+                    : (_savingsProduct.RateTransferFeesMax.Value*100).ToString("F");
+            }
+            if (_savingsProduct.WithdrawFeesType == OSavingsFeesType.Flat)
+            {
+                if (_savingsProduct.FlatWithdrawFees.HasValue)
+                    tbWithdrawFeesMin.Text = tbWithdrawFeesMax.Text = _savingsProduct.FlatWithdrawFees.Value.ToString("F");
+                else
+                {
+                    if (_savingsProduct.FlatWithdrawFeesMin.HasValue)
+                        tbWithdrawFeesMin.Text = _savingsProduct.FlatWithdrawFeesMin.GetFormatedValue(_savingsProduct.UseCents);
+                    if (_savingsProduct.FlatWithdrawFeesMax.HasValue)
+                        tbWithdrawFeesMax.Text = _savingsProduct.FlatWithdrawFeesMax.GetFormatedValue(_savingsProduct.UseCents);
+                }
+                rbFlatWithdrawFees.Checked = true;
+            }
+            else
+            {
+                if (_savingsProduct.RateWithdrawFees.HasValue)
+                    tbWithdrawFeesMin.Text = tbWithdrawFeesMax.Text = (_savingsProduct.RateWithdrawFees.Value * 100).ToString("F");
+                else
+                {
+                    if (_savingsProduct.RateWithdrawFeesMin.HasValue)
+                        tbWithdrawFeesMin.Text = (_savingsProduct.RateWithdrawFeesMin.Value * 100).ToString("F");
+                    if (_savingsProduct.RateWithdrawFeesMax.HasValue)
+                        tbWithdrawFeesMax.Text = (_savingsProduct.RateWithdrawFeesMax.Value * 100).ToString("F");
+                }
+                rbRateWithdrawFees.Checked = true;
+            }
             if (_savingsProduct.InterBranchTransferFee.Min != null) tbInterTransferFeesMin.Text = _savingsProduct.InterBranchTransferFee.Min.Value.ToString("F");
             if (_savingsProduct.InterBranchTransferFee.Max != null) tbInterTransferFeesMax.Text = _savingsProduct.InterBranchTransferFee.Max.Value.ToString("F");
             if (_savingsProduct.InterBranchTransferFee.IsFlat)
                 rbInterFlatTransferFees.Checked = true;
             else
                 rbInterRateTransferFees.Checked = true;
-            FillFieldValues();
-            rbIntraFlatTransferFees.Checked = _savingsProduct.TransferFeesType == OSavingsFeesType.Flat;
+            
+            
             rbFlatWithdrawFees.CheckedChanged += (sender, e) => FillFieldValues();
             rbRateWithdrawFees.CheckedChanged += (sender, e) => FillFieldValues();
             rbIntraFlatTransferFees.CheckedChanged += (sender, e) => FillFieldValues();
@@ -135,48 +178,7 @@ namespace OpenCBS.GUI.Configuration
             if (_savingsProduct.EntryFees.HasValue) tbEntryFeesValue.Text = _savingsProduct.EntryFees.GetFormatedValue(_savingsProduct.UseCents);
             if (_savingsProduct.EntryFeesMin.HasValue) tbEntryFeesMin.Text = _savingsProduct.EntryFeesMin.GetFormatedValue(_savingsProduct.UseCents);
             if (_savingsProduct.EntryFeesMax.HasValue) tbEntryFeesMax.Text = _savingsProduct.EntryFeesMax.GetFormatedValue(_savingsProduct.UseCents);
-
-            if (_savingsProduct.WithdrawFeesType == OSavingsFeesType.Flat)
-            {
-                if (_savingsProduct.FlatWithdrawFees.HasValue) 
-                    tbWithdrawFees.Text = _savingsProduct.FlatWithdrawFees.GetFormatedValue(_savingsProduct.UseCents);
-                if (_savingsProduct.FlatWithdrawFeesMin.HasValue) 
-                    tbWithdrawFeesMin.Text = _savingsProduct.FlatWithdrawFeesMin.GetFormatedValue(_savingsProduct.UseCents);
-                if (_savingsProduct.FlatWithdrawFeesMax.HasValue) 
-                    tbWithdrawFeesMax.Text = _savingsProduct.FlatWithdrawFeesMax.GetFormatedValue(_savingsProduct.UseCents);
-                rbFlatWithdrawFees.Checked = true;
-            }
-            else
-            {
-                if (_savingsProduct.RateWithdrawFees.HasValue) 
-                    tbWithdrawFees.Text = (_savingsProduct.RateWithdrawFees.Value * 100).ToString();
-                if (_savingsProduct.RateWithdrawFeesMin.HasValue) 
-                    tbWithdrawFeesMin.Text = (_savingsProduct.RateWithdrawFeesMin.Value * 100).ToString();
-                if (_savingsProduct.RateWithdrawFeesMax.HasValue) 
-                    tbWithdrawFeesMax.Text = (_savingsProduct.RateWithdrawFeesMax.Value * 100).ToString();
-                rbRateWithdrawFees.Checked = true;
-            }
-
-            if (_savingsProduct.TransferFeesType == OSavingsFeesType.Flat)
-            {
-                if (_savingsProduct.FlatTransferFees.HasValue) 
-                    tbIntraTransferFees.Text = _savingsProduct.FlatTransferFees.GetFormatedValue(_savingsProduct.UseCents);
-                if (_savingsProduct.FlatTransferFeesMin.HasValue) 
-                    tbIntraTransferFeesMin.Text = _savingsProduct.FlatTransferFeesMin.GetFormatedValue(_savingsProduct.UseCents);
-                if (_savingsProduct.FlatTransferFeesMax.HasValue) 
-                    tbIntraTransferFeesMax.Text = _savingsProduct.FlatTransferFeesMax.GetFormatedValue(_savingsProduct.UseCents);
-            }
-            else
-            {
-                if (_savingsProduct.RateTransferFees.HasValue) 
-                    tbIntraTransferFees.Text = (_savingsProduct.RateTransferFees.Value * 100).ToString();
-                if (_savingsProduct.RateTransferFeesMin.HasValue) 
-                    tbIntraTransferFeesMin.Text = (_savingsProduct.RateTransferFeesMin.Value * 100).ToString();
-                if (_savingsProduct.RateTransferFeesMax.HasValue) 
-                    tbIntraTransferFeesMax.Text = (_savingsProduct.RateTransferFeesMax.Value * 100).ToString();
-                rbIntraRateTransferFees.Checked = true;
-            }
-
+            
             if (ServicesProvider.GetInstance().GetSavingProductServices().IsThisProductAlreadyUsed(product.Id))
             {
                 tbName.Enabled = false;
@@ -219,6 +221,8 @@ namespace OpenCBS.GUI.Configuration
             if (_savingsProduct.ReopenFees.HasValue) tbReopenFeesValue.Text = _savingsProduct.ReopenFees.GetFormatedValue(_savingsProduct.UseCents);
             if (_savingsProduct.ReopenFeesMin.HasValue) tbReopenFeesMin.Text = _savingsProduct.ReopenFeesMin.GetFormatedValue(_savingsProduct.UseCents);
             if (_savingsProduct.ReopenFeesMax.HasValue) tbReopenFeesMax.Text = _savingsProduct.ReopenFeesMax.GetFormatedValue(_savingsProduct.UseCents);
+
+            FillFieldValues();
         }
 
         private void InitializeTabPageTermDeposit()
@@ -947,12 +951,22 @@ namespace OpenCBS.GUI.Configuration
                 _savingsProduct.RateTransferFeesMin = CheckAmount(tbIntraTransferFeesMin, false);
                 _savingsProduct.RateTransferFeesMax = CheckAmount(tbIntraTransferFeesMax, false);
                 _savingsProduct.FlatTransferFeesMin = _savingsProduct.FlatTransferFeesMax = null;
+                if (_savingsProduct.RateTransferFeesMin == _savingsProduct.RateTransferFeesMax)
+                {
+                    _savingsProduct.RateTransferFees = CheckAmount(tbIntraTransferFeesMin, false);
+                    _savingsProduct.RateTransferFeesMin = _savingsProduct.RateTransferFeesMax = null;
+                }
             }
             if (_savingsProduct.TransferFeesType == OSavingsFeesType.Flat)
             {
                 _savingsProduct.FlatTransferFeesMin = CheckAmount(tbIntraTransferFeesMin, true, false);
                 _savingsProduct.FlatTransferFeesMax = CheckAmount(tbIntraTransferFeesMax, true, false);
                 _savingsProduct.RateTransferFeesMin = _savingsProduct.RateTransferFeesMax = null;
+                if (_savingsProduct.FlatTransferFeesMin == _savingsProduct.FlatTransferFeesMax)
+                {
+                    _savingsProduct.FlatTransferFees = CheckAmount(tbIntraTransferFeesMin, true, false);
+                    _savingsProduct.FlatTransferFeesMin = _savingsProduct.FlatTransferFeesMax = null;
+                }
             }
             _savingsProduct.InterBranchTransferFee.IsFlat = rbInterFlatTransferFees.Checked;
 
