@@ -1372,6 +1372,9 @@ Deve completar ou "min" e "max" ou o
 Deve completar "min" e "max". 
 (Transações guia)</value>
   </data>
+    <data name="SavingRepaymentAmountIsInvalid.Text" xml:space="preserve">
+    <value>O montante do depósito ou do equilíbrio fora de alcance.</value>
+  </data>
   <data name="SavingsEventCannotBeCanceled.Text" xml:space="preserve">
     <value>Este lançamento de poupança não pode ser cancelado!</value>
   </data>

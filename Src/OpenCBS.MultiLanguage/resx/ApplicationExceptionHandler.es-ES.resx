@@ -657,6 +657,9 @@
   <data name="SavingProductWithdrawMinAmountIsInvalid.Text" xml:space="preserve">
     <value>Los montos de retiro tiene que ser positivos</value>
   </data>
+  	<data name="SavingRepaymentAmountIsInvalid.Text" xml:space="preserve">
+    <value>El importe de la fianza o el equilibrio fuera de rango.</value>
+  </data>
   <data name="sqlError.Text" xml:space="preserve">
     <value>Error al tratar de leer o editar la base de datos, por favor contacte su administrador</value>
   </data>

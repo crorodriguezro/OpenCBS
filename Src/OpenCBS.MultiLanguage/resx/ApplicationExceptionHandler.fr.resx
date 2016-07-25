@@ -819,6 +819,9 @@ Vous devez remplir "Min" et Max" (onglet Transactions)</value>
   <data name="SavingProductPeriodicityIsEmpty.Text" xml:space="preserve">
     <value>Sélectionnez une périodicité pour ce produit</value>
   </data>
+  <data name="SavingRepaymentAmountIsInvalid.Text" xml:space="preserve">
+    <value>Le montant du dépôt ou de l'équilibre hors de portée.</value>
+  </data>
   <data name="OverdraftFeesIsInvalid.Text" xml:space="preserve">
     <value>Les frais de découvert ne sont pas renseignés ou mal renseignés.
 Vous devez remplir soit "min" et "max", soit "valeur". Si vous ne souhaitez pas utiliser de frais de découvert, mettez "valeur" à "0" (onglet Découvert)</value>

@@ -78,6 +78,10 @@ namespace OpenCBS.ExceptionsHandler.Exceptions.SavingExceptions
                     returned = "SavingDepositAmountIsInvalid.Text";
                     break;
 
+                case OpenCbsSavingExceptionEnum.RepaymentAmountIsInvalid:
+                    returned = "SavingRepaymentAmountIsInvalid.Text";
+                    break;
+
                 case OpenCbsSavingExceptionEnum.DepositDateIsInvalid:
                     returned = "SavingDepositDateIsInvalid.Text";
                     break;
@@ -252,6 +256,7 @@ namespace OpenCBS.ExceptionsHandler.Exceptions.SavingExceptions
         WithdrawFeesIsInvalid,
         SavingsContractForTransferNotSameCurrncy,
         RolloverIsInvalid,
+        RepaymentAmountIsInvalid,
         TransferAccountIsInvalid,
         TransferAccountIsClosed,
         TransferAccountIsSavingDepositOrCompulsorySavings,
