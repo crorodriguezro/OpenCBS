@@ -166,6 +166,7 @@ namespace OpenCBS.CoreDomain.Products
         public int? TermDepositPeriodMax { get; set; }
         public InstallmentType Periodicity { get; set; }
 	    public OSavingProductType Type { get; set; }
+	    public bool RenewAuto { get; set; }
 	    public int? InstallmentTypeId { get; set; }
 
         public bool UseCents

@@ -679,6 +679,8 @@ namespace OpenCBS.Services
 
             if (min.HasValue && max.HasValue)
                 returned = min <= max;
+            if (fixedValue.HasValue)
+                returned = true;
 
             return returned;
         }

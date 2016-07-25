@@ -976,7 +976,7 @@
     <value>0, 35</value>
   </data>
   <data name="listViewGuarantors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1097, 234</value>
+    <value>1097, 233</value>
   </data>
   <data name="listViewGuarantors.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -1012,7 +1012,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnPrintGuarantors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 203</value>
+    <value>3, 202</value>
   </data>
   <data name="btnPrintGuarantors.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 28</value>
@@ -1201,7 +1201,7 @@
     <value>3, 3</value>
   </data>
   <data name="pnlGuarantorButtons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 228</value>
+    <value>140, 227</value>
   </data>
   <data name="pnlGuarantorButtons.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -1228,7 +1228,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 234</value>
+    <value>146, 233</value>
   </data>
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -1327,7 +1327,7 @@
     <value>0, 35</value>
   </data>
   <data name="listViewCollaterals.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1097, 251</value>
+    <value>1097, 252</value>
   </data>
   <data name="listViewCollaterals.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1468,7 +1468,7 @@
     <value>1097, 35</value>
   </data>
   <data name="pnlCollateralButtons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 251</value>
+    <value>146, 252</value>
   </data>
   <data name="pnlCollateralButtons.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -1537,7 +1537,7 @@
     <value>1243, 559</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>269</value>
+    <value>268</value>
   </data>
   <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1570,7 +1570,7 @@
     <value>0, 0</value>
   </data>
   <data name="panelLoansContracts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 240</value>
+    <value>1249, 239</value>
   </data>
   <data name="panelLoansContracts.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -1639,7 +1639,7 @@
     <value>0, 35</value>
   </data>
   <data name="panelSavingsContracts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 286</value>
+    <value>1249, 287</value>
   </data>
   <data name="panelSavingsContracts.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -1708,7 +1708,7 @@
     <value>1249, 565</value>
   </data>
   <data name="splitContainerContracts.SplitterDistance" type="System.Int32, mscorlib">
-    <value>240</value>
+    <value>239</value>
   </data>
   <data name="splitContainerContracts.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2950,7 +2950,7 @@
     <value>3, 3</value>
   </data>
   <data name="_loanDetailsScheduleControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1229, 295</value>
+    <value>1229, 259</value>
   </data>
   <data name="_loanDetailsScheduleControl.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -2974,7 +2974,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageInstallments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 301</value>
+    <value>1235, 265</value>
   </data>
   <data name="tabPageInstallments.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3001,7 +3001,7 @@
     <value>3, 268</value>
   </data>
   <data name="tclLoanDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 330</value>
+    <value>1243, 294</value>
   </data>
   <data name="tclLoanDetails.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -4312,7 +4312,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageLoansDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 601</value>
+    <value>1249, 565</value>
   </data>
   <data name="tabPageLoansDetails.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -6967,7 +6967,7 @@ Max:
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        HQAAAk1TRnQBSQFMAgEBBQEAAUgBJgFIASYBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAAXABJgFwASYBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -8766,7 +8766,7 @@ Max:
     <value>459, 3</value>
   </data>
   <data name="flowLayoutPanel10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>773, 333</value>
+    <value>773, 297</value>
   </data>
   <data name="flowLayoutPanel10.TabIndex" type="System.Int32, mscorlib">
     <value>77</value>
@@ -9627,7 +9627,7 @@ Max:
     <value>10</value>
   </data>
   <data name="tlpSBDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>456, 333</value>
+    <value>456, 297</value>
   </data>
   <data name="tlpSBDetails.TabIndex" type="System.Int32, mscorlib">
     <value>78</value>
@@ -9654,7 +9654,7 @@ Max:
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageSavingsAmountsAndFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 339</value>
+    <value>1235, 303</value>
   </data>
   <data name="tabPageSavingsAmountsAndFees.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -10182,7 +10182,7 @@ Max:
     <value>3, 226</value>
   </data>
   <data name="tabControlSavingsDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 372</value>
+    <value>1243, 336</value>
   </data>
   <data name="tabControlSavingsDetails.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -11337,7 +11337,7 @@ Max:
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageSavingDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 601</value>
+    <value>1249, 565</value>
   </data>
   <data name="tabPageSavingDetails.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -11388,10 +11388,10 @@ Max:
     <value>60, 32</value>
   </data>
   <data name="tabControlPerson.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+    <value>0, 36</value>
   </data>
   <data name="tabControlPerson.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1257, 641</value>
+    <value>1257, 605</value>
   </data>
   <data name="tabControlPerson.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -11406,7 +11406,7 @@ Max:
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tabControlPerson.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <metadata name="menuBtnAddSavingOperation.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>392, 13</value>

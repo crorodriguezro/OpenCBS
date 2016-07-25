@@ -215,6 +215,9 @@ namespace OpenCBS.GUI.Configuration
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btSavingProduct = new System.Windows.Forms.Button();
             this.bClose = new System.Windows.Forms.Button();
+            this._renewModeLabel = new System.Windows.Forms.Label();
+            this._renewModeManualRadioButton = new System.Windows.Forms.RadioButton();
+            this._renewModeAutoRadioButton = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -332,6 +335,9 @@ namespace OpenCBS.GUI.Configuration
             // 
             // gbFrequency
             // 
+            this.gbFrequency.Controls.Add(this._renewModeAutoRadioButton);
+            this.gbFrequency.Controls.Add(this._renewModeManualRadioButton);
+            this.gbFrequency.Controls.Add(this._renewModeLabel);
             this.gbFrequency.Controls.Add(this.lbCalculAmount);
             this.gbFrequency.Controls.Add(this.cbCalculAmount);
             this.gbFrequency.Controls.Add(this.lbPosting);
@@ -1492,6 +1498,25 @@ namespace OpenCBS.GUI.Configuration
             this.bClose.Name = "bClose";
             this.bClose.Click += new System.EventHandler(this.bClose_Click);
             // 
+            // _renewModeLabel
+            // 
+            resources.ApplyResources(this._renewModeLabel, "_renewModeLabel");
+            this._renewModeLabel.Name = "_renewModeLabel";
+            // 
+            // _renewModeManualRadioButton
+            // 
+            resources.ApplyResources(this._renewModeManualRadioButton, "_renewModeManualRadioButton");
+            this._renewModeManualRadioButton.Checked = true;
+            this._renewModeManualRadioButton.Name = "_renewModeManualRadioButton";
+            this._renewModeManualRadioButton.TabStop = true;
+            this._renewModeManualRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // _renewModeAutoRadioButton
+            // 
+            resources.ApplyResources(this._renewModeAutoRadioButton, "_renewModeAutoRadioButton");
+            this._renewModeAutoRadioButton.Name = "_renewModeAutoRadioButton";
+            this._renewModeAutoRadioButton.UseVisualStyleBackColor = true;
+            // 
             // FrmAddSavingBookProduct
             // 
             this.AcceptButton = this.btSavingProduct;
@@ -1750,5 +1775,8 @@ namespace OpenCBS.GUI.Configuration
         private System.Windows.Forms.Label lbEntryFeesValue;
         private System.Windows.Forms.Label lbAgioFeesValue;
         private System.Windows.Forms.Label lbOverdraftFeesValue;
+        private System.Windows.Forms.RadioButton _renewModeAutoRadioButton;
+        private System.Windows.Forms.RadioButton _renewModeManualRadioButton;
+        private System.Windows.Forms.Label _renewModeLabel;
     }
 }

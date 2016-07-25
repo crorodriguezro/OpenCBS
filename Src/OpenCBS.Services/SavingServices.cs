@@ -1418,7 +1418,7 @@ namespace OpenCBS.Services
                 client.Branch.Code
                 );
 
-            saving.Status = OSavingsStatus.Pending;
+            saving.Status = saving.InitialAmount > 0 ? OSavingsStatus.Active : OSavingsStatus.Pending;
 
             if (((SavingBookContract)saving).UseTermDeposit)
             {

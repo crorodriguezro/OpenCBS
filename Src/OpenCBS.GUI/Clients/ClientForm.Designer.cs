@@ -482,12 +482,13 @@ namespace OpenCBS.GUI.Clients
             this.lbWithdrawFees = new System.Windows.Forms.Label();
             this.lbInterestRateMinMax = new System.Windows.Forms.Label();
             this.lbWithdrawFeesMinMax = new System.Windows.Forms.Label();
-            this._currentAccountTextBox = new System.Windows.Forms.TextBox();
             this.lBSavingBalance = new System.Windows.Forms.Label();
             this.lbSavingBalanceValue = new System.Windows.Forms.Label();
             this.lBSavingAvBalance = new System.Windows.Forms.Label();
             this.nudWithdrawFees = new System.Windows.Forms.NumericUpDown();
             this.lbSavingAvBalanceValue = new System.Windows.Forms.Label();
+            this._currentAccountLabel = new System.Windows.Forms.Label();
+            this._currentAccountTextBox = new System.Windows.Forms.TextBox();
             this._dateCreatedLabel = new System.Windows.Forms.Label();
             this._dateCreatedValueLabel = new System.Windows.Forms.Label();
             this.tabPageContracts = new System.Windows.Forms.TabPage();
@@ -522,7 +523,6 @@ namespace OpenCBS.GUI.Clients
             this.menuPendingSavingEvents = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuItemConfirmPendingSavingEvent = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCancelPendingSavingEvent = new System.Windows.Forms.ToolStripMenuItem();
-            this._currentAccountLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer10)).BeginInit();
             this.splitContainer10.Panel1.SuspendLayout();
             this.splitContainer10.Panel2.SuspendLayout();
@@ -2806,7 +2806,7 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.nudIbtFee, "nudIbtFee");
             this.nudIbtFee.Maximum = new decimal(new int[] {
-            3,
+            999999999,
             0,
             0,
             0});
@@ -2821,7 +2821,7 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.nudTransferFees, "nudTransferFees");
             this.nudTransferFees.Maximum = new decimal(new int[] {
-            3,
+            999999999,
             0,
             0,
             0});
@@ -2841,7 +2841,7 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.nudReopenFees, "nudReopenFees");
             this.nudReopenFees.Maximum = new decimal(new int[] {
-            3,
+            999999999,
             0,
             0,
             0});
@@ -2871,7 +2871,7 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.nudAgioFees, "nudAgioFees");
             this.nudAgioFees.Maximum = new decimal(new int[] {
-            3,
+            999999999,
             0,
             0,
             0});
@@ -2881,7 +2881,7 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.nudChequeDepositFees, "nudChequeDepositFees");
             this.nudChequeDepositFees.Maximum = new decimal(new int[] {
-            3,
+            999999999,
             0,
             0,
             0});
@@ -2912,7 +2912,7 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.nudOverdraftFees, "nudOverdraftFees");
             this.nudOverdraftFees.Maximum = new decimal(new int[] {
-            3,
+            999999999,
             0,
             0,
             0});
@@ -2922,7 +2922,7 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.nudCloseFees, "nudCloseFees");
             this.nudCloseFees.Maximum = new decimal(new int[] {
-            3,
+            999999999,
             0,
             0,
             0});
@@ -2952,7 +2952,7 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.nudManagementFees, "nudManagementFees");
             this.nudManagementFees.Maximum = new decimal(new int[] {
-            3,
+            999999999,
             0,
             0,
             0});
@@ -2962,7 +2962,7 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.nudDepositFees, "nudDepositFees");
             this.nudDepositFees.Maximum = new decimal(new int[] {
-            3,
+            999999999,
             0,
             0,
             0});
@@ -3309,7 +3309,7 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.nudEntryFees, "nudEntryFees");
             this.nudEntryFees.Maximum = new decimal(new int[] {
-            3,
+            999999999,
             0,
             0,
             0});
@@ -3319,7 +3319,7 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.nudDownInitialAmount, "nudDownInitialAmount");
             this.nudDownInitialAmount.Maximum = new decimal(new int[] {
-            3,
+            999999999,
             0,
             0,
             0});
@@ -3368,7 +3368,7 @@ namespace OpenCBS.GUI.Clients
             262144});
             resources.ApplyResources(this.nudDownInterestRate, "nudDownInterestRate");
             this.nudDownInterestRate.Maximum = new decimal(new int[] {
-            3,
+            999999999,
             0,
             0,
             0});
@@ -3389,12 +3389,6 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.lbWithdrawFeesMinMax, "lbWithdrawFeesMinMax");
             this.lbWithdrawFeesMinMax.Name = "lbWithdrawFeesMinMax";
             // 
-            // _currentAccountTextBox
-            // 
-            resources.ApplyResources(this._currentAccountTextBox, "_currentAccountTextBox");
-            this._currentAccountTextBox.Name = "_currentAccountTextBox";
-            this._currentAccountTextBox.ReadOnly = true;
-            // 
             // lBSavingBalance
             // 
             resources.ApplyResources(this.lBSavingBalance, "lBSavingBalance");
@@ -3414,7 +3408,7 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.nudWithdrawFees, "nudWithdrawFees");
             this.nudWithdrawFees.Maximum = new decimal(new int[] {
-            3,
+            999999999,
             0,
             0,
             0});
@@ -3424,6 +3418,17 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.lbSavingAvBalanceValue, "lbSavingAvBalanceValue");
             this.lbSavingAvBalanceValue.Name = "lbSavingAvBalanceValue";
+            // 
+            // _currentAccountLabel
+            // 
+            resources.ApplyResources(this._currentAccountLabel, "_currentAccountLabel");
+            this._currentAccountLabel.Name = "_currentAccountLabel";
+            // 
+            // _currentAccountTextBox
+            // 
+            resources.ApplyResources(this._currentAccountTextBox, "_currentAccountTextBox");
+            this._currentAccountTextBox.Name = "_currentAccountTextBox";
+            this._currentAccountTextBox.ReadOnly = true;
             // 
             // _dateCreatedLabel
             // 
@@ -3623,11 +3628,6 @@ namespace OpenCBS.GUI.Clients
             this.menuItemCancelPendingSavingEvent.Name = "menuItemCancelPendingSavingEvent";
             resources.ApplyResources(this.menuItemCancelPendingSavingEvent, "menuItemCancelPendingSavingEvent");
             this.menuItemCancelPendingSavingEvent.Click += new System.EventHandler(this.menuItemCancelPendingSavingEvent_Click);
-            // 
-            // _currentAccountLabel
-            // 
-            resources.ApplyResources(this._currentAccountLabel, "_currentAccountLabel");
-            this._currentAccountLabel.Name = "_currentAccountLabel";
             // 
             // ClientForm
             // 

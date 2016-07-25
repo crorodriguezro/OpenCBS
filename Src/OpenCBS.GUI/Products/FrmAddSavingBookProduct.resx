@@ -237,6 +237,90 @@
   <data name="&gt;&gt;_personalAccountRadioButton.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="_renewModeAutoRadioButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_renewModeAutoRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_renewModeAutoRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>552, 61</value>
+  </data>
+  <data name="_renewModeAutoRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
+  </data>
+  <data name="_renewModeAutoRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="_renewModeAutoRadioButton.Text" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="&gt;&gt;_renewModeAutoRadioButton.Name" xml:space="preserve">
+    <value>_renewModeAutoRadioButton</value>
+  </data>
+  <data name="&gt;&gt;_renewModeAutoRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_renewModeAutoRadioButton.Parent" xml:space="preserve">
+    <value>gbFrequency</value>
+  </data>
+  <data name="&gt;&gt;_renewModeAutoRadioButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_renewModeManualRadioButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_renewModeManualRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>426, 61</value>
+  </data>
+  <data name="_renewModeManualRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 20</value>
+  </data>
+  <data name="_renewModeManualRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>89</value>
+  </data>
+  <data name="_renewModeManualRadioButton.Text" xml:space="preserve">
+    <value>Manual</value>
+  </data>
+  <data name="&gt;&gt;_renewModeManualRadioButton.Name" xml:space="preserve">
+    <value>_renewModeManualRadioButton</value>
+  </data>
+  <data name="&gt;&gt;_renewModeManualRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_renewModeManualRadioButton.Parent" xml:space="preserve">
+    <value>gbFrequency</value>
+  </data>
+  <data name="&gt;&gt;_renewModeManualRadioButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_renewModeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_renewModeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>232, 60</value>
+  </data>
+  <data name="_renewModeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 16</value>
+  </data>
+  <data name="_renewModeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>88</value>
+  </data>
+  <data name="_renewModeLabel.Text" xml:space="preserve">
+    <value>Renew mode:</value>
+  </data>
+  <data name="&gt;&gt;_renewModeLabel.Name" xml:space="preserve">
+    <value>_renewModeLabel</value>
+  </data>
+  <data name="&gt;&gt;_renewModeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_renewModeLabel.Parent" xml:space="preserve">
+    <value>gbFrequency</value>
+  </data>
+  <data name="&gt;&gt;_renewModeLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="lbCalculAmount.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -268,16 +352,16 @@
     <value>gbFrequency</value>
   </data>
   <data name="&gt;&gt;lbCalculAmount.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <data name="cbCalculAmount.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
   <data name="cbCalculAmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>408, 23</value>
+    <value>426, 23</value>
   </data>
   <data name="cbCalculAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 24</value>
+    <value>179, 24</value>
   </data>
   <data name="cbCalculAmount.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -292,7 +376,7 @@
     <value>gbFrequency</value>
   </data>
   <data name="&gt;&gt;cbCalculAmount.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="lbPosting.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -325,7 +409,7 @@
     <value>gbFrequency</value>
   </data>
   <data name="&gt;&gt;lbPosting.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="lbAccrual.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -358,7 +442,7 @@
     <value>gbFrequency</value>
   </data>
   <data name="&gt;&gt;lbAccrual.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="cbPosting.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -382,7 +466,7 @@
     <value>gbFrequency</value>
   </data>
   <data name="&gt;&gt;cbPosting.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="cbAccrual.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -406,7 +490,7 @@
     <value>gbFrequency</value>
   </data>
   <data name="&gt;&gt;cbAccrual.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="gbFrequency.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>

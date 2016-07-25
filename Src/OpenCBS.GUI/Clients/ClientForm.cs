@@ -203,7 +203,6 @@ namespace OpenCBS.GUI.Clients
 
         private void InitControls()
         {
-
             ApplicationSettings dataParam = ApplicationSettings.GetInstance(string.Empty);
             int decimalPlaces = dataParam.InterestRateDecimalPlaces;
             nudInterestRate.DecimalPlaces = decimalPlaces;
@@ -215,7 +214,6 @@ namespace OpenCBS.GUI.Clients
             if(ApplicationSettings.GetInstance(User.CurrentUser.Md5).ShowExtraInterestColumn)
                 _repaymentScheduleControl.ShowExtraColumn();
         }
-
 
         public ClientForm(Person pPerson, Form pMdiParent, IApplicationController applicationController = null)
             : this(applicationController)
@@ -1182,7 +1180,7 @@ namespace OpenCBS.GUI.Clients
                     case OSavingsStatus.Pending:
                     {
                         groupBoxSaving.ForeColor = Color.FromArgb(246, 137, 56);
-                        pnlSavingsButtons.Enabled = false;
+//                        pnlSavingsButtons.Enabled = false;
                         buttonFirstDeposit.Visible = true;
                         buttonCloseSaving.Visible = false;
                         buttonReopenSaving.Visible = false;
@@ -1191,7 +1189,7 @@ namespace OpenCBS.GUI.Clients
                     case OSavingsStatus.Active:
                     {
                         groupBoxSaving.ForeColor = Color.FromArgb(61, 153, 57);
-                        pnlSavingsButtons.Enabled = true;
+//                        pnlSavingsButtons.Enabled = true;
                         buttonFirstDeposit.Visible = false;
                         buttonCloseSaving.Visible = true;
                         buttonReopenSaving.Visible = false;
@@ -1200,7 +1198,7 @@ namespace OpenCBS.GUI.Clients
                     case OSavingsStatus.Closed:
                     {
                         groupBoxSaving.ForeColor = Color.Red;
-                        pnlSavingsButtons.Enabled = true;
+//                        pnlSavingsButtons.Enabled = true;
                         buttonSavingsOperations.Enabled = false;
                         buttonFirstDeposit.Visible = false;
                         buttonCloseSaving.Visible = false;
@@ -5143,7 +5141,7 @@ namespace OpenCBS.GUI.Clients
             {
                 nudDownInterestRate.Value = nudDownInterestRate.Minimum = nudDownInterestRate.Maximum = (decimal)pSaving.InterestRate * 100;
                 nudDownInitialAmount.Value = nudDownInitialAmount.Minimum = nudDownInitialAmount.Maximum = pSaving.InitialAmount.Value;
-
+                
                 SavingBookContract s = (SavingBookContract)pSaving;
                 nudEntryFees.Value = nudEntryFees.Minimum = nudEntryFees.Maximum = s.EntryFees.Value;
 
@@ -5317,6 +5315,10 @@ namespace OpenCBS.GUI.Clients
                 buttonSaveSaving.Visible = false;
                 if (_saving.Product.Type != OSavingProductType.PersonalAccount)
                     buttonFirstDeposit.Visible = true;
+                else
+                {
+                    pnlSavingsButtons.Enabled = buttonSavingsOperations.Enabled = btCancelLastSavingEvent.Enabled = flowLayoutPanel9.Enabled = true;
+                }
             }
             catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
             {

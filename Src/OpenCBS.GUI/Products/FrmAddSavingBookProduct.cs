@@ -62,6 +62,7 @@ namespace OpenCBS.GUI.Configuration
             SetWithdrawalFees();
 
             _personalAccountRadioButton.Checked = true;
+            _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible = false;
             tabControlSaving.TabPages.Remove(tabPageTermDeposit);
         }
 
@@ -95,21 +96,30 @@ namespace OpenCBS.GUI.Configuration
             tbInitialAmountMin.Text = _savingsProduct.InitialAmountMin.GetFormatedValue(_savingsProduct.UseCents);
             tbTransferMin.Text = _savingsProduct.TransferMin.GetFormatedValue(_savingsProduct.UseCents);
             tbTransferMax.Text = _savingsProduct.TransferMax.GetFormatedValue(_savingsProduct.UseCents);
-            if (_savingsProduct.InterestRate.HasValue)
-                tbInterestRateMax.Text = tbInterestRateMin.Text = (_savingsProduct.InterestRate.Value*100).ToString("F");
-            else
+            if (product.Type != OSavingProductType.PersonalAccount)
             {
-                // ReSharper disable once PossibleInvalidOperationException
-                tbInterestRateMax.Text = (_savingsProduct.InterestRateMax.Value*100).ToString(CultureInfo.InvariantCulture);
-                // ReSharper disable once PossibleInvalidOperationException
-                tbInterestRateMin.Text = (_savingsProduct.InterestRateMin.Value*100).ToString(CultureInfo.InvariantCulture);
+                if (_savingsProduct.InterestRate.HasValue)
+                    tbInterestRateMax.Text =
+                        tbInterestRateMin.Text = (_savingsProduct.InterestRate.Value*100).ToString("F");
+                else
+                {
+                    // ReSharper disable once PossibleInvalidOperationException
+                    tbInterestRateMax.Text = (_savingsProduct.InterestRateMax.Value*100).ToString("F");
+                    // ReSharper disable once PossibleInvalidOperationException
+                    tbInterestRateMin.Text = (_savingsProduct.InterestRateMin.Value*100).ToString("F");
+                }
             }
             cbPosting.SelectedValue = _savingsProduct.InterestFrequency.ToString();
             cbAccrual.Text = _savingsProduct.InterestBase.ToString();
             tbDepositMin.Text = _savingsProduct.DepositMin.Value.ToString("F");
             tbDepositMax.Text = _savingsProduct.DepositMax.Value.ToString("F");
-            tbDepositFeesMin.Text = _savingsProduct.DepositFeesMin.Value.ToString("F");
-            tbDepositFeesMax.Text = _savingsProduct.DepositFeesMax.Value.ToString("F");
+            tbDepositFeesMin.Text = _savingsProduct.DepositFees.HasValue ? _savingsProduct.DepositFees.Value.ToString("F") : _savingsProduct.DepositFeesMin.Value.ToString("F");
+            tbDepositFeesMax.Text = _savingsProduct.DepositFees.HasValue ? _savingsProduct.DepositFees.Value.ToString("F") : _savingsProduct.DepositFeesMax.Value.ToString("F");
+
+            if (product.RenewAuto)
+                _renewModeAutoRadioButton.Checked = true;
+            else
+                _renewModeManualRadioButton.Checked = true;
 
             if (_savingsProduct.TransferFeesType == OSavingsFeesType.Flat)
                 rbIntraFlatTransferFees.Checked = true;
@@ -117,22 +127,22 @@ namespace OpenCBS.GUI.Configuration
                 rbIntraRateTransferFees.Checked = true;
             if (_savingsProduct.FlatTransferFees.HasValue || _savingsProduct.RateTransferFees.HasValue)
             {
-                tbIntraTransferFeesMin.Text = (_savingsProduct.FlatTransferFees.HasValue && _savingsProduct.FlatTransferFees.Value > 0)
+                tbIntraTransferFeesMin.Text = (_savingsProduct.FlatTransferFees.HasValue)
                     ? _savingsProduct.FlatTransferFees.Value.ToString("F")
                     // ReSharper disable once PossibleInvalidOperationException
                     : (_savingsProduct.RateTransferFees.Value*100).ToString("F");
-                tbIntraTransferFeesMax.Text = (_savingsProduct.FlatTransferFees.HasValue && _savingsProduct.FlatTransferFees.Value > 0)
+                tbIntraTransferFeesMax.Text = (_savingsProduct.FlatTransferFees.HasValue)
                     ? _savingsProduct.FlatTransferFees.Value.ToString("F")
                     // ReSharper disable once PossibleInvalidOperationException
                     : (_savingsProduct.RateTransferFees.Value*100).ToString("F");
             }
             else
             {
-                tbIntraTransferFeesMin.Text = (_savingsProduct.FlatTransferFeesMin.HasValue && _savingsProduct.FlatTransferFeesMin.Value > 0)
+                tbIntraTransferFeesMin.Text = (_savingsProduct.FlatTransferFeesMin.HasValue)
                     ? _savingsProduct.FlatTransferFeesMin.Value.ToString("F")
                     // ReSharper disable once PossibleInvalidOperationException
                     : (_savingsProduct.RateTransferFeesMin.Value*100).ToString("F");
-                tbIntraTransferFeesMax.Text = (_savingsProduct.FlatTransferFeesMax.HasValue && _savingsProduct.FlatTransferFeesMax.Value > 0)
+                tbIntraTransferFeesMax.Text = (_savingsProduct.FlatTransferFeesMax.HasValue)
                     ? _savingsProduct.FlatTransferFeesMax.Value.ToString("F")
                     // ReSharper disable once PossibleInvalidOperationException
                     : (_savingsProduct.RateTransferFeesMax.Value*100).ToString("F");
@@ -165,12 +175,12 @@ namespace OpenCBS.GUI.Configuration
             }
             if (_savingsProduct.InterBranchTransferFee.Min != null) tbInterTransferFeesMin.Text = _savingsProduct.InterBranchTransferFee.Min.Value.ToString("F");
             if (_savingsProduct.InterBranchTransferFee.Max != null) tbInterTransferFeesMax.Text = _savingsProduct.InterBranchTransferFee.Max.Value.ToString("F");
+
             if (_savingsProduct.InterBranchTransferFee.IsFlat)
                 rbInterFlatTransferFees.Checked = true;
             else
                 rbInterRateTransferFees.Checked = true;
-            
-            
+
             rbFlatWithdrawFees.CheckedChanged += (sender, e) => FillFieldValues();
             rbRateWithdrawFees.CheckedChanged += (sender, e) => FillFieldValues();
             rbIntraFlatTransferFees.CheckedChanged += (sender, e) => FillFieldValues();
@@ -221,14 +231,16 @@ namespace OpenCBS.GUI.Configuration
             if (_savingsProduct.OverdraftFeesMax.HasValue)
                 tbOverdraftFeesMax.Text = _savingsProduct.OverdraftFeesMax.GetFormatedValue(_savingsProduct.UseCents);
 
-            if (_savingsProduct.AgioFees.HasValue)
-                tbAgioFeesMin.Text = tbAgioFeesMax.Text = (_savingsProduct.AgioFees.Value*100).ToString("F");
-            else
+            if (product.Type != OSavingProductType.PersonalAccount)
             {
-                tbAgioFeesMin.Text = (_savingsProduct.AgioFeesMin.Value*100).ToString("F");
-                tbAgioFeesMax.Text = (_savingsProduct.AgioFeesMax.Value*100).ToString("F");
+                if (_savingsProduct.AgioFees.HasValue)
+                    tbAgioFeesMin.Text = tbAgioFeesMax.Text = (_savingsProduct.AgioFees.Value*100).ToString("F");
+                else
+                {
+                    tbAgioFeesMin.Text = (_savingsProduct.AgioFeesMin.Value*100).ToString("F");
+                    tbAgioFeesMax.Text = (_savingsProduct.AgioFeesMax.Value*100).ToString("F");
+                }
             }
-
             if (_savingsProduct.ReopenFees.HasValue) tbReopenFeesValue.Text = _savingsProduct.ReopenFees.GetFormatedValue(_savingsProduct.UseCents);
             if (_savingsProduct.ReopenFeesMin.HasValue) tbReopenFeesMin.Text = _savingsProduct.ReopenFeesMin.GetFormatedValue(_savingsProduct.UseCents);
             if (_savingsProduct.ReopenFeesMax.HasValue) tbReopenFeesMax.Text = _savingsProduct.ReopenFeesMax.GetFormatedValue(_savingsProduct.UseCents);
@@ -843,13 +855,15 @@ namespace OpenCBS.GUI.Configuration
         private void _personalAccountRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             gbInitialAmount.Visible = gbInterestRate.Visible = gbFrequency.Visible = gbBalance.Visible = false;
-            if(tabControlSaving.TabPages.Contains(tabPageOverdraft))
+            _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible = false;
+            if (tabControlSaving.TabPages.Contains(tabPageOverdraft))
                 tabControlSaving.TabPages.Remove(tabPageOverdraft);
         }
 
         private void _shortTermDepositRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            gbInitialAmount.Visible = gbInterestRate.Visible = gbFrequency.Visible = gbBalance.Visible = true;
+            gbInitialAmount.Visible = gbInterestRate.Visible = gbFrequency.Visible = gbBalance.Visible =
+            _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible = true;
             if (!tabControlSaving.TabPages.Contains(tabPageOverdraft))
                 tabControlSaving.TabPages.Add(tabPageOverdraft);
         }
@@ -857,6 +871,7 @@ namespace OpenCBS.GUI.Configuration
         private void _savingRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             gbInitialAmount.Visible = gbInterestRate.Visible = gbFrequency.Visible = gbBalance.Visible = true;
+            _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible = false;
             if (!tabControlSaving.TabPages.Contains(tabPageOverdraft))
                 tabControlSaving.TabPages.Add(tabPageOverdraft);
         }
@@ -997,6 +1012,7 @@ namespace OpenCBS.GUI.Configuration
             }
             else
                 _savingsProduct.InterestRate = null;
+            _savingsProduct.RenewAuto = _renewModeAutoRadioButton.Checked;
         }
     }
 }
