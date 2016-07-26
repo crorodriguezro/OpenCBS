@@ -1813,13 +1813,6 @@ namespace OpenCBS.Services
                     //insert into table TrancheEvent
                     _ePs.FireEvent(rescheduleLoanEvent, copyOfLoan, transaction);
 
-                    CallInterceptor(new Dictionary<string, object>
-                    {
-                        {"Loan", loan},
-                        {"Event", rescheduleLoanEvent},
-                        {"SqlTransaction", transaction}
-                    });
-
                     ArchiveInstallments(loan, rescheduleLoanEvent, transaction);
 
                     //delete all the old installments of the table Installments
@@ -1829,6 +1822,14 @@ namespace OpenCBS.Services
                     _instalmentManager.AddInstallments(copyOfLoan.InstallmentList, copyOfLoan.Id, transaction);
 
                     copyOfLoan.Events.Add(rescheduleLoanEvent);
+
+                    CallInterceptor(new Dictionary<string, object>
+                    {
+                        {"Loan", loan},
+                        {"Event", rescheduleLoanEvent},
+                        {"SqlTransaction", transaction}
+                    });
+
                     transaction.Commit();
 
                     SetClientStatus(copyOfLoan, client);
