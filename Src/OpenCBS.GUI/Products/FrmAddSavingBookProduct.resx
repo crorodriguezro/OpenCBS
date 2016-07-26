@@ -3636,26 +3636,20 @@
   <data name="&gt;&gt;gbReopenFees.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="cbManagementFeeFreq.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="cbManagementFeeFreq.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="cbManagementFeeFreq.Location" type="System.Drawing.Point, System.Drawing">
-    <value>417, 63</value>
+    <value>185, 55</value>
   </data>
   <data name="cbManagementFeeFreq.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
   <data name="cbManagementFeeFreq.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 24</value>
+    <value>117, 24</value>
   </data>
   <data name="cbManagementFeeFreq.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
-  </data>
-  <data name="cbManagementFeeFreq.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="&gt;&gt;cbManagementFeeFreq.Name" xml:space="preserve">
     <value>cbManagementFeeFreq</value>
@@ -3781,7 +3775,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="tbManagementFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>323, 65</value>
+    <value>454, 23</value>
   </data>
   <data name="tbManagementFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 22</value>
@@ -3814,7 +3808,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbManagementFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>258, 68</value>
+    <value>389, 26</value>
   </data>
   <data name="lbManagementFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 16</value>
@@ -3958,10 +3952,10 @@
     <value>Arial, 9.75pt</value>
   </data>
   <data name="gtManagementFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>346, 127</value>
+    <value>349, 127</value>
   </data>
   <data name="gtManagementFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>312, 95</value>
+    <value>314, 95</value>
   </data>
   <data name="gtManagementFees.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>

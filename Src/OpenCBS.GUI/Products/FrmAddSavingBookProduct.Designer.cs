@@ -40,6 +40,9 @@ namespace OpenCBS.GUI.Configuration
             this._shortTermDepositRadioButton = new System.Windows.Forms.RadioButton();
             this._personalAccountRadioButton = new System.Windows.Forms.RadioButton();
             this.gbFrequency = new System.Windows.Forms.GroupBox();
+            this._renewModeAutoRadioButton = new System.Windows.Forms.RadioButton();
+            this._renewModeManualRadioButton = new System.Windows.Forms.RadioButton();
+            this._renewModeLabel = new System.Windows.Forms.Label();
             this.lbCalculAmount = new System.Windows.Forms.Label();
             this.cbCalculAmount = new System.Windows.Forms.ComboBox();
             this.lbPosting = new System.Windows.Forms.Label();
@@ -215,9 +218,6 @@ namespace OpenCBS.GUI.Configuration
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btSavingProduct = new System.Windows.Forms.Button();
             this.bClose = new System.Windows.Forms.Button();
-            this._renewModeLabel = new System.Windows.Forms.Label();
-            this._renewModeManualRadioButton = new System.Windows.Forms.RadioButton();
-            this._renewModeAutoRadioButton = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -347,6 +347,25 @@ namespace OpenCBS.GUI.Configuration
             resources.ApplyResources(this.gbFrequency, "gbFrequency");
             this.gbFrequency.Name = "gbFrequency";
             this.gbFrequency.TabStop = false;
+            // 
+            // _renewModeAutoRadioButton
+            // 
+            resources.ApplyResources(this._renewModeAutoRadioButton, "_renewModeAutoRadioButton");
+            this._renewModeAutoRadioButton.Name = "_renewModeAutoRadioButton";
+            this._renewModeAutoRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // _renewModeManualRadioButton
+            // 
+            resources.ApplyResources(this._renewModeManualRadioButton, "_renewModeManualRadioButton");
+            this._renewModeManualRadioButton.Checked = true;
+            this._renewModeManualRadioButton.Name = "_renewModeManualRadioButton";
+            this._renewModeManualRadioButton.TabStop = true;
+            this._renewModeManualRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // _renewModeLabel
+            // 
+            resources.ApplyResources(this._renewModeLabel, "_renewModeLabel");
+            this._renewModeLabel.Name = "_renewModeLabel";
             // 
             // lbCalculAmount
             // 
@@ -1497,25 +1516,6 @@ namespace OpenCBS.GUI.Configuration
             this.bClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bClose.Name = "bClose";
             this.bClose.Click += new System.EventHandler(this.bClose_Click);
-            // 
-            // _renewModeLabel
-            // 
-            resources.ApplyResources(this._renewModeLabel, "_renewModeLabel");
-            this._renewModeLabel.Name = "_renewModeLabel";
-            // 
-            // _renewModeManualRadioButton
-            // 
-            resources.ApplyResources(this._renewModeManualRadioButton, "_renewModeManualRadioButton");
-            this._renewModeManualRadioButton.Checked = true;
-            this._renewModeManualRadioButton.Name = "_renewModeManualRadioButton";
-            this._renewModeManualRadioButton.TabStop = true;
-            this._renewModeManualRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // _renewModeAutoRadioButton
-            // 
-            resources.ApplyResources(this._renewModeAutoRadioButton, "_renewModeAutoRadioButton");
-            this._renewModeAutoRadioButton.Name = "_renewModeAutoRadioButton";
-            this._renewModeAutoRadioButton.UseVisualStyleBackColor = true;
             // 
             // FrmAddSavingBookProduct
             // 
