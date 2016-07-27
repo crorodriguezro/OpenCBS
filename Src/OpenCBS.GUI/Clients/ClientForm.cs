@@ -1086,37 +1086,33 @@ namespace OpenCBS.GUI.Clients
         private void DisplaySaving(ISavingsContract saving)
         {
             saving = SavingServices.GetSaving(saving.Id);
-
+            tabControlSavingsDetails.Visible = buttonFirstDeposit.Enabled = buttonSavingsOperations.Enabled = true;
+            buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible = false;
+//            tabControlSavingsDetails.TabPages.Remove(tabPageSavingsAmountsAndFees);
+            tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
+            tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
             if (saving.Product.Type == OSavingProductType.PersonalAccount)
             {
-                tabControlSavingsDetails.Visible = buttonFirstDeposit.Enabled = buttonSavingsOperations.Enabled = true;
-                buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible = tlpSBDetails.Visible = false;
-                tabControlSavingsDetails.TabPages.Remove(tabPageSavingsAmountsAndFees);
-                tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
-                tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
-                if (saving.Product.Type == OSavingProductType.PersonalAccount)
+                _currentAccountLabel.Visible = _currentAccountTextBox.Visible = true;
+                using (SqlTransaction sqlTransaction = DatabaseConnection.GetConnection().BeginTransaction())
                 {
-                    _currentAccountLabel.Visible = _currentAccountTextBox.Visible = true;
-                    using (SqlTransaction sqlTransaction = DatabaseConnection.GetConnection().BeginTransaction())
+                    try
                     {
-                        try
-                        {
-                            _currentAccountTextBox.Text = SavingServices.CheckAlreadyHaveClientCurrentAccount(_client.Id, sqlTransaction);
-                        }
-                        catch (Exception)
-                        {
-                            sqlTransaction.Rollback();
-                            throw;
-                        }
+                        _currentAccountTextBox.Text = SavingServices.CheckAlreadyHaveClientCurrentAccount(_client.Id, sqlTransaction);
+                    }
+                    catch (Exception)
+                    {
+                        sqlTransaction.Rollback();
+                        throw;
                     }
                 }
-                else
-                {
-                    _currentAccountLabel.Visible = _currentAccountTextBox.Visible = false;
-                }
+            }
+            else
+            {
+                _currentAccountLabel.Visible = _currentAccountTextBox.Visible = false;
             }
 
-            ((SavingBookContract)saving).Loans = SavingServices.SelectLoansBySavingsId(saving.Id);
+            ((SavingBookContract) saving).Loans = SavingServices.SelectLoansBySavingsId(saving.Id);
 
             if (!tabControlPerson.TabPages.Contains(tabPageContracts))
             {
@@ -1127,7 +1123,7 @@ namespace OpenCBS.GUI.Clients
             tabControlPerson.TabPages.Remove(tabPageSavingDetails);
             tabControlPerson.TabPages.Add(tabPageSavingDetails);
 
-            _saving = (SavingBookContract)saving;
+            _saving = (SavingBookContract) saving;
             DisplaySavingProduct(_saving.Product);
             InitializeTabPageTermDeposit();
             nudDownInterestRate.Enabled = false;
@@ -1157,7 +1153,7 @@ namespace OpenCBS.GUI.Clients
             int index = -1;
             for (int i = 0; i < cmbSavingsOfficer.Items.Count; i++)
             {
-                User u = (User)cmbSavingsOfficer.Items[i];
+                User u = (User) cmbSavingsOfficer.Items[i];
                 if (u.Id != saving.SavingsOfficer.Id) continue;
 
                 index = i;
@@ -1170,7 +1166,7 @@ namespace OpenCBS.GUI.Clients
             groupBoxSaving.Name += string.Format(" {0}", _saving.Product.Name);
             groupBoxSaving.Text = string.Format("{0} : {1}",
                 MultiLanguageStrings.GetString(Ressource.ClientForm,
-                _saving is SavingBookContract ? "SavingsBook.Text" : "CompulsorySavings.Text"),
+                    _saving is SavingBookContract ? "SavingsBook.Text" : "CompulsorySavings.Text"),
                 MultiLanguageStrings.GetString(Ressource.ClientForm, "Savings" + _saving.Status + ".Text"));
 
             if (_saving.Product.Type != OSavingProductType.PersonalAccount)
@@ -4977,23 +4973,47 @@ namespace OpenCBS.GUI.Clients
 
                 if (product.Type == OSavingProductType.PersonalAccount)
                 {
-                    tabControlSavingsDetails.Visible = buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible =
-                    tlpSBDetails.Visible = false;
-                    //flowLayoutPanel10.Visible
-                    buttonSavingsOperations.Enabled = true;
+                    buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible = false;
+                    tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = true;
                     tabControlSavingsDetails.TabPages.Remove(tabPageSavingsAmountsAndFees);
                     tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
                     tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
+
+                    if (((SavingsBookProduct)product).EntryFees.HasValue)
+                    {
+                        nudEntryFees.Enabled = false;
+                        nudEntryFees.Minimum = ((SavingsBookProduct)product).EntryFees.Value;
+                        nudEntryFees.Maximum = ((SavingsBookProduct)product).EntryFees.Value;
+                        lbEntryFeesMinMax.Text = string.Format("{0} {1}", ((SavingsBookProduct)product).EntryFees.GetFormatedValue(product.Currency.UseCents), product.Currency.Code);
+                    }
+                    else
+                    {
+                        if (((SavingsBookProduct) product).EntryFeesMin.Value == ((SavingsBookProduct) product).EntryFeesMax.Value)
+                        {
+                            nudEntryFees.Enabled = false;
+                            nudEntryFees.Minimum = ((SavingsBookProduct)product).EntryFees.Value;
+                            nudEntryFees.Maximum = ((SavingsBookProduct)product).EntryFees.Value;
+                            lbEntryFeesMinMax.Text = string.Format("{0} {1}", ((SavingsBookProduct)product).EntryFees.GetFormatedValue(product.Currency.UseCents), product.Currency.Code);
+                        }
+
+                        nudEntryFees.Enabled = true;
+                        nudEntryFees.Minimum = ((SavingsBookProduct)product).EntryFeesMin.Value;
+                        nudEntryFees.Maximum = ((SavingsBookProduct)product).EntryFeesMax.Value;
+                        lbEntryFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
+                            "Min ", ((SavingsBookProduct)product).EntryFeesMin.GetFormatedValue(product.Currency.UseCents),
+                            "Max ", ((SavingsBookProduct)product).EntryFeesMax.GetFormatedValue(product.Currency.UseCents),
+                            product.Currency.Code);
+                    }
                 }
                 else
                 {
                     DisplaySavingProduct(product);
                 }
 
-                tabControlSavingsDetails.TabPages.Clear();
-                tabControlSavingsDetails.TabPages.Add(tabPageSavingsAmountsAndFees);
-                tabControlSavingsDetails.TabPages.Add(tabPageSavingsEvents);
-                tabControlSavingsDetails.TabPages.Add(tabPageLoans); ;
+//                tabControlSavingsDetails.TabPages.Clear();
+//                tabControlSavingsDetails.TabPages.Add(tabPageSavingsAmountsAndFees);
+//                tabControlSavingsDetails.TabPages.Add(tabPageSavingsEvents);
+//                tabControlSavingsDetails.TabPages.Add(tabPageLoans);
                 _saving =
                     new SavingBookContract(ServicesProvider.GetInstance().GetGeneralSettings(),
                         User.CurrentUser,
@@ -5010,7 +5030,7 @@ namespace OpenCBS.GUI.Clients
 
                 InitializeSavingsGeneralControls();
                 InitializeTabPageTermDeposit();
-                InitializeSavingsFees();
+//                InitializeSavingsFees();
 
                 btSavingsUpdate.Visible = false;
 
@@ -5022,7 +5042,7 @@ namespace OpenCBS.GUI.Clients
                 _saving.GenerateSavingCode(_client, numbersOfSavings, ServicesProvider.GetInstance().GetGeneralSettings().SavingsCodeTemplate,
                    _client.Branch.Code);
                 int nextSavingsId = SavingServices.GetLastSavingsId() + 1;
-                tBSavingCode.Text = _saving.Code + '/' + nextSavingsId.ToString();
+                tBSavingCode.Text = _saving.Code + '/' + nextSavingsId;
 
                 InitializeSavingsOfficersComboBox();
                 DisplaySavingEvent(_saving);
@@ -5102,15 +5122,15 @@ namespace OpenCBS.GUI.Clients
             buttonSaveSaving.Visible = true;
             buttonCloseSaving.Visible = false;
             buttonReopenSaving.Visible = false;
-            nudDownInterestRate.Enabled = true;
-            nudDownInitialAmount.Enabled = true;
+            nudDownInterestRate.Enabled = false;
+            nudDownInitialAmount.Enabled = false;
             lbInterestRateMinMax.Visible = true;
         }
 
         private void InitializeSavingsFees()
         {
-            nudWithdrawFees.Enabled = true;
-            nudEntryFees.Enabled = true;
+            nudWithdrawFees.Enabled = false;
+            nudEntryFees.Enabled = false;
             nudTransferFees.Enabled = true;
             nudIbtFee.Enabled = true;
             nudDepositFees.Enabled = true;
@@ -5312,13 +5332,10 @@ namespace OpenCBS.GUI.Clients
                 DisplaySaving(_saving);
                 DisplaySavings(_client.Savings);
                 DisplaySavingEvent(_saving);
+                InitializeSavingsFees();
                 buttonSaveSaving.Visible = false;
-                if (_saving.Product.Type != OSavingProductType.PersonalAccount)
-                    buttonFirstDeposit.Visible = true;
-                else
-                {
-                    pnlSavingsButtons.Enabled = buttonSavingsOperations.Enabled = btCancelLastSavingEvent.Enabled = flowLayoutPanel9.Enabled = true;
-                }
+                buttonFirstDeposit.Visible = false;
+                pnlSavingsButtons.Enabled = buttonSavingsOperations.Enabled = btCancelLastSavingEvent.Enabled = flowLayoutPanel9.Enabled = true;
             }
             catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
             {
@@ -5338,6 +5355,7 @@ namespace OpenCBS.GUI.Clients
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
             DisplaySavings(_client.Savings);
+            DisplaySaving(_saving.Id, _client);
 //            ((MainView)_mdiParent).ReloadAlertsSync();
         }
 

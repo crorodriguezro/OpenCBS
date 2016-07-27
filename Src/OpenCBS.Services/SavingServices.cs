@@ -412,14 +412,13 @@ namespace OpenCBS.Services
                     ISavingsContract savingSimulation = (ISavingsContract)saving.Clone();
                     // Create a fake Saving object
                     if (saving.Client == null)
-                        saving.Client =
-                            ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(saving.Id);
+                        saving.Client = ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(saving.Id);
 
                     // Do deposit to the fake Saving object
                     savingSimulation.Deposit(depositAmount, dateTime, description, user, false, isPending, savingsMethod,
                                              paymentMethod, pendingEventId, teller);
 
-                    if (!IsSavingBalanceCorrect(savingSimulation)) // Check balance simulation
+                    if (!IsSavingBalanceCorrect(savingSimulation) && savingSimulation.Product.Type != OSavingProductType.PersonalAccount) // Check balance simulation
                         throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
 
                     List<SavingEvent> events = saving.Deposit(depositAmount, dateTime, description, user, false,
@@ -1475,6 +1474,11 @@ namespace OpenCBS.Services
                     if (new ClientServices(_user).FindTiersByContractId(loan.Id).Id != new ClientServices(_user).FindTiersBySavingsId(pSaving.Id).Id)
                         throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.LoanHasNotSameClient);
             }
+        }
+
+        public void UpdateStatus(ISavingsContract pSaving)
+        {
+            _savingManager.UpdateStatus(pSaving.Id, pSaving.Status, null);
         }
 
         public List<SavingSearchResult> FindContracts(int pCurrentlyPage, out int pNumbersTotalPage,

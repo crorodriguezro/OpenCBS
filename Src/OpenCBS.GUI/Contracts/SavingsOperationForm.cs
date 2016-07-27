@@ -366,6 +366,8 @@ namespace OpenCBS.GUI.Contracts
 
                             savingServices.Deposit(_saving, _date, _amount, _description, User.CurrentUser, pending,
                                 savingsMethod, paymentMethod, null, Teller.CurrentTeller);
+                            _saving.Status = OSavingsStatus.Active;
+                            savingServices.UpdateStatus(_saving);
                             break;
                         }
                     case OSavingsOperation.Debit:
