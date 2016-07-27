@@ -1175,7 +1175,7 @@ namespace OpenCBS.Services
 
         private List<Installment> AssembleRescheduling(Loan loan, ScheduleConfiguration rescheduleConfiguration, IScheduleConfiguration scheduleConfiguration)
         {
-            var copyOfLoan = loan.Copy();;
+            var copyOfLoan = loan.Copy();
             var schedule = copyOfLoan.InstallmentList;
             // Build a new combined schedule
 
@@ -1633,22 +1633,22 @@ namespace OpenCBS.Services
                                   .FindAll(i => i.ExpectedDate <= trancheConfiguration.StartDate)
                                   .LastOrDefault();
                     var trancheEvent = new TrancheEvent
-                        {
-                            Amount = trancheConfiguration.Amount,
-                            ApplyNewInterest = trancheConfiguration.ApplyNewInterestRateToOlb,
-                            Maturity = trancheConfiguration.NumberOfInstallments,
-                            StartDate = trancheConfiguration.StartDate,
-                            Date = TimeProvider.Now,
-                            InterestRate = trancheConfiguration.InterestRate / 100,
-                            Number = copyOfLoan.GivenTranches.Count,
-                            FirstRepaymentDate = trancheConfiguration.PreferredFirstInstallmentDate,
-                            GracePeriod = trancheConfiguration.GracePeriod,
-                            StartedFromInstallment = startInstallment == null ? 0 : startInstallment.Number,
-                            User = _user,
-                            PaymentMethod = paymentMethod,
-                            PaymentMethodId = paymentMethod.Id,
-                            Cancelable = true
-                        };
+                    {
+                        Amount = trancheConfiguration.Amount,
+                        ApplyNewInterest = trancheConfiguration.ApplyNewInterestRateToOlb,
+                        Maturity = trancheConfiguration.NumberOfInstallments,
+                        StartDate = trancheConfiguration.StartDate,
+                        Date = TimeProvider.Now,
+                        InterestRate = trancheConfiguration.InterestRate / 100,
+                        Number = copyOfLoan.GivenTranches.Count,
+                        FirstRepaymentDate = trancheConfiguration.PreferredFirstInstallmentDate,
+                        GracePeriod = trancheConfiguration.GracePeriod,
+                        StartedFromInstallment = startInstallment == null ? 0 : startInstallment.Number,
+                        User = _user,
+                        PaymentMethod = paymentMethod,
+                        PaymentMethodId = paymentMethod.Id,
+                        Cancelable = true
+                    };
 
                     trancheEvent.User = _user;
                     trancheEvent.Commissions = entryFees;
@@ -1661,13 +1661,6 @@ namespace OpenCBS.Services
                     _ePs.FireEvent(trancheEvent, copyOfLoan, transaction);
                     copyOfLoan.Events.Add(trancheEvent);
                     
-                    CallInterceptor(new Dictionary<string, object>
-                    {
-                        {"Loan", copyOfLoan},
-                        {"Event", trancheEvent},
-                        {"SqlTransaction", transaction}
-                    });
-
                     // Add entry fee events
                     foreach (var entryFee in entryFees)
                     {
@@ -1685,25 +1678,6 @@ namespace OpenCBS.Services
                         copyOfLoan.Events.Add(entryFeeEvent);
                     }
                     _loanManager.InsertLoanEntryFees(entryFees.ToList(), loan.Id, transaction);
-
-                    var trancheEntryFeeEvent =
-                        copyOfLoan.Events.OfType<LoanEntryFeeEvent>()
-                                  .FirstOrDefault(i => i.DisbursementEventId == trancheEvent.Id);
-
-                    if (trancheEntryFeeEvent != null)
-                        CallInterceptor(new Dictionary<string, object>
-                        {
-                            {"Loan", copyOfLoan},
-                            {
-                                "Event", new LoanEntryFeeEvent
-                                    {
-                                        Id = trancheEntryFeeEvent.Id,
-                                        Fee = entryFees.Sum(i => i.FeeValue),
-                                        Code = "LEE0"
-                                    }
-                            },
-                            {"SqlTransaction", transaction}
-                        });
 
                     ArchiveInstallments(loan, trancheEvent, transaction);
 
@@ -1727,6 +1701,32 @@ namespace OpenCBS.Services
                         copyOfLoan,
                         transaction);
                     copyOfLoan.GivenTranches.Add(trancheEvent);
+
+                    // Invoke interceptors
+                    CallInterceptor(new Dictionary<string, object>
+                    {
+                        {"Loan", copyOfLoan},
+                        {"Event", trancheEvent},
+                        {"SqlTransaction", transaction}
+                    });
+
+                    var trancheEntryFeeEvent = copyOfLoan.Events.OfType<LoanEntryFeeEvent>().FirstOrDefault(i => i.DisbursementEventId == trancheEvent.Id);
+
+                    if (trancheEntryFeeEvent != null)
+                        CallInterceptor(new Dictionary<string, object>
+                        {
+                            {"Loan", copyOfLoan},
+                            {
+                                "Event", new LoanEntryFeeEvent
+                                {
+                                    Id = trancheEntryFeeEvent.Id,
+                                    Fee = entryFees.Sum(i => i.FeeValue),
+                                    Code = "LEE0"
+                                }
+                            },
+                            {"SqlTransaction", transaction}
+                        });
+
                     transaction.Commit();
 
                     SetClientStatus(copyOfLoan, client);
