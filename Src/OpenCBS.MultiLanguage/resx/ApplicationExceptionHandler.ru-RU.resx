@@ -195,6 +195,9 @@
   <data name="SavingProductWithdrawMinAmountIsInvalid.Text" xml:space="preserve">
     <value>Сумма снятия должна быть положительна</value>
   </data>
+	<data name="SavingRepaymentAmountIsInvalid.Text" xml:space="preserve">
+    <value>Сумма или баланс депозита за пределами допустимого значения.</value>
+  </data>
   <data name="AccountExceptionAccountIsNull.Text" xml:space="preserve">
     <value>Выберите счет</value>
   </data>

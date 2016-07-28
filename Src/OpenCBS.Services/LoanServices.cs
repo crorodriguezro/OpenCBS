@@ -3225,7 +3225,7 @@ namespace OpenCBS.Services
             return engine.ExecuteFile(file);
         }
 
-        public Loan SaveInstallmentsAndRepaymentEvents(Loan loan, IList<Installment> newInstallments, EventStock eventStock)
+        public Loan SaveInstallmentsAndRepaymentEvents(Loan loan, IList<Installment> newInstallments, EventStock eventStock, bool numberOfInstallmentsIsChanged = false)
         {
             var repayEvent = eventStock.GetRepaymentEvents().First(i => !i.IsFired).Copy();
             var amount =
@@ -3268,9 +3268,25 @@ namespace OpenCBS.Services
                     _ePs.FireEvent(repayEvent, loan, sqlTransaction);
                     ArchiveInstallments(loan, repayEvent, sqlTransaction);
                     loan.InstallmentList = newInstallments.ToList();
+                    if (numberOfInstallmentsIsChanged)
+                    {
+                        var differenceOfNumberOfInstallments = newInstallments.Count - loan.NbOfInstallments;
+                        if (differenceOfNumberOfInstallments < 0)
+                        {
+                            _instalmentManager.DeleteInstallments(loan.Id, sqlTransaction);
+                            _instalmentManager.AddInstallments(newInstallments.ToList(), loan.Id, sqlTransaction);
+                        }
+                        if (differenceOfNumberOfInstallments > 0)
+                            _instalmentManager.AddInstallments(newInstallments.Skip(loan.NbOfInstallments).ToList(), loan.Id, sqlTransaction);
+                    }
                     foreach (var installment in newInstallments)
                         _instalmentManager.UpdateInstallment(installment, loan.Id, repayEvent.Id, sqlTransaction);
-                    if (newInstallments.All(installment => installment.IsRepaid))
+                    if (numberOfInstallmentsIsChanged && loan.InstallmentList.Count != loan.NbOfInstallments)
+                    {
+                        loan.NbOfInstallments = loan.InstallmentList.Count;
+                        _loanManager.UpdateLoan(loan, sqlTransaction);
+                    }
+                    if ( newInstallments.All(installment => installment.IsRepaid))
                     {
                         _ePs.FireEvent(loan.GetCloseEvent(repayEvent.Date), loan, sqlTransaction);
                         loan.Closed = true;

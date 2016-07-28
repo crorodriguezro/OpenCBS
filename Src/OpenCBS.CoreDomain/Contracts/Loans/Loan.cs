@@ -2634,7 +2634,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
         public bool IsViewableBy(User user)
         {
             Debug.Assert(LoanOfficer != null, "Loan officer is null.");
-            return LoanOfficer.Equals(user)
+            return LoanOfficer.Id == user.Id
                 ? true
                 : user.HasAsSubordinate(LoanOfficer);
         }
