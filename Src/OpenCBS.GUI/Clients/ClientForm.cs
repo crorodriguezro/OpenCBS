@@ -4991,18 +4991,49 @@ namespace OpenCBS.GUI.Clients
                         if (((SavingsBookProduct) product).EntryFeesMin.Value == ((SavingsBookProduct) product).EntryFeesMax.Value)
                         {
                             nudEntryFees.Enabled = false;
-                            nudEntryFees.Minimum = ((SavingsBookProduct)product).EntryFees.Value;
-                            nudEntryFees.Maximum = ((SavingsBookProduct)product).EntryFees.Value;
-                            lbEntryFeesMinMax.Text = string.Format("{0} {1}", ((SavingsBookProduct)product).EntryFees.GetFormatedValue(product.Currency.UseCents), product.Currency.Code);
+                            nudEntryFees.Minimum = ((SavingsBookProduct) product).EntryFees.Value;
+                            nudEntryFees.Maximum = ((SavingsBookProduct) product).EntryFees.Value;
+                            lbEntryFeesMinMax.Text = string.Format("{0} {1}",
+                                ((SavingsBookProduct) product).EntryFees.GetFormatedValue(product.Currency.UseCents),
+                                product.Currency.Code);
                         }
-
-                        nudEntryFees.Enabled = true;
-                        nudEntryFees.Minimum = ((SavingsBookProduct)product).EntryFeesMin.Value;
-                        nudEntryFees.Maximum = ((SavingsBookProduct)product).EntryFeesMax.Value;
-                        lbEntryFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
-                            "Min ", ((SavingsBookProduct)product).EntryFeesMin.GetFormatedValue(product.Currency.UseCents),
-                            "Max ", ((SavingsBookProduct)product).EntryFeesMax.GetFormatedValue(product.Currency.UseCents),
-                            product.Currency.Code);
+                        else
+                        {
+                            nudEntryFees.Enabled = true;
+                            nudEntryFees.Minimum = ((SavingsBookProduct) product).EntryFeesMin.Value;
+                            nudEntryFees.Maximum = ((SavingsBookProduct) product).EntryFeesMax.Value;
+                            lbEntryFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}", "Min ",
+                                ((SavingsBookProduct) product).EntryFeesMin.GetFormatedValue(product.Currency.UseCents), "Max ",
+                                ((SavingsBookProduct) product).EntryFeesMax.GetFormatedValue(product.Currency.UseCents), product.Currency.Code);
+                        }
+                    }
+                    if (((SavingsBookProduct)product).ManagementFees.HasValue)
+                    {
+                        nudManagementFees.Enabled = false;
+                        nudManagementFees.Minimum = ((SavingsBookProduct)product).ManagementFees.Value;
+                        nudManagementFees.Maximum = ((SavingsBookProduct)product).ManagementFees.Value;
+                        lbManagementFeesMinMax.Text = string.Format("{0} {1}",
+                            ((SavingsBookProduct)product).ManagementFees.GetFormatedValue(product.Currency.UseCents), product.Currency.Code);
+                    }
+                    else
+                    {
+                        if (((SavingsBookProduct) product).ManagementFeesMin.Value == ((SavingsBookProduct) product).ManagementFeesMax.Value)
+                        {
+                            nudManagementFees.Enabled = false;
+                            nudManagementFees.Minimum = ((SavingsBookProduct)product).ManagementFees.Value;
+                            nudManagementFees.Maximum = ((SavingsBookProduct)product).ManagementFees.Value;
+                            lbManagementFeesMinMax.Text = string.Format("{0} {1}",
+                                ((SavingsBookProduct)product).ManagementFees.GetFormatedValue(product.Currency.UseCents), product.Currency.Code);
+                        }
+                        else
+                        {
+                            nudManagementFees.Enabled = true;
+                            nudManagementFees.Minimum = ((SavingsBookProduct) product).ManagementFeesMin.Value;
+                            nudManagementFees.Maximum = ((SavingsBookProduct) product).ManagementFeesMax.Value;
+                            lbManagementFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}", "Min ",
+                                ((SavingsBookProduct) product).ManagementFeesMin.GetFormatedValue(product.Currency.UseCents),
+                                "Max ",((SavingsBookProduct) product).ManagementFeesMax.GetFormatedValue(product.Currency.UseCents),product.Currency.Code);
+                        }
                     }
                 }
                 else

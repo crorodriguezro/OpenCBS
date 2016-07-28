@@ -419,11 +419,11 @@ namespace OpenCBS.GUI.Clients
             this.nudCloseFees = new System.Windows.Forms.NumericUpDown();
             this.lbOverdraftFees = new System.Windows.Forms.Label();
             this.lbCloseFeesMinMax = new System.Windows.Forms.Label();
-            this.lbManagementFeesMinMax = new System.Windows.Forms.Label();
-            this.lbManagementFees = new System.Windows.Forms.Label();
-            this.nudManagementFees = new System.Windows.Forms.NumericUpDown();
             this.nudDepositFees = new System.Windows.Forms.NumericUpDown();
             this.lblInterBranchTransfer = new System.Windows.Forms.Label();
+            this.lbWithdrawFees = new System.Windows.Forms.Label();
+            this.nudWithdrawFees = new System.Windows.Forms.NumericUpDown();
+            this.lbWithdrawFeesMinMax = new System.Windows.Forms.Label();
             this.tabPageSavingsEvents = new System.Windows.Forms.TabPage();
             this.lvSavingEvent = new System.Windows.Forms.ListView();
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -467,30 +467,30 @@ namespace OpenCBS.GUI.Clients
             this.btnPrintSavings = new OpenCBS.GUI.UserControl.PrintButton();
             this.groupBoxSaving = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbEntryFeesMinMax = new System.Windows.Forms.Label();
             this.lbInitialAmountMinMax = new System.Windows.Forms.Label();
-            this.lbEntryFees = new System.Windows.Forms.Label();
             this.labelInitialAmount = new System.Windows.Forms.Label();
-            this.nudEntryFees = new System.Windows.Forms.NumericUpDown();
             this.nudDownInitialAmount = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tBSavingCode = new System.Windows.Forms.TextBox();
-            this.cmbSavingsOfficer = new System.Windows.Forms.ComboBox();
-            this.labelInterestRate = new System.Windows.Forms.Label();
-            this.nudDownInterestRate = new System.Windows.Forms.NumericUpDown();
-            this.lbWithdrawFees = new System.Windows.Forms.Label();
-            this.lbInterestRateMinMax = new System.Windows.Forms.Label();
-            this.lbWithdrawFeesMinMax = new System.Windows.Forms.Label();
             this.lBSavingBalance = new System.Windows.Forms.Label();
             this.lbSavingBalanceValue = new System.Windows.Forms.Label();
             this.lBSavingAvBalance = new System.Windows.Forms.Label();
-            this.nudWithdrawFees = new System.Windows.Forms.NumericUpDown();
             this.lbSavingAvBalanceValue = new System.Windows.Forms.Label();
             this._currentAccountLabel = new System.Windows.Forms.Label();
             this._currentAccountTextBox = new System.Windows.Forms.TextBox();
             this._dateCreatedLabel = new System.Windows.Forms.Label();
             this._dateCreatedValueLabel = new System.Windows.Forms.Label();
+            this.lbManagementFees = new System.Windows.Forms.Label();
+            this.nudManagementFees = new System.Windows.Forms.NumericUpDown();
+            this.lbManagementFeesMinMax = new System.Windows.Forms.Label();
+            this.cmbSavingsOfficer = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbEntryFees = new System.Windows.Forms.Label();
+            this.nudEntryFees = new System.Windows.Forms.NumericUpDown();
+            this.labelInterestRate = new System.Windows.Forms.Label();
+            this.nudDownInterestRate = new System.Windows.Forms.NumericUpDown();
+            this.lbEntryFeesMinMax = new System.Windows.Forms.Label();
+            this.lbInterestRateMinMax = new System.Windows.Forms.Label();
             this.tabPageContracts = new System.Windows.Forms.TabPage();
             this.menuBtnAddSavingOperation = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.savingDepositToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -618,8 +618,8 @@ namespace OpenCBS.GUI.Clients
             ((System.ComponentModel.ISupportInitialize)(this.nudChequeDepositFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOverdraftFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCloseFees)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudManagementFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDepositFees)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudWithdrawFees)).BeginInit();
             this.tabPageSavingsEvents.SuspendLayout();
             this.tabPageLoans.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olvLoans)).BeginInit();
@@ -630,10 +630,10 @@ namespace OpenCBS.GUI.Clients
             this.pnlSavingsButtons.SuspendLayout();
             this.groupBoxSaving.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEntryFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDownInitialAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudManagementFees)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEntryFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDownInterestRate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudWithdrawFees)).BeginInit();
             this.tabPageContracts.SuspendLayout();
             this.menuBtnAddSavingOperation.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -2784,11 +2784,11 @@ namespace OpenCBS.GUI.Clients
             this.tlpSBDetails.Controls.Add(this.nudCloseFees, 1, 2);
             this.tlpSBDetails.Controls.Add(this.lbOverdraftFees, 0, 4);
             this.tlpSBDetails.Controls.Add(this.lbCloseFeesMinMax, 2, 2);
-            this.tlpSBDetails.Controls.Add(this.lbManagementFeesMinMax, 2, 3);
-            this.tlpSBDetails.Controls.Add(this.lbManagementFees, 0, 3);
-            this.tlpSBDetails.Controls.Add(this.nudManagementFees, 1, 3);
             this.tlpSBDetails.Controls.Add(this.nudDepositFees, 1, 1);
             this.tlpSBDetails.Controls.Add(this.lblInterBranchTransfer, 0, 7);
+            this.tlpSBDetails.Controls.Add(this.lbWithdrawFees, 0, 3);
+            this.tlpSBDetails.Controls.Add(this.nudWithdrawFees, 1, 3);
+            this.tlpSBDetails.Controls.Add(this.lbWithdrawFeesMinMax, 2, 3);
             this.tlpSBDetails.Name = "tlpSBDetails";
             // 
             // lblIbtFeeMinMax
@@ -2938,26 +2938,6 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.lbCloseFeesMinMax, "lbCloseFeesMinMax");
             this.lbCloseFeesMinMax.Name = "lbCloseFeesMinMax";
             // 
-            // lbManagementFeesMinMax
-            // 
-            resources.ApplyResources(this.lbManagementFeesMinMax, "lbManagementFeesMinMax");
-            this.lbManagementFeesMinMax.Name = "lbManagementFeesMinMax";
-            // 
-            // lbManagementFees
-            // 
-            resources.ApplyResources(this.lbManagementFees, "lbManagementFees");
-            this.lbManagementFees.Name = "lbManagementFees";
-            // 
-            // nudManagementFees
-            // 
-            resources.ApplyResources(this.nudManagementFees, "nudManagementFees");
-            this.nudManagementFees.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.nudManagementFees.Name = "nudManagementFees";
-            // 
             // nudDepositFees
             // 
             resources.ApplyResources(this.nudDepositFees, "nudDepositFees");
@@ -2973,6 +2953,26 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.lblInterBranchTransfer, "lblInterBranchTransfer");
             this.lblInterBranchTransfer.BackColor = System.Drawing.Color.Transparent;
             this.lblInterBranchTransfer.Name = "lblInterBranchTransfer";
+            // 
+            // lbWithdrawFees
+            // 
+            resources.ApplyResources(this.lbWithdrawFees, "lbWithdrawFees");
+            this.lbWithdrawFees.Name = "lbWithdrawFees";
+            // 
+            // nudWithdrawFees
+            // 
+            resources.ApplyResources(this.nudWithdrawFees, "nudWithdrawFees");
+            this.nudWithdrawFees.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.nudWithdrawFees.Name = "nudWithdrawFees";
+            // 
+            // lbWithdrawFeesMinMax
+            // 
+            resources.ApplyResources(this.lbWithdrawFeesMinMax, "lbWithdrawFeesMinMax");
+            this.lbWithdrawFeesMinMax.Name = "lbWithdrawFeesMinMax";
             // 
             // tabPageSavingsEvents
             // 
@@ -3258,62 +3258,42 @@ namespace OpenCBS.GUI.Clients
             // tableLayoutPanel5
             // 
             resources.ApplyResources(this.tableLayoutPanel5, "tableLayoutPanel5");
-            this.tableLayoutPanel5.Controls.Add(this.lbEntryFeesMinMax, 2, 2);
             this.tableLayoutPanel5.Controls.Add(this.lbInitialAmountMinMax, 2, 1);
-            this.tableLayoutPanel5.Controls.Add(this.lbEntryFees, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.labelInitialAmount, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.nudEntryFees, 1, 2);
             this.tableLayoutPanel5.Controls.Add(this.nudDownInitialAmount, 1, 1);
-            this.tableLayoutPanel5.Controls.Add(this.label1, 0, 3);
             this.tableLayoutPanel5.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.tBSavingCode, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.cmbSavingsOfficer, 1, 3);
-            this.tableLayoutPanel5.Controls.Add(this.labelInterestRate, 3, 2);
-            this.tableLayoutPanel5.Controls.Add(this.nudDownInterestRate, 4, 2);
-            this.tableLayoutPanel5.Controls.Add(this.lbWithdrawFees, 3, 3);
-            this.tableLayoutPanel5.Controls.Add(this.lbInterestRateMinMax, 5, 2);
-            this.tableLayoutPanel5.Controls.Add(this.lbWithdrawFeesMinMax, 5, 3);
             this.tableLayoutPanel5.Controls.Add(this.lBSavingBalance, 3, 0);
             this.tableLayoutPanel5.Controls.Add(this.lbSavingBalanceValue, 4, 0);
             this.tableLayoutPanel5.Controls.Add(this.lBSavingAvBalance, 3, 1);
-            this.tableLayoutPanel5.Controls.Add(this.nudWithdrawFees, 4, 3);
             this.tableLayoutPanel5.Controls.Add(this.lbSavingAvBalanceValue, 4, 1);
             this.tableLayoutPanel5.Controls.Add(this._currentAccountLabel, 6, 1);
             this.tableLayoutPanel5.Controls.Add(this._currentAccountTextBox, 7, 1);
             this.tableLayoutPanel5.Controls.Add(this._dateCreatedLabel, 6, 0);
             this.tableLayoutPanel5.Controls.Add(this._dateCreatedValueLabel, 7, 0);
+            this.tableLayoutPanel5.Controls.Add(this.lbManagementFees, 3, 3);
+            this.tableLayoutPanel5.Controls.Add(this.nudManagementFees, 4, 3);
+            this.tableLayoutPanel5.Controls.Add(this.lbManagementFeesMinMax, 5, 3);
+            this.tableLayoutPanel5.Controls.Add(this.cmbSavingsOfficer, 7, 2);
+            this.tableLayoutPanel5.Controls.Add(this.label1, 6, 2);
+            this.tableLayoutPanel5.Controls.Add(this.lbEntryFees, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.nudEntryFees, 1, 3);
+            this.tableLayoutPanel5.Controls.Add(this.labelInterestRate, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.nudDownInterestRate, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.lbEntryFeesMinMax, 2, 3);
+            this.tableLayoutPanel5.Controls.Add(this.lbInterestRateMinMax, 2, 2);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            // 
-            // lbEntryFeesMinMax
-            // 
-            resources.ApplyResources(this.lbEntryFeesMinMax, "lbEntryFeesMinMax");
-            this.lbEntryFeesMinMax.Name = "lbEntryFeesMinMax";
             // 
             // lbInitialAmountMinMax
             // 
             resources.ApplyResources(this.lbInitialAmountMinMax, "lbInitialAmountMinMax");
             this.lbInitialAmountMinMax.Name = "lbInitialAmountMinMax";
             // 
-            // lbEntryFees
-            // 
-            resources.ApplyResources(this.lbEntryFees, "lbEntryFees");
-            this.lbEntryFees.Name = "lbEntryFees";
-            // 
             // labelInitialAmount
             // 
             resources.ApplyResources(this.labelInitialAmount, "labelInitialAmount");
             this.labelInitialAmount.BackColor = System.Drawing.Color.Transparent;
             this.labelInitialAmount.Name = "labelInitialAmount";
-            // 
-            // nudEntryFees
-            // 
-            resources.ApplyResources(this.nudEntryFees, "nudEntryFees");
-            this.nudEntryFees.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.nudEntryFees.Name = "nudEntryFees";
             // 
             // nudDownInitialAmount
             // 
@@ -3324,12 +3304,6 @@ namespace OpenCBS.GUI.Clients
             0,
             0});
             this.nudDownInitialAmount.Name = "nudDownInitialAmount";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Name = "label1";
             // 
             // label9
             // 
@@ -3343,51 +3317,6 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.tBSavingCode, "tBSavingCode");
             this.tBSavingCode.Name = "tBSavingCode";
             this.tBSavingCode.ReadOnly = true;
-            // 
-            // cmbSavingsOfficer
-            // 
-            this.tableLayoutPanel5.SetColumnSpan(this.cmbSavingsOfficer, 2);
-            this.cmbSavingsOfficer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSavingsOfficer.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbSavingsOfficer, "cmbSavingsOfficer");
-            this.cmbSavingsOfficer.Name = "cmbSavingsOfficer";
-            // 
-            // labelInterestRate
-            // 
-            resources.ApplyResources(this.labelInterestRate, "labelInterestRate");
-            this.labelInterestRate.BackColor = System.Drawing.Color.Transparent;
-            this.labelInterestRate.Name = "labelInterestRate";
-            // 
-            // nudDownInterestRate
-            // 
-            this.nudDownInterestRate.DecimalPlaces = 4;
-            this.nudDownInterestRate.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            262144});
-            resources.ApplyResources(this.nudDownInterestRate, "nudDownInterestRate");
-            this.nudDownInterestRate.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.nudDownInterestRate.Name = "nudDownInterestRate";
-            // 
-            // lbWithdrawFees
-            // 
-            resources.ApplyResources(this.lbWithdrawFees, "lbWithdrawFees");
-            this.lbWithdrawFees.Name = "lbWithdrawFees";
-            // 
-            // lbInterestRateMinMax
-            // 
-            resources.ApplyResources(this.lbInterestRateMinMax, "lbInterestRateMinMax");
-            this.lbInterestRateMinMax.Name = "lbInterestRateMinMax";
-            // 
-            // lbWithdrawFeesMinMax
-            // 
-            resources.ApplyResources(this.lbWithdrawFeesMinMax, "lbWithdrawFeesMinMax");
-            this.lbWithdrawFeesMinMax.Name = "lbWithdrawFeesMinMax";
             // 
             // lBSavingBalance
             // 
@@ -3403,16 +3332,6 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.lBSavingAvBalance, "lBSavingAvBalance");
             this.lBSavingAvBalance.Name = "lBSavingAvBalance";
-            // 
-            // nudWithdrawFees
-            // 
-            resources.ApplyResources(this.nudWithdrawFees, "nudWithdrawFees");
-            this.nudWithdrawFees.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.nudWithdrawFees.Name = "nudWithdrawFees";
             // 
             // lbSavingAvBalanceValue
             // 
@@ -3439,6 +3358,87 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this._dateCreatedValueLabel, "_dateCreatedValueLabel");
             this._dateCreatedValueLabel.Name = "_dateCreatedValueLabel";
+            // 
+            // lbManagementFees
+            // 
+            resources.ApplyResources(this.lbManagementFees, "lbManagementFees");
+            this.lbManagementFees.Name = "lbManagementFees";
+            // 
+            // nudManagementFees
+            // 
+            resources.ApplyResources(this.nudManagementFees, "nudManagementFees");
+            this.nudManagementFees.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.nudManagementFees.Name = "nudManagementFees";
+            // 
+            // lbManagementFeesMinMax
+            // 
+            resources.ApplyResources(this.lbManagementFeesMinMax, "lbManagementFeesMinMax");
+            this.lbManagementFeesMinMax.Name = "lbManagementFeesMinMax";
+            // 
+            // cmbSavingsOfficer
+            // 
+            this.tableLayoutPanel5.SetColumnSpan(this.cmbSavingsOfficer, 2);
+            resources.ApplyResources(this.cmbSavingsOfficer, "cmbSavingsOfficer");
+            this.cmbSavingsOfficer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSavingsOfficer.FormattingEnabled = true;
+            this.cmbSavingsOfficer.Name = "cmbSavingsOfficer";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Name = "label1";
+            // 
+            // lbEntryFees
+            // 
+            resources.ApplyResources(this.lbEntryFees, "lbEntryFees");
+            this.lbEntryFees.Name = "lbEntryFees";
+            // 
+            // nudEntryFees
+            // 
+            resources.ApplyResources(this.nudEntryFees, "nudEntryFees");
+            this.nudEntryFees.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.nudEntryFees.Name = "nudEntryFees";
+            // 
+            // labelInterestRate
+            // 
+            resources.ApplyResources(this.labelInterestRate, "labelInterestRate");
+            this.labelInterestRate.BackColor = System.Drawing.Color.Transparent;
+            this.labelInterestRate.Name = "labelInterestRate";
+            // 
+            // nudDownInterestRate
+            // 
+            this.nudDownInterestRate.DecimalPlaces = 4;
+            this.nudDownInterestRate.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            262144});
+            resources.ApplyResources(this.nudDownInterestRate, "nudDownInterestRate");
+            this.nudDownInterestRate.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.nudDownInterestRate.Name = "nudDownInterestRate";
+            // 
+            // lbEntryFeesMinMax
+            // 
+            resources.ApplyResources(this.lbEntryFeesMinMax, "lbEntryFeesMinMax");
+            this.lbEntryFeesMinMax.Name = "lbEntryFeesMinMax";
+            // 
+            // lbInterestRateMinMax
+            // 
+            resources.ApplyResources(this.lbInterestRateMinMax, "lbInterestRateMinMax");
+            this.lbInterestRateMinMax.Name = "lbInterestRateMinMax";
             // 
             // tabPageContracts
             // 
@@ -3771,8 +3771,8 @@ namespace OpenCBS.GUI.Clients
             ((System.ComponentModel.ISupportInitialize)(this.nudChequeDepositFees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOverdraftFees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCloseFees)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudManagementFees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDepositFees)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudWithdrawFees)).EndInit();
             this.tabPageSavingsEvents.ResumeLayout(false);
             this.tabPageLoans.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.olvLoans)).EndInit();
@@ -3787,10 +3787,10 @@ namespace OpenCBS.GUI.Clients
             this.groupBoxSaving.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEntryFees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDownInitialAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudManagementFees)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEntryFees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDownInterestRate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudWithdrawFees)).EndInit();
             this.tabPageContracts.ResumeLayout(false);
             this.menuBtnAddSavingOperation.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
