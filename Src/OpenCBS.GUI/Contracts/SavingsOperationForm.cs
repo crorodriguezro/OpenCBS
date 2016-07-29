@@ -190,6 +190,7 @@ namespace OpenCBS.GUI.Contracts
                         rbxDebit.Visible = false;
                         rbxCredit.Visible = false;
                         cbBookings.Visible = false;
+                        _chequeNumberLabel.Visible = _chequeNumberTextBox.Visible = true;
                         break;
                     }
                 case OSavingsOperation.Debit:
@@ -205,6 +206,7 @@ namespace OpenCBS.GUI.Contracts
                         rbxCredit.Visible = false;
                         cbBookings.Visible = false;
                         lblPaymentMethod.Visible = true;
+                        _chequeNumberLabel.Visible = _chequeNumberTextBox.Visible = true;
                         break;
                     }
                 case OSavingsOperation.Transfer:
@@ -223,6 +225,7 @@ namespace OpenCBS.GUI.Contracts
                         rbxCredit.Visible = false;
                         cbBookings.Visible = false;
                         cbSavingsMethod.Visible = false;
+                        _chequeNumberLabel.Visible = _chequeNumberTextBox.Visible = false;
                         break;
                     }
                 case OSavingsOperation.SpecialOperation:
@@ -250,6 +253,7 @@ namespace OpenCBS.GUI.Contracts
                         nudTotalAmount.Visible = false;
                         lblTotalSavingCurrency.Visible = false;
                         lbAmountMinMaxCurrencyPivot.Visible = false;
+                        _chequeNumberLabel.Visible = _chequeNumberTextBox.Visible = false;
 
                         cbBookings.Items.Clear();
                         foreach (Booking booking in ServicesProvider.GetInstance().GetStandardBookingServices().SelectAllStandardBookings())
@@ -365,7 +369,7 @@ namespace OpenCBS.GUI.Contracts
                             }
 
                             savingServices.Deposit(_saving, _date, _amount, _description, User.CurrentUser, pending,
-                                savingsMethod, paymentMethod, null, Teller.CurrentTeller);
+                                savingsMethod, paymentMethod, null, Teller.CurrentTeller, _chequeNumberTextBox.Text);
                             _saving.Status = OSavingsStatus.Active;
                             savingServices.UpdateStatus(_saving);
                             break;
@@ -381,7 +385,7 @@ namespace OpenCBS.GUI.Contracts
                             }
 
                             savingServices.Withdraw(_saving, _date, _amount, _description, User.CurrentUser,
-                                Teller.CurrentTeller, paymentMethod);
+                                Teller.CurrentTeller, paymentMethod, _chequeNumberTextBox.Text);
                             break;
                         }
                     case OSavingsOperation.Transfer:

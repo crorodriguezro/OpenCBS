@@ -399,7 +399,7 @@ namespace OpenCBS.Services
         }
 
         public List<SavingEvent> Deposit(ISavingsContract saving, DateTime dateTime, OCurrency depositAmount,
-            string description, User user, bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod, int? pendingEventId, Teller teller)
+            string description, User user, bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod, int? pendingEventId, Teller teller, string doc1 = null)
         {
             using (SqlConnection conn = _savingManager.GetConnection())
             using (SqlTransaction sqlTransaction = conn.BeginTransaction())
@@ -427,6 +427,7 @@ namespace OpenCBS.Services
 
                     foreach (SavingEvent savingEvent in events)
                     {
+                        savingEvent.Doc1 = doc1;
                         _ePS.FireEvent(savingEvent, saving, sqlTransaction);
                         ServicesProvider.GetInstance()
                                         .GetContractServices()
@@ -590,7 +591,8 @@ namespace OpenCBS.Services
         /// <param name="pDescription"></param>
         /// <param name="pUser"></param>
         /// <returns></returns>
-        public List<SavingEvent> Withdraw(ISavingsContract pSaving, DateTime pDate, OCurrency pWithdrawAmount, string pDescription, User pUser, Teller teller, PaymentMethod paymentMethod)
+        public List<SavingEvent> Withdraw(ISavingsContract pSaving, DateTime pDate, OCurrency pWithdrawAmount, string pDescription, User pUser,
+            Teller teller, PaymentMethod paymentMethod, string doc1 = null)
         {
             ValidateWithdrawal(pWithdrawAmount, pSaving, pDate, pDescription, pUser, teller, paymentMethod);
             if (pSaving.Client == null)
@@ -605,6 +607,7 @@ namespace OpenCBS.Services
                     foreach (SavingEvent savingEvent in events)
                     {
                         _ePS.FireEvent(savingEvent, pSaving, sqlTransaction);
+                        savingEvent.Doc1 = doc1;
                         ServicesProvider.GetInstance()
                             .GetContractServices()
                             .CallInterceptor(new Dictionary<string, object>
