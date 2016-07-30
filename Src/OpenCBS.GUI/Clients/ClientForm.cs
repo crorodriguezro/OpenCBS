@@ -1097,10 +1097,11 @@ namespace OpenCBS.GUI.Clients
 
         private void DisplaySaving(ISavingsContract saving)
         {
+            buttonCloseSaving.Visible = saving.Status == OSavingsStatus.Active;
+
             saving = SavingServices.GetSaving(saving.Id);
             tabControlSavingsDetails.Visible = buttonFirstDeposit.Enabled = buttonSavingsOperations.Enabled = true;
             buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible = false;
-//            tabControlSavingsDetails.TabPages.Remove(tabPageSavingsAmountsAndFees);
             tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
             tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
             if (saving.Product.Type == OSavingProductType.PersonalAccount)
@@ -1188,7 +1189,6 @@ namespace OpenCBS.GUI.Clients
                     case OSavingsStatus.Pending:
                     {
                         groupBoxSaving.ForeColor = Color.FromArgb(246, 137, 56);
-//                        pnlSavingsButtons.Enabled = false;
                         buttonFirstDeposit.Visible = true;
                         buttonCloseSaving.Visible = false;
                         buttonReopenSaving.Visible = false;
@@ -1197,7 +1197,6 @@ namespace OpenCBS.GUI.Clients
                     case OSavingsStatus.Active:
                     {
                         groupBoxSaving.ForeColor = Color.FromArgb(61, 153, 57);
-//                        pnlSavingsButtons.Enabled = true;
                         buttonFirstDeposit.Visible = false;
                         buttonCloseSaving.Visible = true;
                         buttonReopenSaving.Visible = false;
@@ -1206,7 +1205,6 @@ namespace OpenCBS.GUI.Clients
                     case OSavingsStatus.Closed:
                     {
                         groupBoxSaving.ForeColor = Color.Red;
-//                        pnlSavingsButtons.Enabled = true;
                         buttonSavingsOperations.Enabled = false;
                         buttonFirstDeposit.Visible = false;
                         buttonCloseSaving.Visible = false;
@@ -1214,6 +1212,10 @@ namespace OpenCBS.GUI.Clients
                         break;
                     }
                 }
+            }
+            else
+            {
+                buttonReopenSaving.Visible = saving.Status == OSavingsStatus.Closed;
             }
 
             tBSavingCode.Text = _saving.Code;
@@ -5127,11 +5129,6 @@ namespace OpenCBS.GUI.Clients
                 {
                     DisplaySavingProduct(product);
                 }
-
-//                tabControlSavingsDetails.TabPages.Clear();
-//                tabControlSavingsDetails.TabPages.Add(tabPageSavingsAmountsAndFees);
-//                tabControlSavingsDetails.TabPages.Add(tabPageSavingsEvents);
-//                tabControlSavingsDetails.TabPages.Add(tabPageLoans);
                 _saving =
                     new SavingBookContract(ServicesProvider.GetInstance().GetGeneralSettings(),
                         User.CurrentUser,
@@ -5147,8 +5144,8 @@ namespace OpenCBS.GUI.Clients
                 tabControlPerson.SelectedTab = tabPageSavingDetails;
 
                 InitializeSavingsGeneralControls();
+                buttonCloseSaving.Visible = _saving.Status == OSavingsStatus.Closed;
                 InitializeTabPageTermDeposit();
-//                InitializeSavingsFees();
 
                 btSavingsUpdate.Visible = false;
 
@@ -5449,8 +5446,9 @@ namespace OpenCBS.GUI.Clients
                 DisplaySavings(_client.Savings);
                 DisplaySavingEvent(_saving);
                 InitializeSavingsFees();
+                buttonCloseSaving.Visible = _saving.Status == OSavingsStatus.Closed;
                 buttonFirstDeposit.Visible = nudManagementFees.Enabled = nudCloseFees.Enabled = nudReopenFees.Enabled = buttonSaveSaving.Visible = false;
-                pnlSavingsButtons.Enabled = buttonSavingsOperations.Enabled = btCancelLastSavingEvent.Enabled = flowLayoutPanel9.Enabled = true;
+                pnlSavingsButtons.Enabled = buttonSavingsOperations.Enabled = btCancelLastSavingEvent.Enabled = flowLayoutPanel9.Enabled = buttonCloseSaving.Visible = true;
             }
             catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
             {
@@ -6612,7 +6610,8 @@ namespace OpenCBS.GUI.Clients
                 {
                     ServicesProvider.GetInstance().GetAccountingServices().FindExchangeRate(TimeProvider.Now, _saving.Product.Currency);
 
-                    var openSavingsForm = new OpenSavingsForm(_saving.Product.InitialAmountMin, nudReopenFees.Value, _saving.Product, true);
+                    var openSavingsForm = new OpenSavingsForm(_saving.Product.InitialAmountMin == null ? 0 : _saving.Product.InitialAmountMin,
+                                                                nudReopenFees.Value, _saving.Product, true);
                     DialogResult result = openSavingsForm.ShowDialog();
 
                     if (result == DialogResult.OK)

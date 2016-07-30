@@ -22,6 +22,7 @@
 using System;
 using OpenCBS.Shared;
 using OpenCBS.CoreDomain.Products;
+using OpenCBS.Enums;
 using OpenCBS.GUI.UserControl;
 
 namespace OpenCBS.GUI.Contracts
@@ -44,7 +45,7 @@ namespace OpenCBS.GUI.Contracts
             _isReopen = isReopen;
             
             InitializeComponent();
-            Initialize();
+            Initialize(savingsProduct);
 
             if (_isReopen)
             {
@@ -64,11 +65,18 @@ namespace OpenCBS.GUI.Contracts
             get { return _entryFees; }
         }
 
-        public void Initialize()
+        public void Initialize(SavingsBookProduct savingsProduct)
         {
             nudInitialAmount.DecimalPlaces = UseCents ? 2 : 0;
-            nudInitialAmount.Minimum = _savingsProduct.InitialAmountMin.Value;
-            nudInitialAmount.Maximum = _savingsProduct.InitialAmountMax.Value;
+            if (savingsProduct.Type != OSavingProductType.PersonalAccount)
+            {
+                nudInitialAmount.Minimum = _savingsProduct.InitialAmountMin.Value;
+                nudInitialAmount.Maximum = _savingsProduct.InitialAmountMax.Value;
+            }
+            else
+            {
+                lbInitialAmount.Visible = nudInitialAmount.Visible = lbInitialAmountMinMax.Visible = false;
+            }
             nudInitialAmount.Text = _initialAmount.Value.ToString();
 
             if (_loanAmount.HasValue)
