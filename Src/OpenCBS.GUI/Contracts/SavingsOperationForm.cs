@@ -442,8 +442,9 @@ namespace OpenCBS.GUI.Contracts
                 SavingSearchResult saving = searchCreditContractForm.SelectedSavingContract;
                 lblClientName.Text = saving.ClientName;
                 tbTargetAccount.Text = saving.ContractCode;
-
+                var client = ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(saving.Id);
                 _savingTarget = ServicesProvider.GetInstance().GetSavingServices().GetSaving(saving.Id);
+                _savingTarget.Client = client;
                 lblInterBranch.Visible = !IsNormalTransfer();
                 LoadTransferFee();
             }

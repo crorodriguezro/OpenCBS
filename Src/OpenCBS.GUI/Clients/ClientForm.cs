@@ -5830,6 +5830,7 @@ namespace OpenCBS.GUI.Clients
 
                     if (closeSavingsForm.IsWithdraw)
                     {
+                        _saving.Client = _client;
                         SavingServices.CloseAndWithdraw(_saving, TimeProvider.Now, User.CurrentUser,
                             closeSavingsForm.Amount, closeSavingsForm.IsDesactivateCloseFees, Teller.CurrentTeller, new PaymentMethod());
                     }
@@ -5857,6 +5858,7 @@ namespace OpenCBS.GUI.Clients
         private void savingTransferToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!CheckDataInOpenFiscalYear()) return;
+            _saving.Client = _client;
             var savingEvent = new SavingsOperationForm(_saving, OSavingsOperation.Transfer);
             savingEvent.ShowDialog();
             _saving = SavingServices.GetSaving(_saving.Id);
