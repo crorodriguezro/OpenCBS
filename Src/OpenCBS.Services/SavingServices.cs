@@ -1478,6 +1478,8 @@ namespace OpenCBS.Services
                 );
 
             saving.Status = saving.InitialAmount > 0 ? OSavingsStatus.Active : OSavingsStatus.Pending;
+            if(saving.Product.Type == OSavingProductType.PersonalAccount)
+                saving.Status = OSavingsStatus.Active;
 
             if (((SavingBookContract)saving).UseTermDeposit)
             {
