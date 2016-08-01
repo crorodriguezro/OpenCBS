@@ -613,14 +613,18 @@ namespace OpenCBS.Services
                             .CallInterceptor(new Dictionary<string, object>
                             {
                                 {"Saving", pSaving},
-                                {"Event", new SavingWithdrawEvent
                                 {
-                                    Id = savingEvent.Id,
-                                    Code = savingEvent.Code,
-                                    Amount = savingEvent.Amount,
-                                    Description = savingEvent.Description,
-                                    PaymentsMethod = paymentMethod
-                                   }},
+                                    "Event", new SavingWithdrawEvent
+                                    {
+                                        Id = savingEvent.Id,
+                                        Code = savingEvent.Code,
+                                        Amount = savingEvent.Amount,
+                                        Description = savingEvent.Description,
+                                        PaymentsMethod = paymentMethod,
+                                        Date = savingEvent.Date,
+                                        Fee = savingEvent.Fee
+                                    }
+                                },
                                 {"SqlTransaction", sqlTransaction}
                             });
                     }
@@ -721,12 +725,48 @@ namespace OpenCBS.Services
                 throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
         }
 
-        public List<SavingEvent> Transfer(ISavingsContract from, ISavingsContract to, DateTime date, OCurrency amount, OCurrency fee, string description, User user, bool noFee)
+        public List<SavingEvent> Transfer(ISavingsContract from, ISavingsContract to, DateTime date, OCurrency amount,
+            OCurrency fee, string description, User user, bool noFee)
         {
             CheckTransfer(to, from, amount, fee, date, description);
             List<SavingEvent> events = from.Transfer(to, amount, fee, date, description);
-            foreach (SavingEvent e in events)
-                _ePS.FireEvent(e);
+            using (SqlConnection conn = _savingManager.GetConnection())
+            using (SqlTransaction sqlTransaction = conn.BeginTransaction())
+            {
+                try
+                {
+                    foreach (SavingEvent e in events)
+                    {
+                        ServicesProvider.GetInstance()
+                            .GetContractServices()
+                            .CallInterceptor(new Dictionary<string, object>
+                            {
+                                {"Saving", from},
+                                {
+                                    "Event", new SavingDebitTransferEvent
+                                    {
+                                        Id = e.Id,
+                                        Code = e.Code,
+                                        Amount = e.Amount,
+                                        Description = e.Description,
+                                        PaymentsMethod = e.PaymentMethod,
+                                        Date = e.Date,
+                                        Fee = e.Fee,
+                                        Target = to
+                                    }
+                                },
+                                {"SqlTransaction", sqlTransaction}
+                            });
+                        _ePS.FireEvent(e, sqlTransaction);
+                    }
+                    sqlTransaction.Commit();
+                }
+                catch (Exception)
+                {
+                    sqlTransaction.Rollback();
+                    throw;
+                }
+            }
 
             return events;
         }
@@ -980,6 +1020,7 @@ namespace OpenCBS.Services
                             .GetContractServices()
                             .CallInterceptor(new Dictionary<string, object>
                             {
+                                {"Saving", saving},
                                 {"Event", savingEvent},
                                 {"CloseAccount", true},
                                 {"SqlTransaction", sqlTransaction}
@@ -987,7 +1028,7 @@ namespace OpenCBS.Services
                     }
 
                     if (saving.ClosedDate != null)
-                            _savingManager.UpdateStatus(saving.Id, saving.Status, saving.ClosedDate.Value);
+                        _savingManager.UpdateStatus(saving.Id, saving.Status, saving.ClosedDate.Value);
                     sqlTransaction.Commit();
                     return events;
                 }
@@ -1012,7 +1053,7 @@ namespace OpenCBS.Services
                 throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.SavingsContractForTransferNotSameCurrncy);
 
             OCurrency balance = SimulateCloseAccount(from, date, pUser, pIsDesactivateFees, teller).GetBalance(date);
-            if (from is SavingBookContract && !pIsDesactivateFees) balance -= ((SavingBookContract)from).CloseFees;
+            if (from is SavingBookContract && !pIsDesactivateFees) balance -= ((SavingBookContract) from).CloseFees;
 
             if (balance != amount)
                 throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.TransferAmountIsInvalid);
@@ -1020,8 +1061,24 @@ namespace OpenCBS.Services
             List<SavingEvent> events = new List<SavingEvent>();
             events.AddRange(from.Transfer(to, amount, 0, date, "Closing transfer"));
             events.AddRange(from.Close(date, pUser, "Close savings contract", pIsDesactivateFees, teller, false));
-            foreach (SavingEvent e in events)
-                _ePS.FireEvent(e);
+
+            using (var conn = _savingManager.GetConnection())
+            using (var transaction = conn.BeginTransaction())
+            {
+                try
+                {
+                    foreach (SavingEvent e in events)
+                    {
+                        _ePS.FireEvent(e, transaction);
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
 
             if (from.ClosedDate != null)
                 _savingManager.UpdateStatus(from.Id, from.Status, from.ClosedDate.Value);

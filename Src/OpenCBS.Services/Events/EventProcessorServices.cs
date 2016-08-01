@@ -239,24 +239,11 @@ namespace OpenCBS.Services.Events
             }
         }
 
-       public void FireEvent(SavingEvent e)
+        public void FireEvent(SavingEvent e, SqlTransaction transaction)
         {
             Debug.Assert(e.Target != null, "Saving event's target is null");
             e.IsFired = true;
-            using (SqlConnection conn = _savingEventManagement.GetConnection())
-            using (SqlTransaction t = conn.BeginTransaction())
-            {
-                try
-                {
-                    SavingEventOrigination(e, e.Target, t);
-                    t.Commit();
-                }
-                catch (Exception)
-                {
-                    t.Rollback();
-                    throw;
-                }
-            }
+            SavingEventOrigination(e, e.Target, transaction);
         }
 
         private void SavingEventOrigination(SavingEvent savingEvent, ISavingsContract savingsContract, SqlTransaction sqlTransac)
