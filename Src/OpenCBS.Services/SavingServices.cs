@@ -1445,6 +1445,7 @@ namespace OpenCBS.Services
                             {
                                 {"Saving", saving},
                                 {"Client", client},
+                                {"OperationType", "SaveSavingContract"},
                                 {"SqlTransaction", sqlTransaction}
                             });
                     sqlTransaction.Commit();

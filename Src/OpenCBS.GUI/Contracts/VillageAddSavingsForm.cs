@@ -89,8 +89,8 @@ namespace OpenCBS.GUI.Contracts
 
         private void InitializeControls()
         {
-            udInitialAmount.Minimum = _product.InitialAmountMin.Value;
-            udInitialAmount.Maximum = _product.InitialAmountMax.Value;
+            udInitialAmount.Minimum = !_product.InitialAmountMin.HasValue ? 0 : _product.InitialAmountMin.Value;
+            udInitialAmount.Maximum = !_product.InitialAmountMax.HasValue ? 0 : _product.InitialAmountMin.Value;
 
             if (!_product.InterestRate.HasValue)
             {
