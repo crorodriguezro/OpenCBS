@@ -345,9 +345,8 @@ namespace OpenCBS.GUI.Configuration
             FillFieldValues();
             _savingsProduct.FlatWithdrawFeesMin = CheckAmount(tbWithdrawFeesMin, true, false);
             _savingsProduct.FlatWithdrawFeesMax = CheckAmount(tbWithdrawFeesMax, true, false);
-            if (_savingsProduct.FlatWithdrawFeesMin == _savingsProduct.FlatWithdrawFeesMax)
-                _savingsProduct.FlatWithdrawFees = CheckAmount(tbWithdrawFeesMin, true, false);
-            
+            _savingsProduct.FlatWithdrawFees = _savingsProduct.FlatWithdrawFeesMin == _savingsProduct.FlatWithdrawFeesMax ? CheckAmount(tbWithdrawFeesMin, true, false) : null;
+
             try
             {
                if (_savingsProduct.PackageMode==OPackageMode.Edit)
