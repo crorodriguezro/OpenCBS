@@ -5360,6 +5360,7 @@ namespace OpenCBS.GUI.Clients
 
         private void InitializeSavingsOfficersComboBox()
         {
+            cmbSavingsOfficer.Items.Clear();
             cmbSavingsOfficer.Items.Add(User.CurrentUser);
             foreach (User subordinate in User.CurrentUser.Subordinates)
             {

@@ -2533,8 +2533,8 @@ namespace OpenCBS.GUI.Clients
             // 
             // groupBoxSavingBalance
             // 
-            resources.ApplyResources(this.groupBoxSavingBalance, "groupBoxSavingBalance");
             this.groupBoxSavingBalance.Controls.Add(this.tableLayoutPanel12);
+            resources.ApplyResources(this.groupBoxSavingBalance, "groupBoxSavingBalance");
             this.groupBoxSavingBalance.Name = "groupBoxSavingBalance";
             this.groupBoxSavingBalance.TabStop = false;
             // 
@@ -3736,7 +3736,6 @@ namespace OpenCBS.GUI.Clients
             this.tabPageSavingsAmountsAndFees.ResumeLayout(false);
             this.tabPageSavingsAmountsAndFees.PerformLayout();
             this.flowLayoutPanel10.ResumeLayout(false);
-            this.flowLayoutPanel10.PerformLayout();
             this.groupBoxSavingBalance.ResumeLayout(false);
             this.groupBoxSavingBalance.PerformLayout();
             this.tableLayoutPanel12.ResumeLayout(false);

@@ -6967,7 +6967,7 @@ Max:
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        HQAAAk1TRnQBSQFMAgEBBQEAAcgBJwHIAScBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAAdgBJwHYAScBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -7241,9 +7241,6 @@ Max:
   <data name="flowLayoutPanel10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="groupBoxSavingBalance.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="tableLayoutPanel12.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -7263,13 +7260,13 @@ Max:
     <value>NoControl</value>
   </data>
   <data name="lbBalanceMaxValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>47, 22</value>
+    <value>76, 22</value>
   </data>
   <data name="lbBalanceMaxValue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 0, 3, 3</value>
   </data>
   <data name="lbBalanceMaxValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 16</value>
+    <value>124, 34</value>
   </data>
   <data name="lbBalanceMaxValue.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -7344,7 +7341,7 @@ Max:
     <value>NoControl</value>
   </data>
   <data name="lbBalanceMinValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 3</value>
+    <value>163, 3</value>
   </data>
   <data name="lbBalanceMinValue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -7392,7 +7389,7 @@ Max:
     <value>3, 0, 3, 3</value>
   </data>
   <data name="lbBalanceMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
+    <value>37, 34</value>
   </data>
   <data name="lbBalanceMax.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -7422,7 +7419,7 @@ Max:
     <value>2</value>
   </data>
   <data name="tableLayoutPanel12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 41</value>
+    <value>203, 59</value>
   </data>
   <data name="tableLayoutPanel12.TabIndex" type="System.Int32, mscorlib">
     <value>77</value>
@@ -7452,7 +7449,7 @@ Max:
     <value>180, 0</value>
   </data>
   <data name="groupBoxSavingBalance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 62</value>
+    <value>209, 80</value>
   </data>
   <data name="groupBoxSavingBalance.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -7471,9 +7468,6 @@ Max:
   </data>
   <data name="&gt;&gt;groupBoxSavingBalance.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="groupBoxSavingDeposit.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="groupBoxSavingDeposit.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
@@ -7506,7 +7500,7 @@ Max:
     <value>3, 0, 3, 3</value>
   </data>
   <data name="lbDepositMaxValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
+    <value>37, 34</value>
   </data>
   <data name="lbDepositMaxValue.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -7632,7 +7626,7 @@ Max:
     <value>3, 0, 3, 3</value>
   </data>
   <data name="lbDepositmax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
+    <value>37, 34</value>
   </data>
   <data name="lbDepositmax.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -7665,7 +7659,7 @@ Max:
     <value>2</value>
   </data>
   <data name="tableLayoutPanel13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 41</value>
+    <value>174, 59</value>
   </data>
   <data name="tableLayoutPanel13.TabIndex" type="System.Int32, mscorlib">
     <value>77</value>
@@ -7689,13 +7683,13 @@ Max:
     <value>Arial, 9.75pt</value>
   </data>
   <data name="groupBoxSavingDeposit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 3</value>
+    <value>218, 3</value>
   </data>
   <data name="groupBoxSavingDeposit.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>180, 0</value>
   </data>
   <data name="groupBoxSavingDeposit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 62</value>
+    <value>180, 80</value>
   </data>
   <data name="groupBoxSavingDeposit.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -7714,9 +7708,6 @@ Max:
   </data>
   <data name="&gt;&gt;groupBoxSavingDeposit.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="groupBoxSavingWithdraw.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="groupBoxSavingWithdraw.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
@@ -7749,7 +7740,7 @@ Max:
     <value>3, 0, 3, 3</value>
   </data>
   <data name="lbWithdrawMaxValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
+    <value>37, 34</value>
   </data>
   <data name="lbWithdrawMaxValue.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -7875,7 +7866,7 @@ Max:
     <value>3, 0, 3, 3</value>
   </data>
   <data name="lbWithdrawMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
+    <value>37, 34</value>
   </data>
   <data name="lbWithdrawMax.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -7908,7 +7899,7 @@ Max:
     <value>2</value>
   </data>
   <data name="tableLayoutPanel14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 41</value>
+    <value>174, 59</value>
   </data>
   <data name="tableLayoutPanel14.TabIndex" type="System.Int32, mscorlib">
     <value>78</value>
@@ -7929,13 +7920,13 @@ Max:
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbWithdrawMaxValue" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawMin" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawMinValue" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawMax" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="groupBoxSavingWithdraw.Location" type="System.Drawing.Point, System.Drawing">
-    <value>375, 3</value>
+    <value>404, 3</value>
   </data>
   <data name="groupBoxSavingWithdraw.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>180, 0</value>
   </data>
   <data name="groupBoxSavingWithdraw.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 62</value>
+    <value>180, 80</value>
   </data>
   <data name="groupBoxSavingWithdraw.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -7954,9 +7945,6 @@ Max:
   </data>
   <data name="&gt;&gt;groupBoxSavingWithdraw.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="groupBoxSavingTransfer.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="groupBoxSavingTransfer.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
@@ -7986,7 +7974,7 @@ Max:
     <value>3, 0, 3, 3</value>
   </data>
   <data name="labelSavingTransferMaxValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
+    <value>37, 34</value>
   </data>
   <data name="labelSavingTransferMaxValue.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -8112,7 +8100,7 @@ Max:
     <value>3, 0, 3, 3</value>
   </data>
   <data name="labelSavingTransferMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
+    <value>37, 34</value>
   </data>
   <data name="labelSavingTransferMax.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -8145,7 +8133,7 @@ Max:
     <value>2</value>
   </data>
   <data name="tableLayoutPanel15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 41</value>
+    <value>174, 59</value>
   </data>
   <data name="tableLayoutPanel15.TabIndex" type="System.Int32, mscorlib">
     <value>78</value>
@@ -8169,13 +8157,13 @@ Max:
     <value>Arial, 9.75pt</value>
   </data>
   <data name="groupBoxSavingTransfer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>561, 3</value>
+    <value>590, 3</value>
   </data>
   <data name="groupBoxSavingTransfer.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>180, 0</value>
   </data>
   <data name="groupBoxSavingTransfer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 62</value>
+    <value>180, 80</value>
   </data>
   <data name="groupBoxSavingTransfer.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -8194,9 +8182,6 @@ Max:
   </data>
   <data name="&gt;&gt;groupBoxSavingTransfer.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="gbInterest.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="gbInterest.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
@@ -8490,7 +8475,7 @@ Max:
     <value>Arial, 9.75pt</value>
   </data>
   <data name="gbInterest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 71</value>
+    <value>3, 89</value>
   </data>
   <data name="gbInterest.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>180, 0</value>
@@ -8515,9 +8500,6 @@ Max:
   </data>
   <data name="&gt;&gt;gbInterest.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <data name="gbDepositInterest.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="gbDepositInterest.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
@@ -8733,7 +8715,7 @@ Max:
     <value>Arial, 9.75pt</value>
   </data>
   <data name="gbDepositInterest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 71</value>
+    <value>189, 89</value>
   </data>
   <data name="gbDepositInterest.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>180, 0</value>

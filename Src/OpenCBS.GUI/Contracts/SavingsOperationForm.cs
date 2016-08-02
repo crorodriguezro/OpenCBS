@@ -357,10 +357,11 @@ namespace OpenCBS.GUI.Contracts
                 {
                     case OSavingsOperation.Credit:
                         {
+                            var paymentMethod = (PaymentMethod)cbSavingsMethod.SelectedItem;
+
                             OSavingsMethods savingsMethod =
                                 (OSavingsMethods)
-                                    Enum.Parse(typeof(OSavingsMethods), "Cash");
-                            var paymentMethod = (PaymentMethod)cbSavingsMethod.SelectedItem;
+                                    Enum.Parse(typeof(OSavingsMethods), paymentMethod.Name);
                             if (_saving is SavingBookContract)
                             {
                                 if (savingsMethod == OSavingsMethods.Cheque)
