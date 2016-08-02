@@ -26,25 +26,21 @@ namespace OpenCBS.Engine
                 result.Add(installment);
             }
 
+            for (var i = 0; i < configuration.GracePeriod; i++)
+            {
+                result[i].InterestsRepayment = CalculateInterest(result[i], configuration);
+            }
+
             configuration.AdjustmentPolicy.Adjust(result, configuration);
 
-            // CalculationPolicy interest during grace period
-            if (configuration.ChargeInterestDuringGracePeriod)
+            if (configuration.GracePeriod > 0 && !configuration.ChargeInterestDuringGracePeriod)
             {
                 for (var i = 0; i < configuration.GracePeriod; i++)
                 {
-                    if (i == 0)
-                    {
-                        result[0].InterestsRepayment = CalculateFirstInstallmentInterest(result[0], configuration);
-                    }
-                    else
-                    {
-                        result[i].InterestsRepayment = CalculateInterest(result[i], configuration);
-                    }
+                    result[i].InterestsRepayment = 0;
                 }
             }
-            // if the difference between start date and first installment date less or greater than period
-            if (configuration.GracePeriod == 0 && configuration.ChargeInterestDuringGracePeriod)
+            else
             {
                 result[0].InterestsRepayment = CalculateFirstInstallmentInterest(result[0], configuration);
             }
