@@ -252,14 +252,17 @@ namespace OpenCBS.GUI.UserControl
             // 
             // splitContainer3.Panel1
             // 
+            resources.ApplyResources(this.splitContainer3.Panel1, "splitContainer3.Panel1");
             this.splitContainer3.Panel1.Controls.Add(this.listViewContracts);
             // 
             // splitContainer3.Panel2
             // 
+            resources.ApplyResources(this.splitContainer3.Panel2, "splitContainer3.Panel2");
             this.splitContainer3.Panel2.Controls.Add(this.groupBoxProjectButton);
             // 
             // listViewContracts
             // 
+            resources.ApplyResources(this.listViewContracts, "listViewContracts");
             this.listViewContracts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnProductType,
             this.columnHeader13,
@@ -271,7 +274,6 @@ namespace OpenCBS.GUI.UserControl
             this.columnHeaderCreationDate,
             this.columnHeaderStartDate,
             this.columnHeaderCloseDate});
-            resources.ApplyResources(this.listViewContracts, "listViewContracts");
             this.listViewContracts.FullRowSelect = true;
             this.listViewContracts.GridLines = true;
             this.listViewContracts.MultiSelect = false;
@@ -321,10 +323,10 @@ namespace OpenCBS.GUI.UserControl
             // 
             // groupBoxProjectButton
             // 
+            resources.ApplyResources(this.groupBoxProjectButton, "groupBoxProjectButton");
             this.groupBoxProjectButton.Controls.Add(this.buttonProjectAddGuarantee);
             this.groupBoxProjectButton.Controls.Add(this.buttonProjectViewContract);
             this.groupBoxProjectButton.Controls.Add(this.buttonProjectAddContract);
-            resources.ApplyResources(this.groupBoxProjectButton, "groupBoxProjectButton");
             this.groupBoxProjectButton.Name = "groupBoxProjectButton";
             this.groupBoxProjectButton.TabStop = false;
             // 
@@ -366,12 +368,12 @@ namespace OpenCBS.GUI.UserControl
             // 
             // comboBox1
             // 
+            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             resources.GetString("comboBox1.Items"),
             resources.GetString("comboBox1.Items1"),
             resources.GetString("comboBox1.Items2")});
-            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.Name = "comboBox1";
             // 
             // label9
@@ -382,14 +384,14 @@ namespace OpenCBS.GUI.UserControl
             // 
             // comboBox2
             // 
-            this.comboBox2.FormattingEnabled = true;
             resources.ApplyResources(this.comboBox2, "comboBox2");
+            this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Name = "comboBox2";
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBox1, "textBox1");
+            this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             // 
@@ -401,8 +403,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.dateTimePicker1, "dateTimePicker1");
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Name = "dateTimePicker1";
             // 
             // label11
@@ -419,8 +421,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // textBox2
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBox2, "textBox2");
+            this.textBox2.BackColor = System.Drawing.Color.White;
             this.textBox2.Name = "textBox2";
             // 
             // label13
@@ -431,8 +433,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // textBox3
             // 
-            this.textBox3.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBox3, "textBox3");
+            this.textBox3.BackColor = System.Drawing.Color.White;
             this.textBox3.Name = "textBox3";
             // 
             // label14
@@ -443,8 +445,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // textBox4
             // 
-            this.textBox4.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBox4, "textBox4");
+            this.textBox4.BackColor = System.Drawing.Color.White;
             this.textBox4.Name = "textBox4";
             // 
             // label15
@@ -455,12 +457,12 @@ namespace OpenCBS.GUI.UserControl
             // 
             // comboBox3
             // 
+            resources.ApplyResources(this.comboBox3, "comboBox3");
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
             resources.GetString("comboBox3.Items"),
             resources.GetString("comboBox3.Items1"),
             resources.GetString("comboBox3.Items2")});
-            resources.ApplyResources(this.comboBox3, "comboBox3");
             this.comboBox3.Name = "comboBox3";
             // 
             // label16
@@ -471,14 +473,14 @@ namespace OpenCBS.GUI.UserControl
             // 
             // comboBox4
             // 
-            this.comboBox4.FormattingEnabled = true;
             resources.ApplyResources(this.comboBox4, "comboBox4");
+            this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Name = "comboBox4";
             // 
             // textBox5
             // 
-            this.textBox5.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBox5, "textBox5");
+            this.textBox5.BackColor = System.Drawing.Color.White;
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             // 
@@ -490,8 +492,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.dateTimePicker2, "dateTimePicker2");
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker2.Name = "dateTimePicker2";
             // 
             // label18
@@ -508,8 +510,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // textBox6
             // 
-            this.textBox6.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBox6, "textBox6");
+            this.textBox6.BackColor = System.Drawing.Color.White;
             this.textBox6.Name = "textBox6";
             // 
             // label20
@@ -520,8 +522,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // textBox7
             // 
-            this.textBox7.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBox7, "textBox7");
+            this.textBox7.BackColor = System.Drawing.Color.White;
             this.textBox7.Name = "textBox7";
             // 
             // label21
@@ -532,8 +534,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // textBox8
             // 
-            this.textBox8.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBox8, "textBox8");
+            this.textBox8.BackColor = System.Drawing.Color.White;
             this.textBox8.Name = "textBox8";
             // 
             // label22
@@ -564,37 +566,37 @@ namespace OpenCBS.GUI.UserControl
             // 
             // contextMenuStripSaving
             // 
-            this.contextMenuStripSaving.Name = "contextMenuStripSaving";
             resources.ApplyResources(this.contextMenuStripSaving, "contextMenuStripSaving");
+            this.contextMenuStripSaving.Name = "contextMenuStripSaving";
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Gainsboro;
             resources.ApplyResources(this.button1, "button1");
+            this.button1.BackColor = System.Drawing.Color.Gainsboro;
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.button1.Name = "button1";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Gainsboro;
             resources.ApplyResources(this.button2, "button2");
+            this.button2.BackColor = System.Drawing.Color.Gainsboro;
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.button2.Name = "button2";
             this.button2.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Gainsboro;
             resources.ApplyResources(this.button3, "button3");
+            this.button3.BackColor = System.Drawing.Color.Gainsboro;
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.button3.Name = "button3";
             this.button3.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.Gainsboro;
             resources.ApplyResources(this.button4, "button4");
+            this.button4.BackColor = System.Drawing.Color.Gainsboro;
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
             this.button4.Name = "button4";
             this.button4.UseVisualStyleBackColor = false;
@@ -687,11 +689,11 @@ namespace OpenCBS.GUI.UserControl
             // 
             // tabControlEconomicInfo
             // 
+            resources.ApplyResources(this.tabControlEconomicInfo, "tabControlEconomicInfo");
             this.tabControlEconomicInfo.Controls.Add(this.tabPageAddress);
             this.tabControlEconomicInfo.Controls.Add(this.tabPageProjects);
             this.tabControlEconomicInfo.Controls.Add(this.tabPageSavings);
             this.tabControlEconomicInfo.Controls.Add(this.tabPageGroupMember);
-            resources.ApplyResources(this.tabControlEconomicInfo, "tabControlEconomicInfo");
             this.tabControlEconomicInfo.ImageList = this.imageListEconomicInfo;
             this.tabControlEconomicInfo.Name = "tabControlEconomicInfo";
             this.tabControlEconomicInfo.SelectedIndex = 0;
@@ -699,8 +701,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // tabPageAddress
             // 
-            this.tabPageAddress.Controls.Add(this.tableLayoutPanelAddress);
             resources.ApplyResources(this.tabPageAddress, "tabPageAddress");
+            this.tabPageAddress.Controls.Add(this.tableLayoutPanelAddress);
             this.tabPageAddress.Name = "tabPageAddress";
             // 
             // tableLayoutPanelAddress
@@ -732,8 +734,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // tabPageProjects
             // 
-            this.tabPageProjects.Controls.Add(this.splitContainer1);
             resources.ApplyResources(this.tabPageProjects, "tabPageProjects");
+            this.tabPageProjects.Controls.Add(this.splitContainer1);
             this.tabPageProjects.Name = "tabPageProjects";
             // 
             // splitContainer1
@@ -744,21 +746,23 @@ namespace OpenCBS.GUI.UserControl
             // 
             // splitContainer1.Panel1
             // 
+            resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
             this.splitContainer1.Panel1.Controls.Add(this.listViewProjects);
             // 
             // splitContainer1.Panel2
             // 
+            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxProjects);
             // 
             // listViewProjects
             // 
+            resources.ApplyResources(this.listViewProjects, "listViewProjects");
             this.listViewProjects.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderId,
             this.columnHeaderCode,
             this.columnHeaderName,
             this.columnHeaderNbOfCredits,
             this.columnHeaderNbOfGuarantees});
-            resources.ApplyResources(this.listViewProjects, "listViewProjects");
             this.listViewProjects.FullRowSelect = true;
             this.listViewProjects.GridLines = true;
             this.listViewProjects.Name = "listViewProjects";
@@ -788,9 +792,9 @@ namespace OpenCBS.GUI.UserControl
             // 
             // groupBoxProjects
             // 
+            resources.ApplyResources(this.groupBoxProjects, "groupBoxProjects");
             this.groupBoxProjects.Controls.Add(this.buttonViewProject);
             this.groupBoxProjects.Controls.Add(this.buttonAddProject);
-            resources.ApplyResources(this.groupBoxProjects, "groupBoxProjects");
             this.groupBoxProjects.Name = "groupBoxProjects";
             this.groupBoxProjects.TabStop = false;
             // 
@@ -808,34 +812,34 @@ namespace OpenCBS.GUI.UserControl
             // 
             // tabPageSavings
             // 
-            this.tabPageSavings.Controls.Add(this.clSavingList);
             resources.ApplyResources(this.tabPageSavings, "tabPageSavings");
+            this.tabPageSavings.Controls.Add(this.clSavingList);
             this.tabPageSavings.Name = "tabPageSavings";
             // 
             // clSavingList
             // 
+            resources.ApplyResources(this.clSavingList, "clSavingList");
             this.clSavingList.ButtonAddSavingsEnabled = true;
             this.clSavingList.ClientType = OpenCBS.Enums.OClientTypes.Person;
-            resources.ApplyResources(this.clSavingList, "clSavingList");
             this.clSavingList.Name = "clSavingList";
             this.clSavingList.AddSelectedSaving += new System.EventHandler(this.savingsListUserControl_AddSelectedSaving);
             this.clSavingList.ViewSelectedSaving += new System.EventHandler(this.savingsListUserControl_ViewSelectedSaving);
             // 
             // tabPageGroupMember
             // 
-            this.tabPageGroupMember.Controls.Add(this.listViewGroup);
             resources.ApplyResources(this.tabPageGroupMember, "tabPageGroupMember");
+            this.tabPageGroupMember.Controls.Add(this.listViewGroup);
             this.tabPageGroupMember.Name = "tabPageGroupMember";
             // 
             // listViewGroup
             // 
+            resources.ApplyResources(this.listViewGroup, "listViewGroup");
             this.listViewGroup.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader10,
             this.columnHeader2,
             this.columnHeader11,
             this.columnHeader12});
-            resources.ApplyResources(this.listViewGroup, "listViewGroup");
             this.listViewGroup.FullRowSelect = true;
             this.listViewGroup.GridLines = true;
             this.listViewGroup.Name = "listViewGroup";
@@ -865,6 +869,7 @@ namespace OpenCBS.GUI.UserControl
             // 
             // groupBoxCivilities
             // 
+            resources.ApplyResources(this.groupBoxCivilities, "groupBoxCivilities");
             this.groupBoxCivilities.Controls.Add(this.lblBranch);
             this.groupBoxCivilities.Controls.Add(this.lblEconomicActivity);
             this.groupBoxCivilities.Controls.Add(this.eacPerson);
@@ -892,14 +897,13 @@ namespace OpenCBS.GUI.UserControl
             this.groupBoxCivilities.Controls.Add(this.labelSex);
             this.groupBoxCivilities.Controls.Add(this.labelFirstName);
             this.groupBoxCivilities.Controls.Add(this.textBoxFirstName);
-            resources.ApplyResources(this.groupBoxCivilities, "groupBoxCivilities");
             this.groupBoxCivilities.Name = "groupBoxCivilities";
             this.groupBoxCivilities.TabStop = false;
             // 
             // lblBranch
             // 
-            this.lblBranch.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lblBranch, "lblBranch");
+            this.lblBranch.BackColor = System.Drawing.Color.Transparent;
             this.lblBranch.Name = "lblBranch";
             // 
             // lblEconomicActivity
@@ -910,29 +914,29 @@ namespace OpenCBS.GUI.UserControl
             // 
             // eacPerson
             // 
-            this.eacPerson.Activity = null;
             resources.ApplyResources(this.eacPerson, "eacPerson");
+            this.eacPerson.Activity = null;
             this.eacPerson.IsLoanPurpose = false;
             this.eacPerson.Name = "eacPerson";
             this.eacPerson.EconomicActivityChange += new System.EventHandler<OpenCBS.GUI.UserControl.EconomicActivtyEventArgs>(this.EacPersonActivityChange);
             // 
             // cbBranch
             // 
+            resources.ApplyResources(this.cbBranch, "cbBranch");
             this.cbBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBranch.FormattingEnabled = true;
-            resources.ApplyResources(this.cbBranch, "cbBranch");
             this.cbBranch.Name = "cbBranch";
             // 
             // textBoxNationality
             // 
-            this.textBoxNationality.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBoxNationality, "textBoxNationality");
+            this.textBoxNationality.BackColor = System.Drawing.Color.White;
             this.textBoxNationality.Name = "textBoxNationality";
             // 
             // labelNationality
             // 
-            this.labelNationality.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.labelNationality, "labelNationality");
+            this.labelNationality.BackColor = System.Drawing.Color.Transparent;
             this.labelNationality.Name = "labelNationality";
             // 
             // textBoxLoanCycle
@@ -943,21 +947,21 @@ namespace OpenCBS.GUI.UserControl
             // 
             // textBoxBirthPlace
             // 
-            this.textBoxBirthPlace.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBoxBirthPlace, "textBoxBirthPlace");
+            this.textBoxBirthPlace.BackColor = System.Drawing.Color.White;
             this.textBoxBirthPlace.Name = "textBoxBirthPlace";
             this.textBoxBirthPlace.TextChanged += new System.EventHandler(this.textBoxBirthPlace_TextChanged);
             // 
             // labelIN
             // 
-            this.labelIN.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.labelIN, "labelIN");
+            this.labelIN.BackColor = System.Drawing.Color.Transparent;
             this.labelIN.Name = "labelIN";
             // 
             // labelLoanCycle
             // 
-            this.labelLoanCycle.AllowDrop = true;
             resources.ApplyResources(this.labelLoanCycle, "labelLoanCycle");
+            this.labelLoanCycle.AllowDrop = true;
             this.labelLoanCycle.BackColor = System.Drawing.Color.Transparent;
             this.labelLoanCycle.Name = "labelLoanCycle";
             // 
@@ -969,21 +973,21 @@ namespace OpenCBS.GUI.UserControl
             // 
             // textBoxFatherName
             // 
-            this.textBoxFatherName.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBoxFatherName, "textBoxFatherName");
+            this.textBoxFatherName.BackColor = System.Drawing.Color.White;
             this.textBoxFatherName.Name = "textBoxFatherName";
             this.textBoxFatherName.TextChanged += new System.EventHandler(this.textBoxFatherName_TextChanged);
             // 
             // labelFatherName
             // 
-            this.labelFatherName.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.labelFatherName, "labelFatherName");
+            this.labelFatherName.BackColor = System.Drawing.Color.Transparent;
             this.labelFatherName.Name = "labelFatherName";
             // 
             // changePhotoLinkLabel2
             // 
-            this.changePhotoLinkLabel2.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.changePhotoLinkLabel2, "changePhotoLinkLabel2");
+            this.changePhotoLinkLabel2.BackColor = System.Drawing.Color.Transparent;
             this.changePhotoLinkLabel2.Name = "changePhotoLinkLabel2";
             this.changePhotoLinkLabel2.TabStop = true;
             this.changePhotoLinkLabel2.UseCompatibleTextRendering = true;
@@ -991,8 +995,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // changePhotoLinkLabel
             // 
-            this.changePhotoLinkLabel.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.changePhotoLinkLabel, "changePhotoLinkLabel");
+            this.changePhotoLinkLabel.BackColor = System.Drawing.Color.Transparent;
             this.changePhotoLinkLabel.Name = "changePhotoLinkLabel";
             this.changePhotoLinkLabel.TabStop = true;
             this.changePhotoLinkLabel.UseCompatibleTextRendering = true;
@@ -1000,18 +1004,18 @@ namespace OpenCBS.GUI.UserControl
             // 
             // pictureBox2
             // 
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // pictureBox
             // 
+            resources.ApplyResources(this.pictureBox, "pictureBox");
             this.pictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.pictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.pictureBox, "pictureBox");
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.TabStop = false;
             this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
@@ -1032,8 +1036,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // textBoxLastname
             // 
-            this.textBoxLastname.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBoxLastname, "textBoxLastname");
+            this.textBoxLastname.BackColor = System.Drawing.Color.White;
             this.textBoxLastname.Name = "textBoxLastname";
             this.textBoxLastname.TextChanged += new System.EventHandler(this.textBoxLastname_TextChanged);
             // 
@@ -1045,8 +1049,8 @@ namespace OpenCBS.GUI.UserControl
             // 
             // textBoxIdentificationData
             // 
-            this.textBoxIdentificationData.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBoxIdentificationData, "textBoxIdentificationData");
+            this.textBoxIdentificationData.BackColor = System.Drawing.Color.White;
             this.textBoxIdentificationData.Name = "textBoxIdentificationData";
             this.textBoxIdentificationData.Leave += new System.EventHandler(this.textBoxIdentificationData_Leave);
             // 
@@ -1058,10 +1062,10 @@ namespace OpenCBS.GUI.UserControl
             // 
             // comboBoxSex
             // 
+            resources.ApplyResources(this.comboBoxSex, "comboBoxSex");
             this.comboBoxSex.BackColor = System.Drawing.Color.White;
             this.comboBoxSex.DisplayMember = "Value";
             this.comboBoxSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.comboBoxSex, "comboBoxSex");
             this.comboBoxSex.Name = "comboBoxSex";
             this.comboBoxSex.ValueMember = "Key";
             this.comboBoxSex.SelectionChangeCommitted += new System.EventHandler(this.comboBoxSex_SelectionChangeCommitted);
@@ -1080,17 +1084,17 @@ namespace OpenCBS.GUI.UserControl
             // 
             // textBoxFirstName
             // 
-            this.textBoxFirstName.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.textBoxFirstName, "textBoxFirstName");
+            this.textBoxFirstName.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.TextChanged += new System.EventHandler(this.textBoxFirstName_TextChanged);
             // 
             // panelEconomicActivity
             // 
+            resources.ApplyResources(this.panelEconomicActivity, "panelEconomicActivity");
             this.panelEconomicActivity.Controls.Add(this.btnPrint);
             this.panelEconomicActivity.Controls.Add(this.buttonCancel);
             this.panelEconomicActivity.Controls.Add(this.buttonSave);
-            resources.ApplyResources(this.panelEconomicActivity, "panelEconomicActivity");
             this.panelEconomicActivity.Name = "panelEconomicActivity";
             // 
             // btnPrint
