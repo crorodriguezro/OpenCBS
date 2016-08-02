@@ -366,7 +366,7 @@ namespace OpenCBS.GUI.Configuration
                else
                {
                    if (_savingsProduct.Type == OSavingProductType.PersonalAccount)
-                       _savingsProduct.BalanceMax = decimal.MaxValue;
+                       _savingsProduct.BalanceMax = 99999999999;
                    ServicesProvider.GetInstance().GetSavingProductServices().SaveProduct(_savingsProduct, clientTypeCounter);
                }
                 
