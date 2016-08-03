@@ -235,7 +235,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
 
             int? tellerId = null;
             if (teller != null && teller.Id != 0) tellerId = teller.Id;
-
+            OSavingsMethods savingsMethod = (OSavingsMethods)Enum.Parse(typeof(OSavingsMethods), paymentMethod.Name);
             SavingWithdrawEvent withdrawEvent = new SavingWithdrawEvent
             {
                 Amount = pAmount,
@@ -246,9 +246,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
                 Fee = 0m,
                 TellerId = tellerId,
                 ProductType = typeof(SavingsBookProduct),
-                SavingsMethod = OSavingsMethods.Cash,
-                PaymentMethod = paymentMethod,
-                PaymentsMethod = paymentMethod
+                SavingsMethod = savingsMethod
             };
             Events.Add(withdrawEvent);
             events.Add(withdrawEvent);

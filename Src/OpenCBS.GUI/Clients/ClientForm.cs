@@ -5417,7 +5417,14 @@ namespace OpenCBS.GUI.Clients
                 item.SubItems.Add(e.IsDebit ? string.Empty : amt);
                 item.SubItems.Add(e.ExtraInfo);
                 item.SubItems.Add(e.Code);
-                item.SubItems.Add(e.SavingsMethod.HasValue ? GetString("SavingsOperationForm", e.SavingsMethod + ".Text") : "-");
+                string method;
+                if (e.SavingsMethod.HasValue)
+                    method = GetString("SavingsOperationForm", e.SavingsMethod + ".Text");
+                else
+                    method = e.PaymentsMethod == null
+                        ? "-"
+                        : GetString("SavingsOperationForm", e.PaymentsMethod.Name + ".Text");
+                item.SubItems.Add(method);
                 item.SubItems.Add(e.User.Name);
                 item.SubItems.Add(e.Description);
                 item.SubItems.Add(e.CancelDate.HasValue ? e.CancelDate.Value.ToString("dd/MM/yyyy HH:mm:ss") : string.Empty);
