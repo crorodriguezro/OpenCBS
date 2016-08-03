@@ -246,7 +246,9 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
                 Fee = 0m,
                 TellerId = tellerId,
                 ProductType = typeof(SavingsBookProduct),
-                SavingsMethod = OSavingsMethods.Cash
+                SavingsMethod = OSavingsMethods.Cash,
+                PaymentMethod = paymentMethod,
+                PaymentsMethod = paymentMethod
             };
             Events.Add(withdrawEvent);
             events.Add(withdrawEvent);
