@@ -546,7 +546,8 @@ namespace OpenCBS.GUI.Contracts
                         isFlat = p.InterBranchTransferFee.IsFlat;
                     }
                 }
-
+                if (_bookingDirection == OSavingsOperation.Credit)
+                    isFlat = true;
                 OCurrency fee = isFlat ? updAmountFees.Value : _amount * updAmountFees.Value / 100;
                 nudTotalAmount.Value = (_amount + fee).Value;
             }
