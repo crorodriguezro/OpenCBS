@@ -5389,10 +5389,11 @@ namespace OpenCBS.GUI.Clients
 
                 nudTransferFees.Value = nudTransferFees.Minimum = nudTransferFees.Maximum = s.FlatTransferFees.HasValue ?
                     s.FlatTransferFees.Value : (decimal)s.RateTransferFees.Value * 100;
-                
+
+                nudIbtFee.Minimum = 0;
+                nudIbtFee.Maximum = 999999999;
                 nudIbtFee.Value = s.FlatInterBranchTransferFee.HasValue ? (s.FlatInterBranchTransferFee.Value == 0 ? nudIbtFee.Minimum : s.FlatInterBranchTransferFee.Value)
-                    : Convert.ToDecimal((s.RateInterBranchTransferFee == null ? 0 : s.RateInterBranchTransferFee.Value));
-                nudIbtFee.Minimum = nudIbtFee.Maximum = nudIbtFee.Value;
+                    : Convert.ToDecimal((s.RateInterBranchTransferFee == null ? Convert.ToDouble(nudIbtFee.Minimum) : s.RateInterBranchTransferFee.Value));
 
                 nudDepositFees.Value = nudDepositFees.Minimum = nudDepositFees.Maximum = ((SavingBookContract)pSaving).DepositFees.Value;
                 nudChequeDepositFees.Value = nudChequeDepositFees.Minimum = nudChequeDepositFees.Maximum = ((SavingBookContract)pSaving).ChequeDepositFees.Value;
@@ -5401,7 +5402,6 @@ namespace OpenCBS.GUI.Clients
                 nudOverdraftFees.Value = nudOverdraftFees.Minimum = nudOverdraftFees.Maximum = ((SavingBookContract)pSaving).OverdraftFees.Value;
                 nudAgioFees.Value = nudAgioFees.Minimum = nudAgioFees.Maximum = (decimal)((SavingBookContract)pSaving).AgioFees.Value * 100;
                 nudReopenFees.Value = nudReopenFees.Minimum = nudReopenFees.Maximum = ((SavingBookContract)pSaving).ReopenFees.Value;
-
             }
 
             lbSavingBalanceValue.Text = pSaving.GetFmtBalance(true);
