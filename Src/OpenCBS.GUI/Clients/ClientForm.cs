@@ -669,6 +669,7 @@ namespace OpenCBS.GUI.Clients
 
         private void DisplaySavingProduct(ISavingProduct product)
         {
+            tabControlSavingsDetails.TabPages.Clear();
             if (product.Type == OSavingProductType.PersonalAccount)
             {
                 buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible =
@@ -676,9 +677,12 @@ namespace OpenCBS.GUI.Clients
                 labelInterestRate.Visible = nudDownInterestRate.Visible = lbInterestRateMinMax.Visible = false;
 
                 tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = true;
-                tabControlSavingsDetails.TabPages.Remove(tabPageSavingsAmountsAndFees);
-                tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
-                tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
+                tabControlSavingsDetails.TabPages.Add(tabPageSavingsEvents);
+            }
+            else
+            {
+                tabControlSavingsDetails.TabPages.Add(tabPageSavingsAmountsAndFees);
+                tabControlSavingsDetails.TabPages.Add(tabPageSavingsEvents);
             }
 
             lbInitialAmountMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
