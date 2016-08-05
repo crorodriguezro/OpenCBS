@@ -33,6 +33,7 @@ namespace OpenCBS.Enums
         WireTransfer = 5,
         DebitCard = 6,
         Savings = 7,
-        Voucher = 8
+        Voucher = 8,
+        All = 9
     }
 }
