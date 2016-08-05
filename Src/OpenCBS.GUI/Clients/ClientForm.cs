@@ -3920,6 +3920,12 @@ namespace OpenCBS.GUI.Clients
             try
             {
                 var loanDisbursementForm = new LoanDisbursementForm(_credit);
+
+                foreach (var initializer in _applicationController.GetAllInstances<IDisbursementFormInitializer>())
+                {
+                    initializer.Initialize(loanDisbursementForm);
+                }
+
                 loanDisbursementForm.ShowDialog();
                 _credit = loanDisbursementForm.Loan;
 
