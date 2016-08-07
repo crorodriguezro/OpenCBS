@@ -977,6 +977,7 @@ namespace OpenCBS.Services
                            .CallInterceptor(new Dictionary<string, object>
                             {
                                 {"Event", savingEvent},
+                                {"Client", pClient},
                                 {"RecoveryAccount", true},
                                 {"SqlTransaction", sqlTransaction}
                             });
