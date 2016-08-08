@@ -690,6 +690,9 @@ You must complete "min" and "max". (tab Transactions)</value>
     <value>The withdrawal amount is empty or incorrect.
 You must complete "min" and "max". (tab Transactions)</value>
   </data>
+    <data name="SavingRepaymentAmountIsInvalid.Text" xml:space="preserve">
+    <value>The amount of the deposit or balance out of range</value>
+  </data>
   <data name="OTE41.Text" xml:space="preserve">
     <value>Please select loan officer.</value>
   </data>

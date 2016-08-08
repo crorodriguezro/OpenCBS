@@ -55,5 +55,7 @@ namespace OpenCBS.CoreDomain.Products
         OCurrency EntryFees { get; set; }
         Currency Currency { get; set; }
         InstallmentType Periodicity { get; set; }
+        OSavingProductType Type { get; set; }
+        bool RenewAuto { get; set; }
     }
 }

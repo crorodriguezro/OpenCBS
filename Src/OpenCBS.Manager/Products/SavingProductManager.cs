@@ -77,6 +77,8 @@ namespace OpenCBS.Manager.Products
                     ,[entry_fees]
                     ,[currency_id]
                     ,[product_type]
+                    ,[type]
+                    ,[renew_auto]
                 )
                 VALUES 
                 (
@@ -101,7 +103,9 @@ namespace OpenCBS.Manager.Products
                     ,@entryFeesMin
                     ,@entryFees
                     ,@currency_id
-                    ,@product_type                 
+                    ,@product_type
+                    ,@type
+                    ,@renew_auto    
                 ) 
                 SELECT CONVERT(int, SCOPE_IDENTITY())";
 
@@ -456,6 +460,8 @@ namespace OpenCBS.Manager.Products
                                     , [entry_fees] = @entryFees
                                     , [entry_fees_max] = @entryFeesMax
                                     , [entry_fees_min] = @entryFeesMin
+                                    , [type] = @type
+                                    , [renew_auto] = @renew_auto
                                     {0}
                                     WHERE id = @productId";
 
@@ -476,7 +482,6 @@ namespace OpenCBS.Manager.Products
                 DeleteAssignedClientTypes(product.Id);
                 AssignClientTypes(((SavingsBookProduct)product).ProductClientTypes, product.Id);
             }
-            
         }
 
         public bool IsThisProductAlreadyUsed(int productId)
@@ -538,6 +543,7 @@ namespace OpenCBS.Manager.Products
 
             product.Id = r.GetInt("id");
             product.Delete = r.GetBool("deleted");
+            product.RenewAuto = r.GetBool("renew_auto");
             product.Name = r.GetString("name");
             product.Code = r.GetString("code");
 
@@ -562,7 +568,20 @@ namespace OpenCBS.Manager.Products
             product.EntryFees = r.GetMoney("entry_fees");
             product.EntryFeesMax = r.GetMoney("entry_fees_max");
             product.EntryFeesMin = r.GetMoney("entry_fees_min");
-           
+
+            switch (r.GetInt("type"))
+            {
+                case 1: product.Type = OSavingProductType.PersonalAccount;
+                    break;
+                case 2:
+                    product.Type = OSavingProductType.ShortTermDeposit;
+                    break;
+                case 3:
+                    product.Type = OSavingProductType.Saving;
+                    break;
+                default: throw new Exception();
+            }
+
             if (product is SavingsBookProduct)
             {
                 var savingBookProduct = (SavingsBookProduct) product;
@@ -727,6 +746,8 @@ namespace OpenCBS.Manager.Products
 
             c.AddParam("@productId", product.Id);
             c.AddParam("@currency_id", product.Currency.Id);
+            c.AddParam("@type", product.Type);
+            c.AddParam("@renew_auto", product.RenewAuto);
             
             if (product is  SavingsBookProduct)
             {
@@ -750,12 +771,12 @@ namespace OpenCBS.Manager.Products
 
         private static void SetProduct(OpenCbsCommand c, SavingsBookProduct product)
         {
-            c.AddParam("@interestBase", (int)product.InterestBase);
-            c.AddParam("@interestFrequency", (int)product.InterestFrequency);
+            c.AddParam("@interestBase", product.InterestBase);
+            c.AddParam("@interestFrequency", product.InterestFrequency);
             c.AddParam("@calculAmountBase", product.CalculAmountBase.HasValue ? (int)product.CalculAmountBase.Value : 0);
             c.AddParam("@productId", product.Id);
 
-            c.AddParam("@withdrawFeesType", (int)product.WithdrawFeesType);
+            c.AddParam("@withdrawFeesType", product.WithdrawFeesType);
             c.AddParam("@flatWithdrawFeesMin", product.WithdrawFeesType == OSavingsFeesType.Flat ? product.FlatWithdrawFeesMin : null);
             c.AddParam("@flatWithdrawFeesMax", product.WithdrawFeesType == OSavingsFeesType.Flat ? product.FlatWithdrawFeesMax : null);
             c.AddParam("@flatWithdrawFees", product.WithdrawFeesType == OSavingsFeesType.Flat ? product.FlatWithdrawFees : null);
@@ -763,7 +784,7 @@ namespace OpenCBS.Manager.Products
             c.AddParam("@rateWithdrawFeesMax", product.WithdrawFeesType == OSavingsFeesType.Rate ? product.RateWithdrawFeesMax : null);
             c.AddParam("@rateWithdrawFees", product.WithdrawFeesType == OSavingsFeesType.Rate ? product.RateWithdrawFees : null);
 
-            c.AddParam("@transferFeesType", (int)product.TransferFeesType);
+            c.AddParam("@transferFeesType", product.TransferFeesType);
             c.AddParam("@flatTransferFeesMin", product.TransferFeesType == OSavingsFeesType.Flat ? product.FlatTransferFeesMin : null);
             c.AddParam("@flatTransferFeesMax", product.TransferFeesType == OSavingsFeesType.Flat ? product.FlatTransferFeesMax : null);
             c.AddParam("@flatTransferFees", product.TransferFeesType == OSavingsFeesType.Flat ? product.FlatTransferFees : null);

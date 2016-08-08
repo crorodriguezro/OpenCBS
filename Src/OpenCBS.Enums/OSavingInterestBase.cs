@@ -28,6 +28,7 @@ namespace OpenCBS.Enums
     {
         Daily = 10,
         Weekly = 20,
-        Monthly = 30
+        Monthly = 30,
+        Yearly = 40
     }
 }

@@ -369,6 +369,9 @@
   <data name="rbTransfer.Text" xml:space="preserve">
     <value>Transfer</value>
   </data>
+  <data name="rbTransfer.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;rbTransfer.Name" xml:space="preserve">
     <value>rbTransfer</value>
   </data>
@@ -398,6 +401,9 @@
   </data>
   <data name="rbWithdraw.Text" xml:space="preserve">
     <value>Withdrawal</value>
+  </data>
+  <data name="rbWithdraw.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;rbWithdraw.Name" xml:space="preserve">
     <value>rbWithdraw</value>

@@ -19,17 +19,9 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using OpenCBS.CoreDomain;
 using OpenCBS.GUI.UserControl;
-using OpenCBS.MultiLanguageRessources;
 
 namespace OpenCBS.GUI.Tools
 {

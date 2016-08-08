@@ -65,6 +65,8 @@ namespace OpenCBS.GUI.Contracts
             this.cbSavingsMethod = new System.Windows.Forms.ComboBox();
             this.cbxPending = new System.Windows.Forms.CheckBox();
             this.lblPaymentMethod = new System.Windows.Forms.Label();
+            this._chequeNumberLabel = new System.Windows.Forms.Label();
+            this._chequeNumberTextBox = new System.Windows.Forms.TextBox();
             this.gbxMainWindow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTotalAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).BeginInit();
@@ -88,6 +90,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // gbxMainWindow
             // 
+            this.gbxMainWindow.Controls.Add(this._chequeNumberTextBox);
+            this.gbxMainWindow.Controls.Add(this._chequeNumberLabel);
             this.gbxMainWindow.Controls.Add(this.nudTotalAmount);
             this.gbxMainWindow.Controls.Add(this.nudAmount);
             this.gbxMainWindow.Controls.Add(this.rbxCredit);
@@ -197,8 +201,8 @@ namespace OpenCBS.GUI.Contracts
             // 
             // dtpDate
             // 
-            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             resources.ApplyResources(this.dtpDate, "dtpDate");
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDate.Name = "dtpDate";
             // 
             // lblDate
@@ -304,6 +308,16 @@ namespace OpenCBS.GUI.Contracts
             this.lblPaymentMethod.BackColor = System.Drawing.Color.Transparent;
             this.lblPaymentMethod.Name = "lblPaymentMethod";
             // 
+            // _chequeNumberLabel
+            // 
+            resources.ApplyResources(this._chequeNumberLabel, "_chequeNumberLabel");
+            this._chequeNumberLabel.Name = "_chequeNumberLabel";
+            // 
+            // _chequeNumberTextBox
+            // 
+            resources.ApplyResources(this._chequeNumberTextBox, "_chequeNumberTextBox");
+            this._chequeNumberTextBox.Name = "_chequeNumberTextBox";
+            // 
             // SavingsOperationForm
             // 
             this.AcceptButton = this.btnSave;
@@ -362,5 +376,7 @@ namespace OpenCBS.GUI.Contracts
         private System.Windows.Forms.NumericUpDown nudAmount;
         private System.Windows.Forms.NumericUpDown nudTotalAmount;
         private System.Windows.Forms.Label lblInterBranch;
+        private System.Windows.Forms.TextBox _chequeNumberTextBox;
+        private System.Windows.Forms.Label _chequeNumberLabel;
     }
 }

@@ -85,7 +85,8 @@ namespace OpenCBS.Manager.Events
                                        [pending],
                                        [pending_event_id],
                                        [teller_id],
-                                       [loan_event_id])
+                                       [loan_event_id],
+                                       [doc1])
 				                     VALUES(
                                        @user_id, 
                                        @contract_id, 
@@ -102,7 +103,8 @@ namespace OpenCBS.Manager.Events
                                        @pending,
                                        @pending_event_id,
                                        @teller_id,
-                                       @loan_event_id)
+                                       @loan_event_id,
+                                       @doc1)
 				                     SELECT CONVERT(int, SCOPE_IDENTITY())";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, sqlTransac.Connection, sqlTransac))
@@ -124,8 +126,7 @@ namespace OpenCBS.Manager.Events
 	        c.AddParam("@creation_date", pSavingEvent.Date);
 	        c.AddParam("@cancelable", pSavingEvent.Cancelable);
 	        c.AddParam("@is_fired", pSavingEvent.IsFired);
-	        c.AddParam("@related_contract_code", pSavingEvent is SavingTransferEvent ?
-	                                                                                                                           ((SavingTransferEvent)pSavingEvent).RelatedContractCode : null);
+	        c.AddParam("@related_contract_code", pSavingEvent is SavingTransferEvent ? ((SavingTransferEvent)pSavingEvent).RelatedContractCode : null);
 	        c.AddParam("@fees", pSavingEvent is ISavingsFees ? ((ISavingsFees)pSavingEvent).Fee : null);
             if (pSavingEvent.PaymentMethod != null && pSavingEvent.PaymentsMethod.Id != 0)
             {
@@ -157,7 +158,7 @@ namespace OpenCBS.Manager.Events
 	            c.AddParam("@teller_id", null);
 
 	       c.AddParam("@loan_event_id", pSavingEvent.LoanEventId);
-            
+	       c.AddParam("@doc1", pSavingEvent.Doc1);
 	    }
 
         public void FireEvent(int savingEventId)

@@ -31,6 +31,9 @@ namespace OpenCBS.Enums
         Withdrawal = 3,
         DirectDebit = 4,
         WireTransfer = 5,
-        DebitCard = 6
+        DebitCard = 6,
+        Savings = 7,
+        Voucher = 8,
+        All = 9
     }
 }

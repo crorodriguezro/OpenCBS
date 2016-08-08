@@ -89,26 +89,26 @@ namespace OpenCBS.GUI.Contracts
 
         private void InitializeControls()
         {
-            udInitialAmount.Minimum = _product.InitialAmountMin.Value;
-            udInitialAmount.Maximum = _product.InitialAmountMax.Value;
+            udInitialAmount.Minimum = _product.InitialAmountMin.HasValue ? _product.InitialAmountMin.Value : 0;
+            udInitialAmount.Maximum = _product.InitialAmountMax.HasValue ? _product.InitialAmountMin.Value : 0;
 
             if (!_product.InterestRate.HasValue)
             {
-                _defaultInterestRate = _product.InterestRateMin.Value * 100;
-                udInterestRate.Minimum = (decimal)_product.InterestRateMin * 100;
-                udInterestRate.Maximum = (decimal)_product.InterestRateMax * 100;
+                _defaultInterestRate = _product.InterestRateMin.HasValue ? _product.InterestRateMin.Value * 100 : 0;
+                udInterestRate.Minimum = _product.InterestRateMin.HasValue ? (decimal)_product.InterestRateMin * 100 : 0;
+                udInterestRate.Maximum = _product.InterestRateMax.HasValue ? (decimal)_product.InterestRateMax * 100 : 0;
             }
             else
                 _defaultInterestRate = _product.InterestRate.Value * 100;
 
             if (!_product.EntryFees.HasValue)
             {
-                _defaultEntryFees = _product.EntryFeesMin;
-                udEntryFees.Minimum = _product.EntryFeesMin.Value;
-                udEntryFees.Maximum = _product.EntryFeesMax.Value;
+                _defaultEntryFees = _product.EntryFeesMin.HasValue ? _product.EntryFeesMin : 0;
+                udEntryFees.Minimum = _product.EntryFeesMin.HasValue ? _product.EntryFeesMin.Value : 0;
+                udEntryFees.Maximum = _product.EntryFeesMax.HasValue ? _product.EntryFeesMax.Value : 0;
             }
             else
-                _defaultEntryFees = _product.EntryFees;
+                _defaultEntryFees = _product.EntryFees.HasValue ? _product.EntryFees : 0;
 
             if (_product is SavingsBookProduct)
             {
@@ -118,22 +118,22 @@ namespace OpenCBS.GUI.Contracts
                 {
                     if (!sbp.FlatWithdrawFees.HasValue)
                     {
-                        _defaultWithdrawFees = sbp.FlatWithdrawFeesMin.Value;
-                        udWithdrawFees.Minimum = sbp.FlatWithdrawFeesMin.Value;
-                        udWithdrawFees.Maximum = sbp.FlatWithdrawFeesMax.Value;
+                        _defaultWithdrawFees = sbp.FlatWithdrawFeesMin.HasValue ? sbp.FlatWithdrawFeesMin.Value : 0;
+                        udWithdrawFees.Minimum = sbp.FlatWithdrawFeesMin.HasValue ? sbp.FlatWithdrawFeesMin.Value : 0;
+                        udWithdrawFees.Maximum = sbp.FlatWithdrawFeesMax.HasValue ? sbp.FlatWithdrawFeesMax.Value : 0;
                     }
                     else
                     {
-                        _defaultWithdrawFees = sbp.FlatWithdrawFees.Value;
+                        _defaultWithdrawFees = sbp.FlatWithdrawFees.HasValue ? sbp.FlatWithdrawFees.Value : 0;
                     }
                 }
                 else
                 {
                     if (!sbp.RateWithdrawFees.HasValue)
                     {
-                        _defaultWithdrawFees = (decimal)sbp.RateWithdrawFeesMin.Value * 100;
-                        udWithdrawFees.Minimum = (decimal)sbp.RateWithdrawFeesMin.Value * 100;
-                        udWithdrawFees.Maximum = (decimal)sbp.RateWithdrawFeesMax.Value * 100;
+                        _defaultWithdrawFees = sbp.RateWithdrawFeesMin.HasValue ? (decimal)sbp.RateWithdrawFeesMin.Value * 100 : 0;
+                        udWithdrawFees.Minimum = sbp.RateWithdrawFeesMin.HasValue ? (decimal)sbp.RateWithdrawFeesMin.Value * 100 : 0;
+                        udWithdrawFees.Maximum = sbp.RateWithdrawFeesMax.HasValue ? (decimal)sbp.RateWithdrawFeesMax.Value * 100 : 0;
                     }
                     else
                         _defaultWithdrawFees = (decimal)sbp.RateWithdrawFees.Value * 100;
@@ -143,20 +143,20 @@ namespace OpenCBS.GUI.Contracts
                 {
                     if (!sbp.FlatTransferFees.HasValue)
                     {
-                        _defaultTransferFees = sbp.FlatTransferFeesMin.Value;
-                        udTransferFees.Minimum = sbp.FlatTransferFeesMin.Value;
-                        udTransferFees.Maximum = sbp.FlatTransferFeesMax.Value;
+                        _defaultTransferFees = sbp.FlatTransferFeesMin.HasValue ? sbp.FlatTransferFeesMin.Value : 0;
+                        udTransferFees.Minimum = sbp.FlatTransferFeesMin.HasValue ? sbp.FlatTransferFeesMin.Value : 0;
+                        udTransferFees.Maximum = sbp.FlatTransferFeesMax.HasValue ? sbp.FlatTransferFeesMax.Value : 0;
                     }
                     else
-                        _defaultTransferFees = sbp.FlatTransferFees.Value;
+                        _defaultTransferFees = sbp.FlatTransferFees.HasValue ? sbp.FlatTransferFees.Value : 0;
                 }
                 else
                 {
                     if (!sbp.RateTransferFees.HasValue)
                     {
-                        _defaultTransferFees = (decimal)sbp.RateTransferFeesMin.Value * 100;
-                        udTransferFees.Minimum = (decimal)sbp.RateTransferFeesMin.Value * 100;
-                        udTransferFees.Maximum = (decimal)sbp.RateTransferFeesMax.Value * 100;
+                        _defaultTransferFees = sbp.RateTransferFeesMin.HasValue ? (decimal)sbp.RateTransferFeesMin.Value * 100 : 0;
+                        udTransferFees.Minimum = sbp.RateTransferFeesMin.HasValue ? (decimal)sbp.RateTransferFeesMin.Value * 100 : 0;
+                        udTransferFees.Maximum = sbp.RateTransferFeesMax.HasValue ? (decimal)sbp.RateTransferFeesMax.Value * 100 : 0;
                     }
                     else
                         _defaultTransferFees = (decimal)sbp.RateTransferFees.Value * 100;
@@ -164,14 +164,14 @@ namespace OpenCBS.GUI.Contracts
 
                 if (sbp.InterBranchTransferFee.IsRange)
                 {
-                    _defaultIbtFees = sbp.InterBranchTransferFee.Min.Value;
-                    nudIbtFees.Minimum = sbp.InterBranchTransferFee.Min.Value;
-                    nudIbtFees.Maximum = sbp.InterBranchTransferFee.Max.Value;
+                    _defaultIbtFees = sbp.InterBranchTransferFee.Min.HasValue ? sbp.InterBranchTransferFee.Min.Value : 0;
+                    nudIbtFees.Minimum = sbp.InterBranchTransferFee.Min.HasValue ? sbp.InterBranchTransferFee.Min.Value : 0;
+                    nudIbtFees.Maximum = sbp.InterBranchTransferFee.Max.HasValue ? sbp.InterBranchTransferFee.Max.Value : 0;
                     nudIbtFees.Increment = sbp.InterBranchTransferFee.IsFlat ? 1 : 0.01m;
                 }
                 else
                 {
-                    _defaultIbtFees = sbp.InterBranchTransferFee.Value.Value;
+                    _defaultIbtFees = sbp.InterBranchTransferFee.Value.HasValue ? sbp.InterBranchTransferFee.Value.Value : 0;
                     nudIbtFees.Minimum = _defaultIbtFees;
                     nudIbtFees.Maximum = _defaultIbtFees;
                 }
@@ -179,72 +179,72 @@ namespace OpenCBS.GUI.Contracts
                 // Deposit fees
                 if (!sbp.DepositFees.HasValue)
                 {
-                    _defaultDepositFees = sbp.DepositFeesMin.Value;
-                    udDepositFees.Minimum = sbp.DepositFeesMin.Value;
-                    udDepositFees.Maximum = sbp.DepositFeesMax.Value;
+                    _defaultDepositFees = sbp.DepositFeesMin.HasValue ? sbp.DepositFeesMin.Value : 0;
+                    udDepositFees.Minimum = sbp.DepositFeesMin.HasValue ? sbp.DepositFeesMin.Value : 0;
+                    udDepositFees.Maximum = sbp.DepositFeesMax.HasValue ? sbp.DepositFeesMax.Value : 0;
                 }
                 else
-                    _defaultDepositFees = sbp.DepositFees.Value;
+                    _defaultDepositFees = sbp.DepositFees.HasValue ? sbp.DepositFees.Value : 0;
 
                 // Cheque deposit fees
                 if (!sbp.ChequeDepositFees.HasValue)
                 {
-                    _defaultChequeDepositFees = sbp.ChequeDepositFeesMin.Value;
-                    udChequeDepositFees.Minimum = sbp.ChequeDepositFeesMin.Value;
-                    udChequeDepositFees.Maximum = sbp.ChequeDepositFeesMax.Value;
+                    _defaultChequeDepositFees = sbp.ChequeDepositFeesMin.HasValue ? sbp.ChequeDepositFeesMin.Value : 0;
+                    udChequeDepositFees.Minimum = sbp.ChequeDepositFeesMin.HasValue ? sbp.ChequeDepositFeesMin.Value : 0;
+                    udChequeDepositFees.Maximum = sbp.ChequeDepositFeesMax.HasValue ? sbp.ChequeDepositFeesMax.Value : 0;
                 }
                 else
-                    _defaultChequeDepositFees = sbp.ChequeDepositFees.Value;
+                    _defaultChequeDepositFees = sbp.ChequeDepositFees.HasValue ? sbp.ChequeDepositFees.Value : 0;
 
                 // Close fees
                 if (!sbp.CloseFees.HasValue)
                 {
-                    _defaultCloseFees = sbp.CloseFeesMin.Value;
-                    udCloseFees.Minimum = sbp.CloseFeesMin.Value;
-                    udCloseFees.Maximum = sbp.CloseFeesMax.Value;
+                    _defaultCloseFees = sbp.CloseFeesMin.HasValue ? sbp.CloseFeesMin.Value : 0;
+                    udCloseFees.Minimum = sbp.CloseFeesMin.HasValue ? sbp.CloseFeesMin.Value : 0;
+                    udCloseFees.Maximum = sbp.CloseFeesMax.HasValue ? sbp.CloseFeesMax.Value : 0;
                 }
                 else
-                    _defaultCloseFees = sbp.CloseFees.Value;
+                    _defaultCloseFees = sbp.CloseFees.HasValue ? sbp.CloseFees.Value : 0;
 
                 // Management
                 if (!sbp.ManagementFees.HasValue)
                 {
-                    _defaultManagementFees = sbp.ManagementFeesMin.Value;
-                    udManagementFees.Minimum = sbp.ManagementFeesMin.Value;
-                    udManagementFees.Maximum = sbp.ManagementFeesMax.Value;
+                    _defaultManagementFees = sbp.ManagementFeesMin.HasValue ? sbp.ManagementFeesMin.Value : 0;
+                    udManagementFees.Minimum = sbp.ManagementFeesMin.HasValue ? sbp.ManagementFeesMin.Value : 0;
+                    udManagementFees.Maximum = sbp.ManagementFeesMax.HasValue ? sbp.ManagementFeesMax.Value : 0;
                 }
                 else
-                    _defaultManagementFees = sbp.ManagementFees.Value;
+                    _defaultManagementFees = sbp.ManagementFees.HasValue ? sbp.ManagementFees.Value : 0;
 
                 // Overdraft
                 if (!sbp.OverdraftFees.HasValue)
                 {
-                    _defaultOverdraftFees = sbp.OverdraftFeesMin.Value;
-                    udOverdraftFees.Minimum = sbp.OverdraftFeesMin.Value;
-                    udOverdraftFees.Maximum = sbp.OverdraftFeesMax.Value;
+                    _defaultOverdraftFees = sbp.OverdraftFeesMin.HasValue ? sbp.OverdraftFeesMin.Value : 0;
+                    udOverdraftFees.Minimum = sbp.OverdraftFeesMin.HasValue ? sbp.OverdraftFeesMin.Value : 0;
+                    udOverdraftFees.Maximum = sbp.OverdraftFeesMax.HasValue ? sbp.OverdraftFeesMax.Value : 0;
                 }
                 else
-                    _defaultOverdraftFees = sbp.OverdraftFees.Value;
+                    _defaultOverdraftFees = sbp.OverdraftFees.HasValue ? sbp.OverdraftFees.Value : 0;
 
                 // Agio
                 if (!sbp.AgioFees.HasValue)
                 {
-                    _defaultAgioFees = (decimal) sbp.AgioFeesMin.Value * 100;
-                    udAgioFees.Minimum = (decimal) sbp.AgioFeesMin.Value * 100;
-                    udAgioFees.Maximum = (decimal) sbp.AgioFeesMax.Value * 100;
+                    _defaultAgioFees = sbp.AgioFeesMin.HasValue ? (decimal)sbp.AgioFeesMin.Value * 100 : 0;
+                    udAgioFees.Minimum = sbp.AgioFeesMin.HasValue ? (decimal)sbp.AgioFeesMin.Value * 100 : 0;
+                    udAgioFees.Maximum = sbp.AgioFeesMax.HasValue ? (decimal)sbp.AgioFeesMax.Value * 100 : 0;
                 }
                 else
-                    _defaultAgioFees = (decimal) sbp.AgioFees.Value * 100;
+                    _defaultAgioFees = sbp.AgioFees.HasValue ? (decimal)sbp.AgioFees.Value * 100 : 0;
 
                 // Reopen
                 if (!sbp.ReopenFees.HasValue)
                 {
-                    _defaultReopenFees = sbp.ReopenFeesMin.Value;
-                    udReopenFees.Minimum = sbp.ReopenFeesMin.Value;
-                    udReopenFees.Maximum = sbp.ReopenFeesMax.Value;
+                    _defaultReopenFees = sbp.ReopenFeesMin.HasValue ? sbp.ReopenFeesMin.Value : 0;
+                    udReopenFees.Minimum = sbp.ReopenFeesMin.HasValue ? sbp.ReopenFeesMin.Value : 0;
+                    udReopenFees.Maximum = sbp.ReopenFeesMax.HasValue ? sbp.ReopenFeesMax.Value : 0;
                 }
                 else
-                    _defaultReopenFees = sbp.ReopenFees.Value;
+                    _defaultReopenFees = sbp.ReopenFees.HasValue ? sbp.ReopenFees.Value : 0;
             }
 
             lvMembers.Items.Clear();

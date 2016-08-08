@@ -33,6 +33,8 @@ using OpenCBS.CoreDomain.SearchResult;
 using OpenCBS.Manager.QueryForObject;
 using OpenCBS.Enums;
 using System;
+using System.Linq;
+using Dapper;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.Manager.Clients;
 
@@ -998,6 +1000,15 @@ namespace OpenCBS.Manager.Contracts
         {
             if (null == SavingSelected) return;
             SavingSelected(saving);
+        }
+
+        public string CheckAlreadyHaveClientCurrentAccount(int clientId, SqlTransaction tx)
+        {
+            const string query = @"                
+                select t.CurrentAccount from dbo.Tiers t where id = @clientId
+                ";
+            var result = tx.Connection.Query<string>(query, new { clientId }, tx).First();
+            return result;
         }
     }
 }

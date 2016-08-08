@@ -190,6 +190,7 @@ namespace OpenCBS.GUI.Contracts
                         rbxDebit.Visible = false;
                         rbxCredit.Visible = false;
                         cbBookings.Visible = false;
+                        _chequeNumberLabel.Visible = _chequeNumberTextBox.Visible = true;
                         break;
                     }
                 case OSavingsOperation.Debit:
@@ -205,6 +206,7 @@ namespace OpenCBS.GUI.Contracts
                         rbxCredit.Visible = false;
                         cbBookings.Visible = false;
                         lblPaymentMethod.Visible = true;
+                        _chequeNumberLabel.Visible = _chequeNumberTextBox.Visible = true;
                         break;
                     }
                 case OSavingsOperation.Transfer:
@@ -223,6 +225,7 @@ namespace OpenCBS.GUI.Contracts
                         rbxCredit.Visible = false;
                         cbBookings.Visible = false;
                         cbSavingsMethod.Visible = false;
+                        _chequeNumberLabel.Visible = _chequeNumberTextBox.Visible = false;
                         break;
                     }
                 case OSavingsOperation.SpecialOperation:
@@ -250,6 +253,7 @@ namespace OpenCBS.GUI.Contracts
                         nudTotalAmount.Visible = false;
                         lblTotalSavingCurrency.Visible = false;
                         lbAmountMinMaxCurrencyPivot.Visible = false;
+                        _chequeNumberLabel.Visible = _chequeNumberTextBox.Visible = false;
 
                         cbBookings.Items.Clear();
                         foreach (Booking booking in ServicesProvider.GetInstance().GetStandardBookingServices().SelectAllStandardBookings())
@@ -353,10 +357,9 @@ namespace OpenCBS.GUI.Contracts
                 {
                     case OSavingsOperation.Credit:
                         {
-                            OSavingsMethods savingsMethod =
-                                (OSavingsMethods)
-                                    Enum.Parse(typeof(OSavingsMethods), "Cash");
                             var paymentMethod = (PaymentMethod)cbSavingsMethod.SelectedItem;
+
+                            OSavingsMethods savingsMethod = (OSavingsMethods)Enum.Parse(typeof(OSavingsMethods), paymentMethod.Name);
                             if (_saving is SavingBookContract)
                             {
                                 if (savingsMethod == OSavingsMethods.Cheque)
@@ -365,7 +368,9 @@ namespace OpenCBS.GUI.Contracts
                             }
 
                             savingServices.Deposit(_saving, _date, _amount, _description, User.CurrentUser, pending,
-                                savingsMethod, paymentMethod, null, Teller.CurrentTeller);
+                                savingsMethod, paymentMethod, null, Teller.CurrentTeller, _chequeNumberTextBox.Text);
+                            _saving.Status = OSavingsStatus.Active;
+                            savingServices.UpdateStatus(_saving);
                             break;
                         }
                     case OSavingsOperation.Debit:
@@ -379,7 +384,7 @@ namespace OpenCBS.GUI.Contracts
                             }
 
                             savingServices.Withdraw(_saving, _date, _amount, _description, User.CurrentUser,
-                                Teller.CurrentTeller, paymentMethod);
+                                Teller.CurrentTeller, paymentMethod, _chequeNumberTextBox.Text);
                             break;
                         }
                     case OSavingsOperation.Transfer:
@@ -436,8 +441,9 @@ namespace OpenCBS.GUI.Contracts
                 SavingSearchResult saving = searchCreditContractForm.SelectedSavingContract;
                 lblClientName.Text = saving.ClientName;
                 tbTargetAccount.Text = saving.ContractCode;
-
+                var client = ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(saving.Id);
                 _savingTarget = ServicesProvider.GetInstance().GetSavingServices().GetSaving(saving.Id);
+                _savingTarget.Client = client;
                 lblInterBranch.Visible = !IsNormalTransfer();
                 LoadTransferFee();
             }
@@ -540,7 +546,8 @@ namespace OpenCBS.GUI.Contracts
                         isFlat = p.InterBranchTransferFee.IsFlat;
                     }
                 }
-
+                if (_bookingDirection == OSavingsOperation.Credit)
+                    isFlat = true;
                 OCurrency fee = isFlat ? updAmountFees.Value : _amount * updAmountFees.Value / 100;
                 nudTotalAmount.Value = (_amount + fee).Value;
             }

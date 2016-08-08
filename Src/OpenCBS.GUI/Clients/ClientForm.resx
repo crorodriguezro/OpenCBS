@@ -976,7 +976,7 @@
     <value>0, 35</value>
   </data>
   <data name="listViewGuarantors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1097, 236</value>
+    <value>1097, 232</value>
   </data>
   <data name="listViewGuarantors.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -1012,7 +1012,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnPrintGuarantors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 205</value>
+    <value>3, 201</value>
   </data>
   <data name="btnPrintGuarantors.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 28</value>
@@ -1027,7 +1027,7 @@
     <value>btnPrintGuarantors</value>
   </data>
   <data name="&gt;&gt;btnPrintGuarantors.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.11.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=16.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintGuarantors.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -1201,7 +1201,7 @@
     <value>3, 3</value>
   </data>
   <data name="pnlGuarantorButtons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 230</value>
+    <value>140, 226</value>
   </data>
   <data name="pnlGuarantorButtons.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -1228,7 +1228,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 236</value>
+    <value>146, 232</value>
   </data>
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -1327,7 +1327,7 @@
     <value>0, 35</value>
   </data>
   <data name="listViewCollaterals.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1097, 249</value>
+    <value>1097, 253</value>
   </data>
   <data name="listViewCollaterals.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1468,7 +1468,7 @@
     <value>1097, 35</value>
   </data>
   <data name="pnlCollateralButtons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 249</value>
+    <value>146, 253</value>
   </data>
   <data name="pnlCollateralButtons.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -1537,7 +1537,7 @@
     <value>1243, 559</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>271</value>
+    <value>267</value>
   </data>
   <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1570,7 +1570,7 @@
     <value>0, 0</value>
   </data>
   <data name="panelLoansContracts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 242</value>
+    <value>1249, 238</value>
   </data>
   <data name="panelLoansContracts.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -1639,7 +1639,7 @@
     <value>0, 35</value>
   </data>
   <data name="panelSavingsContracts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 284</value>
+    <value>1249, 288</value>
   </data>
   <data name="panelSavingsContracts.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -1708,7 +1708,7 @@
     <value>1249, 565</value>
   </data>
   <data name="splitContainerContracts.SplitterDistance" type="System.Int32, mscorlib">
-    <value>242</value>
+    <value>238</value>
   </data>
   <data name="splitContainerContracts.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3133,7 +3133,7 @@
     <value>btnPrintLoanDetails</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanDetails.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.11.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=16.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanDetails.Parent" xml:space="preserve">
     <value>loanDetailsButtonsPanel</value>
@@ -4204,7 +4204,7 @@
     <value>eacLoan</value>
   </data>
   <data name="&gt;&gt;eacLoan.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.EconomicActivityControl, OpenCBS.GUI, Version=15.11.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.EconomicActivityControl, OpenCBS.GUI, Version=16.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;eacLoan.Parent" xml:space="preserve">
     <value>tableLayoutPanel4</value>
@@ -5263,7 +5263,7 @@
     <value>lvEntryFees</value>
   </data>
   <data name="&gt;&gt;lvEntryFees.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.11.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=16.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvEntryFees.Parent" xml:space="preserve">
     <value>groupBoxEntryFees</value>
@@ -6564,7 +6564,7 @@ Max:
     <value>btnPrintLoanRepayment</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanRepayment.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.11.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=16.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanRepayment.Parent" xml:space="preserve">
     <value>flowLayoutPanel8</value>
@@ -6780,7 +6780,7 @@ Max:
     <value>lvEvents</value>
   </data>
   <data name="&gt;&gt;lvEvents.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.11.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=16.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvEvents.Parent" xml:space="preserve">
     <value>tabPageEvents</value>
@@ -6840,7 +6840,7 @@ Max:
     <value>btnPrintLoanEvents</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanEvents.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.11.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=16.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanEvents.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -6967,7 +6967,7 @@ Max:
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        HQAAAk1TRnQBSQFMAgEBBQEAAWgBJQFoASUBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAASABKAEgASgBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -7241,9 +7241,6 @@ Max:
   <data name="flowLayoutPanel10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="groupBoxSavingBalance.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="tableLayoutPanel12.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -7263,13 +7260,13 @@ Max:
     <value>NoControl</value>
   </data>
   <data name="lbBalanceMaxValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>47, 22</value>
+    <value>76, 22</value>
   </data>
   <data name="lbBalanceMaxValue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 0, 3, 3</value>
   </data>
   <data name="lbBalanceMaxValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 16</value>
+    <value>124, 34</value>
   </data>
   <data name="lbBalanceMaxValue.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -7344,7 +7341,7 @@ Max:
     <value>NoControl</value>
   </data>
   <data name="lbBalanceMinValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 3</value>
+    <value>163, 3</value>
   </data>
   <data name="lbBalanceMinValue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -7392,7 +7389,7 @@ Max:
     <value>3, 0, 3, 3</value>
   </data>
   <data name="lbBalanceMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
+    <value>37, 34</value>
   </data>
   <data name="lbBalanceMax.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -7422,7 +7419,7 @@ Max:
     <value>2</value>
   </data>
   <data name="tableLayoutPanel12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 41</value>
+    <value>203, 59</value>
   </data>
   <data name="tableLayoutPanel12.TabIndex" type="System.Int32, mscorlib">
     <value>77</value>
@@ -7452,7 +7449,7 @@ Max:
     <value>180, 0</value>
   </data>
   <data name="groupBoxSavingBalance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 62</value>
+    <value>209, 80</value>
   </data>
   <data name="groupBoxSavingBalance.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -7471,9 +7468,6 @@ Max:
   </data>
   <data name="&gt;&gt;groupBoxSavingBalance.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="groupBoxSavingDeposit.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="groupBoxSavingDeposit.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
@@ -7506,7 +7500,7 @@ Max:
     <value>3, 0, 3, 3</value>
   </data>
   <data name="lbDepositMaxValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
+    <value>37, 34</value>
   </data>
   <data name="lbDepositMaxValue.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -7632,7 +7626,7 @@ Max:
     <value>3, 0, 3, 3</value>
   </data>
   <data name="lbDepositmax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
+    <value>37, 34</value>
   </data>
   <data name="lbDepositmax.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -7665,7 +7659,7 @@ Max:
     <value>2</value>
   </data>
   <data name="tableLayoutPanel13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 41</value>
+    <value>174, 59</value>
   </data>
   <data name="tableLayoutPanel13.TabIndex" type="System.Int32, mscorlib">
     <value>77</value>
@@ -7689,13 +7683,13 @@ Max:
     <value>Arial, 9.75pt</value>
   </data>
   <data name="groupBoxSavingDeposit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 3</value>
+    <value>218, 3</value>
   </data>
   <data name="groupBoxSavingDeposit.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>180, 0</value>
   </data>
   <data name="groupBoxSavingDeposit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 62</value>
+    <value>180, 80</value>
   </data>
   <data name="groupBoxSavingDeposit.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -7714,9 +7708,6 @@ Max:
   </data>
   <data name="&gt;&gt;groupBoxSavingDeposit.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="groupBoxSavingWithdraw.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="groupBoxSavingWithdraw.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
@@ -7749,7 +7740,7 @@ Max:
     <value>3, 0, 3, 3</value>
   </data>
   <data name="lbWithdrawMaxValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
+    <value>37, 34</value>
   </data>
   <data name="lbWithdrawMaxValue.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -7875,7 +7866,7 @@ Max:
     <value>3, 0, 3, 3</value>
   </data>
   <data name="lbWithdrawMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
+    <value>37, 34</value>
   </data>
   <data name="lbWithdrawMax.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -7908,7 +7899,7 @@ Max:
     <value>2</value>
   </data>
   <data name="tableLayoutPanel14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 41</value>
+    <value>174, 59</value>
   </data>
   <data name="tableLayoutPanel14.TabIndex" type="System.Int32, mscorlib">
     <value>78</value>
@@ -7929,13 +7920,13 @@ Max:
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbWithdrawMaxValue" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawMin" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawMinValue" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawMax" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="groupBoxSavingWithdraw.Location" type="System.Drawing.Point, System.Drawing">
-    <value>375, 3</value>
+    <value>404, 3</value>
   </data>
   <data name="groupBoxSavingWithdraw.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>180, 0</value>
   </data>
   <data name="groupBoxSavingWithdraw.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 62</value>
+    <value>180, 80</value>
   </data>
   <data name="groupBoxSavingWithdraw.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -7954,9 +7945,6 @@ Max:
   </data>
   <data name="&gt;&gt;groupBoxSavingWithdraw.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="groupBoxSavingTransfer.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="groupBoxSavingTransfer.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
@@ -7986,7 +7974,7 @@ Max:
     <value>3, 0, 3, 3</value>
   </data>
   <data name="labelSavingTransferMaxValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
+    <value>37, 34</value>
   </data>
   <data name="labelSavingTransferMaxValue.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -8112,7 +8100,7 @@ Max:
     <value>3, 0, 3, 3</value>
   </data>
   <data name="labelSavingTransferMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
+    <value>37, 34</value>
   </data>
   <data name="labelSavingTransferMax.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -8145,7 +8133,7 @@ Max:
     <value>2</value>
   </data>
   <data name="tableLayoutPanel15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 41</value>
+    <value>174, 59</value>
   </data>
   <data name="tableLayoutPanel15.TabIndex" type="System.Int32, mscorlib">
     <value>78</value>
@@ -8169,13 +8157,13 @@ Max:
     <value>Arial, 9.75pt</value>
   </data>
   <data name="groupBoxSavingTransfer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>561, 3</value>
+    <value>590, 3</value>
   </data>
   <data name="groupBoxSavingTransfer.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>180, 0</value>
   </data>
   <data name="groupBoxSavingTransfer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 62</value>
+    <value>180, 80</value>
   </data>
   <data name="groupBoxSavingTransfer.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -8194,9 +8182,6 @@ Max:
   </data>
   <data name="&gt;&gt;groupBoxSavingTransfer.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="gbInterest.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="gbInterest.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
@@ -8226,7 +8211,7 @@ Max:
     <value>3, 0, 3, 3</value>
   </data>
   <data name="lbInterestBasedOnValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
+    <value>37, 24</value>
   </data>
   <data name="lbInterestBasedOnValue.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -8349,7 +8334,7 @@ Max:
     <value>3, 41</value>
   </data>
   <data name="lbInterestBasedOn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 19</value>
+    <value>67, 27</value>
   </data>
   <data name="lbInterestBasedOn.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -8466,7 +8451,7 @@ Max:
     <value>3</value>
   </data>
   <data name="tableLayoutPanel16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 60</value>
+    <value>174, 68</value>
   </data>
   <data name="tableLayoutPanel16.TabIndex" type="System.Int32, mscorlib">
     <value>78</value>
@@ -8490,13 +8475,13 @@ Max:
     <value>Arial, 9.75pt</value>
   </data>
   <data name="gbInterest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 71</value>
+    <value>3, 89</value>
   </data>
   <data name="gbInterest.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>180, 0</value>
   </data>
   <data name="gbInterest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 81</value>
+    <value>180, 89</value>
   </data>
   <data name="gbInterest.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -8515,9 +8500,6 @@ Max:
   </data>
   <data name="&gt;&gt;gbInterest.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <data name="gbDepositInterest.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="gbDepositInterest.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
@@ -8733,7 +8715,7 @@ Max:
     <value>Arial, 9.75pt</value>
   </data>
   <data name="gbDepositInterest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 71</value>
+    <value>189, 89</value>
   </data>
   <data name="gbDepositInterest.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>180, 0</value>
@@ -8766,7 +8748,7 @@ Max:
     <value>459, 3</value>
   </data>
   <data name="flowLayoutPanel10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>773, 297</value>
+    <value>773, 260</value>
   </data>
   <data name="flowLayoutPanel10.TabIndex" type="System.Int32, mscorlib">
     <value>77</value>
@@ -8785,39 +8767,6 @@ Max:
   </data>
   <data name="tlpSBDetails.ColumnCount" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="lblIbtFeeMinMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 7pt</value>
-  </data>
-  <data name="lblIbtFeeMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblIbtFeeMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>345, 175</value>
-  </data>
-  <data name="lblIbtFeeMinMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 20</value>
-  </data>
-  <data name="lblIbtFeeMinMax.TabIndex" type="System.Int32, mscorlib">
-    <value>86</value>
-  </data>
-  <data name="lblIbtFeeMinMax.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="lblIbtFeeMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lblIbtFeeMinMax.Name" xml:space="preserve">
-    <value>lblIbtFeeMinMax</value>
-  </data>
-  <data name="&gt;&gt;lblIbtFeeMinMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblIbtFeeMinMax.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;lblIbtFeeMinMax.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="lbTransferFees.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -8850,70 +8799,7 @@ Max:
     <value>tlpSBDetails</value>
   </data>
   <data name="&gt;&gt;lbTransferFees.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="nudIbtFee.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="nudIbtFee.Location" type="System.Drawing.Point, System.Drawing">
-    <value>231, 178</value>
-  </data>
-  <data name="nudIbtFee.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="nudIbtFee.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="nudIbtFee.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;nudIbtFee.Name" xml:space="preserve">
-    <value>nudIbtFee</value>
-  </data>
-  <data name="&gt;&gt;nudIbtFee.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudIbtFee.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;nudIbtFee.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lbDepositFees.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbDepositFees.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lbDepositFees.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbDepositFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 25</value>
-  </data>
-  <data name="lbDepositFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 16</value>
-  </data>
-  <data name="lbDepositFees.TabIndex" type="System.Int32, mscorlib">
-    <value>70</value>
-  </data>
-  <data name="lbDepositFees.Text" xml:space="preserve">
-    <value>Cash deposit fees</value>
-  </data>
-  <data name="&gt;&gt;lbDepositFees.Name" xml:space="preserve">
-    <value>lbDepositFees</value>
-  </data>
-  <data name="&gt;&gt;lbDepositFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbDepositFees.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;lbDepositFees.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="nudTransferFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+    <value>0</value>
   </data>
   <data name="nudTransferFees.Location" type="System.Drawing.Point, System.Drawing">
     <value>231, 3</value>
@@ -8937,37 +8823,7 @@ Max:
     <value>tlpSBDetails</value>
   </data>
   <data name="&gt;&gt;nudTransferFees.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="lbReopenFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 7pt</value>
-  </data>
-  <data name="lbReopenFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbReopenFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>345, 150</value>
-  </data>
-  <data name="lbReopenFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 20</value>
-  </data>
-  <data name="lbReopenFeesMinMax.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lbReopenFeesMinMax.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="&gt;&gt;lbReopenFeesMinMax.Name" xml:space="preserve">
-    <value>lbReopenFeesMinMax</value>
-  </data>
-  <data name="&gt;&gt;lbReopenFeesMinMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbReopenFeesMinMax.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;lbReopenFeesMinMax.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>1</value>
   </data>
   <data name="lbTransferFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 7pt</value>
@@ -9000,250 +8856,64 @@ Max:
     <value>tlpSBDetails</value>
   </data>
   <data name="&gt;&gt;lbTransferFeesMinMax.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="nudReopenFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="nudReopenFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>231, 153</value>
-  </data>
-  <data name="nudReopenFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="nudReopenFees.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="nudReopenFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;nudReopenFees.Name" xml:space="preserve">
-    <value>nudReopenFees</value>
-  </data>
-  <data name="&gt;&gt;nudReopenFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudReopenFees.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;nudReopenFees.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="lbReopenFees.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lbReopenFees.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbReopenFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 150</value>
-  </data>
-  <data name="lbReopenFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 20</value>
-  </data>
-  <data name="lbReopenFees.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="lbReopenFees.Text" xml:space="preserve">
-    <value>Reopen fees</value>
-  </data>
-  <data name="&gt;&gt;lbReopenFees.Name" xml:space="preserve">
-    <value>lbReopenFees</value>
-  </data>
-  <data name="&gt;&gt;lbReopenFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbReopenFees.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;lbReopenFees.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="lbDepositFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 7pt</value>
-  </data>
-  <data name="lbDepositFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbDepositFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>345, 25</value>
-  </data>
-  <data name="lbDepositFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 20</value>
-  </data>
-  <data name="lbDepositFeesMinMax.TabIndex" type="System.Int32, mscorlib">
-    <value>71</value>
-  </data>
-  <data name="lbDepositFeesMinMax.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="lbDepositFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lbDepositFeesMinMax.Name" xml:space="preserve">
-    <value>lbDepositFeesMinMax</value>
-  </data>
-  <data name="&gt;&gt;lbDepositFeesMinMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbDepositFeesMinMax.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;lbDepositFeesMinMax.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="lbAgioFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 7pt</value>
-  </data>
-  <data name="lbAgioFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbAgioFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>345, 125</value>
-  </data>
-  <data name="lbAgioFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 20</value>
-  </data>
-  <data name="lbAgioFeesMinMax.TabIndex" type="System.Int32, mscorlib">
-    <value>87</value>
-  </data>
-  <data name="lbAgioFeesMinMax.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="lbAgioFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lbAgioFeesMinMax.Name" xml:space="preserve">
-    <value>lbAgioFeesMinMax</value>
-  </data>
-  <data name="&gt;&gt;lbAgioFeesMinMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbAgioFeesMinMax.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;lbAgioFeesMinMax.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="lbChequeDepositFees.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lbOverdraftFees.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbChequeDepositFees.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="lbOverdraftFees.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
-  <data name="lbChequeDepositFees.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="lbOverdraftFees.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lbChequeDepositFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 200</value>
+  <data name="lbOverdraftFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 25</value>
   </data>
-  <data name="lbChequeDepositFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 16</value>
+  <data name="lbOverdraftFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 16</value>
   </data>
-  <data name="lbChequeDepositFees.TabIndex" type="System.Int32, mscorlib">
-    <value>70</value>
+  <data name="lbOverdraftFees.TabIndex" type="System.Int32, mscorlib">
+    <value>78</value>
   </data>
-  <data name="lbChequeDepositFees.Text" xml:space="preserve">
-    <value>Cheque deposit fees</value>
+  <data name="lbOverdraftFees.Text" xml:space="preserve">
+    <value>Overdraft fees</value>
   </data>
-  <data name="&gt;&gt;lbChequeDepositFees.Name" xml:space="preserve">
-    <value>lbChequeDepositFees</value>
+  <data name="&gt;&gt;lbOverdraftFees.Name" xml:space="preserve">
+    <value>lbOverdraftFees</value>
   </data>
-  <data name="&gt;&gt;lbChequeDepositFees.Type" xml:space="preserve">
+  <data name="&gt;&gt;lbOverdraftFees.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbChequeDepositFees.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lbOverdraftFees.Parent" xml:space="preserve">
     <value>tlpSBDetails</value>
   </data>
-  <data name="&gt;&gt;lbChequeDepositFees.ZOrder" xml:space="preserve">
-    <value>11</value>
+  <data name="&gt;&gt;lbOverdraftFees.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="nudAgioFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="nudOverdraftFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 28</value>
   </data>
-  <data name="nudAgioFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>231, 128</value>
-  </data>
-  <data name="nudAgioFees.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="nudOverdraftFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 22</value>
   </data>
-  <data name="nudAgioFees.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="nudOverdraftFees.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="nudAgioFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+  <data name="nudOverdraftFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="&gt;&gt;nudAgioFees.Name" xml:space="preserve">
-    <value>nudAgioFees</value>
+  <data name="&gt;&gt;nudOverdraftFees.Name" xml:space="preserve">
+    <value>nudOverdraftFees</value>
   </data>
-  <data name="&gt;&gt;nudAgioFees.Type" xml:space="preserve">
+  <data name="&gt;&gt;nudOverdraftFees.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nudAgioFees.Parent" xml:space="preserve">
+  <data name="&gt;&gt;nudOverdraftFees.Parent" xml:space="preserve">
     <value>tlpSBDetails</value>
   </data>
-  <data name="&gt;&gt;nudAgioFees.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="nudChequeDepositFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="nudChequeDepositFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>231, 203</value>
-  </data>
-  <data name="nudChequeDepositFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="nudChequeDepositFees.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="nudChequeDepositFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;nudChequeDepositFees.Name" xml:space="preserve">
-    <value>nudChequeDepositFees</value>
-  </data>
-  <data name="&gt;&gt;nudChequeDepositFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudChequeDepositFees.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;nudChequeDepositFees.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="lbAgioFees.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbAgioFees.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lbAgioFees.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbAgioFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 125</value>
-  </data>
-  <data name="lbAgioFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 16</value>
-  </data>
-  <data name="lbAgioFees.TabIndex" type="System.Int32, mscorlib">
-    <value>80</value>
-  </data>
-  <data name="lbAgioFees.Text" xml:space="preserve">
-    <value>Agio</value>
-  </data>
-  <data name="&gt;&gt;lbAgioFees.Name" xml:space="preserve">
-    <value>lbAgioFees</value>
-  </data>
-  <data name="&gt;&gt;lbAgioFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbAgioFees.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;lbAgioFees.ZOrder" xml:space="preserve">
-    <value>14</value>
+  <data name="&gt;&gt;nudOverdraftFees.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="lbOverdraftFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 7pt</value>
@@ -9252,7 +8922,7 @@ Max:
     <value>NoControl</value>
   </data>
   <data name="lbOverdraftFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>345, 100</value>
+    <value>345, 25</value>
   </data>
   <data name="lbOverdraftFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 20</value>
@@ -9276,7 +8946,187 @@ Max:
     <value>tlpSBDetails</value>
   </data>
   <data name="&gt;&gt;lbOverdraftFeesMinMax.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>5</value>
+  </data>
+  <data name="lbAgioFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 7pt</value>
+  </data>
+  <data name="lbAgioFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbAgioFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>345, 50</value>
+  </data>
+  <data name="lbAgioFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 20</value>
+  </data>
+  <data name="lbAgioFeesMinMax.TabIndex" type="System.Int32, mscorlib">
+    <value>87</value>
+  </data>
+  <data name="lbAgioFeesMinMax.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="lbAgioFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbAgioFeesMinMax.Name" xml:space="preserve">
+    <value>lbAgioFeesMinMax</value>
+  </data>
+  <data name="&gt;&gt;lbAgioFeesMinMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbAgioFeesMinMax.Parent" xml:space="preserve">
+    <value>tlpSBDetails</value>
+  </data>
+  <data name="&gt;&gt;lbAgioFeesMinMax.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="nudAgioFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 53</value>
+  </data>
+  <data name="nudAgioFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 22</value>
+  </data>
+  <data name="nudAgioFees.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="nudAgioFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;nudAgioFees.Name" xml:space="preserve">
+    <value>nudAgioFees</value>
+  </data>
+  <data name="&gt;&gt;nudAgioFees.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudAgioFees.Parent" xml:space="preserve">
+    <value>tlpSBDetails</value>
+  </data>
+  <data name="&gt;&gt;nudAgioFees.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lbAgioFees.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbAgioFees.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lbAgioFees.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbAgioFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 50</value>
+  </data>
+  <data name="lbAgioFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 16</value>
+  </data>
+  <data name="lbAgioFees.TabIndex" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
+  <data name="lbAgioFees.Text" xml:space="preserve">
+    <value>Agio</value>
+  </data>
+  <data name="&gt;&gt;lbAgioFees.Name" xml:space="preserve">
+    <value>lbAgioFees</value>
+  </data>
+  <data name="&gt;&gt;lbAgioFees.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbAgioFees.Parent" xml:space="preserve">
+    <value>tlpSBDetails</value>
+  </data>
+  <data name="&gt;&gt;lbAgioFees.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lblIbtFeeMinMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 7pt</value>
+  </data>
+  <data name="lblIbtFeeMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblIbtFeeMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>345, 75</value>
+  </data>
+  <data name="lblIbtFeeMinMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 20</value>
+  </data>
+  <data name="lblIbtFeeMinMax.TabIndex" type="System.Int32, mscorlib">
+    <value>86</value>
+  </data>
+  <data name="lblIbtFeeMinMax.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="lblIbtFeeMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lblIbtFeeMinMax.Name" xml:space="preserve">
+    <value>lblIbtFeeMinMax</value>
+  </data>
+  <data name="&gt;&gt;lblIbtFeeMinMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblIbtFeeMinMax.Parent" xml:space="preserve">
+    <value>tlpSBDetails</value>
+  </data>
+  <data name="&gt;&gt;lblIbtFeeMinMax.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="nudIbtFee.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 78</value>
+  </data>
+  <data name="nudIbtFee.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 22</value>
+  </data>
+  <data name="nudIbtFee.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="nudIbtFee.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;nudIbtFee.Name" xml:space="preserve">
+    <value>nudIbtFee</value>
+  </data>
+  <data name="&gt;&gt;nudIbtFee.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudIbtFee.Parent" xml:space="preserve">
+    <value>tlpSBDetails</value>
+  </data>
+  <data name="&gt;&gt;nudIbtFee.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="lblInterBranchTransfer.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblInterBranchTransfer.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lblInterBranchTransfer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblInterBranchTransfer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 75</value>
+  </data>
+  <data name="lblInterBranchTransfer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 16</value>
+  </data>
+  <data name="lblInterBranchTransfer.TabIndex" type="System.Int32, mscorlib">
+    <value>84</value>
+  </data>
+  <data name="lblInterBranchTransfer.Text" xml:space="preserve">
+    <value>Inter-branch transfer fees</value>
+  </data>
+  <data name="&gt;&gt;lblInterBranchTransfer.Name" xml:space="preserve">
+    <value>lblInterBranchTransfer</value>
+  </data>
+  <data name="&gt;&gt;lblInterBranchTransfer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblInterBranchTransfer.Parent" xml:space="preserve">
+    <value>tlpSBDetails</value>
+  </data>
+  <data name="&gt;&gt;lblInterBranchTransfer.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
   <data name="lblChequeDepositFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 7pt</value>
@@ -9285,7 +9135,7 @@ Max:
     <value>NoControl</value>
   </data>
   <data name="lblChequeDepositFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>345, 200</value>
+    <value>345, 100</value>
   </data>
   <data name="lblChequeDepositFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 20</value>
@@ -9309,313 +9159,64 @@ Max:
     <value>tlpSBDetails</value>
   </data>
   <data name="&gt;&gt;lblChequeDepositFeesMinMax.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>12</value>
   </data>
-  <data name="lbCloseFees.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbCloseFees.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lbCloseFees.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbCloseFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 50</value>
-  </data>
-  <data name="lbCloseFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 16</value>
-  </data>
-  <data name="lbCloseFees.TabIndex" type="System.Int32, mscorlib">
-    <value>73</value>
-  </data>
-  <data name="lbCloseFees.Text" xml:space="preserve">
-    <value>Close fees</value>
-  </data>
-  <data name="&gt;&gt;lbCloseFees.Name" xml:space="preserve">
-    <value>lbCloseFees</value>
-  </data>
-  <data name="&gt;&gt;lbCloseFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbCloseFees.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;lbCloseFees.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="nudOverdraftFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="nudOverdraftFees.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="nudChequeDepositFees.Location" type="System.Drawing.Point, System.Drawing">
     <value>231, 103</value>
   </data>
-  <data name="nudOverdraftFees.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="nudChequeDepositFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 22</value>
   </data>
-  <data name="nudOverdraftFees.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="nudChequeDepositFees.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="nudOverdraftFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+  <data name="nudChequeDepositFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="&gt;&gt;nudOverdraftFees.Name" xml:space="preserve">
-    <value>nudOverdraftFees</value>
+  <data name="&gt;&gt;nudChequeDepositFees.Name" xml:space="preserve">
+    <value>nudChequeDepositFees</value>
   </data>
-  <data name="&gt;&gt;nudOverdraftFees.Type" xml:space="preserve">
+  <data name="&gt;&gt;nudChequeDepositFees.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nudOverdraftFees.Parent" xml:space="preserve">
+  <data name="&gt;&gt;nudChequeDepositFees.Parent" xml:space="preserve">
     <value>tlpSBDetails</value>
   </data>
-  <data name="&gt;&gt;nudOverdraftFees.ZOrder" xml:space="preserve">
-    <value>18</value>
+  <data name="&gt;&gt;nudChequeDepositFees.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
-  <data name="nudCloseFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="nudCloseFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>231, 53</value>
-  </data>
-  <data name="nudCloseFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="nudCloseFees.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="nudCloseFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;nudCloseFees.Name" xml:space="preserve">
-    <value>nudCloseFees</value>
-  </data>
-  <data name="&gt;&gt;nudCloseFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudCloseFees.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;nudCloseFees.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="lbOverdraftFees.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lbChequeDepositFees.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbOverdraftFees.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="lbChequeDepositFees.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
-  <data name="lbOverdraftFees.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="lbChequeDepositFees.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lbOverdraftFees.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lbChequeDepositFees.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 100</value>
   </data>
-  <data name="lbOverdraftFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 16</value>
+  <data name="lbChequeDepositFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 16</value>
   </data>
-  <data name="lbOverdraftFees.TabIndex" type="System.Int32, mscorlib">
-    <value>78</value>
+  <data name="lbChequeDepositFees.TabIndex" type="System.Int32, mscorlib">
+    <value>70</value>
   </data>
-  <data name="lbOverdraftFees.Text" xml:space="preserve">
-    <value>Overdraft fees</value>
+  <data name="lbChequeDepositFees.Text" xml:space="preserve">
+    <value>Cheque deposit fees</value>
   </data>
-  <data name="&gt;&gt;lbOverdraftFees.Name" xml:space="preserve">
-    <value>lbOverdraftFees</value>
+  <data name="&gt;&gt;lbChequeDepositFees.Name" xml:space="preserve">
+    <value>lbChequeDepositFees</value>
   </data>
-  <data name="&gt;&gt;lbOverdraftFees.Type" xml:space="preserve">
+  <data name="&gt;&gt;lbChequeDepositFees.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbOverdraftFees.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lbChequeDepositFees.Parent" xml:space="preserve">
     <value>tlpSBDetails</value>
   </data>
-  <data name="&gt;&gt;lbOverdraftFees.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="lbCloseFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 7pt</value>
-  </data>
-  <data name="lbCloseFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbCloseFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>345, 50</value>
-  </data>
-  <data name="lbCloseFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 20</value>
-  </data>
-  <data name="lbCloseFeesMinMax.TabIndex" type="System.Int32, mscorlib">
-    <value>76</value>
-  </data>
-  <data name="lbCloseFeesMinMax.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="lbCloseFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lbCloseFeesMinMax.Name" xml:space="preserve">
-    <value>lbCloseFeesMinMax</value>
-  </data>
-  <data name="&gt;&gt;lbCloseFeesMinMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbCloseFeesMinMax.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;lbCloseFeesMinMax.ZOrder" xml:space="preserve">
-    <value>21</value>
-  </data>
-  <data name="lbManagementFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 7pt</value>
-  </data>
-  <data name="lbManagementFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbManagementFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>345, 75</value>
-  </data>
-  <data name="lbManagementFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 20</value>
-  </data>
-  <data name="lbManagementFeesMinMax.TabIndex" type="System.Int32, mscorlib">
-    <value>77</value>
-  </data>
-  <data name="lbManagementFeesMinMax.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="lbManagementFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lbManagementFeesMinMax.Name" xml:space="preserve">
-    <value>lbManagementFeesMinMax</value>
-  </data>
-  <data name="&gt;&gt;lbManagementFeesMinMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbManagementFeesMinMax.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;lbManagementFeesMinMax.ZOrder" xml:space="preserve">
-    <value>22</value>
-  </data>
-  <data name="lbManagementFees.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbManagementFees.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lbManagementFees.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbManagementFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 75</value>
-  </data>
-  <data name="lbManagementFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 16</value>
-  </data>
-  <data name="lbManagementFees.TabIndex" type="System.Int32, mscorlib">
-    <value>75</value>
-  </data>
-  <data name="lbManagementFees.Text" xml:space="preserve">
-    <value>Management fees</value>
-  </data>
-  <data name="&gt;&gt;lbManagementFees.Name" xml:space="preserve">
-    <value>lbManagementFees</value>
-  </data>
-  <data name="&gt;&gt;lbManagementFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbManagementFees.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;lbManagementFees.ZOrder" xml:space="preserve">
-    <value>23</value>
-  </data>
-  <data name="nudManagementFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="nudManagementFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>231, 78</value>
-  </data>
-  <data name="nudManagementFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="nudManagementFees.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="nudManagementFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;nudManagementFees.Name" xml:space="preserve">
-    <value>nudManagementFees</value>
-  </data>
-  <data name="&gt;&gt;nudManagementFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudManagementFees.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;nudManagementFees.ZOrder" xml:space="preserve">
-    <value>24</value>
-  </data>
-  <data name="nudDepositFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="nudDepositFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>231, 28</value>
-  </data>
-  <data name="nudDepositFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="nudDepositFees.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="nudDepositFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;nudDepositFees.Name" xml:space="preserve">
-    <value>nudDepositFees</value>
-  </data>
-  <data name="&gt;&gt;nudDepositFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudDepositFees.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;nudDepositFees.ZOrder" xml:space="preserve">
-    <value>25</value>
-  </data>
-  <data name="lblInterBranchTransfer.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblInterBranchTransfer.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lblInterBranchTransfer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblInterBranchTransfer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 175</value>
-  </data>
-  <data name="lblInterBranchTransfer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 16</value>
-  </data>
-  <data name="lblInterBranchTransfer.TabIndex" type="System.Int32, mscorlib">
-    <value>84</value>
-  </data>
-  <data name="lblInterBranchTransfer.Text" xml:space="preserve">
-    <value>Inter-branch transfer fees</value>
-  </data>
-  <data name="&gt;&gt;lblInterBranchTransfer.Name" xml:space="preserve">
-    <value>lblInterBranchTransfer</value>
-  </data>
-  <data name="&gt;&gt;lblInterBranchTransfer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblInterBranchTransfer.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
-  </data>
-  <data name="&gt;&gt;lblInterBranchTransfer.ZOrder" xml:space="preserve">
-    <value>26</value>
+  <data name="&gt;&gt;lbChequeDepositFees.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
   <data name="tlpSBDetails.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -9624,10 +9225,10 @@ Max:
     <value>3, 3</value>
   </data>
   <data name="tlpSBDetails.RowCount" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="tlpSBDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>456, 297</value>
+    <value>456, 260</value>
   </data>
   <data name="tlpSBDetails.TabIndex" type="System.Int32, mscorlib">
     <value>78</value>
@@ -9645,7 +9246,7 @@ Max:
     <value>1</value>
   </data>
   <data name="tlpSBDetails.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblIbtFeeMinMax" Row="7" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbTransferFees" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudIbtFee" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbDepositFees" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudTransferFees" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbReopenFeesMinMax" Row="6" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbTransferFeesMinMax" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="nudReopenFees" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbReopenFees" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbDepositFeesMinMax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbAgioFeesMinMax" Row="5" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbChequeDepositFees" Row="8" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudAgioFees" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudChequeDepositFees" Row="8" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbAgioFees" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbOverdraftFeesMinMax" Row="4" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblChequeDepositFeesMinMax" Row="8" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbCloseFees" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudOverdraftFees" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudCloseFees" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbOverdraftFees" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbCloseFeesMinMax" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbManagementFeesMinMax" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbManagementFees" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudManagementFees" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudDepositFees" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblInterBranchTransfer" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,25,Percent,25" /&gt;&lt;Rows Styles="Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbTransferFees" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudTransferFees" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbTransferFeesMinMax" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbOverdraftFees" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudOverdraftFees" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbOverdraftFeesMinMax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbAgioFeesMinMax" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="nudAgioFees" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbAgioFees" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblIbtFeeMinMax" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="nudIbtFee" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblInterBranchTransfer" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblChequeDepositFeesMinMax" Row="4" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="nudChequeDepositFees" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbChequeDepositFees" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,25,Percent,25" /&gt;&lt;Rows Styles="Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tabPageSavingsAmountsAndFees.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 29</value>
@@ -9654,7 +9255,7 @@ Max:
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageSavingsAmountsAndFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 303</value>
+    <value>1235, 266</value>
   </data>
   <data name="tabPageSavingsAmountsAndFees.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -9741,7 +9342,7 @@ Max:
     <value>Cancel Date</value>
   </data>
   <data name="colCancelDate.Width" type="System.Int32, mscorlib">
-    <value>120</value>
+    <value>130</value>
   </data>
   <data name="lvSavingEvent.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -9750,7 +9351,7 @@ Max:
     <value>3, 3</value>
   </data>
   <data name="lvSavingEvent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1229, 299</value>
+    <value>1229, 260</value>
   </data>
   <data name="lvSavingEvent.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -9774,7 +9375,7 @@ Max:
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageSavingsEvents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 305</value>
+    <value>1235, 266</value>
   </data>
   <data name="tabPageSavingsEvents.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -9849,7 +9450,7 @@ Max:
     <value>0, 0</value>
   </data>
   <data name="olvLoans.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 305</value>
+    <value>1235, 266</value>
   </data>
   <data name="olvLoans.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -9870,7 +9471,7 @@ Max:
     <value>4, 29</value>
   </data>
   <data name="tabPageLoans.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 305</value>
+    <value>1235, 266</value>
   </data>
   <data name="tabPageLoans.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -10152,7 +9753,7 @@ Max:
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tpTermDeposit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 305</value>
+    <value>1235, 266</value>
   </data>
   <data name="tpTermDeposit.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -10179,10 +9780,10 @@ Max:
     <value>55, 25</value>
   </data>
   <data name="tabControlSavingsDetails.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 226</value>
+    <value>3, 263</value>
   </data>
   <data name="tabControlSavingsDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 336</value>
+    <value>1243, 299</value>
   </data>
   <data name="tabControlSavingsDetails.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -10198,9 +9799,6 @@ Max:
   </data>
   <data name="&gt;&gt;tabControlSavingsDetails.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="flowLayoutPanel9.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="flowLayoutPanel9.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
@@ -10458,7 +10056,7 @@ Max:
     <value>btnPrintSavings</value>
   </data>
   <data name="&gt;&gt;btnPrintSavings.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=15.11.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=16.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnPrintSavings.Parent" xml:space="preserve">
     <value>flowLayoutPanel9</value>
@@ -10470,7 +10068,7 @@ Max:
     <value>Top</value>
   </data>
   <data name="flowLayoutPanel9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 172</value>
+    <value>3, 209</value>
   </data>
   <data name="flowLayoutPanel9.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 10, 0, 10</value>
@@ -10493,305 +10091,14 @@ Max:
   <data name="&gt;&gt;flowLayoutPanel9.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="groupBoxSaving.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="groupBoxSaving.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
-  </data>
-  <data name="tableLayoutPanel5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="tableLayoutPanel5.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
   <data name="tableLayoutPanel5.ColumnCount" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="lbSavingAvBalanceValue.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="lbSavingAvBalanceValue.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lbSavingAvBalanceValue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbSavingAvBalanceValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>675, 42</value>
-  </data>
-  <data name="lbSavingAvBalanceValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>315, 32</value>
-  </data>
-  <data name="lbSavingAvBalanceValue.TabIndex" type="System.Int32, mscorlib">
-    <value>60</value>
-  </data>
-  <data name="lbSavingAvBalanceValue.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lbSavingAvBalanceValue.Name" xml:space="preserve">
-    <value>lbSavingAvBalanceValue</value>
-  </data>
-  <data name="&gt;&gt;lbSavingAvBalanceValue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbSavingAvBalanceValue.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;lbSavingAvBalanceValue.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lBSavingAvBalance.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lBSavingAvBalance.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="lBSavingAvBalance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lBSavingAvBalance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lBSavingAvBalance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 42</value>
-  </data>
-  <data name="lBSavingAvBalance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 32</value>
-  </data>
-  <data name="lBSavingAvBalance.TabIndex" type="System.Int32, mscorlib">
-    <value>59</value>
-  </data>
-  <data name="lBSavingAvBalance.Text" xml:space="preserve">
-    <value>Available balance</value>
-  </data>
-  <data name="lBSavingAvBalance.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lBSavingAvBalance.Name" xml:space="preserve">
-    <value>lBSavingAvBalance</value>
-  </data>
-  <data name="&gt;&gt;lBSavingAvBalance.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lBSavingAvBalance.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;lBSavingAvBalance.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lbEntryFeesMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="lbEntryFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 7.5pt</value>
-  </data>
-  <data name="lbEntryFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>226, 74</value>
-  </data>
-  <data name="lbEntryFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 32</value>
-  </data>
-  <data name="lbEntryFeesMinMax.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lbEntryFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lbEntryFeesMinMax.Name" xml:space="preserve">
-    <value>lbEntryFeesMinMax</value>
-  </data>
-  <data name="&gt;&gt;lbEntryFeesMinMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbEntryFeesMinMax.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;lbEntryFeesMinMax.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lbInitialAmountMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="lbInitialAmountMinMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 7.5pt</value>
-  </data>
-  <data name="lbInitialAmountMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>226, 42</value>
-  </data>
-  <data name="lbInitialAmountMinMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 32</value>
-  </data>
-  <data name="lbInitialAmountMinMax.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="lbInitialAmountMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lbInitialAmountMinMax.Name" xml:space="preserve">
-    <value>lbInitialAmountMinMax</value>
-  </data>
-  <data name="&gt;&gt;lbInitialAmountMinMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbInitialAmountMinMax.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;lbInitialAmountMinMax.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="lbEntryFees.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbEntryFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="lbEntryFees.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lbEntryFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 74</value>
-  </data>
-  <data name="lbEntryFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 32</value>
-  </data>
-  <data name="lbEntryFees.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lbEntryFees.Text" xml:space="preserve">
-    <value>Entry fees</value>
-  </data>
-  <data name="lbEntryFees.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lbEntryFees.Name" xml:space="preserve">
-    <value>lbEntryFees</value>
-  </data>
-  <data name="&gt;&gt;lbEntryFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbEntryFees.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;lbEntryFees.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="labelInitialAmount.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelInitialAmount.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="labelInitialAmount.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="labelInitialAmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 42</value>
-  </data>
-  <data name="labelInitialAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 32</value>
-  </data>
-  <data name="labelInitialAmount.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="labelInitialAmount.Text" xml:space="preserve">
-    <value>Initial amount</value>
-  </data>
-  <data name="labelInitialAmount.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;labelInitialAmount.Name" xml:space="preserve">
-    <value>labelInitialAmount</value>
-  </data>
-  <data name="&gt;&gt;labelInitialAmount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelInitialAmount.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;labelInitialAmount.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="nudEntryFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 77</value>
-  </data>
-  <data name="nudEntryFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 22</value>
-  </data>
-  <data name="nudEntryFees.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;nudEntryFees.Name" xml:space="preserve">
-    <value>nudEntryFees</value>
-  </data>
-  <data name="&gt;&gt;nudEntryFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudEntryFees.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;nudEntryFees.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="nudDownInitialAmount.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>On</value>
-  </data>
-  <data name="nudDownInitialAmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 45</value>
-  </data>
-  <data name="nudDownInitialAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 22</value>
-  </data>
-  <data name="nudDownInitialAmount.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;nudDownInitialAmount.Name" xml:space="preserve">
-    <value>nudDownInitialAmount</value>
-  </data>
-  <data name="&gt;&gt;nudDownInitialAmount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudDownInitialAmount.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;nudDownInitialAmount.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 106</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 32</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Savings officer</value>
-  </data>
-  <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -10830,43 +10137,106 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>0</value>
   </data>
-  <data name="lbSavingBalanceValue.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+  <data name="tBSavingCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 13</value>
   </data>
-  <data name="lbSavingBalanceValue.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 15pt</value>
+  <data name="tBSavingCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 22</value>
   </data>
-  <data name="lbSavingBalanceValue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="tBSavingCode.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="lbSavingBalanceValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>675, 10</value>
+  <data name="&gt;&gt;tBSavingCode.Name" xml:space="preserve">
+    <value>tBSavingCode</value>
   </data>
-  <data name="lbSavingBalanceValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>315, 32</value>
+  <data name="&gt;&gt;tBSavingCode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lbSavingBalanceValue.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="lbSavingBalanceValue.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lbSavingBalanceValue.Name" xml:space="preserve">
-    <value>lbSavingBalanceValue</value>
-  </data>
-  <data name="&gt;&gt;lbSavingBalanceValue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbSavingBalanceValue.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tBSavingCode.Parent" xml:space="preserve">
     <value>tableLayoutPanel5</value>
   </data>
-  <data name="&gt;&gt;lbSavingBalanceValue.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="&gt;&gt;tBSavingCode.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lbReopenFeesMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbReopenFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 7pt</value>
+  </data>
+  <data name="lbReopenFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbReopenFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>734, 138</value>
+  </data>
+  <data name="lbReopenFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 20</value>
+  </data>
+  <data name="lbReopenFeesMinMax.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbReopenFeesMinMax.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="lbReopenFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbReopenFeesMinMax.Name" xml:space="preserve">
+    <value>lbReopenFeesMinMax</value>
+  </data>
+  <data name="&gt;&gt;lbReopenFeesMinMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbReopenFeesMinMax.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbReopenFeesMinMax.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lbDepositFees.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbDepositFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbDepositFees.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lbDepositFees.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbDepositFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>874, 106</value>
+  </data>
+  <data name="lbDepositFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 32</value>
+  </data>
+  <data name="lbDepositFees.TabIndex" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
+  <data name="lbDepositFees.Text" xml:space="preserve">
+    <value>Deposit fees</value>
+  </data>
+  <data name="&gt;&gt;lbDepositFees.Name" xml:space="preserve">
+    <value>lbDepositFees</value>
+  </data>
+  <data name="&gt;&gt;lbDepositFees.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbDepositFees.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbDepositFees.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="lBSavingBalance.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="lBSavingBalance.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="lBSavingBalance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 15pt</value>
@@ -10875,10 +10245,10 @@ Max:
     <value>NoControl</value>
   </data>
   <data name="lBSavingBalance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 10</value>
+    <value>414, 10</value>
   </data>
   <data name="lBSavingBalance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 23</value>
+    <value>111, 32</value>
   </data>
   <data name="lBSavingBalance.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -10899,55 +10269,343 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;lBSavingBalance.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lbDepositFeesMinMax.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbDepositFeesMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbDepositFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 7pt</value>
+  </data>
+  <data name="lbDepositFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbDepositFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1137, 106</value>
+  </data>
+  <data name="lbDepositFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 32</value>
+  </data>
+  <data name="lbDepositFeesMinMax.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
+  <data name="lbDepositFeesMinMax.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="lbDepositFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbDepositFeesMinMax.Name" xml:space="preserve">
+    <value>lbDepositFeesMinMax</value>
+  </data>
+  <data name="&gt;&gt;lbDepositFeesMinMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbDepositFeesMinMax.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbDepositFeesMinMax.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lbSavingBalanceValue.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbSavingBalanceValue.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 15pt</value>
+  </data>
+  <data name="lbSavingBalanceValue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbSavingBalanceValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>531, 10</value>
+  </data>
+  <data name="lbSavingBalanceValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 32</value>
+  </data>
+  <data name="lbSavingBalanceValue.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lbSavingBalanceValue.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbSavingBalanceValue.Name" xml:space="preserve">
+    <value>lbSavingBalanceValue</value>
+  </data>
+  <data name="&gt;&gt;lbSavingBalanceValue.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbSavingBalanceValue.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbSavingBalanceValue.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="nudReopenFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="nudReopenFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>531, 141</value>
+  </data>
+  <data name="nudReopenFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 22</value>
+  </data>
+  <data name="nudReopenFees.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="nudReopenFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;nudReopenFees.Name" xml:space="preserve">
+    <value>nudReopenFees</value>
+  </data>
+  <data name="&gt;&gt;nudReopenFees.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudReopenFees.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;nudReopenFees.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lBSavingAvBalance.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lBSavingAvBalance.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lBSavingAvBalance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lBSavingAvBalance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lBSavingAvBalance.Location" type="System.Drawing.Point, System.Drawing">
+    <value>414, 42</value>
+  </data>
+  <data name="lBSavingAvBalance.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 32</value>
+  </data>
+  <data name="lBSavingAvBalance.TabIndex" type="System.Int32, mscorlib">
+    <value>59</value>
+  </data>
+  <data name="lBSavingAvBalance.Text" xml:space="preserve">
+    <value>Available balance</value>
+  </data>
+  <data name="lBSavingAvBalance.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lBSavingAvBalance.Name" xml:space="preserve">
+    <value>lBSavingAvBalance</value>
+  </data>
+  <data name="&gt;&gt;lBSavingAvBalance.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lBSavingAvBalance.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lBSavingAvBalance.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lbReopenFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbReopenFees.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lbReopenFees.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbReopenFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>414, 138</value>
+  </data>
+  <data name="lbReopenFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 20</value>
+  </data>
+  <data name="lbReopenFees.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lbReopenFees.Text" xml:space="preserve">
+    <value>Reopen fees</value>
+  </data>
+  <data name="lbReopenFees.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbReopenFees.Name" xml:space="preserve">
+    <value>lbReopenFees</value>
+  </data>
+  <data name="&gt;&gt;lbReopenFees.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbReopenFees.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbReopenFees.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lbSavingAvBalanceValue.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbSavingAvBalanceValue.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lbSavingAvBalanceValue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbSavingAvBalanceValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>531, 42</value>
+  </data>
+  <data name="lbSavingAvBalanceValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 32</value>
+  </data>
+  <data name="lbSavingAvBalanceValue.TabIndex" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="lbSavingAvBalanceValue.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbSavingAvBalanceValue.Name" xml:space="preserve">
+    <value>lbSavingAvBalanceValue</value>
+  </data>
+  <data name="&gt;&gt;lbSavingAvBalanceValue.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbSavingAvBalanceValue.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbSavingAvBalanceValue.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="_currentAccountLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_currentAccountLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="_currentAccountLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_currentAccountLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>874, 42</value>
+  </data>
+  <data name="_currentAccountLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 32</value>
+  </data>
+  <data name="_currentAccountLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>61</value>
+  </data>
+  <data name="_currentAccountLabel.Text" xml:space="preserve">
+    <value>Current Account</value>
+  </data>
+  <data name="_currentAccountLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountLabel.Name" xml:space="preserve">
+    <value>_currentAccountLabel</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountLabel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountLabel.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="tBSavingCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 13</value>
+  <data name="_currentAccountTextBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="tBSavingCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 22</value>
+  <data name="_currentAccountTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>981, 45</value>
   </data>
-  <data name="tBSavingCode.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="_currentAccountTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 22</value>
   </data>
-  <data name="&gt;&gt;tBSavingCode.Name" xml:space="preserve">
-    <value>tBSavingCode</value>
+  <data name="_currentAccountTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>65</value>
   </data>
-  <data name="&gt;&gt;tBSavingCode.Type" xml:space="preserve">
+  <data name="&gt;&gt;_currentAccountTextBox.Name" xml:space="preserve">
+    <value>_currentAccountTextBox</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tBSavingCode.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_currentAccountTextBox.Parent" xml:space="preserve">
     <value>tableLayoutPanel5</value>
   </data>
-  <data name="&gt;&gt;tBSavingCode.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_currentAccountTextBox.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="cmbSavingsOfficer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 109</value>
+  <data name="_dateCreatedLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="cmbSavingsOfficer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 24</value>
+  <data name="_dateCreatedLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="cmbSavingsOfficer.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="_dateCreatedLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>874, 10</value>
   </data>
-  <data name="&gt;&gt;cmbSavingsOfficer.Name" xml:space="preserve">
-    <value>cmbSavingsOfficer</value>
+  <data name="_dateCreatedLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 32</value>
   </data>
-  <data name="&gt;&gt;cmbSavingsOfficer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="_dateCreatedLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>66</value>
   </data>
-  <data name="&gt;&gt;cmbSavingsOfficer.Parent" xml:space="preserve">
+  <data name="_dateCreatedLabel.Text" xml:space="preserve">
+    <value>Date created</value>
+  </data>
+  <data name="_dateCreatedLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;_dateCreatedLabel.Name" xml:space="preserve">
+    <value>_dateCreatedLabel</value>
+  </data>
+  <data name="&gt;&gt;_dateCreatedLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_dateCreatedLabel.Parent" xml:space="preserve">
     <value>tableLayoutPanel5</value>
   </data>
-  <data name="&gt;&gt;cmbSavingsOfficer.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_dateCreatedLabel.ZOrder" xml:space="preserve">
     <value>13</value>
+  </data>
+  <data name="_dateCreatedValueLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_dateCreatedValueLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="_dateCreatedValueLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>981, 10</value>
+  </data>
+  <data name="_dateCreatedValueLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 32</value>
+  </data>
+  <data name="_dateCreatedValueLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>67</value>
+  </data>
+  <data name="_dateCreatedValueLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;_dateCreatedValueLabel.Name" xml:space="preserve">
+    <value>_dateCreatedValueLabel</value>
+  </data>
+  <data name="&gt;&gt;_dateCreatedValueLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_dateCreatedValueLabel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;_dateCreatedValueLabel.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
   <data name="labelInterestRate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="labelInterestRate.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+    <value>Fill</value>
   </data>
   <data name="labelInterestRate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -10956,10 +10614,10 @@ Max:
     <value>NoControl</value>
   </data>
   <data name="labelInterestRate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>413, 74</value>
+    <value>3, 138</value>
   </data>
   <data name="labelInterestRate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 32</value>
+    <value>91, 20</value>
   </data>
   <data name="labelInterestRate.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -10980,10 +10638,13 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;labelInterestRate.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
+  </data>
+  <data name="nudDownInterestRate.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="nudDownInterestRate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 77</value>
+    <value>100, 141</value>
   </data>
   <data name="nudDownInterestRate.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
@@ -11004,13 +10665,136 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;nudDownInterestRate.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
+  </data>
+  <data name="lbCloseFees.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbCloseFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbCloseFees.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lbCloseFees.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbCloseFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>414, 106</value>
+  </data>
+  <data name="lbCloseFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 32</value>
+  </data>
+  <data name="lbCloseFees.TabIndex" type="System.Int32, mscorlib">
+    <value>73</value>
+  </data>
+  <data name="lbCloseFees.Text" xml:space="preserve">
+    <value>Close fees</value>
+  </data>
+  <data name="lbCloseFees.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbCloseFees.Name" xml:space="preserve">
+    <value>lbCloseFees</value>
+  </data>
+  <data name="&gt;&gt;lbCloseFees.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbCloseFees.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbCloseFees.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="nudEntryFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="nudEntryFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 45</value>
+  </data>
+  <data name="nudEntryFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="nudEntryFees.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;nudEntryFees.Name" xml:space="preserve">
+    <value>nudEntryFees</value>
+  </data>
+  <data name="&gt;&gt;nudEntryFees.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudEntryFees.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;nudEntryFees.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="nudCloseFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="nudCloseFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>531, 109</value>
+  </data>
+  <data name="nudCloseFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 22</value>
+  </data>
+  <data name="nudCloseFees.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="nudCloseFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;nudCloseFees.Name" xml:space="preserve">
+    <value>nudCloseFees</value>
+  </data>
+  <data name="&gt;&gt;nudCloseFees.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudCloseFees.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;nudCloseFees.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="lbWithdrawFeesMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbWithdrawFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 7.5pt</value>
+  </data>
+  <data name="lbWithdrawFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbWithdrawFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1137, 74</value>
+  </data>
+  <data name="lbWithdrawFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 32</value>
+  </data>
+  <data name="lbWithdrawFeesMinMax.TabIndex" type="System.Int32, mscorlib">
+    <value>58</value>
+  </data>
+  <data name="lbWithdrawFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbWithdrawFeesMinMax.Name" xml:space="preserve">
+    <value>lbWithdrawFeesMinMax</value>
+  </data>
+  <data name="&gt;&gt;lbWithdrawFeesMinMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbWithdrawFeesMinMax.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbWithdrawFeesMinMax.ZOrder" xml:space="preserve">
+    <value>20</value>
   </data>
   <data name="lbWithdrawFees.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lbWithdrawFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+    <value>Fill</value>
   </data>
   <data name="lbWithdrawFees.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -11019,10 +10803,10 @@ Max:
     <value>NoControl</value>
   </data>
   <data name="lbWithdrawFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>413, 106</value>
+    <value>874, 74</value>
   </data>
   <data name="lbWithdrawFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 32</value>
+    <value>101, 32</value>
   </data>
   <data name="lbWithdrawFees.TabIndex" type="System.Int32, mscorlib">
     <value>56</value>
@@ -11043,16 +10827,406 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;lbWithdrawFees.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>21</value>
   </data>
-  <data name="nudWithdrawFees.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+  <data name="lbEntryFees.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbEntryFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbEntryFees.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lbEntryFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 42</value>
+  </data>
+  <data name="lbEntryFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 32</value>
+  </data>
+  <data name="lbEntryFees.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lbEntryFees.Text" xml:space="preserve">
+    <value>Entry fees</value>
+  </data>
+  <data name="lbEntryFees.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbEntryFees.Name" xml:space="preserve">
+    <value>lbEntryFees</value>
+  </data>
+  <data name="&gt;&gt;lbEntryFees.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbEntryFees.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbEntryFees.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="lbEntryFeesMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbEntryFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 7.5pt</value>
+  </data>
+  <data name="lbEntryFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>266, 42</value>
+  </data>
+  <data name="lbEntryFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 32</value>
+  </data>
+  <data name="lbEntryFeesMinMax.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbEntryFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbEntryFeesMinMax.Name" xml:space="preserve">
+    <value>lbEntryFeesMinMax</value>
+  </data>
+  <data name="&gt;&gt;lbEntryFeesMinMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbEntryFeesMinMax.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbEntryFeesMinMax.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="lbCloseFeesMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbCloseFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 7pt</value>
+  </data>
+  <data name="lbCloseFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbCloseFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>734, 106</value>
+  </data>
+  <data name="lbCloseFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 32</value>
+  </data>
+  <data name="lbCloseFeesMinMax.TabIndex" type="System.Int32, mscorlib">
+    <value>76</value>
+  </data>
+  <data name="lbCloseFeesMinMax.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="lbCloseFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbCloseFeesMinMax.Name" xml:space="preserve">
+    <value>lbCloseFeesMinMax</value>
+  </data>
+  <data name="&gt;&gt;lbCloseFeesMinMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbCloseFeesMinMax.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbCloseFeesMinMax.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="lbInterestRateMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbInterestRateMinMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 7.5pt</value>
+  </data>
+  <data name="lbInterestRateMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbInterestRateMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>266, 138</value>
+  </data>
+  <data name="lbInterestRateMinMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 20</value>
+  </data>
+  <data name="lbInterestRateMinMax.TabIndex" type="System.Int32, mscorlib">
+    <value>49</value>
+  </data>
+  <data name="lbInterestRateMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbInterestRateMinMax.Name" xml:space="preserve">
+    <value>lbInterestRateMinMax</value>
+  </data>
+  <data name="&gt;&gt;lbInterestRateMinMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbInterestRateMinMax.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbInterestRateMinMax.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="lbManagementFees.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbManagementFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbManagementFees.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="lbManagementFees.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbManagementFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>414, 74</value>
+  </data>
+  <data name="lbManagementFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 32</value>
+  </data>
+  <data name="lbManagementFees.TabIndex" type="System.Int32, mscorlib">
+    <value>75</value>
+  </data>
+  <data name="lbManagementFees.Text" xml:space="preserve">
+    <value>Management fees</value>
+  </data>
+  <data name="lbManagementFees.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbManagementFees.Name" xml:space="preserve">
+    <value>lbManagementFees</value>
+  </data>
+  <data name="&gt;&gt;lbManagementFees.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbManagementFees.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbManagementFees.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="nudManagementFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="nudManagementFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>531, 77</value>
+  </data>
+  <data name="nudManagementFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 22</value>
+  </data>
+  <data name="nudManagementFees.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="nudManagementFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;nudManagementFees.Name" xml:space="preserve">
+    <value>nudManagementFees</value>
+  </data>
+  <data name="&gt;&gt;nudManagementFees.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudManagementFees.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;nudManagementFees.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="lbManagementFeesMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbManagementFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 7pt</value>
+  </data>
+  <data name="lbManagementFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbManagementFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>734, 74</value>
+  </data>
+  <data name="lbManagementFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 32</value>
+  </data>
+  <data name="lbManagementFeesMinMax.TabIndex" type="System.Int32, mscorlib">
+    <value>77</value>
+  </data>
+  <data name="lbManagementFeesMinMax.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="lbManagementFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbManagementFeesMinMax.Name" xml:space="preserve">
+    <value>lbManagementFeesMinMax</value>
+  </data>
+  <data name="&gt;&gt;lbManagementFeesMinMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbManagementFeesMinMax.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbManagementFeesMinMax.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="labelInitialAmount.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelInitialAmount.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="labelInitialAmount.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="labelInitialAmount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 106</value>
+  </data>
+  <data name="labelInitialAmount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 32</value>
+  </data>
+  <data name="labelInitialAmount.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="labelInitialAmount.Text" xml:space="preserve">
+    <value>Initial amount</value>
+  </data>
+  <data name="labelInitialAmount.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;labelInitialAmount.Name" xml:space="preserve">
+    <value>labelInitialAmount</value>
+  </data>
+  <data name="&gt;&gt;labelInitialAmount.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelInitialAmount.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;labelInitialAmount.ZOrder" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="nudDownInitialAmount.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="nudDownInitialAmount.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>On</value>
+  </data>
+  <data name="nudDownInitialAmount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 109</value>
+  </data>
+  <data name="nudDownInitialAmount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="nudDownInitialAmount.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;nudDownInitialAmount.Name" xml:space="preserve">
+    <value>nudDownInitialAmount</value>
+  </data>
+  <data name="&gt;&gt;nudDownInitialAmount.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudDownInitialAmount.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;nudDownInitialAmount.ZOrder" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="lbInitialAmountMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbInitialAmountMinMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 7.5pt</value>
+  </data>
+  <data name="lbInitialAmountMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbInitialAmountMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>266, 106</value>
+  </data>
+  <data name="lbInitialAmountMinMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 32</value>
+  </data>
+  <data name="lbInitialAmountMinMax.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lbInitialAmountMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbInitialAmountMinMax.Name" xml:space="preserve">
+    <value>lbInitialAmountMinMax</value>
+  </data>
+  <data name="&gt;&gt;lbInitialAmountMinMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbInitialAmountMinMax.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;lbInitialAmountMinMax.ZOrder" xml:space="preserve">
+    <value>31</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 74</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 32</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Savings officer</value>
+  </data>
+  <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>32</value>
+  </data>
+  <data name="cmbSavingsOfficer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 77</value>
+  </data>
+  <data name="cmbSavingsOfficer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 24</value>
+  </data>
+  <data name="cmbSavingsOfficer.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;cmbSavingsOfficer.Name" xml:space="preserve">
+    <value>cmbSavingsOfficer</value>
+  </data>
+  <data name="&gt;&gt;cmbSavingsOfficer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbSavingsOfficer.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;cmbSavingsOfficer.ZOrder" xml:space="preserve">
+    <value>33</value>
+  </data>
+  <data name="nudWithdrawFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="nudWithdrawFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 109</value>
+    <value>981, 77</value>
   </data>
   <data name="nudWithdrawFees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>150, 22</value>
   </data>
   <data name="nudWithdrawFees.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -11073,76 +11247,34 @@ Max:
     <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;nudWithdrawFees.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>34</value>
   </data>
-  <data name="lbInterestRateMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+  <data name="nudDepositFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="lbInterestRateMinMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 7.5pt</value>
+  <data name="nudDepositFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>981, 109</value>
   </data>
-  <data name="lbInterestRateMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="nudDepositFees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 22</value>
   </data>
-  <data name="lbInterestRateMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>675, 74</value>
+  <data name="nudDepositFees.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="lbInterestRateMinMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 32</value>
+  <data name="nudDepositFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
   </data>
-  <data name="lbInterestRateMinMax.TabIndex" type="System.Int32, mscorlib">
-    <value>49</value>
+  <data name="&gt;&gt;nudDepositFees.Name" xml:space="preserve">
+    <value>nudDepositFees</value>
   </data>
-  <data name="lbInterestRateMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="&gt;&gt;nudDepositFees.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbInterestRateMinMax.Name" xml:space="preserve">
-    <value>lbInterestRateMinMax</value>
-  </data>
-  <data name="&gt;&gt;lbInterestRateMinMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbInterestRateMinMax.Parent" xml:space="preserve">
+  <data name="&gt;&gt;nudDepositFees.Parent" xml:space="preserve">
     <value>tableLayoutPanel5</value>
   </data>
-  <data name="&gt;&gt;lbInterestRateMinMax.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="lbWithdrawFeesMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="lbWithdrawFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 7.5pt</value>
-  </data>
-  <data name="lbWithdrawFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbWithdrawFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>675, 106</value>
-  </data>
-  <data name="lbWithdrawFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 32</value>
-  </data>
-  <data name="lbWithdrawFeesMinMax.TabIndex" type="System.Int32, mscorlib">
-    <value>58</value>
-  </data>
-  <data name="lbWithdrawFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lbWithdrawFeesMinMax.Name" xml:space="preserve">
-    <value>lbWithdrawFeesMinMax</value>
-  </data>
-  <data name="&gt;&gt;lbWithdrawFeesMinMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbWithdrawFeesMinMax.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;lbWithdrawFeesMinMax.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="tableLayoutPanel5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="&gt;&gt;nudDepositFees.ZOrder" xml:space="preserve">
+    <value>35</value>
   </data>
   <data name="tableLayoutPanel5.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 18</value>
@@ -11151,10 +11283,10 @@ Max:
     <value>0, 10, 0, 10</value>
   </data>
   <data name="tableLayoutPanel5.RowCount" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>7</value>
   </data>
   <data name="tableLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1237, 148</value>
+    <value>1237, 182</value>
   </data>
   <data name="tableLayoutPanel5.TabIndex" type="System.Int32, mscorlib">
     <value>73</value>
@@ -11172,7 +11304,7 @@ Max:
     <value>0</value>
   </data>
   <data name="tableLayoutPanel5.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbSavingAvBalanceValue" Row="1" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lBSavingAvBalance" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lbEntryFeesMinMax" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbInitialAmountMinMax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbEntryFees" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelInitialAmount" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudEntryFees" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudDownInitialAmount" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label9" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbSavingBalanceValue" Row="0" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lBSavingBalance" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="tBSavingCode" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="cmbSavingsOfficer" Row="3" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="labelInterestRate" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="nudDownInterestRate" Row="2" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawFees" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="nudWithdrawFees" Row="3" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lbInterestRateMinMax" Row="2" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawFeesMinMax" Row="3" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label9" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tBSavingCode" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="lbReopenFeesMinMax" Row="5" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lbDepositFees" Row="3" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="lBSavingBalance" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lbDepositFeesMinMax" Row="3" RowSpan="1" Column="8" ColumnSpan="1" /&gt;&lt;Control Name="lbSavingBalanceValue" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="nudReopenFees" Row="5" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lBSavingAvBalance" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lbReopenFees" Row="5" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lbSavingAvBalanceValue" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="_currentAccountLabel" Row="1" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="_currentAccountTextBox" Row="1" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;Control Name="_dateCreatedLabel" Row="0" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="_dateCreatedValueLabel" Row="0" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;Control Name="labelInterestRate" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudDownInterestRate" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbCloseFees" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="nudEntryFees" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudCloseFees" Row="3" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawFeesMinMax" Row="2" RowSpan="1" Column="8" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawFees" Row="2" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="lbEntryFees" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbEntryFeesMinMax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbCloseFeesMinMax" Row="3" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lbInterestRateMinMax" Row="5" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbManagementFees" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="nudManagementFees" Row="2" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lbManagementFeesMinMax" Row="2" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="labelInitialAmount" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudDownInitialAmount" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbInitialAmountMinMax" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="cmbSavingsOfficer" Row="2" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="nudWithdrawFees" Row="2" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;Control Name="nudDepositFees" Row="3" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20,Absolute,5" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="groupBoxSaving.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -11181,7 +11313,7 @@ Max:
     <value>3, 3</value>
   </data>
   <data name="groupBoxSaving.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 169</value>
+    <value>1243, 206</value>
   </data>
   <data name="groupBoxSaving.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -11349,7 +11481,7 @@ Max:
     <value>0</value>
   </data>
   <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="" /&gt;&lt;Rows Styles="" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Absolute,20" /&gt;&lt;Rows Styles="" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -11633,7 +11765,7 @@ Max:
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="" /&gt;&lt;Rows Styles="" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Absolute,20" /&gt;&lt;Rows Styles="" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="buttonLoanDisbursement.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -12882,6 +13014,6 @@ Max:
     <value>ClientForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=15.11.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetForm, OpenCBS.GUI, Version=16.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

@@ -126,7 +126,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 202</value>
+    <value>17, 201</value>
   </data>
   <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>172, 25</value>
@@ -148,7 +148,7 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 8.25pt</value>
@@ -157,7 +157,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>522, 202</value>
+    <value>522, 201</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>158, 25</value>
@@ -178,7 +178,58 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
+  </data>
+  <data name="_chequeNumberTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>478, 19</value>
+  </data>
+  <data name="_chequeNumberTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 20</value>
+  </data>
+  <data name="_chequeNumberTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>82</value>
+  </data>
+  <data name="&gt;&gt;_chequeNumberTextBox.Name" xml:space="preserve">
+    <value>_chequeNumberTextBox</value>
+  </data>
+  <data name="&gt;&gt;_chequeNumberTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_chequeNumberTextBox.Parent" xml:space="preserve">
+    <value>gbxMainWindow</value>
+  </data>
+  <data name="&gt;&gt;_chequeNumberTextBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_chequeNumberLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_chequeNumberLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="_chequeNumberLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>358, 20</value>
+  </data>
+  <data name="_chequeNumberLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 16</value>
+  </data>
+  <data name="_chequeNumberLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>81</value>
+  </data>
+  <data name="_chequeNumberLabel.Text" xml:space="preserve">
+    <value>Cheque number</value>
+  </data>
+  <data name="&gt;&gt;_chequeNumberLabel.Name" xml:space="preserve">
+    <value>_chequeNumberLabel</value>
+  </data>
+  <data name="&gt;&gt;_chequeNumberLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_chequeNumberLabel.Parent" xml:space="preserve">
+    <value>gbxMainWindow</value>
+  </data>
+  <data name="&gt;&gt;_chequeNumberLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="nudTotalAmount.Location" type="System.Drawing.Point, System.Drawing">
     <value>134, 45</value>
@@ -205,7 +256,7 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;nudTotalAmount.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="nudAmount.Location" type="System.Drawing.Point, System.Drawing">
     <value>134, 71</value>
@@ -232,13 +283,16 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;nudAmount.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="rbxCredit.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="rbxCredit.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
+  </data>
+  <data name="rbxCredit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="rbxCredit.Location" type="System.Drawing.Point, System.Drawing">
     <value>429, 72</value>
@@ -265,13 +319,16 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;rbxCredit.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="rbxDebit.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="rbxDebit.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
+  </data>
+  <data name="rbxDebit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="rbxDebit.Location" type="System.Drawing.Point, System.Drawing">
     <value>360, 72</value>
@@ -298,7 +355,7 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;rbxDebit.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="lblAmountFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 8.25pt</value>
@@ -331,7 +388,7 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;lblAmountFeesMinMax.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="updAmountFees.Location" type="System.Drawing.Point, System.Drawing">
     <value>134, 97</value>
@@ -355,7 +412,7 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;updAmountFees.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="lblTotalSavingCurrency.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -388,7 +445,7 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;lblTotalSavingCurrency.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="lblTotalAmount.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -403,13 +460,13 @@
     <value>14, 46</value>
   </data>
   <data name="lblTotalAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 16</value>
+    <value>86, 16</value>
   </data>
   <data name="lblTotalAmount.TabIndex" type="System.Int32, mscorlib">
     <value>68</value>
   </data>
   <data name="lblTotalAmount.Text" xml:space="preserve">
-    <value>Amount to pay:</value>
+    <value>Total amount:</value>
   </data>
   <data name="&gt;&gt;lblTotalAmount.Name" xml:space="preserve">
     <value>lblTotalAmount</value>
@@ -421,7 +478,7 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;lblTotalAmount.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="lblFees.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -454,7 +511,7 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;lblFees.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="lblSavingCurrencyFees.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -487,7 +544,7 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;lblSavingCurrencyFees.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="lbAmountMinMaxCurrencyPivot.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 8.25pt</value>
@@ -520,7 +577,7 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;lbAmountMinMaxCurrencyPivot.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="lblSavingCurrency.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -553,7 +610,7 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;lblSavingCurrency.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="lbAmountMinMax.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 8.25pt</value>
@@ -586,7 +643,10 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;lbAmountMinMax.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
+  </data>
+  <data name="dtpDate.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="dtpDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>134, 19</value>
@@ -607,7 +667,7 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;dtpDate.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>17</value>
   </data>
   <data name="lblDate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -640,7 +700,7 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;lblDate.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>18</value>
   </data>
   <data name="lblAmount.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -673,10 +733,10 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;lblAmount.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>19</value>
   </data>
   <data name="tbxSavingCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 124</value>
+    <value>134, 123</value>
   </data>
   <data name="tbxSavingCode.Size" type="System.Drawing.Size, System.Drawing">
     <value>546, 20</value>
@@ -694,7 +754,7 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;tbxSavingCode.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>20</value>
   </data>
   <data name="lblDescription.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -706,7 +766,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 125</value>
+    <value>14, 124</value>
   </data>
   <data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 16</value>
@@ -727,13 +787,190 @@
     <value>gbxMainWindow</value>
   </data>
   <data name="&gt;&gt;lblDescription.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;lblInterBranch.Name" xml:space="preserve">
+    <value>lblInterBranch</value>
+  </data>
+  <data name="&gt;&gt;lblInterBranch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblInterBranch.Parent" xml:space="preserve">
+    <value>plTransfer</value>
+  </data>
+  <data name="&gt;&gt;lblInterBranch.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tbTargetAccount.Name" xml:space="preserve">
+    <value>tbTargetAccount</value>
+  </data>
+  <data name="&gt;&gt;tbTargetAccount.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbTargetAccount.Parent" xml:space="preserve">
+    <value>plTransfer</value>
+  </data>
+  <data name="&gt;&gt;tbTargetAccount.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnSearchContract.Name" xml:space="preserve">
+    <value>btnSearchContract</value>
+  </data>
+  <data name="&gt;&gt;btnSearchContract.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSearchContract.Parent" xml:space="preserve">
+    <value>plTransfer</value>
+  </data>
+  <data name="&gt;&gt;btnSearchContract.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lbTargetSavings.Name" xml:space="preserve">
+    <value>lbTargetSavings</value>
+  </data>
+  <data name="&gt;&gt;lbTargetSavings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbTargetSavings.Parent" xml:space="preserve">
+    <value>plTransfer</value>
+  </data>
+  <data name="&gt;&gt;lbTargetSavings.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lblClientName.Name" xml:space="preserve">
+    <value>lblClientName</value>
+  </data>
+  <data name="&gt;&gt;lblClientName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblClientName.Parent" xml:space="preserve">
+    <value>plTransfer</value>
+  </data>
+  <data name="&gt;&gt;lblClientName.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;cbBookings.Name" xml:space="preserve">
+    <value>cbBookings</value>
+  </data>
+  <data name="&gt;&gt;cbBookings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbBookings.Parent" xml:space="preserve">
+    <value>plTransfer</value>
+  </data>
+  <data name="&gt;&gt;cbBookings.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="plTransfer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 149</value>
+  </data>
+  <data name="plTransfer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>674, 46</value>
+  </data>
+  <data name="plTransfer.TabIndex" type="System.Int32, mscorlib">
+    <value>58</value>
+  </data>
+  <data name="&gt;&gt;plTransfer.Name" xml:space="preserve">
+    <value>plTransfer</value>
+  </data>
+  <data name="&gt;&gt;plTransfer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;plTransfer.Parent" xml:space="preserve">
+    <value>gbxMainWindow</value>
+  </data>
+  <data name="&gt;&gt;plTransfer.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;cbSavingsMethod.Name" xml:space="preserve">
+    <value>cbSavingsMethod</value>
+  </data>
+  <data name="&gt;&gt;cbSavingsMethod.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbSavingsMethod.Parent" xml:space="preserve">
+    <value>pnlSavingPending</value>
+  </data>
+  <data name="&gt;&gt;cbSavingsMethod.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;cbxPending.Name" xml:space="preserve">
+    <value>cbxPending</value>
+  </data>
+  <data name="&gt;&gt;cbxPending.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbxPending.Parent" xml:space="preserve">
+    <value>pnlSavingPending</value>
+  </data>
+  <data name="&gt;&gt;cbxPending.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblPaymentMethod.Name" xml:space="preserve">
+    <value>lblPaymentMethod</value>
+  </data>
+  <data name="&gt;&gt;lblPaymentMethod.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblPaymentMethod.Parent" xml:space="preserve">
+    <value>pnlSavingPending</value>
+  </data>
+  <data name="&gt;&gt;lblPaymentMethod.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlSavingPending.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 149</value>
+  </data>
+  <data name="pnlSavingPending.Size" type="System.Drawing.Size, System.Drawing">
+    <value>674, 46</value>
+  </data>
+  <data name="pnlSavingPending.TabIndex" type="System.Int32, mscorlib">
+    <value>67</value>
+  </data>
+  <data name="&gt;&gt;pnlSavingPending.Name" xml:space="preserve">
+    <value>pnlSavingPending</value>
+  </data>
+  <data name="&gt;&gt;pnlSavingPending.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlSavingPending.Parent" xml:space="preserve">
+    <value>gbxMainWindow</value>
+  </data>
+  <data name="&gt;&gt;pnlSavingPending.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="gbxMainWindow.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gbxMainWindow.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="gbxMainWindow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>699, 239</value>
+  </data>
+  <data name="gbxMainWindow.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gbxMainWindow.Name" xml:space="preserve">
+    <value>gbxMainWindow</value>
+  </data>
+  <data name="&gt;&gt;gbxMainWindow.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbxMainWindow.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbxMainWindow.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="lblInterBranch.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lblInterBranch.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9pt</value>
+  </data>
+  <data name="lblInterBranch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lblInterBranch.Location" type="System.Drawing.Point, System.Drawing">
     <value>406, 4</value>
@@ -897,27 +1134,6 @@
   <data name="&gt;&gt;cbBookings.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="plTransfer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 150</value>
-  </data>
-  <data name="plTransfer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>674, 46</value>
-  </data>
-  <data name="plTransfer.TabIndex" type="System.Int32, mscorlib">
-    <value>58</value>
-  </data>
-  <data name="&gt;&gt;plTransfer.Name" xml:space="preserve">
-    <value>plTransfer</value>
-  </data>
-  <data name="&gt;&gt;plTransfer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;plTransfer.Parent" xml:space="preserve">
-    <value>gbxMainWindow</value>
-  </data>
-  <data name="&gt;&gt;plTransfer.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
   <data name="cbSavingsMethod.Location" type="System.Drawing.Point, System.Drawing">
     <value>128, 3</value>
   </data>
@@ -1011,51 +1227,6 @@
   <data name="&gt;&gt;lblPaymentMethod.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="pnlSavingPending.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 150</value>
-  </data>
-  <data name="pnlSavingPending.Size" type="System.Drawing.Size, System.Drawing">
-    <value>674, 46</value>
-  </data>
-  <data name="pnlSavingPending.TabIndex" type="System.Int32, mscorlib">
-    <value>67</value>
-  </data>
-  <data name="&gt;&gt;pnlSavingPending.Name" xml:space="preserve">
-    <value>pnlSavingPending</value>
-  </data>
-  <data name="&gt;&gt;pnlSavingPending.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlSavingPending.Parent" xml:space="preserve">
-    <value>gbxMainWindow</value>
-  </data>
-  <data name="&gt;&gt;pnlSavingPending.ZOrder" xml:space="preserve">
-    <value>21</value>
-  </data>
-  <data name="gbxMainWindow.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="gbxMainWindow.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="gbxMainWindow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>699, 240</value>
-  </data>
-  <data name="gbxMainWindow.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;gbxMainWindow.Name" xml:space="preserve">
-    <value>gbxMainWindow</value>
-  </data>
-  <data name="&gt;&gt;gbxMainWindow.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbxMainWindow.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbxMainWindow.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -1066,7 +1237,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>699, 240</value>
+    <value>699, 239</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1666,6 +1837,9 @@
         ODowMHJGaQ8AAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
@@ -1676,6 +1850,6 @@
     <value>SavingsOperationForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=16.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
