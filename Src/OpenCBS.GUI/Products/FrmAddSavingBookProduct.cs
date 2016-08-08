@@ -855,8 +855,9 @@ namespace OpenCBS.GUI.Configuration
 
         private void _personalAccountRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            gbInitialAmount.Visible = gbInterestRate.Visible = gbFrequency.Visible = gbBalance.Visible = false;
+            gbInterestRate.Visible = gbFrequency.Visible = gbBalance.Visible = false;
             _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible = false;
+            gbInitialAmount.Visible = true;
             if (tabControlSaving.TabPages.Contains(tabPageOverdraft))
                 tabControlSaving.TabPages.Remove(tabPageOverdraft);
         }

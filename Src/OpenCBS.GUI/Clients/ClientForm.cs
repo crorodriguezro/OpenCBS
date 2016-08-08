@@ -673,8 +673,8 @@ namespace OpenCBS.GUI.Clients
             if (product.Type == OSavingProductType.PersonalAccount)
             {
                 buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible =
-                labelInitialAmount.Visible = nudDownInitialAmount.Visible = lbInitialAmountMinMax.Visible =
                 labelInterestRate.Visible = nudDownInterestRate.Visible = lbInterestRateMinMax.Visible = false;
+                labelInitialAmount.Visible = nudDownInitialAmount.Visible = lbInitialAmountMinMax.Visible = true;
 
                 tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = true;
                 tabControlSavingsDetails.TabPages.Add(tabPageSavingsEvents);
@@ -771,9 +771,15 @@ namespace OpenCBS.GUI.Clients
                 savingWithdrawToolStripMenuItem.Enabled = true;
                 savingTransferToolStripMenuItem.Enabled = true;
 
-                // entry fees
                 nudEntryFees.DecimalPlaces = 0;
                 nudEntryFees.Increment = 1;
+                lbInitialAmountMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
+                                            "Min ", product.InitialAmountMin.GetFormatedValue(product.Currency.UseCents),
+                                            "Max ", product.InitialAmountMax.GetFormatedValue(product.Currency.UseCents), product.Currency.Code);
+                nudDownInitialAmount.Maximum = product.InitialAmountMax == null ? 0 : product.InitialAmountMax.Value;
+                nudDownInitialAmount.Minimum = product.InitialAmountMin == null ? 0 : product.InitialAmountMin.Value;
+                nudDownInitialAmount.Value = product.InitialAmountMin == null ? 0 : product.InitialAmountMin.Value;
+                // entry fees
                 if (((SavingsBookProduct)product).EntryFees.HasValue)
                 {
                     nudEntryFees.Enabled = false;
@@ -1143,8 +1149,8 @@ namespace OpenCBS.GUI.Clients
             _saving = (SavingBookContract) saving;
             DisplaySavingProduct(_saving.Product);
             InitializeTabPageTermDeposit();
-            nudDownInterestRate.Enabled = false;
             nudDownInitialAmount.Enabled = false;
+            nudDownInterestRate.Enabled = false;
             nudWithdrawFees.Enabled = false;
             nudEntryFees.Enabled = false;
             nudTransferFees.Enabled = false;
@@ -4990,6 +4996,13 @@ namespace OpenCBS.GUI.Clients
 
         private void FillSavingProductsValuesOnForm(ISavingProduct product)
         {
+            lbInitialAmountMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
+                "Min ", product.InitialAmountMin.GetFormatedValue(product.Currency.UseCents),
+                "Max ", product.InitialAmountMax.GetFormatedValue(product.Currency.UseCents), product.Currency.Code);
+            nudDownInitialAmount.Maximum = product.InitialAmountMax == null ? 0 : product.InitialAmountMax.Value;
+            nudDownInitialAmount.Minimum = product.InitialAmountMin == null ? 0 : product.InitialAmountMin.Value;
+            nudDownInitialAmount.Value = product.InitialAmountMin == null ? 0 : product.InitialAmountMin.Value;
+
             if (((SavingsBookProduct)product).EntryFees.HasValue)
             {
                 nudEntryFees.Enabled = false;
@@ -5226,8 +5239,8 @@ namespace OpenCBS.GUI.Clients
                 if (product.Type == OSavingProductType.PersonalAccount)
                 {
                     buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible =
-                    labelInitialAmount.Visible = nudDownInitialAmount.Visible = lbInitialAmountMinMax.Visible =
                     labelInterestRate.Visible = nudDownInterestRate.Visible = lbInterestRateMinMax.Visible = false;
+                    labelInitialAmount.Visible = nudDownInitialAmount.Visible = lbInitialAmountMinMax.Visible = true;
 
                     tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = true;
                     tabControlSavingsDetails.TabPages.Remove(tabPageSavingsAmountsAndFees);
@@ -5349,7 +5362,7 @@ namespace OpenCBS.GUI.Clients
             buttonCloseSaving.Visible = false;
             buttonReopenSaving.Visible = false;
             nudDownInterestRate.Enabled = false;
-            nudDownInitialAmount.Enabled = false;
+            nudDownInitialAmount.Enabled = true;
             lbInterestRateMinMax.Visible = true;
         }
 
@@ -5568,6 +5581,7 @@ namespace OpenCBS.GUI.Clients
                 buttonCloseSaving.Visible = _saving.Status == OSavingsStatus.Closed;
                 buttonFirstDeposit.Visible = nudManagementFees.Enabled = nudCloseFees.Enabled = nudReopenFees.Enabled = buttonSaveSaving.Visible = false;
                 pnlSavingsButtons.Enabled = buttonSavingsOperations.Enabled = btCancelLastSavingEvent.Enabled = flowLayoutPanel9.Enabled = buttonCloseSaving.Visible = true;
+                nudDownInitialAmount.Enabled = false;
             }
             catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
             {
