@@ -3226,7 +3226,13 @@ namespace OpenCBS.Services
             return engine.ExecuteFile(file);
         }
 
-        public Loan SaveInstallmentsAndRepaymentEvents(Loan loan, IList<Installment> newInstallments, EventStock eventStock, bool numberOfInstallmentsIsChanged = false)
+        public Loan SaveInstallmentsAndRepaymentEvents(Loan loan, IList<Installment> newInstallments,
+            EventStock eventStock)
+        {
+            return SaveInstallmentsAndRepaymentEvents(loan, newInstallments, eventStock, false);
+        }
+
+        public Loan SaveInstallmentsAndRepaymentEvents(Loan loan, IList<Installment> newInstallments, EventStock eventStock, bool numberOfInstallmentsIsChanged)
         {
             var repayEvent = eventStock.GetRepaymentEvents().First(i => !i.IsFired).Copy();
             var amount =
