@@ -3262,13 +3262,14 @@ namespace OpenCBS.Services
                         }
                         if (amount <= 0)
                             return loan;
+                        var paymentMethod = repayEvent.PaymentMethod;
                         var withdrowEvent = ServicesProvider.GetInstance()
                                                             .GetSavingServices()
                                                             .Withdraw(saving, repayEvent.Date, amount, 
                                                                       "Withdraw for loan repayment " + loan.Code,
                                                                       User.CurrentUser,
                                                                       new Teller(),
-                                                                      sqlTransaction, new PaymentMethod()).First();
+                                                                      sqlTransaction, paymentMethod).First();
                         eventStock.GetRepaymentEvents().First(i => !i.IsFired).Comment = withdrowEvent.Id.ToString(CultureInfo.InvariantCulture);
                     }
                     loan.Events = eventStock;
