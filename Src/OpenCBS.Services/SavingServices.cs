@@ -978,6 +978,7 @@ namespace OpenCBS.Services
                             {
                                 {"Event", savingEvent},
                                 {"Client", pClient},
+                                {"Saving", pSaving},
                                 {"RecoveryAccount", true},
                                 {"SqlTransaction", sqlTransaction}
                             });

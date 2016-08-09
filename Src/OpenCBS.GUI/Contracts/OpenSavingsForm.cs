@@ -68,15 +68,8 @@ namespace OpenCBS.GUI.Contracts
         public void Initialize(SavingsBookProduct savingsProduct)
         {
             nudInitialAmount.DecimalPlaces = UseCents ? 2 : 0;
-            if (savingsProduct.Type != OSavingProductType.PersonalAccount)
-            {
-                nudInitialAmount.Minimum = _savingsProduct.InitialAmountMin.Value;
-                nudInitialAmount.Maximum = _savingsProduct.InitialAmountMax.Value;
-            }
-            else
-            {
-                lbInitialAmount.Visible = nudInitialAmount.Visible = lbInitialAmountMinMax.Visible = false;
-            }
+            nudInitialAmount.Minimum = _savingsProduct.InitialAmountMin.Value;
+            nudInitialAmount.Maximum = _savingsProduct.InitialAmountMax.Value;
             nudInitialAmount.Text = _initialAmount.Value.ToString();
 
             if (_loanAmount.HasValue)

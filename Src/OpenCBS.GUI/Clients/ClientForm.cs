@@ -684,14 +684,13 @@ namespace OpenCBS.GUI.Clients
                 tabControlSavingsDetails.TabPages.Add(tabPageSavingsAmountsAndFees);
                 tabControlSavingsDetails.TabPages.Add(tabPageSavingsEvents);
             }
-
+            
             lbInitialAmountMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
                 "Min ", product.InitialAmountMin.GetFormatedValue(product.Currency.UseCents),
                 "Max ", product.InitialAmountMax.GetFormatedValue(product.Currency.UseCents), product.Currency.Code);
             nudDownInitialAmount.Maximum = product.InitialAmountMax == null ? 0 : product.InitialAmountMax.Value;
             nudDownInitialAmount.Minimum = product.InitialAmountMin == null ? 0 : product.InitialAmountMin.Value;
             nudDownInitialAmount.Value = product.InitialAmountMin == null ? 0 : product.InitialAmountMin.Value;
-
             if (product.InterestRate.HasValue)
             {
                 nudDownInterestRate.Enabled = false;
@@ -773,12 +772,6 @@ namespace OpenCBS.GUI.Clients
 
                 nudEntryFees.DecimalPlaces = 0;
                 nudEntryFees.Increment = 1;
-                lbInitialAmountMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
-                                            "Min ", product.InitialAmountMin.GetFormatedValue(product.Currency.UseCents),
-                                            "Max ", product.InitialAmountMax.GetFormatedValue(product.Currency.UseCents), product.Currency.Code);
-                nudDownInitialAmount.Maximum = product.InitialAmountMax == null ? 0 : product.InitialAmountMax.Value;
-                nudDownInitialAmount.Minimum = product.InitialAmountMin == null ? 0 : product.InitialAmountMin.Value;
-                nudDownInitialAmount.Value = product.InitialAmountMin == null ? 0 : product.InitialAmountMin.Value;
                 // entry fees
                 if (((SavingsBookProduct)product).EntryFees.HasValue)
                 {
@@ -1167,6 +1160,10 @@ namespace OpenCBS.GUI.Clients
             btSearchContract2.Enabled = false;
             cmbRollover2.Enabled = false;
             cmbSavingsOfficer.Enabled = false;
+            if (saving.Status == OSavingsStatus.Closed)
+                nudEntryFees.Enabled = nudDownInitialAmount.Enabled = false;
+            nudEntryFees.Value = saving.EntryFees.Value;
+            nudDownInitialAmount.Value = saving.InitialAmount.Value;
             _dateCreatedValueLabel.Text = saving.CreationDate.ToString(CultureInfo.InvariantCulture);
             cmbSavingsOfficer.Items.Add(User.CurrentUser);
             foreach (User subordinate in User.CurrentUser.Subordinates)
@@ -5398,10 +5395,8 @@ namespace OpenCBS.GUI.Clients
             if (pSaving.Id != 0)
             {
                 nudDownInterestRate.Value = nudDownInterestRate.Minimum = nudDownInterestRate.Maximum = (decimal)pSaving.InterestRate * 100;
-                nudDownInitialAmount.Value = nudDownInitialAmount.Minimum = nudDownInitialAmount.Maximum = pSaving.InitialAmount.Value;
                 
                 SavingBookContract s = (SavingBookContract)pSaving;
-                nudEntryFees.Value = nudEntryFees.Minimum = nudEntryFees.Maximum = s.EntryFees.Value;
 
                 nudWithdrawFees.Value = nudWithdrawFees.Minimum = nudWithdrawFees.Maximum = s.FlatWithdrawFees.HasValue ?
                     s.FlatWithdrawFees.Value : (decimal)s.RateWithdrawFees.Value * 100;
@@ -5581,7 +5576,7 @@ namespace OpenCBS.GUI.Clients
                 buttonCloseSaving.Visible = _saving.Status == OSavingsStatus.Closed;
                 buttonFirstDeposit.Visible = nudManagementFees.Enabled = nudCloseFees.Enabled = nudReopenFees.Enabled = buttonSaveSaving.Visible = false;
                 pnlSavingsButtons.Enabled = buttonSavingsOperations.Enabled = btCancelLastSavingEvent.Enabled = flowLayoutPanel9.Enabled = buttonCloseSaving.Visible = true;
-                nudDownInitialAmount.Enabled = false;
+                nudDownInitialAmount.Enabled = btCancelLastSavingEvent.Visible = false;
             }
             catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
             {
@@ -6752,7 +6747,8 @@ namespace OpenCBS.GUI.Clients
                     if (result == DialogResult.OK)
                     {
                         _saving.ReopenFees = openSavingsForm.EntryFees;
-                        SavingServices.Reopen(openSavingsForm.InitialAmount, _saving, TimeProvider.Now, User.CurrentUser, _client);
+                        _saving.InitialAmount = openSavingsForm.InitialAmount - _saving.ReopenFees;
+                        SavingServices.Reopen(_saving.InitialAmount, _saving, TimeProvider.Now, User.CurrentUser, _client);
 
                         _saving = SavingServices.GetSaving(_saving.Id);
                         DisplaySaving(_saving);
