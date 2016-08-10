@@ -73,6 +73,12 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
         List<SavingEvent> Deposit(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees,
             bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod, int? pendingEventId, Teller teller);
 
+        List<SavingEvent> Fee(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees,
+            bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod, int? pendingEventId, Teller teller, int parentEventId);
+
+        List<SavingEvent> Tax(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees,
+            bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod, int? pendingEventId, Teller teller, int parentEventId);
+
         List<SavingEvent> LoanDisbursement(Loan loan, DateTime date, string description, User user,
             bool isDesactivateFees, bool isPending, OSavingsMethods savingsMethod, int? pendingEventId, Teller teller);
 

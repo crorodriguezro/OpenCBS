@@ -40,6 +40,7 @@ using OpenCBS.Manager.Events;
 using OpenCBS.Shared;
 using OpenCBS.Shared.Settings;
 using System.Collections.Generic;
+using System.Data;
 using OpenCBS.Services.Events;
 using OpenCBS.CoreDomain.SearchResult;
 using OpenCBS.Enums;
@@ -456,6 +457,138 @@ namespace OpenCBS.Services
                     sqlTransaction.Rollback();
                     throw;
                 }
+            }
+        }
+
+        public List<SavingEvent> DepositWithTransaction(ISavingsContract saving, DateTime dateTime,
+            OCurrency depositAmount, string description, User user, bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod,
+            int? pendingEventId, Teller teller, SqlTransaction tx, bool isFirstDeposit = false, string doc1 = null)
+        {
+            try
+            {
+                if (!IsDepositAmountCorrect(depositAmount, saving, savingsMethod))
+                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.DepositAmountIsInvalid);
+
+                ISavingsContract savingSimulation = (ISavingsContract) saving.Clone();
+                // Create a fake Saving object
+                if (saving.Client == null)
+                    saving.Client = ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(saving.Id);
+
+                // Do deposit to the fake Saving object
+                savingSimulation.Deposit(depositAmount, dateTime, description, user, false, isPending, savingsMethod,
+                    paymentMethod, pendingEventId, teller);
+
+                if (!IsSavingBalanceCorrect(savingSimulation) &&
+                    savingSimulation.Product.Type != OSavingProductType.PersonalAccount) // Check balance simulation
+                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
+
+                List<SavingEvent> events = saving.Deposit(depositAmount, dateTime, description, user, false,
+                    isPending,
+                    savingsMethod, paymentMethod, pendingEventId, teller);
+
+                foreach (SavingEvent savingEvent in events)
+                {
+                    savingEvent.Doc1 = doc1;
+                    var parentId = _ePS.FireEventWithReturnId(savingEvent, saving, tx);
+                    
+                    ServicesProvider.GetInstance()
+                        .GetContractServices()
+                        .CallInterceptor(new Dictionary<string, object>
+                        {
+                            {"Saving", saving},
+                            {"Event", savingEvent},
+                            {"IsFirstDeposit", isFirstDeposit},
+                            {"SqlTransaction", tx}
+                        });
+
+                    Fee(saving, dateTime, user, isPending, savingsMethod, paymentMethod, pendingEventId, teller, tx,
+                        parentId, "Fee for Deposit", savingEvent.Doc1);
+                }
+
+                // Change overdraft state
+                if (saving is SavingBookContract)
+                {
+                    if (saving.GetBalance() > 0)
+                    {
+                        ((SavingBookContract) saving).InOverdraft = false;
+                        UpdateOverdraftStatus(saving.Id, false, tx);
+                    }
+                }
+                return events;
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
+            }
+        }
+
+        public List<SavingEvent> Fee(ISavingsContract saving, DateTime dateTime,
+            User user, bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod,
+            int? pendingEventId, Teller teller, SqlTransaction tx, int parentEventId, string description, string doc1 = null)
+        {
+            try
+            {
+                if (saving.Client == null)
+                    saving.Client = ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(saving.Id);
+
+                var events = saving.Fee(saving.EntryFees.Value, dateTime, description, user, false,
+                    isPending, savingsMethod, paymentMethod, pendingEventId, teller, parentEventId);
+
+                foreach (var savingEvent in events)
+                {
+                    savingEvent.Doc1 = doc1;
+                    var parentId = _ePS.FireEventWithReturnId(savingEvent, saving, tx);
+
+                    Tax(saving, dateTime, user, isPending, savingsMethod, paymentMethod, pendingEventId, teller, tx,
+                        parentId, "Tax for fee", savingEvent.Doc1);
+
+                    ServicesProvider.GetInstance()
+                        .GetContractServices()
+                        .CallInterceptor(new Dictionary<string, object>
+                        {
+                            {"Saving", saving},
+                            {"Event", savingEvent},
+                            {"SqlTransaction", tx}
+                        });
+                }
+                return events;
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
+            }
+        }
+
+        public List<SavingEvent> Tax(ISavingsContract saving, DateTime dateTime,
+            User user, bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod,
+            int? pendingEventId, Teller teller, SqlTransaction tx, int parentEventId, string description, string doc1 = null)
+        {
+            try
+            {
+                if (saving.Client == null)
+                    saving.Client = ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(saving.Id);
+
+                var events = saving.Tax((saving.EntryFees.Value / 100m * 14), dateTime, description, user, false,
+                    isPending, savingsMethod, paymentMethod, pendingEventId, teller, parentEventId);
+
+                foreach (var savingEvent in events)
+                {
+                    savingEvent.Doc1 = doc1;
+                    _ePS.FireEvent(savingEvent, saving, tx);
+                    ServicesProvider.GetInstance()
+                        .GetContractServices()
+                        .CallInterceptor(new Dictionary<string, object>
+                        {
+                            {"Saving", saving},
+                            {"Event", savingEvent},
+                            {"SqlTransaction", tx}
+                        });
+                }
+                return events;
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
             }
         }
 
@@ -1493,11 +1626,10 @@ namespace OpenCBS.Services
             }
 
             using (SqlConnection connection = _savingManager.GetConnection())
-            using (SqlTransaction sqlTransaction = connection.BeginTransaction())
+            using (SqlTransaction sqlTransaction = connection.BeginTransaction(IsolationLevel.ReadUncommitted))
             {
                 try
                 {
-
                     saving.Id = _savingManager.Add(saving, client, sqlTransaction);
                     string code = saving.Code + '/' + saving.Id.ToString(CultureInfo.InvariantCulture);
                     _savingManager.UpdateSavingContractCode(saving.Id, code, sqlTransaction);
@@ -1509,6 +1641,10 @@ namespace OpenCBS.Services
                                 {"OperationType", "SaveSavingContract"},
                                 {"SqlTransaction", sqlTransaction}
                             });
+
+                    DepositWithTransaction(saving, saving.CreationDate, saving.InitialAmount, "Initial deposit",
+                        User.CurrentUser, false, OSavingsMethods.Cash, new PaymentMethod(), null, Teller.CurrentTeller, sqlTransaction, true);
+
                     sqlTransaction.Commit();
 
                     return saving.Id;
@@ -1569,9 +1705,9 @@ namespace OpenCBS.Services
             return _savingManager.SelectClientSavingBookCodes(tiersId, currencyId);
         }
 
-        public void UpdateOverdraftStatus(int pSavingId, bool inOverdraft)
+        public void UpdateOverdraftStatus(int pSavingId, bool inOverdraft, SqlTransaction tx = null)
         {
-            _savingManager.UpdateOverdraftStatus(pSavingId, inOverdraft);
+            _savingManager.UpdateOverdraftStatus(pSavingId, inOverdraft, tx);
         }
 
         public void UpdateInitialData(int pSavingId, OCurrency initialAmount, OCurrency entryFees)

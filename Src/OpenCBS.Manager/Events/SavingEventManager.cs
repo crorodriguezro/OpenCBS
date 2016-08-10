@@ -86,7 +86,8 @@ namespace OpenCBS.Manager.Events
                                        [pending_event_id],
                                        [teller_id],
                                        [loan_event_id],
-                                       [doc1])
+                                       [doc1],
+                                       [parent_event_id])
 				                     VALUES(
                                        @user_id, 
                                        @contract_id, 
@@ -104,7 +105,8 @@ namespace OpenCBS.Manager.Events
                                        @pending_event_id,
                                        @teller_id,
                                        @loan_event_id,
-                                       @doc1)
+                                       @doc1,
+                                       @parent_event_id)
 				                     SELECT CONVERT(int, SCOPE_IDENTITY())";
 
             using (OpenCbsCommand c = new OpenCbsCommand(q, sqlTransac.Connection, sqlTransac))
@@ -118,6 +120,7 @@ namespace OpenCBS.Manager.Events
 	    private static void SetInsertCommandForSavingEvent(OpenCbsCommand c, SavingEvent pSavingEvent, int pSavingContractId)
 	    {
 	        c.AddParam("@user_id", pSavingEvent.User.Id);
+	        c.AddParam("@parent_event_id", pSavingEvent.ParentId);
 	        c.AddParam("@contract_id", pSavingContractId);
 	        c.AddParam("@code", pSavingEvent.Code);
 	        c.AddParam("@amount", pSavingEvent.Amount);
@@ -262,6 +265,7 @@ namespace OpenCBS.Manager.Events
                                         SavingEvents.teller_id ,
                                         SavingEvents.loan_event_id ,
                                         SavingEvents.cancel_date,
+                                        SavingEvents.parent_event_id,
                                         Users.id AS user_id ,
                                         Users.deleted ,
                                         Users.user_name ,
@@ -401,8 +405,9 @@ namespace OpenCBS.Manager.Events
 	        e.Cancelable = r.GetBool("cancelable");
 	        e.IsFired = r.GetBool("is_fired");
 	        e.CancelDate = r.GetNullDateTime("cancel_date");
+	        e.ParentId = r.GetNullInt("parent_event_id");
 
-	        if(pProduct != null)
+	        if (pProduct != null)
 	            e.ProductType = pProduct.GetType();
 
 	        if (r.GetNullSmallInt("savings_method").HasValue)
@@ -537,7 +542,13 @@ namespace OpenCBS.Manager.Events
                 case OSavingEvents.UnblockCompulsorySavings:
                     e = new SavingUnblockCompulsorySavingsEvent();
                     break;
-	            default:
+                case OSavingEvents.Fee:
+                    e = new SavingFeeEvent();
+                    break;
+                case OSavingEvents.Tax:
+                    e = new SavingTaxEvent();
+                    break;
+                default:
 	                Debug.Fail("Failed to create saving event object");
 	                throw new Exception();
 	        }

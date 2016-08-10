@@ -939,9 +939,23 @@ namespace OpenCBS.Manager.Contracts
             }
         }
 
-        public void UpdateOverdraftStatus(int savingId, bool inOverdraft)
+        public void UpdateOverdraftStatus(int savingId, bool inOverdraft, SqlTransaction tx = null)
         {
             const string sqlText = @"UPDATE SavingBookContracts SET in_overdraft = @inOverdraft WHERE id = @id";
+
+            if (tx != null)
+            {
+                try
+                {
+                    tx.Connection.Execute(sqlText, new { id = savingId, inOverdraft = inOverdraft }, tx);
+                }
+                catch (Exception error)
+                {
+                    throw new Exception(error.Message);
+                }
+                return;
+            }
+
             using (SqlConnection conn = GetConnection())
             using (OpenCbsCommand update = new OpenCbsCommand(sqlText, conn))
             {

@@ -49,5 +49,7 @@ namespace OpenCBS.Enums
         public const string SavingLoanRepayment = "SRLE"; //Loan Repayment from Saving account Event
         public const string BlockCompulsarySavings = "SBCS"; //Savings Block Compulsory Savings
         public const string UnblockCompulsorySavings = "SUCS"; //Savings Unblock Compusory Savings
+        public const string Fee = "SFCE"; //Saving Fee Contract Event
+        public const string Tax = "STCE"; //Saving Tax Contract Event
     }
 }

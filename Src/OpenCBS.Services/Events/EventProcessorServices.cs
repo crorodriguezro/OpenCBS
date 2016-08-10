@@ -221,6 +221,12 @@ namespace OpenCBS.Services.Events
             SavingEventOrigination(e, pSaving, sqlTransac);
         }
 
+        public int FireEventWithReturnId(SavingEvent e, ISavingsContract pSaving, SqlTransaction sqlTransac)
+        {
+            e.IsFired = true;
+            return SavingEventOriginationWithReturnId(e, pSaving, sqlTransac);
+        }
+
         public void FireTellerEvent(Event e)
         {
             using (SqlConnection connection = _eventManagement.GetConnection())
@@ -249,6 +255,10 @@ namespace OpenCBS.Services.Events
         private void SavingEventOrigination(SavingEvent savingEvent, ISavingsContract savingsContract, SqlTransaction sqlTransac)
         {
             _savingEventManagement.Add(savingEvent, savingsContract.Id, sqlTransac);
+        }
+        private int SavingEventOriginationWithReturnId(SavingEvent savingEvent, ISavingsContract savingsContract, SqlTransaction sqlTransac)
+        {
+            return _savingEventManagement.Add(savingEvent, savingsContract.Id, sqlTransac);
         }
 
         private void LoanInterestAccruingOrigination(AccruedInterestEvent loanInterestAccruingEvent, Loan loanContract, SqlTransaction sqlTransac)

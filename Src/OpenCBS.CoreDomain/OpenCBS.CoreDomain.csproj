@@ -241,6 +241,8 @@
     <Compile Include="Events\Loan\OutOfBalancePenaltyAccrualEvent.cs" />
     <Compile Include="Events\Loan\PenaltyWriteOffEvent.cs" />
     <Compile Include="Events\Loan\WriteOffOption.cs" />
+    <Compile Include="Events\Saving\SavingFeeEvent.cs" />
+    <Compile Include="Events\Saving\SavingTaxEvent.cs" />
     <Compile Include="Events\Teller\CloseAmountNegativeDifferenceEvent.cs" />
     <Compile Include="Events\Teller\CloseAmountPositiveDifferenceEvent.cs" />
     <Compile Include="Events\Teller\CloseOfDayAmountEvent.cs" />

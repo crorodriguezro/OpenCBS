@@ -282,8 +282,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
             Events.Add(repaymentFromSavingEvent);
             return events;
         }
-
-
+        
         public virtual List<SavingEvent> Deposit(OCurrency pAmount, DateTime pDate, string pDescription, User pUser,
             bool pIsDesactivateFees, bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod, int? pendingEventId, Teller teller)
         {
@@ -313,6 +312,68 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
             savingEvent.PendingEventId = pendingEventId;
             savingEvent.TellerId = tellerId;
             savingEvent.ProductType = typeof(SavingsBookProduct);
+
+            Events.Add(savingEvent);
+            events.Add(savingEvent);
+
+            return events;
+        }
+
+        public virtual List<SavingEvent> Fee(OCurrency pAmount, DateTime pDate, string pDescription, User pUser,
+            bool pIsDesactivateFees, bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod,
+            int? pendingEventId, Teller teller, int parentEventId)
+        {
+            List<SavingEvent> events = new List<SavingEvent>();
+
+            int? tellerId = null;
+            if (teller != null) tellerId = teller.Id;
+
+            SavingEvent savingEvent = new SavingFeeEvent
+            {
+                Amount = pAmount,
+                Date = pDate,
+                Description = pDescription,
+                User = pUser,
+                Cancelable = true,
+                IsPending = isPending,
+                SavingsMethod = savingsMethod,
+                PaymentsMethod = paymentMethod,
+                PendingEventId = pendingEventId,
+                TellerId = tellerId,
+                ProductType = typeof (SavingsBookProduct),
+                ParentId = parentEventId
+            };
+
+            Events.Add(savingEvent);
+            events.Add(savingEvent);
+
+            return events;
+        }
+
+        public virtual List<SavingEvent> Tax(OCurrency pAmount, DateTime pDate, string pDescription, User pUser,
+            bool pIsDesactivateFees, bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod,
+            int? pendingEventId, Teller teller, int parentEventId)
+        {
+            List<SavingEvent> events = new List<SavingEvent>();
+
+            int? tellerId = null;
+            if (teller != null) tellerId = teller.Id;
+
+            SavingEvent savingEvent = new SavingTaxEvent
+            {
+                Amount = pAmount,
+                Date = pDate,
+                Description = pDescription,
+                User = pUser,
+                Cancelable = true,
+                IsPending = isPending,
+                SavingsMethod = savingsMethod,
+                PaymentsMethod = paymentMethod,
+                PendingEventId = pendingEventId,
+                TellerId = tellerId,
+                ProductType = typeof (SavingsBookProduct),
+                ParentId = parentEventId
+            };
 
             Events.Add(savingEvent);
             events.Add(savingEvent);
