@@ -415,7 +415,6 @@ namespace OpenCBS.GUI.Clients
             this.tabPageSavingsEvents = new System.Windows.Forms.TabPage();
             this.lvSavingEvent = new System.Windows.Forms.ListView();
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader27 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -492,6 +491,7 @@ namespace OpenCBS.GUI.Clients
             this.nudWithdrawFees = new System.Windows.Forms.NumericUpDown();
             this.nudDepositFees = new System.Windows.Forms.NumericUpDown();
             this.tabPageContracts = new System.Windows.Forms.TabPage();
+            this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuBtnAddSavingOperation = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.savingDepositToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.savingWithdrawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -2892,7 +2892,6 @@ namespace OpenCBS.GUI.Clients
             // 
             this.lvSavingEvent.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader21,
-            this.columnHeader26,
             this.columnHeader22,
             this.columnHeader23,
             this.columnHeader27,
@@ -2912,10 +2911,6 @@ namespace OpenCBS.GUI.Clients
             // columnHeader21
             // 
             resources.ApplyResources(this.columnHeader21, "columnHeader21");
-            // 
-            // columnHeader26
-            // 
-            resources.ApplyResources(this.columnHeader26, "columnHeader26");
             // 
             // columnHeader22
             // 
@@ -3445,6 +3440,10 @@ namespace OpenCBS.GUI.Clients
             this.tabPageContracts.Controls.Add(this.splitContainerContracts);
             resources.ApplyResources(this.tabPageContracts, "tabPageContracts");
             this.tabPageContracts.Name = "tabPageContracts";
+            // 
+            // columnHeader26
+            // 
+            resources.ApplyResources(this.columnHeader26, "columnHeader26");
             // 
             // menuBtnAddSavingOperation
             // 

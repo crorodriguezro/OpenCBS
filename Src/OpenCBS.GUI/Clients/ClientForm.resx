@@ -6967,7 +6967,7 @@ Max:
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        HQAAAk1TRnQBSQFMAgEBBQEAATgBKAE4ASgBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAAUgBKAFIASgBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -9281,15 +9281,6 @@ Max:
   <data name="columnHeader21.Width" type="System.Int32, mscorlib">
     <value>140</value>
   </data>
-  <data name="columnHeader26.Text" xml:space="preserve">
-    <value>Fees</value>
-  </data>
-  <data name="columnHeader26.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="columnHeader26.Width" type="System.Int32, mscorlib">
-    <value>72</value>
-  </data>
   <data name="columnHeader22.Text" xml:space="preserve">
     <value>Debit</value>
   </data>
@@ -11411,6 +11402,15 @@ Max:
   <data name="&gt;&gt;tabControlPerson.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="columnHeader26.Text" xml:space="preserve">
+    <value>Fees</value>
+  </data>
+  <data name="columnHeader26.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="columnHeader26.Width" type="System.Int32, mscorlib">
+    <value>72</value>
+  </data>
   <metadata name="menuBtnAddSavingOperation.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>392, 13</value>
   </metadata>
@@ -12806,12 +12806,6 @@ Max:
   <data name="&gt;&gt;columnHeader21.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;columnHeader26.Name" xml:space="preserve">
-    <value>columnHeader26</value>
-  </data>
-  <data name="&gt;&gt;columnHeader26.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;columnHeader22.Name" xml:space="preserve">
     <value>columnHeader22</value>
   </data>
@@ -12901,6 +12895,12 @@ Max:
   </data>
   <data name="&gt;&gt;olvColumnCloseDate.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;columnHeader26.Name" xml:space="preserve">
+    <value>columnHeader26</value>
+  </data>
+  <data name="&gt;&gt;columnHeader26.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;savingDepositToolStripMenuItem.Name" xml:space="preserve">
     <value>savingDepositToolStripMenuItem</value>

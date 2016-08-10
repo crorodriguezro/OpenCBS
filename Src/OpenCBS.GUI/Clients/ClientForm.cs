@@ -5429,7 +5429,7 @@ namespace OpenCBS.GUI.Clients
             foreach (SavingEvent e in events)
             {
                 ListViewItem item = new ListViewItem(e.Date.ToString("dd/MM/yyyy HH:mm:ss"));
-                item.SubItems.Add(e.Fee.GetFormatedValue(useCents));
+//                item.SubItems.Add(e.Fee.GetFormatedValue(useCents));
                 string amt = e.Amount.GetFormatedValue(useCents);
                 item.SubItems.Add(e.IsDebit ? amt : string.Empty);
                 item.SubItems.Add(e.IsDebit ? string.Empty : amt);
