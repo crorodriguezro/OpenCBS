@@ -4,7 +4,7 @@ using OpenCBS.Enums;
 namespace OpenCBS.CoreDomain.Events.Saving
 {
     [Serializable]
-    public class SavingFeeEvent : SavingEvent
+    public class SavingFeeEvent : SavingNegativeEvent
     {
         public SavingFeeEvent()
         {
