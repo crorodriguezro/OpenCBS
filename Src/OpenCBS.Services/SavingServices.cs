@@ -469,7 +469,7 @@ namespace OpenCBS.Services
                 if (!IsDepositAmountCorrect(depositAmount, saving, savingsMethod))
                     throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.DepositAmountIsInvalid);
 
-                ISavingsContract savingSimulation = (ISavingsContract) saving.Clone();
+                var savingSimulation = (ISavingsContract) saving.Clone();
                 // Create a fake Saving object
                 if (saving.Client == null)
                     saving.Client = ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(saving.Id);
@@ -478,17 +478,18 @@ namespace OpenCBS.Services
                 savingSimulation.Deposit(depositAmount, dateTime, description, user, false, isPending, savingsMethod,
                     paymentMethod, pendingEventId, teller);
 
-                if (!IsSavingBalanceCorrect(savingSimulation) &&
-                    savingSimulation.Product.Type != OSavingProductType.PersonalAccount) // Check balance simulation
+                // Check balance simulation
+                if (!IsSavingBalanceCorrect(savingSimulation) && savingSimulation.Product.Type != OSavingProductType.PersonalAccount) 
                     throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
 
-                List<SavingEvent> events = saving.Deposit(depositAmount, dateTime, description, user, false,
+                var events = saving.Deposit(depositAmount, dateTime, description, user, false,
                     isPending,
                     savingsMethod, paymentMethod, pendingEventId, teller);
 
-                foreach (SavingEvent savingEvent in events)
+                foreach (var savingEvent in events)
                 {
                     savingEvent.Doc1 = doc1;
+                    savingEvent.Fee = null;
                     var parentId = _ePS.FireEventWithReturnId(savingEvent, saving, tx);
                     
                     ServicesProvider.GetInstance()
