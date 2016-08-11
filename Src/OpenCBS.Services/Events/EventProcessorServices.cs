@@ -252,6 +252,13 @@ namespace OpenCBS.Services.Events
             SavingEventOrigination(e, e.Target, transaction);
         }
 
+        public int FireEventWithReturnId(SavingEvent e, SqlTransaction transaction)
+        {
+            Debug.Assert(e.Target != null, "Saving event's target is null");
+            e.IsFired = true;
+            return SavingEventOriginationWithReturnId(e, e.Target, transaction);
+        }
+
         private void SavingEventOrigination(SavingEvent savingEvent, ISavingsContract savingsContract, SqlTransaction sqlTransac)
         {
             _savingEventManagement.Add(savingEvent, savingsContract.Id, sqlTransac);

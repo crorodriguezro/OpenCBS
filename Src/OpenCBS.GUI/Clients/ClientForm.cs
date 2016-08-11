@@ -5959,8 +5959,8 @@ namespace OpenCBS.GUI.Clients
                     if (closeSavingsForm.IsWithdraw)
                     {
                         _saving.Client = _client;
-                        SavingServices.CloseAndWithdraw(_saving, TimeProvider.Now, User.CurrentUser,
-                            closeSavingsForm.Amount, closeSavingsForm.IsDesactivateCloseFees, Teller.CurrentTeller, new PaymentMethod());
+                        SavingServices.CloseAndWithdraw(_saving, TimeProvider.Now, User.CurrentUser, closeSavingsForm.Amount,
+                            closeSavingsForm.CloseFees, closeSavingsForm.IsDesactivateCloseFees, Teller.CurrentTeller, new PaymentMethod());
                     }
                     else
                     {

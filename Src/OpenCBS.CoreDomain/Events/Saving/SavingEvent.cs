@@ -23,7 +23,6 @@ using System;
 using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.CoreDomain.Events.Loan;
-using OpenCBS.CoreDomain.Products;
 using OpenCBS.Shared;
 using OpenCBS.Enums;
 

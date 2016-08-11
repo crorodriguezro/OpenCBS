@@ -435,6 +435,9 @@
   <data name="gbActionWithAmount.Text" xml:space="preserve">
     <value>Which action with the amount</value>
   </data>
+  <data name="gbActionWithAmount.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;gbActionWithAmount.Name" xml:space="preserve">
     <value>gbActionWithAmount</value>
   </data>
