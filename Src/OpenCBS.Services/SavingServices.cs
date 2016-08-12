@@ -857,6 +857,9 @@ namespace OpenCBS.Services
 
                     throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceOnCurrentSavingAccount, messages);
                 }
+                // todo NEED TO REMOVE 14% HARDCORE
+                if (pSaving.GetBalance() < (pWithdrawAmount.Value + fee.Value + (fee / 100 * 14)))
+                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
             }
 
             // Create a fake Saving object
@@ -959,6 +962,9 @@ namespace OpenCBS.Services
             ISavingsContract toCopy = (ISavingsContract)to.Clone();
             fromCopy.Transfer(toCopy, amount, fee, date, description);
             if (!IsSavingBalanceCorrect(fromCopy))
+                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
+            // todo NEED TO REMOVE 14% HARDCORE
+            if (from.GetBalance() < (amount.Value + fee.Value + (fee/100*14)))
                 throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
         }
 
