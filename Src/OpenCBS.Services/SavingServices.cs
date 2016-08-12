@@ -470,8 +470,8 @@ namespace OpenCBS.Services
         {
             try
             {
-                if (!IsDepositAmountCorrect(depositAmount, saving, savingsMethod))
-                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.DepositAmountIsInvalid);
+                if (!IsInitialAmountCorrect(saving))
+                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.InitialAmountIsInvalid);
 
                 var savingSimulation = (ISavingsContract) saving.Clone();
                 // Create a fake Saving object
