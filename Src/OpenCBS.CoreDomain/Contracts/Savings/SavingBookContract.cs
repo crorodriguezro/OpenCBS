@@ -231,12 +231,12 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
 
         public override List<SavingEvent> Withdraw(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees, Teller teller, PaymentMethod paymentMethod)
         {
-            List<SavingEvent> events = new List<SavingEvent>();
+            var events = new List<SavingEvent>();
 
             int? tellerId = null;
             if (teller != null && teller.Id != 0) tellerId = teller.Id;
-            OSavingsMethods savingsMethod = (OSavingsMethods)Enum.Parse(typeof(OSavingsMethods), paymentMethod.Name);
-            SavingWithdrawEvent withdrawEvent = new SavingWithdrawEvent
+            const OSavingsMethods savingsMethod = OSavingsMethods.All;
+            var withdrawEvent = new SavingWithdrawEvent
             {
                 Amount = pAmount,
                 Date = pDate,
