@@ -697,7 +697,7 @@
     <value>Октопус разрешает добавлять не более 2 валют. </value>
   </data>
   <data name="WrongIDPattern.Text" xml:space="preserve">
-    <value>Идентификационный номер не соответствует шаблону, указанному в параметрах. Если есть вопросы о том, как прочитать шаблон, посетите http://www.amk.ca/python/howto/regex/</value>
+    <value>Идентификационный номер не соответствует шаблону, указанному в параметрах.</value>
   </data>
   <data name="BirthDateIsWrong.Text" xml:space="preserve">
     <value>Проверьте дату рождения клиента. </value>
