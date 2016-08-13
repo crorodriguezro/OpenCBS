@@ -36,6 +36,7 @@ namespace OpenCBS.GUI
     {
         private District _district;
         private string _city;
+        private int? _cityId;
         private Province _province;
         private string _comments;
         private string _homePhone;
@@ -59,7 +60,7 @@ namespace OpenCBS.GUI
             set
             {
                 _district = value;
-                _SetValue(_district, _city, _comments, _homePhone,_personalPhone,_zipCode,_email);
+                _SetValue(_district, _cityId, _city, _comments, _homePhone,_personalPhone,_zipCode,_email);
             }
         }
 
@@ -69,7 +70,7 @@ namespace OpenCBS.GUI
             set
             {
                 _city = value;
-                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
+                _SetValue(_district, _cityId, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
             }
         }
 
@@ -79,7 +80,7 @@ namespace OpenCBS.GUI
             set
             {
                 _comments = value;
-                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
+                _SetValue(_district, _cityId, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
             }
         }
 
@@ -89,7 +90,7 @@ namespace OpenCBS.GUI
             set
             {
                 _homePhone= value;
-                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
+                _SetValue(_district,_cityId, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
             }
         }
 
@@ -99,7 +100,7 @@ namespace OpenCBS.GUI
             set
             {
                 _personalPhone = value;
-                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
+                _SetValue(_district, _cityId,_city, _comments, _homePhone, _personalPhone, _zipCode, _email);
             }
         }
 
@@ -109,7 +110,7 @@ namespace OpenCBS.GUI
             set
             {
                 _email = value;
-                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
+                _SetValue(_district,_cityId, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
             }
         }
 
@@ -119,7 +120,7 @@ namespace OpenCBS.GUI
             set
             {
                 _zipCode = value;
-                _SetValue(_district, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
+                _SetValue(_district,_cityId, _city, _comments, _homePhone, _personalPhone, _zipCode, _email);
             }
         }
 
@@ -135,7 +136,7 @@ namespace OpenCBS.GUI
             set { labelPersonalPhone.Text = value; }
         }
 
-        private void _SetValue(District pDistrict, string pCity, 
+        private void _SetValue(District pDistrict,int? pCityId, string pCity, 
             string pComments,string pHomePhone,string pPersonalPhone,string pZipCode, string pEmail)
         {
             if (pDistrict != null)
@@ -144,6 +145,7 @@ namespace OpenCBS.GUI
                 comboBoxProvince.Text = pDistrict.Province.Name;
             }
             textBoxCity.Text = pCity;
+            textBoxCity.Tag = pCityId;
             tbAddress.Text = pComments;
             textBoxHomePhone.Text = pHomePhone;
             textBoxPersonalPhone.Text = pPersonalPhone;
@@ -247,6 +249,7 @@ namespace OpenCBS.GUI
         private void textBoxCity_TextChanged(object sender, System.EventArgs e)
         {
             _city = ServicesHelper.CheckTextBoxText(textBoxCity.Text);
+            _cityId = (int?)textBoxCity.Tag;
             ChooseDisrictProvinceByCity();
         }
 
@@ -280,7 +283,9 @@ namespace OpenCBS.GUI
             CityForm city = new CityForm(_province, _district);
             city.ShowDialog();
             textBoxCity.dropDownEnabled = false;
+            textBoxCity.Tag = city.SelectedCityId;
             textBoxCity.Text = city.City;
+            
         }
 
         private void textBoxHomePhone_TextChanged(object sender, EventArgs e)
@@ -339,6 +344,7 @@ namespace OpenCBS.GUI
             if (selectedCity != null)
             {
                 _city = selectedCity.Name;
+                _cityId = selectedCity.Id;
                 _district = ServicesProvider.GetInstance().GetLocationServices().FindDistirctById(selectedCity.DistrictId);
                 _SelectDistrict();
                 _SelectProvince();

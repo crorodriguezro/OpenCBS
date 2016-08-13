@@ -127,10 +127,10 @@ namespace OpenCBS.GUI.UserControl
         public City GetCity()
         {
             City selectedCity = null;
-            if (_box!=null)
+            if (_box != null && !string.IsNullOrEmpty(Text))
                 foreach (City city in _autoCompleteSource)
                 {
-                    if (city.Name != this.Text)
+                    if (city.Id != (int?)this.Tag)
                     {
                         continue;
                     }
@@ -151,6 +151,7 @@ namespace OpenCBS.GUI.UserControl
                 if (k.KeyCode == Keys.Enter)
                 {
                     this.Text = _box.SelectedItem.ToString();
+                    this.Tag = _box.Tag;
                     _dropDown.Close();
                 }
                 _dropDown.AutoClose = true;
@@ -160,6 +161,8 @@ namespace OpenCBS.GUI.UserControl
             _box.Click += (EventHandler)((sender, arg) =>
                 {
                     this.Text = _box.SelectedItem.ToString();
+                    this.Tag = _box.Tag;
+                    MessageBox.Show(Tag.ToString());
                     _dropDown.Close();
                 });
             _box.MouseMove += (MouseEventHandler)((sender, m) =>

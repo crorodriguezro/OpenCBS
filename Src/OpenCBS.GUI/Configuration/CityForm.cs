@@ -54,6 +54,14 @@ namespace OpenCBS.GUI
             get { return city; }
         }
 
+        public int? SelectedCityId
+        {
+            get
+            {
+                return listViewCity.SelectedItems.Count>0?(int?)listViewCity.SelectedItems[0].Tag:null;
+            }
+        }
+
         private void InitializeCities(Province province, District district)
         {
             var cities = new List<City>();
@@ -73,6 +81,7 @@ namespace OpenCBS.GUI
             foreach (City cityObject in cities)
             {
                 ListViewItem listViewItem = new ListViewItem(cityObject.Name);
+                listViewItem.Tag = cityObject.Id;
                 listViewCity.Items.Add(listViewItem);
             }
         }
