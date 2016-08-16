@@ -389,7 +389,7 @@ namespace OpenCBS.GUI.UserControl
         {
             SavePerson();
             if (ButtonSaveClick != null)
-                ButtonSaveClick(this, e);
+                ButtonSaveClick(this, e);            
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -574,6 +574,7 @@ namespace OpenCBS.GUI.UserControl
             catch (Exception ex)
             {
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
+                textBoxIdentificationData.Text = string.Empty;
             }
         }
 
