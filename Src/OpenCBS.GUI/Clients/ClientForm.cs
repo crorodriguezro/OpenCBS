@@ -5420,7 +5420,7 @@ namespace OpenCBS.GUI.Clients
 
             lbSavingBalanceValue.Text = pSaving.GetFmtBalance(true);
             lbSavingAvBalanceValue.Text = pSaving.GetFmtAvailBalance(true);
-            btCancelLastSavingEvent.Enabled = _saving.HasCancelableEvents();
+            btCancelLastSavingEvent.Visible = _saving.HasCancelableEvents();
 
             lvSavingEvent.Items.Clear();
             IEnumerable<SavingEvent> events = pSaving.Events.OrderBy(item => item.Date.Date);
@@ -5576,7 +5576,8 @@ namespace OpenCBS.GUI.Clients
                 buttonCloseSaving.Visible = _saving.Status == OSavingsStatus.Closed;
                 buttonFirstDeposit.Visible = nudManagementFees.Enabled = nudCloseFees.Enabled = nudReopenFees.Enabled = buttonSaveSaving.Visible = false;
                 pnlSavingsButtons.Enabled = buttonSavingsOperations.Enabled = btCancelLastSavingEvent.Enabled = flowLayoutPanel9.Enabled = buttonCloseSaving.Visible = true;
-                nudDownInitialAmount.Enabled = btCancelLastSavingEvent.Visible = false;
+                nudDownInitialAmount.Enabled =  false;
+                btCancelLastSavingEvent.Visible = _saving.HasCancelableEvents();
             }
             catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
             {
