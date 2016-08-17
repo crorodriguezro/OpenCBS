@@ -535,7 +535,7 @@ namespace OpenCBS.Services
             try
             {
                 if (saving.Client == null)
-                    saving.Client = ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(saving.Id);
+                    saving.Client = ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(saving.Id, false, tx);
 
                 var events = saving.Fee(amount, dateTime, description, user, false,
                     isPending, savingsMethod, paymentMethod, pendingEventId, teller, parentEventId);

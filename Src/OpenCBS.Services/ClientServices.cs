@@ -292,9 +292,9 @@ namespace OpenCBS.Services
             return client;
         }
 
-        public IClient FindTiersBySavingsId(int pSavingsId)
+        public IClient FindTiersBySavingsId(int pSavingsId, bool selectProjectAndSavings = true, SqlTransaction tx = null)
         {
-            return _clientManagement.SelectClientBySavingsId(pSavingsId);
+            return _clientManagement.SelectClientBySavingsId(pSavingsId, selectProjectAndSavings, tx);
         }
 
         public IClient FindTiers(int tiersId, OClientTypes type)

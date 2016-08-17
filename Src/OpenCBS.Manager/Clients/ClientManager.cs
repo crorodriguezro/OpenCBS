@@ -226,7 +226,7 @@ namespace OpenCBS.Manager.Clients
             return SelectPersonById(personId, true);
         }
 
-        public Person SelectPersonById(int pPersonId, bool loadLoans)
+        public Person SelectPersonById(int pPersonId, bool loadLoans, bool selectProjectAndSavings = true, SqlTransaction tx = null)
         {
             Person person = null;
             int? districtId = null;
@@ -271,13 +271,13 @@ namespace OpenCBS.Manager.Clients
                             INNER JOIN Persons ON Tiers.id = Persons.id 
                             WHERE Persons.id = @id";
 
-
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+            if (tx != null)
             {
+                var conn = tx.Connection;
+                var c = new OpenCbsCommand(q, conn, tx);
                 c.AddParam("@id", pPersonId);
 
-                using (OpenCbsReader r = c.ExecuteReader())
+                using (var r = c.ExecuteReader())
                 {
                     if (!r.Empty)
                     {
@@ -290,12 +290,34 @@ namespace OpenCBS.Manager.Clients
                     }
                 }
             }
+            else
+            {
+                using (var conn = GetConnection())
+                using (var c = new OpenCbsCommand(q, conn))
+                {
+                    c.AddParam("@id", pPersonId);
+
+                    using (var r = c.ExecuteReader())
+                    {
+                        if (!r.Empty)
+                        {
+                            r.Read();
+                            person = GetPersonFromReader(r);
+
+                            secondaryDistrictId = r.GetNullInt("secondary_district_id");
+                            activityId = r.GetNullInt("activity_id");
+                            districtId = r.GetNullInt("district_id");
+                        }
+                    }
+                }
+            }
+            
             if (person != null)
             {
                 UserManager userManager = new UserManager(User.CurrentUser);
                 if (person.FavouriteLoanOfficerId.HasValue)
                     person.FavouriteLoanOfficer = userManager.SelectUser((int)person.FavouriteLoanOfficerId,
-                                                                         true);
+                                                                         true, tx);
 
                 if (activityId.HasValue)
                     person.Activity = _doam.SelectEconomicActivity(activityId.Value);
@@ -305,13 +327,16 @@ namespace OpenCBS.Manager.Clients
 
                 if (secondaryDistrictId.HasValue)
                     person.SecondaryDistrict = _locations.SelectDistrictById(secondaryDistrictId.Value);
-
-                if (person != null)
+                if (selectProjectAndSavings)
                 {
-                    if (_projectManager != null && loadLoans)
-                        person.AddProjects(_projectManager.SelectProjectsByClientId(person.Id));
-                    if (_savingManager != null)
-                        person.AddSavings(_savingManager.SelectSavings(person.Id));
+
+                    if (person != null)
+                    {
+                        if (_projectManager != null && loadLoans)
+                            person.AddProjects(_projectManager.SelectProjectsByClientId(person.Id));
+                        if (_savingManager != null)
+                            person.AddSavings(_savingManager.SelectSavings(person.Id));
+                    }
                 }
 
                 OnClientSelected(person);
@@ -2329,21 +2354,39 @@ namespace OpenCBS.Manager.Clients
             }
         }
 
-        public IClient SelectClientBySavingsId(int pId)
+        public IClient SelectClientBySavingsId(int pId, bool selectProjectAndSavings = true, SqlTransaction tx = null)
         {
-            string q = @"SELECT SavingContracts.tiers_id
+            var q = @"SELECT SavingContracts.tiers_id
                                FROM SavingContracts
                                WHERE SavingContracts.id =@id";
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+
+            if (tx != null)
+            {
+                var conn = tx.Connection;
+                var c = new OpenCbsCommand(q, conn, tx);
+                c.AddParam("@id", pId);
+
+                var clientId = Convert.ToInt32(c.ExecuteScalar());
+
+                IClient client = SelectPersonById(clientId, true, selectProjectAndSavings, tx);
+                if (client == null)
+                    client = SelectGroup(clientId);
+                if (client == null)
+                    client = SelectBodyCorporateById(clientId);
+
+                return client;
+            }
+
+            using (var conn = GetConnection())
+            using (var c = new OpenCbsCommand(q, conn))
             {
                 c.AddParam("@id", pId);
 
-                int clientId = Convert.ToInt32(c.ExecuteScalar());
+                var clientId = Convert.ToInt32(c.ExecuteScalar());
 
-                IClient client = SelectGroup(clientId);
+                IClient client = SelectPersonById(clientId); 
                 if (client == null)
-                    client = SelectPersonById(clientId);
+                    client = SelectGroup(clientId);
                 if (client == null)
                     client = SelectBodyCorporateById(clientId);
 

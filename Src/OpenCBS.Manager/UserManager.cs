@@ -182,7 +182,7 @@ namespace OpenCBS.Manager
             }
         }
 
-        public User SelectUser(int pUserId, bool pIncludeDeletedUser)
+        public User SelectUser(int pUserId, bool pIncludeDeletedUser, SqlTransaction tx = null)
         {
             const string selectUser = @"SELECT [Users].[id] as user_id, 
                                                    [user_name], 
@@ -205,7 +205,7 @@ namespace OpenCBS.Manager
                                             INNER JOIN Roles ON Roles.id = UserRole.role_id
                                             WHERE 1 = 1 ";
 
-            string sqlText = selectUser + @" AND [Users].[id] = @id ";
+            var sqlText = selectUser + @" AND [Users].[id] = @id ";
 
             if (!pIncludeDeletedUser)
                 sqlText += @" AND [Users].[deleted] = 0";
@@ -222,13 +222,30 @@ namespace OpenCBS.Manager
                                    [phone],                                   
                                    [Roles].id, 
                                    [Roles].code
-";
+                                    ";
 
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand sqlCommand = new OpenCbsCommand(sqlText, conn))
+            if (tx != null)
+            {
+                var conn = tx.Connection;
+                var sqlCommand = new OpenCbsCommand(sqlText, conn, tx);
+                sqlCommand.AddParam("@id", pUserId);
+                var reader = sqlCommand.ExecuteReader();
+                if (reader != null)
+                {
+                    if (!reader.Empty)
+                    {
+                        reader.Read();
+                        return _GetUser(reader);
+                    }
+                }
+                return null;
+            }
+
+            using (var conn = GetConnection())
+            using (var sqlCommand = new OpenCbsCommand(sqlText, conn))
             {
                 sqlCommand.AddParam("@id", pUserId);
-                using (OpenCbsReader reader = sqlCommand.ExecuteReader())
+                using (var reader = sqlCommand.ExecuteReader())
                 {
                     if (reader != null)
                     {
