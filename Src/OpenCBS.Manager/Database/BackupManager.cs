@@ -245,7 +245,7 @@ namespace OpenCBS.Manager.Database
 
             using (OpenCbsCommand command = new OpenCbsCommand(query, conn))
             {
-                command.CommandTimeout = 300;
+                command.CommandTimeout = 6000;
                 command.ExecuteNonQuery();
             }
             
@@ -337,7 +337,7 @@ namespace OpenCBS.Manager.Database
 
             // Backup data int file
             cmd = new OpenCbsCommand(sqlBackupFile3, pSqlConnection);
-            cmd.CommandTimeout = 300;
+            cmd.CommandTimeout = 6000;
             cmd.ExecuteNonQuery();
 
             // Trunc transaction log
@@ -348,13 +348,13 @@ namespace OpenCBS.Manager.Database
             if (sqlVersion < 10) // If SQL Server is 2000 or 2005
             {
                 cmd = new OpenCbsCommand(sqlTruncLogFile4, pSqlConnection);
-                cmd.CommandTimeout = 300;
+                cmd.CommandTimeout = 6000;
                 cmd.ExecuteNonQuery();
             }
             else // If SQL Server is 2008 or higher
             {
                 cmd = new OpenCbsCommand(sqlTruncLogFile5, pSqlConnection);
-                cmd.CommandTimeout = 300;
+                cmd.CommandTimeout = 6000;
                 cmd.ExecuteNonQuery();
             }
             
