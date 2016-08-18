@@ -884,6 +884,7 @@ namespace OpenCBS.Services
                 {
                     foreach (var e in events)
                     {
+                        e.SavingsMethod = OSavingsMethods.Cash;
                         var parentId = _ePS.FireEventWithReturnId(e, sqlTransaction);
 
                         ServicesProvider.GetInstance()
@@ -906,7 +907,7 @@ namespace OpenCBS.Services
                                 },
                                 {"SqlTransaction", sqlTransaction}
                             });
-                        if (e.Code == "SDIT")
+                        if (e.Code == "SDIT" || e.Code == "SDTE")
                         {
                             Fee(from, fee.Value, date, user, false, OSavingsMethods.Cash, new PaymentMethod(), null, null,
                                 sqlTransaction, parentId, "Fee for Transfer", e.Doc1);
