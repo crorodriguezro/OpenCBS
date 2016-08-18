@@ -762,7 +762,8 @@ namespace OpenCBS.Services
                                         Description = savingEvent.Description,
                                         PaymentsMethod = paymentMethod,
                                         Date = savingEvent.Date,
-                                        Fee = savingEvent.Fee
+                                        Fee = savingEvent.Fee,
+                                        Doc1 = savingEvent.Doc1
                                     }
                                 },
                                 {"SqlTransaction", sqlTransaction}
