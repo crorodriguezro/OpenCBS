@@ -39,5 +39,10 @@ namespace OpenCBS.CoreDomain.Events.Saving
         {
             return (decimal) -1*Fee;
         }
+
+        public SavingManagementFeeEvent()
+        {
+            _isDebit = true;
+        }
     }
 }
