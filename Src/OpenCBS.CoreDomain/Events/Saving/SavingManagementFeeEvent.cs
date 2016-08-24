@@ -20,13 +20,12 @@
 // Contact: contact@opencbs.com
 
 using System;
-using OpenCBS.Shared;
 using OpenCBS.Enums;
 
 namespace OpenCBS.CoreDomain.Events.Saving
 {
     [Serializable]
-    public class SavingManagementFeeEvent : SavingEvent
+    public class SavingManagementFeeEvent : SavingNegativeEvent
     {
         public override string Code
         {
@@ -34,11 +33,6 @@ namespace OpenCBS.CoreDomain.Events.Saving
         }
 
         public override string Description { get; set; }
-
-        public override OCurrency GetFeeForBalance()
-        {
-            return (decimal) -1*Fee;
-        }
 
         public SavingManagementFeeEvent()
         {
