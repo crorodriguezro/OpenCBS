@@ -161,6 +161,9 @@
   <data name="btnWaiveFee.Size" type="System.Drawing.Size, System.Drawing">
     <value>219, 31</value>
   </data>
+  <data name="&gt;&gt;tabPageFollowUp.Name" xml:space="preserve">
+    <value>tabPageFollowUp</value>
+  </data>
   <data name="&gt;&gt;labelLocMaxAmount.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -172,6 +175,9 @@
   </data>
   <data name="_dateCreatedLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;labelLoanGracePeriodMinMax.Name" xml:space="preserve">
+    <value>labelLoanGracePeriodMinMax</value>
   </data>
   <data name="&gt;&gt;colPenalties.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -187,6 +193,9 @@
   </data>
   <data name="&gt;&gt;colValue.Name" xml:space="preserve">
     <value>colValue</value>
+  </data>
+  <data name="&gt;&gt;buttonViewAGarantors.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel12.Name" xml:space="preserve">
     <value>tableLayoutPanel12</value>
@@ -218,6 +227,9 @@
   </data>
   <data name="labelLoanLateFeesOnOverduePrincipal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;groupBoxSavingDeposit.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="labelComments.TabIndex" type="System.Int32, mscorlib">
     <value>99</value>
@@ -255,8 +267,8 @@
   <data name="&gt;&gt;eacLoan.ZOrder" xml:space="preserve">
     <value>29</value>
   </data>
-  <data name="&gt;&gt;nudAgioFees.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="labelLoanNbOfInstallmentsMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="lbInterestAccrual.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -303,8 +315,8 @@
   <data name="tableLayoutPanel8.TabIndex" type="System.Int32, mscorlib">
     <value>96</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel9.Parent" xml:space="preserve">
-    <value>tabPageAdvancedSettings</value>
+  <data name="lbAPR.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="labelSavingTransferMax.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 0, 3, 3</value>
@@ -339,17 +351,20 @@
   <data name="&gt;&gt;_loanOfficerComboBox.Parent" xml:space="preserve">
     <value>tableLayoutPanel4</value>
   </data>
+  <data name="nudIbtFee.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
   <data name="&gt;&gt;lblEarlyTotalRepaimentBase.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="panelSavingsContracts.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
   </data>
+  <data name="labelProjectName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 19</value>
+  </data>
   <data name="&gt;&gt;buttonProjectSelectPurpose.Parent" xml:space="preserve">
     <value>groupBoxProjectDetails</value>
-  </data>
-  <data name="lblLoanStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
   </data>
   <data name="lblLocCurrencyMin.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -357,14 +372,11 @@
   <data name="lbWithdrawFees.Location" type="System.Drawing.Point, System.Drawing">
     <value>874, 74</value>
   </data>
-  <data name="listViewGuarantors.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="lbInitialAmountMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;labelLoanPurpose.Parent" xml:space="preserve">
     <value>tableLayoutPanel4</value>
-  </data>
-  <data name="lbDepositFeesMinMax.TabIndex" type="System.Int32, mscorlib">
-    <value>71</value>
   </data>
   <data name="listViewGuarantors.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 35</value>
@@ -441,11 +453,8 @@
   <data name="nudCloseFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="eacLoan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 23</value>
-  </data>
-  <data name="cmbCompulsorySaving.MaxDropDownItems" type="System.Int32, mscorlib">
-    <value>20</value>
+  <data name="&gt;&gt;groupBoxSavingWithdraw.Name" xml:space="preserve">
+    <value>groupBoxSavingWithdraw</value>
   </data>
   <data name="&gt;&gt;labelSavingTransferMaxValue.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -489,11 +498,14 @@
   <data name="labelLoanLateFeesOnOLB.Text" xml:space="preserve">
     <value>OLB</value>
   </data>
+  <data name="buttonProjectSelectPurpose.Text" xml:space="preserve">
+    <value>Select</value>
+  </data>
   <data name="labelInterestRate.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 20</value>
   </data>
-  <data name="buttonProjectSelectPurpose.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="tBProjectCorporateSIRET.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 54</value>
   </data>
   <data name="lbChequeDepositFees.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -567,9 +579,6 @@
   <data name="buttonSaveSaving.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;nudDownInitialAmount.Name" xml:space="preserve">
-    <value>nudDownInitialAmount</value>
-  </data>
   <data name="&gt;&gt;buttonLoanPreview.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -635,6 +644,9 @@
   </data>
   <data name="&gt;&gt;labelProjectAbilities.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tlpTermDeposit.ColumnCount" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;numEntryFees.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -732,11 +744,11 @@
   <data name="&gt;&gt;listViewProjectFollowUp.Name" xml:space="preserve">
     <value>listViewProjectFollowUp</value>
   </data>
+  <data name="&gt;&gt;lblEarlyPartialRepaimentBase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="columnHeaderAmount.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
-  </data>
-  <data name="splitContainer11.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
   </data>
   <data name="&gt;&gt;numericUpDownProjectJobs.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -780,6 +792,9 @@
   <data name="&gt;&gt;lProjectCorporateSIRET.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
+  <data name="colPaymentMethod.Text" xml:space="preserve">
+    <value>Payment Method</value>
+  </data>
   <data name="&gt;&gt;columnHeaderInterestRate.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -810,8 +825,8 @@
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="lbInterestAccrualValue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="&gt;&gt;lblTermTransferToAccount.Parent" xml:space="preserve">
+    <value>tlpTermDeposit</value>
   </data>
   <data name="textBoxLoanPurpose.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -834,8 +849,8 @@
   <data name="&gt;&gt;buttonProjectSelectPurpose.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;labelProjectMarket.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="btnPrintGuarantors.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;gBProjectFollowUp.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -945,11 +960,8 @@
   <data name="labelLoanGracePeriod.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
-  <data name="lvEntryFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="&gt;&gt;lbBalanceMinValue.Parent" xml:space="preserve">
-    <value>tableLayoutPanel12</value>
+  <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;lProjectNbOfNewJobs.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -1017,8 +1029,8 @@
   <data name="_repaymentScheduleControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="labelLoanLateFeesOnAmount.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="labelInterestRate.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;buttonProjectViewContract.Name" xml:space="preserve">
     <value>buttonProjectViewContract</value>
@@ -1034,9 +1046,6 @@
   </data>
   <data name="lbWithdrawMax.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
-  </data>
-  <data name="linkCompulsorySavings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>599, 35</value>
   </data>
   <data name="labelProjectConcurrence.TabIndex" type="System.Int32, mscorlib">
     <value>83</value>
@@ -1056,8 +1065,11 @@
   <data name="&gt;&gt;lbWithdrawMaxValue.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="labelProjectName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>27, 19</value>
+  <data name="cmbRollover2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 24</value>
+  </data>
+  <data name="&gt;&gt;btCancelLastSavingEvent.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tableLayoutPanel7.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblEarlyPartialRepaimentBase" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lblEarlyTotalRepaimentBase" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lblLoanAnticipatedPartialFeesMinMax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbATR" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tbLoanAnticipatedPartialFees" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxLoanAnticipatedTotalFees" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbAPR" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelLoanAnticipatedTotalFeesMinMax" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
@@ -1079,9 +1091,6 @@
   </data>
   <data name="lbRollover2.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 28</value>
-  </data>
-  <data name="labelLocMaxAmount.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="labelLoanLateFeesOnOverdueInterestMinMax.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1125,17 +1134,20 @@
   <data name="flowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;lbCloseFees.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;lblLoanAnticipatedPartialFeesMinMax.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="panelLoansContracts.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
   </data>
-  <data name="&gt;&gt;groupBoxSavingWithdraw.Name" xml:space="preserve">
-    <value>groupBoxSavingWithdraw</value>
-  </data>
   <data name="columnHeaderPrincipal.Text" xml:space="preserve">
     <value>Principal</value>
+  </data>
+  <data name="columnHeader25.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="gBProjectFinancialPlan.Text" xml:space="preserve">
     <value>Financial plan</value>
@@ -1179,8 +1191,8 @@
   <data name="tbLoanAnticipatedPartialFees.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="colPaymentMethod.Text" xml:space="preserve">
-    <value>Payment Method</value>
+  <data name="lbDepositFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;_loanDetailsScheduleControl.Type" xml:space="preserve">
     <value>OpenCBS.Controls.ScheduleControl, OpenCBS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -1263,14 +1275,14 @@
   <data name="tabPageLoansDetails.Text" xml:space="preserve">
     <value>Loan Details</value>
   </data>
-  <data name="&gt;&gt;tabPageEvents.Parent" xml:space="preserve">
-    <value>tabControlRepayments</value>
+  <data name="lvEntryFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
   </data>
   <data name="lblLocCurrencyMax.Text" xml:space="preserve">
     <value>Currency</value>
   </data>
-  <data name="&gt;&gt;buttonReschedule.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="labelLocMinAmount.TabIndex" type="System.Int32, mscorlib">
+    <value>82</value>
   </data>
   <data name="dateLoanStart.Location" type="System.Drawing.Point, System.Drawing">
     <value>568, 33</value>
@@ -1293,11 +1305,14 @@
   <data name="&gt;&gt;labelDateOffirstInstallment.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="tableLayoutPanel8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 18</value>
+  </data>
   <data name="&gt;&gt;tabPageSavingDetails.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="labelLoanNbOfInstallmentsMinMax.Text" xml:space="preserve">
-    <value>???</value>
+  <data name="&gt;&gt;labelLoanStartDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="buttonProjectAddFollowUp.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1314,8 +1329,8 @@
   <data name="tabPageSavingDetails.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 36</value>
   </data>
-  <data name="btnPrintGuarantors.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;tableLayoutPanel9.Parent" xml:space="preserve">
+    <value>tabPageAdvancedSettings</value>
   </data>
   <data name="colCancelDate1.Text" xml:space="preserve">
     <value>Cancel Date</value>
@@ -1518,11 +1533,8 @@
   <data name="&gt;&gt;btSavingsUpdate.Name" xml:space="preserve">
     <value>btSavingsUpdate</value>
   </data>
-  <data name="labelLoanLateFeesOnOverduePrincipalMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>168, 28</value>
-  </data>
-  <data name="&gt;&gt;buttonFirstDeposit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;nudOverdraftFees.Name" xml:space="preserve">
+    <value>nudOverdraftFees</value>
   </data>
   <data name="&gt;&gt;tlpTermDeposit.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1547,9 +1559,6 @@
   </data>
   <data name="&gt;&gt;numCompulsoryAmountPercent.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="&gt;&gt;columnHeaderInterest.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblEarlyTotalRepaimentBase.Name" xml:space="preserve">
     <value>lblEarlyTotalRepaimentBase</value>
@@ -1587,9 +1596,6 @@
   <data name="lbPeriodicityValue.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="labelLoanLateFeesOnAmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 0</value>
-  </data>
   <data name="&gt;&gt;tableLayoutPanel16.Parent" xml:space="preserve">
     <value>gbInterest</value>
   </data>
@@ -1614,8 +1620,8 @@
   <data name="labelProjectMarket.Location" type="System.Drawing.Point, System.Drawing">
     <value>56, 189</value>
   </data>
-  <data name="lblCreditInsurance.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="&gt;&gt;btnLoanShares.Parent" xml:space="preserve">
+    <value>loanDetailsButtonsPanel</value>
   </data>
   <data name="&gt;&gt;columnHeaderName.Name" xml:space="preserve">
     <value>columnHeaderName</value>
@@ -1662,6 +1668,12 @@
   <data name="lProjectJuridicStatus.TabIndex" type="System.Int32, mscorlib">
     <value>87</value>
   </data>
+  <data name="tableLayoutPanel13.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_currentAccountLabel.Name" xml:space="preserve">
+    <value>_currentAccountLabel</value>
+  </data>
   <data name="lbDepositMinValue.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
@@ -1677,14 +1689,8 @@
   <data name="lProjectCorporateSIRET.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
-  <data name="labelLocMinAmount.TabIndex" type="System.Int32, mscorlib">
-    <value>82</value>
-  </data>
   <data name="&gt;&gt;lblCreditCurrency.Parent" xml:space="preserve">
     <value>pnlGuarantorButtons</value>
-  </data>
-  <data name="lProjectNbOfNewJobs.TabIndex" type="System.Int32, mscorlib">
-    <value>92</value>
   </data>
   <data name="labelLoanLateFeesOnOverduePrincipalMinMax.Text" xml:space="preserve">
     <value>???</value>
@@ -1715,9 +1721,6 @@
   </data>
   <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
     <value>tableLayoutPanel2</value>
-  </data>
-  <data name="textBoxLoanLateFeesOnOverduePrincipal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>119, 31</value>
   </data>
   <data name="labelComments.Text" xml:space="preserve">
     <value>Comments</value>
@@ -1761,8 +1764,8 @@
   <data name="&gt;&gt;tabPageRepayments.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;btCancelLastSavingEvent.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tableLayoutPanel5.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="labelLoanFundingLine.Text" xml:space="preserve">
     <value>Funding line:</value>
@@ -1806,8 +1809,8 @@
   <data name="tabPageContracts.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;lbWithdrawMaxValue.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="lbInterestAccrual.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="buttonSelectAGarantors.Text" xml:space="preserve">
     <value>Add</value>
@@ -1881,8 +1884,8 @@
   <data name="&gt;&gt;labelLoanGracePeriodMinMax.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="labelLoanAnticipatedTotalFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>123, 0</value>
+  <data name="tableLayoutPanel17.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;columnHeaderProjectJobs1.Name" xml:space="preserve">
     <value>columnHeaderProjectJobs1</value>
@@ -1941,8 +1944,8 @@
   <data name="&gt;&gt;columnHeaderCreationDate.Name" xml:space="preserve">
     <value>columnHeaderCreationDate</value>
   </data>
-  <data name="tlpSBDetails.RowCount" type="System.Int32, mscorlib">
-    <value>11</value>
+  <data name="buttonCloseSaving.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="buttonProjectAddContract.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1988,9 +1991,6 @@
   </data>
   <data name="&gt;&gt;groupBoxSavingBalance.Name" xml:space="preserve">
     <value>groupBoxSavingBalance</value>
-  </data>
-  <data name="lblChequeDepositFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;lbBalanceMin.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -2052,11 +2052,11 @@
   <data name="labelSavingTransferMin.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="richTextBoxStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 104</value>
+  <data name="labelDateOffirstInstallment.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
   </data>
-  <data name="&gt;&gt;labelLoanLateFeesOnOverduePrincipal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblInsuranceMin.TabIndex" type="System.Int32, mscorlib">
+    <value>104</value>
   </data>
   <data name="toolStripMenuItemEditComment.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 22</value>
@@ -2082,8 +2082,8 @@
   <data name="lbSavingAvBalanceValue.TabIndex" type="System.Int32, mscorlib">
     <value>60</value>
   </data>
-  <data name="lvEvents.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;textBoxProjectAim.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblLimitOfTermDepositPeriod.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 13</value>
@@ -2114,9 +2114,6 @@
   </data>
   <data name="&gt;&gt;tabControlRepayments.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="cBProjectFinancialPlanType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>139, 22</value>
   </data>
   <data name="lblLoanAnticipatedPartialFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
     <value>123, 28</value>
@@ -2193,14 +2190,14 @@
   <data name="colOverduePrincipal.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="tableLayoutPanel17.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="buttonReopenSaving.Location" type="System.Drawing.Point, System.Drawing">
     <value>535, 13</value>
   </data>
   <data name="lbInterestAccrual.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lProjectCA.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="btnWriteOff.Text" xml:space="preserve">
     <value>Write Off</value>
@@ -2208,14 +2205,17 @@
   <data name="&gt;&gt;lbDepositMaxValue.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="columnHeader26.Width" type="System.Int32, mscorlib">
+    <value>72</value>
+  </data>
   <data name="&gt;&gt;tabPageDetails.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="groupBoxLoanLateFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="&gt;&gt;buttonModifyAGarantors.Parent" xml:space="preserve">
-    <value>pnlGuarantorButtons</value>
+  <data name="btnPrintGuarantors.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;btnLoanShares.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2307,8 +2307,8 @@
   <data name="&gt;&gt;panel1.Name" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="lbManagementFeesMinMax.Text" xml:space="preserve">
-    <value>...</value>
+  <data name="lblEconomicActivity.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 0, 3, 0</value>
   </data>
   <data name="&gt;&gt;lbTransferFees.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2379,8 +2379,8 @@
   <data name="numEntryFees.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="textBoxComments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 360</value>
+  <data name="&gt;&gt;lbInterestRateMinMax.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
   </data>
   <data name="labelLoanFundingLine.TabIndex" type="System.Int32, mscorlib">
     <value>39</value>
@@ -2397,8 +2397,8 @@
   <data name="lblEconomicActivity.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="columnHeader29.Width" type="System.Int32, mscorlib">
-    <value>150</value>
+  <data name="&gt;&gt;_repaymentScheduleControl.Parent" xml:space="preserve">
+    <value>tabPageRepayments</value>
   </data>
   <data name="lbWithdrawMin.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -2432,6 +2432,9 @@
   </data>
   <data name="&gt;&gt;labelLocMin.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="buttonProjectSelectPurpose.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lbInterestPostingValue.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -2484,14 +2487,8 @@
   <data name="&gt;&gt;cmbRollover2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lbDepositMinValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
-  </data>
   <data name="&gt;&gt;columnHeaderProjectJobs2.Name" xml:space="preserve">
     <value>columnHeaderProjectJobs2</value>
-  </data>
-  <data name="&gt;&gt;labelLocMin.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="lbDepositFees.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2505,8 +2502,8 @@
   <data name="nudChequeDepositFees.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="&gt;&gt;_repaymentScheduleControl.Parent" xml:space="preserve">
-    <value>tabPageRepayments</value>
+  <data name="labelLoanLateFeesOnOLB.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
   </data>
   <data name="lProjectNbOfNewJobs.Text" xml:space="preserve">
     <value>N° of new jobs</value>
@@ -2526,7 +2523,10 @@
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>102</value>
   </data>
-  <data name="btnDeleteEvent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="&gt;&gt;buttonFirstDeposit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lProjectCorporateSIRET.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="_dateCreatedLabel.AutoSize" type="System.Boolean, mscorlib">
@@ -2694,6 +2694,9 @@
   <data name="&gt;&gt;lblIbtFeeMinMax.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
+  <data name="&gt;&gt;lProjectFinancialPlanTotalAmount.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;labelLoanAnticipatedTotalFeesMinMax.Parent" xml:space="preserve">
     <value>tableLayoutPanel7</value>
   </data>
@@ -2748,14 +2751,17 @@
   <data name="groupBoxSavingDeposit.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 80</value>
   </data>
+  <data name="lbBalanceMinValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 16</value>
+  </data>
+  <data name="&gt;&gt;colOverduePrincipal.Name" xml:space="preserve">
+    <value>colOverduePrincipal</value>
+  </data>
   <data name="columnHeaderAmount.Width" type="System.Int32, mscorlib">
     <value>80</value>
   </data>
   <data name="&gt;&gt;columnHeaderDate.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="buttonProjectViewContract.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="_currentAccountLabel.TabIndex" type="System.Int32, mscorlib">
     <value>61</value>
@@ -2799,8 +2805,8 @@
   <data name="&gt;&gt;lbInterestAccrual.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lbBalanceMax.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="labelLoanStartDate.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;labelSavingTransferMax.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -2810,6 +2816,9 @@
   </data>
   <data name="nudWithdrawFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 22</value>
+  </data>
+  <data name="lblMinMaxEntryFees.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="lProjectCorporateName.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 16</value>
@@ -2850,6 +2859,9 @@
   <data name="lbAgioFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 7pt</value>
   </data>
+  <data name="&gt;&gt;tabPageSavingsAmountsAndFees.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="lbWithdrawMinValue.Location" type="System.Drawing.Point, System.Drawing">
     <value>134, 3</value>
   </data>
@@ -2865,8 +2877,8 @@
   <data name="&gt;&gt;lblLocCurrencyMax.ZOrder" xml:space="preserve">
     <value>15</value>
   </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>729, 91</value>
+  <data name="columnHeaderProjectJobs1.Text" xml:space="preserve">
+    <value>N° Jobs 1</value>
   </data>
   <data name="&gt;&gt;labelLoanPurpose.ZOrder" xml:space="preserve">
     <value>25</value>
@@ -2919,8 +2931,8 @@
   <data name="&gt;&gt;tabControlPerson.Name" xml:space="preserve">
     <value>tabControlPerson</value>
   </data>
-  <data name="&gt;&gt;textBoxProjectAim.Name" xml:space="preserve">
-    <value>textBoxProjectAim</value>
+  <data name="&gt;&gt;lbInterestBasedOnValue.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;splitContainerContracts.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -2936,6 +2948,9 @@
   </data>
   <data name="&gt;&gt;gBProjectFollowUp.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="columnHeaderStartDate.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
   </data>
   <data name="lbBalanceMin.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -2979,8 +2994,8 @@
   <data name="lbCompulsorySavings.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 35</value>
   </data>
-  <data name="labelLocAmount.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="colPenalties.Text" xml:space="preserve">
+    <value>Penalties</value>
   </data>
   <data name="&gt;&gt;columnHeader20.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2988,11 +3003,8 @@
   <data name="&gt;&gt;labelLoanContractCode.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;columnHeaderprojectPersonalSituation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbDepositMin.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;buttonAddTranche.Name" xml:space="preserve">
+    <value>buttonAddTranche</value>
   </data>
   <data name="tableLayoutPanel9.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -3029,6 +3041,9 @@
   </data>
   <data name="&gt;&gt;columnHeaderPrincipal.Name" xml:space="preserve">
     <value>columnHeaderPrincipal</value>
+  </data>
+  <data name="&gt;&gt;tabPageCorporate.Parent" xml:space="preserve">
+    <value>tabControlProject</value>
   </data>
   <data name="btnSaveLoan.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 3</value>
@@ -3132,8 +3147,8 @@
   <data name="lProjectFiscalStatus.TabIndex" type="System.Int32, mscorlib">
     <value>86</value>
   </data>
-  <data name="&gt;&gt;colOverduePrincipal.Name" xml:space="preserve">
-    <value>colOverduePrincipal</value>
+  <data name="labelLoanAmount.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;buttonProjectAddFollowUp.Parent" xml:space="preserve">
     <value>gBProjectFollowUp</value>
@@ -3213,8 +3228,8 @@
   <data name="labelLoanGracePeriod.TabIndex" type="System.Int32, mscorlib">
     <value>35</value>
   </data>
-  <data name="columnHeaderProjectJobs1.Text" xml:space="preserve">
-    <value>N° Jobs 1</value>
+  <data name="&gt;&gt;columnHeader18.Name" xml:space="preserve">
+    <value>columnHeader18</value>
   </data>
   <data name="colOverdueDays.Width" type="System.Int32, mscorlib">
     <value>99</value>
@@ -3306,11 +3321,8 @@
   <data name="&gt;&gt;pnlSavingsButtons.Type" xml:space="preserve">
     <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="chxSystemEvents.Text" xml:space="preserve">
-    <value>Show system events</value>
-  </data>
-  <data name="&gt;&gt;_scheduleTypeComboBox.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="gbxLoanDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1243, 231</value>
   </data>
   <data name="columnHeaderProjectJobs1.Width" type="System.Int32, mscorlib">
     <value>71</value>
@@ -3341,6 +3353,9 @@
   </data>
   <data name="&gt;&gt;textBoxProjectAim.Parent" xml:space="preserve">
     <value>groupBoxProjectDetails</value>
+  </data>
+  <data name="lbSavingAvBalanceValue.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
   </data>
   <data name="lbWithdrawFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -3377,9 +3392,6 @@
   </data>
   <data name="tableLayoutPanel4.RowCount" type="System.Int32, mscorlib">
     <value>7</value>
-  </data>
-  <data name="tableLayoutPanel6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="&gt;&gt;menuItemCancelPendingSavingEvent.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3516,8 +3528,8 @@
   <data name="labelLoanLateFeesOnAmountMinMax.Text" xml:space="preserve">
     <value>???</value>
   </data>
-  <data name="columnHeader26.Width" type="System.Int32, mscorlib">
-    <value>72</value>
+  <data name="lbReopenFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>734, 138</value>
   </data>
   <data name="&gt;&gt;splitContainer10.Panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4177,9 +4189,6 @@
         ODowMHJGaQ8AAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnPrintLoanEvents.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="btnWriteOff.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 28</value>
   </data>
@@ -4197,9 +4206,6 @@
   </data>
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="groupBoxSavingBalance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
   </data>
   <data name="btnPrintLoanRepayment.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -4272,9 +4278,6 @@
   </data>
   <data name="textBoxProjectName.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="tableLayoutPanel16.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="&gt;&gt;listViewGuarantors.Parent" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
@@ -4393,6 +4396,9 @@
   <data name="tabPageSavingsAmountsAndFees.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="groupBoxAnticipatedRepaymentPenalties.Text" xml:space="preserve">
+    <value>Early fees</value>
+  </data>
   <data name="&gt;&gt;lProjectFinancialPlanAmount.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -4465,9 +4471,6 @@
   <data name="&gt;&gt;splitContainer4.Panel2.Parent" xml:space="preserve">
     <value>splitContainer4</value>
   </data>
-  <data name="buttonSaveSaving.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 28</value>
-  </data>
   <data name="tabPageLoanGuarantees.Size" type="System.Drawing.Size, System.Drawing">
     <value>1249, 565</value>
   </data>
@@ -4483,8 +4486,8 @@
   <data name="&gt;&gt;lProjectAffiliation.Name" xml:space="preserve">
     <value>lProjectAffiliation</value>
   </data>
-  <data name="&gt;&gt;columnHeader18.Name" xml:space="preserve">
-    <value>columnHeader18</value>
+  <data name="lbDepositMaxValue.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
   </data>
   <data name="&gt;&gt;groupBoxSavingWithdraw.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4495,8 +4498,8 @@
   <data name="&gt;&gt;listViewGuarantors.Type" xml:space="preserve">
     <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="buttonModifyAGarantors.Text" xml:space="preserve">
-    <value>Modify</value>
+  <data name="listViewGuarantors.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="lbCloseFees.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -4516,9 +4519,6 @@
   <data name="&gt;&gt;_scheduleTypeComboBox.Parent" xml:space="preserve">
     <value>tableLayoutPanel4</value>
   </data>
-  <data name="&gt;&gt;lProjectFinancialPlanType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;lbWithdrawMinValue.Name" xml:space="preserve">
     <value>lbWithdrawMinValue</value>
   </data>
@@ -4537,8 +4537,8 @@
   <data name="&gt;&gt;columnHeaderProjectYear.Name" xml:space="preserve">
     <value>columnHeaderProjectYear</value>
   </data>
-  <data name="&gt;&gt;lvEntryFees.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;groupBoxLoanLateFees.Name" xml:space="preserve">
+    <value>groupBoxLoanLateFees</value>
   </data>
   <data name="&gt;&gt;lBSavingBalance.Parent" xml:space="preserve">
     <value>tableLayoutPanel5</value>
@@ -4609,8 +4609,8 @@
   <data name="tabControlRepayments.ItemSize" type="System.Drawing.Size, System.Drawing">
     <value>175, 32</value>
   </data>
-  <data name="&gt;&gt;nudManagementFees.ZOrder" xml:space="preserve">
-    <value>27</value>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 13</value>
   </data>
   <data name="&gt;&gt;labelSavingTransferMin.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4623,9 +4623,6 @@
   </data>
   <data name="lbDepositmax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
-  </data>
-  <data name="lblInsuranceMin.TabIndex" type="System.Int32, mscorlib">
-    <value>104</value>
   </data>
   <data name="numericUpDownProjectJobs.Location" type="System.Drawing.Point, System.Drawing">
     <value>170, 269</value>
@@ -4651,9 +4648,6 @@
   <data name="tableLayoutPanel10.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 18</value>
   </data>
-  <data name="&gt;&gt;btnDeleteEvent.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="textBoxLoanLateFeesOnOLB.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 22</value>
   </data>
@@ -4662,9 +4656,6 @@
   </data>
   <data name="&gt;&gt;columnHeaderProjectCA.Name" xml:space="preserve">
     <value>columnHeaderProjectCA</value>
-  </data>
-  <data name="labelLoanPurpose.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 30</value>
   </data>
   <data name="&gt;&gt;lbWithdrawFeesMinMax.Parent" xml:space="preserve">
     <value>tableLayoutPanel5</value>
@@ -4675,8 +4666,8 @@
   <data name="cBProjectAffiliation.Location" type="System.Drawing.Point, System.Drawing">
     <value>163, 167</value>
   </data>
-  <data name="gbInterest.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>180, 0</value>
+  <data name="lBSavingBalance.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 32</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -4765,9 +4756,6 @@
   <data name="tableLayoutPanel9.Size" type="System.Drawing.Size, System.Drawing">
     <value>1243, 32</value>
   </data>
-  <data name="&gt;&gt;btnLoanShares.Parent" xml:space="preserve">
-    <value>loanDetailsButtonsPanel</value>
-  </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
@@ -4786,9 +4774,6 @@
   <data name="labelLoanNbOfInstallments.Text" xml:space="preserve">
     <value>Number of installments:</value>
   </data>
-  <data name="labelLoanLateFeesOnOverduePrincipalMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
   <data name="lbCloseFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
@@ -4800,9 +4785,6 @@
   </data>
   <data name="&gt;&gt;columnHeaderNbOfInstallments.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudAgioFees.Parent" xml:space="preserve">
-    <value>tlpSBDetails</value>
   </data>
   <data name="menuItemCancelPendingSavingEvent.Text" xml:space="preserve">
     <value>Cancel pending event</value>
@@ -4900,6 +4882,9 @@
   <data name="tableLayoutPanel5.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label9" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tBSavingCode" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="lbReopenFeesMinMax" Row="5" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lbDepositFees" Row="3" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="lBSavingBalance" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lbDepositFeesMinMax" Row="3" RowSpan="1" Column="8" ColumnSpan="1" /&gt;&lt;Control Name="lbSavingBalanceValue" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="nudReopenFees" Row="5" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lBSavingAvBalance" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lbReopenFees" Row="5" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="lbSavingAvBalanceValue" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="_currentAccountLabel" Row="1" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="_currentAccountTextBox" Row="1" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;Control Name="_dateCreatedLabel" Row="0" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="_dateCreatedValueLabel" Row="0" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;Control Name="labelInterestRate" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudDownInterestRate" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbCloseFees" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="nudEntryFees" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nudCloseFees" Row="3" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawFeesMinMax" Row="2" RowSpan="1" Column="8" ColumnSpan="1" /&gt;&lt;Control Name="lbWithdrawFees" Row="2" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="lbEntryFees" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbEntryFeesMinMax" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbCloseFeesMinMax" Row="3" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="lbInterestRateMinMax" Row="5" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbManagementFees" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="nudManagementFees" Row="2" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="lbManagementFeesMinMax" Row="2" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="labelInitialAmount" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudDownInitialAmount" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbInitialAmountMinMax" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="cmbSavingsOfficer" Row="2" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="nudWithdrawFees" Row="2" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;Control Name="nudDepositFees" Row="3" RowSpan="1" Column="7" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20,Absolute,5" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
+  <data name="&gt;&gt;tabPageLoans.Parent" xml:space="preserve">
+    <value>tabControlSavingsDetails</value>
+  </data>
   <data name="_installmentTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>104, 30</value>
   </data>
@@ -4909,8 +4894,8 @@
   <data name="splitContainer4.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;groupBoxSavingDeposit.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="lvEvents.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;btnWriteOff.Name" xml:space="preserve">
     <value>btnWriteOff</value>
@@ -4929,6 +4914,9 @@
   </data>
   <data name="&gt;&gt;ExportedDate.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="gbDepositInterest.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
   </data>
   <data name="&gt;&gt;splitContainer10.Name" xml:space="preserve">
     <value>splitContainer10</value>
@@ -4969,8 +4957,8 @@
   <data name="&gt;&gt;olvColumnOLB.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
-  <data name="labelDateOffirstInstallment.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
+  <data name="richTextBoxStatus.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="&gt;&gt;lbInterestAccrualValue.Parent" xml:space="preserve">
     <value>tableLayoutPanel16</value>
@@ -4996,17 +4984,17 @@
   <data name="&gt;&gt;nudChequeDepositFees.Name" xml:space="preserve">
     <value>nudChequeDepositFees</value>
   </data>
+  <data name="lblLocCurrencyMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 13</value>
+  </data>
+  <data name="&gt;&gt;labelLoanLateFeesOnOverduePrincipal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;labelProjectName.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;lProjectCA.Parent" xml:space="preserve">
-    <value>splitContainer10.Panel1</value>
-  </data>
   <data name="splitContainer3.SplitterWidth" type="System.Int32, mscorlib">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;splitContainer11.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_currentAccountLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -5053,8 +5041,8 @@
   <data name="labelLoanLateFeesOnAmountMinMax.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 7.5pt</value>
   </data>
-  <data name="gbDepositInterest.Text" xml:space="preserve">
-    <value>Interest</value>
+  <data name="labelLoanLateFeesOnOverduePrincipalMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
   </data>
   <data name="&gt;&gt;tBSavingCode.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -5074,8 +5062,8 @@
   <data name="&gt;&gt;buttonProjectViewContract.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
   </data>
-  <data name="numCompulsoryAmountPercent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>294, 22</value>
+  <data name="lProjectFinancialPlanAmount.Text" xml:space="preserve">
+    <value>Amount</value>
   </data>
   <data name="labelLoanInterestRate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -5097,6 +5085,9 @@
   </data>
   <data name="tabPageLoansDetails.Size" type="System.Drawing.Size, System.Drawing">
     <value>1249, 565</value>
+  </data>
+  <data name="numCompulsoryAmountPercent.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 22</value>
   </data>
   <data name="groupBoxProjectDetails.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -5206,11 +5197,14 @@
   <data name="panelUserControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="lbBalanceMinValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 16</value>
+  <data name="_currentAccountLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
-  <data name="lblEconomicActivity.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>20, 0, 3, 0</value>
+  <data name="labelLoanAnticipatedTotalFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 0</value>
+  </data>
+  <data name="lbManagementFeesMinMax.Text" xml:space="preserve">
+    <value>...</value>
   </data>
   <data name="lbAPR.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -5257,9 +5251,6 @@
   <data name="lbTransferFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
     <value>345, 0</value>
   </data>
-  <data name="labelLoanFundingLine.Location" type="System.Drawing.Point, System.Drawing">
-    <value>377, 90</value>
-  </data>
   <data name="&gt;&gt;numericUpDownProjectJobs.Parent" xml:space="preserve">
     <value>splitContainer10.Panel1</value>
   </data>
@@ -5269,8 +5260,8 @@
   <data name="flowLayoutPanel9.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
-  <data name="textBoxLoanLateFeesOnOverduePrincipal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 22</value>
+  <data name="groupBoxSavingBalance.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
   <data name="lvSavingEvent.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -5292,6 +5283,9 @@
   </data>
   <data name="tabPageContracts.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 36</value>
+  </data>
+  <data name="&gt;&gt;lbSavingAvBalanceValue.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="columnHeader23.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -5437,8 +5431,8 @@
   <data name="pnlLoans.Size" type="System.Drawing.Size, System.Drawing">
     <value>1229, 255</value>
   </data>
-  <data name="&gt;&gt;menuBtnAddSavingOperation.Name" xml:space="preserve">
-    <value>menuBtnAddSavingOperation</value>
+  <data name="textBoxLoanLateFeesOnOverduePrincipal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 22</value>
   </data>
   <data name="flowLayoutPanel10.Size" type="System.Drawing.Size, System.Drawing">
     <value>773, 260</value>
@@ -5464,14 +5458,8 @@
   <data name="&gt;&gt;splitContainer1.Panel1.Parent" xml:space="preserve">
     <value>splitContainer1</value>
   </data>
-  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
-    <value>panel3</value>
-  </data>
   <data name="columnHeaderColDesc.Width" type="System.Int32, mscorlib">
     <value>396</value>
-  </data>
-  <data name="&gt;&gt;tclLoanDetails.Name" xml:space="preserve">
-    <value>tclLoanDetails</value>
   </data>
   <data name="&gt;&gt;columnHeader24.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -5529,6 +5517,9 @@
   </data>
   <data name="lbWithdrawMinValue.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
+  </data>
+  <data name="chxSystemEvents.Text" xml:space="preserve">
+    <value>Show system events</value>
   </data>
   <data name="lblInsuranceMin.Location" type="System.Drawing.Point, System.Drawing">
     <value>588, 0</value>
@@ -5596,8 +5587,8 @@
   <data name="labelLoanLateFeesOnOLB.Size" type="System.Drawing.Size, System.Drawing">
     <value>34, 28</value>
   </data>
-  <data name="&gt;&gt;lbEntryFeesMinMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lbWithdrawMaxValue.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="buttonSavingsOperations.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -5608,9 +5599,6 @@
   <data name="tableLayoutPanel13.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
-  <data name="&gt;&gt;buttonLoanPreview.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="lbCompulsorySavingsAmount.TabIndex" type="System.Int32, mscorlib">
     <value>93</value>
   </data>
@@ -5619,9 +5607,6 @@
   </data>
   <data name="textBoxProjectExperience.Size" type="System.Drawing.Size, System.Drawing">
     <value>753, 59</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
   </data>
   <data name="&gt;&gt;lbWithdrawMin.Name" xml:space="preserve">
     <value>lbWithdrawMin</value>
@@ -5680,9 +5665,6 @@
   <data name="lbBalanceMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
   </data>
-  <data name="&gt;&gt;lbInterestRateMinMax.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
   <data name="labelSavingTransferMaxValue.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
@@ -5695,11 +5677,11 @@
   <data name="labelLoanLateFeesOnOverduePrincipal.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 28</value>
   </data>
-  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="buttonLoanReschedule.Text" xml:space="preserve">
     <value>Reschedule</value>
+  </data>
+  <data name="textBoxComments.Location" type="System.Drawing.Point, System.Drawing">
+    <value>149, 360</value>
   </data>
   <data name="labelLoanInterestRate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -5791,9 +5773,6 @@
   <data name="&gt;&gt;nudAgioFees.Name" xml:space="preserve">
     <value>nudAgioFees</value>
   </data>
-  <data name="buttonProjectSelectPurpose.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
   <data name="&gt;&gt;olvColumnLACExportedBalance.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
@@ -5827,12 +5806,6 @@
   <data name="cmbCompulsorySaving.Location" type="System.Drawing.Point, System.Drawing">
     <value>299, 38</value>
   </data>
-  <data name="lProjectFinancialPlanAmount.Text" xml:space="preserve">
-    <value>Amount</value>
-  </data>
-  <data name="&gt;&gt;lblLoanStatus.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="lBSavingAvBalance.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 32</value>
   </data>
@@ -5850,9 +5823,6 @@
   </data>
   <data name="labelInitialAmount.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
-  </data>
-  <data name="lProjectFiscalStatus.Text" xml:space="preserve">
-    <value>Fiscal status:</value>
   </data>
   <data name="colPenalties.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -5884,9 +5854,6 @@
   <data name="&gt;&gt;panelUserControl.Parent" xml:space="preserve">
     <value>splitContainer3.Panel2</value>
   </data>
-  <data name="&gt;&gt;labelLoanGracePeriod.Name" xml:space="preserve">
-    <value>labelLoanGracePeriod</value>
-  </data>
   <data name="&gt;&gt;labelLoanNbOfInstallments.Name" xml:space="preserve">
     <value>labelLoanNbOfInstallments</value>
   </data>
@@ -5908,6 +5875,9 @@
   <data name="&gt;&gt;textBoxLoanLateFeesOnOverduePrincipal.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="gbInterest.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>180, 0</value>
+  </data>
   <data name="lbCompulsorySavingsAmount.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 29</value>
   </data>
@@ -5922,9 +5892,6 @@
   </data>
   <data name="textBoxProjectAbilities.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="&gt;&gt;colCancelDate1.Name" xml:space="preserve">
-    <value>colCancelDate1</value>
   </data>
   <data name="&gt;&gt;labelProjectDate.Name" xml:space="preserve">
     <value>labelProjectDate</value>
@@ -5946,6 +5913,9 @@
   </data>
   <data name="labelProjectDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>411, 58</value>
+  </data>
+  <data name="labelDateOffirstInstallment.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
   </data>
   <data name="labelFirstProjectName.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 16</value>
@@ -5977,8 +5947,8 @@
   <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItemCancelPending.Name" xml:space="preserve">
-    <value>toolStripMenuItemCancelPending</value>
+  <data name="_dateCreatedValueLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="labelExchangeRate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9pt</value>
@@ -6016,8 +5986,8 @@
   <data name="buttonFirstDeposit.Text" xml:space="preserve">
     <value>First Deposit</value>
   </data>
-  <data name="&gt;&gt;btnWriteOff.Parent" xml:space="preserve">
-    <value>flowLayoutPanel8</value>
+  <data name="lbInterestAccrualValue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
   <data name="&gt;&gt;groupBoxSavingBalance.Parent" xml:space="preserve">
     <value>flowLayoutPanel10</value>
@@ -6031,8 +6001,8 @@
   <data name="_dateCreatedLabel.Text" xml:space="preserve">
     <value>Date created</value>
   </data>
-  <data name="lblLocCurrencyMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>272, 13</value>
+  <data name="toolStripMenuItemEditComment.Text" xml:space="preserve">
+    <value>Edit Comment</value>
   </data>
   <data name="lbInterestPosting.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -6045,6 +6015,9 @@
   </data>
   <data name="&gt;&gt;lbEntryFeesMinMax.Parent" xml:space="preserve">
     <value>tableLayoutPanel5</value>
+  </data>
+  <data name="tabControlPerson.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 36</value>
   </data>
   <data name="buttonProjectAddContract.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -6076,9 +6049,6 @@
   <data name="&gt;&gt;tableLayoutPanel5.Parent" xml:space="preserve">
     <value>groupBoxSaving</value>
   </data>
-  <data name="labelInterestRate.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="textBoxProjectAim.Location" type="System.Drawing.Point, System.Drawing">
     <value>105, 97</value>
   </data>
@@ -6106,8 +6076,8 @@
   <data name="&gt;&gt;tbInsurance.Parent" xml:space="preserve">
     <value>tableLayoutPanel9</value>
   </data>
-  <data name="&gt;&gt;lbATR.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="lProjectFinancialPlanTotalAmount.Text" xml:space="preserve">
+    <value>Total</value>
   </data>
   <data name="&gt;&gt;labelLoanAnticipatedTotalFeesMinMax.Name" xml:space="preserve">
     <value>labelLoanAnticipatedTotalFeesMinMax</value>
@@ -6123,6 +6093,9 @@
   </data>
   <data name="&gt;&gt;columnHeaderInstallmentType.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panelUserControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>838, 581</value>
   </data>
   <data name="&gt;&gt;specialOperationToolStripMenuItem.Name" xml:space="preserve">
     <value>specialOperationToolStripMenuItem</value>
@@ -6247,8 +6220,8 @@
   <data name="labelSavingsContracts.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 15.75pt</value>
   </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
+  <data name="&gt;&gt;toolStripMenuItemCancelPending.Name" xml:space="preserve">
+    <value>toolStripMenuItemCancelPending</value>
   </data>
   <data name="labelLoanNbOfInstallmentsMinMax.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 7.5pt</value>
@@ -6307,9 +6280,6 @@
   <data name="&gt;&gt;tableLayoutPanel7.Name" xml:space="preserve">
     <value>tableLayoutPanel7</value>
   </data>
-  <data name="lbPeriodicity.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 0, 3, 3</value>
-  </data>
   <data name="lbRollover2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
@@ -6337,6 +6307,9 @@
   <data name="&gt;&gt;textBoxLoanPurpose.Name" xml:space="preserve">
     <value>textBoxLoanPurpose</value>
   </data>
+  <data name="richTextBoxStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1249, 104</value>
+  </data>
   <data name="buttonLoanDisbursement.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -6361,8 +6334,8 @@
   <data name="lbTransferFees.Text" xml:space="preserve">
     <value>Transfer fees</value>
   </data>
-  <data name="panelUserControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>838, 581</value>
+  <data name="&gt;&gt;columnHeaderprojectPersonalSituation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lProjectNbOfNewJobs.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -6372,6 +6345,9 @@
   </data>
   <data name="&gt;&gt;textBoxLoanLateFeesOnOverdueInterest.ZOrder" xml:space="preserve">
     <value>10</value>
+  </data>
+  <data name="lblCreditInsurance.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="lbInterestPostingValue.Location" type="System.Drawing.Point, System.Drawing">
     <value>76, 22</value>
@@ -6427,11 +6403,11 @@
   <data name="lbATR.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="&gt;&gt;lbCompulsorySavings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="nudEntryFees.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
-  </data>
-  <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
   </data>
   <data name="lblLocCurrencyMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -6441,9 +6417,6 @@
   </data>
   <data name="labelLoansContracts.Text" xml:space="preserve">
     <value>Loans</value>
-  </data>
-  <data name="labelLoanAmountMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="lbBalanceMinValue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -6463,11 +6436,14 @@
   <data name="tableLayoutPanel15.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="lbAccrualDepositValue.Text" xml:space="preserve">
-    <value>value</value>
+  <data name="&gt;&gt;tableLayoutPanel15.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="lbPeriodicity.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="olvColumnCreationDate.Width" type="System.Int32, mscorlib">
+    <value>130</value>
   </data>
   <data name="panel3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -6484,14 +6460,8 @@
   <data name="buttonViewCollateral.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="lbTransferFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
   <data name="&gt;&gt;listViewGuarantors.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="lblLoanStatus.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
   </data>
   <data name="tableLayoutPanel12.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
@@ -6502,11 +6472,11 @@
   <data name="listViewGuarantors.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="lbChequeDepositFees.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
   <data name="&gt;&gt;richTextBoxStatus.Parent" xml:space="preserve">
     <value>tabPageLoanRepayment</value>
+  </data>
+  <data name="&gt;&gt;colPaymentMethod.Name" xml:space="preserve">
+    <value>colPaymentMethod</value>
   </data>
   <data name="columnHeaderId.Width" type="System.Int32, mscorlib">
     <value>55</value>
@@ -6531,6 +6501,9 @@
   </data>
   <data name="olvColumnAmount.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
+  </data>
+  <data name="&gt;&gt;menuBtnAddSavingOperation.Name" xml:space="preserve">
+    <value>menuBtnAddSavingOperation</value>
   </data>
   <data name="lProjectCorporateSIRET.Text" xml:space="preserve">
     <value>Registration n°:</value>
@@ -6562,8 +6535,8 @@
   <data name="tabPageRepayments.Text" xml:space="preserve">
     <value>Repayment Schedule</value>
   </data>
-  <data name="labelFirstProjectName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="labelLocMaxAmount.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="groupBoxAnticipatedRepaymentPenalties.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -6595,8 +6568,8 @@
   <data name="lbAgioFees.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
-  <data name="splitContainer10.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;nudManagementFees.ZOrder" xml:space="preserve">
+    <value>27</value>
   </data>
   <data name="buttonCloseSaving.Text" xml:space="preserve">
     <value>Close</value>
@@ -6619,8 +6592,8 @@
   <data name="loanDetailsButtonsPanel.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
-  <data name="&gt;&gt;textBoxProjectAim.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="nudDownInterestRate.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -6688,8 +6661,8 @@
   <data name="btnUpdateSettings.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 24</value>
   </data>
-  <data name="tlpTermDeposit.ColumnCount" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;cBProjectAffiliation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblCreditInsurance.Name" xml:space="preserve">
     <value>lblCreditInsurance</value>
@@ -6703,14 +6676,17 @@
   <data name="tabPageProjectLoans.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 36</value>
   </data>
-  <data name="&gt;&gt;cBProjectAffiliation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="colName.Width" type="System.Int32, mscorlib">
+    <value>235</value>
   </data>
   <data name="&gt;&gt;tBProjectFinancialPlanTotal.Parent" xml:space="preserve">
     <value>gBProjectFinancialPlan</value>
   </data>
   <data name="&gt;&gt;tabPageSavingDetails.ZOrder" xml:space="preserve">
     <value>7</value>
+  </data>
+  <data name="&gt;&gt;btnPrintSavings.Parent" xml:space="preserve">
+    <value>flowLayoutPanel9</value>
   </data>
   <data name="&gt;&gt;buttonSelectAGarantors.Parent" xml:space="preserve">
     <value>pnlGuarantorButtons</value>
@@ -6784,6 +6760,9 @@
   <data name="&gt;&gt;tlpTermDeposit.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="tabPageLoanGuarantees.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
   <data name="tabControlProject.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 261</value>
   </data>
@@ -6807,9 +6786,6 @@
   </data>
   <data name="&gt;&gt;gbDepositInterest.Parent" xml:space="preserve">
     <value>flowLayoutPanel10</value>
-  </data>
-  <data name="&gt;&gt;groupBoxLoanLateFees.Name" xml:space="preserve">
-    <value>groupBoxLoanLateFees</value>
   </data>
   <data name="lbWithdrawMin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -6837,6 +6813,9 @@
   </data>
   <data name="buttonProjectAddFollowUp.Text" xml:space="preserve">
     <value>Add FollowUp</value>
+  </data>
+  <data name="labelLoanFundingLine.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
   </data>
   <data name="&gt;&gt;lbInterestPosting.Parent" xml:space="preserve">
     <value>tableLayoutPanel16</value>
@@ -6895,6 +6874,9 @@
   <data name="&gt;&gt;labelLoanLateFeesOnAmountMinMax.Name" xml:space="preserve">
     <value>labelLoanLateFeesOnAmountMinMax</value>
   </data>
+  <data name="&gt;&gt;pnlSavingsButtons.Parent" xml:space="preserve">
+    <value>flowLayoutPanel9</value>
+  </data>
   <data name="&gt;&gt;labelLoanNbOfInstallmentsMinMax.Parent" xml:space="preserve">
     <value>tableLayoutPanel4</value>
   </data>
@@ -6925,9 +6907,6 @@
   <data name="btnDeleteEvent.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;labelLoanStartDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="lbWithdrawMaxValue.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
   </data>
@@ -6954,9 +6933,6 @@
   </data>
   <data name="&gt;&gt;columnHeaderPercentage.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbDepositFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="nudTransferFees.Location" type="System.Drawing.Point, System.Drawing">
     <value>231, 3</value>
@@ -6996,9 +6972,6 @@
   </data>
   <data name="&gt;&gt;groupBoxEntryFees.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelLocMinAmount.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <data name="pnlCollateralButtons.Location" type="System.Drawing.Point, System.Drawing">
     <value>1097, 35</value>
@@ -7066,11 +7039,8 @@
   <data name="&gt;&gt;_dateCreatedValueLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel6.Name" xml:space="preserve">
-    <value>tableLayoutPanel6</value>
-  </data>
-  <data name="lbDepositMinValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 3</value>
+  <data name="columnHeaderFees.Text" xml:space="preserve">
+    <value>Fees</value>
   </data>
   <data name="lbDepositMin.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 16</value>
@@ -7105,11 +7075,8 @@
   <data name="labelInitialAmount.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="lblIbtFeeMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>345, 75</value>
-  </data>
-  <data name="&gt;&gt;pnlSavingsButtons.Parent" xml:space="preserve">
-    <value>flowLayoutPanel9</value>
+  <data name="&gt;&gt;splitContainer11.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;splitContainer4.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -7120,11 +7087,11 @@
   <data name="olvColumnAmount.Width" type="System.Int32, mscorlib">
     <value>110</value>
   </data>
+  <data name="buttonProjectAddFollowUp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="numericUpDownLoanGracePeriod.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
-  </data>
-  <data name="&gt;&gt;cBProjectFiscalStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="buttonPrintSchedule.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
@@ -7192,8 +7159,8 @@
   <data name="labelSavingTransferMinValue.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lProjectFinancialPlanTotalAmount.Text" xml:space="preserve">
-    <value>Total</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Savings officer</value>
   </data>
   <data name="&gt;&gt;cBProjectFinancialPlanType.Name" xml:space="preserve">
     <value>cBProjectFinancialPlanType</value>
@@ -7222,14 +7189,8 @@
   <data name="lbOverdraftFees.Text" xml:space="preserve">
     <value>Overdraft fees</value>
   </data>
-  <data name="&gt;&gt;pnlSavingsButtons.Name" xml:space="preserve">
-    <value>pnlSavingsButtons</value>
-  </data>
   <data name="groupBoxSaving.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>16, 13</value>
   </data>
   <data name="_installmentTypeLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -7255,8 +7216,8 @@
   <data name="btSearchContract2.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 28</value>
   </data>
-  <data name="labelLoanAmount.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+  <data name="&gt;&gt;panelUserControl.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;flowLayoutPanel1.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -7320,7 +7281,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAU
-        HQAAAk1TRnQBSQFMAgEBBQEAAagBKAGwASgBIAEAASABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAAagBKAG4ASgBIAEAASABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -7450,9 +7411,6 @@
   <data name="&gt;&gt;tlpSBDetails.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="lbAPR.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="olvColumnCloseDate.Width" type="System.Int32, mscorlib">
     <value>110</value>
   </data>
@@ -7461,15 +7419,6 @@
   </data>
   <data name="lblCreditCurrency.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
-  </data>
-  <data name="tbLoanAnticipatedPartialFees.Location" type="System.Drawing.Point, System.Drawing">
-    <value>44, 31</value>
-  </data>
-  <data name="lbReopenFeesMinMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>734, 138</value>
-  </data>
-  <data name="labelLoanAmount.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;lProjectCorporateSIRET.Name" xml:space="preserve">
     <value>lProjectCorporateSIRET</value>
@@ -7489,14 +7438,11 @@
   <data name="lProjectCorporateSIRET.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 54</value>
   </data>
-  <data name="lblCreditInsurance.Text" xml:space="preserve">
-    <value>Credit insurance:</value>
-  </data>
   <data name="lbPeriodicity.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lProjectFinancialPlanTotalAmount.TabIndex" type="System.Int32, mscorlib">
-    <value>93</value>
+  <data name="&gt;&gt;cBProjectFiscalStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_loanDetailsScheduleControl.Name" xml:space="preserve">
     <value>_loanDetailsScheduleControl</value>
@@ -7534,14 +7480,14 @@
   <data name="&gt;&gt;textBoxLoanPurpose.Parent" xml:space="preserve">
     <value>tableLayoutPanel4</value>
   </data>
-  <data name="&gt;&gt;groupBoxEntryFees.Parent" xml:space="preserve">
-    <value>tableLayoutPanel6</value>
+  <data name="eacLoan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 23</value>
   </data>
   <data name="&gt;&gt;colBounceFee.Name" xml:space="preserve">
     <value>colBounceFee</value>
   </data>
-  <data name="&gt;&gt;lProjectFinancialPlanTotalAmount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;nudDownInitialAmount.Name" xml:space="preserve">
+    <value>nudDownInitialAmount</value>
   </data>
   <data name="&gt;&gt;labelLoanLateFeesOnAmount.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -7594,6 +7540,9 @@
   <data name="btnPrintLoanEvents.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="lbInitialAmountMinMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 7.5pt</value>
+  </data>
   <data name="groupBoxEntryFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
   </data>
@@ -7602,6 +7551,9 @@
   </data>
   <data name="lblEarlyPartialRepaimentBase.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 28</value>
+  </data>
+  <data name="colCommissions.Width" type="System.Int32, mscorlib">
+    <value>102</value>
   </data>
   <data name="tableLayoutPanel12.TabIndex" type="System.Int32, mscorlib">
     <value>77</value>
@@ -7648,8 +7600,8 @@
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
-  <data name="gBProjectFinancialPlan.TabIndex" type="System.Int32, mscorlib">
-    <value>94</value>
+  <data name="&gt;&gt;textBoxProjectAim.Name" xml:space="preserve">
+    <value>textBoxProjectAim</value>
   </data>
   <data name="lProjectFinancialPlanAmount.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -7705,11 +7657,8 @@
   <data name="EntryDate.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
   </data>
-  <data name="&gt;&gt;tabPageLoansDetails.Name" xml:space="preserve">
-    <value>tabPageLoansDetails</value>
-  </data>
-  <data name="&gt;&gt;lbEntryFees.Name" xml:space="preserve">
-    <value>lbEntryFees</value>
+  <data name="buttonLoanPreview.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;buttonProjectAddContract.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -7744,8 +7693,8 @@
   <data name="&gt;&gt;colType.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lProjectCA.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="lblIbtFeeMinMax.TabIndex" type="System.Int32, mscorlib">
+    <value>86</value>
   </data>
   <data name="&gt;&gt;textBoxProjectAbilities.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -7785,9 +7734,6 @@
   </data>
   <data name="lblEarlyTotalRepaimentBase.TabIndex" type="System.Int32, mscorlib">
     <value>78</value>
-  </data>
-  <data name="_dateCreatedValueLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel13.Name" xml:space="preserve">
     <value>tableLayoutPanel13</value>
@@ -7834,9 +7780,6 @@
   <data name="_loanDetailsScheduleControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="lbBalanceMin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
   <data name="labelProjectAbilities.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -7866,9 +7809,6 @@
   </data>
   <data name="lblEarlyPartialRepaimentBase.Location" type="System.Drawing.Point, System.Drawing">
     <value>154, 28</value>
-  </data>
-  <data name="toolStripMenuItemEditComment.Text" xml:space="preserve">
-    <value>Edit Comment</value>
   </data>
   <data name="gbxLoanDetails.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -7933,8 +7873,8 @@
   <data name="lbSavingBalanceValue.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="textBoxProjectAbilities.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="lblLoanStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="lbWithdrawMinValue.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -7954,8 +7894,8 @@
   <data name="&gt;&gt;labelLoanAmount.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_currentAccountLabel.Name" xml:space="preserve">
-    <value>_currentAccountLabel</value>
+  <data name="tableLayoutPanel16.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lvContracts.Size" type="System.Drawing.Size, System.Drawing">
     <value>1043, 255</value>
@@ -7986,9 +7926,6 @@
   </data>
   <data name="&gt;&gt;tableLayoutPanel5.Name" xml:space="preserve">
     <value>tableLayoutPanel5</value>
-  </data>
-  <data name="tabPageSavingsEvents.Text" xml:space="preserve">
-    <value>Events</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 196</value>
@@ -8149,8 +8086,8 @@
   <data name="&gt;&gt;tabPageInstallments.Name" xml:space="preserve">
     <value>tabPageInstallments</value>
   </data>
-  <data name="&gt;&gt;btnPrintSavings.Parent" xml:space="preserve">
-    <value>flowLayoutPanel9</value>
+  <data name="&gt;&gt;lvEntryFees.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;cmbSavingsOfficer.Parent" xml:space="preserve">
     <value>tableLayoutPanel5</value>
@@ -8172,6 +8109,9 @@
   </data>
   <data name="lbWithdrawFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;nudAgioFees.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>552, 0</value>
@@ -8205,6 +8145,9 @@
   </data>
   <data name="nudDownInterestRate.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
+  </data>
+  <data name="labelFirstProjectName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;nudDownInterestRate.ZOrder" xml:space="preserve">
     <value>16</value>
@@ -8248,8 +8191,8 @@
   <data name="&gt;&gt;labelLoanLoanOfficer.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonViewAGarantors.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;labelProjectMarket.Parent" xml:space="preserve">
+    <value>tabPageProjectAnalyses</value>
   </data>
   <data name="textBoxProjectAim.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -8269,8 +8212,8 @@
   <data name="lblInsuranceMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>13, 13</value>
   </data>
-  <data name="tableLayoutPanel13.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="lbBalanceMin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
   <data name="groupBoxEntryFees.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -8278,8 +8221,8 @@
   <data name="&gt;&gt;lbBalanceMin.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPageSavingsAmountsAndFees.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="lbBalanceMax.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="menuItemConfirmPendingSavingEvent.Text" xml:space="preserve">
     <value>Confirm pending event</value>
@@ -8296,11 +8239,14 @@
   <data name="lbAccrualDeposit.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="tabPageLoanGuarantees.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="labelProjectCode.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
   </data>
   <data name="&gt;&gt;listViewCollaterals.Parent" xml:space="preserve">
     <value>splitContainer1.Panel2</value>
+  </data>
+  <data name="tabPageContracts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1249, 565</value>
   </data>
   <data name="labelLoanLateFeesOnOLB.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -8335,11 +8281,8 @@
   <data name="buttonAddCollateral.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.Name" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
-  </data>
-  <data name="&gt;&gt;comboBoxLoanFundingLine.ZOrder" xml:space="preserve">
-    <value>24</value>
+  <data name="tabPageSavingsEvents.Text" xml:space="preserve">
+    <value>Events</value>
   </data>
   <data name="textBoxProjectExperience.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -8365,11 +8308,11 @@
   <data name="columnHeaderStartDate.Text" xml:space="preserve">
     <value>Start Date</value>
   </data>
-  <data name="labelLoanFundingLine.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+  <data name="&gt;&gt;comboBoxLoanFundingLine.ZOrder" xml:space="preserve">
+    <value>24</value>
   </data>
-  <data name="columnHeaderprojectPersonalSituation.Width" type="System.Int32, mscorlib">
-    <value>100</value>
+  <data name="tbLoanAnticipatedPartialFees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>44, 31</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel13.Parent" xml:space="preserve">
     <value>groupBoxSavingDeposit</value>
@@ -8398,20 +8341,23 @@
   <data name="lbAccrualDepositValue.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel15.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;pnlGuarantorButtons.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="&gt;&gt;textBoxLoanAnticipatedTotalFees.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="textBoxProjectAbilities.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
   <data name="&gt;&gt;btnWriteOff.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="_scheduleTypeLabel.TabIndex" type="System.Int32, mscorlib">
     <value>85</value>
+  </data>
+  <data name="splitContainer10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1229, 255</value>
   </data>
   <data name="&gt;&gt;tabPageAdvancedSettings.Name" xml:space="preserve">
     <value>tabPageAdvancedSettings</value>
@@ -8518,9 +8464,6 @@
   <data name="labelInitialAmount.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="buttonLoanPreview.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="nudReopenFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>197, 22</value>
   </data>
@@ -8529,6 +8472,9 @@
   </data>
   <data name="&gt;&gt;columnHeaderDesc.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelInitialAmount.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;columnHeader28.Name" xml:space="preserve">
     <value>columnHeader28</value>
@@ -8560,9 +8506,6 @@
   <data name="tableLayoutPanel12.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 18</value>
   </data>
-  <data name="&gt;&gt;labelProjectMarket.Parent" xml:space="preserve">
-    <value>tabPageProjectAnalyses</value>
-  </data>
   <data name="buttonViewCollateral.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 71</value>
   </data>
@@ -8578,8 +8521,8 @@
   <data name="&gt;&gt;lbWithdrawFees.Name" xml:space="preserve">
     <value>lbWithdrawFees</value>
   </data>
-  <data name="lProjectCorporateSIRET.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;buttonLoanPreview.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="labelLoanLateFeesOnOverdueInterest.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -8593,11 +8536,8 @@
   <data name="lbTransferFees.TabIndex" type="System.Int32, mscorlib">
     <value>60</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel13.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageCorporate.Parent" xml:space="preserve">
-    <value>tabControlProject</value>
+  <data name="&gt;&gt;labelLocMin.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;labelLoanAnticipatedTotalFeesMinMax.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -8650,8 +8590,8 @@
   <data name="&gt;&gt;buttonViewAGarantors.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;tBProjectCA.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="buttonProjectViewContract.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;buttonViewCollateral.Name" xml:space="preserve">
     <value>buttonViewCollateral</value>
@@ -8692,8 +8632,14 @@
   <data name="labelLoanLateFeesOnOverduePrincipalMinMax.TabIndex" type="System.Int32, mscorlib">
     <value>63</value>
   </data>
-  <data name="tlpTermDeposit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 6</value>
+  <data name="buttonProjectAddFollowUp.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="labelLoanNbOfInstallmentsMinMax.Text" xml:space="preserve">
+    <value>???</value>
+  </data>
+  <data name="&gt;&gt;btSearchContract2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="listViewCollaterals.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -8712,9 +8658,6 @@
   </data>
   <data name="&gt;&gt;pnlSavingsButtons.ZOrder" xml:space="preserve">
     <value>5</value>
-  </data>
-  <data name="&gt;&gt;buttonAddTranche.Name" xml:space="preserve">
-    <value>buttonAddTranche</value>
   </data>
   <data name="labelLocMinAmount.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 7.5pt</value>
@@ -8833,8 +8776,8 @@
   <data name="&gt;&gt;lBSavingAvBalance.Parent" xml:space="preserve">
     <value>tableLayoutPanel5</value>
   </data>
-  <data name="&gt;&gt;columnHeaderDate.Name" xml:space="preserve">
-    <value>columnHeaderDate</value>
+  <data name="&gt;&gt;lbEntryFees.Name" xml:space="preserve">
+    <value>lbEntryFees</value>
   </data>
   <data name="&gt;&gt;lbEntryFees.Parent" xml:space="preserve">
     <value>tableLayoutPanel5</value>
@@ -8851,8 +8794,8 @@
   <data name="labelLoanLoanOfficer.Location" type="System.Drawing.Point, System.Drawing">
     <value>377, 0</value>
   </data>
-  <data name="&gt;&gt;labelLoanGracePeriodMinMax.Name" xml:space="preserve">
-    <value>labelLoanGracePeriodMinMax</value>
+  <data name="&gt;&gt;columnHeaderDate.Name" xml:space="preserve">
+    <value>columnHeaderDate</value>
   </data>
   <data name="&gt;&gt;lblInterBranchTransfer.ZOrder" xml:space="preserve">
     <value>11</value>
@@ -8860,8 +8803,8 @@
   <data name="lblMinMaxEntryFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 43</value>
   </data>
-  <data name="_currentAccountLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="&gt;&gt;labelLoanGracePeriod.Name" xml:space="preserve">
+    <value>labelLoanGracePeriod</value>
   </data>
   <data name="columnHeader18.Width" type="System.Int32, mscorlib">
     <value>89</value>
@@ -8886,6 +8829,9 @@
   </data>
   <data name="&gt;&gt;lbCloseFeesMinMax.ZOrder" xml:space="preserve">
     <value>24</value>
+  </data>
+  <data name="&gt;&gt;lbWithdrawMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="flowLayoutPanel8.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -8968,6 +8914,9 @@
   <data name="labelProjectCode.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;columnHeaderCloseDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="dateLoanStart.CalendarFont" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9pt</value>
   </data>
@@ -9000,6 +8949,9 @@
   </data>
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;lbWithdrawMax.Parent" xml:space="preserve">
+    <value>tableLayoutPanel14</value>
   </data>
   <data name="&gt;&gt;buttonViewAGarantors.Parent" xml:space="preserve">
     <value>pnlGuarantorButtons</value>
@@ -9037,8 +8989,8 @@
   <data name="labelLoanLateFeesOnAmount.Text" xml:space="preserve">
     <value>Total loan amount</value>
   </data>
-  <data name="columnHeader25.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
+  <data name="&gt;&gt;tBProjectCA.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="textBoxLoanPurpose.Location" type="System.Drawing.Point, System.Drawing">
     <value>568, 152</value>
@@ -9058,8 +9010,8 @@
   <data name="&gt;&gt;buttonProjectSelectPurpose.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="lbManagementFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="labelLoanFundingLine.Location" type="System.Drawing.Point, System.Drawing">
+    <value>377, 90</value>
   </data>
   <data name="tbInsurance.Location" type="System.Drawing.Point, System.Drawing">
     <value>460, 3</value>
@@ -9091,11 +9043,11 @@
   <data name="labelProjectAbilities.Text" xml:space="preserve">
     <value>Abilities:</value>
   </data>
+  <data name="lbWithdrawFeesMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <data name="&gt;&gt;labelLoanNbOfInstallments.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelLoanLateFeesOnOverdueInterest.Parent" xml:space="preserve">
-    <value>tableLayoutPanel8</value>
   </data>
   <data name="tableLayoutPanel6.TabIndex" type="System.Int32, mscorlib">
     <value>97</value>
@@ -9103,8 +9055,8 @@
   <data name="&gt;&gt;labelSavingTransferMin.Parent" xml:space="preserve">
     <value>tableLayoutPanel15</value>
   </data>
-  <data name="&gt;&gt;lbCompulsorySavings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="textBoxLoanLateFeesOnOverduePrincipal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 31</value>
   </data>
   <data name="tableLayoutPanel5.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 18</value>
@@ -9133,8 +9085,8 @@
   <data name="&gt;&gt;panel3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPageFollowUp.Name" xml:space="preserve">
-    <value>tabPageFollowUp</value>
+  <data name="labelLoanLateFeesOnOverduePrincipalMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>168, 28</value>
   </data>
   <data name="buttonProjectAddContract.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -9160,6 +9112,9 @@
   <data name="&gt;&gt;lbRollover2.Parent" xml:space="preserve">
     <value>tlpTermDeposit</value>
   </data>
+  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 7.5pt</value>
+  </data>
   <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -9181,8 +9136,8 @@
   <data name="lbDepositMaxValue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 0, 3, 3</value>
   </data>
-  <data name="colId.Text" xml:space="preserve">
-    <value>Id</value>
+  <data name="&gt;&gt;lProjectCA.Parent" xml:space="preserve">
+    <value>splitContainer10.Panel1</value>
   </data>
   <data name="&gt;&gt;lProjectJuridicStatus.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -9190,16 +9145,13 @@
   <data name="textBoxComments.Size" type="System.Drawing.Size, System.Drawing">
     <value>514, 84</value>
   </data>
-  <data name="buttonProjectAddFollowUp.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
   <data name="&gt;&gt;_currentAccountLabel.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
   <data name="groupBoxEntryFees.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
-  <data name="labelLoanNbOfInstallmentsMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="lbTransferFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
   <data name="lbWithdrawMin.TabIndex" type="System.Int32, mscorlib">
@@ -9217,8 +9169,8 @@
   <data name="&gt;&gt;tBProjectCA.Name" xml:space="preserve">
     <value>tBProjectCA</value>
   </data>
-  <data name="&gt;&gt;lbSavingAvBalanceValue.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="tlpSBDetails.RowCount" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
   <data name="&gt;&gt;lblEarlyPartialRepaimentBase.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -9268,9 +9220,6 @@
   <data name="&gt;&gt;tabPageLoans.Name" xml:space="preserve">
     <value>tabPageLoans</value>
   </data>
-  <data name="&gt;&gt;panelUserControl.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;buttonDelete.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
@@ -9282,9 +9231,6 @@
   </data>
   <data name="lvSavingEvent.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
-  </data>
-  <data name="columnHeaderFees.Text" xml:space="preserve">
-    <value>Fees</value>
   </data>
   <data name="lbPeriodicityValue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -9306,6 +9252,9 @@
   </data>
   <data name="&gt;&gt;cBProjectFinancialPlanType.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="columnHeaderprojectPersonalSituation.Width" type="System.Int32, mscorlib">
+    <value>100</value>
   </data>
   <data name="&gt;&gt;flowLayoutPanel5.Name" xml:space="preserve">
     <value>flowLayoutPanel5</value>
@@ -9433,6 +9382,9 @@
   <data name="gbxLoanDetails.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;flowLayoutPanel1.Name" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
   <data name="btnEditSchedule.Text" xml:space="preserve">
     <value>Manual Schedule</value>
   </data>
@@ -9475,11 +9427,11 @@
   <data name="tableLayoutPanel14.RowCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;lblTermTransferToAccount.Parent" xml:space="preserve">
-    <value>tlpTermDeposit</value>
-  </data>
   <data name="&gt;&gt;tabPageCreditCommitee.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="labelLoanLateFeesOnAmount.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lbEntryFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 7.5pt</value>
@@ -9501,9 +9453,6 @@
   </data>
   <data name="buttonLoanRepaymentRepay.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 28</value>
-  </data>
-  <data name="&gt;&gt;nudChequeDepositFees.ZOrder" xml:space="preserve">
-    <value>13</value>
   </data>
   <data name="&gt;&gt;tabPageLoanRepayment.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -9544,11 +9493,11 @@
   <data name="lbCompulsorySavings.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="splitContainer10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1229, 255</value>
+  <data name="lbAccrualDepositValue.Text" xml:space="preserve">
+    <value>value</value>
   </data>
-  <data name="&gt;&gt;lblEarlyPartialRepaimentBase.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lProjectNbOfNewJobs.TabIndex" type="System.Int32, mscorlib">
+    <value>92</value>
   </data>
   <data name="groupBoxAnticipatedRepaymentPenalties.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 13</value>
@@ -9562,14 +9511,8 @@
   <data name="columnHeader16.Text" xml:space="preserve">
     <value>Cancelable</value>
   </data>
-  <data name="&gt;&gt;tBProjectCorporateName.Parent" xml:space="preserve">
-    <value>splitContainer10.Panel1</value>
-  </data>
-  <data name="lbWithdrawFeesMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="buttonCloseSaving.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="labelLoanLateFeesOnOverduePrincipalMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel1.Name" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
@@ -9577,14 +9520,14 @@
   <data name="olvColumnStatus.Width" type="System.Int32, mscorlib">
     <value>115</value>
   </data>
-  <data name="&gt;&gt;textBoxLoanContractCode.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="lblLoanAnticipatedPartialFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 7.5pt</value>
   </data>
   <data name="lblEconomicActivity.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lbInitialAmountMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;nudAgioFees.Parent" xml:space="preserve">
+    <value>tlpSBDetails</value>
   </data>
   <data name="EntryDate.Width" type="System.Int32, mscorlib">
     <value>108</value>
@@ -9592,14 +9535,11 @@
   <data name="labelFirstProjectName.Location" type="System.Drawing.Point, System.Drawing">
     <value>27, 98</value>
   </data>
-  <data name="&gt;&gt;lbWithdrawMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tBProjectCorporateName.Parent" xml:space="preserve">
+    <value>splitContainer10.Panel1</value>
   </data>
   <data name="labelInterestRate.Text" xml:space="preserve">
     <value>Interest rate </value>
-  </data>
-  <data name="columnHeader14.Width" type="System.Int32, mscorlib">
-    <value>61</value>
   </data>
   <data name="tabControlPerson.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -9613,17 +9553,14 @@
   <data name="&gt;&gt;nudIbtFee.Name" xml:space="preserve">
     <value>nudIbtFee</value>
   </data>
-  <data name="tableLayoutPanel8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 18</value>
+  <data name="linkCompulsorySavings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>599, 35</value>
   </data>
   <data name="lbAccrualDepositValue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
   <data name="buttonProjectViewContract.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
-  </data>
-  <data name="gbxLoanDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1243, 231</value>
   </data>
   <data name="buttonAddTranche.Location" type="System.Drawing.Point, System.Drawing">
     <value>441, 3</value>
@@ -9637,11 +9574,11 @@
   <data name="_dateCreatedValueLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 32</value>
   </data>
-  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
-  </data>
-  <data name="&gt;&gt;lbInterestBasedOnValue.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_scheduleTypeComboBox.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;textBoxLoanContractCode.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="pnlSavingsButtons.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -9670,14 +9607,14 @@
   <data name="lbChequeDepositFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>126, 16</value>
   </data>
-  <data name="&gt;&gt;lblIbtFeeMinMax.Name" xml:space="preserve">
-    <value>lblIbtFeeMinMax</value>
+  <data name="cBProjectFinancialPlanType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>139, 22</value>
   </data>
   <data name="&gt;&gt;lblTermTransferToAccount.Name" xml:space="preserve">
     <value>lblTermTransferToAccount</value>
   </data>
-  <data name="lBSavingAvBalance.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="lblIbtFeeMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>345, 75</value>
   </data>
   <data name="labelProjectCode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -9688,8 +9625,8 @@
   <data name="lbManagementFeesMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="tBProjectCorporateSIRET.Location" type="System.Drawing.Point, System.Drawing">
-    <value>163, 54</value>
+  <data name="&gt;&gt;tableLayoutPanel6.Name" xml:space="preserve">
+    <value>tableLayoutPanel6</value>
   </data>
   <data name="colValue.Width" type="System.Int32, mscorlib">
     <value>89</value>
@@ -9697,8 +9634,8 @@
   <data name="lbPeriodicity.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="lblLoanAnticipatedPartialFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 7.5pt</value>
+  <data name="dateTimePickerProjectBeginDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 22</value>
   </data>
   <data name="lblEarlyTotalRepaimentBase.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 13</value>
@@ -9817,6 +9754,9 @@
   <data name="flowLayoutPanel1.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
     <value>TopDown</value>
   </data>
+  <data name="labelLoanAmount.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
   <data name="&gt;&gt;textBoxLoanLateFeesOnAmount.Name" xml:space="preserve">
     <value>textBoxLoanLateFeesOnAmount</value>
   </data>
@@ -9859,6 +9799,9 @@
   <data name="&gt;&gt;buttonModifyCollateral.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="lbAPR.Text" xml:space="preserve">
+    <value>APR</value>
+  </data>
   <data name="&gt;&gt;btnPrintSavings.Type" xml:space="preserve">
     <value>OpenCBS.GUI.UserControl.PrintButton, OpenCBS.GUI, Version=16.8.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
@@ -9886,8 +9829,8 @@
   <data name="_currentAccountTextBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="buttonProjectAddFollowUp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;lbDepositMin.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="lbInterestRateMinMax.TabIndex" type="System.Int32, mscorlib">
     <value>49</value>
@@ -9942,8 +9885,8 @@
   <data name="lbWithdrawMinValue.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="&gt;&gt;btSearchContract2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;labelLoanLateFeesOnOverdueInterest.Parent" xml:space="preserve">
+    <value>tableLayoutPanel8</value>
   </data>
   <data name="labelLoanGracePeriod.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -9951,8 +9894,8 @@
   <data name="lbCloseFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 7pt</value>
   </data>
-  <data name="cmbRollover2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 24</value>
+  <data name="btnPrintLoanEvents.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btnEditSchedule.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 28</value>
@@ -9999,8 +9942,8 @@
   <data name="&gt;&gt;columnHeaderProjectActivity.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="columnHeaderStartDate.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
+  <data name="&gt;&gt;tclLoanDetails.Name" xml:space="preserve">
+    <value>tclLoanDetails</value>
   </data>
   <data name="lbDepositMinValue.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -10059,17 +10002,14 @@
   <data name="_dateCreatedValueLabel.TabIndex" type="System.Int32, mscorlib">
     <value>67</value>
   </data>
-  <data name="&gt;&gt;textBoxComments.Name" xml:space="preserve">
-    <value>textBoxComments</value>
-  </data>
-  <data name="tableLayoutPanel10.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbCompulsorySavingsAmount" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbCompulsorySavings" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="numCompulsoryAmountPercent" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="cmbCompulsorySaving" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="linkCompulsorySavings" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbCompAmountPercentMinMax" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,70,Absolute,300,Percent,30" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  <data name="&gt;&gt;nudChequeDepositFees.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanDetails.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;columnHeader25.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
   </data>
   <data name="textBoxLoanLateFeesOnOLB.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -10077,8 +10017,11 @@
   <data name="tableLayoutPanel16.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 18</value>
   </data>
-  <data name="&gt;&gt;groupBoxSavingDeposit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="labelLoanPurpose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 30</value>
+  </data>
+  <data name="&gt;&gt;tabPageLoansDetails.Name" xml:space="preserve">
+    <value>tabPageLoansDetails</value>
   </data>
   <data name="olvColumnCreationDate.Text" xml:space="preserve">
     <value>Creation date</value>
@@ -10088,6 +10031,9 @@
   </data>
   <data name="lbSavingBalanceValue.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 15pt</value>
+  </data>
+  <data name="lProjectFinancialPlanTotalAmount.TabIndex" type="System.Int32, mscorlib">
+    <value>93</value>
   </data>
   <data name="&gt;&gt;lbDepositFeesMinMax.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -10164,8 +10110,8 @@
   <data name="tabControlSavingsDetails.Size" type="System.Drawing.Size, System.Drawing">
     <value>1243, 299</value>
   </data>
-  <data name="gbDepositInterest.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
+  <data name="&gt;&gt;lProjectFinancialPlanType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel2.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -10227,6 +10173,9 @@
   <data name="&gt;&gt;lblLocCurrencyMin.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
+  <data name="buttonModifyAGarantors.Text" xml:space="preserve">
+    <value>Modify</value>
+  </data>
   <data name="buttonPrintSchedule.TabIndex" type="System.Int32, mscorlib">
     <value>38</value>
   </data>
@@ -10266,8 +10215,8 @@
   <data name="&gt;&gt;tableLayoutPanel16.Name" xml:space="preserve">
     <value>tableLayoutPanel16</value>
   </data>
-  <data name="&gt;&gt;splitContainer11.Name" xml:space="preserve">
-    <value>splitContainer11</value>
+  <data name="&gt;&gt;pnlSavingsButtons.Name" xml:space="preserve">
+    <value>pnlSavingsButtons</value>
   </data>
   <data name="&gt;&gt;buttonDelete.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -10332,6 +10281,9 @@
   <data name="&gt;&gt;lblChequeDepositFeesMinMax.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
+  <data name="&gt;&gt;labelProjectMarket.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="&gt;&gt;lProjectFinancialPlanTotalAmount.Name" xml:space="preserve">
     <value>lProjectFinancialPlanTotalAmount</value>
   </data>
@@ -10368,6 +10320,9 @@
   <data name="&gt;&gt;lbInterestPostingValue.Name" xml:space="preserve">
     <value>lbInterestPostingValue</value>
   </data>
+  <data name="colId.Text" xml:space="preserve">
+    <value>Id</value>
+  </data>
   <data name="&gt;&gt;toolStripMenuItemEditComment.Name" xml:space="preserve">
     <value>toolStripMenuItemEditComment</value>
   </data>
@@ -10395,8 +10350,8 @@
   <data name="&gt;&gt;lbAccrualDepositValue.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="labelProjectName.Text" xml:space="preserve">
-    <value>Name:</value>
+  <data name="&gt;&gt;groupBoxEntryFees.Parent" xml:space="preserve">
+    <value>tableLayoutPanel6</value>
   </data>
   <data name="textBoxLoanContractCode.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 22</value>
@@ -10431,8 +10386,8 @@
   <data name="&gt;&gt;labelProjectDate.Parent" xml:space="preserve">
     <value>groupBoxProjectDetails</value>
   </data>
-  <data name="btnPrintGuarantors.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="lbPeriodicity.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 0, 3, 3</value>
   </data>
   <data name="textBoxProjectPurpose.Location" type="System.Drawing.Point, System.Drawing">
     <value>478, 19</value>
@@ -10440,8 +10395,8 @@
   <data name="lbOverdraftFeesMinMax.TabIndex" type="System.Int32, mscorlib">
     <value>82</value>
   </data>
-  <data name="&gt;&gt;tabPageInstallments.Parent" xml:space="preserve">
-    <value>tclLoanDetails</value>
+  <data name="lProjectFiscalStatus.Text" xml:space="preserve">
+    <value>Fiscal status:</value>
   </data>
   <data name="buttonSaveSaving.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 13</value>
@@ -10500,8 +10455,8 @@
   <data name="labelProjectExperience.Text" xml:space="preserve">
     <value>Experience:</value>
   </data>
-  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 7.5pt</value>
+  <data name="btnDeleteEvent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;tabPageCorporate.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -10515,14 +10470,14 @@
   <data name="labelLoanAmountMinMax.TabIndex" type="System.Int32, mscorlib">
     <value>47</value>
   </data>
-  <data name="groupBoxAnticipatedRepaymentPenalties.Text" xml:space="preserve">
-    <value>Early fees</value>
+  <data name="buttonProjectSelectPurpose.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="pnlCollateralButtons.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
     <value>TopDown</value>
   </data>
-  <data name="&gt;&gt;colPaymentMethod.Name" xml:space="preserve">
-    <value>colPaymentMethod</value>
+  <data name="lblChequeDepositFeesMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;buttonAddTranche.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -10535,6 +10490,9 @@
   </data>
   <data name="lvEvents.Size" type="System.Drawing.Size, System.Drawing">
     <value>1000, 368</value>
+  </data>
+  <data name="&gt;&gt;btnWriteOff.Parent" xml:space="preserve">
+    <value>flowLayoutPanel8</value>
   </data>
   <data name="&gt;&gt;tbTargetAccount2.Parent" xml:space="preserve">
     <value>tlpTermDeposit</value>
@@ -10554,8 +10512,11 @@
   <data name="&gt;&gt;tBSavingCode.Name" xml:space="preserve">
     <value>tBSavingCode</value>
   </data>
-  <data name="labelDateOffirstInstallment.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+  <data name="lbAccrualDeposit.Text" xml:space="preserve">
+    <value>Accrual:</value>
+  </data>
+  <data name="lbManagementFeesMinMax.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="columnHeader28.Text" xml:space="preserve">
     <value>Savings method</value>
@@ -10572,8 +10533,8 @@
   <data name="buttonProjectViewContract.Text" xml:space="preserve">
     <value>View Contract</value>
   </data>
-  <data name="tabPageContracts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1249, 565</value>
+  <data name="labelLoanLateFeesOnOLBMinMax.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="textBoxProjectConcurrence.Size" type="System.Drawing.Size, System.Drawing">
     <value>753, 58</value>
@@ -10638,8 +10599,8 @@
   <data name="&gt;&gt;labelLoanLateFeesOnOverduePrincipalMinMax.Name" xml:space="preserve">
     <value>labelLoanLateFeesOnOverduePrincipalMinMax</value>
   </data>
-  <data name="buttonProjectSelectPurpose.Text" xml:space="preserve">
-    <value>Select</value>
+  <data name="gBProjectFinancialPlan.TabIndex" type="System.Int32, mscorlib">
+    <value>94</value>
   </data>
   <data name="buttonReopenSaving.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -10665,6 +10626,9 @@
   <data name="buttonModifyCollateral.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>729, 91</value>
+  </data>
   <data name="&gt;&gt;_installmentTypeLabel.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
@@ -10677,8 +10641,8 @@
   <data name="tBSavingCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>100, 13</value>
   </data>
-  <data name="nudDownInterestRate.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
+  <data name="&gt;&gt;textBoxComments.Name" xml:space="preserve">
+    <value>textBoxComments</value>
   </data>
   <data name="&gt;&gt;lbSavingBalanceValue.Name" xml:space="preserve">
     <value>lbSavingBalanceValue</value>
@@ -10739,6 +10703,9 @@
   </data>
   <data name="labelLoanLateFeesOnOLBMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
+  </data>
+  <data name="&gt;&gt;lProjectFinancialPlanAmount.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;_currentAccountTextBox.ZOrder" xml:space="preserve">
     <value>12</value>
@@ -10824,8 +10791,8 @@
   <data name="lbWithdrawFeesMinMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 32</value>
   </data>
-  <data name="labelLoanLateFeesOnAmountMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+  <data name="&gt;&gt;labelSavingTransferMaxValue.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="labelSavingTransferMinValue.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 19</value>
@@ -10841,6 +10808,9 @@
   </data>
   <data name="columnHeader18.Text" xml:space="preserve">
     <value>User</value>
+  </data>
+  <data name="&gt;&gt;lbManagementFees.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lbInterestPostingValue.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -10878,8 +10848,8 @@
   <data name="&gt;&gt;columnHeaderInstallmentType.Name" xml:space="preserve">
     <value>columnHeaderInstallmentType</value>
   </data>
-  <data name="&gt;&gt;lbCloseFees.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
+  <data name="&gt;&gt;buttonReschedule.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbCompulsorySavings.Parent" xml:space="preserve">
     <value>tableLayoutPanel10</value>
@@ -10890,8 +10860,8 @@
   <data name="tabControlSavingsDetails.ItemSize" type="System.Drawing.Size, System.Drawing">
     <value>55, 25</value>
   </data>
-  <data name="colCommissions.Width" type="System.Int32, mscorlib">
-    <value>102</value>
+  <data name="gbDepositInterest.Text" xml:space="preserve">
+    <value>Interest</value>
   </data>
   <data name="&gt;&gt;btnPrintLoanRepayment.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -10953,8 +10923,8 @@
   <data name="&gt;&gt;lbReopenFeesMinMax.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbWithdrawMax.Parent" xml:space="preserve">
-    <value>tableLayoutPanel14</value>
+  <data name="labelLoanInterestRate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 58</value>
   </data>
   <data name="&gt;&gt;lProjectFinancialPlanAmount.Name" xml:space="preserve">
     <value>lProjectFinancialPlanAmount</value>
@@ -10983,8 +10953,8 @@
   <data name="buttonDelCollateral.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 105</value>
   </data>
-  <data name="&gt;&gt;flowLayoutPanel1.Name" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
+  <data name="colValue.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="buttonRepay.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -11016,8 +10986,11 @@
   <data name="columnHeader11.Width" type="System.Int32, mscorlib">
     <value>123</value>
   </data>
-  <data name="lbInitialAmountMinMax.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 7.5pt</value>
+  <data name="tableLayoutPanel16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 68</value>
+  </data>
+  <data name="&gt;&gt;lbATR.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;tabControlRepayments.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -11042,9 +11015,6 @@
   </data>
   <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="labelLoanLateFeesOnOLB.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
   </data>
   <data name="cmbCompulsorySaving.TabIndex" type="System.Int32, mscorlib">
     <value>96</value>
@@ -11080,9 +11050,6 @@ Max:
   </data>
   <data name="&gt;&gt;lbChequeDepositFees.Name" xml:space="preserve">
     <value>lbChequeDepositFees</value>
-  </data>
-  <data name="colName.Width" type="System.Int32, mscorlib">
-    <value>235</value>
   </data>
   <data name="&gt;&gt;lblEarlyTotalRepaimentBase.Parent" xml:space="preserve">
     <value>tableLayoutPanel7</value>
@@ -11177,8 +11144,17 @@ Max:
   <data name="&gt;&gt;columnHeaderId.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;lbCloseFees.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="splitContainer10.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <data name="&gt;&gt;splitContainer11.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="lbDepositMinValue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>134, 3</value>
   </data>
   <data name="&gt;&gt;labelLocMax.Parent" xml:space="preserve">
     <value>tableLayoutPanel9</value>
@@ -11189,8 +11165,8 @@ Max:
   <data name="labelLocMin.Location" type="System.Drawing.Point, System.Drawing">
     <value>217, 0</value>
   </data>
-  <data name="olvColumnCreationDate.Width" type="System.Int32, mscorlib">
-    <value>130</value>
+  <data name="splitContainer11.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;columnProductType.Name" xml:space="preserve">
     <value>columnProductType</value>
@@ -11224,6 +11200,9 @@ Max:
   </data>
   <data name="&gt;&gt;columnHeader24.Name" xml:space="preserve">
     <value>columnHeader24</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Name" xml:space="preserve">
+    <value>splitContainer1.Panel2</value>
   </data>
   <data name="tableLayoutPanel14.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 59</value>
@@ -11294,8 +11273,8 @@ Max:
   <data name="labelSavingsContracts.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
   </data>
-  <data name="tabControlPerson.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 36</value>
+  <data name="buttonSaveSaving.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 28</value>
   </data>
   <data name="lblChequeDepositFeesMinMax.TabIndex" type="System.Int32, mscorlib">
     <value>71</value>
@@ -11329,9 +11308,6 @@ Max:
   </data>
   <data name="buttonViewCollateral.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;nudOverdraftFees.Name" xml:space="preserve">
-    <value>nudOverdraftFees</value>
   </data>
   <data name="lbCompulsorySavingsAmount.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
@@ -11441,8 +11417,8 @@ Max:
   <data name="labelDateOffirstInstallment.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 32</value>
   </data>
-  <data name="&gt;&gt;lbManagementFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="labelLoanFundingLine.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
   </data>
   <data name="labelComments.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -11492,8 +11468,8 @@ Max:
   <data name="groupBoxSavingTransfer.Location" type="System.Drawing.Point, System.Drawing">
     <value>590, 3</value>
   </data>
-  <data name="colPenalties.Text" xml:space="preserve">
-    <value>Penalties</value>
+  <data name="&gt;&gt;labelLoanInterestRate.ZOrder" xml:space="preserve">
+    <value>12</value>
   </data>
   <data name="btnPrintLoanDetails.Location" type="System.Drawing.Point, System.Drawing">
     <value>438, 3</value>
@@ -11621,9 +11597,6 @@ Max:
   <data name="groupBoxProjectDetails.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="&gt;&gt;textBoxProjectAim.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="tabPageProjectLoans.Size" type="System.Drawing.Size, System.Drawing">
     <value>1229, 255</value>
   </data>
@@ -11636,8 +11609,8 @@ Max:
   <data name="&gt;&gt;labelProjectExperience.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="richTextBoxStatus.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="lbDepositMinValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 16</value>
   </data>
   <data name="groupBoxSavingBalance.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -11647,6 +11620,9 @@ Max:
   </data>
   <data name="lProjectFinancialPlanTotalAmount.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
+  </data>
+  <data name="labelLoanLateFeesOnAmountMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
   </data>
   <data name="&gt;&gt;richTextBoxStatus.Name" xml:space="preserve">
     <value>richTextBoxStatus</value>
@@ -11681,6 +11657,9 @@ Max:
   <data name="&gt;&gt;tabPageRepayments.Parent" xml:space="preserve">
     <value>tabControlRepayments</value>
   </data>
+  <data name="&gt;&gt;lblIbtFeeMinMax.Name" xml:space="preserve">
+    <value>lblIbtFeeMinMax</value>
+  </data>
   <data name="&gt;&gt;flowLayoutPanel10.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -11693,8 +11672,8 @@ Max:
   <data name="lbDepositMaxValue.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;columnHeaderCloseDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lBSavingAvBalance.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;labelLoanLateFeesOnOverdueInterest.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -11714,11 +11693,17 @@ Max:
   <data name="&gt;&gt;textBoxProjectName.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;tabPageInstallments.Parent" xml:space="preserve">
+    <value>tclLoanDetails</value>
+  </data>
   <data name="groupBoxSavingDeposit.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>180, 0</value>
   </data>
   <data name="&gt;&gt;olvLoans.Type" xml:space="preserve">
     <value>BrightIdeasSoftware.ObjectListView, ObjectListView, Version=2.8.1.33936, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+  </data>
+  <data name="&gt;&gt;splitContainer11.Name" xml:space="preserve">
+    <value>splitContainer11</value>
   </data>
   <data name="&gt;&gt;labelLoanLateFeesOnOverduePrincipalMinMax.Parent" xml:space="preserve">
     <value>tableLayoutPanel8</value>
@@ -11762,8 +11747,8 @@ Max:
   <data name="tbTargetAccount2.Size" type="System.Drawing.Size, System.Drawing">
     <value>189, 22</value>
   </data>
-  <data name="lblMinMaxEntryFees.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;lblLocCurrencyMin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="labelLoanInterestRate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11852,8 +11837,8 @@ Max:
   <data name="olvColumnSACExportedBalance.Width" type="System.Int32, mscorlib">
     <value>100</value>
   </data>
-  <data name="&gt;&gt;lbCloseFees.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblLoanStatus.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="_repaymentScheduleControl.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -11867,8 +11852,8 @@ Max:
   <data name="lbAccrualDeposit.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="labelLoanLateFeesOnOLBMinMax.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;tableLayoutPanel13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblLimitOfTermDepositPeriod.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -11909,8 +11894,8 @@ Max:
   <data name="tabControlSavingsDetails.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 263</value>
   </data>
-  <data name="&gt;&gt;cBProjectFinancialPlanType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="labelLocAmount.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;tBProjectFinancialPlanAmount.Name" xml:space="preserve">
     <value>tBProjectFinancialPlanAmount</value>
@@ -11966,16 +11951,13 @@ Max:
   <data name="tableLayoutPanel7.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 18</value>
   </data>
-  <data name="buttonDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 28</value>
+  <data name="columnHeader29.Width" type="System.Int32, mscorlib">
+    <value>150</value>
   </data>
   <data name="&gt;&gt;buttonProjectViewContract.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="textBoxLoanLateFeesOnOverdueInterest.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="colValue.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
   <data name="eacLoan.Location" type="System.Drawing.Point, System.Drawing">
@@ -12010,6 +11992,9 @@ Max:
   </data>
   <data name="buttonSavingsOperations.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="nudDownInterestRate.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="lbCloseFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 32</value>
@@ -12107,8 +12092,8 @@ Max:
   <data name="labelLoanLateFeesOnOverdueInterest.Location" type="System.Drawing.Point, System.Drawing">
     <value>226, 28</value>
   </data>
-  <data name="lbInterestAccrual.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="columnHeader14.Width" type="System.Int32, mscorlib">
+    <value>61</value>
   </data>
   <data name="lbWithdrawMaxValue.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -12140,14 +12125,14 @@ Max:
   <data name="&gt;&gt;tpTermDeposit.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblIbtFeeMinMax.TabIndex" type="System.Int32, mscorlib">
-    <value>86</value>
-  </data>
   <data name="&gt;&gt;groupBoxSaving.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="buttonLoanReschedule.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="&gt;&gt;nudReopenFees.Name" xml:space="preserve">
     <value>nudReopenFees</value>
@@ -12188,8 +12173,8 @@ Max:
   <data name="_currentAccountLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="nudIbtFee.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
+  <data name="labelLoanLateFeesOnAmount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
   </data>
   <data name="&gt;&gt;lbDepositMinValue.Parent" xml:space="preserve">
     <value>tableLayoutPanel13</value>
@@ -12224,8 +12209,8 @@ Max:
   <data name="lblEconomicActivity.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="lbAccrualDeposit.Text" xml:space="preserve">
-    <value>Accrual:</value>
+  <data name="lblLoanStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
   <data name="lbInterestAccrualValue.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 16</value>
@@ -12311,7 +12296,7 @@ Max:
   <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lbSavingAvBalanceValue.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="lbChequeDepositFees.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
   <data name="&gt;&gt;nudManagementFees.Parent" xml:space="preserve">
@@ -12323,8 +12308,8 @@ Max:
   <data name="buttonViewAGarantors.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 3, 0, 3</value>
   </data>
-  <data name="labelLoanFundingLine.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
+  <data name="&gt;&gt;buttonModifyAGarantors.Parent" xml:space="preserve">
+    <value>pnlGuarantorButtons</value>
   </data>
   <data name="&gt;&gt;menuPendingSavingEvents.Name" xml:space="preserve">
     <value>menuPendingSavingEvents</value>
@@ -12368,8 +12353,8 @@ Max:
   <data name="&gt;&gt;labelLoanInterestRate.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;labelLoanInterestRate.ZOrder" xml:space="preserve">
-    <value>12</value>
+  <data name="&gt;&gt;colCancelDate1.Name" xml:space="preserve">
+    <value>colCancelDate1</value>
   </data>
   <data name="cBProjectJuridicStatus.Location" type="System.Drawing.Point, System.Drawing">
     <value>162, 101</value>
@@ -12404,8 +12389,8 @@ Max:
   <data name="labelComments.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 357</value>
   </data>
-  <data name="lbAPR.Text" xml:space="preserve">
-    <value>APR</value>
+  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
+    <value>panel3</value>
   </data>
   <data name="columnHeaderOLB.Width" type="System.Int32, mscorlib">
     <value>80</value>
@@ -12413,14 +12398,11 @@ Max:
   <data name="&gt;&gt;nudOverdraftFees.Parent" xml:space="preserve">
     <value>tlpSBDetails</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel5.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;buttonProjectAddFollowUp.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="lblLimitOfTermDepositPeriod.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="tableLayoutPanel10.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbCompulsorySavingsAmount" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbCompulsorySavings" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="numCompulsoryAmountPercent" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="cmbCompulsorySaving" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="linkCompulsorySavings" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbCompAmountPercentMinMax" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,70,Absolute,300,Percent,30" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="&gt;&gt;columnHeader26.Name" xml:space="preserve">
     <value>columnHeader26</value>
@@ -12443,8 +12425,8 @@ Max:
   <data name="lbReopenFees.Text" xml:space="preserve">
     <value>Reopen fees</value>
   </data>
-  <data name="lbDepositMaxValue.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
+  <data name="labelLoanAmountMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;numCompulsoryAmountPercent.Name" xml:space="preserve">
     <value>numCompulsoryAmountPercent</value>
@@ -12452,8 +12434,8 @@ Max:
   <data name="&gt;&gt;tableLayoutPanel17.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nudDownInitialAmount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="buttonDelete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 28</value>
   </data>
   <data name="buttonRepay.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
@@ -12494,8 +12476,8 @@ Max:
   <data name="labelLoanLateFeesOnOLBMinMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 28</value>
   </data>
-  <data name="&gt;&gt;lProjectFinancialPlanAmount.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="lBSavingAvBalance.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lbRollover2.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 16</value>
@@ -12533,8 +12515,8 @@ Max:
   <data name="buttonPrintSchedule.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;buttonProjectAddContract.Parent" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
+  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
   </data>
   <data name="columnHeader24.Width" type="System.Int32, mscorlib">
     <value>287</value>
@@ -12587,6 +12569,9 @@ Max:
   <data name="nudCloseFees.Size" type="System.Drawing.Size, System.Drawing">
     <value>197, 22</value>
   </data>
+  <data name="tlpTermDeposit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
   <data name="textBoxProjectCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>105, 57</value>
   </data>
@@ -12608,8 +12593,8 @@ Max:
   <data name="labelLocAmount.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="tableLayoutPanel16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 68</value>
+  <data name="&gt;&gt;columnHeaderInterest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;nudWithdrawFees.Name" xml:space="preserve">
     <value>nudWithdrawFees</value>
@@ -12635,8 +12620,8 @@ Max:
   <data name="&gt;&gt;buttonCloseSaving.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lBSavingBalance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 32</value>
+  <data name="&gt;&gt;lbBalanceMinValue.Parent" xml:space="preserve">
+    <value>tableLayoutPanel12</value>
   </data>
   <data name="columnHeader14.Text" xml:space="preserve">
     <value>Interest</value>
@@ -12662,14 +12647,17 @@ Max:
   <data name="labelProjectDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
+  <data name="&gt;&gt;cBProjectFinancialPlanType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="labelLoanLoanOfficer.Text" xml:space="preserve">
     <value>Loan officer:</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>Max:</value>
   </data>
-  <data name="labelLoanContractCode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;tabPageEvents.Parent" xml:space="preserve">
+    <value>tabControlRepayments</value>
   </data>
   <data name="labelLoanContractCode.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 30</value>
@@ -12710,14 +12698,11 @@ Max:
   <data name="&gt;&gt;textBoxLoanPurpose.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="labelLoanInterestRate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 58</value>
+  <data name="lblLimitOfTermDepositPeriod.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;buttonReschedule.Name" xml:space="preserve">
     <value>buttonReschedule</value>
-  </data>
-  <data name="labelLoanStartDate.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="lbRollover2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -12770,8 +12755,11 @@ Max:
   <data name="columnHeader10.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
   </data>
-  <data name="labelProjectCode.TabIndex" type="System.Int32, mscorlib">
-    <value>41</value>
+  <data name="labelLoanContractCode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;lbEntryFeesMinMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;buttonLoanReschedule.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -12779,8 +12767,8 @@ Max:
   <data name="tabPageContracts.Text" xml:space="preserve">
     <value>Contracts</value>
   </data>
-  <data name="&gt;&gt;tabPageLoans.Parent" xml:space="preserve">
-    <value>tabControlSavingsDetails</value>
+  <data name="&gt;&gt;labelLocMinAmount.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;labelProjectExperience.Name" xml:space="preserve">
     <value>labelProjectExperience</value>
@@ -12791,8 +12779,11 @@ Max:
   <data name="btnWaiveFee.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="labelLoanLateFeesOnOverduePrincipalMinMax.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+  <data name="tableLayoutPanel6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelProjectName.Text" xml:space="preserve">
+    <value>Name:</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Person</value>
@@ -12805,6 +12796,9 @@ Max:
   </data>
   <data name="splitContainer10.SplitterDistance" type="System.Int32, mscorlib">
     <value>376</value>
+  </data>
+  <data name="&gt;&gt;nudDownInitialAmount.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;columnHeader19.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -12860,14 +12854,14 @@ Max:
   <data name="nudWithdrawFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;lblLocCurrencyMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;buttonProjectAddContract.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
   </data>
   <data name="tlpTermDeposit.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblNumberOfPeriods" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nudNumberOfPeriods" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblLimitOfTermDepositPeriod" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="tbTargetAccount2" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="cmbRollover2" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbRollover2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btSearchContract2" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblTermTransferToAccount" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="dateTimePickerProjectBeginDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 22</value>
+  <data name="lblCreditInsurance.Text" xml:space="preserve">
+    <value>Credit insurance:</value>
   </data>
   <data name="lbCloseFeesMinMax.TabIndex" type="System.Int32, mscorlib">
     <value>76</value>
@@ -12932,8 +12926,8 @@ Max:
   <data name="&gt;&gt;lblInsuranceMax.Parent" xml:space="preserve">
     <value>tableLayoutPanel9</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Savings officer</value>
+  <data name="cmbCompulsorySaving.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>20</value>
   </data>
   <data name="lProjectNbOfNewJobs.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
@@ -12941,11 +12935,14 @@ Max:
   <data name="lBSavingAvBalance.TabIndex" type="System.Int32, mscorlib">
     <value>59</value>
   </data>
+  <data name="&gt;&gt;groupBoxSavingDeposit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="textBoxLoanLateFeesOnAmount.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 22</value>
   </data>
-  <data name="&gt;&gt;labelSavingTransferMaxValue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lbDepositFeesMinMax.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
   </data>
   <data name="textBoxLoanLateFeesOnOverdueInterest.Location" type="System.Drawing.Point, System.Drawing">
     <value>334, 31</value>
@@ -12959,8 +12956,8 @@ Max:
   <data name="lblChequeDepositFeesMinMax.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 7pt</value>
   </data>
-  <data name="lBSavingAvBalance.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;btnDeleteEvent.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBoxLoanContractCode.Parent" xml:space="preserve">
     <value>tableLayoutPanel4</value>
@@ -12989,11 +12986,14 @@ Max:
   <data name="&gt;&gt;lbAgioFees.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="labelInitialAmount.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;columnHeader25.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lbInterestAccrualValue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;textBoxProjectAim.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="&gt;&gt;label9.Parent" xml:space="preserve">
     <value>tableLayoutPanel5</value>
