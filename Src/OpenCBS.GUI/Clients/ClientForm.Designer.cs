@@ -3276,6 +3276,7 @@ namespace OpenCBS.GUI.Clients
             0,
             0});
             this.nudReopenFees.Name = "nudReopenFees";
+            this.nudReopenFees.ValueChanged += new System.EventHandler(this.nudReopenFees_ValueChanged);
             // 
             // lBSavingAvBalance
             // 

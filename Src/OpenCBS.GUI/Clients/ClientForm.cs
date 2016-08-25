@@ -7320,5 +7320,10 @@ namespace OpenCBS.GUI.Clients
         {
             LoadClientSavings();
         }
+
+        private void nudReopenFees_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
