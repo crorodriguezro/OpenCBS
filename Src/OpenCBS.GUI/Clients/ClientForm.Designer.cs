@@ -3228,6 +3228,7 @@ namespace OpenCBS.GUI.Clients
             this.tableLayoutPanel5.Controls.Add(this.nudWithdrawFees, 7, 2);
             this.tableLayoutPanel5.Controls.Add(this.nudDepositFees, 7, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel5_Paint);
             // 
             // label9
             // 
@@ -3276,7 +3277,6 @@ namespace OpenCBS.GUI.Clients
             0,
             0});
             this.nudReopenFees.Name = "nudReopenFees";
-            this.nudReopenFees.ValueChanged += new System.EventHandler(this.nudReopenFees_ValueChanged);
             // 
             // lBSavingAvBalance
             // 

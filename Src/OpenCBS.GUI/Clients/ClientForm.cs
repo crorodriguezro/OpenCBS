@@ -7325,5 +7325,10 @@ namespace OpenCBS.GUI.Clients
         {
 
         }
+
+        private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
