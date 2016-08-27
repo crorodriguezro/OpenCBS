@@ -81,8 +81,6 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
             foreach (SavingEvent e in Events)
             {
                 if ((e is SavingPendingDepositEvent) || (e is SavingPendingDepositRefusedEvent)) continue;
-                if (Events.FindAll(x => x.Id == e.ParentId).FirstOrDefault() is SavingWithdrawEvent)
-                    continue;
                 retval += e.GetBalanceChunk(date);
             }
 
