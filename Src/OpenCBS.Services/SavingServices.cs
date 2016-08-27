@@ -476,7 +476,7 @@ namespace OpenCBS.Services
                 var savingSimulation = (ISavingsContract) saving.Clone();
                 // Create a fake Saving object
                 if (saving.Client == null)
-                    saving.Client = ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(saving.Id);
+                    saving.Client = ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(saving.Id, false, tx);
 
                 // Do deposit to the fake Saving object
                 savingSimulation.Deposit(depositAmount, dateTime, description, user, false, isPending, savingsMethod,

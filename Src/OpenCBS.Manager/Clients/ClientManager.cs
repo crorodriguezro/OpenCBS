@@ -2370,9 +2370,9 @@ namespace OpenCBS.Manager.Clients
 
                 IClient client = SelectPersonById(clientId, true, selectProjectAndSavings, tx);
                 if (client == null)
-                    client = SelectGroup(clientId);
+                    client = SelectBodyCorporateByIdWithTransactionWithoutContacts(clientId, tx);
                 if (client == null)
-                    client = SelectBodyCorporateById(clientId);
+                    client = SelectGroup(clientId);
 
                 return client;
             }
@@ -2649,6 +2649,97 @@ namespace OpenCBS.Manager.Clients
             body.Contacts = contacts;
 
             OnClientSelected(body);
+
+            return body;
+        }
+
+        public Corporate SelectBodyCorporateByIdWithTransactionWithoutContacts(int id, SqlTransaction tx)
+        {
+            int? activityId = null;
+            int? districtId = null;
+            int? secondaryDistrictId = null;
+
+            Corporate body = null;
+            const string q = @" SELECT * FROM Tiers 
+            INNER JOIN Corporates ON Tiers.id = Corporates.id
+            WHERE [deleted] = 0 AND Tiers.id=@id";
+
+            var conn = tx.Connection;
+            var c = new OpenCbsCommand(q, conn, tx);
+            c.AddParam("@id", id);
+
+            using (OpenCbsReader r = c.ExecuteReader())
+            {
+                if (r != null && !r.Empty)
+                {
+                    r.Read();
+                    body = new Corporate
+                    {
+                        Id = r.GetInt("id"),
+                        Name = r.GetString("name"),
+                        Status = (OClientStatus) r.GetSmallInt("status"),
+                        IsDeleted = r.GetBool("deleted"),
+                        Type = r.GetChar("client_type_code") == 'I'
+                            ? OClientTypes.Person
+                            : r.GetChar("client_type_code") == 'G'
+                                ? OClientTypes.Group
+                                : OClientTypes.Corporate,
+                        Scoring = r.GetNullDouble("scoring"),
+                        LoanCycle = r.GetInt("loan_cycle"),
+                        Active = r.GetBool("active"),
+                        BadClient = r.GetBool("bad_client"),
+                        City = r.GetString("city"),
+                        Address = r.GetString("address"),
+                        SecondaryCity = r.GetString("secondary_city"),
+                        SecondaryAddress = r.GetString("secondary_address"),
+                        HomePhone = r.GetString("home_phone"),
+                        PersonalPhone = r.GetString("personal_phone"),
+                        SecondaryHomePhone = r.GetString("secondary_home_phone"),
+                        SecondaryPersonalPhone = r.GetString("secondary_personal_phone"),
+                        VolunteerCount = r.GetNullInt("volunteer_count"),
+                        EmployeeCount = r.GetNullInt("employee_count"),
+                        Sigle = r.GetString("sigle"),
+                        Siret = r.GetString("siret"),
+                        SmallName = r.GetString("small_name"),
+                        CreationDate = r.GetDateTime("creation_date"),
+                        AgrementDate = r.GetNullDateTime("agrement_date"),
+                        ZipCode = r.GetString("zipCode"),
+                        SecondaryZipCode = r.GetString("secondary_zipCode"),
+                        FiscalStatus = r.GetString("fiscal_status"),
+                        Registre = r.GetString("registre"),
+                        LegalForm = r.GetString("legalForm"),
+                        InsertionType = r.GetString("insertionType"),
+                        Email = r.GetString("e_mail"),
+                        FavouriteLoanOfficerId = r.GetNullInt("loan_officer_id"),
+                        Branch = new Branch {Id = r.GetInt("branch_id")},
+                        RegistrationDate = r.GetNullDateTime("date_create") ?? TimeProvider.Today
+                    };
+
+                    districtId = r.GetNullInt("district_id");
+                    secondaryDistrictId = r.GetNullInt("secondary_district_id");
+                    activityId = r.GetNullInt("activity_id");
+                }
+            }
+            if (body != null)
+            {
+                if (body.FavouriteLoanOfficerId != null)
+                {
+                    UserManager userManager = new UserManager(User.CurrentUser);
+                    body.FavouriteLoanOfficer = userManager.SelectUser((int)body.FavouriteLoanOfficerId, true);
+                }
+            }
+
+            if (districtId.HasValue) body.District = _locations.SelectDistrictById(districtId.Value);
+
+            if (secondaryDistrictId.HasValue) body.SecondaryDistrict = _locations.SelectDistrictById(secondaryDistrictId.Value);
+
+            if (activityId.HasValue) body.Activity = _doam.SelectEconomicActivity(activityId.Value);
+
+            if (body != null)
+            {
+                if (_projectManager != null)
+                    body.AddProjects(_projectManager.SelectProjectsByClientId(body.Id));
+            }
 
             return body;
         }
