@@ -144,11 +144,12 @@ namespace OpenCBS.CoreDomain.FundingLines
 
         public void RemoveEvent(FundingLineEvent fundingLineEvent)
         {
+            InvalidateAmounts();
             if (null == _events) return;
             if (0 == Events.Count) return;
             FundingLineEvent fle = Events.Find(e => e.Id == fundingLineEvent.Id);
             if (null == fle) return;
-            fle.IsDeleted = false;
+            fle.IsDeleted = true;
         }
 
         public double[] CalculateCashProvisionChart(DateTime startDate, int numDays, bool assumeLateLoansRepaidToday)
