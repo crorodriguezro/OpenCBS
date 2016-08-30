@@ -1077,7 +1077,7 @@ namespace OpenCBS.GUI
         {
             try
             {
-                if (ReportService.GetInstance().CanLoadDocument())
+                if (ReportService.CanLoadDocument())
                 {
                     var reportName = (sender as ToolStripMenuItem).Tag.ToString();
                     var report = ReportService.GetInstance().GetReportByName(reportName);

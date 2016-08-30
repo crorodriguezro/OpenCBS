@@ -28,6 +28,7 @@ using System.Linq;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using System.Data;
+using System.Reflection;
 using OpenCBS.CoreDomain;
 using OpenCBS.Shared.Settings;
 
@@ -44,7 +45,7 @@ namespace OpenCBS.Reports
 
         public static ReportService GetInstance()
         {
-            return _instance ?? (_instance = new ReportService());
+                return _instance ?? (_instance = new ReportService());
         }
 
         private static ReportManager Manager
@@ -217,17 +218,17 @@ namespace OpenCBS.Reports
                 return doc;
             }
 
-        public bool CanLoadDocument()
+        public static bool CanLoadDocument()
         {
-            try
-            {
-                new ReportDocument();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+                var assemblies = Assembly.GetExecutingAssembly().GetReferencedAssemblies().ToArray();
+                if (!assemblies.Any(val => val.FullName.Equals("CrystalDecisions.CrystalReports.Engine"))
+                    || !assemblies.Any(val => val.FullName.Equals("CrystalDecisions.Source"))
+                    || !assemblies.Any(val => val.FullName.Equals("CrystalDecisions.Shared"))
+                    || !assemblies.Any(val => val.FullName.Equals("CrystalDecisions.Windows.Forms")))
+                {
+                    return false;
+                }
+            return true;
         } 
 
         public ParameterFields GetParameterFields(Report report)

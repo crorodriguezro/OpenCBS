@@ -25,6 +25,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Presenter;
 using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
@@ -94,8 +95,16 @@ namespace OpenCBS.GUI.UserControl
 
         private void PrintReportFromMenuItem(object sender, EventArgs e)
         {
-            Guid guid = (Guid)((ToolStripMenuItem)sender).Tag;
-            PrintReport(guid);
+            Guid guid = (Guid) ((ToolStripMenuItem) sender).Tag;
+            if (ReportService.CanLoadDocument())
+                PrintReport(guid);
+
+            else
+            {
+                var translationService = new TranslationService();
+                MessageBox.Show(translationService.Translate("Crystal reports haven't been installed."));
+            }
+
         }
 
         private void StartProgress()
@@ -113,58 +122,58 @@ namespace OpenCBS.GUI.UserControl
         private void PrintReport(Guid guid)
         {
 
-            ReportService rs = ReportService.GetInstance();
-            Report report = rs.GetReport(guid);
-            if (null == report) return;
-
-            try
-            {
-                ReportInitializer(report);
-
-                if (report.DisableIfLoanIsPending)
-                {
-                    var loan = (Loan) report.GetExtra("loan");
-                    if (loan == null || loan.ContractStatus == OContractStatus.None || loan.ContractStatus == OContractStatus.Pending)
-                    {
-                        MessageBox.Show(
-                            MultiLanguageStrings.GetString(Ressource.PrintButton, "pleaseApproveLoan"),
-                            MultiLanguageStrings.GetString(Ressource.PrintButton, "warning"), 
-                            MessageBoxButtons.OK, 
-                            MessageBoxIcon.Warning);
-                        return;
-                    }
-                }
-
-                List<ReportParamV2> additionalParams
-                    = report.Params
-                        .Where(p => p.Additional && p.Visible)
-                        .ToList();
-                if (additionalParams.Count != 0)
-                {
-                    ReportParamsForm reportParamsForm = new ReportParamsForm(additionalParams, report.Title);
-                    if (reportParamsForm.ShowDialog() != DialogResult.OK) return;
-                }
+                ReportService rs = ReportService.GetInstance();
+                Report report = rs.GetReport(guid);
+                if (null == report) return;
 
                 try
                 {
-                    StartProgress();
-                    rs.LoadReport(report);
+                    ReportInitializer(report);
+
+                    if (report.DisableIfLoanIsPending)
+                    {
+                        var loan = (Loan) report.GetExtra("loan");
+                        if (loan == null || loan.ContractStatus == OContractStatus.None || loan.ContractStatus == OContractStatus.Pending)
+                        {
+                            MessageBox.Show(
+                                MultiLanguageStrings.GetString(Ressource.PrintButton, "pleaseApproveLoan"),
+                                MultiLanguageStrings.GetString(Ressource.PrintButton, "warning"),
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+
+                    List<ReportParamV2> additionalParams
+                        = report.Params
+                            .Where(p => p.Additional && p.Visible)
+                            .ToList();
+                    if (additionalParams.Count != 0)
+                    {
+                        ReportParamsForm reportParamsForm = new ReportParamsForm(additionalParams, report.Title);
+                        if (reportParamsForm.ShowDialog() != DialogResult.OK) return;
+                    }
+
+                    try
+                    {
+                        StartProgress();
+                        rs.LoadReport(report);
+                    }
+                    finally
+                    {
+                        StopProgress();
+                    }
                 }
-                finally
+                catch (Exception exception)
                 {
-                    StopProgress();
-                }                
-            }
-            catch (Exception exception)
-            {
-                new frmShowError(
-                    CustomExceptionHandler.ShowExceptionText(exception)
-                    ).ShowDialog();
-                throw;
-            }
-            
-            ReportViewerForm frm = new ReportViewerForm(report);
-            frm.Show();
+                    new frmShowError(
+                        CustomExceptionHandler.ShowExceptionText(exception)
+                        ).ShowDialog();
+                    throw;
+                }
+
+                ReportViewerForm frm = new ReportViewerForm(report);
+                frm.Show();
         }
 
         [Browsable(false)]
