@@ -1100,10 +1100,12 @@ namespace OpenCBS.GUI.Clients
 
         private void DisplaySaving(ISavingsContract saving)
         {
-            buttonCloseSaving.Visible = saving.Status == OSavingsStatus.Active;
+            buttonCloseSaving.Visible = pnlSavingsButtons.Visible = pnlSavingsButtons.Enabled
+                = buttonSavingsOperations.Enabled = buttonSavingsOperations.Visible
+                = saving.Status == OSavingsStatus.Active;
 
             saving = SavingServices.GetSaving(saving.Id);
-            tabControlSavingsDetails.Visible = buttonFirstDeposit.Enabled = buttonSavingsOperations.Enabled = true;
+            tabControlSavingsDetails.Visible = buttonFirstDeposit.Enabled = true;
             buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible = false;
             tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
             tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
