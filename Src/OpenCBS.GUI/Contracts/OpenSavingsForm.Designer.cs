@@ -49,6 +49,7 @@ namespace OpenCBS.GUI.Contracts
             this.lbTotalAmountValue = new System.Windows.Forms.Label();
             this.lbInitialAmountValue = new System.Windows.Forms.Label();
             this.lbEntryFeesValue = new System.Windows.Forms.Label();
+            this._errorLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbModifyInitialAmountEntryFees.SuspendLayout();
@@ -67,6 +68,7 @@ namespace OpenCBS.GUI.Contracts
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this._errorLabel);
             this.groupBox1.Controls.Add(this.bCancel);
             this.groupBox1.Controls.Add(this.bSave);
             resources.ApplyResources(this.groupBox1, "groupBox1");
@@ -174,6 +176,12 @@ namespace OpenCBS.GUI.Contracts
             resources.ApplyResources(this.lbEntryFeesValue, "lbEntryFeesValue");
             this.lbEntryFeesValue.Name = "lbEntryFeesValue";
             // 
+            // _errorLabel
+            // 
+            resources.ApplyResources(this._errorLabel, "_errorLabel");
+            this._errorLabel.ForeColor = System.Drawing.Color.Red;
+            this._errorLabel.Name = "_errorLabel";
+            // 
             // OpenSavingsForm
             // 
             this.AcceptButton = this.bSave;
@@ -187,6 +195,7 @@ namespace OpenCBS.GUI.Contracts
             this.Name = "OpenSavingsForm";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.gbModifyInitialAmountEntryFees.ResumeLayout(false);
             this.gbModifyInitialAmountEntryFees.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudInitialAmount)).EndInit();
@@ -217,5 +226,6 @@ namespace OpenCBS.GUI.Contracts
         private System.Windows.Forms.Label lbInitialAmountMinMax;
         private System.Windows.Forms.NumericUpDown udEntryFees;
         private System.Windows.Forms.NumericUpDown nudInitialAmount;
+        private System.Windows.Forms.Label _errorLabel;
     }
 }

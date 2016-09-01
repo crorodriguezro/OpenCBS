@@ -6750,7 +6750,7 @@ namespace OpenCBS.GUI.Clients
                     if (result == DialogResult.OK)
                     {
                         _saving.ReopenFees = openSavingsForm.EntryFees;
-                        _saving.InitialAmount = openSavingsForm.InitialAmount - _saving.ReopenFees;
+                        _saving.InitialAmount = openSavingsForm.InitialAmount;
                         SavingServices.Reopen(_saving.InitialAmount, _saving, TimeProvider.Now, User.CurrentUser, _client);
 
                         _saving = SavingServices.GetSaving(_saving.Id);

@@ -129,6 +129,15 @@ namespace OpenCBS.GUI.Contracts
 
             OCurrency total = _initialAmount + udEntryFees.Value;
             lbTotalAmountValue.Text = total.GetFormatedValue(UseCents) + " " + _savingsProduct.Currency.Code;
+
+            _errorLabel.Visible = false;
+            bSave.Enabled = true;
+            //TODO NEED TO REMOVE 14% HARDCORE!!!
+            if ((udEntryFees.Value + (udEntryFees.Value / 100*14)) > nudInitialAmount.Value)
+            {
+                bSave.Enabled = false;
+                _errorLabel.Visible = true;
+            }
         }
 
         private void bSave_Click(object sender, EventArgs e)
@@ -147,6 +156,15 @@ namespace OpenCBS.GUI.Contracts
             lbTotalAmountValue.Text = string.Format("{0} {1}", 
                 total.GetFormatedValue(UseCents), 
                 _savingsProduct.Currency.Code);
+
+            _errorLabel.Visible = false;
+            bSave.Enabled = true;
+            //TODO NEED TO REMOVE 14% HARDCORE!!!
+            if ((udEntryFees.Value + (udEntryFees.Value / 100 * 14)) > initialAmount)
+            {
+                bSave.Enabled = false;
+                _errorLabel.Visible = true;
+            }
         }
 
         private void nudInitialAmount_ValueChanged(object sender, EventArgs e)
@@ -160,6 +178,15 @@ namespace OpenCBS.GUI.Contracts
             lbTotalAmountValue.Text = string.Format("{0} {1}", 
                 total.GetFormatedValue(UseCents), 
                 _savingsProduct.Currency.Code);
+
+            _errorLabel.Visible = false;
+            bSave.Enabled = true;
+            //TODO NEED TO REMOVE 14% HARDCORE!!!
+            if ((udEntryFees.Value + (udEntryFees.Value / 100 * 14)) > initialAmount)
+            {
+                bSave.Enabled = false;
+                _errorLabel.Visible = true;
+            }
         }
     }
 }
