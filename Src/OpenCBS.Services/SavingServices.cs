@@ -1160,11 +1160,13 @@ namespace OpenCBS.Services
             OCurrency withdrawAmount, OCurrency closeFees, bool isDesactivateFees, Teller teller, PaymentMethod paymentMethod)
         {
             var balance = SimulateCloseAccount(saving, date, user, isDesactivateFees, teller).GetBalance(date);
-
-            if (balance != withdrawAmount)
+            
+            //TODO NEED TO REMOVE THIS HARDCORE 14%
+            if (balance != withdrawAmount + closeFees)
             {
                 throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.WithdrawAmountIsInvalid);
             }
+
             //TODO NEED TO REMOVE THIS HARDCORE 14%
             var events = saving.Withdraw((withdrawAmount - (closeFees / 100m * 14m)), date, "Withdraw savings", user, true,
                 Teller.CurrentTeller, paymentMethod);
