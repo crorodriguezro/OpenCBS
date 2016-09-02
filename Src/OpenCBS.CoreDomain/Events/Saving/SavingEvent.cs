@@ -99,7 +99,6 @@ namespace OpenCBS.CoreDomain.Events.Saving
 
             OCurrency retval = 0m;
             retval += GetAmountForBalance();
-            retval += GetFeeForBalance();
             return retval;
         }
 	}
