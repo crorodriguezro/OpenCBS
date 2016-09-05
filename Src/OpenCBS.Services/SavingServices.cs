@@ -887,24 +887,42 @@ namespace OpenCBS.Services
                         e.SavingsMethod = OSavingsMethods.Cash;
                         var parentId = _ePS.FireEventWithReturnId(e, sqlTransaction);
 
+                        object interceptorEvent = null;
+                        if (e.Code == "SDTE")
+                        {
+                            interceptorEvent = new SavingDebitTransferEvent
+                            {
+                                Id = e.Id,
+                                Code = e.Code,
+                                Amount = e.Amount,
+                                Description = e.Description,
+                                PaymentsMethod = e.PaymentMethod,
+                                Date = e.Date,
+                                Fee = e.Fee,
+                                Target = to
+                            };
+                        }
+                        if (e.Code == "SCTE")
+                        {
+                            interceptorEvent = new SavingCreditTransferEvent
+                            {
+                                Id = e.Id,
+                                Code = e.Code,
+                                Amount = e.Amount,
+                                Description = e.Description,
+                                PaymentsMethod = e.PaymentMethod,
+                                Date = e.Date,
+                                Fee = e.Fee,
+                                Target = to
+                            };
+                        }
+
                         ServicesProvider.GetInstance()
                             .GetContractServices()
                             .CallInterceptor(new Dictionary<string, object>
                             {
                                 {"Saving", from},
-                                {
-                                    "Event", new SavingDebitTransferEvent
-                                    {
-                                        Id = e.Id,
-                                        Code = e.Code,
-                                        Amount = e.Amount,
-                                        Description = e.Description,
-                                        PaymentsMethod = e.PaymentMethod,
-                                        Date = e.Date,
-                                        Fee = e.Fee,
-                                        Target = to
-                                    }
-                                },
+                                {"Event", interceptorEvent},
                                 {"SqlTransaction", sqlTransaction}
                             });
                         if (e.Code == "SDIT" || e.Code == "SDTE")
