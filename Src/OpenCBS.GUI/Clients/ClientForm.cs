@@ -5973,8 +5973,9 @@ namespace OpenCBS.GUI.Clients
                             closeSavingsForm.IsDesactivateCloseFees, Teller.CurrentTeller);
                     }
                     _saving = SavingServices.GetSaving(_saving.Id);
+                    var client = ServicesProvider.GetInstance().GetClientServices().FindTiers(_client.Id, _client.Type);
                     DisplaySaving(_saving);
-                    DisplaySavings(_client.Savings);
+                    DisplaySavings(client.Savings);
                     buttonReopenSaving.Visible = true;
                     break;
                 }
@@ -6755,7 +6756,8 @@ namespace OpenCBS.GUI.Clients
 
                         _saving = SavingServices.GetSaving(_saving.Id);
                         DisplaySaving(_saving);
-                        DisplaySavings(_client.Savings);
+                        var client = ServicesProvider.GetInstance().GetClientServices().FindTiers(_client.Id, _client.Type);
+                        DisplaySavings(client.Savings);
                         buttonReopenSaving.Visible = false;
                         buttonCloseSaving.Visible = true;
                     }
