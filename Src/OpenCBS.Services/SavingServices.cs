@@ -1010,88 +1010,84 @@ namespace OpenCBS.Services
 
         public SavingEvent CancelLastEvent(ISavingsContract saving, User user, string pDescription)
         {
-            if (string.IsNullOrEmpty(pDescription))
-                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.SavingsEventCommentIsEmpty);
-
-            Debug.Assert(_ePS != null, "Event processor is null");
-            SavingEvent lastSavingEvent = saving.GetCancelableEvent();
-
-            if (null == lastSavingEvent) return null;
-
-            // check for compulsory
-            if (saving is SavingBookContract)
-            {
-                if (lastSavingEvent is SavingDepositEvent)
-                {
-                    if (((SavingBookContract)saving).Loans != null && ((SavingBookContract)saving).Loans.Count > 0)
-                    {
-                        if (!IsCompulsorySavingBalanceOk(saving, lastSavingEvent.Amount))
-                            throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.SavingsEventCannotBeCanceled);
-                    }
-                }
-            }
-
-            //reversal transaction in accounting
-            if (lastSavingEvent is SavingCreditOperationEvent || lastSavingEvent is SavingDebitOperationEvent)
-            {
-                if (((SavingBookContract)saving).Loans != null && ((SavingBookContract)saving).Loans.Count > 0)
-                {
-                    if (!IsCompulsorySavingBalanceOk(saving, lastSavingEvent.Amount))
-                        throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.SavingsEventCannotBeCanceled);
-                }
-
-                Booking booking = ServicesProvider.GetInstance().GetAccountingServices().SelectBookingByEventId(lastSavingEvent.Id);
-                Booking reversalBooking = new Booking
-                {
-                    Currency = booking.Currency,
-                    User = User.CurrentUser,
-                    Amount = booking.Amount,
-                    Description = booking.Description,
-                    DebitAccount = booking.CreditAccount,
-                    CreditAccount = booking.DebitAccount,
-                    Date = TimeProvider.Now,
-                    EventId = lastSavingEvent.Id,
-                    ExchangeRate = booking.ExchangeRate,
-                    Branch = saving.Branch
-                };
-                ServicesProvider.GetInstance().GetAccountingServices().BookManualEntry(reversalBooking, User.CurrentUser);
-            }
-
-            // Cancelling event
-            lastSavingEvent.Description = pDescription;
-            lastSavingEvent = saving.CancelLastEvent();
-            _savingEventManager.UpdateEventDescription(lastSavingEvent.Id, pDescription);
-            lastSavingEvent.CancelDate = new DateTime(
-                                                        TimeProvider.Now.Year,
-                                                        TimeProvider.Now.Month,
-                                                        TimeProvider.Now.Day,
-                                                        TimeProvider.Now.Hour,
-                                                        TimeProvider.Now.Minute,
-                                                        TimeProvider.Now.Second
-                                                      );
-            _ePS.CancelFireEvent(lastSavingEvent, saving.Product.Currency.Id);
-
-            SavingEvent savingEvent = lastSavingEvent;
-            if (lastSavingEvent.PendingEventId != null)
-            {
-                savingEvent.Code = "SPDE";
-                savingEvent.Id = (int)lastSavingEvent.PendingEventId;
-                _ePS.CancelFireEvent(savingEvent, saving.Product.Currency.Id);
-            }
-
             using (var sqlTransaction = CoreDomain.DatabaseConnection.GetConnection().BeginTransaction())
             {
-                ServicesProvider.GetInstance().GetContractServices().CallInterceptor(
-                    new Dictionary<string, object>
-                                {
-                                    {"Event", lastSavingEvent},
-                                    {"Deleted", true},
-                                    {"SqlTransaction", sqlTransaction}
-                                });
-                sqlTransaction.Commit();
-            }
+                try
+                {
+                    if (string.IsNullOrEmpty(pDescription))
+                        throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.SavingsEventCommentIsEmpty);
 
-            return savingEvent;
+                    Debug.Assert(_ePS != null, "Event processor is null");
+                    var lastSavingEvent = saving.GetCancelableEvent();
+
+                    startCanseEvent:
+
+                    if (null == lastSavingEvent) return null;
+
+                    // check for compulsory
+                    if (saving is SavingBookContract)
+                    {
+                        if (lastSavingEvent is SavingDepositEvent)
+                        {
+                            if (((SavingBookContract) saving).Loans != null &&
+                                ((SavingBookContract) saving).Loans.Count > 0)
+                            {
+                                if (!IsCompulsorySavingBalanceOk(saving, lastSavingEvent.Amount))
+                                    throw new OpenCbsSavingException(
+                                        OpenCbsSavingExceptionEnum.SavingsEventCannotBeCanceled);
+                            }
+                        }
+                    }
+
+                    // Cancelling event
+                    lastSavingEvent.Description = pDescription;
+                    lastSavingEvent = saving.CancelLastEvent();
+                    _savingEventManager.UpdateEventDescription(lastSavingEvent.Id, pDescription, sqlTransaction);
+                    lastSavingEvent.CancelDate = new DateTime(
+                        TimeProvider.Now.Year,
+                        TimeProvider.Now.Month,
+                        TimeProvider.Now.Day,
+                        TimeProvider.Now.Hour,
+                        TimeProvider.Now.Minute,
+                        TimeProvider.Now.Second
+                        );
+                    _ePS.CancelFireEvent(lastSavingEvent, saving.Product.Currency.Id, sqlTransaction);
+
+                    var savingEvent = lastSavingEvent;
+                    if (lastSavingEvent.PendingEventId != null)
+                    {
+                        savingEvent.Code = "SPDE";
+                        savingEvent.Id = (int) lastSavingEvent.PendingEventId;
+                        _ePS.CancelFireEvent(savingEvent, saving.Product.Currency.Id, sqlTransaction);
+                    }
+
+                    ServicesProvider.GetInstance().GetContractServices().CallInterceptor(
+                        new Dictionary<string, object>
+                        {
+                            {"Event", lastSavingEvent},
+                            {"Deleted", true},
+                            {"SqlTransaction", sqlTransaction}
+                        });
+
+                    if (lastSavingEvent.Code == "STCE" || lastSavingEvent.Code == "SFCE")
+                    {
+                        lastSavingEvent = saving.Events.FirstOrDefault(x => x.Id == lastSavingEvent.ParentId.Value);
+                        if (lastSavingEvent != null)
+                        {
+                            goto startCanseEvent;
+                        }
+                    }
+
+                    sqlTransaction.Commit();
+
+                    return savingEvent;
+                }
+                catch (Exception error)
+                {
+                    sqlTransaction.Rollback();
+                    throw new Exception(error.Message);
+                }
+            }
         }
 
         public void DeleteLoanDisbursementSavingsEvent(Loan loan, Event evnt)

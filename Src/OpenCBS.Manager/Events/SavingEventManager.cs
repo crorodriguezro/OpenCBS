@@ -229,18 +229,32 @@ namespace OpenCBS.Manager.Events
             }
         }
 
-        public void UpdateEventDescription(int pSavingEventId, string pDescription)
+        public void UpdateEventDescription(int pSavingEventId, string pDescription, SqlTransaction tx = null)
         {
             const string q = @"UPDATE [SavingEvents] 
                                      SET [description] = @description 
                                      WHERE [id] = @id";
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            {
-                c.AddParam("@description", pDescription);
-                c.AddParam("@id", pSavingEventId);
 
-                c.ExecuteNonQuery();
+            if (tx != null)
+            {
+                using (var c = new OpenCbsCommand(q, tx.Connection, tx))
+                {
+                    c.AddParam("@description", pDescription);
+                    c.AddParam("@id", pSavingEventId);
+
+                    c.ExecuteNonQuery();
+                }
+            }
+            else
+            {
+                using (SqlConnection conn = GetConnection())
+                using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+                {
+                    c.AddParam("@description", pDescription);
+                    c.AddParam("@id", pSavingEventId);
+
+                    c.ExecuteNonQuery();
+                }
             }
         }
 
@@ -555,19 +569,31 @@ namespace OpenCBS.Manager.Events
 	        return e;
 	    }
 
-	    public void DeleteEventInDatabase(SavingEvent pSavingEvent)
+	    public void DeleteEventInDatabase(SavingEvent pSavingEvent, SqlTransaction tx = null)
 		{
 			const string q = @"UPDATE [SavingEvents] SET 
                                                                     [deleted] = 1
                                                                     , is_exported = 0 
                                                                     ,[cancel_date] = @cancel_date
                                                                     WHERE id = @id";
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            {
-                c.AddParam("@id", pSavingEvent.Id);
-                c.AddParam("@cancel_date", pSavingEvent.CancelDate.Value);
-                c.ExecuteNonQuery();
+	        if (tx != null)
+	        {
+                using (var c = new OpenCbsCommand(q, tx.Connection, tx))
+                {
+                    c.AddParam("@id", pSavingEvent.Id);
+                    c.AddParam("@cancel_date", pSavingEvent.CancelDate.Value);
+                    c.ExecuteNonQuery();
+                }
+            }
+	        else
+	        {
+                using (var conn = GetConnection())
+                using (var c = new OpenCbsCommand(q, conn))
+                {
+                    c.AddParam("@id", pSavingEvent.Id);
+                    c.AddParam("@cancel_date", pSavingEvent.CancelDate.Value);
+                    c.ExecuteNonQuery();
+                }
             }
 		}
 

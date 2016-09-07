@@ -286,9 +286,9 @@ namespace OpenCBS.Services.Events
            CancelEventOrigination(e, sqlTransac);
 		}
 
-        public void CancelFireEvent(SavingEvent savingEvent, int currencyId)
+        public void CancelFireEvent(SavingEvent savingEvent, int currencyId, SqlTransaction tx = null)
         {
-            _savingEventManagement.DeleteEventInDatabase(savingEvent);
+            _savingEventManagement.DeleteEventInDatabase(savingEvent, tx);
         }
 
         private void LoanRepaymentOrigination(RepaymentEvent repaymentEvent, Loan loanContract, SqlTransaction sqlTransac)
