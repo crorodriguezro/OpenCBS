@@ -180,7 +180,7 @@ namespace OpenCBS.Services
             if (!Enum.IsDefined(typeof(OSavingInterestBase), savingsProduct.InterestBase.ToString()))
                 throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.InterestsBaseIsInvalid);
             if (savingsProduct.InterestBase == OSavingInterestBase.Monthly && (savingsProduct.InterestFrequency != OSavingInterestFrequency.EndOfYear
-                && savingsProduct.InterestFrequency != OSavingInterestFrequency.EndOfMonth))
+                && savingsProduct.InterestFrequency != OSavingInterestFrequency.EndOfMonth && savingsProduct.InterestFrequency != OSavingInterestFrequency.EndOfContract))
                 throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.InterestBaseIncompatibleFrequency);
             if (savingsProduct.InterestBase == OSavingInterestBase.Weekly && (savingsProduct.InterestFrequency == OSavingInterestFrequency.EndOfDay))
                 throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.InterestBaseIncompatibleFrequency);

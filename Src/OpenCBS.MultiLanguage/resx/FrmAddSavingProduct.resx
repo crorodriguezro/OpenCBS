@@ -201,4 +201,10 @@
   <data name="Withdrawal.Text" xml:space="preserve">
     <value>Withdrawal</value>
   </data>
+  <data name="EndOfContract" xml:space="preserve">
+    <value>End of contract</value>
+  </data>
+  <data name="EndOfContract.Text" xml:space="preserve">
+    <value>End of contract</value>
+  </data>
 </root>

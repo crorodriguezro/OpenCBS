@@ -29,6 +29,7 @@ namespace OpenCBS.Enums
         EndOfDay = 10,
         EndOfWeek = 20,
         EndOfMonth = 30,
-        EndOfYear = 40
+        EndOfYear = 40,
+        EndOfContract = 50
     }
 }
