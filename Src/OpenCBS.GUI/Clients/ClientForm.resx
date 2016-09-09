@@ -10256,10 +10256,9 @@ Max:
   <data name="buttonManualSchedule.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-<<<<<<< HEAD
   <data name="buttonManualSchedule.Location" type="System.Drawing.Point, System.Drawing">
     <value>295, 3</value>
-=======
+      </data>
   <metadata name="imageListTab.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>907, 15</value>
   </metadata>
@@ -10394,7 +10393,6 @@ Max:
         AQEDAAEBAwABAQMAAQMDAAEBAwABAQMAAQMDAAEPAYACAAEHAYACAAEHAYACAAEPAYACAAEPAcACAAEP
         AcACAAEPCw==
 </value>
->>>>>>> 8d39dec50f672e7cf5d42fde044249f1379e9285
   </data>
   <data name="buttonManualSchedule.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 28</value>
