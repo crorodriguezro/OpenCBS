@@ -769,8 +769,7 @@ namespace OpenCBS.GUI.Clients
                 savingDepositToolStripMenuItem.Enabled = true;
                 savingWithdrawToolStripMenuItem.Enabled = true;
                 savingTransferToolStripMenuItem.Enabled = true;
-
-                nudEntryFees.DecimalPlaces = 0;
+                
                 nudEntryFees.Increment = 1;
                 // entry fees
                 if (((SavingsBookProduct)product).EntryFees.HasValue)
@@ -794,7 +793,6 @@ namespace OpenCBS.GUI.Clients
                 // withdraw fees
                 if (((SavingsBookProduct)product).WithdrawFeesType == OSavingsFeesType.Flat)
                 {
-                    nudWithdrawFees.DecimalPlaces = 0;
                     nudWithdrawFees.Increment = 1;
                     if (((SavingsBookProduct)product).FlatWithdrawFees.HasValue)
                     {
@@ -903,7 +901,6 @@ namespace OpenCBS.GUI.Clients
                 }
 
                 //Cash Deposit fees
-                nudDepositFees.DecimalPlaces = 0;
                 nudDepositFees.Increment = 1;
                 if (((SavingsBookProduct)product).DepositFees.HasValue)
                 {
@@ -926,7 +923,6 @@ namespace OpenCBS.GUI.Clients
                 }
 
                 //Cheque Deposit fees
-                nudChequeDepositFees.DecimalPlaces = 0;
                 nudChequeDepositFees.Increment = 1;
                 if (((SavingsBookProduct)product).ChequeDepositFees.HasValue)
                 {
@@ -949,7 +945,6 @@ namespace OpenCBS.GUI.Clients
                 }
 
                 // Close fees
-                nudCloseFees.DecimalPlaces = 0;
                 nudCloseFees.Increment = 1;
                 if (((SavingsBookProduct)product).CloseFees.HasValue)
                 {
@@ -971,7 +966,6 @@ namespace OpenCBS.GUI.Clients
                 }
 
                 // Management fees
-                nudManagementFees.DecimalPlaces = 0;
                 nudManagementFees.Increment = 1;
                 if (((SavingsBookProduct)product).ManagementFees.HasValue)
                 {
@@ -993,7 +987,6 @@ namespace OpenCBS.GUI.Clients
                 }
 
                 // Overdraft fees
-                nudOverdraftFees.DecimalPlaces = 0;
                 nudOverdraftFees.Increment = 1;
                 if (((SavingsBookProduct)product).OverdraftFees.HasValue)
                 {
@@ -1035,7 +1028,6 @@ namespace OpenCBS.GUI.Clients
                 }
 
                 //Reopen fees
-                nudReopenFees.DecimalPlaces = 0;
                 nudReopenFees.Increment = 1;
 
                 if (((SavingsBookProduct)product).ReopenFees.HasValue)
@@ -5073,7 +5065,7 @@ namespace OpenCBS.GUI.Clients
             }
 
             // Close fees
-            nudCloseFees.DecimalPlaces = 0;
+            //nudCloseFees.DecimalPlaces = 0;
             nudCloseFees.Increment = 1;
             if (((SavingsBookProduct)product).CloseFees.HasValue)
             {
@@ -5170,7 +5162,6 @@ namespace OpenCBS.GUI.Clients
             }
 
             //Cash Deposit fees
-            nudDepositFees.DecimalPlaces = 0;
             nudDepositFees.Increment = 1;
             if (((SavingsBookProduct)product).DepositFees.HasValue)
             {
@@ -5205,7 +5196,7 @@ namespace OpenCBS.GUI.Clients
             }
 
             //Reopen fees
-            nudReopenFees.DecimalPlaces = 0;
+            //nudReopenFees.DecimalPlaces = 0;
             nudReopenFees.Increment = 1;
 
             if (((SavingsBookProduct)product).ReopenFees.HasValue)

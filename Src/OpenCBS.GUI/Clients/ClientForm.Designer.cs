@@ -3240,6 +3240,7 @@ namespace OpenCBS.GUI.Clients
             // 
             // nudReopenFees
             // 
+            this.nudReopenFees.DecimalPlaces = 2;
             resources.ApplyResources(this.nudReopenFees, "nudReopenFees");
             this.nudReopenFees.Maximum = new decimal(new int[] {
             999999999,
@@ -3292,7 +3293,7 @@ namespace OpenCBS.GUI.Clients
             // 
             // nudDownInterestRate
             // 
-            this.nudDownInterestRate.DecimalPlaces = 4;
+            this.nudDownInterestRate.DecimalPlaces = 2;
             resources.ApplyResources(this.nudDownInterestRate, "nudDownInterestRate");
             this.nudDownInterestRate.Increment = new decimal(new int[] {
             1,
@@ -3313,6 +3314,7 @@ namespace OpenCBS.GUI.Clients
             // 
             // nudEntryFees
             // 
+            this.nudEntryFees.DecimalPlaces = 2;
             resources.ApplyResources(this.nudEntryFees, "nudEntryFees");
             this.nudEntryFees.Maximum = new decimal(new int[] {
             999999999,
@@ -3323,6 +3325,7 @@ namespace OpenCBS.GUI.Clients
             // 
             // nudCloseFees
             // 
+            this.nudCloseFees.DecimalPlaces = 2;
             resources.ApplyResources(this.nudCloseFees, "nudCloseFees");
             this.nudCloseFees.Maximum = new decimal(new int[] {
             999999999,
@@ -3368,6 +3371,7 @@ namespace OpenCBS.GUI.Clients
             // 
             // nudManagementFees
             // 
+            this.nudManagementFees.DecimalPlaces = 2;
             resources.ApplyResources(this.nudManagementFees, "nudManagementFees");
             this.nudManagementFees.Maximum = new decimal(new int[] {
             999999999,
@@ -3389,6 +3393,7 @@ namespace OpenCBS.GUI.Clients
             // 
             // nudDownInitialAmount
             // 
+            this.nudDownInitialAmount.DecimalPlaces = 2;
             resources.ApplyResources(this.nudDownInitialAmount, "nudDownInitialAmount");
             this.nudDownInitialAmount.Maximum = new decimal(new int[] {
             999999999,
@@ -3418,6 +3423,7 @@ namespace OpenCBS.GUI.Clients
             // 
             // nudWithdrawFees
             // 
+            this.nudWithdrawFees.DecimalPlaces = 2;
             resources.ApplyResources(this.nudWithdrawFees, "nudWithdrawFees");
             this.nudWithdrawFees.Maximum = new decimal(new int[] {
             999999999,
@@ -3428,6 +3434,7 @@ namespace OpenCBS.GUI.Clients
             // 
             // nudDepositFees
             // 
+            this.nudDepositFees.DecimalPlaces = 2;
             resources.ApplyResources(this.nudDepositFees, "nudDepositFees");
             this.nudDepositFees.Maximum = new decimal(new int[] {
             999999999,

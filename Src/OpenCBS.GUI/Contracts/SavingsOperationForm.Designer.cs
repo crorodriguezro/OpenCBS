@@ -36,6 +36,8 @@ namespace OpenCBS.GUI.Contracts
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gbxMainWindow = new System.Windows.Forms.GroupBox();
+            this._chequeNumberTextBox = new System.Windows.Forms.TextBox();
+            this._chequeNumberLabel = new System.Windows.Forms.Label();
             this.nudTotalAmount = new System.Windows.Forms.NumericUpDown();
             this.nudAmount = new System.Windows.Forms.NumericUpDown();
             this.rbxCredit = new System.Windows.Forms.RadioButton();
@@ -65,8 +67,6 @@ namespace OpenCBS.GUI.Contracts
             this.cbSavingsMethod = new System.Windows.Forms.ComboBox();
             this.cbxPending = new System.Windows.Forms.CheckBox();
             this.lblPaymentMethod = new System.Windows.Forms.Label();
-            this._chequeNumberLabel = new System.Windows.Forms.Label();
-            this._chequeNumberTextBox = new System.Windows.Forms.TextBox();
             this.gbxMainWindow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTotalAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).BeginInit();
@@ -118,8 +118,19 @@ namespace OpenCBS.GUI.Contracts
             this.gbxMainWindow.Name = "gbxMainWindow";
             this.gbxMainWindow.TabStop = false;
             // 
+            // _chequeNumberTextBox
+            // 
+            resources.ApplyResources(this._chequeNumberTextBox, "_chequeNumberTextBox");
+            this._chequeNumberTextBox.Name = "_chequeNumberTextBox";
+            // 
+            // _chequeNumberLabel
+            // 
+            resources.ApplyResources(this._chequeNumberLabel, "_chequeNumberLabel");
+            this._chequeNumberLabel.Name = "_chequeNumberLabel";
+            // 
             // nudTotalAmount
             // 
+            this.nudTotalAmount.DecimalPlaces = 2;
             this.nudTotalAmount.Increment = new decimal(new int[] {
             0,
             0,
@@ -131,6 +142,7 @@ namespace OpenCBS.GUI.Contracts
             // 
             // nudAmount
             // 
+            this.nudAmount.DecimalPlaces = 2;
             resources.ApplyResources(this.nudAmount, "nudAmount");
             this.nudAmount.Name = "nudAmount";
             this.nudAmount.ValueChanged += new System.EventHandler(this.nudAmount_ValueChanged);
@@ -155,6 +167,7 @@ namespace OpenCBS.GUI.Contracts
             // 
             // updAmountFees
             // 
+            this.updAmountFees.DecimalPlaces = 2;
             resources.ApplyResources(this.updAmountFees, "updAmountFees");
             this.updAmountFees.Name = "updAmountFees";
             this.updAmountFees.ValueChanged += new System.EventHandler(this.nudAmount_ValueChanged);
@@ -307,16 +320,6 @@ namespace OpenCBS.GUI.Contracts
             resources.ApplyResources(this.lblPaymentMethod, "lblPaymentMethod");
             this.lblPaymentMethod.BackColor = System.Drawing.Color.Transparent;
             this.lblPaymentMethod.Name = "lblPaymentMethod";
-            // 
-            // _chequeNumberLabel
-            // 
-            resources.ApplyResources(this._chequeNumberLabel, "_chequeNumberLabel");
-            this._chequeNumberLabel.Name = "_chequeNumberLabel";
-            // 
-            // _chequeNumberTextBox
-            // 
-            resources.ApplyResources(this._chequeNumberTextBox, "_chequeNumberTextBox");
-            this._chequeNumberTextBox.Name = "_chequeNumberTextBox";
             // 
             // SavingsOperationForm
             // 
