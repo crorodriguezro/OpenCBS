@@ -1229,16 +1229,16 @@ namespace OpenCBS.GUI.Clients
             InitSavingsBookPrintButton();
 
             LoadSavingsExtensions();
-
-            menuBtnAddSavingOperation.Items.Clear();
+            
             if (saving.Status == OSavingsStatus.Active && saving.Product.Type == OSavingProductType.ShortTermDeposit)
-                menuBtnAddSavingOperation.Items.AddRange(new ToolStripItem[] { savingWithdrawToolStripMenuItem});
+            {
+                buttonSavingsOperations.Visible = false;
+                buttonCloseSaving.Text = @"Withdrawal";
+            }
             else
             {
-                menuBtnAddSavingOperation.Items.AddRange(new ToolStripItem[] {
-                    savingDepositToolStripMenuItem,
-                    savingWithdrawToolStripMenuItem,
-                    savingTransferToolStripMenuItem});
+                buttonSavingsOperations.Visible = true;
+                buttonCloseSaving.Text = @"Close";
             }
         }
 
