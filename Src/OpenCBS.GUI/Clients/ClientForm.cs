@@ -684,7 +684,17 @@ namespace OpenCBS.GUI.Clients
                 tabControlSavingsDetails.TabPages.Add(tabPageSavingsAmountsAndFees);
                 tabControlSavingsDetails.TabPages.Add(tabPageSavingsEvents);
             }
-            
+            if (product.Type == OSavingProductType.ShortTermDeposit)
+            {
+                if (!tabControlSavingsDetails.TabPages.Contains(tpTermDeposit))
+                    tabControlSavingsDetails.TabPages.Add(tpTermDeposit);
+            }
+            else
+            {
+                if (tabControlSavingsDetails.TabPages.Contains(tpTermDeposit))
+                    tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
+            }
+
             lbInitialAmountMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
                 "Min ", product.InitialAmountMin.GetFormatedValue(product.Currency.UseCents),
                 "Max ", product.InitialAmountMax.GetFormatedValue(product.Currency.UseCents), product.Currency.Code);
@@ -5270,7 +5280,7 @@ namespace OpenCBS.GUI.Clients
 
                 InitializeSavingsGeneralControls();
                 buttonCloseSaving.Visible = _saving.Status == OSavingsStatus.Closed;
-                InitializeTabPageTermDeposit();
+                InitializeTabPageTermDeposit(product.Type == OSavingProductType.ShortTermDeposit);
 
                 btSavingsUpdate.Visible = false;
 
@@ -5296,7 +5306,7 @@ namespace OpenCBS.GUI.Clients
             }
         }
 
-        private void InitializeTabPageTermDeposit()
+        private void InitializeTabPageTermDeposit(bool isTernDeposit = false)
         {
             cmbRollover2.DataSource = (from item in Enum.GetNames(typeof(OSavingsRollover))
                                        select new
@@ -5329,7 +5339,8 @@ namespace OpenCBS.GUI.Clients
                     }
                     else
                     {
-                        tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
+                        if (!isTernDeposit)
+                            tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
                     }
                 }
                 else
@@ -5347,7 +5358,8 @@ namespace OpenCBS.GUI.Clients
                     }
                     else
                     {
-                        tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
+                        if(!isTernDeposit)
+                            tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
                     }
                 }
                 lblLimitOfTermDepositPeriod.Text = string.Format("Min: {0}\nMax: {1}",
