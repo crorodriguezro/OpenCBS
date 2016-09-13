@@ -485,7 +485,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
         {
             if (0 == Events.Count) return null;
 
-            var evt = Events.OrderBy(item => item.Date).LastOrDefault(item => !item.Deleted);
+            var evt = Events.OrderBy(item => item.Date).LastOrDefault(item => !item.Deleted && item.Code != "SFCE" && item.Code != "STCE");
 
             return evt != null && evt.Cancelable ? evt : null;
         }
