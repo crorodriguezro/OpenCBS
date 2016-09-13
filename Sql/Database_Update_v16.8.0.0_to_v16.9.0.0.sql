@@ -13,7 +13,7 @@ delete from dbo.ActionItems where method_name = 'CancelLastSavingEvent'
 insert into dbo.ActionItems(class_name, method_name)
 values('SavingServices', 'CancelLastSavingEvent')
 
-go
+GO
 
 declare @actionUtemId int = (select id from dbo.ActionItems where method_name = 'CancelLastSavingEvent')
 
@@ -46,4 +46,4 @@ values
 ,(@actionUtemId, @itRoleId        , @allowIt        )
 ,(@actionUtemId, @accountingRoleId, @allowAccounting)
 
-go
+GO
