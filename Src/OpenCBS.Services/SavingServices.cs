@@ -1014,6 +1014,8 @@ namespace OpenCBS.Services
             {
                 try
                 {
+                    var alreadyDeleted = false;
+                    SavingEvent mainEvent = null;
                     if (string.IsNullOrEmpty(pDescription))
                         throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.SavingsEventCommentIsEmpty);
 
@@ -1042,6 +1044,9 @@ namespace OpenCBS.Services
                     // Cancelling event
                     lastSavingEvent.Description = pDescription;
                     lastSavingEvent = saving.CancelLastEvent();
+
+                    removeEvent:
+
                     _savingEventManager.UpdateEventDescription(lastSavingEvent.Id, pDescription, sqlTransaction);
                     lastSavingEvent.CancelDate = new DateTime(
                         TimeProvider.Now.Year,
@@ -1069,7 +1074,7 @@ namespace OpenCBS.Services
                             {"SqlTransaction", sqlTransaction}
                         });
 
-                    if (lastSavingEvent.Code == "STCE" || lastSavingEvent.Code == "SFCE")
+                    if ((lastSavingEvent.Code == "STCE" || lastSavingEvent.Code == "SFCE") && !alreadyDeleted)
                     {
                         lastSavingEvent = saving.Events.FirstOrDefault(x => x.Id == lastSavingEvent.ParentId.Value);
                         if (lastSavingEvent != null)
@@ -1077,10 +1082,22 @@ namespace OpenCBS.Services
                             goto startCanseEvent;
                         }
                     }
+                    else
+                    {
+                        lastSavingEvent = saving.Events.FirstOrDefault(x => x.ParentId != null && x.ParentId.Value == lastSavingEvent.Id);
+                        if (lastSavingEvent != null && !lastSavingEvent.Deleted)
+                        {
+                            if (!alreadyDeleted)
+                                mainEvent = savingEvent;
+                            lastSavingEvent.Description = pDescription;
+                            alreadyDeleted = true;
+                            goto removeEvent;
+                        }
+                    }
 
                     sqlTransaction.Commit();
 
-                    return savingEvent;
+                    return mainEvent != null ? mainEvent : savingEvent;
                 }
                 catch (Exception error)
                 {

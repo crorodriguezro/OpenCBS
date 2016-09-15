@@ -5886,14 +5886,29 @@ namespace OpenCBS.GUI.Clients
                             ((SavingBookContract)_saving).Loans = SavingServices.SelectLoansBySavingsId(_saving.Id);
 
                         SavingEvent sEvent = SavingServices.CancelLastEvent(_saving, User.CurrentUser, frm.Comment);
-
+                        var feeEvent = _saving.Events.FirstOrDefault(x => x.ParentId == sEvent.Id);
+                        var taxEvent = _saving.Events.FirstOrDefault(x => x.ParentId != null && feeEvent != null && x.ParentId == feeEvent.Id);
                         for (int i = 0; i <= _saving.Events.Count - 1; i++)
+                        {
                             if (_saving.Events[i].Id == sEvent.Id)
                             {
                                 SavingEvent temp = _saving.Events[i];
                                 temp.Deleted = true;
                                 _saving.Events[i] = temp;
                             }
+                            if (feeEvent != null && _saving.Events[i].Id == feeEvent.Id)
+                            {
+                                SavingEvent temp = _saving.Events[i];
+                                temp.Deleted = true;
+                                _saving.Events[i] = temp;
+                            }
+                            if (taxEvent != null && _saving.Events[i].Id == taxEvent.Id)
+                            {
+                                SavingEvent temp = _saving.Events[i];
+                                temp.Deleted = true;
+                                _saving.Events[i] = temp;
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {
