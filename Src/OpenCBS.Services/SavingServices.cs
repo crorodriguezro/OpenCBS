@@ -1057,6 +1057,10 @@ namespace OpenCBS.Services
                         TimeProvider.Now.Second
                         );
                     _ePS.CancelFireEvent(lastSavingEvent, saving.Product.Currency.Id, sqlTransaction);
+                    if (lastSavingEvent.Code == "SVCE")
+                    {
+                        _savingManager.UpdateStatus(saving.Id, OSavingsStatus.Active, lastSavingEvent.CancelDate, sqlTransaction);
+                    }
 
                     var savingEvent = lastSavingEvent;
                     if (lastSavingEvent.PendingEventId != null)

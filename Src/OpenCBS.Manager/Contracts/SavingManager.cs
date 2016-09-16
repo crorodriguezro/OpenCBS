@@ -926,9 +926,23 @@ namespace OpenCBS.Manager.Contracts
             } 
         }
 
-        public void UpdateStatus(int savingId, OSavingsStatus status, DateTime? closedDate)
+        public void UpdateStatus(int savingId, OSavingsStatus status, DateTime? closedDate, SqlTransaction tx = null)
         {
             const string sqlText = @"UPDATE SavingContracts SET status = @status, closed_date = @closedDate WHERE id = @id";
+
+            if (tx != null)
+            {
+                try
+                {
+                    tx.Connection.Execute(sqlText, new { status, closedDate, id = savingId }, tx);
+                }
+                catch (Exception error)
+                {
+                    throw new Exception(error.Message);
+                }
+                return;
+            }
+
             using (SqlConnection conn = GetConnection())
             using (OpenCbsCommand update = new OpenCbsCommand(sqlText, conn))
             {

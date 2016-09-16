@@ -1102,12 +1102,10 @@ namespace OpenCBS.GUI.Clients
 
         private void DisplaySaving(ISavingsContract saving)
         {
-            buttonCloseSaving.Visible = pnlSavingsButtons.Visible = pnlSavingsButtons.Enabled
-                = buttonSavingsOperations.Enabled = buttonSavingsOperations.Visible
+            buttonCloseSaving.Visible = buttonSavingsOperations.Enabled = buttonSavingsOperations.Visible
                 = saving.Status == OSavingsStatus.Active;
 
             saving = SavingServices.GetSaving(saving.Id);
-            tabControlSavingsDetails.Visible = buttonFirstDeposit.Enabled = true;
             buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible = false;
             tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
             tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
@@ -1247,7 +1245,7 @@ namespace OpenCBS.GUI.Clients
             }
             else
             {
-                buttonSavingsOperations.Visible = true;
+                buttonSavingsOperations.Visible = saving.Status == OSavingsStatus.Active;
                 buttonCloseSaving.Text = @"Close";
             }
         }
@@ -5436,7 +5434,8 @@ namespace OpenCBS.GUI.Clients
 
             lbSavingBalanceValue.Text = pSaving.GetFmtBalance(true);
             lbSavingAvBalanceValue.Text = pSaving.GetFmtAvailBalance(true);
-            btCancelLastSavingEvent.Visible = _saving.HasCancelableEvents();
+            btCancelLastSavingEvent.Visible = _saving.Status == OSavingsStatus.Active || _saving.Status == OSavingsStatus.Closed;
+            buttonSavingsOperations.Visible = _saving.Status == OSavingsStatus.Active;
 
             lvSavingEvent.Items.Clear();
             IEnumerable<SavingEvent> events = pSaving.Events.OrderBy(item => item.Date.Date);
@@ -5591,9 +5590,10 @@ namespace OpenCBS.GUI.Clients
                 InitializeSavingsFees();
                 buttonCloseSaving.Visible = _saving.Status == OSavingsStatus.Closed;
                 buttonFirstDeposit.Visible = nudManagementFees.Enabled = nudCloseFees.Enabled = nudReopenFees.Enabled = buttonSaveSaving.Visible = false;
-                pnlSavingsButtons.Enabled = buttonSavingsOperations.Enabled = btCancelLastSavingEvent.Enabled = flowLayoutPanel9.Enabled = buttonCloseSaving.Visible = true;
+                pnlSavingsButtons.Enabled = buttonSavingsOperations.Enabled = flowLayoutPanel9.Enabled = buttonCloseSaving.Visible = true;
                 nudDownInitialAmount.Enabled =  false;
-                btCancelLastSavingEvent.Visible = _saving.HasCancelableEvents();
+                btCancelLastSavingEvent.Visible = _saving.Status == OSavingsStatus.Active || _saving.Status == OSavingsStatus.Closed;
+                buttonSavingsOperations.Visible = _saving.Status == OSavingsStatus.Active;
             }
             catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
             {
@@ -5909,13 +5909,14 @@ namespace OpenCBS.GUI.Clients
                                 _saving.Events[i] = temp;
                             }
                         }
+                        if (sEvent.Code == "SVCE")
+                            _saving.Status = OSavingsStatus.Active;
                     }
                     catch (Exception ex)
                     {
                         new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
                     }
 
-//                    ((MainView)_mdiParent).ReloadAlertsSync();
 
                     DisplaySavingEvent(_saving);
 
