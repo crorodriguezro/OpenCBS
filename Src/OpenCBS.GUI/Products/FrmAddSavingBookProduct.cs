@@ -860,6 +860,7 @@ namespace OpenCBS.GUI.Configuration
             gbInitialAmount.Visible = true;
             if (tabControlSaving.TabPages.Contains(tabPageOverdraft))
                 tabControlSaving.TabPages.Remove(tabPageOverdraft);
+            clientTypeAllCheckBox.Visible = clientTypeGroupCheckBox.Enabled = clientTypeVillageCheckBox.Enabled = true;
         }
 
         private void _shortTermDepositRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -868,6 +869,8 @@ namespace OpenCBS.GUI.Configuration
             _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible = true;
             if (!tabControlSaving.TabPages.Contains(tabPageOverdraft))
                 tabControlSaving.TabPages.Add(tabPageOverdraft);
+            clientTypeAllCheckBox.Visible = clientTypeGroupCheckBox.Enabled = clientTypeVillageCheckBox.Enabled
+                = clientTypeGroupCheckBox.Checked = clientTypeVillageCheckBox.Checked = false;
         }
 
         private void _savingRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -876,6 +879,7 @@ namespace OpenCBS.GUI.Configuration
             _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible = false;
             if (!tabControlSaving.TabPages.Contains(tabPageOverdraft))
                 tabControlSaving.TabPages.Add(tabPageOverdraft);
+            clientTypeAllCheckBox.Visible = clientTypeGroupCheckBox.Enabled = clientTypeVillageCheckBox.Enabled = true;
         }
 
         private void tbWithdrawFeesMin_TextChanged_1(object sender, EventArgs e)
