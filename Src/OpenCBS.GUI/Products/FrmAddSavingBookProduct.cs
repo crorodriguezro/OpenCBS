@@ -856,7 +856,8 @@ namespace OpenCBS.GUI.Configuration
         private void _personalAccountRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             gbInterestRate.Visible = gbFrequency.Visible = gbBalance.Visible = false;
-            _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible = false;
+            _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible
+                = gbNumberOfPeriods.Visible = false;
             gbInitialAmount.Visible = true;
             if (tabControlSaving.TabPages.Contains(tabPageOverdraft))
                 tabControlSaving.TabPages.Remove(tabPageOverdraft);
@@ -866,7 +867,8 @@ namespace OpenCBS.GUI.Configuration
         private void _shortTermDepositRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             gbInitialAmount.Visible = gbInterestRate.Visible = gbFrequency.Visible = gbBalance.Visible =
-            _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible = true;
+            _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible
+                = gbNumberOfPeriods.Visible = true;
             if (!tabControlSaving.TabPages.Contains(tabPageOverdraft))
                 tabControlSaving.TabPages.Add(tabPageOverdraft);
             clientTypeAllCheckBox.Visible = clientTypeGroupCheckBox.Enabled = clientTypeVillageCheckBox.Enabled
@@ -876,7 +878,8 @@ namespace OpenCBS.GUI.Configuration
         private void _savingRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             gbInitialAmount.Visible = gbInterestRate.Visible = gbFrequency.Visible = gbBalance.Visible = true;
-            _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible = false;
+            _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible
+                = gbNumberOfPeriods.Visible = false;
             if (!tabControlSaving.TabPages.Contains(tabPageOverdraft))
                 tabControlSaving.TabPages.Add(tabPageOverdraft);
             clientTypeAllCheckBox.Visible = clientTypeGroupCheckBox.Enabled = clientTypeVillageCheckBox.Enabled = true;
