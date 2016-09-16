@@ -5108,7 +5108,6 @@ namespace OpenCBS.GUI.Clients
             //Withdrawal fees
             if (((SavingsBookProduct)product).WithdrawFeesType == OSavingsFeesType.Flat)
             {
-                nudWithdrawFees.DecimalPlaces = 0;
                 nudWithdrawFees.Increment = 1;
                 if (((SavingsBookProduct)product).FlatWithdrawFees.HasValue)
                 {
