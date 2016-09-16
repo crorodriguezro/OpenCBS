@@ -1060,7 +1060,23 @@ namespace OpenCBS.Services
                     if (lastSavingEvent.Code == "SVCE")
                     {
                         _savingManager.UpdateStatus(saving.Id, OSavingsStatus.Active, lastSavingEvent.CancelDate, sqlTransaction);
+                        var withdrawEvent = saving.Events.FirstOrDefault(x => x.Id == lastSavingEvent.ParentId.Value);
+                        if (withdrawEvent != null)
+                        {
+                            withdrawEvent.CancelDate = lastSavingEvent.CancelDate;
+                            withdrawEvent.Description = lastSavingEvent.Description;
+                            _ePS.CancelFireEvent(withdrawEvent, saving.Product.Currency.Id, sqlTransaction);
+                            ServicesProvider.GetInstance().GetContractServices().CallInterceptor(
+                                new Dictionary<string, object>
+                                {
+                                    {"Event", lastSavingEvent},
+                                    {"Deleted", true},
+                                    {"SqlTransaction", sqlTransaction}
+                                });
+                        }
                     }
+                    if (lastSavingEvent.Code == "SVRE")
+                        _savingManager.UpdateStatus(saving.Id, OSavingsStatus.Closed, lastSavingEvent.CancelDate, sqlTransaction);
 
                     var savingEvent = lastSavingEvent;
                     if (lastSavingEvent.PendingEventId != null)
@@ -1211,11 +1227,18 @@ namespace OpenCBS.Services
             {
                 try
                 {
+                    var withdrawEventId = 0;
                     foreach (var savingEvent in events)
                     {
                         if (savingEvent.Code == "SVCE")
+                        {
                             savingEvent.Fee = 0;
+                            if (withdrawEventId != 0)
+                                savingEvent.ParentId = withdrawEventId;
+                        }
                         var parentId = _ePS.FireEventWithReturnId(savingEvent, saving, sqlTransaction);
+                        if (savingEvent.Code == "SVWE")
+                            withdrawEventId = parentId;
                         ServicesProvider.GetInstance()
                             .GetContractServices()
                             .CallInterceptor(new Dictionary<string, object>

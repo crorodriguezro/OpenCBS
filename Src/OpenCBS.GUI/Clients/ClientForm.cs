@@ -5887,6 +5887,7 @@ namespace OpenCBS.GUI.Clients
                         SavingEvent sEvent = SavingServices.CancelLastEvent(_saving, User.CurrentUser, frm.Comment);
                         var feeEvent = _saving.Events.FirstOrDefault(x => x.ParentId == sEvent.Id);
                         var taxEvent = _saving.Events.FirstOrDefault(x => x.ParentId != null && feeEvent != null && x.ParentId == feeEvent.Id);
+                        var withdrawEventOfCloseEvents = _saving.Events.FirstOrDefault(x => sEvent.ParentId != null && x.Id == sEvent.ParentId);
                         for (int i = 0; i <= _saving.Events.Count - 1; i++)
                         {
                             if (_saving.Events[i].Id == sEvent.Id)
@@ -5907,15 +5908,38 @@ namespace OpenCBS.GUI.Clients
                                 temp.Deleted = true;
                                 _saving.Events[i] = temp;
                             }
+                            if (withdrawEventOfCloseEvents != null && _saving.Events[i].Id == withdrawEventOfCloseEvents.Id)
+                            {
+                                SavingEvent temp = _saving.Events[i];
+                                temp.Deleted = true;
+                                _saving.Events[i] = temp;
+                            }
                         }
                         if (sEvent.Code == "SVCE")
+                        {
                             _saving.Status = OSavingsStatus.Active;
+                            groupBoxSaving.Text = string.Format("{0} : {1}",
+                                    MultiLanguageStrings.GetString(Ressource.ClientForm,
+                                        _saving is SavingBookContract ? "SavingsBook.Text" : "CompulsorySavings.Text"),
+                                    MultiLanguageStrings.GetString(Ressource.ClientForm, "Savings" + _saving.Status + ".Text"));
+                            buttonReopenSaving.Visible = false;
+                            buttonCloseSaving.Visible = true;
+                        }
+                        if (sEvent.Code == "SVRE")
+                        {
+                            _saving.Status = OSavingsStatus.Closed;
+                            groupBoxSaving.Text = string.Format("{0} : {1}",
+                                    MultiLanguageStrings.GetString(Ressource.ClientForm,
+                                        _saving is SavingBookContract ? "SavingsBook.Text" : "CompulsorySavings.Text"),
+                                    MultiLanguageStrings.GetString(Ressource.ClientForm, "Savings" + _saving.Status + ".Text"));
+                            buttonReopenSaving.Visible = true;
+                            buttonCloseSaving.Visible = false;
+                        }
                     }
                     catch (Exception ex)
                     {
                         new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
                     }
-
 
                     DisplaySavingEvent(_saving);
 
