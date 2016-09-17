@@ -5,5 +5,6 @@ namespace OpenCBS.Extensions
     public interface IClientFormInitializer
     {
         void Initialize(Form form);
+        void Refresh(Form form);
     }
 }

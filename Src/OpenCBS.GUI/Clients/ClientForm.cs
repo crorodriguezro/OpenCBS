@@ -1832,6 +1832,12 @@ namespace OpenCBS.GUI.Clients
                         tabControlPerson.SelectedTab = tabPageCreditCommitee;
                     }
 
+                    var extentions = _applicationController.GetAllInstances<IClientFormInitializer>();
+                    foreach (var extention in extentions)
+                    {
+                        extention.Refresh(this);
+                    }
+
                     if (null == _product) return;
                     SetGuarantorsEnabled(_product.UseGuarantorCollateral);
                 }

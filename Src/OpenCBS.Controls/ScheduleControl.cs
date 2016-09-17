@@ -18,6 +18,7 @@
 // Contact: contact@opencbs.com
 
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -44,6 +45,12 @@ namespace OpenCBS.Controls
             olbColumn.AspectName = ShowOlbAfterRepayment ? "OLBAfterRepayment" : "OLB";
             _amountFormatString = loan.UseCents ? "N2" : "N0";
             scheduleObjectListView.SetObjects(loan.InstallmentList);
+        }
+
+        public void SetScheduleFor(List<Installment> installmentList)
+        {
+            olbColumn.AspectName = ShowOlbAfterRepayment ? "OLBAfterRepayment" : "OLB";
+            scheduleObjectListView.SetObjects(installmentList);
         }
 
         private void Setup()
