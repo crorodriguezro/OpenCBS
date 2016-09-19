@@ -4001,6 +4001,12 @@ namespace OpenCBS.GUI.Clients
                     currLoan.Disbursed = true;
                     currLoan.ContractStatus = OContractStatus.Active;
                     DisplayContracts(_project.Credits);
+
+                    var extentions = _applicationController.GetAllInstances<IClientFormInitializer>();
+                    foreach (var extention in extentions)
+                    {
+                        extention.Refresh(this);
+                    }
                 }
             }
             catch (Exception ex)
