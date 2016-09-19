@@ -862,20 +862,37 @@ namespace OpenCBS.GUI.Configuration
             _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible
                 = gbNumberOfPeriods.Visible = false;
             gbInitialAmount.Visible = true;
+
             if (tabControlSaving.TabPages.Contains(tabPageOverdraft))
                 tabControlSaving.TabPages.Remove(tabPageOverdraft);
+
+            if (!tabControlSaving.TabPages.Contains(tabPageFees))
+                tabControlSaving.TabPages.Add(tabPageFees);
+
+            if (!tabControlSaving.TabPages.Contains(tabPageManagement))
+                tabControlSaving.TabPages.Add(tabPageManagement);
+
+
             clientTypeAllCheckBox.Visible = clientTypeGroupCheckBox.Enabled = clientTypeVillageCheckBox.Enabled = true;
         }
 
         private void _shortTermDepositRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            gbInitialAmount.Visible = gbInterestRate.Visible = gbFrequency.Visible = gbBalance.Visible =
-            _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible
+            gbInitialAmount.Visible = gbInterestRate.Visible = gbFrequency.Visible = gbBalance.Visible
                 = gbNumberOfPeriods.Visible = true;
-            if (!tabControlSaving.TabPages.Contains(tabPageOverdraft))
-                tabControlSaving.TabPages.Add(tabPageOverdraft);
+
+            if (tabControlSaving.TabPages.Contains(tabPageOverdraft))
+                tabControlSaving.TabPages.Remove(tabPageOverdraft);
+
+            if (tabControlSaving.TabPages.Contains(tabPageFees))
+                tabControlSaving.TabPages.Remove(tabPageFees);
+
+            if (tabControlSaving.TabPages.Contains(tabPageManagement))
+                tabControlSaving.TabPages.Remove(tabPageManagement);
+
             clientTypeAllCheckBox.Visible = clientTypeGroupCheckBox.Enabled = clientTypeVillageCheckBox.Enabled
-                = clientTypeGroupCheckBox.Checked = clientTypeVillageCheckBox.Checked = false;
+                = clientTypeGroupCheckBox.Checked = clientTypeVillageCheckBox.Checked
+                = _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible = false;
         }
 
         private void _savingRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -883,8 +900,16 @@ namespace OpenCBS.GUI.Configuration
             gbInitialAmount.Visible = gbInterestRate.Visible = gbFrequency.Visible = gbBalance.Visible = true;
             _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible
                 = gbNumberOfPeriods.Visible = false;
+
             if (!tabControlSaving.TabPages.Contains(tabPageOverdraft))
                 tabControlSaving.TabPages.Add(tabPageOverdraft);
+
+            if (!tabControlSaving.TabPages.Contains(tabPageFees))
+                tabControlSaving.TabPages.Add(tabPageFees);
+
+            if (!tabControlSaving.TabPages.Contains(tabPageManagement))
+                tabControlSaving.TabPages.Add(tabPageManagement);
+
             clientTypeAllCheckBox.Visible = clientTypeGroupCheckBox.Enabled = clientTypeVillageCheckBox.Enabled = true;
         }
 

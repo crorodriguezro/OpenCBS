@@ -396,6 +396,9 @@
   <data name="_renewModeAutoRadioButton.Text" xml:space="preserve">
     <value>Auto</value>
   </data>
+  <data name="_renewModeAutoRadioButton.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;_renewModeAutoRadioButton.Name" xml:space="preserve">
     <value>_renewModeAutoRadioButton</value>
   </data>
@@ -423,6 +426,9 @@
   <data name="_renewModeManualRadioButton.Text" xml:space="preserve">
     <value>Manual</value>
   </data>
+  <data name="_renewModeManualRadioButton.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;_renewModeManualRadioButton.Name" xml:space="preserve">
     <value>_renewModeManualRadioButton</value>
   </data>
@@ -449,6 +455,9 @@
   </data>
   <data name="_renewModeLabel.Text" xml:space="preserve">
     <value>Renew mode:</value>
+  </data>
+  <data name="_renewModeLabel.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;_renewModeLabel.Name" xml:space="preserve">
     <value>_renewModeLabel</value>
