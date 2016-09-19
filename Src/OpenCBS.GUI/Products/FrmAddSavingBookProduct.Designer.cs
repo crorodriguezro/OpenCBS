@@ -35,6 +35,11 @@ namespace OpenCBS.GUI.Configuration
             this.tabControlSaving = new System.Windows.Forms.TabControl();
             this.tabPageMainParameters = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbNumberOfPeriods = new System.Windows.Forms.GroupBox();
+            this.tbTermDepositPeriodMax = new System.Windows.Forms.TextBox();
+            this.tbTermDepositPeriodMin = new System.Windows.Forms.TextBox();
+            this.lblMaxOfTermDepositPeriods = new System.Windows.Forms.Label();
+            this.lblMinOfTermDepositPeriods = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this._savingRadioButton = new System.Windows.Forms.RadioButton();
             this._shortTermDepositRadioButton = new System.Windows.Forms.RadioButton();
@@ -213,11 +218,6 @@ namespace OpenCBS.GUI.Configuration
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btSavingProduct = new System.Windows.Forms.Button();
             this.bClose = new System.Windows.Forms.Button();
-            this.gbNumberOfPeriods = new System.Windows.Forms.GroupBox();
-            this.tbTermDepositPeriodMax = new System.Windows.Forms.TextBox();
-            this.tbTermDepositPeriodMin = new System.Windows.Forms.TextBox();
-            this.lblMaxOfTermDepositPeriods = new System.Windows.Forms.Label();
-            this.lblMinOfTermDepositPeriods = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -225,6 +225,7 @@ namespace OpenCBS.GUI.Configuration
             this.tabControlSaving.SuspendLayout();
             this.tabPageMainParameters.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.gbNumberOfPeriods.SuspendLayout();
             this.gbFrequency.SuspendLayout();
             this.groupBoxCurrency.SuspendLayout();
             this.gbClientType.SuspendLayout();
@@ -251,7 +252,6 @@ namespace OpenCBS.GUI.Configuration
             this.termDepositPanel.SuspendLayout();
             this.gpPostingFrequency.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.gbNumberOfPeriods.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -306,6 +306,38 @@ namespace OpenCBS.GUI.Configuration
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // gbNumberOfPeriods
+            // 
+            this.gbNumberOfPeriods.Controls.Add(this.tbTermDepositPeriodMax);
+            this.gbNumberOfPeriods.Controls.Add(this.tbTermDepositPeriodMin);
+            this.gbNumberOfPeriods.Controls.Add(this.lblMaxOfTermDepositPeriods);
+            this.gbNumberOfPeriods.Controls.Add(this.lblMinOfTermDepositPeriods);
+            resources.ApplyResources(this.gbNumberOfPeriods, "gbNumberOfPeriods");
+            this.gbNumberOfPeriods.Name = "gbNumberOfPeriods";
+            this.gbNumberOfPeriods.TabStop = false;
+            // 
+            // tbTermDepositPeriodMax
+            // 
+            resources.ApplyResources(this.tbTermDepositPeriodMax, "tbTermDepositPeriodMax");
+            this.tbTermDepositPeriodMax.Name = "tbTermDepositPeriodMax";
+            this.tbTermDepositPeriodMax.TextChanged += new System.EventHandler(this.tbTermDepositPeriodMax_TextChanged);
+            // 
+            // tbTermDepositPeriodMin
+            // 
+            resources.ApplyResources(this.tbTermDepositPeriodMin, "tbTermDepositPeriodMin");
+            this.tbTermDepositPeriodMin.Name = "tbTermDepositPeriodMin";
+            this.tbTermDepositPeriodMin.TextChanged += new System.EventHandler(this.tbTermDepositPeriodMin_TextChanged);
+            // 
+            // lblMaxOfTermDepositPeriods
+            // 
+            resources.ApplyResources(this.lblMaxOfTermDepositPeriods, "lblMaxOfTermDepositPeriods");
+            this.lblMaxOfTermDepositPeriods.Name = "lblMaxOfTermDepositPeriods";
+            // 
+            // lblMinOfTermDepositPeriods
+            // 
+            resources.ApplyResources(this.lblMinOfTermDepositPeriods, "lblMinOfTermDepositPeriods");
+            this.lblMinOfTermDepositPeriods.Name = "lblMinOfTermDepositPeriods";
             // 
             // groupBox4
             // 
@@ -1485,36 +1517,6 @@ namespace OpenCBS.GUI.Configuration
             this.bClose.Name = "bClose";
             this.bClose.Click += new System.EventHandler(this.bClose_Click);
             // 
-            // gbNumberOfPeriods
-            // 
-            this.gbNumberOfPeriods.Controls.Add(this.tbTermDepositPeriodMax);
-            this.gbNumberOfPeriods.Controls.Add(this.tbTermDepositPeriodMin);
-            this.gbNumberOfPeriods.Controls.Add(this.lblMaxOfTermDepositPeriods);
-            this.gbNumberOfPeriods.Controls.Add(this.lblMinOfTermDepositPeriods);
-            resources.ApplyResources(this.gbNumberOfPeriods, "gbNumberOfPeriods");
-            this.gbNumberOfPeriods.Name = "gbNumberOfPeriods";
-            this.gbNumberOfPeriods.TabStop = false;
-            // 
-            // tbTermDepositPeriodMax
-            // 
-            resources.ApplyResources(this.tbTermDepositPeriodMax, "tbTermDepositPeriodMax");
-            this.tbTermDepositPeriodMax.Name = "tbTermDepositPeriodMax";
-            // 
-            // tbTermDepositPeriodMin
-            // 
-            resources.ApplyResources(this.tbTermDepositPeriodMin, "tbTermDepositPeriodMin");
-            this.tbTermDepositPeriodMin.Name = "tbTermDepositPeriodMin";
-            // 
-            // lblMaxOfTermDepositPeriods
-            // 
-            resources.ApplyResources(this.lblMaxOfTermDepositPeriods, "lblMaxOfTermDepositPeriods");
-            this.lblMaxOfTermDepositPeriods.Name = "lblMaxOfTermDepositPeriods";
-            // 
-            // lblMinOfTermDepositPeriods
-            // 
-            resources.ApplyResources(this.lblMinOfTermDepositPeriods, "lblMinOfTermDepositPeriods");
-            this.lblMinOfTermDepositPeriods.Name = "lblMinOfTermDepositPeriods";
-            // 
             // FrmAddSavingBookProduct
             // 
             this.AcceptButton = this.btSavingProduct;
@@ -1535,6 +1537,8 @@ namespace OpenCBS.GUI.Configuration
             this.tabPageMainParameters.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gbNumberOfPeriods.ResumeLayout(false);
+            this.gbNumberOfPeriods.PerformLayout();
             this.gbFrequency.ResumeLayout(false);
             this.gbFrequency.PerformLayout();
             this.groupBoxCurrency.ResumeLayout(false);
@@ -1581,8 +1585,6 @@ namespace OpenCBS.GUI.Configuration
             this.termDepositPanel.ResumeLayout(false);
             this.gpPostingFrequency.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.gbNumberOfPeriods.ResumeLayout(false);
-            this.gbNumberOfPeriods.PerformLayout();
             this.ResumeLayout(false);
 
         }
