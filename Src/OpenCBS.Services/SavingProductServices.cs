@@ -244,10 +244,12 @@ namespace OpenCBS.Services
             if (clientTypeCounter < 1)
                 throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.ClientTypeIsInvalid);
             
-            if (!ServicesHelper.CheckMinMaxCorrectlyFilledAndSetValueIfNeed(savingsProduct.EntryFeesMin, savingsProduct.EntryFeesMax, savingsProduct.EntryFees))
+            if (!ServicesHelper.CheckMinMaxCorrectlyFilledAndSetValueIfNeed(savingsProduct.EntryFeesMin, savingsProduct.EntryFeesMax, savingsProduct.EntryFees)
+                && savingsProduct.Type != OSavingProductType.ShortTermDeposit)
                 throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.EntryFeesMinMaxIsInvalid);
 
-            if (savingsProduct.EntryFees.HasValue && savingsProduct.EntryFees.Value < 0)
+            if (savingsProduct.EntryFees.HasValue && savingsProduct.EntryFees.Value < 0
+                && savingsProduct.Type != OSavingProductType.ShortTermDeposit)
                 throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.EntryFeesIsInvalid);
 
             if (savingsProduct.Type != OSavingProductType.PersonalAccount)
@@ -276,7 +278,18 @@ namespace OpenCBS.Services
                 if (!savingsProduct.InterestRate.HasValue && savingsProduct.InterestRateMin < 0)
                     throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.InterestRateMinIsInvalid);
             }
-            if (savingsProduct is SavingsBookProduct)
+
+            if (savingsProduct.Type == OSavingProductType.ShortTermDeposit)
+            {
+                if (((SavingsBookProduct)savingsProduct).TermDepositPeriodMin > ((SavingsBookProduct)savingsProduct).TermDepositPeriodMax)
+                    throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.PostingFrequencyIsInvalid);
+                if (((SavingsBookProduct)savingsProduct).TermDepositPeriodMax <= 0 || ((SavingsBookProduct)savingsProduct).TermDepositPeriodMin <= 0)
+                    throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.PostingFrequencyIsInvalid);
+                if (((SavingsBookProduct)savingsProduct).TermDepositPeriodMin == null || ((SavingsBookProduct)savingsProduct).TermDepositPeriodMax == null)
+                    throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.PostingFrequencyIsInvalid);
+            }
+
+            if (savingsProduct is SavingsBookProduct && savingsProduct.Type != OSavingProductType.ShortTermDeposit)
                 ValidateSavingBookProduct((SavingsBookProduct)savingsProduct);
            return true;
         }
