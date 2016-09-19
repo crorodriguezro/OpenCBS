@@ -204,13 +204,9 @@ namespace OpenCBS.GUI.Configuration
             
             if (ServicesProvider.GetInstance().GetSavingProductServices().IsThisProductAlreadyUsed(product.Id))
             {
-                tbName.Enabled = false;
-                tbCodeSavingProduct.Enabled = false;
                 cbCurrency.Enabled = false;
                 gbFrequency.Enabled = false;
-                rbFlatWithdrawFees.Enabled = false;
                 rbIntraRateTransferFees.Enabled = false;
-                rbRateWithdrawFees.Enabled = false;
             }
 
             if (_savingsProduct.CloseFees.HasValue)
