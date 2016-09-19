@@ -81,6 +81,9 @@ namespace OpenCBS.GUI.Configuration
 
             _savingsProduct.PackageMode = OPackageMode.Edit;
             tabControlSaving.TabPages.Remove(tabPageTermDeposit);
+            _personalAccountRadioButton.Enabled = false;
+            _shortTermDepositRadioButton.Enabled = false;
+            _savingRadioButton.Enabled = false;
         }
 
         private void InitializeControls(SavingsBookProduct product)
