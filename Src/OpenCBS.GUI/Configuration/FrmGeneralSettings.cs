@@ -170,6 +170,9 @@ namespace OpenCBS.GUI.Configuration
             {
                 if (key.ToString() == OGeneralSettings.CONTRACT_CODE_TEMPLATE)
                     continue;
+                if (key.ToString() == OGeneralSettings.SHOW_TOTAL_ROW_IN_SCHEDULE)
+                    continue;
+
                 DictionaryEntry val = new DictionaryEntry(key, settings[key]);
 
                 if (val.Key.ToString() == OGeneralSettings.ACCOUNTINGPROCESS ||

@@ -24,6 +24,12 @@ begin
 end
 GO
 
+IF NOT EXISTS ( SELECT TOP 1 value FROM dbo.GeneralParameters WHERE [key] = 'SHOW_TOTAL_ROW_IN_SCHEDULE' )
+BEGIN
+    INSERT INTO dbo.GeneralParameters ([key], [value]) VALUES ('SHOW_TOTAL_ROW_IN_SCHEDULE', 0)
+END
+GO
+
 update
     dbo.TechnicalParameters
 set

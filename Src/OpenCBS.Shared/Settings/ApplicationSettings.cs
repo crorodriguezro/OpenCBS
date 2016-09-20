@@ -293,6 +293,11 @@ namespace OpenCBS.Shared.Settings
             get { return GetSpecificParameter(OGeneralSettings.AUTOMATIC_ID).ToString() == "1"; }
         }
 
+        public bool IsShowTotalRowInSchedule
+        {
+            get { return GetSpecificParameter(OGeneralSettings.SHOW_TOTAL_ROW_IN_SCHEDULE).ToString() == "1"; }
+        }
+
         public bool IsStopWriteOffPenalty
         {
             get { return GetSpecificParameter(OGeneralSettings.STOP_WRITEOFF_PENALTY).ToString() == "1"; }
