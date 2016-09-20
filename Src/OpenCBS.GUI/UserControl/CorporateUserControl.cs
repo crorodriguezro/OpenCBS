@@ -134,6 +134,7 @@ namespace OpenCBS.GUI.UserControl
             }
             else
             {
+                if(cbBranch.Items.Count > 0)
                 cbBranch.SelectedIndex = 0;
             }
         }
