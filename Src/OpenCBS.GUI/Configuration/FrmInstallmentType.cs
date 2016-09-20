@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Presenter;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.ExceptionsHandler;
@@ -99,10 +100,23 @@ namespace OpenCBS.GUI
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            if (textBoxName.Text.Length > 0 && (numericUpDownMonths.Value > 0 || numericUpDownDays.Value > 0))
+            try
             {
-                InstallmentType type = new InstallmentType(_name, _nbOfDays, _nbOfMonths);
-                ModifyInstallmentTypes(Action.Add, type);
+                if (string.IsNullOrEmpty(textBoxName.Text))
+                {
+                    throw new Exception();
+                }
+                if ((numericUpDownMonths.Value > 0 || numericUpDownDays.Value > 0))
+                {
+                    InstallmentType type = new InstallmentType(_name, _nbOfDays, _nbOfMonths);
+                    ModifyInstallmentTypes(Action.Add, type);
+                }
+            }
+            catch (Exception ex)
+            {
+                var translationService = new TranslationService();
+                new frmShowError(CustomExceptionHandler.ShowExceptionText(new Exception(),
+                    translationService.Translate("You should enter a name"))).ShowDialog();
             }
         }
 

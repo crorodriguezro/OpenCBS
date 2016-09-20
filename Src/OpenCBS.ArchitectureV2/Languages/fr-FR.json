@@ -56,5 +56,6 @@
     "Expand all": "Développer tout",
     "Check #": "Vérifiez №",
   "Receipt #": "Reçu №",
-  "You dont't have permission.": "Vous n'êtes pas autorisé."
+  "You dont't have permission.": "Vous n'êtes pas autorisé.",
+  "You should enter a name": "Vous devez entrer un nom."
 }
