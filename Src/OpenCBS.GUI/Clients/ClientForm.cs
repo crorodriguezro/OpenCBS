@@ -3582,6 +3582,13 @@ namespace OpenCBS.GUI.Clients
                 Loan credit = CreateAndSetContract();
                 ServicesProvider.GetInstance().GetContractServices().CheckLoanFilling(credit);
                 DisplayInstallments(ref credit);
+
+                var extentions = _applicationController.GetAllInstances<IClientFormInitializer>();
+                foreach (var extention in extentions)
+                {
+                    extention.Refresh(this);
+                }
+
                 return credit;
             }
             catch (Exception ex)
