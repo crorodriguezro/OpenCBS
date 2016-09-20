@@ -114,10 +114,14 @@ namespace OpenCBS.GUI.Configuration
             }
             cbPosting.SelectedValue = _savingsProduct.InterestFrequency.ToString();
             cbAccrual.Text = _savingsProduct.InterestBase.ToString();
-            tbDepositMin.Text = _savingsProduct.DepositMin.Value.ToString("F");
-            tbDepositMax.Text = _savingsProduct.DepositMax.Value.ToString("F");
-            tbDepositFeesMin.Text = _savingsProduct.DepositFees.HasValue ? _savingsProduct.DepositFees.Value.ToString("F") : _savingsProduct.DepositFeesMin.Value.ToString("F");
-            tbDepositFeesMax.Text = _savingsProduct.DepositFees.HasValue ? _savingsProduct.DepositFees.Value.ToString("F") : _savingsProduct.DepositFeesMax.Value.ToString("F");
+            tbDepositMin.Text = _savingsProduct.DepositMin.HasValue ? _savingsProduct.DepositMin.Value.ToString("F") : "0";
+            tbDepositMax.Text = _savingsProduct.DepositMax.HasValue ? _savingsProduct.DepositMax.Value.ToString("F") : "0";
+            tbDepositFeesMin.Text = _savingsProduct.DepositFees.HasValue
+                ? _savingsProduct.DepositFees.HasValue ? _savingsProduct.DepositFees.Value.ToString("F") : "0"
+                : _savingsProduct.DepositFeesMin.HasValue ? _savingsProduct.DepositFeesMin.Value.ToString("F") : "0";
+            tbDepositFeesMax.Text = _savingsProduct.DepositFees.HasValue
+                ? _savingsProduct.DepositFees.HasValue ? _savingsProduct.DepositFees.Value.ToString("F") : "0"
+                : _savingsProduct.DepositFeesMax.HasValue ? _savingsProduct.DepositFeesMax.Value.ToString("F") : "0";
 
             if (product.RenewAuto)
                 _renewModeAutoRadioButton.Checked = true;
@@ -141,14 +145,12 @@ namespace OpenCBS.GUI.Configuration
             }
             else
             {
-                tbIntraTransferFeesMin.Text = (_savingsProduct.FlatTransferFeesMin.HasValue)
+                tbIntraTransferFeesMin.Text = _savingsProduct.FlatTransferFeesMin.HasValue
                     ? _savingsProduct.FlatTransferFeesMin.Value.ToString("F")
-                    // ReSharper disable once PossibleInvalidOperationException
-                    : (_savingsProduct.RateTransferFeesMin.Value*100).ToString("F");
+                    : _savingsProduct.RateTransferFeesMin.HasValue ? (_savingsProduct.RateTransferFeesMin.Value*100).ToString("F") : "0";
                 tbIntraTransferFeesMax.Text = (_savingsProduct.FlatTransferFeesMax.HasValue)
                     ? _savingsProduct.FlatTransferFeesMax.Value.ToString("F")
-                    // ReSharper disable once PossibleInvalidOperationException
-                    : (_savingsProduct.RateTransferFeesMax.Value*100).ToString("F");
+                    : _savingsProduct.RateTransferFeesMax.HasValue ? (_savingsProduct.RateTransferFeesMax.Value*100).ToString("F") : "0";
             }
             if (_savingsProduct.WithdrawFeesType == OSavingsFeesType.Flat)
             {
@@ -236,8 +238,8 @@ namespace OpenCBS.GUI.Configuration
                     tbAgioFeesMin.Text = tbAgioFeesMax.Text = (_savingsProduct.AgioFees.Value*100).ToString("F");
                 else
                 {
-                    tbAgioFeesMin.Text = (_savingsProduct.AgioFeesMin.Value*100).ToString("F");
-                    tbAgioFeesMax.Text = (_savingsProduct.AgioFeesMax.Value*100).ToString("F");
+                    tbAgioFeesMin.Text = _savingsProduct.AgioFeesMin.HasValue ? (_savingsProduct.AgioFeesMin.Value*100).ToString("F") : "0";
+                    tbAgioFeesMax.Text = _savingsProduct.AgioFeesMax.HasValue ? (_savingsProduct.AgioFeesMax.Value*100).ToString("F") : "0";
                 }
             }
             if (_savingsProduct.ReopenFees.HasValue) tbReopenFeesValue.Text = _savingsProduct.ReopenFees.GetFormatedValue(_savingsProduct.UseCents);
@@ -365,6 +367,10 @@ namespace OpenCBS.GUI.Configuration
                {
                    if (_savingsProduct.Type == OSavingProductType.PersonalAccount)
                        _savingsProduct.BalanceMax = 99999999999;
+
+                   if(_savingsProduct.Type == OSavingProductType.ShortTermDeposit)
+                        SetDefaultValuesForNewTernDeposit();
+
                    ServicesProvider.GetInstance().GetSavingProductServices().SaveProduct(_savingsProduct, clientTypeCounter);
                }
                 
@@ -375,6 +381,12 @@ namespace OpenCBS.GUI.Configuration
             {
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
             }
+        }
+
+        private void SetDefaultValuesForNewTernDeposit()
+        {
+            _savingsProduct.TransferMin = 0m;
+            _savingsProduct.TransferMax = 0m;
         }
 
         private void tbInitialAmountMin_TextChanged(object sender, EventArgs e)
