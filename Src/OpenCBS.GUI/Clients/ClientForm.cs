@@ -3725,7 +3725,8 @@ namespace OpenCBS.GUI.Clients
             richTextBoxStatus.Clear();
 
             var creditCopy = credit.Copy();
-            creditCopy.InstallmentList.Remove(creditCopy.InstallmentList.FirstOrDefault(x => x.ExpectedDate == DateTime.MaxValue));
+            if(ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule)
+                creditCopy.InstallmentList.Remove(creditCopy.InstallmentList.FirstOrDefault(x => x.ExpectedDate == DateTime.MaxValue));
 
             String statusText = MultiLanguageStrings.GetString(Ressource.ClientForm, "Status.Text") + "\n" +
                                 MultiLanguageStrings.GetString(Ressource.ClientForm, "Currency.Text") + "   " +
@@ -3785,6 +3786,8 @@ namespace OpenCBS.GUI.Clients
                     tbLocAmount.Enabled = false;
                     tbInsurance.Enabled = false;
                     credit = Preview();
+                    if (ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule)
+                        credit.InstallmentList.Remove(credit.InstallmentList.FirstOrDefault(x => x.ExpectedDate == DateTime.MaxValue));
 
                     if (credit == null)
                         return null;
@@ -3840,6 +3843,8 @@ namespace OpenCBS.GUI.Clients
                 else
                 {
                     credit = Preview();
+                    if(ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule)
+                        credit.InstallmentList.Remove(credit.InstallmentList.FirstOrDefault(x => x.ExpectedDate == DateTime.MaxValue));
                     if (_credit.ScheduleChangedManually)
                     {
                         credit.ScheduleChangedManually = _credit.ScheduleChangedManually;
@@ -4701,6 +4706,9 @@ namespace OpenCBS.GUI.Clients
                         MessageBox.Show(MultiLanguageStrings.GetString(Ressource.ClientForm, "ContractIsReadOnly.Text"));
                         return;
                     }
+
+                    var creditCopy = _credit.Copy();
+                    _credit.InstallmentList.Remove(creditCopy.InstallmentList.FirstOrDefault(x => x.ExpectedDate == DateTime.MaxValue));
 
                     var reschedulingForm = new ReschedulingForm(_credit, _client);
                     reschedulingForm.ShowDialog();
