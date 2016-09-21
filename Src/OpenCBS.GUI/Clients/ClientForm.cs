@@ -7414,6 +7414,9 @@ namespace OpenCBS.GUI.Clients
             if (null == _credit || 0 == _credit.InstallmentList.Count) return;
             try
             {
+                if (ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule)
+                    _credit.InstallmentList.Remove(_credit.InstallmentList.FirstOrDefault(x => x.ExpectedDate == DateTime.MaxValue));
+
                 ServiceProvider.GetContractServices().ManualScheduleAfterDisbursement();
                 var manualScheduleForm = new ManualScheduleForm(_credit.Copy());
 
