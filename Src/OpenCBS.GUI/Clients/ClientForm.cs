@@ -884,8 +884,8 @@ namespace OpenCBS.GUI.Clients
                     else
                     {
                         nudTransferFees.Enabled = true;
-                        nudTransferFees.Minimum = ((SavingsBookProduct)product).FlatTransferFeesMin.Value;
-                        nudTransferFees.Maximum = ((SavingsBookProduct)product).FlatTransferFeesMax.Value;
+                        nudTransferFees.Minimum = ((SavingsBookProduct)product).FlatTransferFeesMin.HasValue ? ((SavingsBookProduct)product).FlatTransferFeesMin.Value : 0;
+                        nudTransferFees.Maximum = ((SavingsBookProduct)product).FlatTransferFeesMax.HasValue ? ((SavingsBookProduct)product).FlatTransferFeesMax.Value : 0;
                         lbTransferFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
                             "Min ", ((SavingsBookProduct)product).FlatTransferFeesMin.GetFormatedValue(product.Currency.UseCents),
                             "Max ", ((SavingsBookProduct)product).FlatTransferFeesMax.GetFormatedValue(product.Currency.UseCents),
@@ -906,8 +906,12 @@ namespace OpenCBS.GUI.Clients
                     else
                     {
                         nudTransferFees.Enabled = true;
-                        nudTransferFees.Minimum = (decimal)((SavingsBookProduct)product).RateTransferFeesMin.Value * 100;
-                        nudTransferFees.Maximum = (decimal)((SavingsBookProduct)product).RateTransferFeesMax.Value * 100;
+                        nudTransferFees.Minimum = (decimal)
+                            (((SavingsBookProduct)product).RateTransferFeesMin.HasValue ? ((SavingsBookProduct)product).RateTransferFeesMin.Value : 0)
+                            * 100;
+                        nudTransferFees.Maximum = (decimal)
+                            (((SavingsBookProduct)product).RateTransferFeesMax.HasValue ? ((SavingsBookProduct)product).RateTransferFeesMax.Value : 0)
+                            * 100;
                         lbTransferFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
                             "Min ", (((SavingsBookProduct)product).RateTransferFeesMin * 100),
                             "Max ", (((SavingsBookProduct)product).RateTransferFeesMax * 100),
@@ -929,8 +933,8 @@ namespace OpenCBS.GUI.Clients
                 else
                 {
                     nudDepositFees.Enabled = true;
-                    nudDepositFees.Minimum = ((SavingsBookProduct)product).DepositFeesMin.Value;
-                    nudDepositFees.Maximum = ((SavingsBookProduct)product).DepositFeesMax.Value;
+                    nudDepositFees.Minimum = ((SavingsBookProduct)product).DepositFeesMin.HasValue ? ((SavingsBookProduct)product).DepositFeesMin.Value : 0;
+                    nudDepositFees.Maximum = ((SavingsBookProduct)product).DepositFeesMax.HasValue ? ((SavingsBookProduct)product).DepositFeesMax.Value : 0;
                     lbDepositFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
                                                              "Min ", ((SavingsBookProduct)product).DepositFeesMin.GetFormatedValue(product.Currency.UseCents),
                                                              "Max ", ((SavingsBookProduct)product).DepositFeesMax.GetFormatedValue(product.Currency.UseCents),
@@ -972,8 +976,8 @@ namespace OpenCBS.GUI.Clients
                 else
                 {
                     nudCloseFees.Enabled = true;
-                    nudCloseFees.Minimum = ((SavingsBookProduct)product).CloseFeesMin.Value;
-                    nudCloseFees.Maximum = ((SavingsBookProduct)product).CloseFeesMax.Value;
+                    nudCloseFees.Minimum = ((SavingsBookProduct)product).CloseFeesMin.HasValue ? ((SavingsBookProduct)product).CloseFeesMin.Value : 0;
+                    nudCloseFees.Maximum = ((SavingsBookProduct)product).CloseFeesMax.HasValue ? ((SavingsBookProduct)product).CloseFeesMax.Value : 0;
                     lbCloseFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
                         "Min ", ((SavingsBookProduct)product).CloseFeesMin.GetFormatedValue(product.Currency.UseCents),
                         "Max ", ((SavingsBookProduct)product).CloseFeesMax.GetFormatedValue(product.Currency.UseCents),
@@ -993,8 +997,8 @@ namespace OpenCBS.GUI.Clients
                 else
                 {
                     nudManagementFees.Enabled = true;
-                    nudManagementFees.Minimum = ((SavingsBookProduct)product).ManagementFeesMin.Value;
-                    nudManagementFees.Maximum = ((SavingsBookProduct)product).ManagementFeesMax.Value;
+                    nudManagementFees.Minimum = ((SavingsBookProduct)product).ManagementFeesMin.HasValue ? ((SavingsBookProduct)product).ManagementFeesMin.Value : 0;
+                    nudManagementFees.Maximum = ((SavingsBookProduct)product).ManagementFeesMax.HasValue ? ((SavingsBookProduct)product).ManagementFeesMax.Value : 0;
                     lbManagementFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
                         "Min ", ((SavingsBookProduct)product).ManagementFeesMin.GetFormatedValue(product.Currency.UseCents),
                         "Max ", ((SavingsBookProduct)product).ManagementFeesMax.GetFormatedValue(product.Currency.UseCents),
