@@ -3720,13 +3720,16 @@ namespace OpenCBS.GUI.Clients
 
             richTextBoxStatus.Clear();
 
+            var creditCopy = credit.Copy();
+            creditCopy.InstallmentList.Remove(creditCopy.InstallmentList.FirstOrDefault(x => x.ExpectedDate == DateTime.MaxValue));
+
             String statusText = MultiLanguageStrings.GetString(Ressource.ClientForm, "Status.Text") + "\n" +
                                 MultiLanguageStrings.GetString(Ressource.ClientForm, "Currency.Text") + "   " +
-                                _credit.Product.Currency.Name + "\n" +
+                                creditCopy.Product.Currency.Name + "\n" +
                                 MultiLanguageStrings.GetString(Ressource.ClientForm, "CapitalDue.Text") + "   "
-                                + _credit.CalculateActualOlb().GetFormatedValue(credit.UseCents) + "\n" +
+                                + creditCopy.CalculateActualOlb().GetFormatedValue(creditCopy.UseCents) + "\n" +
                                 MultiLanguageStrings.GetString(Ressource.ClientForm, "PercentsDue.Text") + "   " +
-                                _credit.CalculateActualInterestsToPay().GetFormatedValue(credit.UseCents);
+                                creditCopy.CalculateActualInterestsToPay().GetFormatedValue(creditCopy.UseCents);
             richTextBoxStatus.Text = statusText;
         }
 
