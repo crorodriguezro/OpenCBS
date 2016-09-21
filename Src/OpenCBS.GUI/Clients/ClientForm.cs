@@ -793,8 +793,8 @@ namespace OpenCBS.GUI.Clients
                 else
                 {
                     nudEntryFees.Enabled = true;
-                    nudEntryFees.Minimum = ((SavingsBookProduct)product).EntryFeesMin.Value;
-                    nudEntryFees.Maximum = ((SavingsBookProduct)product).EntryFeesMax.Value;
+                    nudEntryFees.Minimum = ((SavingsBookProduct)product).EntryFeesMin.HasValue ? ((SavingsBookProduct)product).EntryFeesMin.Value : 0;
+                    nudEntryFees.Maximum = ((SavingsBookProduct)product).EntryFeesMax.HasValue ? ((SavingsBookProduct)product).EntryFeesMax.Value : 0;
                     lbEntryFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
                         "Min ", ((SavingsBookProduct)product).EntryFeesMin.GetFormatedValue(product.Currency.UseCents),
                         "Max ", ((SavingsBookProduct)product).EntryFeesMax.GetFormatedValue(product.Currency.UseCents),
@@ -808,15 +808,15 @@ namespace OpenCBS.GUI.Clients
                     if (((SavingsBookProduct)product).FlatWithdrawFees.HasValue)
                     {
                         nudWithdrawFees.Enabled = false;
-                        nudWithdrawFees.Minimum = ((SavingsBookProduct)product).FlatWithdrawFees.Value;
-                        nudWithdrawFees.Maximum = ((SavingsBookProduct)product).FlatWithdrawFees.Value;
+                        nudWithdrawFees.Minimum = ((SavingsBookProduct)product).FlatWithdrawFees.HasValue ? ((SavingsBookProduct)product).FlatWithdrawFees.Value : 0;
+                        nudWithdrawFees.Maximum = ((SavingsBookProduct)product).FlatWithdrawFees.HasValue ? ((SavingsBookProduct)product).FlatWithdrawFees.Value : 0;
                         lbWithdrawFeesMinMax.Text = string.Format("{0} {1}", ((SavingsBookProduct)product).FlatWithdrawFees.GetFormatedValue(product.Currency.UseCents), product.Currency.Code);
                     }
                     else
                     {
                         nudWithdrawFees.Enabled = true;
-                        nudWithdrawFees.Minimum = ((SavingsBookProduct)product).FlatWithdrawFeesMin.Value;
-                        nudWithdrawFees.Maximum = ((SavingsBookProduct)product).FlatWithdrawFeesMax.Value;
+                        nudWithdrawFees.Minimum = ((SavingsBookProduct)product).FlatWithdrawFeesMin.HasValue ? ((SavingsBookProduct)product).FlatWithdrawFeesMin.Value : 0;
+                        nudWithdrawFees.Maximum = ((SavingsBookProduct)product).FlatWithdrawFeesMax.HasValue ? ((SavingsBookProduct)product).FlatWithdrawFeesMax.Value : 0;
                         lbWithdrawFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
                             "Min ", ((SavingsBookProduct)product).FlatWithdrawFeesMin.GetFormatedValue(product.Currency.UseCents),
                             "Max ", ((SavingsBookProduct)product).FlatWithdrawFeesMax.GetFormatedValue(product.Currency.UseCents),
@@ -837,8 +837,12 @@ namespace OpenCBS.GUI.Clients
                     else
                     {
                         nudWithdrawFees.Enabled = true;
-                        nudWithdrawFees.Minimum = (decimal)((SavingsBookProduct)product).RateWithdrawFeesMin.Value * 100;
-                        nudWithdrawFees.Maximum = (decimal)((SavingsBookProduct)product).RateWithdrawFeesMax.Value * 100;
+                        nudWithdrawFees.Minimum = (decimal)
+                            (((SavingsBookProduct)product).RateWithdrawFeesMin.HasValue ? ((SavingsBookProduct)product).RateWithdrawFeesMin.Value : 0)
+                            * 100;
+                        nudWithdrawFees.Maximum = (decimal)
+                            (((SavingsBookProduct)product).RateWithdrawFeesMax.HasValue ? ((SavingsBookProduct)product).RateWithdrawFeesMax.Value : 0)
+                            * 100;
                         lbWithdrawFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
                             "Min ", (((SavingsBookProduct)product).RateWithdrawFeesMin * 100),
                             "Max ", (((SavingsBookProduct)product).RateWithdrawFeesMax * 100),

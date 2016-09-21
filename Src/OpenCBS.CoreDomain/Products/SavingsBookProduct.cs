@@ -37,12 +37,16 @@ namespace OpenCBS.CoreDomain.Products
 
         public decimal GetMin()
         {
-            return Value.HasValue ? Value.Value : Min.Value;
+            return Value.HasValue
+                ? Value == null ? 0 : Value.Value
+                : Min == null ? 0 : Min.Value;
         }
 
         public decimal GetMax()
         {
-            return Value.HasValue ? Value.Value : Max.Value;
+            return Value.HasValue
+                ? Value == null ? 0 : Value.Value
+                : Max == null ? 0 : Max.Value;
         }
 
         private string GetFormatted(decimal value, Currency currency)
@@ -60,12 +64,12 @@ namespace OpenCBS.CoreDomain.Products
 
         public string GetMinFormatted(Currency currency)
         {
-            return GetFormatted(Min.Value, currency);
+            return GetFormatted(Min == null ? 0 : Min.Value, currency);
         }
 
         public string GetMaxFormatted(Currency currency)
         {
-            return GetFormatted(Max.Value, currency);
+            return GetFormatted(Max == null ? 0 : Max.Value, currency);
         }
 
         public bool IsRange
