@@ -6921,6 +6921,9 @@ namespace OpenCBS.GUI.Clients
 
         private void WriteOff(int writeOffMethodId, string comment)
         {
+            if (ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule)
+                _credit.InstallmentList.Remove(_credit.InstallmentList.FirstOrDefault(x => x.ExpectedDate == DateTime.MaxValue));
+
             ServicesProvider.GetInstance().GetContractServices().WriteOff(_credit, TimeProvider.Now, writeOffMethodId, comment);
             btnWriteOff.Enabled = false;
             DisplayLoanEvents(_credit);
