@@ -132,7 +132,7 @@ namespace OpenCBS.GUI.Configuration
                 rbIntraFlatTransferFees.Checked = true;
             else
                 rbIntraRateTransferFees.Checked = true;
-            if (_savingsProduct.FlatTransferFees.HasValue || _savingsProduct.RateTransferFees.HasValue)
+            if ((_savingsProduct.FlatTransferFees.HasValue && _savingsProduct.FlatTransferFees.Value != 0m) || _savingsProduct.RateTransferFees.HasValue)
             {
                 tbIntraTransferFeesMin.Text = (_savingsProduct.FlatTransferFees.HasValue)
                     ? _savingsProduct.FlatTransferFees.Value.ToString("F")
@@ -208,7 +208,12 @@ namespace OpenCBS.GUI.Configuration
             {
                 cbCurrency.Enabled = false;
                 gbFrequency.Enabled = false;
+                rbFlatWithdrawFees.Enabled = false;
+                rbRateWithdrawFees.Enabled = false;
+                rbIntraFlatTransferFees.Enabled = false;
                 rbIntraRateTransferFees.Enabled = false;
+                rbInterFlatTransferFees.Enabled = false;
+                rbInterRateTransferFees.Enabled = false;
             }
 
             if (_savingsProduct.CloseFees.HasValue)

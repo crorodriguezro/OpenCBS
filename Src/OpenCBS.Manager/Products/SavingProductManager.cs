@@ -470,7 +470,7 @@ namespace OpenCBS.Manager.Products
             bool productAlreadyUsed = IsThisProductAlreadyUsed(product.Id);
 
             using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(string.Format(q, productAlreadyUsed ? "" : sqlTextProductNotUsed), conn))
+            using (OpenCbsCommand c = new OpenCbsCommand(string.Format(q, productAlreadyUsed ? @",[name] = @name, [code] = @code" : sqlTextProductNotUsed), conn))
             {
                 SetProduct(c, product);
                 c.ExecuteNonQuery();
