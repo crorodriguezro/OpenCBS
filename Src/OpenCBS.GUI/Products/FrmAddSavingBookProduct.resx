@@ -139,7 +139,7 @@
     <value>78, 54</value>
   </data>
   <data name="tbTermDepositPeriodMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
+    <value>76, 22</value>
   </data>
   <data name="tbTermDepositPeriodMax.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -163,7 +163,7 @@
     <value>78, 26</value>
   </data>
   <data name="tbTermDepositPeriodMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
+    <value>76, 22</value>
   </data>
   <data name="tbTermDepositPeriodMin.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -250,10 +250,10 @@
     <value>Arial, 9.75pt</value>
   </data>
   <data name="gbNumberOfPeriods.Location" type="System.Drawing.Point, System.Drawing">
-    <value>222, 379</value>
+    <value>435, 287</value>
   </data>
   <data name="gbNumberOfPeriods.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 85</value>
+    <value>210, 85</value>
   </data>
   <data name="gbNumberOfPeriods.TabIndex" type="System.Int32, mscorlib">
     <value>88</value>
@@ -334,7 +334,7 @@
     <value>14</value>
   </data>
   <data name="_shortTermDepositRadioButton.Text" xml:space="preserve">
-    <value>Short term deposit</value>
+    <value>Term deposit</value>
   </data>
   <data name="&gt;&gt;_shortTermDepositRadioButton.Name" xml:space="preserve">
     <value>_shortTermDepositRadioButton</value>
@@ -492,6 +492,9 @@
   <data name="lbCalculAmount.Text" xml:space="preserve">
     <value>Calculate amount based on:</value>
   </data>
+  <data name="lbCalculAmount.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;lbCalculAmount.Name" xml:space="preserve">
     <value>lbCalculAmount</value>
   </data>
@@ -515,6 +518,9 @@
   </data>
   <data name="cbCalculAmount.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
+  </data>
+  <data name="cbCalculAmount.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;cbCalculAmount.Name" xml:space="preserve">
     <value>cbCalculAmount</value>
@@ -649,7 +655,7 @@
     <value>9, 278</value>
   </data>
   <data name="gbFrequency.Size" type="System.Drawing.Size, System.Drawing">
-    <value>638, 94</value>
+    <value>233, 94</value>
   </data>
   <data name="gbFrequency.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -1147,7 +1153,7 @@
     <value>7, 186</value>
   </data>
   <data name="gbInitialAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 86</value>
+    <value>235, 86</value>
   </data>
   <data name="gbInitialAmount.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1174,10 +1180,10 @@
     <value>Arial, 9.75pt</value>
   </data>
   <data name="tbBalanceMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 52</value>
+    <value>70, 52</value>
   </data>
   <data name="tbBalanceMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
+    <value>73, 22</value>
   </data>
   <data name="tbBalanceMax.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1198,10 +1204,10 @@
     <value>Arial, 9.75pt</value>
   </data>
   <data name="tbBalanceMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 20</value>
+    <value>70, 21</value>
   </data>
   <data name="tbBalanceMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
+    <value>73, 22</value>
   </data>
   <data name="tbBalanceMin.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1288,10 +1294,10 @@
     <value>Arial, 9.75pt</value>
   </data>
   <data name="gbBalance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 378</value>
+    <value>257, 286</value>
   </data>
   <data name="gbBalance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 86</value>
+    <value>164, 86</value>
   </data>
   <data name="gbBalance.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -1360,7 +1366,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbYearlyInterestRateMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 54</value>
+    <value>160, 54</value>
   </data>
   <data name="lbYearlyInterestRateMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 16</value>
@@ -1393,7 +1399,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbYearlyInterestRateMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 25</value>
+    <value>160, 25</value>
   </data>
   <data name="lbYearlyInterestRateMin.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 16</value>
@@ -1453,7 +1459,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbInterestRateValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>355, 41</value>
+    <value>392, 41</value>
   </data>
   <data name="lbInterestRateValue.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 16</value>
@@ -1483,10 +1489,10 @@
     <value>Arial, 9.75pt</value>
   </data>
   <data name="tbInterestRateMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 51</value>
+    <value>70, 51</value>
   </data>
   <data name="tbInterestRateMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
+    <value>73, 22</value>
   </data>
   <data name="tbInterestRateMax.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -1507,10 +1513,10 @@
     <value>Arial, 9.75pt</value>
   </data>
   <data name="tbInterestRateMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 22</value>
+    <value>70, 22</value>
   </data>
   <data name="tbInterestRateMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
+    <value>73, 22</value>
   </data>
   <data name="tbInterestRateMin.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -1537,7 +1543,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbInterestRateMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 54</value>
+    <value>7, 54</value>
   </data>
   <data name="lbInterestRateMax.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 16</value>
@@ -1570,7 +1576,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbInterestRateMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 25</value>
+    <value>8, 25</value>
   </data>
   <data name="lbInterestRateMin.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 16</value>
@@ -1597,10 +1603,10 @@
     <value>Arial, 9.75pt</value>
   </data>
   <data name="gbInterestRate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>222, 186</value>
+    <value>257, 186</value>
   </data>
   <data name="gbInterestRate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>425, 86</value>
+    <value>390, 86</value>
   </data>
   <data name="gbInterestRate.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
