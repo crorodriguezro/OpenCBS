@@ -412,6 +412,16 @@ namespace OpenCBS.GUI.Clients
             this.lblChequeDepositFeesMinMax = new System.Windows.Forms.Label();
             this.nudChequeDepositFees = new System.Windows.Forms.NumericUpDown();
             this.lbChequeDepositFees = new System.Windows.Forms.Label();
+            this.tpTermDeposit = new System.Windows.Forms.TabPage();
+            this.tlpTermDeposit = new System.Windows.Forms.TableLayoutPanel();
+            this.lblNumberOfPeriods = new System.Windows.Forms.Label();
+            this.nudNumberOfPeriods = new System.Windows.Forms.NumericUpDown();
+            this.lblLimitOfTermDepositPeriod = new System.Windows.Forms.Label();
+            this.tbTargetAccount2 = new System.Windows.Forms.TextBox();
+            this.cmbRollover2 = new System.Windows.Forms.ComboBox();
+            this.lbRollover2 = new System.Windows.Forms.Label();
+            this.btSearchContract2 = new System.Windows.Forms.Button();
+            this.lblTermTransferToAccount = new System.Windows.Forms.Label();
             this.tabPageSavingsEvents = new System.Windows.Forms.TabPage();
             this.lvSavingEvent = new System.Windows.Forms.ListView();
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -432,16 +442,6 @@ namespace OpenCBS.GUI.Clients
             this.olvColumnCreationDate = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnStratDate = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnCloseDate = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.tpTermDeposit = new System.Windows.Forms.TabPage();
-            this.tlpTermDeposit = new System.Windows.Forms.TableLayoutPanel();
-            this.lblNumberOfPeriods = new System.Windows.Forms.Label();
-            this.nudNumberOfPeriods = new System.Windows.Forms.NumericUpDown();
-            this.lblLimitOfTermDepositPeriod = new System.Windows.Forms.Label();
-            this.tbTargetAccount2 = new System.Windows.Forms.TextBox();
-            this.cmbRollover2 = new System.Windows.Forms.ComboBox();
-            this.lbRollover2 = new System.Windows.Forms.Label();
-            this.btSearchContract2 = new System.Windows.Forms.Button();
-            this.lblTermTransferToAccount = new System.Windows.Forms.Label();
             this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
             this.btSavingsUpdate = new System.Windows.Forms.Button();
             this.buttonSaveSaving = new System.Windows.Forms.Button();
@@ -616,12 +616,12 @@ namespace OpenCBS.GUI.Clients
             ((System.ComponentModel.ISupportInitialize)(this.nudAgioFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudIbtFee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudChequeDepositFees)).BeginInit();
-            this.tabPageSavingsEvents.SuspendLayout();
-            this.tabPageLoans.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.olvLoans)).BeginInit();
             this.tpTermDeposit.SuspendLayout();
             this.tlpTermDeposit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfPeriods)).BeginInit();
+            this.tabPageSavingsEvents.SuspendLayout();
+            this.tabPageLoans.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.olvLoans)).BeginInit();
             this.flowLayoutPanel9.SuspendLayout();
             this.pnlSavingsButtons.SuspendLayout();
             this.groupBoxSaving.SuspendLayout();
@@ -2882,6 +2882,73 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.lbChequeDepositFees, "lbChequeDepositFees");
             this.lbChequeDepositFees.Name = "lbChequeDepositFees";
             // 
+            // tpTermDeposit
+            // 
+            this.tpTermDeposit.Controls.Add(this.tlpTermDeposit);
+            resources.ApplyResources(this.tpTermDeposit, "tpTermDeposit");
+            this.tpTermDeposit.Name = "tpTermDeposit";
+            // 
+            // tlpTermDeposit
+            // 
+            resources.ApplyResources(this.tlpTermDeposit, "tlpTermDeposit");
+            this.tlpTermDeposit.Controls.Add(this.lblNumberOfPeriods, 0, 0);
+            this.tlpTermDeposit.Controls.Add(this.nudNumberOfPeriods, 1, 0);
+            this.tlpTermDeposit.Controls.Add(this.lblLimitOfTermDepositPeriod, 2, 0);
+            this.tlpTermDeposit.Controls.Add(this.tbTargetAccount2, 1, 2);
+            this.tlpTermDeposit.Controls.Add(this.cmbRollover2, 1, 1);
+            this.tlpTermDeposit.Controls.Add(this.lbRollover2, 0, 1);
+            this.tlpTermDeposit.Controls.Add(this.btSearchContract2, 2, 2);
+            this.tlpTermDeposit.Controls.Add(this.lblTermTransferToAccount, 0, 2);
+            this.tlpTermDeposit.Name = "tlpTermDeposit";
+            // 
+            // lblNumberOfPeriods
+            // 
+            resources.ApplyResources(this.lblNumberOfPeriods, "lblNumberOfPeriods");
+            this.lblNumberOfPeriods.Name = "lblNumberOfPeriods";
+            // 
+            // nudNumberOfPeriods
+            // 
+            resources.ApplyResources(this.nudNumberOfPeriods, "nudNumberOfPeriods");
+            this.nudNumberOfPeriods.Name = "nudNumberOfPeriods";
+            // 
+            // lblLimitOfTermDepositPeriod
+            // 
+            resources.ApplyResources(this.lblLimitOfTermDepositPeriod, "lblLimitOfTermDepositPeriod");
+            this.lblLimitOfTermDepositPeriod.Name = "lblLimitOfTermDepositPeriod";
+            // 
+            // tbTargetAccount2
+            // 
+            resources.ApplyResources(this.tbTargetAccount2, "tbTargetAccount2");
+            this.tbTargetAccount2.Name = "tbTargetAccount2";
+            // 
+            // cmbRollover2
+            // 
+            this.cmbRollover2.DisplayMember = "id";
+            this.cmbRollover2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRollover2.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbRollover2, "cmbRollover2");
+            this.cmbRollover2.Name = "cmbRollover2";
+            this.cmbRollover2.ValueMember = "rollover";
+            this.cmbRollover2.SelectedIndexChanged += new System.EventHandler(this.cmbRollover2_SelectedIndexChanged);
+            // 
+            // lbRollover2
+            // 
+            resources.ApplyResources(this.lbRollover2, "lbRollover2");
+            this.lbRollover2.Name = "lbRollover2";
+            // 
+            // btSearchContract2
+            // 
+            resources.ApplyResources(this.btSearchContract2, "btSearchContract2");
+            this.btSearchContract2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
+            this.btSearchContract2.Name = "btSearchContract2";
+            this.btSearchContract2.UseVisualStyleBackColor = true;
+            this.btSearchContract2.Click += new System.EventHandler(this.btSearchContract_Click);
+            // 
+            // lblTermTransferToAccount
+            // 
+            resources.ApplyResources(this.lblTermTransferToAccount, "lblTermTransferToAccount");
+            this.lblTermTransferToAccount.Name = "lblTermTransferToAccount";
+            // 
             // tabPageSavingsEvents
             // 
             this.tabPageSavingsEvents.Controls.Add(this.lvSavingEvent);
@@ -3013,73 +3080,6 @@ namespace OpenCBS.GUI.Clients
             // 
             this.olvColumnCloseDate.AspectName = "CloseDate";
             resources.ApplyResources(this.olvColumnCloseDate, "olvColumnCloseDate");
-            // 
-            // tpTermDeposit
-            // 
-            this.tpTermDeposit.Controls.Add(this.tlpTermDeposit);
-            resources.ApplyResources(this.tpTermDeposit, "tpTermDeposit");
-            this.tpTermDeposit.Name = "tpTermDeposit";
-            // 
-            // tlpTermDeposit
-            // 
-            resources.ApplyResources(this.tlpTermDeposit, "tlpTermDeposit");
-            this.tlpTermDeposit.Controls.Add(this.lblNumberOfPeriods, 0, 0);
-            this.tlpTermDeposit.Controls.Add(this.nudNumberOfPeriods, 1, 0);
-            this.tlpTermDeposit.Controls.Add(this.lblLimitOfTermDepositPeriod, 2, 0);
-            this.tlpTermDeposit.Controls.Add(this.tbTargetAccount2, 1, 2);
-            this.tlpTermDeposit.Controls.Add(this.cmbRollover2, 1, 1);
-            this.tlpTermDeposit.Controls.Add(this.lbRollover2, 0, 1);
-            this.tlpTermDeposit.Controls.Add(this.btSearchContract2, 2, 2);
-            this.tlpTermDeposit.Controls.Add(this.lblTermTransferToAccount, 0, 2);
-            this.tlpTermDeposit.Name = "tlpTermDeposit";
-            // 
-            // lblNumberOfPeriods
-            // 
-            resources.ApplyResources(this.lblNumberOfPeriods, "lblNumberOfPeriods");
-            this.lblNumberOfPeriods.Name = "lblNumberOfPeriods";
-            // 
-            // nudNumberOfPeriods
-            // 
-            resources.ApplyResources(this.nudNumberOfPeriods, "nudNumberOfPeriods");
-            this.nudNumberOfPeriods.Name = "nudNumberOfPeriods";
-            // 
-            // lblLimitOfTermDepositPeriod
-            // 
-            resources.ApplyResources(this.lblLimitOfTermDepositPeriod, "lblLimitOfTermDepositPeriod");
-            this.lblLimitOfTermDepositPeriod.Name = "lblLimitOfTermDepositPeriod";
-            // 
-            // tbTargetAccount2
-            // 
-            resources.ApplyResources(this.tbTargetAccount2, "tbTargetAccount2");
-            this.tbTargetAccount2.Name = "tbTargetAccount2";
-            // 
-            // cmbRollover2
-            // 
-            this.cmbRollover2.DisplayMember = "id";
-            this.cmbRollover2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRollover2.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbRollover2, "cmbRollover2");
-            this.cmbRollover2.Name = "cmbRollover2";
-            this.cmbRollover2.ValueMember = "rollover";
-            this.cmbRollover2.SelectedIndexChanged += new System.EventHandler(this.cmbRollover2_SelectedIndexChanged);
-            // 
-            // lbRollover2
-            // 
-            resources.ApplyResources(this.lbRollover2, "lbRollover2");
-            this.lbRollover2.Name = "lbRollover2";
-            // 
-            // btSearchContract2
-            // 
-            resources.ApplyResources(this.btSearchContract2, "btSearchContract2");
-            this.btSearchContract2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
-            this.btSearchContract2.Name = "btSearchContract2";
-            this.btSearchContract2.UseVisualStyleBackColor = true;
-            this.btSearchContract2.Click += new System.EventHandler(this.btSearchContract_Click);
-            // 
-            // lblTermTransferToAccount
-            // 
-            resources.ApplyResources(this.lblTermTransferToAccount, "lblTermTransferToAccount");
-            this.lblTermTransferToAccount.Name = "lblTermTransferToAccount";
             // 
             // flowLayoutPanel9
             // 
@@ -3774,13 +3774,13 @@ namespace OpenCBS.GUI.Clients
             ((System.ComponentModel.ISupportInitialize)(this.nudAgioFees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudIbtFee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudChequeDepositFees)).EndInit();
-            this.tabPageSavingsEvents.ResumeLayout(false);
-            this.tabPageLoans.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.olvLoans)).EndInit();
             this.tpTermDeposit.ResumeLayout(false);
             this.tlpTermDeposit.ResumeLayout(false);
             this.tlpTermDeposit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfPeriods)).EndInit();
+            this.tabPageSavingsEvents.ResumeLayout(false);
+            this.tabPageLoans.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.olvLoans)).EndInit();
             this.flowLayoutPanel9.ResumeLayout(false);
             this.flowLayoutPanel9.PerformLayout();
             this.pnlSavingsButtons.ResumeLayout(false);

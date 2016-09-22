@@ -5357,9 +5357,18 @@ namespace OpenCBS.GUI.Clients
                     lBSavingAvBalance.Visible = lbSavingAvBalanceValue.Visible = true;
                     lBSavingAvBalance.Text = @"Personal account balance";
 
-                    tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = true;
+                    tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = nudDownInterestRate.Enabled
+                        = lbInterestRateMinMax.Visible = true;
+
                     tabControlSavingsDetails.TabPages.Remove(tabPageSavingsAmountsAndFees);
                     tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
+
+                    lbManagementFees.Visible = nudManagementFees.Visible = lbManagementFeesMinMax.Visible
+                        = lbCloseFees.Visible = nudCloseFees.Visible = lbCloseFeesMinMax.Visible
+                        = lbReopenFees.Visible = nudReopenFees.Visible = lbReopenFeesMinMax.Visible
+                        = lbWithdrawFees.Visible = nudWithdrawFees.Visible = lbWithdrawFeesMinMax.Visible
+                        = lbDepositFees.Visible = nudDepositFees.Visible = lbDepositFeesMinMax.Visible
+                        = false;
                 }
                 else
                 {
