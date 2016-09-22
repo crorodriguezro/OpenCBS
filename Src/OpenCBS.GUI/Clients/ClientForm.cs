@@ -5356,6 +5356,10 @@ namespace OpenCBS.GUI.Clients
                 {
                     lBSavingAvBalance.Visible = lbSavingAvBalanceValue.Visible = true;
                     lBSavingAvBalance.Text = @"Personal account balance";
+
+                    tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = true;
+                    tabControlSavingsDetails.TabPages.Remove(tabPageSavingsAmountsAndFees);
+                    tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
                 }
                 else
                 {

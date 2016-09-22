@@ -2506,9 +2506,9 @@ namespace OpenCBS.GUI.Clients
             // tabControlSavingsDetails
             // 
             this.tabControlSavingsDetails.Controls.Add(this.tabPageSavingsAmountsAndFees);
+            this.tabControlSavingsDetails.Controls.Add(this.tpTermDeposit);
             this.tabControlSavingsDetails.Controls.Add(this.tabPageSavingsEvents);
             this.tabControlSavingsDetails.Controls.Add(this.tabPageLoans);
-            this.tabControlSavingsDetails.Controls.Add(this.tpTermDeposit);
             resources.ApplyResources(this.tabControlSavingsDetails, "tabControlSavingsDetails");
             this.tabControlSavingsDetails.Name = "tabControlSavingsDetails";
             this.tabControlSavingsDetails.SelectedIndex = 0;
