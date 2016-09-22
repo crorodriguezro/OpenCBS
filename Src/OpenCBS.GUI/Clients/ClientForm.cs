@@ -5338,7 +5338,7 @@ namespace OpenCBS.GUI.Clients
             {
                 Text = _title;
                 _savingsBookProduct = (SavingsBookProduct)product;
-
+                lBSavingAvBalance.Visible = lbSavingAvBalanceValue.Visible = false;
                 if (product.Type == OSavingProductType.PersonalAccount)
                 {
                     buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible =
@@ -5351,6 +5351,11 @@ namespace OpenCBS.GUI.Clients
                     tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
 
                     FillSavingProductsValuesOnForm(product);
+                }
+                else if (product.Type == OSavingProductType.ShortTermDeposit)
+                {
+                    lBSavingAvBalance.Visible = lbSavingAvBalanceValue.Visible = true;
+                    lBSavingAvBalance.Text = @"Personal account balance";
                 }
                 else
                 {
