@@ -1913,9 +1913,9 @@ namespace OpenCBS.Services
             return saving;
         }
 
-        public string CheckAlreadyHaveClientCurrentAccount(int clientId, SqlTransaction tx)
+        public string GetAlreadyHaveClientCurrentAccount(int clientId, SqlTransaction tx)
         {
-            return _savingManager.CheckAlreadyHaveClientCurrentAccount(clientId, tx);
+            return _savingManager.GetAlreadyHaveClientCurrentAccount(clientId, tx);
         }
     }
 }

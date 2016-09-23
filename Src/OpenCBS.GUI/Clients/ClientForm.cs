@@ -1125,12 +1125,12 @@ namespace OpenCBS.GUI.Clients
                 {
                     try
                     {
-                        _currentAccountTextBox.Text = SavingServices.CheckAlreadyHaveClientCurrentAccount(_client.Id, sqlTransaction);
+                        _currentAccountTextBox.Text = SavingServices.GetAlreadyHaveClientCurrentAccount(_client.Id, sqlTransaction);
                     }
-                    catch (Exception)
+                    catch (Exception error)
                     {
                         sqlTransaction.Rollback();
-                        throw;
+                        throw new Exception(error.Message);
                     }
                 }
             }
@@ -5339,6 +5339,14 @@ namespace OpenCBS.GUI.Clients
                 Text = _title;
                 _savingsBookProduct = (SavingsBookProduct)product;
                 lBSavingAvBalance.Visible = lbSavingAvBalanceValue.Visible = false;
+
+                lbManagementFees.Visible = nudManagementFees.Visible = lbManagementFeesMinMax.Visible
+                        = lbCloseFees.Visible = nudCloseFees.Visible = lbCloseFeesMinMax.Visible
+                        = lbReopenFees.Visible = nudReopenFees.Visible = lbReopenFeesMinMax.Visible
+                        = lbWithdrawFees.Visible = nudWithdrawFees.Visible = lbWithdrawFeesMinMax.Visible
+                        = lbDepositFees.Visible = nudDepositFees.Visible = lbDepositFeesMinMax.Visible
+                        = lbEntryFees.Visible = nudEntryFees.Visible = lbEntryFeesMinMax.Visible = true;
+
                 if (product.Type == OSavingProductType.PersonalAccount)
                 {
                     buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible =
@@ -5354,8 +5362,12 @@ namespace OpenCBS.GUI.Clients
                 }
                 else if (product.Type == OSavingProductType.ShortTermDeposit)
                 {
-                    lBSavingAvBalance.Visible = lbSavingAvBalanceValue.Visible = true;
+                    lBSavingAvBalance.Visible = lbSavingAvBalanceValue.Visible
+                    = buttonSaveSaving.Enabled = btnPrintSavings.Enabled = true;
+
                     lBSavingAvBalance.Text = @"Personal account balance";
+                    lbSavingAvBalanceValue.Font = new Font(lbSavingAvBalanceValue.Font, 0);
+                    lbSavingAvBalanceValue.ForeColor = Color.Black;
 
                     tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = nudDownInterestRate.Enabled
                         = lbInterestRateMinMax.Visible = true;
@@ -5368,7 +5380,32 @@ namespace OpenCBS.GUI.Clients
                         = lbReopenFees.Visible = nudReopenFees.Visible = lbReopenFeesMinMax.Visible
                         = lbWithdrawFees.Visible = nudWithdrawFees.Visible = lbWithdrawFeesMinMax.Visible
                         = lbDepositFees.Visible = nudDepositFees.Visible = lbDepositFeesMinMax.Visible
-                        = false;
+                        = lbEntryFees.Visible = nudEntryFees.Visible = lbEntryFeesMinMax.Visible = false;
+
+                    lbInitialAmountMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
+                        "Min ", product.InitialAmountMin.GetFormatedValue(product.Currency.UseCents),
+                        "Max ", product.InitialAmountMax.GetFormatedValue(product.Currency.UseCents),
+                        product.Currency.Code);
+                    nudDownInitialAmount.Maximum = product.InitialAmountMax == null ? 0 : product.InitialAmountMax.Value;
+                    nudDownInitialAmount.Minimum = product.InitialAmountMin == null ? 0 : product.InitialAmountMin.Value;
+                    nudDownInitialAmount.Value = product.InitialAmountMin == null ? 0 : product.InitialAmountMin.Value;
+
+                    if (product.InterestRate.HasValue)
+                    {
+                        nudDownInterestRate.Enabled = false;
+                        lbInterestRateMinMax.Text = string.Format("{0} %", product.InterestRate * 100);
+                        nudDownInterestRate.Maximum = product.InterestRate == null ? 0 : (decimal)product.InterestRate.Value * 100;
+                        nudDownInterestRate.Minimum = product.InterestRate == null ? 0 : (decimal)product.InterestRate.Value * 100;
+                    }
+                    else
+                    {
+                        lbInterestRateMinMax.Text = string.Format("{0}{1} %\r\n{2}{3} %",
+                            "Min ", product.InterestRateMin == null ? 0 : product.InterestRateMin.Value * 100,
+                            "Max ", product.InterestRateMax == null ? 0 : product.InterestRateMax.Value * 100);
+                        nudDownInterestRate.Maximum = product.InterestRateMax == null ? 0 : (decimal)product.InterestRateMax.Value * 100;
+                        nudDownInterestRate.Minimum = product.InterestRateMin == null ? 0 : (decimal)product.InterestRateMin.Value * 100;
+                        nudDownInterestRate.Enabled = nudDownInterestRate.Minimum != nudDownInterestRate.Maximum;
+                    }
                 }
                 else
                 {
@@ -5409,6 +5446,44 @@ namespace OpenCBS.GUI.Clients
                 DisplaySavingLoans(_saving);
 
                 LoadSavingsExtensions();
+
+                if (product.Type == OSavingProductType.ShortTermDeposit)
+                {
+                    var clientPersonalAccount = _client.Savings.FirstOrDefault(x => x.Product.Type == OSavingProductType.PersonalAccount
+                                                            && x.Status == OSavingsStatus.Active);
+                    if (clientPersonalAccount != null)
+                    {
+                        var currency = product.Currency.Code;
+                        var balance = clientPersonalAccount.GetBalance(dtpTernDepositDateStarted.Value);
+                        if(balance <= 0 || balance < nudDownInitialAmount.Minimum)
+                            buttonSaveSaving.Enabled = btnPrintSavings.Enabled = false;
+                        lbSavingAvBalanceValue.Text = string.Format("{0} {1}", balance, currency);
+
+                        if (balance < nudDownInitialAmount.Maximum && balance > 0)
+                            nudDownInitialAmount.Maximum = balance.Value;
+                        
+                        using (SqlTransaction sqlTransaction = DatabaseConnection.GetConnection().BeginTransaction())
+                        {
+                            try
+                            {
+                                _currentAccountTextBox.Text = SavingServices.GetAlreadyHaveClientCurrentAccount(_client.Id, sqlTransaction);
+                            }
+                            catch (Exception error)
+                            {
+                                sqlTransaction.Rollback();
+                                throw new Exception(error.Message);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        buttonSaveSaving.Enabled = btnPrintSavings.Enabled = false;
+                        lbSavingAvBalanceValue.Text = @"Absent";
+                        lbSavingAvBalanceValue.Font = new Font(lbSavingAvBalanceValue.Font, FontStyle.Bold);
+                        lbSavingAvBalanceValue.ForeColor = Color.Red;
+                    }
+                    nudDownInterestRate.Enabled = nudDownInterestRate.Minimum != nudDownInterestRate.Maximum;
+                }
             }
             catch (Exception ex)
             {
@@ -5486,7 +5561,7 @@ namespace OpenCBS.GUI.Clients
             buttonReopenSaving.Visible = false;
             nudDownInterestRate.Enabled = false;
             nudDownInitialAmount.Enabled = true;
-            lbInterestRateMinMax.Visible = true;
+            lbInterestRateMinMax.Visible = nudDownInterestRate.Visible;
         }
 
         private void InitializeSavingsFees()
@@ -7505,6 +7580,22 @@ namespace OpenCBS.GUI.Clients
         private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void nudNumberOfPeriods_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateDateEndTernDeposit();
+        }
+
+        private void dtpTernDepositDateStarted_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateDateEndTernDeposit();
+        }
+
+        private void UpdateDateEndTernDeposit()
+        {
+            // TODO: HARDCODE: we always use month period (haven't cases for week, year etc.)
+            dtpTernDepositDateEnd.Value = dtpTernDepositDateStarted.Value.AddMonths(Convert.ToInt32(nudNumberOfPeriods.Value));
         }
     }
 }

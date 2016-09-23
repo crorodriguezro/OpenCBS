@@ -414,14 +414,18 @@ namespace OpenCBS.GUI.Clients
             this.lbChequeDepositFees = new System.Windows.Forms.Label();
             this.tpTermDeposit = new System.Windows.Forms.TabPage();
             this.tlpTermDeposit = new System.Windows.Forms.TableLayoutPanel();
+            this.dtpTernDepositDateEnd = new System.Windows.Forms.DateTimePicker();
+            this.lblTernDepositDateStarted = new System.Windows.Forms.Label();
             this.lblNumberOfPeriods = new System.Windows.Forms.Label();
             this.nudNumberOfPeriods = new System.Windows.Forms.NumericUpDown();
             this.lblLimitOfTermDepositPeriod = new System.Windows.Forms.Label();
-            this.tbTargetAccount2 = new System.Windows.Forms.TextBox();
             this.cmbRollover2 = new System.Windows.Forms.ComboBox();
+            this.dtpTernDepositDateStarted = new System.Windows.Forms.DateTimePicker();
             this.lbRollover2 = new System.Windows.Forms.Label();
-            this.btSearchContract2 = new System.Windows.Forms.Button();
+            this.tbTargetAccount2 = new System.Windows.Forms.TextBox();
             this.lblTermTransferToAccount = new System.Windows.Forms.Label();
+            this.btSearchContract2 = new System.Windows.Forms.Button();
+            this.lblTernDepositDateEnd = new System.Windows.Forms.Label();
             this.tabPageSavingsEvents = new System.Windows.Forms.TabPage();
             this.lvSavingEvent = new System.Windows.Forms.ListView();
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -523,6 +527,8 @@ namespace OpenCBS.GUI.Clients
             this.menuPendingSavingEvents = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuItemConfirmPendingSavingEvent = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCancelPendingSavingEvent = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer10)).BeginInit();
             this.splitContainer10.Panel1.SuspendLayout();
             this.splitContainer10.Panel2.SuspendLayout();
@@ -2891,15 +2897,31 @@ namespace OpenCBS.GUI.Clients
             // tlpTermDeposit
             // 
             resources.ApplyResources(this.tlpTermDeposit, "tlpTermDeposit");
+            this.tlpTermDeposit.Controls.Add(this.dtpTernDepositDateEnd, 1, 2);
+            this.tlpTermDeposit.Controls.Add(this.lblTernDepositDateStarted, 0, 1);
             this.tlpTermDeposit.Controls.Add(this.lblNumberOfPeriods, 0, 0);
             this.tlpTermDeposit.Controls.Add(this.nudNumberOfPeriods, 1, 0);
             this.tlpTermDeposit.Controls.Add(this.lblLimitOfTermDepositPeriod, 2, 0);
-            this.tlpTermDeposit.Controls.Add(this.tbTargetAccount2, 1, 2);
-            this.tlpTermDeposit.Controls.Add(this.cmbRollover2, 1, 1);
-            this.tlpTermDeposit.Controls.Add(this.lbRollover2, 0, 1);
-            this.tlpTermDeposit.Controls.Add(this.btSearchContract2, 2, 2);
-            this.tlpTermDeposit.Controls.Add(this.lblTermTransferToAccount, 0, 2);
+            this.tlpTermDeposit.Controls.Add(this.cmbRollover2, 1, 6);
+            this.tlpTermDeposit.Controls.Add(this.dtpTernDepositDateStarted, 1, 1);
+            this.tlpTermDeposit.Controls.Add(this.lbRollover2, 0, 6);
+            this.tlpTermDeposit.Controls.Add(this.lblTernDepositDateEnd, 0, 2);
+            this.tlpTermDeposit.Controls.Add(this.tbTargetAccount2, 1, 8);
+            this.tlpTermDeposit.Controls.Add(this.lblTermTransferToAccount, 0, 8);
+            this.tlpTermDeposit.Controls.Add(this.textBox1, 1, 7);
+            this.tlpTermDeposit.Controls.Add(this.label2, 0, 7);
+            this.tlpTermDeposit.Controls.Add(this.btSearchContract2, 2, 8);
             this.tlpTermDeposit.Name = "tlpTermDeposit";
+            // 
+            // dtpTernDepositDateEnd
+            // 
+            resources.ApplyResources(this.dtpTernDepositDateEnd, "dtpTernDepositDateEnd");
+            this.dtpTernDepositDateEnd.Name = "dtpTernDepositDateEnd";
+            // 
+            // lblTernDepositDateStarted
+            // 
+            resources.ApplyResources(this.lblTernDepositDateStarted, "lblTernDepositDateStarted");
+            this.lblTernDepositDateStarted.Name = "lblTernDepositDateStarted";
             // 
             // lblNumberOfPeriods
             // 
@@ -2910,16 +2932,12 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this.nudNumberOfPeriods, "nudNumberOfPeriods");
             this.nudNumberOfPeriods.Name = "nudNumberOfPeriods";
+            this.nudNumberOfPeriods.ValueChanged += new System.EventHandler(this.nudNumberOfPeriods_ValueChanged);
             // 
             // lblLimitOfTermDepositPeriod
             // 
             resources.ApplyResources(this.lblLimitOfTermDepositPeriod, "lblLimitOfTermDepositPeriod");
             this.lblLimitOfTermDepositPeriod.Name = "lblLimitOfTermDepositPeriod";
-            // 
-            // tbTargetAccount2
-            // 
-            resources.ApplyResources(this.tbTargetAccount2, "tbTargetAccount2");
-            this.tbTargetAccount2.Name = "tbTargetAccount2";
             // 
             // cmbRollover2
             // 
@@ -2931,10 +2949,26 @@ namespace OpenCBS.GUI.Clients
             this.cmbRollover2.ValueMember = "rollover";
             this.cmbRollover2.SelectedIndexChanged += new System.EventHandler(this.cmbRollover2_SelectedIndexChanged);
             // 
+            // dtpTernDepositDateStarted
+            // 
+            resources.ApplyResources(this.dtpTernDepositDateStarted, "dtpTernDepositDateStarted");
+            this.dtpTernDepositDateStarted.Name = "dtpTernDepositDateStarted";
+            this.dtpTernDepositDateStarted.ValueChanged += new System.EventHandler(this.dtpTernDepositDateStarted_ValueChanged);
+            // 
             // lbRollover2
             // 
             resources.ApplyResources(this.lbRollover2, "lbRollover2");
             this.lbRollover2.Name = "lbRollover2";
+            // 
+            // tbTargetAccount2
+            // 
+            resources.ApplyResources(this.tbTargetAccount2, "tbTargetAccount2");
+            this.tbTargetAccount2.Name = "tbTargetAccount2";
+            // 
+            // lblTermTransferToAccount
+            // 
+            resources.ApplyResources(this.lblTermTransferToAccount, "lblTermTransferToAccount");
+            this.lblTermTransferToAccount.Name = "lblTermTransferToAccount";
             // 
             // btSearchContract2
             // 
@@ -2944,10 +2978,10 @@ namespace OpenCBS.GUI.Clients
             this.btSearchContract2.UseVisualStyleBackColor = true;
             this.btSearchContract2.Click += new System.EventHandler(this.btSearchContract_Click);
             // 
-            // lblTermTransferToAccount
+            // lblTernDepositDateEnd
             // 
-            resources.ApplyResources(this.lblTermTransferToAccount, "lblTermTransferToAccount");
-            this.lblTermTransferToAccount.Name = "lblTermTransferToAccount";
+            resources.ApplyResources(this.lblTernDepositDateEnd, "lblTernDepositDateEnd");
+            this.lblTernDepositDateEnd.Name = "lblTernDepositDateEnd";
             // 
             // tabPageSavingsEvents
             // 
@@ -3176,27 +3210,27 @@ namespace OpenCBS.GUI.Clients
             this.tableLayoutPanel5.Controls.Add(this._currentAccountTextBox, 7, 1);
             this.tableLayoutPanel5.Controls.Add(this._dateCreatedLabel, 6, 0);
             this.tableLayoutPanel5.Controls.Add(this._dateCreatedValueLabel, 7, 0);
-            this.tableLayoutPanel5.Controls.Add(this.labelInterestRate, 0, 5);
-            this.tableLayoutPanel5.Controls.Add(this.nudDownInterestRate, 1, 5);
+            this.tableLayoutPanel5.Controls.Add(this.lbEntryFeesMinMax, 2, 5);
+            this.tableLayoutPanel5.Controls.Add(this.nudEntryFees, 1, 5);
+            this.tableLayoutPanel5.Controls.Add(this.lbEntryFees, 0, 5);
             this.tableLayoutPanel5.Controls.Add(this.lbCloseFees, 3, 3);
-            this.tableLayoutPanel5.Controls.Add(this.nudEntryFees, 1, 1);
             this.tableLayoutPanel5.Controls.Add(this.nudCloseFees, 4, 3);
             this.tableLayoutPanel5.Controls.Add(this.lbWithdrawFeesMinMax, 8, 2);
             this.tableLayoutPanel5.Controls.Add(this.lbWithdrawFees, 6, 2);
-            this.tableLayoutPanel5.Controls.Add(this.lbEntryFees, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.lbEntryFeesMinMax, 2, 1);
             this.tableLayoutPanel5.Controls.Add(this.lbCloseFeesMinMax, 5, 3);
-            this.tableLayoutPanel5.Controls.Add(this.lbInterestRateMinMax, 2, 5);
             this.tableLayoutPanel5.Controls.Add(this.lbManagementFees, 3, 2);
             this.tableLayoutPanel5.Controls.Add(this.nudManagementFees, 4, 2);
             this.tableLayoutPanel5.Controls.Add(this.lbManagementFeesMinMax, 5, 2);
-            this.tableLayoutPanel5.Controls.Add(this.labelInitialAmount, 0, 3);
-            this.tableLayoutPanel5.Controls.Add(this.nudDownInitialAmount, 1, 3);
-            this.tableLayoutPanel5.Controls.Add(this.lbInitialAmountMinMax, 2, 3);
-            this.tableLayoutPanel5.Controls.Add(this.label1, 0, 2);
-            this.tableLayoutPanel5.Controls.Add(this.cmbSavingsOfficer, 1, 2);
             this.tableLayoutPanel5.Controls.Add(this.nudWithdrawFees, 7, 2);
             this.tableLayoutPanel5.Controls.Add(this.nudDepositFees, 7, 3);
+            this.tableLayoutPanel5.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.cmbSavingsOfficer, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.labelInitialAmount, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.nudDownInitialAmount, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.lbInitialAmountMinMax, 2, 2);
+            this.tableLayoutPanel5.Controls.Add(this.labelInterestRate, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.nudDownInterestRate, 1, 3);
+            this.tableLayoutPanel5.Controls.Add(this.lbInterestRateMinMax, 2, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel5_Paint);
             // 
@@ -3295,11 +3329,6 @@ namespace OpenCBS.GUI.Clients
             // 
             this.nudDownInterestRate.DecimalPlaces = 2;
             resources.ApplyResources(this.nudDownInterestRate, "nudDownInterestRate");
-            this.nudDownInterestRate.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            262144});
             this.nudDownInterestRate.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -3416,9 +3445,9 @@ namespace OpenCBS.GUI.Clients
             // cmbSavingsOfficer
             // 
             this.tableLayoutPanel5.SetColumnSpan(this.cmbSavingsOfficer, 2);
+            resources.ApplyResources(this.cmbSavingsOfficer, "cmbSavingsOfficer");
             this.cmbSavingsOfficer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSavingsOfficer.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbSavingsOfficer, "cmbSavingsOfficer");
             this.cmbSavingsOfficer.Name = "cmbSavingsOfficer";
             // 
             // nudWithdrawFees
@@ -3635,6 +3664,16 @@ namespace OpenCBS.GUI.Clients
             this.menuItemCancelPendingSavingEvent.Name = "menuItemCancelPendingSavingEvent";
             resources.ApplyResources(this.menuItemCancelPendingSavingEvent, "menuItemCancelPendingSavingEvent");
             this.menuItemCancelPendingSavingEvent.Click += new System.EventHandler(this.menuItemCancelPendingSavingEvent_Click);
+            // 
+            // textBox1
+            // 
+            resources.ApplyResources(this.textBox1, "textBox1");
+            this.textBox1.Name = "textBox1";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
             // 
             // ClientForm
             // 
@@ -4218,5 +4257,11 @@ namespace OpenCBS.GUI.Clients
         private Label _dateCreatedLabel;
         private Label _dateCreatedValueLabel;
         private Label _currentAccountLabel;
+        private Label lblTernDepositDateStarted;
+        private DateTimePicker dtpTernDepositDateStarted;
+        private DateTimePicker dtpTernDepositDateEnd;
+        private Label lblTernDepositDateEnd;
+        private TextBox textBox1;
+        private Label label2;
     }
 }

@@ -1030,7 +1030,7 @@ namespace OpenCBS.Manager.Contracts
             SavingSelected(saving);
         }
 
-        public string CheckAlreadyHaveClientCurrentAccount(int clientId, SqlTransaction tx)
+        public string GetAlreadyHaveClientCurrentAccount(int clientId, SqlTransaction tx)
         {
             const string query = @"                
                 select t.CurrentAccount from dbo.Tiers t where id = @clientId
