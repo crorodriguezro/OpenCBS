@@ -542,6 +542,8 @@ namespace OpenCBS.Services
 
                 foreach (var savingEvent in events)
                 {
+                    if(savingEvent.Amount<=0)continue;
+
                     savingEvent.Doc1 = doc1;
                     var parentId = _ePS.FireEventWithReturnId(savingEvent, saving, tx);
 
