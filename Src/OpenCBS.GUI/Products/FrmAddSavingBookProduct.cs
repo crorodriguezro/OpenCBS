@@ -214,6 +214,8 @@ namespace OpenCBS.GUI.Configuration
                 rbIntraRateTransferFees.Enabled = false;
                 rbInterFlatTransferFees.Enabled = false;
                 rbInterRateTransferFees.Enabled = false;
+                cbAccrual.Enabled = false;
+                cbPosting.Enabled = false;
             }
 
             if (_savingsProduct.CloseFees.HasValue)
