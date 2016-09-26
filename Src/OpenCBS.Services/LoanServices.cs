@@ -2418,7 +2418,7 @@ namespace OpenCBS.Services
         private void CancelSavingsEvent(Event cancelledEvent, SqlTransaction sqlTransaction)
         {
             if (cancelledEvent.PaymentMethod != null)
-                if (cancelledEvent.PaymentMethod.Method == OPaymentMethods.Savings
+                if (cancelledEvent.PaymentMethod.Name == OPaymentMethods.Savings.GetName()
                     &&
                     (cancelledEvent.Code == "RBLE" ||
                      cancelledEvent.Code == "RGLE" ||
