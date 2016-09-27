@@ -5362,50 +5362,15 @@ namespace OpenCBS.GUI.Clients
                 }
                 else if (product.Type == OSavingProductType.ShortTermDeposit)
                 {
-                    lBSavingAvBalance.Visible = lbSavingAvBalanceValue.Visible
-                    = buttonSaveSaving.Enabled = btnPrintSavings.Enabled = true;
+                    if(tabControlPerson.TabPages.Contains(tabPageTermDeposit))
+                        tabControlPerson.TabPages.Remove(tabPageTermDeposit);
+                    if (!tabControlPerson.TabPages.Contains(tabPageTermDeposit))
+                        tabControlPerson.TabPages.Add(tabPageTermDeposit);
+                    tabControlPerson.SelectedTab = tabPageTermDeposit;
 
-                    lBSavingAvBalance.Text = @"Personal account balance";
-                    lbSavingAvBalanceValue.Font = new Font(lbSavingAvBalanceValue.Font, 0);
-                    lbSavingAvBalanceValue.ForeColor = Color.Black;
+                    var ternDepositUsetControl = new TernDepositUserControl(product, _client) {Dock = DockStyle.Fill};
 
-                    tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = nudDownInterestRate.Enabled
-                        = lbInterestRateMinMax.Visible = true;
-
-                    tabControlSavingsDetails.TabPages.Remove(tabPageSavingsAmountsAndFees);
-                    tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
-
-                    lbManagementFees.Visible = nudManagementFees.Visible = lbManagementFeesMinMax.Visible
-                        = lbCloseFees.Visible = nudCloseFees.Visible = lbCloseFeesMinMax.Visible
-                        = lbReopenFees.Visible = nudReopenFees.Visible = lbReopenFeesMinMax.Visible
-                        = lbWithdrawFees.Visible = nudWithdrawFees.Visible = lbWithdrawFeesMinMax.Visible
-                        = lbDepositFees.Visible = nudDepositFees.Visible = lbDepositFeesMinMax.Visible
-                        = lbEntryFees.Visible = nudEntryFees.Visible = lbEntryFeesMinMax.Visible = false;
-
-                    lbInitialAmountMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
-                        "Min ", product.InitialAmountMin.GetFormatedValue(product.Currency.UseCents),
-                        "Max ", product.InitialAmountMax.GetFormatedValue(product.Currency.UseCents),
-                        product.Currency.Code);
-                    nudDownInitialAmount.Maximum = product.InitialAmountMax == null ? 0 : product.InitialAmountMax.Value;
-                    nudDownInitialAmount.Minimum = product.InitialAmountMin == null ? 0 : product.InitialAmountMin.Value;
-                    nudDownInitialAmount.Value = product.InitialAmountMin == null ? 0 : product.InitialAmountMin.Value;
-
-                    if (product.InterestRate.HasValue)
-                    {
-                        nudDownInterestRate.Enabled = false;
-                        lbInterestRateMinMax.Text = string.Format("{0} %", product.InterestRate * 100);
-                        nudDownInterestRate.Maximum = product.InterestRate == null ? 0 : (decimal)product.InterestRate.Value * 100;
-                        nudDownInterestRate.Minimum = product.InterestRate == null ? 0 : (decimal)product.InterestRate.Value * 100;
-                    }
-                    else
-                    {
-                        lbInterestRateMinMax.Text = string.Format("{0}{1} %\r\n{2}{3} %",
-                            "Min ", product.InterestRateMin == null ? 0 : product.InterestRateMin.Value * 100,
-                            "Max ", product.InterestRateMax == null ? 0 : product.InterestRateMax.Value * 100);
-                        nudDownInterestRate.Maximum = product.InterestRateMax == null ? 0 : (decimal)product.InterestRateMax.Value * 100;
-                        nudDownInterestRate.Minimum = product.InterestRateMin == null ? 0 : (decimal)product.InterestRateMin.Value * 100;
-                        nudDownInterestRate.Enabled = nudDownInterestRate.Minimum != nudDownInterestRate.Maximum;
-                    }
+                    tabPageTermDeposit.Controls.Add(ternDepositUsetControl);
                 }
                 else
                 {
@@ -5421,9 +5386,12 @@ namespace OpenCBS.GUI.Clients
                     MultiLanguageStrings.GetString(Ressource.ClientForm, "SavingsBook.Text"));
                 groupBoxSaving.ForeColor = Color.FromArgb(0, 88, 56);
 
-                tabControlPerson.TabPages.Remove(tabPageSavingDetails);
-                tabControlPerson.TabPages.Add(tabPageSavingDetails);
-                tabControlPerson.SelectedTab = tabPageSavingDetails;
+                if (product.Type != OSavingProductType.ShortTermDeposit)
+                {
+                    tabControlPerson.TabPages.Remove(tabPageSavingDetails);
+                    tabControlPerson.TabPages.Add(tabPageSavingDetails);
+                    tabControlPerson.SelectedTab = tabPageSavingDetails;
+                }
 
                 InitializeSavingsGeneralControls();
                 buttonCloseSaving.Visible = _saving.Status == OSavingsStatus.Closed;
@@ -5446,44 +5414,6 @@ namespace OpenCBS.GUI.Clients
                 DisplaySavingLoans(_saving);
 
                 LoadSavingsExtensions();
-
-                if (product.Type == OSavingProductType.ShortTermDeposit)
-                {
-                    var clientPersonalAccount = _client.Savings.FirstOrDefault(x => x.Product.Type == OSavingProductType.PersonalAccount
-                                                            && x.Status == OSavingsStatus.Active);
-                    if (clientPersonalAccount != null)
-                    {
-                        var currency = product.Currency.Code;
-                        var balance = clientPersonalAccount.GetBalance(dtpTernDepositDateStarted.Value);
-                        if(balance <= 0 || balance < nudDownInitialAmount.Minimum)
-                            buttonSaveSaving.Enabled = btnPrintSavings.Enabled = false;
-                        lbSavingAvBalanceValue.Text = string.Format("{0} {1}", balance, currency);
-
-                        if (balance < nudDownInitialAmount.Maximum && balance > 0)
-                            nudDownInitialAmount.Maximum = balance.Value;
-                        
-                        using (SqlTransaction sqlTransaction = DatabaseConnection.GetConnection().BeginTransaction())
-                        {
-                            try
-                            {
-                                _currentAccountTextBox.Text = SavingServices.GetAlreadyHaveClientCurrentAccount(_client.Id, sqlTransaction);
-                            }
-                            catch (Exception error)
-                            {
-                                sqlTransaction.Rollback();
-                                throw new Exception(error.Message);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        buttonSaveSaving.Enabled = btnPrintSavings.Enabled = false;
-                        lbSavingAvBalanceValue.Text = @"Absent";
-                        lbSavingAvBalanceValue.Font = new Font(lbSavingAvBalanceValue.Font, FontStyle.Bold);
-                        lbSavingAvBalanceValue.ForeColor = Color.Red;
-                    }
-                    nudDownInterestRate.Enabled = nudDownInterestRate.Minimum != nudDownInterestRate.Maximum;
-                }
             }
             catch (Exception ex)
             {

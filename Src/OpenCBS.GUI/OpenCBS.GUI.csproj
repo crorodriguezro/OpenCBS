@@ -1016,6 +1016,12 @@
     <Compile Include="UserControl\CityTextBox.Designer.cs">
       <DependentUpon>CityTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\TernDepositUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\TernDepositUserControl.Designer.cs">
+      <DependentUpon>TernDepositUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\TextBoxLimit.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -2840,6 +2846,9 @@
     <EmbeddedResource Include="Tools\OMonthCalendar.resx">
       <DependentUpon>OMonthCalendar.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\TernDepositUserControl.resx">
+      <DependentUpon>TernDepositUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\WriteOffOkCancelForm.pt.resx">
       <DependentUpon>WriteOffOkCancelForm.cs</DependentUpon>
