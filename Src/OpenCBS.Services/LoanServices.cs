@@ -2420,8 +2420,9 @@ namespace OpenCBS.Services
             if (cancelledEvent.PaymentMethod != null)
                 if (cancelledEvent.Code == "RBLE" ||
                     cancelledEvent.Code == "RGLE" ||
-                    cancelledEvent.Code == "APR" ||
-                    cancelledEvent.Code == "ATR" ||
+                    cancelledEvent.Code == "LODE" ||
+                    cancelledEvent.Code == "APR"  ||
+                    cancelledEvent.Code == "ATR"  ||
                     cancelledEvent.Code == "RRLE" ||
                     cancelledEvent.Code == "APTR")
                 {
