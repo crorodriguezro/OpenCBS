@@ -5987,6 +5987,12 @@ namespace OpenCBS.GUI.Clients
                         OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
                 }
 
+                var loanEventId = _saving.GetCancelableEvent().LoanEventId;
+                if (loanEventId != null)
+                    throw new OpenCbsException(
+                        "You cannot cancel related operations. You should cancel it from loan with id=" + loanEventId);
+
+
                 string message = GetString("ConfirmCancelLastEvent");
                 string caption = GetString("Confirm");
                 DialogResult res = MessageBox.Show(message, caption, MessageBoxButtons.YesNo);
@@ -6001,6 +6007,8 @@ namespace OpenCBS.GUI.Clients
                     {
                         if (_saving is SavingBookContract)
                             ((SavingBookContract)_saving).Loans = SavingServices.SelectLoansBySavingsId(_saving.Id);
+
+                       
 
                         SavingEvent sEvent = SavingServices.CancelLastEvent(_saving, User.CurrentUser, frm.Comment);
                         var feeEvent = _saving.Events.FirstOrDefault(x => x.ParentId == sEvent.Id);
