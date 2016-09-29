@@ -5987,10 +5987,13 @@ namespace OpenCBS.GUI.Clients
                         OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
                 }
 
+                var cancelableEvent = _saving.GetCancelableEvent();
                 var loanEventId = _saving.GetCancelableEvent().LoanEventId;
-                if (loanEventId != null)
+                var loanId = cancelableEvent!=null?cancelableEvent.ContracId:0;
+
+                if (cancelableEvent!=null && loanEventId != null)
                     throw new OpenCbsException(
-                        "You cannot cancel related operations. You should cancel it from loan with id=" + loanEventId);
+                        "You cannot cancel related operations. You should cancel it from loan with id=" + loanId);
 
 
                 string message = GetString("ConfirmCancelLastEvent");
