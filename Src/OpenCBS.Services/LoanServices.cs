@@ -466,6 +466,12 @@ namespace OpenCBS.Services
             return totalGuarantorAmount;
         }
 
+
+        public bool CanCancelSavingEvents(int loanEventId )
+        {
+            return _savingEventManager.IsLastMainSavingEvent(loanEventId);
+        }
+
         private OCurrency CalculateTotalCollateralAmount(Loan loan)
         {
             OCurrency totalCollateralAmount = 0;

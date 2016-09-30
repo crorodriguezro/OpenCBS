@@ -198,7 +198,60 @@ namespace OpenCBS.Manager.Events
             }
         }
 
-        public void MakeEventExported(int pSavingEventId, SqlTransaction sqlTransac)
+	    public bool IsLastMainSavingEvent(int loanEventId)
+	    {
+	        const string q = @"
+                                declare @clientId int = 
+                                (
+	                                select 
+		                                top 1 t.id
+	                                from dbo.ContractEvents ce
+	                                left join dbo.Contracts c on c.id = ce.contract_id
+	                                left join dbo.Projects pr on pr.id = c.project_id
+	                                left join dbo.Tiers t on t.id = pr.tiers_id
+	                                where ce.id = @loanEventId
+                                )
+
+                                select
+                                count(se.id) is_last_event
+                                from dbo.SavingEvents se
+                                left join dbo.SavingContracts sc on sc.id = se.contract_id
+                                left join dbo.Tiers t on t.id = sc.tiers_id
+                                where
+	                                se.loan_event_id = @loanEventId
+	                                and se.deleted=0
+	                                and parent_event_id is null
+	                                and t.id = @clientId
+	                                and se.creation_date < (select max(se.creation_date) 
+								                                from dbo.SavingEvents se
+								                                left join dbo.SavingContracts sc on sc.id = se.contract_id
+								                                LEFT JOIN dbo.Tiers t on t.id = sc.tiers_id
+								                                where 
+									                                se.deleted=0
+									                                and parent_event_id is null
+									                                and t.id=@clientId)
+                                ";
+
+	        using (SqlConnection conn = GetConnection())
+	        using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+	        {
+                c.AddParam("@loanEventId", loanEventId);
+                using (OpenCbsReader r = c.ExecuteReader())
+	            {
+	                if (r.Empty) return false;
+	                var isLastSavingEvent = 0;
+	                while (r.Read())
+	                {
+	                    isLastSavingEvent = r.GetInt("is_last_event");
+	                }
+
+	                return isLastSavingEvent == 0;
+	            }
+	        }
+	    }
+
+
+	    public void MakeEventExported(int pSavingEventId, SqlTransaction sqlTransac)
         {
             const string q = @"UPDATE [SavingEvents] 
                                      SET [is_exported] = @is_exported 

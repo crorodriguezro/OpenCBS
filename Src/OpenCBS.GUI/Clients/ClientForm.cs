@@ -4588,7 +4588,8 @@ namespace OpenCBS.GUI.Clients
                 LoanServices cServices = ServicesProvider.GetInstance().GetContractServices();
 
                 Event foundEvent = _credit.GetLastNonDeletedEvent();
-
+                if(!cServices.CanCancelSavingEvents(foundEvent.Id))
+                    throw new OpenCbsException("This loan event has saving events which are not last");
 
                 if (foundEvent == null)
                     throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.EventIsNull);
