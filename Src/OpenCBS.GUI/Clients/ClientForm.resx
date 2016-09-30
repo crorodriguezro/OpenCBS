@@ -6967,7 +6967,7 @@ Max:
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        HQAAAk1TRnQBSQFMAgEBBQEAARwBKgEcASoBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAASQBKgEkASoBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -9483,7 +9483,7 @@ Max:
     <value>3, 84</value>
   </data>
   <data name="lbRollover2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 27</value>
+    <value>119, 30</value>
   </data>
   <data name="lbRollover2.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -9540,7 +9540,7 @@ Max:
     <value>False</value>
   </data>
   <data name="tbTargetAccount2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 134</value>
+    <value>128, 137</value>
   </data>
   <data name="tbTargetAccount2.Size" type="System.Drawing.Size, System.Drawing">
     <value>189, 22</value>
@@ -9570,7 +9570,7 @@ Max:
     <value>Arial, 9.75pt</value>
   </data>
   <data name="lblTermTransferToAccount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 131</value>
+    <value>3, 134</value>
   </data>
   <data name="lblTermTransferToAccount.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 16</value>
@@ -9603,7 +9603,7 @@ Max:
     <value>False</value>
   </data>
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 114</value>
+    <value>128, 117</value>
   </data>
   <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>189, 22</value>
@@ -9630,7 +9630,7 @@ Max:
     <value>Fill</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 111</value>
+    <value>3, 114</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 20</value>
@@ -9663,7 +9663,7 @@ Max:
     <value>MiddleLeft</value>
   </data>
   <data name="btSearchContract2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>323, 134</value>
+    <value>323, 137</value>
   </data>
   <data name="btSearchContract2.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 28</value>
