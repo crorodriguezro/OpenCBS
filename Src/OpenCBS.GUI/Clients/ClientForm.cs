@@ -677,7 +677,7 @@ namespace OpenCBS.GUI.Clients
                 labelInterestRate.Visible = nudDownInterestRate.Visible = lbInterestRateMinMax.Visible = false;
                 labelInitialAmount.Visible = nudDownInitialAmount.Visible = lbInitialAmountMinMax.Visible = true;
 
-                tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = !true;
+                tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = true;
                 tabControlSavingsDetails.TabPages.Add(tabPageSavingsEvents);
             }
             else
@@ -5354,7 +5354,7 @@ namespace OpenCBS.GUI.Clients
                     labelInterestRate.Visible = nudDownInterestRate.Visible = lbInterestRateMinMax.Visible = false;
                     labelInitialAmount.Visible = nudDownInitialAmount.Visible = lbInitialAmountMinMax.Visible = true;
 
-                    tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = !true;
+                    tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = true;
                     tabControlSavingsDetails.TabPages.Remove(tabPageSavingsAmountsAndFees);
                     //tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
                     tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
