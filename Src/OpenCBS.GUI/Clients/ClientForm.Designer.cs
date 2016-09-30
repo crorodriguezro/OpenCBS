@@ -497,7 +497,6 @@ namespace OpenCBS.GUI.Clients
             this.nudDownInterestRate = new System.Windows.Forms.NumericUpDown();
             this.lbInterestRateMinMax = new System.Windows.Forms.Label();
             this.tabPageContracts = new System.Windows.Forms.TabPage();
-            this.tabPageTermDeposit = new System.Windows.Forms.TabPage();
             this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuBtnAddSavingOperation = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.savingDepositToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1134,7 +1133,6 @@ namespace OpenCBS.GUI.Clients
             this.tabControlPerson.Controls.Add(this.tabPageLoanGuarantees);
             this.tabControlPerson.Controls.Add(this.tabPageSavingDetails);
             this.tabControlPerson.Controls.Add(this.tabPageContracts);
-            this.tabControlPerson.Controls.Add(this.tabPageTermDeposit);
             resources.ApplyResources(this.tabControlPerson, "tabControlPerson");
             this.tabControlPerson.ImageList = this.imageListTab;
             this.tabControlPerson.Name = "tabControlPerson";
@@ -3490,12 +3488,6 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.tabPageContracts, "tabPageContracts");
             this.tabPageContracts.Name = "tabPageContracts";
             // 
-            // tabPageTermDeposit
-            // 
-            this.tabPageTermDeposit.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.tabPageTermDeposit, "tabPageTermDeposit");
-            this.tabPageTermDeposit.Name = "tabPageTermDeposit";
-            // 
             // columnHeader26
             // 
             resources.ApplyResources(this.columnHeader26, "columnHeader26");
@@ -4271,6 +4263,5 @@ namespace OpenCBS.GUI.Clients
         private Label lblTernDepositDateEnd;
         private TextBox textBox1;
         private Label label2;
-        private TabPage tabPageTermDeposit;
     }
 }

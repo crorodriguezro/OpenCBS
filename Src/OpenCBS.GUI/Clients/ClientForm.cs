@@ -677,7 +677,7 @@ namespace OpenCBS.GUI.Clients
                 labelInterestRate.Visible = nudDownInterestRate.Visible = lbInterestRateMinMax.Visible = false;
                 labelInitialAmount.Visible = nudDownInitialAmount.Visible = lbInitialAmountMinMax.Visible = true;
 
-                tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = true;
+                tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = !true;
                 tabControlSavingsDetails.TabPages.Add(tabPageSavingsEvents);
             }
             else
@@ -687,13 +687,13 @@ namespace OpenCBS.GUI.Clients
             }
             if (product.Type == OSavingProductType.ShortTermDeposit)
             {
-                if (!tabControlSavingsDetails.TabPages.Contains(tpTermDeposit))
-                    tabControlSavingsDetails.TabPages.Add(tpTermDeposit);
+                //if (!tabControlSavingsDetails.TabPages.Contains(tpTermDeposit))
+                    //tabControlSavingsDetails.TabPages.Add(tpTermDeposit);
             }
             else
             {
-                if (tabControlSavingsDetails.TabPages.Contains(tpTermDeposit))
-                    tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
+                //if (tabControlSavingsDetails.TabPages.Contains(tpTermDeposit))
+                    //tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
             }
 
             lbInitialAmountMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
@@ -1116,7 +1116,7 @@ namespace OpenCBS.GUI.Clients
 
             saving = SavingServices.GetSaving(saving.Id);
             buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible = false;
-            tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
+            //tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
             tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
             if (saving.Product.Type == OSavingProductType.PersonalAccount)
             {
@@ -5354,24 +5354,24 @@ namespace OpenCBS.GUI.Clients
                     labelInterestRate.Visible = nudDownInterestRate.Visible = lbInterestRateMinMax.Visible = false;
                     labelInitialAmount.Visible = nudDownInitialAmount.Visible = lbInitialAmountMinMax.Visible = true;
 
-                    tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = true;
+                    tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = !true;
                     tabControlSavingsDetails.TabPages.Remove(tabPageSavingsAmountsAndFees);
-                    tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
+                    //tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
                     tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
 
                     FillSavingProductsValuesOnForm(product);
                 }
                 else if (product.Type == OSavingProductType.ShortTermDeposit)
                 {
-                    if(tabControlPerson.TabPages.Contains(tabPageTermDeposit))
-                        tabControlPerson.TabPages.Remove(tabPageTermDeposit);
-                    if (!tabControlPerson.TabPages.Contains(tabPageTermDeposit))
-                        tabControlPerson.TabPages.Add(tabPageTermDeposit);
-                    tabControlPerson.SelectedTab = tabPageTermDeposit;
+                    //if(tabControlPerson.TabPages.Contains(tabPageTermDeposit))
+                    //    tabControlPerson.TabPages.Remove(tabPageTermDeposit);
+                    //if (!tabControlPerson.TabPages.Contains(tabPageTermDeposit))
+                    //    tabControlPerson.TabPages.Add(tabPageTermDeposit);
+                    //tabControlPerson.SelectedTab = tabPageTermDeposit;
 
                     var ternDepositUsetControl = new TernDepositUserControl(product, _client) {Dock = DockStyle.Fill};
 
-                    tabPageTermDeposit.Controls.Add(ternDepositUsetControl);
+                    //tabPageTermDeposit.Controls.Add(ternDepositUsetControl);
                 }
                 else
                 {
@@ -5381,7 +5381,7 @@ namespace OpenCBS.GUI.Clients
                     new SavingBookContract(ServicesProvider.GetInstance().GetGeneralSettings(),
                         User.CurrentUser,
                         (SavingsBookProduct)product);
-                if (((SavingsBookProduct)product).UseTermDeposit) tabControlSavingsDetails.TabPages.Add(tpTermDeposit);
+                //if (((SavingsBookProduct)product).UseTermDeposit) tabControlSavingsDetails.TabPages.Add(tpTermDeposit);
 
                 groupBoxSaving.Text = string.Format("{0}",
                     MultiLanguageStrings.GetString(Ressource.ClientForm, "SavingsBook.Text"));
@@ -5450,13 +5450,13 @@ namespace OpenCBS.GUI.Clients
                         cmbRollover2.SelectedValue = ((SavingBookContract)_saving).Rollover.ToString();
                         if (((SavingBookContract)_saving).TransferAccount != null)
                             tbTargetAccount2.Text = (((SavingBookContract)_saving).TransferAccount).Code;
-                        tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
-                        tabControlSavingsDetails.TabPages.Add(tpTermDeposit);
+                        //tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
+                        //tabControlSavingsDetails.TabPages.Add(tpTermDeposit);
                     }
                     else
                     {
-                        if (!isTernDeposit)
-                            tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
+                        //if (!isTernDeposit)
+                        //    tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
                     }
                 }
                 else
@@ -5469,13 +5469,13 @@ namespace OpenCBS.GUI.Clients
                             nudNumberOfPeriods.Minimum = (decimal)((SavingBookContract)_saving).Product.TermDepositPeriodMin;
                             nudNumberOfPeriods.Maximum = (decimal)((SavingBookContract)_saving).Product.TermDepositPeriodMax;
                         }
-                        tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
-                        tabControlSavingsDetails.TabPages.Add(tpTermDeposit);
+                        //tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
+                        //tabControlSavingsDetails.TabPages.Add(tpTermDeposit);
                     }
                     else
                     {
-                        if(!isTernDeposit)
-                            tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
+                        //if(!isTernDeposit)
+                        //    tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
                     }
                 }
                 lblLimitOfTermDepositPeriod.Text = string.Format("Min: {0}\nMax: {1}",
