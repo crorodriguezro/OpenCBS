@@ -178,6 +178,10 @@ namespace OpenCBS.GUI.Clients
             {
                 initializer.Initialize(this);
             }
+
+            if (tabControlSavingsDetails.TabPages.Contains(tabPageTermDeposit))
+                tabControlSavingsDetails.TabPages.Remove(tabPageTermDeposit);
+            tabPageTermDeposit.Parent = null;
         }
 
         public ClientForm(
@@ -200,6 +204,10 @@ namespace OpenCBS.GUI.Clients
             else _corporate = new Corporate();
             InitializeUserControl(pClientType, pMdiParent);
             InitializeTitle(null);
+
+            if (tabControlSavingsDetails.TabPages.Contains(tabPageTermDeposit))
+                tabControlSavingsDetails.TabPages.Remove(tabPageTermDeposit);
+            tabPageTermDeposit.Parent = null;
         }
 
         private void InitControls()
@@ -231,6 +239,10 @@ namespace OpenCBS.GUI.Clients
             _oClientType = OClientTypes.Person;
             InitializeUserControl(OClientTypes.Person, pMdiParent);
             InitializeTitle(string.Format("{0} {1}", pPerson.FirstName, pPerson.LastName));
+
+            if (tabControlSavingsDetails.TabPages.Contains(tabPageTermDeposit))
+                tabControlSavingsDetails.TabPages.Remove(tabPageTermDeposit);
+            tabPageTermDeposit.Parent = null;
         }
 
         public ClientForm(Corporate pCorporate, Form pMdiParent, IApplicationController applicationController = null)
@@ -248,6 +260,10 @@ namespace OpenCBS.GUI.Clients
             _oClientType = OClientTypes.Corporate;
             InitializeUserControl(OClientTypes.Corporate, pMdiParent);
             InitializeTitle(string.Format("{0} - {1}", _corporate.Id, _corporate.Name));
+
+            if (tabControlSavingsDetails.TabPages.Contains(tabPageTermDeposit))
+                tabControlSavingsDetails.TabPages.Remove(tabPageTermDeposit);
+            tabPageTermDeposit.Parent = null;
         }
 
         public ClientForm(Group pGroup, Form pMdiParent, IApplicationController applicationController = null)
@@ -265,6 +281,10 @@ namespace OpenCBS.GUI.Clients
             _oClientType = OClientTypes.Group;
             InitializeUserControl(OClientTypes.Group, pMdiParent);
             InitializeTitle(_group.Name);
+
+            if (tabControlSavingsDetails.TabPages.Contains(tabPageTermDeposit))
+                tabControlSavingsDetails.TabPages.Remove(tabPageTermDeposit);
+            tabPageTermDeposit.Parent = null;
         }
 
         public ClientForm(IClient pClient, int pContractId, Form pMdiParent, IApplicationController applicationController = null)
@@ -288,6 +308,9 @@ namespace OpenCBS.GUI.Clients
 
             LoadLoanDetailsExtensions();
 
+            if (tabControlSavingsDetails.TabPages.Contains(tabPageTermDeposit))
+                tabControlSavingsDetails.TabPages.Remove(tabPageTermDeposit);
+            tabPageTermDeposit.Parent = null;
         }
 
         public ClientForm(
@@ -317,6 +340,9 @@ namespace OpenCBS.GUI.Clients
 
             LoadLoanDetailsExtensions();
 
+            if (tabControlSavingsDetails.TabPages.Contains(tabPageTermDeposit))
+                tabControlSavingsDetails.TabPages.Remove(tabPageTermDeposit);
+            tabPageTermDeposit.Parent = null;
         }
         #endregion
 
@@ -687,13 +713,13 @@ namespace OpenCBS.GUI.Clients
             }
             if (product.Type == OSavingProductType.ShortTermDeposit)
             {
-                //if (!tabControlSavingsDetails.TabPages.Contains(tpTermDeposit))
-                    //tabControlSavingsDetails.TabPages.Add(tpTermDeposit);
+                if (!tabControlSavingsDetails.TabPages.Contains(tpTermDeposit))
+                    tabControlSavingsDetails.TabPages.Add(tpTermDeposit);
             }
             else
             {
-                //if (tabControlSavingsDetails.TabPages.Contains(tpTermDeposit))
-                    //tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
+                if (tabControlSavingsDetails.TabPages.Contains(tpTermDeposit))
+                    tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
             }
 
             lbInitialAmountMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
@@ -1111,6 +1137,35 @@ namespace OpenCBS.GUI.Clients
 
         private void DisplaySaving(ISavingsContract saving)
         {
+            if (saving.Product.Type == OSavingProductType.ShortTermDeposit)
+            {
+                if (tabControlPerson.TabPages.Contains(tabPageTermDeposit))
+                    tabControlPerson.TabPages.Remove(tabPageTermDeposit);
+                if (!tabControlPerson.TabPages.Contains(tabPageTermDeposit))
+                    tabControlPerson.TabPages.Add(tabPageTermDeposit);
+
+                if (tabControlPerson.TabPages.Contains(tabPageLoansDetails))
+                    tabControlPerson.TabPages.Remove(tabPageLoansDetails);
+                if (tabControlPerson.TabPages.Contains(tabPageAdvancedSettings))
+                    tabControlPerson.TabPages.Remove(tabPageAdvancedSettings);
+                if (tabControlPerson.TabPages.Contains(tabPageCreditCommitee))
+                    tabControlPerson.TabPages.Remove(tabPageCreditCommitee);
+                if (tabControlPerson.TabPages.Contains(tabPageLoanRepayment))
+                    tabControlPerson.TabPages.Remove(tabPageLoanRepayment);
+                if (tabControlPerson.TabPages.Contains(tabPageSavingDetails))
+                    tabControlPerson.TabPages.Remove(tabPageSavingDetails);
+                if (tabControlPerson.TabPages.Contains(tabPageProject))
+                    tabControlPerson.TabPages.Remove(tabPageProject);
+
+                tabControlPerson.SelectedTab = tabPageTermDeposit;
+
+                var ternDepositUsetControl = new TernDepositUserControl(saving, _client, _applicationController) { Dock = DockStyle.Fill };
+
+                tabPageTermDeposit.Controls.Add(ternDepositUsetControl);
+
+                return;
+            }
+
             buttonCloseSaving.Visible = buttonSavingsOperations.Enabled = buttonSavingsOperations.Visible
                 = saving.Status == OSavingsStatus.Active;
 
@@ -5363,15 +5418,29 @@ namespace OpenCBS.GUI.Clients
                 }
                 else if (product.Type == OSavingProductType.ShortTermDeposit)
                 {
-                    //if(tabControlPerson.TabPages.Contains(tabPageTermDeposit))
-                    //    tabControlPerson.TabPages.Remove(tabPageTermDeposit);
-                    //if (!tabControlPerson.TabPages.Contains(tabPageTermDeposit))
-                    //    tabControlPerson.TabPages.Add(tabPageTermDeposit);
-                    //tabControlPerson.SelectedTab = tabPageTermDeposit;
+                    if(tabControlPerson.TabPages.Contains(tabPageTermDeposit))
+                        tabControlPerson.TabPages.Remove(tabPageTermDeposit);
+                    if (!tabControlPerson.TabPages.Contains(tabPageTermDeposit))
+                        tabControlPerson.TabPages.Add(tabPageTermDeposit);
 
-                    var ternDepositUsetControl = new TernDepositUserControl(product, _client) {Dock = DockStyle.Fill};
+                    if (tabControlPerson.TabPages.Contains(tabPageLoansDetails))
+                        tabControlPerson.TabPages.Remove(tabPageLoansDetails);
+                    if (tabControlPerson.TabPages.Contains(tabPageAdvancedSettings))
+                        tabControlPerson.TabPages.Remove(tabPageAdvancedSettings);
+                    if (tabControlPerson.TabPages.Contains(tabPageCreditCommitee))
+                        tabControlPerson.TabPages.Remove(tabPageCreditCommitee);
+                    if (tabControlPerson.TabPages.Contains(tabPageLoanRepayment))
+                        tabControlPerson.TabPages.Remove(tabPageLoanRepayment);
+                    if (tabControlPerson.TabPages.Contains(tabPageSavingDetails))
+                        tabControlPerson.TabPages.Remove(tabPageSavingDetails);
+                    if (tabControlPerson.TabPages.Contains(tabPageProject))
+                        tabControlPerson.TabPages.Remove(tabPageProject);
 
-                    //tabPageTermDeposit.Controls.Add(ternDepositUsetControl);
+                    tabControlPerson.SelectedTab = tabPageTermDeposit;
+
+                    var ternDepositUsetControl = new TernDepositUserControl(product, _client, _applicationController) {Dock = DockStyle.Fill};
+
+                    tabPageTermDeposit.Controls.Add(ternDepositUsetControl);
                 }
                 else
                 {

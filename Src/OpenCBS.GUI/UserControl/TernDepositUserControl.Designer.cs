@@ -79,6 +79,7 @@
             this.nudDownInterestRate = new System.Windows.Forms.NumericUpDown();
             this.lbInterestRateMinMax = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dateTimeDateCreated = new System.Windows.Forms.DateTimePicker();
             this.tabControlSavingsDetails.SuspendLayout();
             this.tabPageSavingsEvents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfPeriods)).BeginInit();
@@ -292,6 +293,7 @@
             this.buttonSaveSaving.Size = new System.Drawing.Size(110, 28);
             this.buttonSaveSaving.TabIndex = 1;
             this.buttonSaveSaving.Text = "Save";
+            this.buttonSaveSaving.Click += new System.EventHandler(this.SaveSavingEvent);
             // 
             // buttonCloseSaving
             // 
@@ -394,7 +396,6 @@
             this.tableLayoutPanel5.Controls.Add(this._currentAccountLabel, 6, 1);
             this.tableLayoutPanel5.Controls.Add(this._currentAccountTextBox, 7, 1);
             this.tableLayoutPanel5.Controls.Add(this._dateCreatedLabel, 6, 0);
-            this.tableLayoutPanel5.Controls.Add(this._dateCreatedValueLabel, 7, 0);
             this.tableLayoutPanel5.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.cmbSavingsOfficer, 1, 1);
             this.tableLayoutPanel5.Controls.Add(this.labelInitialAmount, 0, 2);
@@ -403,6 +404,8 @@
             this.tableLayoutPanel5.Controls.Add(this.labelInterestRate, 0, 3);
             this.tableLayoutPanel5.Controls.Add(this.nudDownInterestRate, 1, 3);
             this.tableLayoutPanel5.Controls.Add(this.lbInterestRateMinMax, 2, 3);
+            this.tableLayoutPanel5.Controls.Add(this._dateCreatedValueLabel, 0, 6);
+            this.tableLayoutPanel5.Controls.Add(this.dateTimeDateCreated, 7, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -558,9 +561,9 @@
             this._dateCreatedValueLabel.AutoSize = true;
             this._dateCreatedValueLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this._dateCreatedValueLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this._dateCreatedValueLabel.Location = new System.Drawing.Point(1008, 10);
+            this._dateCreatedValueLabel.Location = new System.Drawing.Point(3, 164);
             this._dateCreatedValueLabel.Name = "_dateCreatedValueLabel";
-            this._dateCreatedValueLabel.Size = new System.Drawing.Size(0, 32);
+            this._dateCreatedValueLabel.Size = new System.Drawing.Size(0, 8);
             this._dateCreatedValueLabel.TabIndex = 67;
             this._dateCreatedValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -690,6 +693,17 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1215, 598);
             this.tableLayoutPanel1.TabIndex = 76;
             // 
+            // dateTimeDateCreated
+            // 
+            this.dateTimeDateCreated.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dateTimeDateCreated.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dateTimeDateCreated.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeDateCreated.Location = new System.Drawing.Point(1008, 13);
+            this.dateTimeDateCreated.Name = "dateTimeDateCreated";
+            this.dateTimeDateCreated.Size = new System.Drawing.Size(150, 22);
+            this.dateTimeDateCreated.TabIndex = 76;
+            this.dateTimeDateCreated.Visible = false;
+            // 
             // TernDepositUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -766,5 +780,6 @@
         private System.Windows.Forms.NumericUpDown nudExpectedAmount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DateTimePicker dateTimeDateCreated;
     }
 }

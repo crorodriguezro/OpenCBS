@@ -46,6 +46,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
         public string Code { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime? ClosedDate { get; set; }
+        public DateTime? StartDate { get; set; }
         public int? NsgID { get; set; }
         public OCurrency InitialAmount { get; set; }
         public OCurrency EntryFees { get; set; }

@@ -1,40 +1,75 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.ComponentModel.Composition;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.CoreDomain.Events.Saving;
 using OpenCBS.CoreDomain.Products;
 using OpenCBS.Enums;
+using OpenCBS.Extensions;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
+using OpenCBS.Shared;
 
 namespace OpenCBS.GUI.UserControl
 {
     public partial class TernDepositUserControl : ClientControl, IDisposable
     {
-        private Client _client;
-        private ISavingProduct _product;
+        private readonly Client _client;
+        private readonly ISavingProduct _product;
         private SavingBookContract _saving;
 
-        public TernDepositUserControl(ISavingProduct product, Client client)
+        [ImportMany(typeof(ISavingsTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
+        public List<ISavingsTabs> SavingsExtensions { get; set; }
+
+        private readonly IApplicationController _applicationController;
+
+        private SavingBookContract Saving
+        {
+            get { return _saving; }
+            set { _saving = value; }
+        }
+
+        public TernDepositUserControl(ISavingProduct product, Client client, IApplicationController applicationController = null)
         {
             _client = client;
             _product = product;
+            _applicationController = applicationController;
+
+            _saving = new SavingBookContract(ServicesProvider.GetInstance().GetGeneralSettings(), User.CurrentUser, (SavingsBookProduct)_product);
+
             InitialFieldsForNewContract();
+
+            LoadSavingsExtensions();
+        }
+
+        public TernDepositUserControl(ISavingsContract saving, Client client, IApplicationController applicationController = null)
+        {
+            _saving = (SavingBookContract)saving;
+            _client = client;
+            _product = saving.Product;
+            _applicationController = applicationController;
+
+            InitialFieldsForNewContract();
+            FillFieldsFromExistenceSaving();
+
+            cmbSavingsOfficer.Enabled = cmbSavingsOfficer.Enabled = nudDownInitialAmount.Enabled = nudDownInterestRate.Enabled
+                = nudNumberOfPeriods.Enabled = dtpTernDepositDateStarted.Enabled = false;
+
+            _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = true;
+
+            LoadSavingsExtensions();
         }
 
         private void InitialFieldsForNewContract()
         {
             InitializeComponent();
-
-            _saving = new SavingBookContract(ServicesProvider.GetInstance().GetGeneralSettings(),
-                                                    User.CurrentUser, (SavingsBookProduct)_product);
-
+            
             InitialOfficers();
             InitialContractCode();
             InitialInitialAmount();
@@ -46,6 +81,23 @@ namespace OpenCBS.GUI.UserControl
             lbSavingBalanceValue.Text = _saving.GetFmtBalance(true);
             btCancelLastSavingEvent.Visible = _saving.Status == OSavingsStatus.Active || _saving.Status == OSavingsStatus.Closed;
             buttonSavingsOperations.Visible = _saving.Status == OSavingsStatus.Active;
+        }
+
+
+        #region FillControlsMethods
+
+        private void FillFieldsFromExistenceSaving()
+        {
+            if (_saving == null)
+                return;
+
+            tBSavingCode.Text = _saving.Code;
+            cmbSavingsOfficer.SelectedItem = _saving.SavingsOfficer;
+            nudDownInitialAmount.Value = _saving.InitialAmount.Value;
+            nudDownInterestRate.Value = Convert.ToDecimal(_saving.InterestRate * 100);
+            nudNumberOfPeriods.Value = _saving.NumberOfPeriods;
+            dtpTernDepositDateStarted.Value = _saving.StartDate == null ? dtpTernDepositDateStarted.MinDate : _saving.StartDate.Value;
+            dateTimeDateCreated.Value = _saving.CreationDate;
         }
 
         private void InitialOfficers()
@@ -206,13 +258,64 @@ namespace OpenCBS.GUI.UserControl
 
         private void CalculateExpectedAmount(object sender, EventArgs e)
         {
-//            nudExpectedAmount.Value = nudDownInitialAmount.Value * nudDownInterestRate.Value * nudNumberOfPeriods.Value;
+            nudExpectedAmount.Value = nudDownInitialAmount.Value * nudDownInterestRate.Value / 12 * nudNumberOfPeriods.Value + nudDownInitialAmount.Value;
         }
 
         private void nudNumberOfPeriods_ValueChanged(object sender, EventArgs e)
         {
             PeriodValueChanged(sender, e);
             CalculateExpectedAmount(sender, e);
+        }
+
+        #endregion
+
+        private void SaveSavingEvent(object sender, EventArgs e)
+        {
+            try
+            {
+                _saving.EntryFees = 0m;
+                _saving.UseTermDeposit = true;
+                _saving.Product = (SavingsBookProduct)_product;
+                _saving.Code = tBSavingCode.Text;
+                _saving.SavingsOfficer = (User)cmbSavingsOfficer.SelectedItem;
+                _saving.InitialAmount = nudDownInitialAmount.Value;
+                _saving.InterestRate = Convert.ToDouble(nudDownInterestRate.Value / 100m);
+                _saving.NumberOfPeriods = Convert.ToInt32(nudNumberOfPeriods.Value);
+                _saving.CreationDate = TimeProvider.Now;
+                _saving.StartDate = dtpTernDepositDateStarted.Value;
+                
+                _saving.Id = ServicesProvider.GetInstance().GetSavingServices().SaveContract(_saving, _client, (tx, id) =>
+                {
+                    foreach (var extension in SavingsExtensions) extension.Save(_saving, tx);
+                });
+                _saving = ServicesProvider.GetInstance().GetSavingServices().GetSaving(_saving.Id);
+
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
+            }
+            
+        }
+
+        private void LoadSavingsExtensions()
+        {
+            foreach (var extension in SavingsExtensions)
+            {
+                var pages = extension.GetTabPages(_saving);
+                if (null == pages) continue;
+                foreach (var page in pages) page.Tag = true; // mark as extension
+                tabControlSavingsDetails.TabPages.AddRange(pages);
+            }
+            var tabs = _applicationController.GetAllInstances<ISavingsTabs>();
+            foreach (var tab in tabs)
+            {
+                if (SavingsExtensions.Any(i => i.GetType() == tab.GetType())) continue;
+                var pages = tab.GetTabPages(_saving);
+                if (pages == null) continue;
+                tabControlSavingsDetails.TabPages.AddRange(pages);
+                SavingsExtensions.Add(tab);
+            }
         }
     }
 }

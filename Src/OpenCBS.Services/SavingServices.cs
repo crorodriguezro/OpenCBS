@@ -1589,45 +1589,32 @@ namespace OpenCBS.Services
             {
                 if (!IsInterestRateCorrect(saving))
                     throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.InterestRateIsInvalid);
-                if (!IsWithdrawFeesCorrect((SavingBookContract)saving))
-                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.WithdrawFeesIsInvalid);
 
-                if (!IsTransferFeesCorrect((SavingBookContract)saving))
-                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.TransferFeesIsInvalid);
+                if (saving.Product.Type != OSavingProductType.ShortTermDeposit)
+                {
+                    if (!IsWithdrawFeesCorrect((SavingBookContract)saving))
+                        throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.WithdrawFeesIsInvalid);
 
-                if (!IsDepositFeesCorrect((SavingBookContract)saving))
-                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.DepositFeesIsInvalid);
+                    if (!IsTransferFeesCorrect((SavingBookContract)saving))
+                        throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.TransferFeesIsInvalid);
 
-                if (!IsCloseFeesCorrect((SavingBookContract)saving))
-                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.CloseFeesIsInvalid);
+                    if (!IsDepositFeesCorrect((SavingBookContract)saving))
+                        throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.DepositFeesIsInvalid);
 
-                if (!IsManagementFeesCorrect((SavingBookContract)saving))
-                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.ManagementFeesIsInvalid);
+                    if (!IsCloseFeesCorrect((SavingBookContract)saving))
+                        throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.CloseFeesIsInvalid);
 
-                if (!IsAgioFeesCorrect((SavingBookContract)saving))
-                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.AgioFeesIsInvalid);
-            }
+                    if (!IsManagementFeesCorrect((SavingBookContract)saving))
+                        throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.ManagementFeesIsInvalid);
 
-            if (((SavingBookContract)saving).Loans != null)
-            {
-                //IsLoanValid((Saving)saving, pClient);
-
-                //if (!_IsLoanAmountCorrect((Saving)saving, ((Saving)saving).Loan))
-                //    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.InitialAmountIsInvalid);
+                    if (!IsAgioFeesCorrect((SavingBookContract)saving))
+                        throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.AgioFeesIsInvalid);
+                }
             }
             else
             {
                 if (!IsInitialAmountCorrect(saving))
                     throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.InitialAmountIsInvalid);
-            }
-            if (((SavingBookContract)saving).UseTermDeposit)
-            {
-                if (((SavingBookContract)saving).Rollover != OSavingsRollover.PrincipalAndInterests)
-                {
-                    if (((SavingBookContract)saving).TransferAccount == null)
-                        throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.TransferAccountIsInvalid);
-                }
-
             }
 
             return true;
@@ -1711,15 +1698,6 @@ namespace OpenCBS.Services
             if(saving.Product.Type == OSavingProductType.PersonalAccount)
                 saving.Status = OSavingsStatus.Active;
 
-            if (((SavingBookContract)saving).UseTermDeposit)
-            {
-                ((SavingBookContract)saving).NextMaturity =
-                    DateCalculationStrategy.GetNextMaturity(
-                        saving.CreationDate,
-                        ((SavingBookContract)saving).Product.Periodicity,
-                        ((SavingBookContract)saving).NumberOfPeriods);
-            }
-
             using (SqlConnection connection = _savingManager.GetConnection())
             using (SqlTransaction sqlTransaction = connection.BeginTransaction(IsolationLevel.ReadUncommitted))
             {
@@ -1744,7 +1722,7 @@ namespace OpenCBS.Services
 
                     return saving.Id;
                 }
-                catch (Exception)
+                catch (Exception error)
                 {
                     sqlTransaction.Rollback();
                     throw;

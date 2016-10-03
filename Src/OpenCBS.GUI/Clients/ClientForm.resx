@@ -6967,7 +6967,7 @@ Max:
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        HQAAAk1TRnQBSQFMAgEBBQEAASQBKgEkASoBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        HQAAAk1TRnQBSQFMAgEBBQEAAVQBKgFUASoBIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAUADAAEBAQABCAYAASAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -11563,6 +11563,30 @@ Max:
   </data>
   <data name="&gt;&gt;tabPageContracts.ZOrder" xml:space="preserve">
     <value>8</value>
+  </data>
+  <data name="tabPageTermDeposit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 36</value>
+  </data>
+  <data name="tabPageTermDeposit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1249, 565</value>
+  </data>
+  <data name="tabPageTermDeposit.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="tabPageTermDeposit.Text" xml:space="preserve">
+    <value>Tern Deposit</value>
+  </data>
+  <data name="&gt;&gt;tabPageTermDeposit.Name" xml:space="preserve">
+    <value>tabPageTermDeposit</value>
+  </data>
+  <data name="&gt;&gt;tabPageTermDeposit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageTermDeposit.Parent" xml:space="preserve">
+    <value>tabControlPerson</value>
+  </data>
+  <data name="&gt;&gt;tabPageTermDeposit.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="tabControlPerson.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

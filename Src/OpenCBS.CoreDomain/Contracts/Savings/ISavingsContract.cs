@@ -38,6 +38,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
         ISavingProduct Product { get; set; }
         DateTime CreationDate { get; set; }
         DateTime? ClosedDate { get; set; }
+        DateTime? StartDate { get; set; }
         double InterestRate { get; set; }
         OSavingsStatus Status { get; set; }
         User User { get; }
