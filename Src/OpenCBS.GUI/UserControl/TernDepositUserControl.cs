@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
+using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Savings;
 using OpenCBS.CoreDomain.Events.Saving;
@@ -23,6 +25,7 @@ namespace OpenCBS.GUI.UserControl
         private readonly Client _client;
         private readonly ISavingProduct _product;
         private SavingBookContract _saving;
+        public event EventHandler SaveEvent;
 
         [ImportMany(typeof(ISavingsTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<ISavingsTabs> SavingsExtensions { get; set; }
@@ -42,8 +45,13 @@ namespace OpenCBS.GUI.UserControl
             _applicationController = applicationController;
 
             _saving = new SavingBookContract(ServicesProvider.GetInstance().GetGeneralSettings(), User.CurrentUser, (SavingsBookProduct)_product);
-
+            
             InitialFieldsForNewContract();
+
+            SettingControl(true);
+            buttonSaveSaving.Visible = true;
+            if (_saving.Events.Count == 1 && _saving.Events.FirstOrDefault(x => x.Deleted == false) != null && _saving.Events.FirstOrDefault(x => x.Deleted == false).Code == "SVDE")
+                btCancelLastSavingEvent.Visible = false;
 
             LoadSavingsExtensions();
         }
@@ -58,10 +66,12 @@ namespace OpenCBS.GUI.UserControl
             InitialFieldsForNewContract();
             FillFieldsFromExistenceSaving();
 
-            cmbSavingsOfficer.Enabled = cmbSavingsOfficer.Enabled = nudDownInitialAmount.Enabled = nudDownInterestRate.Enabled
-                = nudNumberOfPeriods.Enabled = dtpTernDepositDateStarted.Enabled = false;
+            SettingControl(false);
 
             _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = true;
+            buttonSaveSaving.Visible = false;
+            if (_saving.Events.Count == 1 && _saving.Events.FirstOrDefault(x => x.Deleted == false) != null && _saving.Events.FirstOrDefault(x => x.Deleted == false).Code == "SVDE")
+                btCancelLastSavingEvent.Visible = false;
 
             LoadSavingsExtensions();
         }
@@ -76,11 +86,19 @@ namespace OpenCBS.GUI.UserControl
             InitialInterestRate();
             InitialNumberOfPeriod();
             InitialPersonalAccount();
-            DisplaySavingEvent();
 
             lbSavingBalanceValue.Text = _saving.GetFmtBalance(true);
             btCancelLastSavingEvent.Visible = _saving.Status == OSavingsStatus.Active || _saving.Status == OSavingsStatus.Closed;
-            buttonSavingsOperations.Visible = _saving.Status == OSavingsStatus.Active;
+            buttonSavingsWithdraw.Visible = _saving.Status == OSavingsStatus.Active;
+        }
+
+        private void SettingControl(bool enable)
+        {
+            cmbSavingsOfficer.Enabled = cmbSavingsOfficer.Enabled = nudDownInitialAmount.Enabled = nudDownInterestRate.Enabled
+                = nudNumberOfPeriods.Enabled = dtpTernDepositDateStarted.Enabled = enable;
+
+            Invalidate();
+            Refresh();
         }
 
 
@@ -98,6 +116,7 @@ namespace OpenCBS.GUI.UserControl
             nudNumberOfPeriods.Value = _saving.NumberOfPeriods;
             dtpTernDepositDateStarted.Value = _saving.StartDate == null ? dtpTernDepositDateStarted.MinDate : _saving.StartDate.Value;
             dateTimeDateCreated.Value = _saving.CreationDate;
+            DisplaySavingEvent();
         }
 
         private void InitialOfficers()
@@ -269,8 +288,9 @@ namespace OpenCBS.GUI.UserControl
 
         #endregion
 
-        private void SaveSavingEvent(object sender, EventArgs e)
+        public void Save(object sender, EventArgs e)
         {
+            var sqlTransac = DatabaseConnection.GetConnection().BeginTransaction(IsolationLevel.ReadUncommitted);
             try
             {
                 _saving.EntryFees = 0m;
@@ -284,18 +304,51 @@ namespace OpenCBS.GUI.UserControl
                 _saving.CreationDate = TimeProvider.Now;
                 _saving.StartDate = dtpTernDepositDateStarted.Value;
                 
-                _saving.Id = ServicesProvider.GetInstance().GetSavingServices().SaveContract(_saving, _client, (tx, id) =>
+                //todo withdraw from personal account
+                var clientPersonalAccount = _client.Savings.FirstOrDefault(x => x.Product.Type == OSavingProductType.PersonalAccount && x.Status == OSavingsStatus.Active);
+                if (clientPersonalAccount != null)
                 {
-                    foreach (var extension in SavingsExtensions) extension.Save(_saving, tx);
-                });
+                    ServicesProvider.GetInstance().GetSavingServices().WithdrawWithTransaction(clientPersonalAccount, _saving.StartDate.Value, _saving.InitialAmount
+                            , "System withdraw operation for initial term deposit", _saving.SavingsOfficer,
+                            Teller.CurrentTeller, new PaymentMethod(), sqlTransac);
+                }
+
+                _saving.Id = ServicesProvider.GetInstance().GetSavingServices().SaveContractWithTransaction(_saving, _client, null, sqlTransac);
+                foreach (var extension in SavingsExtensions) extension.Save(_saving, sqlTransac);
+
+                sqlTransac.Commit();
+
                 _saving = ServicesProvider.GetInstance().GetSavingServices().GetSaving(_saving.Id);
 
+                _client.AddSaving(_saving);
+
+                if (SaveEvent != null)
+                    SaveEvent(this, e);
+
+                SettingControlsAfterSaveContract();
             }
             catch (Exception error)
             {
+                sqlTransac.Rollback();
                 throw new Exception(error.Message);
             }
-            
+        }
+
+        private void SettingControlsAfterSaveContract()
+        {
+            FillFieldsFromExistenceSaving();
+            SettingControl(false);
+            lbSavingBalanceValue.Text = _saving.GetFmtBalance(true);
+            btCancelLastSavingEvent.Visible = buttonSaveSaving.Visible = false;
+            buttonSavingsWithdraw.Visible = true;
+            groupBoxSaving.Text = _saving.Status == OSavingsStatus.Active
+                ? "Status: Active"
+                : _saving.Status == OSavingsStatus.Closed
+                    ? "Status: Closed"
+                    : User.CurrentUser.Name;
+            dateTimeDateCreated.Value = _saving.CreationDate;
+            _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = true;
+            InitialPersonalAccount();
         }
 
         private void LoadSavingsExtensions()

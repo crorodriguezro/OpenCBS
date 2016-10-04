@@ -30,6 +30,12 @@ BEGIN
 END
 GO
 
+IF NOT EXISTS ( SELECT * FROM sys.columns WHERE  object_id = OBJECT_ID(N'[dbo].[SavingContracts]') AND name = 'start_date' )
+BEGIN
+    ALTER TABLE dbo.SavingContracts ADD [start_date] datetime null
+END
+GO
+
 update
     dbo.TechnicalParameters
 set

@@ -53,7 +53,7 @@
             this.buttonSaveSaving = new System.Windows.Forms.Button();
             this.buttonCloseSaving = new System.Windows.Forms.Button();
             this.pnlSavingsButtons = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonSavingsOperations = new System.Windows.Forms.Button();
+            this.buttonSavingsWithdraw = new System.Windows.Forms.Button();
             this.btCancelLastSavingEvent = new System.Windows.Forms.Button();
             this.btnPrintSavings = new OpenCBS.GUI.UserControl.PrintButton();
             this.groupBoxSaving = new System.Windows.Forms.GroupBox();
@@ -69,7 +69,6 @@
             this._currentAccountLabel = new System.Windows.Forms.Label();
             this._currentAccountTextBox = new System.Windows.Forms.TextBox();
             this._dateCreatedLabel = new System.Windows.Forms.Label();
-            this._dateCreatedValueLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbSavingsOfficer = new System.Windows.Forms.ComboBox();
             this.labelInitialAmount = new System.Windows.Forms.Label();
@@ -78,8 +77,9 @@
             this.labelInterestRate = new System.Windows.Forms.Label();
             this.nudDownInterestRate = new System.Windows.Forms.NumericUpDown();
             this.lbInterestRateMinMax = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this._dateCreatedValueLabel = new System.Windows.Forms.Label();
             this.dateTimeDateCreated = new System.Windows.Forms.DateTimePicker();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControlSavingsDetails.SuspendLayout();
             this.tabPageSavingsEvents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfPeriods)).BeginInit();
@@ -293,7 +293,7 @@
             this.buttonSaveSaving.Size = new System.Drawing.Size(110, 28);
             this.buttonSaveSaving.TabIndex = 1;
             this.buttonSaveSaving.Text = "Save";
-            this.buttonSaveSaving.Click += new System.EventHandler(this.SaveSavingEvent);
+            this.buttonSaveSaving.Click += new System.EventHandler(this.Save);
             // 
             // buttonCloseSaving
             // 
@@ -309,7 +309,7 @@
             // 
             this.pnlSavingsButtons.AutoSize = true;
             this.pnlSavingsButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnlSavingsButtons.Controls.Add(this.buttonSavingsOperations);
+            this.pnlSavingsButtons.Controls.Add(this.buttonSavingsWithdraw);
             this.pnlSavingsButtons.Controls.Add(this.btCancelLastSavingEvent);
             this.pnlSavingsButtons.Location = new System.Drawing.Point(262, 10);
             this.pnlSavingsButtons.Margin = new System.Windows.Forms.Padding(0);
@@ -317,16 +317,16 @@
             this.pnlSavingsButtons.Size = new System.Drawing.Size(357, 34);
             this.pnlSavingsButtons.TabIndex = 73;
             // 
-            // buttonSavingsOperations
+            // buttonSavingsWithdraw
             // 
-            this.buttonSavingsOperations.Image = global::OpenCBS.GUI.Properties.Resources.bullet_arrow_down;
-            this.buttonSavingsOperations.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSavingsOperations.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonSavingsOperations.Location = new System.Drawing.Point(3, 3);
-            this.buttonSavingsOperations.Name = "buttonSavingsOperations";
-            this.buttonSavingsOperations.Size = new System.Drawing.Size(140, 28);
-            this.buttonSavingsOperations.TabIndex = 0;
-            this.buttonSavingsOperations.Text = "Operations";
+            this.buttonSavingsWithdraw.Image = global::OpenCBS.GUI.Properties.Resources.bullet_arrow_down;
+            this.buttonSavingsWithdraw.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSavingsWithdraw.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonSavingsWithdraw.Location = new System.Drawing.Point(3, 3);
+            this.buttonSavingsWithdraw.Name = "buttonSavingsWithdraw";
+            this.buttonSavingsWithdraw.Size = new System.Drawing.Size(140, 28);
+            this.buttonSavingsWithdraw.TabIndex = 0;
+            this.buttonSavingsWithdraw.Text = "Withdraw";
             // 
             // btCancelLastSavingEvent
             // 
@@ -556,17 +556,6 @@
             this._dateCreatedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this._dateCreatedLabel.Visible = false;
             // 
-            // _dateCreatedValueLabel
-            // 
-            this._dateCreatedValueLabel.AutoSize = true;
-            this._dateCreatedValueLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this._dateCreatedValueLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this._dateCreatedValueLabel.Location = new System.Drawing.Point(3, 164);
-            this._dateCreatedValueLabel.Name = "_dateCreatedValueLabel";
-            this._dateCreatedValueLabel.Size = new System.Drawing.Size(0, 8);
-            this._dateCreatedValueLabel.TabIndex = 67;
-            this._dateCreatedValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -674,6 +663,29 @@
             this.lbInterestRateMinMax.TabIndex = 49;
             this.lbInterestRateMinMax.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // _dateCreatedValueLabel
+            // 
+            this._dateCreatedValueLabel.AutoSize = true;
+            this._dateCreatedValueLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this._dateCreatedValueLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this._dateCreatedValueLabel.Location = new System.Drawing.Point(3, 164);
+            this._dateCreatedValueLabel.Name = "_dateCreatedValueLabel";
+            this._dateCreatedValueLabel.Size = new System.Drawing.Size(0, 8);
+            this._dateCreatedValueLabel.TabIndex = 67;
+            this._dateCreatedValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dateTimeDateCreated
+            // 
+            this.dateTimeDateCreated.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dateTimeDateCreated.Enabled = false;
+            this.dateTimeDateCreated.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dateTimeDateCreated.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeDateCreated.Location = new System.Drawing.Point(1008, 13);
+            this.dateTimeDateCreated.Name = "dateTimeDateCreated";
+            this.dateTimeDateCreated.Size = new System.Drawing.Size(150, 22);
+            this.dateTimeDateCreated.TabIndex = 76;
+            this.dateTimeDateCreated.Visible = false;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
@@ -692,17 +704,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1215, 598);
             this.tableLayoutPanel1.TabIndex = 76;
-            // 
-            // dateTimeDateCreated
-            // 
-            this.dateTimeDateCreated.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimeDateCreated.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dateTimeDateCreated.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeDateCreated.Location = new System.Drawing.Point(1008, 13);
-            this.dateTimeDateCreated.Name = "dateTimeDateCreated";
-            this.dateTimeDateCreated.Size = new System.Drawing.Size(150, 22);
-            this.dateTimeDateCreated.TabIndex = 76;
-            this.dateTimeDateCreated.Visible = false;
             // 
             // TernDepositUserControl
             // 
@@ -754,7 +755,7 @@
         private System.Windows.Forms.Button buttonSaveSaving;
         private System.Windows.Forms.Button buttonCloseSaving;
         private System.Windows.Forms.FlowLayoutPanel pnlSavingsButtons;
-        private System.Windows.Forms.Button buttonSavingsOperations;
+        private System.Windows.Forms.Button buttonSavingsWithdraw;
         private System.Windows.Forms.Button btCancelLastSavingEvent;
         private PrintButton btnPrintSavings;
         private System.Windows.Forms.GroupBox groupBoxSaving;

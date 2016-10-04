@@ -799,6 +799,68 @@ namespace OpenCBS.Services
             }
         }
 
+        public List<SavingEvent> WithdrawWithTransaction(ISavingsContract pSaving, DateTime pDate, OCurrency pWithdrawAmount, string pDescription, User pUser,
+            Teller teller, PaymentMethod paymentMethod, SqlTransaction tx, string doc1 = null)
+        {
+            ValidateWithdrawal(pWithdrawAmount, pSaving, pDate, pDescription, pUser, teller, paymentMethod);
+            if (pSaving.Client == null)
+                pSaving.Client =
+                    ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(pSaving.Id);
+            var events = pSaving.Withdraw(pWithdrawAmount, pDate, pDescription, pUser, false, teller, paymentMethod);
+            try
+            {
+                foreach (var savingEvent in events)
+                {
+                    savingEvent.Doc1 = doc1;
+                    var parentId = _ePS.FireEventWithReturnId(savingEvent, pSaving, tx);
+
+                    ServicesProvider.GetInstance()
+                        .GetContractServices()
+                        .CallInterceptor(new Dictionary<string, object>
+                        {
+                            {"Saving", pSaving},
+                            {
+                                "Event", new SavingWithdrawEvent
+                                {
+                                    Id = savingEvent.Id,
+                                    Code = savingEvent.Code,
+                                    Amount = savingEvent.Amount,
+                                    Description = savingEvent.Description,
+                                    PaymentsMethod = paymentMethod,
+                                    Date = savingEvent.Date,
+                                    Fee = savingEvent.Fee,
+                                    Doc1 = savingEvent.Doc1
+                                }
+                            },
+                            {"SqlTransaction", tx}
+                        });
+
+                    Fee(pSaving, savingEvent.Fee.Value, pDate, pUser, false, OSavingsMethods.Cash, paymentMethod, null,
+                        teller,
+                        tx, parentId, "Fee for Withdraw", savingEvent.Doc1);
+                }
+
+                // Charge overdraft fees if the balance is negative
+                if (pSaving is SavingBookContract)
+                {
+                    if (pSaving.GetBalance() < 0 && !((SavingBookContract) pSaving).InOverdraft)
+                    {
+                        SavingEvent overdraftFeeEvent = pSaving.ChargeOverdraftFee(pDate, pUser);
+                        _ePS.FireEvent(overdraftFeeEvent, pSaving, tx);
+
+                        ((SavingBookContract) pSaving).InOverdraft = true;
+                        UpdateOverdraftStatus(pSaving.Id, true);
+                    }
+                }
+                
+                return events;
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
+            }
+        }
+
         public List<SavingEvent> Withdraw(ISavingsContract pSaving, DateTime pDate, OCurrency pWithdrawAmount,
                                           string pDescription, User pUser, Teller teller, SqlTransaction sqlTransaction, PaymentMethod paymentMethod)
         {
@@ -1727,6 +1789,52 @@ namespace OpenCBS.Services
                     sqlTransaction.Rollback();
                     throw;
                 }
+            }
+        }
+
+        public int SaveContractWithTransaction(ISavingsContract saving, Client client, Action<SqlTransaction, int> action, SqlTransaction tx)
+        {
+            if (client == null)
+                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.TiersIsNull);
+
+            ValidateSavingsContract(saving, client);
+
+            int savingsCount = _savingManager.GetNumberOfSavings(client.Id);
+
+            saving.GenerateSavingCode(
+                client,
+                savingsCount,
+                ApplicationSettings.GetInstance(_user.Md5).SavingsCodeTemplate,
+                client.Branch.Code
+                );
+
+            saving.Status = saving.InitialAmount > 0 ? OSavingsStatus.Active : OSavingsStatus.Pending;
+            if (saving.Product.Type == OSavingProductType.PersonalAccount)
+                saving.Status = OSavingsStatus.Active;
+
+            try
+            {
+                saving.Id = _savingManager.Add(saving, client, tx);
+                string code = saving.Code + '/' + saving.Id.ToString(CultureInfo.InvariantCulture);
+                _savingManager.UpdateSavingContractCode(saving.Id, code, tx);
+                if (action != null) action(tx, saving.Id);
+                SavingInterceptorSave(new Dictionary<string, object>
+                {
+                    {"Saving", saving},
+                    {"Client", client},
+                    {"OperationType", "SaveSavingContract"},
+                    {"SqlTransaction", tx}
+                });
+
+                DepositWithTransaction(saving, saving.CreationDate, saving.InitialAmount, "Initial deposit",
+                    User.CurrentUser, false, OSavingsMethods.Cash, new PaymentMethod(), null, Teller.CurrentTeller,
+                    tx, true);
+
+                return saving.Id;
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
             }
         }
 

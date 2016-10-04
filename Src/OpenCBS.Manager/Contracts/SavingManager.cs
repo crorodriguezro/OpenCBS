@@ -105,7 +105,8 @@ namespace OpenCBS.Manager.Contracts
                     [savings_officer_id],
                     [initial_amount],
                     [entry_fees],
-                    [nsg_id]
+                    [nsg_id],
+                    [start_date]
                 ) 
                 VALUES 
                 (
@@ -120,7 +121,8 @@ namespace OpenCBS.Manager.Contracts
                     @savings_officer_id,
                     @initial_amount,
                     @entry_fees,
-                    @nsg_id
+                    @nsg_id,
+                    @start_date
                 )
 				SELECT CONVERT(int, SCOPE_IDENTITY())";
 
@@ -138,6 +140,7 @@ namespace OpenCBS.Manager.Contracts
                 cmd.AddParam("@initial_amount",  savings.InitialAmount);
                 cmd.AddParam("@entry_fees", savings.EntryFees);
                 cmd.AddParam("@nsg_id",  savings.NsgID);
+                cmd.AddParam("@start_date",  savings.StartDate);
 
                 savings.Id = int.Parse(cmd.ExecuteScalar().ToString());
             }
@@ -844,6 +847,7 @@ namespace OpenCBS.Manager.Contracts
                                               ,SavingContracts.[entry_fees]
                                               ,SavingContracts.[nsg_id]
                                               ,SavingContracts.[loan_id]
+                                              ,SavingContracts.[start_date]
                                               ,u2.first_name AS so_first_name
                                               ,u2.last_name AS so_last_name
                                               ,SavingProducts.product_type
@@ -1020,6 +1024,7 @@ namespace OpenCBS.Manager.Contracts
             savingContract.EntryFees = pReader.GetMoney("entry_fees");
             savingContract.NsgID = pReader.GetNullInt("nsg_id");
             savingContract.LoanId = pReader.GetNullInt("loan_id");
+            savingContract.StartDate = pReader.GetNullDateTime("start_date");
 
             return savingContract;
         }

@@ -1157,11 +1157,14 @@ namespace OpenCBS.GUI.Clients
                 if (tabControlPerson.TabPages.Contains(tabPageProject))
                     tabControlPerson.TabPages.Remove(tabPageProject);
 
-                tabControlPerson.SelectedTab = tabPageTermDeposit;
-
                 var ternDepositUsetControl = new TernDepositUserControl(saving, _client, _applicationController) { Dock = DockStyle.Fill };
+                ternDepositUsetControl.SaveEvent += TermDepositSave;
 
+                if (tabPageTermDeposit.Controls.Count > 0)
+                    tabPageTermDeposit.Controls.RemoveAt(0);
                 tabPageTermDeposit.Controls.Add(ternDepositUsetControl);
+
+                tabControlPerson.SelectedTab = tabPageTermDeposit;
 
                 return;
             }
@@ -5388,6 +5391,11 @@ namespace OpenCBS.GUI.Clients
             }
         }
 
+        private void TermDepositSave(object sender, EventArgs e)
+        {
+            DisplaySavings(_client.Savings);
+        }
+
         private void InitializeTabPageSavingDetails(ISavingProduct product)
         {
             try
@@ -5411,7 +5419,7 @@ namespace OpenCBS.GUI.Clients
 
                     tabControlSavingsDetails.Visible = buttonSavingsOperations.Enabled = true;
                     tabControlSavingsDetails.TabPages.Remove(tabPageSavingsAmountsAndFees);
-                    //tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
+                    tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
                     tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
 
                     FillSavingProductsValuesOnForm(product);
@@ -5436,11 +5444,14 @@ namespace OpenCBS.GUI.Clients
                     if (tabControlPerson.TabPages.Contains(tabPageProject))
                         tabControlPerson.TabPages.Remove(tabPageProject);
 
-                    tabControlPerson.SelectedTab = tabPageTermDeposit;
+                    var ternDepositUsetControl = new TernDepositUserControl(product, _client, _applicationController) { Dock = DockStyle.Fill };
+                    ternDepositUsetControl.SaveEvent += TermDepositSave;
 
-                    var ternDepositUsetControl = new TernDepositUserControl(product, _client, _applicationController) {Dock = DockStyle.Fill};
-
+                    if (tabPageTermDeposit.Controls.Count > 0)
+                        tabPageTermDeposit.Controls.RemoveAt(0);
                     tabPageTermDeposit.Controls.Add(ternDepositUsetControl);
+
+                    tabControlPerson.SelectedTab = tabPageTermDeposit;
                 }
                 else
                 {
