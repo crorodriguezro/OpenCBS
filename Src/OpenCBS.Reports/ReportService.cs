@@ -220,16 +220,16 @@ namespace OpenCBS.Reports
 
         public static bool CanLoadDocument()
         {
-                var assemblies = Assembly.GetExecutingAssembly().GetReferencedAssemblies().ToArray();
-                if (!assemblies.Any(val => val.FullName.Equals("CrystalDecisions.CrystalReports.Engine"))
-                    || !assemblies.Any(val => val.FullName.Equals("CrystalDecisions.Source"))
-                    || !assemblies.Any(val => val.FullName.Equals("CrystalDecisions.Shared"))
-                    || !assemblies.Any(val => val.FullName.Equals("CrystalDecisions.Windows.Forms")))
-                {
-                    return false;
-                }
-            return true;
-        } 
+            try
+            {
+                new ReportDocument();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
 
         public ParameterFields GetParameterFields(Report report)
         {
