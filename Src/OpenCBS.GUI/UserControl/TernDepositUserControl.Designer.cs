@@ -51,11 +51,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonSaveSaving = new System.Windows.Forms.Button();
-            this.buttonCloseSaving = new System.Windows.Forms.Button();
             this.pnlSavingsButtons = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonSavingsWithdraw = new System.Windows.Forms.Button();
+            this.buttonSavingsClose = new System.Windows.Forms.Button();
             this.btCancelLastSavingEvent = new System.Windows.Forms.Button();
             this.btnPrintSavings = new OpenCBS.GUI.UserControl.PrintButton();
+            this.buttonStart = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
             this.groupBoxSaving = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.nudExpectedAmount = new System.Windows.Forms.NumericUpDown();
@@ -275,9 +276,10 @@
             // 
             this.flowLayoutPanel9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel9.Controls.Add(this.buttonSaveSaving);
-            this.flowLayoutPanel9.Controls.Add(this.buttonCloseSaving);
             this.flowLayoutPanel9.Controls.Add(this.pnlSavingsButtons);
             this.flowLayoutPanel9.Controls.Add(this.btnPrintSavings);
+            this.flowLayoutPanel9.Controls.Add(this.buttonStart);
+            this.flowLayoutPanel9.Controls.Add(this.buttonUpdate);
             this.flowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 209);
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
@@ -295,38 +297,27 @@
             this.buttonSaveSaving.Text = "Save";
             this.buttonSaveSaving.Click += new System.EventHandler(this.Save);
             // 
-            // buttonCloseSaving
-            // 
-            this.buttonCloseSaving.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonCloseSaving.Location = new System.Drawing.Point(119, 13);
-            this.buttonCloseSaving.Name = "buttonCloseSaving";
-            this.buttonCloseSaving.Size = new System.Drawing.Size(140, 28);
-            this.buttonCloseSaving.TabIndex = 3;
-            this.buttonCloseSaving.Text = "Close";
-            this.buttonCloseSaving.Visible = false;
-            // 
             // pnlSavingsButtons
             // 
             this.pnlSavingsButtons.AutoSize = true;
             this.pnlSavingsButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnlSavingsButtons.Controls.Add(this.buttonSavingsWithdraw);
+            this.pnlSavingsButtons.Controls.Add(this.buttonSavingsClose);
             this.pnlSavingsButtons.Controls.Add(this.btCancelLastSavingEvent);
-            this.pnlSavingsButtons.Location = new System.Drawing.Point(262, 10);
+            this.pnlSavingsButtons.Location = new System.Drawing.Point(116, 10);
             this.pnlSavingsButtons.Margin = new System.Windows.Forms.Padding(0);
             this.pnlSavingsButtons.Name = "pnlSavingsButtons";
             this.pnlSavingsButtons.Size = new System.Drawing.Size(357, 34);
             this.pnlSavingsButtons.TabIndex = 73;
             // 
-            // buttonSavingsWithdraw
+            // buttonSavingsClose
             // 
-            this.buttonSavingsWithdraw.Image = global::OpenCBS.GUI.Properties.Resources.bullet_arrow_down;
-            this.buttonSavingsWithdraw.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSavingsWithdraw.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonSavingsWithdraw.Location = new System.Drawing.Point(3, 3);
-            this.buttonSavingsWithdraw.Name = "buttonSavingsWithdraw";
-            this.buttonSavingsWithdraw.Size = new System.Drawing.Size(140, 28);
-            this.buttonSavingsWithdraw.TabIndex = 0;
-            this.buttonSavingsWithdraw.Text = "Withdraw";
+            this.buttonSavingsClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSavingsClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonSavingsClose.Location = new System.Drawing.Point(3, 3);
+            this.buttonSavingsClose.Name = "buttonSavingsClose";
+            this.buttonSavingsClose.Size = new System.Drawing.Size(140, 28);
+            this.buttonSavingsClose.TabIndex = 0;
+            this.buttonSavingsClose.Text = "Close";
             // 
             // btCancelLastSavingEvent
             // 
@@ -343,7 +334,7 @@
             this.btnPrintSavings.Image = global::OpenCBS.GUI.Properties.Resources.bullet_arrow_down;
             this.btnPrintSavings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPrintSavings.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnPrintSavings.Location = new System.Drawing.Point(622, 13);
+            this.btnPrintSavings.Location = new System.Drawing.Point(476, 13);
             this.btnPrintSavings.Name = "btnPrintSavings";
             this.btnPrintSavings.ReportInitializer = null;
             this.btnPrintSavings.Size = new System.Drawing.Size(108, 28);
@@ -351,6 +342,28 @@
             this.btnPrintSavings.Text = "Print";
             this.btnPrintSavings.UseVisualStyleBackColor = true;
             this.btnPrintSavings.Visible = false;
+            // 
+            // buttonStart
+            // 
+            this.buttonStart.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonStart.Location = new System.Drawing.Point(590, 13);
+            this.buttonStart.Name = "buttonStart";
+            this.buttonStart.Size = new System.Drawing.Size(110, 28);
+            this.buttonStart.TabIndex = 75;
+            this.buttonStart.Text = "Start";
+            this.buttonStart.Visible = false;
+            this.buttonStart.Click += new System.EventHandler(this.Start);
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonUpdate.Location = new System.Drawing.Point(706, 13);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(110, 28);
+            this.buttonUpdate.TabIndex = 76;
+            this.buttonUpdate.Text = "Update";
+            this.buttonUpdate.Visible = false;
+            this.buttonUpdate.Click += new System.EventHandler(this.Update);
             // 
             // groupBoxSaving
             // 
@@ -753,9 +766,8 @@
         private System.Windows.Forms.ColumnHeader colCancelDate;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
         private System.Windows.Forms.Button buttonSaveSaving;
-        private System.Windows.Forms.Button buttonCloseSaving;
         private System.Windows.Forms.FlowLayoutPanel pnlSavingsButtons;
-        private System.Windows.Forms.Button buttonSavingsWithdraw;
+        private System.Windows.Forms.Button buttonSavingsClose;
         private System.Windows.Forms.Button btCancelLastSavingEvent;
         private PrintButton btnPrintSavings;
         private System.Windows.Forms.GroupBox groupBoxSaving;
@@ -782,5 +794,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DateTimePicker dateTimeDateCreated;
+        private System.Windows.Forms.Button buttonStart;
+        private System.Windows.Forms.Button buttonUpdate;
     }
 }

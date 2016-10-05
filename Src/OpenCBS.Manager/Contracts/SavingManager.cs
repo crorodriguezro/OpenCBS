@@ -150,6 +150,52 @@ namespace OpenCBS.Manager.Contracts
             return savings.Id;
         }
 
+        public int Update(ISavingsContract savings, Client client, SqlTransaction sqlTransac)
+        {
+            const string sqlText = @"UPDATE
+	                                    [SavingContracts]
+                                    SET
+	                                    [product_id]         = @product_id,
+	                                    [user_id]            = @user_id,
+	                                    [code]               = @code, 
+	                                    [status]             = @status, 
+	                                    [tiers_id]           = @tiers_id, 
+	                                    [creation_date]      = @creation_date, 
+	                                    [interest_rate]      = @interest_rate,  
+	                                    [closed_date]        = @closedDate, 
+	                                    [savings_officer_id] = @savings_officer_id,
+	                                    [initial_amount]     = @initial_amount,
+	                                    [entry_fees]         = @entry_fees,
+	                                    [nsg_id]             = @nsg_id,
+	                                    [start_date]         = @start_date
+                                    WHERE
+	                                    id = @id";
+
+            using (var cmd = new OpenCbsCommand(sqlText, sqlTransac.Connection, sqlTransac))
+            {
+                cmd.AddParam("@id", savings.Id);
+                cmd.AddParam("@product_id", savings.Product.Id);
+                cmd.AddParam("@user_id", savings.User.Id);
+                cmd.AddParam("@code", savings.Code);
+                cmd.AddParam("@status", (int)savings.Status);
+                cmd.AddParam("@tiers_id", client.Id);
+                cmd.AddParam("@creation_date", savings.CreationDate);
+                cmd.AddParam("@interest_rate", savings.InterestRate);
+                cmd.AddParam("@closedDate", savings.ClosedDate);
+                cmd.AddParam("@savings_officer_id", savings.SavingsOfficer.Id);
+                cmd.AddParam("@initial_amount", savings.InitialAmount);
+                cmd.AddParam("@entry_fees", savings.EntryFees);
+                cmd.AddParam("@nsg_id", savings.NsgID);
+                cmd.AddParam("@start_date", savings.StartDate);
+
+                cmd.ExecuteNonQuery();
+            }
+
+            UpdateSavingsBookContract((SavingBookContract)savings, sqlTransac);
+
+            return savings.Id;
+        }
+
         public void UpdateSavingContractCode(int savingsId, string code, SqlTransaction pSqlTransac)
         {
             const string sqlText = @"UPDATE SavingContracts SET code = @code WHERE id = @id";
@@ -157,7 +203,7 @@ namespace OpenCBS.Manager.Contracts
             {
                 cmd.AddParam("@code", code);
                 cmd.AddParam("@id", savingsId);
-                cmd.ExecuteNonQuery();    
+                cmd.ExecuteNonQuery();
             }
         }
 
@@ -274,6 +320,81 @@ namespace OpenCBS.Manager.Contracts
                 
                 cmd.AddParam("@next_maturity", pSaving.NextMaturity);
                 
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void UpdateSavingsBookContract(SavingBookContract pSaving, SqlTransaction pSqlTransac)
+        {
+            const string sqlText = @"UPDATE
+	                                    [SavingBookContracts] 
+                                    SET
+	                                    [flat_withdraw_fees]      = @flatWithdrawFees,
+	                                    [rate_withdraw_fees]      = @rateWithdrawFees,
+	                                    [flat_transfer_fees]      = @flatTransferFees,
+	                                    [rate_transfer_fees]      = @rateTransferFees,
+	                                    [flat_deposit_fees]       = @flatDepositFees, 
+	                                    [flat_close_fees]         = @flatCloseFees,
+	                                    [flat_management_fees]    = @flatManagementFees,
+	                                    [flat_overdraft_fees]     = @flatOverdraftFees,
+	                                    [in_overdraft]            = @inOverdraft,
+	                                    [rate_agio_fees]          = @rateAgioFees,
+	                                    [cheque_deposit_fees]     = @chequeDepositFees,
+	                                    [flat_reopen_fees]        = @flatReopenFees,
+	                                    [flat_ibt_fee]            = @flat_ibt_fee,
+	                                    [rate_ibt_fee]            = @rate_ibt_fee,
+	                                    [use_term_deposit]        = @use_term_deposit,
+	                                    [term_deposit_period]     = @term_deposit_period,
+	                                    [term_deposit_period_min] = @term_deposit_period_min,
+	                                    [term_deposit_period_max] = @term_deposit_period_max,
+	                                    [transfer_account]        = @transfer_account,
+	                                    [rollover]                = @rollover,
+	                                    [next_maturity]           = @next_maturity
+                                    WHERE
+	                                    id = @id";
+
+            using (var cmd = new OpenCbsCommand(sqlText, pSqlTransac.Connection, pSqlTransac))
+            {
+                cmd.AddParam("@id", pSaving.Id);
+                cmd.AddParam("@flatWithdrawFees",
+                    pSaving.Product.WithdrawFeesType == OSavingsFeesType.Flat ? pSaving.FlatWithdrawFees : null);
+                cmd.AddParam("@rateWithdrawFees",
+                    pSaving.Product.WithdrawFeesType == OSavingsFeesType.Rate ? pSaving.RateWithdrawFees : null);
+                cmd.AddParam("@flatTransferFees",
+                    pSaving.Product.TransferFeesType == OSavingsFeesType.Flat ? pSaving.FlatTransferFees : null);
+                cmd.AddParam("@rateTransferFees",
+                    pSaving.Product.TransferFeesType == OSavingsFeesType.Rate ? pSaving.RateTransferFees : null);
+                OCurrency flat = null;
+                double? rate = null;
+                if (pSaving.Product.InterBranchTransferFee.IsFlat)
+                {
+                    flat = pSaving.FlatInterBranchTransferFee;
+                }
+                else
+                {
+                    rate = pSaving.RateInterBranchTransferFee;
+                }
+                cmd.AddParam("@flat_ibt_fee", flat);
+                cmd.AddParam("@rate_ibt_fee", rate);
+                cmd.AddParam("@flatDepositFees", pSaving.DepositFees);
+                cmd.AddParam("@flatCloseFees", pSaving.CloseFees);
+                cmd.AddParam("@flatManagementFees", pSaving.ManagementFees);
+                cmd.AddParam("@flatOverdraftFees", pSaving.OverdraftFees);
+                cmd.AddParam("@inOverdraft", pSaving.InOverdraft);
+                cmd.AddParam("@rateAgioFees", pSaving.AgioFees);
+                cmd.AddParam("@chequeDepositFees", pSaving.ChequeDepositFees);
+                cmd.AddParam("@flatReopenFees", pSaving.ReopenFees);
+                cmd.AddParam("@use_term_deposit", pSaving.UseTermDeposit);
+                cmd.AddParam("@term_deposit_period", pSaving.NumberOfPeriods);
+
+                cmd.AddParam("@term_deposit_period_min", pSaving.TermDepositPeriodMin);
+                cmd.AddParam("@term_deposit_period_max", pSaving.TermDepositPeriodMax);
+                cmd.AddParam("@transfer_account",
+                    pSaving.TransferAccount != null ? pSaving.TransferAccount.Code : null);
+                cmd.AddParam("@rollover", (int) pSaving.Rollover);
+
+                cmd.AddParam("@next_maturity", pSaving.NextMaturity);
+
                 cmd.ExecuteNonQuery();
             }
         }

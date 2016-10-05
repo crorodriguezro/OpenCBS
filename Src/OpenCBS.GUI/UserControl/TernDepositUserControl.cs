@@ -25,7 +25,7 @@ namespace OpenCBS.GUI.UserControl
         private readonly Client _client;
         private readonly ISavingProduct _product;
         private SavingBookContract _saving;
-        public event EventHandler SaveEvent;
+        public event EventHandler RefreshSaving;
 
         [ImportMany(typeof(ISavingsTabs), RequiredCreationPolicy = CreationPolicy.NonShared)]
         public List<ISavingsTabs> SavingsExtensions { get; set; }
@@ -66,12 +66,13 @@ namespace OpenCBS.GUI.UserControl
             InitialFieldsForNewContract();
             FillFieldsFromExistenceSaving();
 
-            SettingControl(false);
+            SettingControl(_saving.Status == OSavingsStatus.Pending);
 
             _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = true;
             buttonSaveSaving.Visible = false;
             if (_saving.Events.Count == 1 && _saving.Events.FirstOrDefault(x => x.Deleted == false) != null && _saving.Events.FirstOrDefault(x => x.Deleted == false).Code == "SVDE")
                 btCancelLastSavingEvent.Visible = false;
+            buttonStart.Visible = buttonUpdate.Visible = _saving.Status == OSavingsStatus.Pending;
 
             LoadSavingsExtensions();
         }
@@ -89,7 +90,7 @@ namespace OpenCBS.GUI.UserControl
 
             lbSavingBalanceValue.Text = _saving.GetFmtBalance(true);
             btCancelLastSavingEvent.Visible = _saving.Status == OSavingsStatus.Active || _saving.Status == OSavingsStatus.Closed;
-            buttonSavingsWithdraw.Visible = _saving.Status == OSavingsStatus.Active;
+            buttonSavingsClose.Visible = _saving.Status == OSavingsStatus.Active;
         }
 
         private void SettingControl(bool enable)
@@ -303,17 +304,9 @@ namespace OpenCBS.GUI.UserControl
                 _saving.NumberOfPeriods = Convert.ToInt32(nudNumberOfPeriods.Value);
                 _saving.CreationDate = TimeProvider.Now;
                 _saving.StartDate = dtpTernDepositDateStarted.Value;
-                
-                //todo withdraw from personal account
-                var clientPersonalAccount = _client.Savings.FirstOrDefault(x => x.Product.Type == OSavingProductType.PersonalAccount && x.Status == OSavingsStatus.Active);
-                if (clientPersonalAccount != null)
-                {
-                    ServicesProvider.GetInstance().GetSavingServices().WithdrawWithTransaction(clientPersonalAccount, _saving.StartDate.Value, _saving.InitialAmount
-                            , "System withdraw operation for initial term deposit", _saving.SavingsOfficer,
-                            Teller.CurrentTeller, new PaymentMethod(), sqlTransac);
-                }
+                _saving.Status = OSavingsStatus.Pending;
 
-                _saving.Id = ServicesProvider.GetInstance().GetSavingServices().SaveContractWithTransaction(_saving, _client, null, sqlTransac);
+                _saving.Id = ServicesProvider.GetInstance().GetSavingServices().SaveTermDeposit(_saving, _client, null, sqlTransac);
                 foreach (var extension in SavingsExtensions) extension.Save(_saving, sqlTransac);
 
                 sqlTransac.Commit();
@@ -322,8 +315,73 @@ namespace OpenCBS.GUI.UserControl
 
                 _client.AddSaving(_saving);
 
-                if (SaveEvent != null)
-                    SaveEvent(this, e);
+                if (RefreshSaving != null)
+                    RefreshSaving(this, e);
+
+                SettingControlsAfterSaveContract();
+            }
+            catch (Exception error)
+            {
+                sqlTransac.Rollback();
+                throw new Exception(error.Message);
+            }
+        }
+
+        private void Start(object sender, EventArgs e)
+        {
+            var sqlTransac = DatabaseConnection.GetConnection().BeginTransaction(IsolationLevel.ReadUncommitted);
+            try
+            {
+                var clientPersonalAccount = _client.Savings.FirstOrDefault(x => x.Product.Type == OSavingProductType.PersonalAccount && x.Status == OSavingsStatus.Active);
+                if (clientPersonalAccount != null)
+                {
+                    ServicesProvider.GetInstance().GetSavingServices().WithdrawWithTransaction(clientPersonalAccount, _saving.StartDate.Value, _saving.InitialAmount
+                            , "System withdraw operation for initial term deposit", _saving.SavingsOfficer,
+                            Teller.CurrentTeller, new PaymentMethod(), sqlTransac);
+                }
+
+                _saving.Status = OSavingsStatus.Active;
+                ServicesProvider.GetInstance().GetSavingServices().UpdateStatusWithTransaction(_saving, sqlTransac);
+
+                ServicesProvider.GetInstance().GetSavingServices().DepositWithTransaction(_saving, _saving.CreationDate, _saving.InitialAmount, "Initial deposit",
+                        User.CurrentUser, false, OSavingsMethods.Cash, new PaymentMethod(), null, Teller.CurrentTeller, sqlTransac, true);
+                
+                sqlTransac.Commit();
+
+                _saving = ServicesProvider.GetInstance().GetSavingServices().GetSaving(_saving.Id);
+
+                if (RefreshSaving != null)
+                    RefreshSaving(this, e);
+
+                SettingControlsAfterStartContract();
+            }
+            catch (Exception error)
+            {
+                sqlTransac.Rollback();
+                throw new Exception(error.Message);
+            }
+        }
+
+        private void Update(object sender, EventArgs e)
+        {
+            var sqlTransac = DatabaseConnection.GetConnection().BeginTransaction(IsolationLevel.ReadUncommitted);
+            try
+            {
+                _saving.SavingsOfficer = (User)cmbSavingsOfficer.SelectedItem;
+                _saving.InitialAmount = nudDownInitialAmount.Value;
+                _saving.InterestRate = Convert.ToDouble(nudDownInterestRate.Value / 100m);
+                _saving.NumberOfPeriods = Convert.ToInt32(nudNumberOfPeriods.Value);
+                _saving.CreationDate = TimeProvider.Now;
+                _saving.StartDate = dtpTernDepositDateStarted.Value;
+
+                ServicesProvider.GetInstance().GetSavingServices().UpdateSaving(_saving, _client, sqlTransac);
+                
+                sqlTransac.Commit();
+
+                _saving = ServicesProvider.GetInstance().GetSavingServices().GetSaving(_saving.Id);
+
+                if (RefreshSaving != null)
+                    RefreshSaving(this, e);
 
                 SettingControlsAfterSaveContract();
             }
@@ -337,15 +395,52 @@ namespace OpenCBS.GUI.UserControl
         private void SettingControlsAfterSaveContract()
         {
             FillFieldsFromExistenceSaving();
-            SettingControl(false);
+            SettingControl(true);
             lbSavingBalanceValue.Text = _saving.GetFmtBalance(true);
             btCancelLastSavingEvent.Visible = buttonSaveSaving.Visible = false;
-            buttonSavingsWithdraw.Visible = true;
-            groupBoxSaving.Text = _saving.Status == OSavingsStatus.Active
-                ? "Status: Active"
-                : _saving.Status == OSavingsStatus.Closed
-                    ? "Status: Closed"
-                    : User.CurrentUser.Name;
+            buttonSavingsClose.Visible = false;
+            switch (_saving.Status)
+            {
+                case OSavingsStatus.Active:
+                    groupBoxSaving.Text = @"Status: Active";
+                    break;
+                case OSavingsStatus.Pending:
+                    groupBoxSaving.Text = @"Status: Pending";
+                    break;
+                case OSavingsStatus.Closed:
+                    groupBoxSaving.Text = @"Status: Closed";
+                    break;
+                default:
+                    groupBoxSaving.Text = User.CurrentUser.Name;
+                    break;
+            }
+            dateTimeDateCreated.Value = _saving.CreationDate;
+            _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = buttonStart.Visible = buttonUpdate.Visible = true;
+            InitialPersonalAccount();
+        }
+
+        private void SettingControlsAfterStartContract()
+        {
+            FillFieldsFromExistenceSaving();
+            SettingControl(false);
+            lbSavingBalanceValue.Text = _saving.GetFmtBalance(true);
+            btCancelLastSavingEvent.Visible = buttonSaveSaving.Visible = buttonUpdate.Visible = buttonStart.Visible = false;
+            buttonSavingsClose.Visible = true;
+            switch (_saving.Status)
+            {
+                case OSavingsStatus.Active:
+                    groupBoxSaving.Text = @"Status: Active";
+                    break;
+                case OSavingsStatus.Pending:
+                    groupBoxSaving.Text = @"Status: Pending";
+                    break;
+                case OSavingsStatus.Closed:
+                    groupBoxSaving.Text = @"Status: Closed";
+                    break;
+                default:
+                    groupBoxSaving.Text = User.CurrentUser.Name;
+                    break;
+            }
             dateTimeDateCreated.Value = _saving.CreationDate;
             _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = true;
             InitialPersonalAccount();

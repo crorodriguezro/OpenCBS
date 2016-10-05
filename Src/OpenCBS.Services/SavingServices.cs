@@ -1792,14 +1792,14 @@ namespace OpenCBS.Services
             }
         }
 
-        public int SaveContractWithTransaction(ISavingsContract saving, Client client, Action<SqlTransaction, int> action, SqlTransaction tx)
+        public int SaveTermDeposit(ISavingsContract saving, Client client, Action<SqlTransaction, int> action, SqlTransaction tx)
         {
             if (client == null)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.TiersIsNull);
 
             ValidateSavingsContract(saving, client);
 
-            int savingsCount = _savingManager.GetNumberOfSavings(client.Id);
+            var savingsCount = _savingManager.GetNumberOfSavings(client.Id);
 
             saving.GenerateSavingCode(
                 client,
@@ -1808,14 +1808,13 @@ namespace OpenCBS.Services
                 client.Branch.Code
                 );
 
-            saving.Status = saving.InitialAmount > 0 ? OSavingsStatus.Active : OSavingsStatus.Pending;
             if (saving.Product.Type == OSavingProductType.PersonalAccount)
                 saving.Status = OSavingsStatus.Active;
 
             try
             {
                 saving.Id = _savingManager.Add(saving, client, tx);
-                string code = saving.Code + '/' + saving.Id.ToString(CultureInfo.InvariantCulture);
+                var code = saving.Code + '/' + saving.Id.ToString(CultureInfo.InvariantCulture);
                 _savingManager.UpdateSavingContractCode(saving.Id, code, tx);
                 if (action != null) action(tx, saving.Id);
                 SavingInterceptorSave(new Dictionary<string, object>
@@ -1825,10 +1824,6 @@ namespace OpenCBS.Services
                     {"OperationType", "SaveSavingContract"},
                     {"SqlTransaction", tx}
                 });
-
-                DepositWithTransaction(saving, saving.CreationDate, saving.InitialAmount, "Initial deposit",
-                    User.CurrentUser, false, OSavingsMethods.Cash, new PaymentMethod(), null, Teller.CurrentTeller,
-                    tx, true);
 
                 return saving.Id;
             }
@@ -1858,9 +1853,31 @@ namespace OpenCBS.Services
             }
         }
 
+        public void UpdateSaving(ISavingsContract saving, Client client, SqlTransaction tx)
+        {
+            if (client == null)
+                throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.TiersIsNull);
+
+            ValidateSavingsContract(saving, client);
+
+            try
+            {
+                saving.Id = _savingManager.Update(saving, client, tx);
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
+            }
+        }
+
         public void UpdateStatus(ISavingsContract pSaving)
         {
             _savingManager.UpdateStatus(pSaving.Id, pSaving.Status, null);
+        }
+
+        public void UpdateStatusWithTransaction(ISavingsContract pSaving, SqlTransaction tx)
+        {
+            _savingManager.UpdateStatus(pSaving.Id, pSaving.Status, null, tx);
         }
 
         public List<SavingSearchResult> FindContracts(int pCurrentlyPage, out int pNumbersTotalPage,

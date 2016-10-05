@@ -1158,7 +1158,7 @@ namespace OpenCBS.GUI.Clients
                     tabControlPerson.TabPages.Remove(tabPageProject);
 
                 var ternDepositUsetControl = new TernDepositUserControl(saving, _client, _applicationController) { Dock = DockStyle.Fill };
-                ternDepositUsetControl.SaveEvent += TermDepositSave;
+                ternDepositUsetControl.RefreshSaving += RefreshSavingsList;
 
                 if (tabPageTermDeposit.Controls.Count > 0)
                     tabPageTermDeposit.Controls.RemoveAt(0);
@@ -5391,7 +5391,7 @@ namespace OpenCBS.GUI.Clients
             }
         }
 
-        private void TermDepositSave(object sender, EventArgs e)
+        private void RefreshSavingsList(object sender, EventArgs e)
         {
             DisplaySavings(_client.Savings);
         }
@@ -5445,7 +5445,7 @@ namespace OpenCBS.GUI.Clients
                         tabControlPerson.TabPages.Remove(tabPageProject);
 
                     var ternDepositUsetControl = new TernDepositUserControl(product, _client, _applicationController) { Dock = DockStyle.Fill };
-                    ternDepositUsetControl.SaveEvent += TermDepositSave;
+                    ternDepositUsetControl.RefreshSaving += RefreshSavingsList;
 
                     if (tabPageTermDeposit.Controls.Count > 0)
                         tabPageTermDeposit.Controls.RemoveAt(0);
