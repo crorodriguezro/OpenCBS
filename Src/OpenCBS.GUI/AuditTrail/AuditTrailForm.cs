@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Presenter;
 using OpenCBS.CoreDomain;
 using OpenCBS.GUI.UserControl;
 using OpenCBS.Reports;
@@ -124,19 +125,26 @@ namespace OpenCBS.GUI.AuditTrail
         private void OnPrintClick(object sender, EventArgs e)
         {
             //btnPrint.StartProgress();
-
-            User u = cbUser.SelectedItem as User;
-            Branch b = cbBranch.SelectedItem as Branch;
-            AuditTrailFilter filter;
-            filter.From = dtFrom.Value;
-            filter.To = dtTo.Value;
-            filter.UserId = null == u ? 0 : u.Id;
-            filter.BranchId = null == b ? 0 : b.Id;
-            filter.Types = EventTypesToString();
-            filter.IncludeDeleted = chkIncludeDeleted.Checked;
-            filter.SuspiciousOnly = chkSuspiciousOnly.Checked;
-            string userName = null == u ? GetString("all") : u.Name;
-            bwReport.RunWorkerAsync(new object[] {filter, userName});
+            if (ReportService.CanLoadDocument())
+            {
+                User u = cbUser.SelectedItem as User;
+                Branch b = cbBranch.SelectedItem as Branch;
+                AuditTrailFilter filter;
+                filter.From = dtFrom.Value;
+                filter.To = dtTo.Value;
+                filter.UserId = null == u ? 0 : u.Id;
+                filter.BranchId = null == b ? 0 : b.Id;
+                filter.Types = EventTypesToString();
+                filter.IncludeDeleted = chkIncludeDeleted.Checked;
+                filter.SuspiciousOnly = chkSuspiciousOnly.Checked;
+                string userName = null == u ? GetString("all") : u.Name;
+                bwReport.RunWorkerAsync(new object[] { filter, userName });
+            }
+            else
+            {
+                var translationService = new TranslationService();
+                MessageBox.Show(translationService.Translate("Crystal reports haven't been installed."));
+            }
         }
 
         private void OnRefreshClick(object sender, EventArgs e)
