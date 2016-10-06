@@ -92,6 +92,7 @@
     <Compile Include="CommandData\BatchRepayCommandData.cs" />
     <Compile Include="CommandData\EditLoanCommandData.cs" />
     <Compile Include="CommandData\EditSavingCommandData.cs" />
+    <Compile Include="CommandData\ExtendedPrintControlCommandData.cs" />
     <Compile Include="CommandData\OpenEmailCommandData.cs" />
     <Compile Include="CommandData\OpenUrlCommandData.cs" />
     <Compile Include="CommandData\PrintControlCommandData.cs" />
