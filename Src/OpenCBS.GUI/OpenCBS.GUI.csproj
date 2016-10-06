@@ -478,6 +478,12 @@
     <Compile Include="Contracts\ContractCollateralForm.Designer.cs">
       <DependentUpon>ContractCollateralForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contracts\LoanCalculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contracts\LoanCalculator.designer.cs">
+      <DependentUpon>LoanCalculator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Contracts\LoanEntryFeesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1690,6 +1696,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contracts\ContractCollateralForm.pt.resx">
       <DependentUpon>ContractCollateralForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\LoanCalculator.es-ES.resx">
+      <DependentUpon>LoanCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\LoanCalculator.fr.resx">
+      <DependentUpon>LoanCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\LoanCalculator.pt.resx">
+      <DependentUpon>LoanCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\LoanCalculator.resx">
+      <DependentUpon>LoanCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\LoanCalculator.ru-RU.resx">
+      <DependentUpon>LoanCalculator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contracts\LoanEntryFeesForm.fr.resx">
       <DependentUpon>LoanEntryFeesForm.cs</DependentUpon>
