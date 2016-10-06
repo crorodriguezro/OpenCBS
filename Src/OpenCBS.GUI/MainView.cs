@@ -536,6 +536,13 @@ namespace OpenCBS.GUI
             doaf.ShowDialog();
         }
 
+        public void InitializeLoanCalculator()
+        {
+            LoanCalculator personForm = new LoanCalculator(OClientTypes.Person, this, false, _applicationController) { MdiParent = this };
+            personForm.Show();
+        }
+
+
         public void SetInfoMessage(string pMessage)
         {
         }
@@ -1190,6 +1197,11 @@ namespace OpenCBS.GUI
         private void loanPurposeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             InitializeDomainOfApplicationForm(true);
+        }
+
+        private void loanCalculatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InitializeLoanCalculator();
         }
     }
 }

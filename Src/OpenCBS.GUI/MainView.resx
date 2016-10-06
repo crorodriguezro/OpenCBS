@@ -575,28 +575,34 @@
     <value>Client and Contract</value>
   </data>
   <data name="_startPageItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>157, 22</value>
   </data>
   <data name="_startPageItem.Text" xml:space="preserve">
     <value>Start Page</value>
   </data>
   <data name="_alertsItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>157, 22</value>
   </data>
   <data name="_alertsItem.Text" xml:space="preserve">
     <value>Alerts</value>
   </data>
   <data name="_dashboardItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>157, 22</value>
   </data>
   <data name="_dashboardItem.Text" xml:space="preserve">
     <value>Dashboard</value>
   </data>
   <data name="_searchItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>157, 22</value>
   </data>
   <data name="_searchItem.Text" xml:space="preserve">
     <value>Search</value>
+  </data>
+  <data name="loanCalculatorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 22</value>
+  </data>
+  <data name="loanCalculatorToolStripMenuItem.Text" xml:space="preserve">
+    <value>Loan Calculator</value>
   </data>
   <data name="_viewItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 20</value>
@@ -1676,6 +1682,12 @@
   <data name="&gt;&gt;_searchItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;loanCalculatorToolStripMenuItem.Name" xml:space="preserve">
+    <value>loanCalculatorToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;loanCalculatorToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;_modulesMenuItem.Name" xml:space="preserve">
     <value>_modulesMenuItem</value>
   </data>
@@ -1740,6 +1752,6 @@
     <value>MainView</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=16.4.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=16.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>
