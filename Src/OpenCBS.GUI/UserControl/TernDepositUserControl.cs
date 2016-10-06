@@ -63,7 +63,7 @@ namespace OpenCBS.GUI.UserControl
             _product = saving.Product;
             _applicationController = applicationController;
 
-            InitialFieldsForNewContract();
+            InitialFieldsForNewContract(false);
             FillFieldsFromExistenceSaving();
 
             SettingControl(_saving.Status == OSavingsStatus.Pending);
@@ -77,12 +77,13 @@ namespace OpenCBS.GUI.UserControl
             LoadSavingsExtensions();
         }
 
-        private void InitialFieldsForNewContract()
+        private void InitialFieldsForNewContract(bool initialContractCode = true)
         {
             InitializeComponent();
             
             InitialOfficers();
-            InitialContractCode();
+            if(initialContractCode)
+                InitialContractCode();
             InitialInitialAmount();
             InitialInterestRate();
             InitialNumberOfPeriod();
@@ -274,6 +275,9 @@ namespace OpenCBS.GUI.UserControl
         {
             // TODO: HARDCODE: we always use month period (haven't cases for week, year etc.)
             dtpTernDepositDateEnd.Value = dtpTernDepositDateStarted.Value.AddMonths(Convert.ToInt32(nudNumberOfPeriods.Value));
+
+            if (sender is DateTimePicker)
+                InitialPersonalAccount();
         }
 
         private void CalculateExpectedAmount(object sender, EventArgs e)
@@ -305,6 +309,7 @@ namespace OpenCBS.GUI.UserControl
                 _saving.CreationDate = TimeProvider.Now;
                 _saving.StartDate = dtpTernDepositDateStarted.Value;
                 _saving.Status = OSavingsStatus.Pending;
+                _saving.ClosedDate = dtpTernDepositDateEnd.Value;
 
                 _saving.Id = ServicesProvider.GetInstance().GetSavingServices().SaveTermDeposit(_saving, _client, null, sqlTransac);
                 foreach (var extension in SavingsExtensions) extension.Save(_saving, sqlTransac);
@@ -343,7 +348,7 @@ namespace OpenCBS.GUI.UserControl
                 _saving.Status = OSavingsStatus.Active;
                 ServicesProvider.GetInstance().GetSavingServices().UpdateStatusWithTransaction(_saving, sqlTransac);
 
-                ServicesProvider.GetInstance().GetSavingServices().DepositWithTransaction(_saving, _saving.CreationDate, _saving.InitialAmount, "Initial deposit",
+                ServicesProvider.GetInstance().GetSavingServices().DepositWithTransaction(_saving, dtpTernDepositDateStarted.Value, _saving.InitialAmount, "Initial deposit",
                         User.CurrentUser, false, OSavingsMethods.Cash, new PaymentMethod(), null, Teller.CurrentTeller, sqlTransac, true);
                 
                 sqlTransac.Commit();
@@ -373,6 +378,7 @@ namespace OpenCBS.GUI.UserControl
                 _saving.NumberOfPeriods = Convert.ToInt32(nudNumberOfPeriods.Value);
                 _saving.CreationDate = TimeProvider.Now;
                 _saving.StartDate = dtpTernDepositDateStarted.Value;
+                _saving.ClosedDate = dtpTernDepositDateEnd.Value;
 
                 ServicesProvider.GetInstance().GetSavingServices().UpdateSaving(_saving, _client, sqlTransac);
                 

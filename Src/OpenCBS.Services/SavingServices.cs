@@ -1877,7 +1877,7 @@ namespace OpenCBS.Services
 
         public void UpdateStatusWithTransaction(ISavingsContract pSaving, SqlTransaction tx)
         {
-            _savingManager.UpdateStatus(pSaving.Id, pSaving.Status, null, tx);
+            _savingManager.UpdateStatus(pSaving.Id, pSaving.Status, pSaving.ClosedDate, tx);
         }
 
         public List<SavingSearchResult> FindContracts(int pCurrentlyPage, out int pNumbersTotalPage,
