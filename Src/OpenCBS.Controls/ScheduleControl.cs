@@ -128,5 +128,7 @@ namespace OpenCBS.Controls
         }
 
         public bool ShowOlbAfterRepayment { get; set; }
+
+        public ObjectListView Control { get { return scheduleObjectListView; } }
     }
 }

@@ -123,6 +123,7 @@ namespace OpenCBS.GUI
             this._alertsItem = new System.Windows.Forms.ToolStripMenuItem();
             this._dashboardItem = new System.Windows.Forms.ToolStripMenuItem();
             this._searchItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loanCalculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._modulesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._aboutModulesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -580,7 +581,8 @@ namespace OpenCBS.GUI
             this._startPageItem,
             this._alertsItem,
             this._dashboardItem,
-            this._searchItem});
+            this._searchItem,
+            this.loanCalculatorToolStripMenuItem});
             this._viewItem.Name = "_viewItem";
             resources.ApplyResources(this._viewItem, "_viewItem");
             // 
@@ -603,6 +605,12 @@ namespace OpenCBS.GUI
             // 
             this._searchItem.Name = "_searchItem";
             resources.ApplyResources(this._searchItem, "_searchItem");
+            // 
+            // loanCalculatorToolStripMenuItem
+            // 
+            this.loanCalculatorToolStripMenuItem.Name = "loanCalculatorToolStripMenuItem";
+            resources.ApplyResources(this.loanCalculatorToolStripMenuItem, "loanCalculatorToolStripMenuItem");
+            this.loanCalculatorToolStripMenuItem.Click += new System.EventHandler(this.loanCalculatorToolStripMenuItem_Click);
             // 
             // _modulesMenuItem
             // 
@@ -740,5 +748,6 @@ namespace OpenCBS.GUI
         private ToolStripMenuItem spanishToolStripMenuItem;
         private ToolStripMenuItem portugueseToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem loanCalculatorToolStripMenuItem;
     }
 }
