@@ -985,7 +985,7 @@ namespace OpenCBS.GUI.Clients
             result.Add("C5", _credit.InstallmentType.Name);
 
             result.Add("B6", "Schedule type:");
-            result.Add("C6", _product.LoanType.ToString());
+            result.Add("C6", GetString("FrmAddLoanProduct", _credit.ScheduleType+".Text"));
 
             return result;
         }
