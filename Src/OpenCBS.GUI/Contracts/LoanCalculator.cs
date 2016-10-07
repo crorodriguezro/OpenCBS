@@ -791,6 +791,7 @@ namespace OpenCBS.GUI.Clients
         }
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            Preview();
             Print();
         }
 
