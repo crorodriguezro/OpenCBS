@@ -362,8 +362,7 @@ namespace OpenCBS.GUI.Clients
 
         private void InitializeFundingLine()
         {
-            List<FundingLine> fundingLines = ServicesProvider.GetInstance().GetFundingLinesServices().SelectFundingLines();
-            _fundingLine = fundingLines.FirstOrDefault();
+            _fundingLine = _product.FundingLine;
         }
 
         private void InitializeLabelMinMax()
