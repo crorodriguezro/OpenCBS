@@ -318,6 +318,7 @@
             this.buttonSavingsClose.Size = new System.Drawing.Size(140, 28);
             this.buttonSavingsClose.TabIndex = 0;
             this.buttonSavingsClose.Text = "Close";
+            this.buttonSavingsClose.Click += new System.EventHandler(this.Close);
             // 
             // btCancelLastSavingEvent
             // 
@@ -327,6 +328,7 @@
             this.btCancelLastSavingEvent.Size = new System.Drawing.Size(205, 28);
             this.btCancelLastSavingEvent.TabIndex = 1;
             this.btCancelLastSavingEvent.Text = "Cancel Last Operation";
+            this.btCancelLastSavingEvent.Click += new System.EventHandler(this.CancelLastEvent);
             // 
             // btnPrintSavings
             // 

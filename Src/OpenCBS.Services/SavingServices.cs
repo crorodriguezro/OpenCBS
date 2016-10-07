@@ -1332,6 +1332,55 @@ namespace OpenCBS.Services
             }
         }
 
+        public List<SavingEvent> CloseAndWithdrawWitTransaction(ISavingsContract saving, DateTime date, User user,
+            OCurrency withdrawAmount, OCurrency closeFees, bool isDesactivateFees, Teller teller,
+            PaymentMethod paymentMethod, SqlTransaction tx)
+        {
+            if (saving.Product.Type != OSavingProductType.ShortTermDeposit)
+            {
+                var balance = SimulateCloseAccount(saving, date, user, isDesactivateFees, teller).GetBalance(date);
+                //TODO NEED TO REMOVE THIS HARDCORE 14%
+                if (balance != withdrawAmount + closeFees)
+                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.WithdrawAmountIsInvalid);
+            }
+            //TODO NEED TO REMOVE THIS HARDCORE 14%
+            var events = saving.Withdraw((withdrawAmount - (closeFees/100m*14m)), date, "Withdraw savings", user, true,
+                Teller.CurrentTeller, paymentMethod);
+            events.AddRange(saving.Close(date, user, "Close savings contract", isDesactivateFees, teller, false));
+            var withdrawEventId = 0;
+            foreach (var savingEvent in events)
+            {
+                if (savingEvent.Code == "SVCE")
+                {
+                    savingEvent.Fee = 0;
+                    if (withdrawEventId != 0)
+                        savingEvent.ParentId = withdrawEventId;
+                }
+                var parentId = _ePS.FireEventWithReturnId(savingEvent, saving, tx);
+                if (savingEvent.Code == "SVWE")
+                    withdrawEventId = parentId;
+                ServicesProvider.GetInstance().GetContractServices().CallInterceptor(new Dictionary<string, object>
+                    {
+                        {"Saving", saving},
+                        {"Event", savingEvent},
+                        {"CloseAccount", true},
+                        {"SqlTransaction", tx}
+                    });
+                if (savingEvent.Code == "SVWE")
+                    continue;
+                if (closeFees.Value > 0)
+                {
+                    Fee(saving, closeFees.Value, date, user, false, OSavingsMethods.Cash, paymentMethod, null,
+                        teller, tx, parentId, "Fee for Close", savingEvent.Doc1);
+                }
+            }
+
+            if (saving.ClosedDate != null)
+                _savingManager.UpdateStatus(saving.Id, saving.Status, saving.ClosedDate.Value);
+
+            return events;
+        }
+
         public List<SavingEvent> CloseAndTransfer(ISavingsContract from, ISavingsContract to, DateTime date, User pUser,
             OCurrency amount, bool pIsDesactivateFees, Teller teller)
         {
