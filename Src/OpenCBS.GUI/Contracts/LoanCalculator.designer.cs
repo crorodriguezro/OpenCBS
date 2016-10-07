@@ -275,6 +275,7 @@ namespace OpenCBS.GUI.Clients
             resources.ApplyResources(this.dtpDateOfFirstInstallment, "dtpDateOfFirstInstallment");
             this.dtpDateOfFirstInstallment.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDateOfFirstInstallment.Name = "dtpDateOfFirstInstallment";
+            this.dtpDateOfFirstInstallment.ValueChanged += new System.EventHandler(this.dtpDateOfFirstInstallment_ValueChanged);
             // 
             // labelLoanGracePeriodMinMax
             // 
@@ -563,12 +564,12 @@ namespace OpenCBS.GUI.Clients
             this.toolStripMenuItemConfirmPending.Name = "toolStripMenuItemConfirmPending";
             resources.ApplyResources(this.toolStripMenuItemConfirmPending, "toolStripMenuItemConfirmPending");
             // 
-            // LoanSimulationForm
+            // LoanCalculator
             // 
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.loanDetailsButtonsPanel);
             this.Controls.Add(this.gbxLoanDetails);
-            this.Name = "LoanSimulationForm";
+            this.Name = "LoanCalculator";
             this.Controls.SetChildIndex(this.gbxLoanDetails, 0);
             this.Controls.SetChildIndex(this.loanDetailsButtonsPanel, 0);
             this.splitContainer3.Panel2.ResumeLayout(false);

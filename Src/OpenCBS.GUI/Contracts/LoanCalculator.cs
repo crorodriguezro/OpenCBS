@@ -1148,5 +1148,9 @@ namespace OpenCBS.GUI.Clients
             }
         }
 
+        private void dtpDateOfFirstInstallment_ValueChanged(object sender, EventArgs e)
+        {
+            lblDay.Text = dtpDateOfFirstInstallment.Value.Date.DayOfWeek.ToString();
+        }
     }
 }
