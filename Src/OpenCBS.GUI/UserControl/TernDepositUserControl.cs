@@ -51,8 +51,7 @@ namespace OpenCBS.GUI.UserControl
 
             SettingControl(true);
             buttonSaveSaving.Visible = true;
-            if (_saving.Events.Count == 1 && _saving.Events.FirstOrDefault(x => x.Deleted == false) != null && _saving.Events.FirstOrDefault(x => x.Deleted == false).Code == "SVDE")
-                btCancelLastSavingEvent.Visible = false;
+            SettingCancelLastEventButton();
 
             LoadSavingsExtensions();
         }
@@ -71,19 +70,20 @@ namespace OpenCBS.GUI.UserControl
 
             _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = true;
             buttonSaveSaving.Visible = false;
-            if (_saving.Events.Count == 1 && _saving.Events.FirstOrDefault(x => x.Deleted == false) != null && _saving.Events.FirstOrDefault(x => x.Deleted == false).Code == "SVDE")
-                btCancelLastSavingEvent.Visible = false;
+            
             buttonStart.Visible = buttonUpdate.Visible = _saving.Status == OSavingsStatus.Pending;
 
             LoadSavingsExtensions();
         }
 
+        #region FillControlsMethods
+
         private void InitialFieldsForNewContract(bool initialContractCode = true)
         {
             InitializeComponent();
-            
+
             InitialOfficers();
-            if(initialContractCode)
+            if (initialContractCode)
                 InitialContractCode();
             InitialInitialAmount();
             InitialInterestRate();
@@ -93,19 +93,42 @@ namespace OpenCBS.GUI.UserControl
             lbSavingBalanceValue.Text = _saving.Status == OSavingsStatus.Closed
                 ? "0"
                 : _saving.GetFmtBalance(true);
-            btCancelLastSavingEvent.Visible = _saving.Status == OSavingsStatus.Active || _saving.Status == OSavingsStatus.Closed;
+            SettingCancelLastEventButton();
             buttonSavingsClose.Visible = _saving.Status == OSavingsStatus.Active;
         }
-        
-        #region FillControlsMethods
 
         private void SettingControlsAfterSaveContract()
         {
             FillFieldsFromExistenceSaving();
             SettingControl(true);
             lbSavingBalanceValue.Text = _saving.GetFmtBalance(true);
-            btCancelLastSavingEvent.Visible = buttonSaveSaving.Visible = false;
-            buttonSavingsClose.Visible = false;
+            SettingCancelLastEventButton();
+            buttonSavingsClose.Visible = buttonSaveSaving.Visible = false;
+            FillFieldStatus();
+            dateTimeDateCreated.Value = _saving.CreationDate;
+            _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = buttonStart.Visible = buttonUpdate.Visible = true;
+            InitialPersonalAccount();
+        }
+
+        private void SettingCancelLastEventButton()
+        {
+            var lastEvent = _saving.Events.OrderBy(x => x.Date).LastOrDefault(x => x.Deleted == false);
+                btCancelLastSavingEvent.Visible = lastEvent != null && lastEvent.Code != "SVDE";
+        }
+
+        private void SettingControlsAfterCalcelLastEvent()
+        {
+            SettingCancelLastEventButton();
+
+            buttonSavingsClose.Visible = true;
+
+            FillFieldStatus();
+
+            DisplaySavingEvent();
+        }
+
+        private void FillFieldStatus()
+        {
             switch (_saving.Status)
             {
                 case OSavingsStatus.Active:
@@ -121,9 +144,6 @@ namespace OpenCBS.GUI.UserControl
                     groupBoxSaving.Text = User.CurrentUser.Name;
                     break;
             }
-            dateTimeDateCreated.Value = _saving.CreationDate;
-            _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = buttonStart.Visible = buttonUpdate.Visible = true;
-            InitialPersonalAccount();
         }
 
         private void SettingControlsAfterStartContract()
@@ -131,23 +151,10 @@ namespace OpenCBS.GUI.UserControl
             FillFieldsFromExistenceSaving();
             SettingControl(false);
             lbSavingBalanceValue.Text = _saving.GetFmtBalance(true);
-            btCancelLastSavingEvent.Visible = buttonSaveSaving.Visible = buttonUpdate.Visible = buttonStart.Visible = false;
+            buttonSaveSaving.Visible = buttonUpdate.Visible = buttonStart.Visible = false;
+            SettingCancelLastEventButton();
             buttonSavingsClose.Visible = true;
-            switch (_saving.Status)
-            {
-                case OSavingsStatus.Active:
-                    groupBoxSaving.Text = @"Status: Active";
-                    break;
-                case OSavingsStatus.Pending:
-                    groupBoxSaving.Text = @"Status: Pending";
-                    break;
-                case OSavingsStatus.Closed:
-                    groupBoxSaving.Text = @"Status: Closed";
-                    break;
-                default:
-                    groupBoxSaving.Text = User.CurrentUser.Name;
-                    break;
-            }
+            FillFieldStatus();
             dateTimeDateCreated.Value = _saving.CreationDate;
             _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = true;
             InitialPersonalAccount();
@@ -159,22 +166,8 @@ namespace OpenCBS.GUI.UserControl
             SettingControl(false);
             lbSavingBalanceValue.Text = @"0";
             buttonSavingsClose.Visible = buttonSaveSaving.Visible = buttonUpdate.Visible = buttonStart.Visible = false;
-            btCancelLastSavingEvent.Visible = true;
-            switch (_saving.Status)
-            {
-                case OSavingsStatus.Active:
-                    groupBoxSaving.Text = @"Status: Active";
-                    break;
-                case OSavingsStatus.Pending:
-                    groupBoxSaving.Text = @"Status: Pending";
-                    break;
-                case OSavingsStatus.Closed:
-                    groupBoxSaving.Text = @"Status: Closed";
-                    break;
-                default:
-                    groupBoxSaving.Text = User.CurrentUser.Name;
-                    break;
-            }
+            SettingCancelLastEventButton();
+            FillFieldStatus();
         }
 
         private void FillFieldsFromExistenceSaving()
@@ -189,6 +182,8 @@ namespace OpenCBS.GUI.UserControl
             nudNumberOfPeriods.Value = _saving.NumberOfPeriods;
             dtpTernDepositDateStarted.Value = _saving.StartDate == null ? dtpTernDepositDateStarted.MinDate : _saving.StartDate.Value;
             dateTimeDateCreated.Value = _saving.CreationDate;
+            SettingCancelLastEventButton();
+            FillFieldStatus();
             DisplaySavingEvent();
         }
 
@@ -304,11 +299,11 @@ namespace OpenCBS.GUI.UserControl
             lvSavingEvent.Items.Clear();
             IEnumerable<SavingEvent> events = _saving.Events.OrderBy(item => item.Date.Date);
 
-            bool useCents = _saving.Product.Currency.UseCents;
-            foreach (SavingEvent e in events)
+            var useCents = _saving.Product.Currency.UseCents;
+            foreach (var e in events)
             {
-                ListViewItem item = new ListViewItem(e.Date.ToString("dd/MM/yyyy HH:mm:ss"));
-                string amt = e.Amount.GetFormatedValue(useCents);
+                var item = new ListViewItem(e.Date.ToString("dd/MM/yyyy HH:mm:ss"));
+                var amt = e.Amount.GetFormatedValue(useCents);
                 item.SubItems.Add(e.IsDebit ? amt : string.Empty);
                 item.SubItems.Add(e.IsDebit ? string.Empty : amt);
                 item.SubItems.Add(e.ExtraInfo);
@@ -482,8 +477,6 @@ namespace OpenCBS.GUI.UserControl
 
         private void CancelLastEvent(object sender, EventArgs e)
         {
-            return;
-            //todo need to realize it
             try
             {
                 if (!_saving.HasCancelableEvents()) return;
@@ -497,43 +490,14 @@ namespace OpenCBS.GUI.UserControl
                 var result = frm.ShowDialog();
                 if (result != DialogResult.OK) return;
 
-                var sEvent = ServicesProvider.GetInstance().GetSavingServices().CancelLastEvent(_saving, User.CurrentUser, frm.Comment);
-                var feeEvent = _saving.Events.FirstOrDefault(x => x.ParentId == sEvent.Id);
-                var taxEvent =_saving.Events.FirstOrDefault(x => x.ParentId != null && feeEvent != null && x.ParentId == feeEvent.Id);
-                var withdrawEventOfCloseEvents = _saving.Events.FirstOrDefault(x => sEvent.ParentId != null && x.Id == sEvent.ParentId);
-                for (var i = 0; i <= _saving.Events.Count - 1; i++)
-                {
-                    if (_saving.Events[i].Id == sEvent.Id)
-                    {
-                        var temp = _saving.Events[i];
-                        temp.Deleted = true;
-                        _saving.Events[i] = temp;
-                    }
-                    if (feeEvent != null && _saving.Events[i].Id == feeEvent.Id)
-                    {
-                        var temp = _saving.Events[i];
-                        temp.Deleted = true;
-                        _saving.Events[i] = temp;
-                    }
-                    if (taxEvent != null && _saving.Events[i].Id == taxEvent.Id)
-                    {
-                        var temp = _saving.Events[i];
-                        temp.Deleted = true;
-                        _saving.Events[i] = temp;
-                    }
-                    if (withdrawEventOfCloseEvents != null && _saving.Events[i].Id == withdrawEventOfCloseEvents.Id)
-                    {
-                        var temp = _saving.Events[i];
-                        temp.Deleted = true;
-                        _saving.Events[i] = temp;
-                    }
-                }
-                if (sEvent.Code == "SVCE")
-                {
+                ServicesProvider.GetInstance().GetSavingServices().CancelLastEvent(_saving, User.CurrentUser, frm.Comment);
 
-                }
+                _saving = ServicesProvider.GetInstance().GetSavingServices().GetSaving(_saving.Id);
 
-                DisplaySavingEvent();
+                SettingControlsAfterCalcelLastEvent();
+
+                if (RefreshSaving != null)
+                    RefreshSaving(this, e);
             }
             catch (Exception ex)
             {
@@ -543,13 +507,20 @@ namespace OpenCBS.GUI.UserControl
 
         private void Close(object sender, EventArgs e)
         {
-            var sqlTransac = DatabaseConnection.GetConnection().BeginTransaction(IsolationLevel.ReadUncommitted);
-            try
-            {
-                var totalAmount = TimeProvider.Now >= _saving.ClosedDate.Value
+            var totalAmount = TimeProvider.Now >= _saving.ClosedDate.Value
                     ? nudExpectedAmount.Value
                     : _saving.InitialAmount;
 
+            var postingEvent = _saving.Events.FirstOrDefault(x => x.Deleted == false && x.Code == "SIPE" && x.Amount == nudExpectedAmount.Value - _saving.InitialAmount);
+            if (totalAmount == nudExpectedAmount.Value && postingEvent == null)
+            {
+                MessageBox.Show(@"Correct posting event was not found");
+                return;
+            }
+
+            var sqlTransac = DatabaseConnection.GetConnection().BeginTransaction(IsolationLevel.ReadUncommitted);
+            try
+            {
                 ServicesProvider.GetInstance().GetSavingServices().CloseAndWithdrawWitTransaction(_saving, TimeProvider.Now, User.CurrentUser, totalAmount,
                         0m, true, Teller.CurrentTeller,new PaymentMethod(), sqlTransac);
 
@@ -564,6 +535,8 @@ namespace OpenCBS.GUI.UserControl
                     RefreshSaving(this, e);
 
                 SettingControlsAfterCloseContract();
+
+                DisplaySavingEvent();
             }
             catch (Exception error)
             {
