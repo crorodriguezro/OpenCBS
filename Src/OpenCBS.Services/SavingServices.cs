@@ -888,7 +888,7 @@ namespace OpenCBS.Services
             return events;
         }
 
-        private void ValidateWithdrawal(OCurrency pWithdrawAmount, ISavingsContract pSaving, DateTime pDate, string pDescription, User pUser, Teller teller, PaymentMethod paymentMethod)
+        public void ValidateWithdrawal(OCurrency pWithdrawAmount, ISavingsContract pSaving, DateTime pDate, string pDescription, User pUser, Teller teller, PaymentMethod paymentMethod)
         {
             if (!IsWithdrawAmountCorrect(pWithdrawAmount, pSaving))
                 throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.WithdrawAmountIsInvalid);

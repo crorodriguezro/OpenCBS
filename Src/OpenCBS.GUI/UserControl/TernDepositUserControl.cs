@@ -14,6 +14,7 @@ using OpenCBS.CoreDomain.Events.Saving;
 using OpenCBS.CoreDomain.Products;
 using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
+using OpenCBS.ExceptionsHandler.Exceptions.SavingExceptions;
 using OpenCBS.Extensions;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
@@ -431,10 +432,23 @@ namespace OpenCBS.GUI.UserControl
 
         private void Start(object sender, EventArgs e)
         {
+            var clientPersonalAccount = _client.Savings.FirstOrDefault(x => x.Product.Type == OSavingProductType.PersonalAccount && x.Status == OSavingsStatus.Active);
+
+            try
+            {
+                ServicesProvider.GetInstance().GetSavingServices().ValidateWithdrawal(_saving.InitialAmount, clientPersonalAccount, _saving.StartDate.Value,
+                "System withdraw operation for initial term deposit", User.CurrentUser, Teller.CurrentTeller, new PaymentMethod());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(@"Incorrect withdrawal amount for personal account");
+                return;
+            }
+
             var sqlTransac = DatabaseConnection.GetConnection().BeginTransaction(IsolationLevel.ReadUncommitted);
             try
             {
-                var clientPersonalAccount = _client.Savings.FirstOrDefault(x => x.Product.Type == OSavingProductType.PersonalAccount && x.Status == OSavingsStatus.Active);
+                
                 if (clientPersonalAccount != null)
                 {
                     ServicesProvider.GetInstance().GetSavingServices().WithdrawWithTransaction(clientPersonalAccount, _saving.StartDate.Value, _saving.InitialAmount
