@@ -362,8 +362,7 @@ namespace OpenCBS.GUI.Clients
 
         private void InitializeFundingLine()
         {
-            List<FundingLine> fundingLines = ServicesProvider.GetInstance().GetFundingLinesServices().SelectFundingLines();
-            _fundingLine = fundingLines.FirstOrDefault();
+            _fundingLine = _product.FundingLine;
         }
 
         private void InitializeLabelMinMax()
@@ -792,6 +791,7 @@ namespace OpenCBS.GUI.Clients
         }
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            Preview();
             Print();
         }
 
@@ -986,7 +986,7 @@ namespace OpenCBS.GUI.Clients
             result.Add("C5", _credit.InstallmentType.Name);
 
             result.Add("B6", "Schedule type:");
-            result.Add("C6", _product.LoanType.ToString());
+            result.Add("C6", GetString("FrmAddLoanProduct", _credit.ScheduleType+".Text"));
 
             return result;
         }
@@ -1148,5 +1148,9 @@ namespace OpenCBS.GUI.Clients
             }
         }
 
+        private void dtpDateOfFirstInstallment_ValueChanged(object sender, EventArgs e)
+        {
+            lblDay.Text = dtpDateOfFirstInstallment.Value.Date.DayOfWeek.ToString();
+        }
     }
 }
