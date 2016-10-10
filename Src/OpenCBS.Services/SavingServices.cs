@@ -1271,6 +1271,45 @@ namespace OpenCBS.Services
             }
         }
 
+        public List<SavingEvent> ReopenWithTransaction(OCurrency pReopenAmount, ISavingsContract pSaving, DateTime pDate,
+            User pUser, Client pClient, SqlTransaction tx)
+        {
+            try
+            {
+                var events = pSaving.Reopen(pReopenAmount, pDate, pUser,pSaving.Product.Type == OSavingProductType.ShortTermDeposit
+                            ? "Reopen term deposit"
+                            : "Reopen savings account", false);
+
+                foreach (var savingEvent in events)
+                {
+                    var parentId = _ePS.FireEventWithReturnId(savingEvent, pSaving, tx);
+                    ServicesProvider.GetInstance()
+                        .GetContractServices()
+                        .CallInterceptor(new Dictionary<string, object>
+                        {
+                            {"Event", savingEvent},
+                            {"Client", pClient},
+                            {"Saving", pSaving},
+                            {"RecoveryAccount", true},
+                            {"SqlTransaction", tx}
+                        });
+
+                    if (savingEvent.Fee.HasValue && savingEvent.Fee.Value > 0m)
+                    {
+                        Fee(pSaving, savingEvent.Fee.Value, pDate, pUser, false, OSavingsMethods.Cash,
+                            new PaymentMethod(),null, null, tx, parentId, "Fee for Reopen", savingEvent.Doc1);
+                    }
+                }
+
+                _savingManager.UpdateStatus(pSaving.Id, pSaving.Status, pSaving.ClosedDate);
+                return events;
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
+            }
+        }
+
         public List<SavingEvent> CloseAndWithdraw(ISavingsContract saving, DateTime date, User user,
             OCurrency withdrawAmount, OCurrency closeFees, bool isDesactivateFees, Teller teller, PaymentMethod paymentMethod)
         {

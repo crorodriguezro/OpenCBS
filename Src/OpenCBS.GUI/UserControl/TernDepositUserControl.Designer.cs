@@ -57,11 +57,7 @@
             this.btnPrintSavings = new OpenCBS.GUI.UserControl.PrintButton();
             this.buttonStart = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
-            this.flowLayoutPanelRenew = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonRenew = new System.Windows.Forms.Button();
-            this.radioButtonRenewPrincipal = new System.Windows.Forms.RadioButton();
-            this.radioButtonRenewPrincipalInterest = new System.Windows.Forms.RadioButton();
-            this.radioButtonRenewOtherAmount = new System.Windows.Forms.RadioButton();
             this.groupBoxSaving = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.nudExpectedAmount = new System.Windows.Forms.NumericUpDown();
@@ -91,7 +87,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfPeriods)).BeginInit();
             this.flowLayoutPanel9.SuspendLayout();
             this.pnlSavingsButtons.SuspendLayout();
-            this.flowLayoutPanelRenew.SuspendLayout();
             this.groupBoxSaving.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudExpectedAmount)).BeginInit();
@@ -286,7 +281,7 @@
             this.flowLayoutPanel9.Controls.Add(this.btnPrintSavings);
             this.flowLayoutPanel9.Controls.Add(this.buttonStart);
             this.flowLayoutPanel9.Controls.Add(this.buttonUpdate);
-            this.flowLayoutPanel9.Controls.Add(this.flowLayoutPanelRenew);
+            this.flowLayoutPanel9.Controls.Add(this.buttonRenew);
             this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 209);
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
             this.flowLayoutPanel9.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
@@ -373,67 +368,15 @@
             this.buttonUpdate.Visible = false;
             this.buttonUpdate.Click += new System.EventHandler(this.Update);
             // 
-            // flowLayoutPanelRenew
-            // 
-            this.flowLayoutPanelRenew.AutoSize = true;
-            this.flowLayoutPanelRenew.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanelRenew.Controls.Add(this.buttonRenew);
-            this.flowLayoutPanelRenew.Controls.Add(this.radioButtonRenewPrincipal);
-            this.flowLayoutPanelRenew.Controls.Add(this.radioButtonRenewPrincipalInterest);
-            this.flowLayoutPanelRenew.Controls.Add(this.radioButtonRenewOtherAmount);
-            this.flowLayoutPanelRenew.Location = new System.Drawing.Point(819, 10);
-            this.flowLayoutPanelRenew.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanelRenew.Name = "flowLayoutPanelRenew";
-            this.flowLayoutPanelRenew.Size = new System.Drawing.Size(390, 34);
-            this.flowLayoutPanelRenew.TabIndex = 80;
-            this.flowLayoutPanelRenew.Visible = false;
-            // 
             // buttonRenew
             // 
             this.buttonRenew.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonRenew.Location = new System.Drawing.Point(3, 3);
+            this.buttonRenew.Location = new System.Drawing.Point(822, 13);
             this.buttonRenew.Name = "buttonRenew";
             this.buttonRenew.Size = new System.Drawing.Size(99, 28);
             this.buttonRenew.TabIndex = 77;
             this.buttonRenew.Text = "Renew";
             this.buttonRenew.Click += new System.EventHandler(this.Renew);
-            // 
-            // radioButtonRenewPrincipal
-            // 
-            this.radioButtonRenewPrincipal.AutoSize = true;
-            this.radioButtonRenewPrincipal.Checked = true;
-            this.radioButtonRenewPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButtonRenewPrincipal.Location = new System.Drawing.Point(108, 3);
-            this.radioButtonRenewPrincipal.Name = "radioButtonRenewPrincipal";
-            this.radioButtonRenewPrincipal.Size = new System.Drawing.Size(65, 28);
-            this.radioButtonRenewPrincipal.TabIndex = 78;
-            this.radioButtonRenewPrincipal.TabStop = true;
-            this.radioButtonRenewPrincipal.Text = "Principal";
-            this.radioButtonRenewPrincipal.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonRenewPrincipalInterest
-            // 
-            this.radioButtonRenewPrincipalInterest.AutoSize = true;
-            this.radioButtonRenewPrincipalInterest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButtonRenewPrincipalInterest.Location = new System.Drawing.Point(179, 3);
-            this.radioButtonRenewPrincipalInterest.Name = "radioButtonRenewPrincipalInterest";
-            this.radioButtonRenewPrincipalInterest.Size = new System.Drawing.Size(112, 28);
-            this.radioButtonRenewPrincipalInterest.TabIndex = 79;
-            this.radioButtonRenewPrincipalInterest.TabStop = true;
-            this.radioButtonRenewPrincipalInterest.Text = "Principal + Interest";
-            this.radioButtonRenewPrincipalInterest.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonRenewOtherAmount
-            // 
-            this.radioButtonRenewOtherAmount.AutoSize = true;
-            this.radioButtonRenewOtherAmount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButtonRenewOtherAmount.Location = new System.Drawing.Point(297, 3);
-            this.radioButtonRenewOtherAmount.Name = "radioButtonRenewOtherAmount";
-            this.radioButtonRenewOtherAmount.Size = new System.Drawing.Size(90, 28);
-            this.radioButtonRenewOtherAmount.TabIndex = 80;
-            this.radioButtonRenewOtherAmount.TabStop = true;
-            this.radioButtonRenewOtherAmount.Text = "Other Amount";
-            this.radioButtonRenewOtherAmount.UseVisualStyleBackColor = true;
             // 
             // groupBoxSaving
             // 
@@ -801,8 +744,6 @@
             this.flowLayoutPanel9.ResumeLayout(false);
             this.flowLayoutPanel9.PerformLayout();
             this.pnlSavingsButtons.ResumeLayout(false);
-            this.flowLayoutPanelRenew.ResumeLayout(false);
-            this.flowLayoutPanelRenew.PerformLayout();
             this.groupBoxSaving.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
@@ -869,9 +810,5 @@
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonRenew;
-        private System.Windows.Forms.RadioButton radioButtonRenewOtherAmount;
-        private System.Windows.Forms.RadioButton radioButtonRenewPrincipalInterest;
-        private System.Windows.Forms.RadioButton radioButtonRenewPrincipal;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelRenew;
     }
 }

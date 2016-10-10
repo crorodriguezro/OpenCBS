@@ -73,6 +73,10 @@ namespace OpenCBS.GUI.UserControl
             
             buttonStart.Visible = buttonUpdate.Visible = _saving.Status == OSavingsStatus.Pending;
 
+            var lastEvent = _saving.Events.OrderBy(x => x.Date).LastOrDefault(x => x.Deleted == false);
+            if (lastEvent != null && lastEvent.Code == "SVRE")
+                SettingControlsAfterRenew();
+
             LoadSavingsExtensions();
         }
 
@@ -172,15 +176,17 @@ namespace OpenCBS.GUI.UserControl
 
         private void SettingControlsAfterRenew()
         {
-            if (radioButtonRenewPrincipalInterest.Checked)
-                nudDownInitialAmount.Value = nudExpectedAmount.Value;
-            if (radioButtonRenewOtherAmount.Checked)
-            {
-                nudDownInitialAmount.Enabled = true;
-                InitialInitialAmount();
-            }
-            buttonUpdate.Visible = true;
+            buttonStart.Visible = buttonUpdate.Visible = nudDownInitialAmount.Enabled = true;
+            buttonRenew.Visible = nudDownInterestRate.Enabled = dtpTernDepositDateStarted.Enabled = dtpTernDepositDateStarted.Enabled = nudNumberOfPeriods.Enabled = false;
+
             dtpTernDepositDateStarted.Value = TimeProvider.Now;
+
+            var postingEvent = _saving.Events.FirstOrDefault(x => x.Deleted == false && x.Code == "SDTE");
+            var previousExpecredAmount = postingEvent != null
+                ? postingEvent.Amount
+                : nudExpectedAmount.Value;
+            InitialInitialAmount();
+            nudDownInitialAmount.Value = previousExpecredAmount.Value;
         }
 
         private void FillFieldsFromExistenceSaving()
@@ -195,7 +201,7 @@ namespace OpenCBS.GUI.UserControl
             nudNumberOfPeriods.Value = _saving.NumberOfPeriods;
             dtpTernDepositDateStarted.Value = _saving.StartDate == null ? dtpTernDepositDateStarted.MinDate : _saving.StartDate.Value;
             dateTimeDateCreated.Value = _saving.CreationDate;
-            flowLayoutPanelRenew.Visible = _saving.Status == OSavingsStatus.Closed;
+            buttonRenew.Visible = _saving.Status == OSavingsStatus.Closed;
             SettingCancelLastEventButton();
             FillFieldStatus();
             DisplaySavingEvent();
@@ -483,6 +489,10 @@ namespace OpenCBS.GUI.UserControl
                     RefreshSaving(this, e);
 
                 SettingControlsAfterSave();
+
+                var lastEvent = _saving.Events.OrderBy(x => x.Date).LastOrDefault(x => x.Deleted == false);
+                if (lastEvent != null && lastEvent.Code == "SVRE")
+                    SettingControlsAfterRenew();
             }
             catch (Exception error)
             {
@@ -570,9 +580,11 @@ namespace OpenCBS.GUI.UserControl
             var sqlTransac = DatabaseConnection.GetConnection().BeginTransaction(IsolationLevel.ReadUncommitted);
             try
             {
+                ServicesProvider.GetInstance().GetSavingServices().ReopenWithTransaction(0m, _saving, TimeProvider.Now, User.CurrentUser, _client, sqlTransac);
+
                 _saving.Status = OSavingsStatus.Pending;
                 ServicesProvider.GetInstance().GetSavingServices().UpdateStatusWithTransaction(_saving, sqlTransac);
-                
+
                 sqlTransac.Commit();
 
                 _saving = ServicesProvider.GetInstance().GetSavingServices().GetSaving(_saving.Id);
