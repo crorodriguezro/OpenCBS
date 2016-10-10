@@ -521,8 +521,15 @@ namespace OpenCBS.GUI.UserControl
             var sqlTransac = DatabaseConnection.GetConnection().BeginTransaction(IsolationLevel.ReadUncommitted);
             try
             {
-                ServicesProvider.GetInstance().GetSavingServices().CloseAndWithdrawWitTransaction(_saving, TimeProvider.Now, User.CurrentUser, totalAmount,
-                        0m, true, Teller.CurrentTeller,new PaymentMethod(), sqlTransac);
+//                ServicesProvider.GetInstance().GetSavingServices().CloseAndWithdrawWitTransaction(_saving, TimeProvider.Now, User.CurrentUser, totalAmount,
+//                        0m, true, Teller.CurrentTeller,new PaymentMethod(), sqlTransac);
+
+                var clientPersonalAccount = _client.Savings.FirstOrDefault(x => x.Product.Type == OSavingProductType.PersonalAccount && x.Status == OSavingsStatus.Active);
+                if(clientPersonalAccount == null)
+                    throw new Exception("Can't find personal account");
+
+                ServicesProvider.GetInstance().GetSavingServices().CloseAndTransferWithTransaction(_saving, clientPersonalAccount, TimeProvider.Now, User.CurrentUser, totalAmount
+                    , true, Teller.CurrentTeller, sqlTransac);
 
                 _saving.Status = OSavingsStatus.Closed;
                 ServicesProvider.GetInstance().GetSavingServices().UpdateStatusWithTransaction(_saving, sqlTransac);
@@ -543,6 +550,11 @@ namespace OpenCBS.GUI.UserControl
                 sqlTransac.Rollback();
                 throw new Exception(error.Message);
             }
+        }
+
+        private void Renew(object sender, EventArgs e)
+        {
+
         }
 
         #endregion
@@ -566,5 +578,6 @@ namespace OpenCBS.GUI.UserControl
                 SavingsExtensions.Add(tab);
             }
         }
+
     }
 }

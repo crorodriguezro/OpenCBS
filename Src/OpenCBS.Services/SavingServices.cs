@@ -1427,6 +1427,47 @@ namespace OpenCBS.Services
             return events;
         }
 
+        public List<SavingEvent> CloseAndTransferWithTransaction(ISavingsContract from, ISavingsContract to,
+            DateTime date, User pUser,
+            OCurrency amount, bool pIsDesactivateFees, Teller teller, SqlTransaction tx)
+        {
+            if (to.Status == OSavingsStatus.Closed)
+                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.CreditTransferAccountInvalid);
+
+            if (from.Id == to.Id)
+                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.SavingsContractForTransferIdenticals);
+
+            if (from.Product.Currency.Id != to.Product.Currency.Id)
+                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.SavingsContractForTransferNotSameCurrncy);
+
+            var balance = SimulateCloseAccount(from, date, pUser, pIsDesactivateFees, teller).GetBalance(date);
+            if (from is SavingBookContract && !pIsDesactivateFees) balance -= ((SavingBookContract) from).CloseFees;
+
+            if (balance != amount)
+                throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.TransferAmountIsInvalid);
+
+            var events = new List<SavingEvent>();
+            events.AddRange(from.Transfer(to, amount, 0, date, "Closing transfer"));
+            events.AddRange(from.Close(date, pUser, "Close savings contract", pIsDesactivateFees, teller, false));
+
+            try
+            {
+                foreach (var e in events)
+                {
+                    _ePS.FireEvent(e, tx);
+                }
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
+            }
+
+            if (from.ClosedDate != null)
+                _savingManager.UpdateStatus(from.Id, from.Status, from.ClosedDate.Value);
+
+            return events;
+        }
+
         public List<SavingEvent> Closure(ISavingsContract saving, DateTime dateTime, User user)
         {
             // Check if closure has been already run today

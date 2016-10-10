@@ -81,6 +81,7 @@
             this._dateCreatedValueLabel = new System.Windows.Forms.Label();
             this.dateTimeDateCreated = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonRenew = new System.Windows.Forms.Button();
             this.tabControlSavingsDetails.SuspendLayout();
             this.tabPageSavingsEvents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfPeriods)).BeginInit();
@@ -280,6 +281,7 @@
             this.flowLayoutPanel9.Controls.Add(this.btnPrintSavings);
             this.flowLayoutPanel9.Controls.Add(this.buttonStart);
             this.flowLayoutPanel9.Controls.Add(this.buttonUpdate);
+            this.flowLayoutPanel9.Controls.Add(this.buttonRenew);
             this.flowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 209);
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
@@ -720,6 +722,17 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1215, 598);
             this.tableLayoutPanel1.TabIndex = 76;
             // 
+            // buttonRenew
+            // 
+            this.buttonRenew.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonRenew.Location = new System.Drawing.Point(822, 13);
+            this.buttonRenew.Name = "buttonRenew";
+            this.buttonRenew.Size = new System.Drawing.Size(110, 28);
+            this.buttonRenew.TabIndex = 77;
+            this.buttonRenew.Text = "Renew";
+            this.buttonRenew.Visible = false;
+            this.buttonRenew.Click += new System.EventHandler(this.Renew);
+            // 
             // TernDepositUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -798,5 +811,6 @@
         private System.Windows.Forms.DateTimePicker dateTimeDateCreated;
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.Button buttonRenew;
     }
 }
