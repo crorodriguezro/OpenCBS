@@ -97,7 +97,7 @@ namespace OpenCBS.GUI.UserControl
             buttonSavingsClose.Visible = _saving.Status == OSavingsStatus.Active;
         }
 
-        private void SettingControlsAfterSaveContract()
+        private void SettingControlsAfterSave()
         {
             FillFieldsFromExistenceSaving();
             SettingControl(true);
@@ -146,7 +146,7 @@ namespace OpenCBS.GUI.UserControl
             }
         }
 
-        private void SettingControlsAfterStartContract()
+        private void SettingControlsAfterStart()
         {
             FillFieldsFromExistenceSaving();
             SettingControl(false);
@@ -160,7 +160,7 @@ namespace OpenCBS.GUI.UserControl
             InitialPersonalAccount();
         }
 
-        private void SettingControlsAfterCloseContract()
+        private void SettingControlsAfterClose()
         {
             FillFieldsFromExistenceSaving();
             SettingControl(false);
@@ -168,6 +168,19 @@ namespace OpenCBS.GUI.UserControl
             buttonSavingsClose.Visible = buttonSaveSaving.Visible = buttonUpdate.Visible = buttonStart.Visible = false;
             SettingCancelLastEventButton();
             FillFieldStatus();
+        }
+
+        private void SettingControlsAfterRenew()
+        {
+            if (radioButtonRenewPrincipalInterest.Checked)
+                nudDownInitialAmount.Value = nudExpectedAmount.Value;
+            if (radioButtonRenewOtherAmount.Checked)
+            {
+                nudDownInitialAmount.Enabled = true;
+                InitialInitialAmount();
+            }
+            buttonUpdate.Visible = true;
+            dtpTernDepositDateStarted.Value = TimeProvider.Now;
         }
 
         private void FillFieldsFromExistenceSaving()
@@ -182,6 +195,7 @@ namespace OpenCBS.GUI.UserControl
             nudNumberOfPeriods.Value = _saving.NumberOfPeriods;
             dtpTernDepositDateStarted.Value = _saving.StartDate == null ? dtpTernDepositDateStarted.MinDate : _saving.StartDate.Value;
             dateTimeDateCreated.Value = _saving.CreationDate;
+            flowLayoutPanelRenew.Visible = _saving.Status == OSavingsStatus.Closed;
             SettingCancelLastEventButton();
             FillFieldStatus();
             DisplaySavingEvent();
@@ -400,7 +414,7 @@ namespace OpenCBS.GUI.UserControl
                 if (RefreshSaving != null)
                     RefreshSaving(this, e);
 
-                SettingControlsAfterSaveContract();
+                SettingControlsAfterSave();
             }
             catch (Exception error)
             {
@@ -420,7 +434,9 @@ namespace OpenCBS.GUI.UserControl
                     ServicesProvider.GetInstance().GetSavingServices().WithdrawWithTransaction(clientPersonalAccount, _saving.StartDate.Value, _saving.InitialAmount
                             , "System withdraw operation for initial term deposit", _saving.SavingsOfficer,
                             Teller.CurrentTeller, new PaymentMethod(), sqlTransac);
-                }                
+                }
+                else
+                    throw new Exception("Can't find personal account");
 
                 ServicesProvider.GetInstance().GetSavingServices().DepositWithTransaction(_saving, dtpTernDepositDateStarted.Value, _saving.InitialAmount, "Initial deposit",
                         User.CurrentUser, false, OSavingsMethods.Cash, new PaymentMethod(), null, Teller.CurrentTeller, sqlTransac, true);
@@ -435,7 +451,7 @@ namespace OpenCBS.GUI.UserControl
                 if (RefreshSaving != null)
                     RefreshSaving(this, e);
 
-                SettingControlsAfterStartContract();
+                SettingControlsAfterStart();
             }
             catch (Exception error)
             {
@@ -466,7 +482,7 @@ namespace OpenCBS.GUI.UserControl
                 if (RefreshSaving != null)
                     RefreshSaving(this, e);
 
-                SettingControlsAfterSaveContract();
+                SettingControlsAfterSave();
             }
             catch (Exception error)
             {
@@ -521,9 +537,6 @@ namespace OpenCBS.GUI.UserControl
             var sqlTransac = DatabaseConnection.GetConnection().BeginTransaction(IsolationLevel.ReadUncommitted);
             try
             {
-//                ServicesProvider.GetInstance().GetSavingServices().CloseAndWithdrawWitTransaction(_saving, TimeProvider.Now, User.CurrentUser, totalAmount,
-//                        0m, true, Teller.CurrentTeller,new PaymentMethod(), sqlTransac);
-
                 var clientPersonalAccount = _client.Savings.FirstOrDefault(x => x.Product.Type == OSavingProductType.PersonalAccount && x.Status == OSavingsStatus.Active);
                 if(clientPersonalAccount == null)
                     throw new Exception("Can't find personal account");
@@ -541,7 +554,7 @@ namespace OpenCBS.GUI.UserControl
                 if (RefreshSaving != null)
                     RefreshSaving(this, e);
 
-                SettingControlsAfterCloseContract();
+                SettingControlsAfterClose();
 
                 DisplaySavingEvent();
             }
@@ -554,7 +567,28 @@ namespace OpenCBS.GUI.UserControl
 
         private void Renew(object sender, EventArgs e)
         {
+            var sqlTransac = DatabaseConnection.GetConnection().BeginTransaction(IsolationLevel.ReadUncommitted);
+            try
+            {
+                _saving.Status = OSavingsStatus.Pending;
+                ServicesProvider.GetInstance().GetSavingServices().UpdateStatusWithTransaction(_saving, sqlTransac);
+                
+                sqlTransac.Commit();
 
+                _saving = ServicesProvider.GetInstance().GetSavingServices().GetSaving(_saving.Id);
+
+                if (RefreshSaving != null)
+                    RefreshSaving(this, e);
+
+                SettingControlsAfterRenew(); //todo
+
+                DisplaySavingEvent();
+            }
+            catch (Exception error)
+            {
+                sqlTransac.Rollback();
+                throw new Exception(error.Message);
+            }
         }
 
         #endregion
