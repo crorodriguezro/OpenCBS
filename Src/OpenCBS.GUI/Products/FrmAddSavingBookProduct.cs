@@ -26,11 +26,13 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Contracts.Loans.Installments;
 using OpenCBS.CoreDomain.Products;
 using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
+using OpenCBS.Extensions;
 using OpenCBS.GUI.UserControl;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
@@ -45,9 +47,11 @@ namespace OpenCBS.GUI.Configuration
         private int clientTypeCounter=0;
         private string _cash;
         private string _cheque;
+        private readonly IApplicationController _applicationController;
 
-        public FrmAddSavingBookProduct()
+        public FrmAddSavingBookProduct(IApplicationController applicationController = null)
         {
+            _applicationController = applicationController;
             _savingsProduct = new SavingsBookProduct();
             InitializeComponent();
             InitializeComboBoxCurrencies();
@@ -64,10 +68,17 @@ namespace OpenCBS.GUI.Configuration
             _personalAccountRadioButton.Checked = true;
             _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible = false;
             tabControlSaving.TabPages.Remove(tabPageTermDeposit);
+
+            var initializers = _applicationController.GetAllInstances<IFormSavingProduct>();
+            foreach (var initializer in initializers)
+            {
+                initializer.Initialize(this);
+            }
         }
 
-        public FrmAddSavingBookProduct(SavingsBookProduct product)
+        public FrmAddSavingBookProduct(SavingsBookProduct product, IApplicationController applicationController = null)
         {
+            _applicationController = applicationController;
             InitializeComponent();
             _savingsProduct = product;
             InitializeComboBoxCurrencies();
@@ -84,6 +95,12 @@ namespace OpenCBS.GUI.Configuration
             _personalAccountRadioButton.Enabled = false;
             _shortTermDepositRadioButton.Enabled = false;
             _savingRadioButton.Enabled = false;
+
+            var initializers = _applicationController.GetAllInstances<IFormSavingProduct>();
+            foreach (var initializer in initializers)
+            {
+                initializer.Initialize(this);
+            }
         }
 
         private void InitializeControls(SavingsBookProduct product)
@@ -886,9 +903,14 @@ namespace OpenCBS.GUI.Configuration
 
             if (!tabControlSaving.TabPages.Contains(tabPageManagement))
                 tabControlSaving.TabPages.Add(tabPageManagement);
-
-
+            
             clientTypeAllCheckBox.Visible = clientTypeGroupCheckBox.Enabled = clientTypeVillageCheckBox.Enabled = true;
+
+            var initializers = _applicationController.GetAllInstances<IFormSavingProduct>();
+            foreach (var initializer in initializers)
+            {
+                initializer.Refresh(this);
+            }
         }
 
         private void _shortTermDepositRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -909,6 +931,12 @@ namespace OpenCBS.GUI.Configuration
             clientTypeAllCheckBox.Visible = clientTypeGroupCheckBox.Enabled = clientTypeVillageCheckBox.Enabled
                 = clientTypeGroupCheckBox.Checked = clientTypeVillageCheckBox.Checked
                 = _renewModeLabel.Visible = _renewModeManualRadioButton.Visible = _renewModeAutoRadioButton.Visible = false;
+
+            var initializers = _applicationController.GetAllInstances<IFormSavingProduct>();
+            foreach (var initializer in initializers)
+            {
+                initializer.Refresh(this);
+            }
         }
 
         private void _savingRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -927,6 +955,12 @@ namespace OpenCBS.GUI.Configuration
                 tabControlSaving.TabPages.Add(tabPageManagement);
 
             clientTypeAllCheckBox.Visible = clientTypeGroupCheckBox.Enabled = clientTypeVillageCheckBox.Enabled = true;
+
+            var initializers = _applicationController.GetAllInstances<IFormSavingProduct>();
+            foreach (var initializer in initializers)
+            {
+                initializer.Refresh(this);
+            }
         }
 
         private void tbWithdrawFeesMin_TextChanged_1(object sender, EventArgs e)

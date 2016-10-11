@@ -67,6 +67,7 @@
     <Compile Include="IClientFormInitializer.cs" />
     <Compile Include="ICorporateInterceptor.cs" />
     <Compile Include="IDisbursementInitializer.cs" />
+    <Compile Include="IFormSavingProduct.cs" />
     <Compile Include="IGroupInterceptor.cs" />
     <Compile Include="IPersonInterceptor.cs" />
     <Compile Include="ILoanProductInterceptor.cs" />

@@ -512,7 +512,7 @@ namespace OpenCBS.GUI
 
         private void InitializeSavingProductsForm()
         {
-            var frmSavingProductsForm = new FrmAvailableSavingProducts { MdiParent = this };
+            var frmSavingProductsForm = new FrmAvailableSavingProducts(_applicationController) { MdiParent = this };
             frmSavingProductsForm.Show();
         }
 

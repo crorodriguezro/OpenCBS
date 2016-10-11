@@ -30,6 +30,7 @@ using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.Services;
 using System.Security.Permissions;
+using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.GUI.Configuration;
 using OpenCBS.Shared.Settings;
@@ -44,9 +45,11 @@ namespace OpenCBS.GUI.Products
         private ISavingProduct _package;
         private ISavingProduct _selectedPackage;
         private bool _showDeletedPackage = false;
+        IApplicationController _applicationController;
 
-        public FrmAvailableSavingProducts()
+        public FrmAvailableSavingProducts(IApplicationController applicationController = null)
         {
+            _applicationController = applicationController;
             InitializeComponent();
             InitializePackages();
         }
@@ -91,7 +94,7 @@ namespace OpenCBS.GUI.Products
 
         private void AddSavingBookProduct()
         {
-            FrmAddSavingBookProduct addPackageForm = new FrmAddSavingBookProduct();
+            FrmAddSavingBookProduct addPackageForm = new FrmAddSavingBookProduct(_applicationController);
             if (addPackageForm.ShowDialog() == DialogResult.OK)
             {
                 refreshListView();
@@ -157,7 +160,7 @@ namespace OpenCBS.GUI.Products
 
         private void EditSavingBookProduct(SavingsBookProduct sProduct)
         {
-            FrmAddSavingBookProduct editProductForm = new FrmAddSavingBookProduct(sProduct);
+            FrmAddSavingBookProduct editProductForm = new FrmAddSavingBookProduct(sProduct, _applicationController);
             if (editProductForm.ShowDialog() == DialogResult.OK)
             {
                 refreshListView();
