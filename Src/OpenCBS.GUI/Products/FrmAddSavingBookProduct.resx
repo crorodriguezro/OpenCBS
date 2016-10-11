@@ -250,10 +250,10 @@
     <value>Arial, 9.75pt</value>
   </data>
   <data name="gbNumberOfPeriods.Location" type="System.Drawing.Point, System.Drawing">
-    <value>435, 287</value>
+    <value>257, 278</value>
   </data>
   <data name="gbNumberOfPeriods.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 85</value>
+    <value>210, 94</value>
   </data>
   <data name="gbNumberOfPeriods.TabIndex" type="System.Int32, mscorlib">
     <value>88</value>
@@ -1183,7 +1183,7 @@
     <value>70, 52</value>
   </data>
   <data name="tbBalanceMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 22</value>
+    <value>108, 22</value>
   </data>
   <data name="tbBalanceMax.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1207,7 +1207,7 @@
     <value>70, 21</value>
   </data>
   <data name="tbBalanceMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 22</value>
+    <value>108, 22</value>
   </data>
   <data name="tbBalanceMin.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1294,10 +1294,10 @@
     <value>Arial, 9.75pt</value>
   </data>
   <data name="gbBalance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>257, 286</value>
+    <value>9, 378</value>
   </data>
   <data name="gbBalance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 86</value>
+    <value>233, 94</value>
   </data>
   <data name="gbBalance.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -6383,6 +6383,6 @@
     <value>FrmAddSavingBookProduct</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=16.9.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=16.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

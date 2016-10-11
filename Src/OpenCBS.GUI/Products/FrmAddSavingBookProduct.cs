@@ -336,11 +336,11 @@ namespace OpenCBS.GUI.Configuration
                 || _savingsProduct.InterestBase == OSavingInterestBase.Yearly)
                 _savingsProduct.CalculAmountBase = (OSavingCalculAmountBase)Enum.Parse(typeof(OSavingCalculAmountBase), cbCalculAmount.SelectedValue.ToString());
 
-            InstallmentType freq = cbManagementFeeFreq.SelectedItem as InstallmentType;
+            var freq = cbManagementFeeFreq.SelectedItem as InstallmentType;
             Debug.Assert(freq != null, "Mgmg fee frequency cannot be null");
             _savingsProduct.ManagementFeeFreq = freq;
 
-            InstallmentType freqAgio = cbAgioFeesFreq.SelectedItem as InstallmentType;
+            var freqAgio = cbAgioFeesFreq.SelectedItem as InstallmentType;
             Debug.Assert(freqAgio != null, "Agio fees frequency cannot be null!");
             _savingsProduct.AgioFeesFreq = freqAgio;
             _savingsProduct.Currency = cbCurrency.SelectedItem as Currency;
@@ -893,8 +893,9 @@ namespace OpenCBS.GUI.Configuration
 
         private void _shortTermDepositRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            gbInitialAmount.Visible = gbInterestRate.Visible = gbFrequency.Visible = gbBalance.Visible
+            gbInitialAmount.Visible = gbInterestRate.Visible = gbFrequency.Visible
                 = gbNumberOfPeriods.Visible = true;
+            gbBalance.Visible = false;
 
             if (tabControlSaving.TabPages.Contains(tabPageOverdraft))
                 tabControlSaving.TabPages.Remove(tabPageOverdraft);

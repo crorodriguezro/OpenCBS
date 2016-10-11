@@ -260,14 +260,17 @@ namespace OpenCBS.Services
                 if (savingsProduct.InitialAmountMin < 0)
                     throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.InitialAmountMinIsInvalid);
 
-                if (!ServicesHelper.CheckIfValueBetweenMinAndMax(savingsProduct.BalanceMin, savingsProduct.BalanceMax,savingsProduct.InitialAmountMin))
-                    throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.InitialAmountMinNotInBalance);
+                if (savingsProduct.Type != OSavingProductType.ShortTermDeposit)
+                {
+                    if (!ServicesHelper.CheckIfValueBetweenMinAndMax(savingsProduct.BalanceMin,savingsProduct.BalanceMax, savingsProduct.InitialAmountMin))
+                        throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.InitialAmountMinNotInBalance);
 
-                if (!ServicesHelper.CheckIfValueBetweenMinAndMax(savingsProduct.BalanceMin, savingsProduct.BalanceMax,savingsProduct.InitialAmountMax))
-                    throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.InitialAmountMaxNotInBalance);
-
-                if (!ServicesHelper.CheckMinMaxCorrectlyFilledAndSetValueIfNeed(savingsProduct.BalanceMin,savingsProduct.BalanceMax, null))
-                    throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.BalanceIsInvalid);
+                    if (!ServicesHelper.CheckIfValueBetweenMinAndMax(savingsProduct.BalanceMin,savingsProduct.BalanceMax, savingsProduct.InitialAmountMax))
+                        throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.InitialAmountMaxNotInBalance);
+                    
+                    if (!ServicesHelper.CheckMinMaxCorrectlyFilledAndSetValueIfNeed(savingsProduct.BalanceMin,savingsProduct.BalanceMax, null))
+                        throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.BalanceIsInvalid);
+                }
 
                 if (!ServicesHelper.CheckMinMaxAndValueCorrectlyFilled(savingsProduct.InterestRateMin,savingsProduct.InterestRateMax, savingsProduct.InterestRate))
                     throw new OpenCbsSavingProductException(OpenCbsSavingProductExceptionEnum.InterestRateMinMaxIsInvalid);
