@@ -376,6 +376,7 @@
             this.buttonRenew.Size = new System.Drawing.Size(99, 28);
             this.buttonRenew.TabIndex = 77;
             this.buttonRenew.Text = "Renew";
+            this.buttonRenew.Visible = false;
             this.buttonRenew.Click += new System.EventHandler(this.Renew);
             // 
             // groupBoxSaving
