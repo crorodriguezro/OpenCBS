@@ -307,17 +307,17 @@ namespace OpenCBS.GUI
                 _zipCode = zipCode;
                 return;
             }
-            Regex regex = new Regex("^[0-9a-zA-Z]{1,10}$");
-            if (regex.IsMatch(zipCode))
-            {
-               _zipCode = zipCode;
-                tbZipCode.BackColor = Color.White;
-            }
-            else
-            {
-                _zipCode = null;
-                tbZipCode.BackColor = Color.Red;
-            }
+            //Regex regex = new Regex("^[0-9a-zA-Z]{1,100}$");
+            //if (regex.IsMatch(zipCode))
+            //{
+            //   _zipCode = zipCode;
+            //    tbZipCode.BackColor = Color.White;
+            //}
+            //else
+            //{
+            //    _zipCode = null;
+            //    tbZipCode.BackColor = Color.Red;
+            //}
         }
 
         private void textBoxEMail_TextChanged(object sender, EventArgs e)
