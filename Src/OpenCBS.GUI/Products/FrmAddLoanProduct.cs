@@ -65,6 +65,7 @@ namespace OpenCBS.GUI.Products
         private const int IdxCycleId = 7;
         private const int IdxIdForNewItem = 8;
         private const int IdxIndex = 9;
+        private const int IdxMaxSum = 10;
 
         #region Constructors
         public FrmAddLoanProduct()
@@ -135,6 +136,7 @@ namespace OpenCBS.GUI.Products
                 item.SubItems.Add(fee.CycleId.HasValue ? fee.CycleId.Value.ToString(CultureInfo.CurrentCulture) : "");
                 item.SubItems.Add("");
                 item.SubItems.Add(lvEntryFees.Items.Count.ToString(CultureInfo.CurrentCulture));
+                item.SubItems.Add(fee.MaxSum.ToString());
                 lvEntryFees.Items.Add(item);
             }
             InitializeAdditionalEmptyRowInListView();
@@ -155,6 +157,7 @@ namespace OpenCBS.GUI.Products
                 tItem.SubItems.Add("");
                 tItem.SubItems.Add("");
                 tItem.SubItems.Add(lvEntryFees.Items.Count.ToString(CultureInfo.CurrentCulture));
+                tItem.SubItems.Add("");
                 lvEntryFees.Items.Add(tItem);
             }
         }
@@ -2252,6 +2255,7 @@ namespace OpenCBS.GUI.Products
             decimal? v = string.IsNullOrEmpty(item.SubItems[IdxValue].Text) ? null : (decimal?)Convert.ToDecimal(item.SubItems[IdxValue].Text);
             int id = string.IsNullOrEmpty(item.SubItems[IdxId].Text) ? 0 : Convert.ToInt32(item.SubItems[IdxId].Text);
             int? cycleId = string.IsNullOrEmpty(item.SubItems[IdxCycleId].Text) ? null : (int?)Convert.ToInt32(item.SubItems[IdxCycleId].Text);
+            decimal? ms = string.IsNullOrEmpty(item.SubItems[IdxMaxSum].Text)? null : (decimal?) Convert.ToDecimal(item.SubItems[IdxMaxSum].Text);
 
             EntryFee entryFee = new EntryFee
             {
@@ -2264,7 +2268,8 @@ namespace OpenCBS.GUI.Products
                 IsAdded = id <= 0,
                 CycleId = cycleId,
                 IdForNewItem = 0,// Convert.ToInt32(item.SubItems[IdxIdForNewItem].Text),
-                Index = Convert.ToInt32(item.SubItems[IdxIndex].Text)
+                Index = Convert.ToInt32(item.SubItems[IdxIndex].Text),
+                MaxSum = ms
             };
             return entryFee;
         }
@@ -2291,6 +2296,10 @@ namespace OpenCBS.GUI.Products
 
                 case IdxIsRate:
                     lvEntryFees.StartEditing(cbRate, e.Item, e.SubItem);
+                    break;
+
+                case IdxMaxSum:
+                    lvEntryFees.StartEditing(tbEntryFeesValues, e.Item, e.SubItem);
                     break;
             }
         }
@@ -2319,6 +2328,10 @@ namespace OpenCBS.GUI.Products
 
                 case IdxIsRate:
                     subItems[e.SubItem].Text = cbRate.Text;
+                    break;
+                
+                case IdxMaxSum:
+                    subItems[e.SubItem].Text = tbEntryFeesValues.Text;
                     break;
             }
 
@@ -2462,5 +2475,10 @@ namespace OpenCBS.GUI.Products
             }
             _CheckInterestRateType();
         }
-	}
+
+        private void lvEntryFees_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

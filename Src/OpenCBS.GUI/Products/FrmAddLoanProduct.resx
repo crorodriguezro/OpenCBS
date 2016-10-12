@@ -1066,7 +1066,7 @@
     <value>listViewLoanCycles</value>
   </data>
   <data name="&gt;&gt;listViewLoanCycles.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=16.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;listViewLoanCycles.Parent" xml:space="preserve">
     <value>panelAmountCycles</value>
@@ -4267,7 +4267,7 @@
     <value>Name</value>
   </data>
   <data name="chEntryFeeName.Width" type="System.Int32, mscorlib">
-    <value>220</value>
+    <value>215</value>
   </data>
   <data name="chEntryFeeMin.Text" xml:space="preserve">
     <value>Min</value>
@@ -4291,7 +4291,7 @@
     <value>Rate</value>
   </data>
   <data name="chEntryFeeRate.Width" type="System.Int32, mscorlib">
-    <value>84</value>
+    <value>104</value>
   </data>
   <data name="chEntryFeeIsAdded.Text" xml:space="preserve">
     <value>Is added</value>
@@ -4317,6 +4317,12 @@
   <data name="chEntryFeeIndex.Width" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="chEntryFeeMaxSum.Text" xml:space="preserve">
+    <value>Max sum</value>
+  </data>
+  <data name="chEntryFeeMaxSum.Width" type="System.Int32, mscorlib">
+    <value>104</value>
+  </data>
   <data name="lvEntryFees.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
@@ -4333,7 +4339,7 @@
     <value>lvEntryFees</value>
   </data>
   <data name="&gt;&gt;lvEntryFees.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.ListViewEx, OpenCBS.GUI, Version=16.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lvEntryFees.Parent" xml:space="preserve">
     <value>groupBoxEntryFees</value>
@@ -8332,6 +8338,12 @@
   <data name="&gt;&gt;chEntryFeeIndex.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;chEntryFeeMaxSum.Name" xml:space="preserve">
+    <value>chEntryFeeMaxSum</value>
+  </data>
+  <data name="&gt;&gt;chEntryFeeMaxSum.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;columnHeader4.Name" xml:space="preserve">
     <value>columnHeader4</value>
   </data>
@@ -8378,6 +8390,6 @@
     <value>FrmAddLoanProduct</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=15.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=16.10.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

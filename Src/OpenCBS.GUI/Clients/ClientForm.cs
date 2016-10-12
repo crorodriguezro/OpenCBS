@@ -2170,6 +2170,8 @@ namespace OpenCBS.GUI.Clients
                     amount = loanAmount.Value * feeValue.Value / 100;
                 else
                     amount = feeValue.Value;
+                if (amount > entryFee.ProductEntryFee.MaxSum)
+                    amount = entryFee.ProductEntryFee.MaxSum;
                 item.SubItems.Add(amount.GetFormatedValue(_credit.Product.Currency.UseCents));
 
                 lvEntryFees.Items.Add(item);
@@ -7180,11 +7182,15 @@ namespace OpenCBS.GUI.Clients
                         if (((LoanEntryFee)item.Tag).ProductEntryFee.IsRate)
                         {
                             OCurrency feeAmount = loanAmount * inputFee / 100;
+                            if (feeAmount > ((LoanEntryFee) item.Tag).ProductEntryFee.MaxSum)
+                                feeAmount = ((LoanEntryFee) item.Tag).ProductEntryFee.MaxSum;
                             item.SubItems[3].Text = feeAmount.GetFormatedValue(_credit.Product.Currency.UseCents);
                         }
                         else
                         {
                             OCurrency feeAmount = inputFee;
+                            if (feeAmount > ((LoanEntryFee)item.Tag).ProductEntryFee.MaxSum)
+                                feeAmount = ((LoanEntryFee)item.Tag).ProductEntryFee.MaxSum;
                             item.SubItems[3].Text = feeAmount.GetFormatedValue(_credit.Product.Currency.UseCents);
                         }
                     }
@@ -7274,11 +7280,15 @@ namespace OpenCBS.GUI.Clients
                             if (entryFee.ProductEntryFee.IsRate)
                             {
                                 OCurrency feeAmount = amount * entryFee.FeeValue / 100;
+                                if (feeAmount > entryFee.ProductEntryFee.MaxSum)
+                                    feeAmount = entryFee.ProductEntryFee.MaxSum;
                                 item.SubItems[3].Text = feeAmount.GetFormatedValue(_credit.Product.Currency.UseCents);
                             }
                             else
                             {
                                 OCurrency feeAmount = entryFee.FeeValue;
+                                if (feeAmount > entryFee.ProductEntryFee.MaxSum)
+                                    feeAmount = entryFee.ProductEntryFee.MaxSum;
                                 item.SubItems[3].Text = feeAmount.GetFormatedValue(_credit.Product.Currency.UseCents);
                             }
                         }

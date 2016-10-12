@@ -312,6 +312,7 @@ namespace OpenCBS.GUI.Products
             this.chEntryFeeCycleId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chEntryFeeNewId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chEntryFeeIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chEntryFeeMaxSum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nudEntryFeescycleFrom = new System.Windows.Forms.NumericUpDown();
             this.lblEntryFeesFromCycle = new System.Windows.Forms.Label();
             this.cbEnableEntryFeesCycle = new System.Windows.Forms.CheckBox();
@@ -1541,7 +1542,8 @@ namespace OpenCBS.GUI.Products
             this.chEntryFeeIsAdded,
             this.chEntryFeeCycleId,
             this.chEntryFeeNewId,
-            this.chEntryFeeIndex});
+            this.chEntryFeeIndex,
+            this.chEntryFeeMaxSum});
             resources.ApplyResources(this.lvEntryFees, "lvEntryFees");
             this.lvEntryFees.DoubleClickActivation = false;
             this.lvEntryFees.FullRowSelect = true;
@@ -1551,6 +1553,7 @@ namespace OpenCBS.GUI.Products
             this.lvEntryFees.View = System.Windows.Forms.View.Details;
             this.lvEntryFees.SubItemClicked += new OpenCBS.GUI.UserControl.SubItemEventHandler(this.lvEntryFees_SubItemClicked);
             this.lvEntryFees.SubItemEndEditing += new OpenCBS.GUI.UserControl.SubItemEndEditingEventHandler(this.lvEntryFees_SubItemEndEditing);
+            this.lvEntryFees.SelectedIndexChanged += new System.EventHandler(this.lvEntryFees_SelectedIndexChanged);
             // 
             // chEntryFeeId
             // 
@@ -1591,6 +1594,10 @@ namespace OpenCBS.GUI.Products
             // chEntryFeeIndex
             // 
             resources.ApplyResources(this.chEntryFeeIndex, "chEntryFeeIndex");
+            // 
+            // chEntryFeeMaxSum
+            // 
+            resources.ApplyResources(this.chEntryFeeMaxSum, "chEntryFeeMaxSum");
             // 
             // nudEntryFeescycleFrom
             // 
@@ -2587,5 +2594,6 @@ namespace OpenCBS.GUI.Products
         private System.Windows.Forms.Button swbtnEntryFeesRemoveCycle;
         private System.Windows.Forms.Button buttonNewExoticProduct;
         private ComboBox cmbInterestRateType;
+        private ColumnHeader chEntryFeeMaxSum;
     }
 }

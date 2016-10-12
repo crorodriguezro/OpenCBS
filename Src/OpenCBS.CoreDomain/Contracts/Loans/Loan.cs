@@ -157,12 +157,18 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                 if (fee.ProductEntryFee.IsRate)
                 {
                     if (fee.ProductEntryFee.Value != null)
-                        sum += _amount.Value*fee.ProductEntryFee.Value/100.00m;
+                    {
+                        var value = _amount.Value*fee.ProductEntryFee.Value/100.00m;
+                        sum += value > fee.ProductEntryFee.MaxSum ? fee.ProductEntryFee.MaxSum : value;
+                    }
                     else
-                        sum += _amount*fee.FeeValue/100.00m;
+                    {
+                        var value = _amount * fee.FeeValue / 100.00m;
+                        sum += value > fee.ProductEntryFee.MaxSum ? fee.ProductEntryFee.MaxSum : value;
+                    }
                 }
                 else
-                    sum += fee.FeeValue;
+                    sum += fee.FeeValue > fee.ProductEntryFee.MaxSum ? fee.ProductEntryFee.MaxSum : fee.FeeValue;
             }
             return sum;
         }
@@ -175,9 +181,13 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
             foreach (LoanEntryFee fee in LoanEntryFeesList)
             {
                 if (fee.ProductEntryFee.IsRate)
-                    sum += loanAmount * fee.FeeValue / 100.00;
+                {
+                    var value = loanAmount*fee.FeeValue/100.00;
+                    sum += value > fee.ProductEntryFee.MaxSum ? fee.ProductEntryFee.MaxSum : value;
+                }
+
                 else
-                    sum += fee.FeeValue;
+                    sum += fee.FeeValue > fee.ProductEntryFee.MaxSum ? fee.ProductEntryFee.MaxSum : fee.FeeValue;
             }
             return sum;
         }

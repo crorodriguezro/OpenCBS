@@ -545,8 +545,9 @@ namespace OpenCBS.Manager.Products
                                 value, 
                                 rate, 
                                 fee_index, 
-                                cycle_id)
-                              VALUES (@id_product, @name_of_fee, @min, @max, @value, @rate, @fee_index, @cycle_id)";
+                                cycle_id,
+                                max_sum)
+                              VALUES (@id_product, @name_of_fee, @min, @max, @value, @rate, @fee_index, @cycle_id, @max_sum)";
             var conn = tx == null ? GetConnection() : tx.Connection;
             try
             {
@@ -564,6 +565,7 @@ namespace OpenCBS.Manager.Products
                         c.AddParam("rate", entryFee.IsRate);
                         c.AddParam("@fee_index", entryFee.Index);
                         c.AddParam("@cycle_id", entryFee.CycleId);
+                        c.AddParam("@max_sum", entryFee.MaxSum);
                         c.ExecuteNonQuery();
                     }
                 }
@@ -867,6 +869,7 @@ namespace OpenCBS.Manager.Products
                              ,[rate]
                              ,[fee_index]
                              ,[cycle_id]
+                             ,[max_sum]
                             FROM [dbo].[EntryFees]
                             WHERE id_product=@id_product AND cycle_id IS NOT NULL";
             if (!withDeletedFees)
@@ -914,6 +917,7 @@ namespace OpenCBS.Manager.Products
                              ,[rate]
                              ,[fee_index]
                              ,[cycle_id]
+                             ,[max_sum]
                             FROM [dbo].[EntryFees]
                             WHERE id_product=@id_product AND cycle_id=@cycle_id";
             if (!withDeletedFees)
@@ -948,6 +952,7 @@ namespace OpenCBS.Manager.Products
                              ,[rate]
                              ,[fee_index]
                              ,[cycle_id]
+                             ,[max_sum]
                             FROM [dbo].[EntryFees]
                             WHERE id_product=@id_product AND cycle_id IS NULL";
             if (!withDeletedFees)
@@ -980,7 +985,8 @@ namespace OpenCBS.Manager.Products
                                    Value = r.GetNullDecimal("value"),
                                    IsRate = r.GetNullBool("rate") ?? false,
                                    Index = r.GetInt("fee_index"),
-                                   CycleId = r.GetNullInt("cycle_id")
+                                   CycleId = r.GetNullInt("cycle_id"),
+                                   MaxSum = r.GetNullDecimal("max_sum")
                                };
             return entryFee;
         }
@@ -997,6 +1003,7 @@ namespace OpenCBS.Manager.Products
                              ,[rate]
                              ,[fee_index]
                              ,[cycle_id]
+                             ,[max_sum]   
                             FROM [dbo].[EntryFees]
                             WHERE [id]=@entry_fee_id";
             using (SqlConnection conn = GetConnection())
