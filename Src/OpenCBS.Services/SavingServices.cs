@@ -483,7 +483,8 @@ namespace OpenCBS.Services
                     paymentMethod, pendingEventId, teller);
 
                 // Check balance simulation
-                if (!IsSavingBalanceCorrect(savingSimulation) && savingSimulation.Product.Type != OSavingProductType.PersonalAccount) 
+                if (!IsSavingBalanceCorrect(savingSimulation) && savingSimulation.Product.Type != OSavingProductType.PersonalAccount
+                    && savingSimulation.Product.Type != OSavingProductType.ShortTermDeposit) 
                     throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.BalanceIsInvalid);
 
                 var events = saving.Deposit(depositAmount, dateTime, description, user, false,
