@@ -187,6 +187,7 @@
             // 
             // dtpTernDepositDateEnd
             // 
+            this.dtpTernDepositDateEnd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpTernDepositDateEnd.Enabled = false;
             this.dtpTernDepositDateEnd.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.dtpTernDepositDateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -223,6 +224,7 @@
             // 
             // nudNumberOfPeriods
             // 
+            this.nudNumberOfPeriods.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudNumberOfPeriods.Location = new System.Drawing.Point(598, 77);
             this.nudNumberOfPeriods.Name = "nudNumberOfPeriods";
             this.nudNumberOfPeriods.Size = new System.Drawing.Size(197, 20);
@@ -233,16 +235,19 @@
             // lblLimitOfTermDepositPeriod
             // 
             this.lblLimitOfTermDepositPeriod.AutoSize = true;
+            this.lblLimitOfTermDepositPeriod.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblLimitOfTermDepositPeriod.Font = new System.Drawing.Font("Arial", 7.5F);
             this.lblLimitOfTermDepositPeriod.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblLimitOfTermDepositPeriod.Location = new System.Drawing.Point(801, 74);
             this.lblLimitOfTermDepositPeriod.Name = "lblLimitOfTermDepositPeriod";
-            this.lblLimitOfTermDepositPeriod.Size = new System.Drawing.Size(94, 13);
+            this.lblLimitOfTermDepositPeriod.Size = new System.Drawing.Size(94, 32);
             this.lblLimitOfTermDepositPeriod.TabIndex = 7;
             this.lblLimitOfTermDepositPeriod.Text = "Limit of the period";
+            this.lblLimitOfTermDepositPeriod.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dtpTernDepositDateStarted
             // 
+            this.dtpTernDepositDateStarted.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpTernDepositDateStarted.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.dtpTernDepositDateStarted.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpTernDepositDateStarted.Location = new System.Drawing.Point(598, 109);
@@ -640,6 +645,7 @@
             this.nudDownInitialAmount.Name = "nudDownInitialAmount";
             this.nudDownInitialAmount.Size = new System.Drawing.Size(160, 20);
             this.nudDownInitialAmount.TabIndex = 1;
+            this.nudDownInitialAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nudDownInitialAmount.ValueChanged += new System.EventHandler(this.CalculateExpectedAmount);
             // 
             // lbInitialAmountMinMax
