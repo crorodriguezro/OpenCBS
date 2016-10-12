@@ -206,6 +206,7 @@
             this.lblTernDepositDateStarted.Size = new System.Drawing.Size(158, 32);
             this.lblTernDepositDateStarted.TabIndex = 9;
             this.lblTernDepositDateStarted.Text = "Date started";
+            this.lblTernDepositDateStarted.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblNumberOfPeriods
             // 
@@ -218,6 +219,7 @@
             this.lblNumberOfPeriods.Size = new System.Drawing.Size(158, 32);
             this.lblNumberOfPeriods.TabIndex = 0;
             this.lblNumberOfPeriods.Text = "Number of periods";
+            this.lblNumberOfPeriods.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // nudNumberOfPeriods
             // 
@@ -260,6 +262,7 @@
             this.lblTernDepositDateEnd.Size = new System.Drawing.Size(158, 26);
             this.lblTernDepositDateEnd.TabIndex = 10;
             this.lblTernDepositDateEnd.Text = "Contract end date";
+            this.lblTernDepositDateEnd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
@@ -272,6 +275,7 @@
             this.label2.Size = new System.Drawing.Size(111, 26);
             this.label2.TabIndex = 12;
             this.label2.Text = "Expected Amount";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // flowLayoutPanel9
             // 
@@ -496,7 +500,7 @@
             this.tBSavingCode.Location = new System.Drawing.Point(120, 13);
             this.tBSavingCode.Name = "tBSavingCode";
             this.tBSavingCode.ReadOnly = true;
-            this.tBSavingCode.Size = new System.Drawing.Size(280, 20);
+            this.tBSavingCode.Size = new System.Drawing.Size(308, 20);
             this.tBSavingCode.TabIndex = 0;
             // 
             // lBSavingBalance
