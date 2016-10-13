@@ -513,7 +513,7 @@ namespace OpenCBS.Services
             {
                 if (person.Id == 0)
                 {
-                    if (CheckIfIdentificationDataAlreadyExists(person.IdentificationData, 0))
+                    if (CheckIfIdentificationDataAlreadyExists(person.IdentificationData, 0) && person.IdentificationData != string.Empty)
                         throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IdentificationDataAlreadyUsed);
 
                     person.SetStatus();
@@ -522,8 +522,10 @@ namespace OpenCBS.Services
                 }
                 else
                 {
-                    if (CheckIfIdentificationDataAlreadyExists(person.IdentificationData, person.Id))
+                    if (CheckIfIdentificationDataAlreadyExists(person.IdentificationData, person.Id) && person.IdentificationData != string.Empty)
                         throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IdentificationDataAlreadyUsed);
+                    if (person.IdentificationData == null)
+                        person.IdentificationData = string.Empty;
                     UpdatePerson(person, action);
                     SavePicture(person);
                 }
@@ -565,7 +567,10 @@ namespace OpenCBS.Services
             }
             else
             {
-                person.IdentificationData = string.Empty;
+                if (person.Id == 0)
+                {
+                    person.IdentificationData = string.Empty;
+                }
             }
 
             if (person.LastName == null)
