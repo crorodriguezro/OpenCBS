@@ -558,10 +558,14 @@ namespace OpenCBS.Services
             if (!_dataParam.IsAutomaticID && person.IdentificationData == null && ApplicationSettings.GetInstance(User.CurrentUser.Md5).IdNumberIsMandatory)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IdentificationDataIsNull);
 
-            if (_dataParam.EnforceIDPattern)
+            if (_dataParam.EnforceIDPattern && ApplicationSettings.GetInstance(User.CurrentUser.Md5).IdNumberIsMandatory)
             {
                 if (!new RegExCheckerServices(_user).CheckID(person.IdentificationData))
                     throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.WrongIdPattern);
+            }
+            else
+            {
+                person.IdentificationData = string.Empty;
             }
 
             if (person.LastName == null)
