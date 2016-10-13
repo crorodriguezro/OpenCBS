@@ -175,7 +175,7 @@ namespace OpenCBS.GUI.UserControl
             FillFieldStatus();
         }
 
-        private void SettingControlsAfterRenew()
+        private void SettingControlsAfterRenew(bool settingInitialAmount = true)
         {
             buttonStart.Visible = buttonUpdate.Visible = nudDownInitialAmount.Enabled = true;
             buttonRenew.Visible = nudDownInterestRate.Enabled = dtpTernDepositDateStarted.Enabled = dtpTernDepositDateStarted.Enabled = nudNumberOfPeriods.Enabled = false;
@@ -186,7 +186,8 @@ namespace OpenCBS.GUI.UserControl
             var previousExpecredAmount = postingEvent != null
                 ? postingEvent.Amount
                 : nudExpectedAmount.Value;
-            InitialInitialAmount();
+            if(settingInitialAmount)
+                InitialInitialAmount();
             nudDownInitialAmount.Value = previousExpecredAmount.Value;
         }
 
@@ -506,7 +507,7 @@ namespace OpenCBS.GUI.UserControl
 
                 var lastEvent = _saving.Events.OrderBy(x => x.Date).LastOrDefault(x => x.Deleted == false);
                 if (lastEvent != null && lastEvent.Code == "SVRE")
-                    SettingControlsAfterRenew();
+                    SettingControlsAfterRenew(false);
             }
             catch (Exception error)
             {
@@ -547,7 +548,7 @@ namespace OpenCBS.GUI.UserControl
 
         private void Close(object sender, EventArgs e)
         {
-            var totalAmount = TimeProvider.Now >= _saving.ClosedDate.Value
+            var totalAmount = TimeProvider.Now.Date >= dtpTernDepositDateEnd.Value.Date
                     ? nudExpectedAmount.Value
                     : _saving.InitialAmount;
 
@@ -567,7 +568,7 @@ namespace OpenCBS.GUI.UserControl
 
                 ServicesProvider.GetInstance().GetSavingServices().CloseAndTransferWithTransaction(_saving, clientPersonalAccount, TimeProvider.Now, User.CurrentUser, totalAmount
                     , true, Teller.CurrentTeller, sqlTransac);
-
+                
                 _saving.Status = OSavingsStatus.Closed;
                 ServicesProvider.GetInstance().GetSavingServices().UpdateStatusWithTransaction(_saving, sqlTransac);
 
