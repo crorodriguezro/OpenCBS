@@ -555,7 +555,7 @@ namespace OpenCBS.Services
             if (person.Sex == 0)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.SexIsNull);
 
-            if (!_dataParam.IsAutomaticID && person.IdentificationData == null)
+            if (!_dataParam.IsAutomaticID && person.IdentificationData == null && ApplicationSettings.GetInstance(User.CurrentUser.Md5).IdNumberIsMandatory)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IdentificationDataIsNull);
 
             if (_dataParam.EnforceIDPattern)
@@ -689,7 +689,7 @@ namespace OpenCBS.Services
                     pPerson.FirstName = string.Format(pPerson.FirstName);
                     pPerson.LastName = string.Format(pPerson.LastName);
 
-                    if (pPerson.IdentificationData == null)
+                    if (pPerson.IdentificationData == null && ApplicationSettings.GetInstance(User.CurrentUser.Md5).IdNumberIsMandatory)
                     {
                         pPerson.IdentificationData = "test";
                         pPerson.Id = _clientManagement.AddPerson(pPerson, transac);

@@ -330,7 +330,7 @@ namespace OpenCBS.GUI.UserControl
                 textBoxLastname.Text = string.Format(_tempPerson.LastName);
                 if (_tempPerson.FatherName != null)
                     textBoxFatherName.Text = string.Format(_tempPerson.FatherName);
-                textBoxIdentificationData.Text = string.Format(_tempPerson.IdentificationData);
+                textBoxIdentificationData.Text = string.Format(_tempPerson.IdentificationData == null ? "" : _tempPerson.IdentificationData);
                 ResetImagesFlags();
             }
             catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)

@@ -98,6 +98,7 @@ namespace OpenCBS.Shared.Settings
             _defaultParamList.Add(OGeneralSettings.USE_EXTERNAL_ACCOUNTING, 1);
             _defaultParamList.Add(OGeneralSettings.SHOW_EXTRA_INTEREST_COLUMN, 0);
             _defaultParamList.Add(OGeneralSettings.SHORT_DATE_FORMAT, "dd-MM-yyyy");
+            _defaultParamList.Add(OGeneralSettings.ID_NUMBER_IS_MANDATORY, 1);
         }
 
         #region Internal stuff
@@ -481,6 +482,11 @@ namespace OpenCBS.Shared.Settings
         public bool ShowExtraInterestColumn
         {
             get { return GetSpecificParameter(OGeneralSettings.SHOW_EXTRA_INTEREST_COLUMN).ToString() == "1"; }
+        }
+
+        public bool IdNumberIsMandatory
+        {
+            get { return GetSpecificParameter(OGeneralSettings.ID_NUMBER_IS_MANDATORY).ToString() == "1"; }
         }
 
         public string NumberGroupSeparator

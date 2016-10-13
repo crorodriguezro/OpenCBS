@@ -75,6 +75,7 @@ namespace OpenCBS.Enums
         public static readonly string STANDARD_MOBILE_PHONE_FORMAT = "STANDARD_MOBILE_PHONE_FORMAT";
         public static readonly string CHECK_CREDIT_COMMITTEE_DATE = "CHECK_CREDIT_COMMITTEE_DATE";
         public static readonly string SHOW_TOTAL_ROW_IN_SCHEDULE = "SHOW_TOTAL_ROW_IN_SCHEDULE";
+        public static readonly string ID_NUMBER_IS_MANDATORY = "ID_NUMBER_IS_MANDATORY";
     }
 }
 
