@@ -186,9 +186,11 @@ namespace OpenCBS.GUI.UserControl
             var previousExpecredAmount = postingEvent != null
                 ? postingEvent.Amount
                 : nudExpectedAmount.Value;
-            if(settingInitialAmount)
+            if (settingInitialAmount)
+            {
                 InitialInitialAmount();
-            nudDownInitialAmount.Value = previousExpecredAmount.Value;
+                nudDownInitialAmount.Value = previousExpecredAmount.Value;
+            }
         }
 
         private void FillFieldsFromExistenceSaving()
