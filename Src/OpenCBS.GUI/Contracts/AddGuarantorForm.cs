@@ -312,7 +312,7 @@ namespace OpenCBS.GUI
                 Fail("GuarantorNameIsNull");
                 return;
             }
-            if (_guarantor.Amount == 0 || string.IsNullOrEmpty(nudAmount.Text))
+            if (string.IsNullOrEmpty(nudAmount.Text))
             {
                 Fail("AmountIsNull");
                 return;

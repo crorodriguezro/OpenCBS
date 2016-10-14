@@ -1068,7 +1068,7 @@ namespace OpenCBS.Services
             bool result = false;
             if (guarantor == null)
                 result = true;
-            else if (guarantor.Tiers == null || guarantor.Amount == 0)
+            else if (guarantor.Tiers == null)
                 result = true;
 
             return result;
