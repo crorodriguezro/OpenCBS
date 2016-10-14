@@ -513,7 +513,7 @@ namespace OpenCBS.Services
             {
                 if (person.Id == 0)
                 {
-                    if (CheckIfIdentificationDataAlreadyExists(person.IdentificationData, 0) && person.IdentificationData != string.Empty)
+                    if (CheckIfIdentificationDataAlreadyExists(person.IdentificationData, 0))
                         throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IdentificationDataAlreadyUsed);
 
                     person.SetStatus();
@@ -522,10 +522,8 @@ namespace OpenCBS.Services
                 }
                 else
                 {
-                    if (CheckIfIdentificationDataAlreadyExists(person.IdentificationData, person.Id) && person.IdentificationData != string.Empty)
+                    if (CheckIfIdentificationDataAlreadyExists(person.IdentificationData, person.Id))
                         throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IdentificationDataAlreadyUsed);
-                    if (person.IdentificationData == null)
-                        person.IdentificationData = string.Empty;
                     UpdatePerson(person, action);
                     SavePicture(person);
                 }
@@ -560,17 +558,10 @@ namespace OpenCBS.Services
             if (!_dataParam.IsAutomaticID && person.IdentificationData == null && ApplicationSettings.GetInstance(User.CurrentUser.Md5).IdNumberIsMandatory)
                 throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.IdentificationDataIsNull);
 
-            if (_dataParam.EnforceIDPattern && ApplicationSettings.GetInstance(User.CurrentUser.Md5).IdNumberIsMandatory)
+            if (_dataParam.EnforceIDPattern)
             {
                 if (!new RegExCheckerServices(_user).CheckID(person.IdentificationData))
                     throw new OpenCbsTiersSaveException(OpenCbsTiersSaveExceptionEnum.WrongIdPattern);
-            }
-            else
-            {
-                if (person.Id == 0)
-                {
-                    person.IdentificationData = string.Empty;
-                }
             }
 
             if (person.LastName == null)
