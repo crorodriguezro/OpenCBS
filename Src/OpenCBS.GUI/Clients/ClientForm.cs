@@ -5604,6 +5604,16 @@ namespace OpenCBS.GUI.Clients
             cmbSavingsOfficer.SelectedIndex = 0;
         }
 
+        private void SettingCanselLastOperationButtonForSavings()
+        {
+            if (_saving == null)
+                return;
+            var lastSavingEvent = _saving.Events.LastOrDefault(x => x.Deleted == false && x.Code != "SFCE" && x.Code != "STCE");
+            var countOperation = _saving.Events.FindAll(x => x.Deleted == false && x.Code != "SFCE" && x.Code != "STCE").Count;
+            if (lastSavingEvent != null && lastSavingEvent.Code == "SVDE" && countOperation == 1)
+                btCancelLastSavingEvent.Visible = false;
+        }
+
         private void DisplaySavingEvent(ISavingsContract pSaving)
         {
             if (pSaving.Id != 0)
@@ -5635,6 +5645,7 @@ namespace OpenCBS.GUI.Clients
             lbSavingBalanceValue.Text = pSaving.GetFmtBalance(true);
             lbSavingAvBalanceValue.Text = pSaving.GetFmtAvailBalance(true);
             btCancelLastSavingEvent.Visible = _saving.Status == OSavingsStatus.Active || _saving.Status == OSavingsStatus.Closed;
+            SettingCanselLastOperationButtonForSavings();
             buttonSavingsOperations.Visible = _saving.Status == OSavingsStatus.Active;
 
             lvSavingEvent.Items.Clear();
@@ -5793,6 +5804,7 @@ namespace OpenCBS.GUI.Clients
                 pnlSavingsButtons.Enabled = buttonSavingsOperations.Enabled = flowLayoutPanel9.Enabled = buttonCloseSaving.Visible = true;
                 nudDownInitialAmount.Enabled =  false;
                 btCancelLastSavingEvent.Visible = _saving.Status == OSavingsStatus.Active || _saving.Status == OSavingsStatus.Closed;
+                SettingCanselLastOperationButtonForSavings();
                 buttonSavingsOperations.Visible = _saving.Status == OSavingsStatus.Active;
             }
             catch (OpenCBS.ExceptionsHandler.Exceptions.CustomFieldsExceptions.CustomFieldsAreNotFilledCorrectlyException)
@@ -6154,6 +6166,7 @@ namespace OpenCBS.GUI.Clients
                     }
 
                     DisplaySavingEvent(_saving);
+                    SettingCanselLastOperationButtonForSavings();
 
                     if (_person != null) DisplaySavings(_person.Savings);
                     if (_client != null) DisplaySavings(_client.Savings);
