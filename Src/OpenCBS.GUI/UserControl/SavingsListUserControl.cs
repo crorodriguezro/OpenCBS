@@ -106,6 +106,7 @@ namespace OpenCBS.GUI.UserControl
             }
 
             totalItem.Font = new Font(totalItem.Font, FontStyle.Bold);
+            totalItem.SubItems.Clear();
             totalItem.SubItems.Add("");
             totalItem.SubItems.Add("");
             
