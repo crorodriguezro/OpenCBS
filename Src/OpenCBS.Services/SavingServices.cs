@@ -1779,11 +1779,11 @@ namespace OpenCBS.Services
                 throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.ProductIsInvalid);
             if (saving.Product.Type != OSavingProductType.PersonalAccount)
             {
-                if (!IsInterestRateCorrect(saving))
-                    throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.InterestRateIsInvalid);
-
                 if (saving.Product.Type != OSavingProductType.ShortTermDeposit)
                 {
+                    if (!IsInterestRateCorrect(saving))
+                        throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.InterestRateIsInvalid);
+
                     if (!IsWithdrawFeesCorrect((SavingBookContract)saving))
                         throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.WithdrawFeesIsInvalid);
 
