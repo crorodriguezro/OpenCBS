@@ -1377,6 +1377,9 @@
   <data name="lbYearlyInterestRateMax.Text" xml:space="preserve">
     <value>...% yearly</value>
   </data>
+  <data name="lbYearlyInterestRateMax.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;lbYearlyInterestRateMax.Name" xml:space="preserve">
     <value>lbYearlyInterestRateMax</value>
   </data>
@@ -1409,6 +1412,9 @@
   </data>
   <data name="lbYearlyInterestRateMin.Text" xml:space="preserve">
     <value>...% yearly</value>
+  </data>
+  <data name="lbYearlyInterestRateMin.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;lbYearlyInterestRateMin.Name" xml:space="preserve">
     <value>lbYearlyInterestRateMin</value>

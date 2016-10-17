@@ -14,7 +14,6 @@ using OpenCBS.CoreDomain.Events.Saving;
 using OpenCBS.CoreDomain.Products;
 using OpenCBS.Enums;
 using OpenCBS.ExceptionsHandler;
-using OpenCBS.ExceptionsHandler.Exceptions.SavingExceptions;
 using OpenCBS.Extensions;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
@@ -201,7 +200,7 @@ namespace OpenCBS.GUI.UserControl
             tBSavingCode.Text = _saving.Code;
             cmbSavingsOfficer.SelectedItem = _saving.SavingsOfficer;
             nudDownInitialAmount.Value = _saving.InitialAmount.Value;
-            nudDownInterestRate.Value = Convert.ToDecimal(_saving.InterestRate * 100);
+            nudDownInterestRate.Value = Convert.ToDecimal(_saving.InterestRate);
             nudNumberOfPeriods.Value = _saving.NumberOfPeriods;
             dtpTernDepositDateStarted.Value = _saving.StartDate == null ? dtpTernDepositDateStarted.MinDate : _saving.StartDate.Value;
             dateTimeDateCreated.Value = _saving.CreationDate;
@@ -372,7 +371,7 @@ namespace OpenCBS.GUI.UserControl
 
         private void CalculateExpectedAmount(object sender, EventArgs e)
         {
-            nudExpectedAmount.Value = nudDownInitialAmount.Value * nudDownInterestRate.Value / 12 * nudNumberOfPeriods.Value + nudDownInitialAmount.Value;
+            nudExpectedAmount.Value = nudDownInitialAmount.Value / 100 * nudDownInterestRate.Value / 12 * nudNumberOfPeriods.Value + nudDownInitialAmount.Value;
         }
 
         private void nudNumberOfPeriods_ValueChanged(object sender, EventArgs e)
@@ -405,7 +404,7 @@ namespace OpenCBS.GUI.UserControl
                 _saving.Code = tBSavingCode.Text;
                 _saving.SavingsOfficer = (User)cmbSavingsOfficer.SelectedItem;
                 _saving.InitialAmount = nudDownInitialAmount.Value;
-                _saving.InterestRate = Convert.ToDouble(nudDownInterestRate.Value / 100m);
+                _saving.InterestRate = Convert.ToDouble(nudDownInterestRate.Value);
                 _saving.NumberOfPeriods = Convert.ToInt32(nudNumberOfPeriods.Value);
                 _saving.CreationDate = TimeProvider.Now;
                 _saving.StartDate = dtpTernDepositDateStarted.Value;
@@ -490,7 +489,7 @@ namespace OpenCBS.GUI.UserControl
             {
                 _saving.SavingsOfficer = (User)cmbSavingsOfficer.SelectedItem;
                 _saving.InitialAmount = nudDownInitialAmount.Value;
-                _saving.InterestRate = Convert.ToDouble(nudDownInterestRate.Value / 100m);
+                _saving.InterestRate = Convert.ToDouble(nudDownInterestRate.Value);
                 _saving.NumberOfPeriods = Convert.ToInt32(nudNumberOfPeriods.Value);
                 _saving.CreationDate = TimeProvider.Now;
                 _saving.StartDate = dtpTernDepositDateStarted.Value;
@@ -641,6 +640,5 @@ namespace OpenCBS.GUI.UserControl
                 SavingsExtensions.Add(tab);
             }
         }
-
     }
 }
