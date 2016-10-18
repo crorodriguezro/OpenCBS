@@ -439,7 +439,7 @@ namespace OpenCBS.GUI.UserControl
             try
             {
                 ServicesProvider.GetInstance().GetSavingServices().ValidateWithdrawal(_saving.InitialAmount, clientPersonalAccount, _saving.StartDate.Value,
-                "System withdraw operation for initial term deposit", User.CurrentUser, Teller.CurrentTeller, new PaymentMethod());
+                "System withdraw operation for initial term deposit for " + _saving.Code, User.CurrentUser, Teller.CurrentTeller, new PaymentMethod());
             }
             catch (Exception)
             {
@@ -454,7 +454,7 @@ namespace OpenCBS.GUI.UserControl
                 if (clientPersonalAccount != null)
                 {
                     ServicesProvider.GetInstance().GetSavingServices().WithdrawWithTransaction(clientPersonalAccount, _saving.StartDate.Value, _saving.InitialAmount
-                            , "System withdraw operation for initial term deposit", _saving.SavingsOfficer,
+                            , "System withdraw operation for initial term deposit for " + _saving.Code, _saving.SavingsOfficer,
                             Teller.CurrentTeller, new PaymentMethod(), sqlTransac);
                 }
                 else
