@@ -219,4 +219,13 @@
   <data name="NonAccrual.Text" xml:space="preserve">
     <value>No devengo</value>
   </data>
+  <data name="PersonalAccount" xml:space="preserve">
+    <value>Cuenta Personal</value>
+  </data>
+  <data name="Saving" xml:space="preserve">
+    <value>Ahorro</value>
+  </data>
+  <data name="ShortTermDeposit" xml:space="preserve">
+    <value>Término</value>
+  </data>
 </root>

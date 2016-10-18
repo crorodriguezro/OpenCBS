@@ -81,8 +81,11 @@ namespace OpenCBS.GUI.UserControl
                                                                                             saving.Product.Currency);
                 string status = MultiLanguageStrings.GetString(Ressource.ClientForm, "Savings" + saving.Status + ".Text");
                 ListViewItem item = new ListViewItem(saving.Code) { Tag = saving };
-                item.SubItems.Add(MultiLanguageStrings.GetString(Ressource.ClientForm, 
-                    saving is SavingBookContract ? "SavingsBook.Text" : "CompulsorySavings.Text"));
+
+
+                item.SubItems.Add(MultiLanguageStrings.GetString(Ressource.ClientForm,
+                    saving is SavingBookContract ? saving.Product.Type.ToString() : "CompulsorySavings.Text"));
+
                 item.SubItems.Add(saving.Product.Name);
                 item.SubItems.Add(saving.GetFmtBalance(false));
                 item.SubItems.Add(saving.Product.Currency.Code);

@@ -345,4 +345,13 @@
   <data name="NonAccrual.Text" xml:space="preserve">
     <value>Non-exercice</value>
   </data>
+  <data name="PersonalAccount" xml:space="preserve">
+    <value>Compte Personnel</value>
+  </data>
+  <data name="Saving" xml:space="preserve">
+    <value>Économie</value>
+  </data>
+  <data name="ShortTermDeposit" xml:space="preserve">
+    <value>Terme</value>
+  </data>
 </root>
