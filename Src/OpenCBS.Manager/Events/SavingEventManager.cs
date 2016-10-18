@@ -318,7 +318,7 @@ namespace OpenCBS.Manager.Events
                                         SavingEvents.user_id ,
                                         SavingEvents.code ,
                                         SavingEvents.amount ,
-                                        SavingEvents.description + '  #' + sc.code + '-' + CONVERT(NVARCHAR(50), SavingEvents.id) AS description,
+                                        SavingEvents.description AS description,
                                         SavingEvents.creation_date ,
                                         SavingEvents.contract_id,
                                         SavingEvents.cancelable ,
