@@ -69,7 +69,8 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
         List<SavingEvent> FirstDeposit(OCurrency pInitialAmount, DateTime pCreationDate, OCurrency pEntryFees, User pUser, Teller teller);
 
         OCurrency GetBalanceMin(DateTime pDate);
-        List<SavingEvent> Withdraw(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees, Teller teller, PaymentMethod paymentMethod);
+        List<SavingEvent> Withdraw(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees, Teller teller,
+            PaymentMethod paymentMethod, int? parentId = null);
 
         List<SavingEvent> Deposit(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees,
             bool isPending, OSavingsMethods savingsMethod, PaymentMethod paymentMethod, int? pendingEventId, Teller teller);

@@ -801,23 +801,20 @@ namespace OpenCBS.Services
         }
 
         public List<SavingEvent> WithdrawWithTransaction(ISavingsContract pSaving, DateTime pDate, OCurrency pWithdrawAmount, string pDescription, User pUser,
-            Teller teller, PaymentMethod paymentMethod, SqlTransaction tx, string doc1 = null)
+            Teller teller, PaymentMethod paymentMethod, SqlTransaction tx, int parentId, string doc1 = null)
         {
             ValidateWithdrawal(pWithdrawAmount, pSaving, pDate, pDescription, pUser, teller, paymentMethod);
             if (pSaving.Client == null)
-                pSaving.Client =
-                    ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(pSaving.Id);
-            var events = pSaving.Withdraw(pWithdrawAmount, pDate, pDescription, pUser, false, teller, paymentMethod);
+                pSaving.Client = ServicesProvider.GetInstance().GetClientServices().FindTiersBySavingsId(pSaving.Id);
+            var events = pSaving.Withdraw(pWithdrawAmount, pDate, pDescription, pUser, false, teller, paymentMethod, parentId);
             try
             {
                 foreach (var savingEvent in events)
                 {
                     savingEvent.Doc1 = doc1;
-                    var parentId = _ePS.FireEventWithReturnId(savingEvent, pSaving, tx);
+                    var eventId = _ePS.FireEventWithReturnId(savingEvent, pSaving, tx);
 
-                    ServicesProvider.GetInstance()
-                        .GetContractServices()
-                        .CallInterceptor(new Dictionary<string, object>
+                    ServicesProvider.GetInstance().GetContractServices().CallInterceptor(new Dictionary<string, object>
                         {
                             {"Saving", pSaving},
                             {
@@ -830,6 +827,7 @@ namespace OpenCBS.Services
                                     PaymentsMethod = paymentMethod,
                                     Date = savingEvent.Date,
                                     Fee = savingEvent.Fee,
+                                    ParentId = savingEvent.ParentId,
                                     Doc1 = savingEvent.Doc1
                                 }
                             },
@@ -837,8 +835,7 @@ namespace OpenCBS.Services
                         });
 
                     Fee(pSaving, savingEvent.Fee.Value, pDate, pUser, false, OSavingsMethods.Cash, paymentMethod, null,
-                        teller,
-                        tx, parentId, "Fee for Withdraw", savingEvent.Doc1);
+                        teller, tx, eventId, "Fee for Withdraw", savingEvent.Doc1);
                 }
 
                 // Charge overdraft fees if the balance is negative

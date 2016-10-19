@@ -450,18 +450,21 @@ namespace OpenCBS.GUI.UserControl
             var sqlTransac = DatabaseConnection.GetConnection().BeginTransaction(IsolationLevel.ReadUncommitted);
             try
             {
-                
+                var listInitialDepositEvents = ServicesProvider.GetInstance().GetSavingServices().DepositWithTransaction(_saving, dtpTernDepositDateStarted.Value, _saving.InitialAmount, "Initial deposit",
+                        User.CurrentUser, false, OSavingsMethods.Cash, new PaymentMethod(), null, Teller.CurrentTeller, sqlTransac, true);
+                var withdrawalEvent = listInitialDepositEvents.FirstOrDefault(x => x.Code == "SVDE");
+                if (withdrawalEvent == null)
+                    throw new Exception("Can't find withdraw event");
+                var idOfwithdrawalEvent = withdrawalEvent.Id;
+
                 if (clientPersonalAccount != null)
                 {
                     ServicesProvider.GetInstance().GetSavingServices().WithdrawWithTransaction(clientPersonalAccount, _saving.StartDate.Value, _saving.InitialAmount
                             , "System withdraw operation for initial term deposit for " + _saving.Code, _saving.SavingsOfficer,
-                            Teller.CurrentTeller, new PaymentMethod(), sqlTransac);
+                            Teller.CurrentTeller, new PaymentMethod(), sqlTransac, idOfwithdrawalEvent);
                 }
                 else
                     throw new Exception("Can't find personal account");
-
-                ServicesProvider.GetInstance().GetSavingServices().DepositWithTransaction(_saving, dtpTernDepositDateStarted.Value, _saving.InitialAmount, "Initial deposit",
-                        User.CurrentUser, false, OSavingsMethods.Cash, new PaymentMethod(), null, Teller.CurrentTeller, sqlTransac, true);
 
                 _saving.Status = OSavingsStatus.Active;
                 ServicesProvider.GetInstance().GetSavingServices().UpdateStatusWithTransaction(_saving, sqlTransac);

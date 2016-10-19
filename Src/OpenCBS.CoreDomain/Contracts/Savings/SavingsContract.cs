@@ -189,14 +189,15 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
             return events;
         }
 
-        public virtual List<SavingEvent> Withdraw(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees, Teller teller, PaymentMethod paymentMethod)
+        public virtual List<SavingEvent> Withdraw(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees, Teller teller,
+            PaymentMethod paymentMethod, int? parentId = null)
         {
-            List<SavingEvent> events = new List<SavingEvent>();
+            var events = new List<SavingEvent>();
 
             int? tellerId = null;
             if (teller != null) tellerId = teller.Id;
 
-            SavingWithdrawEvent withdrawEvent = new SavingWithdrawEvent
+            var withdrawEvent = new SavingWithdrawEvent
             {
                 Amount = pAmount,
                 Date = pDate,
@@ -205,7 +206,8 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
                 Cancelable = true,
                 TellerId = tellerId,
                 ProductType = Product.GetType(),
-                PaymentMethod = paymentMethod
+                PaymentMethod = paymentMethod,
+                ParentId = parentId
             };
             events.Add(withdrawEvent);
             Events.Add(withdrawEvent);
