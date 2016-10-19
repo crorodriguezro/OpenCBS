@@ -5615,6 +5615,14 @@ namespace OpenCBS.GUI.Clients
             var countOperation = _saving.Events.FindAll(x => x.Deleted == false && x.Code != "SFCE" && x.Code != "STCE").Count;
             if (lastSavingEvent != null && lastSavingEvent.Code == "SVDE" && countOperation == 1)
                 btCancelLastSavingEvent.Visible = false;
+            if (_saving.Product.Type == OSavingProductType.PersonalAccount)
+            {
+                if (lastSavingEvent != null && lastSavingEvent.ParentId != null)
+                {
+                    if(_saving.Events.FirstOrDefault(x => x.Id == lastSavingEvent.ParentId.Value) == null)
+                        btCancelLastSavingEvent.Visible = false;
+                } 
+            }
         }
 
         private void DisplaySavingEvent(ISavingsContract pSaving)

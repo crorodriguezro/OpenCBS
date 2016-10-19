@@ -229,7 +229,8 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
             return events;
         }
 
-        public override List<SavingEvent> Withdraw(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees, Teller teller, PaymentMethod paymentMethod)
+        public override List<SavingEvent> Withdraw(OCurrency pAmount, DateTime pDate, string pDescription, User pUser, bool pIsDesactivateFees, Teller teller,
+            PaymentMethod paymentMethod, int? parentId = null)
         {
             var events = new List<SavingEvent>();
 
@@ -246,7 +247,8 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
                 Fee = 0m,
                 TellerId = tellerId,
                 ProductType = typeof(SavingsBookProduct),
-                SavingsMethod = savingsMethod
+                SavingsMethod = savingsMethod,
+                ParentId = parentId
             };
             Events.Add(withdrawEvent);
             events.Add(withdrawEvent);
