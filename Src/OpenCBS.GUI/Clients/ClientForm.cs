@@ -5621,7 +5621,7 @@ namespace OpenCBS.GUI.Clients
                 {
                     if(_saving.Events.FirstOrDefault(x => x.Id == lastSavingEvent.ParentId.Value) == null)
                         btCancelLastSavingEvent.Visible = false;
-                } 
+                }
             }
         }
 

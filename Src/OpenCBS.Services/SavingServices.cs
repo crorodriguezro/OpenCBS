@@ -1465,8 +1465,7 @@ namespace OpenCBS.Services
         }
 
         public List<SavingEvent> CloseAndTransferWithTransaction(ISavingsContract from, ISavingsContract to,
-            DateTime date, User pUser,
-            OCurrency amount, bool pIsDesactivateFees, Teller teller, SqlTransaction tx)
+            DateTime date, User pUser, OCurrency amount, bool pIsDesactivateFees, Teller teller, SqlTransaction tx)
         {
             if (to.Status == OSavingsStatus.Closed)
                 throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.CreditTransferAccountInvalid);
@@ -1489,9 +1488,18 @@ namespace OpenCBS.Services
 
             try
             {
-                foreach (var e in events)
+                int? parentId = null;
+                for (var i = 0; i < events.Count; i++)
                 {
-                    _ePS.FireEvent(e, tx);
+                    if(i == 0)
+                        parentId = _ePS.FireEventWithReturnId(events[i], tx);
+                    else if (i == 1)
+                    {
+                        events[i].ParentId = parentId;
+                        _ePS.FireEvent(events[i], tx);
+                    }
+                    else
+                        _ePS.FireEvent(events[i], tx);
                 }
             }
             catch (Exception error)
