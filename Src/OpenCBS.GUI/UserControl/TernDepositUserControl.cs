@@ -170,6 +170,7 @@ namespace OpenCBS.GUI.UserControl
             SettingControl(false);
             lbSavingBalanceValue.Text = @"0";
             buttonSavingsClose.Visible = buttonSaveSaving.Visible = buttonUpdate.Visible = buttonStart.Visible = false;
+            InitialPersonalAccount();
             SettingCancelLastEventButton();
             FillFieldStatus();
         }
