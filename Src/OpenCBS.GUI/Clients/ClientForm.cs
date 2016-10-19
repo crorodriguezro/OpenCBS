@@ -5835,9 +5835,15 @@ namespace OpenCBS.GUI.Clients
             savingEvent.ShowDialog();
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
+
+            _client.Savings.Clear();
+            foreach (var saving in SavingServices.GetAllSavings(_client.Id))
+            {
+                _client.AddSaving(saving);
+            }
+
             DisplaySavings(_client.Savings);
             DisplaySaving(_saving.Id, _client);
-//            ((MainView)_mdiParent).ReloadAlertsSync();
         }
 
         private void buttonSavingWithDraw_Click(object sender, EventArgs e)
@@ -5847,8 +5853,14 @@ namespace OpenCBS.GUI.Clients
             savingsOperationForm.ShowDialog();
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
+
+            _client.Savings.Clear();
+            foreach (var saving in SavingServices.GetAllSavings(_client.Id))
+            {
+                _client.AddSaving(saving);
+            }
+
             DisplaySavings(_client.Savings);
-//            ((MainView)_mdiParent).ReloadAlertsSync();
         }
 
         private List<User> _subordinates;
@@ -6284,8 +6296,14 @@ namespace OpenCBS.GUI.Clients
             savingEvent.ShowDialog();
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
+
+            _client.Savings.Clear();
+            foreach (var saving in SavingServices.GetAllSavings(_client.Id))
+            {
+                _client.AddSaving(saving);
+            }
+
             DisplaySavings(_client.Savings);
-//            ((MainView)_mdiParent).ReloadAlertsSync();
         }
 
         private void OnFirstInstallmentDateChanged(object sender, EventArgs e)
@@ -7179,8 +7197,14 @@ namespace OpenCBS.GUI.Clients
             savingEvent.ShowDialog();
             _saving = SavingServices.GetSaving(_saving.Id);
             DisplaySavingEvent(_saving);
+
+            _client.Savings.Clear();
+            foreach (var saving in SavingServices.GetAllSavings(_client.Id))
+            {
+                _client.AddSaving(saving);
+            }
+
             DisplaySavings(_client.Savings);
-//            ((MainView)MdiParent).ReloadAlertsSync();
         }
 
         private void ShowTotalFeesInListView(ListViewItem item)

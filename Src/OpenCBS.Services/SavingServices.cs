@@ -1761,6 +1761,12 @@ namespace OpenCBS.Services
             return savings;
         }
 
+        public List<ISavingsContract> GetAllSavings(int idClient)
+        {
+            var savings = _savingManager.SelectSavings(idClient);
+            return savings;
+        }
+
         public List<ISavingsContract> GetSavingsByClientId(int clientId)
         {
             return _savingManager.SelectSavings(clientId);
