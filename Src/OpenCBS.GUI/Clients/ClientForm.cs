@@ -2173,7 +2173,9 @@ namespace OpenCBS.GUI.Clients
                 if (amount > entryFee.ProductEntryFee.MaxSum)
                 {
                     amount = entryFee.ProductEntryFee.MaxSum;
-                    entryFee.FeeValue = amount.Value * 100 / nudLoanAmount.Value;
+                    entryFee.FeeValue = amount.HasValue
+                        ? amount.Value * 100 / nudLoanAmount.Value
+                        : entryFee.FeeValue;
                 }
                 item.SubItems.Add(amount.GetFormatedValue(_credit.Product.Currency.UseCents));
 
