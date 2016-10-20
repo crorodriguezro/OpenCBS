@@ -342,7 +342,7 @@ namespace OpenCBS.GUI
                 item.SubItems.Add(result.ContractEndDate.HasValue ? result.ContractEndDate.Value.ToShortDateString() : "");
                 item.SubItems.Add(MultiLanguageStrings.GetString(Ressource.SearchCreditContractForm, result.Status + ".Text"));
                 item.SubItems.Add(MultiLanguageStrings.GetString(Ressource.SearchCreditContractForm, 
-                    result.ContractType == "B" ? "SavingsBook.Text" : result.ContractType == "T" ? "SavingsDeposit.Text" : "CompulsorySavings.Text"));
+                    result.ContractType == "B" ? result.Type.ToString() : result.ContractType == "T" ? result.Type.ToString() : "CompulsorySavings.Text"));
                 listViewContracts.Items.Add(item);
             }
         }
