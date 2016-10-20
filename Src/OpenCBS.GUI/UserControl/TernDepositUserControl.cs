@@ -67,9 +67,9 @@ namespace OpenCBS.GUI.UserControl
             FillFieldsFromExistenceSaving();
 
             SettingControl(_saving.Status == OSavingsStatus.Pending);
-            buttonStart.Visible = buttonStart.Enabled = _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = true;
+            _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = true;
             buttonSaveSaving.Visible = false;
-            buttonUpdate.Visible = _saving.Status == OSavingsStatus.Pending;
+            buttonStart.Visible = buttonStart.Enabled = buttonUpdate.Visible = _saving.Status == OSavingsStatus.Pending;
 
             var lastEvent = _saving.Events.OrderBy(x => x.Date).LastOrDefault(x => x.Deleted == false);
             if (lastEvent != null && lastEvent.Code == "SVRE")
@@ -198,6 +198,9 @@ namespace OpenCBS.GUI.UserControl
 
             tBSavingCode.Text = _saving.Code;
             cmbSavingsOfficer.SelectedItem = _saving.SavingsOfficer;
+            nudDownInitialAmount.Maximum = nudDownInitialAmount.Maximum < _saving.InitialAmount.Value
+                ? _saving.InitialAmount.Value
+                : nudDownInitialAmount.Maximum;
             nudDownInitialAmount.Value = _saving.InitialAmount.Value;
             nudDownInterestRate.Value = Convert.ToDecimal(_saving.InterestRate);
             nudNumberOfPeriods.Value = _saving.NumberOfPeriods;
