@@ -230,7 +230,7 @@
             this.nudNumberOfPeriods.Size = new System.Drawing.Size(197, 20);
             this.nudNumberOfPeriods.TabIndex = 1;
             this.nudNumberOfPeriods.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.nudNumberOfPeriods.ValueChanged += new System.EventHandler(this.nudNumberOfPeriods_ValueChanged);
+            this.nudNumberOfPeriods.ValueChanged += new System.EventHandler(this.PeriodChanged);
             // 
             // lblLimitOfTermDepositPeriod
             // 
@@ -617,6 +617,7 @@
             this.cmbSavingsOfficer.Name = "cmbSavingsOfficer";
             this.cmbSavingsOfficer.Size = new System.Drawing.Size(160, 21);
             this.cmbSavingsOfficer.TabIndex = 3;
+            this.cmbSavingsOfficer.SelectedIndexChanged += new System.EventHandler(this.OffecerChanged);
             // 
             // labelInitialAmount
             // 
