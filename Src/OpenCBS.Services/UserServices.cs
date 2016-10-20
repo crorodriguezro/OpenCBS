@@ -163,7 +163,7 @@ namespace OpenCBS.Services
             Debug.Assert(OGender.CheckGender(pUser.Sex), string.Format("Non valif geder character is given for user: {0}", pUser.Name));
 
 
-            if (pUser.Id == 0 && Find(pUser.UserName, pUser.Password) != null)
+            if (pUser.Id == 0 && FindByName(pUser.UserName) != null)
             {
                 userErrors.FindError = true;
                 userErrors.ResultMessage += "\n - " + MultiLanguageStrings.GetString(Ressource.StringRes, "User_Save_AlreadyExist.Text");
@@ -284,6 +284,15 @@ namespace OpenCBS.Services
             Debug.Assert(_users != null, "User list is null");
             User u = _users.Find(item => item.UserName == username
                                          && item.Password == password 
+                                         && !item.IsDeleted);
+            return u;
+        }
+
+        public User FindByName(string username)
+        {
+            LoadUsers();
+            Debug.Assert(_users != null, "User list is null");
+            User u = _users.Find(item => item.UserName == username
                                          && !item.IsDeleted);
             return u;
         }

@@ -71,7 +71,7 @@ namespace OpenCBS.Manager
                                        @deleted, 
                                        @roleCode, 
                                        @username, 
-                                       @userpass, 
+                                       --@userpass, 
                                        @passwordhash,
                                        @passwordsalt,
                                        @firstname,
@@ -182,7 +182,7 @@ namespace OpenCBS.Manager
         private static void SetUser(OpenCbsCommand sqlCommand, User pUser)
         {
             sqlCommand.AddParam("@username", pUser.UserName);
-            sqlCommand.AddParam("@userpass", pUser.Password);
+            //sqlCommand.AddParam("@userpass", pUser.Password);
 
             sqlCommand.AddParam("@passwordhash", pUser.PasswordHash);
             sqlCommand.AddParam("@passwordsalt", pUser.PasswordSalt);
