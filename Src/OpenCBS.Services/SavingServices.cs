@@ -508,8 +508,11 @@ namespace OpenCBS.Services
                             {"SqlTransaction", tx}
                         });
 
-                    Fee(saving, saving.EntryFees.Value, dateTime, user, isPending, savingsMethod, paymentMethod, pendingEventId, teller, tx,
-                        parentId, "Fee for Deposit", savingEvent.Doc1);
+                    if (saving.EntryFees.HasValue && saving.EntryFees.Value > 0)
+                    {
+                        Fee(saving, saving.EntryFees.Value, dateTime, user, isPending, savingsMethod, paymentMethod,
+                            pendingEventId, teller, tx,parentId, "Fee for Deposit", savingEvent.Doc1);
+                    }
                 }
 
                 // Change overdraft state
