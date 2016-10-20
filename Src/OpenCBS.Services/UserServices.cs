@@ -23,6 +23,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Diagnostics;
+using System.Security.Cryptography;
+using System.Text;
 using OpenCBS.CoreDomain.Dashboard;
 using OpenCBS.Enums;
 using OpenCBS.Manager;
@@ -235,6 +237,29 @@ namespace OpenCBS.Services
             }
         }
 
+        //public bool IsValidPassword(string userName,string password)
+        //{
+        //    var salt = _userManager.GetUserSalt(userName);
+        //    var passwordHash = _userManager.GetUserPasswordHash(userName);
+        //    var passwordHashBytes = Encoding.ASCII.GetBytes(passwordHash);
+        //    byte[] hashBytes = Encoding.ASCII.GetBytes(password+salt);
+        //    MD5 md5 = new MD5CryptoServiceProvider();
+        //    byte[] hashenc = md5.ComputeHash(hashBytes);
+        //    if (passwordHashBytes == hashenc) return true;
+        //    return false;
+        //}
+
+        public void SetNewPassword(string userName, string newPassword)
+        {
+            var salt = _userManager.GenerateSalt();
+            //var passwordHash = _userManager.GetUserPasswordHash(userName);
+            var passwordHashBytes = Encoding.ASCII.GetBytes(newPassword + salt);
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] hashenc = md5.ComputeHash(passwordHashBytes);
+            string hashencStr = BitConverter.ToString(hashenc);
+            _userManager.SetUserPasswordHashAndSalt(userName, hashencStr, salt);
+        }
+
         public User Find(int id)
         {
             LoadUsers();
@@ -261,6 +286,24 @@ namespace OpenCBS.Services
                                          && item.Password == password 
                                          && !item.IsDeleted);
             return u;
+        }
+
+        public bool IsValidPassword(string username, string password)
+        {
+            LoadUsers();
+            Debug.Assert(_users != null, "User list is null");
+            User u = _users.Find(item => item.UserName == username
+                                         && item.Password == password
+                                         && !item.IsDeleted);
+            return _userManager.IsValidPassword(username, password);
+        }
+        public User IsValidPasswordUser(string username, string password)
+        {
+            LoadUsers();
+            Debug.Assert(_users != null, "User list is null");
+            User u = _users.Find(item => item.UserName == username
+                                         && !item.IsDeleted);
+            return _userManager.IsValidPassword(username, password)?u:null;
         }
 
         public User Find(string username, string password, string account)
