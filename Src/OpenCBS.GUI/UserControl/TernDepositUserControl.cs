@@ -198,6 +198,9 @@ namespace OpenCBS.GUI.UserControl
 
             tBSavingCode.Text = _saving.Code;
             cmbSavingsOfficer.SelectedItem = _saving.SavingsOfficer;
+            nudDownInitialAmount.Maximum = nudDownInitialAmount.Maximum < _saving.InitialAmount.Value
+                ? _saving.InitialAmount.Value
+                : nudDownInitialAmount.Maximum;
             nudDownInitialAmount.Value = _saving.InitialAmount.Value;
             nudDownInterestRate.Value = Convert.ToDecimal(_saving.InterestRate);
             nudNumberOfPeriods.Value = _saving.NumberOfPeriods;
