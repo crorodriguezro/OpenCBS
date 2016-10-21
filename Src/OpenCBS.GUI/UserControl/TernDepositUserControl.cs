@@ -90,7 +90,7 @@ namespace OpenCBS.GUI.UserControl
             InitialInitialAmount();
             InitialInterestRate();
             InitialNumberOfPeriod();
-            InitialPersonalAccount();
+            InitialPersonalAccount(dtpTernDepositDateStarted.Value.Date);
 
             lbSavingBalanceValue.Text = _saving.Status == OSavingsStatus.Closed
                 ? "0"
@@ -109,7 +109,7 @@ namespace OpenCBS.GUI.UserControl
             FillFieldStatus();
             dateTimeDateCreated.Value = _saving.CreationDate;
             _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = buttonStart.Visible = buttonUpdate.Visible = true;
-            InitialPersonalAccount();
+            InitialPersonalAccount(dtpTernDepositDateStarted.Value.Date);
         }
 
         private void SettingCancelLastEventButton()
@@ -159,7 +159,7 @@ namespace OpenCBS.GUI.UserControl
             FillFieldStatus();
             dateTimeDateCreated.Value = _saving.CreationDate;
             _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = true;
-            InitialPersonalAccount();
+            InitialPersonalAccount(TimeProvider.Now);
         }
 
         private void SettingControlsAfterClose()
@@ -168,7 +168,7 @@ namespace OpenCBS.GUI.UserControl
             SettingControl(false);
             lbSavingBalanceValue.Text = @"0";
             buttonSavingsClose.Visible = buttonSaveSaving.Visible = buttonUpdate.Visible = buttonStart.Visible = false;
-            InitialPersonalAccount();
+            InitialPersonalAccount(TimeProvider.Now);
             SettingCancelLastEventButton();
             FillFieldStatus();
         }
@@ -283,13 +283,19 @@ namespace OpenCBS.GUI.UserControl
             lblLimitOfTermDepositPeriod.Text = string.Format("Min: {0}\nMax: {1}", nudNumberOfPeriods.Minimum, nudNumberOfPeriods.Maximum);
         }
 
-        private void InitialPersonalAccount()
+        private void InitialPersonalAccount(DateTime date)
         {
+            _client.Savings.Clear();
+            foreach (var saving in ServicesProvider.GetInstance().GetSavingServices().GetAllSavings(_client.Id))
+            {
+                _client.AddSaving(saving);
+            }
+
             var clientPersonalAccount = _client.Savings.FirstOrDefault(x => x.Product.Type == OSavingProductType.PersonalAccount && x.Status == OSavingsStatus.Active);
 
             if (clientPersonalAccount != null)
             {
-                var balance = clientPersonalAccount.GetBalance(dtpTernDepositDateStarted.Value);
+                var balance = clientPersonalAccount.GetBalance(date);
                 if (balance <= 0 || balance < nudDownInitialAmount.Minimum)
                     buttonStart.Enabled = false;
                 else
@@ -368,7 +374,7 @@ namespace OpenCBS.GUI.UserControl
             dtpTernDepositDateEnd.Value = dtpTernDepositDateStarted.Value.AddMonths(Convert.ToInt32(nudNumberOfPeriods.Value));
 
             if(sender is DateTimePicker)
-                InitialPersonalAccount();
+                InitialPersonalAccount(dtpTernDepositDateStarted.Value.Date);
         }
 
         private void CalculateExpectedAmount(object sender, EventArgs e)

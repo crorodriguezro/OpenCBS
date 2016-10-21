@@ -5400,6 +5400,11 @@ namespace OpenCBS.GUI.Clients
 
         private void RefreshSavingsList(object sender, EventArgs e)
         {
+            _client.Savings.Clear();
+            foreach (var saving in SavingServices.GetAllSavings(_client.Id))
+            {
+                _client.AddSaving(saving);
+            }
             DisplaySavings(_client.Savings);
         }
 
