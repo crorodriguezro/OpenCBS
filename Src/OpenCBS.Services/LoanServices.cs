@@ -1335,62 +1335,125 @@ namespace OpenCBS.Services
 
         private List<Installment> AssembleTranche(Loan loan, IScheduleConfiguration scheduleConfiguration, ITrancheConfiguration trancheConfiguration)
         {
-            var schedule = loan.InstallmentList;
-            var trancheSchedule = BuildTranche(schedule, loan, scheduleConfiguration, trancheConfiguration);
+            var result = new List<Installment>();
 
-            // Get an interested paid in advance, whereas "in advance" means after the new tranche date
-            var overpaidInterest = (
-                from installment in schedule
-                where installment.ExpectedDate > trancheConfiguration.StartDate
-                select installment
-            ).Sum(installment => installment.PaidInterests.Value);
+            // Calculate new schedule
+            var amount = loan.InstallmentList.Sum(x => x.CapitalRepayment.Value - x.PaidCapital.Value);
+            amount += trancheConfiguration.Amount;
 
-            // Get the part of the schedule that comes before the tranche date...
-            var newSchedule =
-                from installment in schedule
-                where installment.ExpectedDate <= trancheConfiguration.StartDate
-                select installment;
+            var copyOfLoan = loan.Copy();
+            copyOfLoan.Amount = amount;
+            copyOfLoan.NbOfInstallments = trancheConfiguration.NumberOfInstallments;
+            copyOfLoan.GracePeriod = trancheConfiguration.GracePeriod;
+            copyOfLoan.InterestRate = trancheConfiguration.InterestRate / 100;
+            copyOfLoan.StartDate = trancheConfiguration.StartDate;
+            copyOfLoan.FirstInstallmentDate = trancheConfiguration.PreferredFirstInstallmentDate;
 
-            // ...and force close it (set expected equal to paid)
-            var olbDifference = 0m;
+            var newSchedule = SimulateScheduleCreation(copyOfLoan);
+
+            // Get due interest up to tranche date
+            var accruedInterest = loan
+                .Events
+                .GetEvents()
+                .OfType<LoanInterestAccrualEvent>()
+                .Where(x => !x.Deleted && x.Date.Date <= trancheConfiguration.StartDate.Date)
+                .Sum(x => x.Interest.Value);
+
+            var paidInterest = loan
+                .Events
+                .GetEvents()
+                .OfType<RepaymentEvent>()
+                .Where(x => !x.Deleted && x.Date.Date <= trancheConfiguration.StartDate.Date)
+                .Sum(x => x.Interests.Value);
+
+            var writtenOffInterest = loan
+                .Events
+                .GetEvents()
+                .OfType<InterestWriteOffEvent>()
+                .Where(x => !x.Deleted && x.Date.Date <= trancheConfiguration.StartDate.Date)
+                .Sum(x => x.Amount.Value);
+            newSchedule[0].InterestsRepayment += accruedInterest - paidInterest - writtenOffInterest;
+
+            // Get old schedule
+            var oldSchedule = loan.InstallmentList.FindAll(x => x.ExpectedDate.Date <= trancheConfiguration.StartDate.Date);
+
+            // Adjust new schedule's first installment start date
+            if (oldSchedule.Count() == 0)
+            {
+                newSchedule[0].StartDate = loan.StartDate;
+            }
+            else
+            {
+                newSchedule[0].StartDate = oldSchedule[oldSchedule.Count() - 1].ExpectedDate;
+            }
+
+            // Adjust new schedule installments' numbers
             foreach (var installment in newSchedule)
             {
-                installment.OLB += olbDifference;
-                olbDifference += installment.CapitalRepayment.Value - installment.PaidCapital.Value;
-                if (!(installment.CapitalRepayment == installment.PaidCapital && installment.InterestsRepayment == installment.PaidInterests))
-                {
-                    installment.PaidDate = trancheConfiguration.StartDate;
-                }
-                installment.CapitalRepayment = installment.PaidCapital;
-                installment.InterestsRepayment = installment.PaidInterests;
+                installment.Number += oldSchedule.Count();
             }
-
-            // Adjust the new schedule's installment numbers
-            var increment = newSchedule.Count();
-            foreach (var installment in trancheSchedule)
-            {
-                installment.Number += increment;
-            }
-            var result = new List<Installment>();
+            result.AddRange(oldSchedule);
             result.AddRange(newSchedule);
-
-            // Distribute the overpaid interest
-            foreach (var installment in trancheSchedule)
-            {
-                if (installment.InterestsRepayment < overpaidInterest)
-                {
-                    installment.PaidInterests = installment.InterestsRepayment;
-                    overpaidInterest -= installment.InterestsRepayment.Value;
-                }
-                else
-                {
-                    installment.PaidInterests = overpaidInterest;
-                    break;
-                }
-            }
-
-            result.AddRange(trancheSchedule);
             return result;
+
+            // OLD VERSION
+            // TODO: REMOVE WHEN NEW IMPLEMENTATION IS DONE
+            //var schedule = loan.InstallmentList;
+            //var trancheSchedule = BuildTranche(schedule, loan, scheduleConfiguration, trancheConfiguration);
+
+            //// Get an interested paid in advance, whereas "in advance" means after the new tranche date
+            //var overpaidInterest = (
+            //    from installment in schedule
+            //    where installment.ExpectedDate > trancheConfiguration.StartDate
+            //    select installment
+            //).Sum(installment => installment.PaidInterests.Value);
+
+            //// Get the part of the schedule that comes before the tranche date...
+            //var newSchedule =
+            //    from installment in schedule
+            //    where installment.ExpectedDate <= trancheConfiguration.StartDate
+            //    select installment;
+
+            //// ...and force close it (set expected equal to paid)
+            //var olbDifference = 0m;
+            //foreach (var installment in newSchedule)
+            //{
+            //    installment.OLB += olbDifference;
+            //    olbDifference += installment.CapitalRepayment.Value - installment.PaidCapital.Value;
+            //    if (!(installment.CapitalRepayment == installment.PaidCapital && installment.InterestsRepayment == installment.PaidInterests))
+            //    {
+            //        installment.PaidDate = trancheConfiguration.StartDate;
+            //    }
+            //    installment.CapitalRepayment = installment.PaidCapital;
+            //    installment.InterestsRepayment = installment.PaidInterests;
+            //}
+
+            //// Adjust the new schedule's installment numbers
+            //var increment = newSchedule.Count();
+            //foreach (var installment in trancheSchedule)
+            //{
+            //    installment.Number += increment;
+            //}
+            //var result = new List<Installment>();
+            //result.AddRange(newSchedule);
+
+            //// Distribute the overpaid interest
+            //foreach (var installment in trancheSchedule)
+            //{
+            //    if (installment.InterestsRepayment < overpaidInterest)
+            //    {
+            //        installment.PaidInterests = installment.InterestsRepayment;
+            //        overpaidInterest -= installment.InterestsRepayment.Value;
+            //    }
+            //    else
+            //    {
+            //        installment.PaidInterests = overpaidInterest;
+            //        break;
+            //    }
+            //}
+
+            //result.AddRange(trancheSchedule);
+            //return result;
         }
 
         private IEnumerable<Installment> BuildTranche(IEnumerable<Installment> schedule,Loan loan, IScheduleConfiguration scheduleConfiguration, ITrancheConfiguration trancheConfiguration)
@@ -1632,23 +1695,27 @@ namespace OpenCBS.Services
                         copyOfLoan.InstallmentList
                                   .FindAll(i => i.ExpectedDate <= trancheConfiguration.StartDate)
                                   .LastOrDefault();
+                    var eventDate = trancheConfiguration.StartDate.Date
+                        .AddHours(TimeProvider.Now.Hour)
+                        .AddMinutes(TimeProvider.Now.Minute)
+                        .AddSeconds(TimeProvider.Now.Second);
                     var trancheEvent = new TrancheEvent
-                        {
-                            Amount = trancheConfiguration.Amount,
-                            ApplyNewInterest = trancheConfiguration.ApplyNewInterestRateToOlb,
-                            Maturity = trancheConfiguration.NumberOfInstallments,
-                            StartDate = trancheConfiguration.StartDate,
-                            Date = TimeProvider.Now,
-                            InterestRate = trancheConfiguration.InterestRate / 100,
-                            Number = copyOfLoan.GivenTranches.Count,
-                            FirstRepaymentDate = trancheConfiguration.PreferredFirstInstallmentDate,
-                            GracePeriod = trancheConfiguration.GracePeriod,
-                            StartedFromInstallment = startInstallment == null ? 0 : startInstallment.Number,
-                            User = _user,
-                            PaymentMethod = paymentMethod,
-                            PaymentMethodId = paymentMethod.Id,
-                            Cancelable = true
-                        };
+                    {
+                        Amount = trancheConfiguration.Amount,
+                        ApplyNewInterest = trancheConfiguration.ApplyNewInterestRateToOlb,
+                        Maturity = trancheConfiguration.NumberOfInstallments,
+                        StartDate = trancheConfiguration.StartDate,
+                        Date = eventDate,
+                        InterestRate = trancheConfiguration.InterestRate / 100,
+                        Number = copyOfLoan.GivenTranches.Count,
+                        FirstRepaymentDate = trancheConfiguration.PreferredFirstInstallmentDate,
+                        GracePeriod = trancheConfiguration.GracePeriod,
+                        StartedFromInstallment = startInstallment == null ? 0 : startInstallment.Number,
+                        User = _user,
+                        PaymentMethod = paymentMethod,
+                        PaymentMethodId = paymentMethod.Id,
+                        Cancelable = true
+                    };
 
                     trancheEvent.User = _user;
                     trancheEvent.Commissions = entryFees;
@@ -1661,13 +1728,6 @@ namespace OpenCBS.Services
                     _ePs.FireEvent(trancheEvent, copyOfLoan, transaction);
                     copyOfLoan.Events.Add(trancheEvent);
                     
-                    CallInterceptor(new Dictionary<string, object>
-                    {
-                        {"Loan", copyOfLoan},
-                        {"Event", trancheEvent},
-                        {"SqlTransaction", transaction}
-                    });
-
                     // Add entry fee events
                     foreach (var entryFee in entryFees)
                     {
@@ -1685,25 +1745,6 @@ namespace OpenCBS.Services
                         copyOfLoan.Events.Add(entryFeeEvent);
                     }
                     _loanManager.InsertLoanEntryFees(entryFees.ToList(), loan.Id, transaction);
-
-                    var trancheEntryFeeEvent =
-                        copyOfLoan.Events.OfType<LoanEntryFeeEvent>()
-                                  .FirstOrDefault(i => i.DisbursementEventId == trancheEvent.Id);
-
-                    if (trancheEntryFeeEvent != null)
-                        CallInterceptor(new Dictionary<string, object>
-                        {
-                            {"Loan", copyOfLoan},
-                            {
-                                "Event", new LoanEntryFeeEvent
-                                    {
-                                        Id = trancheEntryFeeEvent.Id,
-                                        Fee = entryFees.Sum(i => i.FeeValue),
-                                        Code = "LEE0"
-                                    }
-                            },
-                            {"SqlTransaction", transaction}
-                        });
 
                     ArchiveInstallments(loan, trancheEvent, transaction);
 
@@ -1727,6 +1768,32 @@ namespace OpenCBS.Services
                         copyOfLoan,
                         transaction);
                     copyOfLoan.GivenTranches.Add(trancheEvent);
+
+                    // Invoke interceptors
+                    CallInterceptor(new Dictionary<string, object>
+                    {
+                        {"Loan", copyOfLoan},
+                        {"Event", trancheEvent},
+                        {"SqlTransaction", transaction}
+                    });
+
+                    var trancheEntryFeeEvent = copyOfLoan.Events.OfType<LoanEntryFeeEvent>().FirstOrDefault(i => i.DisbursementEventId == trancheEvent.Id);
+
+                    if (trancheEntryFeeEvent != null)
+                        CallInterceptor(new Dictionary<string, object>
+                        {
+                            {"Loan", copyOfLoan},
+                            {
+                                "Event", new LoanEntryFeeEvent
+                                    {
+                                        Id = trancheEntryFeeEvent.Id,
+                                        Fee = entryFees.Sum(i => i.FeeValue),
+                                        Code = "LEE0"
+                                    }
+                            },
+                            {"SqlTransaction", transaction}
+                        });
+
                     transaction.Commit();
 
                     SetClientStatus(copyOfLoan, client);
