@@ -1125,7 +1125,7 @@ namespace OpenCBS.Services
                     if (lastSavingEvent.Code == "SVCE")
                     {
                         _savingManager.UpdateStatus(saving.Id, OSavingsStatus.Active, lastSavingEvent.CancelDate, sqlTransaction);
-                        var withdrawEvent = saving.Events.FirstOrDefault(x => x.Id == lastSavingEvent.ParentId.Value);
+                        var withdrawEvent = saving.Events.FirstOrDefault(x => lastSavingEvent.ParentId != null && x.Id == lastSavingEvent.ParentId.Value);
                         if (withdrawEvent != null)
                         {
                             withdrawEvent.CancelDate = lastSavingEvent.CancelDate;
