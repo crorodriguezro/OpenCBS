@@ -6213,7 +6213,7 @@ namespace OpenCBS.GUI.Clients
 
         private void buttonCloseSaving_Click(object sender, EventArgs e)
         {
-            if (_client.ActiveLoans.Count > 0
+            if (_client.ActiveLoans != null && _client.ActiveLoans.Count > 0
                 ||_client.Savings.FirstOrDefault(x => x.Product.Type != OSavingProductType.PersonalAccount && x.Status == OSavingsStatus.Active) != null)
             {
                 MessageBox.Show(@"This client have active credit or saving contracts");
