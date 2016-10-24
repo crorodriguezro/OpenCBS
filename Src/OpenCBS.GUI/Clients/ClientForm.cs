@@ -4210,6 +4210,7 @@ namespace OpenCBS.GUI.Clients
             DisplayContracts(_project.Credits);
             Preview();
             DisplayInstallments(ref _credit);
+            InitLoanRepaymentButtons();
         }
 
         private void buttonLoanRepaymentRepay_Click(object sender, EventArgs e)
