@@ -338,6 +338,7 @@
             this.btCancelLastSavingEvent.Size = new System.Drawing.Size(205, 28);
             this.btCancelLastSavingEvent.TabIndex = 1;
             this.btCancelLastSavingEvent.Text = "Cancel Last Operation";
+            this.btCancelLastSavingEvent.Visible = false;
             this.btCancelLastSavingEvent.Click += new System.EventHandler(this.CancelLastEvent);
             // 
             // btnPrintSavings
