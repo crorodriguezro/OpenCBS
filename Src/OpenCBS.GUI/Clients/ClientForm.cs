@@ -1255,7 +1255,7 @@ namespace OpenCBS.GUI.Clients
             groupBoxSaving.Name += string.Format(" {0}", _saving.Product.Name);
             groupBoxSaving.Text = string.Format("{0} : {1}",
                 MultiLanguageStrings.GetString(Ressource.ClientForm,
-                    _saving is SavingBookContract ? _saving.Product.Type.ToString() : "CompulsorySavings.Text"),
+                    _saving is SavingBookContract ? "Status.Text" : "CompulsorySavings.Text"),
                 MultiLanguageStrings.GetString(Ressource.ClientForm, "Savings" + _saving.Status + ".Text"));
 
             tabPageSavingDetails.Text = MultiLanguageStrings.GetString(Ressource.ClientForm,
