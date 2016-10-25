@@ -605,6 +605,25 @@ namespace OpenCBS.Manager
             return "";
         }
 
+        public bool IsOldAuthetification()
+        {
+            const string q = @" SELECT count(*) field_exists
+                                FROM sys.columns 
+                                WHERE  object_id = OBJECT_ID(N'[dbo].[Users]') 
+                                AND name = 'user_pass' ";
+
+            using (SqlConnection conn = GetConnection())
+            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+            {
+                using (OpenCbsReader r = c.ExecuteReader())
+                {
+                    while (r.Read())
+                        return r.GetBool("field_exists");
+                }
+            }
+            return false;
+        }
+
         public void SetUserPasswordHashAndSalt(string userName, string passwordHash, string salt)
         {
 
