@@ -488,7 +488,7 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
         {
             if (0 == Events.Count) return null;
 
-            var evt = Events.OrderBy(item => item.Date).LastOrDefault(item => !item.Deleted && item.Code != "SFCE" && item.Code != "STCE");
+            var evt = Events.OrderBy(item => item.Date).LastOrDefault(item => !item.Deleted && item.Code != "SFCE" && item.Code != "STCE" && item.Code != "SIAE" && item.Code != "SIPE");
 
             return evt != null
                 && User.CurrentUser.UserRole.IsActionAllowed(new ActionItemObject { ClassName = "SavingServices", MethodName = "CancelLastSavingEvent" }) 

@@ -115,7 +115,7 @@ namespace OpenCBS.GUI.UserControl
         private void SettingCancelLastEventButton()
         {
             var lastEvent = _saving.Events.OrderBy(x => x.Date).LastOrDefault(x => x.Deleted == false);
-            btCancelLastSavingEvent.Visible = lastEvent != null && lastEvent.Code != "SVDE";
+            btCancelLastSavingEvent.Visible = lastEvent != null;
         }
 
         private void SettingControlsAfterCalcelLastEvent()
