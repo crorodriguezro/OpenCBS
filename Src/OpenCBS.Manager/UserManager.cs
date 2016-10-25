@@ -618,7 +618,7 @@ namespace OpenCBS.Manager
                 using (OpenCbsReader r = c.ExecuteReader())
                 {
                     while (r.Read())
-                        return r.GetBool("field_exists");
+                        return r.GetInt("field_exists")>0;
                 }
             }
             return false;

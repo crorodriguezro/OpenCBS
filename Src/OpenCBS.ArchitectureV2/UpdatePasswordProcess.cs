@@ -8,31 +8,34 @@ using System.Windows.Forms;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
 using OpenCBS.Manager;
+using OpenCBS.Services;
 
 namespace OpenCBS.ArchitectureV2
 {
-    class UpdatePasswordProcess:IStartupProcess
+    internal class UpdatePasswordProcess : IStartupProcess
     {
         public void Run()
         {
-            if (MessageBox.Show("Will you update authetification system?", "", MessageBoxButtons.YesNo) ==
-                DialogResult.Yes)
+            if (ServicesProvider.GetInstance().GetUserServices().IsOldAuthentification())
             {
-                const string q1 = @"
+                if (MessageBox.Show("Will you update authetification system?", "", MessageBoxButtons.YesNo) ==
+                    DialogResult.Yes)
+                {
+                    const string q1 = @"
                     IF NOT EXISTS ( SELECT * FROM sys.columns WHERE  object_id = OBJECT_ID(N'[dbo].[Users]') AND name = 'password_salt' )
                     BEGIN
                         ALTER TABLE dbo.Users ADD [password_salt] nvarchar(4000) null
                     END
                                     ";
 
-                const string q2 = @"
+                    const string q2 = @"
                     IF NOT EXISTS ( SELECT * FROM sys.columns WHERE  object_id = OBJECT_ID(N'[dbo].[Users]') AND name = 'password_hash' )
                     BEGIN
                         ALTER TABLE dbo.Users ADD [password_hash] nvarchar(4000) null
                     END
                                     ";
 
-                const string q = @"
+                    const string q = @"
                        
 
                     IF EXISTS ( SELECT * FROM sys.columns WHERE  object_id = OBJECT_ID(N'[dbo].[Users]') AND name = 'user_pass' )
@@ -82,25 +85,29 @@ namespace OpenCBS.ArchitectureV2
 
 
 
-                using (SqlConnection conn = DatabaseConnection.GetConnection())
-                {
-                    using (OpenCbsCommand sqlCommand = new OpenCbsCommand(q1, conn))
+                    using (SqlConnection conn = DatabaseConnection.GetConnection())
                     {
-                        sqlCommand.ExecuteNonQuery();
+                        using (OpenCbsCommand sqlCommand = new OpenCbsCommand(q1, conn))
+                        {
+                            sqlCommand.ExecuteNonQuery();
+                        }
+                        using (OpenCbsCommand sqlCommand = new OpenCbsCommand(q2, conn))
+                        {
+                            sqlCommand.ExecuteNonQuery();
+                        }
+                        using (OpenCbsCommand sqlCommand = new OpenCbsCommand(q, conn))
+                        {
+                            sqlCommand.ExecuteNonQuery();
+                        }
+                        return;
                     }
-                    using (OpenCbsCommand sqlCommand = new OpenCbsCommand(q2, conn))
-                    {
-                        sqlCommand.ExecuteNonQuery();
-                    }
-                    using (OpenCbsCommand sqlCommand = new OpenCbsCommand(q, conn))
-                    {
-                        sqlCommand.ExecuteNonQuery();
-                    }
-                    return;
                 }
+                else
+                {
+                    Process.GetCurrentProcess().Kill();
+                }
+                return;
             }
-            Process.GetCurrentProcess().Kill();
-            return;
         }
     }
 }

@@ -315,7 +315,7 @@ namespace OpenCBS.Services
             return _userManager.IsValidPassword(username, password)?u:null;
         }
 
-        public bool IsNeedOldAuthentification()
+        public bool IsOldAuthentification()
         {
             return _userManager.IsOldAuthetification();
         }

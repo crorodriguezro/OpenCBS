@@ -8,10 +8,8 @@ namespace OpenCBS.ArchitectureV2.Service
     {
         public User Login(string username, string password)
         {
-            var userService = ServicesProvider.GetInstance().GetUserServices();
-            User user=null;
-            if (userService.IsNeedOldAuthentification())
-            user = userService.IsValidPasswordUser(username, password);
+
+            var user = ServicesProvider.GetInstance().GetUserServices().IsValidPasswordUser(username, password);
 
             if (user == null) return null;
             return (User.CurrentUser = user);
