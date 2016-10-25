@@ -665,7 +665,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACC
-        UQAAAk1TRnQBSQFMAgEBBwEAAWABCAFgAQgBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
+        UQAAAk1TRnQBSQFMAgEBBwEAAWgBCAFoAQgBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
         AwABQAMAAQEBAAEgBgABgP8AHgABAQMJAQwDFAEbAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMW
         AR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMU
         ARsDBwEJnwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMA
@@ -3311,13 +3311,13 @@
     <value>16, 143</value>
   </data>
   <data name="labelPassport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 16</value>
+    <value>76, 16</value>
   </data>
   <data name="labelPassport.TabIndex" type="System.Int32, mscorlib">
     <value>44</value>
   </data>
   <data name="labelPassport.Text" xml:space="preserve">
-    <value>ID number:</value>
+    <value>ID number*:</value>
   </data>
   <data name="&gt;&gt;labelPassport.Name" xml:space="preserve">
     <value>labelPassport</value>

@@ -95,6 +95,9 @@ namespace OpenCBS.GUI.UserControl
             {
                 initializer.Initialize(this);
             }
+            labelPassport.Text = ServicesProvider.GetInstance().GetGeneralSettings().IdNumberIsMandatory
+                ? labelPassport.Text
+                : labelPassport.Text.Replace("*", "");
         }
 
         public bool PersonSaved
