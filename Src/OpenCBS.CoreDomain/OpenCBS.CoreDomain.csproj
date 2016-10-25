@@ -208,6 +208,7 @@
     <Compile Include="Contracts\Loans\IContract.cs" />
     <Compile Include="Contracts\Loans\LoanEntryFee.cs" />
     <Compile Include="Contracts\Loans\LoanRepayment\Repayment\FeesRepayment\RepayCommisionStrategy.cs" />
+    <Compile Include="Contracts\Savings\CalculateInterests\Accrual\MinimalAmount\Yearly.cs" />
     <Compile Include="Contracts\Savings\CalculateInterests\Accrual\MinimalAmount\Weekly.cs" />
     <Compile Include="Contracts\Savings\CalculateInterests\Accrual\MinimalAmount\Monthly.cs" />
     <Compile Include="Contracts\Savings\CalculateInterests\CalculateInterestsStrategy.cs" />

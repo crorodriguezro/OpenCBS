@@ -44,6 +44,11 @@ namespace OpenCBS.CoreDomain.Contracts.Savings.CalculateInterests
                 if (((SavingBookContract)pSaving).Product.CalculAmountBase == OSavingCalculAmountBase.MinimalAmount)
                     _ici = new Accrual.MinimalAmount.Weekly((SavingBookContract)pSaving, pUser, pWeekEndDay2);
             }
+            else if (((SavingBookContract)pSaving).Product.InterestBase == OSavingInterestBase.Yearly)
+            {
+                //if (((SavingBookContract)pSaving).Product.CalculAmountBase == OSavingCalculAmountBase.MinimalAmount)
+                    _ici = new Accrual.MinimalAmount.Yearly((SavingBookContract)pSaving, pUser, pWeekEndDay2);
+            }
         }
 
         public List<SavingInterestsAccrualEvent> CalculateInterest(System.DateTime closureDate)
