@@ -219,6 +219,8 @@
     <Compile Include="Service\RepaymentService.cs" />
     <Compile Include="Service\SettingsService.cs" />
     <Compile Include="TinyMessenger.cs" />
+    <Compile Include="UpdatePasswordRegistry.cs" />
+    <Compile Include="UpdatePasswordProcess.cs" />
     <Compile Include="View\AlertsView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +339,10 @@
     <ProjectReference Include="..\OpenCBS.Extensions\OpenCBS.Extensions.csproj">
       <Project>{d63e15b6-24df-4c27-8593-eface31fa52a}</Project>
       <Name>OpenCBS.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCBS.Manager\OpenCBS.Manager.csproj">
+      <Project>{963A6B8B-779C-4052-B39A-8ABBFBF16C1A}</Project>
+      <Name>OpenCBS.Manager</Name>
     </ProjectReference>
     <ProjectReference Include="..\OpenCBS.Services\OpenCBS.Services.csproj">
       <Project>{a859d97a-51fb-4961-af07-5856640511af}</Project>
