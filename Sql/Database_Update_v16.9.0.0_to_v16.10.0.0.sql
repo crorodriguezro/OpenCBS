@@ -14,3 +14,9 @@ END
 GO
 
 ALTER TABLE Persons ALTER COLUMN identification_data nvarchar(200) NULL
+
+IF NOT EXISTS ( SELECT TOP 1 value FROM dbo.GeneralParameters WHERE [key] = 'COPY_DATA_OF_CUSTOM_FIELD_FROM_PREVIOUS_LOAN' )
+BEGIN
+    INSERT INTO dbo.GeneralParameters ([key], [value]) VALUES ('COPY_DATA_OF_CUSTOM_FIELD_FROM_PREVIOUS_LOAN', 0)
+END
+GO
