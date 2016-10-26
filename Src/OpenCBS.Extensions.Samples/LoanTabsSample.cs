@@ -36,7 +36,7 @@ namespace OpenCBS.Extensions.Samples
     [Export(typeof(ILoanTabs))]
     public class LoanTabsSample : ILoanTabs
     {
-        public TabPage[] GetTabPages(Loan loan, Client client)
+        public TabPage[] GetTabPages(Loan loan, Client client = null)
         {
             var tabPage = new TabPage("TEST LOAN DETAILS");
             return new[] { tabPage };
