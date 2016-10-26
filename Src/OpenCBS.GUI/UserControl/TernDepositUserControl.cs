@@ -115,7 +115,7 @@ namespace OpenCBS.GUI.UserControl
         private void SettingCancelLastEventButton()
         {
             var lastEvent = _saving.Events.OrderBy(x => x.Date).LastOrDefault(x => x.Deleted == false);
-            btCancelLastSavingEvent.Visible = lastEvent != null;
+            btCancelLastSavingEvent.Visible = btCancelLastSavingEvent.Enabled = lastEvent != null;
         }
 
         private void SettingControlsAfterCalcelLastEvent()
@@ -202,7 +202,7 @@ namespace OpenCBS.GUI.UserControl
             lbSavingBalanceValue.Text = _saving.GetFmtBalance(true);
             buttonSaveSaving.Visible = buttonUpdate.Visible = buttonStart.Visible = false;
             SettingCancelLastEventButton();
-            buttonSavingsClose.Visible = true;
+            buttonSavingsClose.Visible = buttonSavingsClose.Enabled = true;
             FillFieldStatus();
             dateTimeDateCreated.Value = _saving.CreationDate;
             _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = true;
