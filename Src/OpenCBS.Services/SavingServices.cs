@@ -1151,10 +1151,6 @@ namespace OpenCBS.Services
                         _ePS.CancelFireEvent(savingEvent, saving.Product.Currency.Id, sqlTransaction);
                     }
 
-                    if (lastSavingEvent.Code == "SVDE" && !saving.Events.Any(val => val.Code == "SVDE" && !val.Deleted && val.Id != lastSavingEvent.Id))
-                        _savingManager.UpdateStatus(saving.Id, OSavingsStatus.Pending, lastSavingEvent.CancelDate, sqlTransaction);
-
-
                     ServicesProvider.GetInstance().GetContractServices().CallInterceptor(
                         new Dictionary<string, object>
                         {
