@@ -2418,16 +2418,12 @@ namespace OpenCBS.Services
         private void CancelSavingsEvent(Event cancelledEvent, SqlTransaction sqlTransaction)
         {
             if (cancelledEvent.PaymentMethod != null)
-                if (cancelledEvent.PaymentMethod.Name == OPaymentMethods.Savings.GetName()
-                    &&
-                    (cancelledEvent.Code == "RBLE" ||
-                     cancelledEvent.Code == "RGLE" ||
-                     cancelledEvent.Code == "APR" ||
-                     cancelledEvent.Code == "ATR" ||
-                     cancelledEvent.Code == "RRLE" ||
-                     cancelledEvent.Code == "APTR"
-                    )
-                    )
+                if (cancelledEvent.Code == "RBLE" ||
+                    cancelledEvent.Code == "RGLE" ||
+                    cancelledEvent.Code == "APR" ||
+                    cancelledEvent.Code == "ATR" ||
+                    cancelledEvent.Code == "RRLE" ||
+                    cancelledEvent.Code == "APTR")
                 {
                     int loanEventId = cancelledEvent.ParentId ?? cancelledEvent.Id;
                     _savingServices.DeleteRepaymentFromSavingEvent(loanEventId, sqlTransaction);
