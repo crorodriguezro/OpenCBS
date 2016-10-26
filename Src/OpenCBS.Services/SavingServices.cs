@@ -1086,7 +1086,7 @@ namespace OpenCBS.Services
 
                     Debug.Assert(_ePS != null, "Event processor is null");
                     var lastSavingEvent = saving.GetCancelableEvent();
-
+                    var deletedSiblings = new List<SavingEvent>();
                     startCanseEvent:
 
                     if (null == lastSavingEvent) return null;
@@ -1151,6 +1151,10 @@ namespace OpenCBS.Services
                         _ePS.CancelFireEvent(savingEvent, saving.Product.Currency.Id, sqlTransaction);
                     }
 
+                    if (lastSavingEvent.Code == "SVDE" && !saving.Events.Any(val => val.Code == "SVDE" && !val.Deleted && val.Id != lastSavingEvent.Id))
+                        _savingManager.UpdateStatus(saving.Id, OSavingsStatus.Pending, lastSavingEvent.CancelDate, sqlTransaction);
+
+
                     ServicesProvider.GetInstance().GetContractServices().CallInterceptor(
                         new Dictionary<string, object>
                         {
@@ -1159,22 +1163,46 @@ namespace OpenCBS.Services
                             {"SqlTransaction", sqlTransaction}
                         });
 
-                    if ((lastSavingEvent.Code == "STCE" || lastSavingEvent.Code == "SFCE") && !alreadyDeleted)
+                    if ((lastSavingEvent.Code == "STCE" || lastSavingEvent.Code == "SFCE" || lastSavingEvent.Code == "SIAE" || lastSavingEvent.Code == "SIPE") && !alreadyDeleted)
                     {
-                        lastSavingEvent = saving.Events.FirstOrDefault(x => x.Id == lastSavingEvent.ParentId.Value);
+                        var siblingEvent =
+                            saving.Events.FirstOrDefault(
+                                x =>
+                                    x.Deleted == false 
+                                    && x.ParentId != null 
+                                    && lastSavingEvent.ParentId != null 
+                                    && x.ParentId.Value == lastSavingEvent.ParentId.Value
+                                    && !deletedSiblings.Any(val => val.Id == x.Id));
+                        lastSavingEvent = siblingEvent??saving.Events.FirstOrDefault(x =>  lastSavingEvent.ParentId != null && x.Id == lastSavingEvent.ParentId.Value);
+                        
+
                         if (lastSavingEvent != null)
                         {
+                            deletedSiblings.Add(lastSavingEvent);
+                            
                             goto startCanseEvent;
                         }
                     }
+
                     else
                     {
-                        lastSavingEvent = saving.Events.FirstOrDefault(x => x.ParentId != null && x.ParentId.Value == lastSavingEvent.Id);
+                        var siblingEvent =
+                            saving.Events.FirstOrDefault(
+                                x =>
+                                    x.Deleted == false 
+                                    && x.ParentId != null 
+                                    && lastSavingEvent.ParentId != null 
+                                    && x.ParentId.Value == lastSavingEvent.ParentId.Value
+                                    && !deletedSiblings.Any(val => val.Id == x.Id));
+                        lastSavingEvent = siblingEvent??saving.Events.FirstOrDefault(x => x.ParentId != null && x.ParentId.Value == lastSavingEvent.Id);
                         if (lastSavingEvent != null && !lastSavingEvent.Deleted)
                         {
                             if (!alreadyDeleted)
                                 mainEvent = savingEvent;
                             lastSavingEvent.Description = pDescription;
+
+                            deletedSiblings.Add(lastSavingEvent);
+
                             alreadyDeleted = true;
                             goto removeEvent;
                         }
