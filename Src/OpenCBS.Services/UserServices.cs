@@ -237,22 +237,9 @@ namespace OpenCBS.Services
             }
         }
 
-        //public bool IsValidPassword(string userName,string password)
-        //{
-        //    var salt = _userManager.GetUserSalt(userName);
-        //    var passwordHash = _userManager.GetUserPasswordHash(userName);
-        //    var passwordHashBytes = Encoding.ASCII.GetBytes(passwordHash);
-        //    byte[] hashBytes = Encoding.ASCII.GetBytes(password+salt);
-        //    MD5 md5 = new MD5CryptoServiceProvider();
-        //    byte[] hashenc = md5.ComputeHash(hashBytes);
-        //    if (passwordHashBytes == hashenc) return true;
-        //    return false;
-        //}
-
         public void SetNewPassword(string userName, string newPassword)
         {
             var salt = _userManager.GenerateSalt();
-            //var passwordHash = _userManager.GetUserPasswordHash(userName);
             var passwordHashBytes = Encoding.ASCII.GetBytes(newPassword + salt);
             MD5 md5 = new MD5CryptoServiceProvider();
             byte[] hashenc = md5.ComputeHash(passwordHashBytes);

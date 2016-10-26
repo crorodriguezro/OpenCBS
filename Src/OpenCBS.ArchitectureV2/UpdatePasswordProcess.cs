@@ -57,7 +57,7 @@ namespace OpenCBS.ArchitectureV2
 		                    , null
 		                    , u.user_pass
 		                    ,convert(varbinary(max),u.user_pass)
-		                    , CRYPT_GEN_RANDOM(50)
+		                    , CRYPT_GEN_RANDOM(256)
 	                     from dbo.users u
 
 	                    update @passwords
