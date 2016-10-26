@@ -116,8 +116,6 @@ namespace OpenCBS.GUI.UserControl
         {
             var lastEvent = _saving.Events.OrderBy(x => x.Date).LastOrDefault(x => x.Deleted == false);
             btCancelLastSavingEvent.Visible = lastEvent != null;
-            buttonStart.Visible = lastEvent == null || lastEvent.Code=="SVCE";
-            buttonSavingsClose.Visible = lastEvent != null && lastEvent.Code == "SVDE";
         }
 
         private void SettingControlsAfterCalcelLastEvent()
