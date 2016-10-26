@@ -116,12 +116,59 @@ namespace OpenCBS.GUI.UserControl
         {
             var lastEvent = _saving.Events.OrderBy(x => x.Date).LastOrDefault(x => x.Deleted == false);
             btCancelLastSavingEvent.Visible = lastEvent != null;
-            buttonStart.Visible = lastEvent == null || lastEvent.Code=="SVCE";
-            buttonSavingsClose.Visible = lastEvent != null && lastEvent.Code == "SVDE";
         }
 
         private void SettingControlsAfterCalcelLastEvent()
         {
+            var lastEvent = _saving.Events.OrderBy(x => x.Date).LastOrDefault(x => x.Deleted == false);
+
+
+            if (lastEvent != null && lastEvent.Code == "SVDE")
+            {
+                nudDownInitialAmount.Enabled = false;
+                buttonRenew.Visible = buttonRenew.Enabled = false;
+                buttonStart.Visible = buttonStart.Enabled = false;
+                buttonUpdate.Visible = buttonUpdate.Enabled = false;
+                buttonSavingsClose.Visible = buttonSavingsClose.Enabled = true;
+                btCancelLastSavingEvent.Visible = btCancelLastSavingEvent.Enabled = true;
+            }
+            if (lastEvent != null && lastEvent.Code == "SDTE")
+            {
+                nudDownInitialAmount.Enabled = false;
+                buttonRenew.Visible = buttonRenew.Enabled = false;
+                buttonStart.Visible = buttonStart.Enabled = false;
+                buttonUpdate.Visible = buttonUpdate.Enabled = false;
+                buttonSavingsClose.Visible = buttonSavingsClose.Enabled = false;
+                btCancelLastSavingEvent.Visible = btCancelLastSavingEvent.Enabled = true;
+            }
+            if (lastEvent != null && lastEvent.Code == "SVRE")
+            {
+                nudDownInitialAmount.Enabled = true;
+                buttonRenew.Visible = buttonRenew.Enabled = false;
+                buttonStart.Visible = buttonStart.Enabled = true;
+                buttonUpdate.Visible = buttonUpdate.Enabled = true;
+                buttonSavingsClose.Visible = buttonSavingsClose.Enabled = false;
+                btCancelLastSavingEvent.Visible = btCancelLastSavingEvent.Enabled = true;
+            }
+            if (lastEvent != null && lastEvent.Code == "SVCE")
+            {
+                nudDownInitialAmount.Enabled = true;
+                buttonRenew.Visible = buttonRenew.Enabled = true;
+                buttonStart.Visible = buttonStart.Enabled = false;
+                buttonUpdate.Visible = buttonUpdate.Enabled = false;
+                buttonSavingsClose.Visible = buttonSavingsClose.Enabled = false;
+                btCancelLastSavingEvent.Visible = btCancelLastSavingEvent.Enabled = true;
+            }
+            if (lastEvent == null)
+            {
+                nudDownInitialAmount.Enabled = false;
+                buttonRenew.Visible = buttonRenew.Enabled = false;
+                buttonStart.Visible = buttonStart.Enabled = true;
+                buttonUpdate.Visible = buttonUpdate.Enabled = false;
+                buttonSavingsClose.Visible = buttonSavingsClose.Enabled = false;
+                btCancelLastSavingEvent.Visible = btCancelLastSavingEvent.Enabled = false;
+            }
+
             SettingCancelLastEventButton();
 
             FillFieldStatus();
