@@ -30,6 +30,7 @@ namespace OpenCBS.CoreDomain.FundingLines
     public interface IFundingLineLazyLoader
     {
         OCurrency GetAmount(FundingLine fl);
+        OCurrency GetInitialAmount(FundingLine fl);
         OCurrency GetRealAmount(FundingLine fl);
         OCurrency GetAnticipatedAmount(FundingLine fl);
         List<FundingLineEvent> GetEvents(FundingLine fl);
@@ -84,6 +85,14 @@ namespace OpenCBS.CoreDomain.FundingLines
                 return _amount.Value;
             }
             set { _amount = value; }
+        }
+
+        public OCurrency InitialAmount
+        {
+            get
+            {
+                return null == _lazyLoader ? 0m : _lazyLoader.GetInitialAmount(this);
+            }
         }
 
         public OCurrency RealRemainingAmount
