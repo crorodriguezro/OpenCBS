@@ -237,16 +237,6 @@ namespace OpenCBS.Services
             }
         }
 
-        public void SetNewPassword(string userName, string newPassword)
-        {
-            var salt = _userManager.GenerateSalt();
-            var passwordHashBytes = Encoding.ASCII.GetBytes(newPassword + salt);
-            MD5 md5 = new MD5CryptoServiceProvider();
-            byte[] hashenc = md5.ComputeHash(passwordHashBytes);
-            string hashencStr = BitConverter.ToString(hashenc);
-            _userManager.SetUserPasswordHashAndSalt(userName, hashencStr, salt);
-        }
-
         public User Find(int id)
         {
             LoadUsers();
@@ -265,16 +255,6 @@ namespace OpenCBS.Services
             return _users.Find(item => item.Id == id);
         }
 
-        public User Find(string username, string password)
-        {
-            LoadUsers();
-            Debug.Assert(_users != null, "User list is null");
-            User u = _users.Find(item => item.UserName == username
-                                         && item.Password == password 
-                                         && !item.IsDeleted);
-            return u;
-        }
-
         public User FindByName(string username)
         {
             LoadUsers();
@@ -282,34 +262,6 @@ namespace OpenCBS.Services
             User u = _users.Find(item => item.UserName == username
                                          && !item.IsDeleted);
             return u;
-        }
-
-        public bool IsValidPassword(string username, string password)
-        {
-            LoadUsers();
-            Debug.Assert(_users != null, "User list is null");
-            User u = _users.Find(item => item.UserName == username
-                                         && item.Password == password
-                                         && !item.IsDeleted);
-            return _userManager.IsValidPassword(username, password);
-        }
-        public User IsValidPasswordUser(string username, string password)
-        {
-            LoadUsers();
-            Debug.Assert(_users != null, "User list is null");
-            User u = _users.Find(item => item.UserName == username
-                                         && !item.IsDeleted);
-            return _userManager.IsValidPassword(username, password)?u:null;
-        }
-
-        public bool IsOldAuthentification()
-        {
-            return _userManager.IsOldAuthetification();
-        }
-
-        public User Find(string username, string password, string account)
-        {
-            return Find(username, password);
         }
 
         public List<User> FindAll(bool includeDeleted)

@@ -26,6 +26,7 @@ using OpenCBS.Controls;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Database;
 using OpenCBS.GUI.Tools;
+using OpenCBS.Manager;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
 using OpenCBS.Shared.Settings;
@@ -134,9 +135,9 @@ namespace OpenCBS.GUI.Login
         {
             var userService = ServicesProvider.GetInstance().GetUserServices();
             userService.ClearCache();
-            var user = userService.Find(usernameTextbox.Text, passwordTextbox.Text);
+            var user = userService.FindByName(usernameTextbox.Text);
 
-            if (user == null)
+            if (user == null || !PasswordEncoder.Match(user,passwordTextbox.Text))
             {
                 MessageBox.Show(MultiLanguageStrings.GetString(Ressource.PasswordForm, "messageBoxUserPasswordIncorrect.Text"), "",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);

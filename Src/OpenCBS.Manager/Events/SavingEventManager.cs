@@ -336,7 +336,7 @@ namespace OpenCBS.Manager.Events
                                         Users.id AS user_id ,
                                         Users.deleted ,
                                         Users.user_name ,
-                                        --Users.user_pass ,
+                                        Users.password_hash ,
                                         Users.role_code ,
                                         Users.first_name ,
                                         Users.last_name,
@@ -397,7 +397,7 @@ namespace OpenCBS.Manager.Events
 				                       Users.id AS user_id, 
                                        Users.deleted, 
                                        Users.user_name, 
-                                       --Users.user_pass, 
+                                       Users.password_hash, 
                                        Users.role_code, 
                                        Users.first_name, 
                                        Users.last_name,
@@ -504,7 +504,7 @@ namespace OpenCBS.Manager.Events
 	                     {
 	                         Id = r.GetInt("user_id"),
 	                         UserName = r.GetString("user_name"),
-	                         //Password = r.GetString("user_pass"),
+	                         PasswordHash = r.GetString("password_hash"),
 	                         LastName = r.GetString("last_name"),
 	                         FirstName = r.GetString("first_name")
 	                     };

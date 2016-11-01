@@ -59,9 +59,7 @@ namespace OpenCBS.Manager
                                        [deleted], 
                                        [role_code], 
                                        [user_name], 
-                                       --[user_pass], 
                                        [password_hash], 
-                                       [password_salt], 
                                        [first_name], 
                                        [last_name], 
                                        [mail], 
@@ -71,9 +69,7 @@ namespace OpenCBS.Manager
                                        @deleted, 
                                        @roleCode, 
                                        @username, 
-                                       --@userpass, 
                                        @passwordhash,
-                                       @passwordsalt,
                                        @firstname,
                                        @lastname, 
                                        @mail, 
@@ -84,11 +80,7 @@ namespace OpenCBS.Manager
             using (var sqlCommand = new OpenCbsCommand(sqlText, transaction.Connection, transaction))
             {
                 sqlCommand.AddParam("@deleted", false);
-                var saltBytes = GenerateSaltBytes();
-                var passwordBytes = Encoding.Unicode.GetBytes(pUser.Password);
-                var hash = GetHash(passwordBytes, saltBytes);
-                pUser.PasswordHash = Convert.ToBase64String(hash);
-                pUser.PasswordSalt = Convert.ToBase64String(saltBytes);
+                pUser.PasswordHash = PasswordEncoder.GeneratePasswordHash(pUser.Password);
                 SetUser(sqlCommand, pUser);
                 pUser.Id = int.Parse(sqlCommand.ExecuteScalar().ToString());
                 SaveUsersRole(pUser.Id, pUser.UserRole.Id, transaction);
@@ -101,9 +93,7 @@ namespace OpenCBS.Manager
         {
             const string sqlText = @"UPDATE [Users] 
                                      SET [user_name] = @username, 
-                                       --[user_pass] = @userpass, 
                                        [password_hash] = @passwordhash,
-                                       [password_salt] = @passwordsalt,
                                        [role_code] = @roleCode, 
                                        [first_name] = @firstname, 
                                        [last_name] = @lastname, 
@@ -115,12 +105,8 @@ namespace OpenCBS.Manager
             using (var sqlCommand = new OpenCbsCommand(sqlText, transaction.Connection, transaction))
             {
                 sqlCommand.AddParam("@userId", pUser.Id);
-                var saltBytes = GenerateSaltBytes();
-                byte[] passwordBytes = Encoding.Unicode.GetBytes(pUser.Password);
-                var hash = GetHash(passwordBytes,saltBytes);
-                pUser.PasswordHash = Convert.ToBase64String(hash);
-                pUser.PasswordSalt = Convert.ToBase64String(saltBytes);
-
+                if (!string.IsNullOrEmpty(pUser.Password))
+                    pUser.PasswordHash = PasswordEncoder.GeneratePasswordHash(pUser.Password);
                 SetUser(sqlCommand, pUser);
                 sqlCommand.ExecuteNonQuery();
                 _UpdateUsersRole(pUser.Id, pUser.UserRole.Id, transaction);
@@ -157,17 +143,18 @@ namespace OpenCBS.Manager
         private static User _GetUser(OpenCbsReader pReader)
         {
             User user = new User
-                            {
-                                Id = pReader.GetInt("user_id"),
-                                UserName = pReader.GetString("user_name"),
-                                FirstName = pReader.GetString("first_name"),
-                                LastName = pReader.GetString("last_name"),
-                                Mail = pReader.GetString("mail"),
-                                IsDeleted = pReader.GetBool("deleted"),
-                                HasContract = (pReader.GetInt("contract_count") != 0),
-                                Sex = pReader.GetChar("sex"),
-                                Phone = pReader.GetString("phone")
-                            };
+            {
+                Id = pReader.GetInt("user_id"),
+                PasswordHash = pReader.GetString("password_hash"),
+                UserName = pReader.GetString("user_name"),
+                FirstName = pReader.GetString("first_name"),
+                LastName = pReader.GetString("last_name"),
+                Mail = pReader.GetString("mail"),
+                IsDeleted = pReader.GetBool("deleted"),
+                HasContract = (pReader.GetInt("contract_count") != 0),
+                Sex = pReader.GetChar("sex"),
+                Phone = pReader.GetString("phone")
+            };
             user.SetRole(pReader.GetString("role_code"));
 
             user.UserRole = new Role
@@ -182,10 +169,8 @@ namespace OpenCBS.Manager
         private static void SetUser(OpenCbsCommand sqlCommand, User pUser)
         {
             sqlCommand.AddParam("@username", pUser.UserName);
-            //sqlCommand.AddParam("@userpass", pUser.Password);
 
             sqlCommand.AddParam("@passwordhash", pUser.PasswordHash);
-            sqlCommand.AddParam("@passwordsalt", pUser.PasswordSalt);
 
             sqlCommand.AddParam("@roleCode", pUser.UserRole.ToString());
             sqlCommand.AddParam("@firstname", pUser.FirstName);
@@ -211,7 +196,7 @@ namespace OpenCBS.Manager
         {
             const string selectUser = @"SELECT [Users].[id] as user_id, 
                                                    [user_name], 
-                                                   --[user_pass], 
+                                                   [password_hash], 
                                                    [role_code], 
                                                    [first_name], 
                                                    [last_name], 
@@ -238,7 +223,7 @@ namespace OpenCBS.Manager
             sqlText += @" GROUP BY [Users].[id],
                                    [Users].[deleted],
                                    [user_name],
-                                   --[user_pass],
+                                   [password_hash],
                                    [role_code],
                                    [first_name],
                                    [last_name],
@@ -293,7 +278,7 @@ namespace OpenCBS.Manager
                                  user_name, 
                                  first_name,
                                  last_name, 
-                                 --user_pass,
+                                 password_hash,
                                  mail, 
                                  sex,
                                  phone, 
@@ -316,9 +301,9 @@ namespace OpenCBS.Manager
                         Id = r.GetInt("id"),
                         FirstName = r.GetString("first_name"),
                         LastName = r.GetString("last_name"),
+                        PasswordHash = r.GetString("password_hash"),
                         IsDeleted = r.GetBool("deleted"),
                         UserName = r.GetString("user_name"),
-                        //Password = r.GetString("user_pass"),
                         Mail = r.GetString("mail"),
                         Sex = r.GetChar("sex"),
                         HasContract = r.GetInt("num_contracts") > 0
@@ -337,7 +322,7 @@ namespace OpenCBS.Manager
                                 u.user_name, 
                                 u.first_name,
                                 u.last_name, 
-                                --u.user_pass,
+                                u.password_hash,
                                 u.mail, 
                                 u.sex,
                                 u.phone,
@@ -376,7 +361,7 @@ namespace OpenCBS.Manager
                                          LastName = r.GetString("last_name"),
                                          IsDeleted = r.GetBool("deleted"),
                                          UserName = r.GetString("user_name"),
-                                         //Password = r.GetString("user_pass"),
+                                         PasswordHash = r.GetString("password_hash"),
                                          Mail = r.GetString("mail"),
                                          Sex = r.GetChar("sex"),
                                          HasContract = r.GetInt("num_contracts") > 0
@@ -540,165 +525,7 @@ namespace OpenCBS.Manager
             return dashboard;
         }
 
-        //public string GetUserPasswordHash(string userName)
-        //{
 
-        //    const string q = @"SELECT password_hash
-        //                        FROM dbo.Users
-        //                        WHERE user_name = @userName";
-        //    using (SqlConnection conn = GetConnection())
-        //    using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-        //    {
-        //        c.AddParam("@userName", userName);
-        //        using (OpenCbsReader r = c.ExecuteReader())
-        //        {
-        //            if (r.Empty) return "";
-
-        //            return r.GetString("user_password_hash");
-        //        }
-        //    }
-        //}
-
-
-        public string GetUserPasswordHash(string userName)
-        {
-            const string q = @"SELECT password_hash password_hash
-                                FROM dbo.Users
-                                WHERE user_name = @userName";
-
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            {
-                c.AddParam("@userName", userName);
-
-                using (OpenCbsReader r = c.ExecuteReader())
-                {
-                    if (r == null || r.Empty) return "";
-
-                    while (r.Read())
-                        return r.GetString("password_hash");
-                }
-            }
-            return "";
-        }
-
-
-        public string GetUserSalt(string userName)
-        {
-            const string q = @"SELECT password_salt password_salt
-                                FROM dbo.Users
-                                WHERE user_name = @userName";
-
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            {
-                c.AddParam("@userName", userName);
-
-                using (OpenCbsReader r = c.ExecuteReader())
-                {
-                    if (r == null || r.Empty) return "";
-
-                    while (r.Read())
-                        return r.GetString("password_salt");
-                }
-            }
-            return "";
-        }
-
-        public bool IsOldAuthetification()
-        {
-            const string q = @" SELECT count(*) field_exists
-                                FROM sys.columns 
-                                WHERE  object_id = OBJECT_ID(N'[dbo].[Users]') 
-                                AND name = 'user_pass' ";
-
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            {
-                using (OpenCbsReader r = c.ExecuteReader())
-                {
-                    while (r.Read())
-                        return r.GetInt("field_exists")>0;
-                }
-            }
-            return false;
-        }
-
-        public void SetUserPasswordHashAndSalt(string userName, string passwordHash, string salt)
-        {
-
-            const string q = @"update dbo.Users
-                               set
-                                    user_password_hash = @passwordHash
-                                    user_salt = @salt
-                                WHERE user_name = @userName";
-            using (SqlConnection conn = GetConnection())
-            using (var sqlCommand = new OpenCbsCommand(q, conn))
-            {
-                sqlCommand.AddParam("@passwordHash", passwordHash);
-                sqlCommand.AddParam("@userName", userName);
-                sqlCommand.AddParam("@salt", salt);
-                sqlCommand.ExecuteScalar();
-            }
-        }
-
-        public byte[] GetHash(byte[] password, byte[] salt)
-        {
-            var algorithm = SHA1.Create();  
-            var saltedPassword = new byte[password.Length+salt.Length];
-
-            for (int i = 0; i < password.Length; i++)
-                saltedPassword[i] = password[i];
-            for (int i = 0; i < salt.Length; i++)
-                saltedPassword[password.Length + i] = salt[i];
-
-            return algorithm.ComputeHash(saltedPassword);
-        }
-
-
-
-        public string GetHashString(byte[] hash)
-        {
-            return Convert.ToBase64String(hash);
-        }
-
-        public string GenerateSalt(uint saltRange = 256)
-        {
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            byte[] buffer = new byte[saltRange];
-            rng.GetBytes(buffer);
-            string salt = Convert.ToBase64String(buffer);
-            return salt;
-        }
-
-        public byte[] GenerateSaltBytes(uint saltRange = 256)
-        {
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            byte[] buffer = new byte[saltRange];
-            rng.GetBytes(buffer);
-            return buffer;
-        }
-
-
-        public bool IsValidPassword(string username,string password)
-        {
-            var saltStr = GetUserSalt(username);
-            var saltBytes = Convert.FromBase64String(saltStr);
-            var passwordBytes = Encoding.Unicode.GetBytes(password);
-            var pas = Convert.ToBase64String(passwordBytes);
-            var passwordHashForValidation = GetHash(passwordBytes, saltBytes);
-            var currentPasswordHash = GetUserPasswordHash(username);
-            var currentPasswordHashBytes = Convert.FromBase64String(currentPasswordHash);
-            //return true;
-            if (passwordHashForValidation.Length != currentPasswordHashBytes.Length)
-                return false;
-            for (int i = 0; i < passwordBytes.Length; i++)
-            {
-                if (currentPasswordHashBytes[i] != passwordHashForValidation[i])
-                    return false;
-            }
-            return true;
-        }
 
         public List<User> GetSubordinate(int idUser)
         {
@@ -721,7 +548,7 @@ namespace OpenCBS.Manager
                                 LastName = reader.GetString("last_name"),
                                 IsDeleted = reader.GetBool("deleted"),
                                 UserName = reader.GetString("user_name"),
-                                //Password = reader.GetString("user_pass"),
+                                PasswordHash = reader.GetString("password_hash"),
                                 Mail = reader.GetString("mail"),
                                 Sex = reader.GetChar("sex"),
                                 HasContract = reader.GetInt("num_contracts") > 0

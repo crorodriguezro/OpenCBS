@@ -22,6 +22,7 @@
 using System.Windows.Forms;
 using OpenCBS.CoreDomain;
 using OpenCBS.GUI.UserControl;
+using OpenCBS.Manager;
 using OpenCBS.Services;
 
 namespace OpenCBS.GUI.Tools
@@ -45,7 +46,7 @@ namespace OpenCBS.GUI.Tools
         private void PasswordForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (DialogResult != DialogResult.OK) return;
-            if (!ServicesProvider.GetInstance().GetUserServices().IsValidPassword(User.UserName,textBoxOldPswd.Text))
+            if (!PasswordEncoder.Match(User, textBoxOldPswd.Text))
             {
                 Fail("oldPasswordIsWrong");
                 e.Cancel = true;

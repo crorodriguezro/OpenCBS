@@ -239,6 +239,10 @@
       <Project>{90B5218E-10F0-4123-80E3-C4E65D6CF209}</Project>
       <Name>OpenCBS.GUI.Restarter</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OpenCBS.Manager\OpenCBS.Manager.csproj">
+      <Project>{963A6B8B-779C-4052-B39A-8ABBFBF16C1A}</Project>
+      <Name>OpenCBS.Manager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenCBS.MultiLanguage\OpenCBS.MultiLanguageRessources.csproj">
       <Project>{1644EDA1-7196-4197-B752-A4D14F384E31}</Project>
       <Name>OpenCBS.MultiLanguageRessources</Name>
