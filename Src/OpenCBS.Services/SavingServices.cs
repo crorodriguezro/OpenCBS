@@ -1130,6 +1130,9 @@ namespace OpenCBS.Services
                     if (lastSavingEvent.Code == "SVRE")
                         _savingManager.UpdateStatus(saving.Id, OSavingsStatus.Closed, lastSavingEvent.CancelDate, sqlTransaction);
 
+                    if (lastSavingEvent.Code == "SVDE")
+                        _savingManager.UpdateStatus(saving.Id, OSavingsStatus.Pending, lastSavingEvent.CancelDate, sqlTransaction);
+
                     var savingEvent = lastSavingEvent;
                     if (lastSavingEvent.PendingEventId != null)
                     {
