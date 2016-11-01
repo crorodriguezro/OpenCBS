@@ -211,7 +211,7 @@ namespace OpenCBS.ArchitectureV2
 
                         foreach (var user in users)
                         {
-                            var newUser = SelectUser(user.Id, false);
+                            var newUser = SelectUser(user.Id, true);
                             newUser.PasswordHash = PasswordEncoder.GeneratePasswordHash(newUser.Password);
                             newUsers.Add(newUser);
                         }
