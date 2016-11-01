@@ -166,9 +166,7 @@ namespace OpenCBS.Manager
         private static void SetUser(OpenCbsCommand sqlCommand, User pUser)
         {
             sqlCommand.AddParam("@username", pUser.UserName);
-
             sqlCommand.AddParam("@passwordhash", pUser.PasswordHash);
-
             sqlCommand.AddParam("@roleCode", pUser.UserRole.ToString());
             sqlCommand.AddParam("@firstname", pUser.FirstName);
             sqlCommand.AddParam("@lastname", pUser.LastName);
