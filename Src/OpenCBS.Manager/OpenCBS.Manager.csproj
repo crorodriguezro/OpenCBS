@@ -113,6 +113,10 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net.0.1.0\lib\net35\BCrypt.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Dapper, Version=1.12.1.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Dapper.1.13\lib\net40\Dapper.dll</HintPath>
@@ -167,6 +171,7 @@
     </Compile>
     <Compile Include="Accounting\AccountingRuleManager.cs" />
     <Compile Include="Accounting\AccountManager.cs" />
+    <Compile Include="PasswordEncoder.cs" />
     <Compile Include="BranchManager.cs" />
     <Compile Include="CollateralProductManager.cs" />
     <Compile Include="MenuItemManager.cs" />

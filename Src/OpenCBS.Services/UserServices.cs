@@ -23,6 +23,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Diagnostics;
+using System.Security.Cryptography;
+using System.Text;
 using OpenCBS.CoreDomain.Dashboard;
 using OpenCBS.Enums;
 using OpenCBS.Manager;
@@ -107,7 +109,7 @@ namespace OpenCBS.Services
         /// </summary>
         /// <param name="pUser"></param>
         /// <returns>A struct contains, if necessary, errors occurs</returns>
-        public UserErrors SaveUser(User pUser)
+        public UserErrors SaveUser(User pUser, string password)
         {
             var userErrors = new UserErrors();
 
@@ -118,7 +120,7 @@ namespace OpenCBS.Services
                 userErrors.ResultMessage += "\n - " + MultiLanguageStrings.GetString(Ressource.StringRes, "User_Login_Empty.Text");
             }
 
-            if (pUser.Password == null)
+            if (string.IsNullOrEmpty(password))
             {
                 userErrors.FindError = true;
                 userErrors.PasswordError = true;
@@ -161,23 +163,23 @@ namespace OpenCBS.Services
             Debug.Assert(OGender.CheckGender(pUser.Sex), string.Format("Non valif geder character is given for user: {0}", pUser.Name));
 
 
-            if (pUser.Id == 0 && Find(pUser.UserName, pUser.Password) != null)
+            if (pUser.Id == 0 && FindByName(pUser.UserName) != null)
             {
                 userErrors.FindError = true;
                 userErrors.ResultMessage += "\n - " + MultiLanguageStrings.GetString(Ressource.StringRes, "User_Save_AlreadyExist.Text");
             }
 
-            if (!string.IsNullOrEmpty(pUser.Password) && (pUser.Password.Length < 4 || pUser.Password.Length > 30))
+            if (!string.IsNullOrEmpty(password) && (password.Length < 4 || password.Length > 30))
             {
                 userErrors.FindError = true;
                 userErrors.PasswordError = true;
                 userErrors.ResultMessage += "\n - " + MultiLanguageStrings.GetString(Ressource.StringRes, "User_Password_Short_Long.Text");
             }
 
-            return userErrors.FindError ? userErrors : SaveUserInternal(pUser);
+            return userErrors.FindError ? userErrors : SaveUserInternal(pUser, password);
         }
 
-        private UserErrors SaveUserInternal(User pUser)
+        private UserErrors SaveUserInternal(User pUser,string password)
         {
             var userErrors = new UserErrors();
 
@@ -186,6 +188,7 @@ namespace OpenCBS.Services
             {
                 try
                 {
+                    pUser.PasswordHash = PasswordEncoder.GeneratePasswordHash(password);
                     if (pUser.Id == 0)
                     {
                         _userManager.AddUser(pUser, transaction);
@@ -253,19 +256,13 @@ namespace OpenCBS.Services
             return _users.Find(item => item.Id == id);
         }
 
-        public User Find(string username, string password)
+        public User FindByName(string username)
         {
             LoadUsers();
             Debug.Assert(_users != null, "User list is null");
             User u = _users.Find(item => item.UserName == username
-                                         && item.Password == password 
                                          && !item.IsDeleted);
             return u;
-        }
-
-        public User Find(string username, string password, string account)
-        {
-            return Find(username, password);
         }
 
         public List<User> FindAll(bool includeDeleted)

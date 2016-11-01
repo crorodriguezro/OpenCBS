@@ -533,31 +533,6 @@ namespace OpenCBS.Manager.Database
             }
         }
 
-        public static int ChangeAdminPasswordForAccount(string pAccountName, string pPassword, SqlConnection pSqlConnection)
-        {
-            const string sqlText = @"DECLARE @dbName NVARCHAR(50),
-                                             @query NVARCHAR(200)
-                                     
-                                     SELECT @dbName = database_name
-	                                 FROM Accounts.dbo.SqlAccounts
-	                                 WHERE account_name = @account
-	
-	                                 SET @query = 'UPDATE ' + @dbName + '.dbo.Users	SET user_pass = ''' + @password + ''' WHERE [user_name] = ''admin'''
-		
-	                                 EXEC (@query)";
-
-            if (pSqlConnection.State == ConnectionState.Closed)
-                pSqlConnection.Open();
-
-            using (OpenCbsCommand update = new OpenCbsCommand(sqlText, pSqlConnection))
-            {
-                update.AddParam("@account",  pAccountName);
-                update.AddParam("@password",  pPassword);
-
-                return update.ExecuteNonQuery();
-            }
-        }
-
         public static bool DatabaseExists(string name, SqlConnection conn)
         {
             string q = @"SELECT CASE

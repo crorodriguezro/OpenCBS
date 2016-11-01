@@ -35,6 +35,7 @@ namespace OpenCBS.GUI.Configuration
     public partial class UserForm : SweetForm
     {
         private User _user;
+        private string _password;
 
         public UserForm()
         {
@@ -80,10 +81,9 @@ namespace OpenCBS.GUI.Configuration
         {
             _user.UserName = ServicesHelper.CheckTextBoxText(txbUsername.Text);
         }
-
         private void textBoxPassword_TextChanged(object sender, EventArgs e)
         {
-            _user.Password = ServicesHelper.CheckTextBoxText(txbPassword.Text);
+            _password = ServicesHelper.CheckTextBoxText(txbPassword.Text);
         }
 
         private void textBoxFirstname_TextChanged(object sender, EventArgs e)
@@ -129,7 +129,7 @@ namespace OpenCBS.GUI.Configuration
         {
             try
             {
-                UserServices.UserErrors userErrors = ServicesProvider.GetInstance().GetUserServices().SaveUser(_user);
+                UserServices.UserErrors userErrors = ServicesProvider.GetInstance().GetUserServices().SaveUser(_user, _password);
                 if (userErrors.FindError)
                 {
                     MessageBox.Show(userErrors.ResultMessage, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -186,7 +186,6 @@ namespace OpenCBS.GUI.Configuration
         {
             txbFirstname.Text = _user.FirstName;
             txbLastname.Text = _user.LastName;
-            txbPassword.Text = _user.Password;
             txbUsername.Text = _user.UserName;
             txbPhone.Text = _user.Phone;
             txbMail.Text = _user.Mail;

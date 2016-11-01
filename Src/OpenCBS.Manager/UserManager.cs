@@ -19,10 +19,14 @@
 // Website: http://www.opencbs.com
 // Contact: contact@opencbs.com
 
+using System;
 using System.Collections.Generic;
 using System.Data;
 using OpenCBS.CoreDomain;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
+using Microsoft.SqlServer.Server;
 using OpenCBS.CoreDomain.Dashboard;
 using OpenCBS.Shared;
 
@@ -55,7 +59,7 @@ namespace OpenCBS.Manager
                                        [deleted], 
                                        [role_code], 
                                        [user_name], 
-                                       [user_pass], 
+                                       [password_hash], 
                                        [first_name], 
                                        [last_name], 
                                        [mail], 
@@ -65,7 +69,7 @@ namespace OpenCBS.Manager
                                        @deleted, 
                                        @roleCode, 
                                        @username, 
-                                       @userpass, 
+                                       @passwordhash,
                                        @firstname,
                                        @lastname, 
                                        @mail, 
@@ -88,7 +92,7 @@ namespace OpenCBS.Manager
         {
             const string sqlText = @"UPDATE [Users] 
                                      SET [user_name] = @username, 
-                                       [user_pass] = @userpass, 
+                                       [password_hash] = @passwordhash,
                                        [role_code] = @roleCode, 
                                        [first_name] = @firstname, 
                                        [last_name] = @lastname, 
@@ -136,17 +140,18 @@ namespace OpenCBS.Manager
         private static User _GetUser(OpenCbsReader pReader)
         {
             User user = new User
-                            {
-                                Id = pReader.GetInt("user_id"),
-                                UserName = pReader.GetString("user_name"),
-                                FirstName = pReader.GetString("first_name"),
-                                LastName = pReader.GetString("last_name"),
-                                Mail = pReader.GetString("mail"),
-                                IsDeleted = pReader.GetBool("deleted"),
-                                HasContract = (pReader.GetInt("contract_count") != 0),
-                                Sex = pReader.GetChar("sex"),
-                                Phone = pReader.GetString("phone")
-                            };
+            {
+                Id = pReader.GetInt("user_id"),
+                PasswordHash = pReader.GetString("password_hash"),
+                UserName = pReader.GetString("user_name"),
+                FirstName = pReader.GetString("first_name"),
+                LastName = pReader.GetString("last_name"),
+                Mail = pReader.GetString("mail"),
+                IsDeleted = pReader.GetBool("deleted"),
+                HasContract = (pReader.GetInt("contract_count") != 0),
+                Sex = pReader.GetChar("sex"),
+                Phone = pReader.GetString("phone")
+            };
             user.SetRole(pReader.GetString("role_code"));
 
             user.UserRole = new Role
@@ -161,7 +166,7 @@ namespace OpenCBS.Manager
         private static void SetUser(OpenCbsCommand sqlCommand, User pUser)
         {
             sqlCommand.AddParam("@username", pUser.UserName);
-            sqlCommand.AddParam("@userpass", pUser.Password);
+            sqlCommand.AddParam("@passwordhash", pUser.PasswordHash);
             sqlCommand.AddParam("@roleCode", pUser.UserRole.ToString());
             sqlCommand.AddParam("@firstname", pUser.FirstName);
             sqlCommand.AddParam("@lastname", pUser.LastName);
@@ -186,7 +191,7 @@ namespace OpenCBS.Manager
         {
             const string selectUser = @"SELECT [Users].[id] as user_id, 
                                                    [user_name], 
-                                                   [user_pass], 
+                                                   [password_hash], 
                                                    [role_code], 
                                                    [first_name], 
                                                    [last_name], 
@@ -213,7 +218,7 @@ namespace OpenCBS.Manager
             sqlText += @" GROUP BY [Users].[id],
                                    [Users].[deleted],
                                    [user_name],
-                                   [user_pass],
+                                   [password_hash],
                                    [role_code],
                                    [first_name],
                                    [last_name],
@@ -268,7 +273,7 @@ namespace OpenCBS.Manager
                                  user_name, 
                                  first_name,
                                  last_name, 
-                                 user_pass,
+                                 password_hash,
                                  mail, 
                                  sex,
                                  phone, 
@@ -291,9 +296,9 @@ namespace OpenCBS.Manager
                         Id = r.GetInt("id"),
                         FirstName = r.GetString("first_name"),
                         LastName = r.GetString("last_name"),
+                        PasswordHash = r.GetString("password_hash"),
                         IsDeleted = r.GetBool("deleted"),
                         UserName = r.GetString("user_name"),
-                        Password = r.GetString("user_pass"),
                         Mail = r.GetString("mail"),
                         Sex = r.GetChar("sex"),
                         HasContract = r.GetInt("num_contracts") > 0
@@ -312,7 +317,7 @@ namespace OpenCBS.Manager
                                 u.user_name, 
                                 u.first_name,
                                 u.last_name, 
-                                u.user_pass,
+                                u.password_hash,
                                 u.mail, 
                                 u.sex,
                                 u.phone,
@@ -351,7 +356,7 @@ namespace OpenCBS.Manager
                                          LastName = r.GetString("last_name"),
                                          IsDeleted = r.GetBool("deleted"),
                                          UserName = r.GetString("user_name"),
-                                         Password = r.GetString("user_pass"),
+                                         PasswordHash = r.GetString("password_hash"),
                                          Mail = r.GetString("mail"),
                                          Sex = r.GetChar("sex"),
                                          HasContract = r.GetInt("num_contracts") > 0
@@ -515,6 +520,8 @@ namespace OpenCBS.Manager
             return dashboard;
         }
 
+
+
         public List<User> GetSubordinate(int idUser)
         {
             var listUsers = new List<User>();
@@ -536,7 +543,7 @@ namespace OpenCBS.Manager
                                 LastName = reader.GetString("last_name"),
                                 IsDeleted = reader.GetBool("deleted"),
                                 UserName = reader.GetString("user_name"),
-                                Password = reader.GetString("user_pass"),
+                                PasswordHash = reader.GetString("password_hash"),
                                 Mail = reader.GetString("mail"),
                                 Sex = reader.GetChar("sex"),
                                 HasContract = reader.GetInt("num_contracts") > 0

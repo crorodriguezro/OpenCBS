@@ -1011,8 +1011,7 @@ namespace OpenCBS.GUI
         {
             PasswordForm pswdForm = new PasswordForm(User.CurrentUser);
             if (DialogResult.OK != pswdForm.ShowDialog()) return;
-            User.CurrentUser.Password = pswdForm.NewPassword;
-            ServicesProvider.GetInstance().GetUserServices().SaveUser(User.CurrentUser);
+            ServicesProvider.GetInstance().GetUserServices().SaveUser(User.CurrentUser, pswdForm.NewPassword);
             Notify("passwordChanged");
         }
 

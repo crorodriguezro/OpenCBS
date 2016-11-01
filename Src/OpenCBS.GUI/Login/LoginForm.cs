@@ -22,10 +22,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Interface.Service;
+using OpenCBS.ArchitectureV2.Service;
 using OpenCBS.Controls;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Database;
 using OpenCBS.GUI.Tools;
+using OpenCBS.Manager;
 using OpenCBS.MultiLanguageRessources;
 using OpenCBS.Services;
 using OpenCBS.Shared.Settings;
@@ -36,6 +39,7 @@ namespace OpenCBS.GUI.Login
     {
         private readonly string _userName;
         private readonly string _password;
+        private readonly IAuthService _authService;
 
         public LoginForm(string userName, string password)
         {
@@ -43,7 +47,8 @@ namespace OpenCBS.GUI.Login
             Setup();
             _userName = userName;
             _password = password;
-        }
+            _authService = new AuthService();
+        } 
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -134,7 +139,7 @@ namespace OpenCBS.GUI.Login
         {
             var userService = ServicesProvider.GetInstance().GetUserServices();
             userService.ClearCache();
-            var user = userService.Find(usernameTextbox.Text, passwordTextbox.Text);
+            var user = _authService.Login(usernameTextbox.Text, passwordTextbox.Text);
 
             if (user == null)
             {

@@ -1,5 +1,6 @@
 ﻿using OpenCBS.ArchitectureV2.Interface.Service;
 using OpenCBS.CoreDomain;
+using OpenCBS.Manager;
 using OpenCBS.Services;
 
 namespace OpenCBS.ArchitectureV2.Service
@@ -8,9 +9,16 @@ namespace OpenCBS.ArchitectureV2.Service
     {
         public User Login(string username, string password)
         {
-            var user = ServicesProvider.GetInstance().GetUserServices().Find(username, password);
-            if (user == null) return null;
-            return (User.CurrentUser = user);
+
+            var user = ServicesProvider.GetInstance().GetUserServices().FindByName(username);
+
+            if (user != null && PasswordEncoder.Match(user, password))
+            {
+                return (User.CurrentUser = user);
+            }
+
+
+            return null;
         }
 
         public bool LoggedIn
