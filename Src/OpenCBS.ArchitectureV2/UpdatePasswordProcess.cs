@@ -11,6 +11,12 @@ namespace OpenCBS.ArchitectureV2
 {
     internal class UpdatePasswordProcess : IStartupProcess
     {
+        private Dictionary<int, string> passwords;
+
+        public UpdatePasswordProcess()
+        {
+            passwords = new Dictionary<int, string>();
+        }
         public bool IsOldAuthetification()
         {
             const string q = @" SELECT count(*) field_exists
@@ -63,7 +69,6 @@ namespace OpenCBS.ArchitectureV2
                         LastName = r.GetString("last_name"),
                         IsDeleted = r.GetBool("deleted"),
                         UserName = r.GetString("user_name"),
-                        Password = r.GetString("user_pass"),
                         Mail = r.GetString("mail"),
                         Sex = r.GetChar("sex"),
                         HasContract = r.GetInt("num_contracts") > 0
@@ -153,12 +158,11 @@ namespace OpenCBS.ArchitectureV2
             }
         }
 
-        private static User _GetUser(OpenCbsReader pReader)
+        private User _GetUser(OpenCbsReader pReader)
         {
             User user = new User
             {
                 Id = pReader.GetInt("user_id"),
-                Password = pReader.GetString("user_pass"),
                 UserName = pReader.GetString("user_name"),
                 FirstName = pReader.GetString("first_name"),
                 LastName = pReader.GetString("last_name"),
@@ -168,6 +172,7 @@ namespace OpenCBS.ArchitectureV2
                 Sex = pReader.GetChar("sex"),
                 Phone = pReader.GetString("phone")
             };
+            passwords.Add(user.Id, pReader.GetString("user_pass"));
             user.SetRole(pReader.GetString("role_code"));
 
             user.UserRole = new Role
@@ -212,7 +217,7 @@ namespace OpenCBS.ArchitectureV2
                         foreach (var user in users)
                         {
                             var newUser = SelectUser(user.Id, true);
-                            newUser.PasswordHash = PasswordEncoder.GeneratePasswordHash(newUser.Password);
+                            newUser.PasswordHash = PasswordEncoder.GeneratePasswordHash(passwords[newUser.Id]);
                             newUsers.Add(newUser);
                         }
 

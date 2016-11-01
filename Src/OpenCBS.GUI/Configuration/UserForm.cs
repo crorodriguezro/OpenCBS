@@ -81,11 +81,6 @@ namespace OpenCBS.GUI.Configuration
             _user.UserName = ServicesHelper.CheckTextBoxText(txbUsername.Text);
         }
 
-        private void textBoxPassword_TextChanged(object sender, EventArgs e)
-        {
-            _user.Password = ServicesHelper.CheckTextBoxText(txbPassword.Text);
-        }
-
         private void textBoxFirstname_TextChanged(object sender, EventArgs e)
         {
             _user.FirstName = ServicesHelper.CheckTextBoxText(txbFirstname.Text);
@@ -129,7 +124,7 @@ namespace OpenCBS.GUI.Configuration
         {
             try
             {
-                UserServices.UserErrors userErrors = ServicesProvider.GetInstance().GetUserServices().SaveUser(_user);
+                UserServices.UserErrors userErrors = ServicesProvider.GetInstance().GetUserServices().SaveUser(_user, ServicesHelper.CheckTextBoxText(txbPassword.Text));
                 if (userErrors.FindError)
                 {
                     MessageBox.Show(userErrors.ResultMessage, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -186,7 +181,6 @@ namespace OpenCBS.GUI.Configuration
         {
             txbFirstname.Text = _user.FirstName;
             txbLastname.Text = _user.LastName;
-            txbPassword.Text = _user.Password;
             txbUsername.Text = _user.UserName;
             txbPhone.Text = _user.Phone;
             txbMail.Text = _user.Mail;

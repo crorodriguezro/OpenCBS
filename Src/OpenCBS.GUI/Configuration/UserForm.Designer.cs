@@ -282,7 +282,6 @@ namespace OpenCBS.GUI.Configuration
             // 
             resources.ApplyResources(this.txbPassword, "txbPassword");
             this.txbPassword.Name = "txbPassword";
-            this.txbPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
             this.txbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
             // 
             // lblFirstName

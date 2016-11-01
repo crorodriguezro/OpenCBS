@@ -25,7 +25,5 @@ namespace OpenCBS.ArchitectureV2.Service
         {
             get { return User.CurrentUser != null && User.CurrentUser.Id > 0; }
         }
-        
-
     }
 }

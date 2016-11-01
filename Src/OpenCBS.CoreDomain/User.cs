@@ -104,7 +104,6 @@ namespace OpenCBS.CoreDomain
         public string LastName { get; set;}
 
         public string PasswordHash { get; set; }
-        public string Password { get; set; }
 
         public string Phone { get; set; }
 

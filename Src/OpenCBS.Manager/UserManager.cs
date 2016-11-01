@@ -80,7 +80,6 @@ namespace OpenCBS.Manager
             using (var sqlCommand = new OpenCbsCommand(sqlText, transaction.Connection, transaction))
             {
                 sqlCommand.AddParam("@deleted", false);
-                pUser.PasswordHash = PasswordEncoder.GeneratePasswordHash(pUser.Password);
                 SetUser(sqlCommand, pUser);
                 pUser.Id = int.Parse(sqlCommand.ExecuteScalar().ToString());
                 SaveUsersRole(pUser.Id, pUser.UserRole.Id, transaction);
@@ -105,8 +104,6 @@ namespace OpenCBS.Manager
             using (var sqlCommand = new OpenCbsCommand(sqlText, transaction.Connection, transaction))
             {
                 sqlCommand.AddParam("@userId", pUser.Id);
-                if (!string.IsNullOrEmpty(pUser.Password))
-                    pUser.PasswordHash = PasswordEncoder.GeneratePasswordHash(pUser.Password);
                 SetUser(sqlCommand, pUser);
                 sqlCommand.ExecuteNonQuery();
                 _UpdateUsersRole(pUser.Id, pUser.UserRole.Id, transaction);
