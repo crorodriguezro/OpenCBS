@@ -26,12 +26,6 @@ namespace OpenCBS.ArchitectureV2.Service
             get { return User.CurrentUser != null && User.CurrentUser.Id > 0; }
         }
 
-        public bool Match(User user, string password)
-        {
-
-            return PasswordEncoder.Match(user, password);
-        }
-
         public static AuthService GetInstance()
         {
             return new AuthService();
