@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Windows.Forms;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
 using OpenCBS.Manager;
-using OpenCBS.Services;
 
 namespace OpenCBS.ArchitectureV2
 {
@@ -178,8 +178,7 @@ namespace OpenCBS.ArchitectureV2
 
             return user;
         }
-
-
+        
         public void Run()
         {
             if (IsOldAuthetification())
@@ -189,6 +188,7 @@ namespace OpenCBS.ArchitectureV2
                     if (MessageBox.Show("Will you update authetification system?", "", MessageBoxButtons.YesNo) ==
                         DialogResult.Yes)
                     {
+                        var userManager = new UserManager(User.CurrentUser);
 
                         const string q2 = @"
                     IF NOT EXISTS ( SELECT * FROM sys.columns WHERE  object_id = OBJECT_ID(N'[dbo].[Users]') AND name = 'password_hash' )
@@ -216,22 +216,33 @@ namespace OpenCBS.ArchitectureV2
                             newUsers.Add(newUser);
                         }
 
-
-
-                        using (OpenCbsCommand sqlCommand = new OpenCbsCommand(q2, conn))
+                        using (var connection = userManager.GetConnection())
+                        using (var transaction = connection.BeginTransaction())
                         {
-                            sqlCommand.ExecuteNonQuery();
-                        }
-                        using (OpenCbsCommand sqlCommand = new OpenCbsCommand(q3, conn))
-                        {
-                            sqlCommand.ExecuteNonQuery();
-                        }
+                            try
+                            {
+                                using (OpenCbsCommand sqlCommand = new OpenCbsCommand(q2, conn))
+                                {
+                                    sqlCommand.ExecuteNonQuery();
+                                }
+                                using (OpenCbsCommand sqlCommand = new OpenCbsCommand(q3, conn))
+                                {
+                                    sqlCommand.ExecuteNonQuery();
+                                }
 
 
-                        foreach (var user in newUsers)
-                        {
-
-                            ServicesProvider.GetInstance().GetUserServices().SaveUser(user);
+                                foreach (var user in newUsers)
+                                {
+                                    userManager.UpdateUser(user,transaction);
+                                }
+                                transaction.Commit();
+                            }
+                            catch (Exception error)
+                            {
+                                transaction.Rollback();
+                                throw new Exception(error.Message);
+                            }
+                            
                         }
                     }
                     else
