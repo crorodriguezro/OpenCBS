@@ -354,7 +354,7 @@ namespace OpenCBS.GUI.UserControl
                 else
                     SettingControlIfSavingPendingAndValueChanged();
                 var currency = _product.Currency.Code;
-                lbSavingAvBalanceValue.Text = string.Format("{0} {1}", balance, currency);
+                lbSavingAvBalanceValue.Text = string.Format("{0} {1}", Math.Round(balance.Value, 2), currency);
 
                 using (var sqlTransaction = DatabaseConnection.GetConnection().BeginTransaction())
                 {
