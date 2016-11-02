@@ -187,6 +187,7 @@ namespace OpenCBS.GUI.Configuration
             txbFirstname.Text = _user.FirstName;
             txbLastname.Text = _user.LastName;
             txbUsername.Text = _user.UserName;
+            txbPassword.Text = "";
             txbPhone.Text = _user.Phone;
             txbMail.Text = _user.Mail;
             cmbRoles.SelectedIndex = -1;
