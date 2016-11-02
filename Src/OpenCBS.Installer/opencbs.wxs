@@ -92,6 +92,7 @@
               <File Id="dump.bat" Source="SourceDir\dump.bat" />
               <File Id="dumpObjects.bat" Source="SourceDir\dumpObjects.bat" />
               <File Id="Cyotek.Windows.Forms.TabList.dll" Source="SourceDir\Cyotek.Windows.Forms.TabList.dll" />
+			  <File Id="BCrypt.Net.dll" Source="SourceDir\BCrypt.Net.dll" />
             </Component>
 
             <!--
