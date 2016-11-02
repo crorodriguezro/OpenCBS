@@ -1255,8 +1255,11 @@ namespace OpenCBS.GUI.Clients
             groupBoxSaving.Name += string.Format(" {0}", _saving.Product.Name);
             groupBoxSaving.Text = string.Format("{0} : {1}",
                 MultiLanguageStrings.GetString(Ressource.ClientForm,
-                    _saving is SavingBookContract ? "SavingsBook.Text" : "CompulsorySavings.Text"),
+                    _saving is SavingBookContract ? "Status.Text" : "CompulsorySavings.Text"),
                 MultiLanguageStrings.GetString(Ressource.ClientForm, "Savings" + _saving.Status + ".Text"));
+
+            tabPageSavingDetails.Text = MultiLanguageStrings.GetString(Ressource.ClientForm,
+                _saving is SavingBookContract ? _saving.Product.Type.ToString() : "CompulsorySavings.Text");
 
             if (_saving.Product.Type != OSavingProductType.PersonalAccount)
             {
@@ -2173,7 +2176,9 @@ namespace OpenCBS.GUI.Clients
                 if (amount > entryFee.ProductEntryFee.MaxSum)
                 {
                     amount = entryFee.ProductEntryFee.MaxSum;
-                    entryFee.FeeValue = amount.Value * 100 / nudLoanAmount.Value;
+                    entryFee.FeeValue = amount.HasValue
+                        ? amount.Value * 100 / nudLoanAmount.Value
+                        : entryFee.FeeValue;
                 }
                 item.SubItems.Add(amount.GetFormatedValue(_credit.Product.Currency.UseCents));
 
@@ -4205,6 +4210,7 @@ namespace OpenCBS.GUI.Clients
             DisplayContracts(_project.Credits);
             Preview();
             DisplayInstallments(ref _credit);
+            InitLoanRepaymentButtons();
         }
 
         private void buttonLoanRepaymentRepay_Click(object sender, EventArgs e)
@@ -5398,6 +5404,11 @@ namespace OpenCBS.GUI.Clients
 
         private void RefreshSavingsList(object sender, EventArgs e)
         {
+            _client.Savings.Clear();
+            foreach (var saving in SavingServices.GetAllSavings(_client.Id))
+            {
+                _client.AddSaving(saving);
+            }
             DisplaySavings(_client.Savings);
         }
 
@@ -6203,6 +6214,13 @@ namespace OpenCBS.GUI.Clients
 
         private void buttonCloseSaving_Click(object sender, EventArgs e)
         {
+            if (_client.ActiveLoans != null && _client.ActiveLoans.Count > 0
+                ||_client.Savings.FirstOrDefault(x => x.Product.Type != OSavingProductType.PersonalAccount && x.Status == OSavingsStatus.Active) != null)
+            {
+                MessageBox.Show(@"This client have active credit or saving contracts");
+                return;
+            }
+
             if (!CheckDataInOpenFiscalYear()) return;
             foreach (SavingEvent savEvent in _saving.Events)
             {
@@ -7526,7 +7544,7 @@ namespace OpenCBS.GUI.Clients
 
             foreach (var extension in LoanTabs)
             {
-                var pages = extension.GetTabPages(_credit);
+                var pages = extension.GetTabPages(_credit, _client);
                 if (pages != null)
                 {
                     tclLoanDetails.TabPages.AddRange(pages);
@@ -7543,7 +7561,7 @@ namespace OpenCBS.GUI.Clients
             foreach (var tab in tabs)
             {
                 if (LoanTabs.Any(i => i.GetType() == tab.GetType())) continue;
-                var pages = tab.GetTabPages(_credit);
+                var pages = tab.GetTabPages(_credit, _client);
                 if (pages != null)
                 {
                     tclLoanDetails.TabPages.AddRange(pages);

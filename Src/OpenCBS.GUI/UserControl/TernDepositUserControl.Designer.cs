@@ -230,7 +230,7 @@
             this.nudNumberOfPeriods.Size = new System.Drawing.Size(197, 20);
             this.nudNumberOfPeriods.TabIndex = 1;
             this.nudNumberOfPeriods.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.nudNumberOfPeriods.ValueChanged += new System.EventHandler(this.nudNumberOfPeriods_ValueChanged);
+            this.nudNumberOfPeriods.ValueChanged += new System.EventHandler(this.PeriodChanged);
             // 
             // lblLimitOfTermDepositPeriod
             // 
@@ -338,7 +338,6 @@
             this.btCancelLastSavingEvent.Size = new System.Drawing.Size(205, 28);
             this.btCancelLastSavingEvent.TabIndex = 1;
             this.btCancelLastSavingEvent.Text = "Cancel Last Operation";
-            this.btCancelLastSavingEvent.Visible = false;
             this.btCancelLastSavingEvent.Click += new System.EventHandler(this.CancelLastEvent);
             // 
             // btnPrintSavings
@@ -617,6 +616,7 @@
             this.cmbSavingsOfficer.Name = "cmbSavingsOfficer";
             this.cmbSavingsOfficer.Size = new System.Drawing.Size(160, 21);
             this.cmbSavingsOfficer.TabIndex = 3;
+            this.cmbSavingsOfficer.SelectedIndexChanged += new System.EventHandler(this.OffecerChanged);
             // 
             // labelInitialAmount
             // 
@@ -737,8 +737,6 @@
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1322, 598);
             this.tableLayoutPanel1.TabIndex = 76;

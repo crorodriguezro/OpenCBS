@@ -20,6 +20,7 @@
 using System.ComponentModel.Composition;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Loans;
 
 namespace OpenCBS.Extensions.Samples
@@ -35,7 +36,7 @@ namespace OpenCBS.Extensions.Samples
     [Export(typeof(ILoanTabs))]
     public class LoanTabsSample : ILoanTabs
     {
-        public TabPage[] GetTabPages(Loan loan)
+        public TabPage[] GetTabPages(Loan loan, Client client = null)
         {
             var tabPage = new TabPage("TEST LOAN DETAILS");
             return new[] { tabPage };

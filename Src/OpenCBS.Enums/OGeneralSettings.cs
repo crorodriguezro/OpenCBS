@@ -76,6 +76,7 @@ namespace OpenCBS.Enums
         public static readonly string CHECK_CREDIT_COMMITTEE_DATE = "CHECK_CREDIT_COMMITTEE_DATE";
         public static readonly string SHOW_TOTAL_ROW_IN_SCHEDULE = "SHOW_TOTAL_ROW_IN_SCHEDULE";
         public static readonly string ID_NUMBER_IS_MANDATORY = "ID_NUMBER_IS_MANDATORY";
+        public static readonly string COPY_DATA_OF_CUSTOM_FIELD_FROM_PREVIOUS_LOAN = "COPY_DATA_OF_CUSTOM_FIELD_FROM_PREVIOUS_LOAN";
     }
 }
 

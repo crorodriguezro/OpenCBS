@@ -87,27 +87,27 @@ namespace OpenCBS.Shared
 
 		public static implicit operator OCurrency(decimal? source)
 		{
-		    return source.HasValue ? new OCurrency(Math.Round(source.Value, 4, MidpointRounding.AwayFromZero)) : new OCurrency(source);
+		    return source.HasValue ? new OCurrency(Math.Round(source.Value, 2, MidpointRounding.AwayFromZero)) : new OCurrency(source);
 		}
 
 	    public static OCurrency operator +(OCurrency a, OCurrency b)
 	    {
 	        return a.HasValue && b.HasValue
-	                   ? new OCurrency(Math.Round((a._currency.Value + b._currency.Value), 4, MidpointRounding.AwayFromZero))
+	                   ? new OCurrency(Math.Round((a._currency.Value + b._currency.Value), 2, MidpointRounding.AwayFromZero))
 	                   : null;
 	    }
 
 	    public static OCurrency operator -(OCurrency a, OCurrency b)
 	    {
 	        return a.HasValue && b.HasValue
-	                   ? new OCurrency(Math.Round((a._currency.Value - b._currency.Value), 4, MidpointRounding.AwayFromZero))
+	                   ? new OCurrency(Math.Round((a._currency.Value - b._currency.Value), 2, MidpointRounding.AwayFromZero))
 	                   : null;
 	    }
 
 	    public static OCurrency operator *(OCurrency a, OCurrency b)
 	    {
 	        return a.HasValue && b.HasValue
-	                   ? new OCurrency(Math.Round((a._currency.Value*b._currency.Value), 4, MidpointRounding.AwayFromZero))
+	                   ? new OCurrency(Math.Round((a._currency.Value*b._currency.Value), 2, MidpointRounding.AwayFromZero))
 	                   : ((a.HasValue && a.Value == 0) | (b.HasValue && b.Value == 0) 
                                     ? (OCurrency) 0 
                                     : null);
@@ -119,7 +119,7 @@ namespace OpenCBS.Shared
 	            return null;
 
 	        double resulDouble = Convert.ToDouble(a.Value)*b;
-	        return new OCurrency(Math.Round(Convert.ToDecimal(resulDouble), 4, MidpointRounding.AwayFromZero));
+	        return new OCurrency(Math.Round(Convert.ToDecimal(resulDouble), 2, MidpointRounding.AwayFromZero));
 	    }
 
         public static OCurrency operator *(OCurrency a, decimal b)
@@ -128,7 +128,7 @@ namespace OpenCBS.Shared
                 return null;
 
             decimal result = a.Value * b;
-            return new OCurrency(Math.Round(result, 4, MidpointRounding.AwayFromZero));
+            return new OCurrency(Math.Round(result, 2, MidpointRounding.AwayFromZero));
         }
 
 	    public static OCurrency operator *(OCurrency a, int b)
@@ -137,7 +137,7 @@ namespace OpenCBS.Shared
 	            return null;
 
 	        decimal resulDecimal = Convert.ToDecimal(a.Value) * b;
-	        return new OCurrency(Math.Round(resulDecimal, 4, MidpointRounding.AwayFromZero));
+	        return new OCurrency(Math.Round(resulDecimal, 2, MidpointRounding.AwayFromZero));
 	    }
 
 	    public static OCurrency operator *(double a, OCurrency b)
@@ -146,7 +146,7 @@ namespace OpenCBS.Shared
 	            return null;
 	        
             double resulDouble = Convert.ToDouble(b.Value) * a;
-	        return new OCurrency(Math.Round(Convert.ToDecimal(resulDouble), 4, MidpointRounding.AwayFromZero));
+	        return new OCurrency(Math.Round(Convert.ToDecimal(resulDouble), 2, MidpointRounding.AwayFromZero));
 		}
 
 	    public static OCurrency operator /(OCurrency a, OCurrency b)
@@ -154,7 +154,7 @@ namespace OpenCBS.Shared
 		    if (a.HasValue && b.HasValue)
 			{
 			    if (b.Value != 0)
-					return new OCurrency(Math.Round(a._currency.Value / b._currency.Value, 4, MidpointRounding.AwayFromZero));
+					return new OCurrency(Math.Round(a._currency.Value / b._currency.Value, 2, MidpointRounding.AwayFromZero));
 			    throw new OverflowException();
 			}
 		    return null;
@@ -164,7 +164,7 @@ namespace OpenCBS.Shared
         {
             if (a.HasValue && b != 0)
             {
-                return new OCurrency(Math.Round(a._currency.Value / b, 4, MidpointRounding.AwayFromZero));
+                return new OCurrency(Math.Round(a._currency.Value / b, 2, MidpointRounding.AwayFromZero));
             }
             return null;
         }
@@ -172,13 +172,13 @@ namespace OpenCBS.Shared
 	    public static OCurrency operator /(OCurrency a, double b)
 		{
             if (b == 0) throw new OverflowException();
-			return a.HasValue ? new OCurrency(Math.Round(a._currency.Value / (decimal)b, 4, MidpointRounding.AwayFromZero)) : null;
+			return a.HasValue ? new OCurrency(Math.Round(a._currency.Value / (decimal)b, 2, MidpointRounding.AwayFromZero)) : null;
 		}
 
         public static OCurrency operator /(OCurrency a, decimal b)
         {
             if (b == 0) throw new OverflowException();
-            return a.HasValue ? new OCurrency(Math.Round(a._currency.Value / b, 4, MidpointRounding.AwayFromZero)) : null;
+            return a.HasValue ? new OCurrency(Math.Round(a._currency.Value / b, 2, MidpointRounding.AwayFromZero)) : null;
         }
 
 		public static bool operator >(OCurrency a, OCurrency b)

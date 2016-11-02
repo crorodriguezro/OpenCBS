@@ -67,11 +67,9 @@ namespace OpenCBS.GUI.UserControl
             FillFieldsFromExistenceSaving();
 
             SettingControl(_saving.Status == OSavingsStatus.Pending);
-
             _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = true;
             buttonSaveSaving.Visible = false;
-            
-            buttonStart.Visible = buttonUpdate.Visible = _saving.Status == OSavingsStatus.Pending;
+            buttonStart.Visible = buttonStart.Enabled = buttonUpdate.Visible = _saving.Status == OSavingsStatus.Pending;
 
             var lastEvent = _saving.Events.OrderBy(x => x.Date).LastOrDefault(x => x.Deleted == false);
             if (lastEvent != null && lastEvent.Code == "SVRE")
@@ -92,7 +90,7 @@ namespace OpenCBS.GUI.UserControl
             InitialInitialAmount();
             InitialInterestRate();
             InitialNumberOfPeriod();
-            InitialPersonalAccount();
+            InitialPersonalAccount(dtpTernDepositDateStarted.Value.Date);
 
             lbSavingBalanceValue.Text = _saving.Status == OSavingsStatus.Closed
                 ? "0"
@@ -111,20 +109,73 @@ namespace OpenCBS.GUI.UserControl
             FillFieldStatus();
             dateTimeDateCreated.Value = _saving.CreationDate;
             _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = buttonStart.Visible = buttonUpdate.Visible = true;
-            InitialPersonalAccount();
+            InitialPersonalAccount(dtpTernDepositDateStarted.Value.Date);
         }
 
         private void SettingCancelLastEventButton()
         {
             var lastEvent = _saving.Events.OrderBy(x => x.Date).LastOrDefault(x => x.Deleted == false);
-                //btCancelLastSavingEvent.Visible = lastEvent != null && lastEvent.Code != "SVDE";
+            btCancelLastSavingEvent.Visible = btCancelLastSavingEvent.Enabled = lastEvent != null;
         }
 
         private void SettingControlsAfterCalcelLastEvent()
         {
-            SettingCancelLastEventButton();
+            var lastEvent = _saving.Events.OrderBy(x => x.Date).LastOrDefault(x => x.Deleted == false);
 
-            buttonSavingsClose.Visible = true;
+
+            if (lastEvent != null && lastEvent.Code == "SVDE")
+            {
+                nudDownInitialAmount.Enabled = false;
+                buttonRenew.Visible = false;
+                buttonStart.Visible = false;
+                buttonUpdate.Visible = false;
+                buttonSavingsClose.Visible = buttonSavingsClose.Enabled = true;
+                btCancelLastSavingEvent.Visible = btCancelLastSavingEvent.Enabled = true;
+            }
+            if (lastEvent != null && lastEvent.Code == "SDTE")
+            {
+                nudDownInitialAmount.Enabled = false;
+                buttonRenew.Visible = false;
+                buttonStart.Visible = false;
+                buttonUpdate.Visible = false;
+                buttonSavingsClose.Visible = false;
+                btCancelLastSavingEvent.Visible = btCancelLastSavingEvent.Enabled = true;
+            }
+            if (lastEvent != null && lastEvent.Code == "SVRE")
+            {
+                nudDownInitialAmount.Enabled = true;
+                buttonRenew.Visible = false;
+                buttonStart.Visible = buttonStart.Enabled = true;
+                buttonUpdate.Visible = buttonUpdate.Enabled = true;
+                buttonSavingsClose.Visible = false;
+                btCancelLastSavingEvent.Visible = btCancelLastSavingEvent.Enabled = true;
+            }
+            if (lastEvent != null && lastEvent.Code == "SVCE")
+            {
+                nudDownInitialAmount.Enabled = true;
+                buttonRenew.Visible = buttonRenew.Enabled = true;
+                buttonStart.Visible = false;
+                buttonUpdate.Visible = false;
+                buttonSavingsClose.Visible = false;
+                btCancelLastSavingEvent.Visible = btCancelLastSavingEvent.Enabled = true;
+            }
+            if (lastEvent == null)
+            {
+                nudDownInitialAmount.Enabled = true;
+                buttonRenew.Visible = false;
+                buttonStart.Visible = buttonStart.Enabled = true;
+                buttonUpdate.Visible = false;
+                buttonSavingsClose.Visible = false;
+                btCancelLastSavingEvent.Visible = false;
+            }
+
+            buttonUpdate.Visible = lastEvent == null;
+
+            InitialPersonalAccount(TimeProvider.Now);
+
+            lbSavingBalanceValue.Text = _saving.GetFmtBalance(true);
+
+            SettingCancelLastEventButton();
 
             FillFieldStatus();
 
@@ -157,11 +208,11 @@ namespace OpenCBS.GUI.UserControl
             lbSavingBalanceValue.Text = _saving.GetFmtBalance(true);
             buttonSaveSaving.Visible = buttonUpdate.Visible = buttonStart.Visible = false;
             SettingCancelLastEventButton();
-            buttonSavingsClose.Visible = true;
+            buttonSavingsClose.Visible = buttonSavingsClose.Enabled = true;
             FillFieldStatus();
             dateTimeDateCreated.Value = _saving.CreationDate;
             _dateCreatedLabel.Visible = dateTimeDateCreated.Visible = true;
-            InitialPersonalAccount();
+            InitialPersonalAccount(TimeProvider.Now);
         }
 
         private void SettingControlsAfterClose()
@@ -170,7 +221,7 @@ namespace OpenCBS.GUI.UserControl
             SettingControl(false);
             lbSavingBalanceValue.Text = @"0";
             buttonSavingsClose.Visible = buttonSaveSaving.Visible = buttonUpdate.Visible = buttonStart.Visible = false;
-            InitialPersonalAccount();
+            InitialPersonalAccount(TimeProvider.Now);
             SettingCancelLastEventButton();
             FillFieldStatus();
         }
@@ -200,6 +251,9 @@ namespace OpenCBS.GUI.UserControl
 
             tBSavingCode.Text = _saving.Code;
             cmbSavingsOfficer.SelectedItem = _saving.SavingsOfficer;
+            nudDownInitialAmount.Maximum = nudDownInitialAmount.Maximum < _saving.InitialAmount.Value
+                ? _saving.InitialAmount.Value
+                : nudDownInitialAmount.Maximum;
             nudDownInitialAmount.Value = _saving.InitialAmount.Value;
             nudDownInterestRate.Value = Convert.ToDecimal(_saving.InterestRate);
             nudNumberOfPeriods.Value = _saving.NumberOfPeriods;
@@ -282,18 +336,24 @@ namespace OpenCBS.GUI.UserControl
             lblLimitOfTermDepositPeriod.Text = string.Format("Min: {0}\nMax: {1}", nudNumberOfPeriods.Minimum, nudNumberOfPeriods.Maximum);
         }
 
-        private void InitialPersonalAccount()
+        private void InitialPersonalAccount(DateTime date)
         {
+            _client.Savings.Clear();
+            foreach (var saving in ServicesProvider.GetInstance().GetSavingServices().GetAllSavings(_client.Id))
+            {
+                _client.AddSaving(saving);
+            }
+
             var clientPersonalAccount = _client.Savings.FirstOrDefault(x => x.Product.Type == OSavingProductType.PersonalAccount && x.Status == OSavingsStatus.Active);
 
             if (clientPersonalAccount != null)
             {
-                buttonSaveSaving.Enabled = true;
-
+                var balance = clientPersonalAccount.GetBalance(date);
+                if (balance <= 0 || balance < nudDownInitialAmount.Minimum)
+                    buttonStart.Enabled = false;
+                else
+                    SettingControlIfSavingPendingAndValueChanged();
                 var currency = _product.Currency.Code;
-                var balance = clientPersonalAccount.GetBalance(dtpTernDepositDateStarted.Value);
-                if(balance <= 0 || balance < nudDownInitialAmount.Minimum)
-                    buttonSaveSaving.Enabled = false;
                 lbSavingAvBalanceValue.Text = string.Format("{0} {1}", balance, currency);
 
                 using (var sqlTransaction = DatabaseConnection.GetConnection().BeginTransaction())
@@ -311,7 +371,7 @@ namespace OpenCBS.GUI.UserControl
             }
             else
             {
-                buttonSaveSaving.Enabled = false;
+                buttonStart.Enabled = false;
                 lbSavingAvBalanceValue.Text = @"Absent";
                 lbSavingAvBalanceValue.Font = new Font(lbSavingAvBalanceValue.Font, FontStyle.Bold);
                 lbSavingAvBalanceValue.ForeColor = Color.Red;
@@ -366,19 +426,36 @@ namespace OpenCBS.GUI.UserControl
             // TODO: HARDCODE: we always use month period (haven't cases for week, year etc.)
             dtpTernDepositDateEnd.Value = dtpTernDepositDateStarted.Value.AddMonths(Convert.ToInt32(nudNumberOfPeriods.Value));
 
-            if (sender is DateTimePicker)
-                InitialPersonalAccount();
+            if(sender is DateTimePicker)
+                InitialPersonalAccount(dtpTernDepositDateStarted.Value.Date);
         }
 
         private void CalculateExpectedAmount(object sender, EventArgs e)
         {
             nudExpectedAmount.Value = nudDownInitialAmount.Value / 100 * nudDownInterestRate.Value / 12 * nudNumberOfPeriods.Value + nudDownInitialAmount.Value;
+            SettingControlIfSavingPendingAndValueChanged();
         }
 
-        private void nudNumberOfPeriods_ValueChanged(object sender, EventArgs e)
+        private void PeriodChanged(object sender, EventArgs e)
         {
             PeriodValueChanged(sender, e);
+            SettingControlIfSavingPendingAndValueChanged();
             CalculateExpectedAmount(sender, e);
+        }
+
+        private void OffecerChanged(object sender, EventArgs e)
+        {
+            SettingControlIfSavingPendingAndValueChanged();
+        }
+
+        private void SettingControlIfSavingPendingAndValueChanged()
+        {
+            if (_saving.Status != OSavingsStatus.Pending)
+                return;
+            buttonStart.Enabled = _saving.StartDate.HasValue && _saving.StartDate.Value.Date == dtpTernDepositDateStarted.Value.Date
+                                          && _saving.NumberOfPeriods == nudNumberOfPeriods.Value
+                                          && _saving.InitialAmount.HasValue && _saving.InitialAmount.Value == nudDownInitialAmount.Value
+                                          && Convert.ToDecimal(_saving.InterestRate) == nudDownInterestRate.Value;
         }
 
         private void SettingControl(bool enable)

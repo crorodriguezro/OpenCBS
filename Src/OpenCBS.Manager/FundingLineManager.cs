@@ -56,6 +56,10 @@ namespace OpenCBS.Manager
         {
             return GetAmountImpl(fl, OFundingLineEventTypes.Entry, true);
         }
+        public OCurrency GetInitialAmount(FundingLine fl)
+        {
+            return GetInitialAmountImpl(fl, OFundingLineEventTypes.Entry, true);
+        }
 
         public OCurrency GetRealAmount(FundingLine fl)
         {
@@ -126,6 +130,31 @@ namespace OpenCBS.Manager
                 c.AddParam("@id", fl.Id);
                 c.AddParam("@date", TimeProvider.Now.Date);
                 c.AddParam("@type", (int) type);
+                object retval = c.ExecuteScalar();
+                return null == retval ? 0m : Convert.ToDecimal(retval);
+            }
+        }
+
+        private OCurrency GetInitialAmountImpl(FundingLine fl, OFundingLineEventTypes type, bool equals)
+        {
+            string q = @"SELECT  ISNULL(SUM( 
+                CASE 
+                    WHEN 1 = direction THEN CAST(amount AS DECIMAL(20,4))
+                    ELSE -1*CAST(amount  AS DECIMAL(20,4))
+                END), 0) amount
+            FROM (select top 1 * from dbo.FundingLineEvents
+            WITH (READUNCOMMITTED)
+            WHERE fundingline_id = @id
+            AND deleted = 0
+            AND CAST(FLOOR(CAST(creation_date AS FLOAT)) AS DATETIME) <= @date
+            AND type {0}) FundingLineEvents";
+            q= string.Format(q,equals ? " = @type" : "<> @type");
+            using (SqlConnection conn = GetConnection())
+            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+            {
+                c.AddParam("@id", fl.Id);
+                c.AddParam("@date", TimeProvider.Now.Date);
+                c.AddParam("@type", (int)type);
                 object retval = c.ExecuteScalar();
                 return null == retval ? 0m : Convert.ToDecimal(retval);
             }

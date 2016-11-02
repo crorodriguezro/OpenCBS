@@ -3235,14 +3235,20 @@ namespace OpenCBS.Services
             return SaveInstallmentsAndRepaymentEvents(loan, newInstallments, eventStock, false);
         }
 
-        public Loan SaveInstallmentsAndRepaymentEvents(Loan loan, IList<Installment> newInstallments, EventStock eventStock, bool numberOfInstallmentsIsChanged)
+        public Loan SaveInstallmentsAndRepaymentEvents(Loan loan, IList<Installment> newInstallments,
+            EventStock eventStock, bool numberOfInstallmentsIsChanged)
+        {
+            return SaveInstallmentsAndRepaymentEvents(loan, newInstallments, eventStock, numberOfInstallmentsIsChanged, null);
+        }
+
+        public Loan SaveInstallmentsAndRepaymentEvents(Loan loan, IList<Installment> newInstallments, EventStock eventStock, bool numberOfInstallmentsIsChanged, SqlTransaction tx = null)
         {
             var repayEvent = eventStock.GetRepaymentEvents().First(i => !i.IsFired).Copy();
             var amount =
                 eventStock.GetRepaymentEvents()
                     .Where(i => !i.IsFired)
                     .Sum(i => i.Commissions.Value + i.Penalties.Value + i.Interests.Value + i.Principal.Value + i.BounceFee.Value);
-            using (var sqlTransaction = _loanManager.GetConnection().BeginTransaction())
+            using (var sqlTransaction = tx ?? _loanManager.GetConnection().BeginTransaction())
             {
                 try
                 {

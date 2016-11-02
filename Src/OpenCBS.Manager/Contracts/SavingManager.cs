@@ -846,7 +846,8 @@ namespace OpenCBS.Manager.Contracts
                                 ISNULL(Persons.last_name + SPACE(1) + Persons.first_name, ISNULL(Groups.name, Corporates.name)) AS client_name,
                                 ISNULL(Users.last_name + SPACE(1) + Users.first_name, Users.user_name) AS loanofficer_name,
                                 SavingContracts.user_id AS loan_officer_id,
-                                SavingProducts.currency_id
+                                SavingProducts.currency_id,
+                                SavingProducts.type as type
                                 FROM SavingContracts 
                                 INNER JOIN SavingProducts ON SavingContracts.product_id = SavingProducts.id 
                                 INNER JOIN Users ON SavingContracts.user_id = Users.id
@@ -915,6 +916,7 @@ namespace OpenCBS.Manager.Contracts
                             result.ContractType = reader.GetString("product_type");
                             result.LoanOfficer = new User { Id = reader.GetInt("loan_officer_id") };
                             result.CurrencyId = reader.GetInt("currency_id");
+                            result.Type = (OSavingProductType) reader.GetInt("type");
                             list.Add(result);
                         }
                     }

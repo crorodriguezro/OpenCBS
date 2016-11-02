@@ -311,6 +311,81 @@ namespace OpenCBS.Manager.Events
             }
         }
 
+        public List<SavingEvent> SelectChildrenEvents(int id,SqlTransaction tx=null)
+        {
+            const string q = @"
+                                with  _events(id, parent_event_id) as
+                                (
+                                    select  id id ,parent_event_id parent_event_id
+                                    from dbo.SavingEvents
+                                    where parent_event_id is null and id = @id
+                                    union all 
+                                    select se.id, se.parent_event_id
+                                    from dbo.SavingEvents se
+                                    inner join _events e on e.id = se.parent_event_id
+                                )
+
+                                    SELECT  
+                                        SavingEvents.id ,
+                                        SavingEvents.user_id ,
+                                        SavingEvents.code ,
+                                        SavingEvents.amount ,
+                                        SavingEvents.description AS description,
+                                        SavingEvents.creation_date ,
+                                        SavingEvents.contract_id,
+                                        SavingEvents.cancelable ,
+                                        SavingEvents.is_fired ,
+                                        SavingEvents.deleted ,
+                                        SavingEvents.related_contract_code ,
+                                        SavingEvents.fees ,
+                                        SavingEvents.savings_method ,
+                                        SavingEvents.pending ,
+                                        SavingEvents.pending_event_id ,
+                                        SavingEvents.teller_id ,
+                                        SavingEvents.loan_event_id ,
+                                        SavingEvents.cancel_date,
+                                        SavingEvents.parent_event_id,
+                                        Users.id AS user_id ,
+                                        Users.deleted ,
+                                        Users.user_name ,
+                                        Users.user_pass ,
+                                        Users.role_code ,
+                                        Users.first_name ,
+                                        Users.last_name,
+                                        0 AS branch_id,
+                                        '' AS client_type_code,
+                                        0 AS currency_id,
+                                        0 AS product_id,
+                                        sc.code AS contract_code,
+                                        CAST(0 AS bit) AS is_pivot, 
+                                        CAST(0 AS bit) AS is_swapped, 
+                                        '' AS currency_code
+                                FROM    SavingEvents
+                                INNER JOIN _events e ON e.id = SavingEvents.id
+                                INNER JOIN Users ON SavingEvents.user_id = Users.id
+                                INNER JOIN dbo.SavingContracts sc 
+                                  ON SavingEvents.contract_id = sc.id
+                                WHERE SavingEvents.deleted=0
+                                ORDER BY SavingEvents.id";
+            using (SqlConnection conn = tx==null?GetConnection():tx.Connection)
+            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+            {
+                c.AddParam("@id", id);
+
+                using (OpenCbsReader r = c.ExecuteReader())
+                {
+                    if (r == null || r.Empty) return new List<SavingEvent>();
+
+                    List<SavingEvent> eventList = new List<SavingEvent>();
+                    while (r.Read())
+                    {
+                        eventList.Add(ReadEvent(r,null));
+                    }
+                    return eventList;
+                }
+            }
+        }
+
         public List<SavingEvent> SelectEvents(int pSavingId, ISavingProduct pProduct)
 		{
             const string q = @"SELECT  

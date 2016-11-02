@@ -61,7 +61,7 @@ namespace OpenCBS.GUI
                 ListViewItem item = new ListViewItem(line.Name) {Tag = line};
                 item.SubItems.Add(line.StartDate.ToShortDateString());
                 item.SubItems.Add(line.EndDate.ToShortDateString());
-                item.SubItems.Add(line.Amount.GetFormatedValue(line.Currency.UseCents));
+                item.SubItems.Add(line.InitialAmount.GetFormatedValue(line.Currency.UseCents));
                 item.SubItems.Add(line.RealRemainingAmount.GetFormatedValue(line.Currency.UseCents));
                 item.SubItems.Add(line.AnticipatedRemainingAmount.GetFormatedValue(line.Currency.UseCents));
                 item.SubItems.Add(line.Currency.Name);

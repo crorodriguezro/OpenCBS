@@ -42,6 +42,7 @@ namespace OpenCBS.CoreDomain.SearchResult
         public string ContractType { get; set; }
         public User LoanOfficer { get; set; }
         public int CurrencyId { get; set; }
+        public OSavingProductType Type { get; set; }
 
         public bool IsViewableBy(User user)
         {
