@@ -35,6 +35,13 @@ namespace OpenCBS.ArchitectureV2.Presenter
         public void Ok()
         {
             _settingsService.SetDatabaseName(_view.Database);
+
+            var updatePasswordProcess = new UpdatePasswordProcess();
+            if (updatePasswordProcess.IsOldAuthetification())
+            {
+                updatePasswordProcess.Run();
+            }
+
             _authService.Login(_view.Username, _view.Password);
             if (_authService.LoggedIn)
             {
