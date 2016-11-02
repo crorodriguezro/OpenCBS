@@ -270,7 +270,7 @@ namespace OpenCBS.GUI
         private void _DisplayAmounts(FundingLine fl)
         {
             bool useCents = null == fl.Currency ? true : fl.Currency.UseCents;
-            tbInitialAmt.Text = fl.Amount.GetFormatedValue(useCents);
+            tbInitialAmt.Text = fl.InitialAmount.GetFormatedValue(useCents);
             tbRealAmt.Text = fl.RealRemainingAmount.GetFormatedValue(useCents);
             tbAnticipatedAmt.Text = fl.AnticipatedRemainingAmount.GetFormatedValue(useCents);
         }
