@@ -195,20 +195,34 @@ namespace OpenCBS.ArchitectureV2
                     {
                         var userManager = new UserManager(User.CurrentUser);
 
-                        const string q2 = @"
+                        const string q1 = @"
                     IF NOT EXISTS ( SELECT * FROM sys.columns WHERE  object_id = OBJECT_ID(N'[dbo].[Users]') AND name = 'password_hash' )
                     BEGIN
                         ALTER TABLE dbo.Users ADD [password_hash] nvarchar(4000) null
                     END
                                     ";
 
-                        const string q3 = @"
+                        const string q2 = @"
                     IF EXISTS ( SELECT * FROM sys.columns WHERE  object_id = OBJECT_ID(N'[dbo].[Users]') AND name = 'user_pass' )
                     BEGIN
                         ALTER TABLE dbo.Users DROP CONSTRAINT IX_Users_username_pwd
                         ALTER TABLE dbo.Users DROP COLUMN user_pass
                     END
                                     ";
+
+                    const string q3 = @"
+                        ALTER FUNCTION [dbo].[GetSubordinates](@id_user INT)
+                        RETURNS TABLE
+                        AS RETURN
+                        (
+                         SELECT  *, 
+                            (SELECT COUNT(*)
+	                        FROM dbo.Credit 
+	                        WHERE loanofficer_id = u.id) AS num_contracts
+                         FROM  dbo.users u LEFT JOIN dbo.UsersSubordinates us  ON u.id = us.subordinate_id
+                         WHERE us.user_id  = @id_user AND u.deleted =0 
+                        )
+                    ";
 
 
                         var users = SelectAllUsers();
@@ -226,6 +240,11 @@ namespace OpenCBS.ArchitectureV2
                         {
                             try
                             {
+
+                                using (OpenCbsCommand sqlCommand = new OpenCbsCommand(q1, conn))
+                                {
+                                    sqlCommand.ExecuteNonQuery();
+                                }
                                 using (OpenCbsCommand sqlCommand = new OpenCbsCommand(q2, conn))
                                 {
                                     sqlCommand.ExecuteNonQuery();
