@@ -412,6 +412,10 @@ namespace OpenCBS.GUI.Clients
                 lblLoanStatus.ForeColor = Color.FromArgb(255, 92, 92);
                 lblLoanStatus.Visible = true;
             }
+            else
+            {
+                lblLoanStatus.Visible = false;
+            }
         }
 
         public void DisplayClient(IClient pClient, Project project)
@@ -4755,6 +4759,7 @@ namespace OpenCBS.GUI.Clients
 
                     InitializeTabPageLoansDetails(_credit);
                     LoadLoanDetailsExtensions();
+                    InitializeTabPageLoanRepayment(_credit);
                 }
             }
             catch (Exception ex)
