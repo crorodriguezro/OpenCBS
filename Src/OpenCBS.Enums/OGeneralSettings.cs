@@ -73,6 +73,7 @@ namespace OpenCBS.Enums
         public static readonly string STANDARD_ZIP_CODE = "STANDARD_ZIP_CODE";
         public static readonly string STANDARD_CITY_PHONE_FORMAT = "STANDARD_CITY_PHONE_FORMAT";
         public static readonly string STANDARD_MOBILE_PHONE_FORMAT = "STANDARD_MOBILE_PHONE_FORMAT";
+        public static readonly string COPY_DATA_OF_CUSTOM_FIELD_FROM_PREVIOUS_LOAN = "COPY_DATA_OF_CUSTOM_FIELD_FROM_PREVIOUS_LOAN";
     }
 }
 

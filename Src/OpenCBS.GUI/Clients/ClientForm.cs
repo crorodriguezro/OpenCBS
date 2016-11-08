@@ -6849,7 +6849,7 @@ namespace OpenCBS.GUI.Clients
 
             foreach (var extension in LoanTabs)
             {
-                var pages = extension.GetTabPages(_credit);
+                var pages = extension.GetTabPages(_credit,_client);
                 if (pages != null)
                 {
                     tclLoanDetails.TabPages.AddRange(pages);
@@ -6865,7 +6865,7 @@ namespace OpenCBS.GUI.Clients
             foreach (var tab in tabs)
             {
                 if (LoanTabs.Any(i => i.GetType() == tab.GetType())) continue;
-                var pages = tab.GetTabPages(_credit);
+                var pages = tab.GetTabPages(_credit,_client);
                 if (pages != null)
                 {
                     tclLoanDetails.TabPages.AddRange(pages);
