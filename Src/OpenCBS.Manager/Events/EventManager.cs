@@ -92,137 +92,133 @@ namespace OpenCBS.Manager.Events
 
 	    public EventStock SelectEvents(int pContractId, SqlTransaction tx = null)
 		{
-            const string q = @"SELECT 
-                    ContractEvents.id AS event_id,
-                    ContractEvents.contract_id, 
-                    ContractEvents.event_date, 
-                    ContractEvents.event_type, 
-                    ContractEvents.event_type AS code, 
-                    ContractEvents.is_deleted AS event_deleted, 
-                    ContractEvents.entry_date AS entry_date,
-                    ContractEvents.comment,
-                    ContractEvents.teller_id,
-                    ContractEvents.parent_id,
-                    ContractEvents.cancel_date,
+            const string q = @"
+            SELECT 
+                ContractEvents.id AS event_id,
+                ContractEvents.contract_id, 
+                ContractEvents.event_date, 
+                ContractEvents.event_type, 
+                ContractEvents.event_type AS code, 
+                ContractEvents.is_deleted AS event_deleted, 
+                ContractEvents.entry_date AS entry_date,
+                ContractEvents.comment,
+                ContractEvents.teller_id,
+                ContractEvents.parent_id,
+                ContractEvents.cancel_date,
 
-                    LoanDisbursmentEvents.id AS lde_id,
-                    LoanDisbursmentEvents.amount AS lde_amount, 
-                    LoanDisbursmentEvents.fees AS lde_fees,
-                    LoanDisbursmentEvents.payment_method_id AS lde_pm,
+                LoanDisbursmentEvents.id AS lde_id,
+                LoanDisbursmentEvents.amount AS lde_amount, 
+                LoanDisbursmentEvents.fees AS lde_fees,
+                LoanDisbursmentEvents.payment_method_id AS lde_pm,
                     
-                    LoanEntryFeeEvents.id AS ef_id,
-                    LoanEntryFeeEvents.fee AS ef_fee,
-                    LoanEntryFeeEvents.disbursement_event_id,
+                LoanEntryFeeEvents.id AS ef_id,
+                LoanEntryFeeEvents.fee AS ef_fee,
+                LoanEntryFeeEvents.disbursement_event_id,
                     
-                    CreditInsuranceEvents.id AS cie_id,
-                    CreditInsuranceEvents.commission AS cie_commission,
-                    CreditInsuranceEvents.principal AS cie_principal,
+                null AS cie_id,
+                null AS cie_commission,
+                null AS cie_principal,
 
-                    WriteOffEvents.id AS woe_id, 
-                    WriteOffEvents.olb AS woe_olb, 
-                    WriteOffEvents.accrued_interests AS woe_accrued_interests, 
-                    WriteOffEvents.accrued_penalties AS woe_accrued_penalties, 
-                    WriteOffEvents.past_due_days AS woe_past_due_days, 
-                    WriteOffEvents.overdue_principal AS woe_overdue_principal, 
+                WriteOffEvents.id AS woe_id, 
+                WriteOffEvents.olb AS woe_olb, 
+                WriteOffEvents.accrued_interests AS woe_accrued_interests, 
+                WriteOffEvents.accrued_penalties AS woe_accrued_penalties, 
+                WriteOffEvents.past_due_days AS woe_past_due_days, 
+                WriteOffEvents.overdue_principal AS woe_overdue_principal, 
 
-                    ReschedulingOfALoanEvents.id AS rle_id, 
-                    ReschedulingOfALoanEvents.amount AS rle_amount, 
-                    ReschedulingOfALoanEvents.nb_of_maturity AS rle_maturity, 
-                    ReschedulingOfALoanEvents.preferred_first_installment_date AS rle_preferred_first_installment_date, 
-                    ReschedulingOfALoanEvents.previous_interest_rate AS rle_previous_interest_rate,                     
+                ReschedulingOfALoanEvents.id AS rle_id, 
+                ReschedulingOfALoanEvents.amount AS rle_amount, 
+                ReschedulingOfALoanEvents.nb_of_maturity AS rle_maturity, 
+                ReschedulingOfALoanEvents.preferred_first_installment_date AS rle_preferred_first_installment_date, 
+                ReschedulingOfALoanEvents.previous_interest_rate AS rle_previous_interest_rate,                     
 
-                    RepaymentEvents.id AS rpe_id, 
-                    RepaymentEvents.principal AS rpe_principal, 
-                    RepaymentEvents.interests AS rpe_interests, 
-                    RepaymentEvents.penalties AS rpe_penalties,
-                    RepaymentEvents.commissions AS rpe_commissions,
-                    RepaymentEvents.past_due_days AS rpe_past_due_days, 
-                    RepaymentEvents.installment_number As rpe_installment_number, 
-                    RepaymentEvents.payment_method_id AS rpe_pm,
-                    RepaymentEvents.calculated_penalties rpe_calculated_penalties,
-                    RepaymentEvents.written_off_penalties rpe_written_off_penalties,
-                    RepaymentEvents.unpaid_penalties rpe_unpaid_penalties,
-                    RepaymentEvents.bounce_fee rpe_bounce_fee,
+                RepaymentEvents.id AS rpe_id, 
+                RepaymentEvents.principal AS rpe_principal, 
+                RepaymentEvents.interests AS rpe_interests, 
+                RepaymentEvents.penalties AS rpe_penalties,
+                RepaymentEvents.commissions AS rpe_commissions,
+                RepaymentEvents.past_due_days AS rpe_past_due_days, 
+                RepaymentEvents.installment_number As rpe_installment_number, 
+                RepaymentEvents.payment_method_id AS rpe_pm,
+                RepaymentEvents.calculated_penalties rpe_calculated_penalties,
+                RepaymentEvents.written_off_penalties rpe_written_off_penalties,
+                RepaymentEvents.unpaid_penalties rpe_unpaid_penalties,
+                RepaymentEvents.bounce_fee rpe_bounce_fee,
 
-                    LoanInterestAccruingEvents.id AS liae_id, 
-                    LoanInterestAccruingEvents.interest_prepayment AS liae_interestPrepayment, 
-                    LoanInterestAccruingEvents.accrued_interest AS liae_accruedInterest, 
-                    LoanInterestAccruingEvents.rescheduled AS liae_rescheduled, 
-                    LoanInterestAccruingEvents.installment_number AS liae_installmentNumber,
+                null AS liae_id, 
+                null AS liae_interestPrepayment, 
+                null AS liae_accruedInterest, 
+                null AS liae_rescheduled, 
+                null AS liae_installmentNumber,
 
-                    TrancheEvents.amount AS tranche_amount,
-                    TrancheEvents.interest_rate AS tranche_interest_rate,
-                    TrancheEvents.maturity AS tranche_maturity,
-                    TrancheEvents.start_date AS tranche_start_date,
-                    TrancheEvents.id AS tranche_id,
-                    TrancheEvents.grace_period AS tranche_grace_period,
-                    TrancheEvents.first_repayment_date AS tranche_first_repayment_date,
-                    TrancheEvents.payment_method_id AS tranche_pm,
+                TrancheEvents.amount AS tranche_amount,
+                TrancheEvents.interest_rate AS tranche_interest_rate,
+                TrancheEvents.maturity AS tranche_maturity,
+                TrancheEvents.start_date AS tranche_start_date,
+                TrancheEvents.id AS tranche_id,
+                TrancheEvents.grace_period AS tranche_grace_period,
+                TrancheEvents.first_repayment_date AS tranche_first_repayment_date,
+                TrancheEvents.payment_method_id AS tranche_pm,
 
-                    OverdueEvents.id AS ov_id,
-                    OverdueEvents.olb AS ov_olb,
-                    OverdueEvents.overdue_days AS ov_overdue_days,
-                    OverdueEvents.overdue_principal AS ov_overdue_principal,
+                null AS ov_id,
+                null AS ov_olb,
+                null AS ov_overdue_days,
+                null AS ov_overdue_principal,
  
-                    ProvisionEvents.id AS pe_id,
-                    ProvisionEvents.amount AS pe_amount,
-                    ProvisionEvents.overdue_days AS pe_overdue_days,
+                null AS pe_id,
+                null AS pe_amount,
+                null AS pe_overdue_days,
                     
-                    LoanPenaltyAccrualEvents.id AS lpae_id,
-                    LoanPenaltyAccrualEvents.penalty AS lpae_penalty,
+                null AS lpae_id,
+                null AS lpae_penalty,
 
-                    AccrualInterestLoanEvents.id AS aile_id,
-                    AccrualInterestLoanEvents.interest AS aile_interest,
+                null AS aile_id,
+                null AS aile_interest,
 
-                    --OutOfBalancePenaltyAccrualEvents.id AS apoe_id,
-                    --OutOfBalancePenaltyAccrualEvent.penalty AS apoe_penalty,
+                null AS glll_id,
+                null AS glll_amount,
+                pwoe.id pwoe_id,
+                pwoe.amount pwoe_amount,
+                iwoe.id iwoe_id,
+                iwoe.amount iwoe_amount,
 
-                    --OutOfBalanceInterestAccrualEvent.id AS aioe_id,
-                    --OutOfBalanceInterestAccrualEvent.interest AS aioe_interest,
-
-                    LoanTransitionEvents.id AS glll_id,
-                    LoanTransitionEvents.amount AS glll_amount,
-                    pwoe.id pwoe_id,
-                    pwoe.amount pwoe_amount,
-                    iwoe.id iwoe_id,
-                    iwoe.amount iwoe_amount,
-
-                    Users.id AS user_id, 
-                    Users.deleted AS user_deleted, 
-                    Users.user_name AS user_username, 
-                    Users.user_pass AS user_password, 
-                    Users.role_code AS user_role, 
-                    Users.first_name AS user_firstname, 
-                    Users.last_name AS user_lastname, 
-                    0 AS currency_id,
-                    '' AS client_type_code,
-                    0 AS branch_id,
-                    '' AS contract_code,
-                    CAST(0 AS bit) AS is_pivot, 
-                    CAST(0 AS bit) AS is_swapped, 
-                    '' AS currency_code,
-                    0 AS product_id
-                    FROM ContractEvents 
-                    INNER JOIN Users ON ContractEvents.user_id = Users.id 
-                    LEFT OUTER JOIN LoanDisbursmentEvents ON ContractEvents.id = LoanDisbursmentEvents.id 
-                    LEFT OUTER JOIN LoanEntryFeeEvents ON ContractEvents.id = LoanEntryFeeEvents.id
-                    LEFT OUTER JOIN CreditInsuranceEvents  ON ContractEvents.id = CreditInsuranceEvents.id
-                    LEFT OUTER JOIN LoanInterestAccruingEvents ON ContractEvents.id = LoanInterestAccruingEvents.id 
-                    LEFT OUTER JOIN RepaymentEvents ON ContractEvents.id = RepaymentEvents.id 
-                    LEFT OUTER JOIN ReschedulingOfALoanEvents ON ContractEvents.id = ReschedulingOfALoanEvents.id 
-                    LEFT OUTER JOIN WriteOffEvents ON ContractEvents.id = WriteOffEvents.id 
-                    LEFT OUTER JOIN TrancheEvents ON ContractEvents.id = TrancheEvents.id
-                    LEFT OUTER JOIN OverdueEvents ON ContractEvents.id = OverdueEvents.id
-                    LEFT OUTER JOIN ProvisionEvents ON ContractEvents.id = ProvisionEvents.id
-                    LEFT OUTER JOIN LoanPenaltyAccrualEvents ON ContractEvents.id = LoanPenaltyAccrualEvents.id
-                    --LEFT OUTER JOIN OutOfBalancePenaltyAccrualEvent ON ContractEvents.id = OutOfBalancePenaltyAccrualEvent.id
-                    --LEFT OUTER JOIN OutOfBalanceInterestAccrualEvent ON ContractEvents.id = OutOfBalanceInterestAccrualEvent.id
-                    LEFT OUTER JOIN AccrualInterestLoanEvents ON ContractEvents.id = AccrualInterestLoanEvents.id
-                    LEFT OUTER JOIN LoanTransitionEvents ON ContractEvents.id = LoanTransitionEvents.id
-                    left join dbo.PenaltyWriteOffEvents pwoe on pwoe.id = ContractEvents.id
-                    left join dbo.InterestWriteOffEvents iwoe on iwoe.id = ContractEvents.id
-                    WHERE (ContractEvents.contract_id = @id)
-                    ORDER BY ContractEvents.id";
+                Users.id AS user_id, 
+                Users.deleted AS user_deleted, 
+                Users.user_name AS user_username, 
+                Users.user_pass AS user_password, 
+                Users.role_code AS user_role, 
+                Users.first_name AS user_firstname, 
+                Users.last_name AS user_lastname, 
+                0 AS currency_id,
+                '' AS client_type_code,
+                0 AS branch_id,
+                '' AS contract_code,
+                CAST(0 AS bit) AS is_pivot, 
+                CAST(0 AS bit) AS is_swapped, 
+                '' AS currency_code,
+                0 AS product_id
+                FROM ContractEvents 
+                LEFT JOIN Users ON ContractEvents.user_id = Users.id 
+                LEFT OUTER JOIN LoanDisbursmentEvents ON ContractEvents.id = LoanDisbursmentEvents.id 
+                LEFT OUTER JOIN LoanEntryFeeEvents ON ContractEvents.id = LoanEntryFeeEvents.id
+                LEFT OUTER JOIN CreditInsuranceEvents  ON ContractEvents.id = CreditInsuranceEvents.id
+                LEFT OUTER JOIN LoanInterestAccruingEvents ON ContractEvents.id = LoanInterestAccruingEvents.id 
+                LEFT OUTER JOIN RepaymentEvents ON ContractEvents.id = RepaymentEvents.id 
+                LEFT OUTER JOIN ReschedulingOfALoanEvents ON ContractEvents.id = ReschedulingOfALoanEvents.id 
+                LEFT OUTER JOIN WriteOffEvents ON ContractEvents.id = WriteOffEvents.id 
+                LEFT OUTER JOIN TrancheEvents ON ContractEvents.id = TrancheEvents.id
+                LEFT OUTER JOIN OverdueEvents ON ContractEvents.id = OverdueEvents.id
+                LEFT OUTER JOIN ProvisionEvents ON ContractEvents.id = ProvisionEvents.id
+                LEFT OUTER JOIN LoanPenaltyAccrualEvents ON ContractEvents.id = LoanPenaltyAccrualEvents.id
+                LEFT OUTER JOIN AccrualInterestLoanEvents ON ContractEvents.id = AccrualInterestLoanEvents.id
+                LEFT OUTER JOIN LoanTransitionEvents ON ContractEvents.id = LoanTransitionEvents.id
+                left join dbo.PenaltyWriteOffEvents pwoe on pwoe.id = ContractEvents.id
+                left join dbo.InterestWriteOffEvents iwoe on iwoe.id = ContractEvents.id
+                WHERE
+                    ContractEvents.contract_id = @id
+                    and event_type in ('LODE', 'TEET', 'LEE0', 'LEE1', 'LEE2', 'LEE3', 'ROLE', 'RGLE', 'RBLE', 'APR', 'ATR', 'WROE', 'PWOE', 'IWOE')
+                ORDER BY ContractEvents.id
+            ";
 	        var connection = tx != null ? tx.Connection : GetConnection();
 	        try
 	        {
