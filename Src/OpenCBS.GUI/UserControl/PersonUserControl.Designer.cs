@@ -2,6 +2,7 @@ using System.Windows.Forms;
 using System;
 using System.ComponentModel;
 using OpenCBS.Shared.Settings;
+using OpenCBS.View.UserControl.AutocompletionComboBox;
 
 namespace OpenCBS.GUI.UserControl
 {
@@ -37,7 +38,6 @@ namespace OpenCBS.GUI.UserControl
         private Label labelRangeOfAge;
         private TextBoxLimit textBoxBirthPlace;
         private Label labelIN;
-        private TextBoxLimit textBoxNationality;
         private Label labelNationality;
         private ComboBox comboBox1;
         private Label label9;
@@ -189,11 +189,11 @@ namespace OpenCBS.GUI.UserControl
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBoxCivilities = new System.Windows.Forms.GroupBox();
+            this.textBoxNationality = new AutocompletionComboBox();
             this.lblBranch = new System.Windows.Forms.Label();
             this.lblEconomicActivity = new System.Windows.Forms.Label();
             this.eacPerson = new OpenCBS.GUI.UserControl.EconomicActivityControl();
             this.cbBranch = new System.Windows.Forms.ComboBox();
-            this.textBoxNationality = new OpenCBS.GUI.UserControl.TextBoxLimit();
             this.labelNationality = new System.Windows.Forms.Label();
             this.textBoxLoanCycle = new System.Windows.Forms.TextBox();
             this.textBoxBirthPlace = new OpenCBS.GUI.UserControl.TextBoxLimit();
@@ -783,6 +783,7 @@ namespace OpenCBS.GUI.UserControl
             // 
             // groupBoxFirstAddress
             // 
+            this.groupBoxFirstAddress.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.groupBoxFirstAddress, "groupBoxFirstAddress");
             this.groupBoxFirstAddress.Name = "groupBoxFirstAddress";
             this.groupBoxFirstAddress.TabStop = false;
@@ -865,11 +866,11 @@ namespace OpenCBS.GUI.UserControl
             // 
             // groupBoxCivilities
             // 
+            this.groupBoxCivilities.Controls.Add(this.textBoxNationality);
             this.groupBoxCivilities.Controls.Add(this.lblBranch);
             this.groupBoxCivilities.Controls.Add(this.lblEconomicActivity);
             this.groupBoxCivilities.Controls.Add(this.eacPerson);
             this.groupBoxCivilities.Controls.Add(this.cbBranch);
-            this.groupBoxCivilities.Controls.Add(this.textBoxNationality);
             this.groupBoxCivilities.Controls.Add(this.labelNationality);
             this.groupBoxCivilities.Controls.Add(this.textBoxLoanCycle);
             this.groupBoxCivilities.Controls.Add(this.textBoxBirthPlace);
@@ -895,6 +896,14 @@ namespace OpenCBS.GUI.UserControl
             resources.ApplyResources(this.groupBoxCivilities, "groupBoxCivilities");
             this.groupBoxCivilities.Name = "groupBoxCivilities";
             this.groupBoxCivilities.TabStop = false;
+            // 
+            // textBoxNationality
+            // 
+            this.textBoxNationality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.textBoxNationality.FormattingEnabled = true;
+            resources.ApplyResources(this.textBoxNationality, "textBoxNationality");
+            this.textBoxNationality.Name = "textBoxNationality";
+
             // 
             // lblBranch
             // 
@@ -922,12 +931,6 @@ namespace OpenCBS.GUI.UserControl
             this.cbBranch.FormattingEnabled = true;
             resources.ApplyResources(this.cbBranch, "cbBranch");
             this.cbBranch.Name = "cbBranch";
-            // 
-            // textBoxNationality
-            // 
-            this.textBoxNationality.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxNationality, "textBoxNationality");
-            this.textBoxNationality.Name = "textBoxNationality";
             // 
             // labelNationality
             // 
@@ -1213,5 +1216,6 @@ namespace OpenCBS.GUI.UserControl
         private Label lblEconomicActivity;
         private Label lblBranch;
         private Button buttonCopy;
+        private AutocompletionComboBox textBoxNationality;
     }
 }

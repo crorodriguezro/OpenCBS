@@ -1,0 +1,4 @@
+C:\repos\opencbs\Src\OpenCBS.GUI\Fakes\OpenCBS.Controls.fakes : warning : Cannot generate stub for OpenCBS.Controls.Properties.Resources: type is not visible to exported or assembly(OpenCBS.Controls.Fakes).
+C:\repos\opencbs\Src\OpenCBS.GUI\Fakes\OpenCBS.Controls.fakes : warning : Cannot generate shim for OpenCBS.Controls.PrintButton+<>c: type is not supported because of internal limitations.
+C:\repos\opencbs\Src\OpenCBS.GUI\Fakes\OpenCBS.Controls.fakes : warning : Cannot generate shim for OpenCBS.Controls.ScheduleControl+<>c: type is not supported because of internal limitations.
+C:\repos\opencbs\Src\OpenCBS.GUI\Fakes\OpenCBS.Controls.fakes : warning : Cannot generate shim for OpenCBS.Controls.Properties.Resources: type is not visible to exported or assembly(OpenCBS.Controls.Fakes).

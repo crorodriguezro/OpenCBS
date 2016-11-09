@@ -20,6 +20,7 @@
 // Contact: contact@opencbs.com
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Drawing;
@@ -155,7 +156,17 @@ namespace OpenCBS.GUI.UserControl
         {
             InitializeComponent();
             ApplicationSettings generalSettings = ServicesProvider.GetInstance().GetGeneralSettings();
-            textBoxNationality.Text = generalSettings.Country;
+
+            var list = new List<string>();
+            var f = MultiLanguageStrings.GetStringList(Ressource.PersonUserControlCountries);
+
+            foreach (DictionaryEntry entry in f)
+            {
+                list.Add(entry.Value.ToString());
+                list.Sort();
+            }
+            textBoxNationality.Items.AddRange(list.ToArray());
+            textBoxNationality.DropDownStyle = ComboBoxStyle.DropDown;
 
             InitializeUserControlsAddress();
             _personSaved = false;
@@ -165,11 +176,8 @@ namespace OpenCBS.GUI.UserControl
             dateTimePickerDateOfBirth.Value = DateTime.Now;
             _tempPerson.DateOfBirth = DateTime.Now;
             _tempPerson.LoanCycle = 0;
-
             dateTimePickerDateOfBirth.Format = DateTimePickerFormat.Custom;
             dateTimePickerDateOfBirth.CustomFormat = ApplicationSettings.GetInstance("").SHORT_DATE_FORMAT;
-            
-
             foreach (Branch branch in User.CurrentUser.Branches)
             {
                 cbBranch.Items.Add(branch);
@@ -269,7 +277,7 @@ namespace OpenCBS.GUI.UserControl
             eacPerson.Activity = null;
             textBoxBirthPlace.Clear();
 
-            textBoxNationality.Clear();
+            //textBoxNationality.Clear();
         }
 
         private void RecoverDatasFromUserControlsAddress()

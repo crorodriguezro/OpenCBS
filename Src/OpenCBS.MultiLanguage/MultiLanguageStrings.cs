@@ -20,6 +20,7 @@
 // Contact: contact@opencbs.com
 
 using System.Collections;
+using System.Globalization;
 using System.Resources;
 
 namespace OpenCBS.MultiLanguageRessources
@@ -100,14 +101,15 @@ namespace OpenCBS.MultiLanguageRessources
         CreditScoringForm,
         ClientControl,
         MyInforamtionForm,
-        PrintButton
+        PrintButton,
+        PersonUserControlCountries
     }
 
-	/// <summary>
-	/// Summary description for RessourcesManager.
-	/// </summary>
-	public static class  MultiLanguageStrings
-	{
+    /// <summary>
+    /// Summary description for RessourcesManager.
+    /// </summary>
+    public static class MultiLanguageStrings
+    {
         public static string STRING_MESSAGES_RES_NAME = "stringRes";
         public static string ERROR_MESSAGES_RES_NAME = "errorRes";
 
@@ -118,7 +120,8 @@ namespace OpenCBS.MultiLanguageRessources
             ResourceManager rm = (ResourceManager) _ressourceManagers[pRessourceName];
             if (rm == null)
             {
-                rm = new ResourceManager("OpenCBS.MultiLanguageRessources.resx." + pRessourceName, typeof(MultiLanguageStrings).Assembly);
+                rm = new ResourceManager("OpenCBS.MultiLanguageRessources.resx." + pRessourceName,
+                    typeof (MultiLanguageStrings).Assembly);
                 _ressourceManagers.Add(pRessourceName, rm);
             }
             return rm.GetString(pName);
@@ -126,10 +129,11 @@ namespace OpenCBS.MultiLanguageRessources
 
         public static string GetString(string res, string key)
         {
-            ResourceManager rm = (ResourceManager)_ressourceManagers[res];
+            ResourceManager rm = (ResourceManager) _ressourceManagers[res];
             if (rm == null)
             {
-                rm = new ResourceManager("OpenCBS.MultiLanguageRessources.resx." + res, typeof(MultiLanguageStrings).Assembly);
+                rm = new ResourceManager("OpenCBS.MultiLanguageRessources.resx." + res,
+                    typeof (MultiLanguageStrings).Assembly);
                 _ressourceManagers.Add(res, rm);
             }
             return rm.GetString(key);
@@ -139,5 +143,18 @@ namespace OpenCBS.MultiLanguageRessources
         {
             _ressourceManagers.Clear();
         }
-	}
+
+
+        public static ResourceSet GetStringList(Ressource pRessourceName)
+        {
+            ResourceManager rm = (ResourceManager) _ressourceManagers[pRessourceName];
+            if (rm == null)
+            {
+                rm = new ResourceManager("OpenCBS.MultiLanguageRessources.resx." + pRessourceName,
+                    typeof (MultiLanguageStrings).Assembly);
+                _ressourceManagers.Add(pRessourceName, rm);
+            }
+            return rm.GetResourceSet(CultureInfo.CurrentUICulture, true, false);
+        }
+    }
 }

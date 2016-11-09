@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCBS.CoreDomain", "OpenCBS.CoreDomain\OpenCBS.CoreDomain.csproj", "{D539C388-3848-4A3E-AB87-42B8E329755A}"
 EndProject
@@ -139,7 +139,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		GreenPepperConfigServerUrl = http://wiki.octopusnetwork.org
 		GreenPepperConfigXmlRpcHandler = greenpepper1
+		GreenPepperConfigServerUrl = http://wiki.octopusnetwork.org
 	EndGlobalSection
 EndGlobal
