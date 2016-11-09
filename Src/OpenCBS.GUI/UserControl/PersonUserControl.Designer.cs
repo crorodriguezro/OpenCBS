@@ -189,7 +189,7 @@ namespace OpenCBS.GUI.UserControl
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBoxCivilities = new System.Windows.Forms.GroupBox();
-            this.textBoxNationality = new AutocompletionComboBox();
+            this.textBoxNationality = new OpenCBS.View.UserControl.AutocompletionComboBox.AutocompletionComboBox();
             this.lblBranch = new System.Windows.Forms.Label();
             this.lblEconomicActivity = new System.Windows.Forms.Label();
             this.eacPerson = new OpenCBS.GUI.UserControl.EconomicActivityControl();
@@ -783,7 +783,7 @@ namespace OpenCBS.GUI.UserControl
             // 
             // groupBoxFirstAddress
             // 
-            this.groupBoxFirstAddress.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBoxFirstAddress.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.groupBoxFirstAddress, "groupBoxFirstAddress");
             this.groupBoxFirstAddress.Name = "groupBoxFirstAddress";
             this.groupBoxFirstAddress.TabStop = false;
@@ -899,11 +899,9 @@ namespace OpenCBS.GUI.UserControl
             // 
             // textBoxNationality
             // 
-            this.textBoxNationality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.textBoxNationality.FormattingEnabled = true;
             resources.ApplyResources(this.textBoxNationality, "textBoxNationality");
             this.textBoxNationality.Name = "textBoxNationality";
-
             // 
             // lblBranch
             // 

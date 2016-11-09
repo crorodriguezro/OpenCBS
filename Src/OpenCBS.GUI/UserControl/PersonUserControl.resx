@@ -657,15 +657,15 @@
   <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="imageListEconomicInfo.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="imageListEconomicInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>13, 11</value>
-  </data>
+  </metadata>
   <data name="imageListEconomicInfo.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACE
-        UQAAAk1TRnQBSQFMAgEBBwEAAYABCAGIAQgBIAEAASABAAT/ASEBEAj/AUIBTQE2BwABNgMAASgDAAGA
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACC
+        UQAAAk1TRnQBSQFMAgEBBwEAAZABCAGQAQgBIAEAASABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAGA
         AwABQAMAAQEBAAEgBgABgP8AHgABAQMJAQwDFAEbAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMW
         AR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMWAR4DFgEeAxYBHgMU
         ARsDBwEJnwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMA
@@ -1012,7 +1012,7 @@
         AQMBgAIAAQcBwAIAAQMBwAIAAQMBwAIAAQMBgAIAAQcBwAIAAQMBwAIAAQMBwAIAAQMBgAIAAQcBwAIA
         AQMBwAIAAQMBwAIAAQMBgAIAAQcBwAIAAQMBwAIAAQMBwAIAAQMBgAIAAQcBwAIAAQMBwAIAAQMBwAIA
         AQMBgAIAAQcBwAIAAQMBwAIAAQMBgAIAAQMBgAIAAQcBgAIAAQMBwAIAAQMBwAIAAQcBgAIAAQcBwAIA
-        AQcBgAIAAQMBwAIAAQ8BgAIAAQcBwAIAAQ8BwAIAAQcE/wHAAgABHwT/AcACAAEPEP8WAAs=
+        AQcBgAIAAQMBwAIAAQ8BgAIAAQcBwAIAAQ8BwAIAAQcE/wHAAgABHwT/AcACAAEPEP8L
 </value>
   </data>
   <data name="comboBox1.Items" xml:space="preserve">
@@ -1654,9 +1654,9 @@
   <data name="columnHeader9.Width" type="System.Int32, mscorlib">
     <value>129</value>
   </data>
-  <data name="contextMenuStripSaving.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="contextMenuStripSaving.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>166, 12</value>
-  </data>
+  </metadata>
   <data name="contextMenuStripSaving.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 4</value>
   </data>
@@ -2702,7 +2702,7 @@
     <value>textBoxNationality</value>
   </data>
   <data name="&gt;&gt;textBoxNationality.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>OpenCBS.View.UserControl.AutocompletionComboBox.AutocompletionComboBox, OpenCBS.GUI, Version=16.11.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxNationality.Parent" xml:space="preserve">
     <value>groupBoxCivilities</value>
@@ -3628,12 +3628,12 @@
   <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panelBottom" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="groupBoxCivilities" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panelEconomicActivity" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,186,Absolute,42,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="$this.TrayHeight" type="System.Int32, mscorlib">
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>54</value>
-  </data>
+  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -3810,8 +3810,5 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>OpenCBS.GUI.UserControl.ClientControl, OpenCBS.GUI, Version=16.11.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="countries" xml:space="preserve">
-    <value>rk|uz|taj</value>
   </data>
 </root>
