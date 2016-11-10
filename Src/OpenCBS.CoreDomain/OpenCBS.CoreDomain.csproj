@@ -153,8 +153,6 @@
     <Compile Include="Accounting\Account.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Accounting\ContractAccountingRule.cs" />
-    <Compile Include="Accounting\AccountingRuleCollection.cs" />
     <Compile Include="Accounting\Comparer\AccountComparer.cs" />
     <Compile Include="Accounting\Currency.cs" />
     <Compile Include="Accounting\Booking.cs">
