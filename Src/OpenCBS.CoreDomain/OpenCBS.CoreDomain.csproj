@@ -172,9 +172,6 @@
     </Compile>
     <Compile Include="Accounting\LoanScaleRate.cs" />
     <Compile Include="Accounting\LoanScaleTable.cs" />
-    <Compile Include="Accounting\AccountingTransaction.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Accounting\PaymentMethod.cs" />
     <Compile Include="Accounting\ProvisioningRate.cs">
       <SubType>Code</SubType>
@@ -465,7 +462,6 @@
     </Compile>
     <Compile Include="FundingLines\FundingLineEvent.cs" />
     <Compile Include="Criteres.cs" />
-    <Compile Include="Events\Loan\IEventProcessor.cs" />
     <Compile Include="Events\Loan\AccruedInterestEvent.cs" />
     <Compile Include="Clients\Corporate.cs" />
     <Compile Include="FundingLines\FundingLine.cs" />

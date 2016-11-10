@@ -52,7 +52,6 @@ namespace OpenCBS.Services.Events
         private readonly ExchangeRateServices _exchangeRateServices;
         private readonly LoanProductManager _packageManager;
         private readonly ClientManager _clientManagement;
-        private IEventProcessor _eP;
 
         public EventProcessorServices(User pUser,string testDB)
         {
