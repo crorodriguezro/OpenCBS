@@ -2214,8 +2214,7 @@ namespace OpenCBS.GUI.Clients
         {
             _credit = new Loan(User.CurrentUser, ServicesProvider.GetInstance().GetGeneralSettings(),
                 ServicesProvider.GetInstance().GetNonWorkingDate(),
-                CoreDomainProvider.GetInstance().GetProvisioningTable(),
-                CoreDomainProvider.GetInstance().GetChartOfAccounts());
+                CoreDomainProvider.GetInstance().GetProvisioningTable());
             _credit.Product = pPackage;
 
             nudLoanAmount.Text = string.Empty;
@@ -3511,8 +3510,7 @@ namespace OpenCBS.GUI.Clients
                                        User.CurrentUser,
                                        ServicesProvider.GetInstance().GetGeneralSettings(),
                                        ServicesProvider.GetInstance().GetNonWorkingDate(),
-                                       CoreDomainProvider.GetInstance().GetProvisioningTable(),
-                                       CoreDomainProvider.GetInstance().GetChartOfAccounts())
+                                       CoreDomainProvider.GetInstance().GetProvisioningTable())
                               {
                                   Guarantors = _listGuarantors,
                                   Collaterals = _collaterals,

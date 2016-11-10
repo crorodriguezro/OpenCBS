@@ -133,8 +133,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
         /// <param name="pGeneralSettings"></param>
         /// <param name="pNwds"></param>
         /// <param name="pPt"></param>
-        /// <param name="pChartOfAccounts"></param>
-        public Loan(User pUser, ApplicationSettings pGeneralSettings, NonWorkingDateSingleton pNwds, ProvisionTable pPt, ChartOfAccounts pChartOfAccounts)
+        public Loan(User pUser, ApplicationSettings pGeneralSettings, NonWorkingDateSingleton pNwds, ProvisionTable pPt)
         {
             CreatedBy = pUser;
             _user = pUser;
@@ -205,8 +204,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
         /// <param name="pGeneralSettings"></param>
         /// <param name="pNwds"></param>
         /// <param name="pPt"></param>
-        /// <param name="pChartOfAccounts"></param>
-        public Loan(LoanProduct pAckage, OCurrency pAmount, decimal pInterestRate, int pNbOfInstallments, int pGracePeriod, DateTime pStartDate, User pUser, ApplicationSettings pGeneralSettings, NonWorkingDateSingleton pNwds, ProvisionTable pPt, ChartOfAccounts pChartOfAccounts)
+        public Loan(LoanProduct pAckage, OCurrency pAmount, decimal pInterestRate, int pNbOfInstallments, int pGracePeriod, DateTime pStartDate, User pUser, ApplicationSettings pGeneralSettings, NonWorkingDateSingleton pNwds, ProvisionTable pPt)
         {
             CreatedBy = pUser;
             _user = pUser;
@@ -269,7 +267,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
 
         public Loan(LoanProduct pAckage, OCurrency pAmount, decimal pInterestRate, int pNbOfInstallments, int pGracePeriod,
                       DateTime pStartDate, DateTime pFirstInstallmentDate, User pUser, ApplicationSettings pGeneralSettings, 
-                        NonWorkingDateSingleton pNwds, ProvisionTable pPt, ChartOfAccounts pChartOfAccounts)
+                        NonWorkingDateSingleton pNwds, ProvisionTable pPt)
         {
             CreatedBy = pUser;
             _user = pUser;
@@ -303,7 +301,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
 
         public Loan(LoanProduct pAckage, OCurrency pAmount, decimal pInterestRate, int pNbOfInstallments, int pGracePeriod,
                       DateTime pStartDate, DayOfWeek? meetingDay, User pUser, ApplicationSettings pGeneralSettings,
-                        NonWorkingDateSingleton pNwds, ProvisionTable pPt, ChartOfAccounts pChartOfAccounts)
+                        NonWorkingDateSingleton pNwds, ProvisionTable pPt)
         {
             CreatedBy = pUser;
             _user = pUser;

@@ -28,7 +28,6 @@ namespace OpenCBS.CoreDomain.Online
 {
     public interface  ICoreDomainRemoting
     {
-        ChartOfAccounts GetChartOfAccounts(User pUser);
         ProvisionTable GetProvisioningTable(User pUser);
         LoanScaleTable GetLoanScaleTable(User pUser);
     }

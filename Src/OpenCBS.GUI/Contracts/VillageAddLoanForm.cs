@@ -951,8 +951,7 @@ namespace OpenCBS.GUI.Contracts
                                     User.CurrentUser,
                                     ServicesProvider.GetInstance().GetGeneralSettings(), 
                                     ServicesProvider.GetInstance().GetNonWorkingDate(),
-                                    CoreDomainProvider.GetInstance().GetProvisioningTable(),
-                                    CoreDomainProvider.GetInstance().GetChartOfAccounts())
+                                    CoreDomainProvider.GetInstance().GetProvisioningTable())
                     {
                         NonRepaymentPenalties =
                         {

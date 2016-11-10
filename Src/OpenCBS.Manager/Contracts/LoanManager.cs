@@ -1979,7 +1979,7 @@ namespace OpenCBS.Manager.Contracts
         {
             return new Loan(_user, ApplicationSettings.GetInstance(_user.Md5),
                             NonWorkingDateSingleton.GetInstance(_user.Md5),
-                            ProvisionTable.GetInstance(_user), ChartOfAccounts.GetInstance(_user))
+                            ProvisionTable.GetInstance(_user))
                 {
                     Id = r.GetInt("credit_id"),
                     ClientType = r.GetChar("client_type_code") == 'I'

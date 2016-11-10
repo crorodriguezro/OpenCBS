@@ -28,7 +28,6 @@ namespace OpenCBS.CoreDomain.Online
 {
     public interface ICoreDomain
     {
-        ChartOfAccounts GetChartOfAccounts();
         ProvisionTable GetProvisioningTable();
         LoanScaleTable GetLoanScaleTable();
     }

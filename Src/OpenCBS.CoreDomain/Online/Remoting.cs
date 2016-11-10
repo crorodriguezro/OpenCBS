@@ -63,12 +63,6 @@ namespace OpenCBS.CoreDomain.Online
             return _theUniqueInstance;
         }
 
-
-        public ChartOfAccounts GetChartOfAccounts()
-        {
-            return _remoteOperation.GetChartOfAccounts(User.CurrentUser);
-        }
-
         public ProvisionTable GetProvisioningTable()
         {
             return _remoteOperation.GetProvisioningTable(User.CurrentUser);
