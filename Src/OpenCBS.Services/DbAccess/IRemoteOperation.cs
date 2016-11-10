@@ -57,7 +57,6 @@ namespace OpenCBS.Services
         SavingServices GetSavingServices(User pUser);
         StandardBookingServices GetStandardBookingServices(User pUser);
         CurrencyServices GetCurrencyServices(User pUser);
-        AccountingRuleServices GetAccountingRuleServices(User pUser);
         RoleServices GetRoleServices(User pUser);
         ExportServices GetExportServices(User pUser);
         BranchService GetBranchService(User user);

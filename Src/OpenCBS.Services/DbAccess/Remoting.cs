@@ -305,11 +305,6 @@ namespace OpenCBS.Services
             return _remoteOperation.GetCurrencyServices(CurrentUser);
         }
 
-        public AccountingRuleServices GetAccountingRuleServices()
-        {
-            return _remoteOperation.GetAccountingRuleServices(CurrentUser);
-        }
-
         public RoleServices GetRoleServices()
         {
             return _remoteOperation.GetRoleServices(CurrentUser);

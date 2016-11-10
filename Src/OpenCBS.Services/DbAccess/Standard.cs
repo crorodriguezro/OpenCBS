@@ -220,11 +220,6 @@ namespace OpenCBS.Services
             return new QuestionnaireServices(CurrentUser);
         }
 
-        public AccountingRuleServices GetAccountingRuleServices()
-        {
-            return new AccountingRuleServices(CurrentUser);
-        }
-
         public ExportServices GetExportServices()
         {
             return new ExportServices(CurrentUser);
