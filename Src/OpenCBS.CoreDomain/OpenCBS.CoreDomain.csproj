@@ -170,7 +170,6 @@
     <Compile Include="Accounting\Interfaces\IBooking.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Accounting\Interfaces\IChartOfAccounts.cs" />
     <Compile Include="Accounting\LoanScaleRate.cs" />
     <Compile Include="Accounting\LoanScaleTable.cs" />
     <Compile Include="Accounting\AccountingTransaction.cs">
