@@ -28,7 +28,6 @@ namespace OpenCBS.MultiLanguageRessources
     public enum Ressource
     {
         FrmSplash,
-        AccountView,
         AddGuarantorForm,
         FrmAddLoanProduct,
         AddressUserControl,
@@ -37,7 +36,6 @@ namespace OpenCBS.MultiLanguageRessources
         BadLoanRepaymentForm,
         CashPrevisionForm,
         CashReceiptForm,
-        ChartOfAccountsForm,
         BranchesForm,
         Common,
         ContractReschedulingForm,
@@ -48,7 +46,6 @@ namespace OpenCBS.MultiLanguageRessources
         DateTimeUserControl,
         ElemMvtUserControl,
         ExchangeRateForm,
-        ExportBookingsForm,
         FastChoiceForm,
         ReassingContract,
         FrmActivity,
@@ -91,7 +88,6 @@ namespace OpenCBS.MultiLanguageRessources
         FrmAddSavingProduct,
         FrmAddSavingEvent,
         StandardBooking,
-        AccountingRule,
         FrmExportSage,
         FrmRoles,
         CustomizableExport,

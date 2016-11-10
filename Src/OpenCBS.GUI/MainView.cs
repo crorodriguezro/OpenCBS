@@ -492,12 +492,6 @@ namespace OpenCBS.GUI
             }
         }
 
-        public void InitializeChartOfAccountsForm(int pCurrencyId)
-        {
-            var chartOfAccountsForm = new ChartOfAccountsForm(pCurrencyId) { MdiParent = this };
-            chartOfAccountsForm.Show();
-        }
-
         private void InitializeCollateralProductsForm()
         {
             var collateralProductsForm = new FrmAvalaibleCollateralProducts { MdiParent = this };
@@ -562,11 +556,6 @@ namespace OpenCBS.GUI
             InitializeSearchClientForm();
         }
 
-        private void mnuChartOfAccounts_Click(object sender, EventArgs e)
-        {
-            InitializeChartOfAccountsForm(ServicesProvider.GetInstance().GetCurrencyServices().GetPivot().Id);
-        }
-
         private void menuItemPackages_Click(object sender, EventArgs e)
         {
             InitializePackagesForm();
@@ -582,12 +571,6 @@ namespace OpenCBS.GUI
             InitializeDomainOfApplicationForm();
         }
 
-        private void menuItemExportTransaction_Click(object sender, EventArgs e)
-        {
-            Form exportTransactions = new ExportBookingsForm { MdiParent = this };
-
-            exportTransactions.Show();
-        }
         private void menuItemExchangeRate_Click(object sender, System.EventArgs e)
         {
             ExchangeRateForm exchangeRate = new ExchangeRateForm();
@@ -652,18 +635,6 @@ namespace OpenCBS.GUI
             russianToolStripMenuItem.Checked = (currentLanguage == "ru-RU");
             englishToolStripMenuItem.Checked = (currentLanguage == "en-US");
             spanishToolStripMenuItem.Checked = (currentLanguage == "es-ES");
-        }
-
-        private void _InitializeStandardBookings()
-        {
-            StandardBooking standardBooking = new StandardBooking { MdiParent = this };
-            standardBooking.Show();
-        }
-
-        private void toolStripMenuItemAccountView_Click(object sender, EventArgs e)
-        {
-            AccountView accountView = new AccountView { MdiParent = this };
-            accountView.Show();
         }
 
         private void menuItemLocations_Click(object sender, EventArgs e)
@@ -919,11 +890,6 @@ namespace OpenCBS.GUI
             rs.LoadReports();
         }
 
-        private void standardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            _InitializeStandardBookings();
-        }
-
         private static void OpenUrl(string url)
         {
             try
@@ -989,22 +955,10 @@ namespace OpenCBS.GUI
             catch { }
         }
 
-        private void accountingRulesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmAccountingRules frmAccountingRules = new FrmAccountingRules { MdiParent = this };
-            frmAccountingRules.Show();
-        }
-
         private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmRoles rolesForm = new FrmRoles(this) { MdiParent = this };
             rolesForm.Show();
-        }
-
-        private void trialBalanceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AccountTrialBalance accountTrialBalance = new AccountTrialBalance { MdiParent = this };
-            accountTrialBalance.Show();
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1013,12 +967,6 @@ namespace OpenCBS.GUI
             if (DialogResult.OK != pswdForm.ShowDialog()) return;
             ServicesProvider.GetInstance().GetUserServices().SaveUser(User.CurrentUser, pswdForm.NewPassword);
             Notify("passwordChanged");
-        }
-
-        private void manualEntriesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ManualEntries accountView = new ManualEntries { MdiParent = this };
-            accountView.Show();
         }
 
         private void branchesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1059,18 +1007,6 @@ namespace OpenCBS.GUI
             }
 
             return false;
-        }
-
-        private void newClosureToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            AccountingClosureForm frm = new AccountingClosureForm { MdiParent = this };
-            frm.Show();
-        }
-
-        private void fiscalYearToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FiscalYear fiscalYear = new FiscalYear() { MdiParent = this };
-            fiscalYear.Show();
         }
 
         private void tellersToolStripMenuItem_Click(object sender, EventArgs e)

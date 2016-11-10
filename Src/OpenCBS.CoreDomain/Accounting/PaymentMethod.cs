@@ -33,8 +33,8 @@ namespace OpenCBS.CoreDomain.Accounting
         {
             get
             {
-                if (Id == 0)
-                    return MultiLanguageStrings.GetString(Ressource.AccountingRule, "All.Text");
+                //if (Id == 0)
+                  //  return MultiLanguageStrings.GetString(Ressource.AccountingRule, "All.Text");
                 return _name;
             }
             set { _name = value; }
