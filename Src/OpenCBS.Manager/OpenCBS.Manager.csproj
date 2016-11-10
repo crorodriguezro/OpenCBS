@@ -178,7 +178,6 @@
     <Compile Include="TellerManager.cs" />
     <Compile Include="Currencies\ExchangeRateManager.cs" />
     <Compile Include="Accounting\LoanScaleManager.cs" />
-    <Compile Include="Accounting\AccountingTransactionManager.cs" />
     <Compile Include="Accounting\ProvisioningRuleManager.cs" />
     <Compile Include="Accounting\StandardBookingManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

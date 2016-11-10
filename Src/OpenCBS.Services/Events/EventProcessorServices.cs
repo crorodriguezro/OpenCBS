@@ -48,7 +48,6 @@ namespace OpenCBS.Services.Events
         private readonly User _user = new User();
 		private readonly EventManager _eventManagement;
         private readonly SavingEventManager _savingEventManagement;
-        private readonly AccountingTransactionManager _movementSetManagement;
         private readonly LoanManager _loanManager;
         private readonly ExchangeRateServices _exchangeRateServices;
         private readonly LoanProductManager _packageManager;
@@ -61,7 +60,6 @@ namespace OpenCBS.Services.Events
 
             _eventManagement = new EventManager(testDB);
             _savingEventManagement = new SavingEventManager(testDB);
-            _movementSetManagement = new AccountingTransactionManager(testDB);
             _loanManager = new LoanManager(testDB);
             _packageManager = new LoanProductManager(testDB);
             _clientManagement = new ClientManager(testDB);
@@ -75,7 +73,6 @@ namespace OpenCBS.Services.Events
             _user = pUser;
             _eventManagement = new EventManager(_user);
             _savingEventManagement = new SavingEventManager(_user);
-            _movementSetManagement = new AccountingTransactionManager(_user);
             _loanManager = new LoanManager(_user);
             _packageManager = new LoanProductManager(_user);
             _exchangeRateServices = new ExchangeRateServices(_user);
@@ -89,18 +86,16 @@ namespace OpenCBS.Services.Events
             _InitializeEventProcessor();
 		}
 
-        public EventProcessorServices(SavingEventManager savingEventManagement, AccountingTransactionManager movementSetManagement, AccountManager accountManager)
+        public EventProcessorServices(SavingEventManager savingEventManagement,  AccountManager accountManager)
         {
             _savingEventManagement = savingEventManagement;
-            _movementSetManagement = movementSetManagement;
             _InitializeEventProcessor();
         }
 		
-		public EventProcessorServices(EventManager eventManagement,AccountingTransactionManager movementSetManagement,LoanManager loanManager,
+		public EventProcessorServices(EventManager eventManagement,LoanManager loanManager,
             AccountManager accountManagement)
 		{
 			_eventManagement = eventManagement;
-			_movementSetManagement = movementSetManagement;
 			_loanManager = loanManager;
             _InitializeEventProcessor();
 		}
@@ -452,26 +447,6 @@ namespace OpenCBS.Services.Events
         public List<AuditTrailEvent> SelectAuditTrailEvents(AuditTrailFilter filter)
         {
             return _eventManagement.SelectAuditTrailEvents(filter);
-        }
-
-        public void ExportEvent(int eventId)
-        {
-            using (SqlConnection conn = _movementSetManagement.GetConnection())
-            {
-                using (SqlTransaction sqlTransac = conn.BeginTransaction())
-                {
-                    try
-                    {
-                        _eventManagement.ExportEvent(eventId, sqlTransac);
-                        sqlTransac.Commit();
-                    }
-                    catch (Exception)
-                    {
-                        sqlTransac.Rollback();
-                        throw;
-                    }
-                }
-            }
         }
 
         public void ExportTellerEvent(int eventId, SqlTransaction transaction)
