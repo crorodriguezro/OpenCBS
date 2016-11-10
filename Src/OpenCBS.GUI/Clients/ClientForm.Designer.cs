@@ -249,6 +249,7 @@ namespace OpenCBS.GUI.Clients
             this.nudInterestRate = new System.Windows.Forms.NumericUpDown();
             this.eacLoan = new OpenCBS.GUI.UserControl.EconomicActivityControl();
             this._scheduleTypeLabel = new System.Windows.Forms.Label();
+            this._labelLoanOffecerInfo = new System.Windows.Forms.Label();
             this.tabPageAdvancedSettings = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
@@ -1560,6 +1561,7 @@ namespace OpenCBS.GUI.Clients
             this.tableLayoutPanel4.Controls.Add(this.nudInterestRate, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.eacLoan, 4, 4);
             this.tableLayoutPanel4.Controls.Add(this._scheduleTypeLabel, 0, 6);
+            this.tableLayoutPanel4.Controls.Add(this._labelLoanOffecerInfo, 6, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             // 
             // _scheduleTypeComboBox
@@ -1775,6 +1777,12 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this._scheduleTypeLabel, "_scheduleTypeLabel");
             this._scheduleTypeLabel.Name = "_scheduleTypeLabel";
+            // 
+            // _labelLoanOffecerInfo
+            // 
+            resources.ApplyResources(this._labelLoanOffecerInfo, "_labelLoanOffecerInfo");
+            this._labelLoanOffecerInfo.ForeColor = System.Drawing.Color.Red;
+            this._labelLoanOffecerInfo.Name = "_labelLoanOffecerInfo";
             // 
             // tabPageAdvancedSettings
             // 
@@ -4272,5 +4280,6 @@ namespace OpenCBS.GUI.Clients
         private TextBox textBox1;
         private Label label2;
         private TabPage tabPageTermDeposit;
+        private Label _labelLoanOffecerInfo;
     }
 }
