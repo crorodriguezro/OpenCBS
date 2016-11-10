@@ -169,7 +169,6 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="Accounting\AccountingRuleManager.cs" />
     <Compile Include="Accounting\AccountManager.cs" />
     <Compile Include="PasswordEncoder.cs" />
     <Compile Include="BranchManager.cs" />
