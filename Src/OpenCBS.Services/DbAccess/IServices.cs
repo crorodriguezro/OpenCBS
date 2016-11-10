@@ -32,7 +32,6 @@ namespace OpenCBS.Services
     public interface IServices
     {
         UserServices GetUserServices();
-        AccountingServices GetAccountingServices();
         ExchangeRateServices GetExchangeRateServices();
         ChartOfAccountsServices GetChartOfAccountsServices();
         EventProcessorServices GetEventProcessorServices();

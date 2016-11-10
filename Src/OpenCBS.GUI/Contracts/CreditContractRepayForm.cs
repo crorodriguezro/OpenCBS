@@ -208,7 +208,7 @@ namespace OpenCBS.GUI.Contracts
                     ExchangeRateForm _xrForm = new ExchangeRateForm(new DateTime(_date.Year, _date.Month, _date.Day, TimeProvider.Now.Hour, TimeProvider.Now.Minute, TimeProvider.Now.Second, TimeProvider.Now.Millisecond), _loan.Product.Currency);
                     _xrForm.ShowDialog();
                 }
-                _exchangeRate = ServicesProvider.GetInstance().GetAccountingServices().FindExchangeRate(_date.Date, _loan.Product.Currency);
+                _exchangeRate = ServicesProvider.GetInstance().GetExchangeRateServices().FindExchangeRate(_date.Date, _loan.Product.Currency);
 
                
             }

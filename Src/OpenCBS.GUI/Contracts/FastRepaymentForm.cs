@@ -195,7 +195,7 @@ namespace OpenCBS.GUI.Contracts
                     continue;
 
                 customExchangeRate =
-                        ServicesProvider.GetInstance().GetAccountingServices().FindLatestExchangeRate(
+                        ServicesProvider.GetInstance().GetExchangeRateServices().FindLatestExchangeRate(
                             TimeProvider.Today, (Currency)item.SubItems[8].Tag);
 
                 principal += customExchangeRate.Rate == 0

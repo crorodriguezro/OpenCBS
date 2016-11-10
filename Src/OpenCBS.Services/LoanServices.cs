@@ -64,7 +64,6 @@ namespace OpenCBS.Services
     public class LoanServices : Services
     {
         private readonly FundingLineServices _fundingLineServices;
-        private readonly AccountingServices _accountingServices;
         private readonly BranchService _branchService;
         private readonly LoanManager _loanManager;
         private readonly InstallmentManager _instalmentManager;
@@ -100,7 +99,6 @@ namespace OpenCBS.Services
             _branchService = new BranchService(pUser);
             _econimcActivityServices = new EconomicActivityServices(pUser);
             _ePs = ServicesProvider.GetInstance().GetEventProcessorServices();
-            _accountingServices = new AccountingServices(pUser);
             _fundingLineServices = new FundingLineServices(pUser);
             _savingServices = new SavingServices(pUser);
             _savingEventManager = new SavingEventManager(pUser);
@@ -2683,10 +2681,7 @@ namespace OpenCBS.Services
 
         public DateTime EventsExportedDate(int eventId, SqlTransaction sqlTransaction)
         {
-            AccountingTransaction e = _accountingServices.FindMovementSet(eventId, sqlTransaction);
-            if (null == e) return DateTime.Today;
-
-            return e.ExportedDate;
+            return DateTime.Today;
         }
 
         private static void _CheckLoanFilling(Loan pLoan, IClient pClient)

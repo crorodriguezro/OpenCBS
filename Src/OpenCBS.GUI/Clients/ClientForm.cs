@@ -1683,10 +1683,10 @@ namespace OpenCBS.GUI.Clients
                 //recorded at disbursement date.
 
                 latestExchangeRate =
-                    ServicesProvider.GetInstance().GetAccountingServices().FindLatestExchangeRate(TimeProvider.Today,
+                    ServicesProvider.GetInstance().GetExchangeRateServices().FindLatestExchangeRate(TimeProvider.Today,
                                                                                             credit.Product.Currency);
                 customExchangeRate =
-                    ServicesProvider.GetInstance().GetAccountingServices().FindLatestExchangeRate(
+                    ServicesProvider.GetInstance().GetExchangeRateServices().FindLatestExchangeRate(
                         credit.StartDate, credit.Product.Currency);
 
                 var item = new ListViewItem("C") { Tag = credit };
@@ -7072,7 +7072,7 @@ namespace OpenCBS.GUI.Clients
             {
                 try
                 {
-                    ServicesProvider.GetInstance().GetAccountingServices().FindExchangeRate(TimeProvider.Now, _saving.Product.Currency);
+                    ServicesProvider.GetInstance().GetExchangeRateServices().FindExchangeRate(TimeProvider.Now, _saving.Product.Currency);
 
                     var openSavingsForm = new OpenSavingsForm(_saving.Product.InitialAmountMin == null ? 0 : _saving.Product.InitialAmountMin,
                                                                 nudReopenFees.Value, _saving.Product, true);

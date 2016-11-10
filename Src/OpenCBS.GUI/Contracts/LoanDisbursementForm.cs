@@ -157,7 +157,7 @@ namespace OpenCBS.GUI.Contracts
                 lblPivotCurrency.Visible = true;
                 lblFeesCurrencyPivot.Visible = true;
                 OCurrency amount =
-                    ServicesProvider.GetInstance().GetAccountingServices().ConvertAmountToExternalCurrency(
+                    ServicesProvider.GetInstance().GetExchangeRateServices().ConvertAmountToExternalCurrency(
                         _loan.Amount, _exchangeRate);
                 lblPivotCurrency.Text = amount.GetFormatedValue(_loan.UseCents);
 
@@ -167,7 +167,7 @@ namespace OpenCBS.GUI.Contracts
 
                 lblFeesCurrencyPivot.Text = _disableFees
                                                 ? "0"
-                                                : ServicesProvider.GetInstance().GetAccountingServices().
+                                                : ServicesProvider.GetInstance().GetExchangeRateServices().
                                                       ConvertAmountToExternalCurrency(
                                                           value,
                                                           _exchangeRate).
@@ -273,7 +273,7 @@ namespace OpenCBS.GUI.Contracts
             lblFeesCurrencyPivot.Text = _disableFees
                                               ? "0"
                                               : _exchangeRate != null
-                                                    ? ServicesProvider.GetInstance().GetAccountingServices().
+                                                    ? ServicesProvider.GetInstance().GetExchangeRateServices().
                                                           ConvertAmountToExternalCurrency(_loan.GetSumOfFees(),
                                                                                           _exchangeRate).
                                                           GetFormatedValue(_loan.UseCents)
@@ -306,7 +306,7 @@ namespace OpenCBS.GUI.Contracts
                                              _loan.Product.Currency);
                     xrForm.ShowDialog();
                 }
-                _exchangeRate = ServicesProvider.GetInstance().GetAccountingServices().FindExchangeRate(_newStartDate,
+                _exchangeRate = ServicesProvider.GetInstance().GetExchangeRateServices().FindExchangeRate(_newStartDate,
                                                                                                         _loan.Product.
                                                                                                             Currency);
             }

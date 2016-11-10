@@ -45,11 +45,6 @@ namespace OpenCBS.Services
             return new UserServices(CurrentUser);
         }
 
-        public AccountingServices GetAccountingServices()
-        {
-            Console.WriteLine("AccountingServices cot� client");
-            return new AccountingServices(CurrentUser);
-        }
         public RoleServices GetRoleServices()
         {
             Console.WriteLine("RoleServices cot� client");

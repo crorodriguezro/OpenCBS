@@ -150,11 +150,6 @@ namespace OpenCBS.Services
             return null;
         }
 
-        public AccountingServices GetAccountingServices()
-        {
-            return _remoteOperation.GetAccountingServices(CurrentUser);
-        }
-
         public ExchangeRateServices GetExchangeRateServices()
         {
             return _remoteOperation.GetExchangeRateServices(CurrentUser);

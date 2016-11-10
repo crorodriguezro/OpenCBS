@@ -38,6 +38,7 @@ using OpenCBS.Manager.Events;
 using OpenCBS.Manager.Products;
 using OpenCBS.Shared;
 using OpenCBS.CoreDomain.Contracts.Savings;
+using OpenCBS.Services.Currencies;
 
 namespace OpenCBS.Services.Events
 {
@@ -49,7 +50,7 @@ namespace OpenCBS.Services.Events
         private readonly SavingEventManager _savingEventManagement;
         private readonly AccountingTransactionManager _movementSetManagement;
         private readonly LoanManager _loanManager;
-        private readonly Accounting.AccountingServices _accountingServices;
+        private readonly ExchangeRateServices _exchangeRateServices;
         private readonly LoanProductManager _packageManager;
         private readonly ClientManager _clientManagement;
         private IEventProcessor _eP;
@@ -64,7 +65,7 @@ namespace OpenCBS.Services.Events
             _loanManager = new LoanManager(testDB);
             _packageManager = new LoanProductManager(testDB);
             _clientManagement = new ClientManager(testDB);
-            _accountingServices = new Accounting.AccountingServices(testDB);
+            _exchangeRateServices = new ExchangeRateServices(testDB);
 
             _InitializeEventProcessor();
         }
@@ -77,7 +78,7 @@ namespace OpenCBS.Services.Events
             _movementSetManagement = new AccountingTransactionManager(_user);
             _loanManager = new LoanManager(_user);
             _packageManager = new LoanProductManager(_user);
-            _accountingServices = new Accounting.AccountingServices(_user);
+            _exchangeRateServices = new ExchangeRateServices(_user);
             _clientManagement = new ClientManager(_user, false, false);
             _InitializeEventProcessor();
         }

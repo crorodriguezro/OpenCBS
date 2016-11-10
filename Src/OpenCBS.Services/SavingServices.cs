@@ -631,7 +631,6 @@ namespace OpenCBS.Services
             }
 
             booking.EventId = e.Id;
-            ServicesProvider.GetInstance().GetAccountingServices().BookManualEntry(booking, User.CurrentUser);
         }
 
         private SavingCreditOperationEvent SpecialOperationCredit(ISavingsContract pSaving, DateTime pDate, OCurrency creditAmount,

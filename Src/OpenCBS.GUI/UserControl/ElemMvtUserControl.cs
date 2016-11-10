@@ -303,7 +303,6 @@ namespace OpenCBS.GUI.UserControl
                                           User = User.CurrentUser
                                       };
 
-                ServicesProvider.GetInstance().GetAccountingServices().BookManualEntry(booking, User.CurrentUser);
                 ServicesProvider.GetInstance().GetEventProcessorServices().LogUser(OUserEvents.UserManualEntryEvent, txbDescription.Text, User.CurrentUser.Id);
                 
                 _deleteIsPossible = false;

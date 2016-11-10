@@ -196,7 +196,6 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="Accounting\AccountingServices.cs" />
     <Compile Include="BranchService.cs" />
     <Compile Include="CollateralProductServices.cs" />
     <Compile Include="MenuItemServices.cs" />

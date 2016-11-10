@@ -25,6 +25,7 @@ using OpenCBS.CoreDomain;
 using OpenCBS.ExceptionsHandler;
 using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.Manager.Currencies;
+using OpenCBS.Shared;
 
 namespace OpenCBS.Services.Currencies
 {
@@ -159,5 +160,68 @@ namespace OpenCBS.Services.Currencies
         {
             return _rateManager.GetMostRecentlyRate(pDate,pCurrency);
         }
+
+        public ExchangeRate FindExchangeRate(DateTime pDate, Currency pCurrency)
+        {
+            ExchangeRate exchangeRate = null;
+            Currency pivot = new CurrencyServices(_user).GetPivot();
+
+            if (!pivot.Equals(pCurrency))
+            {
+                if (new CurrencyServices(_user).FindAllCurrencies().Count > 1)
+                {
+                    exchangeRate = SelectExchangeRate(pDate.Date, pCurrency);
+                    if (exchangeRate == null)
+                        throw new OpenCbsExchangeRateException(OpenCbsExchangeRateExceptionEnum.ExchangeRateIsNull);
+                }
+            }
+            else
+            {
+                exchangeRate = new ExchangeRate
+                {
+                    Currency = pCurrency,
+                    Date = pDate,
+                    Rate = 1
+                };
+            }
+            return exchangeRate;
+        }
+
+        public ExchangeRate FindLatestExchangeRate(DateTime pDate, Currency pCurrency)
+        {
+
+            ExchangeRate exchangeRate = null;
+            Currency pivot = new CurrencyServices(_user).GetPivot();
+            if (!pivot.Equals(pCurrency))
+            {
+                if (new CurrencyServices(_user).FindAllCurrencies().Count > 1)
+                {
+                    double rate = GetMostRecentlyRate(pDate, pCurrency);
+
+                    exchangeRate = new ExchangeRate
+                    {
+                        Currency = pCurrency,
+                        Date = pDate,
+                        Rate = rate
+                    };
+                }
+            }
+            else
+            {
+                exchangeRate = new ExchangeRate
+                {
+                    Currency = pCurrency,
+                    Date = pDate,
+                    Rate = 1
+                };
+            }
+            return exchangeRate;
+        }
+
+        public OCurrency ConvertAmountToExternalCurrency(OCurrency amount, ExchangeRate exchangeRate)
+        {
+            return amount * 1 / exchangeRate.Rate;
+        }
+
     }
 }
