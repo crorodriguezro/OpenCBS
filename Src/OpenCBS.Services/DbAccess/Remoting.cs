@@ -170,11 +170,6 @@ namespace OpenCBS.Services
             return _remoteOperation.GetEventProcessorServices(CurrentUser);
         }
 
-        public StandardBookingServices GetStandardBookingServices()
-        {
-            return _remoteOperation.GetStandardBookingServices(CurrentUser);
-        }
-
         public SavingProductServices GetSavingProductServices()
         {
             //remoteOperation permet de savoir ou se trouve le serveur

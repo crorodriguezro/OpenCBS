@@ -256,10 +256,7 @@ namespace OpenCBS.GUI.Contracts
                         _chequeNumberLabel.Visible = _chequeNumberTextBox.Visible = false;
 
                         cbBookings.Items.Clear();
-                        foreach (Booking booking in ServicesProvider.GetInstance().GetStandardBookingServices().SelectAllStandardBookings())
-                        {
-                            cbBookings.Items.Add(booking);
-                        }
+
                         cbBookings.Visible = true;
 
                         _feesMin = 0;

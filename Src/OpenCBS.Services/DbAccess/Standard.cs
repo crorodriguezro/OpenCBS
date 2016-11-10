@@ -85,12 +85,6 @@ namespace OpenCBS.Services
             return new ChartOfAccountsServices(CurrentUser);
         }
 
-        public StandardBookingServices GetStandardBookingServices()
-        {
-            Console.WriteLine("StandardBookingServices cot� client");
-            return new StandardBookingServices(CurrentUser);
-        }
-
         public EventProcessorServices GetEventProcessorServices()
         {
             Console.WriteLine("EventProcessorServices cot� client");

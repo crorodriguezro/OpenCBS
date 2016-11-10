@@ -205,7 +205,6 @@
     <Compile Include="Currencies\CurrencyServices.cs" />
     <Compile Include="Currencies\ExchangeRateServices.cs" />
     <Compile Include="Accounting\ChartOfAccountsServices.cs" />
-    <Compile Include="Accounting\StandardBookingServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -55,7 +55,6 @@ namespace OpenCBS.Services
         QuestionnaireServices GetQuestionnaireServices();
         SavingProductServices GetSavingProductServices();
         SavingServices GetSavingServices();
-        StandardBookingServices GetStandardBookingServices();
         CurrencyServices GetCurrencyServices();
         RegExCheckerServices GetRegExCheckerServices();
         RoleServices GetRoleServices();
