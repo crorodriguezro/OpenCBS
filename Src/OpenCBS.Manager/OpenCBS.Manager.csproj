@@ -179,7 +179,6 @@
     <Compile Include="Currencies\ExchangeRateManager.cs" />
     <Compile Include="Accounting\LoanScaleManager.cs" />
     <Compile Include="Accounting\ProvisioningRuleManager.cs" />
-    <Compile Include="Accounting\StandardBookingManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
