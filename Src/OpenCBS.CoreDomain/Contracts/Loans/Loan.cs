@@ -73,7 +73,6 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
         private bool _writtenOff;
         private bool _badLoan;
         private bool _closed;
-        private ContractChartOfAccounts _chartOfAccounts;
         public int? GracePeriodOfLateFees { get; set; }
         
         private readonly User _user;
@@ -234,38 +233,6 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
         }
 
         public Loan(LoanProduct pAckage, OCurrency pAmount, decimal pInterestRate, int pNbOfInstallments, int pGracePeriod,
-                      DateTime pStartDate, User pUser, ApplicationSettings pGeneralSettings, NonWorkingDateSingleton pNwds, 
-                        ProvisionTable pPt, ContractChartOfAccounts pChartOfAccounts)
-        {
-            CreatedBy = pUser;
-            _user = pUser;
-            _generalSettings = pGeneralSettings;
-            _nwdS = pNwds;
-
-            NonRepaymentPenalties = new NonRepaymentPenalties();
-            _events = new EventStock();
-            _guarantors = new List<Guarantor>();
-            _collaterals = new List<ContractCollateral>();
-            _chartOfAccounts = pChartOfAccounts;
-            Product = pAckage;
-            _installmentType = pAckage.InstallmentType;
-            _amount = pAmount;
-            _interestRate = pInterestRate;
-            _nbOfInstallments = pNbOfInstallments;
-            GracePeriod = pGracePeriod;
-            GracePeriodOfLateFees = pAckage.GracePeriodOfLateFees;
-            CreationDate = pStartDate;
-            _startDate = pStartDate;
-
-            _firstInstallmentDate = CalculateInstallmentDate(pStartDate, 1);
-            _alignAlignDisbursementDate = pStartDate;
-
-            //with this constructor, installment are directly calculated when a new CreditContract is instanciated
-            _installmentList = CalculateInstallments(true);
-            CalculateStartDates();
-        }
-
-        public Loan(LoanProduct pAckage, OCurrency pAmount, decimal pInterestRate, int pNbOfInstallments, int pGracePeriod,
                       DateTime pStartDate, DateTime pFirstInstallmentDate, User pUser, ApplicationSettings pGeneralSettings, 
                         NonWorkingDateSingleton pNwds, ProvisionTable pPt)
         {
@@ -356,12 +323,6 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
         {
             get { return _branchCode; }
             set { _branchCode = value; }
-        }
-
-        public ContractChartOfAccounts ChartOfAccounts
-        {
-            get { return _chartOfAccounts; }
-            set { _chartOfAccounts = value; }
         }
 
         public DateTime StartDate
