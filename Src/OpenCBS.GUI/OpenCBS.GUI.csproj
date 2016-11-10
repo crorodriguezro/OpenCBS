@@ -2910,7 +2910,6 @@
     <None Include="dumpObjects.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Fakes Include="Fakes\OpenCBS.Controls.fakes" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <Content Include="opencbs.ico" />
