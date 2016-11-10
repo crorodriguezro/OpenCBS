@@ -153,22 +153,15 @@
     <Compile Include="Accounting\Account.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Accounting\AccountingClosure.cs" />
-    <Compile Include="Accounting\ClosureOptions.cs" />
     <Compile Include="Accounting\ContractAccountingRule.cs" />
     <Compile Include="Accounting\AccountingRuleCollection.cs" />
     <Compile Include="Accounting\Comparer\AccountComparer.cs" />
-    <Compile Include="Accounting\BookingToViewStock.cs" />
-    <Compile Include="Accounting\BookingToView.cs" />
     <Compile Include="Accounting\ChartOfAccounts.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Accounting\ContractChartOfAccounts.cs" />
     <Compile Include="Accounting\Currency.cs" />
     <Compile Include="Accounting\Booking.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Accounting\BookingToExport.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Accounting\ExchangeRate.cs">
