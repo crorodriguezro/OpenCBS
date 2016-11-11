@@ -154,9 +154,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Accounting\Currency.cs" />
-    <Compile Include="Accounting\Booking.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Accounting\ExchangeRate.cs">
       <SubType>Code</SubType>
     </Compile>

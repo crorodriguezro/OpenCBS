@@ -44,7 +44,6 @@ namespace OpenCBS.MultiLanguageRessources
         CreditContractForm,
         CreditContractRepayForm,
         DateTimeUserControl,
-        ElemMvtUserControl,
         ExchangeRateForm,
         FastChoiceForm,
         ReassingContract,

@@ -383,41 +383,6 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
 
             return events;
         }
-
-        public virtual SavingCreditOperationEvent SpecialOperationCredit(OCurrency amount, DateTime date, string description, User user)
-        {
-            SavingCreditOperationEvent spEvent = new SavingCreditOperationEvent
-            {
-                Amount = amount,
-                Date = date,
-                Description = description,
-                User = user,
-                Cancelable = true,
-                ProductType = typeof(SavingsBookProduct)
-            };
-
-            Events.Add(spEvent);
-            return spEvent;
-        }
-
-        public virtual SavingDebitOperationEvent SpecialOperationDebit(OCurrency amount, DateTime date, string description, User user)
-        {
-            SavingDebitOperationEvent spEvent = new SavingDebitOperationEvent
-            {
-                Amount = amount,
-                Date = date,
-                Description = description,
-                User = user,
-                Cancelable = true,
-                ProductType = typeof(SavingsBookProduct)
-            };
-
-            Events.Add(spEvent);
-            return spEvent;
-        }
-
-        
-
         
         public virtual SavingEvent DebitTransfer(ISavingsContract to, OCurrency amount, OCurrency fee, DateTime date, string description)
         {

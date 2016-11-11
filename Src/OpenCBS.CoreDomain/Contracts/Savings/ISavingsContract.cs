@@ -85,10 +85,6 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
 
         List<SavingEvent> LoanDisbursement(Loan loan, DateTime date, string description, User user,
             bool isDesactivateFees, bool isPending, OSavingsMethods savingsMethod, int? pendingEventId, Teller teller);
-
-        SavingCreditOperationEvent SpecialOperationCredit(OCurrency amount, DateTime date, string description, User user);
-        SavingDebitOperationEvent SpecialOperationDebit(OCurrency amount, DateTime date, string description, User user);
-
         SavingEvent DebitTransfer(ISavingsContract to, OCurrency amount, OCurrency fee, DateTime date, string description);
         SavingEvent CreditTransfer(ISavingsContract from, OCurrency amount, DateTime date, string description);
         List<SavingEvent> Transfer(ISavingsContract to, OCurrency amount, OCurrency fee, DateTime date, string description);

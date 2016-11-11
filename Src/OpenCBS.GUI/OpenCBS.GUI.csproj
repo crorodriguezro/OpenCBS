@@ -881,9 +881,6 @@
     <Compile Include="UserControl\DateTimeUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\ElemMvtUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="UserControl\GroupUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2873,25 +2870,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\EconomicActivityControl.resx">
       <DependentUpon>EconomicActivityControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\ElemMvtUserControl.es-ES.resx">
-      <DependentUpon>ElemMvtUserControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\ElemMvtUserControl.fr.resx">
-      <DependentUpon>ElemMvtUserControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\ElemMvtUserControl.pt.resx">
-      <DependentUpon>ElemMvtUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\ElemMvtUserControl.resx">
-      <DependentUpon>ElemMvtUserControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\ElemMvtUserControl.ru-RU.resx">
-      <DependentUpon>ElemMvtUserControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\GroupUserControl.es-ES.resx">
       <DependentUpon>GroupUserControl.cs</DependentUpon>

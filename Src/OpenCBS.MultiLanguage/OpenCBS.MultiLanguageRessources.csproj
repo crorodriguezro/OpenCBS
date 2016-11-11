@@ -239,7 +239,6 @@
     <EmbeddedResource Include="resx\DashboardForm.ru-RU.resx" />
     <EmbeddedResource Include="resx\DatabaseMaitenance.pt.resx" />
     <EmbeddedResource Include="resx\DateTimeUserControl.pt.resx" />
-    <EmbeddedResource Include="resx\ElemMvtUserControl.pt.resx" />
     <EmbeddedResource Include="resx\EventAttributes.pt.resx" />
     <EmbeddedResource Include="resx\EventCancelConfirmationForm.pt.resx" />
     <EmbeddedResource Include="resx\EventTypes.pt.resx" />
@@ -579,9 +578,6 @@
     <EmbeddedResource Include="resx\FrmEconomicActivity.es-ES.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\ElemMvtUserControl.es-ES.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="resx\ExchangeRateForm.es-ES.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -750,15 +746,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\FrmEconomicActivity.ru-RU.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\ElemMvtUserControl.fr.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\ElemMvtUserControl.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\ElemMvtUserControl.ru-RU.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\ExchangeRateForm.fr.resx">

@@ -703,7 +703,7 @@ namespace OpenCBS.GUI.Clients
             tabControlSavingsDetails.TabPages.Clear();
             if (product.Type == OSavingProductType.PersonalAccount)
             {
-                buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible =
+                buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = 
                 labelInterestRate.Visible = nudDownInterestRate.Visible = lbInterestRateMinMax.Visible = false;
                 labelInitialAmount.Visible = nudDownInitialAmount.Visible = lbInitialAmountMinMax.Visible = true;
 
@@ -1177,7 +1177,7 @@ namespace OpenCBS.GUI.Clients
                 = saving.Status == OSavingsStatus.Active;
 
             saving = SavingServices.GetSaving(saving.Id);
-            buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible = false;
+            buttonFirstDeposit.Visible  = false;
             //tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
             tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
             if (saving.Product.Type == OSavingProductType.PersonalAccount)
@@ -5432,7 +5432,7 @@ namespace OpenCBS.GUI.Clients
 
                 if (product.Type == OSavingProductType.PersonalAccount)
                 {
-                    buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible =
+                    buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = 
                     labelInterestRate.Visible = nudDownInterestRate.Visible = lbInterestRateMinMax.Visible = false;
                     labelInitialAmount.Visible = nudDownInitialAmount.Visible = lbInitialAmountMinMax.Visible = true;
 
@@ -7209,23 +7209,6 @@ namespace OpenCBS.GUI.Clients
                                                         ((OCurrency)(max)).GetFormatedValue(
                                                             _credit.Product.Currency.UseCents) + " " + symbol);
             lblMinMaxEntryFees.Visible = true;
-        }
-
-        private void specialOperationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!CheckDataInOpenFiscalYear()) return;
-            var savingEvent = new SavingsOperationForm(_saving, OSavingsOperation.SpecialOperation);
-            savingEvent.ShowDialog();
-            _saving = SavingServices.GetSaving(_saving.Id);
-            DisplaySavingEvent(_saving);
-
-            _client.Savings.Clear();
-            foreach (var saving in SavingServices.GetAllSavings(_client.Id))
-            {
-                _client.AddSaving(saving);
-            }
-
-            DisplaySavings(_client.Savings);
         }
 
         private void ShowTotalFeesInListView(ListViewItem item)
