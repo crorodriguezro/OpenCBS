@@ -1988,11 +1988,6 @@ namespace OpenCBS.Services
             }
         }
 
-        public List<Loan> FindAllContractsForClosure()
-        {
-            return _loanManager.SelectLoansForClosure(OClosureTypes.Degradation);
-        }
-
         public List<Loan> SelectContractsForClosure()
         {
             return _loanManager.SelectLoansForClosure();
