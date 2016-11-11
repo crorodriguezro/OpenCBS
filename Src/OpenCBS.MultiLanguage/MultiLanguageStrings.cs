@@ -27,7 +27,6 @@ namespace OpenCBS.MultiLanguageRessources
 {
     public enum Ressource
     {
-        FrmSplash,
         AddGuarantorForm,
         FrmAddLoanProduct,
         AddressUserControl,
