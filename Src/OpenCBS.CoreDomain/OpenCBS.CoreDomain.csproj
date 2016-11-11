@@ -158,9 +158,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Accounting\FiscalYear.cs" />
-    <Compile Include="Accounting\Interfaces\IBooking.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Accounting\LoanScaleRate.cs" />
     <Compile Include="Accounting\LoanScaleTable.cs" />
     <Compile Include="Accounting\PaymentMethod.cs" />
