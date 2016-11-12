@@ -322,14 +322,15 @@ namespace OpenCBS.GUI.Clients
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            SearchClientForm frm = SearchClientForm.GetInstanceForVillage(_applicationController);
-            frm.ShowDialog();
-            if (DialogResult.OK != frm.DialogResult) return;
+            _applicationController.Execute(new SearchClientCommandData(false));
+        }
 
+        private void OnSearchNotification(SearchClientNotification searchClientNotification)
+        {
             try
             {
                 var clientServices = ServicesProvider.GetInstance().GetClientServices();
-                var client = frm.Client;
+                var client = searchClientNotification.Client;
                 if (clientServices.ClientIsAPerson(client))
                 {
                     var personId = client.Id;
@@ -952,6 +953,7 @@ namespace OpenCBS.GUI.Clients
         {
             LoadExtensions();
             _applicationController.Subscribe<FastRepaymentDoneMessage>(this, OnFastRepaymentDone);
+            _applicationController.Subscribe<SearchClientNotification>(this,OnSearchNotification);
         }
 
         private void LoadExtensions()

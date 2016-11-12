@@ -25,6 +25,7 @@ using System.ComponentModel.Composition;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.CommandData;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Clients;
@@ -83,6 +84,11 @@ namespace OpenCBS.GUI.UserControl
         {
             get { return _corporate; }
             set { _corporate = value; }
+        }
+
+        private void InitializeSubscriptions()
+        {
+            _applicationController.Subscribe<SearchClientNotification>(this,OnSearchNotification);
         }
 
         private void InitializeCorporate()
@@ -302,6 +308,7 @@ namespace OpenCBS.GUI.UserControl
             Client = _corporate;
             InitDocuments();
             LoadExtensions();
+            InitializeSubscriptions();
         }
 
         private void LoadExtensions()
@@ -387,28 +394,28 @@ namespace OpenCBS.GUI.UserControl
 
         private void BtnSelectContactClick(object sender, EventArgs e)
         {
+            _applicationController.Execute(new SearchClientCommandData());
+        }
 
-            using (SearchClientForm searchClientForm = SearchClientForm.GetInstance(OClientTypes.Person, true, _applicationController))
+        private void OnSearchNotification(SearchClientNotification searchClientNotification)
+        {
+            var contact = new Contact();
+            try
             {
-                searchClientForm.ShowDialog();
-                var contact = new Contact();
-                try
-                {
-                    if (searchClientForm.Client != null)
-                        contact.Tiers = searchClientForm.Client;
+                if (searchClientNotification.Client != null)
+                    contact.Tiers = searchClientNotification.Client;
 
-                    if (!ServicesProvider.GetInstance().GetClientServices().ClientCanBeAddToCorporate(
-                        searchClientForm.Client, Corporate)) return;
+                if (!ServicesProvider.GetInstance().GetClientServices().ClientCanBeAddToCorporate(
+                    searchClientNotification.Client, Corporate)) return;
 
-                    if (contact.Tiers != null)
-                        Corporate.Contacts.Add(contact);
+                if (contact.Tiers != null)
+                    Corporate.Contacts.Add(contact);
 
-                    DisplayListContactCorporate(Corporate.Contacts);
-                }
-                catch (Exception ex)
-                {
-                    new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
-                }
+                DisplayListContactCorporate(Corporate.Contacts);
+            }
+            catch (Exception ex)
+            {
+                new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
             }
         }
 

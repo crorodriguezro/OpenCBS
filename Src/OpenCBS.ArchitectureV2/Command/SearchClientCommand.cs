@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using OpenCBS.ArchitectureV2.CommandData;
 using OpenCBS.ArchitectureV2.Interface;
+using OpenCBS.Enums;
 
 namespace OpenCBS.ArchitectureV2.Command
 {
@@ -18,7 +19,15 @@ namespace OpenCBS.ArchitectureV2.Command
         {
             var assembly = Assembly.Load("OpenCBS.GUI");
             var viewType = assembly.GetType("OpenCBS.GUI.SearchClientForm", true);
-            var form = (Form) viewType.GetMethod("GetInstance", new[] { typeof(Control), typeof(IApplicationController) }).Invoke(null, new object[] { null, _applicationController });
+            Form form ;
+            if (commandData.OpeningNewClientForm)
+            {
+                 form = (Form) viewType.GetMethod("GetInstance", new[] { typeof(Control), typeof(IApplicationController) }).Invoke(null, new object[] { null, _applicationController });
+            }
+            else
+            {
+                form = (Form) viewType.GetMethod("GetInstance", new[] { typeof(OClientTypes),typeof(bool), typeof(IApplicationController) }).Invoke(null, new object[] { OClientTypes.Person,false, _applicationController });
+            }
             form.BringToFront();
             form.WindowState = FormWindowState.Normal;
             form.Show();

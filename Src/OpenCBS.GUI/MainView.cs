@@ -417,10 +417,7 @@ namespace OpenCBS.GUI
 
         public void InitializeSearchClientForm()
         {
-            SearchClientForm searchClientForm = SearchClientForm.GetInstance(this, _applicationController);
-            searchClientForm.BringToFront();
-            searchClientForm.WindowState = FormWindowState.Normal;
-            searchClientForm.Show();
+            _applicationController.Execute(new SearchClientCommandData(true));
         }
 
         public void InitializeSearchCreditContractForm()

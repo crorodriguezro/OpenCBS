@@ -23,6 +23,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.CommandData;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.SearchResult;
@@ -661,7 +662,9 @@ namespace OpenCBS.GUI
                     if (OClientTypes.Village == pClient.Type)
                         mainForm.InitializeVillageForm((Village)_client);
                 }
-                else DialogResult = DialogResult.OK;
+                else
+                    DialogResult = DialogResult.OK;
+                _applicationController.Publish(new SearchClientNotification(this,_client));
                 Close();
             }
             catch (Exception ex)

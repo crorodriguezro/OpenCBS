@@ -22,6 +22,7 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.CommandData;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.CoreDomain.Clients;
@@ -65,6 +66,7 @@ namespace OpenCBS.GUI
             _guarantor.Amount = 0;
             code = tcode;
             Initialization();
+            _applicationController.Subscribe<SearchClientNotification>(this,OnSearchNotification);
         }
 
         public AddGuarantorForm(Guarantor guarantor, Form pMdiParent, bool isView, Currency tcode, IApplicationController applicationController)
@@ -271,10 +273,12 @@ namespace OpenCBS.GUI
 
         private void SelectAGuarantor()
         {
-            using (SearchClientForm searchClientForm = SearchClientForm.GetInstance(OClientTypes.Person, false, _applicationController))
-            {
-                searchClientForm.ShowDialog();
-                _guarantor.Tiers = searchClientForm.Client;
+            _applicationController.Execute(new SearchClientCommandData(false));
+        }
+
+        private void OnSearchNotification(SearchClientNotification searchClientNotification)
+        {
+                _guarantor.Tiers = searchClientNotification.Client;
 
                 try
                 {
@@ -290,9 +294,8 @@ namespace OpenCBS.GUI
                 {
                     new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
                 }
-            }
         }
-
+        
         private void buttonSelectAMember_Click(object sender, EventArgs e)
         {
             SelectAGuarantor();

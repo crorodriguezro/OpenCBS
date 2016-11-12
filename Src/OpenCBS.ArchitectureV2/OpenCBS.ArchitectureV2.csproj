@@ -101,6 +101,7 @@
     <Compile Include="CommandData\OpenUrlCommandData.cs" />
     <Compile Include="CommandData\PrintControlCommandData.cs" />
     <Compile Include="CommandData\SearchClientCommandData.cs" />
+    <Compile Include="CommandData\SearchClientNotification.cs" />
     <Compile Include="CommandData\SearchLoanCommandData.cs" />
     <Compile Include="CommandData\ShowAlertsCommandData.cs" />
     <Compile Include="CommandData\ShowDashboardCommandData.cs" />

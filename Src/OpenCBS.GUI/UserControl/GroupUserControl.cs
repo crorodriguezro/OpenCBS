@@ -26,6 +26,7 @@ using System.ComponentModel.Composition;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.CommandData;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
 using OpenCBS.CoreDomain.Clients;
@@ -1036,49 +1037,6 @@ namespace OpenCBS.GUI.UserControl
             return IsModified;
         }
 
-        private void SelectAMember()
-        {
-            if (GroupHasActiveContracts())
-            {
-                using (SearchClientForm searchClientForm = SearchClientForm.GetInstance(OClientTypes.Person, true, _applicationController))
-                {
-                    searchClientForm.ShowDialog();
-                    try
-                    {
-                        if (group.Id != 0)
-                            ServicesProvider.GetInstance().GetClientServices().CheckMaxNumberOfMembers(group);
-                        if (ServicesProvider.GetInstance().GetClientServices().ClientIsAPerson(searchClientForm.Client))
-                        {
-                            Member pers = new Member
-                                              {
-                                                  Tiers = searchClientForm.Client,
-                                                  LoanShareAmount = 0,
-                                                  CurrentlyIn = true,
-                                                  IsLeader = false,
-                                                  JoinedDate = TimeProvider.Today
-                                              };
-
-                            if (ServicesProvider.GetInstance().GetClientServices().ClientCanBeAddToAGroup(searchClientForm.Client, group))
-                            {
-                                group.AddMember(pers);
-                                DisplayMembers();
-                                if (group.Id != 0)
-                                    ServicesProvider.GetInstance().GetContractServices().DeleteLoanShareAmountWhereNotDisbursed(group.Id);
-                                if (MembersChanged != null) MembersChanged(this, null);
-                                if (group.Id != 0)
-                                    buttonSave_Click(this, null);
-
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
-                    }
-                }
-            }
-        }
-
         #endregion
 
         #region Add members
@@ -1364,9 +1322,56 @@ namespace OpenCBS.GUI.UserControl
 
         private void buttonSelectAMember_Click(object sender, EventArgs e)
         {
-            SelectAMember();
-            if (ButtonBadClientClick != null)
-                ButtonBadClientClick(this, e);
+            _applicationController.Execute(new SearchClientCommandData());
+        }
+
+        private void OnSearchNotification(SearchClientNotification searchClientNotification)
+        {
+            if (GroupHasActiveContracts())
+            {
+                try
+                {
+                    if (group.Id != 0)
+                        ServicesProvider.GetInstance().GetClientServices().CheckMaxNumberOfMembers(group);
+                    if (
+                        ServicesProvider.GetInstance()
+                            .GetClientServices()
+                            .ClientIsAPerson(searchClientNotification.Client))
+                    {
+                        Member pers = new Member
+                        {
+                            Tiers = searchClientNotification.Client,
+                            LoanShareAmount = 0,
+                            CurrentlyIn = true,
+                            IsLeader = false,
+                            JoinedDate = TimeProvider.Today
+                        };
+
+                        if (
+                            ServicesProvider.GetInstance()
+                                .GetClientServices()
+                                .ClientCanBeAddToAGroup(searchClientNotification.Client, group))
+                        {
+                            group.AddMember(pers);
+                            DisplayMembers();
+                            if (group.Id != 0)
+                                ServicesProvider.GetInstance()
+                                    .GetContractServices()
+                                    .DeleteLoanShareAmountWhereNotDisbursed(group.Id);
+                            if (MembersChanged != null) MembersChanged(this, null);
+                            if (group.Id != 0)
+                                buttonSave_Click(this, null);
+
+                        }
+                    }
+                    if (ButtonBadClientClick != null)
+                        ButtonBadClientClick(this, new EventArgs());
+                }
+                catch (Exception ex)
+                {
+                    new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
+                }
+            }
         }
 
         private void buttonViewMember_Click(object sender, EventArgs e)
@@ -1411,12 +1416,17 @@ namespace OpenCBS.GUI.UserControl
         }
         #endregion
 
+        private void InitializeSubscriptions()
+        {
+            _applicationController.Subscribe<SearchClientNotification>(this,OnSearchNotification);
+        }
+
         private void GroupUserControl_Load(object sender, EventArgs e)
         {
             Tabs = tabControlGroupInfo;
             Client = group;
             InitDocuments();
-
+            InitializeSubscriptions();
             groupBoxFirstAddress.Size = new Size(tabPageBusinessAddress.Width / 2, tabPageBusinessAddress.Height);
 
              

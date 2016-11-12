@@ -23,6 +23,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.CommandData;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain.Clients;
 using OpenCBS.CoreDomain.Contracts.Collaterals;
@@ -196,6 +197,11 @@ namespace OpenCBS.GUI.Contracts
             propertyGrid.Refresh();
         }
 
+        private void InitializeSubscription()
+        {
+            _applicationController.Subscribe<SearchClientNotification>(this,OnSearchNotification);
+        }
+
         private void ContractCollateralForm_Load(object sender, EventArgs e)
         {
             propertyGrid.SelectedObject = myProperties;
@@ -299,41 +305,37 @@ namespace OpenCBS.GUI.Contracts
             }
         }
 
-        private Person SelectOwner()
+        private void OnSearchNotification(SearchClientNotification searchClientNotification)
         {
-            using (SearchClientForm searchClientForm = SearchClientForm.GetInstance(OClientTypes.Person, true, _applicationController))
+
+            try
             {
-                searchClientForm.ShowDialog();
+                Person client;
+                if (ServicesProvider.GetInstance().GetClientServices().ClientIsAPerson(searchClientNotification.Client)
+                    && !searchClientNotification.Client.Active)
+                    client = (Person) searchClientNotification.Client;
+                else
+                    client = null;
 
-                try
+                if (client != null)
                 {
-                    if (ServicesProvider.GetInstance().GetClientServices().ClientIsAPerson(searchClientForm.Client)
-                        && !searchClientForm.Client.Active)
-                        return (Person)searchClientForm.Client;
-                    else
-                        return null;
-
-                    //else
-                    //  textBoxName.Text = String.Empty;
-
+                    myProperties.SetPropertyValueByName(propertyGrid.SelectedGridItem.Label, client);
+                    propertyGrid.Refresh();
                 }
-                catch (Exception ex)
-                {
-                    new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
-                    return null;
-                }
+
+            }
+            catch (Exception ex)
+            {
+                new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
             }
         }
 
         private void buttonSelectOwner_Click(object sender, EventArgs e)
         {
-            IClient owner = SelectOwner();
-            if (owner != null)
-            {
-                //textBoxOwner.Text = ((Person)owner).Name;
-                myProperties.SetPropertyValueByName(propertyGrid.SelectedGridItem.Label, owner);
-                propertyGrid.Refresh();
-            }
+            //IClient owner = SelectOwner();
+            _applicationController.Execute(new SearchClientCommandData());
+
+
         }
 
         private void propertyGrid_SelectedGridItemChanged(object sender, SelectedGridItemChangedEventArgs e)
