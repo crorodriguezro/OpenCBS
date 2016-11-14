@@ -1322,7 +1322,7 @@ namespace OpenCBS.GUI.UserControl
 
         private void buttonSelectAMember_Click(object sender, EventArgs e)
         {
-            _applicationController.Execute(new SearchClientCommandData());
+            _applicationController.Execute(new SearchClientCommandData(OClientTypes.Person, true));
         }
 
         private void OnSearchNotification(SearchClientNotification searchClientNotification)

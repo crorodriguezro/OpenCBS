@@ -66,7 +66,6 @@ namespace OpenCBS.GUI
             _guarantor.Amount = 0;
             code = tcode;
             Initialization();
-            _applicationController.Subscribe<SearchClientNotification>(this,OnSearchNotification);
         }
 
         public AddGuarantorForm(Guarantor guarantor, Form pMdiParent, bool isView, Currency tcode, IApplicationController applicationController)
@@ -238,6 +237,7 @@ namespace OpenCBS.GUI
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddGuarantorForm";
+            this.Load += new System.EventHandler(this.AddGuarantorForm_Load);
             this.groupBoxAmount.ResumeLayout(false);
             this.groupBoxAmount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).EndInit();
@@ -273,7 +273,7 @@ namespace OpenCBS.GUI
 
         private void SelectAGuarantor()
         {
-            _applicationController.Execute(new SearchClientCommandData(false));
+            _applicationController.Execute(new SearchClientCommandData(OClientTypes.Person, false));
         }
 
         private void OnSearchNotification(SearchClientNotification searchClientNotification)
@@ -366,5 +366,14 @@ namespace OpenCBS.GUI
             _guarantor.Description = textBoxDesc.Text;
         }
 
+        private void InitializeSubscriptions()
+        {
+            _applicationController.Subscribe<SearchClientNotification>(this, OnSearchNotification);
+        }
+
+        private void AddGuarantorForm_Load(object sender, EventArgs e)
+        {
+            InitializeSubscriptions();
+        }
     }
 }

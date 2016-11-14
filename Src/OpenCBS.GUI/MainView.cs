@@ -417,7 +417,7 @@ namespace OpenCBS.GUI
 
         public void InitializeSearchClientForm()
         {
-            _applicationController.Execute(new SearchClientCommandData(true));
+            _applicationController.Execute(new SearchClientCommandData());
         }
 
         public void InitializeSearchCreditContractForm()

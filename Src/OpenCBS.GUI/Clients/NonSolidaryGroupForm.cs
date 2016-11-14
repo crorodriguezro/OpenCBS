@@ -322,7 +322,7 @@ namespace OpenCBS.GUI.Clients
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            _applicationController.Execute(new SearchClientCommandData(false));
+            _applicationController.Execute(new SearchClientCommandData());
         }
 
         private void OnSearchNotification(SearchClientNotification searchClientNotification)
@@ -952,8 +952,13 @@ namespace OpenCBS.GUI.Clients
         private void NonSolidaryGroupForm_Load(object sender, EventArgs e)
         {
             LoadExtensions();
+            InitializeSubscriptions();
+        }
+
+        private void InitializeSubscriptions()
+        {
             _applicationController.Subscribe<FastRepaymentDoneMessage>(this, OnFastRepaymentDone);
-            _applicationController.Subscribe<SearchClientNotification>(this,OnSearchNotification);
+            _applicationController.Subscribe<SearchClientNotification>(this, OnSearchNotification);
         }
 
         private void LoadExtensions()

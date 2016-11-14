@@ -197,7 +197,7 @@ namespace OpenCBS.GUI.Contracts
             propertyGrid.Refresh();
         }
 
-        private void InitializeSubscription()
+        private void InitializeSubscriptions()
         {
             _applicationController.Subscribe<SearchClientNotification>(this,OnSearchNotification);
         }
@@ -205,6 +205,7 @@ namespace OpenCBS.GUI.Contracts
         private void ContractCollateralForm_Load(object sender, EventArgs e)
         {
             propertyGrid.SelectedObject = myProperties;
+            InitializeSubscriptions();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -332,10 +333,7 @@ namespace OpenCBS.GUI.Contracts
 
         private void buttonSelectOwner_Click(object sender, EventArgs e)
         {
-            //IClient owner = SelectOwner();
-            _applicationController.Execute(new SearchClientCommandData());
-
-
+            _applicationController.Execute(new SearchClientCommandData(OClientTypes.Person, true));
         }
 
         private void propertyGrid_SelectedGridItemChanged(object sender, SelectedGridItemChangedEventArgs e)

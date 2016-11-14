@@ -26,7 +26,7 @@ namespace OpenCBS.ArchitectureV2.Command
             }
             else
             {
-                form = (Form) viewType.GetMethod("GetInstance", new[] { typeof(OClientTypes),typeof(bool), typeof(IApplicationController) }).Invoke(null, new object[] { OClientTypes.Person,false, _applicationController });
+                form = (Form) viewType.GetMethod("GetInstance", new[] { typeof(OClientTypes),typeof(bool), typeof(IApplicationController) }).Invoke(null, new object[] { commandData.TiersType,commandData.IncludeNotactiveOnly, _applicationController });
             }
             form.BringToFront();
             form.WindowState = FormWindowState.Normal;
