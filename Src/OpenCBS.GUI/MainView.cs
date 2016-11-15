@@ -49,7 +49,6 @@ using OpenCBS.GUI.Contracts;
 using OpenCBS.GUI.Database;
 using OpenCBS.GUI.Products;
 using OpenCBS.GUI.Report_Browser;
-using OpenCBS.GUI.TellerManagement;
 using OpenCBS.GUI.Tools;
 using OpenCBS.GUI.UserControl;
 using OpenCBS.MultiLanguageRessources;
@@ -193,7 +192,6 @@ namespace OpenCBS.GUI
 
         private void InitMenu()
         {
-            tellersToolStripMenuItem.Visible = ServicesProvider.GetInstance().GetGeneralSettings().UseTellerManagement;
         }
 
         private void InitializeTracer()
@@ -219,40 +217,6 @@ namespace OpenCBS.GUI
             {
                 initializer.Init();
             }
-        }
-
-        private bool InitializeTellerManagement()
-        {
-            if (ServicesProvider.GetInstance().GetGeneralSettings().UseTellerManagement)
-            {
-                FrmOpenCloseTeller frm = new FrmOpenCloseTeller(true);
-                frm.ShowDialog();
-
-                if (frm.DialogResult == DialogResult.OK)
-                {
-                    if (frm.Teller != null && frm.Teller.Id != 0)
-                    {
-                        Teller.CurrentTeller = frm.Teller;
-                        //tellerManagementToolStripMenuItem.Visible = true;
-                        ServicesProvider.GetInstance().GetEventProcessorServices().LogUser(OUserEvents.UserOpenTellerEvent,
-                            Teller.CurrentTeller.Name + " opened", User.CurrentUser.Id);
-                        ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(frm.OpenOfDayAmountEvent);
-
-                        if (frm.OpenAmountPositiveDifferenceEvent != null)
-                            ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                                frm.OpenAmountPositiveDifferenceEvent);
-                        else if (frm.OpenAmountNegativeDifferenceEvent != null)
-                            ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                                frm.OpenAmountNegativeDifferenceEvent);
-
-                    }
-
-                    return true;
-                }
-                return false;
-
-            }
-            return true;
         }
 
         private void _DisplayDetails()
@@ -669,30 +633,7 @@ namespace OpenCBS.GUI
                     (sender == englishToolStripMenuItem ? "en-US" :
                     (sender == spanishToolStripMenuItem ? "es-ES" : "pt")));
 
-            if (ServicesProvider.GetInstance().GetGeneralSettings().UseTellerManagement)
-            {
-                if (Teller.CurrentTeller != null && Teller.CurrentTeller.Id != 0)
-                {
-                    FrmOpenCloseTeller frm = new FrmOpenCloseTeller(false);
-                    frm.ShowDialog();
-
-                    if (frm.DialogResult == DialogResult.OK)
-                    {
-                        _showTellerFormOnClose = false;
-                        Teller.CurrentTeller = null;
-                        ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                                                                                frm.CloseOfDayAmountEvent);
-                        if (frm.CloseAmountNegativeDifferenceEvent != null)
-                            ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                                frm.CloseAmountNegativeDifferenceEvent);
-                        else if (frm.CloseAmountPositiveDifferenceEvent != null)
-                            ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                                frm.CloseAmountPositiveDifferenceEvent);
-                        RestartApplication(language);
-                    }
-                }
-            }
-            else RestartApplication(language);
+            RestartApplication(language);
         }
 
         private void toolStripMenuItemInstallmentTypes_Click(object sender, EventArgs e)
@@ -735,18 +676,12 @@ namespace OpenCBS.GUI
         {
             InitExtensions();
             UserSettings.Language = UserSettings.GetUserLanguage();
-            if (InitializeTellerManagement())
-            {
-                Ping();
-                LogUser();
-                InitializeMainMenu();
-                _InitializeUserRights();
-                DisplayFastChoiceForm();
-            }
-            else
-            {
-                Environment.Exit(0);
-            }
+
+            Ping();
+            LogUser();
+            InitializeMainMenu();
+            _InitializeUserRights();
+            DisplayFastChoiceForm();
         }
 
         private static void Ping()
@@ -936,17 +871,6 @@ namespace OpenCBS.GUI
         private void LotrasmicMainWindowForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             _applicationController.Unsubscribe(this);
-            if (ServicesProvider.GetInstance().GetGeneralSettings().UseTellerManagement)
-            {
-                if (_showTellerFormOnClose)
-                {
-                    e.Cancel = false;
-
-                    if (Teller.CurrentTeller != null && Teller.CurrentTeller.Id != 0)
-                        if (!CloseTeller())
-                            e.Cancel = true;
-                }
-            }
             try
             {
                 ServicesProvider.GetInstance().GetEventProcessorServices().LogUser(OUserEvents.UserLogOutEvent,
@@ -972,46 +896,6 @@ namespace OpenCBS.GUI
         private void branchesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BranchesForm frm = new BranchesForm { MdiParent = this };
-            frm.Show();
-        }
-
-        private void closeTellerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!CloseTeller())
-                MessageBox.Show(MultiLanguageStrings.GetString(Ressource.FrmOpenCloseTeller, "noOpenTellersText"));
-        }
-
-        private bool CloseTeller()
-        {
-            if (Teller.CurrentTeller != null)
-            {
-                FrmOpenCloseTeller frm = new FrmOpenCloseTeller(false);
-                frm.ShowDialog();
-                if (frm.DialogResult == DialogResult.OK)
-                {
-                    string desc = Teller.CurrentTeller.Name + " closed";
-                    Teller.CurrentTeller = null;
-                    ServicesProvider.GetInstance().GetEventProcessorServices().LogUser(
-                                                                        OUserEvents.UserCloseTellerEvent,
-                                                                        desc,
-                                                                        User.CurrentUser.Id);
-                    ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(frm.CloseOfDayAmountEvent);
-                    if (frm.CloseAmountNegativeDifferenceEvent != null)
-                        ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                            frm.CloseAmountNegativeDifferenceEvent);
-                    else if (frm.CloseAmountPositiveDifferenceEvent != null)
-                        ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                            frm.CloseAmountPositiveDifferenceEvent);
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        private void tellersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TellersForm frm = new TellersForm() { MdiParent = this };
             frm.Show();
         }
 

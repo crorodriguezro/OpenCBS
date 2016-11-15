@@ -177,7 +177,6 @@
     <EmbeddedResource Include="resx\AddPaymentMethodForm.resx" />
     <EmbeddedResource Include="resx\AddPaymentMethodForm.ru-RU.resx" />
     <EmbeddedResource Include="resx\AddressUserControl.pt.resx" />
-    <EmbeddedResource Include="resx\AddTellerForm.pt.resx" />
     <EmbeddedResource Include="resx\AddTrancheForm.fr.resx" />
     <EmbeddedResource Include="resx\AddTrancheForm.pt.resx" />
     <EmbeddedResource Include="resx\AddTrancheForm.resx" />
@@ -358,9 +357,6 @@
     <EmbeddedResource Include="resx\Common.fr.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\AddTellerForm.fr.resx" />
-    <EmbeddedResource Include="resx\AddTellerForm.resx" />
-    <EmbeddedResource Include="resx\AddTellerForm.ru-RU.resx" />
     <EmbeddedResource Include="resx\FrmAddSavingEvent.fr.resx" />
     <EmbeddedResource Include="resx\FrmAddSavingEvent.pt.resx" />
     <EmbeddedResource Include="resx\FrmAddSavingEvent.resx" />
@@ -382,7 +378,6 @@
     <EmbeddedResource Include="resx\FrmFundingLine.pt.resx" />
     <EmbeddedResource Include="resx\FrmFundingLineEvent.pt.resx" />
     <EmbeddedResource Include="resx\FrmLocations.pt.resx" />
-    <EmbeddedResource Include="resx\FrmOpenCloseTeller.pt.resx" />
     <EmbeddedResource Include="resx\FrmReportViewer.pt.resx" />
     <EmbeddedResource Include="resx\FrmRestore.pt.resx" />
     <EmbeddedResource Include="resx\FrmRoles.es-ES.resx">
@@ -397,10 +392,6 @@
     <EmbeddedResource Include="resx\FrmAvalaibleLoanProducts.fr.resx" />
     <EmbeddedResource Include="resx\FrmAvalaibleLoanProducts.resx" />
     <EmbeddedResource Include="resx\FrmAvalaibleLoanProducts.ru-RU.resx" />
-    <EmbeddedResource Include="resx\FrmOpenCloseTeller.es-ES.resx" />
-    <EmbeddedResource Include="resx\FrmOpenCloseTeller.fr.resx" />
-    <EmbeddedResource Include="resx\FrmOpenCloseTeller.ru-RU.resx" />
-    <EmbeddedResource Include="resx\FrmOpenCloseTeller.resx" />
     <EmbeddedResource Include="resx\FrmRoles.pt.resx" />
     <EmbeddedResource Include="resx\FrmSaveSaving.pt.resx" />
     <EmbeddedResource Include="resx\frmSettingsImportExport.es-ES.resx" />
@@ -434,10 +425,6 @@
     <EmbeddedResource Include="resx\ShowPictureForm.pt.resx" />
     <EmbeddedResource Include="resx\stringRes.pt.resx" />
     <EmbeddedResource Include="resx\SweetBaseForm.pt.resx" />
-    <EmbeddedResource Include="resx\TellersForm.fr.resx" />
-    <EmbeddedResource Include="resx\TellersForm.pt.resx" />
-    <EmbeddedResource Include="resx\TellersForm.resx" />
-    <EmbeddedResource Include="resx\TellersForm.ru-RU.resx" />
     <EmbeddedResource Include="resx\EventCancelConfirmationForm.ru-RU.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>

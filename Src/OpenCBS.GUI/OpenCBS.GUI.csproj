@@ -332,18 +332,6 @@
     <Compile Include="Configuration\BranchesForm.Designer.cs">
       <DependentUpon>BranchesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuration\AddTellerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Configuration\AddTellerForm.Designer.cs">
-      <DependentUpon>AddTellerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Configuration\TellersForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Configuration\TellersForm.Designer.cs">
-      <DependentUpon>TellersForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Configuration\EditUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -584,18 +572,6 @@
     </Compile>
     <Compile Include="Report Browser\ReportLoadingProgressForm.Designer.cs">
       <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TellerManagement\FrmOpenCloseTeller.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TellerManagement\FrmOpenCloseTeller.Designer.cs">
-      <DependentUpon>FrmOpenCloseTeller.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TellerManagement\FrmTellerOperation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TellerManagement\FrmTellerOperation.Designer.cs">
-      <DependentUpon>FrmTellerOperation.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\PasswordForm.cs">
       <SubType>Form</SubType>
@@ -1175,35 +1151,11 @@
       <DependentUpon>ContractCodeForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\AddTellerForm.fr.resx">
-      <DependentUpon>AddTellerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\AddTellerForm.pt.resx">
-      <DependentUpon>AddTellerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\AddTellerForm.resx">
-      <DependentUpon>AddTellerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\AddTellerForm.ru-RU.resx">
-      <DependentUpon>AddTellerForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Configuration\FrmEconomicActivity.es.resx">
       <DependentUpon>FrmEconomicActivity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\frmSettingsImportExport.es.resx">
       <DependentUpon>frmSettingsImportExport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\TellersForm.fr.resx">
-      <DependentUpon>TellersForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\TellersForm.pt.resx">
-      <DependentUpon>TellersForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\TellersForm.resx">
-      <DependentUpon>TellersForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\TellersForm.ru-RU.resx">
-      <DependentUpon>TellersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\EditUserForm.fr.resx">
       <DependentUpon>EditUserForm.cs</DependentUpon>
@@ -2225,24 +2177,6 @@
     <EmbeddedResource Include="Search\SearchProjectForm.ru-RU.resx">
       <DependentUpon>SearchProjectForm.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TellerManagement\FrmOpenCloseTeller.fr.resx">
-      <DependentUpon>FrmOpenCloseTeller.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TellerManagement\FrmOpenCloseTeller.resx">
-      <DependentUpon>FrmOpenCloseTeller.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TellerManagement\FrmOpenCloseTeller.ru-RU.resx">
-      <DependentUpon>FrmOpenCloseTeller.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TellerManagement\FrmTellerOperation.fr.resx">
-      <DependentUpon>FrmTellerOperation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TellerManagement\FrmTellerOperation.resx">
-      <DependentUpon>FrmTellerOperation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TellerManagement\FrmTellerOperation.ru-RU.resx">
-      <DependentUpon>FrmTellerOperation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\frmProgress.es-ES.resx">
       <DependentUpon>frmProgress.cs</DependentUpon>

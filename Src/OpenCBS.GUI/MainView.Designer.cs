@@ -77,7 +77,6 @@ namespace OpenCBS.GUI
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.mnuConfiguration = new System.Windows.Forms.ToolStripMenuItem();
             this.branchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tellersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorConfig1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuDomainOfApplication = new System.Windows.Forms.ToolStripMenuItem();
             this.loanPurposeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -269,7 +268,6 @@ namespace OpenCBS.GUI
             // 
             this.mnuConfiguration.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.branchesToolStripMenuItem,
-            this.tellersToolStripMenuItem,
             this.toolStripSeparatorConfig1,
             this.mnuDomainOfApplication,
             this.loanPurposeToolStripMenuItem,
@@ -295,12 +293,6 @@ namespace OpenCBS.GUI
             this.branchesToolStripMenuItem.Name = "branchesToolStripMenuItem";
             resources.ApplyResources(this.branchesToolStripMenuItem, "branchesToolStripMenuItem");
             this.branchesToolStripMenuItem.Click += new System.EventHandler(this.branchesToolStripMenuItem_Click);
-            // 
-            // tellersToolStripMenuItem
-            // 
-            this.tellersToolStripMenuItem.Name = "tellersToolStripMenuItem";
-            resources.ApplyResources(this.tellersToolStripMenuItem, "tellersToolStripMenuItem");
-            this.tellersToolStripMenuItem.Click += new System.EventHandler(this.tellersToolStripMenuItem_Click);
             // 
             // toolStripSeparatorConfig1
             // 
@@ -710,7 +702,6 @@ namespace OpenCBS.GUI
         private ToolStripStatusLabel toolStripStatusLblDB;
         private BrightIdeasSoftware.OLVColumn colAlerts_BranchName;
         private System.ComponentModel.BackgroundWorker bwUserInformation;
-        private ToolStripMenuItem tellersToolStripMenuItem;
         private ToolStripMenuItem aboutMenuItem;
         private ToolStripMenuItem reportsToolStripMenuItem;
         private ToolStripMenuItem mnuSecurity;

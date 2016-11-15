@@ -91,7 +91,6 @@ namespace OpenCBS.MultiLanguageRessources
         CustomizableExport,
         ShowPictureForm,
         LoanSharesForm,
-        FrmOpenCloseTeller,
         CreditScoringForm,
         ClientControl,
         MyInforamtionForm,
