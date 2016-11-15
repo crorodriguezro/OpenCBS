@@ -85,14 +85,13 @@ namespace OpenCBS.Services.Events
             _InitializeEventProcessor();
 		}
 
-        public EventProcessorServices(SavingEventManager savingEventManagement,  AccountManager accountManager)
+        public EventProcessorServices(SavingEventManager savingEventManagement)
         {
             _savingEventManagement = savingEventManagement;
             _InitializeEventProcessor();
         }
 		
-		public EventProcessorServices(EventManager eventManagement,LoanManager loanManager,
-            AccountManager accountManagement)
+		public EventProcessorServices(EventManager eventManagement,LoanManager loanManager)
 		{
 			_eventManagement = eventManagement;
 			_loanManager = loanManager;

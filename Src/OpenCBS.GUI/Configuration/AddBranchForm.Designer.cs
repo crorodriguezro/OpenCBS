@@ -46,7 +46,6 @@ namespace OpenCBS.GUI.Configuration
             this.lvPaymentMethods = new System.Windows.Forms.ListView();
             this.columnHeaderId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderPaymentMethod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderAccount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelPaymentMethods = new System.Windows.Forms.Panel();
             this.btnDeletePaymentMethod = new System.Windows.Forms.Button();
@@ -138,7 +137,6 @@ namespace OpenCBS.GUI.Configuration
             this.lvPaymentMethods.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderId,
             this.columnHeaderPaymentMethod,
-            this.columnHeaderAccount,
             this.columnHeaderDate});
             resources.ApplyResources(this.lvPaymentMethods, "lvPaymentMethods");
             this.lvPaymentMethods.FullRowSelect = true;
@@ -155,10 +153,6 @@ namespace OpenCBS.GUI.Configuration
             // columnHeaderPaymentMethod
             // 
             resources.ApplyResources(this.columnHeaderPaymentMethod, "columnHeaderPaymentMethod");
-            // 
-            // columnHeaderAccount
-            // 
-            resources.ApplyResources(this.columnHeaderAccount, "columnHeaderAccount");
             // 
             // columnHeaderDate
             // 
@@ -234,6 +228,5 @@ namespace OpenCBS.GUI.Configuration
         private System.Windows.Forms.Button btnAddPaymentMethod;
         private System.Windows.Forms.ColumnHeader columnHeaderId;
         private System.Windows.Forms.Button btnEditPaymentMethod;
-        private System.Windows.Forms.ColumnHeader columnHeaderAccount;
     }
 }

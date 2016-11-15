@@ -168,9 +168,6 @@ namespace OpenCBS.Services
             if (string.IsNullOrEmpty(teller.Name))
                 throw new OpenCbsTellerException(OpenCbsTellerExceptionEnum.NameIsEmpty);
             
-            if (teller.Account == null)
-                throw new OpenCbsTellerException(OpenCbsTellerExceptionEnum.AccountIsEmpty);
-            
             if (teller.User == null)
                 throw new OpenCbsTellerException(OpenCbsTellerExceptionEnum.UserIsEmpty);
 

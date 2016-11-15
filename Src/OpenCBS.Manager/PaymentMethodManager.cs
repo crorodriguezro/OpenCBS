@@ -33,19 +33,16 @@ namespace OpenCBS.Manager
         private static List<PaymentMethod> _cacheWithBranch;
         private static List<PaymentMethod> _cacheWithoutBranch;
         private readonly BranchManager _branchManager;
-        private readonly AccountManager _accountManager;
 
         public PaymentMethodManager(User user) : base(user)
         {
             _branchManager = new BranchManager(user);
-            _accountManager = new AccountManager(user);
             InitCache();
         }
 
         public PaymentMethodManager(string testDb) : base(testDb)
         {
             _branchManager = new BranchManager(testDb);
-            _accountManager = new AccountManager(testDb);
             InitCache();
         }
 
@@ -78,7 +75,6 @@ namespace OpenCBS.Manager
                                   ,[name]
                                   ,[description]
                                   ,[pending]
-                                  ,0 AS [account_id]
                             FROM [PaymentMethods] pm
                             ORDER BY pm.[id]";
 
@@ -97,7 +93,6 @@ namespace OpenCBS.Manager
                             Name = r.GetString("name"),
                             Description = r.GetString("description"),
                             IsPending = r.GetBool("pending"),
-                            Account = _accountManager.Select(r.GetInt("account_id"))
                         };
                         paymentMethods.Add(paymentMethod);
                     }
@@ -118,8 +113,7 @@ namespace OpenCBS.Manager
                                 [pm].[description], 
                                 [pm].[pending], 
                                 [lbpm].[branch_id], 
-                                [lbpm].[date], 
-                                [lbpm].[account_id] 
+                                [lbpm].[date]
                          FROM PaymentMethods pm
                          INNER JOIN LinkBranchesPaymentMethods lbpm ON lbpm.payment_method_id = pm.id
                          WHERE [lbpm].[deleted] = 0";
@@ -144,7 +138,6 @@ namespace OpenCBS.Manager
                             LinkId = r.GetInt("id"),
                             Branch = _branchManager.Select(r.GetInt("branch_id")),
                             Date = r.GetDateTime("date"),
-                            Account = _accountManager.Select(r.GetInt("account_id"))
                         };
                         paymentMethods.Add(paymentMethod);
                     }
@@ -171,14 +164,13 @@ namespace OpenCBS.Manager
         public void AddPaymentMethodToBranch(PaymentMethod paymentMethod)
         {
             const string q =
-                @"INSERT INTO LinkBranchesPaymentMethods (branch_id, payment_method_id, account_id)
-                                            VALUES (@branch_id, @payment_method_id, @account_id)";
+                @"INSERT INTO LinkBranchesPaymentMethods (branch_id, payment_method_id)
+                                            VALUES (@branch_id, @payment_method_id)";
             using (SqlConnection conn = GetConnection())
             using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
             {
                 c.AddParam("@branch_id", paymentMethod.Branch.Id);
                 c.AddParam("@payment_method_id", paymentMethod.Id);
-                c.AddParam("@account_id", paymentMethod.Account.Id);
                 c.ExecuteNonQuery();
                 RefreshCache();
             }
@@ -202,13 +194,12 @@ namespace OpenCBS.Manager
         public void UpdatePaymentMethodFromBranch(PaymentMethod paymentMethod)
         {
             const string q =
-                @"UPDATE LinkBranchesPaymentMethods SET account_id = @account_id, payment_method_id = @payment_method_id
+                @"UPDATE LinkBranchesPaymentMethods SET payment_method_id = @payment_method_id
                                     WHERE id = @id";
 
             using (SqlConnection conn = GetConnection())
             using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
             {
-                c.AddParam("@account_id", paymentMethod.Account.Id);
                 c.AddParam("@payment_method_id", paymentMethod.Id);
                 c.AddParam("@id", paymentMethod.LinkId);
                 c.ExecuteNonQuery();

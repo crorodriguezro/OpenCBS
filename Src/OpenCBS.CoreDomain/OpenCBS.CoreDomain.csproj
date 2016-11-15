@@ -150,9 +150,6 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="Accounting\Account.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Accounting\Currency.cs" />
     <Compile Include="Accounting\ExchangeRate.cs">
       <SubType>Code</SubType>
