@@ -322,7 +322,7 @@ namespace OpenCBS.GUI.Clients
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            _applicationController.Execute(new SearchClientCommandData());
+            _applicationController.Execute(new SearchClientCommandData(OClientTypes.Person, true));
         }
 
         private void OnSearchNotification(SearchClientNotification searchClientNotification)

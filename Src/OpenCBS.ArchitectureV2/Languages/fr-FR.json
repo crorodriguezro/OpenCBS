@@ -11,9 +11,9 @@
   "Date": "Date",
   "Amount": "Montant",
   "Principal": "Principal",
-  "This province already exists." : "Cette province existe déjà.",
-  "This district already exists." : "Ce quartier existe déjà.",
-  "This city already exists." : "Cette ville existe déjà.",
+  "This province already exists.": "Cette province existe déjà.",
+  "This district already exists.": "Ce quartier existe déjà.",
+  "This city already exists.": "Cette ville existe déjà.",
   "Interest": "Intérêt",
   "Late": "En retard",
   "Loans": "Prêts",
@@ -58,6 +58,7 @@
   "Receipt #": "Reçu №",
   "You dont't have permission.": "Vous n'êtes pas autorisé.",
   "You should enter a name": "Vous devez entrer un nom.",
+  "Coach": "Entraîneur",
   "Corporate": "Personne physique",
   "District": "Département",
   "Guarantor": "Guarant",
@@ -71,5 +72,7 @@
   "Previous": "Précédent",
   "Result": "Résultat",
   "Search Client": "Chercher un client",
-  "Type": "Type"
+  "SIRET": "SIRET",
+  "Type": "Type",
+  "Volunteer": "Bénévole"
 }
