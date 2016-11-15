@@ -1100,6 +1100,57 @@ namespace OpenCBS.Manager.Contracts
             }
         }
 
+        public decimal GetDueInterest(int loanId, DateTime date)
+        {
+            const string @query = @"
+                declare @accrued money
+                declare @paid money
+                declare @waived money
+
+                -- Accrued
+                select
+                    @accrued = isnull(sum(aile.interest), 0)
+                from
+                    dbo.ContractEvents ce
+                inner join
+                    dbo.AccrualInterestLoanEvents aile on aile.id = ce.id
+                where
+                    ce.contract_id = @loanId
+                    and ce.is_deleted = 0
+                    and cast(ce.event_date as date) <= @date
+
+                -- Paid
+                select
+                    @paid = isnull(sum(re.interests), 0)
+                from
+                    dbo.ContractEvents ce
+                inner join
+                    dbo.RepaymentEvents re on re.id = ce.id
+                where
+                    ce.contract_id = @loanId
+                    and ce.is_deleted = 0
+                    and cast(ce.event_date as date) <= @date
+
+                -- Waived
+                select
+                    @waived = isnull(sum(iwoe.amount), 0)
+                from
+                    dbo.ContractEvents ce
+                inner join
+                    dbo.InterestWriteOffEvents iwoe on iwoe.id = ce.id
+                where
+                    ce.contract_id = @loanId
+                    and ce.is_deleted = 0
+                    and cast(ce.event_date as date) <= @date
+
+                select @accrued - @paid - @waived
+            ";
+            using (var connection = GetConnection())
+            {
+                return connection.Query<decimal>(query, new { loanId, date }).Single();
+            }
+        }
+
         public decimal GetGlobalOLBForProvisionning()
         {
             const string q = @"SELECT ISNULL(SUM(Installments.capital_repayment - Installments.paid_capital),0) 

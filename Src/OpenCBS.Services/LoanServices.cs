@@ -1352,27 +1352,8 @@ namespace OpenCBS.Services
             var newSchedule = SimulateScheduleCreation(copyOfLoan);
 
             // Get due interest up to tranche date
-            var accruedInterest = loan
-                .Events
-                .GetEvents()
-                .OfType<LoanInterestAccrualEvent>()
-                .Where(x => !x.Deleted && x.Date.Date <= trancheConfiguration.StartDate.Date)
-                .Sum(x => x.Interest.Value);
-
-            var paidInterest = loan
-                .Events
-                .GetEvents()
-                .OfType<RepaymentEvent>()
-                .Where(x => !x.Deleted && x.Date.Date <= trancheConfiguration.StartDate.Date)
-                .Sum(x => x.Interests.Value);
-
-            var writtenOffInterest = loan
-                .Events
-                .GetEvents()
-                .OfType<InterestWriteOffEvent>()
-                .Where(x => !x.Deleted && x.Date.Date <= trancheConfiguration.StartDate.Date)
-                .Sum(x => x.Amount.Value);
-            newSchedule[0].InterestsRepayment += accruedInterest - paidInterest - writtenOffInterest;
+            var dueInterest = _loanManager.GetDueInterest(loan.Id, trancheConfiguration.StartDate.Date);
+            newSchedule[0].InterestsRepayment += dueInterest;
 
             // Get old schedule
             var oldSchedule = loan.InstallmentList.FindAll(x => x.ExpectedDate.Date <= trancheConfiguration.StartDate.Date);
