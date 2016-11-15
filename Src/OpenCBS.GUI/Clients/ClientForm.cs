@@ -4669,11 +4669,6 @@ namespace OpenCBS.GUI.Clients
                     throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.EventNotCancelable);
 
                 var coaServices = ServicesProvider.GetInstance().GetChartOfAccountsServices();
-                var fiscalYear = coaServices.SelectFiscalYears().Find(y => y.OpenDate <= foundEvent.Date && (y.CloseDate >= foundEvent.Date || y.CloseDate == null));
-                if (null == fiscalYear || !fiscalYear.Open)
-                {
-                    throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
-                }
 
                 List<Installment> archivedInstallments = cServices.GetArchivedInstallments(foundEvent.Id);
                 // Request user confirmation
@@ -5717,7 +5712,6 @@ namespace OpenCBS.GUI.Clients
 
         private void buttonFirstDeposit_Click(object sender, EventArgs e)
         {
-            if (!CheckDataInOpenFiscalYear()) return;
             try
             {
                 _savingsBookProduct = _saving.Product;
@@ -5844,7 +5838,6 @@ namespace OpenCBS.GUI.Clients
 
         private void buttonSavingDeposit_Click(object sender, EventArgs e)
         {
-            if (!CheckDataInOpenFiscalYear()) return;
             var savingEvent = new SavingsOperationForm(_saving, OSavingsOperation.Credit);
             savingEvent.ShowDialog();
             _saving = SavingServices.GetSaving(_saving.Id);
@@ -5862,7 +5855,6 @@ namespace OpenCBS.GUI.Clients
 
         private void buttonSavingWithDraw_Click(object sender, EventArgs e)
         {
-            if (!CheckDataInOpenFiscalYear()) return;
             var savingsOperationForm = new SavingsOperationForm(_saving, OSavingsOperation.Debit);
             savingsOperationForm.ShowDialog();
             _saving = SavingServices.GetSaving(_saving.Id);
@@ -6077,26 +6069,6 @@ namespace OpenCBS.GUI.Clients
         {
             InitPrintButton(AttachmentPoint.Guarantors, btnPrintGuarantors);
         }
-        private bool CheckDataInOpenFiscalYear()
-        {
-            try
-            {
-                var coaServices = ServicesProvider.GetInstance().GetChartOfAccountsServices();
-                var fiscalYear =
-                    coaServices.SelectFiscalYears().Find(y => y.OpenDate <= TimeProvider.Now && (y.CloseDate >= TimeProvider.Now || y.CloseDate == null));
-                if (fiscalYear == null)
-                {
-                    throw new OpenCbsContractSaveException(
-                        OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
-                return false;
-            }
-        }
 
         private void btCancelLastSavingEvent_Click(object sender, EventArgs e)
         {
@@ -6110,14 +6082,6 @@ namespace OpenCBS.GUI.Clients
                 Event foundEvent = es.GetLastSavingNonDeletedEvent;
 
                 var coaServices = ServicesProvider.GetInstance().GetChartOfAccountsServices();
-                var fiscalYear =
-                    coaServices.SelectFiscalYears().Find(
-                        y => y.OpenDate <= foundEvent.Date && (y.CloseDate >= foundEvent.Date || y.CloseDate == null));
-                if (null == fiscalYear || !fiscalYear.Open)
-                {
-                    throw new OpenCbsContractSaveException(
-                        OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
-                }
 
                 var cancelableEvent = _saving.GetCancelableEvent();
                 var loanEventId = _saving.GetCancelableEvent().LoanEventId;
@@ -6224,7 +6188,6 @@ namespace OpenCBS.GUI.Clients
                 return;
             }
 
-            if (!CheckDataInOpenFiscalYear()) return;
             foreach (SavingEvent savEvent in _saving.Events)
             {
                 if (savEvent is SavingPendingDepositEvent && savEvent.IsPending && !savEvent.Deleted)
@@ -6311,7 +6274,6 @@ namespace OpenCBS.GUI.Clients
 
         private void savingTransferToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!CheckDataInOpenFiscalYear()) return;
             _saving.Client = _client;
             var savingEvent = new SavingsOperationForm(_saving, OSavingsOperation.Transfer);
             savingEvent.ShowDialog();

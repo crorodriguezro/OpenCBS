@@ -330,65 +330,6 @@ namespace OpenCBS.Services.Accounting
              }
         }
 
-        public void CreateFiscalYear(FiscalYear fiscalYear)
-        {
-            using (SqlConnection conn = _accountManagement.GetConnection())
-            {
-                SqlTransaction sqlTransac = conn.BeginTransaction();
-                try
-                {
-                    _accountManagement.InsertFiscalYear(sqlTransac, fiscalYear);
-                    sqlTransac.Commit();
-                }
-                catch (Exception ex)
-                {
-                    sqlTransac.Rollback();
-                    throw ex;
-                }
-            }
-        }
-
-        public List<FiscalYear> SelectFiscalYears()
-        {
-            return _accountManagement.SelectFiscalYears();
-        }
-
-        public void DeleteFiscalYear(FiscalYear fiscalYear)
-        {
-            using (SqlConnection conn = _accountManagement.GetConnection())
-            {
-                SqlTransaction sqlTransac = conn.BeginTransaction();
-                try
-                {
-                    _accountManagement.DeleteFiscalYear(sqlTransac, fiscalYear);
-                    sqlTransac.Commit();
-                }
-                catch (Exception ex)
-                {
-                    sqlTransac.Rollback();
-                    throw ex;
-                }
-            }
-        }
-
-        public void UpdateFiscalYear(FiscalYear fiscalYear)
-        {
-            using (SqlConnection conn = _accountManagement.GetConnection())
-            {
-                SqlTransaction sqlTransac = conn.BeginTransaction();
-                try
-                {
-                    _accountManagement.UpdateFiscalYear(sqlTransac, fiscalYear);
-                    sqlTransac.Commit();
-                }
-                catch (Exception ex)
-                {
-                    sqlTransac.Rollback();
-                    throw ex;
-                }
-            }
-        }
-
         public void DeleteLoanScale(LoanScaleRate ls)
         {
             LoanScaleTable lt = LoanScaleTable.GetInstance(_user);

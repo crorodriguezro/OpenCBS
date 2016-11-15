@@ -741,30 +741,8 @@ namespace OpenCBS.GUI.Clients
             DisplayLoans();
         }
 
-        private bool CheckDataInOpenFiscalYear()
-        {
-            try
-            {
-                var coaServices = ServicesProvider.GetInstance().GetChartOfAccountsServices();
-                var fiscalYear =
-                    coaServices.SelectFiscalYears().Find(y => y.OpenDate <= TimeProvider.Now && y.CloseDate == null);
-                if (fiscalYear == null)
-                {
-                    throw new OpenCbsContractSaveException(
-                        OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
-                return false;
-            }
-        }
-
         private void btnAddSavings_Click(object sender, EventArgs e)
         {
-            if (!CheckDataInOpenFiscalYear()) return;
             _ctxProducts.Items.Clear();
             SavingProductServices svc = ServicesProvider.GetInstance().GetSavingProductServices();
             List<ISavingProduct> products = svc.FindAllSavingsProducts(false, OClientTypes.Village);
@@ -906,7 +884,6 @@ namespace OpenCBS.GUI.Clients
 
         private void buttonFastDeposit_Click(object sender, EventArgs e)
         {
-            if (!CheckDataInOpenFiscalYear()) return;
             FastDepositForm frm = new FastDepositForm(_village);
             if (frm.ShowDialog() == DialogResult.OK)
                 DisplaySavings();

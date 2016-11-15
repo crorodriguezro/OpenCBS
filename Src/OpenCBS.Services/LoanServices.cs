@@ -499,8 +499,7 @@ namespace OpenCBS.Services
         {
             Loan copyLoan = pLoan.Copy();
             CheckDisbursedLoan(copyLoan, pDateToDisburse);
-            CheckOperationDate(pDateToDisburse);
-
+            
             using (SqlConnection connection = _loanManager.GetConnection())
             using (SqlTransaction sqlTransaction = connection.BeginTransaction())
             {
@@ -701,8 +700,7 @@ namespace OpenCBS.Services
             {
                 throw new OpenCbsRepayException(OpenCbsRepayExceptionsEnum.RepaymentBeforeLastEventDate);
             }
-            CheckOperationDate(payDate);
-
+            
             Loan savedContract = curentLoan.Copy();
             using (SqlConnection conn = _loanManager.GetConnection())
             using (SqlTransaction sqlTransaction = conn.BeginTransaction())
@@ -2477,7 +2475,6 @@ namespace OpenCBS.Services
 
         public Loan UpdateContractStatus(Loan credit, Project project, IClient client, bool undoValidation)
         {
-            CheckOperationDate(credit.CreditCommiteeDate.Value);
             using (SqlConnection conn = _loanManager.GetConnection())
             using (SqlTransaction sqlTransaction = conn.BeginTransaction())
             {
@@ -3041,22 +3038,6 @@ namespace OpenCBS.Services
                            false);
 
             credit.Events = l.Events;
-        }
-
-        private bool IsDateWithinCurrentFiscalYear(DateTime date)
-        {
-            ChartOfAccountsServices coaService = ServicesProvider.GetInstance().GetChartOfAccountsServices();
-            FiscalYear year =
-                coaService.SelectFiscalYears()
-                          .Find(y => date >= y.OpenDate && (y.CloseDate == null || date <= y.CloseDate));
-            return null != year && year.Open;
-        }
-
-        private void CheckOperationDate(DateTime date)
-        {
-            if (!IsDateWithinCurrentFiscalYear(date))
-                throw new OpenCbsContractSaveException(
-                    OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
         }
 
         private string GenerateContractCode(IClient client, Loan loan, SqlTransaction transaction)
