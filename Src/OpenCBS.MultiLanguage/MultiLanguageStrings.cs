@@ -157,7 +157,7 @@ namespace OpenCBS.MultiLanguageRessources
 
             return rm.GetResourceSet(CultureInfo.CurrentUICulture, true, false) ??
                    rm.GetResourceSet(CultureInfo.CurrentUICulture.Parent, true, false) ??
-                   rm.GetResourceSet(CultureInfo.InstalledUICulture, true, false);
+                   rm.GetResourceSet(CultureInfo.InvariantCulture, true, false);
         }
     }
 }

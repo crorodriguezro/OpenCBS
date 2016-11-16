@@ -230,7 +230,7 @@
     <EmbeddedResource Include="resx\PersonUserControlCountries.ru-RU.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\PersonUserControlCountries.en.resx">
+    <EmbeddedResource Include="resx\PersonUserControlCountries.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\PrintButton.pt.resx" />
