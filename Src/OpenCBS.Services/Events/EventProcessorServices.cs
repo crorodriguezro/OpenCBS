@@ -426,12 +426,6 @@ namespace OpenCBS.Services.Events
             return _eventManagement.SelectEventTypesForAccounting();
         }
 
-        public EventStock SelectEventsForClosure(DateTime beginDate, DateTime endDate, Branch branch)
-        {
-            EventStock eventStock = _eventManagement.SelectEventsForClosure(beginDate, endDate, branch);
-            return eventStock;
-        }
-
         public List<TellerEvent> GetTellerEventsForClosure(DateTime beginDate, DateTime endDate)
         {
             return _eventManagement.SelectTellerEventsForClosure(beginDate, endDate); 

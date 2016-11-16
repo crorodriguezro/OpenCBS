@@ -1552,18 +1552,6 @@ namespace OpenCBS.Services
             }
         }
 
-        public List<SavingEvent> SelectEventsForClosure(DateTime beginDate, DateTime endDate, Branch branch)
-        {
-            //set the date to the end of day to select all events for the day
-            endDate.AddHours(23);
-            endDate.AddMinutes(59);
-            endDate.AddSeconds(59);
-
-            List<SavingEvent> savingEvents = _savingEventManager.SelectEventsForClosure(beginDate, endDate, branch);
-
-            return savingEvents;
-        }
-
         public void MakeEventExported(int savingEventId)
         {
             using (SqlConnection conn = _savingEventManager.GetConnection())
