@@ -154,7 +154,10 @@ namespace OpenCBS.MultiLanguageRessources
                     typeof (MultiLanguageStrings).Assembly);
                 _ressourceManagers.Add(pRessourceName, rm);
             }
-            return rm.GetResourceSet(CultureInfo.CurrentUICulture, true, false);
+
+            return rm.GetResourceSet(CultureInfo.CurrentUICulture, true, false) ??
+                   rm.GetResourceSet(CultureInfo.CurrentUICulture.Parent, true, false) ??
+                   rm.GetResourceSet(CultureInfo.InstalledUICulture, true, false);
         }
     }
 }
