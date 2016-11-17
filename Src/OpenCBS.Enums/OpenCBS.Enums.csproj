@@ -75,14 +75,11 @@
     <Compile Include="OAnticipatePaymentType.cs" />
     <Compile Include="EnumIHM.cs" />
     <Compile Include="OClientStatus.cs" />
-    <Compile Include="OClosureType.cs" />
     <Compile Include="OContractStatus.cs" />
     <Compile Include="OFundingLineEventTypes.cs" />
     <Compile Include="OGeneralSettings.cs" />
     <Compile Include="OAccountCategories.cs" />
-    <Compile Include="OAccounts.cs" />
     <Compile Include="OBookingDirections.cs" />
-    <Compile Include="OAccountingLabels.cs" />
     <Compile Include="OAccountingProcesses.cs" />
     <Compile Include="OPackageMode.cs" />
     <Compile Include="OProductTypes.cs" />

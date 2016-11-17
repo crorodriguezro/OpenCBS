@@ -169,8 +169,6 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="Accounting\AccountingRuleManager.cs" />
-    <Compile Include="Accounting\AccountManager.cs" />
     <Compile Include="PasswordEncoder.cs" />
     <Compile Include="BranchManager.cs" />
     <Compile Include="CollateralProductManager.cs" />
@@ -179,9 +177,7 @@
     <Compile Include="TellerManager.cs" />
     <Compile Include="Currencies\ExchangeRateManager.cs" />
     <Compile Include="Accounting\LoanScaleManager.cs" />
-    <Compile Include="Accounting\AccountingTransactionManager.cs" />
     <Compile Include="Accounting\ProvisioningRuleManager.cs" />
-    <Compile Include="Accounting\StandardBookingManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

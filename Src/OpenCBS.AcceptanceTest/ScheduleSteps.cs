@@ -123,8 +123,7 @@ namespace OpenCBS.AcceptanceTest
                              new User(),
                              Settings,
                              NonWorkingDays,
-                             ProvisionTable.GetInstance(new User()),
-                             ChartOfAccounts.GetInstance(new User()));
+                             ProvisionTable.GetInstance(new User()));
             _loan.InstallmentList = ServicesProvider.GetInstance().GetContractServices().SimulateScheduleCreation(_loan);
         }
 

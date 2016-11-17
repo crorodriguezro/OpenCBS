@@ -33,8 +33,8 @@ namespace OpenCBS.CoreDomain.Accounting
         {
             get
             {
-                if (Id == 0)
-                    return MultiLanguageStrings.GetString(Ressource.AccountingRule, "All.Text");
+                //if (Id == 0)
+                  //  return MultiLanguageStrings.GetString(Ressource.AccountingRule, "All.Text");
                 return _name;
             }
             set { _name = value; }
@@ -45,7 +45,6 @@ namespace OpenCBS.CoreDomain.Accounting
         public int LinkId { get; set; }
         public Branch Branch { get; set; }
         public DateTime Date { get; set; }
-        public Account Account { get; set; }
 
         public PaymentMethod()
         {
@@ -61,7 +60,7 @@ namespace OpenCBS.CoreDomain.Accounting
             DeterminePaymentMethodByName();
         }
 
-        public PaymentMethod(int id, int linkId, string name, string description, bool isPending, Branch branch, DateTime date, Account account)
+        public PaymentMethod(int id, int linkId, string name, string description, bool isPending, Branch branch, DateTime date)
         {
             Id = id;
             LinkId = linkId;
@@ -69,7 +68,6 @@ namespace OpenCBS.CoreDomain.Accounting
             Description = description;
             IsPending = isPending;
             Branch = branch;
-            Account = account;
             Date = date;
             DeterminePaymentMethodByName();
         }

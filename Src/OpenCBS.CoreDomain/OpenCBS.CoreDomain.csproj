@@ -150,43 +150,12 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="Accounting\Account.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Accounting\AccountingClosure.cs" />
-    <Compile Include="Accounting\ClosureOptions.cs" />
-    <Compile Include="Accounting\ContractAccountingRule.cs" />
-    <Compile Include="Accounting\AccountingRuleCollection.cs" />
-    <Compile Include="Accounting\Comparer\AccountComparer.cs" />
-    <Compile Include="Accounting\BookingToViewStock.cs" />
-    <Compile Include="Accounting\BookingToView.cs" />
-    <Compile Include="Accounting\ChartOfAccounts.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Accounting\ContractChartOfAccounts.cs" />
     <Compile Include="Accounting\Currency.cs" />
-    <Compile Include="Accounting\Booking.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Accounting\BookingToExport.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Accounting\ExchangeRate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Accounting\DefaultAccounts.cs" />
-    <Compile Include="Accounting\FiscalYear.cs" />
-    <Compile Include="Accounting\FundingLineAccountingRule.cs" />
-    <Compile Include="Accounting\IAccountingRule.cs" />
-    <Compile Include="Accounting\Interfaces\IBooking.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Accounting\Interfaces\IChartOfAccounts.cs" />
     <Compile Include="Accounting\LoanScaleRate.cs" />
     <Compile Include="Accounting\LoanScaleTable.cs" />
-    <Compile Include="Accounting\AccountingTransaction.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Accounting\PaymentMethod.cs" />
     <Compile Include="Accounting\ProvisioningRate.cs">
       <SubType>Code</SubType>
@@ -477,7 +446,6 @@
     </Compile>
     <Compile Include="FundingLines\FundingLineEvent.cs" />
     <Compile Include="Criteres.cs" />
-    <Compile Include="Events\Loan\IEventProcessor.cs" />
     <Compile Include="Events\Loan\AccruedInterestEvent.cs" />
     <Compile Include="Clients\Corporate.cs" />
     <Compile Include="FundingLines\FundingLine.cs" />

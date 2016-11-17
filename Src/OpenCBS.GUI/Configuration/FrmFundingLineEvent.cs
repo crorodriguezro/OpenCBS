@@ -167,7 +167,7 @@ namespace OpenCBS.GUI.Configuration
                            _FundingLine.Currency);
                    _xrForm.ShowDialog();
                }
-               _exchangeRate = ServicesProvider.GetInstance().GetAccountingServices().FindExchangeRate(_date.Date, _FundingLine.Currency);
+               _exchangeRate = ServicesProvider.GetInstance().GetExchangeRateServices().FindExchangeRate(_date.Date, _FundingLine.Currency);
            }
            catch (Exception ex)
            {

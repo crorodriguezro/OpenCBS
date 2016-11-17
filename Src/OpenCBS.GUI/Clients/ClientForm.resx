@@ -11643,7 +11643,7 @@ Max:
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tabControlPerson.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="columnHeader26.Text" xml:space="preserve">
     <value>Fees</value>
@@ -11658,31 +11658,25 @@ Max:
     <value>392, 13</value>
   </metadata>
   <data name="savingDepositToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 22</value>
+    <value>134, 22</value>
   </data>
   <data name="savingDepositToolStripMenuItem.Text" xml:space="preserve">
     <value>Deposit</value>
   </data>
   <data name="savingWithdrawToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 22</value>
+    <value>134, 22</value>
   </data>
   <data name="savingWithdrawToolStripMenuItem.Text" xml:space="preserve">
     <value>Withdrawal</value>
   </data>
   <data name="savingTransferToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 22</value>
+    <value>134, 22</value>
   </data>
   <data name="savingTransferToolStripMenuItem.Text" xml:space="preserve">
     <value>Transfer</value>
   </data>
-  <data name="specialOperationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 22</value>
-  </data>
-  <data name="specialOperationToolStripMenuItem.Text" xml:space="preserve">
-    <value>Special Operation</value>
-  </data>
   <data name="menuBtnAddSavingOperation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 92</value>
+    <value>135, 70</value>
   </data>
   <data name="&gt;&gt;menuBtnAddSavingOperation.Name" xml:space="preserve">
     <value>menuBtnAddSavingOperation</value>
@@ -13161,12 +13155,6 @@ Max:
     <value>savingTransferToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;savingTransferToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;specialOperationToolStripMenuItem.Name" xml:space="preserve">
-    <value>specialOperationToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;specialOperationToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;olvColumnSACExportedBalance.Name" xml:space="preserve">

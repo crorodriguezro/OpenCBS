@@ -32,14 +32,12 @@ namespace OpenCBS.Manager
 {
     public class TellerManager : Manager
     {
-        private readonly AccountManager accountManager;
         private readonly BranchManager branchManager;
         private readonly UserManager userManager;
         private readonly CurrencyManager currencyManager;
         
         public TellerManager(User user) : base(user)
         {
-            accountManager = new AccountManager(user);
             branchManager = new BranchManager(user);
             userManager = new UserManager(user);
             currencyManager = new CurrencyManager(user);
@@ -47,7 +45,6 @@ namespace OpenCBS.Manager
 
         public TellerManager(string pTestDb) : base(pTestDb)
         {
-            accountManager = new AccountManager(pTestDb);
             branchManager = new BranchManager(pTestDb);
             userManager = new UserManager(pTestDb);
             currencyManager = new CurrencyManager(pTestDb);
@@ -59,7 +56,6 @@ namespace OpenCBS.Manager
             const string q = @"SELECT id
                                     , name
                                     , [desc]
-                                    , account_id
                                     , deleted
                                     , branch_id
                                     , user_id
@@ -86,7 +82,6 @@ namespace OpenCBS.Manager
                         teller.Name = r.GetString("name");
                         teller.Description = r.GetString("desc");
                         teller.Deleted = r.GetBool("deleted");
-                        teller.Account = accountManager.Select(r.GetInt("account_id"));
                         teller.Branch = branchManager.Select(r.GetInt("branch_id"));
                         int uId = r.GetInt("user_id");
                         teller.User = uId == 0 ? new User {Id = 0} : userManager.SelectUser(uId, false);
@@ -109,7 +104,6 @@ namespace OpenCBS.Manager
             const string q = @"SELECT id
                                     , name
                                     , [desc]
-                                    , account_id
                                     , deleted
                                     , branch_id
                                     , currency_id
@@ -128,7 +122,6 @@ namespace OpenCBS.Manager
                     teller.Name = r.GetString("name");
                     teller.Description = r.GetString("desc");
                     teller.Deleted = r.GetBool("deleted");
-                    teller.Account = accountManager.Select(r.GetInt("account_id"));
                     teller.Branch = branchManager.Select(r.GetInt("branch_id"));
                     teller.Currency = currencyManager.SelectCurrencyById(r.GetInt("currency_id"));
                 }
@@ -152,7 +145,6 @@ namespace OpenCBS.Manager
             const string q = @"SELECT id
                                     , name
                                     , [desc]
-                                    , account_id
                                     , deleted
                                     , branch_id
                                     , user_id
@@ -177,7 +169,6 @@ namespace OpenCBS.Manager
                     teller.Name = r.GetString("name");
                     teller.Description = r.GetString("desc");
                     teller.Deleted = r.GetBool("deleted");
-                    teller.Account = accountManager.Select(r.GetInt("account_id"));
                     teller.Branch = branchManager.Select(r.GetInt("branch_id"));
                     int uId = r.GetInt("user_id");
                     teller.User = uId == 0 ? new User { Id = 0 } : userManager.SelectUser(uId, false);
@@ -200,7 +191,6 @@ namespace OpenCBS.Manager
             const string q = @"SELECT id
                                     , name
                                     , [desc]
-                                    , account_id
                                     , deleted
                                     , branch_id
                                     , user_id
@@ -228,7 +218,6 @@ namespace OpenCBS.Manager
                         teller.Name = r.GetString("name");
                         teller.Description = r.GetString("desc");
                         teller.Deleted = r.GetBool("deleted");
-                        teller.Account = accountManager.Select(r.GetInt("account_id"));
                         teller.Branch = branchManager.Select(r.GetInt("branch_id"));
                         int uId = r.GetInt("user_id");
                         teller.User = uId == 0 ? new User { Id = 0 } : userManager.SelectUser(uId, false);
@@ -252,7 +241,6 @@ namespace OpenCBS.Manager
             const string q = @"SELECT id
                                     , name
                                     , [desc]
-                                    , account_id
                                     , deleted
                                     , branch_id
                                     , user_id
@@ -277,7 +265,6 @@ namespace OpenCBS.Manager
                     teller.Name = r.GetString("name");
                     teller.Description = r.GetString("desc");
                     teller.Deleted = r.GetBool("deleted");
-                    teller.Account = accountManager.Select(r.GetInt("account_id"));
                     teller.Branch = branchManager.Select(r.GetInt("branch_id"));
                     int uId = r.GetInt("user_id");
                     teller.User = uId == 0 ? new User { Id = 0 } : userManager.SelectUser(uId, false);
@@ -296,9 +283,9 @@ namespace OpenCBS.Manager
         public Teller Add(Teller teller, SqlTransaction t)
         {
             const string sqlText =
-                @"INSERT INTO dbo.Tellers (name, [desc], account_id, branch_id, user_id, currency_id,
+                @"INSERT INTO dbo.Tellers (name, [desc],  branch_id, user_id, currency_id,
                                             amount_min, amount_max, deposit_amount_min, deposit_amount_max, withdrawal_amount_min, withdrawal_amount_max) 
-                                   VALUES (@name, @desc, @account_id, @branch_id, @user_id, @currency_id,
+                                   VALUES (@name, @desc,  @branch_id, @user_id, @currency_id,
                                             @amount_min, @amount_max, @deposit_amount_min, @deposit_amount_max, @withdrawal_amount_min, @withdrawal_amount_max) 
                                             SELECT SCOPE_IDENTITY()";
             using (var c = new OpenCbsCommand(sqlText, t.Connection, t))
@@ -311,11 +298,6 @@ namespace OpenCBS.Manager
                     c.AddParam("@branch_id", teller.Branch.Id);
                 else
                     c.AddParam("@branch_id", null);
-
-                if (teller.Account != null)
-                    c.AddParam("@account_id", teller.Account.Id);
-                else
-                    c.AddParam("@account_id", null);
 
                 if (teller.User != null)
                     c.AddParam("@user_id", teller.User.Id);
@@ -344,7 +326,6 @@ namespace OpenCBS.Manager
             const string sqlText = @"UPDATE dbo.Tellers 
                                               SET name = @name, 
                                                  [desc] = @desc, 
-                                                 account_id = @account_id,
                                                  branch_id = @branch_id,
                                                  user_id = @user_id,
                                                  currency_id = @currency_id,
@@ -365,11 +346,6 @@ namespace OpenCBS.Manager
                     c.AddParam("@branch_id", teller.Branch.Id);
                 else
                     c.AddParam("@branch_id", null);
-
-                if (teller.Account != null)
-                    c.AddParam("@account_id", teller.Account.Id);
-                else
-                    c.AddParam("@account_id", null);
 
                 if (teller.User != null)
                     c.AddParam("@user_id", teller.User.Id);

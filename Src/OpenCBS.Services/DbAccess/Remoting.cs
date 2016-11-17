@@ -150,11 +150,6 @@ namespace OpenCBS.Services
             return null;
         }
 
-        public AccountingServices GetAccountingServices()
-        {
-            return _remoteOperation.GetAccountingServices(CurrentUser);
-        }
-
         public ExchangeRateServices GetExchangeRateServices()
         {
             return _remoteOperation.GetExchangeRateServices(CurrentUser);
@@ -168,11 +163,6 @@ namespace OpenCBS.Services
         public EventProcessorServices GetEventProcessorServices()
         {
             return _remoteOperation.GetEventProcessorServices(CurrentUser);
-        }
-
-        public StandardBookingServices GetStandardBookingServices()
-        {
-            return _remoteOperation.GetStandardBookingServices(CurrentUser);
         }
 
         public SavingProductServices GetSavingProductServices()
@@ -303,11 +293,6 @@ namespace OpenCBS.Services
         public CurrencyServices GetCurrencyServices()
         {
             return _remoteOperation.GetCurrencyServices(CurrentUser);
-        }
-
-        public AccountingRuleServices GetAccountingRuleServices()
-        {
-            return _remoteOperation.GetAccountingRuleServices(CurrentUser);
         }
 
         public RoleServices GetRoleServices()

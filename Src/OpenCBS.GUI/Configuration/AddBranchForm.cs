@@ -120,7 +120,6 @@ namespace OpenCBS.GUI.Configuration
                 ListViewItem lvi = new ListViewItem { Tag = method };
                 lvi.UseItemStyleForSubItems = false;
                 lvi.SubItems.Add(method.Name);
-                lvi.SubItems.Add(method.Account.ToString());
                 lvi.SubItems.Add(method.Date.ToShortDateString());
                 lvPaymentMethods.Items.Add(lvi);
             }

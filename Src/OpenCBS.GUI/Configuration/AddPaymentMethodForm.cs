@@ -75,12 +75,6 @@ namespace OpenCBS.GUI.Configuration
             if (_paymentMethod != null && _paymentMethod.Name != null)
                 cmbPaymentMethod.SelectedValue = _paymentMethod.Id;
             
-            cmbAccount.Items.Clear();
-            cmbAccount.ValueMember = "Number";
-            cmbAccount.DisplayMember = "";
-            cmbAccount.DataSource = ServicesProvider.GetInstance().GetChartOfAccountsServices().FindAllAccounts().OrderBy(item => item.Number).ToList();
-            if (_paymentMethod != null && _paymentMethod.Account != null)
-               cmbAccount.SelectedValue = _paymentMethod.Account.Number;
         }
 
         private void AddPaymentMethodForm_Load(object sender, System.EventArgs e)
@@ -89,7 +83,6 @@ namespace OpenCBS.GUI.Configuration
             if (!_isNew)
             {
                 cmbPaymentMethod.SelectedItem = _paymentMethod.Id;
-                cmbAccount.SelectedItem = _paymentMethod.Account;
             }
         }
 
@@ -103,7 +96,6 @@ namespace OpenCBS.GUI.Configuration
                                                            ServicesProvider.GetInstance().GetPaymentMethodServices().
                                                            GetPaymentMethodByName(pm.Name).Id,
                                                        Name = pm.Name,
-                                                       Account = cmbAccount.SelectedItem as Account,
                                                        LinkId = _paymentMethod == null ? 0 : _paymentMethod.LinkId,
                                                        Branch = branch
                                                    };
@@ -112,12 +104,6 @@ namespace OpenCBS.GUI.Configuration
                 Fail(GetString("NameIsEmpty.Text"));
                 e.Cancel = true;
                 return;
-            }
-
-            if (_paymentMethod.Account == null)
-            {
-                Fail(GetString("AccountIsEmpty.Text"));
-                e.Cancel = true;
             }
         }
     }

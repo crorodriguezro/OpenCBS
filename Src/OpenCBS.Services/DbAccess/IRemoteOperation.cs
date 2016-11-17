@@ -32,7 +32,6 @@ namespace OpenCBS.Services
     public interface IRemoteOperation
     {
         UserServices GetUserServices(User pUser);
-        AccountingServices GetAccountingServices(User pUser);
         ExchangeRateServices GetExchangeRateServices(User pUser);
         ChartOfAccountsServices GetChartOfAccountsServices(User pUser);
         EventProcessorServices GetEventProcessorServices(User pUser);
@@ -55,9 +54,7 @@ namespace OpenCBS.Services
         QuestionnaireServices GetQuestionnaireServices(User pUser);
         SavingProductServices GetSavingProductServices(User pUser);
         SavingServices GetSavingServices(User pUser);
-        StandardBookingServices GetStandardBookingServices(User pUser);
         CurrencyServices GetCurrencyServices(User pUser);
-        AccountingRuleServices GetAccountingRuleServices(User pUser);
         RoleServices GetRoleServices(User pUser);
         ExportServices GetExportServices(User pUser);
         BranchService GetBranchService(User user);

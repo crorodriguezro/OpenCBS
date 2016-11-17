@@ -271,107 +271,11 @@
     <Compile Include="AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Accounting\AccountingClosureForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\AccountingClosureForm.Designer.cs">
-      <DependentUpon>AccountingClosureForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\AccountingJournals.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\AccountingJournals.Designer.cs">
-      <DependentUpon>AccountingJournals.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\AccountView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\AccountView.Designer.cs">
-      <DependentUpon>AccountView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\AddBooking.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\AddBooking.Designer.cs">
-      <DependentUpon>AddBooking.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\AddStandardBooking.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\AddStandardBooking.Designer.cs">
-      <DependentUpon>AddStandardBooking.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\ChartOfAccountsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\ClosureBookings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\ClosureBookings.Designer.cs">
-      <DependentUpon>ClosureBookings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\EditFiscalYear.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\EditFiscalYear.Designer.cs">
-      <DependentUpon>EditFiscalYear.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\FiscalYear.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\FiscalYear.Designer.cs">
-      <DependentUpon>FiscalYear.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\FrmAccount.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\FrmAccount.Designer.cs">
-      <DependentUpon>FrmAccount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\FrmAccountingRules.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\FrmAccountingRules.Designer.cs">
-      <DependentUpon>FrmAccountingRules.cs</DependentUpon>
-    </Compile>
     <Compile Include="Accounting\ExchangeRateForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accounting\ExchangeRateForm.Designer.cs">
       <DependentUpon>ExchangeRateForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\ExportBookingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\FrmAddContractAccountingRule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\FrmAddContractAccountingRule.Designer.cs">
-      <DependentUpon>FrmAddContractAccountingRule.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\ManualEntries.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\ManualEntries.Designer.cs">
-      <DependentUpon>ManualEntries.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\StandardBooking.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\StandardBooking.Designer.cs">
-      <DependentUpon>StandardBooking.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\AccountTrialBalance.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\AccountTrialBalance.Designer.cs">
-      <DependentUpon>AccountTrialBalance.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\TrialBalancePreview.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\TrialBalancePreview.Designer.cs">
-      <DependentUpon>TrialBalancePreview.cs</DependentUpon>
     </Compile>
     <Compile Include="ArchitectureV2Adapter\SqlServerConnectionPresenter.cs" />
     <Compile Include="AuditTrail\AuditTrailForm.cs">
@@ -424,18 +328,6 @@
     </Compile>
     <Compile Include="Configuration\BranchesForm.Designer.cs">
       <DependentUpon>BranchesForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Configuration\AddTellerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Configuration\AddTellerForm.Designer.cs">
-      <DependentUpon>AddTellerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Configuration\TellersForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Configuration\TellersForm.Designer.cs">
-      <DependentUpon>TellersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuration\EditUserForm.cs">
       <SubType>Form</SubType>
@@ -658,12 +550,6 @@
     <Compile Include="Export\StringFieldPropertiesForm.Designer.cs">
       <DependentUpon>StringFieldPropertiesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login\LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MultiLanguageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -683,18 +569,6 @@
     </Compile>
     <Compile Include="Report Browser\ReportLoadingProgressForm.Designer.cs">
       <DependentUpon>ReportLoadingProgressForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TellerManagement\FrmOpenCloseTeller.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TellerManagement\FrmOpenCloseTeller.Designer.cs">
-      <DependentUpon>FrmOpenCloseTeller.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TellerManagement\FrmTellerOperation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TellerManagement\FrmTellerOperation.Designer.cs">
-      <DependentUpon>FrmTellerOperation.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\PasswordForm.cs">
       <SubType>Form</SubType>
@@ -875,12 +749,6 @@
     <Compile Include="MainView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSplash.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmSplash.Designer.cs">
-      <DependentUpon>FrmSplash.cs</DependentUpon>
-    </Compile>
     <Compile Include="Products\FrmAddLoanProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -972,9 +840,6 @@
       <DependentUpon>CorporateUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl\DateTimeUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControl\ElemMvtUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControl\GroupUserControl.cs">
@@ -1091,192 +956,8 @@
       <DependentUpon>AboutForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountingClosureForm.es-ES.resx">
-      <DependentUpon>AccountingClosureForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountingClosureForm.fr.resx">
-      <DependentUpon>AccountingClosureForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountingClosureForm.pt.resx">
-      <DependentUpon>AccountingClosureForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountingClosureForm.resx">
-      <DependentUpon>AccountingClosureForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountingClosureForm.ru-RU.resx">
-      <DependentUpon>AccountingClosureForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountingJournals.fr.resx">
-      <DependentUpon>AccountingJournals.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountingJournals.pt.resx">
-      <DependentUpon>AccountingJournals.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountingJournals.resx">
-      <DependentUpon>AccountingJournals.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountingJournals.ru-RU.resx">
-      <DependentUpon>AccountingJournals.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountTrialBalance.fr.resx">
-      <DependentUpon>AccountTrialBalance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountTrialBalance.pt.resx">
-      <DependentUpon>AccountTrialBalance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountTrialBalance.ru-RU.resx">
-      <DependentUpon>AccountTrialBalance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountView.es-ES.resx">
-      <DependentUpon>AccountView.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountView.fr.resx">
-      <DependentUpon>AccountView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountView.pt.resx">
-      <DependentUpon>AccountView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountView.resx">
-      <DependentUpon>AccountView.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountView.ru-RU.resx">
-      <DependentUpon>AccountView.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AddBooking.es-ES.resx">
-      <DependentUpon>AddBooking.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AddBooking.fr.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>AddBooking.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AddBooking.pt.resx">
-      <DependentUpon>AddBooking.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AddBooking.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>AddBooking.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AddBooking.ru-RU.resx">
-      <DependentUpon>AddBooking.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AddStandardBooking.es-ES.resx">
-      <DependentUpon>AddStandardBooking.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AddStandardBooking.fr.resx">
-      <DependentUpon>AddStandardBooking.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AddStandardBooking.pt.resx">
-      <DependentUpon>AddStandardBooking.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AddStandardBooking.resx">
-      <DependentUpon>AddStandardBooking.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AddStandardBooking.ru-RU.resx">
-      <DependentUpon>AddStandardBooking.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\ChartOfAccountsForm.es-ES.resx">
-      <DependentUpon>ChartOfAccountsForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\ChartOfAccountsForm.fr.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>ChartOfAccountsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\ChartOfAccountsForm.pt.resx">
-      <DependentUpon>ChartOfAccountsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\ChartOfAccountsForm.resx">
-      <DependentUpon>ChartOfAccountsForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\ChartOfAccountsForm.ru-RU.resx">
-      <DependentUpon>ChartOfAccountsForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\ClosureBookings.resx">
-      <DependentUpon>ClosureBookings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\ClosureBookings.ru-RU.resx">
-      <DependentUpon>ClosureBookings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\EditFiscalYear.fr.resx">
-      <DependentUpon>EditFiscalYear.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\EditFiscalYear.pt.resx">
-      <DependentUpon>EditFiscalYear.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\EditFiscalYear.resx">
-      <DependentUpon>EditFiscalYear.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Accounting\ExchangeRateForm.pt.resx">
       <DependentUpon>ExchangeRateForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\ExportBookingsForm.pt.resx">
-      <DependentUpon>ExportBookingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FiscalYear.fr.resx">
-      <DependentUpon>FiscalYear.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FiscalYear.pt.resx">
-      <DependentUpon>FiscalYear.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FiscalYear.resx">
-      <DependentUpon>FiscalYear.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FrmAccount.es-ES.resx">
-      <DependentUpon>FrmAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FrmAccount.fr.resx">
-      <DependentUpon>FrmAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FrmAccount.pt.resx">
-      <DependentUpon>FrmAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FrmAccount.resx">
-      <DependentUpon>FrmAccount.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FrmAccount.ru-RU.resx">
-      <DependentUpon>FrmAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FrmAccountingRules.es-ES.resx">
-      <DependentUpon>FrmAccountingRules.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FrmAccountingRules.fr.resx">
-      <DependentUpon>FrmAccountingRules.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FrmAccountingRules.pt.resx">
-      <DependentUpon>FrmAccountingRules.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FrmAccountingRules.resx">
-      <DependentUpon>FrmAccountingRules.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FrmAccountingRules.ru-RU.resx">
-      <DependentUpon>FrmAccountingRules.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FrmAddContractAccountingRule.es-ES.resx">
-      <DependentUpon>FrmAddContractAccountingRule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FrmAddContractAccountingRule.fr.resx">
-      <DependentUpon>FrmAddContractAccountingRule.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FrmAddContractAccountingRule.pt.resx">
-      <DependentUpon>FrmAddContractAccountingRule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FrmAddContractAccountingRule.ru-RU.resx">
-      <DependentUpon>FrmAddContractAccountingRule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\ExchangeRateForm.es-ES.resx">
       <DependentUpon>ExchangeRateForm.cs</DependentUpon>
@@ -1293,69 +974,6 @@
     <EmbeddedResource Include="Accounting\ExchangeRateForm.ru-RU.resx">
       <DependentUpon>ExchangeRateForm.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\ExportBookingsForm.es-ES.resx">
-      <DependentUpon>ExportBookingsForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\ExportBookingsForm.fr.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>ExportBookingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\ExportBookingsForm.resx">
-      <DependentUpon>ExportBookingsForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\ExportBookingsForm.ru-RU.resx">
-      <DependentUpon>ExportBookingsForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\FrmAddContractAccountingRule.resx">
-      <DependentUpon>FrmAddContractAccountingRule.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\ManualEntries.fr.resx">
-      <DependentUpon>ManualEntries.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\ManualEntries.pt.resx">
-      <DependentUpon>ManualEntries.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\ManualEntries.resx">
-      <DependentUpon>ManualEntries.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\ManualEntries.ru-RU.resx">
-      <DependentUpon>ManualEntries.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\StandardBooking.es-ES.resx">
-      <DependentUpon>StandardBooking.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\StandardBooking.fr.resx">
-      <DependentUpon>StandardBooking.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\StandardBooking.pt.resx">
-      <DependentUpon>StandardBooking.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\StandardBooking.resx">
-      <DependentUpon>StandardBooking.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\StandardBooking.ru-RU.resx">
-      <DependentUpon>StandardBooking.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\AccountTrialBalance.resx">
-      <DependentUpon>AccountTrialBalance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\TrialBalancePreview.fr.resx">
-      <DependentUpon>TrialBalancePreview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\TrialBalancePreview.resx">
-      <DependentUpon>TrialBalancePreview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\TrialBalancePreview.ru-RU.resx">
-      <DependentUpon>TrialBalancePreview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AuditTrail\AuditTrailForm.es-ES.resx">
       <DependentUpon>AuditTrailForm.cs</DependentUpon>
@@ -1530,35 +1148,11 @@
       <DependentUpon>ContractCodeForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\AddTellerForm.fr.resx">
-      <DependentUpon>AddTellerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\AddTellerForm.pt.resx">
-      <DependentUpon>AddTellerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\AddTellerForm.resx">
-      <DependentUpon>AddTellerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\AddTellerForm.ru-RU.resx">
-      <DependentUpon>AddTellerForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Configuration\FrmEconomicActivity.es.resx">
       <DependentUpon>FrmEconomicActivity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\frmSettingsImportExport.es.resx">
       <DependentUpon>frmSettingsImportExport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\TellersForm.fr.resx">
-      <DependentUpon>TellersForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\TellersForm.pt.resx">
-      <DependentUpon>TellersForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\TellersForm.resx">
-      <DependentUpon>TellersForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\TellersForm.ru-RU.resx">
-      <DependentUpon>TellersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\EditUserForm.fr.resx">
       <DependentUpon>EditUserForm.cs</DependentUpon>
@@ -2222,26 +1816,12 @@
     <EmbeddedResource Include="frmShowError.pt.resx">
       <DependentUpon>frmShowError.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSplash.fr.resx">
-      <DependentUpon>FrmSplash.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmSplash.pt.resx">
-      <DependentUpon>FrmSplash.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSplash.ru-RU.resx">
-      <DependentUpon>FrmSplash.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="InputBox.es-ES.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="InputBox.pt.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login\LoginForm.pt.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainView.pt-PT.resx">
       <DependentUpon>MainView.cs</DependentUpon>
@@ -2330,22 +1910,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report Browser\RepaymentCollectionSheetForm.fr.resx">
       <DependentUpon>RepaymentCollectionSheetForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login\LoginForm.es-ES.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login\LoginForm.fr.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login\LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login\LoginForm.ru-RU.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MFI\frmMFI.fr.resx">
@@ -2611,24 +2175,6 @@
       <DependentUpon>SearchProjectForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="TellerManagement\FrmOpenCloseTeller.fr.resx">
-      <DependentUpon>FrmOpenCloseTeller.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TellerManagement\FrmOpenCloseTeller.resx">
-      <DependentUpon>FrmOpenCloseTeller.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TellerManagement\FrmOpenCloseTeller.ru-RU.resx">
-      <DependentUpon>FrmOpenCloseTeller.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TellerManagement\FrmTellerOperation.fr.resx">
-      <DependentUpon>FrmTellerOperation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TellerManagement\FrmTellerOperation.resx">
-      <DependentUpon>FrmTellerOperation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TellerManagement\FrmTellerOperation.ru-RU.resx">
-      <DependentUpon>FrmTellerOperation.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Tools\frmProgress.es-ES.resx">
       <DependentUpon>frmProgress.cs</DependentUpon>
     </EmbeddedResource>
@@ -2714,10 +2260,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainView.ru-RU.resx">
       <DependentUpon>MainView.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmSplash.resx">
-      <DependentUpon>FrmSplash.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Products\FrmAddLoanProduct.fr.resx">
@@ -3212,25 +2754,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\EconomicActivityControl.resx">
       <DependentUpon>EconomicActivityControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\ElemMvtUserControl.es-ES.resx">
-      <DependentUpon>ElemMvtUserControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\ElemMvtUserControl.fr.resx">
-      <DependentUpon>ElemMvtUserControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\ElemMvtUserControl.pt.resx">
-      <DependentUpon>ElemMvtUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\ElemMvtUserControl.resx">
-      <DependentUpon>ElemMvtUserControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\ElemMvtUserControl.ru-RU.resx">
-      <DependentUpon>ElemMvtUserControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\GroupUserControl.es-ES.resx">
       <DependentUpon>GroupUserControl.cs</DependentUpon>
