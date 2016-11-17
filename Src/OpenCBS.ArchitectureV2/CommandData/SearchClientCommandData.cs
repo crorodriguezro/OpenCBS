@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-using OpenCBS.ArchitectureV2.Interface;
-using OpenCBS.Enums;
+﻿using OpenCBS.Enums;
 
 namespace OpenCBS.ArchitectureV2.CommandData
 {
@@ -10,15 +8,16 @@ namespace OpenCBS.ArchitectureV2.CommandData
         {
             OpeningNewClientForm = true;
         }
-        public SearchClientCommandData(OClientTypes tiersType,bool includeNotactiveOnly)
+
+        public SearchClientCommandData(OClientTypes tiersType, bool includeNotactiveOnly)
         {
             OpeningNewClientForm = false;
             TiersType = tiersType;
             IncludeNotactiveOnly = includeNotactiveOnly;
         }
-        public bool OpeningNewClientForm { get; }
-        public OClientTypes TiersType { get;  }
-        public bool IncludeNotactiveOnly { get; }
-        
+
+        public bool OpeningNewClientForm { get; set; }
+        public OClientTypes TiersType { get; set; }
+        public bool IncludeNotactiveOnly { get; set; }
     }
 }
