@@ -383,41 +383,6 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
 
             return events;
         }
-
-        public virtual SavingCreditOperationEvent SpecialOperationCredit(OCurrency amount, DateTime date, string description, User user)
-        {
-            SavingCreditOperationEvent spEvent = new SavingCreditOperationEvent
-            {
-                Amount = amount,
-                Date = date,
-                Description = description,
-                User = user,
-                Cancelable = true,
-                ProductType = typeof(SavingsBookProduct)
-            };
-
-            Events.Add(spEvent);
-            return spEvent;
-        }
-
-        public virtual SavingDebitOperationEvent SpecialOperationDebit(OCurrency amount, DateTime date, string description, User user)
-        {
-            SavingDebitOperationEvent spEvent = new SavingDebitOperationEvent
-            {
-                Amount = amount,
-                Date = date,
-                Description = description,
-                User = user,
-                Cancelable = true,
-                ProductType = typeof(SavingsBookProduct)
-            };
-
-            Events.Add(spEvent);
-            return spEvent;
-        }
-
-        
-
         
         public virtual SavingEvent DebitTransfer(ISavingsContract to, OCurrency amount, OCurrency fee, DateTime date, string description)
         {
@@ -646,19 +611,6 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
 
 
         #region Protected members
-        protected ContractChartOfAccounts FillChartOfAccounts(ChartOfAccounts pChartOfAccounts)
-        {
-            ContractChartOfAccounts contractChartOfAccounts;
-            if (pChartOfAccounts.UniqueAccounts.Count > 0)
-                contractChartOfAccounts = new ContractChartOfAccounts(pChartOfAccounts.UniqueAccounts.
-                    Select(item => new Account(item.Number, item.Label, 0, item.TypeCode, item.DebitPlus, item.AccountCategory, Product != null && Product.Currency != null ? Product.Currency.Id : 1)).ToList());
-            else
-                contractChartOfAccounts = new ContractChartOfAccounts(pChartOfAccounts.DefaultAccounts.ToList());
-
-            contractChartOfAccounts.AccountingRuleCollection = pChartOfAccounts.AccountingRuleCollection;
-
-            return contractChartOfAccounts;
-        }
 
         protected SavingEvent EvaluateSavingsEvent(SavingEvent e)
         {

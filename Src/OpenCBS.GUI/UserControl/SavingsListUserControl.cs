@@ -77,7 +77,7 @@ namespace OpenCBS.GUI.UserControl
                 //In case, if there are contracts in different currencies, total value of Balance is displayed in pivot currency
                 
                 latestExchangeRate =
-                    ServicesProvider.GetInstance().GetAccountingServices().FindLatestExchangeRate(TimeProvider.Today,
+                    ServicesProvider.GetInstance().GetExchangeRateServices().FindLatestExchangeRate(TimeProvider.Today,
                                                                                             saving.Product.Currency);
                 string status = MultiLanguageStrings.GetString(Ressource.ClientForm, "Savings" + saving.Status + ".Text");
                 ListViewItem item = new ListViewItem(saving.Code) { Tag = saving };

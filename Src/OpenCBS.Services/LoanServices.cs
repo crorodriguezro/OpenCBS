@@ -64,7 +64,6 @@ namespace OpenCBS.Services
     public class LoanServices : Services
     {
         private readonly FundingLineServices _fundingLineServices;
-        private readonly AccountingServices _accountingServices;
         private readonly BranchService _branchService;
         private readonly LoanManager _loanManager;
         private readonly InstallmentManager _instalmentManager;
@@ -100,7 +99,6 @@ namespace OpenCBS.Services
             _branchService = new BranchService(pUser);
             _econimcActivityServices = new EconomicActivityServices(pUser);
             _ePs = ServicesProvider.GetInstance().GetEventProcessorServices();
-            _accountingServices = new AccountingServices(pUser);
             _fundingLineServices = new FundingLineServices(pUser);
             _savingServices = new SavingServices(pUser);
             _savingEventManager = new SavingEventManager(pUser);
@@ -501,8 +499,7 @@ namespace OpenCBS.Services
         {
             Loan copyLoan = pLoan.Copy();
             CheckDisbursedLoan(copyLoan, pDateToDisburse);
-            CheckOperationDate(pDateToDisburse);
-
+            
             using (SqlConnection connection = _loanManager.GetConnection())
             using (SqlTransaction sqlTransaction = connection.BeginTransaction())
             {
@@ -703,8 +700,7 @@ namespace OpenCBS.Services
             {
                 throw new OpenCbsRepayException(OpenCbsRepayExceptionsEnum.RepaymentBeforeLastEventDate);
             }
-            CheckOperationDate(payDate);
-
+            
             Loan savedContract = curentLoan.Copy();
             using (SqlConnection conn = _loanManager.GetConnection())
             using (SqlTransaction sqlTransaction = conn.BeginTransaction())
@@ -1990,11 +1986,6 @@ namespace OpenCBS.Services
             }
         }
 
-        public List<Loan> FindAllContractsForClosure()
-        {
-            return _loanManager.SelectLoansForClosure(OClosureTypes.Degradation);
-        }
-
         public List<Loan> SelectContractsForClosure()
         {
             return _loanManager.SelectLoansForClosure();
@@ -2484,7 +2475,6 @@ namespace OpenCBS.Services
 
         public Loan UpdateContractStatus(Loan credit, Project project, IClient client, bool undoValidation)
         {
-            CheckOperationDate(credit.CreditCommiteeDate.Value);
             using (SqlConnection conn = _loanManager.GetConnection())
             using (SqlTransaction sqlTransaction = conn.BeginTransaction())
             {
@@ -2683,10 +2673,7 @@ namespace OpenCBS.Services
 
         public DateTime EventsExportedDate(int eventId, SqlTransaction sqlTransaction)
         {
-            AccountingTransaction e = _accountingServices.FindMovementSet(eventId, sqlTransaction);
-            if (null == e) return DateTime.Today;
-
-            return e.ExportedDate;
+            return DateTime.Today;
         }
 
         private static void _CheckLoanFilling(Loan pLoan, IClient pClient)
@@ -3051,22 +3038,6 @@ namespace OpenCBS.Services
                            false);
 
             credit.Events = l.Events;
-        }
-
-        private bool IsDateWithinCurrentFiscalYear(DateTime date)
-        {
-            ChartOfAccountsServices coaService = ServicesProvider.GetInstance().GetChartOfAccountsServices();
-            FiscalYear year =
-                coaService.SelectFiscalYears()
-                          .Find(y => date >= y.OpenDate && (y.CloseDate == null || date <= y.CloseDate));
-            return null != year && year.Open;
-        }
-
-        private void CheckOperationDate(DateTime date)
-        {
-            if (!IsDateWithinCurrentFiscalYear(date))
-                throw new OpenCbsContractSaveException(
-                    OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
         }
 
         private string GenerateContractCode(IClient client, Loan loan, SqlTransaction transaction)

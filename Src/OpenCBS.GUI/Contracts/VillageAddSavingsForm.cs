@@ -626,7 +626,7 @@ namespace OpenCBS.GUI.Contracts
                 item.UseItemStyleForSubItems = false;
 
                 customExchangeRate =
-                        ServicesProvider.GetInstance().GetAccountingServices().FindLatestExchangeRate(
+                        ServicesProvider.GetInstance().GetExchangeRateServices().FindLatestExchangeRate(
                             TimeProvider.Today, (Currency)item.SubItems[idxCurrency].Tag);
 
                 total += customExchangeRate.Rate == 0

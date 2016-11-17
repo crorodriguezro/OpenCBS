@@ -27,8 +27,6 @@ namespace OpenCBS.MultiLanguageRessources
 {
     public enum Ressource
     {
-        FrmSplash,
-        AccountView,
         AddGuarantorForm,
         FrmAddLoanProduct,
         AddressUserControl,
@@ -37,7 +35,6 @@ namespace OpenCBS.MultiLanguageRessources
         BadLoanRepaymentForm,
         CashPrevisionForm,
         CashReceiptForm,
-        ChartOfAccountsForm,
         BranchesForm,
         Common,
         ContractReschedulingForm,
@@ -46,9 +43,7 @@ namespace OpenCBS.MultiLanguageRessources
         CreditContractForm,
         CreditContractRepayForm,
         DateTimeUserControl,
-        ElemMvtUserControl,
         ExchangeRateForm,
-        ExportBookingsForm,
         FastChoiceForm,
         ReassingContract,
         FrmActivity,
@@ -91,13 +86,11 @@ namespace OpenCBS.MultiLanguageRessources
         FrmAddSavingProduct,
         FrmAddSavingEvent,
         StandardBooking,
-        AccountingRule,
         FrmExportSage,
         FrmRoles,
         CustomizableExport,
         ShowPictureForm,
         LoanSharesForm,
-        FrmOpenCloseTeller,
         CreditScoringForm,
         ClientControl,
         MyInforamtionForm,
@@ -154,7 +147,10 @@ namespace OpenCBS.MultiLanguageRessources
                     typeof (MultiLanguageStrings).Assembly);
                 _ressourceManagers.Add(pRessourceName, rm);
             }
-            return rm.GetResourceSet(CultureInfo.CurrentUICulture, true, false);
+
+            return rm.GetResourceSet(CultureInfo.CurrentUICulture, true, false) ??
+                   rm.GetResourceSet(CultureInfo.CurrentUICulture.Parent, true, false) ??
+                   rm.GetResourceSet(CultureInfo.InvariantCulture, true, false);
         }
     }
 }

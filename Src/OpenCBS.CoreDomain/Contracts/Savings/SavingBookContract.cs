@@ -400,38 +400,6 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
             return Close(pDate, pUser, pDescription, pIsDesactivateFees, teller, false);
         }
 
-        public override SavingCreditOperationEvent SpecialOperationCredit(OCurrency amount, DateTime date, string description, User user)
-        {
-            SavingCreditOperationEvent spEvent = new SavingCreditOperationEvent
-            {
-                Amount = amount,
-                Date = date,
-                Description = description,
-                User = user,
-                Cancelable = true,
-                ProductType = typeof(SavingsBookProduct)
-            };
-
-            Events.Add(spEvent);
-            return spEvent;
-        }
-
-        public override SavingDebitOperationEvent SpecialOperationDebit(OCurrency amount, DateTime date, string description, User user)
-        {
-            SavingDebitOperationEvent spEvent = new SavingDebitOperationEvent
-            {
-                Amount = amount,
-                Date = date,
-                Description = description,
-                User = user,
-                Cancelable = true,
-                ProductType = typeof(SavingsBookProduct)
-            };
-
-            Events.Add(spEvent);
-            return spEvent;
-        }
-
         protected DateTime GetLastManagementFeeEventDate()
         {
             CreationDate = new DateTime(CreationDate.Year

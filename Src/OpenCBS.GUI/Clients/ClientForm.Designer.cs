@@ -249,6 +249,7 @@ namespace OpenCBS.GUI.Clients
             this.nudInterestRate = new System.Windows.Forms.NumericUpDown();
             this.eacLoan = new OpenCBS.GUI.UserControl.EconomicActivityControl();
             this._scheduleTypeLabel = new System.Windows.Forms.Label();
+            this._labelLoanOffecerInfo = new System.Windows.Forms.Label();
             this.tabPageAdvancedSettings = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
@@ -503,7 +504,6 @@ namespace OpenCBS.GUI.Clients
             this.savingDepositToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.savingWithdrawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.savingTransferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.specialOperationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.olvColumnSACExportedBalance = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnLACExportedBalance = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.panel2 = new System.Windows.Forms.Panel();
@@ -1560,6 +1560,7 @@ namespace OpenCBS.GUI.Clients
             this.tableLayoutPanel4.Controls.Add(this.nudInterestRate, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.eacLoan, 4, 4);
             this.tableLayoutPanel4.Controls.Add(this._scheduleTypeLabel, 0, 6);
+            this.tableLayoutPanel4.Controls.Add(this._labelLoanOffecerInfo, 6, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             // 
             // _scheduleTypeComboBox
@@ -1775,6 +1776,12 @@ namespace OpenCBS.GUI.Clients
             // 
             resources.ApplyResources(this._scheduleTypeLabel, "_scheduleTypeLabel");
             this._scheduleTypeLabel.Name = "_scheduleTypeLabel";
+            // 
+            // _labelLoanOffecerInfo
+            // 
+            resources.ApplyResources(this._labelLoanOffecerInfo, "_labelLoanOffecerInfo");
+            this._labelLoanOffecerInfo.ForeColor = System.Drawing.Color.Red;
+            this._labelLoanOffecerInfo.Name = "_labelLoanOffecerInfo";
             // 
             // tabPageAdvancedSettings
             // 
@@ -3505,8 +3512,7 @@ namespace OpenCBS.GUI.Clients
             this.menuBtnAddSavingOperation.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.savingDepositToolStripMenuItem,
             this.savingWithdrawToolStripMenuItem,
-            this.savingTransferToolStripMenuItem,
-            this.specialOperationToolStripMenuItem});
+            this.savingTransferToolStripMenuItem});
             this.menuBtnAddSavingOperation.Name = "contextMenuStrip1";
             resources.ApplyResources(this.menuBtnAddSavingOperation, "menuBtnAddSavingOperation");
             // 
@@ -3530,13 +3536,6 @@ namespace OpenCBS.GUI.Clients
             this.savingTransferToolStripMenuItem.Name = "savingTransferToolStripMenuItem";
             resources.ApplyResources(this.savingTransferToolStripMenuItem, "savingTransferToolStripMenuItem");
             this.savingTransferToolStripMenuItem.Click += new System.EventHandler(this.savingTransferToolStripMenuItem_Click);
-            // 
-            // specialOperationToolStripMenuItem
-            // 
-            this.specialOperationToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(56)))));
-            this.specialOperationToolStripMenuItem.Name = "specialOperationToolStripMenuItem";
-            resources.ApplyResources(this.specialOperationToolStripMenuItem, "specialOperationToolStripMenuItem");
-            this.specialOperationToolStripMenuItem.Click += new System.EventHandler(this.specialOperationToolStripMenuItem_Click);
             // 
             // olvColumnSACExportedBalance
             // 
@@ -4154,7 +4153,6 @@ namespace OpenCBS.GUI.Clients
         private ColumnHeader colName;
         private ColumnHeader colValue;
         private ColumnHeader colType;
-        private ToolStripMenuItem specialOperationToolStripMenuItem;
         private ColumnHeader colAmount;
         private System.Windows.Forms.Button buttonViewCollateral;
         private System.Windows.Forms.Button buttonViewAGarantors;
@@ -4272,5 +4270,6 @@ namespace OpenCBS.GUI.Clients
         private TextBox textBox1;
         private Label label2;
         private TabPage tabPageTermDeposit;
+        private Label _labelLoanOffecerInfo;
     }
 }

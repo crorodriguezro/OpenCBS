@@ -1249,51 +1249,6 @@ namespace OpenCBS.Manager.Contracts
             return loans;
         }
 
-        public List<Loan> SelectLoansForClosure(OClosureTypes pClosureType)
-        {
-            List<int> ids = new List<int>();
-            string q = pClosureType == OClosureTypes.Degradation
-                           ? @"SELECT DISTINCT Credit.id AS id 
-                                     FROM Credit 
-                                     WHERE Credit.disbursed = 1 
-                                        AND Credit.written_off = 0 
-                                        AND (NOT ((SELECT SUM(interest_repayment) + SUM(capital_repayment) - 
-                                                   SUM(paid_interest) - SUM(paid_capital) 
-                                                   FROM Installments 
-                                                   WHERE contract_id = Credit.id) < 0.02))"
-                           : @"SELECT DISTINCT Contracts.id 
-                                    FROM Contracts 
-                                    INNER JOIN Credit ON Contracts.id = Credit.id 
-                                        WHERE (Credit.disbursed = 1)                                           
-                                          AND (Credit.written_off = 0) 
-                                          AND (Credit.bad_loan = 0) 
-                                          AND (Contracts.closed = 0)";
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            {
-                using (OpenCbsReader r = c.ExecuteReader())
-                {
-                    if (r == null || r.Empty) return new List<Loan>();
-
-                    while (r.Read())
-                    {
-                        ids.Add(r.GetInt("id"));
-                    }
-                }
-            }
-
-            List<Loan> loans = new List<Loan>();
-            foreach (int i in ids)
-            {
-                var loan = SelectLoan(i, true, true, false);
-                if (_projectManager != null)
-                    loan.Project = _projectManager.SelectProjectByContractId(loan.Id);
-                loans.Add(loan);
-                System.Diagnostics.Debug.WriteLine(i);
-            }
-            return loans;
-        }
-
         public void DeleteLoanShareAmountWhereNotDisbursed(int groupId)
         {
             const string q = @"
@@ -1979,7 +1934,7 @@ namespace OpenCBS.Manager.Contracts
         {
             return new Loan(_user, ApplicationSettings.GetInstance(_user.Md5),
                             NonWorkingDateSingleton.GetInstance(_user.Md5),
-                            ProvisionTable.GetInstance(_user), ChartOfAccounts.GetInstance(_user))
+                            ProvisionTable.GetInstance(_user))
                 {
                     Id = r.GetInt("credit_id"),
                     ClientType = r.GetChar("client_type_code") == 'I'

@@ -28,7 +28,6 @@ namespace OpenCBS.Enums
     {
         Credit = 1,
         Debit = 2,
-        Transfer = 3,
-        SpecialOperation = 4
+        Transfer = 3
     }
 }

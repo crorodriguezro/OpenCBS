@@ -228,46 +228,6 @@ namespace OpenCBS.GUI.Contracts
                         _chequeNumberLabel.Visible = _chequeNumberTextBox.Visible = false;
                         break;
                     }
-                case OSavingsOperation.SpecialOperation:
-                    {
-                        Text = MultiLanguageStrings.GetString(Ressource.FrmAddSavingEvent, "SpecialOperation.Text");
-                        Name = MultiLanguageStrings.GetString(Ressource.FrmAddSavingEvent, "SpecialOperation.Text");
-                        btnSave.Text = MultiLanguageStrings.GetString(Ressource.FrmAddSavingEvent, "ComfirmOperation.Text");
-                        tbxSavingCode.Text = MultiLanguageStrings.GetString(Ressource.FrmAddSavingEvent, "SpecialOperation.Text");
-                        lblPaymentMethod.Text = MultiLanguageStrings.GetString(Ressource.FrmAddSavingEvent, "StandardBooking.Text");
-                        plTransfer.Visible = true;
-                        pnlSavingPending.Visible = true;
-                        cbxPending.Visible = false;
-                        cbSavingsMethod.Visible = false;
-                        lblAmountFeesMinMax.Visible = false;
-                        lbAmountMinMax.Visible = false;
-                        rbxDebit.Visible = true;
-                        rbxCredit.Visible = true;
-                        btnSearchContract.Visible = false;
-                        tbTargetAccount.Visible = false;
-                        lblClientName.Visible = false;
-                        updAmountFees.Visible = false;
-                        lblSavingCurrencyFees.Visible = false;
-                        lblFees.Visible = false;
-                        lblTotalAmount.Visible = false;
-                        nudTotalAmount.Visible = false;
-                        lblTotalSavingCurrency.Visible = false;
-                        lbAmountMinMaxCurrencyPivot.Visible = false;
-                        _chequeNumberLabel.Visible = _chequeNumberTextBox.Visible = false;
-
-                        cbBookings.Items.Clear();
-                        foreach (Booking booking in ServicesProvider.GetInstance().GetStandardBookingServices().SelectAllStandardBookings())
-                        {
-                            cbBookings.Items.Add(booking);
-                        }
-                        cbBookings.Visible = true;
-
-                        _feesMin = 0;
-                        _feesMax = 0;
-                        _rateFees = 0;
-
-                        break;
-                    }
             }
 
             dtpDate.Value = TimeProvider.Now;
@@ -399,22 +359,6 @@ namespace OpenCBS.GUI.Contracts
                             savingServices.Transfer(_saving, _savingTarget, _date, _amount, fee, _description,
                                 User.CurrentUser, false);
                             break;
-                        }
-
-                    case OSavingsOperation.SpecialOperation:
-                        {
-                            OSavingsMethods savingsMethod =
-                                (OSavingsMethods)
-                                    Enum.Parse(typeof(OSavingsMethods), cbSavingsMethod.SelectedValue.ToString());
-                            if (cbBookings.SelectedItem != null)
-                            {
-                                Booking booking = (Booking)cbBookings.SelectedItem;
-                                booking.Branch = _saving.Branch;
-                                savingServices.SpecialOperation(_saving, _date, _amount, _description, User.CurrentUser,
-                                    savingsMethod, rbxCredit.Checked, booking);
-                                break;
-                            }
-                            throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.TransactionInvalid);
                         }
                 }
 

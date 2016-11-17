@@ -49,7 +49,6 @@ using OpenCBS.GUI.Contracts;
 using OpenCBS.GUI.Database;
 using OpenCBS.GUI.Products;
 using OpenCBS.GUI.Report_Browser;
-using OpenCBS.GUI.TellerManagement;
 using OpenCBS.GUI.Tools;
 using OpenCBS.GUI.UserControl;
 using OpenCBS.MultiLanguageRessources;
@@ -193,7 +192,6 @@ namespace OpenCBS.GUI
 
         private void InitMenu()
         {
-            tellersToolStripMenuItem.Visible = ServicesProvider.GetInstance().GetGeneralSettings().UseTellerManagement;
         }
 
         private void InitializeTracer()
@@ -219,40 +217,6 @@ namespace OpenCBS.GUI
             {
                 initializer.Init();
             }
-        }
-
-        private bool InitializeTellerManagement()
-        {
-            if (ServicesProvider.GetInstance().GetGeneralSettings().UseTellerManagement)
-            {
-                FrmOpenCloseTeller frm = new FrmOpenCloseTeller(true);
-                frm.ShowDialog();
-
-                if (frm.DialogResult == DialogResult.OK)
-                {
-                    if (frm.Teller != null && frm.Teller.Id != 0)
-                    {
-                        Teller.CurrentTeller = frm.Teller;
-                        //tellerManagementToolStripMenuItem.Visible = true;
-                        ServicesProvider.GetInstance().GetEventProcessorServices().LogUser(OUserEvents.UserOpenTellerEvent,
-                            Teller.CurrentTeller.Name + " opened", User.CurrentUser.Id);
-                        ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(frm.OpenOfDayAmountEvent);
-
-                        if (frm.OpenAmountPositiveDifferenceEvent != null)
-                            ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                                frm.OpenAmountPositiveDifferenceEvent);
-                        else if (frm.OpenAmountNegativeDifferenceEvent != null)
-                            ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                                frm.OpenAmountNegativeDifferenceEvent);
-
-                    }
-
-                    return true;
-                }
-                return false;
-
-            }
-            return true;
         }
 
         private void _DisplayDetails()
@@ -489,12 +453,6 @@ namespace OpenCBS.GUI
             }
         }
 
-        public void InitializeChartOfAccountsForm(int pCurrencyId)
-        {
-            var chartOfAccountsForm = new ChartOfAccountsForm(pCurrencyId) { MdiParent = this };
-            chartOfAccountsForm.Show();
-        }
-
         private void InitializeCollateralProductsForm()
         {
             var collateralProductsForm = new FrmAvalaibleCollateralProducts { MdiParent = this };
@@ -559,11 +517,6 @@ namespace OpenCBS.GUI
             InitializeSearchClientForm();
         }
 
-        private void mnuChartOfAccounts_Click(object sender, EventArgs e)
-        {
-            InitializeChartOfAccountsForm(ServicesProvider.GetInstance().GetCurrencyServices().GetPivot().Id);
-        }
-
         private void menuItemPackages_Click(object sender, EventArgs e)
         {
             InitializePackagesForm();
@@ -579,12 +532,6 @@ namespace OpenCBS.GUI
             InitializeDomainOfApplicationForm();
         }
 
-        private void menuItemExportTransaction_Click(object sender, EventArgs e)
-        {
-            Form exportTransactions = new ExportBookingsForm { MdiParent = this };
-
-            exportTransactions.Show();
-        }
         private void menuItemExchangeRate_Click(object sender, System.EventArgs e)
         {
             ExchangeRateForm exchangeRate = new ExchangeRateForm();
@@ -651,18 +598,6 @@ namespace OpenCBS.GUI
             spanishToolStripMenuItem.Checked = (currentLanguage == "es-ES");
         }
 
-        private void _InitializeStandardBookings()
-        {
-            StandardBooking standardBooking = new StandardBooking { MdiParent = this };
-            standardBooking.Show();
-        }
-
-        private void toolStripMenuItemAccountView_Click(object sender, EventArgs e)
-        {
-            AccountView accountView = new AccountView { MdiParent = this };
-            accountView.Show();
-        }
-
         private void menuItemLocations_Click(object sender, EventArgs e)
         {
             Form frm = new FrmLocations();
@@ -695,30 +630,7 @@ namespace OpenCBS.GUI
                     (sender == englishToolStripMenuItem ? "en-US" :
                     (sender == spanishToolStripMenuItem ? "es-ES" : "pt")));
 
-            if (ServicesProvider.GetInstance().GetGeneralSettings().UseTellerManagement)
-            {
-                if (Teller.CurrentTeller != null && Teller.CurrentTeller.Id != 0)
-                {
-                    FrmOpenCloseTeller frm = new FrmOpenCloseTeller(false);
-                    frm.ShowDialog();
-
-                    if (frm.DialogResult == DialogResult.OK)
-                    {
-                        _showTellerFormOnClose = false;
-                        Teller.CurrentTeller = null;
-                        ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                                                                                frm.CloseOfDayAmountEvent);
-                        if (frm.CloseAmountNegativeDifferenceEvent != null)
-                            ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                                frm.CloseAmountNegativeDifferenceEvent);
-                        else if (frm.CloseAmountPositiveDifferenceEvent != null)
-                            ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                                frm.CloseAmountPositiveDifferenceEvent);
-                        RestartApplication(language);
-                    }
-                }
-            }
-            else RestartApplication(language);
+            RestartApplication(language);
         }
 
         private void toolStripMenuItemInstallmentTypes_Click(object sender, EventArgs e)
@@ -761,18 +673,12 @@ namespace OpenCBS.GUI
         {
             InitExtensions();
             UserSettings.Language = UserSettings.GetUserLanguage();
-            if (InitializeTellerManagement())
-            {
-                Ping();
-                LogUser();
-                InitializeMainMenu();
-                _InitializeUserRights();
-                DisplayFastChoiceForm();
-            }
-            else
-            {
-                Environment.Exit(0);
-            }
+
+            Ping();
+            LogUser();
+            InitializeMainMenu();
+            _InitializeUserRights();
+            DisplayFastChoiceForm();
         }
 
         private static void Ping()
@@ -916,11 +822,6 @@ namespace OpenCBS.GUI
             rs.LoadReports();
         }
 
-        private void standardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            _InitializeStandardBookings();
-        }
-
         private static void OpenUrl(string url)
         {
             try
@@ -967,17 +868,6 @@ namespace OpenCBS.GUI
         private void LotrasmicMainWindowForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             _applicationController.Unsubscribe(this);
-            if (ServicesProvider.GetInstance().GetGeneralSettings().UseTellerManagement)
-            {
-                if (_showTellerFormOnClose)
-                {
-                    e.Cancel = false;
-
-                    if (Teller.CurrentTeller != null && Teller.CurrentTeller.Id != 0)
-                        if (!CloseTeller())
-                            e.Cancel = true;
-                }
-            }
             try
             {
                 ServicesProvider.GetInstance().GetEventProcessorServices().LogUser(OUserEvents.UserLogOutEvent,
@@ -986,22 +876,10 @@ namespace OpenCBS.GUI
             catch { }
         }
 
-        private void accountingRulesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmAccountingRules frmAccountingRules = new FrmAccountingRules { MdiParent = this };
-            frmAccountingRules.Show();
-        }
-
         private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmRoles rolesForm = new FrmRoles(this) { MdiParent = this };
             rolesForm.Show();
-        }
-
-        private void trialBalanceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AccountTrialBalance accountTrialBalance = new AccountTrialBalance { MdiParent = this };
-            accountTrialBalance.Show();
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1012,67 +890,9 @@ namespace OpenCBS.GUI
             Notify("passwordChanged");
         }
 
-        private void manualEntriesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ManualEntries accountView = new ManualEntries { MdiParent = this };
-            accountView.Show();
-        }
-
         private void branchesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BranchesForm frm = new BranchesForm { MdiParent = this };
-            frm.Show();
-        }
-
-        private void closeTellerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!CloseTeller())
-                MessageBox.Show(MultiLanguageStrings.GetString(Ressource.FrmOpenCloseTeller, "noOpenTellersText"));
-        }
-
-        private bool CloseTeller()
-        {
-            if (Teller.CurrentTeller != null)
-            {
-                FrmOpenCloseTeller frm = new FrmOpenCloseTeller(false);
-                frm.ShowDialog();
-                if (frm.DialogResult == DialogResult.OK)
-                {
-                    string desc = Teller.CurrentTeller.Name + " closed";
-                    Teller.CurrentTeller = null;
-                    ServicesProvider.GetInstance().GetEventProcessorServices().LogUser(
-                                                                        OUserEvents.UserCloseTellerEvent,
-                                                                        desc,
-                                                                        User.CurrentUser.Id);
-                    ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(frm.CloseOfDayAmountEvent);
-                    if (frm.CloseAmountNegativeDifferenceEvent != null)
-                        ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                            frm.CloseAmountNegativeDifferenceEvent);
-                    else if (frm.CloseAmountPositiveDifferenceEvent != null)
-                        ServicesProvider.GetInstance().GetEventProcessorServices().FireTellerEvent(
-                            frm.CloseAmountPositiveDifferenceEvent);
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        private void newClosureToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            AccountingClosureForm frm = new AccountingClosureForm { MdiParent = this };
-            frm.Show();
-        }
-
-        private void fiscalYearToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FiscalYear fiscalYear = new FiscalYear() { MdiParent = this };
-            fiscalYear.Show();
-        }
-
-        private void tellersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TellersForm frm = new TellersForm() { MdiParent = this };
             frm.Show();
         }
 

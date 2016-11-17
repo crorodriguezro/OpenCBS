@@ -185,9 +185,6 @@ namespace OpenCBS.ExceptionsHandler
                 case OpenCbsContractSaveExceptionEnum.LoanHasNoCompulsorySavings:
                     returned = "LoanHasNoCompulsorySavingsError.Text";
                     break;
-                case OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear:
-                    returned = "OperationOutsideCurrentFiscalYear.Text";
-                    break;
                 case OpenCbsContractSaveExceptionEnum.EconomicActivityNotSet:
                     returned = "EconomicActivityNotSet.Text";
                     break;
@@ -249,7 +246,6 @@ namespace OpenCBS.ExceptionsHandler
         NumberFieldIsNotANumber,
         ZeroFee,
         WrongEvent,
-        OperationOutsideCurrentFiscalYear,
         EconomicActivityNotSet,
         LoanAlreadyDisbursed
     }

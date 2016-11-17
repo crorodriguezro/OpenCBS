@@ -194,11 +194,6 @@ namespace OpenCBS.Shared.Settings
 
         #endregion
 
-        public bool UseTellerManagement
-        {
-            get { return false; }
-        }
-
         public string IDPattern
         {
             get

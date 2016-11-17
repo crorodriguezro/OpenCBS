@@ -35,7 +35,6 @@ namespace OpenCBS.CoreDomain
         }
         public string Name;
         public string Description;
-        public Account Account;
         public bool Deleted;
         public Branch Branch;
         public OCurrency MinAmountTeller;

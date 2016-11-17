@@ -703,7 +703,7 @@ namespace OpenCBS.GUI.Clients
             tabControlSavingsDetails.TabPages.Clear();
             if (product.Type == OSavingProductType.PersonalAccount)
             {
-                buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible =
+                buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = 
                 labelInterestRate.Visible = nudDownInterestRate.Visible = lbInterestRateMinMax.Visible = false;
                 labelInitialAmount.Visible = nudDownInitialAmount.Visible = lbInitialAmountMinMax.Visible = true;
 
@@ -1177,7 +1177,7 @@ namespace OpenCBS.GUI.Clients
                 = saving.Status == OSavingsStatus.Active;
 
             saving = SavingServices.GetSaving(saving.Id);
-            buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible = false;
+            buttonFirstDeposit.Visible  = false;
             //tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
             tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
             if (saving.Product.Type == OSavingProductType.PersonalAccount)
@@ -1683,10 +1683,10 @@ namespace OpenCBS.GUI.Clients
                 //recorded at disbursement date.
 
                 latestExchangeRate =
-                    ServicesProvider.GetInstance().GetAccountingServices().FindLatestExchangeRate(TimeProvider.Today,
+                    ServicesProvider.GetInstance().GetExchangeRateServices().FindLatestExchangeRate(TimeProvider.Today,
                                                                                             credit.Product.Currency);
                 customExchangeRate =
-                    ServicesProvider.GetInstance().GetAccountingServices().FindLatestExchangeRate(
+                    ServicesProvider.GetInstance().GetExchangeRateServices().FindLatestExchangeRate(
                         credit.StartDate, credit.Product.Currency);
 
                 var item = new ListViewItem("C") { Tag = credit };
@@ -2214,8 +2214,7 @@ namespace OpenCBS.GUI.Clients
         {
             _credit = new Loan(User.CurrentUser, ServicesProvider.GetInstance().GetGeneralSettings(),
                 ServicesProvider.GetInstance().GetNonWorkingDate(),
-                CoreDomainProvider.GetInstance().GetProvisioningTable(),
-                CoreDomainProvider.GetInstance().GetChartOfAccounts());
+                CoreDomainProvider.GetInstance().GetProvisioningTable());
             _credit.Product = pPackage;
 
             nudLoanAmount.Text = string.Empty;
@@ -2418,7 +2417,8 @@ namespace OpenCBS.GUI.Clients
 
             foreach (User user in _subordinates)
             {
-                _loanOfficerComboBox.Items.Add(user);
+                if(user.UserRole.RoleName == "LOF" && !user.IsDeleted && !user.UserRole.IsDeleted)
+                    _loanOfficerComboBox.Items.Add(user);
             }
             // set favoutite loan officer
             if (_credit.LoanOfficer != null)
@@ -2453,6 +2453,10 @@ namespace OpenCBS.GUI.Clients
                 else
                     _loanOfficerComboBox.SelectedIndex = 0;
             }
+            if (_loanOfficerComboBox.Items.Count == 0)
+                _labelLoanOffecerInfo.Text = MultiLanguageStrings.GetString(Ressource.ClientForm, "EmptyLoanOfficer.Text");
+            else
+                _labelLoanOffecerInfo.Text = string.Empty;
         }
 
         private void InitializeFundingLine()
@@ -3511,8 +3515,7 @@ namespace OpenCBS.GUI.Clients
                                        User.CurrentUser,
                                        ServicesProvider.GetInstance().GetGeneralSettings(),
                                        ServicesProvider.GetInstance().GetNonWorkingDate(),
-                                       CoreDomainProvider.GetInstance().GetProvisioningTable(),
-                                       CoreDomainProvider.GetInstance().GetChartOfAccounts())
+                                       CoreDomainProvider.GetInstance().GetProvisioningTable())
                               {
                                   Guarantors = _listGuarantors,
                                   Collaterals = _collaterals,
@@ -4671,11 +4674,6 @@ namespace OpenCBS.GUI.Clients
                     throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.EventNotCancelable);
 
                 var coaServices = ServicesProvider.GetInstance().GetChartOfAccountsServices();
-                var fiscalYear = coaServices.SelectFiscalYears().Find(y => y.OpenDate <= foundEvent.Date && (y.CloseDate >= foundEvent.Date || y.CloseDate == null));
-                if (null == fiscalYear || !fiscalYear.Open)
-                {
-                    throw new OpenCbsContractSaveException(OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
-                }
 
                 List<Installment> archivedInstallments = cServices.GetArchivedInstallments(foundEvent.Id);
                 // Request user confirmation
@@ -5434,7 +5432,7 @@ namespace OpenCBS.GUI.Clients
 
                 if (product.Type == OSavingProductType.PersonalAccount)
                 {
-                    buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = specialOperationToolStripMenuItem.Visible =
+                    buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = 
                     labelInterestRate.Visible = nudDownInterestRate.Visible = lbInterestRateMinMax.Visible = false;
                     labelInitialAmount.Visible = nudDownInitialAmount.Visible = lbInitialAmountMinMax.Visible = true;
 
@@ -5719,7 +5717,6 @@ namespace OpenCBS.GUI.Clients
 
         private void buttonFirstDeposit_Click(object sender, EventArgs e)
         {
-            if (!CheckDataInOpenFiscalYear()) return;
             try
             {
                 _savingsBookProduct = _saving.Product;
@@ -5846,7 +5843,6 @@ namespace OpenCBS.GUI.Clients
 
         private void buttonSavingDeposit_Click(object sender, EventArgs e)
         {
-            if (!CheckDataInOpenFiscalYear()) return;
             var savingEvent = new SavingsOperationForm(_saving, OSavingsOperation.Credit);
             savingEvent.ShowDialog();
             _saving = SavingServices.GetSaving(_saving.Id);
@@ -5864,7 +5860,6 @@ namespace OpenCBS.GUI.Clients
 
         private void buttonSavingWithDraw_Click(object sender, EventArgs e)
         {
-            if (!CheckDataInOpenFiscalYear()) return;
             var savingsOperationForm = new SavingsOperationForm(_saving, OSavingsOperation.Debit);
             savingsOperationForm.ShowDialog();
             _saving = SavingServices.GetSaving(_saving.Id);
@@ -6079,26 +6074,6 @@ namespace OpenCBS.GUI.Clients
         {
             InitPrintButton(AttachmentPoint.Guarantors, btnPrintGuarantors);
         }
-        private bool CheckDataInOpenFiscalYear()
-        {
-            try
-            {
-                var coaServices = ServicesProvider.GetInstance().GetChartOfAccountsServices();
-                var fiscalYear =
-                    coaServices.SelectFiscalYears().Find(y => y.OpenDate <= TimeProvider.Now && (y.CloseDate >= TimeProvider.Now || y.CloseDate == null));
-                if (fiscalYear == null)
-                {
-                    throw new OpenCbsContractSaveException(
-                        OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
-                return false;
-            }
-        }
 
         private void btCancelLastSavingEvent_Click(object sender, EventArgs e)
         {
@@ -6112,14 +6087,6 @@ namespace OpenCBS.GUI.Clients
                 Event foundEvent = es.GetLastSavingNonDeletedEvent;
 
                 var coaServices = ServicesProvider.GetInstance().GetChartOfAccountsServices();
-                var fiscalYear =
-                    coaServices.SelectFiscalYears().Find(
-                        y => y.OpenDate <= foundEvent.Date && (y.CloseDate >= foundEvent.Date || y.CloseDate == null));
-                if (null == fiscalYear || !fiscalYear.Open)
-                {
-                    throw new OpenCbsContractSaveException(
-                        OpenCbsContractSaveExceptionEnum.OperationOutsideCurrentFiscalYear);
-                }
 
                 var cancelableEvent = _saving.GetCancelableEvent();
                 var loanEventId = _saving.GetCancelableEvent().LoanEventId;
@@ -6226,7 +6193,6 @@ namespace OpenCBS.GUI.Clients
                 return;
             }
 
-            if (!CheckDataInOpenFiscalYear()) return;
             foreach (SavingEvent savEvent in _saving.Events)
             {
                 if (savEvent is SavingPendingDepositEvent && savEvent.IsPending && !savEvent.Deleted)
@@ -6313,7 +6279,6 @@ namespace OpenCBS.GUI.Clients
 
         private void savingTransferToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!CheckDataInOpenFiscalYear()) return;
             _saving.Client = _client;
             var savingEvent = new SavingsOperationForm(_saving, OSavingsOperation.Transfer);
             savingEvent.ShowDialog();
@@ -7072,7 +7037,7 @@ namespace OpenCBS.GUI.Clients
             {
                 try
                 {
-                    ServicesProvider.GetInstance().GetAccountingServices().FindExchangeRate(TimeProvider.Now, _saving.Product.Currency);
+                    ServicesProvider.GetInstance().GetExchangeRateServices().FindExchangeRate(TimeProvider.Now, _saving.Product.Currency);
 
                     var openSavingsForm = new OpenSavingsForm(_saving.Product.InitialAmountMin == null ? 0 : _saving.Product.InitialAmountMin,
                                                                 nudReopenFees.Value, _saving.Product, true);
@@ -7211,23 +7176,6 @@ namespace OpenCBS.GUI.Clients
                                                         ((OCurrency)(max)).GetFormatedValue(
                                                             _credit.Product.Currency.UseCents) + " " + symbol);
             lblMinMaxEntryFees.Visible = true;
-        }
-
-        private void specialOperationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!CheckDataInOpenFiscalYear()) return;
-            var savingEvent = new SavingsOperationForm(_saving, OSavingsOperation.SpecialOperation);
-            savingEvent.ShowDialog();
-            _saving = SavingServices.GetSaving(_saving.Id);
-            DisplaySavingEvent(_saving);
-
-            _client.Savings.Clear();
-            foreach (var saving in SavingServices.GetAllSavings(_client.Id))
-            {
-                _client.AddSaving(saving);
-            }
-
-            DisplaySavings(_client.Savings);
         }
 
         private void ShowTotalFeesInListView(ListViewItem item)

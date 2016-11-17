@@ -45,11 +45,6 @@ namespace OpenCBS.Services
             return new UserServices(CurrentUser);
         }
 
-        public AccountingServices GetAccountingServices()
-        {
-            Console.WriteLine("AccountingServices cot� client");
-            return new AccountingServices(CurrentUser);
-        }
         public RoleServices GetRoleServices()
         {
             Console.WriteLine("RoleServices cot� client");
@@ -83,12 +78,6 @@ namespace OpenCBS.Services
         {
             Console.WriteLine("GlobalAccountingParametersServices cot� client");
             return new ChartOfAccountsServices(CurrentUser);
-        }
-
-        public StandardBookingServices GetStandardBookingServices()
-        {
-            Console.WriteLine("StandardBookingServices cot� client");
-            return new StandardBookingServices(CurrentUser);
         }
 
         public EventProcessorServices GetEventProcessorServices()
@@ -218,11 +207,6 @@ namespace OpenCBS.Services
         public QuestionnaireServices GetQuestionnaireServices()
         {
             return new QuestionnaireServices(CurrentUser);
-        }
-
-        public AccountingRuleServices GetAccountingRuleServices()
-        {
-            return new AccountingRuleServices(CurrentUser);
         }
 
         public ExportServices GetExportServices()

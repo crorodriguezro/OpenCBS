@@ -196,8 +196,6 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="Accounting\AccountingRuleServices.cs" />
-    <Compile Include="Accounting\AccountingServices.cs" />
     <Compile Include="BranchService.cs" />
     <Compile Include="CollateralProductServices.cs" />
     <Compile Include="MenuItemServices.cs" />
@@ -206,7 +204,6 @@
     <Compile Include="Currencies\CurrencyServices.cs" />
     <Compile Include="Currencies\ExchangeRateServices.cs" />
     <Compile Include="Accounting\ChartOfAccountsServices.cs" />
-    <Compile Include="Accounting\StandardBookingServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -352,7 +352,7 @@ namespace OpenCBS.GUI.Contracts
                 item.UseItemStyleForSubItems = false;
                 
                 customExchangeRate =
-                       ServicesProvider.GetInstance().GetAccountingServices().FindLatestExchangeRate(
+                       ServicesProvider.GetInstance().GetExchangeRateServices().FindLatestExchangeRate(
                            TimeProvider.Today, _product.Currency);
                 total += customExchangeRate.Rate == 0
                                           ? 0
@@ -951,8 +951,7 @@ namespace OpenCBS.GUI.Contracts
                                     User.CurrentUser,
                                     ServicesProvider.GetInstance().GetGeneralSettings(), 
                                     ServicesProvider.GetInstance().GetNonWorkingDate(),
-                                    CoreDomainProvider.GetInstance().GetProvisioningTable(),
-                                    CoreDomainProvider.GetInstance().GetChartOfAccounts())
+                                    CoreDomainProvider.GetInstance().GetProvisioningTable())
                     {
                         NonRepaymentPenalties =
                         {

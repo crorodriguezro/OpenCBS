@@ -68,7 +68,7 @@ namespace OpenCBS.Services
         {
             double[] realAmount = new double[pForecastDays];
 
-            double initialAmount = Convert.ToDouble(ChartOfAccounts.GetInstance(_user).GetPivotBalance(OAccounts.CASH).Value);
+            double initialAmount = 0;
             double[] realDisbursment = CalculateRealDisbursmentCurve(pFirstDate, pForecastDays);
             double[] realRepay = CalculateRealRepayCurve(pFirstDate, pForecastDays);
 

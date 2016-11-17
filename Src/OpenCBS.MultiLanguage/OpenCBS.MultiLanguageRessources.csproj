@@ -127,7 +127,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MultiLanguageStrings.cs" />
-    <Compile Include="resx\AccountView.Designer.cs" />
     <Compile Include="resx\ClientControl.ru-RU.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -157,34 +156,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="resx\AccountingJournals.es-ES.resx" />
-    <EmbeddedResource Include="resx\AccountingJournals.fr.resx" />
-    <EmbeddedResource Include="resx\AccountingJournals.pt.resx" />
-    <EmbeddedResource Include="resx\AccountingJournals.resx" />
-    <EmbeddedResource Include="resx\AccountingJournals.ru-RU.resx" />
-    <EmbeddedResource Include="resx\AccountingRule.fr.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\AccountingRule.pt.resx" />
-    <EmbeddedResource Include="resx\AccountingRule.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\AccountingRule.ru-RU.resx" />
-    <EmbeddedResource Include="resx\AccountTrialBalance.pt.resx" />
-    <EmbeddedResource Include="resx\AccountTrialBalance.resx">
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\AccountTrialBalance.ru-RU.resx" />
-    <EmbeddedResource Include="resx\AccountView.es-ES.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\AccountView.fr.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\AccountView.pt.resx" />
-    <EmbeddedResource Include="resx\AccountView.resx" />
-    <EmbeddedResource Include="resx\AccountView.ru-Ru.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="resx\AddBranchForm.es-ES.resx" />
     <EmbeddedResource Include="resx\AddBranchForm.pt.resx" />
     <EmbeddedResource Include="resx\AddBranchForm.ru-RU.resx" />
@@ -206,7 +177,6 @@
     <EmbeddedResource Include="resx\AddPaymentMethodForm.resx" />
     <EmbeddedResource Include="resx\AddPaymentMethodForm.ru-RU.resx" />
     <EmbeddedResource Include="resx\AddressUserControl.pt.resx" />
-    <EmbeddedResource Include="resx\AddTellerForm.pt.resx" />
     <EmbeddedResource Include="resx\AddTrancheForm.fr.resx" />
     <EmbeddedResource Include="resx\AddTrancheForm.pt.resx" />
     <EmbeddedResource Include="resx\AddTrancheForm.resx" />
@@ -218,19 +188,19 @@
     <EmbeddedResource Include="resx\ClientControl.resx">
     </EmbeddedResource>
     <EmbeddedResource Include="resx\AddTrancheForm.es-ES.resx" />
-    <EmbeddedResource Include="resx\PersonUserControlCountries.pt-BR.resx">
+    <EmbeddedResource Include="resx\PersonUserControlCountries.pt.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\PersonUserControlCountries.es-ES.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\PersonUserControlCountries.fr-FR.resx">
+    <EmbeddedResource Include="resx\PersonUserControlCountries.fr.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\PersonUserControlCountries.ru-RU.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\PersonUserControlCountries.en-US.resx">
+    <EmbeddedResource Include="resx\PersonUserControlCountries.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\PrintButton.pt.resx" />
@@ -254,7 +224,6 @@
     <EmbeddedResource Include="resx\BranchesForm.pt.resx" />
     <EmbeddedResource Include="resx\CashPrevisionForm.pt.resx" />
     <EmbeddedResource Include="resx\CashReceiptForm.pt.resx" />
-    <EmbeddedResource Include="resx\ChartOfAccountsForm.pt.resx" />
     <EmbeddedResource Include="resx\ClientForm.pt.resx" />
     <EmbeddedResource Include="resx\Common.pt.resx" />
     <EmbeddedResource Include="resx\ContractReschedulingForm.pt.resx" />
@@ -269,13 +238,11 @@
     <EmbeddedResource Include="resx\DashboardForm.ru-RU.resx" />
     <EmbeddedResource Include="resx\DatabaseMaitenance.pt.resx" />
     <EmbeddedResource Include="resx\DateTimeUserControl.pt.resx" />
-    <EmbeddedResource Include="resx\ElemMvtUserControl.pt.resx" />
     <EmbeddedResource Include="resx\EventAttributes.pt.resx" />
     <EmbeddedResource Include="resx\EventCancelConfirmationForm.pt.resx" />
     <EmbeddedResource Include="resx\EventTypes.pt.resx" />
     <EmbeddedResource Include="resx\EventTypes.ru-Ru.resx" />
     <EmbeddedResource Include="resx\ExchangeRateForm.pt.resx" />
-    <EmbeddedResource Include="resx\ExportBookingsForm.pt.resx" />
     <EmbeddedResource Include="resx\ExtensionManagerForm.fr.resx" />
     <EmbeddedResource Include="resx\ExtensionManagerForm.resx" />
     <EmbeddedResource Include="resx\ExtensionManagerForm.ru-RU.resx" />
@@ -366,15 +333,6 @@
     <EmbeddedResource Include="resx\CashReceiptForm.ru-RU.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\ChartOfAccountsForm.fr.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\ChartOfAccountsForm.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\ChartOfAccountsForm.ru-RU.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="resx\ClientForm.es-ES.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -399,10 +357,6 @@
     <EmbeddedResource Include="resx\Common.fr.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\AccountTrialBalance.fr.resx" />
-    <EmbeddedResource Include="resx\AddTellerForm.fr.resx" />
-    <EmbeddedResource Include="resx\AddTellerForm.resx" />
-    <EmbeddedResource Include="resx\AddTellerForm.ru-RU.resx" />
     <EmbeddedResource Include="resx\FrmAddSavingEvent.fr.resx" />
     <EmbeddedResource Include="resx\FrmAddSavingEvent.pt.resx" />
     <EmbeddedResource Include="resx\FrmAddSavingEvent.resx" />
@@ -424,7 +378,6 @@
     <EmbeddedResource Include="resx\FrmFundingLine.pt.resx" />
     <EmbeddedResource Include="resx\FrmFundingLineEvent.pt.resx" />
     <EmbeddedResource Include="resx\FrmLocations.pt.resx" />
-    <EmbeddedResource Include="resx\FrmOpenCloseTeller.pt.resx" />
     <EmbeddedResource Include="resx\FrmReportViewer.pt.resx" />
     <EmbeddedResource Include="resx\FrmRestore.pt.resx" />
     <EmbeddedResource Include="resx\FrmRoles.es-ES.resx">
@@ -439,10 +392,6 @@
     <EmbeddedResource Include="resx\FrmAvalaibleLoanProducts.fr.resx" />
     <EmbeddedResource Include="resx\FrmAvalaibleLoanProducts.resx" />
     <EmbeddedResource Include="resx\FrmAvalaibleLoanProducts.ru-RU.resx" />
-    <EmbeddedResource Include="resx\FrmOpenCloseTeller.es-ES.resx" />
-    <EmbeddedResource Include="resx\FrmOpenCloseTeller.fr.resx" />
-    <EmbeddedResource Include="resx\FrmOpenCloseTeller.ru-RU.resx" />
-    <EmbeddedResource Include="resx\FrmOpenCloseTeller.resx" />
     <EmbeddedResource Include="resx\FrmRoles.pt.resx" />
     <EmbeddedResource Include="resx\FrmSaveSaving.pt.resx" />
     <EmbeddedResource Include="resx\frmSettingsImportExport.es-ES.resx" />
@@ -450,7 +399,6 @@
     <EmbeddedResource Include="resx\frmSettingsImportExport.pt.resx" />
     <EmbeddedResource Include="resx\frmSettingsImportExport.resx" />
     <EmbeddedResource Include="resx\frmSettingsImportExport.ru-RU.resx" />
-    <EmbeddedResource Include="resx\FrmSplash.pt.resx" />
     <EmbeddedResource Include="resx\GeneralSettings.pt.resx" />
     <EmbeddedResource Include="resx\GroupForm.pt.resx" />
     <EmbeddedResource Include="resx\GroupUserControl.pt.resx" />
@@ -475,13 +423,8 @@
     <EmbeddedResource Include="resx\SearchClientForm.pt.resx" />
     <EmbeddedResource Include="resx\SearchCreditContractForm.pt.resx" />
     <EmbeddedResource Include="resx\ShowPictureForm.pt.resx" />
-    <EmbeddedResource Include="resx\StandardBooking.pt.resx" />
     <EmbeddedResource Include="resx\stringRes.pt.resx" />
     <EmbeddedResource Include="resx\SweetBaseForm.pt.resx" />
-    <EmbeddedResource Include="resx\TellersForm.fr.resx" />
-    <EmbeddedResource Include="resx\TellersForm.pt.resx" />
-    <EmbeddedResource Include="resx\TellersForm.resx" />
-    <EmbeddedResource Include="resx\TellersForm.ru-RU.resx" />
     <EmbeddedResource Include="resx\EventCancelConfirmationForm.ru-RU.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -555,8 +498,6 @@
     <EmbeddedResource Include="resx\CustomizableExport.fr.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\FrmSplash.fr.resx" />
-    <EmbeddedResource Include="resx\FrmSplash.resx" />
     <EmbeddedResource Include="resx\LoanSharesForm.fr.resx" />
     <EmbeddedResource Include="resx\LoanSharesForm.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -624,13 +565,7 @@
     <EmbeddedResource Include="resx\FrmEconomicActivity.es-ES.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\ElemMvtUserControl.es-ES.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="resx\ExchangeRateForm.es-ES.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\ExportBookingsForm.es-ES.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\frmActivity.es-ES.resx">
@@ -714,9 +649,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\FrmRoles.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\FrmSplash.ru-Ru.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\GeneralSettings.es-ES.resx">
@@ -803,15 +735,6 @@
     <EmbeddedResource Include="resx\FrmEconomicActivity.ru-RU.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\ElemMvtUserControl.fr.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\ElemMvtUserControl.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\ElemMvtUserControl.ru-RU.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="resx\ExchangeRateForm.fr.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -819,15 +742,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\ExchangeRateForm.ru-RU.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\ExportBookingsForm.fr.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\ExportBookingsForm.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\ExportBookingsForm.ru-RU.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\frmActivity.fr.resx">
@@ -1014,18 +928,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\SearchCreditContractForm.ru-RU.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\StandardBooking.es-ES.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\StandardBooking.fr.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\StandardBooking.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resx\StandardBooking.ru-RU.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\stringRes.es-ES.resx">
