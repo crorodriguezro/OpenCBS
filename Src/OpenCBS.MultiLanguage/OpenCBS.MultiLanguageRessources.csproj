@@ -188,19 +188,19 @@
     <EmbeddedResource Include="resx\ClientControl.resx">
     </EmbeddedResource>
     <EmbeddedResource Include="resx\AddTrancheForm.es-ES.resx" />
-    <EmbeddedResource Include="resx\PersonUserControlCountries.pt-BR.resx">
+    <EmbeddedResource Include="resx\PersonUserControlCountries.pt.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\PersonUserControlCountries.es-ES.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\PersonUserControlCountries.fr-FR.resx">
+    <EmbeddedResource Include="resx\PersonUserControlCountries.fr.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\PersonUserControlCountries.ru-RU.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resx\PersonUserControlCountries.en-US.resx">
+    <EmbeddedResource Include="resx\PersonUserControlCountries.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="resx\PrintButton.pt.resx" />

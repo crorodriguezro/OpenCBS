@@ -2417,7 +2417,8 @@ namespace OpenCBS.GUI.Clients
 
             foreach (User user in _subordinates)
             {
-                _loanOfficerComboBox.Items.Add(user);
+                if(user.UserRole.RoleName == "LOF" && !user.IsDeleted && !user.UserRole.IsDeleted)
+                    _loanOfficerComboBox.Items.Add(user);
             }
             // set favoutite loan officer
             if (_credit.LoanOfficer != null)
@@ -2452,6 +2453,10 @@ namespace OpenCBS.GUI.Clients
                 else
                     _loanOfficerComboBox.SelectedIndex = 0;
             }
+            if (_loanOfficerComboBox.Items.Count == 0)
+                _labelLoanOffecerInfo.Text = MultiLanguageStrings.GetString(Ressource.ClientForm, "EmptyLoanOfficer.Text");
+            else
+                _labelLoanOffecerInfo.Text = string.Empty;
         }
 
         private void InitializeFundingLine()

@@ -228,4 +228,7 @@
   <data name="ShortTermDeposit" xml:space="preserve">
     <value>Término</value>
   </data>
+  <data name="EmptyLoanOfficer.Text" xml:space="preserve">
+    <value>No hay usuarios con la función "LOF"</value>
+  </data>
 </root>
