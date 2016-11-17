@@ -588,6 +588,19 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
             return contract;
         }
 
+        public Loan CopyLoanWithoutEvents()
+        {
+            var contract = (Loan)MemberwiseClone();
+            contract.InstallmentList = new List<Installment>();
+            foreach (var installment in InstallmentList)
+            {
+                contract.InstallmentList.Add(installment.Copy());
+            }
+            contract.Events = new EventStock();
+
+            return contract;
+        }
+
         /// <summary>
         /// This method calculates total due interests at the creation of the contract
         /// </summary>
