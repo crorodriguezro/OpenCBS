@@ -663,8 +663,10 @@ namespace OpenCBS.GUI
                         mainForm.InitializeVillageForm((Village)_client);
                 }
                 else
+                {
                     DialogResult = DialogResult.OK;
-                _applicationController.Publish(new SearchClientNotification(this,_client));
+                    _applicationController.Publish(new SearchClientNotification(this,_client));
+                }
                 Close();
             }
             catch (Exception ex)
