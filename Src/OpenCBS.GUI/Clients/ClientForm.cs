@@ -1909,7 +1909,7 @@ namespace OpenCBS.GUI.Clients
                     var extentions = _applicationController.GetAllInstances<IClientFormInitializer>();
                     foreach (var extention in extentions)
                     {
-                        extention.Refresh(this);
+                        extention.Refresh(this, _credit);
                     }
 
                     if (null == _product) return;
@@ -3669,7 +3669,7 @@ namespace OpenCBS.GUI.Clients
                 var extentions = _applicationController.GetAllInstances<IClientFormInitializer>();
                 foreach (var extention in extentions)
                 {
-                    extention.Refresh(this);
+                    extention.Refresh(this, credit);
                 }
 
                 return credit;
@@ -4160,7 +4160,7 @@ namespace OpenCBS.GUI.Clients
                     var extentions = _applicationController.GetAllInstances<IClientFormInitializer>();
                     foreach (var extention in extentions)
                     {
-                        extention.Refresh(this);
+                        extention.Refresh(this, _credit);
                     }
                 }
             }
@@ -5004,6 +5004,12 @@ namespace OpenCBS.GUI.Clients
 
                 //((MainView)_mdiParent).ReloadAlertsSync();
                 LoadLoanDetailsExtensions();
+
+                var extentions = _applicationController.GetAllInstances<IClientFormInitializer>();
+                foreach (var extention in extentions)
+                {
+                    extention.Refresh(this, _credit);
+                }
 
             }
             catch (Exception ex)
