@@ -41,7 +41,6 @@ namespace OpenCBS.GUI
         private System.Windows.Forms.Button buttonPreview;
         private System.Windows.Forms.Button buttonNext;
         private Label lblTitle;
-        private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonSearch;
         private GroupBox groupBoxSearchParameters;
         private TextBox textBoxQuery;
@@ -357,7 +356,6 @@ namespace OpenCBS.GUI
             this.radioButtonCreditContract = new System.Windows.Forms.RadioButton();
             this.textBoxQuery = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.groupBoxButtonBottom = new System.Windows.Forms.GroupBox();
             this.textBoxCurrentlyPage = new System.Windows.Forms.TextBox();
@@ -424,13 +422,6 @@ namespace OpenCBS.GUI
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
-            // buttonCancel
-            // 
-            resources.ApplyResources(this.buttonCancel, "buttonCancel");
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
             // lblTitle
             // 
             this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
@@ -442,7 +433,6 @@ namespace OpenCBS.GUI
             // 
             this.groupBoxButtonBottom.Controls.Add(this.textBoxCurrentlyPage);
             this.groupBoxButtonBottom.Controls.Add(this.buttonPreview);
-            this.groupBoxButtonBottom.Controls.Add(this.buttonCancel);
             this.groupBoxButtonBottom.Controls.Add(this.buttonNext);
             resources.ApplyResources(this.groupBoxButtonBottom, "groupBoxButtonBottom");
             this.groupBoxButtonBottom.Name = "groupBoxButtonBottom";
@@ -553,7 +543,6 @@ namespace OpenCBS.GUI
             // SearchCreditContractForm
             // 
             this.AcceptButton = this.buttonSearch;
-            this.CancelButton = this.buttonCancel;
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "SearchCreditContractForm";
@@ -589,16 +578,13 @@ namespace OpenCBS.GUI
             ReInitializeSearchParameters();
             DisplayContracts();
         }
+
         private void ReInitializeSearchParameters()
         {
             _currentPageNumber = 1;
             _numberOfRecords = 0;
             _numbersTotalPage = 1;
 
-        }
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         private void buttonPreview_Click(object sender, EventArgs e)
