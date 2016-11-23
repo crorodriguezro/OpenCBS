@@ -185,7 +185,7 @@ namespace OpenCBS.Manager.Events
                 Users.id AS user_id, 
                 Users.deleted AS user_deleted, 
                 Users.user_name AS user_username, 
-                Users.user_pass AS user_password, 
+                Users.password_hash AS password_hash, 
                 Users.role_code AS user_role, 
                 Users.first_name AS user_firstname, 
                 Users.last_name AS user_lastname, 
