@@ -1339,121 +1339,46 @@ namespace OpenCBS.Services
 
         private List<Installment> AssembleTranche(Loan loan, IScheduleConfiguration scheduleConfiguration, ITrancheConfiguration trancheConfiguration)
         {
-            var schedule = loan.InstallmentList;
-            var trancheSchedule = BuildTranche(schedule, loan, scheduleConfiguration, trancheConfiguration);
+            var result = new List<Installment>();
 
-            // Get an interested paid in advance, whereas "in advance" means after the new tranche date
-            var overpaidInterest = (
-                from installment in schedule
-                where installment.ExpectedDate > trancheConfiguration.StartDate
-                select installment
-            ).Sum(installment => installment.PaidInterests.Value);
+            // Calculate new schedule
+            var amount = loan.InstallmentList.Sum(x => x.CapitalRepayment.Value - x.PaidCapital.Value);
+            amount += trancheConfiguration.Amount;
 
-            // Get the part of the schedule that comes before the tranche date...
-            var newSchedule =
-                from installment in schedule
-                where installment.ExpectedDate <= trancheConfiguration.StartDate
-                select installment;
+            var copyOfLoan = loan.Copy();
+            copyOfLoan.Amount = amount;
+            copyOfLoan.NbOfInstallments = trancheConfiguration.NumberOfInstallments;
+            copyOfLoan.GracePeriod = trancheConfiguration.GracePeriod;
+            copyOfLoan.InterestRate = trancheConfiguration.InterestRate / 100;
+            copyOfLoan.StartDate = trancheConfiguration.StartDate;
+            copyOfLoan.FirstInstallmentDate = trancheConfiguration.PreferredFirstInstallmentDate;
 
-            // ...and force close it (set expected equal to paid)
-            var olbDifference = 0m;
+            var newSchedule = SimulateScheduleCreation(copyOfLoan);
+
+            // Get due interest up to tranche date
+            var dueInterest = _loanManager.GetDueInterest(loan.Id, trancheConfiguration.StartDate.Date);
+            newSchedule[0].InterestsRepayment += dueInterest;
+
+            // Get old schedule
+            var oldSchedule = loan.InstallmentList.FindAll(x => x.ExpectedDate.Date <= trancheConfiguration.StartDate.Date);
+
+            // Adjust new schedule's first installment start date
+            if (oldSchedule.Count() == 0)
+            {
+                newSchedule[0].StartDate = loan.StartDate;
+            }
+            else
+            {
+                newSchedule[0].StartDate = oldSchedule[oldSchedule.Count() - 1].ExpectedDate;
+            }
+
+            // Adjust new schedule installments' numbers
             foreach (var installment in newSchedule)
             {
-                installment.OLB += olbDifference;
-                olbDifference += installment.CapitalRepayment.Value - installment.PaidCapital.Value;
-                if (!(installment.CapitalRepayment == installment.PaidCapital && installment.InterestsRepayment == installment.PaidInterests))
-                {
-                    installment.PaidDate = trancheConfiguration.StartDate;
-                }
-                installment.CapitalRepayment = installment.PaidCapital;
-                installment.InterestsRepayment = installment.PaidInterests;
+                installment.Number += oldSchedule.Count();
             }
-
-            // Adjust the new schedule's installment numbers
-            var increment = newSchedule.Count();
-            foreach (var installment in trancheSchedule)
-            {
-                installment.Number += increment;
-            }
-            var result = new List<Installment>();
+            result.AddRange(oldSchedule);
             result.AddRange(newSchedule);
-
-            // Distribute the overpaid interest
-            foreach (var installment in trancheSchedule)
-            {
-                if (installment.InterestsRepayment < overpaidInterest)
-                {
-                    installment.PaidInterests = installment.InterestsRepayment;
-                    overpaidInterest -= installment.InterestsRepayment.Value;
-                }
-                else
-                {
-                    installment.PaidInterests = overpaidInterest;
-                    break;
-                }
-            }
-
-            result.AddRange(trancheSchedule);
-            return result;
-        }
-
-        private IEnumerable<Installment> BuildTranche(IEnumerable<Installment> schedule,Loan loan, IScheduleConfiguration scheduleConfiguration, ITrancheConfiguration trancheConfiguration)
-        {
-            var copyOfLoan = loan.Copy();
-            loan.Amount = trancheConfiguration.Amount;
-            loan.NbOfInstallments = trancheConfiguration.NumberOfInstallments;
-            loan.GracePeriod = trancheConfiguration.GracePeriod;
-            loan.InterestRate = trancheConfiguration.InterestRate/100;
-            loan.StartDate = trancheConfiguration.StartDate;
-            loan.FirstInstallmentDate = trancheConfiguration.PreferredFirstInstallmentDate;
-
-            var rhs = SimulateScheduleCreation(loan);
-
-            loan.Amount = schedule.Sum(i => i.CapitalRepayment.Value - i.PaidCapital.Value);
-            if (!trancheConfiguration.ApplyNewInterestRateToOlb)
-            {
-                loan.InterestRate = copyOfLoan.InterestRate;
-            }
-
-            var lhs = SimulateScheduleCreation(loan);
-
-            var result = new List<Installment>();
-
-            // Merge the two schedules
-            var max = Math.Max(lhs.Count, rhs.Count);
-            for (var i = 0; i < max; i++)
-            {
-                var lhi = i >= lhs.Count ? null : lhs[i];
-                var rhi = i >= rhs.Count ? null : rhs[i];
-
-                Installment installment;
-
-                if (lhi == null)
-                {
-                    installment = rhi;
-                }
-                else if (rhi == null)
-                {
-                    installment = lhi;
-                }
-                else
-                {
-                    installment = new Installment
-                    {
-                        Number = lhi.Number,
-                        StartDate = lhi.StartDate,
-                        ExpectedDate = lhi.ExpectedDate,
-                        //RepaymentDate = lhi.RepaymentDate,
-                        CapitalRepayment = lhi.CapitalRepayment + rhi.CapitalRepayment,
-                        InterestsRepayment = lhi.InterestsRepayment + rhi.InterestsRepayment,
-                        OLB = lhi.OLB + rhi.OLB,
-                        LastInterestAccrualDate = lhi.LastInterestAccrualDate
-                    };
-                }
-                result.Add(installment);
-            }
-
-            result[0].InterestsRepayment += GetExtraInterest(schedule, scheduleConfiguration, trancheConfiguration);
             return result;
         }
 
