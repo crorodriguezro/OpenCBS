@@ -3722,7 +3722,7 @@ namespace OpenCBS.GUI.Clients
                 return;
             }
 
-            if (!_credit.ScheduleChangedManually) _credit = Preview();
+            if (_credit == null || !_credit.ScheduleChangedManually) _credit = Preview();
 
             // Compulsory savings
             if (_credit != null)
@@ -3760,7 +3760,8 @@ namespace OpenCBS.GUI.Clients
                 SaveContract();
 
             _loanApprovalControl.Status = OContractStatus.Pending;
-            _loanApprovalControl.Date = _credit.StartDate;
+            if (_credit != null)
+                _loanApprovalControl.Date = _credit.StartDate;
             _loanApprovalControl.Comment = "";
             _loanApprovalControl.Init(_client, _credit, _guarantee, _saving, PrintButtonContextMenuStrips);
         }
