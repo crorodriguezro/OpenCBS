@@ -1112,6 +1112,22 @@ namespace OpenCBS.GUI.Clients
             }
         }
 
+        public void DisplaySaving(ISavingsContract saving, IClient client)
+        {
+            DisplaySaving(saving);
+            var loans = new List<Loan>();
+            if (client.Projects != null)
+                foreach (var project in client.Projects)
+                {
+                    foreach (var credit in project.Credits)
+                    {
+                        loans.Add(credit);
+                    }
+                }
+            DisplayContracts(loans);
+
+        }
+
         public void DisplaySaving(int pId, IClient client)
         {
             ISavingsContract saving;
@@ -1173,7 +1189,7 @@ namespace OpenCBS.GUI.Clients
                 return;
             }
 
-            pnlSavingsButtons.Enabled = buttonCloseSaving.Visible = buttonSavingsOperations.Enabled = buttonSavingsOperations.Visible
+            buttonCloseSaving.Visible = buttonSavingsOperations.Enabled = buttonSavingsOperations.Visible
                 = saving.Status == OSavingsStatus.Active;
 
             saving = SavingServices.GetSaving(saving.Id);
@@ -3705,7 +3721,7 @@ namespace OpenCBS.GUI.Clients
                 return;
             }
 
-            if (!_credit.ScheduleChangedManually) _credit = Preview();
+            if (_credit == null || !_credit.ScheduleChangedManually) _credit = Preview();
 
             // Compulsory savings
             if (_credit != null)
@@ -3743,7 +3759,8 @@ namespace OpenCBS.GUI.Clients
                 SaveContract();
 
             _loanApprovalControl.Status = OContractStatus.Pending;
-            _loanApprovalControl.Date = _credit.StartDate;
+            if (_credit != null)
+                _loanApprovalControl.Date = _credit.StartDate;
             _loanApprovalControl.Comment = "";
             _loanApprovalControl.Init(_client, _credit, _guarantee, _saving, PrintButtonContextMenuStrips);
         }
@@ -5883,7 +5900,7 @@ namespace OpenCBS.GUI.Clients
             }
 
             DisplaySavings(_client.Savings);
-            DisplaySaving(_saving.Id, _client);
+            DisplaySaving(_saving, _client);
         }
 
         private void buttonSavingWithDraw_Click(object sender, EventArgs e)
