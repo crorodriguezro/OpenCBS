@@ -1173,7 +1173,7 @@ namespace OpenCBS.GUI.Clients
                 return;
             }
 
-            pnlSavingsButtons.Enabled = buttonCloseSaving.Visible = buttonSavingsOperations.Enabled = buttonSavingsOperations.Visible
+            buttonCloseSaving.Visible = buttonSavingsOperations.Enabled = buttonSavingsOperations.Visible
                 = saving.Status == OSavingsStatus.Active;
 
             saving = SavingServices.GetSaving(saving.Id);
