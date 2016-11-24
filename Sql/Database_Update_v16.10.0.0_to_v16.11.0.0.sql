@@ -286,6 +286,7 @@ GO
 
 INSERT INTO dbo.EventTypes (event_type, description, sort_order, accounting) VALUES ('BFAE', 'Bounce Fee Accrual Event', 770, 1)
 INSERT INTO dbo.EventTypes (event_type, description, sort_order, accounting) VALUES ('BWOE', 'Bounce Write Off Event', 780, 1)
+GO
 
 create table
     dbo.BounceFeeAccrualEvents
