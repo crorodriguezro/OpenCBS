@@ -283,3 +283,44 @@ GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[FundingLineAccountingRules]') AND type in (N'U'))
 DROP TABLE [dbo].[FundingLineAccountingRules]
 GO
+
+INSERT INTO dbo.EventTypes (event_type, description, sort_order, accounting) VALUES ('BFAE', 'Bounce Fee Accrual Event', 770, 1)
+INSERT INTO dbo.EventTypes (event_type, description, sort_order, accounting) VALUES ('BWOE', 'Bounce Write Off Event', 780, 1)
+
+create table
+    dbo.BounceFeeAccrualEvents
+(   
+    id int not null,
+    bounce_fee money not null,
+    installment_number int not null
+)
+
+alter table
+    dbo.BounceFeeAccrualEvents
+add constraint
+    PK_BounceFeeAccrualEvents_id primary key (id)
+ 
+alter table 
+    dbo.BounceFeeAccrualEvents
+add constraint
+    FK_BounceFeeAccrualEvents_id foreign key (id) references dbo.ContractEvents(id)
+go
+
+create table
+    dbo.BounceWriteOffEvents
+(   
+    id int not null,
+    amount money not null,
+    installment_number int not null
+)
+
+alter table
+    dbo.BounceWriteOffEvents
+add constraint
+    PK_BounceWriteOffEvents_id primary key (id)
+ 
+alter table 
+    dbo.BounceWriteOffEvents
+add constraint
+    FK_BounceWriteOffEvents_id foreign key (id) references dbo.ContractEvents(id)
+go
