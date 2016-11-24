@@ -288,7 +288,7 @@ INSERT INTO dbo.EventTypes (event_type, description, sort_order, accounting) VAL
 INSERT INTO dbo.EventTypes (event_type, description, sort_order, accounting) VALUES ('BWOE', 'Bounce Write Off Event', 780, 1)
 GO
 
-create table
+CREATE TABLE
     dbo.BounceFeeAccrualEvents
 (   
     id int not null,
@@ -296,18 +296,18 @@ create table
     installment_number int not null
 )
 
-alter table
+ALTER TABLE
     dbo.BounceFeeAccrualEvents
-add constraint
+ADD CONSTRAINT
     PK_BounceFeeAccrualEvents_id primary key (id)
  
-alter table 
+ALTER TABLE
     dbo.BounceFeeAccrualEvents
-add constraint
+ADD CONSTRAINT
     FK_BounceFeeAccrualEvents_id foreign key (id) references dbo.ContractEvents(id)
-go
+GO
 
-create table
+CREATE TABLE
     dbo.BounceWriteOffEvents
 (   
     id int not null,
@@ -315,13 +315,13 @@ create table
     installment_number int not null
 )
 
-alter table
+ALTER TABLE
     dbo.BounceWriteOffEvents
-add constraint
+ADD CONSTRAINT
     PK_BounceWriteOffEvents_id primary key (id)
  
-alter table 
+ALTER TABLE
     dbo.BounceWriteOffEvents
-add constraint
+ADD CONSTRAINT
     FK_BounceWriteOffEvents_id foreign key (id) references dbo.ContractEvents(id)
-go
+GO
