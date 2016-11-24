@@ -35,8 +35,8 @@ using OpenCBS.Shared;
 
 namespace OpenCBS.Manager.Events
 {
-	public class EventManager : Manager
-	{
+    public class EventManager : Manager
+    {
         private readonly PaymentMethodManager _paymentMethodManager;
         public EventManager(User pUser) : base(pUser) { _paymentMethodManager = new PaymentMethodManager(pUser); }
 
@@ -44,13 +44,13 @@ namespace OpenCBS.Manager.Events
 
         public void WriteLog(string eventCode, string eventDescription, int userId)
         {
-            string insertCommandText=string.Format(@"INSERT INTO dbo.TraceUserLogs 
+            string insertCommandText = string.Format(@"INSERT INTO dbo.TraceUserLogs 
                                             VALUES('{0}', GETDATE(),'{1}','{2}')", eventCode, userId, eventDescription);
             using (SqlConnection conn = GetConnection())
             using (OpenCbsCommand c = new OpenCbsCommand(insertCommandText, conn))
-            c.ExecuteNonQuery();
+                c.ExecuteNonQuery();
         }
-   
+
         public List<AuditTrailEvent> SelectAuditTrailEvents(AuditTrailFilter filter)
         {
             const string q = @"SELECT * FROM dbo.AuditTrailEvents(@from, @to, @user_id, @branch_id, @types, @del, @suspicious_only)";
@@ -73,15 +73,15 @@ namespace OpenCBS.Manager.Events
                     while (r.Read())
                     {
                         AuditTrailEvent e = new AuditTrailEvent
-                                                {
-                                                    Code = r.GetString("event_type"),
-                                                    Description = r.GetString("description"),
-                                                    UserName = r.GetString("user_name"),
-                                                    UserRole = r.GetString("user_role"),
-                                                    Date = r.GetDateTime("event_date"),
-                                                    EntryDate = r.GetDateTime("entry_date"),
-                                                    BranchName = r.GetString("branch_name")
-                                                };
+                        {
+                            Code = r.GetString("event_type"),
+                            Description = r.GetString("description"),
+                            UserName = r.GetString("user_name"),
+                            UserRole = r.GetString("user_role"),
+                            Date = r.GetDateTime("event_date"),
+                            EntryDate = r.GetDateTime("entry_date"),
+                            BranchName = r.GetString("branch_name")
+                        };
                         retval.Add(e);
                     }
                 }
@@ -92,133 +92,147 @@ namespace OpenCBS.Manager.Events
 
         public EventStock SelectEvents(int pContractId, SqlTransaction tx = null)
         {
-            const string q = @"
-            SELECT 
-                ContractEvents.id AS event_id,
-                ContractEvents.contract_id, 
-                ContractEvents.event_date, 
-                ContractEvents.event_type, 
-                ContractEvents.event_type AS code, 
-                ContractEvents.is_deleted AS event_deleted, 
-                ContractEvents.entry_date AS entry_date,
-                ContractEvents.comment,
-                ContractEvents.teller_id,
-                ContractEvents.parent_id,
-                ContractEvents.cancel_date,
+            const string q = @"SELECT 
+                    ContractEvents.id AS event_id,
+                    ContractEvents.contract_id, 
+                    ContractEvents.event_date, 
+                    ContractEvents.event_type, 
+                    ContractEvents.event_type AS code, 
+                    ContractEvents.is_deleted AS event_deleted, 
+                    ContractEvents.entry_date AS entry_date,
+                    ContractEvents.comment,
+                    ContractEvents.teller_id,
+                    ContractEvents.parent_id,
+                    ContractEvents.cancel_date,
 
-                LoanDisbursmentEvents.id AS lde_id,
-                LoanDisbursmentEvents.amount AS lde_amount, 
-                LoanDisbursmentEvents.fees AS lde_fees,
-                LoanDisbursmentEvents.payment_method_id AS lde_pm,
+                    LoanDisbursmentEvents.id AS lde_id,
+                    LoanDisbursmentEvents.amount AS lde_amount, 
+                    LoanDisbursmentEvents.fees AS lde_fees,
+                    LoanDisbursmentEvents.payment_method_id AS lde_pm,
                     
-                LoanEntryFeeEvents.id AS ef_id,
-                LoanEntryFeeEvents.fee AS ef_fee,
-                LoanEntryFeeEvents.disbursement_event_id,
+                    LoanEntryFeeEvents.id AS ef_id,
+                    LoanEntryFeeEvents.fee AS ef_fee,
+                    LoanEntryFeeEvents.disbursement_event_id,
                     
-                null AS cie_id,
-                null AS cie_commission,
-                null AS cie_principal,
+                    CreditInsuranceEvents.id AS cie_id,
+                    CreditInsuranceEvents.commission AS cie_commission,
+                    CreditInsuranceEvents.principal AS cie_principal,
 
-                WriteOffEvents.id AS woe_id, 
-                WriteOffEvents.olb AS woe_olb, 
-                WriteOffEvents.accrued_interests AS woe_accrued_interests, 
-                WriteOffEvents.accrued_penalties AS woe_accrued_penalties, 
-                WriteOffEvents.past_due_days AS woe_past_due_days, 
-                WriteOffEvents.overdue_principal AS woe_overdue_principal, 
+                    WriteOffEvents.id AS woe_id, 
+                    WriteOffEvents.olb AS woe_olb, 
+                    WriteOffEvents.accrued_interests AS woe_accrued_interests, 
+                    WriteOffEvents.accrued_penalties AS woe_accrued_penalties, 
+                    WriteOffEvents.past_due_days AS woe_past_due_days, 
+                    WriteOffEvents.overdue_principal AS woe_overdue_principal, 
 
-                ReschedulingOfALoanEvents.id AS rle_id, 
-                ReschedulingOfALoanEvents.amount AS rle_amount, 
-                ReschedulingOfALoanEvents.nb_of_maturity AS rle_maturity, 
-                ReschedulingOfALoanEvents.preferred_first_installment_date AS rle_preferred_first_installment_date, 
-                ReschedulingOfALoanEvents.previous_interest_rate AS rle_previous_interest_rate,                     
+                    ReschedulingOfALoanEvents.id AS rle_id, 
+                    ReschedulingOfALoanEvents.amount AS rle_amount, 
+                    ReschedulingOfALoanEvents.nb_of_maturity AS rle_maturity, 
+                    ReschedulingOfALoanEvents.preferred_first_installment_date AS rle_preferred_first_installment_date, 
+                    ReschedulingOfALoanEvents.previous_interest_rate AS rle_previous_interest_rate,                     
 
-                RepaymentEvents.id AS rpe_id, 
-                RepaymentEvents.principal AS rpe_principal, 
-                RepaymentEvents.interests AS rpe_interests, 
-                RepaymentEvents.penalties AS rpe_penalties,
-                RepaymentEvents.commissions AS rpe_commissions,
-                RepaymentEvents.past_due_days AS rpe_past_due_days, 
-                RepaymentEvents.installment_number As rpe_installment_number, 
-                RepaymentEvents.payment_method_id AS rpe_pm,
-                RepaymentEvents.calculated_penalties rpe_calculated_penalties,
-                RepaymentEvents.written_off_penalties rpe_written_off_penalties,
-                RepaymentEvents.unpaid_penalties rpe_unpaid_penalties,
-                RepaymentEvents.bounce_fee rpe_bounce_fee,
+                    RepaymentEvents.id AS rpe_id, 
+                    RepaymentEvents.principal AS rpe_principal, 
+                    RepaymentEvents.interests AS rpe_interests, 
+                    RepaymentEvents.penalties AS rpe_penalties,
+                    RepaymentEvents.commissions AS rpe_commissions,
+                    RepaymentEvents.past_due_days AS rpe_past_due_days, 
+                    RepaymentEvents.installment_number As rpe_installment_number, 
+                    RepaymentEvents.payment_method_id AS rpe_pm,
+                    RepaymentEvents.calculated_penalties rpe_calculated_penalties,
+                    RepaymentEvents.written_off_penalties rpe_written_off_penalties,
+                    RepaymentEvents.unpaid_penalties rpe_unpaid_penalties,
+                    RepaymentEvents.bounce_fee rpe_bounce_fee,
 
-                null AS liae_id, 
-                null AS liae_interestPrepayment, 
-                null AS liae_accruedInterest, 
-                null AS liae_rescheduled, 
-                null AS liae_installmentNumber,
+                    LoanInterestAccruingEvents.id AS liae_id, 
+                    LoanInterestAccruingEvents.interest_prepayment AS liae_interestPrepayment, 
+                    LoanInterestAccruingEvents.accrued_interest AS liae_accruedInterest, 
+                    LoanInterestAccruingEvents.rescheduled AS liae_rescheduled, 
+                    LoanInterestAccruingEvents.installment_number AS liae_installmentNumber,
 
-                TrancheEvents.amount AS tranche_amount,
-                TrancheEvents.interest_rate AS tranche_interest_rate,
-                TrancheEvents.maturity AS tranche_maturity,
-                TrancheEvents.start_date AS tranche_start_date,
-                TrancheEvents.id AS tranche_id,
-                TrancheEvents.grace_period AS tranche_grace_period,
-                TrancheEvents.first_repayment_date AS tranche_first_repayment_date,
-                TrancheEvents.payment_method_id AS tranche_pm,
+                    TrancheEvents.amount AS tranche_amount,
+                    TrancheEvents.interest_rate AS tranche_interest_rate,
+                    TrancheEvents.maturity AS tranche_maturity,
+                    TrancheEvents.start_date AS tranche_start_date,
+                    TrancheEvents.id AS tranche_id,
+                    TrancheEvents.grace_period AS tranche_grace_period,
+                    TrancheEvents.first_repayment_date AS tranche_first_repayment_date,
+                    TrancheEvents.payment_method_id AS tranche_pm,
 
-                null AS ov_id,
-                null AS ov_olb,
-                null AS ov_overdue_days,
-                null AS ov_overdue_principal,
+                    OverdueEvents.id AS ov_id,
+                    OverdueEvents.olb AS ov_olb,
+                    OverdueEvents.overdue_days AS ov_overdue_days,
+                    OverdueEvents.overdue_principal AS ov_overdue_principal,
  
-                null AS pe_id,
-                null AS pe_amount,
-                null AS pe_overdue_days,
+                    ProvisionEvents.id AS pe_id,
+                    ProvisionEvents.amount AS pe_amount,
+                    ProvisionEvents.overdue_days AS pe_overdue_days,
                     
-                null AS lpae_id,
-                null AS lpae_penalty,
+                    LoanPenaltyAccrualEvents.id AS lpae_id,
+                    LoanPenaltyAccrualEvents.penalty AS lpae_penalty,
+                                           
+                    AccrualInterestLoanEvents.id AS aile_id,
+                    AccrualInterestLoanEvents.interest AS aile_interest,
+                    
+                    LoanTransitionEvents.id AS glll_id,
+                    LoanTransitionEvents.amount AS glll_amount,
+                    
+                    PenaltyWriteOffEvents.id AS pwoe_id,
+                    PenaltyWriteOffEvents.amount AS pwoe_amount,
 
-                null AS aile_id,
-                null AS aile_interest,
+                    InterestWriteOffEvents.id AS iwoe_id,
+                    InterestWriteOffEvents.amount AS iwoe_amount,
 
-                null AS glll_id,
-                null AS glll_amount,
-                pwoe.id pwoe_id,
-                pwoe.amount pwoe_amount,
-                iwoe.id iwoe_id,
-                iwoe.amount iwoe_amount,
+                    BounceFeeAccrualEvents.id AS bfae_id,
+                    BounceFeeAccrualEvents.bounce_fee AS bfae_bounce_fee,
 
-                Users.id AS user_id, 
-                Users.deleted AS user_deleted, 
-                Users.user_name AS user_username, 
-                Users.password_hash AS password_hash, 
-                Users.role_code AS user_role, 
-                Users.first_name AS user_firstname, 
-                Users.last_name AS user_lastname, 
-                0 AS currency_id,
-                '' AS client_type_code,
-                0 AS branch_id,
-                '' AS contract_code,
-                CAST(0 AS bit) AS is_pivot, 
-                CAST(0 AS bit) AS is_swapped, 
-                '' AS currency_code,
-                0 AS product_id
-                FROM ContractEvents 
-                LEFT JOIN Users ON ContractEvents.user_id = Users.id 
-                LEFT OUTER JOIN LoanDisbursmentEvents ON ContractEvents.id = LoanDisbursmentEvents.id 
-                LEFT OUTER JOIN LoanEntryFeeEvents ON ContractEvents.id = LoanEntryFeeEvents.id
-                LEFT OUTER JOIN CreditInsuranceEvents  ON ContractEvents.id = CreditInsuranceEvents.id
-                LEFT OUTER JOIN LoanInterestAccruingEvents ON ContractEvents.id = LoanInterestAccruingEvents.id 
-                LEFT OUTER JOIN RepaymentEvents ON ContractEvents.id = RepaymentEvents.id 
-                LEFT OUTER JOIN ReschedulingOfALoanEvents ON ContractEvents.id = ReschedulingOfALoanEvents.id 
-                LEFT OUTER JOIN WriteOffEvents ON ContractEvents.id = WriteOffEvents.id 
-                LEFT OUTER JOIN TrancheEvents ON ContractEvents.id = TrancheEvents.id
-                LEFT OUTER JOIN OverdueEvents ON ContractEvents.id = OverdueEvents.id
-                LEFT OUTER JOIN ProvisionEvents ON ContractEvents.id = ProvisionEvents.id
-                LEFT OUTER JOIN LoanPenaltyAccrualEvents ON ContractEvents.id = LoanPenaltyAccrualEvents.id
-                LEFT OUTER JOIN AccrualInterestLoanEvents ON ContractEvents.id = AccrualInterestLoanEvents.id
-                LEFT OUTER JOIN LoanTransitionEvents ON ContractEvents.id = LoanTransitionEvents.id
-                left join dbo.PenaltyWriteOffEvents pwoe on pwoe.id = ContractEvents.id
-                left join dbo.InterestWriteOffEvents iwoe on iwoe.id = ContractEvents.id
-                WHERE
-                    ContractEvents.contract_id = @id
-                    and event_type in ('LODE', 'TEET', 'LEE0', 'LEE1', 'LEE2', 'LEE3', 'ROLE', 'RGLE', 'RBLE', 'APR', 'ATR', 'WROE', 'PWOE', 'IWOE')
-                ORDER BY ContractEvents.id
-            ";
+                    BounceWriteOffEvents.id AS bwoe_id,
+                    BounceWriteOffEvents.amount AS bwoe_amount,
+
+                    --OutOfBalancePenaltyAccrualEvents.id AS apoe_id,
+                    --OutOfBalancePenaltyAccrualEvent.penalty AS apoe_penalty,
+
+                    --OutOfBalanceInterestAccrualEvent.id AS aioe_id,
+                    --OutOfBalanceInterestAccrualEvent.interest AS aioe_interest,
+
+                    Users.id AS user_id, 
+                    Users.deleted AS user_deleted, 
+                    Users.user_name AS user_username, 
+                    Users.password_hash AS password_hash, 
+                    Users.role_code AS user_role, 
+                    Users.first_name AS user_firstname, 
+                    Users.last_name AS user_lastname, 
+                    0 AS currency_id,
+                    '' AS client_type_code,
+                    0 AS branch_id,
+                    '' AS contract_code,
+                    CAST(0 AS bit) AS is_pivot, 
+                    CAST(0 AS bit) AS is_swapped, 
+                    '' AS currency_code,
+                    0 AS product_id
+                    FROM ContractEvents 
+                    INNER JOIN Users ON ContractEvents.user_id = Users.id 
+                    LEFT OUTER JOIN LoanDisbursmentEvents ON ContractEvents.id = LoanDisbursmentEvents.id 
+                    LEFT OUTER JOIN LoanEntryFeeEvents ON ContractEvents.id = LoanEntryFeeEvents.id
+                    LEFT OUTER JOIN CreditInsuranceEvents  ON ContractEvents.id = CreditInsuranceEvents.id
+                    LEFT OUTER JOIN LoanInterestAccruingEvents ON ContractEvents.id = LoanInterestAccruingEvents.id 
+                    LEFT OUTER JOIN RepaymentEvents ON ContractEvents.id = RepaymentEvents.id 
+                    LEFT OUTER JOIN ReschedulingOfALoanEvents ON ContractEvents.id = ReschedulingOfALoanEvents.id 
+                    LEFT OUTER JOIN WriteOffEvents ON ContractEvents.id = WriteOffEvents.id 
+                    LEFT OUTER JOIN TrancheEvents ON ContractEvents.id = TrancheEvents.id
+                    LEFT OUTER JOIN OverdueEvents ON ContractEvents.id = OverdueEvents.id
+                    LEFT OUTER JOIN ProvisionEvents ON ContractEvents.id = ProvisionEvents.id
+                    LEFT OUTER JOIN LoanPenaltyAccrualEvents ON ContractEvents.id = LoanPenaltyAccrualEvents.id
+                    --LEFT OUTER JOIN OutOfBalancePenaltyAccrualEvent ON ContractEvents.id = OutOfBalancePenaltyAccrualEvent.id
+                    --LEFT OUTER JOIN OutOfBalanceInterestAccrualEvent ON ContractEvents.id = OutOfBalanceInterestAccrualEvent.id
+                    LEFT OUTER JOIN AccrualInterestLoanEvents ON ContractEvents.id = AccrualInterestLoanEvents.id
+                    LEFT OUTER JOIN LoanTransitionEvents ON ContractEvents.id = LoanTransitionEvents.id
+                    LEFT OUTER JOIN BounceFeeAccrualEvents ON ContractEvents.id = BounceFeeAccrualEvents.id
+                    LEFT OUTER JOIN PenaltyWriteOffEvents ON ContractEvents.id = PenaltyWriteOffEvents.id
+                    LEFT OUTER JOIN InterestWriteOffEvents ON ContractEvents.id = InterestWriteOffEvents.id
+                    LEFT OUTER JOIN BounceWriteOffEvents ON ContractEvents.id = BounceWriteOffEvents.id
+                    WHERE (ContractEvents.contract_id = @id)
+                    ORDER BY ContractEvents.id";
             var connection = tx != null ? tx.Connection : GetConnection();
             try
             {
@@ -294,7 +308,7 @@ namespace OpenCBS.Manager.Events
                 case OTellerEvents.CashIn:
                     e = new TellerCashInEvent();
                     break;
-                
+
                 case OTellerEvents.CashOut:
                     e = new TellerCashOutEvent();
                     break;
@@ -349,7 +363,7 @@ namespace OpenCBS.Manager.Events
                 {
                     EventType et = new EventType
                     {
-                        Id = r.GetInt("id"), 
+                        Id = r.GetInt("id"),
                         Description = r.GetString("description"),
                         EventCode = r.GetString("event_type")
                     };
@@ -434,11 +448,11 @@ namespace OpenCBS.Manager.Events
                     while (r.Read())
                     {
                         evntType = new EventType
-                                     {
-                                         Id = r.GetInt("id"),
-                                         Description = r.GetString("description"),
-                                         EventCode = r.GetString("event_type")
-                                     };
+                        {
+                            Id = r.GetInt("id"),
+                            Description = r.GetString("description"),
+                            EventCode = r.GetString("event_type")
+                        };
                     }
 
                     return evntType;
@@ -517,9 +531,9 @@ namespace OpenCBS.Manager.Events
                 {
                     int result = AddLoanEvent(evnt, contractId, transaction);
                     transaction.Commit();
-                    return result;   
+                    return result;
                 }
-                catch(Exception)
+                catch (Exception)
                 {
                     transaction.Rollback();
                     throw;
@@ -528,19 +542,19 @@ namespace OpenCBS.Manager.Events
         }
 
         public int AddLoanEvent(LoanDisbursmentEvent evnt, int contractId, SqlTransaction transaction)
-		{
+        {
             evnt.Id = AddLoanEventHead(evnt, contractId, transaction);
 
             const string q = @"INSERT INTO [LoanDisbursmentEvents]([id], [amount], [fees], [interest], [payment_method_id])
                                     VALUES(@id, @amount, @fees, @interest, @payment_method_id)";
 
-            using(OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
+            using (OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
             {
                 GetLoanDisbursmentEvent(evnt, c);
                 c.ExecuteNonQuery();
             }
             return evnt.Id;
-		}
+        }
 
         public void AddLoanEntryFeesEvent(LoanEntryFeeEvent pEvent, SqlTransaction pSqlTransac)
         {
@@ -588,12 +602,12 @@ namespace OpenCBS.Manager.Events
             }
         }
 
-	    private void SetCreditInsuranceEvent(CreditInsuranceEvent pEvent, OpenCbsCommand c)
-	    {
-	        c.AddParam("@id", pEvent.Id);
+        private void SetCreditInsuranceEvent(CreditInsuranceEvent pEvent, OpenCbsCommand c)
+        {
+            c.AddParam("@id", pEvent.Id);
             c.AddParam("@commission", pEvent.Commission.Value);
             c.AddParam("@principal", pEvent.Principal.Value);
-	    }
+        }
 
         public void AddLoanEvent(LoanCloseEvent evnt, int contractId, SqlTransaction transaction)
         {
@@ -602,11 +616,11 @@ namespace OpenCBS.Manager.Events
 
         public void AddLoanEvent(LoanValidationEvent evnt, int contractId, SqlTransaction transaction)
         {
-            evnt.Id=AddLoanEventHead(evnt, contractId, transaction);
+            evnt.Id = AddLoanEventHead(evnt, contractId, transaction);
         }
 
         public void AddLoanEvent(RepaymentEvent evnt, int contractId, SqlTransaction transaction)
-		{
+        {
             const string q = @"INSERT INTO [RepaymentEvents]
                                        ([id],
                                         [past_due_days], 
@@ -640,7 +654,7 @@ namespace OpenCBS.Manager.Events
                 SetLoanRepaymentEvent(evnt, c);
                 c.ExecuteNonQuery();
             }
-		}
+        }
 
         public void AddLoanEvent(TrancheEvent trancheEvent, int contractId, SqlTransaction transaction)
         {
@@ -700,10 +714,10 @@ namespace OpenCBS.Manager.Events
             }
         }
 
-	    public void AddLoanEvent(RescheduleLoanEvent rescheduleLoanEvent, int contractId, SqlTransaction transaction)
-		{
+        public void AddLoanEvent(RescheduleLoanEvent rescheduleLoanEvent, int contractId, SqlTransaction transaction)
+        {
             rescheduleLoanEvent.Id = AddLoanEventHead(rescheduleLoanEvent, contractId, transaction);
-            
+
             const string q = @"
                 INSERT INTO [ReschedulingOfALoanEvents]
                 (
@@ -729,14 +743,14 @@ namespace OpenCBS.Manager.Events
                 )
             ";
 
-            using(OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
+            using (OpenCbsCommand c = new OpenCbsCommand(q, transaction.Connection, transaction))
             {
                 SetLoanReschedulingEvent(rescheduleLoanEvent, c);
                 c.ExecuteNonQuery();
             }
-		}
+        }
 
-	    public void AddLoanEvent(ProvisionEvent provisionEvent, int contractId, SqlTransaction transaction)
+        public void AddLoanEvent(ProvisionEvent provisionEvent, int contractId, SqlTransaction transaction)
         {
             provisionEvent.Id = AddLoanEventHead(provisionEvent, contractId, transaction);
 
@@ -796,8 +810,8 @@ namespace OpenCBS.Manager.Events
             }
         }
 
-	    public void AddLoanEvent(WriteOffEvent writeOffEvent, int contractId, SqlTransaction transaction)
-		{
+        public void AddLoanEvent(WriteOffEvent writeOffEvent, int contractId, SqlTransaction transaction)
+        {
             writeOffEvent.Id = AddLoanEventHead(writeOffEvent, contractId, transaction);
 
             const string q = @"INSERT INTO [WriteOffEvents]
@@ -812,12 +826,12 @@ namespace OpenCBS.Manager.Events
                                      VALUES(@id, @olb, @accruedInterests, @accruedPenalties, @pastDueDays, @overdue_principal, @writeOffMethod, @comment)
                                     SELECT SCOPE_IDENTITY()";
 
-            using(var c = new OpenCbsCommand(q, transaction.Connection, transaction))
+            using (var c = new OpenCbsCommand(q, transaction.Connection, transaction))
             {
                 SetLoanWriteOffEvent(writeOffEvent, c);
                 c.ExecuteNonQuery();
             }
-		}
+        }
 
         public void AddLoanEvent(AccruedInterestEvent pEvent, int contractId)
         {
@@ -878,10 +892,10 @@ namespace OpenCBS.Manager.Events
             }
         }
 
-	    public void AddLoanEvent(RegEvent pEvent, int contractId, SqlTransaction transaction)
-		{
+        public void AddLoanEvent(RegEvent pEvent, int contractId, SqlTransaction transaction)
+        {
             AddLoanEventHead(pEvent, contractId, transaction);
-		}
+        }
 
         public void AddLoanEvent(ManualScheduleChangeEvent pEvent, int contractId, SqlTransaction transaction)
         {
@@ -985,7 +999,7 @@ namespace OpenCBS.Manager.Events
 		               ,@date
                        ,@description
                        )";
-            using (OpenCbsCommand cmd  = new OpenCbsCommand(sql, sqlTransaction.Connection, sqlTransaction))
+            using (OpenCbsCommand cmd = new OpenCbsCommand(sql, sqlTransaction.Connection, sqlTransaction))
             {
                 cmd.AddParam("@teller_id", tellerEvent.TellerId);
                 cmd.AddParam("@event_code", tellerEvent.Code);
@@ -1028,7 +1042,7 @@ namespace OpenCBS.Manager.Events
             }
         }
 
-	    public void DeleteLoanEvent(Event pEvent, SqlTransaction pSqlTransac)
+        public void DeleteLoanEvent(Event pEvent, SqlTransaction pSqlTransac)
         {
             const string q = @"UPDATE [ContractEvents] 
                                SET 
@@ -1049,7 +1063,7 @@ namespace OpenCBS.Manager.Events
 
         public void ExportTellerEvent(int eventId, SqlTransaction sqlTransaction)
         {
-            const string sql = 
+            const string sql =
                       @"UPDATE [dbo].[TellerEvents]
                         SET [is_exported] = 1
                         WHERE id = @id";
@@ -1137,13 +1151,13 @@ namespace OpenCBS.Manager.Events
         }
 
         private static void SetLoanInterestAccruingEvent(AccruedInterestEvent pEvent, OpenCbsCommand c)
-	    {
+        {
             c.AddParam("@id", pEvent.Id);
             c.AddParam("@interestPrepayment", pEvent.Interest.Value);
             c.AddParam("@accruedInterest", pEvent.AccruedInterest.Value);
             c.AddParam("@rescheduled", pEvent.Rescheduled);
             c.AddParam("@installmentNumber", pEvent.InstallmentNumber);
-	    }
+        }
 
         private static void SetLoanEvent(OpenCbsCommand c, Event pEvent, int pContractId)
         {
@@ -1240,14 +1254,18 @@ namespace OpenCBS.Manager.Events
             else if (r.GetNullInt("lpae_id").HasValue)
             {
                 e = GetLoanPenaltyAccrualEvent(r);
-            //}
-            //else if (r.GetNullInt("aioe_id").HasValue)
-            //{
-            //    e = GetOutOfBalanceInterestAccrualEvent(r);
-            //}
-            //else if (r.GetNullInt("apoe_id").HasValue)
-            //{
-            //    e = GetOutOfBalancePenaltyAccrualEvent(r);
+                //}
+                //else if (r.GetNullInt("aioe_id").HasValue)
+                //{
+                //    e = GetOutOfBalanceInterestAccrualEvent(r);
+                //}
+                //else if (r.GetNullInt("apoe_id").HasValue)
+                //{
+                //    e = GetOutOfBalancePenaltyAccrualEvent(r);
+            }
+            else if (r.GetNullInt("bfae_id").HasValue)
+            {
+                e = GetBounceFeeAccrualEvent(r);
             }
             else if (r.GetNullInt("aile_id").HasValue)
             {
@@ -1265,6 +1283,10 @@ namespace OpenCBS.Manager.Events
             {
                 e = GetInterestWriteOffEvent(r);
             }
+            else if (r.GetNullInt("bwoe_id").HasValue)
+            {
+                e = GetBounceWriteOffEvent(r);
+            }
             else
             {
                 if (r.GetString("code").Equals("LOVE"))
@@ -1281,34 +1303,43 @@ namespace OpenCBS.Manager.Events
             return e;
         }
 
-	    private static Event GetPenaltyWriteOffEvent(OpenCbsReader r)
-	    {
-	        var result = new PenaltyWriteOffEvent();
-	        result.Id = r.GetInt("pwoe_id");
-	        result.Amount = r.GetDecimal("pwoe_amount");
-	        return result;
-	    }
+        private static Event GetPenaltyWriteOffEvent(OpenCbsReader r)
+        {
+            var result = new PenaltyWriteOffEvent();
+            result.Id = r.GetInt("pwoe_id");
+            result.Amount = r.GetDecimal("pwoe_amount");
+            return result;
+        }
 
-	    private static Event GetInterestWriteOffEvent(OpenCbsReader r)
-	    {
+        private static BounceWriteOffEvent GetBounceWriteOffEvent(OpenCbsReader r)
+        {
+            return new BounceWriteOffEvent
+            {
+                Id = r.GetInt("bwoe_id"),
+                Amount = r.GetMoney("bwoe_amount"),
+            };
+        }
+
+        private static Event GetInterestWriteOffEvent(OpenCbsReader r)
+        {
             var result = new InterestWriteOffEvent();
             result.Id = r.GetInt("iwoe_id");
             result.Amount = r.GetDecimal("iwoe_amount");
-            return result;	        
-	    }
+            return result;
+        }
 
-	    private static Event GetCreditInsuranceEvent(OpenCbsReader r)
-	    {
-	        CreditInsuranceEvent cie = new CreditInsuranceEvent();
+        private static Event GetCreditInsuranceEvent(OpenCbsReader r)
+        {
+            CreditInsuranceEvent cie = new CreditInsuranceEvent();
             cie.Id = r.GetInt("cie_id");
-	        cie.Commission = r.GetDecimal("cie_commission");
-	        cie.Principal = r.GetDecimal("cie_principal");
-	        return cie;
-	    }
+            cie.Commission = r.GetDecimal("cie_commission");
+            cie.Principal = r.GetDecimal("cie_principal");
+            return cie;
+        }
 
-	    public  List<LoanEntryFeeEvent> GetEntryFeeEvents(int disbursementEventId)
-	    {
-	       List<LoanEntryFeeEvent> entryFeeEvents = new List<LoanEntryFeeEvent>();
+        public List<LoanEntryFeeEvent> GetEntryFeeEvents(int disbursementEventId)
+        {
+            List<LoanEntryFeeEvent> entryFeeEvents = new List<LoanEntryFeeEvent>();
             const string q = @"SELECT DISTINCT  entry_date
                                             ,event_type
                                             ,LoanEntryFeeEvents.fee
@@ -1321,32 +1352,32 @@ namespace OpenCBS.Manager.Events
                                 WHERE ContractEvents.event_type LIKE 'LEE%' AND
                                 LoanEntryFeeEvents.[disbursement_event_id]=@disbursement_event_id";
             using (SqlConnection conn = GetConnection())
-	        using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-	        {
+            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
+            {
                 c.AddParam("@disbursement_event_id", disbursementEventId);
-	            using (OpenCbsReader r = c.ExecuteReader())
-	            {
-	                while (r.Read())
-	                {
+                using (OpenCbsReader r = c.ExecuteReader())
+                {
+                    while (r.Read())
+                    {
                         var loanEntryFeeEvent = new LoanEntryFeeEvent
-                                                    {
-                                                        Code = r.GetString("event_type"),
-                                                        Fee = r.GetDecimal("fee"),
-                                                        Cancelable = true,
-                                                        Deleted = r.GetBool("is_deleted"),
-                                                        User = new User { Id = r.GetInt("user_id") },
-                                                        EntryDate = r.GetDateTime("entry_date"),
-                                                        Id = r.GetInt("id"),
-                                                        DisbursementEventId = r.GetInt("disbursement_event_id")
-                                                    };
-	                    entryFeeEvents.Add(loanEntryFeeEvent);
-	                }
-	            }
-	        }
-	        return entryFeeEvents;
-	    }
+                        {
+                            Code = r.GetString("event_type"),
+                            Fee = r.GetDecimal("fee"),
+                            Cancelable = true,
+                            Deleted = r.GetBool("is_deleted"),
+                            User = new User { Id = r.GetInt("user_id") },
+                            EntryDate = r.GetDateTime("entry_date"),
+                            Id = r.GetInt("id"),
+                            DisbursementEventId = r.GetInt("disbursement_event_id")
+                        };
+                        entryFeeEvents.Add(loanEntryFeeEvent);
+                    }
+                }
+            }
+            return entryFeeEvents;
+        }
 
-	    private static Event GetSavingEvent(OpenCbsReader r)
+        private static Event GetSavingEvent(OpenCbsReader r)
         {
             SavingEvent e;
 
@@ -1413,36 +1444,36 @@ namespace OpenCBS.Manager.Events
             switch (r.GetString("client_type_code"))
             {
                 case "I":
-                    pEvent.ClientType = OClientTypes.Person; 
+                    pEvent.ClientType = OClientTypes.Person;
                     break;
                 case "C":
-                    pEvent.ClientType = OClientTypes.Corporate; 
+                    pEvent.ClientType = OClientTypes.Corporate;
                     break;
                 case "G":
                     pEvent.ClientType = OClientTypes.Group;
                     break;
                 case "V":
-                    pEvent.ClientType = OClientTypes.Village; 
+                    pEvent.ClientType = OClientTypes.Village;
                     break;
             }
 
             //User associated to the event
             pEvent.User = new User
-                              {
-                                  Id = r.GetInt("user_id"),
-                                  UserName = r.GetString("user_username"),
-                                  PasswordHash = r.GetString("password_hash"),
-                                  LastName = r.GetString("user_lastname"),
-                                  FirstName = r.GetString("user_firstname")
-                              };
+            {
+                Id = r.GetInt("user_id"),
+                UserName = r.GetString("user_username"),
+                PasswordHash = r.GetString("password_hash"),
+                LastName = r.GetString("user_lastname"),
+                FirstName = r.GetString("user_firstname")
+            };
 
             pEvent.Currency = new Currency
-                                  {
-                                      Id = r.GetInt("currency_id"),
-                                      Code = r.GetString("currency_code"),
-                                      IsPivot = r.GetBool("is_pivot"),
-                                      IsSwapped = r.GetBool("is_swapped")
-                                  };
+            {
+                Id = r.GetInt("currency_id"),
+                Code = r.GetString("currency_code"),
+                IsPivot = r.GetBool("is_pivot"),
+                IsSwapped = r.GetBool("is_swapped")
+            };
 
             pEvent.Branch = new Branch { Id = r.GetInt("branch_id") };
             pEvent.LoanProduct = new LoanProduct { Id = r.GetInt("product_id") };
@@ -1458,24 +1489,34 @@ namespace OpenCBS.Manager.Events
                 pEvent.Description = r.GetString("contract_code");
         }
 
-	    private static AccruedInterestEvent GetLoanInterestAccruingEvent(OpenCbsReader r)
+        private static AccruedInterestEvent GetLoanInterestAccruingEvent(OpenCbsReader r)
         {
-            return new AccruedInterestEvent{
-                           Id = r.GetInt("liae_id"),
-                           AccruedInterest = r.GetMoney("liae_accruedInterest"),
-                           Interest = r.GetMoney("liae_interestPrepayment"),
-                           Rescheduled = r.GetBool("liae_rescheduled"),
-                           InstallmentNumber = r.GetInt("liae_installmentNumber")
-                       };
+            return new AccruedInterestEvent
+            {
+                Id = r.GetInt("liae_id"),
+                AccruedInterest = r.GetMoney("liae_accruedInterest"),
+                Interest = r.GetMoney("liae_interestPrepayment"),
+                Rescheduled = r.GetBool("liae_rescheduled"),
+                InstallmentNumber = r.GetInt("liae_installmentNumber")
+            };
         }
 
         private static LoanPenaltyAccrualEvent GetLoanPenaltyAccrualEvent(OpenCbsReader r)
         {
             return new LoanPenaltyAccrualEvent
-                {
-                    Id = r.GetInt("lpae_id"),
-                    Penalty = r.GetMoney("lpae_penalty"),
-                };
+            {
+                Id = r.GetInt("lpae_id"),
+                Penalty = r.GetMoney("lpae_penalty"),
+            };
+        }
+
+        private static BounceFeeAccrualEvent GetBounceFeeAccrualEvent(OpenCbsReader r)
+        {
+            return new BounceFeeAccrualEvent
+            {
+                Id = r.GetInt("bfae_id"),
+                BounceFee = r.GetMoney("bfae_bounce_fee"),
+            };
         }
 
         //private static OutOfBalanceInterestAccrualEvent GetOutOfBalanceInterestAccrualEvent(OpenCbsReader r)
@@ -1499,10 +1540,10 @@ namespace OpenCBS.Manager.Events
         private static LoanInterestAccrualEvent GetLoanInterestAccrualEvent(OpenCbsReader r)
         {
             return new LoanInterestAccrualEvent
-                {
-                    Id = r.GetInt("aile_id"),
-                    Interest = r.GetMoney("aile_interest"),
-                };
+            {
+                Id = r.GetInt("aile_id"),
+                Interest = r.GetMoney("aile_interest"),
+            };
         }
 
         private static LoanTransitionEvent GetLoanTransitionEvent(OpenCbsReader r)
@@ -1513,10 +1554,11 @@ namespace OpenCBS.Manager.Events
                 Amount = r.GetMoney("glll_amount"),
             };
         }
-        
-	    private static OverdueEvent GetOverdueEvent(OpenCbsReader r)
+
+        private static OverdueEvent GetOverdueEvent(OpenCbsReader r)
         {
-            return new OverdueEvent{
+            return new OverdueEvent
+            {
                 Id = r.GetInt("ov_id"),
                 OLB = r.GetMoney("ov_olb"),
                 OverdueDays = r.GetInt("ov_overdue_days"),
@@ -1526,7 +1568,8 @@ namespace OpenCBS.Manager.Events
 
         private static ProvisionEvent GetProvisionEvent(OpenCbsReader r)
         {
-            return new ProvisionEvent{
+            return new ProvisionEvent
+            {
                 Id = r.GetInt("pe_id"),
                 Amount = r.GetMoney("pe_amount"),
                 OverdueDays = r.GetInt("pe_overdue_days")
@@ -1546,7 +1589,8 @@ namespace OpenCBS.Manager.Events
 
         private TrancheEvent GetTrancheLoanEvent(OpenCbsReader r)
         {
-            return new TrancheEvent{
+            return new TrancheEvent
+            {
                 Id = r.GetInt("tranche_id"),
                 Amount = r.GetMoney("tranche_amount"),
                 InterestRate = r.GetMoney("tranche_interest_rate").Value,
@@ -1563,13 +1607,13 @@ namespace OpenCBS.Manager.Events
         }
 
         private RepaymentEvent GetRepaymentEvent(OpenCbsReader r)
-	    {
-            RepaymentEvent e = new RepaymentEvent {Id = r.GetInt("rpe_id")};
+        {
+            RepaymentEvent e = new RepaymentEvent { Id = r.GetInt("rpe_id") };
             switch (r.GetString("event_type"))
             {
                 case "RBLE":
                     {
-                        e = new BadLoanRepaymentEvent {Id = r.GetInt("rpe_id")};
+                        e = new BadLoanRepaymentEvent { Id = r.GetInt("rpe_id") };
                         break;
                     }
                 case "ROWO":
@@ -1580,35 +1624,35 @@ namespace OpenCBS.Manager.Events
                 case "PRLR":
                     {
                         e = new PendingRepaymentEvent(r.GetString("event_type"))
-                                {Id = r.GetInt("rpe_id")};
+                        { Id = r.GetInt("rpe_id") };
                         break;
                     }
                 case "PBLR":
                     {
                         e = new PendingRepaymentEvent(r.GetString("event_type"))
-                                {Id = r.GetInt("rpe_id")};
+                        { Id = r.GetInt("rpe_id") };
                         break;
                     }
                 case "PRWO":
                     {
                         e = new PendingRepaymentEvent(r.GetString("event_type"))
-                                {Id = r.GetInt("rpe_id")};
+                        { Id = r.GetInt("rpe_id") };
                         break;
                     }
                 case "PERE":
                     {
                         e = new PendingRepaymentEvent(r.GetString("event_type"))
-                                {Id = r.GetInt("rpe_id")};
+                        { Id = r.GetInt("rpe_id") };
                         break;
                     }
             }
 
-	        e.Principal = r.GetMoney("rpe_principal");
-	        e.Interests = r.GetMoney("rpe_interests");
-	        e.Penalties = r.GetMoney("rpe_penalties");
+            e.Principal = r.GetMoney("rpe_principal");
+            e.Interests = r.GetMoney("rpe_interests");
+            e.Penalties = r.GetMoney("rpe_penalties");
             e.Commissions = r.GetMoney("rpe_commissions");
-	        e.PastDueDays = r.GetInt("rpe_past_due_days");
-	        e.InstallmentNumber = r.GetInt("rpe_installment_number");
+            e.PastDueDays = r.GetInt("rpe_past_due_days");
+            e.InstallmentNumber = r.GetInt("rpe_installment_number");
             e.PaymentMethodId = r.GetNullInt("rpe_pm");
             e.PaymentMethod = e.PaymentMethodId == null ? null :
                 _paymentMethodManager.SelectPaymentMethodById(e.PaymentMethodId.Value);
@@ -1621,7 +1665,7 @@ namespace OpenCBS.Manager.Events
 
             if (e.Code != "RBLE")
                 e.RepaymentType = OPaymentType.StandardPayment;
-            
+
             // set type of payment
             switch (r.GetString("event_type").Trim())
             {
@@ -1642,47 +1686,48 @@ namespace OpenCBS.Manager.Events
                     }
             }
 
-	        return e;
-	    }
+            return e;
+        }
 
         private static RescheduleLoanEvent GetReschedulingLoanEvent(OpenCbsReader r)
-	    {
-            return new RescheduleLoanEvent{
+        {
+            return new RescheduleLoanEvent
+            {
                 Id = r.GetInt("rle_id"),
                 Amount = r.GetMoney("rle_amount"),
                 NbOfMaturity = r.GetInt("rle_maturity"),
                 PreferredFirstInstallmentDate = r.GetDateTime("rle_preferred_first_installment_date"),
-                 PreviousInterestRate = r.GetDecimal("rle_previous_interest_rate")
+                PreviousInterestRate = r.GetDecimal("rle_previous_interest_rate")
             };
-	    }
+        }
 
-	    private static Event GetWriteOffEvent(OpenCbsReader r)
-	    {
-	        return new WriteOffEvent
-                                  {
-                                      Id = r.GetInt("woe_id"),
-                                      OLB = r.GetMoney("woe_olb"),
-                                      AccruedInterests = r.GetMoney("woe_accrued_interests"),
-                                      AccruedPenalties = r.GetMoney("woe_accrued_penalties"),
-                                      PastDueDays = r.GetInt("woe_past_due_days"),
-                                      OverduePrincipal = r.GetMoney("woe_overdue_principal")
-                                  };
-	    }
+        private static Event GetWriteOffEvent(OpenCbsReader r)
+        {
+            return new WriteOffEvent
+            {
+                Id = r.GetInt("woe_id"),
+                OLB = r.GetMoney("woe_olb"),
+                AccruedInterests = r.GetMoney("woe_accrued_interests"),
+                AccruedPenalties = r.GetMoney("woe_accrued_penalties"),
+                PastDueDays = r.GetInt("woe_past_due_days"),
+                OverduePrincipal = r.GetMoney("woe_overdue_principal")
+            };
+        }
 
-	    private LoanDisbursmentEvent GetLoanDisbursmentEvent(OpenCbsReader r)
-	    {
-	        return new LoanDisbursmentEvent
-	                   {
-	                       Id = r.GetInt("lde_id"),
-	                       Amount = r.GetMoney("lde_amount"),
-	                       Fee = r.GetMoney("lde_fees"),
-	                       PaymentMethodId = r.GetNullInt("lde_pm"),
-	                       PaymentMethod = r.GetNullInt("lde_pm") == null
-	                                           ? null
-	                                           : _paymentMethodManager.SelectPaymentMethodById(
-	                                               r.GetNullInt("lde_pm").Value)
-	                   };
-	    }
+        private LoanDisbursmentEvent GetLoanDisbursmentEvent(OpenCbsReader r)
+        {
+            return new LoanDisbursmentEvent
+            {
+                Id = r.GetInt("lde_id"),
+                Amount = r.GetMoney("lde_amount"),
+                Fee = r.GetMoney("lde_fees"),
+                PaymentMethodId = r.GetNullInt("lde_pm"),
+                PaymentMethod = r.GetNullInt("lde_pm") == null
+                                               ? null
+                                               : _paymentMethodManager.SelectPaymentMethodById(
+                                                   r.GetNullInt("lde_pm").Value)
+            };
+        }
 
         public void LogClientSaveUpdateEvent(string client, bool save, int userId)
         {
@@ -1713,5 +1758,5 @@ namespace OpenCBS.Manager.Events
                 return Convert.ToBoolean(cmd.ExecuteScalar());
             }
         }
-	}
+    }
 }

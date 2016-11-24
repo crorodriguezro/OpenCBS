@@ -105,7 +105,7 @@ namespace OpenCBS.CoreDomain.Events
                 return i;
             }
         }
-        
+
         public void Add(EventStock eventStock)
         {
             _list.AddRange(eventStock._list);
@@ -119,7 +119,7 @@ namespace OpenCBS.CoreDomain.Events
 
         public void SortEventsById()
         {
-            _list.Sort((x,y) => x.Id.CompareTo(y.Id));
+            _list.Sort((x, y) => x.Id.CompareTo(y.Id));
         }
 
         public void SortEventsByDate()
@@ -136,7 +136,7 @@ namespace OpenCBS.CoreDomain.Events
                 if (e.GetType().Equals(type))
                     events.Add(e);
             }
-            events.Sort((x,y) => x.Date.CompareTo(y.Date));
+            events.Sort((x, y) => x.Date.CompareTo(y.Date));
             return events;
         }
 
@@ -152,17 +152,17 @@ namespace OpenCBS.CoreDomain.Events
                              select e).ToList();
             return l;
         }
-        
+
         public List<RepaymentEvent> GetRepaymentEvents()
         {
             List<RepaymentEvent> eventList = new List<RepaymentEvent>();
 
             foreach (Event e in _list)
             {
-                if(e is RepaymentEvent && !(e is PendingRepaymentEvent))
+                if (e is RepaymentEvent && !(e is PendingRepaymentEvent))
                     eventList.Add((RepaymentEvent)e);
             }
-            eventList.Sort((x,y) => x.Date.CompareTo(y.Date));
+            eventList.Sort((x, y) => x.Date.CompareTo(y.Date));
             return eventList;
         }
 
@@ -255,8 +255,8 @@ namespace OpenCBS.CoreDomain.Events
                 if (e is LoanDisbursmentEvent)
                     eventList.Add((LoanDisbursmentEvent)e);
             }
-            
-            eventList.Sort((x,y) => x.Id.CompareTo(y.Id));
+
+            eventList.Sort((x, y) => x.Id.CompareTo(y.Id));
 
             return eventList;
         }
@@ -280,8 +280,8 @@ namespace OpenCBS.CoreDomain.Events
             {
                 if (item is CreditInsuranceEvent)
                 {
-                    if (item.Deleted==false && item.Code=="LCIE")
-                    return item as CreditInsuranceEvent;
+                    if (item.Deleted == false && item.Code == "LCIE")
+                        return item as CreditInsuranceEvent;
                 }
             }
             return null;
@@ -337,7 +337,7 @@ namespace OpenCBS.CoreDomain.Events
                 {
                     Event e = eventList[i];
                     if (!e.Deleted && !(e is LoanEntryFeeEvent) && !(e is CreditInsuranceEvent) &&
-                        !(e is LoanPenaltyAccrualEvent) && !(e is LoanInterestAccrualEvent))
+                        !(e is LoanPenaltyAccrualEvent) && !(e is LoanInterestAccrualEvent) && !(e is BounceFeeAccrualEvent))
                     {
                         return e;
                     }
@@ -374,15 +374,15 @@ namespace OpenCBS.CoreDomain.Events
     {
         public EventType()
         {
-            
+
         }
 
         public EventType(string eventCode)
         {
             EventCode = eventCode;
         }
-        
-        public string EventCode { get; set;}
+
+        public string EventCode { get; set; }
         public string Description { get; set; }
         public int Id { get; set; }
 

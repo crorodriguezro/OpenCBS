@@ -202,6 +202,8 @@
     <Compile Include="Dashboard\PortfolioLine.cs" />
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="Document.cs" />
+    <Compile Include="Events\Loan\BounceFeeAccrualEvent.cs" />
+    <Compile Include="Events\Loan\BounceWriteOffEvent.cs" />
     <Compile Include="Events\Loan\InterestWriteOffEvent.cs" />
     <Compile Include="Events\Loan\LoanInterestAccraulEvent.cs" />
     <Compile Include="Events\Loan\LoanPenaltyAccraulEvent.cs" />

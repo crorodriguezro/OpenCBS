@@ -220,7 +220,7 @@ namespace OpenCBS.GUI.Clients
             for (int exp = 0; exp < decimalPlaces; exp++)
                 increment = decimal.Divide(increment, 10m);
             nudInterestRate.Increment = increment;
-            if(ApplicationSettings.GetInstance(User.CurrentUser.Md5).ShowExtraInterestColumn)
+            if (ApplicationSettings.GetInstance(User.CurrentUser.Md5).ShowExtraInterestColumn)
                 _repaymentScheduleControl.ShowExtraColumn();
         }
 
@@ -703,7 +703,7 @@ namespace OpenCBS.GUI.Clients
             tabControlSavingsDetails.TabPages.Clear();
             if (product.Type == OSavingProductType.PersonalAccount)
             {
-                buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = 
+                buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible =
                 labelInterestRate.Visible = nudDownInterestRate.Visible = lbInterestRateMinMax.Visible = false;
                 labelInitialAmount.Visible = nudDownInitialAmount.Visible = lbInitialAmountMinMax.Visible = true;
 
@@ -810,7 +810,7 @@ namespace OpenCBS.GUI.Clients
                 savingDepositToolStripMenuItem.Enabled = true;
                 savingWithdrawToolStripMenuItem.Enabled = true;
                 savingTransferToolStripMenuItem.Enabled = true;
-                
+
                 nudEntryFees.Increment = 1;
                 // entry fees
                 if (((SavingsBookProduct)product).EntryFees.HasValue)
@@ -1112,23 +1112,6 @@ namespace OpenCBS.GUI.Clients
             }
         }
 
-
-        public void DisplaySaving(ISavingsContract saving, IClient client)
-        {
-            DisplaySaving(saving);
-            var loans = new List<Loan>();
-            if (client.Projects != null)
-                foreach (var project in client.Projects)
-                {
-                    foreach (var credit in project.Credits)
-                    {
-                        loans.Add(credit);
-                    }
-                }
-            DisplayContracts(loans);
-
-        }
-
         public void DisplaySaving(int pId, IClient client)
         {
             ISavingsContract saving;
@@ -1190,11 +1173,11 @@ namespace OpenCBS.GUI.Clients
                 return;
             }
 
-            buttonCloseSaving.Visible = buttonSavingsOperations.Enabled = buttonSavingsOperations.Visible
+            pnlSavingsButtons.Enabled = buttonCloseSaving.Visible = buttonSavingsOperations.Enabled = buttonSavingsOperations.Visible
                 = saving.Status == OSavingsStatus.Active;
 
             saving = SavingServices.GetSaving(saving.Id);
-            buttonFirstDeposit.Visible  = false;
+            buttonFirstDeposit.Visible = false;
             //tabControlSavingsDetails.TabPages.Remove(tpTermDeposit);
             tabControlSavingsDetails.TabPages.Remove(tabPageLoans);
             if (saving.Product.Type == OSavingProductType.PersonalAccount)
@@ -1218,7 +1201,7 @@ namespace OpenCBS.GUI.Clients
                 _currentAccountLabel.Visible = _currentAccountTextBox.Visible = false;
             }
 
-            ((SavingBookContract) saving).Loans = SavingServices.SelectLoansBySavingsId(saving.Id);
+            ((SavingBookContract)saving).Loans = SavingServices.SelectLoansBySavingsId(saving.Id);
 
             if (!tabControlPerson.TabPages.Contains(tabPageContracts))
             {
@@ -1229,7 +1212,7 @@ namespace OpenCBS.GUI.Clients
             tabControlPerson.TabPages.Remove(tabPageSavingDetails);
             tabControlPerson.TabPages.Add(tabPageSavingDetails);
 
-            _saving = (SavingBookContract) saving;
+            _saving = (SavingBookContract)saving;
             DisplaySavingProduct(_saving.Product);
             InitializeTabPageTermDeposit();
             nudDownInitialAmount.Enabled = false;
@@ -1263,7 +1246,7 @@ namespace OpenCBS.GUI.Clients
             int index = -1;
             for (int i = 0; i < cmbSavingsOfficer.Items.Count; i++)
             {
-                User u = (User) cmbSavingsOfficer.Items[i];
+                User u = (User)cmbSavingsOfficer.Items[i];
                 if (u.Id != saving.SavingsOfficer.Id) continue;
 
                 index = i;
@@ -1287,30 +1270,30 @@ namespace OpenCBS.GUI.Clients
                 switch (_saving.Status)
                 {
                     case OSavingsStatus.Pending:
-                    {
-                        groupBoxSaving.ForeColor = Color.FromArgb(246, 137, 56);
-                        buttonFirstDeposit.Visible = true;
-                        buttonCloseSaving.Visible = false;
-                        buttonReopenSaving.Visible = false;
-                        break;
-                    }
+                        {
+                            groupBoxSaving.ForeColor = Color.FromArgb(246, 137, 56);
+                            buttonFirstDeposit.Visible = true;
+                            buttonCloseSaving.Visible = false;
+                            buttonReopenSaving.Visible = false;
+                            break;
+                        }
                     case OSavingsStatus.Active:
-                    {
-                        groupBoxSaving.ForeColor = Color.FromArgb(61, 153, 57);
-                        buttonFirstDeposit.Visible = false;
-                        buttonCloseSaving.Visible = true;
-                        buttonReopenSaving.Visible = false;
-                        break;
-                    }
+                        {
+                            groupBoxSaving.ForeColor = Color.FromArgb(61, 153, 57);
+                            buttonFirstDeposit.Visible = false;
+                            buttonCloseSaving.Visible = true;
+                            buttonReopenSaving.Visible = false;
+                            break;
+                        }
                     case OSavingsStatus.Closed:
-                    {
-                        groupBoxSaving.ForeColor = Color.Red;
-                        buttonSavingsOperations.Enabled = false;
-                        buttonFirstDeposit.Visible = false;
-                        buttonCloseSaving.Visible = false;
-                        buttonReopenSaving.Visible = true;
-                        break;
-                    }
+                        {
+                            groupBoxSaving.ForeColor = Color.Red;
+                            buttonSavingsOperations.Enabled = false;
+                            buttonFirstDeposit.Visible = false;
+                            buttonCloseSaving.Visible = false;
+                            buttonReopenSaving.Visible = true;
+                            break;
+                        }
                 }
             }
             else
@@ -1328,7 +1311,7 @@ namespace OpenCBS.GUI.Clients
             InitSavingsBookPrintButton();
 
             LoadSavingsExtensions();
-            
+
             if (saving.Status == OSavingsStatus.Active && saving.Product.Type == OSavingProductType.ShortTermDeposit)
             {
                 buttonSavingsOperations.Visible = false;
@@ -1349,7 +1332,7 @@ namespace OpenCBS.GUI.Clients
                 {
                     if (((SavingBookContract)saving).Loans.Count > 0)
                     {
-                        olvColumnStatus.AspectToStringConverter = delegate(object value)
+                        olvColumnStatus.AspectToStringConverter = delegate (object value)
                         {
                             if (value.ToString().Length > 0)
                             {
@@ -1359,48 +1342,48 @@ namespace OpenCBS.GUI.Clients
                             return null;
                         };
 
-                        olvColumnAmount.AspectToStringConverter = delegate(object value)
-                                                                      {
-                                                                          if (value.ToString().Length > 0)
-                                                                          {
-                                                                              OCurrency amount = (OCurrency)value;
-                                                                              return amount.GetFormatedValue(true);
-                                                                          }
-                                                                          return null;
-                                                                      };
+                        olvColumnAmount.AspectToStringConverter = delegate (object value)
+                        {
+                            if (value.ToString().Length > 0)
+                            {
+                                OCurrency amount = (OCurrency)value;
+                                return amount.GetFormatedValue(true);
+                            }
+                            return null;
+                        };
 
-                        olvColumnStratDate.AspectToStringConverter = delegate(object value)
-                                                                         {
-                                                                             if (value.ToString().Length > 0)
-                                                                             {
-                                                                                 return
-                                                                                     ((DateTime)value).
-                                                                                         ToShortDateString();
-                                                                             }
-                                                                             return null;
-                                                                         };
+                        olvColumnStratDate.AspectToStringConverter = delegate (object value)
+                        {
+                            if (value.ToString().Length > 0)
+                            {
+                                return
+                                    ((DateTime)value).
+                                        ToShortDateString();
+                            }
+                            return null;
+                        };
 
-                        olvColumnCreationDate.AspectToStringConverter = delegate(object value)
-                                                                            {
-                                                                                if (value.ToString().Length > 0)
-                                                                                {
-                                                                                    return
-                                                                                        ((DateTime)value).
-                                                                                            ToShortDateString();
-                                                                                }
-                                                                                return null;
-                                                                            };
+                        olvColumnCreationDate.AspectToStringConverter = delegate (object value)
+                        {
+                            if (value.ToString().Length > 0)
+                            {
+                                return
+                                    ((DateTime)value).
+                                        ToShortDateString();
+                            }
+                            return null;
+                        };
 
-                        olvColumnCloseDate.AspectToStringConverter = delegate(object value)
-                                                                         {
-                                                                             if (value.ToString().Length > 0)
-                                                                             {
-                                                                                 return
-                                                                                     ((DateTime)value).
-                                                                                         ToShortDateString();
-                                                                             }
-                                                                             return null;
-                                                                         };
+                        olvColumnCloseDate.AspectToStringConverter = delegate (object value)
+                        {
+                            if (value.ToString().Length > 0)
+                            {
+                                return
+                                    ((DateTime)value).
+                                        ToShortDateString();
+                            }
+                            return null;
+                        };
                         olvLoans.SetObjects(((SavingBookContract)saving).Loans);
                         tabControlSavingsDetails.SelectedIndex = 0;
                         return;
@@ -1470,7 +1453,7 @@ namespace OpenCBS.GUI.Clients
                 _client = _group;
                 if (_mdiParent != null)
                 {
-                    ((MainView) _mdiParent).SetInfoMessage(string.Format("Group {0} saved", _group.Name));
+                    ((MainView)_mdiParent).SetInfoMessage(string.Format("Group {0} saved", _group.Name));
                 }
                 InitializeTitle(_group.Name);
                 if (!tabControlPerson.TabPages.Contains(tabPageContracts))
@@ -1491,7 +1474,7 @@ namespace OpenCBS.GUI.Clients
                 _client = _corporate;
                 if (_mdiParent != null)
                 {
-                    ((MainView) _mdiParent).SetInfoMessage(string.Format("Corporate {0} saved", _corporate.Name));
+                    ((MainView)_mdiParent).SetInfoMessage(string.Format("Corporate {0} saved", _corporate.Name));
                 }
                 InitializeTitle(string.Format("{0} - {1}", _corporate.Id, _corporate.Name));
                 if (!tabControlPerson.TabPages.Contains(tabPageContracts))
@@ -2174,10 +2157,10 @@ namespace OpenCBS.GUI.Clients
             foreach (LoanEntryFee entryFee in _credit.LoanEntryFeesList)
             {
                 ListViewItem item = new ListViewItem(entryFee.ProductEntryFee.Name)
-                                        {
-                                            UseItemStyleForSubItems = true,
-                                            Tag = entryFee
-                                        };
+                {
+                    UseItemStyleForSubItems = true,
+                    Tag = entryFee
+                };
 
                 OCurrency feeValue = entryFee.FeeValue;
                 if (entryFee.ProductEntryFee.IsRate)
@@ -2209,10 +2192,10 @@ namespace OpenCBS.GUI.Clients
             lvEntryFees.Columns[2].Text = string.Format("% / {0}", _credit.Product.Currency.Name);
             string total = MultiLanguageStrings.GetString(Ressource.ClientForm, "TotalEntryFees");
             ListViewItem itemTotal = new ListViewItem("")
-                                         {
-                                             UseItemStyleForSubItems = true,
-                                             Tag = "TotalFees"
-                                         };
+            {
+                UseItemStyleForSubItems = true,
+                Tag = "TotalFees"
+            };
             itemTotal.Font = new Font("Arial", 9F, FontStyle.Bold);
 
             itemTotal.SubItems.Add("");
@@ -2374,7 +2357,7 @@ namespace OpenCBS.GUI.Clients
 
             if (_credit.InstallmentType == null)
             {
-                _credit.InstallmentType = (InstallmentType) _installmentTypeComboBox.SelectedItem;
+                _credit.InstallmentType = (InstallmentType)_installmentTypeComboBox.SelectedItem;
             }
         }
 
@@ -2434,7 +2417,7 @@ namespace OpenCBS.GUI.Clients
 
             foreach (User user in _subordinates)
             {
-                if(user.UserRole.RoleName == "LOF" && !user.IsDeleted && !user.UserRole.IsDeleted)
+                if (user.UserRole.RoleName == "LOF" && !user.IsDeleted && !user.UserRole.IsDeleted)
                     _loanOfficerComboBox.Items.Add(user);
             }
             // set favoutite loan officer
@@ -2605,13 +2588,13 @@ namespace OpenCBS.GUI.Clients
             }
             else
                 if (pForCreation)
-                {
-                    textBoxLoanLateFeesOnOLB.Text = ServicesHelper.ConvertNullableDoubleToString(pPackage.NonRepaymentPenalties.OLB, true);
-                }
-                else
-                {
-                    textBoxLoanLateFeesOnOLB.Text = ServicesHelper.ConvertNullableDoubleToString(_credit.NonRepaymentPenalties.OLB, true);
-                }
+            {
+                textBoxLoanLateFeesOnOLB.Text = ServicesHelper.ConvertNullableDoubleToString(pPackage.NonRepaymentPenalties.OLB, true);
+            }
+            else
+            {
+                textBoxLoanLateFeesOnOLB.Text = ServicesHelper.ConvertNullableDoubleToString(_credit.NonRepaymentPenalties.OLB, true);
+            }
             #endregion
 
             #region OverdueINterest
@@ -2635,13 +2618,13 @@ namespace OpenCBS.GUI.Clients
             }
             else
                 if (pForCreation)
-                {
-                    textBoxLoanLateFeesOnOverdueInterest.Text = ServicesHelper.ConvertNullableDoubleToString(pPackage.NonRepaymentPenalties.OverDueInterest, true);
-                }
-                else
-                {
-                    textBoxLoanLateFeesOnOverdueInterest.Text = ServicesHelper.ConvertNullableDoubleToString(_credit.NonRepaymentPenalties.OverDueInterest, true);
-                }
+            {
+                textBoxLoanLateFeesOnOverdueInterest.Text = ServicesHelper.ConvertNullableDoubleToString(pPackage.NonRepaymentPenalties.OverDueInterest, true);
+            }
+            else
+            {
+                textBoxLoanLateFeesOnOverdueInterest.Text = ServicesHelper.ConvertNullableDoubleToString(_credit.NonRepaymentPenalties.OverDueInterest, true);
+            }
             #endregion
 
             #region OverduePrincipal
@@ -2665,13 +2648,13 @@ namespace OpenCBS.GUI.Clients
             }
             else
                 if (pForCreation)
-                {
-                    textBoxLoanLateFeesOnOverduePrincipal.Text = ServicesHelper.ConvertNullableDoubleToString(pPackage.NonRepaymentPenalties.OverDuePrincipal, true);
-                }
-                else
-                {
-                    textBoxLoanLateFeesOnOverduePrincipal.Text = ServicesHelper.ConvertNullableDoubleToString(_credit.NonRepaymentPenalties.OverDuePrincipal, true);
-                }
+            {
+                textBoxLoanLateFeesOnOverduePrincipal.Text = ServicesHelper.ConvertNullableDoubleToString(pPackage.NonRepaymentPenalties.OverDuePrincipal, true);
+            }
+            else
+            {
+                textBoxLoanLateFeesOnOverduePrincipal.Text = ServicesHelper.ConvertNullableDoubleToString(_credit.NonRepaymentPenalties.OverDuePrincipal, true);
+            }
             #endregion
 
             if (pPackage.AnticipatedTotalRepaymentPenaltiesBase == OAnticipatedRepaymentPenaltiesBases.RemainingOLB)
@@ -3533,14 +3516,14 @@ namespace OpenCBS.GUI.Clients
                                        ServicesProvider.GetInstance().GetGeneralSettings(),
                                        ServicesProvider.GetInstance().GetNonWorkingDate(),
                                        CoreDomainProvider.GetInstance().GetProvisioningTable())
-                              {
-                                  Guarantors = _listGuarantors,
-                                  Collaterals = _collaterals,
-                                  LoanShares = _loanShares,
-                                  InstallmentType = (InstallmentType) _installmentTypeComboBox.SelectedItem,
-                                  ScheduleType = GetScheduleType(),
-                                  ScriptName = GetScriptName()
-                              };
+            {
+                Guarantors = _listGuarantors,
+                Collaterals = _collaterals,
+                LoanShares = _loanShares,
+                InstallmentType = (InstallmentType)_installmentTypeComboBox.SelectedItem,
+                ScheduleType = GetScheduleType(),
+                ScriptName = GetScriptName()
+            };
             credit.InstallmentList = ServicesProvider.GetInstance().GetContractServices().SimulateScheduleCreation(credit);
             if (!string.IsNullOrEmpty(tbLocAmount.Text))
                 credit.AmountUnderLoc = decimal.Parse(tbLocAmount.Text);
@@ -3624,7 +3607,7 @@ namespace OpenCBS.GUI.Clients
                 dtpDateOfFirstInstallment.Value = _credit.FirstInstallmentDate;
                 _credit.InterestRate = ServicesHelper.ConvertStringToNullableDecimal(nudInterestRate.Text, true, -1).Value;
                 _credit.NbOfInstallments = Convert.ToInt32(nudLoanNbOfInstallments.Value);
-                _credit.InstallmentType = (InstallmentType) _installmentTypeComboBox.SelectedItem;
+                _credit.InstallmentType = (InstallmentType)_installmentTypeComboBox.SelectedItem;
                 _credit.ScheduleType = GetScheduleType();
                 _credit.ScriptName = GetScriptName();
                 _credit.AmountUnderLoc = ServicesHelper.ConvertStringToDecimal(tbLocAmount.Text, _credit.UseCents);
@@ -3722,7 +3705,7 @@ namespace OpenCBS.GUI.Clients
                 return;
             }
 
-            if (_credit == null || !_credit.ScheduleChangedManually) _credit = Preview();
+            if (!_credit.ScheduleChangedManually) _credit = Preview();
 
             // Compulsory savings
             if (_credit != null)
@@ -3760,8 +3743,7 @@ namespace OpenCBS.GUI.Clients
                 SaveContract();
 
             _loanApprovalControl.Status = OContractStatus.Pending;
-            if (_credit != null)
-                _loanApprovalControl.Date = _credit.StartDate;
+            _loanApprovalControl.Date = _credit.StartDate;
             _loanApprovalControl.Comment = "";
             _loanApprovalControl.Init(_client, _credit, _guarantee, _saving, PrintButtonContextMenuStrips);
         }
@@ -3808,8 +3790,8 @@ namespace OpenCBS.GUI.Clients
                     controls = _repaymentScheduleControl.Controls.Find("scheduleObjectListView", true)[0];
                 if (controls != null)
                 {
-                    var schedule = ((ObjectListView) controls);
-                    if(schedule.Items.Count > 0)
+                    var schedule = ((ObjectListView)controls);
+                    if (schedule.Items.Count > 0)
                         schedule.Items[schedule.Items.Count - 1].Font = new Font(schedule.Items[schedule.Items.Count - 1].Font, FontStyle.Bold);
                 }
             }
@@ -3822,7 +3804,7 @@ namespace OpenCBS.GUI.Clients
             richTextBoxStatus.Clear();
 
             var creditCopy = credit.Copy();
-            if(ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule)
+            if (ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule)
                 creditCopy.InstallmentList.Remove(creditCopy.InstallmentList.FirstOrDefault(x => x.ExpectedDate == DateTime.MaxValue));
 
             String statusText = MultiLanguageStrings.GetString(Ressource.ClientForm, "Status.Text") + "\n" +
@@ -3940,7 +3922,7 @@ namespace OpenCBS.GUI.Clients
                 else
                 {
                     credit = Preview();
-                    if(ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule)
+                    if (ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule)
                         credit.InstallmentList.Remove(credit.InstallmentList.FirstOrDefault(x => x.ExpectedDate == DateTime.MaxValue));
                     if (_credit.ScheduleChangedManually)
                     {
@@ -4215,8 +4197,8 @@ namespace OpenCBS.GUI.Clients
                 buttonAddTranche.Enabled = false;
             }
             DisplaySavings(_client.Savings);
-//            if (MdiParent != null)
-//                ((MainView) MdiParent).ReloadAlertsSync();
+            //            if (MdiParent != null)
+            //                ((MainView) MdiParent).ReloadAlertsSync();
         }
 
         public void OnDisbursementNotification(DisbursementNotification notification)
@@ -4409,7 +4391,7 @@ namespace OpenCBS.GUI.Clients
             {
                 if (!chxSystemEvents.Checked && (displayEvent is AccruedInterestEvent || displayEvent is LoanPenaltyAccrualEvent ||
                     displayEvent is LoanInterestAccrualEvent || displayEvent is LoanTransitionEvent || displayEvent is CreditInsuranceEvent ||
-                    displayEvent is LoanValidationEvent || displayEvent is LoanCloseEvent)) continue;
+                    displayEvent is LoanValidationEvent || displayEvent is LoanCloseEvent || displayEvent is BounceFeeAccrualEvent)) continue;
 
                 var listViewItem = new ListViewItem(displayEvent.Date.ToString());
                 listViewItem.SubItems.Add(displayEvent.EntryDate.ToShortDateString());
@@ -4506,6 +4488,28 @@ namespace OpenCBS.GUI.Clients
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
                 }
+                else if (displayEvent is BounceFeeAccrualEvent)
+                {
+                    BounceFeeAccrualEvent _event = displayEvent as BounceFeeAccrualEvent;
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add(_event.BounceFee.GetFormatedValue(pCredit.UseCents));
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
+                }
+                else if (displayEvent is BounceWriteOffEvent)
+                {
+                    BounceWriteOffEvent _event = displayEvent as BounceWriteOffEvent;
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add(_event.Amount.GetFormatedValue(pCredit.UseCents));
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
+                }
                 else if (displayEvent is PenaltyWriteOffEvent)
                 {
                     var penaltyWriteOffEvent = displayEvent as PenaltyWriteOffEvent;
@@ -4521,12 +4525,12 @@ namespace OpenCBS.GUI.Clients
                 {
                     var penaltyWriteOffEvent = displayEvent as InterestWriteOffEvent;
                     listViewItem.SubItems.Add("-");
-                    listViewItem.SubItems.Add("-");
-                    listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add(penaltyWriteOffEvent.Amount.GetFormatedValue(pCredit.UseCents));
                     listViewItem.SubItems.Add("-");
                     listViewItem.SubItems.Add("-");
-                    listViewItem.SubItems.Add("-");                    
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
+                    listViewItem.SubItems.Add("-");
                 }
                 else if (displayEvent is LoanInterestAccrualEvent)
                 {
@@ -4682,7 +4686,7 @@ namespace OpenCBS.GUI.Clients
                 LoanServices cServices = ServicesProvider.GetInstance().GetContractServices();
 
                 Event foundEvent = _credit.GetLastNonDeletedEvent();
-                if(!cServices.CanCancelSavingEvents(foundEvent.Id))
+                if (!cServices.CanCancelSavingEvents(foundEvent.Id))
                     throw new OpenCbsException("This loan event has saving events which are not last");
 
                 if (foundEvent == null)
@@ -4727,7 +4731,7 @@ namespace OpenCBS.GUI.Clients
                         tabControlPerson.TabPages.Remove(tabPageSavingDetails);
                         tabControlPerson.SelectedTab = tabPageLoansDetails;
 
-//                        ((MainView)_mdiParent).ReloadAlertsSync();
+                        //                        ((MainView)_mdiParent).ReloadAlertsSync();
 
                         buttonLoanDisbursment.Enabled = true;
                         _loanApprovalControl.Status = _credit.ContractStatus;
@@ -4866,7 +4870,7 @@ namespace OpenCBS.GUI.Clients
 
             List<User> myUser = users.FindAll(loanOfficer => loanOfficer.Name == _loanOfficerComboBox.Text);
 
-            myUser.ForEach(delegate(User loanOfficer)
+            myUser.ForEach(delegate (User loanOfficer)
             {
                 _credit.LoanOfficer = loanOfficer;
             });
@@ -4903,7 +4907,7 @@ namespace OpenCBS.GUI.Clients
             comboBoxLoanFundingLine.Tag = _fundingLine;
 
         }
-        
+
         private void SaveLoanApproval()
         {
             var currentCreditStatus = OContractStatus.Pending;
@@ -5258,8 +5262,8 @@ namespace OpenCBS.GUI.Clients
                     nudManagementFees.Minimum = ((SavingsBookProduct)product).ManagementFeesMin.Value;
                     nudManagementFees.Maximum = ((SavingsBookProduct)product).ManagementFeesMax.Value;
                     lbManagementFeesMinMax.Text = string.Format("{0}{1} {4}\r\n{2}{3} {4}",
-                        "Min ", ((SavingsBookProduct) product).ManagementFeesMin.GetFormatedValue(product.Currency.UseCents),
-                        "Max ", ((SavingsBookProduct) product).ManagementFeesMax.GetFormatedValue(product.Currency.UseCents),
+                        "Min ", ((SavingsBookProduct)product).ManagementFeesMin.GetFormatedValue(product.Currency.UseCents),
+                        "Max ", ((SavingsBookProduct)product).ManagementFeesMax.GetFormatedValue(product.Currency.UseCents),
                         product.Currency.Code);
                 }
             }
@@ -5294,7 +5298,7 @@ namespace OpenCBS.GUI.Clients
                         product.Currency.Code);
                 }
             }
-            
+
             //Withdrawal fees
             if (((SavingsBookProduct)product).WithdrawFeesType == OSavingsFeesType.Flat)
             {
@@ -5308,7 +5312,7 @@ namespace OpenCBS.GUI.Clients
                 }
                 else
                 {
-                    if (((SavingsBookProduct) product).FlatWithdrawFeesMin.Value == ((SavingsBookProduct) product).FlatWithdrawFeesMax.Value)
+                    if (((SavingsBookProduct)product).FlatWithdrawFeesMin.Value == ((SavingsBookProduct)product).FlatWithdrawFeesMax.Value)
                     {
                         nudWithdrawFees.Enabled = false;
                         nudWithdrawFees.Minimum = ((SavingsBookProduct)product).FlatWithdrawFeesMin.Value;
@@ -5373,13 +5377,13 @@ namespace OpenCBS.GUI.Clients
             }
             else
             {
-                if (((SavingsBookProduct) product).DepositFeesMin.Value == ((SavingsBookProduct) product).DepositFeesMax.Value)
+                if (((SavingsBookProduct)product).DepositFeesMin.Value == ((SavingsBookProduct)product).DepositFeesMax.Value)
                 {
                     nudDepositFees.Enabled = false;
-                    nudDepositFees.Minimum = ((SavingsBookProduct) product).DepositFeesMin.Value;
-                    nudDepositFees.Maximum = ((SavingsBookProduct) product).DepositFeesMin.Value;
+                    nudDepositFees.Minimum = ((SavingsBookProduct)product).DepositFeesMin.Value;
+                    nudDepositFees.Maximum = ((SavingsBookProduct)product).DepositFeesMin.Value;
                     lbDepositFeesMinMax.Text = string.Format("{0} {1}",
-                        ((SavingsBookProduct) product).DepositFeesMin.GetFormatedValue(product.Currency.UseCents),
+                        ((SavingsBookProduct)product).DepositFeesMin.GetFormatedValue(product.Currency.UseCents),
                         product.Currency.Code);
                 }
                 else
@@ -5456,7 +5460,7 @@ namespace OpenCBS.GUI.Clients
 
                 if (product.Type == OSavingProductType.PersonalAccount)
                 {
-                    buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible = 
+                    buttonFirstDeposit.Enabled = buttonFirstDeposit.Visible =
                     labelInterestRate.Visible = nudDownInterestRate.Visible = lbInterestRateMinMax.Visible = false;
                     labelInitialAmount.Visible = nudDownInitialAmount.Visible = lbInitialAmountMinMax.Visible = true;
 
@@ -5469,7 +5473,7 @@ namespace OpenCBS.GUI.Clients
                 }
                 else if (product.Type == OSavingProductType.ShortTermDeposit)
                 {
-                    if(tabControlPerson.TabPages.Contains(tabPageTermDeposit))
+                    if (tabControlPerson.TabPages.Contains(tabPageTermDeposit))
                         tabControlPerson.TabPages.Remove(tabPageTermDeposit);
                     if (!tabControlPerson.TabPages.Contains(tabPageTermDeposit))
                         tabControlPerson.TabPages.Add(tabPageTermDeposit);
@@ -5549,11 +5553,11 @@ namespace OpenCBS.GUI.Clients
         {
             cmbRollover2.DataSource = (from item in Enum.GetNames(typeof(OSavingsRollover))
                                        select new
-                                                  {
-                                                      Display = MultiLanguageStrings.GetString(
+                                       {
+                                           Display = MultiLanguageStrings.GetString(
                                                       Ressource.ClientForm, "Rollover" + item + ".Text"),
-                                                      Value = item
-                                                  }).ToList();
+                                           Value = item
+                                       }).ToList();
             cmbRollover2.DisplayMember = "Display";
             cmbRollover2.ValueMember = "Value";
             if (_saving is SavingBookContract)
@@ -5657,7 +5661,7 @@ namespace OpenCBS.GUI.Clients
             {
                 if (lastSavingEvent != null && lastSavingEvent.ParentId != null)
                 {
-                    if(_saving.Events.FirstOrDefault(x => x.Id == lastSavingEvent.ParentId.Value) == null)
+                    if (_saving.Events.FirstOrDefault(x => x.Id == lastSavingEvent.ParentId.Value) == null)
                         btCancelLastSavingEvent.Visible = false;
                 }
             }
@@ -5668,7 +5672,7 @@ namespace OpenCBS.GUI.Clients
             if (pSaving.Id != 0)
             {
                 nudDownInterestRate.Value = nudDownInterestRate.Minimum = nudDownInterestRate.Maximum = (decimal)pSaving.InterestRate * 100;
-                
+
                 SavingBookContract s = (SavingBookContract)pSaving;
 
                 nudWithdrawFees.Value = nudWithdrawFees.Minimum = nudWithdrawFees.Maximum = s.FlatWithdrawFees.HasValue ?
@@ -5704,7 +5708,7 @@ namespace OpenCBS.GUI.Clients
             foreach (SavingEvent e in events)
             {
                 ListViewItem item = new ListViewItem(e.Date.ToString("dd/MM/yyyy HH:mm:ss"));
-//                item.SubItems.Add(e.Fee.GetFormatedValue(useCents));
+                //                item.SubItems.Add(e.Fee.GetFormatedValue(useCents));
                 string amt = e.Amount.GetFormatedValue(useCents);
                 item.SubItems.Add(e.IsDebit ? amt : string.Empty);
                 item.SubItems.Add(e.IsDebit ? string.Empty : amt);
@@ -5850,7 +5854,7 @@ namespace OpenCBS.GUI.Clients
                 buttonCloseSaving.Visible = _saving.Status == OSavingsStatus.Closed;
                 buttonFirstDeposit.Visible = nudManagementFees.Enabled = nudCloseFees.Enabled = nudReopenFees.Enabled = buttonSaveSaving.Visible = false;
                 pnlSavingsButtons.Enabled = buttonSavingsOperations.Enabled = flowLayoutPanel9.Enabled = buttonCloseSaving.Visible = true;
-                nudDownInitialAmount.Enabled =  false;
+                nudDownInitialAmount.Enabled = false;
                 btCancelLastSavingEvent.Visible = _saving.Status == OSavingsStatus.Active || _saving.Status == OSavingsStatus.Closed;
                 SettingCanselLastOperationButtonForSavings();
                 buttonSavingsOperations.Visible = _saving.Status == OSavingsStatus.Active;
@@ -5879,7 +5883,7 @@ namespace OpenCBS.GUI.Clients
             }
 
             DisplaySavings(_client.Savings);
-            DisplaySaving(_saving, _client);
+            DisplaySaving(_saving.Id, _client);
         }
 
         private void buttonSavingWithDraw_Click(object sender, EventArgs e)
@@ -6072,7 +6076,7 @@ namespace OpenCBS.GUI.Clients
                 flowLayoutPanel8.Controls.Add(button);
             }
         }
-        
+
         private void InitLoanEventsPrintButton()
         {
             InitPrintButton(AttachmentPoint.LoanEvents, btnPrintLoanEvents);
@@ -6084,11 +6088,11 @@ namespace OpenCBS.GUI.Clients
 
         }
 
-//        private void InitCreditCommitteePrintButton()
-//        {
-//            InitPrintButton(AttachmentPoint.CreditCommittee, btnPrintCreditCommittee);
-//        }
-        
+        //        private void InitCreditCommitteePrintButton()
+        //        {
+        //            InitPrintButton(AttachmentPoint.CreditCommittee, btnPrintCreditCommittee);
+        //        }
+
         private void InitSavingsBookPrintButton()
         {
             InitPrintButton(AttachmentPoint.SavingsBook, btnPrintSavings);
@@ -6114,9 +6118,9 @@ namespace OpenCBS.GUI.Clients
 
                 var cancelableEvent = _saving.GetCancelableEvent();
                 var loanEventId = _saving.GetCancelableEvent().LoanEventId;
-                var loanId = cancelableEvent!=null?cancelableEvent.ContracId:0;
+                var loanId = cancelableEvent != null ? cancelableEvent.ContracId : 0;
 
-                if (cancelableEvent!=null && loanEventId != null)
+                if (cancelableEvent != null && loanEventId != null)
                     throw new OpenCbsException(
                         "You cannot cancel related operations. You should cancel it from loan with id=" + loanId);
 
@@ -6136,7 +6140,7 @@ namespace OpenCBS.GUI.Clients
                         if (_saving is SavingBookContract)
                             ((SavingBookContract)_saving).Loans = SavingServices.SelectLoansBySavingsId(_saving.Id);
 
-                       
+
 
                         SavingEvent sEvent = SavingServices.CancelLastEvent(_saving, User.CurrentUser, frm.Comment);
                         var feeEvent = _saving.Events.FirstOrDefault(x => x.ParentId == sEvent.Id);
@@ -6211,7 +6215,7 @@ namespace OpenCBS.GUI.Clients
         private void buttonCloseSaving_Click(object sender, EventArgs e)
         {
             if (_client.ActiveLoans != null && _client.ActiveLoans.Count > 0
-                ||_client.Savings.FirstOrDefault(x => x.Product.Type != OSavingProductType.PersonalAccount && x.Status == OSavingsStatus.Active) != null)
+                || _client.Savings.FirstOrDefault(x => x.Product.Type != OSavingProductType.PersonalAccount && x.Status == OSavingsStatus.Active) != null)
             {
                 MessageBox.Show(@"This client have active credit or saving contracts");
                 return;
@@ -6994,7 +6998,7 @@ namespace OpenCBS.GUI.Clients
                     savEvent.IsPending = false;
                     lvSavingEvent.SelectedItems[0].Tag = savEvent;
 
-//                    ((MainView)_mdiParent).ReloadAlertsSync();
+                    //                    ((MainView)_mdiParent).ReloadAlertsSync();
 
                     DisplaySavingEvent(_saving);
                     if (_person != null) DisplaySavings(_person.Savings);
@@ -7021,7 +7025,7 @@ namespace OpenCBS.GUI.Clients
                 savEvent.IsPending = false;
                 lvSavingEvent.SelectedItems[0].Tag = savEvent;
 
-//                ((MainView)_mdiParent).ReloadAlertsSync();
+                //                ((MainView)_mdiParent).ReloadAlertsSync();
 
                 DisplaySavingEvent(_saving);
                 if (_person != null) DisplaySavings(_person.Savings);
@@ -7105,7 +7109,7 @@ namespace OpenCBS.GUI.Clients
             InitializeContractStatus(_credit);
             if (MdiParent != null)
             {
-//                ((MainView)MdiParent).ReloadAlertsSync();
+                //                ((MainView)MdiParent).ReloadAlertsSync();
             }
         }
 
@@ -7225,8 +7229,8 @@ namespace OpenCBS.GUI.Clients
                         if (((LoanEntryFee)item.Tag).ProductEntryFee.IsRate)
                         {
                             OCurrency feeAmount = loanAmount * inputFee / 100;
-                            if (feeAmount > ((LoanEntryFee) item.Tag).ProductEntryFee.MaxSum)
-                                feeAmount = ((LoanEntryFee) item.Tag).ProductEntryFee.MaxSum;
+                            if (feeAmount > ((LoanEntryFee)item.Tag).ProductEntryFee.MaxSum)
+                                feeAmount = ((LoanEntryFee)item.Tag).ProductEntryFee.MaxSum;
                             item.SubItems[3].Text = feeAmount.GetFormatedValue(_credit.Product.Currency.UseCents);
                         }
                         else
