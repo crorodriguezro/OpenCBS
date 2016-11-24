@@ -1112,6 +1112,23 @@ namespace OpenCBS.GUI.Clients
             }
         }
 
+
+        public void DisplaySaving(ISavingsContract saving, IClient client)
+        {
+            DisplaySaving(saving);
+            var loans = new List<Loan>();
+            if (client.Projects != null)
+                foreach (var project in client.Projects)
+                {
+                    foreach (var credit in project.Credits)
+                    {
+                        loans.Add(credit);
+                    }
+                }
+            DisplayContracts(loans);
+
+        }
+
         public void DisplaySaving(int pId, IClient client)
         {
             ISavingsContract saving;
@@ -5861,7 +5878,7 @@ namespace OpenCBS.GUI.Clients
             }
 
             DisplaySavings(_client.Savings);
-            DisplaySaving(_saving.Id, _client);
+            DisplaySaving(_saving, _client);
         }
 
         private void buttonSavingWithDraw_Click(object sender, EventArgs e)
