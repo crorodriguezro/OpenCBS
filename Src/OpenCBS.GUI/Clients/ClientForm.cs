@@ -4889,6 +4889,7 @@ namespace OpenCBS.GUI.Clients
 
             myUser.ForEach(delegate (User loanOfficer)
             {
+                if(_credit!=null)
                 _credit.LoanOfficer = loanOfficer;
             });
         }
