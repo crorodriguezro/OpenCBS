@@ -157,16 +157,16 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                     if (fee.ProductEntryFee.Value != null)
                     {
                         var value = _amount.Value*fee.ProductEntryFee.Value/100.00m;
-                        sum += value > fee.ProductEntryFee.MaxSum ? fee.ProductEntryFee.MaxSum : value;
+                        sum += value;
                     }
                     else
                     {
                         var value = _amount * fee.FeeValue / 100.00m;
-                        sum += value > fee.ProductEntryFee.MaxSum ? fee.ProductEntryFee.MaxSum : value;
+                        sum += value;
                     }
                 }
                 else
-                    sum += fee.FeeValue > fee.ProductEntryFee.MaxSum ? fee.ProductEntryFee.MaxSum : fee.FeeValue;
+                    sum += fee.FeeValue;
             }
             return sum;
         }
