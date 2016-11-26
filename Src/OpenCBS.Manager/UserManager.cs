@@ -536,18 +536,46 @@ namespace OpenCBS.Manager
 
                     while (reader.Read())
                     {
-                        listUsers.Add(new User
-                            {
-                                Id = reader.GetInt("id"),
-                                FirstName = reader.GetString("first_name"),
-                                LastName = reader.GetString("last_name"),
-                                IsDeleted = reader.GetBool("deleted"),
-                                UserName = reader.GetString("user_name"),
-                                PasswordHash = reader.GetString("password_hash"),
-                                Mail = reader.GetString("mail"),
-                                Sex = reader.GetChar("sex"),
-                                HasContract = reader.GetInt("num_contracts") > 0
-                            });
+                        var user = new User
+                        {
+                            Id = reader.GetInt("id"),
+                            FirstName = reader.GetString("first_name"),
+                            LastName = reader.GetString("last_name"),
+                            IsDeleted = reader.GetBool("deleted"),
+                            UserName = reader.GetString("user_name"),
+                            PasswordHash = reader.GetString("password_hash"),
+                            Mail = reader.GetString("mail"),
+                            Sex = reader.GetChar("sex"),
+                            HasContract = reader.GetInt("num_contracts") > 0
+                        };
+
+                        switch (reader.GetString("role_code"))
+                        {
+                            case "LOF":
+                                user.Role = User.Roles.LOF;
+                                user.UserRole = new Role {RoleName = User.Roles.LOF.ToString()};
+                                break;
+
+                            case "CASHI":
+                                user.Role = User.Roles.CASHI;
+                                user.UserRole = new Role { RoleName = User.Roles.CASHI.ToString() };
+                                break;
+
+                            case "VISIT":
+                                user.Role = User.Roles.VISIT;
+                                user.UserRole = new Role { RoleName = User.Roles.VISIT.ToString() };
+                                break;
+                            case "ADMIN":
+                                user.Role = User.Roles.ADMIN;
+                                user.UserRole = new Role { RoleName = User.Roles.ADMIN.ToString() };
+                                break;
+
+                            case "SUPER":
+                                user.Role = User.Roles.SUPER;
+                                user.UserRole = new Role { RoleName = User.Roles.SUPER.ToString() };
+                                break;
+                        }
+                        listUsers.Add(user);
                     }
                 }
             }
