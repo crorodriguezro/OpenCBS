@@ -62,6 +62,8 @@ namespace OpenCBS.CoreDomain.Contracts.Savings
         bool HasPendingEvents();
         bool HasCancelableEvents();
         SavingEvent GetCancelableEvent();
+        SavingEvent GetCancelableMainEvent();
+        SavingEvent GetCancelableEvent(string eventCode);
         SavingEvent CancelLastEvent();
         void CancelEvent(SavingEvent pSavingEvent);
 

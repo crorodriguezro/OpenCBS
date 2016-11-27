@@ -1085,8 +1085,8 @@ namespace OpenCBS.Services
                         throw new OpenCbsSavingException(OpenCbsSavingExceptionEnum.SavingsEventCommentIsEmpty);
 
                     Debug.Assert(_ePS != null, "Event processor is null");
-                    var lastSavingEvent = saving.GetCancelableEvent();
-                    var deletedSiblings = new List<SavingEvent>();
+                    var lastSavingEvent = saving.GetCancelableMainEvent();
+                    var childrenEvents = _savingEventManager.SelectChildrenEvents(lastSavingEvent.Id);
                     startCanseEvent:
 
                     if (null == lastSavingEvent) return null;
@@ -1125,20 +1125,7 @@ namespace OpenCBS.Services
                     if (lastSavingEvent.Code == "SVCE")
                     {
                         _savingManager.UpdateStatus(saving.Id, OSavingsStatus.Active, lastSavingEvent.CancelDate, sqlTransaction);
-                        var withdrawEvent = saving.Events.FirstOrDefault(x => lastSavingEvent.ParentId != null && x.Id == lastSavingEvent.ParentId.Value);
-                        if (withdrawEvent != null)
-                        {
-                            withdrawEvent.CancelDate = lastSavingEvent.CancelDate;
-                            withdrawEvent.Description = lastSavingEvent.Description;
-                            _ePS.CancelFireEvent(withdrawEvent, saving.Product.Currency.Id, sqlTransaction);
-                            ServicesProvider.GetInstance().GetContractServices().CallInterceptor(
-                                new Dictionary<string, object>
-                                {
-                                    {"Event", lastSavingEvent},
-                                    {"Deleted", true},
-                                    {"SqlTransaction", sqlTransaction}
-                                });
-                        }
+
                     }
                     if (lastSavingEvent.Code == "SVRE")
                         _savingManager.UpdateStatus(saving.Id, OSavingsStatus.Closed, lastSavingEvent.CancelDate, sqlTransaction);
@@ -1161,20 +1148,13 @@ namespace OpenCBS.Services
 
                     if ((lastSavingEvent.Code == "STCE" || lastSavingEvent.Code == "SFCE" || lastSavingEvent.Code == "SIAE" || lastSavingEvent.Code == "SIPE") && !alreadyDeleted)
                     {
-                        var siblingEvent =
-                            saving.Events.FirstOrDefault(
-                                x =>
-                                    x.Deleted == false 
-                                    && x.ParentId != null 
-                                    && lastSavingEvent.ParentId != null 
-                                    && x.ParentId.Value == lastSavingEvent.ParentId.Value
-                                    && !deletedSiblings.Any(val => val.Id == x.Id));
-                        lastSavingEvent = siblingEvent??saving.Events.FirstOrDefault(x =>  lastSavingEvent.ParentId != null && x.Id == lastSavingEvent.ParentId.Value);
+                        var childEvent = childrenEvents.FirstOrDefault();
+                        lastSavingEvent = childEvent;
                         
 
                         if (lastSavingEvent != null)
                         {
-                            deletedSiblings.Add(lastSavingEvent);
+                            childrenEvents.Remove(lastSavingEvent);
                             
                             goto startCanseEvent;
                         }
@@ -1182,22 +1162,15 @@ namespace OpenCBS.Services
 
                     else
                     {
-                        var siblingEvent =
-                            saving.Events.FirstOrDefault(
-                                x =>
-                                    x.Deleted == false 
-                                    && x.ParentId != null 
-                                    && lastSavingEvent.ParentId != null 
-                                    && x.ParentId.Value == lastSavingEvent.ParentId.Value
-                                    && !deletedSiblings.Any(val => val.Id == x.Id));
-                        lastSavingEvent = siblingEvent??saving.Events.FirstOrDefault(x => x.ParentId != null && x.ParentId.Value == lastSavingEvent.Id);
+                        var childEvent = childrenEvents.FirstOrDefault();
+                        lastSavingEvent = childEvent;
                         if (lastSavingEvent != null && !lastSavingEvent.Deleted)
                         {
                             if (!alreadyDeleted)
                                 mainEvent = savingEvent;
                             lastSavingEvent.Description = pDescription;
 
-                            deletedSiblings.Add(lastSavingEvent);
+                            childrenEvents.Remove(lastSavingEvent);
 
                             alreadyDeleted = true;
                             goto removeEvent;
@@ -1518,7 +1491,12 @@ namespace OpenCBS.Services
                 int? parentId = null;
                 for (var i = 0; i < events.Count; i++)
                 {
-                    if(i == 0)
+                    if (events.Count == 3 && i==2)
+                    {
+                        events[2].ParentId = events[0].Id;
+                    }
+
+                    if (i == 0)
                         parentId = _ePS.FireEventWithReturnId(events[i], tx);
                     else if (i == 1)
                     {
