@@ -128,15 +128,15 @@ namespace OpenCBS.GUI.Products
                     continue;
                 ListViewItem item = new ListViewItem(fee.Id.ToString()) { Tag = fee };
                 item.SubItems.Add(fee.Name);
-                item.SubItems.Add(fee.Min.HasValue ? fee.Min.Value.ToString(CultureInfo.CurrentCulture) : "");
-                item.SubItems.Add(fee.Max.HasValue ? fee.Max.Value.ToString(CultureInfo.CurrentCulture) : "");
-                item.SubItems.Add(fee.Value.HasValue ? fee.Value.Value.ToString(CultureInfo.CurrentCulture) : "");
+                item.SubItems.Add(fee.Min.HasValue ? fee.Min.Value.ToString(CultureInfo.CurrentCulture).TrimEnd('0').TrimEnd(',') : "");
+                item.SubItems.Add(fee.Max.HasValue ? fee.Max.Value.ToString(CultureInfo.CurrentCulture).TrimEnd('0').TrimEnd(',') : "");
+                item.SubItems.Add(fee.Value.HasValue ? fee.Value.Value.ToString(CultureInfo.CurrentCulture).TrimEnd('0').TrimEnd(',') : "");
                 item.SubItems.Add(fee.IsRate.ToString());
                 item.SubItems.Add(fee.IsAdded.ToString());
                 item.SubItems.Add(fee.CycleId.HasValue ? fee.CycleId.Value.ToString(CultureInfo.CurrentCulture) : "");
                 item.SubItems.Add("");
                 item.SubItems.Add(lvEntryFees.Items.Count.ToString(CultureInfo.CurrentCulture));
-                item.SubItems.Add(fee.MaxSum.ToString());
+                item.SubItems.Add(fee.MaxSum.ToString().TrimEnd('0').TrimEnd(','));
                 lvEntryFees.Items.Add(item);
             }
             InitializeAdditionalEmptyRowInListView();
