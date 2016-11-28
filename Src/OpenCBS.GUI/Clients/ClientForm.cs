@@ -2199,10 +2199,8 @@ namespace OpenCBS.GUI.Clients
                     && amount > entryFee.ProductEntryFee.MaxSum)
                 {
                     amount = entryFee.ProductEntryFee.MaxSum;
-                    entryFee.FeeValue = entryFee.FeeValue;
-                }
-                else
                     entryFee.FeeValue = amount.Value*100/nudLoanAmount.Value;
+                }
 
                 item.SubItems.Add(amount.GetFormatedValue(_credit.Product.Currency.UseCents));
 
