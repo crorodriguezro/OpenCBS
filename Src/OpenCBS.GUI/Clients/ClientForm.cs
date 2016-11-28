@@ -2193,13 +2193,17 @@ namespace OpenCBS.GUI.Clients
                     amount = loanAmount.Value * feeValue.Value / 100;
                 else
                     amount = feeValue.Value;
-                if (amount > entryFee.ProductEntryFee.MaxSum)
+
+                if (entryFee.ProductEntryFee.MaxSum.HasValue
+                    && entryFee.ProductEntryFee.MaxSum > 0
+                    && amount > entryFee.ProductEntryFee.MaxSum)
                 {
                     amount = entryFee.ProductEntryFee.MaxSum;
-                    entryFee.FeeValue = amount.HasValue
-                        ? amount.Value * 100 / nudLoanAmount.Value
-                        : entryFee.FeeValue;
+                    entryFee.FeeValue = entryFee.FeeValue;
                 }
+                else
+                    entryFee.FeeValue = amount.Value*100/nudLoanAmount.Value;
+
                 item.SubItems.Add(amount.GetFormatedValue(_credit.Product.Currency.UseCents));
 
                 lvEntryFees.Items.Add(item);
