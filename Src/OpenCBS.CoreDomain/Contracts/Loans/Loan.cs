@@ -191,11 +191,19 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                 if (fee.ProductEntryFee.IsRate)
                 {
                     var value = loanAmount*fee.FeeValue/100.00;
-                    sum += value > fee.ProductEntryFee.MaxSum ? fee.ProductEntryFee.MaxSum : value;
+                    sum += fee.ProductEntryFee.MaxSum.HasValue
+                           && fee.ProductEntryFee.MaxSum > 0
+                           && value > fee.ProductEntryFee.MaxSum
+                        ? fee.ProductEntryFee.MaxSum
+                        : value;
                 }
 
                 else
-                    sum += fee.FeeValue > fee.ProductEntryFee.MaxSum ? fee.ProductEntryFee.MaxSum : fee.FeeValue;
+                    sum += fee.ProductEntryFee.MaxSum.HasValue
+                           && fee.ProductEntryFee.MaxSum > 0
+                           && fee.FeeValue > fee.ProductEntryFee.MaxSum
+                        ? fee.ProductEntryFee.MaxSum
+                        : fee.FeeValue;
             }
             return sum;
         }
