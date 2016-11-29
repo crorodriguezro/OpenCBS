@@ -7256,15 +7256,27 @@ namespace OpenCBS.GUI.Clients
                         if (((LoanEntryFee)item.Tag).ProductEntryFee.IsRate)
                         {
                             OCurrency feeAmount = loanAmount * inputFee / 100;
-                            if (feeAmount > ((LoanEntryFee)item.Tag).ProductEntryFee.MaxSum)
+                            if (feeAmount > ((LoanEntryFee) item.Tag).ProductEntryFee.MaxSum)
+                            {
                                 feeAmount = ((LoanEntryFee)item.Tag).ProductEntryFee.MaxSum;
+                                numEntryFees.Minimum = 0;
+                                numEntryFees.Value = 100m * feeAmount.Value / _credit.Amount.Value;
+                                item.SubItems[1].Text = (100m * feeAmount / _credit.Amount).GetFormatedValue(_credit.Product.Currency.UseCents);
+                                e.DisplayText = item.SubItems[1].Text;
+                            }
                             item.SubItems[3].Text = feeAmount.GetFormatedValue(_credit.Product.Currency.UseCents);
                         }
                         else
                         {
                             OCurrency feeAmount = inputFee;
-                            if (feeAmount > ((LoanEntryFee)item.Tag).ProductEntryFee.MaxSum)
+                            if (feeAmount > ((LoanEntryFee) item.Tag).ProductEntryFee.MaxSum)
+                            {
                                 feeAmount = ((LoanEntryFee)item.Tag).ProductEntryFee.MaxSum;
+                                numEntryFees.Minimum = 0;
+                                numEntryFees.Value = 100m * feeAmount.Value / _credit.Amount.Value;
+                                item.SubItems[1].Text = (100m * feeAmount / _credit.Amount).GetFormatedValue(_credit.Product.Currency.UseCents);
+                                e.DisplayText = item.SubItems[1].Text;
+                            }
                             item.SubItems[3].Text = feeAmount.GetFormatedValue(_credit.Product.Currency.UseCents);
                         }
                     }
