@@ -7271,7 +7271,7 @@ namespace OpenCBS.GUI.Clients
                 }
                 else if (item.Tag.Equals("TotalFees"))
                 {
-                    ShowTotalFeesInListView(item);
+                    ShowTotalFeesInListViewByNudLoanAmount(item);
                 }
             }
         }
