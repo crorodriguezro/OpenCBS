@@ -7233,6 +7233,13 @@ namespace OpenCBS.GUI.Clients
             item.SubItems[3].Text = total.GetFormatedValue(_credit.Product.Currency.UseCents) + @" " + _credit.Product.Currency.Code;
         }
 
+        private void ShowTotalFeesInListViewByNudLoanAmount(ListViewItem item)
+        {
+            OCurrency total = 0;
+            total =  _credit.GetSumOfFees(nudLoanAmount.Value);
+            item.SubItems[3].Text = total.GetFormatedValue(_credit.Product.Currency.UseCents) + @" " + _credit.Product.Currency.Code;
+        }
+
         private void lvEntryFees_SubItemEndEditing(object sender, SubItemEndEditingEventArgs e)
         {
             _credit.LoanEntryFeesList.Clear();
@@ -7336,7 +7343,7 @@ namespace OpenCBS.GUI.Clients
                             _credit.LoanEntryFeesList.Add((LoanEntryFee)item.Tag);
                         }
                         else if (item.Tag.Equals("TotalFees"))
-                            ShowTotalFeesInListView(item);
+                            ShowTotalFeesInListViewByNudLoanAmount(item);
                     }
 
                     foreach (ListViewItem item in lvEntryFees.Items)
