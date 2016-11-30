@@ -480,7 +480,7 @@ namespace OpenCBS.GUI.UserControl
             OnSubItemEndEditing(e);
             if (_editSubItem != -1)
             {
-                _editItem.SubItems[_editSubItem].Text = e.DisplayText;
+                //_editItem.SubItems[_editSubItem].Text = e.DisplayText;
                 _editingControl.Leave -= new EventHandler(_editControl_Leave);
                 _editingControl.KeyPress -= new KeyPressEventHandler(_editControl_KeyPress);
 

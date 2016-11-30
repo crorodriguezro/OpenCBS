@@ -1513,6 +1513,7 @@ namespace OpenCBS.GUI.Products
             // 
             // cbRate
             // 
+            this.cbRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRate.FormattingEnabled = true;
             this.cbRate.Items.AddRange(new object[] {
             resources.GetString("cbRate.Items"),

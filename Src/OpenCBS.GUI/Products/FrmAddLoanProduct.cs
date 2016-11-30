@@ -2304,6 +2304,39 @@ namespace OpenCBS.GUI.Products
             }
         }
 
+	    private bool IsValidFeeValue(string feeValue)
+	    {
+	        decimal tryDecimal;
+	        if (string.IsNullOrEmpty(feeValue))
+	            return true;
+
+	        if (Decimal.TryParse(feeValue, out tryDecimal))
+	        {
+	            if (tryDecimal >= 0) return true;
+	            return false;
+	        }
+	        return false;
+	    }
+
+	    private bool CheckFeeValue(string feeValue)
+	    {
+	        if (!IsValidFeeValue(feeValue))
+            {
+                new frmShowError(
+	                CustomExceptionHandler.ShowExceptionText(new OpenCbsException("Entry fees filled incorrectly.")))
+	                .ShowDialog();
+                return false;
+            }
+	        return true;
+	    }
+
+	    private string FloorLikeDecimal(string value)
+	    {
+	        if (string.IsNullOrEmpty(value)) return value;
+	        return (Math.Floor(Convert.ToDecimal(value)*100m)/100m).ToString().Replace(".", ",");
+	    }
+
+
         private void lvEntryFees_SubItemEndEditing(object sender, SubItemEndEditingEventArgs e)
         {
             buttonSave.Enabled = true;
@@ -2315,23 +2348,27 @@ namespace OpenCBS.GUI.Products
                     break;
 
                 case IdxMin:
-                    subItems[e.SubItem].Text = tbEntryFeesValues.Text;
+                    if (CheckFeeValue(tbEntryFeesValues.Text))
+                        subItems[e.SubItem].Text = FloorLikeDecimal(tbEntryFeesValues.Text);
                     break;
 
                 case IdxMax:
-                    subItems[e.SubItem].Text = tbEntryFeesValues.Text;
+                    if (CheckFeeValue(tbEntryFeesValues.Text))
+                        subItems[e.SubItem].Text = FloorLikeDecimal(tbEntryFeesValues.Text);
                     break;
 
                 case IdxValue:
-                    subItems[e.SubItem].Text = tbEntryFeesValues.Text;
+                    if (CheckFeeValue(tbEntryFeesValues.Text))
+                        subItems[e.SubItem].Text = FloorLikeDecimal(tbEntryFeesValues.Text);
                     break;
 
                 case IdxIsRate:
                     subItems[e.SubItem].Text = cbRate.Text;
                     break;
-                
+
                 case IdxMaxSum:
-                    subItems[e.SubItem].Text = tbEntryFeesValues.Text;
+                    if (CheckFeeValue(tbEntryFeesValues.Text))
+                        subItems[e.SubItem].Text = FloorLikeDecimal(tbEntryFeesValues.Text);
                     break;
             }
 
