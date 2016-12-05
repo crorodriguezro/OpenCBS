@@ -1723,10 +1723,10 @@ namespace OpenCBS.GUI.Clients
                 item.SubItems.Add(credit.StartDate.ToShortDateString());
                 item.SubItems.Add(credit.CloseDate.ToShortDateString());
 
-                if (credit.ContractStatus != OContractStatus.Abandoned && credit.ContractStatus != OContractStatus.Refused)
+                if (credit.ContractStatus != OContractStatus.Abandoned && credit.ContractStatus != OContractStatus.Refused && credit.ContractStatus != OContractStatus.Deleted)
                 {
 
-                    if (credit.ContractStatus != OContractStatus.Closed)
+                    if (credit.ContractStatus != OContractStatus.Closed && credit.ContractStatus != OContractStatus.Deleted)
                     {
 
                         totalAmount += credit.Amount;
@@ -1742,7 +1742,7 @@ namespace OpenCBS.GUI.Clients
 
                         credit.CalculateActualOlb();
                     }
-                    else if (credit.ContractStatus == OContractStatus.Closed)
+                    else if (credit.ContractStatus == OContractStatus.Closed && credit.ContractStatus != OContractStatus.Deleted)
                     {
                         totalAmount += credit.Amount;
                         totalAmountInPivot += customExchangeRate.Rate == 0
