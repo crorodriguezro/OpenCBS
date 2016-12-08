@@ -308,6 +308,14 @@ namespace OpenCBS.Services
             return client;
         }
 
+        public IClient FindVillage(int tiersId)
+        {
+            IClient client = null;
+            client = _clientManagement.SelectVillageById(tiersId);
+
+            return client;
+        }
+
         public Group FindGroupById(int groupId)
         {
             var group = _clientManagement.SelectGroupById(groupId);

@@ -636,7 +636,11 @@ namespace OpenCBS.GUI
         {
             try
             {
-                _client = ServicesProvider.GetInstance().GetClientServices().FindTiers(pClient.Id, pClient.Type);
+                if (pClient.Type == OClientTypes.Village)
+                    _client = ServicesProvider.GetInstance().GetClientServices().FindVillage(pClient.Id);
+
+                else
+                    _client = ServicesProvider.GetInstance().GetClientServices().FindTiers(pClient.Id, pClient.Type);
 
                 /*
                  * This code is for loading compulsory savings. Compulsory savings are being 

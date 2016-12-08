@@ -884,6 +884,11 @@ namespace OpenCBS.Manager.Clients
 
         public Village SelectVillageById(int id)
         {
+            return SelectVillageById(id, true);
+        }
+
+        public Village SelectVillageById(int id, bool includeTiers = true)
+        {
             Village village = null;
             int? districtId = null;
             int loanOfficerId = 0;
@@ -938,7 +943,8 @@ namespace OpenCBS.Manager.Clients
 
                 foreach (VillageMember member in members)
                 {
-                    member.Tiers = SelectPersonById(member.Tiers.Id, true);
+                    if (includeTiers)
+                        member.Tiers = SelectPersonById(member.Tiers.Id, true);
                     village.AddMember(member);
                     if (member.IsLeader)
                         village.Leader = member;
@@ -1057,7 +1063,14 @@ namespace OpenCBS.Manager.Clients
                                 , left_date 
                                 , is_leader
                                 , currently_in                                
+                                , p.first_name 
+                                , p.last_name   
+                                , t.loan_cycle
+                                , p.identification_data       
+                                , t.active                    
                                 FROM VillagesPersons 
+                                INNER JOIN dbo.Persons p on p.id = person_id
+                                INNER JOIN dbo.Tiers t on t.id = person_id
                                 WHERE village_id = @id";
             if (currentlyIn.HasValue)
             {
@@ -1091,13 +1104,20 @@ namespace OpenCBS.Manager.Clients
         private VillageMember GetMemberFromReader(OpenCbsReader r)
         {
             return new VillageMember
-                       {
-                           Tiers = { Id = r.GetInt("person_id") },
-                           JoinedDate = r.GetDateTime("joined_date"),
-                           LeftDate = r.GetNullDateTime("left_date"),
-                           IsLeader = r.GetBool("is_leader"),
-                           CurrentlyIn = r.GetBool("currently_in"),
-                       };
+            {
+                Tiers = new Person()
+                {
+                    Id = r.GetInt("person_id"),
+                    Name = string.Format("{0} {1}", r.GetString("first_name"), r.GetString("last_name")),
+                    Active = r.GetBool("active"),
+                    IdentificationData = r.GetString("identification_data"),
+                    LoanCycle = r.GetInt("loan_cycle")
+                },
+                JoinedDate = r.GetDateTime("joined_date"),
+                LeftDate = r.GetNullDateTime("left_date"),
+                IsLeader = r.GetBool("is_leader"),
+                CurrentlyIn = r.GetBool("currently_in"),
+            };
         }
 
         public List<Member> SelectGroupMembersByGroupId(int groupId)
