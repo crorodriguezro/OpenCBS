@@ -344,6 +344,12 @@
     <Compile Include="Configuration\FrmEconomicActivity.Designer.cs">
       <DependentUpon>FrmEconomicActivity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Configuration\FrmEntryFees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\FrmEntryFees.Designer.cs">
+      <DependentUpon>FrmEntryFees.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuration\FrmFundingLineEvent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1150,6 +1156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\FrmEconomicActivity.es.resx">
       <DependentUpon>FrmEconomicActivity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmEntryFees.resx">
+      <DependentUpon>FrmEntryFees.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\frmSettingsImportExport.es.resx">
       <DependentUpon>frmSettingsImportExport.cs</DependentUpon>

@@ -1019,5 +1019,11 @@ namespace OpenCBS.GUI
         {
             InitializeLoanCalculator();
         }
+
+        private void entryFeesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmEntryFees = new FrmEntryFees{ MdiParent = this };
+            frmEntryFees.Show();
+        }
     }
 }
