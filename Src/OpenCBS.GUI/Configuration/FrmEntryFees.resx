@@ -118,84 +118,297 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="splitContainerMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="splitContainer2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="splitContainer2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="splitContainer2.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
+  <data name="splitContainer2.Panel1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="_buttonDelete.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="_buttonDelete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_buttonDelete.Location" type="System.Drawing.Point, System.Drawing">
+    <value>345, 12</value>
+  </data>
+  <data name="_buttonDelete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 31</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_buttonDelete.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="_buttonDelete.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="&gt;&gt;_buttonDelete.Name" xml:space="preserve">
+    <value>_buttonDelete</value>
+  </data>
+  <data name="&gt;&gt;_buttonDelete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_buttonDelete.Parent" xml:space="preserve">
+    <value>splitContainer2.Panel1</value>
+  </data>
+  <data name="&gt;&gt;_buttonDelete.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_buttonEdit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="_buttonEdit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_buttonEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>178, 12</value>
+  </data>
+  <data name="_buttonEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 31</value>
+  </data>
+  <data name="_buttonEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="_buttonEdit.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="&gt;&gt;_buttonEdit.Name" xml:space="preserve">
+    <value>_buttonEdit</value>
+  </data>
+  <data name="&gt;&gt;_buttonEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_buttonEdit.Parent" xml:space="preserve">
+    <value>splitContainer2.Panel1</value>
+  </data>
+  <data name="&gt;&gt;_buttonEdit.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_buttonAdd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="_buttonAdd.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_buttonAdd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="_buttonAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 31</value>
+  </data>
+  <data name="_buttonAdd.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="_buttonAdd.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="&gt;&gt;_buttonAdd.Name" xml:space="preserve">
+    <value>_buttonAdd</value>
+  </data>
+  <data name="&gt;&gt;_buttonAdd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_buttonAdd.Parent" xml:space="preserve">
+    <value>splitContainer2.Panel1</value>
+  </data>
+  <data name="&gt;&gt;_buttonAdd.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;splitContainer2.Panel1.Name" xml:space="preserve">
+    <value>splitContainer2.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer2.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer2.Panel1.Parent" xml:space="preserve">
+    <value>splitContainer2</value>
+  </data>
+  <data name="&gt;&gt;splitContainer2.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitContainer2.Panel2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="chId.Text" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="chId.Width" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
+  <data name="chName.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="chName.Width" type="System.Int32, mscorlib">
+    <value>417</value>
+  </data>
+  <data name="chMin.Text" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="chMin.Width" type="System.Int32, mscorlib">
+    <value>134</value>
+  </data>
+  <data name="chMax.Text" xml:space="preserve">
+    <value>Max</value>
+  </data>
+  <data name="chMax.Width" type="System.Int32, mscorlib">
+    <value>126</value>
+  </data>
+  <data name="chRate.Text" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="chRate.Width" type="System.Int32, mscorlib">
+    <value>99</value>
+  </data>
+  <data name="chMaxSum.Text" xml:space="preserve">
+    <value>Max Sum</value>
+  </data>
+  <data name="chMaxSum.Width" type="System.Int32, mscorlib">
+    <value>176</value>
+  </data>
+  <data name="listViewEntryFee.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="listViewEntryFee.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt</value>
+  </data>
+  <data name="listViewEntryFee.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="listViewEntryFee.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1255, 651</value>
+  </data>
+  <data name="listViewEntryFee.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;listViewEntryFee.Name" xml:space="preserve">
+    <value>listViewEntryFee</value>
+  </data>
+  <data name="&gt;&gt;listViewEntryFee.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listViewEntryFee.Parent" xml:space="preserve">
+    <value>splitContainer2.Panel2</value>
+  </data>
+  <data name="&gt;&gt;listViewEntryFee.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainer2.Panel2.Name" xml:space="preserve">
+    <value>splitContainer2.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainer2.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer2.Panel2.Parent" xml:space="preserve">
+    <value>splitContainer2</value>
+  </data>
+  <data name="&gt;&gt;splitContainer2.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitContainer2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1255, 715</value>
+  </data>
+  <data name="splitContainer2.SplitterDistance" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="splitContainer2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainer2.Name" xml:space="preserve">
+    <value>splitContainer2</value>
+  </data>
+  <data name="&gt;&gt;splitContainer2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer2.Parent" xml:space="preserve">
+    <value>splitContainerMain.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainer2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitContainerMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <data name="splitContainerMain.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
   <data name="splitContainerMain.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
     <value>Horizontal</value>
   </data>
-  <data name="_btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="_buttonClose.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="_btnCancel.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="_buttonClose.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
   </data>
-  <data name="_btnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="_buttonClose.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="_btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="_buttonClose.Location" type="System.Drawing.Point, System.Drawing">
     <value>1120, 4</value>
   </data>
-  <data name="_btnCancel.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_buttonClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 25</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="_btnCancel.TabIndex" type="System.Int32, mscorlib">
+  <data name="_buttonClose.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="_btnCancel.Text" xml:space="preserve">
+  <data name="_buttonClose.Text" xml:space="preserve">
     <value>Close</value>
   </data>
-  <data name="&gt;&gt;_btnCancel.Name" xml:space="preserve">
-    <value>_btnCancel</value>
+  <data name="&gt;&gt;_buttonClose.Name" xml:space="preserve">
+    <value>_buttonClose</value>
   </data>
-  <data name="&gt;&gt;_btnCancel.Type" xml:space="preserve">
+  <data name="&gt;&gt;_buttonClose.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_btnCancel.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_buttonClose.Parent" xml:space="preserve">
     <value>splitContainerMain.Panel1</value>
   </data>
-  <data name="&gt;&gt;_btnCancel.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_buttonClose.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="_lblTitle.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="lblRoles.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="_lblTitle.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="lblRoles.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 15.75pt, style=Bold</value>
   </data>
-  <data name="_lblTitle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="lblRoles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="_lblTitle.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblRoles.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="_lblTitle.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblRoles.Size" type="System.Drawing.Size, System.Drawing">
     <value>1255, 34</value>
   </data>
-  <data name="_lblTitle.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblRoles.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="_lblTitle.Text" xml:space="preserve">
+  <data name="lblRoles.Text" xml:space="preserve">
     <value>Entry Fees</value>
   </data>
-  <data name="_lblTitle.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="lblRoles.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="&gt;&gt;_lblTitle.Name" xml:space="preserve">
-    <value>_lblTitle</value>
+  <data name="&gt;&gt;lblRoles.Name" xml:space="preserve">
+    <value>lblRoles</value>
   </data>
-  <data name="&gt;&gt;_lblTitle.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblRoles.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_lblTitle.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblRoles.Parent" xml:space="preserve">
     <value>splitContainerMain.Panel1</value>
   </data>
-  <data name="&gt;&gt;_lblTitle.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblRoles.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="&gt;&gt;splitContainerMain.Panel1.Name" xml:space="preserve">
@@ -212,216 +425,6 @@
   </data>
   <data name="splitContainerMain.Panel1MinSize" type="System.Int32, mscorlib">
     <value>32</value>
-  </data>
-  <data name="splitContainerContent.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="splitContainerContent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="splitContainerContent.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
-    <value>Horizontal</value>
-  </data>
-  <data name="splitContainerContent.Panel1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="_buttonDelete.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="_buttonDelete.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="_buttonDelete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="_buttonDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>343, 18</value>
-  </data>
-  <data name="_buttonDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 34</value>
-  </data>
-  <data name="_buttonDelete.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="_buttonDelete.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="&gt;&gt;_buttonDelete.Name" xml:space="preserve">
-    <value>_buttonDelete</value>
-  </data>
-  <data name="&gt;&gt;_buttonDelete.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_buttonDelete.Parent" xml:space="preserve">
-    <value>splitContainerContent.Panel1</value>
-  </data>
-  <data name="&gt;&gt;_buttonDelete.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="_buttonEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="_buttonEdit.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="_buttonEdit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="_buttonEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 18</value>
-  </data>
-  <data name="_buttonEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 34</value>
-  </data>
-  <data name="_buttonEdit.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="_buttonEdit.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="&gt;&gt;_buttonEdit.Name" xml:space="preserve">
-    <value>_buttonEdit</value>
-  </data>
-  <data name="&gt;&gt;_buttonEdit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_buttonEdit.Parent" xml:space="preserve">
-    <value>splitContainerContent.Panel1</value>
-  </data>
-  <data name="&gt;&gt;_buttonEdit.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="_buttonAdd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="_buttonAdd.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="_buttonAdd.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="_buttonAdd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 18</value>
-  </data>
-  <data name="_buttonAdd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 34</value>
-  </data>
-  <data name="_buttonAdd.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="_buttonAdd.Text" xml:space="preserve">
-    <value>Add</value>
-  </data>
-  <data name="&gt;&gt;_buttonAdd.Name" xml:space="preserve">
-    <value>_buttonAdd</value>
-  </data>
-  <data name="&gt;&gt;_buttonAdd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_buttonAdd.Parent" xml:space="preserve">
-    <value>splitContainerContent.Panel1</value>
-  </data>
-  <data name="&gt;&gt;_buttonAdd.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;splitContainerContent.Panel1.Name" xml:space="preserve">
-    <value>splitContainerContent.Panel1</value>
-  </data>
-  <data name="&gt;&gt;splitContainerContent.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainerContent.Panel1.Parent" xml:space="preserve">
-    <value>splitContainerContent</value>
-  </data>
-  <data name="&gt;&gt;splitContainerContent.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="splitContainerContent.Panel2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="chName.Text" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="chName.Width" type="System.Int32, mscorlib">
-    <value>150</value>
-  </data>
-  <data name="chMin.Text" xml:space="preserve">
-    <value>Min</value>
-  </data>
-  <data name="chMin.Width" type="System.Int32, mscorlib">
-    <value>300</value>
-  </data>
-  <data name="chRate.Text" xml:space="preserve">
-    <value>Max</value>
-  </data>
-  <data name="chRate.Width" type="System.Int32, mscorlib">
-    <value>135</value>
-  </data>
-  <data name="chMaxSum.Text" xml:space="preserve">
-    <value>Max Sum</value>
-  </data>
-  <data name="chMaxSum.Width" type="System.Int32, mscorlib">
-    <value>114</value>
-  </data>
-  <data name="listViewRoles.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="listViewRoles.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt</value>
-  </data>
-  <data name="listViewRoles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="listViewRoles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1255, 641</value>
-  </data>
-  <data name="listViewRoles.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;listViewRoles.Name" xml:space="preserve">
-    <value>listViewRoles</value>
-  </data>
-  <data name="&gt;&gt;listViewRoles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;listViewRoles.Parent" xml:space="preserve">
-    <value>splitContainerContent.Panel2</value>
-  </data>
-  <data name="&gt;&gt;listViewRoles.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainerContent.Panel2.Name" xml:space="preserve">
-    <value>splitContainerContent.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitContainerContent.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainerContent.Panel2.Parent" xml:space="preserve">
-    <value>splitContainerContent</value>
-  </data>
-  <data name="&gt;&gt;splitContainerContent.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="splitContainerContent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1255, 715</value>
-  </data>
-  <data name="splitContainerContent.SplitterDistance" type="System.Int32, mscorlib">
-    <value>70</value>
-  </data>
-  <data name="splitContainerContent.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainerContent.Name" xml:space="preserve">
-    <value>splitContainerContent</value>
-  </data>
-  <data name="&gt;&gt;splitContainerContent.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainerContent.Parent" xml:space="preserve">
-    <value>splitContainerMain.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitContainerContent.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;splitContainerMain.Panel2.Name" xml:space="preserve">
     <value>splitContainerMain.Panel2</value>
@@ -480,6 +483,12 @@
   <data name="&gt;&gt;chMin.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;chMax.Name" xml:space="preserve">
+    <value>chMax</value>
+  </data>
+  <data name="&gt;&gt;chMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;chRate.Name" xml:space="preserve">
     <value>chRate</value>
   </data>
@@ -490,6 +499,12 @@
     <value>chMaxSum</value>
   </data>
   <data name="&gt;&gt;chMaxSum.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chId.Name" xml:space="preserve">
+    <value>chId</value>
+  </data>
+  <data name="&gt;&gt;chId.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

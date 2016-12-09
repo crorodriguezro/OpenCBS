@@ -143,6 +143,11 @@ namespace OpenCBS.Services
             return new  ProductServices(CurrentUser);
         }
 
+        public EntryFeeServices GetEntryFeeServices()
+        {
+            return new EntryFeeServices(CurrentUser);
+        }
+
         public CollateralProductServices GetCollateralProductServices()
         {
             return new CollateralProductServices(CurrentUser);

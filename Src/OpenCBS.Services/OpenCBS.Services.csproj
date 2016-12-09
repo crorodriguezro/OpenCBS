@@ -198,6 +198,7 @@
     </Compile>
     <Compile Include="BranchService.cs" />
     <Compile Include="CollateralProductServices.cs" />
+    <Compile Include="EntryFeeServices.cs" />
     <Compile Include="MenuItemServices.cs" />
     <Compile Include="PaymentMethodServices.cs" />
     <Compile Include="TellerService.cs" />

@@ -28,224 +28,171 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEntryFees));
-            this.groupBoxEntryFees = new System.Windows.Forms.GroupBox();
-            this.swbtnEntryFeesRemoveCycle = new System.Windows.Forms.Button();
-            this.swbtnEntryFeesAddCycle = new System.Windows.Forms.Button();
-            this.cbRate = new System.Windows.Forms.ComboBox();
-            this.cbxRate = new System.Windows.Forms.CheckBox();
-            this.tbEntryFeesValues = new System.Windows.Forms.TextBox();
-            this.lvEntryFees = new OpenCBS.GUI.UserControl.ListViewEx();
-            this.chEntryFeeId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chEntryFeeName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chEntryFeeMin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chEntryFeeMax = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chEntryFeeValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chEntryFeeRate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chEntryFeeIsAdded = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chEntryFeeCycleId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chEntryFeeNewId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chEntryFeeIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chEntryFeeMaxSum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.nudEntryFeescycleFrom = new System.Windows.Forms.NumericUpDown();
-            this.lblEntryFeesFromCycle = new System.Windows.Forms.Label();
-            this.cbEnableEntryFeesCycle = new System.Windows.Forms.CheckBox();
-            this.lblEntryFeesCycle = new System.Windows.Forms.Label();
-            this.cmbEntryFeesCycles = new System.Windows.Forms.ComboBox();
-            this.groupBoxEntryFees.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEntryFeescycleFrom)).BeginInit();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this._buttonDelete = new System.Windows.Forms.Button();
+            this._buttonEdit = new System.Windows.Forms.Button();
+            this._buttonAdd = new System.Windows.Forms.Button();
+            this.listViewEntryFee = new System.Windows.Forms.ListView();
+            this.chName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chMin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chMax = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chRate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chMaxSum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.splitContainerMain = new System.Windows.Forms.SplitContainer();
+            this._buttonClose = new System.Windows.Forms.Button();
+            this.lblRoles = new System.Windows.Forms.Label();
+            this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
+            this.splitContainerMain.Panel1.SuspendLayout();
+            this.splitContainerMain.Panel2.SuspendLayout();
+            this.splitContainerMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBoxEntryFees
+            // splitContainer2
             // 
-            this.groupBoxEntryFees.Controls.Add(this.swbtnEntryFeesRemoveCycle);
-            this.groupBoxEntryFees.Controls.Add(this.swbtnEntryFeesAddCycle);
-            this.groupBoxEntryFees.Controls.Add(this.cbRate);
-            this.groupBoxEntryFees.Controls.Add(this.cbxRate);
-            this.groupBoxEntryFees.Controls.Add(this.tbEntryFeesValues);
-            this.groupBoxEntryFees.Controls.Add(this.lvEntryFees);
-            this.groupBoxEntryFees.Controls.Add(this.nudEntryFeescycleFrom);
-            this.groupBoxEntryFees.Controls.Add(this.lblEntryFeesFromCycle);
-            this.groupBoxEntryFees.Controls.Add(this.cbEnableEntryFeesCycle);
-            this.groupBoxEntryFees.Controls.Add(this.lblEntryFeesCycle);
-            this.groupBoxEntryFees.Controls.Add(this.cmbEntryFeesCycles);
-            resources.ApplyResources(this.groupBoxEntryFees, "groupBoxEntryFees");
-            this.groupBoxEntryFees.Name = "groupBoxEntryFees";
-            this.groupBoxEntryFees.TabStop = false;
+            resources.ApplyResources(this.splitContainer2, "splitContainer2");
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer2.Name = "splitContainer2";
             // 
-            // swbtnEntryFeesRemoveCycle
+            // splitContainer2.Panel1
             // 
-            resources.ApplyResources(this.swbtnEntryFeesRemoveCycle, "swbtnEntryFeesRemoveCycle");
-            this.swbtnEntryFeesRemoveCycle.Name = "swbtnEntryFeesRemoveCycle";
+            resources.ApplyResources(this.splitContainer2.Panel1, "splitContainer2.Panel1");
+            this.splitContainer2.Panel1.Controls.Add(this._buttonDelete);
+            this.splitContainer2.Panel1.Controls.Add(this._buttonEdit);
+            this.splitContainer2.Panel1.Controls.Add(this._buttonAdd);
             // 
-            // swbtnEntryFeesAddCycle
+            // splitContainer2.Panel2
             // 
-            resources.ApplyResources(this.swbtnEntryFeesAddCycle, "swbtnEntryFeesAddCycle");
-            this.swbtnEntryFeesAddCycle.Name = "swbtnEntryFeesAddCycle";
+            resources.ApplyResources(this.splitContainer2.Panel2, "splitContainer2.Panel2");
+            this.splitContainer2.Panel2.Controls.Add(this.listViewEntryFee);
             // 
-            // cbRate
+            // _buttonDelete
             // 
-            this.cbRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRate.FormattingEnabled = true;
-            this.cbRate.Items.AddRange(new object[] {
-            resources.GetString("cbRate.Items"),
-            resources.GetString("cbRate.Items1")});
-            resources.ApplyResources(this.cbRate, "cbRate");
-            this.cbRate.Name = "cbRate";
+            this._buttonDelete.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this._buttonDelete, "_buttonDelete");
+            this._buttonDelete.Name = "_buttonDelete";
             // 
-            // cbxRate
+            // _buttonEdit
             // 
-            resources.ApplyResources(this.cbxRate, "cbxRate");
-            this.cbxRate.Name = "cbxRate";
+            this._buttonEdit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this._buttonEdit, "_buttonEdit");
+            this._buttonEdit.Name = "_buttonEdit";
             // 
-            // tbEntryFeesValues
+            // _buttonAdd
             // 
-            resources.ApplyResources(this.tbEntryFeesValues, "tbEntryFeesValues");
-            this.tbEntryFeesValues.Name = "tbEntryFeesValues";
+            this._buttonAdd.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this._buttonAdd, "_buttonAdd");
+            this._buttonAdd.Name = "_buttonAdd";
             // 
-            // lvEntryFees
+            // listViewEntryFee
             // 
-            this.lvEntryFees.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chEntryFeeId,
-            this.chEntryFeeName,
-            this.chEntryFeeMin,
-            this.chEntryFeeMax,
-            this.chEntryFeeValue,
-            this.chEntryFeeRate,
-            this.chEntryFeeIsAdded,
-            this.chEntryFeeCycleId,
-            this.chEntryFeeNewId,
-            this.chEntryFeeIndex,
-            this.chEntryFeeMaxSum});
-            resources.ApplyResources(this.lvEntryFees, "lvEntryFees");
-            this.lvEntryFees.DoubleClickActivation = false;
-            this.lvEntryFees.FullRowSelect = true;
-            this.lvEntryFees.GridLines = true;
-            this.lvEntryFees.Name = "lvEntryFees";
-            this.lvEntryFees.UseCompatibleStateImageBehavior = false;
-            this.lvEntryFees.View = System.Windows.Forms.View.Details;
+            this.listViewEntryFee.BackColor = System.Drawing.SystemColors.Window;
+            this.listViewEntryFee.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chId,
+            this.chName,
+            this.chMin,
+            this.chMax,
+            this.chRate,
+            this.chMaxSum});
+            resources.ApplyResources(this.listViewEntryFee, "listViewEntryFee");
+            this.listViewEntryFee.FullRowSelect = true;
+            this.listViewEntryFee.GridLines = true;
+            this.listViewEntryFee.HideSelection = false;
+            this.listViewEntryFee.MultiSelect = false;
+            this.listViewEntryFee.Name = "listViewEntryFee";
+            this.listViewEntryFee.UseCompatibleStateImageBehavior = false;
+            this.listViewEntryFee.View = System.Windows.Forms.View.Details;
             // 
-            // chEntryFeeId
+            // chName
             // 
-            resources.ApplyResources(this.chEntryFeeId, "chEntryFeeId");
+            resources.ApplyResources(this.chName, "chName");
             // 
-            // chEntryFeeName
+            // chMin
             // 
-            resources.ApplyResources(this.chEntryFeeName, "chEntryFeeName");
+            resources.ApplyResources(this.chMin, "chMin");
             // 
-            // chEntryFeeMin
+            // chMax
             // 
-            resources.ApplyResources(this.chEntryFeeMin, "chEntryFeeMin");
+            resources.ApplyResources(this.chMax, "chMax");
             // 
-            // chEntryFeeMax
+            // chRate
             // 
-            resources.ApplyResources(this.chEntryFeeMax, "chEntryFeeMax");
+            resources.ApplyResources(this.chRate, "chRate");
             // 
-            // chEntryFeeValue
+            // chMaxSum
             // 
-            resources.ApplyResources(this.chEntryFeeValue, "chEntryFeeValue");
+            resources.ApplyResources(this.chMaxSum, "chMaxSum");
             // 
-            // chEntryFeeRate
+            // splitContainerMain
             // 
-            resources.ApplyResources(this.chEntryFeeRate, "chEntryFeeRate");
+            resources.ApplyResources(this.splitContainerMain, "splitContainerMain");
+            this.splitContainerMain.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainerMain.Name = "splitContainerMain";
             // 
-            // chEntryFeeIsAdded
+            // splitContainerMain.Panel1
             // 
-            resources.ApplyResources(this.chEntryFeeIsAdded, "chEntryFeeIsAdded");
+            this.splitContainerMain.Panel1.Controls.Add(this._buttonClose);
+            this.splitContainerMain.Panel1.Controls.Add(this.lblRoles);
             // 
-            // chEntryFeeCycleId
+            // splitContainerMain.Panel2
             // 
-            resources.ApplyResources(this.chEntryFeeCycleId, "chEntryFeeCycleId");
+            this.splitContainerMain.Panel2.Controls.Add(this.splitContainer2);
             // 
-            // chEntryFeeNewId
+            // _buttonClose
             // 
-            resources.ApplyResources(this.chEntryFeeNewId, "chEntryFeeNewId");
+            resources.ApplyResources(this._buttonClose, "_buttonClose");
+            this._buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this._buttonClose.Name = "_buttonClose";
             // 
-            // chEntryFeeIndex
+            // lblRoles
             // 
-            resources.ApplyResources(this.chEntryFeeIndex, "chEntryFeeIndex");
+            this.lblRoles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(152)))));
+            resources.ApplyResources(this.lblRoles, "lblRoles");
+            this.lblRoles.ForeColor = System.Drawing.Color.White;
+            this.lblRoles.Name = "lblRoles";
             // 
-            // chEntryFeeMaxSum
+            // chId
             // 
-            resources.ApplyResources(this.chEntryFeeMaxSum, "chEntryFeeMaxSum");
-            // 
-            // nudEntryFeescycleFrom
-            // 
-            resources.ApplyResources(this.nudEntryFeescycleFrom, "nudEntryFeescycleFrom");
-            this.nudEntryFeescycleFrom.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudEntryFeescycleFrom.Name = "nudEntryFeescycleFrom";
-            this.nudEntryFeescycleFrom.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblEntryFeesFromCycle
-            // 
-            resources.ApplyResources(this.lblEntryFeesFromCycle, "lblEntryFeesFromCycle");
-            this.lblEntryFeesFromCycle.Name = "lblEntryFeesFromCycle";
-            // 
-            // cbEnableEntryFeesCycle
-            // 
-            resources.ApplyResources(this.cbEnableEntryFeesCycle, "cbEnableEntryFeesCycle");
-            this.cbEnableEntryFeesCycle.Name = "cbEnableEntryFeesCycle";
-            // 
-            // lblEntryFeesCycle
-            // 
-            resources.ApplyResources(this.lblEntryFeesCycle, "lblEntryFeesCycle");
-            this.lblEntryFeesCycle.Name = "lblEntryFeesCycle";
-            // 
-            // cmbEntryFeesCycles
-            // 
-            this.cmbEntryFeesCycles.DisplayMember = "Name";
-            this.cmbEntryFeesCycles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEntryFeesCycles.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbEntryFeesCycles, "cmbEntryFeesCycles");
-            this.cmbEntryFeesCycles.Name = "cmbEntryFeesCycles";
-            this.cmbEntryFeesCycles.ValueMember = "Id";
+            resources.ApplyResources(this.chId, "chId");
             // 
             // FrmEntryFees
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBoxEntryFees);
+            this.Controls.Add(this.splitContainerMain);
             this.Name = "FrmEntryFees";
-            this.groupBoxEntryFees.ResumeLayout(false);
-            this.groupBoxEntryFees.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEntryFeescycleFrom)).EndInit();
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            this.splitContainerMain.Panel1.ResumeLayout(false);
+            this.splitContainerMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
+            this.splitContainerMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBoxEntryFees;
-        private System.Windows.Forms.Button swbtnEntryFeesRemoveCycle;
-        private System.Windows.Forms.Button swbtnEntryFeesAddCycle;
-        private System.Windows.Forms.ComboBox cbRate;
-        private System.Windows.Forms.CheckBox cbxRate;
-        private System.Windows.Forms.TextBox tbEntryFeesValues;
-        private UserControl.ListViewEx lvEntryFees;
-        private System.Windows.Forms.ColumnHeader chEntryFeeId;
-        private System.Windows.Forms.ColumnHeader chEntryFeeName;
-        private System.Windows.Forms.ColumnHeader chEntryFeeMin;
-        private System.Windows.Forms.ColumnHeader chEntryFeeMax;
-        private System.Windows.Forms.ColumnHeader chEntryFeeValue;
-        private System.Windows.Forms.ColumnHeader chEntryFeeRate;
-        private System.Windows.Forms.ColumnHeader chEntryFeeIsAdded;
-        private System.Windows.Forms.ColumnHeader chEntryFeeCycleId;
-        private System.Windows.Forms.ColumnHeader chEntryFeeNewId;
-        private System.Windows.Forms.ColumnHeader chEntryFeeIndex;
-        private System.Windows.Forms.ColumnHeader chEntryFeeMaxSum;
-        private System.Windows.Forms.NumericUpDown nudEntryFeescycleFrom;
-        private System.Windows.Forms.Label lblEntryFeesFromCycle;
-        private System.Windows.Forms.CheckBox cbEnableEntryFeesCycle;
-        private System.Windows.Forms.Label lblEntryFeesCycle;
-        private System.Windows.Forms.ComboBox cmbEntryFeesCycles;
+        private System.Windows.Forms.SplitContainer splitContainerMain;
+        private System.Windows.Forms.Button _buttonClose;
+        private System.Windows.Forms.Label lblRoles;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.Button _buttonDelete;
+        private System.Windows.Forms.Button _buttonEdit;
+        private System.Windows.Forms.Button _buttonAdd;
+        private System.Windows.Forms.ListView listViewEntryFee;
+        private System.Windows.Forms.ColumnHeader chName;
+        private System.Windows.Forms.ColumnHeader chMin;
+        private System.Windows.Forms.ColumnHeader chMax;
+        private System.Windows.Forms.ColumnHeader chRate;
+        private System.Windows.Forms.ColumnHeader chMaxSum;
+        private System.Windows.Forms.ColumnHeader chId;
     }
 }
