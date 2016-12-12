@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="minMaxIsZero" xml:space="preserve">
-    <value>Min and max cannot be zero</value>
+    <value>Min et max ne peuvent pas être zéro</value>
   </data>
   <data name="nameAlredyHave" xml:space="preserve">
-    <value>This name already used</value>
+    <value>Ce nom déjà utilisé</value>
   </data>
   <data name="nameEmpty" xml:space="preserve">
-    <value>Name cannot be empty</value>
+    <value>Le nom ne peut pas être vide</value>
   </data>
 </root>

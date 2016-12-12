@@ -1160,8 +1160,29 @@
       <DependentUpon>ContractCodeForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\EntryFee\EntryFeeAddEdit.es-ES.resx">
+      <DependentUpon>EntryFeeAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\EntryFee\EntryFeeAddEdit.fr.resx">
+      <DependentUpon>EntryFeeAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\EntryFee\EntryFeeAddEdit.pt.resx">
+      <DependentUpon>EntryFeeAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Configuration\EntryFee\EntryFeeAddEdit.resx">
       <DependentUpon>EntryFeeAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\EntryFee\EntryFeeAddEdit.ru-RU.resx">
+      <DependentUpon>EntryFeeAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\EntryFee\EntryFeesForm.es-ES.resx">
+      <DependentUpon>EntryFeesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\EntryFee\EntryFeesForm.fr.resx">
+      <DependentUpon>EntryFeesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\EntryFee\EntryFeesForm.pt.resx">
+      <DependentUpon>EntryFeesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\EntryFee\EntryFeesForm.resx">
       <DependentUpon>EntryFeesForm.cs</DependentUpon>
@@ -1171,6 +1192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\FrmEconomicActivity.es.resx">
       <DependentUpon>FrmEconomicActivity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmRoles.en.resx">
+      <DependentUpon>FrmRoles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\frmSettingsImportExport.es.resx">
       <DependentUpon>frmSettingsImportExport.cs</DependentUpon>

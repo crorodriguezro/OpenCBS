@@ -158,23 +158,7 @@
   <data name="_buttonClose.Text" xml:space="preserve">
     <value>Закрыть</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblEntryFee.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="lblEntryFee.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 15.75pt, style=Bold</value>
-  </data>
-  <data name="lblEntryFee.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblEntryFee.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1255, 47</value>
-  </data>
-  <data name="lblEntryFee.Text" xml:space="preserve">
+  <data name="lblRoles.Text" xml:space="preserve">
     <value>Вступительный Взнос</value>
-  </data>
-  <data name="lblEntryFee.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
   </data>
 </root>

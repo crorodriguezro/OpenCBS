@@ -117,13 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="minMaxIsZero" xml:space="preserve">
-    <value>Min and max cannot be zero</value>
+  <data name="areUSure" xml:space="preserve">
+    <value>Вы уверены?</value>
   </data>
-  <data name="nameAlredyHave" xml:space="preserve">
-    <value>This name already used</value>
+  <data name="deleteSelectedEntryFee" xml:space="preserve">
+    <value>Удалить выбранный элемент</value>
   </data>
-  <data name="nameEmpty" xml:space="preserve">
-    <value>Name cannot be empty</value>
+  <data name="needToSelectFee" xml:space="preserve">
+    <value>Выберите вступительный взнос</value>
   </data>
 </root>

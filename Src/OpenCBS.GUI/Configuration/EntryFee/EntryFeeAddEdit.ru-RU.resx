@@ -117,367 +117,99 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="_textBoxId.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="_textBoxId.Location" type="System.Drawing.Point, System.Drawing">
-    <value>117, 35</value>
+    <value>151, 35</value>
   </data>
   <data name="_textBoxId.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 20</value>
-  </data>
-  <data name="_textBoxId.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;_textBoxId.Name" xml:space="preserve">
-    <value>_textBoxId</value>
-  </data>
-  <data name="&gt;&gt;_textBoxId.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_textBoxId.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_textBoxId.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="_labelId.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>148, 20</value>
   </data>
   <data name="_labelId.Location" type="System.Drawing.Point, System.Drawing">
-    <value>35, 38</value>
+    <value>22, 38</value>
   </data>
   <data name="_labelId.Size" type="System.Drawing.Size, System.Drawing">
     <value>18, 13</value>
   </data>
-  <data name="_labelId.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="_labelId.Text" xml:space="preserve">
     <value>ID</value>
   </data>
-  <data name="&gt;&gt;_labelId.Name" xml:space="preserve">
-    <value>_labelId</value>
-  </data>
-  <data name="&gt;&gt;_labelId.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_labelId.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_labelId.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="_labelName.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="_labelName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>35, 78</value>
+    <value>22, 78</value>
   </data>
   <data name="_labelName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 13</value>
-  </data>
-  <data name="_labelName.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>57, 13</value>
   </data>
   <data name="_labelName.Text" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="&gt;&gt;_labelName.Name" xml:space="preserve">
-    <value>_labelName</value>
-  </data>
-  <data name="&gt;&gt;_labelName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_labelName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_labelName.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>Название</value>
   </data>
   <data name="_textBoxName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>117, 75</value>
+    <value>151, 75</value>
   </data>
   <data name="_textBoxName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 20</value>
-  </data>
-  <data name="_textBoxName.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;_textBoxName.Name" xml:space="preserve">
-    <value>_textBoxName</value>
-  </data>
-  <data name="&gt;&gt;_textBoxName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_textBoxName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_textBoxName.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="_labelMin.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>148, 20</value>
   </data>
   <data name="_labelMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>35, 115</value>
+    <value>22, 115</value>
   </data>
   <data name="_labelMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 13</value>
-  </data>
-  <data name="_labelMin.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>55, 13</value>
   </data>
   <data name="_labelMin.Text" xml:space="preserve">
-    <value>Min</value>
-  </data>
-  <data name="&gt;&gt;_labelMin.Name" xml:space="preserve">
-    <value>_labelMin</value>
-  </data>
-  <data name="&gt;&gt;_labelMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_labelMin.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_labelMin.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="_labelMaxSum.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>Минимум</value>
   </data>
   <data name="_labelMaxSum.Location" type="System.Drawing.Point, System.Drawing">
-    <value>35, 230</value>
+    <value>22, 230</value>
   </data>
   <data name="_labelMaxSum.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 13</value>
-  </data>
-  <data name="_labelMaxSum.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>120, 13</value>
   </data>
   <data name="_labelMaxSum.Text" xml:space="preserve">
-    <value>Max Sum</value>
-  </data>
-  <data name="&gt;&gt;_labelMaxSum.Name" xml:space="preserve">
-    <value>_labelMaxSum</value>
-  </data>
-  <data name="&gt;&gt;_labelMaxSum.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_labelMaxSum.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_labelMaxSum.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="_labelRate.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>Максимальная сумма</value>
   </data>
   <data name="_labelRate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>35, 193</value>
+    <value>22, 193</value>
   </data>
   <data name="_labelRate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 13</value>
-  </data>
-  <data name="_labelRate.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>50, 13</value>
   </data>
   <data name="_labelRate.Text" xml:space="preserve">
-    <value>Rate</value>
-  </data>
-  <data name="&gt;&gt;_labelRate.Name" xml:space="preserve">
-    <value>_labelRate</value>
-  </data>
-  <data name="&gt;&gt;_labelRate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_labelRate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_labelRate.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="_labelMax.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>Процент</value>
   </data>
   <data name="_labelMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>35, 153</value>
+    <value>22, 153</value>
   </data>
   <data name="_labelMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 13</value>
-  </data>
-  <data name="_labelMax.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>61, 13</value>
   </data>
   <data name="_labelMax.Text" xml:space="preserve">
-    <value>Max</value>
-  </data>
-  <data name="&gt;&gt;_labelMax.Name" xml:space="preserve">
-    <value>_labelMax</value>
-  </data>
-  <data name="&gt;&gt;_labelMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_labelMax.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_labelMax.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="_buttonSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 308</value>
-  </data>
-  <data name="_buttonSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 36</value>
-  </data>
-  <data name="_buttonSave.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+    <value>Максимум</value>
   </data>
   <data name="_buttonSave.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="&gt;&gt;_buttonSave.Name" xml:space="preserve">
-    <value>_buttonSave</value>
-  </data>
-  <data name="&gt;&gt;_buttonSave.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_buttonSave.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_buttonSave.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="_comboBoxRate.Items" xml:space="preserve">
-    <value>True</value>
-  </data>
-  <data name="_comboBoxRate.Items1" xml:space="preserve">
-    <value>False</value>
+    <value>Сохранить</value>
   </data>
   <data name="_comboBoxRate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>117, 185</value>
+    <value>151, 185</value>
   </data>
   <data name="_comboBoxRate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 21</value>
-  </data>
-  <data name="_comboBoxRate.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;_comboBoxRate.Name" xml:space="preserve">
-    <value>_comboBoxRate</value>
-  </data>
-  <data name="&gt;&gt;_comboBoxRate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_comboBoxRate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_comboBoxRate.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>148, 21</value>
   </data>
   <data name="_numericUpDownMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>117, 107</value>
+    <value>151, 107</value>
   </data>
   <data name="_numericUpDownMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 20</value>
-  </data>
-  <data name="_numericUpDownMin.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;_numericUpDownMin.Name" xml:space="preserve">
-    <value>_numericUpDownMin</value>
-  </data>
-  <data name="&gt;&gt;_numericUpDownMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_numericUpDownMin.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_numericUpDownMin.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>148, 20</value>
   </data>
   <data name="_numericUpDownMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>117, 146</value>
+    <value>151, 146</value>
   </data>
   <data name="_numericUpDownMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 20</value>
-  </data>
-  <data name="_numericUpDownMax.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;_numericUpDownMax.Name" xml:space="preserve">
-    <value>_numericUpDownMax</value>
-  </data>
-  <data name="&gt;&gt;_numericUpDownMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_numericUpDownMax.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_numericUpDownMax.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>148, 20</value>
   </data>
   <data name="_numericUpDownMaxSum.Location" type="System.Drawing.Point, System.Drawing">
-    <value>117, 223</value>
+    <value>151, 223</value>
   </data>
   <data name="_numericUpDownMaxSum.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 20</value>
-  </data>
-  <data name="_numericUpDownMaxSum.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;_numericUpDownMaxSum.Name" xml:space="preserve">
-    <value>_numericUpDownMaxSum</value>
-  </data>
-  <data name="&gt;&gt;_numericUpDownMaxSum.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_numericUpDownMaxSum.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_numericUpDownMaxSum.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <metadata name="_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="_labelError.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="_labelError.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="_labelError.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 359</value>
-  </data>
-  <data name="_labelError.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 13</value>
-  </data>
-  <data name="_labelError.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;_labelError.Name" xml:space="preserve">
-    <value>_labelError</value>
-  </data>
-  <data name="&gt;&gt;_labelError.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_labelError.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_labelError.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>340, 375</value>
+    <value>148, 20</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1076,24 +808,5 @@
         VDEyOjE2OjU0KzA4OjAwAxvRswAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNC0wNS0wNlQxMjoxNjo1NCsw
         ODowMHJGaQ8AAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAAElFTkSuQmCC
 </value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;_timer.Name" xml:space="preserve">
-    <value>_timer</value>
-  </data>
-  <data name="&gt;&gt;_timer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>EntryFeeAddEdit</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>OpenCBS.GUI.UserControl.SweetBaseForm, OpenCBS.GUI, Version=16.12.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

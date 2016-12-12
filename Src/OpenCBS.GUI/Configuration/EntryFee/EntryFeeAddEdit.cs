@@ -8,7 +8,6 @@ namespace OpenCBS.GUI.Configuration.EntryFee
 {
     public partial class EntryFeeAddEdit : SweetBaseForm
     {
-        //todo translate service
         //todo title
         private Fee _entryFee;
         private List<Fee> _entryFees;
@@ -17,36 +16,20 @@ namespace OpenCBS.GUI.Configuration.EntryFee
         {
             _entryFees = entryFees;
             InitializeComponent();
-
             _comboBoxRate.SelectedIndex = 0;
+            Initialize();
         }
 
         public EntryFeeAddEdit(Fee entryFee, List<Fee> entryFees)
         {
             InitializeComponent();
-
             _entryFee = entryFee;
             _entryFees = entryFees;
             FillFieldsByEntryFee(entryFee);
+            Initialize();
         }
 
-        private void FillFieldsByEntryFee(Fee entryFee)
-        {
-            _textBoxId.Text = entryFee.Id.ToString();
-            _textBoxName.Text = entryFee.Name;
-            _numericUpDownMin.Value = entryFee.Min.HasValue ? entryFee.Min.Value : 0;
-            _numericUpDownMax.Value = entryFee.Max.HasValue ? entryFee.Max.Value : 0;
-            _comboBoxRate.SelectedIndex = entryFee.IsRate ? 0 : 1;
-            _numericUpDownMaxSum.Value = entryFee.MaxSum.HasValue ? entryFee.MaxSum.Value : 0;
-        }
-
-        private void _buttonSave_Click(object sender, System.EventArgs e)
-        {
-            var operationComplete = _entryFee == null ? SaveNewEntryFee() : UpdateEntryFee();
-
-            if(operationComplete)
-                Close();
-        }
+        #region MainFunctions
 
         private bool SaveNewEntryFee()
         {
@@ -59,11 +42,8 @@ namespace OpenCBS.GUI.Configuration.EntryFee
                 MaxSum = _numericUpDownMaxSum.Value
             };
 
-            if (_entryFees.FirstOrDefault(x => x.Name == entryFee.Name) != null)
-            {
-                MessageBox.Show(GetString("nameAlredyHave"));
+            if (!ValidateEntryFee(entryFee))
                 return false;
-            }
 
             Services.GetEntryFeeServices().SaveNewEntryfee(entryFee);
 
@@ -78,15 +58,42 @@ namespace OpenCBS.GUI.Configuration.EntryFee
             _entryFee.IsRate = _comboBoxRate.SelectedIndex == 0;
             _entryFee.MaxSum = _numericUpDownMaxSum.Value;
 
-            if (_entryFees.FirstOrDefault(x => x.Name == _entryFee.Name) != null)
-            {
-                MessageBox.Show(GetString("nameAlredyHave"));
+            if (ValidateEntryFee(_entryFee))
                 return false;
-            }
 
             Services.GetEntryFeeServices().UpdateEntryfee(_entryFee);
 
             return true;
+        }
+
+        private void FillFieldsByEntryFee(Fee entryFee)
+        {
+            _textBoxId.Text = entryFee.Id.ToString();
+            _textBoxName.Text = entryFee.Name;
+            _numericUpDownMin.Value = entryFee.Min.HasValue ? entryFee.Min.Value : 0;
+            _numericUpDownMax.Value = entryFee.Max.HasValue ? entryFee.Max.Value : 0;
+            _comboBoxRate.SelectedIndex = entryFee.IsRate ? 0 : 1;
+            _numericUpDownMaxSum.Value = entryFee.MaxSum.HasValue ? entryFee.MaxSum.Value : 0;
+        }
+        
+        #endregion
+
+        #region ControlEvents
+
+        private void OnAnyChanged(KeyEventArgs e)
+        {
+            _timer.Stop();
+            if (e.KeyCode == Keys.Return)
+                ValidateEntryFee(GetFee());
+            else _timer.Start();
+        }
+
+        private void _buttonSave_Click(object sender, System.EventArgs e)
+        {
+            var operationComplete = _entryFee == null ? SaveNewEntryFee() : UpdateEntryFee();
+
+            if (operationComplete)
+                Close();
         }
 
         private void _numericUpDownMin_ValueChanged(object sender, System.EventArgs e)
@@ -99,15 +106,87 @@ namespace OpenCBS.GUI.Configuration.EntryFee
             ValidateMinMaxValues(true);
         }
 
+        #endregion
+
+        #region Validation
+
+        private bool ValidateEntryFee(Fee entryFee)
+        {
+            _labelError.Text = string.Empty;
+            _buttonSave.Enabled = true;
+
+            if (string.IsNullOrEmpty(entryFee.Name))
+            {
+                _labelError.Text = GetString("nameEmpty");
+                _buttonSave.Enabled = false;
+                return false;
+            }
+
+            if (_entryFees.FirstOrDefault(x => x.Name == entryFee.Name) != null)
+            {
+                _labelError.Text = GetString("nameAlredyHave");
+                _buttonSave.Enabled = false;
+                return false;
+            }
+
+            if (entryFee.Min == 0m && entryFee.Max == 0m)
+            {
+                _labelError.Text = GetString("minMaxIsZero");
+                _buttonSave.Enabled = false;
+                return false;
+            }
+
+            return true;
+        }
+
         private void ValidateMinMaxValues(bool numericUpDownMaxEvent = false)
         {
             if (_numericUpDownMin.Value > _numericUpDownMax.Value)
             {
-                if(numericUpDownMaxEvent)
+                if (numericUpDownMaxEvent)
                     _numericUpDownMin.Value = _numericUpDownMax.Value;
                 else
                     _numericUpDownMax.Value = _numericUpDownMin.Value;
             }
+        }
+
+        #endregion
+
+        private void Initialize()
+        {
+            _timer.Tick += (sender, e) =>
+            {
+                _timer.Stop();
+                ValidateEntryFee(GetFee());
+            };
+
+            _textBoxName.KeyDown += (sender, e) =>
+            {
+                OnAnyChanged(e);
+            };
+
+            _numericUpDownMin.KeyDown += (sender, e) =>
+            {
+                OnAnyChanged(e);
+            };
+
+            _numericUpDownMax.KeyDown += (sender, e) =>
+            {
+                OnAnyChanged(e);
+            };
+        }
+
+        private Fee GetFee()
+        {
+            var fee = new Fee
+                        {
+                            Name = _textBoxName.Text,
+                            Min = _numericUpDownMin.Value,
+                            Max = _numericUpDownMax.Value,
+                            IsRate = _comboBoxRate.SelectedIndex == 0,
+                            MaxSum = _numericUpDownMaxSum.Value
+                        };
+            return fee;
         }
     }
 }

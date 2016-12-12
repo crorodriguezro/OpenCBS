@@ -61,11 +61,29 @@ namespace OpenCBS.MultiLanguageRessources.resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Min and max cannot be zero.
+        /// </summary>
+        internal static string minMaxIsZero {
+            get {
+                return ResourceManager.GetString("minMaxIsZero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This name already used.
         /// </summary>
         internal static string nameAlredyHave {
             get {
                 return ResourceManager.GetString("nameAlredyHave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name cannot be empty.
+        /// </summary>
+        internal static string nameEmpty {
+            get {
+                return ResourceManager.GetString("nameEmpty", resourceCulture);
             }
         }
     }

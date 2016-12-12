@@ -133,7 +133,7 @@
     <value>Stretch</value>
   </data>
   <data name="chId.Text" xml:space="preserve">
-    <value>Id</value>
+    <value>ID</value>
   </data>
   <data name="chId.Width" type="System.Int32, mscorlib">
     <value>70</value>

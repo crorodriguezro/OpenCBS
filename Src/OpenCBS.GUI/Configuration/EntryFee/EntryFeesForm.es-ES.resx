@@ -117,13 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="minMaxIsZero" xml:space="preserve">
-    <value>Min and max cannot be zero</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_checkBoxShowDeleted.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 17</value>
   </data>
-  <data name="nameAlredyHave" xml:space="preserve">
-    <value>This name already used</value>
+  <data name="_checkBoxShowDeleted.Text" xml:space="preserve">
+    <value>Mostrar eliminado</value>
   </data>
-  <data name="nameEmpty" xml:space="preserve">
-    <value>Name cannot be empty</value>
+  <data name="_buttonAdd.Text" xml:space="preserve">
+    <value>Añadir</value>
+  </data>
+  <data name="_buttonDelete.Text" xml:space="preserve">
+    <value>Borrar</value>
+  </data>
+  <data name="_buttonEdit.Text" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="chId.Text" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="chName.Text" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="chMin.Text" xml:space="preserve">
+    <value>Mínimo</value>
+  </data>
+  <data name="chMax.Text" xml:space="preserve">
+    <value>Máximo</value>
+  </data>
+  <data name="chRate.Text" xml:space="preserve">
+    <value>Tarifa</value>
+  </data>
+  <data name="chMaxSum.Text" xml:space="preserve">
+    <value>Suma máxima</value>
+  </data>
+  <data name="_buttonClose.Text" xml:space="preserve">
+    <value>Cerca</value>
+  </data>
+  <data name="lblRoles.Text" xml:space="preserve">
+    <value>Cuota de entrada</value>
   </data>
 </root>

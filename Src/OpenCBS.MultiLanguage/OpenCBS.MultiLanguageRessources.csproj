@@ -132,6 +132,46 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientControl.ru-RU.resx</DependentUpon>
     </Compile>
+    <Compile Include="resx\EntryFeeAddEdit.pt.Designer.cs">
+      <DependentUpon>EntryFeeAddEdit.pt.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="resx\EntryFeeAddEdit.es-Es.Designer.cs">
+      <DependentUpon>EntryFeeAddEdit.es-Es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="resx\EntryFeeAddEdit.ru-RU.Designer.cs">
+      <DependentUpon>EntryFeeAddEdit.ru-RU.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="resx\EntryFeeAddEdit.fr.Designer.cs">
+      <DependentUpon>EntryFeeAddEdit.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="resx\EntryFeesForm.pt.Designer.cs">
+      <DependentUpon>EntryFeesForm.pt.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="resx\EntryFeesForm.es-Es.Designer.cs">
+      <DependentUpon>EntryFeesForm.es-Es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="resx\EntryFeesForm.ru-RU.Designer.cs">
+      <DependentUpon>EntryFeesForm.ru-RU.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="resx\EntryFeesForm.fr.Designer.cs">
+      <DependentUpon>EntryFeesForm.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="resx\EntryFeesForm.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -198,6 +238,38 @@
     <EmbeddedResource Include="resx\ClientControl.resx">
     </EmbeddedResource>
     <EmbeddedResource Include="resx\AddTrancheForm.es-ES.resx" />
+    <EmbeddedResource Include="resx\EntryFeeAddEdit.pt.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntryFeeAddEdit.pt.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resx\EntryFeeAddEdit.es-Es.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntryFeeAddEdit.es-Es.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resx\EntryFeeAddEdit.ru-RU.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntryFeeAddEdit.ru-RU.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resx\EntryFeeAddEdit.fr.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntryFeeAddEdit.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resx\EntryFeesForm.pt.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntryFeesForm.pt.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resx\EntryFeesForm.es-Es.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntryFeesForm.es-Es.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resx\EntryFeesForm.ru-RU.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntryFeesForm.ru-RU.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resx\EntryFeesForm.fr.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntryFeesForm.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="resx\EntryFeesForm.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EntryFeesForm.Designer.cs</LastGenOutput>
