@@ -998,7 +998,7 @@ namespace OpenCBS.GUI.Clients
                 pCredit.Product = _product;
             }
         }
-        
+
         private void FillInstallmentListForScheduleControl(string nameOfSchedule, Loan credit)
         {
             var ifShowTotalRowInSchedule = ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule;
@@ -1012,7 +1012,8 @@ namespace OpenCBS.GUI.Clients
                     installmentList.LastOrDefault().Number = 0;
                     installmentList.LastOrDefault().ExpectedDate = DateTime.MaxValue;
                     installmentList.LastOrDefault().InterestsRepayment = 0;
-                    installmentList.LastOrDefault().InterestsRepayment = installmentList.Sum(x => x.InterestsRepayment.Value);
+                    installmentList.LastOrDefault().InterestsRepayment =
+                        installmentList.Sum(x => x.InterestsRepayment.Value);
                     installmentList.LastOrDefault().PaidInterests = 0;
                     installmentList.LastOrDefault().PaidInterests = installmentList.Sum(x => x.PaidInterests.Value);
                     installmentList.LastOrDefault().CapitalRepayment = 0;
@@ -1027,23 +1028,19 @@ namespace OpenCBS.GUI.Clients
                     ifShowTotalRowInSchedule = false;
             }
 
-            if (nameOfSchedule == "loanDetailsScheduleControl")
-                _loanDetailsScheduleControl1.SetScheduleFor(credit);
-            if (nameOfSchedule == "repaymentScheduleControl")
+            _loanDetailsScheduleControl1.SetScheduleFor(credit);
 
-                if (ifShowTotalRowInSchedule)
+            if (ifShowTotalRowInSchedule)
+            {
+                Control controls = _loanDetailsScheduleControl1.Controls.Find("scheduleObjectListView", true)[0];
+                if (controls != null)
                 {
-                    Control controls = null;
-                    if (nameOfSchedule == "loanDetailsScheduleControl")
-                        controls = _loanDetailsScheduleControl1.Controls.Find("scheduleObjectListView", true)[0];
-                    if (nameOfSchedule == "repaymentScheduleControl")
-                        if (controls != null)
-                        {
-                            var schedule = ((ObjectListView)controls);
-                            if (schedule.Items.Count > 0)
-                                schedule.Items[schedule.Items.Count - 1].Font = new Font(schedule.Items[schedule.Items.Count - 1].Font, FontStyle.Bold);
-                        }
+                    var schedule = ((ObjectListView) controls);
+                    if (schedule.Items.Count > 0)
+                        schedule.Items[schedule.Items.Count - 1].Font =
+                            new Font(schedule.Items[schedule.Items.Count - 1].Font, FontStyle.Bold);
                 }
+            }
         }
 
         private void cmbPackages_SelectedIndexChanged(object sender, EventArgs e)
