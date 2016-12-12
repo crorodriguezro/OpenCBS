@@ -89,6 +89,7 @@ namespace OpenCBS.GUI
             this.toolStripSeparatorConfig3 = new System.Windows.Forms.ToolStripSeparator();
             this.miContractCode = new System.Windows.Forms.ToolStripMenuItem();
             this.collateralProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entryFeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemSetting = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemDatabaseControlPanel = new System.Windows.Forms.ToolStripMenuItem();
@@ -133,7 +134,6 @@ namespace OpenCBS.GUI
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getHelpFromForumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.visitOpenCBScomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.entryFeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainStatusBar.SuspendLayout();
             this.mainMenu.SuspendLayout();
             this.SuspendLayout();
@@ -365,6 +365,12 @@ namespace OpenCBS.GUI
             this.collateralProductsToolStripMenuItem.Name = "collateralProductsToolStripMenuItem";
             resources.ApplyResources(this.collateralProductsToolStripMenuItem, "collateralProductsToolStripMenuItem");
             this.collateralProductsToolStripMenuItem.Click += new System.EventHandler(this.collateralProductsToolStripMenuItem_Click);
+            // 
+            // entryFeesToolStripMenuItem
+            // 
+            this.entryFeesToolStripMenuItem.Name = "entryFeesToolStripMenuItem";
+            resources.ApplyResources(this.entryFeesToolStripMenuItem, "entryFeesToolStripMenuItem");
+            this.entryFeesToolStripMenuItem.Click += new System.EventHandler(this.entryFeesToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -669,12 +675,6 @@ namespace OpenCBS.GUI
             this.visitOpenCBScomToolStripMenuItem.Name = "visitOpenCBScomToolStripMenuItem";
             resources.ApplyResources(this.visitOpenCBScomToolStripMenuItem, "visitOpenCBScomToolStripMenuItem");
             this.visitOpenCBScomToolStripMenuItem.Click += new System.EventHandler(this.visitOpenCBScomToolStripMenuItem_Click);
-            // 
-            // entryFeesToolStripMenuItem
-            // 
-            this.entryFeesToolStripMenuItem.Name = "entryFeesToolStripMenuItem";
-            resources.ApplyResources(this.entryFeesToolStripMenuItem, "entryFeesToolStripMenuItem");
-            this.entryFeesToolStripMenuItem.Click += new System.EventHandler(this.entryFeesToolStripMenuItem_Click);
             // 
             // MainView
             // 

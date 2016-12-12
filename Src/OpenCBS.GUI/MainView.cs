@@ -45,6 +45,7 @@ using OpenCBS.GUI.Accounting;
 using OpenCBS.GUI.AuditTrail;
 using OpenCBS.GUI.Clients;
 using OpenCBS.GUI.Configuration;
+using OpenCBS.GUI.Configuration.EntryFee;
 using OpenCBS.GUI.Contracts;
 using OpenCBS.GUI.Database;
 using OpenCBS.GUI.Products;
@@ -1022,7 +1023,7 @@ namespace OpenCBS.GUI
 
         private void entryFeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frmEntryFees = new FrmEntryFees{ MdiParent = this };
+            var frmEntryFees = new EntryFeesForm{ MdiParent = this };
             frmEntryFees.Show();
         }
     }

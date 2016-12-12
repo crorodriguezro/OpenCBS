@@ -340,6 +340,9 @@
   <data name="collateralProductsToolStripMenuItem.Text" xml:space="preserve">
     <value>Collaterals</value>
   </data>
+  <data name="entryFeesToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+E</value>
+  </data>
   <data name="entryFeesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>206, 22</value>
   </data>
@@ -1478,6 +1481,12 @@
   <data name="&gt;&gt;collateralProductsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;entryFeesToolStripMenuItem.Name" xml:space="preserve">
+    <value>entryFeesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;entryFeesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
     <value>toolStripSeparator1</value>
   </data>
@@ -1740,12 +1749,6 @@
     <value>visitOpenCBScomToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;visitOpenCBScomToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;entryFeesToolStripMenuItem.Name" xml:space="preserve">
-    <value>entryFeesToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;entryFeesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

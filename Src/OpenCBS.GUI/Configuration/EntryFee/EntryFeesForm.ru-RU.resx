@@ -117,4 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_checkBoxShowDeleted.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 17</value>
+  </data>
+  <data name="_checkBoxShowDeleted.Text" xml:space="preserve">
+    <value>Показать удалённые</value>
+  </data>
+  <data name="_buttonAdd.Text" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="_buttonDelete.Text" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="_buttonEdit.Text" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="chId.Text" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="chName.Text" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="chMin.Text" xml:space="preserve">
+    <value>Минимум</value>
+  </data>
+  <data name="chMax.Text" xml:space="preserve">
+    <value>Максимум</value>
+  </data>
+  <data name="chRate.Text" xml:space="preserve">
+    <value>Процент</value>
+  </data>
+  <data name="chMaxSum.Text" xml:space="preserve">
+    <value>Максимальная сумма</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="chMaxSum.Width" type="System.Int32, mscorlib">
+    <value>165</value>
+  </data>
+  <data name="_buttonClose.Text" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblEntryFee.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblEntryFee.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 15.75pt, style=Bold</value>
+  </data>
+  <data name="lblEntryFee.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblEntryFee.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1255, 47</value>
+  </data>
+  <data name="lblEntryFee.Text" xml:space="preserve">
+    <value>Вступительный Взнос</value>
+  </data>
+  <data name="lblEntryFee.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
 </root>

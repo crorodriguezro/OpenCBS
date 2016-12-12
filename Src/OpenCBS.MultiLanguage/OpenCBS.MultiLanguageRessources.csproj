@@ -132,6 +132,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientControl.ru-RU.resx</DependentUpon>
     </Compile>
+    <Compile Include="resx\EntryFeesForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntryFeesForm.resx</DependentUpon>
+    </Compile>
     <Compile Include="resx\FrmFundingLineEvent.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -143,6 +148,11 @@
       <DependentUpon>LoanSharesForm.resx</DependentUpon>
     </Compile>
     <Compile Include="resx\ReassingContract.Designer.cs" />
+    <Compile Include="resx\EntryFeeAddEdit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntryFeeAddEdit.resx</DependentUpon>
+    </Compile>
     <Compile Include="resx\ShowPictureForm.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -188,6 +198,10 @@
     <EmbeddedResource Include="resx\ClientControl.resx">
     </EmbeddedResource>
     <EmbeddedResource Include="resx\AddTrancheForm.es-ES.resx" />
+    <EmbeddedResource Include="resx\EntryFeesForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntryFeesForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="resx\PersonUserControlCountries.pt.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -361,6 +375,10 @@
     <EmbeddedResource Include="resx\FrmAddSavingEvent.pt.resx" />
     <EmbeddedResource Include="resx\FrmAddSavingEvent.resx" />
     <EmbeddedResource Include="resx\FrmAddSavingEvent.ru-RU.resx" />
+    <EmbeddedResource Include="resx\EntryFeeAddEdit.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntryFeeAddEdit.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="resx\VillageCreditCommitteeForm.resx" />
     <EmbeddedResource Include="resx\SavingsOperationForm.pt.resx" />
     <EmbeddedResource Include="resx\FrmAddSavingProduct.pt.resx" />

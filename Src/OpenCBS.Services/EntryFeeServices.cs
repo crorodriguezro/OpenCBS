@@ -25,16 +25,87 @@ namespace OpenCBS.Services
             try
             {
                 var result = _entryFeeManager.GetAllEntryFee(tx);
+
+                if (transaction == null)
+                    tx.Commit();
+
                 return result;
             }
             catch (Exception error)
             {
-                throw new Exception("Can't get all entry fee: " + error.Message);
+                if (transaction == null)
+                    tx.Rollback();
+
+                throw new Exception(error.Message);
             }
-            finally
+        }
+
+        public void SaveNewEntryfee(EntryFee entryFee, IDbTransaction transaction = null)
+        {
+            // ReSharper disable once ConvertConditionalTernaryToNullCoalescing
+            var tx = transaction == null
+                     ? CoreDomain.DatabaseConnection.GetConnection().BeginTransaction()
+                     : transaction;
+
+            try
+            {
+                _entryFeeManager.SaveNewEntryfee(entryFee, tx);
+
+                if (transaction == null)
+                    tx.Commit();
+            }
+            catch (Exception error)
             {
                 if (transaction == null)
                     tx.Rollback();
+
+                throw new Exception(error.Message);
+            }
+        }
+
+        public void UpdateEntryfee(EntryFee entryFee, IDbTransaction transaction = null)
+        {
+            // ReSharper disable once ConvertConditionalTernaryToNullCoalescing
+            var tx = transaction == null
+                     ? CoreDomain.DatabaseConnection.GetConnection().BeginTransaction()
+                     : transaction;
+
+            try
+            {
+                _entryFeeManager.UpdateEntryfee(entryFee, tx);
+
+                if (transaction == null)
+                    tx.Commit();
+            }
+            catch (Exception error)
+            {
+                if (transaction == null)
+                    tx.Rollback();
+
+                throw new Exception(error.Message);
+            }
+        }
+
+        public void DeleteEntryfee(EntryFee entryFee, IDbTransaction transaction = null)
+        {
+            // ReSharper disable once ConvertConditionalTernaryToNullCoalescing
+            var tx = transaction == null
+                     ? CoreDomain.DatabaseConnection.GetConnection().BeginTransaction()
+                     : transaction;
+
+            try
+            {
+                _entryFeeManager.DeleteEntryfee(entryFee, tx);
+
+                if (transaction == null)
+                    tx.Commit();
+            }
+            catch (Exception error)
+            {
+                if (transaction == null)
+                    tx.Rollback();
+
+                throw new Exception(error.Message);
             }
         }
     }
