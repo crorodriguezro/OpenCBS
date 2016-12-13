@@ -580,12 +580,12 @@ namespace OpenCBS.Services
 	    public void GetEntryFees(LoanProduct package)
 	    {
 	        if (!package.UseEntryFeesCycles)
-	            package.EntryFees = _productManager.SelectEntryFeesWithoutCycles(package.Id, false);
-	        else
+                package.EntryFees = _entryFeeServices.GetAllEntryFeeFromLoanProduct(package.Id);
+            else
 	        {
-	            package.EntryFeeCycles = _productManager.SelectEntryFeeCycles(package.Id, false);
-	            package.EntryFees = _productManager.SelectEntryFeesWithCycles(package.Id, false);
-	        }
+                package.EntryFees = _entryFeeServices.GetAllEntryFeeFromLoanProduct(package.Id);
+                package.EntryFeeCycles = package.EntryFees.Where(x => x.CycleId != null).Select(x => x.CycleId.Value).Distinct().ToList();
+            }
 	    }
 
 	    public LoanProduct FindProductByName(string name)
