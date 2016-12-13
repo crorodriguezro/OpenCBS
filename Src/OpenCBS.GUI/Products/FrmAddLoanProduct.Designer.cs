@@ -426,6 +426,23 @@ namespace OpenCBS.GUI.Products
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.tabPageCommissions = new System.Windows.Forms.TabPage();
+            this.buttonCopy = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
             this.tabCreditInsurance.SuspendLayout();
             this.tabPageMainParameters.SuspendLayout();
             this.groupBox.SuspendLayout();
@@ -478,12 +495,14 @@ namespace OpenCBS.GUI.Products
             ((System.ComponentModel.ISupportInitialize)(this.entryFeeBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPageCommissions.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCreditInsurance
             // 
             this.tabCreditInsurance.Controls.Add(this.tabPageMainParameters);
             this.tabCreditInsurance.Controls.Add(this.tabPageFees);
+            this.tabCreditInsurance.Controls.Add(this.tabPageCommissions);
             this.tabCreditInsurance.Controls.Add(this.tabPageOptionalParameters);
             this.tabCreditInsurance.Controls.Add(this.tabLOC);
             this.tabCreditInsurance.Controls.Add(this.tabGuarantorsCollaterals);
@@ -2357,6 +2376,116 @@ namespace OpenCBS.GUI.Products
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // tabPageCommissions
+            // 
+            this.tabPageCommissions.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageCommissions.Controls.Add(this.label55);
+            this.tabPageCommissions.Controls.Add(this.label54);
+            this.tabPageCommissions.Controls.Add(this.listView2);
+            this.tabPageCommissions.Controls.Add(this.listView1);
+            this.tabPageCommissions.Controls.Add(this.button1);
+            this.tabPageCommissions.Controls.Add(this.buttonCopy);
+            resources.ApplyResources(this.tabPageCommissions, "tabPageCommissions");
+            this.tabPageCommissions.Name = "tabPageCommissions";
+            // 
+            // buttonCopy
+            // 
+            resources.ApplyResources(this.buttonCopy, "buttonCopy");
+            this.buttonCopy.Name = "buttonCopy";
+            this.buttonCopy.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            this.listView1.BackColor = System.Drawing.SystemColors.Window;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11});
+            resources.ApplyResources(this.listView1, "listView1");
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader7
+            // 
+            resources.ApplyResources(this.columnHeader7, "columnHeader7");
+            // 
+            // columnHeader8
+            // 
+            resources.ApplyResources(this.columnHeader8, "columnHeader8");
+            // 
+            // columnHeader9
+            // 
+            resources.ApplyResources(this.columnHeader9, "columnHeader9");
+            // 
+            // columnHeader10
+            // 
+            resources.ApplyResources(this.columnHeader10, "columnHeader10");
+            // 
+            // columnHeader11
+            // 
+            resources.ApplyResources(this.columnHeader11, "columnHeader11");
+            // 
+            // listView2
+            // 
+            this.listView2.BackColor = System.Drawing.SystemColors.Window;
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader12,
+            this.columnHeader13,
+            this.columnHeader14,
+            this.columnHeader15,
+            this.columnHeader16});
+            resources.ApplyResources(this.listView2, "listView2");
+            this.listView2.FullRowSelect = true;
+            this.listView2.GridLines = true;
+            this.listView2.HideSelection = false;
+            this.listView2.MultiSelect = false;
+            this.listView2.Name = "listView2";
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader12
+            // 
+            resources.ApplyResources(this.columnHeader12, "columnHeader12");
+            // 
+            // columnHeader13
+            // 
+            resources.ApplyResources(this.columnHeader13, "columnHeader13");
+            // 
+            // columnHeader14
+            // 
+            resources.ApplyResources(this.columnHeader14, "columnHeader14");
+            // 
+            // columnHeader15
+            // 
+            resources.ApplyResources(this.columnHeader15, "columnHeader15");
+            // 
+            // columnHeader16
+            // 
+            resources.ApplyResources(this.columnHeader16, "columnHeader16");
+            // 
+            // label54
+            // 
+            resources.ApplyResources(this.label54, "label54");
+            this.label54.Name = "label54";
+            // 
+            // label55
+            // 
+            resources.ApplyResources(this.label55, "label55");
+            this.label55.Name = "label55";
+            // 
             // FrmAddLoanProduct
             // 
             resources.ApplyResources(this, "$this");
@@ -2448,6 +2577,8 @@ namespace OpenCBS.GUI.Products
             ((System.ComponentModel.ISupportInitialize)(this.entryFeeBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.tabPageCommissions.ResumeLayout(false);
+            this.tabPageCommissions.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2596,5 +2727,22 @@ namespace OpenCBS.GUI.Products
         private System.Windows.Forms.Button buttonNewExoticProduct;
         private ComboBox cmbInterestRateType;
         private ColumnHeader chEntryFeeMaxSum;
+        private TabPage tabPageCommissions;
+        private Button buttonCopy;
+        private Button button1;
+        private Label label55;
+        private Label label54;
+        private ListView listView2;
+        private ColumnHeader columnHeader12;
+        private ColumnHeader columnHeader13;
+        private ColumnHeader columnHeader14;
+        private ColumnHeader columnHeader15;
+        private ColumnHeader columnHeader16;
+        private ListView listView1;
+        private ColumnHeader columnHeader7;
+        private ColumnHeader columnHeader8;
+        private ColumnHeader columnHeader9;
+        private ColumnHeader columnHeader10;
+        private ColumnHeader columnHeader11;
     }
 }
