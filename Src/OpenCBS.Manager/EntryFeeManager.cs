@@ -27,7 +27,6 @@ namespace OpenCBS.Manager
                                 ,[min] Min
                                 ,[max] Max
                                 ,[rate] IsRate
-                                ,[cycle_id] CycleId
                                 ,[max_sum] MaxSum
                                 ,[is_deleted] IsDeleted
                             FROM

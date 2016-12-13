@@ -1193,9 +1193,6 @@
     <EmbeddedResource Include="Configuration\FrmEconomicActivity.es.resx">
       <DependentUpon>FrmEconomicActivity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configuration\FrmRoles.en.resx">
-      <DependentUpon>FrmRoles.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Configuration\frmSettingsImportExport.es.resx">
       <DependentUpon>frmSettingsImportExport.cs</DependentUpon>
     </EmbeddedResource>

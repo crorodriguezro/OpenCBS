@@ -126,4 +126,10 @@
   <data name="nameEmpty" xml:space="preserve">
     <value>O nome não pode ficar em branco</value>
   </data>
+  <data name="titleAdd" xml:space="preserve">
+    <value>Adicionar taxa de inscrição</value>
+  </data>
+  <data name="titleEdit" xml:space="preserve">
+    <value>Editar taxa de inscrição</value>
+  </data>
 </root>

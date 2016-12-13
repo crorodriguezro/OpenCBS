@@ -126,4 +126,10 @@
   <data name="nameEmpty" xml:space="preserve">
     <value>Name cannot be empty</value>
   </data>
+  <data name="titleAdd" xml:space="preserve">
+    <value>Add entry fee</value>
+  </data>
+  <data name="titleEdit" xml:space="preserve">
+    <value>Edit entry fee</value>
+  </data>
 </root>

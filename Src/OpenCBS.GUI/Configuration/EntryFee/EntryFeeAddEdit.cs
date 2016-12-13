@@ -8,7 +8,6 @@ namespace OpenCBS.GUI.Configuration.EntryFee
 {
     public partial class EntryFeeAddEdit : SweetBaseForm
     {
-        //todo title
         private Fee _entryFee;
         private List<Fee> _entryFees;
 
@@ -18,6 +17,8 @@ namespace OpenCBS.GUI.Configuration.EntryFee
             InitializeComponent();
             _comboBoxRate.SelectedIndex = 0;
             Initialize();
+            // ReSharper disable once VirtualMemberCallInContructor
+            Text = GetString("titleAdd");
         }
 
         public EntryFeeAddEdit(Fee entryFee, List<Fee> entryFees)
@@ -27,6 +28,8 @@ namespace OpenCBS.GUI.Configuration.EntryFee
             _entryFees = entryFees;
             FillFieldsByEntryFee(entryFee);
             Initialize();
+            // ReSharper disable once VirtualMemberCallInContructor
+            Text = GetString("titleEdit");
         }
 
         #region MainFunctions

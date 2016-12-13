@@ -9,8 +9,6 @@ namespace OpenCBS.GUI.Configuration.EntryFee
 {
     public partial class EntryFeesForm : SweetBaseForm
     {
-        //todo translate service
-        //todo title
         private List<Fee> _entryFees;
 
         public EntryFeesForm()

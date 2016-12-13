@@ -86,5 +86,23 @@ namespace OpenCBS.MultiLanguageRessources.resx {
                 return ResourceManager.GetString("nameEmpty", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add entry fee.
+        /// </summary>
+        internal static string titleAdd {
+            get {
+                return ResourceManager.GetString("titleAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit entry fee.
+        /// </summary>
+        internal static string titleEdit {
+            get {
+                return ResourceManager.GetString("titleEdit", resourceCulture);
+            }
+        }
     }
 }

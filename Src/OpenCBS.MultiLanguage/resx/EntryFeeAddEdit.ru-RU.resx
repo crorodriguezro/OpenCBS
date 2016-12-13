@@ -126,4 +126,10 @@
   <data name="nameEmpty" xml:space="preserve">
     <value>Название не может быть пустым</value>
   </data>
+  <data name="titleAdd" xml:space="preserve">
+    <value>Добавить вступительный взнос</value>
+  </data>
+  <data name="titleEdit" xml:space="preserve">
+    <value>Редактировать вступительный взнос</value>
+  </data>
 </root>

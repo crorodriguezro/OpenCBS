@@ -126,4 +126,10 @@
   <data name="nameEmpty" xml:space="preserve">
     <value>El nombre no puede estar vacío</value>
   </data>
+  <data name="titleAdd" xml:space="preserve">
+    <value>Agregar nuevo cargo de entrada</value>
+  </data>
+  <data name="titleEdit" xml:space="preserve">
+    <value>Editar tarifa de entrada</value>
+  </data>
 </root>
