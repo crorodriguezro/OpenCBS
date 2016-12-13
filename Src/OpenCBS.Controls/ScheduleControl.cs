@@ -20,6 +20,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
@@ -32,9 +33,11 @@ namespace OpenCBS.Controls
     public partial class ScheduleControl : UserControl
     {
         private string _amountFormatString;
+        private bool _useTotalRow;
 
-        public ScheduleControl()
+        public ScheduleControl(bool useTotalRow=false)
         {
+            _useTotalRow = useTotalRow;
             InitializeComponent();
             Setup();
             scheduleObjectListView.RowFormatter = FormatRow;
@@ -45,6 +48,34 @@ namespace OpenCBS.Controls
             olbColumn.AspectName = ShowOlbAfterRepayment ? "OLBAfterRepayment" : "OLB";
             _amountFormatString = loan.UseCents ? "N2" : "N0";
             scheduleObjectListView.SetObjects(loan.InstallmentList);
+            if (_useTotalRow && loan.InstallmentList != null && loan.InstallmentList.Count > 0)
+                scheduleObjectListView.AddObject(CalculateTotalRow(loan.InstallmentList));
+        }
+
+        public object CalculateTotalRow(List<Installment> installmentList)
+        {
+            var capitalRepayment = installmentList.Sum(x => x.CapitalRepayment.Value);
+            var totalRow = new
+            {
+                ExpectedDate  = string.Empty,
+                Number = "Total",
+                InterestsRepayment = installmentList.Sum(x => x.InterestsRepayment.Value),
+                PaidInterests = installmentList.Sum(x => x.PaidInterests.Value),
+                CapitalRepayment = capitalRepayment,
+                PaidCapital = installmentList.Sum(x => x.PaidCapital.Value),
+                ExtraAmount2 = installmentList.Sum(x => x.ExtraAmount2.HasValue ? x.ExtraAmount2.Value : 0),
+                OLB = capitalRepayment,
+                OLBAfterRepayment = capitalRepayment,
+                AmountHasToPayWithInterest = installmentList.Sum(x => x.AmountHasToPayWithInterest.Value),
+
+                Commission = string.Empty,
+                PaidDate = string.Empty,
+                LateDays = string.Empty,
+                Comment = string.Empty,
+                ExtraAmount1 = string.Empty
+            };
+
+            return totalRow;
         }
 
         public void SetScheduleFor(List<Installment> installmentList)
@@ -58,8 +89,15 @@ namespace OpenCBS.Controls
             dateColumn.AspectToStringConverter =
             paymentDateColumn.AspectToStringConverter = value =>
             {
-                var date = (DateTime?)value;
-                return date.HasValue ? date.Value.ToShortDateString() : string.Empty;
+                if (!_useTotalRow || (_useTotalRow && value is DateTime))
+                {
+                    var date = (DateTime?) value;
+                    return date.HasValue ? date.Value.ToShortDateString() : string.Empty;
+                }
+                else
+                {
+                    return value != null ? value.ToString() : string.Empty;
+                }
             };
             principalColumn.AspectToStringConverter =
             interestColumn.AspectToStringConverter =
@@ -72,8 +110,16 @@ namespace OpenCBS.Controls
             extra_amount_2.AspectToStringConverter =
             totalColumn.AspectToStringConverter = value =>
             {
-                var amount = (OCurrency)value;
-                return amount.Value.ToString(_amountFormatString);
+                if (!_useTotalRow || (_useTotalRow && value is OCurrency))
+                {
+                    var amount = (OCurrency) value;
+                    return amount.Value.ToString(_amountFormatString);
+                }
+                else
+                {
+                    var amount = (decimal?)value;
+                    return amount!=null? amount.Value.ToString(_amountFormatString) :string.Empty;
+                }
             };
             _scheduleContextMenuStrip.Click += (sender, e) => _CopyData();
             extraColumn.IsVisible = false;
@@ -83,15 +129,22 @@ namespace OpenCBS.Controls
             scheduleObjectListView.RebuildColumns();
         }
 
-        private static void FormatRow(OLVListItem item)
+        private void FormatRow(OLVListItem item)
         {
-            var installment = (Installment) item.RowObject;
-            if (installment == null) return;
-            if (installment.IsPending) item.BackColor = Color.Orange;
-            if (installment.IsRepaid) item.BackColor = Color.FromArgb(61, 153, 57);
-            if (installment.IsPending || installment.IsRepaid) item.ForeColor = Color.White;
-            if (installment.LateDays > 0 && !(installment.IsPending || installment.IsRepaid))
-                item.ForeColor = Color.Red;
+            if (!_useTotalRow || (_useTotalRow && item.RowObject is Installment))
+            {
+                var installment = (Installment) item.RowObject;
+                if (installment == null) return;
+                if (installment.IsPending) item.BackColor = Color.Orange;
+                if (installment.IsRepaid) item.BackColor = Color.FromArgb(61, 153, 57);
+                if (installment.IsPending || installment.IsRepaid) item.ForeColor = Color.White;
+                if (installment.LateDays > 0 && !(installment.IsPending || installment.IsRepaid))
+                    item.ForeColor = Color.Red;
+            }
+            else
+            {
+                item.Font = new Font(item.Font, FontStyle.Bold);
+            }
         }
 
         public void ShowExtraColumn()
@@ -125,6 +178,12 @@ namespace OpenCBS.Controls
 
             Clipboard.SetText(buffer.ToString());
             _scheduleContextMenuStrip.Visible = false;
+        }
+
+        public bool UseTotalRow
+        {
+            get { return _useTotalRow;}
+            set { _useTotalRow = value; }
         }
 
         public bool ShowOlbAfterRepayment { get; set; }
