@@ -40,6 +40,31 @@ namespace OpenCBS.Services
             }
         }
 
+        public List<EntryFee> GetAllEntryFeeFromLoanProduct(int loanProductId, IDbTransaction transaction = null)
+        {
+            // ReSharper disable once ConvertConditionalTernaryToNullCoalescing
+            var tx = transaction == null
+                     ? CoreDomain.DatabaseConnection.GetConnection().BeginTransaction()
+                     : transaction;
+
+            try
+            {
+                var result = _entryFeeManager.GetAllEntryFeeFromLoanProduct(loanProductId, tx);
+
+                if (transaction == null)
+                    tx.Commit();
+
+                return result;
+            }
+            catch (Exception error)
+            {
+                if (transaction == null)
+                    tx.Rollback();
+
+                throw new Exception(error.Message);
+            }
+        }
+
         public void SaveNewEntryfee(EntryFee entryFee, IDbTransaction transaction = null)
         {
             // ReSharper disable once ConvertConditionalTernaryToNullCoalescing

@@ -47,6 +47,7 @@ namespace OpenCBS.Services
 	/// </summary>
     public class ProductServices : MarshalByRefObject
 	{
+		private EntryFeeServices _entryFeeServices;
 		private LoanProductManager _productManager;
 	    private FundingLineManager _fundingLineManager;
 		private InstallmentTypeManager _installmentTypeManager;
@@ -78,6 +79,7 @@ namespace OpenCBS.Services
         public ProductServices(User user)
         {
             _user = user;
+            _entryFeeServices = new EntryFeeServices(user);
             _productManager = new LoanProductManager(user);
             _installmentTypeManager = new InstallmentTypeManager(user);
             _fundingLineManager = new FundingLineManager(user);
@@ -638,26 +640,26 @@ namespace OpenCBS.Services
             return true;
         }
 
-        public List<LoanProduct> FindAllPackages(bool selectDeleted,OClientTypes pClientType)
+        public List<LoanProduct> FindAllPackages(bool selectDeleted, OClientTypes pClientType)
         {
-            List<LoanProduct> retval = _productManager.SelectAllPackages(selectDeleted,pClientType);
-            foreach (LoanProduct product in retval)
+            var retval = _productManager.SelectAllPackages(selectDeleted,pClientType);
+            foreach (var product in retval)
             {
                 if (null == product.FundingLine) continue;
                 product.FundingLine.Currency = new CurrencyServices(_user).GetCurrency(product.FundingLine.Currency.Id);
 
                 if (product.UseEntryFeesCycles)
                 {
-                    product.EntryFeeCycles = _productManager.SelectEntryFeeCycles(product.Id, false);
-                    product.EntryFees = _productManager.SelectEntryFeesWithCycles(product.Id, false);
+                    product.EntryFees = _entryFeeServices.GetAllEntryFeeFromLoanProduct(product.Id);
+                    product.EntryFeeCycles = product.EntryFees.Where(x => x.CycleId != null).Select(x => x.CycleId.Value).Distinct().ToList();
                 }
                 else
                 {
-                    product.EntryFees = _productManager.SelectEntryFeesWithoutCycles(product.Id, false);
+                    product.EntryFees = _entryFeeServices.GetAllEntryFeeFromLoanProduct(product.Id);
                 }
             }
             return retval;
-        }	
+        }
 
 		public List<InstallmentType> FindAllInstallmentTypes()
 		{
