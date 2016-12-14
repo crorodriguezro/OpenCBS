@@ -97,7 +97,8 @@ namespace OpenCBS.Services
 	            try
 	            {
 	                package.Id = _productManager.Add(package, transaction);
-	                _productManager.InsertEntryFees(package.EntryFees, package.Id, transaction);
+                    _entryFeeServices.SaveNewEntryFeeListToLoanProduct(package.EntryFees, package.Id, transaction);
+//	                _productManager.InsertEntryFees(package.EntryFees, package.Id, transaction);
 	                LoanProductInterceptorSave(new Dictionary<string, object>
 	                {
 	                    {"LoanProduct", package},
@@ -453,8 +454,9 @@ namespace OpenCBS.Services
 	            try
 	            {
 	                _productManager.UpdatePackage(pPackage, updateContracts, transaction);
-	                _productManager.DeleteEntryFees(pPackage, transaction);
-	                _productManager.InsertEntryFees(pPackage.EntryFees, pPackage.Id, transaction);
+                    _entryFeeServices.SaveNewEntryFeeListToLoanProduct(pPackage.EntryFees, pPackage.Id, transaction);
+//	                _productManager.DeleteEntryFees(pPackage, transaction);
+//	                _productManager.InsertEntryFees(pPackage.EntryFees, pPackage.Id, transaction);
 	                LoanProductInterceptorUpdate(new Dictionary<string, object>
 	                {
 	                    {"LoanProduct", pPackage},
@@ -769,18 +771,6 @@ namespace OpenCBS.Services
                 throw new OpenCbsPackageSaveException(OpenCbsPackageSaveExceptionEnum.LOCMaturityHaveBeenFilledIncorrectly);
         }
 
-        private static void CheckValueForPackageEntryFees(LoanProduct pPackage)
-		{
-            if (pPackage.EntryFees == null) 
-                return;
-            
-            foreach (EntryFee entryFee in pPackage.EntryFees)
-            {
-                if (!ServicesHelper.CheckMinMaxAndValueCorrectlyFilled(entryFee.Min, entryFee.Max, entryFee.Value))
-                    throw new OpenCbsPackageSaveException(OpenCbsPackageSaveExceptionEnum.EntryFeesBadlyInformed);
-            }
-		}
-
         private static void CheckCumpolsorySavingSettings(LoanProduct pPackage)
         {
             if (!ServicesHelper.CheckMinMaxAndValueCorrectlyFilled(pPackage.CompulsoryAmountMin, pPackage.CompulsoryAmountMax, pPackage.CompulsoryAmount))
@@ -864,7 +854,6 @@ namespace OpenCBS.Services
             CheckValueForPackageNonRepaymentPenalties(pPackage);
             CheckValueForPackageAnticipatedTotalRepaymentPenalties(pPackage);
 		    CheckValuesForPackageAnticipatedPartialRepaymentPenalties(pPackage);
-            CheckValueForPackageEntryFees(pPackage);
             CheckValueForPackageGracePeriod(pPackage);
             CheckValueForPackageNumberOfInstallments(pPackage);
             CheckValueForFundingLine(pPackage);

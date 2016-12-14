@@ -1865,9 +1865,6 @@
     <EmbeddedResource Include="InputBox.pt.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainView.pt-PT.resx">
-      <DependentUpon>MainView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainView.pt.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>

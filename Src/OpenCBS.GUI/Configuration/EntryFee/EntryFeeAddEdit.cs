@@ -48,7 +48,7 @@ namespace OpenCBS.GUI.Configuration.EntryFee
             if (!ValidateEntryFee(entryFee))
                 return false;
 
-            Services.GetEntryFeeServices().SaveNewEntryfee(entryFee);
+            Services.GetEntryFeeServices().SaveNewEntryFee(entryFee);
 
             return true;
         }
@@ -125,12 +125,13 @@ namespace OpenCBS.GUI.Configuration.EntryFee
                 return false;
             }
 
-            if (_entryFees.FirstOrDefault(x => x.Name == entryFee.Name) != null)
-            {
-                _labelError.Text = GetString("nameAlredyHave");
-                _buttonSave.Enabled = false;
-                return false;
-            }
+            // not delete, maybe need in the future
+//            if (_entryFees.FirstOrDefault(x => x.Name == entryFee.Name) != null)
+//            {
+//                _labelError.Text = GetString("nameAlredyHave");
+//                _buttonSave.Enabled = false;
+//                return false;
+//            }
 
             if (entryFee.Min == 0m && entryFee.Max == 0m)
             {

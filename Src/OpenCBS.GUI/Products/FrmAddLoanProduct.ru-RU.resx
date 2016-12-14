@@ -797,65 +797,53 @@
   <data name="groupBoxLateFees.Text" xml:space="preserve">
     <value>Пеня на просрочку (% в день)</value>
   </data>
-  <data name="swbtnEntryFeesRemoveCycle.Text" xml:space="preserve">
-    <value>Удалить</value>
-  </data>
-  <data name="swbtnEntryFeesAddCycle.Text" xml:space="preserve">
-    <value>Добавить</value>
-  </data>
-  <data name="chEntryFeeName.Text" xml:space="preserve">
-    <value>Название</value>
-  </data>
-  <data name="chEntryFeeValue.Text" xml:space="preserve">
-    <value>Значение</value>
-  </data>
-  <data name="chEntryFeeRate.Text" xml:space="preserve">
-    <value>Ставка</value>
-  </data>
-  <data name="chEntryFeeIsAdded.Text" xml:space="preserve">
-    <value>Добавлена</value>
-  </data>
-  <data name="chEntryFeeCycleId.Text" xml:space="preserve">
-    <value>Цикл</value>
-  </data>
-  <data name="chEntryFeeNewId.Text" xml:space="preserve">
-    <value>Новый Id</value>
-  </data>
-  <data name="chEntryFeeIndex.Text" xml:space="preserve">
-    <value>Индекс</value>
-  </data>
-  <data name="nudEntryFeescycleFrom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>434, 18</value>
-  </data>
-  <data name="lblEntryFeesFromCycle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 16</value>
-  </data>
-  <data name="lblEntryFeesFromCycle.Text" xml:space="preserve">
-    <value>Число</value>
-  </data>
-  <data name="cbEnableEntryFeesCycle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 20</value>
-  </data>
-  <data name="cbEnableEntryFeesCycle.Text" xml:space="preserve">
-    <value>На основе цикла</value>
-  </data>
-  <data name="lblEntryFeesCycle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>146, 21</value>
-  </data>
-  <data name="lblEntryFeesCycle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 16</value>
-  </data>
-  <data name="lblEntryFeesCycle.Text" xml:space="preserve">
-    <value>Цикл кредита:</value>
-  </data>
-  <data name="cmbEntryFeesCycles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>254, 19</value>
-  </data>
-  <data name="groupBoxEntryFees.Text" xml:space="preserve">
-    <value>Вступительные взносы (до 10-ти записей)</value>
-  </data>
   <data name="tabPageFees.Text" xml:space="preserve">
     <value>Пеня</value>
+  </data>
+  <data name="label55.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 16</value>
+  </data>
+  <data name="label55.Text" xml:space="preserve">
+    <value>Доступные вступительные взносы</value>
+  </data>
+  <data name="label54.Size" type="System.Drawing.Size, System.Drawing">
+    <value>310, 16</value>
+  </data>
+  <data name="label54.Text" xml:space="preserve">
+    <value>Вступительные взносы этого продукта (до 10)</value>
+  </data>
+  <data name="chName.Text" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="chMin.Text" xml:space="preserve">
+    <value>Минимум</value>
+  </data>
+  <data name="chMax.Text" xml:space="preserve">
+    <value>Максимум</value>
+  </data>
+  <data name="chRate.Text" xml:space="preserve">
+    <value>Процент</value>
+  </data>
+  <data name="chMaxSum.Text" xml:space="preserve">
+    <value>Максимальная сумма</value>
+  </data>
+  <data name="ch2Name.Text" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="ch2Min.Text" xml:space="preserve">
+    <value>Минимум</value>
+  </data>
+  <data name="ch2Max.Text" xml:space="preserve">
+    <value>Максимум</value>
+  </data>
+  <data name="ch2Rate.Text" xml:space="preserve">
+    <value>Процент</value>
+  </data>
+  <data name="ch2MaxSum.Text" xml:space="preserve">
+    <value>Максимальная сумма</value>
+  </data>
+  <data name="tabPageCommissions.Text" xml:space="preserve">
+    <value>Вступительный взнос</value>
   </data>
   <data name="labelTotalExoticInstallments.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 16</value>

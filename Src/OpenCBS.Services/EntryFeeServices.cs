@@ -65,7 +65,7 @@ namespace OpenCBS.Services
             }
         }
 
-        public void SaveNewEntryfee(EntryFee entryFee, IDbTransaction transaction = null)
+        public void SaveNewEntryFee(EntryFee entryFee, IDbTransaction transaction = null)
         {
             // ReSharper disable once ConvertConditionalTernaryToNullCoalescing
             var tx = transaction == null
@@ -75,6 +75,29 @@ namespace OpenCBS.Services
             try
             {
                 _entryFeeManager.SaveNewEntryfee(entryFee, tx);
+
+                if (transaction == null)
+                    tx.Commit();
+            }
+            catch (Exception error)
+            {
+                if (transaction == null)
+                    tx.Rollback();
+
+                throw new Exception(error.Message);
+            }
+        }
+
+        public void SaveNewEntryFeeListToLoanProduct(List<EntryFee> entryFeeList, int creditProductId, IDbTransaction transaction = null)
+        {
+            // ReSharper disable once ConvertConditionalTernaryToNullCoalescing
+            var tx = transaction == null
+                     ? CoreDomain.DatabaseConnection.GetConnection().BeginTransaction()
+                     : transaction;
+
+            try
+            {
+                _entryFeeManager.SaveNewEntryFeeListToLoanProduct(entryFeeList, creditProductId, tx);
 
                 if (transaction == null)
                     tx.Commit();

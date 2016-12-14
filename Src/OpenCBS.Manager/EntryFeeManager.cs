@@ -78,6 +78,34 @@ namespace OpenCBS.Manager
             transaction.Connection.Execute(query, entryFee, transaction);
         }
 
+        public void SaveNewEntryFeeListToLoanProduct(List<EntryFee> entryFeeList, int creditProductId, IDbTransaction transaction)
+        {
+            var query = @"delete from dbo.LoanProductsEntryFees where id_product = @creditProductId";
+            transaction.Connection.Execute(query, new { creditProductId }, transaction);
+            
+            query = @"INSERT INTO dbo.LoanProductsEntryFees 
+                            (id_entry_fee
+				            , id_product
+				            , cycle_id
+				            , fee_index)
+                        VALUES
+                            (@Id
+				            , @creditProductId
+				            , @CycleId
+				            , @Index)";
+
+            foreach (var entryFee in entryFeeList)
+            {
+                transaction.Connection.Execute(query, new
+                {
+                    creditProductId = creditProductId
+                    , Id = entryFee.Id
+                    , CycleId = entryFee.CycleId
+                    , Index = entryFee.Index
+                }, transaction);
+            }
+        }
+
         public void UpdateEntryfee(EntryFee entryFee, IDbTransaction transaction)
         {
             const string query = @"UPDATE

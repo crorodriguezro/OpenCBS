@@ -53,19 +53,7 @@ namespace OpenCBS.GUI.Products
         private int _idForNewEntryFee;
         private List<CycleObject> _cycleObjects = new List<CycleObject>();
         private Cycle _editedParam;
-
-        private const int IdxId = 0;
-
-        private const int IdxNameOfFee = 1;
-        private const int IdxMin = 2;
-        private const int IdxMax = 3;
-        private const int IdxValue = 4;
-        private const int IdxIsRate = 5;
-        private const int IdxIsAdded = 6;
-        private const int IdxCycleId = 7;
-        private const int IdxIdForNewItem = 8;
-        private const int IdxIndex = 9;
-        private const int IdxMaxSum = 10;
+        private List<EntryFee> _allEntryFees;
 
         #region Constructors
         public FrmAddLoanProduct()
@@ -74,11 +62,11 @@ namespace OpenCBS.GUI.Products
             InitializeLabelCurrency("");
             Initialization();
             InitializeCycleObjects();
-            InitializeAdditionalEmptyRowInListView();
 
             if (_product.LoanAmountCycleParams == null) _product.LoanAmountCycleParams = new List<LoanAmountCycle>();
             if (_product.RateCycleParams == null) _product.RateCycleParams = new List<RateCycle>();
             if (_product.MaturityCycleParams == null) _product.MaturityCycleParams = new List<MaturityCycle>();
+            _buttonAddEntryFee.Enabled = _listViewCreditProductEntryFees.Items.Count < 9;
         }
 
         public FrmAddLoanProduct(LoanProduct pPackage)
@@ -108,76 +96,46 @@ namespace OpenCBS.GUI.Products
             InitializeClientTypes();
             InitializeCycleObjects();
             InitializeEntryFees(pPackage);
+            FillListViewAllEntryFees();
             _ischangeFee = false;
+            _buttonAddEntryFee.Enabled = _listViewCreditProductEntryFees.Items.Count < 9;
         }
 
         private void InitializeEntryFees(LoanProduct pPackage)
         {
-            cbEnableEntryFeesCycle.Checked = _product.UseEntryFeesCycles;
-            FillListViewEntryFees();
-            InitializeComboboxEntryFeeCycles(pPackage);
+            FillListViewEntryFeesFromPackage(pPackage);
         }
 
-        private void FillListViewEntryFees()
+        private void FillListViewEntryFeesFromPackage(LoanProduct pPackage)
         {
-            lvEntryFees.Items.Clear();
-            int? cycleId = _product.EntryFees.Min(i => i.CycleId);
-            foreach (EntryFee fee in _product.EntryFees)
+            FillListViewEntryFees(_listViewCreditProductEntryFees, pPackage.EntryFees);
+        }
+
+        private void FillListViewAllEntryFees()
+        {
+            _allEntryFees = Services.GetEntryFeeServices().GetAllEntryFee();
+
+            FillListViewEntryFees(_listViewAllEntryFees, _allEntryFees);
+        }
+
+	    private void FillListViewEntryFees(ListView listView, List<EntryFee> source)
+	    {
+            listView.Items.Clear();
+
+            foreach (var fee in source)
             {
-                if (fee.CycleId != cycleId)
+                if (fee.IsDeleted)
                     continue;
-                ListViewItem item = new ListViewItem(fee.Id.ToString()) { Tag = fee };
-                item.SubItems.Add(fee.Name);
+
+//                var item = new ListViewItem(fee.Id.ToString()) { Tag = fee };
+                var item = new ListViewItem(fee.Name) { Tag = fee };
+//                item.SubItems.Add(fee.Name);
                 item.SubItems.Add(fee.Min.HasValue ? fee.Min.Value.ToString(CultureInfo.CurrentCulture).TrimEnd('0').TrimEnd(',') : "");
                 item.SubItems.Add(fee.Max.HasValue ? fee.Max.Value.ToString(CultureInfo.CurrentCulture).TrimEnd('0').TrimEnd(',') : "");
-                item.SubItems.Add(fee.Value.HasValue ? fee.Value.Value.ToString(CultureInfo.CurrentCulture).TrimEnd('0').TrimEnd(',') : "");
                 item.SubItems.Add(fee.IsRate.ToString());
-                item.SubItems.Add(fee.IsAdded.ToString());
-                item.SubItems.Add(fee.CycleId.HasValue ? fee.CycleId.Value.ToString(CultureInfo.CurrentCulture) : "");
-                item.SubItems.Add("");
-                item.SubItems.Add(lvEntryFees.Items.Count.ToString(CultureInfo.CurrentCulture));
                 item.SubItems.Add(fee.MaxSum.ToString().TrimEnd('0').TrimEnd(','));
-                lvEntryFees.Items.Add(item);
-            }
-            InitializeAdditionalEmptyRowInListView();
-        }
 
-        private void InitializeAdditionalEmptyRowInListView()
-        {
-            if (lvEntryFees.Items.Count < 11)
-            {
-                EntryFee entryFee = new EntryFee();
-                ListViewItem tItem = new ListViewItem("") { Tag = entryFee };
-                tItem.SubItems.Add("");
-                tItem.SubItems.Add("");
-                tItem.SubItems.Add("");
-                tItem.SubItems.Add("");
-                tItem.SubItems.Add("");
-                tItem.SubItems.Add("");
-                tItem.SubItems.Add("");
-                tItem.SubItems.Add("");
-                tItem.SubItems.Add(lvEntryFees.Items.Count.ToString(CultureInfo.CurrentCulture));
-                tItem.SubItems.Add("");
-                lvEntryFees.Items.Add(tItem);
-            }
-        }
-
-        private void InitializeComboboxEntryFeeCycles(LoanProduct pPackage)
-        {
-            if (pPackage.EntryFeeCycles != null)
-            {
-                cmbEntryFeesCycles.Items.Clear();
-                foreach (int feeCycle in pPackage.EntryFeeCycles)
-                {
-                    cmbEntryFeesCycles.Items.Add(feeCycle);
-                }
-                if (pPackage.EntryFeeCycles.Count > 0)
-                {
-                    cmbEntryFeesCycles.SelectedItem = pPackage.EntryFeeCycles[0];
-                    lvEntryFees.Enabled = true;
-                }
-                else if (cbEnableEntryFeesCycle.Checked)
-                    lvEntryFees.Enabled = true;
+                listView.Items.Add(item);
             }
         }
 
@@ -207,9 +165,7 @@ namespace OpenCBS.GUI.Products
             InitializeClientTypes();
             _product.DeletedEntryFees = new List<EntryFee>();
 
-            lvEntryFees.SubItemClicked += lvEntryFees_SubItemClicked;
-            lvEntryFees.SubItemEndEditing += lvEntryFees_SubItemEndEditing;
-            lvEntryFees.DoubleClickActivation = true;
+            FillListViewAllEntryFees();
             _ischangeFee = false;
         }
 
@@ -1948,35 +1904,6 @@ namespace OpenCBS.GUI.Products
             buttonSave.Enabled = true;
         }
 
-        private void DeleteEntryFeeFromLists(EntryFee entryFee)
-        {
-            if (entryFee.IsAdded)
-            {
-                foreach (EntryFee fee in _product.AddedEntryFees)
-                {
-                    if (fee.IdForNewItem != entryFee.IdForNewItem) continue;
-                    _product.AddedEntryFees.Remove(fee);
-                    break;
-                }
-                foreach (EntryFee fee in _product.EntryFees)
-                {
-                    if (fee.IdForNewItem != entryFee.IdForNewItem) continue;
-                    _product.EntryFees.Remove(fee);
-                    break;
-                }
-            }
-            else
-            {
-                foreach (EntryFee fee in _product.EntryFees)
-                {
-                    if (fee.Id != entryFee.Id) continue;
-                    _product.DeletedEntryFees.Add(fee);
-                    _product.EntryFees.Remove(fee);
-                    break;
-                }
-            }
-        }
-
         private void cbUseLoanCycle_CheckedChanged(object sender, EventArgs e)
         {
             if (cbUseLoanCycle.Checked)
@@ -2174,254 +2101,19 @@ namespace OpenCBS.GUI.Products
             buttonSave.Enabled = true;
         }
 
-        private void cbEnableEntryFeesCycle_CheckedChanged(object sender, EventArgs e)
-        {
-            buttonSave.Enabled = true;
-            _product.UseEntryFeesCycles = cbEnableEntryFeesCycle.Checked;
-            lblEntryFeesCycle.Visible = cbEnableEntryFeesCycle.Checked;
-            lblEntryFeesFromCycle.Visible = cbEnableEntryFeesCycle.Checked;
-            cmbEntryFeesCycles.Visible = cbEnableEntryFeesCycle.Checked;
-            swbtnEntryFeesAddCycle.Visible = cbEnableEntryFeesCycle.Checked;
-            swbtnEntryFeesRemoveCycle.Visible = cbEnableEntryFeesCycle.Checked;
-            nudEntryFeescycleFrom.Visible = cbEnableEntryFeesCycle.Checked;
-            ServicesProvider.GetInstance().GetProductServices().GetEntryFees(_product);
-            FillListViewEntryFees();
-            InitializeComboboxEntryFeeCycles(_product);
-            SetListView();
-        }
-
-        private void SetListView()
-        {
-            if (cbEnableEntryFeesCycle.Checked && cmbEntryFeesCycles.Items.Count == 0)
-                lvEntryFees.Enabled = false;
-            else
-                lvEntryFees.Enabled = true;
-        }
-
-        private void cmbEntryFeesCycle_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (_product.UseEntryFeesCycles == false)
-                return;
-
-            //deleting entry fees from loan product with current cycle_id
-            if (_product.EntryFees != null && _product.EntryFees.Count != 0)
-            {
-                _product.EntryFees.RemoveAll(item => item.CycleId == Convert.ToInt32(lvEntryFees.Items[0].SubItems[IdxCycleId].Text));
-            }
-            foreach (ListViewItem item in lvEntryFees.Items)
-            {
-                if (CheckListViewCorrectness(item))
-                {
-                    EntryFee entryFee = GetEntryFeeFromListView(item);
-                    _product.EntryFees.Add(entryFee);
-                }
-            }
-
-            lvEntryFees.Items.Clear();
-
-            foreach (EntryFee entryFee in _product.EntryFees)
-            {
-                if ((int)cmbEntryFeesCycles.SelectedItem == entryFee.CycleId)
-                {
-                    ListViewItem item = new ListViewItem("") { Tag = entryFee };
-                    item.SubItems.Add(entryFee.Name);
-                    item.SubItems.Add(entryFee.Min.HasValue
-                                          ? entryFee.Min.Value.ToString(CultureInfo.CurrentCulture)
-                                          : "");
-                    item.SubItems.Add(entryFee.Max.HasValue
-                                          ? entryFee.Max.Value.ToString(CultureInfo.CurrentCulture)
-                                          : "");
-                    item.SubItems.Add(entryFee.Value.HasValue
-                                          ? entryFee.Value.Value.ToString(CultureInfo.CurrentCulture)
-                                          : "");
-                    item.SubItems.Add(entryFee.IsRate.ToString());
-
-                    item.SubItems.Add("");
-                    item.SubItems.Add(entryFee.CycleId.ToString());
-                    item.SubItems.Add("");
-                    item.SubItems.Add(entryFee.Index.ToString());
-
-                    lvEntryFees.Items.Add(item);
-                }
-            }
-
-            InitializeAdditionalEmptyRowInListView();
-        }
-
-        private static EntryFee GetEntryFeeFromListView(ListViewItem item)
-        {
-            decimal? min = string.IsNullOrEmpty(item.SubItems[IdxMin].Text) ? null : (decimal?)Convert.ToDecimal(item.SubItems[IdxMin].Text);
-            decimal? max = string.IsNullOrEmpty(item.SubItems[IdxMax].Text) ? null : (decimal?)Convert.ToDecimal(item.SubItems[IdxMax].Text);
-            decimal? v = string.IsNullOrEmpty(item.SubItems[IdxValue].Text) ? null : (decimal?)Convert.ToDecimal(item.SubItems[IdxValue].Text);
-            int id = string.IsNullOrEmpty(item.SubItems[IdxId].Text) ? 0 : Convert.ToInt32(item.SubItems[IdxId].Text);
-            int? cycleId = string.IsNullOrEmpty(item.SubItems[IdxCycleId].Text) ? null : (int?)Convert.ToInt32(item.SubItems[IdxCycleId].Text);
-            decimal? ms = string.IsNullOrEmpty(item.SubItems[IdxMaxSum].Text)? null : (decimal?) Convert.ToDecimal(item.SubItems[IdxMaxSum].Text);
-
-            EntryFee entryFee = new EntryFee
-            {
-                Id = id,
-                Name = item.SubItems[IdxNameOfFee].Text,
-                Min = min,
-                Max = max,
-                Value = v,
-                IsRate = Convert.ToBoolean(item.SubItems[IdxIsRate].Text),
-                IsAdded = id <= 0,
-                CycleId = cycleId,
-                IdForNewItem = 0,// Convert.ToInt32(item.SubItems[IdxIdForNewItem].Text),
-                Index = Convert.ToInt32(item.SubItems[IdxIndex].Text),
-                MaxSum = ms
-            };
-            return entryFee;
-        }
-
-        private void lvEntryFees_SubItemClicked(object sender, SubItemEventArgs e)
-        {
-            switch (e.SubItem)
-            {
-                case IdxNameOfFee:
-                    lvEntryFees.StartEditing(tbEntryFeesValues, e.Item, e.SubItem);
-                    break;
-
-                case IdxMin:
-                    lvEntryFees.StartEditing(tbEntryFeesValues, e.Item, e.SubItem);
-                    break;
-
-                case IdxMax:
-                    lvEntryFees.StartEditing(tbEntryFeesValues, e.Item, e.SubItem);
-                    break;
-
-                case IdxValue:
-                    lvEntryFees.StartEditing(tbEntryFeesValues, e.Item, e.SubItem);
-                    break;
-
-                case IdxIsRate:
-                    lvEntryFees.StartEditing(cbRate, e.Item, e.SubItem);
-                    break;
-
-                case IdxMaxSum:
-                    lvEntryFees.StartEditing(tbEntryFeesValues, e.Item, e.SubItem);
-                    break;
-            }
-        }
-
-	    private bool IsValidFeeValue(string feeValue)
-	    {
-	        decimal tryDecimal;
-	        if (string.IsNullOrEmpty(feeValue))
-	            return true;
-
-	        if (Decimal.TryParse(feeValue, out tryDecimal))
-	        {
-	            if (tryDecimal >= 0) return true;
-	            return false;
-	        }
-	        return false;
-	    }
-
-	    private bool CheckFeeValue(string feeValue)
-	    {
-	        if (!IsValidFeeValue(feeValue))
-            {
-                new frmShowError(
-	                CustomExceptionHandler.ShowExceptionText(new OpenCbsException("Entry fees filled incorrectly.")))
-	                .ShowDialog();
-                return false;
-            }
-	        return true;
-	    }
-
-	    private string FloorLikeDecimal(string value)
-	    {
-	        if (string.IsNullOrEmpty(value)) return value;
-	        return (Math.Floor(Convert.ToDecimal(value)*100m)/100m).ToString().Replace(".", ",");
-	    }
-
-
-        private void lvEntryFees_SubItemEndEditing(object sender, SubItemEndEditingEventArgs e)
-        {
-            buttonSave.Enabled = true;
-            var subItems = e.Item.SubItems;
-            switch (e.SubItem)
-            {
-                case IdxNameOfFee:
-                    subItems[e.SubItem].Text = tbEntryFeesValues.Text;
-                    break;
-
-                case IdxMin:
-                    if (CheckFeeValue(tbEntryFeesValues.Text))
-                        subItems[e.SubItem].Text = FloorLikeDecimal(tbEntryFeesValues.Text);
-                    break;
-
-                case IdxMax:
-                    if (CheckFeeValue(tbEntryFeesValues.Text))
-                        subItems[e.SubItem].Text = FloorLikeDecimal(tbEntryFeesValues.Text);
-                    break;
-
-                case IdxValue:
-                    if (CheckFeeValue(tbEntryFeesValues.Text))
-                        subItems[e.SubItem].Text = FloorLikeDecimal(tbEntryFeesValues.Text);
-                    break;
-
-                case IdxIsRate:
-                    subItems[e.SubItem].Text = cbRate.Text;
-                    break;
-
-                case IdxMaxSum:
-                    if (CheckFeeValue(tbEntryFeesValues.Text))
-                        subItems[e.SubItem].Text = FloorLikeDecimal(tbEntryFeesValues.Text);
-                    break;
-            }
-
-            _idForNewEntryFee++;
-
-            e.Item.SubItems[IdxIdForNewItem].Text = _idForNewEntryFee.ToString();
-            e.Item.SubItems[IdxIsAdded].Text = @"true";
-            e.Item.SubItems[IdxCycleId].Text = cbEnableEntryFeesCycle.Checked ? cmbEntryFeesCycles.SelectedItem.ToString() : "";
-
-            if (Convert.ToInt32(e.Item.SubItems[IdxIndex].Text) == lvEntryFees.Items.Count - 1 && e.SubItem != IdxIsRate && !string.IsNullOrEmpty(subItems[e.SubItem].Text))
-            {
-                if (string.IsNullOrEmpty(e.Item.SubItems[IdxIsRate].Text))
-                    e.Item.SubItems[IdxIsRate].Text = @"True";
-                InitializeAdditionalEmptyRowInListView();
-            }
-        }
-
-        private bool CheckListViewCorrectness(ListViewItem item)
-        {
-            decimal? min = string.IsNullOrEmpty(item.SubItems[IdxMin].Text) ? null : (decimal?)Convert.ToDecimal(item.SubItems[IdxMin].Text);
-            decimal? max = string.IsNullOrEmpty(item.SubItems[IdxMax].Text) ? null : (decimal?)Convert.ToDecimal(item.SubItems[IdxMax].Text);
-            decimal? v = string.IsNullOrEmpty(item.SubItems[IdxValue].Text) ? null : (decimal?)Convert.ToDecimal(item.SubItems[IdxValue].Text);
-
-            if (!string.IsNullOrEmpty(item.SubItems[IdxNameOfFee].Text))
-            {
-                if ((min != null && max != null && max > min) || v != null)
-                {
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-
         private void UpdateEntryFee()
         {
-            int? cycleId = string.IsNullOrEmpty(lvEntryFees.Items[0].SubItems[IdxCycleId].Text) ? null : (int?)Convert.ToDecimal(lvEntryFees.Items[0].SubItems[IdxCycleId].Text);
-            if (_product.EntryFees != null && _product.EntryFees.Count != 0)
-            {
-                _product.EntryFees.RemoveAll(item => item.CycleId == cycleId);
-            }
+            if (_product.EntryFees == null)
+                _product.EntryFees = new List<EntryFee>();
+            _product.EntryFees.Clear();
 
-            foreach (ListViewItem item in lvEntryFees.Items)
+            var iterator = 0;
+            foreach (ListViewItem item in _listViewCreditProductEntryFees.Items)
             {
-                if (CheckListViewCorrectness(item))
-                {
-                    EntryFee entryFee = GetEntryFeeFromListView(item);
-                    if (_product.EntryFees == null)
-                        _product.EntryFees = new List<EntryFee>();
-                    _product.EntryFees.Add(entryFee);
-                }
+                var fee = (EntryFee) item.Tag;
+                fee.Index = iterator;
+                _product.EntryFees.Add(fee);
+                iterator++;
             }
         }
 
@@ -2438,42 +2130,7 @@ namespace OpenCBS.GUI.Products
                                                                             "grBoxIntRateYear.Text");
             }
         }
-
-        private void swbtnEntryFeesAddCycle_Click(object sender, EventArgs e)
-        {
-       
-            try
-            {
-                ServicesProvider.GetInstance().GetProductServices().CheckIfEntryFeeCycleExists(_product, (int)nudEntryFeescycleFrom.Value);
-                cmbEntryFeesCycles.Items.Add((int)nudEntryFeescycleFrom.Value);
-                cmbEntryFeesCycles.SelectedItem = (int)nudEntryFeescycleFrom.Value;
-                _product.EntryFeeCycles.Add((int)nudEntryFeescycleFrom.Value);
-                lvEntryFees.Enabled = true;
-            }
-            catch (Exception ex)
-            {
-                new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
-            }
-        }
-
-        private void swbtnEntryFeesRemoveCycle_Click(object sender, EventArgs e)
-        {
-            if (_product.EntryFees != null && _product.EntryFees.Count != 0)
-            {
-                _product.EntryFees.RemoveAll(item => item.CycleId == (int?)cmbEntryFeesCycles.SelectedItem);
-            }
-
-            lvEntryFees.Items.Clear();
-            cmbEntryFeesCycles.Items.Remove(cmbEntryFeesCycles.SelectedItem);
-            if (cmbEntryFeesCycles.Items.Count > 0)
-                cmbEntryFeesCycles.SelectedItem = cmbEntryFeesCycles.Items[0];
-            else
-            {
-                lvEntryFees.Enabled = false;
-            }
-            buttonSave.Enabled = true;
-        }
-
+        
         private void cmbInterestScheme_SelectedValueChanged(object sender, EventArgs e)
         {
             switch (cmbInterestScheme.SelectedIndex + 1)
@@ -2513,9 +2170,40 @@ namespace OpenCBS.GUI.Products
             _CheckInterestRateType();
         }
 
-        private void lvEntryFees_SelectedIndexChanged(object sender, EventArgs e)
+        private void _buttonAddEntryFee_Click(object sender, EventArgs e)
         {
+            if (_listViewAllEntryFees.SelectedItems.Count != 0)
+            {
+                var fee = (EntryFee) _listViewAllEntryFees.SelectedItems[0].Tag;
+                var item = new ListViewItem(fee.Name) { Tag = fee };
+                item.SubItems.Add(fee.Min.HasValue ? fee.Min.Value.ToString(CultureInfo.CurrentCulture).TrimEnd('0').TrimEnd(',') : "");
+                item.SubItems.Add(fee.Max.HasValue ? fee.Max.Value.ToString(CultureInfo.CurrentCulture).TrimEnd('0').TrimEnd(',') : "");
+                item.SubItems.Add(fee.IsRate.ToString());
+                item.SubItems.Add(fee.MaxSum.ToString().TrimEnd('0').TrimEnd(','));
+                _listViewCreditProductEntryFees.Items.Add(item);
 
+                _buttonAddEntryFee.Enabled = _listViewCreditProductEntryFees.Items.Count < 9;
+                buttonSave.Enabled = true;
+
+                return;
+            }
+
+            MessageBox.Show(MultiLanguageStrings.GetString(Ressource.EntryFeesForm, "needToSelectFee")
+                            , "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void _buttonDeleteEntryFee_Click(object sender, EventArgs e)
+        {
+            if (_listViewCreditProductEntryFees.SelectedItems.Count != 0)
+            {
+                _listViewCreditProductEntryFees.Items.Remove(_listViewCreditProductEntryFees.SelectedItems[0]);
+                _buttonAddEntryFee.Enabled = _listViewCreditProductEntryFees.Items.Count < 9;
+                buttonSave.Enabled = true;
+                return;
+            }
+
+            MessageBox.Show(MultiLanguageStrings.GetString(Ressource.EntryFeesForm, "needToSelectFee")
+                            , "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
