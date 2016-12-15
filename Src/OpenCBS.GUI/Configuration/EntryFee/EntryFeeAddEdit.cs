@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using OpenCBS.GUI.UserControl;
 using Fee = OpenCBS.CoreDomain.EntryFee;
@@ -61,7 +60,7 @@ namespace OpenCBS.GUI.Configuration.EntryFee
             _entryFee.IsRate = _comboBoxRate.SelectedIndex == 0;
             _entryFee.MaxSum = _numericUpDownMaxSum.Value;
 
-            if (ValidateEntryFee(_entryFee))
+            if (!ValidateEntryFee(_entryFee))
                 return false;
 
             Services.GetEntryFeeServices().UpdateEntryfee(_entryFee);
@@ -102,11 +101,13 @@ namespace OpenCBS.GUI.Configuration.EntryFee
         private void _numericUpDownMin_ValueChanged(object sender, System.EventArgs e)
         {
             ValidateMinMaxValues();
+            ValidateEntryFee(GetFee());
         }
 
         private void _numericUpDownMax_ValueChanged(object sender, System.EventArgs e)
         {
             ValidateMinMaxValues(true);
+            ValidateEntryFee(GetFee());
         }
 
         #endregion
@@ -125,20 +126,15 @@ namespace OpenCBS.GUI.Configuration.EntryFee
                 return false;
             }
 
-            // not delete, maybe need in the future
-//            if (_entryFees.FirstOrDefault(x => x.Name == entryFee.Name) != null)
-//            {
-//                _labelError.Text = GetString("nameAlredyHave");
-//                _buttonSave.Enabled = false;
-//                return false;
-//            }
-
             if (entryFee.Min == 0m && entryFee.Max == 0m)
             {
                 _labelError.Text = GetString("minMaxIsZero");
                 _buttonSave.Enabled = false;
                 return false;
             }
+
+            if (entryFee.Min > entryFee.Max)
+                entryFee.Min = entryFee.Max;
 
             return true;
         }
