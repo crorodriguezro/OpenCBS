@@ -334,8 +334,6 @@ namespace OpenCBS.GUI.Products
             InitializeComboBoxInterestRateType(pack);
             textBoxName.Text = pack.Name;
             comboBoxInstallmentType.Text = pack.InstallmentType.Name;
-            tbCreditInsuranceMin.Text = pack.CreditInsuranceMin.ToString("0.00");
-            tbCreditInsuranceMax.Text = pack.CreditInsuranceMax.ToString("0.00");
 
             if (!pack.NbOfInstallments.HasValue)
             {
@@ -2087,18 +2085,6 @@ namespace OpenCBS.GUI.Products
             }
             else
                 e.Handled = true;
-        }
-
-        private void tbCreditInsuranceMin_TextChanged(object sender, EventArgs e)
-        {
-            _product.CreditInsuranceMin = ServicesHelper.ConvertStringToDecimal(tbCreditInsuranceMin.Text, true);
-            buttonSave.Enabled = true;
-        }
-
-        private void tbCreditInsuranceMax_TextChanged(object sender, EventArgs e)
-        {
-            _product.CreditInsuranceMax = ServicesHelper.ConvertStringToDecimal(tbCreditInsuranceMax.Text, true);
-            buttonSave.Enabled = true;
         }
 
         private void UpdateEntryFee()
