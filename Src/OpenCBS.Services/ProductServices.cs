@@ -98,7 +98,6 @@ namespace OpenCBS.Services
 	            {
 	                package.Id = _productManager.Add(package, transaction);
                     _entryFeeServices.SaveNewEntryFeeListToLoanProduct(package.EntryFees, package.Id, transaction);
-//	                _productManager.InsertEntryFees(package.EntryFees, package.Id, transaction);
 	                LoanProductInterceptorSave(new Dictionary<string, object>
 	                {
 	                    {"LoanProduct", package},
@@ -455,8 +454,6 @@ namespace OpenCBS.Services
 	            {
 	                _productManager.UpdatePackage(pPackage, updateContracts, transaction);
                     _entryFeeServices.SaveNewEntryFeeListToLoanProduct(pPackage.EntryFees, pPackage.Id, transaction);
-//	                _productManager.DeleteEntryFees(pPackage, transaction);
-//	                _productManager.InsertEntryFees(pPackage.EntryFees, pPackage.Id, transaction);
 	                LoanProductInterceptorUpdate(new Dictionary<string, object>
 	                {
 	                    {"LoanProduct", pPackage},
