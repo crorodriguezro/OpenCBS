@@ -133,5 +133,24 @@ namespace OpenCBS.Manager
 
             transaction.Connection.Execute(query, entryFee, transaction);
         }
+
+        public EntryFee SelectEntryFeeById(int entryFeeId, IDbTransaction transaction)
+        {
+            const string query = @"SELECT
+                                 [id] Id
+                                ,[name_of_fee] Name
+                                ,[min] Min
+                                ,[max] Max
+                                ,[rate] IsRate
+                                ,[max_sum] MaxSum
+                                ,[is_deleted] IsDeleted
+                            FROM
+                                [dbo].[EntryFees]
+                            WHERE
+                                id = @entryFeeId";
+
+            var result = transaction.Connection.Query<EntryFee>(query, new { entryFeeId }, transaction).FirstOrDefault();
+            return result;
+        }
     }
 }

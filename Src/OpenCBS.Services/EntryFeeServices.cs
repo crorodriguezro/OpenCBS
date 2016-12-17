@@ -15,7 +15,7 @@ namespace OpenCBS.Services
             _entryFeeManager = new EntryFeeManager(user);
         }
 
-        public List<EntryFee> GetAllEntryFee(IDbTransaction transaction = null)
+        public List<EntryFee> SelectAllEntryFee(IDbTransaction transaction = null)
         {
             // ReSharper disable once ConvertConditionalTernaryToNullCoalescing
             var tx = transaction == null
@@ -40,7 +40,7 @@ namespace OpenCBS.Services
             }
         }
 
-        public List<EntryFee> GetAllEntryFeeFromLoanProduct(int loanProductId, IDbTransaction transaction = null)
+        public List<EntryFee> SelectAllEntryFeeFromLoanProduct(int loanProductId, IDbTransaction transaction = null)
         {
             // ReSharper disable once ConvertConditionalTernaryToNullCoalescing
             var tx = transaction == null
@@ -147,6 +147,31 @@ namespace OpenCBS.Services
 
                 if (transaction == null)
                     tx.Commit();
+            }
+            catch (Exception error)
+            {
+                if (transaction == null)
+                    tx.Rollback();
+
+                throw new Exception(error.Message);
+            }
+        }
+
+        public EntryFee SelectEntryFeeById(int entryFeeId, IDbTransaction transaction = null)
+        {
+            // ReSharper disable once ConvertConditionalTernaryToNullCoalescing
+            var tx = transaction == null
+                     ? CoreDomain.DatabaseConnection.GetConnection().BeginTransaction()
+                     : transaction;
+
+            try
+            {
+                var result = _entryFeeManager.SelectEntryFeeById(entryFeeId, tx);
+
+                if (transaction == null)
+                    tx.Commit();
+
+                return result;
             }
             catch (Exception error)
             {

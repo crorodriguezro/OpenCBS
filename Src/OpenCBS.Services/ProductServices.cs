@@ -157,7 +157,7 @@ namespace OpenCBS.Services
                 return _productManager.SelectEntryFeesAccordingCycle(product.Id, loanCycle, false);
             }
             else
-                return _productManager.SelectEntryFeesWithoutCycles(product.Id, false);
+                return _entryFeeServices.SelectAllEntryFeeFromLoanProduct(product.Id);
         }
 
         public List<MaturityCycle> GetMaturityCycleParams(int productId, int cycleId)
@@ -442,7 +442,7 @@ namespace OpenCBS.Services
 
 	    public EntryFee GetEntryFeeById (int entryFeeId)
         {
-          return  _productManager.SelectEntryFeeById(entryFeeId);
+          return  _entryFeeServices.SelectEntryFeeById(entryFeeId);
         }
 
 	    public void UpdatePackage(LoanProduct pPackage, bool updateContracts)
@@ -579,10 +579,10 @@ namespace OpenCBS.Services
 	    public void GetEntryFees(LoanProduct package)
 	    {
 	        if (!package.UseEntryFeesCycles)
-                package.EntryFees = _entryFeeServices.GetAllEntryFeeFromLoanProduct(package.Id);
+                package.EntryFees = _entryFeeServices.SelectAllEntryFeeFromLoanProduct(package.Id);
             else
 	        {
-                package.EntryFees = _entryFeeServices.GetAllEntryFeeFromLoanProduct(package.Id);
+                package.EntryFees = _entryFeeServices.SelectAllEntryFeeFromLoanProduct(package.Id);
                 package.EntryFeeCycles = package.EntryFees.Where(x => x.CycleId != null).Select(x => x.CycleId.Value).Distinct().ToList();
             }
 	    }
@@ -649,12 +649,12 @@ namespace OpenCBS.Services
 
                 if (product.UseEntryFeesCycles)
                 {
-                    product.EntryFees = _entryFeeServices.GetAllEntryFeeFromLoanProduct(product.Id);
+                    product.EntryFees = _entryFeeServices.SelectAllEntryFeeFromLoanProduct(product.Id);
                     product.EntryFeeCycles = product.EntryFees.Where(x => x.CycleId != null).Select(x => x.CycleId.Value).Distinct().ToList();
                 }
                 else
                 {
-                    product.EntryFees = _entryFeeServices.GetAllEntryFeeFromLoanProduct(product.Id);
+                    product.EntryFees = _entryFeeServices.SelectAllEntryFeeFromLoanProduct(product.Id);
                 }
             }
             return retval;

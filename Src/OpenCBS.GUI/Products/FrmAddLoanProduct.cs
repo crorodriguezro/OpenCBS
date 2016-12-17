@@ -113,7 +113,7 @@ namespace OpenCBS.GUI.Products
 
         private void FillListViewAllEntryFees()
         {
-            _allEntryFees = Services.GetEntryFeeServices().GetAllEntryFee();
+            _allEntryFees = Services.GetEntryFeeServices().SelectAllEntryFee();
 
             FillListViewEntryFees(_listViewAllEntryFees, _allEntryFees);
         }

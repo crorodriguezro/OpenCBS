@@ -22,7 +22,7 @@ namespace OpenCBS.GUI.Configuration.EntryFee
         {
             _listViewEntryFee.Items.Clear();
 
-            _entryFees = Services.GetEntryFeeServices().GetAllEntryFee();
+            _entryFees = Services.GetEntryFeeServices().SelectAllEntryFee();
 
             foreach (var fee in _entryFees)
             {
