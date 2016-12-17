@@ -651,6 +651,7 @@ namespace OpenCBS.GUI.Contracts
                                                                                          isTotalRepayment);
 
                 SetInstalments(result.Key.InstallmentList);
+                SetTotalRow(result.Key.InstallmentList,_loan.UseCents);
 
                 if (result.Value != null)
                 {
@@ -661,6 +662,30 @@ namespace OpenCBS.GUI.Contracts
             catch (Exception ex)
             {
                 new frmShowError(CustomExceptionHandler.ShowExceptionText(ex)).ShowDialog();
+            }
+        }
+
+        private void SetTotalRow(List<Installment> installmentList, bool useCents )
+        {
+            var ifShowTotalRowInSchedule = ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule;
+            var useCentsParameter = useCents ? "N2" : "N0";
+            if (ifShowTotalRowInSchedule)
+            {
+                var capitalRepayment = installmentList.Sum(x => x.CapitalRepayment.Value);
+
+                ListViewItem listViewItem = new ListViewItem((installmentList.Count+1).ToString());
+                
+                listViewItem.SubItems.Add("Total");
+                listViewItem.SubItems.Add(installmentList.Sum(x => x.InterestsRepayment.Value).ToString(useCentsParameter));
+                listViewItem.SubItems.Add(capitalRepayment.ToString(useCentsParameter));
+                listViewItem.SubItems.Add(installmentList.Sum(x => x.AmountHasToPayWithInterest.Value).ToString(useCentsParameter));
+                listViewItem.SubItems.Add(capitalRepayment.ToString(useCentsParameter));
+                listViewItem.SubItems.Add(installmentList.Sum(x => x.PaidInterests.Value).ToString(useCentsParameter));
+                listViewItem.SubItems.Add(installmentList.Sum(x => x.PaidCapital.Value).ToString(useCentsParameter));
+                listViewItem.SubItems.Add(string.Empty);
+
+                listViewItem.Font = new Font(listViewItem.Font,FontStyle.Bold);
+                listViewRepayments.Items.Add(listViewItem);
             }
         }
 

@@ -3564,7 +3564,7 @@ namespace OpenCBS.GUI.Clients
             credit.NonRepaymentPenalties.OverDuePrincipal = ServicesHelper.ConvertStringToNullableDouble(textBoxLoanLateFeesOnOverduePrincipal.Text, true, -1).Value;
             credit.GracePeriod = Convert.ToInt32(numericUpDownLoanGracePeriod.Value);
             credit.GracePeriodOfLateFees = Convert.ToInt32(_gracePeriodOfLateFees);
-
+            
             credit.FundingLine = comboBoxLoanFundingLine.Tag != null ? (FundingLine)comboBoxLoanFundingLine.Tag : null;
 
             credit.LoanOfficer = (User)_loanOfficerComboBox.SelectedItem;
@@ -3579,7 +3579,7 @@ namespace OpenCBS.GUI.Clients
             {
                 if (item.Tag is LoanEntryFee)
                 {
-                    ((LoanEntryFee)item.Tag).FeeValue = decimal.Parse(item.SubItems[1].Text);
+                    ((LoanEntryFee)item.Tag).FeeValue = decimal.Parse(item.SubItems[3].Text);
                     credit.LoanEntryFeesList.Add((LoanEntryFee)item.Tag);
                 }
             }
@@ -3663,7 +3663,7 @@ namespace OpenCBS.GUI.Clients
                 {
                     if (item.Tag is LoanEntryFee)
                     {
-                        ((LoanEntryFee)item.Tag).FeeValue = decimal.Parse(item.SubItems[1].Text);
+                        ((LoanEntryFee)item.Tag).FeeValue = decimal.Parse(item.SubItems[3].Text);
                         _credit.LoanEntryFeesList.Add((LoanEntryFee)item.Tag);
                     }
                 }
@@ -3770,49 +3770,16 @@ namespace OpenCBS.GUI.Clients
         private void FillInstallmentListForScheduleControl(string nameOfSchedule, Loan credit)
         {
             var ifShowTotalRowInSchedule = ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule;
-            if (ifShowTotalRowInSchedule)
-            {
-                var installmentList = credit.InstallmentList;
-                installmentList.RemoveAll(x => x.ExpectedDate == DateTime.MaxValue);
-                if (installmentList.Count > 0)
-                {
-                    installmentList.Add(new Installment());
-                    installmentList.LastOrDefault().Number = 0;
-                    installmentList.LastOrDefault().ExpectedDate = DateTime.MaxValue;
-                    installmentList.LastOrDefault().InterestsRepayment = 0;
-                    installmentList.LastOrDefault().InterestsRepayment = installmentList.Sum(x => x.InterestsRepayment.Value);
-                    installmentList.LastOrDefault().PaidInterests = 0;
-                    installmentList.LastOrDefault().PaidInterests = installmentList.Sum(x => x.PaidInterests.Value);
-                    installmentList.LastOrDefault().CapitalRepayment = 0;
-                    installmentList.LastOrDefault().CapitalRepayment = installmentList.Sum(x => x.CapitalRepayment.Value);
-                    installmentList.LastOrDefault().PaidCapital = 0;
-                    installmentList.LastOrDefault().PaidCapital = installmentList.Sum(x => x.PaidCapital.Value);
-                    installmentList.LastOrDefault().ExtraAmount2 = 0;
-                    installmentList.LastOrDefault().ExtraAmount2 = installmentList.Sum(x => x.ExtraAmount2.Value);
-                    installmentList.LastOrDefault().OLB = installmentList.LastOrDefault().CapitalRepayment;
-                }
-                else
-                    ifShowTotalRowInSchedule = false;
-            }
 
             if (nameOfSchedule == "loanDetailsScheduleControl")
-                _loanDetailsScheduleControl.SetScheduleFor(credit);
-            if (nameOfSchedule == "repaymentScheduleControl")
-                _repaymentScheduleControl.SetScheduleFor(credit);
-
-            if (ifShowTotalRowInSchedule)
             {
-                Control controls = null;
-                if (nameOfSchedule == "loanDetailsScheduleControl")
-                    controls = _loanDetailsScheduleControl.Controls.Find("scheduleObjectListView", true)[0];
-                if (nameOfSchedule == "repaymentScheduleControl")
-                    controls = _repaymentScheduleControl.Controls.Find("scheduleObjectListView", true)[0];
-                if (controls != null)
-                {
-                    var schedule = ((ObjectListView)controls);
-                    if (schedule.Items.Count > 0)
-                        schedule.Items[schedule.Items.Count - 1].Font = new Font(schedule.Items[schedule.Items.Count - 1].Font, FontStyle.Bold);
-                }
+                _loanDetailsScheduleControl.UseTotalRow = ifShowTotalRowInSchedule;
+                _loanDetailsScheduleControl.SetScheduleFor(credit);
+            }
+            if (nameOfSchedule == "repaymentScheduleControl")
+            {
+                _repaymentScheduleControl.UseTotalRow = ifShowTotalRowInSchedule;
+                _repaymentScheduleControl.SetScheduleFor(credit);
             }
         }
 
@@ -3823,8 +3790,6 @@ namespace OpenCBS.GUI.Clients
             richTextBoxStatus.Clear();
 
             var creditCopy = credit.Copy();
-            if (ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule)
-                creditCopy.InstallmentList.Remove(creditCopy.InstallmentList.FirstOrDefault(x => x.ExpectedDate == DateTime.MaxValue));
 
             String statusText = MultiLanguageStrings.GetString(Ressource.ClientForm, "Status.Text") + "\n" +
                                 MultiLanguageStrings.GetString(Ressource.ClientForm, "Currency.Text") + "   " +
@@ -3884,14 +3849,10 @@ namespace OpenCBS.GUI.Clients
                     tbLocAmount.Enabled = false;
                     tbInsurance.Enabled = false;
                     credit = Preview();
-                    if (ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule)
-                        credit.InstallmentList.Remove(credit.InstallmentList.FirstOrDefault(x => x.ExpectedDate == DateTime.MaxValue));
 
                     if (credit == null)
                         return null;
 
-                    var ifShowTotalRowInSchedule = ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule;
-                    if (ifShowTotalRowInSchedule)
                         credit.InstallmentList.Remove(_credit.InstallmentList.FirstOrDefault(x => x.ExpectedDate == DateTime.MaxValue && x.Number == 0));
 
                     credit.ClientType = _oClientType;
@@ -3941,8 +3902,6 @@ namespace OpenCBS.GUI.Clients
                 else
                 {
                     credit = Preview();
-                    if (ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule)
-                        credit.InstallmentList.Remove(credit.InstallmentList.FirstOrDefault(x => x.ExpectedDate == DateTime.MaxValue));
                     if (_credit.ScheduleChangedManually)
                     {
                         credit.ScheduleChangedManually = _credit.ScheduleChangedManually;
@@ -7120,9 +7079,6 @@ namespace OpenCBS.GUI.Clients
 
         private void WriteOff(int writeOffMethodId, string comment)
         {
-            if (ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule)
-                _credit.InstallmentList.Remove(_credit.InstallmentList.FirstOrDefault(x => x.ExpectedDate == DateTime.MaxValue));
-
             ServicesProvider.GetInstance().GetContractServices().WriteOff(_credit, TimeProvider.Now, writeOffMethodId, comment);
             btnWriteOff.Enabled = false;
             DisplayLoanEvents(_credit);
@@ -7642,9 +7598,6 @@ namespace OpenCBS.GUI.Clients
             if (null == _credit || 0 == _credit.InstallmentList.Count) return;
             try
             {
-                if (ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule)
-                    _credit.InstallmentList.Remove(_credit.InstallmentList.FirstOrDefault(x => x.ExpectedDate == DateTime.MaxValue));
-
                 ServiceProvider.GetContractServices().ManualScheduleAfterDisbursement();
                 var manualScheduleForm = new ManualScheduleForm(_credit.Copy());
 

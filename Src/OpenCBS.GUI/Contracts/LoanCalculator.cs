@@ -998,52 +998,13 @@ namespace OpenCBS.GUI.Clients
                 pCredit.Product = _product;
             }
         }
-        
+
         private void FillInstallmentListForScheduleControl(string nameOfSchedule, Loan credit)
         {
             var ifShowTotalRowInSchedule = ServicesProvider.GetInstance().GetGeneralSettings().IsShowTotalRowInSchedule;
-            if (ifShowTotalRowInSchedule)
-            {
-                var installmentList = credit.InstallmentList;
-                installmentList.RemoveAll(x => x.ExpectedDate == DateTime.MaxValue);
-                if (installmentList.Count > 0)
-                {
-                    installmentList.Add(new Installment());
-                    installmentList.LastOrDefault().Number = 0;
-                    installmentList.LastOrDefault().ExpectedDate = DateTime.MaxValue;
-                    installmentList.LastOrDefault().InterestsRepayment = 0;
-                    installmentList.LastOrDefault().InterestsRepayment = installmentList.Sum(x => x.InterestsRepayment.Value);
-                    installmentList.LastOrDefault().PaidInterests = 0;
-                    installmentList.LastOrDefault().PaidInterests = installmentList.Sum(x => x.PaidInterests.Value);
-                    installmentList.LastOrDefault().CapitalRepayment = 0;
-                    installmentList.LastOrDefault().CapitalRepayment = installmentList.Sum(x => x.CapitalRepayment.Value);
-                    installmentList.LastOrDefault().PaidCapital = 0;
-                    installmentList.LastOrDefault().PaidCapital = installmentList.Sum(x => x.PaidCapital.Value);
-                    installmentList.LastOrDefault().ExtraAmount2 = 0;
-                    installmentList.LastOrDefault().ExtraAmount2 = installmentList.Sum(x => x.ExtraAmount2.Value);
-                    installmentList.LastOrDefault().OLB = installmentList.LastOrDefault().CapitalRepayment;
-                }
-                else
-                    ifShowTotalRowInSchedule = false;
-            }
 
-            if (nameOfSchedule == "loanDetailsScheduleControl")
-                _loanDetailsScheduleControl1.SetScheduleFor(credit);
-            if (nameOfSchedule == "repaymentScheduleControl")
-
-                if (ifShowTotalRowInSchedule)
-                {
-                    Control controls = null;
-                    if (nameOfSchedule == "loanDetailsScheduleControl")
-                        controls = _loanDetailsScheduleControl1.Controls.Find("scheduleObjectListView", true)[0];
-                    if (nameOfSchedule == "repaymentScheduleControl")
-                        if (controls != null)
-                        {
-                            var schedule = ((ObjectListView)controls);
-                            if (schedule.Items.Count > 0)
-                                schedule.Items[schedule.Items.Count - 1].Font = new Font(schedule.Items[schedule.Items.Count - 1].Font, FontStyle.Bold);
-                        }
-                }
+            _loanDetailsScheduleControl1.UseTotalRow = ifShowTotalRowInSchedule;
+            _loanDetailsScheduleControl1.SetScheduleFor(credit);
         }
 
         private void cmbPackages_SelectedIndexChanged(object sender, EventArgs e)
