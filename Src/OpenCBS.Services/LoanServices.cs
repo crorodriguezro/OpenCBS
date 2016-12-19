@@ -63,6 +63,7 @@ namespace OpenCBS.Services
 {
     public class LoanServices : Services
     {
+        private EntryFeeServices _entryFeeServices;
         private readonly FundingLineServices _fundingLineServices;
         private readonly BranchService _branchService;
         private readonly LoanManager _loanManager;
@@ -94,6 +95,7 @@ namespace OpenCBS.Services
         {
             _user = pUser;
             _loanManager = new LoanManager(pUser);
+            _entryFeeServices = new EntryFeeServices(pUser);
             _instalmentManager = new InstallmentManager(pUser);
             _clientManager = new ClientManager(pUser, true, true);
             _branchService = new BranchService(pUser);
@@ -114,6 +116,7 @@ namespace OpenCBS.Services
                             LoanManager pLoanManager)
         {
             _user = new User();
+            _entryFeeServices = new EntryFeeServices(_user);
             _instalmentManager = pInstalmentManager;
             _clientManager = pClientManager;
             _loanManager = pLoanManager;
@@ -1836,32 +1839,23 @@ namespace OpenCBS.Services
 
         public List<LoanEntryFee> GetDefaultLoanEntryFees(Loan loan, IClient client)
         {
-            _productServices = ServicesProvider.GetInstance().GetProductServices();
-            List<EntryFee> entryFees = _productServices.GetProductEntryFees(loan.Product, client);
-            var loanEntryFees = new List<LoanEntryFee>();
+            var result = new List<LoanEntryFee>();
 
-            foreach (EntryFee fee in entryFees)
+            foreach (var entryFee in _entryFeeServices.SelectAllEntryFeeFromLoanProduct(loan.Product.Id))
             {
-                LoanEntryFee loanFee = new LoanEntryFee();
-                loanFee.ProductEntryFee = fee;
-                if (fee.Min != null)
-                    loanFee.FeeValue = (decimal)fee.Min;
-                else
-                    loanFee.FeeValue = (decimal)fee.Value;
-                loanEntryFees.Add(loanFee);
+                var loanEntryFee = new LoanEntryFee();
+                loanEntryFee.ProductEntryFee = entryFee;
+                loanEntryFee.Index = entryFee.Index.ToString();
+                loanEntryFee.Code = "LEE" + entryFee.Index;
+                result.Add(loanEntryFee);
             }
-            return loanEntryFees;
+
+            return result;
         }
 
         public List<LoanEntryFee> GetInstalledLoanEntryFees(Loan loan)
         {
-            _productServices = ServicesProvider.GetInstance().GetProductServices();
-            List<LoanEntryFee> loanEntryFees = _loanManager.SelectInstalledLoanEntryFees(loan.Id);
-            foreach (LoanEntryFee loanEntryFee in loanEntryFees)
-            {
-                loanEntryFee.ProductEntryFee = _productServices.GetEntryFeeById(loanEntryFee.ProductEntryFeeId);
-            }
-            return loanEntryFees;
+            return _entryFeeServices.SelectAllLoanEntryFeeFromCredit(loan.Id);
         }
 
         public List<Alert> FindContractsByOfficer(int officerCode)
@@ -2585,14 +2579,13 @@ namespace OpenCBS.Services
             {
                 if (loan.Id != 0)
                 {
-                    loan.LoanEntryFeesList = _loanManager.SelectInstalledLoanEntryFees(loan.Id);
+                    loan.LoanEntryFeesList = _productServices.SelectAllEntryFeeFromCredit(loan.Id);
                     foreach (LoanEntryFee fee in loan.LoanEntryFeesList)
                     {
                         fee.ProductEntryFee = _productServices.GetEntryFeeById(fee.ProductEntryFeeId);
                     }
                 }
             }
-            //////////////////////////////////////////////////////////////////////////////////
             return loans;
         }
 

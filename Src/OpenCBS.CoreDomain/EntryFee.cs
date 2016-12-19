@@ -61,5 +61,25 @@ namespace OpenCBS.CoreDomain
             entryFee.IdForNewItem = IdForNewItem;
             entryFee.MaxSum = MaxSum;
         }
+
+        public EntryFee Copy()
+        {
+            var result = new EntryFee
+            {
+                Id = Id,
+                Name = Name,
+                Min = Min,
+                Max = Max,
+                Value = Value,
+                IsRate = IsRate,
+                IsAdded = IsAdded,
+                Index = Index,
+                CycleId = CycleId,
+                IdForNewItem = IdForNewItem,
+                MaxSum = MaxSum
+            };
+
+            return result;
+        }
     }
 }

@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -445,7 +446,12 @@ namespace OpenCBS.Services
           return  _entryFeeServices.SelectEntryFeeById(entryFeeId);
         }
 
-	    public void UpdatePackage(LoanProduct pPackage, bool updateContracts)
+        public List<LoanEntryFee> SelectAllEntryFeeFromLoanProduct(int loanId, IDbTransaction tx = null)
+        {
+            return _entryFeeServices.SelectAllLoanEntryFeeFromLoanProduct(loanId, tx);
+        }
+
+        public void UpdatePackage(LoanProduct pPackage, bool updateContracts)
 	    {
 	        using (var connection = _productManager.GetConnection())
 	        using (var transaction = connection.BeginTransaction())
@@ -1015,5 +1021,10 @@ namespace OpenCBS.Services
                        select item.Value).FirstOrDefault();
             if (creator != null) creator.Delete(interceptorParams);
         }
+
+	    public List<LoanEntryFee> SelectAllEntryFeeFromCredit(int loanId)
+	    {
+	        return _entryFeeServices.SelectAllLoanEntryFeeFromCredit(loanId);
+	    }
 	}
 }

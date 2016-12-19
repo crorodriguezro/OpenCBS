@@ -1696,34 +1696,6 @@ namespace OpenCBS.Manager.Contracts
             return installmentDates;
         }
 
-        public List<LoanEntryFee> SelectInstalledLoanEntryFees(int loanId)
-        {
-            List<LoanEntryFee> loanEntryFees = new List<LoanEntryFee>();
-            string q =
-                @"SELECT id
-                        ,[entry_fee_id]
-                        ,[fee_value]
-                  FROM [dbo].[CreditEntryFees] 
-                  WHERE [credit_id]=@credit_id";
-            using (SqlConnection conn = GetConnection())
-            using (OpenCbsCommand c = new OpenCbsCommand(q, conn))
-            {
-                c.AddParam("@credit_id", loanId);
-                using (OpenCbsReader r = c.ExecuteReader())
-                {
-                    while (r.Read())
-                    {
-                        LoanEntryFee lef = new LoanEntryFee();
-                        lef.Id = r.GetInt("id");
-                        lef.ProductEntryFeeId = r.GetInt("entry_fee_id");
-                        lef.FeeValue = r.GetDecimal("fee_value");
-                        loanEntryFees.Add(lef);
-                    }
-                }
-            }
-            return loanEntryFees;
-        }
-
         /// <summary>
         /// Inserts entry fees for the specified loan into database
         /// </summary>

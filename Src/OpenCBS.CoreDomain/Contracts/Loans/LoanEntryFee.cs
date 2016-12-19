@@ -34,5 +34,6 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
         public EntryFee ProductEntryFee { get; set; }
         public decimal FeeValue { get; set; }
         public string Code { get; set; }
+        public string Index { get; set; }
     }
 }

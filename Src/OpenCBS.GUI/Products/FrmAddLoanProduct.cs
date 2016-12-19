@@ -2093,13 +2093,11 @@ namespace OpenCBS.GUI.Products
                 _product.EntryFees = new List<EntryFee>();
             _product.EntryFees.Clear();
 
-            var iterator = 0;
-            foreach (ListViewItem item in _listViewCreditProductEntryFees.Items)
+            for (var i = 0; i < _listViewCreditProductEntryFees.Items.Count; i++)
             {
-                var fee = (EntryFee) item.Tag;
-                fee.Index = iterator;
+                var fee = ((EntryFee)_listViewCreditProductEntryFees.Items[i].Tag).Copy();
+                fee.Index = i;
                 _product.EntryFees.Add(fee);
-                iterator++;
             }
         }
 

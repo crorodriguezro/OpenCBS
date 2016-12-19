@@ -1213,7 +1213,7 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                                                                               ? Math.Round(entryFees[i].Value, 2)
                                                                               : Math.Round(entryFees[i].Value,
                                                                                            MidpointRounding.AwayFromZero),
-                                                                      Code = "LEE" + LoanEntryFeesList[i].ProductEntryFee.Index,
+                                                                      Code = "LEE" + LoanEntryFeesList[i].Index,
                                                                       DisbursementEventId = e.Id,
                                                                       Cancelable = true,
                                                                       User = User.CurrentUser,

@@ -10,6 +10,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[LoanProductsEntryFees]') AND type in (N'U'))
 	BEGIN
 		CREATE TABLE [dbo].[LoanProductsEntryFees](
+            [id]           [int] IDENTITY(1,1) NOT NULL,
 			[id_entry_fee] [int] NOT NULL,
 			[id_product]   [int] NOT NULL,
 			[cycle_id]     [int] NULL,

@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using Dapper;
 using OpenCBS.CoreDomain;
+using OpenCBS.CoreDomain.Contracts.Loans;
 
 namespace OpenCBS.Manager
 {
@@ -36,7 +37,7 @@ namespace OpenCBS.Manager
             return result;
         }
 
-        public List<EntryFee> GetAllEntryFeeFromLoanProduct(int loanProductId, IDbTransaction transaction = null)
+        public List<EntryFee> GetAllEntryFeeFromLoanProduct(int loanProductId, IDbTransaction transaction)
         {
             const string query = @"SELECT
                                          ef.[id] Id
@@ -47,6 +48,7 @@ namespace OpenCBS.Manager
                                         ,ef.[max_sum] MaxSum
                                         ,ef.[is_deleted] IsDeleted
 	                                    ,lpef.[cycle_id] CycleId
+                                        ,lpef.[fee_index] [Index]
                                     FROM
                                         [dbo].[EntryFees] ef
                                     LEFT JOIN
@@ -150,6 +152,37 @@ namespace OpenCBS.Manager
                                 id = @entryFeeId";
 
             var result = transaction.Connection.Query<EntryFee>(query, new { entryFeeId }, transaction).FirstOrDefault();
+            return result;
+        }
+
+        public List<LoanEntryFee> SelectAllLoanEntryFeeFromLoanProduct(int productId, IDbTransaction transaction)
+        {
+            const string query = @"SELECT
+                                         ef.[id] ProductEntryFeeId
+                                    FROM
+                                        [dbo].[EntryFees] ef
+                                    LEFT JOIN
+	                                    [dbo].[LoanProductsEntryFees] lpef on lpef.id_entry_fee = ef.id
+                                    WHERE
+	                                    lpef.id_product = @productId
+	                                    and ef.is_deleted = 0
+                                    ";
+
+            var result = transaction.Connection.Query<LoanEntryFee>(query, new { productId }, transaction).ToList();
+            return result;
+        }
+
+        public List<LoanEntryFee> SelectAllLoanEntryFeeFromCredit(int loanId, IDbTransaction transaction)
+        {
+            const string query = @"SELECT
+                                    id ID
+                                    , [entry_fee_id] ProductEntryFeeId
+                                    , [fee_value] FeeValue
+                                  FROM [dbo].[CreditEntryFees] 
+                                  WHERE [credit_id] = @loanId
+                                    ";
+
+            var result = transaction.Connection.Query<LoanEntryFee>(query, new { loanId }, transaction).ToList();
             return result;
         }
     }

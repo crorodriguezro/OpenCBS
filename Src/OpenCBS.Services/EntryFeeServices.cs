@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using OpenCBS.CoreDomain;
+using OpenCBS.CoreDomain.Contracts.Loans;
 using OpenCBS.Manager;
 
 namespace OpenCBS.Services
@@ -50,6 +51,31 @@ namespace OpenCBS.Services
             try
             {
                 var result = _entryFeeManager.GetAllEntryFeeFromLoanProduct(loanProductId, tx);
+
+                if (transaction == null)
+                    tx.Commit();
+
+                return result;
+            }
+            catch (Exception error)
+            {
+                if (transaction == null)
+                    tx.Rollback();
+
+                throw new Exception(error.Message);
+            }
+        }
+
+        public List<LoanEntryFee> SelectAllLoanEntryFeeFromLoanProduct(int productId, IDbTransaction transaction = null)
+        {
+            // ReSharper disable once ConvertConditionalTernaryToNullCoalescing
+            var tx = transaction == null
+                     ? CoreDomain.DatabaseConnection.GetConnection().BeginTransaction()
+                     : transaction;
+
+            try
+            {
+                var result = _entryFeeManager.SelectAllLoanEntryFeeFromLoanProduct(productId, tx);
 
                 if (transaction == null)
                     tx.Commit();
@@ -167,6 +193,31 @@ namespace OpenCBS.Services
             try
             {
                 var result = _entryFeeManager.SelectEntryFeeById(entryFeeId, tx);
+
+                if (transaction == null)
+                    tx.Commit();
+
+                return result;
+            }
+            catch (Exception error)
+            {
+                if (transaction == null)
+                    tx.Rollback();
+
+                throw new Exception(error.Message);
+            }
+        }
+
+        public List<LoanEntryFee> SelectAllLoanEntryFeeFromCredit(int loanId, IDbTransaction transaction = null)
+        {
+            // ReSharper disable once ConvertConditionalTernaryToNullCoalescing
+            var tx = transaction == null
+                     ? CoreDomain.DatabaseConnection.GetConnection().BeginTransaction()
+                     : transaction;
+
+            try
+            {
+                var result = _entryFeeManager.SelectAllLoanEntryFeeFromCredit(loanId, tx);
 
                 if (transaction == null)
                     tx.Commit();
