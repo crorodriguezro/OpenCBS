@@ -218,6 +218,8 @@ namespace OpenCBS.Services
             try
             {
                 var result = _entryFeeManager.SelectAllLoanEntryFeeFromCredit(loanId, tx);
+                foreach (var loanEntryFee in result)
+                    loanEntryFee.ProductEntryFee = _entryFeeManager.SelectEntryFeeById(loanEntryFee.ProductEntryFeeId, tx);
 
                 if (transaction == null)
                     tx.Commit();
