@@ -228,6 +228,9 @@
   <data name="_checkBoxShowDeleted.Text" xml:space="preserve">
     <value>Show Deleted</value>
   </data>
+  <data name="_checkBoxShowDeleted.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;_checkBoxShowDeleted.Name" xml:space="preserve">
     <value>_checkBoxShowDeleted</value>
   </data>
@@ -287,6 +290,9 @@
   </data>
   <data name="_buttonDelete.Text" xml:space="preserve">
     <value>Delete</value>
+  </data>
+  <data name="_buttonDelete.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;_buttonDelete.Name" xml:space="preserve">
     <value>_buttonDelete</value>
