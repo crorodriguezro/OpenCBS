@@ -1882,11 +1882,11 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                                                (paidInstallment.CommissionsUnpaid - (paidInstallment.PaidCommissions - rpeCommission));
 
                     var comisstionATR = AnticipatedTotalRepaymentPenalties > 0.0
-                                        ? paidInstallment.Number == cCr.PaidIstallments[0].Number
-                                            ? Product.AnticipatedTotalRepaymentPenaltiesBase == OAnticipatedRepaymentPenaltiesBases.RemainingOLB
+                                        ? Product.AnticipatedTotalRepaymentPenaltiesBase == OAnticipatedRepaymentPenaltiesBases.RemainingOLB
+                                            ? paidInstallment.Number == cCr.PaidIstallments[0].Number
                                                 ? Convert.ToDecimal(AnticipatedTotalRepaymentPenalties) * cCr.PaidIstallments[0].OLB.Value
-                                                : Convert.ToDecimal(AnticipatedTotalRepaymentPenalties) * paidInstallment.InterestsRepayment.Value
-                                            : 0m
+                                                : 0m
+                                            : Convert.ToDecimal(AnticipatedTotalRepaymentPenalties) * paidInstallment.InterestsRepayment.Value
                                         : 0m;
 
                     var comisstionAPR = AnticipatedPartialRepaymentPenalties > 0.0
