@@ -1889,8 +1889,18 @@ namespace OpenCBS.CoreDomain.Contracts.Loans
                                             : Convert.ToDecimal(AnticipatedTotalRepaymentPenalties) * paidInstallment.InterestsRepayment.Value
                                         : 0m;
 
+                    var comisstionAPR = AnticipatedPartialRepaymentPenalties > 0.0
+                                        ? paidInstallment.Number == cCr.PaidIstallments[0].Number
+                                            ? Product.AnticipatedPartialRepaymentPenaltiesBase == OAnticipatedRepaymentPenaltiesBases.RemainingOLB
+                                                ? Convert.ToDecimal(AnticipatedPartialRepaymentPenalties) * (OLB + principalEvent)
+                                                : Convert.ToDecimal(AnticipatedPartialRepaymentPenalties) * principalEvent
+                                            : 0m
+                                        : 0m;
+
                     if (paymentType == OPaymentType.TotalPayment)
                         commissionAmount += comisstionATR;
+                    if (paymentType == OPaymentType.PartialPayment)
+                        commissionAmount = comisstionAPR;
 
 
                     OCurrency penaltyAmount;
