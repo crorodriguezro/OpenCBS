@@ -7221,6 +7221,7 @@ namespace OpenCBS.GUI.Clients
                                 item.SubItems[1].Text = (100m * feeAmount / _credit.Amount).GetFormatedValue(_credit.Product.Currency.UseCents);
                                 e.DisplayText = item.SubItems[1].Text;
                             }
+                            item.SubItems[1].Text = inputFee.GetFormatedValue(_credit.Product.Currency.UseCents);
                             item.SubItems[3].Text = feeAmount.GetFormatedValue(_credit.Product.Currency.UseCents);
                         }
                         else
@@ -7234,6 +7235,7 @@ namespace OpenCBS.GUI.Clients
                                 item.SubItems[1].Text = (100m * feeAmount / _credit.Amount).GetFormatedValue(_credit.Product.Currency.UseCents);
                                 e.DisplayText = item.SubItems[1].Text;
                             }
+                            item.SubItems[1].Text = feeAmount.GetFormatedValue(_credit.Product.Currency.UseCents);
                             item.SubItems[3].Text = feeAmount.GetFormatedValue(_credit.Product.Currency.UseCents);
                         }
                     }
