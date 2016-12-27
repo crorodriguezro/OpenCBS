@@ -50,7 +50,6 @@ namespace OpenCBS.GUI.Contracts
             if (_isReopen)
             {
                 lbEntryFees.Text = GetString("lbReopenFees.Text");
-                _errorLabel.Text = lbEntryFees.Text + @" + Tax > Initial Amount";
                 lbEntryFeesConfirmation.Text = GetString("lbReopenFeesConfirmation.Text");
                 gbModifyInitialAmountEntryFees.Text = GetString("gbModifyInitialAmountReopenFees.Text");
             }
