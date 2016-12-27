@@ -37,7 +37,7 @@ namespace OpenCBS.CoreDomain
         public User()
         {
             _role = Roles.LOF.ToString();
-            _userRole = new Role { RoleName = Roles.LOF.ToString() };
+            _userRole = new Role { RoleName = Roles.VISIT.ToString() };
             Sex = OGender.Male;
             Md5 = string.Empty;
         }
