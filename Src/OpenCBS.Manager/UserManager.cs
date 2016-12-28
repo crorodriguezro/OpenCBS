@@ -231,19 +231,22 @@ namespace OpenCBS.Manager
 
             if (tx != null)
             {
-                var conn = tx.Connection;
-                var sqlCommand = new OpenCbsCommand(sqlText, conn, tx);
-                sqlCommand.AddParam("@id", pUserId);
-                var reader = sqlCommand.ExecuteReader();
-                if (reader != null)
+                using (var sqlCommand = new OpenCbsCommand(sqlText, tx.Connection, tx))
                 {
-                    if (!reader.Empty)
+                    sqlCommand.AddParam("@id", pUserId);
+                    using (var reader = sqlCommand.ExecuteReader())
                     {
-                        reader.Read();
-                        return _GetUser(reader);
+                        if (reader != null)
+                        {
+                            if (!reader.Empty)
+                            {
+                                reader.Read();
+                                return _GetUser(reader);
+                            }
+                        }
                     }
+                    return null;
                 }
-                return null;
             }
 
             using (var conn = GetConnection())
