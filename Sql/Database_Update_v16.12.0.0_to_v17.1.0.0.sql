@@ -1,4 +1,4 @@
 UPDATE  [TechnicalParameters]
-SET     [value] = 'v16.12.0.0'
+SET     [value] = 'v17.1.0.0'
 WHERE   [name] = 'VERSION'
 GO
