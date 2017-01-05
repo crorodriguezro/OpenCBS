@@ -273,20 +273,21 @@ namespace OpenCBS.Manager.Clients
 
             if (tx != null)
             {
-                var conn = tx.Connection;
-                var c = new OpenCbsCommand(q, conn, tx);
-                c.AddParam("@id", pPersonId);
-
-                using (var r = c.ExecuteReader())
+                using (var c = new OpenCbsCommand(q, tx.Connection, tx))
                 {
-                    if (!r.Empty)
-                    {
-                        r.Read();
-                        person = GetPersonFromReader(r);
+                    c.AddParam("@id", pPersonId);
 
-                        secondaryDistrictId = r.GetNullInt("secondary_district_id");
-                        activityId = r.GetNullInt("activity_id");
-                        districtId = r.GetNullInt("district_id");
+                    using (var r = c.ExecuteReader())
+                    {
+                        if (!r.Empty)
+                        {
+                            r.Read();
+                            person = GetPersonFromReader(r);
+
+                            secondaryDistrictId = r.GetNullInt("secondary_district_id");
+                            activityId = r.GetNullInt("activity_id");
+                            districtId = r.GetNullInt("district_id");
+                        }
                     }
                 }
             }
@@ -2362,19 +2363,18 @@ namespace OpenCBS.Manager.Clients
 
             if (tx != null)
             {
-                var conn = tx.Connection;
-                var c = new OpenCbsCommand(q, conn, tx);
-                c.AddParam("@id", pId);
+                using (var c = new OpenCbsCommand(q, tx.Connection, tx))
+                {
+                    c.AddParam("@id", pId);
+                    var clientId = Convert.ToInt32(c.ExecuteScalar());
+                    IClient client = SelectPersonById(clientId, true, selectProjectAndSavings, tx);
+                    if (client == null)
+                        client = SelectBodyCorporateByIdWithTransactionWithoutContacts(clientId, tx);
+                    if (client == null)
+                        client = SelectGroup(clientId);
 
-                var clientId = Convert.ToInt32(c.ExecuteScalar());
-
-                IClient client = SelectPersonById(clientId, true, selectProjectAndSavings, tx);
-                if (client == null)
-                    client = SelectBodyCorporateByIdWithTransactionWithoutContacts(clientId, tx);
-                if (client == null)
-                    client = SelectGroup(clientId);
-
-                return client;
+                    return client;
+                }
             }
 
             using (var conn = GetConnection())

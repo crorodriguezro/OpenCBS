@@ -116,5 +116,10 @@ BEGIN
     ALTER TABLE [dbo].[EntryFees]
 	DROP COLUMN [value]
 END
-
+GO
 --------------------------------------------------------------------------------- ENTRY FEE END -----------------------------------------------------------------------------------------
+if col_length('dbo.LoanPenaltyAccrualEvents','installment_number') IS NULL
+    begin
+        alter table dbo.LoanPenaltyAccrualEvents add installment_number int not null
+    end
+GO
