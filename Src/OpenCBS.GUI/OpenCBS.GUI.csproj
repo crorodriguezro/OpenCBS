@@ -368,6 +368,12 @@
     <Compile Include="Configuration\FrmRoles.Designer.cs">
       <DependentUpon>FrmRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Configuration\PaymentMethod\PaymentMethodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\PaymentMethod\PaymentMethodForm.Designer.cs">
+      <DependentUpon>PaymentMethodForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuration\PublicHolidaysWaitingForm.Designer.cs">
       <DependentUpon>PublicHolidaysWaitingForm.cs</DependentUpon>
     </Compile>
@@ -1319,6 +1325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\frmUserSelection.pt.resx">
       <DependentUpon>frmUserSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\PaymentMethod\PaymentMethodForm.resx">
+      <DependentUpon>PaymentMethodForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\PublicHolidaysWaitingForm.pt.resx">
       <DependentUpon>PublicHolidaysWaitingForm.cs</DependentUpon>

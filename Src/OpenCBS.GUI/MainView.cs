@@ -46,6 +46,7 @@ using OpenCBS.GUI.AuditTrail;
 using OpenCBS.GUI.Clients;
 using OpenCBS.GUI.Configuration;
 using OpenCBS.GUI.Configuration.EntryFee;
+using OpenCBS.GUI.Configuration.PaymentMethod;
 using OpenCBS.GUI.Contracts;
 using OpenCBS.GUI.Database;
 using OpenCBS.GUI.Products;
@@ -1025,6 +1026,12 @@ namespace OpenCBS.GUI
         {
             var frmEntryFees = new EntryFeesForm{ MdiParent = this };
             frmEntryFees.Show();
+        }
+
+        private void paymentMethodToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmPaymentMethods = new PaymentMethodForm { MdiParent = this };
+            frmPaymentMethods.Show();
         }
     }
 }

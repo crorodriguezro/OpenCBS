@@ -28,6 +28,7 @@ using OpenCBS.ExceptionsHandler;
 using OpenCBS.GUI.UserControl;
 using System.Windows.Forms;
 using OpenCBS.Services;
+using AccountingPaymentMethod = OpenCBS.CoreDomain.Accounting.PaymentMethod;
 
 namespace OpenCBS.GUI.Configuration
 {
@@ -113,9 +114,9 @@ namespace OpenCBS.GUI.Configuration
         public void LoadPaymentMethods()
         {
             lvPaymentMethods.Items.Clear();
-            List<PaymentMethod> methods =
+            List<AccountingPaymentMethod> methods =
                 ServicesProvider.GetInstance().GetPaymentMethodServices().GetAllPaymentMethodsOfBranch(Branch.Id);
-            foreach (PaymentMethod method in methods)
+            foreach (AccountingPaymentMethod method in methods)
             {
                 ListViewItem lvi = new ListViewItem { Tag = method };
                 lvi.UseItemStyleForSubItems = false;
@@ -144,7 +145,7 @@ namespace OpenCBS.GUI.Configuration
         {
             if (lvPaymentMethods.SelectedItems.Count == 0)
                 return;
-            PaymentMethod paymentMethod = lvPaymentMethods.SelectedItems[0].Tag as PaymentMethod;
+            AccountingPaymentMethod paymentMethod = lvPaymentMethods.SelectedItems[0].Tag as AccountingPaymentMethod;
             Debug.Assert(paymentMethod != null, "Payment method not selected!");
             if (!Confirm("confirmDelete")) return;
                 ServicesProvider.GetInstance().GetPaymentMethodServices().Delete(paymentMethod);
@@ -156,7 +157,7 @@ namespace OpenCBS.GUI.Configuration
         {
             if (lvPaymentMethods.SelectedItems.Count == 0)
                 return;
-            PaymentMethod paymentMethod = (PaymentMethod)lvPaymentMethods.SelectedItems[0].Tag;
+            AccountingPaymentMethod paymentMethod = (AccountingPaymentMethod)lvPaymentMethods.SelectedItems[0].Tag;
             Debug.Assert(paymentMethod != null, "Payment method not selected!");
             AddPaymentMethodForm frm = new AddPaymentMethodForm(paymentMethod);
             if (DialogResult.OK != frm.ShowDialog()) return;
