@@ -1335,7 +1335,19 @@
     <EmbeddedResource Include="Configuration\PaymentMethod\PaymentMethodAddEdit.resx">
       <DependentUpon>PaymentMethodAddEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\PaymentMethod\PaymentMethodForm.es.resx">
+      <DependentUpon>PaymentMethodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\PaymentMethod\PaymentMethodForm.fr.resx">
+      <DependentUpon>PaymentMethodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\PaymentMethod\PaymentMethodForm.pt.resx">
+      <DependentUpon>PaymentMethodForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Configuration\PaymentMethod\PaymentMethodForm.resx">
+      <DependentUpon>PaymentMethodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\PaymentMethod\PaymentMethodForm.ru-RU.resx">
       <DependentUpon>PaymentMethodForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuration\PublicHolidaysWaitingForm.pt.resx">
