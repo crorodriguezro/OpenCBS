@@ -35,7 +35,7 @@
             this._listViewPaymentMethods = new System.Windows.Forms.ListView();
             this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chMaxSum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this._checkBoxShowDeleted = new System.Windows.Forms.CheckBox();
             this._buttonAdd = new System.Windows.Forms.Button();
             this._buttonDelete = new System.Windows.Forms.Button();
@@ -130,7 +130,7 @@
             this._listViewPaymentMethods.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chId,
             this.chName,
-            this.chMaxSum});
+            this.chDescription});
             this._listViewPaymentMethods.Dock = System.Windows.Forms.DockStyle.Fill;
             this._listViewPaymentMethods.Font = new System.Drawing.Font("Arial", 9.75F);
             this._listViewPaymentMethods.FullRowSelect = true;
@@ -143,6 +143,7 @@
             this._listViewPaymentMethods.TabIndex = 1;
             this._listViewPaymentMethods.UseCompatibleStateImageBehavior = false;
             this._listViewPaymentMethods.View = System.Windows.Forms.View.Details;
+            this._listViewPaymentMethods.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this._listViewPaymentMethods_MouseDoubleClick);
             // 
             // chId
             // 
@@ -154,10 +155,10 @@
             this.chName.Text = "Name";
             this.chName.Width = 185;
             // 
-            // chMaxSum
+            // chDescription
             // 
-            this.chMaxSum.Text = "Description";
-            this.chMaxSum.Width = 641;
+            this.chDescription.Text = "Description";
+            this.chDescription.Width = 641;
             // 
             // _checkBoxShowDeleted
             // 
@@ -181,6 +182,7 @@
             this._buttonAdd.Size = new System.Drawing.Size(150, 31);
             this._buttonAdd.TabIndex = 10;
             this._buttonAdd.Text = "Add";
+            this._buttonAdd.Click += new System.EventHandler(this._buttonAdd_Click);
             // 
             // _buttonDelete
             // 
@@ -204,6 +206,7 @@
             this._buttonEdit.Size = new System.Drawing.Size(150, 31);
             this._buttonEdit.TabIndex = 11;
             this._buttonEdit.Text = "Edit";
+            this._buttonEdit.Click += new System.EventHandler(this._buttonEdit_Click);
             // 
             // PaymentMethodForm
             // 
@@ -235,7 +238,7 @@
         private System.Windows.Forms.ListView _listViewPaymentMethods;
         private System.Windows.Forms.ColumnHeader chId;
         private System.Windows.Forms.ColumnHeader chName;
-        private System.Windows.Forms.ColumnHeader chMaxSum;
+        private System.Windows.Forms.ColumnHeader chDescription;
         private System.Windows.Forms.CheckBox _checkBoxShowDeleted;
         private System.Windows.Forms.Button _buttonAdd;
         private System.Windows.Forms.Button _buttonDelete;

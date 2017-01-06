@@ -163,7 +163,7 @@ namespace OpenCBS.GUI.Configuration
             if (DialogResult.OK != frm.ShowDialog()) return;
             try
             {
-                ServicesProvider.GetInstance().GetPaymentMethodServices().Update(frm.PaymentMethod);
+                ServicesProvider.GetInstance().GetPaymentMethodServices().UpdatePaymentMethodFromBranch(frm.PaymentMethod);
             }
             catch(Exception ex)
             {

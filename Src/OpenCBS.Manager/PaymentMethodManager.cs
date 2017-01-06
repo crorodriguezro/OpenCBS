@@ -20,9 +20,11 @@
 // Contact: contact@opencbs.com
 
 using System.Collections.Generic;
+using System.Data;
 using OpenCBS.CoreDomain;
 using System.Data.SqlClient;
 using System.Linq;
+using Dapper;
 using OpenCBS.CoreDomain.Accounting;
 using OpenCBS.Manager.Accounting;
 
@@ -205,6 +207,44 @@ namespace OpenCBS.Manager
                 c.ExecuteNonQuery();
                 RefreshCache();
             }
+        }
+
+        public void Save(PaymentMethod paymentMethod, IDbTransaction transaction)
+        {
+            const string query = @"INSERT INTO dbo.PaymentMethods 
+                                        (name 
+                                        , description)
+                                   VALUES
+                                       (@Name
+                                        , @Description)";
+
+            transaction.Connection.Execute(query, paymentMethod, transaction);
+        }
+
+        public void Update(PaymentMethod paymentMethod, IDbTransaction transaction)
+        {
+            const string query = @"UPDATE
+                                        dbo.PaymentMethods 
+                                   set
+                                        name = @Name, 
+                                        description = @Description
+                                   where
+                                        id = @Id";
+
+            transaction.Connection.Execute(query, paymentMethod, transaction);
+        }
+
+        public List<PaymentMethod> GetAllNonCashsPaymentMethods(IDbTransaction transaction)
+        {
+            const string query = @"SELECT pm.[id]
+                                  ,[name]
+                                  ,[description]
+                                  ,[pending]
+                            FROM [PaymentMethods] pm
+                            ORDER BY pm.[id]";
+
+            var result = transaction.Connection.Query<PaymentMethod>(query, null, transaction).ToList();
+            return result;
         }
     }
 }
