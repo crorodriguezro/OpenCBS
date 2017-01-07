@@ -64,6 +64,10 @@
       <HintPath>..\packages\ObjectListView.Official.2.8.1\lib\net20\ObjectListView.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="OpenCBS.Extension.ExcelReports, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\OpenCBSLibs\Extensions\OpenCBS.Extension.ExcelReports.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap, Version=3.1.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\structuremap.3.1.4.143\lib\net40\StructureMap.dll</HintPath>
@@ -73,6 +77,7 @@
       <HintPath>..\packages\structuremap.3.1.4.143\lib\net40\StructureMap.Net4.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
@@ -84,6 +89,144 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounting\AccountingMenu.cs" />
+    <Compile Include="Accounting\AccountingRegistry.cs" />
+    <Compile Include="Accounting\CommandData\AddAccountCommandData.cs" />
+    <Compile Include="Accounting\CommandData\AddBookingCommandData.cs" />
+    <Compile Include="Accounting\CommandData\DeleteAccountCommandData.cs" />
+    <Compile Include="Accounting\CommandData\DeleteBookingCommandData.cs" />
+    <Compile Include="Accounting\CommandData\EditAccountCommandData.cs" />
+    <Compile Include="Accounting\CommandData\EditBookingCommandData.cs" />
+    <Compile Include="Accounting\CommandData\ShowAccountMovementsCommandData.cs" />
+    <Compile Include="Accounting\CommandData\ShowAccountsCommandData.cs" />
+    <Compile Include="Accounting\CommandData\ShowAnalyticBalancesCommandData.cs" />
+    <Compile Include="Accounting\CommandData\ShowBookingsCommandData.cs" />
+    <Compile Include="Accounting\CommandData\ShowTurnoverBalancesCommandData.cs" />
+    <Compile Include="Accounting\Command\AddAccountCommand.cs" />
+    <Compile Include="Accounting\Command\AddBookingCommand.cs" />
+    <Compile Include="Accounting\Command\DeleteAccountCommand.cs" />
+    <Compile Include="Accounting\Command\DeleteBookingCommand.cs" />
+    <Compile Include="Accounting\Command\EditAccountCommand.cs" />
+    <Compile Include="Accounting\Command\EditBookingCommand.cs" />
+    <Compile Include="Accounting\Command\ShowAccountMovementsCommand.cs" />
+    <Compile Include="Accounting\Command\ShowAccountsCommand.cs" />
+    <Compile Include="Accounting\Command\ShowAnalyticBalancesCommand.cs" />
+    <Compile Include="Accounting\Command\ShowBookingsCommand.cs" />
+    <Compile Include="Accounting\Command\ShowTurnoverBalancesCommand.cs" />
+    <Compile Include="Accounting\EventInterceptor.cs" />
+    <Compile Include="Accounting\IAccountingMenu.cs" />
+    <Compile Include="Accounting\Interface\IReportItem.cs" />
+    <Compile Include="Accounting\Interface\Presenter\IAccountMovementsPresenter.cs" />
+    <Compile Include="Accounting\Interface\Presenter\IAccountMovementsPresenterCallbacks.cs" />
+    <Compile Include="Accounting\Interface\Presenter\IAccountPresenter.cs" />
+    <Compile Include="Accounting\Interface\Presenter\IAccountPresenterCallbacks.cs" />
+    <Compile Include="Accounting\Interface\Presenter\IAccountsPresenter.cs" />
+    <Compile Include="Accounting\Interface\Presenter\IAccountsPresenterCallbacks.cs" />
+    <Compile Include="Accounting\Interface\Presenter\IAnalyticBalancesPresenter.cs" />
+    <Compile Include="Accounting\Interface\Presenter\IAnalyticBalancesPresenterCallbacks.cs" />
+    <Compile Include="Accounting\Interface\Presenter\IBookingPresenter.cs" />
+    <Compile Include="Accounting\Interface\Presenter\IBookingPresenterCallbacks.cs" />
+    <Compile Include="Accounting\Interface\Presenter\IBookingsPresenter.cs" />
+    <Compile Include="Accounting\Interface\Presenter\IBookingsPresenterCallbacks.cs" />
+    <Compile Include="Accounting\Interface\Presenter\ITurnoverBalancesPresenter.cs" />
+    <Compile Include="Accounting\Interface\Presenter\ITurnoverBalancesPresenterCallbacks.cs" />
+    <Compile Include="Accounting\Interface\Repository\IAccountRepository.cs" />
+    <Compile Include="Accounting\Interface\Repository\IBookingRepository.cs" />
+    <Compile Include="Accounting\Interface\View\IAccountMovementsView.cs" />
+    <Compile Include="Accounting\Interface\View\IAccountsView.cs" />
+    <Compile Include="Accounting\Interface\View\IAccountView.cs" />
+    <Compile Include="Accounting\Interface\View\IAnalyticBalancesView.cs" />
+    <Compile Include="Accounting\Interface\View\IBookingsView.cs" />
+    <Compile Include="Accounting\Interface\View\IBookingView.cs" />
+    <Compile Include="Accounting\Interface\View\ITurnoverBalancesView.cs" />
+    <Compile Include="Accounting\Message\AccountSavedMessage.cs" />
+    <Compile Include="Accounting\Message\AddBookingMessage.cs" />
+    <Compile Include="Accounting\Message\BookingSavedMessage.cs" />
+    <Compile Include="Accounting\Model\Account.cs" />
+    <Compile Include="Accounting\Model\AccountMovement.cs" />
+    <Compile Include="Accounting\Model\Balance.cs" />
+    <Compile Include="Accounting\Model\Booking.cs" />
+    <Compile Include="Accounting\Model\BookingBase.cs" />
+    <Compile Include="Accounting\Model\BookingEntry.cs" />
+    <Compile Include="Accounting\Presenter\AccountMovementsPresenter.cs" />
+    <Compile Include="Accounting\Presenter\AccountPresenter.cs" />
+    <Compile Include="Accounting\Presenter\AccountsPresenter.cs" />
+    <Compile Include="Accounting\Presenter\AnalyticBalancesPresenter.cs" />
+    <Compile Include="Accounting\Presenter\BookingPresenter.cs" />
+    <Compile Include="Accounting\Presenter\BookingsPresenter.cs" />
+    <Compile Include="Accounting\Presenter\TurnoverBalancesPresenter.cs" />
+    <Compile Include="Accounting\Repository\AccountRepository.cs" />
+    <Compile Include="Accounting\Repository\BookingDto.cs" />
+    <Compile Include="Accounting\Repository\BookingRepository.cs" />
+    <Compile Include="Accounting\Service\AccountService.cs" />
+    <Compile Include="Accounting\Service\BookingService.cs" />
+    <Compile Include="Accounting\Service\IAccountService.cs" />
+    <Compile Include="Accounting\Service\IBookingService.cs" />
+    <Compile Include="Accounting\Service\ReportService.cs" />
+    <Compile Include="Accounting\View\AccountMovements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\View\AccountMovements.Designer.cs">
+      <DependentUpon>AccountMovements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\View\AccountsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\View\AccountsView.Designer.cs">
+      <DependentUpon>AccountsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\View\AccountView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\View\AccountView.Designer.cs">
+      <DependentUpon>AccountView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\View\AnalyticBalancesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\View\AnalyticBalancesView.Designer.cs">
+      <DependentUpon>AnalyticBalancesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\View\BookingsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\View\BookingsView.Designer.cs">
+      <DependentUpon>BookingsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\View\BookingView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\View\BookingView.Designer.cs">
+      <DependentUpon>BookingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\View\LoadingProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\View\LoadingProgressForm.Designer.cs">
+      <DependentUpon>LoadingProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\View\TurnoverBalancesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\View\TurnoverBalancesView.Designer.cs">
+      <DependentUpon>TurnoverBalancesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\View\UserControl\AutocompletionComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Accounting\View\UserControl\AutocompletionComboBox.Designer.cs">
+      <DependentUpon>AutocompletionComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\View\UserControl\DropdownControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Accounting\View\UserControl\DropdownControl.Designer.cs">
+      <DependentUpon>DropdownControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\View\UserControl\StringMatcher.cs" />
+    <Compile Include="Accounting\View\UserControl\ToolStripCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="AppContext.cs" />
     <Compile Include="ApplicationController.cs" />
     <Compile Include="BackgroundTask.cs" />
@@ -120,12 +263,12 @@
     <Compile Include="Command\EditSavingCommand.cs" />
     <Compile Include="Command\FastRepaymentCommand.cs" />
     <Compile Include="Command\ShowDashboardCommand.cs" />
+    <Compile Include="EventInterceptor.cs" />
     <Compile Include="Event\DisbursementNotification.cs" />
     <Compile Include="Interface\IAfterLoginHook.cs" />
     <Compile Include="Interface\IStartupProcess.cs" />
     <Compile Include="Command\ShowSearchCommand.cs" />
     <Compile Include="Command\EditVillageBankCommand.cs" />
-    <Compile Include="EventInterceptor.cs" />
     <Compile Include="Interface\Presenter\IBatchRepaymentPresenter.cs" />
     <Compile Include="Interface\Presenter\IBatchRepaymentPresenterCallbacks.cs" />
     <Compile Include="Interface\Presenter\IVillageBankPresenter.cs" />
@@ -297,6 +440,30 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Accounting\View\AccountMovements.resx">
+      <DependentUpon>AccountMovements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\View\AccountsView.resx">
+      <DependentUpon>AccountsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\View\AccountView.resx">
+      <DependentUpon>AccountView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\View\AnalyticBalancesView.resx">
+      <DependentUpon>AnalyticBalancesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\View\BookingsView.resx">
+      <DependentUpon>BookingsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\View\BookingView.resx">
+      <DependentUpon>BookingView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\View\LoadingProgressForm.resx">
+      <DependentUpon>LoadingProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\View\TurnoverBalancesView.resx">
+      <DependentUpon>TurnoverBalancesView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -367,7 +534,25 @@
     <Folder Include="Service\Scripts\Repayment\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Accounting\Sql\CreateAccounting.sql" />
+    <Content Include="Accounting\Sql\Roles.sql" />
+    <Content Include="Accounting\Sql\update_20160226.sql" />
+    <Content Include="Accounting\Sql\update_20160627.sql" />
+    <Content Include="Accounting\Sql\update_20160906.sql" />
+    <Content Include="Accounting\Sql\Update_accounts_role.sql" />
+    <Content Include="Accounting\Sql\update_booking.sql" />
     <Content Include="opencbs.ico" />
+    <Content Include="Resources\add.png" />
+    <Content Include="Resources\arrow_refresh.png" />
+    <Content Include="Resources\basket_put.png" />
+    <Content Include="Resources\cancel.png" />
+    <Content Include="Resources\date.png" />
+    <Content Include="Resources\delete.png" />
+    <Content Include="Resources\disk.png" />
+    <Content Include="Resources\page_white_excel.png" />
+    <Content Include="Resources\pencil.png" />
+    <Content Include="Resources\printer.png" />
+    <Content Include="Resources\table_row_delete.png" />
     <None Include="Resources\bullet_arrow_down.png" />
     <None Include="Resources\pt.png" />
     <None Include="Resources\es.png" />
