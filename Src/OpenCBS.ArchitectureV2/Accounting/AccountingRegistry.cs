@@ -10,7 +10,6 @@ namespace OpenCBS.ArchitectureV2.Accounting
     {
         public AccountingRegistry()
         {
-            For<IMenu>().Use<AccountingMenu>();
             For<ICommand<ShowAccountsCommandData>>().Use<ShowAccountsCommand>();
             For<ICommand<AddAccountCommandData>>().Use<AddAccountCommand>();
             For<ICommand<EditAccountCommandData>>().Use<EditAccountCommand>();

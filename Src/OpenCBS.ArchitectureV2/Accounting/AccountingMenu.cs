@@ -9,7 +9,6 @@ using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.Service;
 using OpenCBS.CoreDomain;
 using OpenCBS.Enums;
-using OpenCBS.Extension.ExcelReports;
 using OpenCBS.Extensions;
 using OpenCBS.Services;
 using OpenCBS.Shared.Settings;
@@ -104,45 +103,6 @@ namespace OpenCBS.ArchitectureV2.Accounting
                 movementsItem.Enabled = role.IsMenuAllowed(movementsMenu);
             }
 
-            var reportsItem = new ToolStripMenuItem
-            {
-                Name = "mnuAccountingReports",
-                Text = _translationService.Translate("Reports")
-            };
-
-            var directory = TechnicalSettings.ReportPath;
-            if (string.IsNullOrEmpty(directory))
-            {
-                directory = AppDomain.CurrentDomain.BaseDirectory;
-            }
-            directory = Path.Combine(directory, "Reports");
-            directory = Path.Combine(directory, "Excel");
-            if (Directory.Exists(directory))
-            {
-                var reports = Directory.GetFiles(directory, "*.zip")
-                    .Select(file => new Report(file))
-                    .Where(report => report.AttachmentPoint == "Accounting")
-                    .ToList();
-                foreach (var report in reports)
-                {
-                    var temp = report;
-                    var reportItem = new ToolStripMenuItem
-                    {
-                        Name = "mnu" + report.Title,
-                        Text = report.Title
-                    };
-                    reportItem.Click += (sender, e) => Initializer.ShowReport(temp, new Dictionary<string, object>());
-                    reportsItem.DropDownItems.Add(reportItem);
-                }
-            }
-            var customReports = _applicationController.GetAllInstances<IReportItem>().ToList();
-            customReports.Sort((x, y) => x.Order.CompareTo(y.Order));
-            foreach (var report in customReports)
-            {
-                reportsItem.DropDownItems.Add(report.GetItem());
-            }
-            reportsItem.Visible = reportsItem.DropDownItems.Count > 0;
-
             if (User.CurrentUser.UserRole.IsMenuAllowed(new MenuObject { Name = bookingsItem.Name }))
                 item.DropDownItems.AddRange(new ToolStripItem[] { bookingsItem });
             if (User.CurrentUser.UserRole.IsMenuAllowed(new MenuObject { Name = chartItem.Name }))
@@ -153,8 +113,6 @@ namespace OpenCBS.ArchitectureV2.Accounting
                 item.DropDownItems.AddRange(new ToolStripItem[] { turnoverItem });
             if (User.CurrentUser.UserRole.IsMenuAllowed(new MenuObject { Name = movementsItem.Name }))
                 item.DropDownItems.AddRange(new ToolStripItem[] { movementsItem });
-            if (User.CurrentUser.UserRole.IsMenuAllowed(new MenuObject { Name = reportsItem.Name }))
-                item.DropDownItems.AddRange(new ToolStripItem[] { reportsItem });
 
             var extensions = _applicationController.GetAllInstances<IAccountingMenu>().ToList();
             extensions.Sort((x, y) => x.Order.CompareTo(y.Order));
