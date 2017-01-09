@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace OpenCBS.Extension.Accounting.Interface
+namespace OpenCBS.ArchitectureV2.Accounting.Interface
 {
     public interface IReportItem
     {

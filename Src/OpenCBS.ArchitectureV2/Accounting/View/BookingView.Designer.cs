@@ -1,4 +1,6 @@
-﻿namespace OpenCBS.Extension.Accounting.View
+﻿using OpenCBS.ArchitectureV2.Accounting.View.UserControl;
+
+namespace OpenCBS.ArchitectureV2.Accounting.View
 {
     partial class BookingView
     {
@@ -31,8 +33,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookingView));
             this.panel1 = new System.Windows.Forms.Panel();
-            this._creditCombobox = new OpenCBS.Extension.Accounting.View.UserControl.AutocompletionComboBox();
-            this._debitCombobox = new OpenCBS.Extension.Accounting.View.UserControl.AutocompletionComboBox();
+            this._creditCombobox = new AutocompletionComboBox();
+            this._debitCombobox = new AutocompletionComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this._cancelButton = new System.Windows.Forms.Button();
             this._okButton = new System.Windows.Forms.Button();

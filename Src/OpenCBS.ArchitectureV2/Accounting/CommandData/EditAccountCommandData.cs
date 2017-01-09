@@ -1,6 +1,6 @@
-﻿using OpenCBS.Extension.Accounting.Model;
+﻿using OpenCBS.ArchitectureV2.Accounting.Model;
 
-namespace OpenCBS.Extension.Accounting.CommandData
+namespace OpenCBS.ArchitectureV2.Accounting.CommandData
 {
     public class EditAccountCommandData
     {

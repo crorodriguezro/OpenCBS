@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using OpenCBS.Extension.Accounting.Model;
+using OpenCBS.ArchitectureV2.Accounting.Model;
 
-namespace OpenCBS.Extension.Accounting.Interface.Repository
+namespace OpenCBS.ArchitectureV2.Accounting.Interface.Repository
 {
     public interface IAccountRepository
     {

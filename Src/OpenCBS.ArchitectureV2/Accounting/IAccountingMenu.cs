@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace OpenCBS.Extension.Accounting
+namespace OpenCBS.ArchitectureV2.Accounting
 {
     public interface IAccountingMenu
     {

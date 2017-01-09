@@ -5,7 +5,7 @@ using System.Linq;
 using OpenCBS.Extension.ExcelReports;
 using OpenCBS.Shared.Settings;
 
-namespace OpenCBS.Extension.Accounting.Service
+namespace OpenCBS.ArchitectureV2.Accounting.Service
 {
     public static class ReportService
     {

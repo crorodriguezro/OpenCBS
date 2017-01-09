@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Accounting.Interface.Presenter;
+using OpenCBS.ArchitectureV2.Accounting.Model;
+using OpenCBS.ArchitectureV2.Accounting.Repository;
 using OpenCBS.ArchitectureV2.Interface.View;
-using OpenCBS.Extension.Accounting.Interface.Presenter;
-using OpenCBS.Extension.Accounting.Model;
-using OpenCBS.Extension.Accounting.Repository;
 using OpenCBS.Extension.ExcelReports;
 
-namespace OpenCBS.Extension.Accounting.Interface.View
+namespace OpenCBS.ArchitectureV2.Accounting.Interface.View
 {
     public interface IBookingsView : IView<IBookingsPresenterCallbacks>
     {

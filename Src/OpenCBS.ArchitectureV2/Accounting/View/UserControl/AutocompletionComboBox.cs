@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using ComboBox = System.Windows.Forms.ComboBox;
 
-namespace OpenCBS.Extension.Accounting.View.UserControl
+namespace OpenCBS.ArchitectureV2.Accounting.View.UserControl
 {
     /// <summary>
     /// This is a combobox with a suggestion list à la "Sublime Text"

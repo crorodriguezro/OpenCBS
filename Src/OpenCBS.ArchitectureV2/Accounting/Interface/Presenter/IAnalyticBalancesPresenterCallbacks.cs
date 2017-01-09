@@ -1,4 +1,4 @@
-﻿namespace OpenCBS.Extension.Accounting.Interface.Presenter
+﻿namespace OpenCBS.ArchitectureV2.Accounting.Interface.Presenter
 {
     public interface IAnalyticBalancesPresenterCallbacks
     {

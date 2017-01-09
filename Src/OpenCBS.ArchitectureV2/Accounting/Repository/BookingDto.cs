@@ -1,8 +1,8 @@
 ﻿using System;
+using OpenCBS.ArchitectureV2.Accounting.Model;
 using OpenCBS.CoreDomain;
-using OpenCBS.Extension.Accounting.Model;
 
-namespace OpenCBS.Extension.Accounting.Repository
+namespace OpenCBS.ArchitectureV2.Accounting.Repository
 {
     public class BookingDto
     {

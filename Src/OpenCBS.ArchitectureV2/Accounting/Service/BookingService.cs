@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using OpenCBS.CoreDomain.Events.Loan;
+using OpenCBS.ArchitectureV2.Accounting.Interface.Repository;
+using OpenCBS.ArchitectureV2.Accounting.Model;
+using OpenCBS.ArchitectureV2.Accounting.Repository;
 using OpenCBS.CoreDomain.Events.Saving;
-using OpenCBS.Extension.Accounting.Interface.Repository;
-using OpenCBS.Extension.Accounting.Model;
-using OpenCBS.Extension.Accounting.Repository;
 
-namespace OpenCBS.Extension.Accounting.Service
+namespace OpenCBS.ArchitectureV2.Accounting.Service
 {
     public class BookingService : IBookingService
     {
@@ -47,7 +46,7 @@ namespace OpenCBS.Extension.Accounting.Service
 
         public void DeleteBookingsByEvent(IDictionary<string, object> entity, IDbTransaction tx = null)
         {
-            var eEvent = entity.ContainsKey("Event") ? (Event) entity["Event"] : null;
+            var eEvent = entity.ContainsKey("Event") ? (CoreDomain.Events.Loan.Event) entity["Event"] : null;
             if (eEvent == null) return;
             if (eEvent is SavingEvent)
             {

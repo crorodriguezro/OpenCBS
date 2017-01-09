@@ -1,10 +1,10 @@
-﻿using OpenCBS.ArchitectureV2.Interface;
-using OpenCBS.Extension.Accounting.Command;
-using OpenCBS.Extension.Accounting.CommandData;
+﻿using OpenCBS.ArchitectureV2.Accounting.Command;
+using OpenCBS.ArchitectureV2.Accounting.CommandData;
+using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.Extensions;
 using StructureMap.Configuration.DSL;
 
-namespace OpenCBS.Extension.Accounting
+namespace OpenCBS.ArchitectureV2.Accounting
 {
     public class AccountingRegistry : Registry
     {

@@ -1,4 +1,6 @@
-﻿namespace OpenCBS.Extension.Accounting.View
+﻿using OpenCBS.ArchitectureV2.Accounting.View.UserControl;
+
+namespace OpenCBS.ArchitectureV2.Accounting.View
 {
     partial class BookingsView
     {
@@ -55,8 +57,8 @@
             this._doc1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._doc2 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this._refreshButton = new System.Windows.Forms.Button();
-            this._debitComboBox = new OpenCBS.Extension.Accounting.View.UserControl.AutocompletionComboBox();
-            this._creditComboBox = new OpenCBS.Extension.Accounting.View.UserControl.AutocompletionComboBox();
+            this._debitComboBox = new AutocompletionComboBox();
+            this._creditComboBox = new AutocompletionComboBox();
             this._buttonsToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._bookingsListView)).BeginInit();
             this.SuspendLayout();

@@ -1,11 +1,11 @@
 ﻿using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Accounting.CommandData;
+using OpenCBS.ArchitectureV2.Accounting.Message;
+using OpenCBS.ArchitectureV2.Accounting.Service;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.Service;
-using OpenCBS.Extension.Accounting.CommandData;
-using OpenCBS.Extension.Accounting.Message;
-using OpenCBS.Extension.Accounting.Service;
 
-namespace OpenCBS.Extension.Accounting.Command
+namespace OpenCBS.ArchitectureV2.Accounting.Command
 {
     public class DeleteBookingCommand : ArchitectureV2.Command.Command, ICommand<DeleteBookingCommandData>
     {

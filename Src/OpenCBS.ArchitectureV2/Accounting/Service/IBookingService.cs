@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using OpenCBS.Extension.Accounting.Interface.Repository;
-using OpenCBS.Extension.Accounting.Model;
-using OpenCBS.Extension.Accounting.Repository;
+using OpenCBS.ArchitectureV2.Accounting.Interface.Repository;
+using OpenCBS.ArchitectureV2.Accounting.Model;
+using OpenCBS.ArchitectureV2.Accounting.Repository;
 
-namespace OpenCBS.Extension.Accounting.Service
+namespace OpenCBS.ArchitectureV2.Accounting.Service
 {
     public interface IBookingService
     {

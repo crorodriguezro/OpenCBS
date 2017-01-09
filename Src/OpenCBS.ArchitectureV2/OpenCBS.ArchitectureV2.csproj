@@ -113,7 +113,6 @@
     <Compile Include="Accounting\Command\ShowAnalyticBalancesCommand.cs" />
     <Compile Include="Accounting\Command\ShowBookingsCommand.cs" />
     <Compile Include="Accounting\Command\ShowTurnoverBalancesCommand.cs" />
-    <Compile Include="Accounting\EventInterceptor.cs" />
     <Compile Include="Accounting\IAccountingMenu.cs" />
     <Compile Include="Accounting\Interface\IReportItem.cs" />
     <Compile Include="Accounting\Interface\Presenter\IAccountMovementsPresenter.cs" />

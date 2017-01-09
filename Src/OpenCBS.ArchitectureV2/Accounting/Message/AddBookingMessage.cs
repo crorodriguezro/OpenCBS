@@ -1,7 +1,7 @@
-﻿using OpenCBS.Extension.Accounting.Model;
+﻿using OpenCBS.ArchitectureV2.Accounting.Model;
 using TinyMessenger;
 
-namespace OpenCBS.Extension.Accounting.Message
+namespace OpenCBS.ArchitectureV2.Accounting.Message
 {
     public class AddBookingMessage : ITinyMessage
     {

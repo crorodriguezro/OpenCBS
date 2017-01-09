@@ -1,9 +1,9 @@
 ﻿using System;
+using OpenCBS.ArchitectureV2.Accounting.CommandData;
+using OpenCBS.ArchitectureV2.Accounting.Interface.Presenter;
 using OpenCBS.ArchitectureV2.Interface;
-using OpenCBS.Extension.Accounting.CommandData;
-using OpenCBS.Extension.Accounting.Interface.Presenter;
 
-namespace OpenCBS.Extension.Accounting.Command
+namespace OpenCBS.ArchitectureV2.Accounting.Command
 {
     public class EditBookingCommand : ArchitectureV2.Command.Command, ICommand<EditBookingCommandData>
     {

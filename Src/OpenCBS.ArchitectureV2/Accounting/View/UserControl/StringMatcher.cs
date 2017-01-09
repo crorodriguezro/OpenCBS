@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OpenCBS.Extension.Accounting.View.UserControl
+namespace OpenCBS.ArchitectureV2.Accounting.View.UserControl
 {
     /// <summary>
     /// Possible ways of matching methods

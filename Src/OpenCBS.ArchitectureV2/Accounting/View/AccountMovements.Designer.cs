@@ -1,6 +1,6 @@
-﻿using OpenCBS.Extension.Accounting.View.UserControl;
+﻿using OpenCBS.ArchitectureV2.Accounting.View.UserControl;
 
-namespace OpenCBS.Extension.Accounting.View
+namespace OpenCBS.ArchitectureV2.Accounting.View
 {
     partial class AccountMovementsView
     {
@@ -46,7 +46,7 @@ namespace OpenCBS.Extension.Accounting.View
             this.label2 = new System.Windows.Forms.Label();
             this._debitLabel = new System.Windows.Forms.Label();
             this._refreshButton = new System.Windows.Forms.Button();
-            this._accountComboBox = new OpenCBS.Extension.Accounting.View.UserControl.AutocompletionComboBox();
+            this._accountComboBox = new AutocompletionComboBox();
             ((System.ComponentModel.ISupportInitialize)(this._accountMovementsListView)).BeginInit();
             this._toolStrip.SuspendLayout();
             this.SuspendLayout();

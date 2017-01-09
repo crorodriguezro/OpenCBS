@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OpenCBS.Extension.Accounting.CommandData
+namespace OpenCBS.ArchitectureV2.Accounting.CommandData
 {
     public class ShowAnalyticBalancesCommandData
     {

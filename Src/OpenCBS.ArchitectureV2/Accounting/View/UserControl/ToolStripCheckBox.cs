@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace OpenCBS.Extension.Accounting.View.UserControl
+namespace OpenCBS.ArchitectureV2.Accounting.View.UserControl
 {
     public class ToolStripCheckBox : ToolStripButton
     {

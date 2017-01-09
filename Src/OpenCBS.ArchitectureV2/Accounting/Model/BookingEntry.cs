@@ -1,4 +1,4 @@
-﻿namespace OpenCBS.Extension.Accounting.Model
+﻿namespace OpenCBS.ArchitectureV2.Accounting.Model
 {
     public class BookingEntry:BookingBase
     {

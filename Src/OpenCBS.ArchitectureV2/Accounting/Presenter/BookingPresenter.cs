@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Accounting.Interface.Presenter;
+using OpenCBS.ArchitectureV2.Accounting.Interface.Repository;
+using OpenCBS.ArchitectureV2.Accounting.Interface.View;
+using OpenCBS.ArchitectureV2.Accounting.Message;
+using OpenCBS.ArchitectureV2.Accounting.Model;
+using OpenCBS.ArchitectureV2.Accounting.Service;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.CoreDomain;
-using OpenCBS.Extension.Accounting.CommandData;
-using OpenCBS.Extension.Accounting.Interface.Presenter;
-using OpenCBS.Extension.Accounting.Interface.Repository;
-using OpenCBS.Extension.Accounting.Interface.View;
-using OpenCBS.Extension.Accounting.Message;
-using OpenCBS.Extension.Accounting.Model;
-using OpenCBS.Extension.Accounting.Service;
-using OpenCBS.Services;
 
-namespace OpenCBS.Extension.Accounting.Presenter
+namespace OpenCBS.ArchitectureV2.Accounting.Presenter
 {
     public class BookingPresenter : IBookingPresenter, IBookingPresenterCallbacks
     {

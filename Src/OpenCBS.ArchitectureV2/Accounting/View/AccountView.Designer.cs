@@ -1,4 +1,6 @@
-﻿namespace OpenCBS.Extension.Accounting.View
+﻿using OpenCBS.ArchitectureV2.Accounting.View.UserControl;
+
+namespace OpenCBS.ArchitectureV2.Accounting.View
 {
     partial class AccountView
     {
@@ -38,7 +40,7 @@
             this._parentLabel = new System.Windows.Forms.Label();
             this._accountTypeComboBox = new System.Windows.Forms.ComboBox();
             this._accountTypeLabel = new System.Windows.Forms.Label();
-            this._parentComboBox = new OpenCBS.Extension.Accounting.View.UserControl.AutocompletionComboBox();
+            this._parentComboBox = new AutocompletionComboBox();
             this._directCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace OpenCBS.Extension.Accounting.View
+namespace OpenCBS.ArchitectureV2.Accounting.View
 {
     public partial class LoadingProgressForm : Form
     {

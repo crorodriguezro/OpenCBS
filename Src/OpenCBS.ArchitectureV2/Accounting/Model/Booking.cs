@@ -1,8 +1,8 @@
 ﻿using System;
+using OpenCBS.ArchitectureV2.Accounting.Repository;
 using OpenCBS.CoreDomain;
-using OpenCBS.Extension.Accounting.Repository;
 
-namespace OpenCBS.Extension.Accounting.Model
+namespace OpenCBS.ArchitectureV2.Accounting.Model
 {
     public class Booking : BookingBase, ICloneable
     {

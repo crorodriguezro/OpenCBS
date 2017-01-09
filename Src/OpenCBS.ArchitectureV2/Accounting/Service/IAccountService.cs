@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using OpenCBS.Extension.Accounting.Model;
+using OpenCBS.ArchitectureV2.Accounting.Model;
 
-namespace OpenCBS.Extension.Accounting.Service
+namespace OpenCBS.ArchitectureV2.Accounting.Service
 {
     public interface IAccountService
     {

@@ -1,4 +1,4 @@
-﻿namespace OpenCBS.Extension.Accounting.View.UserControl
+﻿namespace OpenCBS.ArchitectureV2.Accounting.View.UserControl
 {
     partial class AutocompletionComboBox
     {

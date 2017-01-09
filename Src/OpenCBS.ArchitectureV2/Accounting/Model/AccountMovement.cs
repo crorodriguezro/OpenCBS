@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OpenCBS.Extension.Accounting.Model
+namespace OpenCBS.ArchitectureV2.Accounting.Model
 {
     public class AccountMovement
     {

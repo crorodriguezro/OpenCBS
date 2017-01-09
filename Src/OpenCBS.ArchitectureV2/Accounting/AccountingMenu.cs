@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Accounting.CommandData;
+using OpenCBS.ArchitectureV2.Accounting.Interface;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.Service;
 using OpenCBS.CoreDomain;
 using OpenCBS.Enums;
-using OpenCBS.Extension.Accounting.CommandData;
-using OpenCBS.Extension.Accounting.Interface;
 using OpenCBS.Extension.ExcelReports;
 using OpenCBS.Extensions;
 using OpenCBS.Services;
 using OpenCBS.Shared.Settings;
 
-namespace OpenCBS.Extension.Accounting
+namespace OpenCBS.ArchitectureV2.Accounting
 {
     public class AccountingMenu : IMenu
     {
@@ -155,7 +155,7 @@ namespace OpenCBS.Extension.Accounting
                 item.DropDownItems.AddRange(new ToolStripItem[] { movementsItem });
             if (User.CurrentUser.UserRole.IsMenuAllowed(new MenuObject { Name = reportsItem.Name }))
                 item.DropDownItems.AddRange(new ToolStripItem[] { reportsItem });
-            
+
             var extensions = _applicationController.GetAllInstances<IAccountingMenu>().ToList();
             extensions.Sort((x, y) => x.Order.CompareTo(y.Order));
             foreach (var extensionMenu in extensions)

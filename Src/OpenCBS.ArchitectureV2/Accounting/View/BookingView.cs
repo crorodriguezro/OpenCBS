@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Accounting.Interface.Presenter;
+using OpenCBS.ArchitectureV2.Accounting.Interface.View;
+using OpenCBS.ArchitectureV2.Accounting.Model;
 using OpenCBS.ArchitectureV2.Interface.Service;
 using OpenCBS.ArchitectureV2.View;
 using OpenCBS.CoreDomain;
-using OpenCBS.Extension.Accounting.Interface.Presenter;
-using OpenCBS.Extension.Accounting.Interface.View;
-using OpenCBS.Extension.Accounting.Model;
 
-namespace OpenCBS.Extension.Accounting.View
+namespace OpenCBS.ArchitectureV2.Accounting.View
 {
     public partial class BookingView : BaseView, IBookingView
     {

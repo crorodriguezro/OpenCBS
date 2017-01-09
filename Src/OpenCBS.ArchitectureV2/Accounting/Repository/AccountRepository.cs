@@ -4,12 +4,12 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using Dapper;
+using OpenCBS.ArchitectureV2.Accounting.Interface.Repository;
+using OpenCBS.ArchitectureV2.Accounting.Model;
 using OpenCBS.CoreDomain;
-using OpenCBS.Extension.Accounting.Interface.Repository;
-using OpenCBS.Extension.Accounting.Model;
 using OpenCBS.Shared;
 
-namespace OpenCBS.Extension.Accounting.Repository
+namespace OpenCBS.ArchitectureV2.Accounting.Repository
 {
     public class AccountRepository : IAccountRepository
     {

@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace OpenCBS.Extension.Accounting.View.UserControl
+namespace OpenCBS.ArchitectureV2.Accounting.View.UserControl
 {
     /// <summary>
     /// A dropdown window for combos.

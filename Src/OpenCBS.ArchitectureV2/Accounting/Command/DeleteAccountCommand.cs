@@ -1,11 +1,11 @@
 ﻿using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Accounting.CommandData;
+using OpenCBS.ArchitectureV2.Accounting.Interface.Repository;
+using OpenCBS.ArchitectureV2.Accounting.Message;
 using OpenCBS.ArchitectureV2.Interface;
 using OpenCBS.ArchitectureV2.Interface.Service;
-using OpenCBS.Extension.Accounting.CommandData;
-using OpenCBS.Extension.Accounting.Interface.Repository;
-using OpenCBS.Extension.Accounting.Message;
 
-namespace OpenCBS.Extension.Accounting.Command
+namespace OpenCBS.ArchitectureV2.Accounting.Command
 {
     public class DeleteAccountCommand : ArchitectureV2.Command.Command, ICommand<DeleteAccountCommandData>
     {

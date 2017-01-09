@@ -1,4 +1,4 @@
-﻿namespace OpenCBS.Extension.Accounting.View
+﻿namespace OpenCBS.ArchitectureV2.Accounting.View
 {
     partial class LoadingProgressForm
     {

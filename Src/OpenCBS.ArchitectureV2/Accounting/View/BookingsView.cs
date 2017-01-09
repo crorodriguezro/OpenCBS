@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using OpenCBS.ArchitectureV2.Accounting.Interface.Presenter;
+using OpenCBS.ArchitectureV2.Accounting.Interface.View;
+using OpenCBS.ArchitectureV2.Accounting.Model;
+using OpenCBS.ArchitectureV2.Accounting.Repository;
 using OpenCBS.ArchitectureV2.Interface.Service;
 using OpenCBS.ArchitectureV2.View;
-using OpenCBS.Extension.Accounting.Interface.Presenter;
-using OpenCBS.Extension.Accounting.Interface.View;
-using OpenCBS.Extension.Accounting.Model;
-using OpenCBS.Extension.Accounting.Repository;
 using OpenCBS.Extension.ExcelReports;
 using StructureMap;
 
-namespace OpenCBS.Extension.Accounting.View
+namespace OpenCBS.ArchitectureV2.Accounting.View
 {
     public partial class BookingsView : BaseView, IBookingsView
     {
