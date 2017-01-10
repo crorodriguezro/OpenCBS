@@ -100,7 +100,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
                 .Where(x => !x.Repaid)
                 .OrderBy(x => x.ExpectedDate)
                 .FirstOrDefault(x => today <= x.ExpectedDate);
-            return installment == null ? (DateTime?) null : installment.ExpectedDate;
+            return installment == null ? (DateTime?)null : installment.ExpectedDate;
         }
 
         public decimal GetDueInterest(int loanId)
@@ -146,7 +146,7 @@ namespace OpenCBS.ArchitectureV2.Presenter
                 installment.PaidPrincipal = installment.Principal;
             }
 
-            return new[] {principal, interest};
+            return new[] { principal, interest };
         }
 
         private static void DistributeTotal(Loan loan, decimal total)
@@ -188,27 +188,36 @@ namespace OpenCBS.ArchitectureV2.Presenter
             return loan.Schedule.Sum(x => x.Principal + x.Interest - x.PaidPrincipal - x.PaidInterest);
         }
 
-        private  RepaymentEvent GetRepaymentEvent(Loan loan, Loan repaidLoan)
+        private List<RepaymentEvent> GetRepaymentEvents(Loan loan, Loan repaidLoan)
         {
-            var firstUnpaidInstallment = loan.Schedule.Find(x => !x.Repaid);
-            var lateDays = (TimeProvider.Today - firstUnpaidInstallment.ExpectedDate.Date).Days;
-            lateDays = lateDays < 0 ? 0 : lateDays;
+            var unpaidInstallments = loan.Schedule.Where(x => !x.Repaid);
+            var repaymentEvents = new List<RepaymentEvent>();
+            foreach (var unpaidInstallment in unpaidInstallments)
+            {
+                var distributedInstallment =
+                    repaidLoan.Schedule.FirstOrDefault(val => val.Number == unpaidInstallment.Number);
+                if (distributedInstallment.PaidInterest > 0 || distributedInstallment.PaidPrincipal > 0)
+                {
+                    var lateDays = (TimeProvider.Today - unpaidInstallment.ExpectedDate.Date).Days;
+                    lateDays = lateDays < 0 ? 0 : lateDays;
 
-            var repaymentEvent = new RepaymentEvent();
-            repaymentEvent.LoanId = loan.Id;
-            repaymentEvent.Code = lateDays > 0 ? "RBLE" : "RGLE";
-            repaymentEvent.InstallmentNumber = firstUnpaidInstallment.Number;
-            repaymentEvent.EventDate = TimeProvider.Now;
-            repaymentEvent.UserId = User.CurrentUser.Id;
-            repaymentEvent.LateDays = lateDays;
+                    var repaymentEvent = new RepaymentEvent();
+                    repaymentEvent.LoanId = loan.Id;
+                    repaymentEvent.Code = lateDays > 0 ? "RBLE" : "RGLE";
+                    repaymentEvent.InstallmentNumber = unpaidInstallment.Number;
+                    repaymentEvent.EventDate = TimeProvider.Now;
+                    repaymentEvent.UserId = User.CurrentUser.Id;
+                    repaymentEvent.LateDays = lateDays;
 
-            repaymentEvent.Principal = repaidLoan.Schedule.Sum(x => x.PaidPrincipal) -
-                                       loan.Schedule.Sum(x => x.PaidPrincipal);
-            repaymentEvent.Interest = repaidLoan.Schedule.Sum(x => x.PaidInterest) -
-                                      loan.Schedule.Sum(x => x.PaidInterest);
-            repaymentEvent.PaymentMethodId = _view.SelectedPaymentMethod.Id;
+                    repaymentEvent.Principal = distributedInstallment.PaidPrincipal - unpaidInstallment.PaidPrincipal;
+                    repaymentEvent.Interest = distributedInstallment.PaidInterest - unpaidInstallment.PaidInterest;
+                    repaymentEvent.PaymentMethodId = _view.SelectedPaymentMethod.Id;
+                    repaymentEvents.Add(repaymentEvent);
+                }
 
-            return repaymentEvent;
+            }
+
+            return repaymentEvents;
         }
 
         private static CloseEvent GetCloseEvent(Loan loan)
@@ -234,38 +243,42 @@ namespace OpenCBS.ArchitectureV2.Presenter
                     var repaidLoan = loan.Copy();
                     DistributeTotal(repaidLoan, total);
 
-                    var repaymentEvent = GetRepaymentEvent(loan, repaidLoan);
-                    repaymentEvent.Comment = _view.GetComment(id);
-                    repaymentEvent.ReceiptNumber = _view.GetReceiptNumber(id);
-
-                    repaymentEvent = _loanRepository.SaveRepaymentEvent(repaymentEvent, tx);
-                    var interceptors = _applicationController.GetAllInstances<IEventInterceptor>();
-                    foreach (var interceptor in interceptors)
+                    var repaymentEvents = GetRepaymentEvents(loan, repaidLoan);
+                    foreach (var repaymentEvent in repaymentEvents)
                     {
-                        var e = new CoreDomain.Events.RepaymentEvent
+                        repaymentEvent.Comment = _view.GetComment(id);
+                        repaymentEvent.ReceiptNumber = _view.GetReceiptNumber(id);
+
+                        var repaymentEvent2 = _loanRepository.SaveRepaymentEvent(repaymentEvent, tx);
+                        var interceptors = _applicationController.GetAllInstances<IEventInterceptor>();
+                        foreach (var interceptor in interceptors)
                         {
-                            Id = repaymentEvent.Id,
-                            Code = repaymentEvent.Code,
-                            Principal = repaymentEvent.Principal,
-                            Interests = repaymentEvent.Interest,
-                            Penalties = 0,
-                            Comment = repaymentEvent.Comment,
-                            Doc1 = repaymentEvent.ReceiptNumber,
-                            PaymentMethodId = repaymentEvent.PaymentMethodId,
-                            PaymentMethod = _view.SelectedPaymentMethod
-                        };
-                        interceptor.CallInterceptor(new Dictionary<string, object>
-                        {
-                            {"LoanId", loan.Id},
-                            {"ClientId", loan.ClientId},
-                            {"BranchId", loan.BranchId},
-                            {"ProductId", loan.ProductId},
-                            {"ProductCode", loan.ProductCode},
-                            {"Event", e},
-                            {"SqlTransaction", tx}
-                        });
+                            var e = new CoreDomain.Events.RepaymentEvent
+                            {
+                                Id = repaymentEvent2.Id,
+                                Code = repaymentEvent2.Code,
+                                Principal = repaymentEvent2.Principal,
+                                Interests = repaymentEvent2.Interest,
+                                Penalties = 0,
+                                Comment = repaymentEvent2.Comment,
+                                Doc1 = repaymentEvent2.ReceiptNumber,
+                                PaymentMethodId = repaymentEvent2.PaymentMethodId,
+                                PaymentMethod = _view.SelectedPaymentMethod
+                            };
+                            interceptor.CallInterceptor(new Dictionary<string, object>
+                            {
+                                {"LoanId", loan.Id},
+                                {"ClientId", loan.ClientId},
+                                {"BranchId", loan.BranchId},
+                                {"ProductId", loan.ProductId},
+                                {"ProductCode", loan.ProductCode},
+                                {"Event", e},
+                                {"SqlTransaction", tx}
+                            });
+                        }
+                        _loanRepository.ArchiveSchedule(loan.Id, repaymentEvent2.Id, loan.Schedule, repaidLoan.Schedule,
+                            tx);
                     }
-                    _loanRepository.ArchiveSchedule(loan.Id, repaymentEvent.Id, loan.Schedule, repaidLoan.Schedule, tx);
 
                     var closed = repaidLoan.Schedule.Last().Repaid;
                     if (closed)
